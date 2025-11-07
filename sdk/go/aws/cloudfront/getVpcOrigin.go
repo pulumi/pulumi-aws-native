@@ -29,6 +29,7 @@ type LookupVpcOriginArgs struct {
 }
 
 type LookupVpcOriginResult struct {
+	// The account ID of the AWS account that owns the VPC origin.
 	AccountId *string `pulumi:"accountId"`
 	// The VPC origin ARN.
 	Arn *string `pulumi:"arn"`
@@ -78,6 +79,7 @@ func (o LookupVpcOriginResultOutput) ToLookupVpcOriginResultOutputWithContext(ct
 	return o
 }
 
+// The account ID of the AWS account that owns the VPC origin.
 func (o LookupVpcOriginResultOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcOriginResult) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }

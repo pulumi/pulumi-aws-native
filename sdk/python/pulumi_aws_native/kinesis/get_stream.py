@@ -26,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetStreamResult:
-    def __init__(__self__, arn=None, desired_shard_level_metrics=None, retention_period_hours=None, shard_count=None, stream_encryption=None, stream_mode_details=None, tags=None):
+    def __init__(__self__, arn=None, desired_shard_level_metrics=None, max_record_size_in_ki_b=None, retention_period_hours=None, shard_count=None, stream_encryption=None, stream_mode_details=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if desired_shard_level_metrics and not isinstance(desired_shard_level_metrics, list):
             raise TypeError("Expected argument 'desired_shard_level_metrics' to be a list")
         pulumi.set(__self__, "desired_shard_level_metrics", desired_shard_level_metrics)
+        if max_record_size_in_ki_b and not isinstance(max_record_size_in_ki_b, int):
+            raise TypeError("Expected argument 'max_record_size_in_ki_b' to be a int")
+        pulumi.set(__self__, "max_record_size_in_ki_b", max_record_size_in_ki_b)
         if retention_period_hours and not isinstance(retention_period_hours, int):
             raise TypeError("Expected argument 'retention_period_hours' to be a int")
         pulumi.set(__self__, "retention_period_hours", retention_period_hours)
@@ -64,6 +67,14 @@ class GetStreamResult:
         The final list of shard-level metrics
         """
         return pulumi.get(self, "desired_shard_level_metrics")
+
+    @_builtins.property
+    @pulumi.getter(name="maxRecordSizeInKiB")
+    def max_record_size_in_ki_b(self) -> Optional[_builtins.int]:
+        """
+        Maximum size of a data record in KiB allowed to be put into Kinesis stream.
+        """
+        return pulumi.get(self, "max_record_size_in_ki_b")
 
     @_builtins.property
     @pulumi.getter(name="retentionPeriodHours")
@@ -114,6 +125,7 @@ class AwaitableGetStreamResult(GetStreamResult):
         return GetStreamResult(
             arn=self.arn,
             desired_shard_level_metrics=self.desired_shard_level_metrics,
+            max_record_size_in_ki_b=self.max_record_size_in_ki_b,
             retention_period_hours=self.retention_period_hours,
             shard_count=self.shard_count,
             stream_encryption=self.stream_encryption,
@@ -137,6 +149,7 @@ def get_stream(name: Optional[_builtins.str] = None,
     return AwaitableGetStreamResult(
         arn=pulumi.get(__ret__, 'arn'),
         desired_shard_level_metrics=pulumi.get(__ret__, 'desired_shard_level_metrics'),
+        max_record_size_in_ki_b=pulumi.get(__ret__, 'max_record_size_in_ki_b'),
         retention_period_hours=pulumi.get(__ret__, 'retention_period_hours'),
         shard_count=pulumi.get(__ret__, 'shard_count'),
         stream_encryption=pulumi.get(__ret__, 'stream_encryption'),
@@ -157,6 +170,7 @@ def get_stream_output(name: Optional[pulumi.Input[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetStreamResult(
         arn=pulumi.get(__response__, 'arn'),
         desired_shard_level_metrics=pulumi.get(__response__, 'desired_shard_level_metrics'),
+        max_record_size_in_ki_b=pulumi.get(__response__, 'max_record_size_in_ki_b'),
         retention_period_hours=pulumi.get(__response__, 'retention_period_hours'),
         shard_count=pulumi.get(__response__, 'shard_count'),
         stream_encryption=pulumi.get(__response__, 'stream_encryption'),

@@ -38,6 +38,10 @@ export class Collaboration extends pulumi.CustomResource {
     }
 
     /**
+     * The AWS Regions where collaboration query results can be stored. Returns the list of Region identifiers that were specified when the collaboration was created. This list is used to enforce regional storage policies and compliance requirements.
+     */
+    declare public readonly allowedResultRegions: pulumi.Output<enums.cleanrooms.CollaborationSupportedS3Region[] | undefined>;
+    /**
      * The analytics engine for the collaboration.
      *
      * > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
@@ -130,6 +134,7 @@ export class Collaboration extends pulumi.CustomResource {
             if (args?.queryLogStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryLogStatus'");
             }
+            resourceInputs["allowedResultRegions"] = args?.allowedResultRegions;
             resourceInputs["analyticsEngine"] = args?.analyticsEngine;
             resourceInputs["autoApprovedChangeTypes"] = args?.autoApprovedChangeTypes;
             resourceInputs["creatorDisplayName"] = args?.creatorDisplayName;
@@ -146,6 +151,7 @@ export class Collaboration extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collaborationIdentifier"] = undefined /*out*/;
         } else {
+            resourceInputs["allowedResultRegions"] = undefined /*out*/;
             resourceInputs["analyticsEngine"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["autoApprovedChangeTypes"] = undefined /*out*/;
@@ -163,7 +169,7 @@ export class Collaboration extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["autoApprovedChangeTypes[*]", "creatorDisplayName", "creatorMemberAbilities[*]", "creatorMlMemberAbilities", "creatorPaymentConfiguration", "dataEncryptionMetadata", "jobLogStatus", "members[*]", "queryLogStatus"] };
+        const replaceOnChanges = { replaceOnChanges: ["allowedResultRegions[*]", "autoApprovedChangeTypes[*]", "creatorDisplayName", "creatorMemberAbilities[*]", "creatorMlMemberAbilities", "creatorPaymentConfiguration", "dataEncryptionMetadata", "jobLogStatus", "members[*]", "queryLogStatus"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Collaboration.__pulumiType, name, resourceInputs, opts);
     }
@@ -173,6 +179,10 @@ export class Collaboration extends pulumi.CustomResource {
  * The set of arguments for constructing a Collaboration resource.
  */
 export interface CollaborationArgs {
+    /**
+     * The AWS Regions where collaboration query results can be stored. Returns the list of Region identifiers that were specified when the collaboration was created. This list is used to enforce regional storage policies and compliance requirements.
+     */
+    allowedResultRegions?: pulumi.Input<pulumi.Input<enums.cleanrooms.CollaborationSupportedS3Region>[]>;
     /**
      * The analytics engine for the collaboration.
      *

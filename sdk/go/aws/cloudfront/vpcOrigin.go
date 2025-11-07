@@ -17,6 +17,7 @@ import (
 type VpcOrigin struct {
 	pulumi.CustomResourceState
 
+	// The account ID of the AWS account that owns the VPC origin.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The VPC origin ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -128,6 +129,7 @@ func (o VpcOriginOutput) ToVpcOriginOutputWithContext(ctx context.Context) VpcOr
 	return o
 }
 
+// The account ID of the AWS account that owns the VPC origin.
 func (o VpcOriginOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcOrigin) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }

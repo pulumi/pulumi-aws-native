@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// <summary>
         /// &lt;p&gt;Column name.&lt;/p&gt;
         /// </summary>
-        [Input("columnName")]
-        public Input<string>? ColumnName { get; set; }
+        [Input("columnName", required: true)]
+        public Input<string> ColumnName { get; set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;When casting a column from string to datetime type, you can supply a string in a

@@ -4300,8 +4300,11 @@ func (o ListenerRuleRedirectConfigPtrOutput) StatusCode() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Information about a rewrite transform. This transform matches a pattern and replaces it with the specified string.
 type ListenerRuleRewriteConfig struct {
-	Regex   string `pulumi:"regex"`
+	// The regular expression to match in the input string. The maximum length of the string is 1,024 characters.
+	Regex string `pulumi:"regex"`
+	// The replacement string to use when rewriting the matched input. The maximum length of the string is 1,024 characters. You can specify capture groups in the regular expression (for example, $1 and $2).
 	Replace string `pulumi:"replace"`
 }
 
@@ -4316,8 +4319,11 @@ type ListenerRuleRewriteConfigInput interface {
 	ToListenerRuleRewriteConfigOutputWithContext(context.Context) ListenerRuleRewriteConfigOutput
 }
 
+// Information about a rewrite transform. This transform matches a pattern and replaces it with the specified string.
 type ListenerRuleRewriteConfigArgs struct {
-	Regex   pulumi.StringInput `pulumi:"regex"`
+	// The regular expression to match in the input string. The maximum length of the string is 1,024 characters.
+	Regex pulumi.StringInput `pulumi:"regex"`
+	// The replacement string to use when rewriting the matched input. The maximum length of the string is 1,024 characters. You can specify capture groups in the regular expression (for example, $1 and $2).
 	Replace pulumi.StringInput `pulumi:"replace"`
 }
 
@@ -4358,6 +4364,7 @@ func (i ListenerRuleRewriteConfigArray) ToListenerRuleRewriteConfigArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleRewriteConfigArrayOutput)
 }
 
+// Information about a rewrite transform. This transform matches a pattern and replaces it with the specified string.
 type ListenerRuleRewriteConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleRewriteConfigOutput) ElementType() reflect.Type {
@@ -4372,10 +4379,12 @@ func (o ListenerRuleRewriteConfigOutput) ToListenerRuleRewriteConfigOutputWithCo
 	return o
 }
 
+// The regular expression to match in the input string. The maximum length of the string is 1,024 characters.
 func (o ListenerRuleRewriteConfigOutput) Regex() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerRuleRewriteConfig) string { return v.Regex }).(pulumi.StringOutput)
 }
 
+// The replacement string to use when rewriting the matched input. The maximum length of the string is 1,024 characters. You can specify capture groups in the regular expression (for example, $1 and $2).
 func (o ListenerRuleRewriteConfigOutput) Replace() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerRuleRewriteConfig) string { return v.Replace }).(pulumi.StringOutput)
 }
@@ -4553,7 +4562,7 @@ type ListenerRuleRuleCondition struct {
 	PathPatternConfig *ListenerRulePathPatternConfig `pulumi:"pathPatternConfig"`
 	// Information for a query string condition. Specify only when ``Field`` is ``query-string``.
 	QueryStringConfig *ListenerRuleQueryStringConfig `pulumi:"queryStringConfig"`
-	// The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when `Field` is `http-header` , `host-header` , or `path-pattern` .
+	// The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when ``Field`` is ``http-header``, ``host-header``, or ``path-pattern``.
 	RegexValues []string `pulumi:"regexValues"`
 	// Information for a source IP condition. Specify only when ``Field`` is ``source-ip``.
 	SourceIpConfig *ListenerRuleSourceIpConfig `pulumi:"sourceIpConfig"`
@@ -4604,7 +4613,7 @@ type ListenerRuleRuleConditionArgs struct {
 	PathPatternConfig ListenerRulePathPatternConfigPtrInput `pulumi:"pathPatternConfig"`
 	// Information for a query string condition. Specify only when ``Field`` is ``query-string``.
 	QueryStringConfig ListenerRuleQueryStringConfigPtrInput `pulumi:"queryStringConfig"`
-	// The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when `Field` is `http-header` , `host-header` , or `path-pattern` .
+	// The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when ``Field`` is ``http-header``, ``host-header``, or ``path-pattern``.
 	RegexValues pulumi.StringArrayInput `pulumi:"regexValues"`
 	// Information for a source IP condition. Specify only when ``Field`` is ``source-ip``.
 	SourceIpConfig ListenerRuleSourceIpConfigPtrInput `pulumi:"sourceIpConfig"`
@@ -4714,7 +4723,7 @@ func (o ListenerRuleRuleConditionOutput) QueryStringConfig() ListenerRuleQuerySt
 	return o.ApplyT(func(v ListenerRuleRuleCondition) *ListenerRuleQueryStringConfig { return v.QueryStringConfig }).(ListenerRuleQueryStringConfigPtrOutput)
 }
 
-// The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when `Field` is `http-header` , `host-header` , or `path-pattern` .
+// The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when “Field“ is “http-header“, “host-header“, or “path-pattern“.
 func (o ListenerRuleRuleConditionOutput) RegexValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleRuleCondition) []string { return v.RegexValues }).(pulumi.StringArrayOutput)
 }

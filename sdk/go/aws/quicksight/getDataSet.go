@@ -43,7 +43,8 @@ type LookupDataSetResult struct {
 	//             imported into SPICE.</p>
 	ConsumedSpiceCapacityInBytes *float64 `pulumi:"consumedSpiceCapacityInBytes"`
 	// <p>The time that this dataset was created.</p>
-	CreatedTime *string `pulumi:"createdTime"`
+	CreatedTime           *string                       `pulumi:"createdTime"`
+	DataPrepConfiguration *DataSetDataPrepConfiguration `pulumi:"dataPrepConfiguration"`
 	// The refresh properties of a dataset.
 	DataSetRefreshProperties *DataSetRefreshProperties `pulumi:"dataSetRefreshProperties"`
 	// The usage configuration to apply to child datasets that reference this dataset as a source.
@@ -53,8 +54,7 @@ type LookupDataSetResult struct {
 	// Indicates whether you want to import the data into SPICE.
 	ImportMode *DataSetImportMode `pulumi:"importMode"`
 	// <p>The last time that this dataset was updated.</p>
-	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// Configures the combination and transformation of the data from the physical tables.
+	LastUpdatedTime *string                        `pulumi:"lastUpdatedTime"`
 	LogicalTableMap map[string]DataSetLogicalTable `pulumi:"logicalTableMap"`
 	// <p>The display name for the dataset.</p>
 	Name *string `pulumi:"name"`
@@ -66,11 +66,10 @@ type LookupDataSetResult struct {
 	// <p>A list of resource permissions on the dataset.</p>
 	Permissions []DataSetResourcePermission `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources.
-	PhysicalTableMap map[string]DataSetPhysicalTable `pulumi:"physicalTableMap"`
-	// The row-level security configuration for the data that you want to create.
-	RowLevelPermissionDataSet *DataSetRowLevelPermissionDataSet `pulumi:"rowLevelPermissionDataSet"`
-	// The element you can use to define tags for row-level security.
+	PhysicalTableMap                   map[string]DataSetPhysicalTable            `pulumi:"physicalTableMap"`
+	RowLevelPermissionDataSet          *DataSetRowLevelPermissionDataSet          `pulumi:"rowLevelPermissionDataSet"`
 	RowLevelPermissionTagConfiguration *DataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfiguration"`
+	SemanticModelConfiguration         *DataSetSemanticModelConfiguration         `pulumi:"semanticModelConfiguration"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 	Tags []aws.Tag `pulumi:"tags"`
 	// The usage of the dataset.
@@ -141,6 +140,10 @@ func (o LookupDataSetResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupDataSetResultOutput) DataPrepConfiguration() DataSetDataPrepConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupDataSetResult) *DataSetDataPrepConfiguration { return v.DataPrepConfiguration }).(DataSetDataPrepConfigurationPtrOutput)
+}
+
 // The refresh properties of a dataset.
 func (o LookupDataSetResultOutput) DataSetRefreshProperties() DataSetRefreshPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *DataSetRefreshProperties { return v.DataSetRefreshProperties }).(DataSetRefreshPropertiesPtrOutput)
@@ -166,7 +169,6 @@ func (o LookupDataSetResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
-// Configures the combination and transformation of the data from the physical tables.
 func (o LookupDataSetResultOutput) LogicalTableMap() DataSetLogicalTableMapOutput {
 	return o.ApplyT(func(v LookupDataSetResult) map[string]DataSetLogicalTable { return v.LogicalTableMap }).(DataSetLogicalTableMapOutput)
 }
@@ -198,16 +200,18 @@ func (o LookupDataSetResultOutput) PhysicalTableMap() DataSetPhysicalTableMapOut
 	return o.ApplyT(func(v LookupDataSetResult) map[string]DataSetPhysicalTable { return v.PhysicalTableMap }).(DataSetPhysicalTableMapOutput)
 }
 
-// The row-level security configuration for the data that you want to create.
 func (o LookupDataSetResultOutput) RowLevelPermissionDataSet() DataSetRowLevelPermissionDataSetPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *DataSetRowLevelPermissionDataSet { return v.RowLevelPermissionDataSet }).(DataSetRowLevelPermissionDataSetPtrOutput)
 }
 
-// The element you can use to define tags for row-level security.
 func (o LookupDataSetResultOutput) RowLevelPermissionTagConfiguration() DataSetRowLevelPermissionTagConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *DataSetRowLevelPermissionTagConfiguration {
 		return v.RowLevelPermissionTagConfiguration
 	}).(DataSetRowLevelPermissionTagConfigurationPtrOutput)
+}
+
+func (o LookupDataSetResultOutput) SemanticModelConfiguration() DataSetSemanticModelConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupDataSetResult) *DataSetSemanticModelConfiguration { return v.SemanticModelConfiguration }).(DataSetSemanticModelConfigurationPtrOutput)
 }
 
 // <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>

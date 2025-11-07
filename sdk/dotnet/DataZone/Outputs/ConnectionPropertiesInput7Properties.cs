@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.DataZone.Outputs
     [OutputType]
     public sealed class ConnectionPropertiesInput7Properties
     {
-        public readonly Outputs.ConnectionS3PropertiesInput S3Properties;
+        public readonly Outputs.ConnectionSparkGluePropertiesInput SparkGlueProperties;
 
         [OutputConstructor]
-        private ConnectionPropertiesInput7Properties(Outputs.ConnectionS3PropertiesInput s3Properties)
+        private ConnectionPropertiesInput7Properties(Outputs.ConnectionSparkGluePropertiesInput sparkGlueProperties)
         {
-            S3Properties = s3Properties;
+            SparkGlueProperties = sparkGlueProperties;
         }
     }
 }

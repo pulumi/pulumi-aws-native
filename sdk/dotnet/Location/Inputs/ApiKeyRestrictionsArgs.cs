@@ -62,6 +62,22 @@ namespace Pulumi.AwsNative.Location.Inputs
             set => _allowActions = value;
         }
 
+        [Input("allowAndroidApps")]
+        private InputList<Inputs.ApiKeyAndroidAppArgs>? _allowAndroidApps;
+        public InputList<Inputs.ApiKeyAndroidAppArgs> AllowAndroidApps
+        {
+            get => _allowAndroidApps ?? (_allowAndroidApps = new InputList<Inputs.ApiKeyAndroidAppArgs>());
+            set => _allowAndroidApps = value;
+        }
+
+        [Input("allowAppleApps")]
+        private InputList<Inputs.ApiKeyAppleAppArgs>? _allowAppleApps;
+        public InputList<Inputs.ApiKeyAppleAppArgs> AllowAppleApps
+        {
+            get => _allowAppleApps ?? (_allowAppleApps = new InputList<Inputs.ApiKeyAppleAppArgs>());
+            set => _allowAppleApps = value;
+        }
+
         [Input("allowReferers")]
         private InputList<string>? _allowReferers;
 

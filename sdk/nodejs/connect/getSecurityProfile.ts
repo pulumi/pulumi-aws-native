@@ -41,6 +41,7 @@ export interface GetSecurityProfileResult {
      * The description of the security profile.
      */
     readonly description?: string;
+    readonly granularAccessControlConfiguration?: outputs.connect.GranularAccessControlConfigurationProperties;
     /**
      * The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
      */

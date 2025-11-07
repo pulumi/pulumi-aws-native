@@ -92,7 +92,11 @@ export class Connection extends pulumi.CustomResource {
     /**
      * Connection props.
      */
-    declare public readonly props: pulumi.Output<outputs.datazone.ConnectionPropertiesInput0Properties | outputs.datazone.ConnectionPropertiesInput1Properties | outputs.datazone.ConnectionPropertiesInput2Properties | outputs.datazone.ConnectionPropertiesInput3Properties | outputs.datazone.ConnectionPropertiesInput4Properties | outputs.datazone.ConnectionPropertiesInput5Properties | outputs.datazone.ConnectionPropertiesInput6Properties | outputs.datazone.ConnectionPropertiesInput7Properties | undefined>;
+    declare public readonly props: pulumi.Output<outputs.datazone.ConnectionPropertiesInput0Properties | outputs.datazone.ConnectionPropertiesInput1Properties | outputs.datazone.ConnectionPropertiesInput2Properties | outputs.datazone.ConnectionPropertiesInput3Properties | outputs.datazone.ConnectionPropertiesInput4Properties | outputs.datazone.ConnectionPropertiesInput5Properties | outputs.datazone.ConnectionPropertiesInput6Properties | outputs.datazone.ConnectionPropertiesInput7Properties | outputs.datazone.ConnectionPropertiesInput8Properties | undefined>;
+    /**
+     * The scope of the connection.
+     */
+    declare public readonly scope: pulumi.Output<enums.datazone.ConnectionScope | undefined>;
     /**
      * The type of the connection.
      */
@@ -120,6 +124,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["projectIdentifier"] = args?.projectIdentifier;
             resourceInputs["props"] = args?.props;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["connectionId"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["domainUnitId"] = undefined /*out*/;
@@ -142,10 +147,11 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["projectId"] = undefined /*out*/;
             resourceInputs["projectIdentifier"] = undefined /*out*/;
             resourceInputs["props"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["domainIdentifier", "enableTrustedIdentityPropagation", "environmentIdentifier", "name", "projectIdentifier"] };
+        const replaceOnChanges = { replaceOnChanges: ["domainIdentifier", "enableTrustedIdentityPropagation", "environmentIdentifier", "name", "projectIdentifier", "scope"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Connection.__pulumiType, name, resourceInputs, opts);
     }
@@ -186,5 +192,9 @@ export interface ConnectionArgs {
     /**
      * Connection props.
      */
-    props?: pulumi.Input<inputs.datazone.ConnectionPropertiesInput0PropertiesArgs | inputs.datazone.ConnectionPropertiesInput1PropertiesArgs | inputs.datazone.ConnectionPropertiesInput2PropertiesArgs | inputs.datazone.ConnectionPropertiesInput3PropertiesArgs | inputs.datazone.ConnectionPropertiesInput4PropertiesArgs | inputs.datazone.ConnectionPropertiesInput5PropertiesArgs | inputs.datazone.ConnectionPropertiesInput6PropertiesArgs | inputs.datazone.ConnectionPropertiesInput7PropertiesArgs>;
+    props?: pulumi.Input<inputs.datazone.ConnectionPropertiesInput0PropertiesArgs | inputs.datazone.ConnectionPropertiesInput1PropertiesArgs | inputs.datazone.ConnectionPropertiesInput2PropertiesArgs | inputs.datazone.ConnectionPropertiesInput3PropertiesArgs | inputs.datazone.ConnectionPropertiesInput4PropertiesArgs | inputs.datazone.ConnectionPropertiesInput5PropertiesArgs | inputs.datazone.ConnectionPropertiesInput6PropertiesArgs | inputs.datazone.ConnectionPropertiesInput7PropertiesArgs | inputs.datazone.ConnectionPropertiesInput8PropertiesArgs>;
+    /**
+     * The scope of the connection.
+     */
+    scope?: pulumi.Input<enums.datazone.ConnectionScope>;
 }

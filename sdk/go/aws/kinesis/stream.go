@@ -20,6 +20,8 @@ type Stream struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The final list of shard-level metrics
 	DesiredShardLevelMetrics StreamEnhancedMetricArrayOutput `pulumi:"desiredShardLevelMetrics"`
+	// Maximum size of a data record in KiB allowed to be put into Kinesis stream.
+	MaxRecordSizeInKiB pulumi.IntPtrOutput `pulumi:"maxRecordSizeInKiB"`
 	// The name of the Kinesis stream.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The number of hours for the data records that are stored in shards to remain accessible.
@@ -80,6 +82,8 @@ func (StreamState) ElementType() reflect.Type {
 type streamArgs struct {
 	// The final list of shard-level metrics
 	DesiredShardLevelMetrics []StreamEnhancedMetric `pulumi:"desiredShardLevelMetrics"`
+	// Maximum size of a data record in KiB allowed to be put into Kinesis stream.
+	MaxRecordSizeInKiB *int `pulumi:"maxRecordSizeInKiB"`
 	// The name of the Kinesis stream.
 	Name *string `pulumi:"name"`
 	// The number of hours for the data records that are stored in shards to remain accessible.
@@ -98,6 +102,8 @@ type streamArgs struct {
 type StreamArgs struct {
 	// The final list of shard-level metrics
 	DesiredShardLevelMetrics StreamEnhancedMetricArrayInput
+	// Maximum size of a data record in KiB allowed to be put into Kinesis stream.
+	MaxRecordSizeInKiB pulumi.IntPtrInput
 	// The name of the Kinesis stream.
 	Name pulumi.StringPtrInput
 	// The number of hours for the data records that are stored in shards to remain accessible.
@@ -157,6 +163,11 @@ func (o StreamOutput) Arn() pulumi.StringOutput {
 // The final list of shard-level metrics
 func (o StreamOutput) DesiredShardLevelMetrics() StreamEnhancedMetricArrayOutput {
 	return o.ApplyT(func(v *Stream) StreamEnhancedMetricArrayOutput { return v.DesiredShardLevelMetrics }).(StreamEnhancedMetricArrayOutput)
+}
+
+// Maximum size of a data record in KiB allowed to be put into Kinesis stream.
+func (o StreamOutput) MaxRecordSizeInKiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Stream) pulumi.IntPtrOutput { return v.MaxRecordSizeInKiB }).(pulumi.IntPtrOutput)
 }
 
 // The name of the Kinesis stream.

@@ -100,6 +100,12 @@ namespace Pulumi.AwsNative.DataZone
         public Output<object?> Props { get; private set; } = null!;
 
         /// <summary>
+        /// The scope of the connection.
+        /// </summary>
+        [Output("scope")]
+        public Output<Pulumi.AwsNative.DataZone.ConnectionScope?> Scope { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the connection.
         /// </summary>
         [Output("type")]
@@ -135,6 +141,7 @@ namespace Pulumi.AwsNative.DataZone
                     "environmentIdentifier",
                     "name",
                     "projectIdentifier",
+                    "scope",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -205,6 +212,12 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         [Input("props")]
         public object? Props { get; set; }
+
+        /// <summary>
+        /// The scope of the connection.
+        /// </summary>
+        [Input("scope")]
+        public Input<Pulumi.AwsNative.DataZone.ConnectionScope>? Scope { get; set; }
 
         public ConnectionArgs()
         {

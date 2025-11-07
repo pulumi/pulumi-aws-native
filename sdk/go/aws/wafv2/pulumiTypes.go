@@ -12543,6 +12543,7 @@ func (o WebAclApplicationAttributeArrayOutput) Index(i pulumi.IntInput) WebAclAp
 
 // Configures the ability for the WAF; console to store and retrieve application attributes during the webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
 type WebAclApplicationConfig struct {
+	// Contains the attribute name and a list of values for that attribute.
 	Attributes []WebAclApplicationAttribute `pulumi:"attributes"`
 }
 
@@ -12559,6 +12560,7 @@ type WebAclApplicationConfigInput interface {
 
 // Configures the ability for the WAF; console to store and retrieve application attributes during the webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
 type WebAclApplicationConfigArgs struct {
+	// Contains the attribute name and a list of values for that attribute.
 	Attributes WebAclApplicationAttributeArrayInput `pulumi:"attributes"`
 }
 
@@ -12640,6 +12642,7 @@ func (o WebAclApplicationConfigOutput) ToWebAclApplicationConfigPtrOutputWithCon
 	}).(WebAclApplicationConfigPtrOutput)
 }
 
+// Contains the attribute name and a list of values for that attribute.
 func (o WebAclApplicationConfigOutput) Attributes() WebAclApplicationAttributeArrayOutput {
 	return o.ApplyT(func(v WebAclApplicationConfig) []WebAclApplicationAttribute { return v.Attributes }).(WebAclApplicationAttributeArrayOutput)
 }
@@ -12668,6 +12671,7 @@ func (o WebAclApplicationConfigPtrOutput) Elem() WebAclApplicationConfigOutput {
 	}).(WebAclApplicationConfigOutput)
 }
 
+// Contains the attribute name and a list of values for that attribute.
 func (o WebAclApplicationConfigPtrOutput) Attributes() WebAclApplicationAttributeArrayOutput {
 	return o.ApplyT(func(v *WebAclApplicationConfig) []WebAclApplicationAttribute {
 		if v == nil {

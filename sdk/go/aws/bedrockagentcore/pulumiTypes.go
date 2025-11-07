@@ -7535,7 +7535,9 @@ func (o RuntimeWorkloadIdentityDetailsPtrOutput) WorkloadIdentityArn() pulumi.St
 }
 
 type WorkloadIdentityTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
 	Value string `pulumi:"value"`
 }
 

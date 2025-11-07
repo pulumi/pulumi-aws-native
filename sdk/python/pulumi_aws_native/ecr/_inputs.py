@@ -426,7 +426,7 @@ class RepositoryCreationTemplateEncryptionConfigurationArgs:
 if not MYPY:
     class RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgsDict(TypedDict):
         """
-        Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.
+        A filter that specifies which image tags should be excluded from the repository's image tag mutability setting.
         """
         image_tag_mutability_exclusion_filter_type: pulumi.Input['RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType']
         image_tag_mutability_exclusion_filter_value: pulumi.Input[_builtins.str]
@@ -439,7 +439,7 @@ class RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs:
                  image_tag_mutability_exclusion_filter_type: pulumi.Input['RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType'],
                  image_tag_mutability_exclusion_filter_value: pulumi.Input[_builtins.str]):
         """
-        Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.
+        A filter that specifies which image tags should be excluded from the repository's image tag mutability setting.
         """
         pulumi.set(__self__, "image_tag_mutability_exclusion_filter_type", image_tag_mutability_exclusion_filter_type)
         pulumi.set(__self__, "image_tag_mutability_exclusion_filter_value", image_tag_mutability_exclusion_filter_value)

@@ -296,6 +296,65 @@ namespace Pulumi.AwsNative.CleanRooms
     }
 
     [EnumType]
+    public readonly struct CollaborationSupportedS3Region : IEquatable<CollaborationSupportedS3Region>
+    {
+        private readonly string _value;
+
+        private CollaborationSupportedS3Region(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CollaborationSupportedS3Region UsWest1 { get; } = new CollaborationSupportedS3Region("us-west-1");
+        public static CollaborationSupportedS3Region UsWest2 { get; } = new CollaborationSupportedS3Region("us-west-2");
+        public static CollaborationSupportedS3Region UsEast1 { get; } = new CollaborationSupportedS3Region("us-east-1");
+        public static CollaborationSupportedS3Region UsEast2 { get; } = new CollaborationSupportedS3Region("us-east-2");
+        public static CollaborationSupportedS3Region AfSouth1 { get; } = new CollaborationSupportedS3Region("af-south-1");
+        public static CollaborationSupportedS3Region ApEast1 { get; } = new CollaborationSupportedS3Region("ap-east-1");
+        public static CollaborationSupportedS3Region ApEast2 { get; } = new CollaborationSupportedS3Region("ap-east-2");
+        public static CollaborationSupportedS3Region ApSouth2 { get; } = new CollaborationSupportedS3Region("ap-south-2");
+        public static CollaborationSupportedS3Region ApSoutheast1 { get; } = new CollaborationSupportedS3Region("ap-southeast-1");
+        public static CollaborationSupportedS3Region ApSoutheast2 { get; } = new CollaborationSupportedS3Region("ap-southeast-2");
+        public static CollaborationSupportedS3Region ApSoutheast3 { get; } = new CollaborationSupportedS3Region("ap-southeast-3");
+        public static CollaborationSupportedS3Region ApSoutheast5 { get; } = new CollaborationSupportedS3Region("ap-southeast-5");
+        public static CollaborationSupportedS3Region ApSoutheast4 { get; } = new CollaborationSupportedS3Region("ap-southeast-4");
+        public static CollaborationSupportedS3Region ApSoutheast7 { get; } = new CollaborationSupportedS3Region("ap-southeast-7");
+        public static CollaborationSupportedS3Region ApSouth1 { get; } = new CollaborationSupportedS3Region("ap-south-1");
+        public static CollaborationSupportedS3Region ApNortheast3 { get; } = new CollaborationSupportedS3Region("ap-northeast-3");
+        public static CollaborationSupportedS3Region ApNortheast1 { get; } = new CollaborationSupportedS3Region("ap-northeast-1");
+        public static CollaborationSupportedS3Region ApNortheast2 { get; } = new CollaborationSupportedS3Region("ap-northeast-2");
+        public static CollaborationSupportedS3Region CaCentral1 { get; } = new CollaborationSupportedS3Region("ca-central-1");
+        public static CollaborationSupportedS3Region CaWest1 { get; } = new CollaborationSupportedS3Region("ca-west-1");
+        public static CollaborationSupportedS3Region EuSouth1 { get; } = new CollaborationSupportedS3Region("eu-south-1");
+        public static CollaborationSupportedS3Region EuWest3 { get; } = new CollaborationSupportedS3Region("eu-west-3");
+        public static CollaborationSupportedS3Region EuSouth2 { get; } = new CollaborationSupportedS3Region("eu-south-2");
+        public static CollaborationSupportedS3Region EuCentral2 { get; } = new CollaborationSupportedS3Region("eu-central-2");
+        public static CollaborationSupportedS3Region EuCentral1 { get; } = new CollaborationSupportedS3Region("eu-central-1");
+        public static CollaborationSupportedS3Region EuNorth1 { get; } = new CollaborationSupportedS3Region("eu-north-1");
+        public static CollaborationSupportedS3Region EuWest1 { get; } = new CollaborationSupportedS3Region("eu-west-1");
+        public static CollaborationSupportedS3Region EuWest2 { get; } = new CollaborationSupportedS3Region("eu-west-2");
+        public static CollaborationSupportedS3Region MeSouth1 { get; } = new CollaborationSupportedS3Region("me-south-1");
+        public static CollaborationSupportedS3Region MeCentral1 { get; } = new CollaborationSupportedS3Region("me-central-1");
+        public static CollaborationSupportedS3Region IlCentral1 { get; } = new CollaborationSupportedS3Region("il-central-1");
+        public static CollaborationSupportedS3Region SaEast1 { get; } = new CollaborationSupportedS3Region("sa-east-1");
+        public static CollaborationSupportedS3Region MxCentral1 { get; } = new CollaborationSupportedS3Region("mx-central-1");
+
+        public static bool operator ==(CollaborationSupportedS3Region left, CollaborationSupportedS3Region right) => left.Equals(right);
+        public static bool operator !=(CollaborationSupportedS3Region left, CollaborationSupportedS3Region right) => !left.Equals(right);
+
+        public static explicit operator string(CollaborationSupportedS3Region value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CollaborationSupportedS3Region other && Equals(other);
+        public bool Equals(CollaborationSupportedS3Region other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ConfiguredTableAdditionalAnalyses : IEquatable<ConfiguredTableAdditionalAnalyses>
     {
         private readonly string _value;
@@ -462,6 +521,64 @@ namespace Pulumi.AwsNative.CleanRooms
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ConfiguredTableAssociationAnalysisRuleType other && Equals(other);
         public bool Equals(ConfiguredTableAssociationAnalysisRuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ConfiguredTableCommercialRegion : IEquatable<ConfiguredTableCommercialRegion>
+    {
+        private readonly string _value;
+
+        private ConfiguredTableCommercialRegion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConfiguredTableCommercialRegion UsWest1 { get; } = new ConfiguredTableCommercialRegion("us-west-1");
+        public static ConfiguredTableCommercialRegion UsWest2 { get; } = new ConfiguredTableCommercialRegion("us-west-2");
+        public static ConfiguredTableCommercialRegion UsEast1 { get; } = new ConfiguredTableCommercialRegion("us-east-1");
+        public static ConfiguredTableCommercialRegion UsEast2 { get; } = new ConfiguredTableCommercialRegion("us-east-2");
+        public static ConfiguredTableCommercialRegion AfSouth1 { get; } = new ConfiguredTableCommercialRegion("af-south-1");
+        public static ConfiguredTableCommercialRegion ApEast1 { get; } = new ConfiguredTableCommercialRegion("ap-east-1");
+        public static ConfiguredTableCommercialRegion ApSouth2 { get; } = new ConfiguredTableCommercialRegion("ap-south-2");
+        public static ConfiguredTableCommercialRegion ApSoutheast1 { get; } = new ConfiguredTableCommercialRegion("ap-southeast-1");
+        public static ConfiguredTableCommercialRegion ApSoutheast2 { get; } = new ConfiguredTableCommercialRegion("ap-southeast-2");
+        public static ConfiguredTableCommercialRegion ApSoutheast5 { get; } = new ConfiguredTableCommercialRegion("ap-southeast-5");
+        public static ConfiguredTableCommercialRegion ApSoutheast4 { get; } = new ConfiguredTableCommercialRegion("ap-southeast-4");
+        public static ConfiguredTableCommercialRegion ApSoutheast7 { get; } = new ConfiguredTableCommercialRegion("ap-southeast-7");
+        public static ConfiguredTableCommercialRegion ApSouth1 { get; } = new ConfiguredTableCommercialRegion("ap-south-1");
+        public static ConfiguredTableCommercialRegion ApNortheast3 { get; } = new ConfiguredTableCommercialRegion("ap-northeast-3");
+        public static ConfiguredTableCommercialRegion ApNortheast1 { get; } = new ConfiguredTableCommercialRegion("ap-northeast-1");
+        public static ConfiguredTableCommercialRegion ApNortheast2 { get; } = new ConfiguredTableCommercialRegion("ap-northeast-2");
+        public static ConfiguredTableCommercialRegion CaCentral1 { get; } = new ConfiguredTableCommercialRegion("ca-central-1");
+        public static ConfiguredTableCommercialRegion CaWest1 { get; } = new ConfiguredTableCommercialRegion("ca-west-1");
+        public static ConfiguredTableCommercialRegion EuSouth1 { get; } = new ConfiguredTableCommercialRegion("eu-south-1");
+        public static ConfiguredTableCommercialRegion EuWest3 { get; } = new ConfiguredTableCommercialRegion("eu-west-3");
+        public static ConfiguredTableCommercialRegion EuSouth2 { get; } = new ConfiguredTableCommercialRegion("eu-south-2");
+        public static ConfiguredTableCommercialRegion EuCentral2 { get; } = new ConfiguredTableCommercialRegion("eu-central-2");
+        public static ConfiguredTableCommercialRegion EuCentral1 { get; } = new ConfiguredTableCommercialRegion("eu-central-1");
+        public static ConfiguredTableCommercialRegion EuNorth1 { get; } = new ConfiguredTableCommercialRegion("eu-north-1");
+        public static ConfiguredTableCommercialRegion EuWest1 { get; } = new ConfiguredTableCommercialRegion("eu-west-1");
+        public static ConfiguredTableCommercialRegion EuWest2 { get; } = new ConfiguredTableCommercialRegion("eu-west-2");
+        public static ConfiguredTableCommercialRegion MeSouth1 { get; } = new ConfiguredTableCommercialRegion("me-south-1");
+        public static ConfiguredTableCommercialRegion MeCentral1 { get; } = new ConfiguredTableCommercialRegion("me-central-1");
+        public static ConfiguredTableCommercialRegion IlCentral1 { get; } = new ConfiguredTableCommercialRegion("il-central-1");
+        public static ConfiguredTableCommercialRegion SaEast1 { get; } = new ConfiguredTableCommercialRegion("sa-east-1");
+        public static ConfiguredTableCommercialRegion MxCentral1 { get; } = new ConfiguredTableCommercialRegion("mx-central-1");
+        public static ConfiguredTableCommercialRegion ApEast2 { get; } = new ConfiguredTableCommercialRegion("ap-east-2");
+
+        public static bool operator ==(ConfiguredTableCommercialRegion left, ConfiguredTableCommercialRegion right) => left.Equals(right);
+        public static bool operator !=(ConfiguredTableCommercialRegion left, ConfiguredTableCommercialRegion right) => !left.Equals(right);
+
+        public static explicit operator string(ConfiguredTableCommercialRegion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfiguredTableCommercialRegion other && Equals(other);
+        public bool Equals(ConfiguredTableCommercialRegion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -782,6 +899,70 @@ namespace Pulumi.AwsNative.CleanRooms
     }
 
     /// <summary>
+    /// Whether this individual budget parameter automatically refreshes when the budget period resets.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivacyBudgetTemplateBudgetParameterAutoRefresh : IEquatable<PrivacyBudgetTemplateBudgetParameterAutoRefresh>
+    {
+        private readonly string _value;
+
+        private PrivacyBudgetTemplateBudgetParameterAutoRefresh(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivacyBudgetTemplateBudgetParameterAutoRefresh Enabled { get; } = new PrivacyBudgetTemplateBudgetParameterAutoRefresh("ENABLED");
+        public static PrivacyBudgetTemplateBudgetParameterAutoRefresh Disabled { get; } = new PrivacyBudgetTemplateBudgetParameterAutoRefresh("DISABLED");
+
+        public static bool operator ==(PrivacyBudgetTemplateBudgetParameterAutoRefresh left, PrivacyBudgetTemplateBudgetParameterAutoRefresh right) => left.Equals(right);
+        public static bool operator !=(PrivacyBudgetTemplateBudgetParameterAutoRefresh left, PrivacyBudgetTemplateBudgetParameterAutoRefresh right) => !left.Equals(right);
+
+        public static explicit operator string(PrivacyBudgetTemplateBudgetParameterAutoRefresh value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivacyBudgetTemplateBudgetParameterAutoRefresh other && Equals(other);
+        public bool Equals(PrivacyBudgetTemplateBudgetParameterAutoRefresh other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of budget parameter being configured.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivacyBudgetTemplateBudgetParameterType : IEquatable<PrivacyBudgetTemplateBudgetParameterType>
+    {
+        private readonly string _value;
+
+        private PrivacyBudgetTemplateBudgetParameterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivacyBudgetTemplateBudgetParameterType CalendarDay { get; } = new PrivacyBudgetTemplateBudgetParameterType("CALENDAR_DAY");
+        public static PrivacyBudgetTemplateBudgetParameterType CalendarMonth { get; } = new PrivacyBudgetTemplateBudgetParameterType("CALENDAR_MONTH");
+        public static PrivacyBudgetTemplateBudgetParameterType CalendarWeek { get; } = new PrivacyBudgetTemplateBudgetParameterType("CALENDAR_WEEK");
+        public static PrivacyBudgetTemplateBudgetParameterType Lifetime { get; } = new PrivacyBudgetTemplateBudgetParameterType("LIFETIME");
+
+        public static bool operator ==(PrivacyBudgetTemplateBudgetParameterType left, PrivacyBudgetTemplateBudgetParameterType right) => left.Equals(right);
+        public static bool operator !=(PrivacyBudgetTemplateBudgetParameterType left, PrivacyBudgetTemplateBudgetParameterType right) => !left.Equals(right);
+
+        public static explicit operator string(PrivacyBudgetTemplateBudgetParameterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivacyBudgetTemplateBudgetParameterType other && Equals(other);
+        public bool Equals(PrivacyBudgetTemplateBudgetParameterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the type of the privacy budget template.
     /// </summary>
     [EnumType]
@@ -795,6 +976,7 @@ namespace Pulumi.AwsNative.CleanRooms
         }
 
         public static PrivacyBudgetTemplatePrivacyBudgetType DifferentialPrivacy { get; } = new PrivacyBudgetTemplatePrivacyBudgetType("DIFFERENTIAL_PRIVACY");
+        public static PrivacyBudgetTemplatePrivacyBudgetType AccessBudget { get; } = new PrivacyBudgetTemplatePrivacyBudgetType("ACCESS_BUDGET");
 
         public static bool operator ==(PrivacyBudgetTemplatePrivacyBudgetType left, PrivacyBudgetTemplatePrivacyBudgetType right) => left.Equals(right);
         public static bool operator !=(PrivacyBudgetTemplatePrivacyBudgetType left, PrivacyBudgetTemplatePrivacyBudgetType right) => !left.Equals(right);

@@ -55,6 +55,8 @@ namespace Pulumi.AwsNative.Location.Outputs
         /// &gt; You must use these strings exactly. For example, to provide access to map rendering, the only valid action is `geo:GetMap*` as an input to the list. `["geo:GetMap*"]` is valid but `["geo:GetTile"]` is not. Similarly, you cannot use `["geo:SearchPlaceIndexFor*"]` - you must list each of the Place actions separately.
         /// </summary>
         public readonly ImmutableArray<string> AllowActions;
+        public readonly ImmutableArray<Outputs.ApiKeyAndroidApp> AllowAndroidApps;
+        public readonly ImmutableArray<Outputs.ApiKeyAppleApp> AllowAppleApps;
         /// <summary>
         /// An optional list of allowed HTTP referers for which requests must originate from. Requests using this API key from other domains will not be allowed.
         /// 
@@ -86,11 +88,17 @@ namespace Pulumi.AwsNative.Location.Outputs
         private ApiKeyRestrictions(
             ImmutableArray<string> allowActions,
 
+            ImmutableArray<Outputs.ApiKeyAndroidApp> allowAndroidApps,
+
+            ImmutableArray<Outputs.ApiKeyAppleApp> allowAppleApps,
+
             ImmutableArray<string> allowReferers,
 
             ImmutableArray<string> allowResources)
         {
             AllowActions = allowActions;
+            AllowAndroidApps = allowAndroidApps;
+            AllowAppleApps = allowAppleApps;
             AllowReferers = allowReferers;
             AllowResources = allowResources;
         }

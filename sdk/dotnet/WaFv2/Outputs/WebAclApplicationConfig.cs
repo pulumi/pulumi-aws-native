@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     [OutputType]
     public sealed class WebAclApplicationConfig
     {
+        /// <summary>
+        /// Contains the attribute name and a list of values for that attribute.
+        /// </summary>
         public readonly ImmutableArray<Outputs.WebAclApplicationAttribute> Attributes;
 
         [OutputConstructor]

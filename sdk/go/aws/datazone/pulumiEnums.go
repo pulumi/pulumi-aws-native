@@ -346,6 +346,172 @@ func (in *connectionOAuth2GrantTypePtr) ToConnectionOAuth2GrantTypePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectionOAuth2GrantTypePtrOutput)
 }
 
+// The scope of the connection.
+type ConnectionScope string
+
+const (
+	ConnectionScopeDomain  = ConnectionScope("DOMAIN")
+	ConnectionScopeProject = ConnectionScope("PROJECT")
+)
+
+func (ConnectionScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionScope)(nil)).Elem()
+}
+
+func (e ConnectionScope) ToConnectionScopeOutput() ConnectionScopeOutput {
+	return pulumi.ToOutput(e).(ConnectionScopeOutput)
+}
+
+func (e ConnectionScope) ToConnectionScopeOutputWithContext(ctx context.Context) ConnectionScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionScopeOutput)
+}
+
+func (e ConnectionScope) ToConnectionScopePtrOutput() ConnectionScopePtrOutput {
+	return e.ToConnectionScopePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionScope) ToConnectionScopePtrOutputWithContext(ctx context.Context) ConnectionScopePtrOutput {
+	return ConnectionScope(e).ToConnectionScopeOutputWithContext(ctx).ToConnectionScopePtrOutputWithContext(ctx)
+}
+
+func (e ConnectionScope) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionScopeOutput struct{ *pulumi.OutputState }
+
+func (ConnectionScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionScope)(nil)).Elem()
+}
+
+func (o ConnectionScopeOutput) ToConnectionScopeOutput() ConnectionScopeOutput {
+	return o
+}
+
+func (o ConnectionScopeOutput) ToConnectionScopeOutputWithContext(ctx context.Context) ConnectionScopeOutput {
+	return o
+}
+
+func (o ConnectionScopeOutput) ToConnectionScopePtrOutput() ConnectionScopePtrOutput {
+	return o.ToConnectionScopePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionScopeOutput) ToConnectionScopePtrOutputWithContext(ctx context.Context) ConnectionScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionScope) *ConnectionScope {
+		return &v
+	}).(ConnectionScopePtrOutput)
+}
+
+func (o ConnectionScopeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionScope) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionScope) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionScopePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionScope)(nil)).Elem()
+}
+
+func (o ConnectionScopePtrOutput) ToConnectionScopePtrOutput() ConnectionScopePtrOutput {
+	return o
+}
+
+func (o ConnectionScopePtrOutput) ToConnectionScopePtrOutputWithContext(ctx context.Context) ConnectionScopePtrOutput {
+	return o
+}
+
+func (o ConnectionScopePtrOutput) Elem() ConnectionScopeOutput {
+	return o.ApplyT(func(v *ConnectionScope) ConnectionScope {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionScope
+		return ret
+	}).(ConnectionScopeOutput)
+}
+
+func (o ConnectionScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionScope) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionScopeInput is an input type that accepts values of the ConnectionScope enum
+// A concrete instance of `ConnectionScopeInput` can be one of the following:
+//
+//	ConnectionScopeDomain
+//	ConnectionScopeProject
+type ConnectionScopeInput interface {
+	pulumi.Input
+
+	ToConnectionScopeOutput() ConnectionScopeOutput
+	ToConnectionScopeOutputWithContext(context.Context) ConnectionScopeOutput
+}
+
+var connectionScopePtrType = reflect.TypeOf((**ConnectionScope)(nil)).Elem()
+
+type ConnectionScopePtrInput interface {
+	pulumi.Input
+
+	ToConnectionScopePtrOutput() ConnectionScopePtrOutput
+	ToConnectionScopePtrOutputWithContext(context.Context) ConnectionScopePtrOutput
+}
+
+type connectionScopePtr string
+
+func ConnectionScopePtr(v string) ConnectionScopePtrInput {
+	return (*connectionScopePtr)(&v)
+}
+
+func (*connectionScopePtr) ElementType() reflect.Type {
+	return connectionScopePtrType
+}
+
+func (in *connectionScopePtr) ToConnectionScopePtrOutput() ConnectionScopePtrOutput {
+	return pulumi.ToOutput(in).(ConnectionScopePtrOutput)
+}
+
+func (in *connectionScopePtr) ToConnectionScopePtrOutputWithContext(ctx context.Context) ConnectionScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionScopePtrOutput)
+}
+
 // Specifies whether the data source is enabled.
 type DataSourceEnableSetting string
 
@@ -4012,6 +4178,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthenticationTypePtrInput)(nil)).Elem(), ConnectionAuthenticationType("BASIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuth2GrantTypeInput)(nil)).Elem(), ConnectionOAuth2GrantType("AUTHORIZATION_CODE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuth2GrantTypePtrInput)(nil)).Elem(), ConnectionOAuth2GrantType("AUTHORIZATION_CODE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionScopeInput)(nil)).Elem(), ConnectionScope("DOMAIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionScopePtrInput)(nil)).Elem(), ConnectionScope("DOMAIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnableSettingInput)(nil)).Elem(), DataSourceEnableSetting("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEnableSettingPtrInput)(nil)).Elem(), DataSourceEnableSetting("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceFilterExpressionTypeInput)(nil)).Elem(), DataSourceFilterExpressionType("INCLUDE"))
@@ -4054,6 +4222,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionAuthenticationTypePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionOAuth2GrantTypeOutput{})
 	pulumi.RegisterOutputType(ConnectionOAuth2GrantTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionScopeOutput{})
+	pulumi.RegisterOutputType(ConnectionScopePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceEnableSettingOutput{})
 	pulumi.RegisterOutputType(DataSourceEnableSettingPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceFilterExpressionTypeOutput{})

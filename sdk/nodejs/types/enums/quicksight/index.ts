@@ -2140,12 +2140,35 @@ export const DataSetColumnTagName = {
 
 export type DataSetColumnTagName = (typeof DataSetColumnTagName)[keyof typeof DataSetColumnTagName];
 
+export const DataSetDataPrepSimpleAggregationFunctionType = {
+    Count: "COUNT",
+    DistinctCount: "DISTINCT_COUNT",
+    Sum: "SUM",
+    Average: "AVERAGE",
+    Median: "MEDIAN",
+    Max: "MAX",
+    Min: "MIN",
+    Variance: "VARIANCE",
+    StandardDeviation: "STANDARD_DEVIATION",
+} as const;
+
+export type DataSetDataPrepSimpleAggregationFunctionType = (typeof DataSetDataPrepSimpleAggregationFunctionType)[keyof typeof DataSetDataPrepSimpleAggregationFunctionType];
+
 export const DataSetDatasetParameterValueType = {
     MultiValued: "MULTI_VALUED",
     SingleValued: "SINGLE_VALUED",
 } as const;
 
 export type DataSetDatasetParameterValueType = (typeof DataSetDatasetParameterValueType)[keyof typeof DataSetDatasetParameterValueType];
+
+export const DataSetDateComparisonFilterOperator = {
+    Before: "BEFORE",
+    BeforeOrEqualsTo: "BEFORE_OR_EQUALS_TO",
+    After: "AFTER",
+    AfterOrEqualsTo: "AFTER_OR_EQUALS_TO",
+} as const;
+
+export type DataSetDateComparisonFilterOperator = (typeof DataSetDateComparisonFilterOperator)[keyof typeof DataSetDateComparisonFilterOperator];
 
 export const DataSetFileFormat = {
     Csv: "CSV",
@@ -2199,6 +2222,15 @@ export const DataSetInputColumnDataType = {
 
 export type DataSetInputColumnDataType = (typeof DataSetInputColumnDataType)[keyof typeof DataSetInputColumnDataType];
 
+export const DataSetJoinOperationType = {
+    Inner: "INNER",
+    Outer: "OUTER",
+    Left: "LEFT",
+    Right: "RIGHT",
+} as const;
+
+export type DataSetJoinOperationType = (typeof DataSetJoinOperationType)[keyof typeof DataSetJoinOperationType];
+
 export const DataSetJoinType = {
     Inner: "INNER",
     Outer: "OUTER",
@@ -2215,6 +2247,17 @@ export const DataSetLookbackWindowSizeUnit = {
 } as const;
 
 export type DataSetLookbackWindowSizeUnit = (typeof DataSetLookbackWindowSizeUnit)[keyof typeof DataSetLookbackWindowSizeUnit];
+
+export const DataSetNumericComparisonFilterOperator = {
+    Equals: "EQUALS",
+    DoesNotEqual: "DOES_NOT_EQUAL",
+    GreaterThan: "GREATER_THAN",
+    GreaterThanOrEqualsTo: "GREATER_THAN_OR_EQUALS_TO",
+    LessThan: "LESS_THAN",
+    LessThanOrEqualsTo: "LESS_THAN_OR_EQUALS_TO",
+} as const;
+
+export type DataSetNumericComparisonFilterOperator = (typeof DataSetNumericComparisonFilterOperator)[keyof typeof DataSetNumericComparisonFilterOperator];
 
 export const DataSetRefreshFailureAlertStatus = {
     Enabled: "ENABLED",
@@ -2243,6 +2286,24 @@ export const DataSetStatus = {
 } as const;
 
 export type DataSetStatus = (typeof DataSetStatus)[keyof typeof DataSetStatus];
+
+export const DataSetStringComparisonFilterOperator = {
+    Equals: "EQUALS",
+    DoesNotEqual: "DOES_NOT_EQUAL",
+    Contains: "CONTAINS",
+    DoesNotContain: "DOES_NOT_CONTAIN",
+    StartsWith: "STARTS_WITH",
+    EndsWith: "ENDS_WITH",
+} as const;
+
+export type DataSetStringComparisonFilterOperator = (typeof DataSetStringComparisonFilterOperator)[keyof typeof DataSetStringComparisonFilterOperator];
+
+export const DataSetStringListFilterOperator = {
+    Include: "INCLUDE",
+    Exclude: "EXCLUDE",
+} as const;
+
+export type DataSetStringListFilterOperator = (typeof DataSetStringListFilterOperator)[keyof typeof DataSetStringListFilterOperator];
 
 export const DataSetTextQualifier = {
     DoubleQuote: "DOUBLE_QUOTE",
@@ -2329,6 +2390,7 @@ export const DataSourceType = {
     Exasol: "EXASOL",
     File: "FILE",
     Github: "GITHUB",
+    InternationalDataCorporation: "INTERNATIONAL_DATA_CORPORATION",
     Jira: "JIRA",
     Mariadb: "MARIADB",
     Mysql: "MYSQL",

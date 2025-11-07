@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
         [Input("outputLocation")]
         public Input<string>? OutputLocation { get; set; }
 
+        [Input("region")]
+        public Input<Pulumi.AwsNative.CleanRooms.ConfiguredTableCommercialRegion>? Region { get; set; }
+
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
 

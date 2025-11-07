@@ -270,18 +270,24 @@ __all__ = [
     'DataSetColumnDataSubType',
     'DataSetColumnDataType',
     'DataSetColumnTagName',
+    'DataSetDataPrepSimpleAggregationFunctionType',
     'DataSetDatasetParameterValueType',
+    'DataSetDateComparisonFilterOperator',
     'DataSetFileFormat',
     'DataSetGeoSpatialCountryCode',
     'DataSetGeoSpatialDataRole',
     'DataSetImportMode',
     'DataSetInputColumnDataType',
+    'DataSetJoinOperationType',
     'DataSetJoinType',
     'DataSetLookbackWindowSizeUnit',
+    'DataSetNumericComparisonFilterOperator',
     'DataSetRefreshFailureAlertStatus',
     'DataSetRowLevelPermissionFormatVersion',
     'DataSetRowLevelPermissionPolicy',
     'DataSetStatus',
+    'DataSetStringComparisonFilterOperator',
+    'DataSetStringListFilterOperator',
     'DataSetTextQualifier',
     'DataSetTimeGranularity',
     'DataSetUseAs',
@@ -2323,10 +2329,31 @@ class DataSetColumnTagName(_builtins.str, Enum):
     COLUMN_DESCRIPTION = "COLUMN_DESCRIPTION"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSetDataPrepSimpleAggregationFunctionType")
+class DataSetDataPrepSimpleAggregationFunctionType(_builtins.str, Enum):
+    COUNT = "COUNT"
+    DISTINCT_COUNT = "DISTINCT_COUNT"
+    SUM = "SUM"
+    AVERAGE = "AVERAGE"
+    MEDIAN = "MEDIAN"
+    MAX = "MAX"
+    MIN = "MIN"
+    VARIANCE = "VARIANCE"
+    STANDARD_DEVIATION = "STANDARD_DEVIATION"
+
+
 @pulumi.type_token("aws-native:quicksight:DataSetDatasetParameterValueType")
 class DataSetDatasetParameterValueType(_builtins.str, Enum):
     MULTI_VALUED = "MULTI_VALUED"
     SINGLE_VALUED = "SINGLE_VALUED"
+
+
+@pulumi.type_token("aws-native:quicksight:DataSetDateComparisonFilterOperator")
+class DataSetDateComparisonFilterOperator(_builtins.str, Enum):
+    BEFORE = "BEFORE"
+    BEFORE_OR_EQUALS_TO = "BEFORE_OR_EQUALS_TO"
+    AFTER = "AFTER"
+    AFTER_OR_EQUALS_TO = "AFTER_OR_EQUALS_TO"
 
 
 @pulumi.type_token("aws-native:quicksight:DataSetFileFormat")
@@ -2376,6 +2403,14 @@ class DataSetInputColumnDataType(_builtins.str, Enum):
     JSON = "JSON"
 
 
+@pulumi.type_token("aws-native:quicksight:DataSetJoinOperationType")
+class DataSetJoinOperationType(_builtins.str, Enum):
+    INNER = "INNER"
+    OUTER = "OUTER"
+    LEFT = "LEFT"
+    RIGHT = "RIGHT"
+
+
 @pulumi.type_token("aws-native:quicksight:DataSetJoinType")
 class DataSetJoinType(_builtins.str, Enum):
     INNER = "INNER"
@@ -2389,6 +2424,16 @@ class DataSetLookbackWindowSizeUnit(_builtins.str, Enum):
     HOUR = "HOUR"
     DAY = "DAY"
     WEEK = "WEEK"
+
+
+@pulumi.type_token("aws-native:quicksight:DataSetNumericComparisonFilterOperator")
+class DataSetNumericComparisonFilterOperator(_builtins.str, Enum):
+    EQUALS = "EQUALS"
+    DOES_NOT_EQUAL = "DOES_NOT_EQUAL"
+    GREATER_THAN = "GREATER_THAN"
+    GREATER_THAN_OR_EQUALS_TO = "GREATER_THAN_OR_EQUALS_TO"
+    LESS_THAN = "LESS_THAN"
+    LESS_THAN_OR_EQUALS_TO = "LESS_THAN_OR_EQUALS_TO"
 
 
 @pulumi.type_token("aws-native:quicksight:DataSetRefreshFailureAlertStatus")
@@ -2413,6 +2458,22 @@ class DataSetRowLevelPermissionPolicy(_builtins.str, Enum):
 class DataSetStatus(_builtins.str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:quicksight:DataSetStringComparisonFilterOperator")
+class DataSetStringComparisonFilterOperator(_builtins.str, Enum):
+    EQUALS = "EQUALS"
+    DOES_NOT_EQUAL = "DOES_NOT_EQUAL"
+    CONTAINS = "CONTAINS"
+    DOES_NOT_CONTAIN = "DOES_NOT_CONTAIN"
+    STARTS_WITH = "STARTS_WITH"
+    ENDS_WITH = "ENDS_WITH"
+
+
+@pulumi.type_token("aws-native:quicksight:DataSetStringListFilterOperator")
+class DataSetStringListFilterOperator(_builtins.str, Enum):
+    INCLUDE = "INCLUDE"
+    EXCLUDE = "EXCLUDE"
 
 
 @pulumi.type_token("aws-native:quicksight:DataSetTextQualifier")
@@ -2494,6 +2555,7 @@ class DataSourceType(_builtins.str, Enum):
     EXASOL = "EXASOL"
     FILE = "FILE"
     GITHUB = "GITHUB"
+    INTERNATIONAL_DATA_CORPORATION = "INTERNATIONAL_DATA_CORPORATION"
     JIRA = "JIRA"
     MARIADB = "MARIADB"
     MYSQL = "MYSQL"

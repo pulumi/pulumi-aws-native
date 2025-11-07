@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("dataSourceArn", required: true)]
         public Input<string> DataSourceArn { get; set; } = null!;
 
-        [Input("inputColumns")]
+        [Input("inputColumns", required: true)]
         private InputList<Inputs.DataSetInputColumnArgs>? _inputColumns;
 
         /// <summary>

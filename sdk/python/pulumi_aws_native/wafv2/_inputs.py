@@ -5797,6 +5797,9 @@ if not MYPY:
         Configures the ability for the WAF; console to store and retrieve application attributes during the webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
         """
         attributes: pulumi.Input[Sequence[pulumi.Input['WebAclApplicationAttributeArgsDict']]]
+        """
+        Contains the attribute name and a list of values for that attribute.
+        """
 elif False:
     WebAclApplicationConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5806,12 +5809,16 @@ class WebAclApplicationConfigArgs:
                  attributes: pulumi.Input[Sequence[pulumi.Input['WebAclApplicationAttributeArgs']]]):
         """
         Configures the ability for the WAF; console to store and retrieve application attributes during the webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclApplicationAttributeArgs']]] attributes: Contains the attribute name and a list of values for that attribute.
         """
         pulumi.set(__self__, "attributes", attributes)
 
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclApplicationAttributeArgs']]]:
+        """
+        Contains the attribute name and a list of values for that attribute.
+        """
         return pulumi.get(self, "attributes")
 
     @attributes.setter

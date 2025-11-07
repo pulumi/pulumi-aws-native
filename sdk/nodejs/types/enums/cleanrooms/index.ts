@@ -101,6 +101,44 @@ export const CollaborationQueryLogStatus = {
 
 export type CollaborationQueryLogStatus = (typeof CollaborationQueryLogStatus)[keyof typeof CollaborationQueryLogStatus];
 
+export const CollaborationSupportedS3Region = {
+    UsWest1: "us-west-1",
+    UsWest2: "us-west-2",
+    UsEast1: "us-east-1",
+    UsEast2: "us-east-2",
+    AfSouth1: "af-south-1",
+    ApEast1: "ap-east-1",
+    ApEast2: "ap-east-2",
+    ApSouth2: "ap-south-2",
+    ApSoutheast1: "ap-southeast-1",
+    ApSoutheast2: "ap-southeast-2",
+    ApSoutheast3: "ap-southeast-3",
+    ApSoutheast5: "ap-southeast-5",
+    ApSoutheast4: "ap-southeast-4",
+    ApSoutheast7: "ap-southeast-7",
+    ApSouth1: "ap-south-1",
+    ApNortheast3: "ap-northeast-3",
+    ApNortheast1: "ap-northeast-1",
+    ApNortheast2: "ap-northeast-2",
+    CaCentral1: "ca-central-1",
+    CaWest1: "ca-west-1",
+    EuSouth1: "eu-south-1",
+    EuWest3: "eu-west-3",
+    EuSouth2: "eu-south-2",
+    EuCentral2: "eu-central-2",
+    EuCentral1: "eu-central-1",
+    EuNorth1: "eu-north-1",
+    EuWest1: "eu-west-1",
+    EuWest2: "eu-west-2",
+    MeSouth1: "me-south-1",
+    MeCentral1: "me-central-1",
+    IlCentral1: "il-central-1",
+    SaEast1: "sa-east-1",
+    MxCentral1: "mx-central-1",
+} as const;
+
+export type CollaborationSupportedS3Region = (typeof CollaborationSupportedS3Region)[keyof typeof CollaborationSupportedS3Region];
+
 export const ConfiguredTableAdditionalAnalyses = {
     Allowed: "ALLOWED",
     Required: "REQUIRED",
@@ -148,6 +186,43 @@ export const ConfiguredTableAssociationAnalysisRuleType = {
 } as const;
 
 export type ConfiguredTableAssociationAnalysisRuleType = (typeof ConfiguredTableAssociationAnalysisRuleType)[keyof typeof ConfiguredTableAssociationAnalysisRuleType];
+
+export const ConfiguredTableCommercialRegion = {
+    UsWest1: "us-west-1",
+    UsWest2: "us-west-2",
+    UsEast1: "us-east-1",
+    UsEast2: "us-east-2",
+    AfSouth1: "af-south-1",
+    ApEast1: "ap-east-1",
+    ApSouth2: "ap-south-2",
+    ApSoutheast1: "ap-southeast-1",
+    ApSoutheast2: "ap-southeast-2",
+    ApSoutheast5: "ap-southeast-5",
+    ApSoutheast4: "ap-southeast-4",
+    ApSoutheast7: "ap-southeast-7",
+    ApSouth1: "ap-south-1",
+    ApNortheast3: "ap-northeast-3",
+    ApNortheast1: "ap-northeast-1",
+    ApNortheast2: "ap-northeast-2",
+    CaCentral1: "ca-central-1",
+    CaWest1: "ca-west-1",
+    EuSouth1: "eu-south-1",
+    EuWest3: "eu-west-3",
+    EuSouth2: "eu-south-2",
+    EuCentral2: "eu-central-2",
+    EuCentral1: "eu-central-1",
+    EuNorth1: "eu-north-1",
+    EuWest1: "eu-west-1",
+    EuWest2: "eu-west-2",
+    MeSouth1: "me-south-1",
+    MeCentral1: "me-central-1",
+    IlCentral1: "il-central-1",
+    SaEast1: "sa-east-1",
+    MxCentral1: "mx-central-1",
+    ApEast2: "ap-east-2",
+} as const;
+
+export type ConfiguredTableCommercialRegion = (typeof ConfiguredTableCommercialRegion)[keyof typeof ConfiguredTableCommercialRegion];
 
 export const ConfiguredTableJoinOperator = {
     Or: "OR",
@@ -251,8 +326,31 @@ export const PrivacyBudgetTemplateAutoRefresh = {
  */
 export type PrivacyBudgetTemplateAutoRefresh = (typeof PrivacyBudgetTemplateAutoRefresh)[keyof typeof PrivacyBudgetTemplateAutoRefresh];
 
+export const PrivacyBudgetTemplateBudgetParameterAutoRefresh = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Whether this individual budget parameter automatically refreshes when the budget period resets.
+ */
+export type PrivacyBudgetTemplateBudgetParameterAutoRefresh = (typeof PrivacyBudgetTemplateBudgetParameterAutoRefresh)[keyof typeof PrivacyBudgetTemplateBudgetParameterAutoRefresh];
+
+export const PrivacyBudgetTemplateBudgetParameterType = {
+    CalendarDay: "CALENDAR_DAY",
+    CalendarMonth: "CALENDAR_MONTH",
+    CalendarWeek: "CALENDAR_WEEK",
+    Lifetime: "LIFETIME",
+} as const;
+
+/**
+ * The type of budget parameter being configured.
+ */
+export type PrivacyBudgetTemplateBudgetParameterType = (typeof PrivacyBudgetTemplateBudgetParameterType)[keyof typeof PrivacyBudgetTemplateBudgetParameterType];
+
 export const PrivacyBudgetTemplatePrivacyBudgetType = {
     DifferentialPrivacy: "DIFFERENTIAL_PRIVACY",
+    AccessBudget: "ACCESS_BUDGET",
 } as const;
 
 /**

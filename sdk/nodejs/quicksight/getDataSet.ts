@@ -53,6 +53,7 @@ export interface GetDataSetResult {
      * <p>The time that this dataset was created.</p>
      */
     readonly createdTime?: string;
+    readonly dataPrepConfiguration?: outputs.quicksight.DataSetDataPrepConfiguration;
     /**
      * The refresh properties of a dataset.
      */
@@ -73,9 +74,6 @@ export interface GetDataSetResult {
      * <p>The last time that this dataset was updated.</p>
      */
     readonly lastUpdatedTime?: string;
-    /**
-     * Configures the combination and transformation of the data from the physical tables.
-     */
     readonly logicalTableMap?: {[key: string]: outputs.quicksight.DataSetLogicalTable};
     /**
      * <p>The display name for the dataset.</p>
@@ -98,14 +96,9 @@ export interface GetDataSetResult {
      * Declares the physical tables that are available in the underlying data sources.
      */
     readonly physicalTableMap?: {[key: string]: outputs.quicksight.DataSetPhysicalTable};
-    /**
-     * The row-level security configuration for the data that you want to create.
-     */
     readonly rowLevelPermissionDataSet?: outputs.quicksight.DataSetRowLevelPermissionDataSet;
-    /**
-     * The element you can use to define tags for row-level security.
-     */
     readonly rowLevelPermissionTagConfiguration?: outputs.quicksight.DataSetRowLevelPermissionTagConfiguration;
+    readonly semanticModelConfiguration?: outputs.quicksight.DataSetSemanticModelConfiguration;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
      */

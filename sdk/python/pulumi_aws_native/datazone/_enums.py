@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'ConnectionAuthenticationType',
     'ConnectionOAuth2GrantType',
+    'ConnectionScope',
     'DataSourceEnableSetting',
     'DataSourceFilterExpressionType',
     'DataSourceStatus',
@@ -54,6 +55,15 @@ class ConnectionOAuth2GrantType(_builtins.str, Enum):
     AUTHORIZATION_CODE = "AUTHORIZATION_CODE"
     CLIENT_CREDENTIALS = "CLIENT_CREDENTIALS"
     JWT_BEARER = "JWT_BEARER"
+
+
+@pulumi.type_token("aws-native:datazone:ConnectionScope")
+class ConnectionScope(_builtins.str, Enum):
+    """
+    The scope of the connection.
+    """
+    DOMAIN = "DOMAIN"
+    PROJECT = "PROJECT"
 
 
 @pulumi.type_token("aws-native:datazone:DataSourceEnableSetting")

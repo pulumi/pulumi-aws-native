@@ -13,13 +13,81 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ApiKeyAndroidApp',
+    'ApiKeyAppleApp',
     'ApiKeyRestrictions',
     'MapConfiguration',
     'PlaceIndexDataSourceConfiguration',
 ]
+
+@pulumi.output_type
+class ApiKeyAndroidApp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateFingerprint":
+            suggest = "certificate_fingerprint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiKeyAndroidApp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiKeyAndroidApp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiKeyAndroidApp.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_fingerprint: _builtins.str,
+                 package: _builtins.str):
+        pulumi.set(__self__, "certificate_fingerprint", certificate_fingerprint)
+        pulumi.set(__self__, "package", package)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateFingerprint")
+    def certificate_fingerprint(self) -> _builtins.str:
+        return pulumi.get(self, "certificate_fingerprint")
+
+    @_builtins.property
+    @pulumi.getter
+    def package(self) -> _builtins.str:
+        return pulumi.get(self, "package")
+
+
+@pulumi.output_type
+class ApiKeyAppleApp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bundleId":
+            suggest = "bundle_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiKeyAppleApp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiKeyAppleApp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiKeyAppleApp.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bundle_id: _builtins.str):
+        pulumi.set(__self__, "bundle_id", bundle_id)
+
+    @_builtins.property
+    @pulumi.getter(name="bundleId")
+    def bundle_id(self) -> _builtins.str:
+        return pulumi.get(self, "bundle_id")
+
 
 @pulumi.output_type
 class ApiKeyRestrictions(dict):
@@ -30,6 +98,10 @@ class ApiKeyRestrictions(dict):
             suggest = "allow_actions"
         elif key == "allowResources":
             suggest = "allow_resources"
+        elif key == "allowAndroidApps":
+            suggest = "allow_android_apps"
+        elif key == "allowAppleApps":
+            suggest = "allow_apple_apps"
         elif key == "allowReferers":
             suggest = "allow_referers"
 
@@ -47,6 +119,8 @@ class ApiKeyRestrictions(dict):
     def __init__(__self__, *,
                  allow_actions: Sequence[_builtins.str],
                  allow_resources: Sequence[_builtins.str],
+                 allow_android_apps: Optional[Sequence['outputs.ApiKeyAndroidApp']] = None,
+                 allow_apple_apps: Optional[Sequence['outputs.ApiKeyAppleApp']] = None,
                  allow_referers: Optional[Sequence[_builtins.str]] = None):
         """
         :param Sequence[_builtins.str] allow_actions: A list of allowed actions that an API key resource grants permissions to perform. You must have at least one action for each type of resource. For example, if you have a place resource, you must include at least one place action.
@@ -111,6 +185,10 @@ class ApiKeyRestrictions(dict):
         """
         pulumi.set(__self__, "allow_actions", allow_actions)
         pulumi.set(__self__, "allow_resources", allow_resources)
+        if allow_android_apps is not None:
+            pulumi.set(__self__, "allow_android_apps", allow_android_apps)
+        if allow_apple_apps is not None:
+            pulumi.set(__self__, "allow_apple_apps", allow_apple_apps)
         if allow_referers is not None:
             pulumi.set(__self__, "allow_referers", allow_referers)
 
@@ -174,6 +252,16 @@ class ApiKeyRestrictions(dict):
         For more information about ARN format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) .
         """
         return pulumi.get(self, "allow_resources")
+
+    @_builtins.property
+    @pulumi.getter(name="allowAndroidApps")
+    def allow_android_apps(self) -> Optional[Sequence['outputs.ApiKeyAndroidApp']]:
+        return pulumi.get(self, "allow_android_apps")
+
+    @_builtins.property
+    @pulumi.getter(name="allowAppleApps")
+    def allow_apple_apps(self) -> Optional[Sequence['outputs.ApiKeyAppleApp']]:
+        return pulumi.get(self, "allow_apple_apps")
 
     @_builtins.property
     @pulumi.getter(name="allowReferers")

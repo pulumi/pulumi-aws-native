@@ -16,14 +16,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DataSetIntegerDatasetParameterDefaultValuesArgs : global::Pulumi.ResourceArgs
     {
         [Input("staticValues")]
-        private InputList<double>? _staticValues;
+        private InputList<int>? _staticValues;
 
         /// <summary>
         /// &lt;p&gt;A list of static default values for a given integer parameter.&lt;/p&gt;
         /// </summary>
-        public InputList<double> StaticValues
+        public InputList<int> StaticValues
         {
-            get => _staticValues ?? (_staticValues = new InputList<double>());
+            get => _staticValues ?? (_staticValues = new InputList<int>());
             set => _staticValues = value;
         }
 

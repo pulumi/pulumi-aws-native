@@ -14,6 +14,7 @@ type KeyspaceRegionListItem string
 
 const (
 	KeyspaceRegionListItemAfSouth1     = KeyspaceRegionListItem("af-south-1")
+	KeyspaceRegionListItemApEast1      = KeyspaceRegionListItem("ap-east-1")
 	KeyspaceRegionListItemApNortheast1 = KeyspaceRegionListItem("ap-northeast-1")
 	KeyspaceRegionListItemApNortheast2 = KeyspaceRegionListItem("ap-northeast-2")
 	KeyspaceRegionListItemApSouth1     = KeyspaceRegionListItem("ap-south-1")
@@ -25,6 +26,8 @@ const (
 	KeyspaceRegionListItemEuWest1      = KeyspaceRegionListItem("eu-west-1")
 	KeyspaceRegionListItemEuWest2      = KeyspaceRegionListItem("eu-west-2")
 	KeyspaceRegionListItemEuWest3      = KeyspaceRegionListItem("eu-west-3")
+	KeyspaceRegionListItemMeCentral1   = KeyspaceRegionListItem("me-central-1")
+	KeyspaceRegionListItemMeSouth1     = KeyspaceRegionListItem("me-south-1")
 	KeyspaceRegionListItemSaEast1      = KeyspaceRegionListItem("sa-east-1")
 	KeyspaceRegionListItemUsEast1      = KeyspaceRegionListItem("us-east-1")
 	KeyspaceRegionListItemUsEast2      = KeyspaceRegionListItem("us-east-2")
@@ -155,6 +158,7 @@ func (o KeyspaceRegionListItemPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // A concrete instance of `KeyspaceRegionListItemInput` can be one of the following:
 //
 //	KeyspaceRegionListItemAfSouth1
+//	KeyspaceRegionListItemApEast1
 //	KeyspaceRegionListItemApNortheast1
 //	KeyspaceRegionListItemApNortheast2
 //	KeyspaceRegionListItemApSouth1
@@ -166,6 +170,8 @@ func (o KeyspaceRegionListItemPtrOutput) ToStringPtrOutputWithContext(ctx contex
 //	KeyspaceRegionListItemEuWest1
 //	KeyspaceRegionListItemEuWest2
 //	KeyspaceRegionListItemEuWest3
+//	KeyspaceRegionListItemMeCentral1
+//	KeyspaceRegionListItemMeSouth1
 //	KeyspaceRegionListItemSaEast1
 //	KeyspaceRegionListItemUsEast1
 //	KeyspaceRegionListItemUsEast2

@@ -98,6 +98,7 @@ namespace Pulumi.AwsNative.QuickSight
         /// &lt;p&gt;The time that this dataset was created.&lt;/p&gt;
         /// </summary>
         public readonly string? CreatedTime;
+        public readonly Outputs.DataSetDataPrepConfiguration? DataPrepConfiguration;
         /// <summary>
         /// The refresh properties of a dataset.
         /// </summary>
@@ -118,9 +119,6 @@ namespace Pulumi.AwsNative.QuickSight
         /// &lt;p&gt;The last time that this dataset was updated.&lt;/p&gt;
         /// </summary>
         public readonly string? LastUpdatedTime;
-        /// <summary>
-        /// Configures the combination and transformation of the data from the physical tables.
-        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.DataSetLogicalTable>? LogicalTableMap;
         /// <summary>
         /// &lt;p&gt;The display name for the dataset.&lt;/p&gt;
@@ -143,14 +141,9 @@ namespace Pulumi.AwsNative.QuickSight
         /// Declares the physical tables that are available in the underlying data sources.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.DataSetPhysicalTable>? PhysicalTableMap;
-        /// <summary>
-        /// The row-level security configuration for the data that you want to create.
-        /// </summary>
         public readonly Outputs.DataSetRowLevelPermissionDataSet? RowLevelPermissionDataSet;
-        /// <summary>
-        /// The element you can use to define tags for row-level security.
-        /// </summary>
         public readonly Outputs.DataSetRowLevelPermissionTagConfiguration? RowLevelPermissionTagConfiguration;
+        public readonly Outputs.DataSetSemanticModelConfiguration? SemanticModelConfiguration;
         /// <summary>
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.&lt;/p&gt;
         /// </summary>
@@ -171,6 +164,8 @@ namespace Pulumi.AwsNative.QuickSight
             double? consumedSpiceCapacityInBytes,
 
             string? createdTime,
+
+            Outputs.DataSetDataPrepConfiguration? dataPrepConfiguration,
 
             Outputs.DataSetRefreshProperties? dataSetRefreshProperties,
 
@@ -198,6 +193,8 @@ namespace Pulumi.AwsNative.QuickSight
 
             Outputs.DataSetRowLevelPermissionTagConfiguration? rowLevelPermissionTagConfiguration,
 
+            Outputs.DataSetSemanticModelConfiguration? semanticModelConfiguration,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Pulumi.AwsNative.QuickSight.DataSetUseAs? useAs)
@@ -207,6 +204,7 @@ namespace Pulumi.AwsNative.QuickSight
             ColumnLevelPermissionRules = columnLevelPermissionRules;
             ConsumedSpiceCapacityInBytes = consumedSpiceCapacityInBytes;
             CreatedTime = createdTime;
+            DataPrepConfiguration = dataPrepConfiguration;
             DataSetRefreshProperties = dataSetRefreshProperties;
             DataSetUsageConfiguration = dataSetUsageConfiguration;
             DatasetParameters = datasetParameters;
@@ -220,6 +218,7 @@ namespace Pulumi.AwsNative.QuickSight
             PhysicalTableMap = physicalTableMap;
             RowLevelPermissionDataSet = rowLevelPermissionDataSet;
             RowLevelPermissionTagConfiguration = rowLevelPermissionTagConfiguration;
+            SemanticModelConfiguration = semanticModelConfiguration;
             Tags = tags;
             UseAs = useAs;
         }

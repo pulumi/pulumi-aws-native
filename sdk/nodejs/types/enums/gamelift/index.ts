@@ -18,6 +18,7 @@ export const BuildOperatingSystem = {
     AmazonLinux2023: "AMAZON_LINUX_2023",
     Windows2012: "WINDOWS_2012",
     Windows2016: "WINDOWS_2016",
+    Windows2022: "WINDOWS_2022",
 } as const;
 
 /**

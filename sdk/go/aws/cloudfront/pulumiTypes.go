@@ -9317,8 +9317,9 @@ type DistributionVpcOriginConfig struct {
 	OriginKeepaliveTimeout *int `pulumi:"originKeepaliveTimeout"`
 	// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
 	//  For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
-	OriginReadTimeout *int    `pulumi:"originReadTimeout"`
-	OwnerAccountId    *string `pulumi:"ownerAccountId"`
+	OriginReadTimeout *int `pulumi:"originReadTimeout"`
+	// The account ID of the AWS account that owns the VPC origin.
+	OwnerAccountId *string `pulumi:"ownerAccountId"`
 	// The VPC origin ID.
 	VpcOriginId string `pulumi:"vpcOriginId"`
 }
@@ -9341,8 +9342,9 @@ type DistributionVpcOriginConfigArgs struct {
 	OriginKeepaliveTimeout pulumi.IntPtrInput `pulumi:"originKeepaliveTimeout"`
 	// Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
 	//  For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
-	OriginReadTimeout pulumi.IntPtrInput    `pulumi:"originReadTimeout"`
-	OwnerAccountId    pulumi.StringPtrInput `pulumi:"ownerAccountId"`
+	OriginReadTimeout pulumi.IntPtrInput `pulumi:"originReadTimeout"`
+	// The account ID of the AWS account that owns the VPC origin.
+	OwnerAccountId pulumi.StringPtrInput `pulumi:"ownerAccountId"`
 	// The VPC origin ID.
 	VpcOriginId pulumi.StringInput `pulumi:"vpcOriginId"`
 }
@@ -9439,6 +9441,7 @@ func (o DistributionVpcOriginConfigOutput) OriginReadTimeout() pulumi.IntPtrOutp
 	return o.ApplyT(func(v DistributionVpcOriginConfig) *int { return v.OriginReadTimeout }).(pulumi.IntPtrOutput)
 }
 
+// The account ID of the AWS account that owns the VPC origin.
 func (o DistributionVpcOriginConfigOutput) OwnerAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionVpcOriginConfig) *string { return v.OwnerAccountId }).(pulumi.StringPtrOutput)
 }
@@ -9496,6 +9499,7 @@ func (o DistributionVpcOriginConfigPtrOutput) OriginReadTimeout() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+// The account ID of the AWS account that owns the VPC origin.
 func (o DistributionVpcOriginConfigPtrOutput) OwnerAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionVpcOriginConfig) *string {
 		if v == nil {

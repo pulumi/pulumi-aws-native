@@ -95,6 +95,11 @@ export const getMailManagerTrafficPolicy: typeof import("./getMailManagerTraffic
 export const getMailManagerTrafficPolicyOutput: typeof import("./getMailManagerTrafficPolicy").getMailManagerTrafficPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getMailManagerTrafficPolicy","getMailManagerTrafficPolicyOutput"], () => require("./getMailManagerTrafficPolicy"));
 
+export { GetMultiRegionEndpointArgs, GetMultiRegionEndpointResult, GetMultiRegionEndpointOutputArgs } from "./getMultiRegionEndpoint";
+export const getMultiRegionEndpoint: typeof import("./getMultiRegionEndpoint").getMultiRegionEndpoint = null as any;
+export const getMultiRegionEndpointOutput: typeof import("./getMultiRegionEndpoint").getMultiRegionEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getMultiRegionEndpoint","getMultiRegionEndpointOutput"], () => require("./getMultiRegionEndpoint"));
+
 export { GetTemplateArgs, GetTemplateResult, GetTemplateOutputArgs } from "./getTemplate";
 export const getTemplate: typeof import("./getTemplate").getTemplate = null as any;
 export const getTemplateOutput: typeof import("./getTemplate").getTemplateOutput = null as any;
@@ -145,6 +150,11 @@ export type MailManagerTrafficPolicy = import("./mailManagerTrafficPolicy").Mail
 export const MailManagerTrafficPolicy: typeof import("./mailManagerTrafficPolicy").MailManagerTrafficPolicy = null as any;
 utilities.lazyLoad(exports, ["MailManagerTrafficPolicy"], () => require("./mailManagerTrafficPolicy"));
 
+export { MultiRegionEndpointArgs } from "./multiRegionEndpoint";
+export type MultiRegionEndpoint = import("./multiRegionEndpoint").MultiRegionEndpoint;
+export const MultiRegionEndpoint: typeof import("./multiRegionEndpoint").MultiRegionEndpoint = null as any;
+utilities.lazyLoad(exports, ["MultiRegionEndpoint"], () => require("./multiRegionEndpoint"));
+
 export { TemplateArgs } from "./template";
 export type Template = import("./template").Template;
 export const Template: typeof import("./template").Template = null as any;
@@ -189,6 +199,8 @@ const _module = {
                 return new MailManagerRuleSet(name, <any>undefined, { urn })
             case "aws-native:ses:MailManagerTrafficPolicy":
                 return new MailManagerTrafficPolicy(name, <any>undefined, { urn })
+            case "aws-native:ses:MultiRegionEndpoint":
+                return new MultiRegionEndpoint(name, <any>undefined, { urn })
             case "aws-native:ses:Template":
                 return new Template(name, <any>undefined, { urn })
             case "aws-native:ses:VdmAttributes":

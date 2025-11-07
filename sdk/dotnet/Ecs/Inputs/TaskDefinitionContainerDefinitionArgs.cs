@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         }
 
         /// <summary>
-        /// The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the docker container create commandand the ``--cpu-shares`` option to docker run.
+        /// The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the docker container create command and the ``--cpu-shares`` option to docker run.
         ///  This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.
         ///   You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://docs.aws.amazon.com/ec2/instance-types/) detail page by 1,024.
         ///   Linux containers share unallocated CPU units with other containers on the container instance with the same ratio as their allocated amount. For example, if you run a single-container task on a single-core instance type with 512 CPU units specified for that container, and that's the only task running on the container instance, that container could use the full 1,024 CPU unit share at any given time. However, if you launched another copy of the same task on that container instance, each task is guaranteed a minimum of 512 CPU units when needed. Moreover, each container could float to higher CPU usage if the other container was not using it. If both tasks were 100% active all of the time, they would be limited to 512 CPU units.

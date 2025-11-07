@@ -17,6 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ConnectionAmazonQPropertiesInput',
     'ConnectionAthenaPropertiesInput',
     'ConnectionAuthenticationConfigurationInput',
     'ConnectionAuthorizationCodeProperties',
@@ -39,6 +40,7 @@ __all__ = [
     'ConnectionPropertiesInput5Properties',
     'ConnectionPropertiesInput6Properties',
     'ConnectionPropertiesInput7Properties',
+    'ConnectionPropertiesInput8Properties',
     'ConnectionRedshiftCredentials0Properties',
     'ConnectionRedshiftCredentials1Properties',
     'ConnectionRedshiftLineageSyncConfigurationInput',
@@ -128,6 +130,70 @@ __all__ = [
     'UserProfileIamUserProfileDetails',
     'UserProfileSsoUserProfileDetails',
 ]
+
+@pulumi.output_type
+class ConnectionAmazonQPropertiesInput(dict):
+    """
+    Amazon Q properties of the connection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authMode":
+            suggest = "auth_mode"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "profileArn":
+            suggest = "profile_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionAmazonQPropertiesInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionAmazonQPropertiesInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionAmazonQPropertiesInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_mode: Optional[_builtins.str] = None,
+                 is_enabled: Optional[_builtins.bool] = None,
+                 profile_arn: Optional[_builtins.str] = None):
+        """
+        Amazon Q properties of the connection.
+        :param _builtins.str auth_mode: The authentication mode of the connection's AmazonQ properties
+        :param _builtins.bool is_enabled: Specifies whether Amazon Q is enabled for the connection
+        """
+        if auth_mode is not None:
+            pulumi.set(__self__, "auth_mode", auth_mode)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if profile_arn is not None:
+            pulumi.set(__self__, "profile_arn", profile_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> Optional[_builtins.str]:
+        """
+        The authentication mode of the connection's AmazonQ properties
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether Amazon Q is enabled for the connection
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="profileArn")
+    def profile_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "profile_arn")
+
 
 @pulumi.output_type
 class ConnectionAthenaPropertiesInput(dict):
@@ -1133,8 +1199,8 @@ class ConnectionPropertiesInput6Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sparkGlueProperties":
-            suggest = "spark_glue_properties"
+        if key == "amazonQProperties":
+            suggest = "amazon_q_properties"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConnectionPropertiesInput6Properties. Access the value via the '{suggest}' property getter instead.")
@@ -1148,13 +1214,13 @@ class ConnectionPropertiesInput6Properties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 spark_glue_properties: 'outputs.ConnectionSparkGluePropertiesInput'):
-        pulumi.set(__self__, "spark_glue_properties", spark_glue_properties)
+                 amazon_q_properties: 'outputs.ConnectionAmazonQPropertiesInput'):
+        pulumi.set(__self__, "amazon_q_properties", amazon_q_properties)
 
     @_builtins.property
-    @pulumi.getter(name="sparkGlueProperties")
-    def spark_glue_properties(self) -> 'outputs.ConnectionSparkGluePropertiesInput':
-        return pulumi.get(self, "spark_glue_properties")
+    @pulumi.getter(name="amazonQProperties")
+    def amazon_q_properties(self) -> 'outputs.ConnectionAmazonQPropertiesInput':
+        return pulumi.get(self, "amazon_q_properties")
 
 
 @pulumi.output_type
@@ -1162,8 +1228,8 @@ class ConnectionPropertiesInput7Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "s3Properties":
-            suggest = "s3_properties"
+        if key == "sparkGlueProperties":
+            suggest = "spark_glue_properties"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConnectionPropertiesInput7Properties. Access the value via the '{suggest}' property getter instead.")
@@ -1174,6 +1240,35 @@ class ConnectionPropertiesInput7Properties(dict):
 
     def get(self, key: str, default = None) -> Any:
         ConnectionPropertiesInput7Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 spark_glue_properties: 'outputs.ConnectionSparkGluePropertiesInput'):
+        pulumi.set(__self__, "spark_glue_properties", spark_glue_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="sparkGlueProperties")
+    def spark_glue_properties(self) -> 'outputs.ConnectionSparkGluePropertiesInput':
+        return pulumi.get(self, "spark_glue_properties")
+
+
+@pulumi.output_type
+class ConnectionPropertiesInput8Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Properties":
+            suggest = "s3_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionPropertiesInput8Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionPropertiesInput8Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionPropertiesInput8Properties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

@@ -27,6 +27,7 @@ class DataSetArgs:
                  aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  column_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]]] = None,
                  column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]]] = None,
+                 data_prep_configuration: Optional[pulumi.Input['DataSetDataPrepConfigurationArgs']] = None,
                  data_set_id: Optional[pulumi.Input[_builtins.str]] = None,
                  data_set_refresh_properties: Optional[pulumi.Input['DataSetRefreshPropertiesArgs']] = None,
                  data_set_usage_configuration: Optional[pulumi.Input['DataSetUsageConfigurationArgs']] = None,
@@ -42,6 +43,7 @@ class DataSetArgs:
                  physical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetPhysicalTableArgs']]]] = None,
                  row_level_permission_data_set: Optional[pulumi.Input['DataSetRowLevelPermissionDataSetArgs']] = None,
                  row_level_permission_tag_configuration: Optional[pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs']] = None,
+                 semantic_model_configuration: Optional[pulumi.Input['DataSetSemanticModelConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  use_as: Optional[pulumi.Input['DataSetUseAs']] = None):
         """
@@ -59,13 +61,10 @@ class DataSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] folder_arns: <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
         :param pulumi.Input['DataSetImportMode'] import_mode: Indicates whether you want to import the data into SPICE.
         :param pulumi.Input['DataSetIngestionWaitPolicyArgs'] ingestion_wait_policy: The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
-        :param pulumi.Input[Mapping[str, pulumi.Input['DataSetLogicalTableArgs']]] logical_table_map: Configures the combination and transformation of the data from the physical tables.
         :param pulumi.Input[_builtins.str] name: <p>The display name for the dataset.</p>
         :param pulumi.Input['DataSetPerformanceConfigurationArgs'] performance_configuration: The performance optimization configuration of a dataset.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetResourcePermissionArgs']]] permissions: <p>A list of resource permissions on the dataset.</p>
         :param pulumi.Input[Mapping[str, pulumi.Input['DataSetPhysicalTableArgs']]] physical_table_map: Declares the physical tables that are available in the underlying data sources.
-        :param pulumi.Input['DataSetRowLevelPermissionDataSetArgs'] row_level_permission_data_set: The row-level security configuration for the data that you want to create.
-        :param pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs'] row_level_permission_tag_configuration: The element you can use to define tags for row-level security.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         :param pulumi.Input['DataSetUseAs'] use_as: The usage of the dataset.
         """
@@ -75,6 +74,8 @@ class DataSetArgs:
             pulumi.set(__self__, "column_groups", column_groups)
         if column_level_permission_rules is not None:
             pulumi.set(__self__, "column_level_permission_rules", column_level_permission_rules)
+        if data_prep_configuration is not None:
+            pulumi.set(__self__, "data_prep_configuration", data_prep_configuration)
         if data_set_id is not None:
             pulumi.set(__self__, "data_set_id", data_set_id)
         if data_set_refresh_properties is not None:
@@ -105,6 +106,8 @@ class DataSetArgs:
             pulumi.set(__self__, "row_level_permission_data_set", row_level_permission_data_set)
         if row_level_permission_tag_configuration is not None:
             pulumi.set(__self__, "row_level_permission_tag_configuration", row_level_permission_tag_configuration)
+        if semantic_model_configuration is not None:
+            pulumi.set(__self__, "semantic_model_configuration", semantic_model_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if use_as is not None:
@@ -147,6 +150,15 @@ class DataSetArgs:
     @column_level_permission_rules.setter
     def column_level_permission_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]]]):
         pulumi.set(self, "column_level_permission_rules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataPrepConfiguration")
+    def data_prep_configuration(self) -> Optional[pulumi.Input['DataSetDataPrepConfigurationArgs']]:
+        return pulumi.get(self, "data_prep_configuration")
+
+    @data_prep_configuration.setter
+    def data_prep_configuration(self, value: Optional[pulumi.Input['DataSetDataPrepConfigurationArgs']]):
+        pulumi.set(self, "data_prep_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSetId")
@@ -247,9 +259,6 @@ class DataSetArgs:
     @_builtins.property
     @pulumi.getter(name="logicalTableMap")
     def logical_table_map(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetLogicalTableArgs']]]]:
-        """
-        Configures the combination and transformation of the data from the physical tables.
-        """
         return pulumi.get(self, "logical_table_map")
 
     @logical_table_map.setter
@@ -307,9 +316,6 @@ class DataSetArgs:
     @_builtins.property
     @pulumi.getter(name="rowLevelPermissionDataSet")
     def row_level_permission_data_set(self) -> Optional[pulumi.Input['DataSetRowLevelPermissionDataSetArgs']]:
-        """
-        The row-level security configuration for the data that you want to create.
-        """
         return pulumi.get(self, "row_level_permission_data_set")
 
     @row_level_permission_data_set.setter
@@ -319,14 +325,20 @@ class DataSetArgs:
     @_builtins.property
     @pulumi.getter(name="rowLevelPermissionTagConfiguration")
     def row_level_permission_tag_configuration(self) -> Optional[pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs']]:
-        """
-        The element you can use to define tags for row-level security.
-        """
         return pulumi.get(self, "row_level_permission_tag_configuration")
 
     @row_level_permission_tag_configuration.setter
     def row_level_permission_tag_configuration(self, value: Optional[pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs']]):
         pulumi.set(self, "row_level_permission_tag_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="semanticModelConfiguration")
+    def semantic_model_configuration(self) -> Optional[pulumi.Input['DataSetSemanticModelConfigurationArgs']]:
+        return pulumi.get(self, "semantic_model_configuration")
+
+    @semantic_model_configuration.setter
+    def semantic_model_configuration(self, value: Optional[pulumi.Input['DataSetSemanticModelConfigurationArgs']]):
+        pulumi.set(self, "semantic_model_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -362,6 +374,7 @@ class DataSet(pulumi.CustomResource):
                  aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  column_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict']]]]] = None,
                  column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict']]]]] = None,
+                 data_prep_configuration: Optional[pulumi.Input[Union['DataSetDataPrepConfigurationArgs', 'DataSetDataPrepConfigurationArgsDict']]] = None,
                  data_set_id: Optional[pulumi.Input[_builtins.str]] = None,
                  data_set_refresh_properties: Optional[pulumi.Input[Union['DataSetRefreshPropertiesArgs', 'DataSetRefreshPropertiesArgsDict']]] = None,
                  data_set_usage_configuration: Optional[pulumi.Input[Union['DataSetUsageConfigurationArgs', 'DataSetUsageConfigurationArgsDict']]] = None,
@@ -377,6 +390,7 @@ class DataSet(pulumi.CustomResource):
                  physical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetPhysicalTableArgs', 'DataSetPhysicalTableArgsDict']]]]] = None,
                  row_level_permission_data_set: Optional[pulumi.Input[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict']]] = None,
                  row_level_permission_tag_configuration: Optional[pulumi.Input[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict']]] = None,
+                 semantic_model_configuration: Optional[pulumi.Input[Union['DataSetSemanticModelConfigurationArgs', 'DataSetSemanticModelConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  use_as: Optional[pulumi.Input['DataSetUseAs']] = None,
                  __props__=None):
@@ -398,13 +412,10 @@ class DataSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] folder_arns: <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
         :param pulumi.Input['DataSetImportMode'] import_mode: Indicates whether you want to import the data into SPICE.
         :param pulumi.Input[Union['DataSetIngestionWaitPolicyArgs', 'DataSetIngestionWaitPolicyArgsDict']] ingestion_wait_policy: The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetLogicalTableArgs', 'DataSetLogicalTableArgsDict']]]] logical_table_map: Configures the combination and transformation of the data from the physical tables.
         :param pulumi.Input[_builtins.str] name: <p>The display name for the dataset.</p>
         :param pulumi.Input[Union['DataSetPerformanceConfigurationArgs', 'DataSetPerformanceConfigurationArgsDict']] performance_configuration: The performance optimization configuration of a dataset.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetResourcePermissionArgs', 'DataSetResourcePermissionArgsDict']]]] permissions: <p>A list of resource permissions on the dataset.</p>
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetPhysicalTableArgs', 'DataSetPhysicalTableArgsDict']]]] physical_table_map: Declares the physical tables that are available in the underlying data sources.
-        :param pulumi.Input[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict']] row_level_permission_data_set: The row-level security configuration for the data that you want to create.
-        :param pulumi.Input[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict']] row_level_permission_tag_configuration: The element you can use to define tags for row-level security.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         :param pulumi.Input['DataSetUseAs'] use_as: The usage of the dataset.
         """
@@ -435,6 +446,7 @@ class DataSet(pulumi.CustomResource):
                  aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  column_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict']]]]] = None,
                  column_level_permission_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict']]]]] = None,
+                 data_prep_configuration: Optional[pulumi.Input[Union['DataSetDataPrepConfigurationArgs', 'DataSetDataPrepConfigurationArgsDict']]] = None,
                  data_set_id: Optional[pulumi.Input[_builtins.str]] = None,
                  data_set_refresh_properties: Optional[pulumi.Input[Union['DataSetRefreshPropertiesArgs', 'DataSetRefreshPropertiesArgsDict']]] = None,
                  data_set_usage_configuration: Optional[pulumi.Input[Union['DataSetUsageConfigurationArgs', 'DataSetUsageConfigurationArgsDict']]] = None,
@@ -450,6 +462,7 @@ class DataSet(pulumi.CustomResource):
                  physical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetPhysicalTableArgs', 'DataSetPhysicalTableArgsDict']]]]] = None,
                  row_level_permission_data_set: Optional[pulumi.Input[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict']]] = None,
                  row_level_permission_tag_configuration: Optional[pulumi.Input[Union['DataSetRowLevelPermissionTagConfigurationArgs', 'DataSetRowLevelPermissionTagConfigurationArgsDict']]] = None,
+                 semantic_model_configuration: Optional[pulumi.Input[Union['DataSetSemanticModelConfigurationArgs', 'DataSetSemanticModelConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  use_as: Optional[pulumi.Input['DataSetUseAs']] = None,
                  __props__=None):
@@ -464,6 +477,7 @@ class DataSet(pulumi.CustomResource):
             __props__.__dict__["aws_account_id"] = aws_account_id
             __props__.__dict__["column_groups"] = column_groups
             __props__.__dict__["column_level_permission_rules"] = column_level_permission_rules
+            __props__.__dict__["data_prep_configuration"] = data_prep_configuration
             __props__.__dict__["data_set_id"] = data_set_id
             __props__.__dict__["data_set_refresh_properties"] = data_set_refresh_properties
             __props__.__dict__["data_set_usage_configuration"] = data_set_usage_configuration
@@ -479,6 +493,7 @@ class DataSet(pulumi.CustomResource):
             __props__.__dict__["physical_table_map"] = physical_table_map
             __props__.__dict__["row_level_permission_data_set"] = row_level_permission_data_set
             __props__.__dict__["row_level_permission_tag_configuration"] = row_level_permission_tag_configuration
+            __props__.__dict__["semantic_model_configuration"] = semantic_model_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["use_as"] = use_as
             __props__.__dict__["arn"] = None
@@ -516,6 +531,7 @@ class DataSet(pulumi.CustomResource):
         __props__.__dict__["column_level_permission_rules"] = None
         __props__.__dict__["consumed_spice_capacity_in_bytes"] = None
         __props__.__dict__["created_time"] = None
+        __props__.__dict__["data_prep_configuration"] = None
         __props__.__dict__["data_set_id"] = None
         __props__.__dict__["data_set_refresh_properties"] = None
         __props__.__dict__["data_set_usage_configuration"] = None
@@ -533,6 +549,7 @@ class DataSet(pulumi.CustomResource):
         __props__.__dict__["physical_table_map"] = None
         __props__.__dict__["row_level_permission_data_set"] = None
         __props__.__dict__["row_level_permission_tag_configuration"] = None
+        __props__.__dict__["semantic_model_configuration"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["use_as"] = None
         return DataSet(resource_name, opts=opts, __props__=__props__)
@@ -587,6 +604,11 @@ class DataSet(pulumi.CustomResource):
         <p>The time that this dataset was created.</p>
         """
         return pulumi.get(self, "created_time")
+
+    @_builtins.property
+    @pulumi.getter(name="dataPrepConfiguration")
+    def data_prep_configuration(self) -> pulumi.Output[Optional['outputs.DataSetDataPrepConfiguration']]:
+        return pulumi.get(self, "data_prep_configuration")
 
     @_builtins.property
     @pulumi.getter(name="dataSetId")
@@ -663,9 +685,6 @@ class DataSet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="logicalTableMap")
     def logical_table_map(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.DataSetLogicalTable']]]:
-        """
-        Configures the combination and transformation of the data from the physical tables.
-        """
         return pulumi.get(self, "logical_table_map")
 
     @_builtins.property
@@ -712,18 +731,17 @@ class DataSet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="rowLevelPermissionDataSet")
     def row_level_permission_data_set(self) -> pulumi.Output[Optional['outputs.DataSetRowLevelPermissionDataSet']]:
-        """
-        The row-level security configuration for the data that you want to create.
-        """
         return pulumi.get(self, "row_level_permission_data_set")
 
     @_builtins.property
     @pulumi.getter(name="rowLevelPermissionTagConfiguration")
     def row_level_permission_tag_configuration(self) -> pulumi.Output[Optional['outputs.DataSetRowLevelPermissionTagConfiguration']]:
-        """
-        The element you can use to define tags for row-level security.
-        """
         return pulumi.get(self, "row_level_permission_tag_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="semanticModelConfiguration")
+    def semantic_model_configuration(self) -> pulumi.Output[Optional['outputs.DataSetSemanticModelConfiguration']]:
+        return pulumi.get(self, "semantic_model_configuration")
 
     @_builtins.property
     @pulumi.getter

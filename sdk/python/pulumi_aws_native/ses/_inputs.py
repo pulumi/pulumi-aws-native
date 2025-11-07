@@ -206,6 +206,10 @@ __all__ = [
     'MailManagerTrafficPolicyPolicyCondition4PropertiesArgsDict',
     'MailManagerTrafficPolicyPolicyStatementArgs',
     'MailManagerTrafficPolicyPolicyStatementArgsDict',
+    'MultiRegionEndpointDetailsArgs',
+    'MultiRegionEndpointDetailsArgsDict',
+    'MultiRegionEndpointRouteDetailsItemPropertiesArgs',
+    'MultiRegionEndpointRouteDetailsItemPropertiesArgsDict',
     'TemplateArgs',
     'TemplateArgsDict',
     'VdmAttributesDashboardAttributesArgs',
@@ -3531,6 +3535,56 @@ class MailManagerTrafficPolicyPolicyStatementArgs:
     @conditions.setter
     def conditions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['MailManagerTrafficPolicyPolicyCondition0PropertiesArgs', 'MailManagerTrafficPolicyPolicyCondition1PropertiesArgs', 'MailManagerTrafficPolicyPolicyCondition2PropertiesArgs', 'MailManagerTrafficPolicyPolicyCondition3PropertiesArgs', 'MailManagerTrafficPolicyPolicyCondition4PropertiesArgs']]]]):
         pulumi.set(self, "conditions", value)
+
+
+if not MYPY:
+    class MultiRegionEndpointDetailsArgsDict(TypedDict):
+        """
+        Contains details of a multi-region endpoint (global-endpoint) being created.
+        """
+        route_details: pulumi.Input[Sequence[pulumi.Input['MultiRegionEndpointRouteDetailsItemPropertiesArgsDict']]]
+elif False:
+    MultiRegionEndpointDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MultiRegionEndpointDetailsArgs:
+    def __init__(__self__, *,
+                 route_details: pulumi.Input[Sequence[pulumi.Input['MultiRegionEndpointRouteDetailsItemPropertiesArgs']]]):
+        """
+        Contains details of a multi-region endpoint (global-endpoint) being created.
+        """
+        pulumi.set(__self__, "route_details", route_details)
+
+    @_builtins.property
+    @pulumi.getter(name="routeDetails")
+    def route_details(self) -> pulumi.Input[Sequence[pulumi.Input['MultiRegionEndpointRouteDetailsItemPropertiesArgs']]]:
+        return pulumi.get(self, "route_details")
+
+    @route_details.setter
+    def route_details(self, value: pulumi.Input[Sequence[pulumi.Input['MultiRegionEndpointRouteDetailsItemPropertiesArgs']]]):
+        pulumi.set(self, "route_details", value)
+
+
+if not MYPY:
+    class MultiRegionEndpointRouteDetailsItemPropertiesArgsDict(TypedDict):
+        region: pulumi.Input[_builtins.str]
+elif False:
+    MultiRegionEndpointRouteDetailsItemPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MultiRegionEndpointRouteDetailsItemPropertiesArgs:
+    def __init__(__self__, *,
+                 region: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "region", value)
 
 
 if not MYPY:

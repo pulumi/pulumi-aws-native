@@ -104,6 +104,7 @@ namespace Pulumi.AwsNative.Kms
         public static KeySpec MlDsa44 { get; } = new KeySpec("ML_DSA_44");
         public static KeySpec MlDsa65 { get; } = new KeySpec("ML_DSA_65");
         public static KeySpec MlDsa87 { get; } = new KeySpec("ML_DSA_87");
+        public static KeySpec EccNistEdwards25519 { get; } = new KeySpec("ECC_NIST_EDWARDS25519");
 
         public static bool operator ==(KeySpec left, KeySpec right) => left.Equals(right);
         public static bool operator !=(KeySpec left, KeySpec right) => !left.Equals(right);

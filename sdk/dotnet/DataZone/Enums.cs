@@ -72,6 +72,37 @@ namespace Pulumi.AwsNative.DataZone
     }
 
     /// <summary>
+    /// The scope of the connection.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionScope : IEquatable<ConnectionScope>
+    {
+        private readonly string _value;
+
+        private ConnectionScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionScope Domain { get; } = new ConnectionScope("DOMAIN");
+        public static ConnectionScope Project { get; } = new ConnectionScope("PROJECT");
+
+        public static bool operator ==(ConnectionScope left, ConnectionScope right) => left.Equals(right);
+        public static bool operator !=(ConnectionScope left, ConnectionScope right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionScope other && Equals(other);
+        public bool Equals(ConnectionScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies whether the data source is enabled.
     /// </summary>
     [EnumType]

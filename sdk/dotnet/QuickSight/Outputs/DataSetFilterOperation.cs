@@ -21,11 +21,24 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         ///             evaluates to true are kept in the dataset.&lt;/p&gt;
         /// </summary>
         public readonly string? ConditionExpression;
+        public readonly Outputs.DataSetDateFilterCondition? DateFilterCondition;
+        public readonly Outputs.DataSetNumericFilterCondition? NumericFilterCondition;
+        public readonly Outputs.DataSetStringFilterCondition? StringFilterCondition;
 
         [OutputConstructor]
-        private DataSetFilterOperation(string? conditionExpression)
+        private DataSetFilterOperation(
+            string? conditionExpression,
+
+            Outputs.DataSetDateFilterCondition? dateFilterCondition,
+
+            Outputs.DataSetNumericFilterCondition? numericFilterCondition,
+
+            Outputs.DataSetStringFilterCondition? stringFilterCondition)
         {
             ConditionExpression = conditionExpression;
+            DateFilterCondition = dateFilterCondition;
+            NumericFilterCondition = numericFilterCondition;
+            StringFilterCondition = stringFilterCondition;
         }
     }
 }

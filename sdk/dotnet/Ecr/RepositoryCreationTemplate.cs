@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.Ecr
         public Output<Pulumi.AwsNative.Ecr.RepositoryCreationTemplateImageTagMutability?> ImageTagMutability { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the image tag mutability exclusion filters to apply when creating repositories from this template. These filters specify which image tags can override the repository's default image tag mutability setting.
+        /// A list of filters that specify which image tags are excluded from the repository creation template's image tag mutability setting.
         /// </summary>
         [Output("imageTagMutabilityExclusionFilters")]
         public Output<ImmutableArray<Outputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilter>> ImageTagMutabilityExclusionFilters { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.AwsNative.Ecr
         private InputList<Inputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs>? _imageTagMutabilityExclusionFilters;
 
         /// <summary>
-        /// Defines the image tag mutability exclusion filters to apply when creating repositories from this template. These filters specify which image tags can override the repository's default image tag mutability setting.
+        /// A list of filters that specify which image tags are excluded from the repository creation template's image tag mutability setting.
         /// </summary>
         public InputList<Inputs.RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs> ImageTagMutabilityExclusionFilters
         {

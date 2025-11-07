@@ -80,6 +80,7 @@ class KeySpec(_builtins.str, Enum):
     ML_DSA44 = "ML_DSA_44"
     ML_DSA65 = "ML_DSA_65"
     ML_DSA87 = "ML_DSA_87"
+    ECC_NIST_EDWARDS25519 = "ECC_NIST_EDWARDS25519"
 
 
 @pulumi.type_token("aws-native:kms:KeyUsage")

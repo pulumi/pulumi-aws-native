@@ -27,6 +27,7 @@ class CollaborationArgs:
                  creator_display_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[_builtins.str],
                  query_log_status: pulumi.Input['CollaborationQueryLogStatus'],
+                 allowed_result_regions: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationSupportedS3Region']]]] = None,
                  analytics_engine: Optional[pulumi.Input['CollaborationAnalyticsEngine']] = None,
                  auto_approved_change_types: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationAutoApprovedChangeType']]]] = None,
                  creator_member_abilities: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]] = None,
@@ -44,6 +45,7 @@ class CollaborationArgs:
         :param pulumi.Input['CollaborationQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the collaboration.
                
                When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
+        :param pulumi.Input[Sequence[pulumi.Input['CollaborationSupportedS3Region']]] allowed_result_regions: The AWS Regions where collaboration query results can be stored. Returns the list of Region identifiers that were specified when the collaboration was created. This list is used to enforce regional storage policies and compliance requirements.
         :param pulumi.Input['CollaborationAnalyticsEngine'] analytics_engine: The analytics engine for the collaboration.
                
                > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
@@ -64,6 +66,8 @@ class CollaborationArgs:
         pulumi.set(__self__, "creator_display_name", creator_display_name)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "query_log_status", query_log_status)
+        if allowed_result_regions is not None:
+            pulumi.set(__self__, "allowed_result_regions", allowed_result_regions)
         if analytics_engine is not None:
             pulumi.set(__self__, "analytics_engine", analytics_engine)
         if auto_approved_change_types is not None:
@@ -122,6 +126,18 @@ class CollaborationArgs:
     @query_log_status.setter
     def query_log_status(self, value: pulumi.Input['CollaborationQueryLogStatus']):
         pulumi.set(self, "query_log_status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedResultRegions")
+    def allowed_result_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationSupportedS3Region']]]]:
+        """
+        The AWS Regions where collaboration query results can be stored. Returns the list of Region identifiers that were specified when the collaboration was created. This list is used to enforce regional storage policies and compliance requirements.
+        """
+        return pulumi.get(self, "allowed_result_regions")
+
+    @allowed_result_regions.setter
+    def allowed_result_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationSupportedS3Region']]]]):
+        pulumi.set(self, "allowed_result_regions", value)
 
     @_builtins.property
     @pulumi.getter(name="analyticsEngine")
@@ -256,6 +272,7 @@ class Collaboration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allowed_result_regions: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationSupportedS3Region']]]] = None,
                  analytics_engine: Optional[pulumi.Input['CollaborationAnalyticsEngine']] = None,
                  auto_approved_change_types: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationAutoApprovedChangeType']]]] = None,
                  creator_display_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -275,6 +292,7 @@ class Collaboration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['CollaborationSupportedS3Region']]] allowed_result_regions: The AWS Regions where collaboration query results can be stored. Returns the list of Region identifiers that were specified when the collaboration was created. This list is used to enforce regional storage policies and compliance requirements.
         :param pulumi.Input['CollaborationAnalyticsEngine'] analytics_engine: The analytics engine for the collaboration.
                
                > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
@@ -321,6 +339,7 @@ class Collaboration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allowed_result_regions: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationSupportedS3Region']]]] = None,
                  analytics_engine: Optional[pulumi.Input['CollaborationAnalyticsEngine']] = None,
                  auto_approved_change_types: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationAutoApprovedChangeType']]]] = None,
                  creator_display_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -343,6 +362,7 @@ class Collaboration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CollaborationArgs.__new__(CollaborationArgs)
 
+            __props__.__dict__["allowed_result_regions"] = allowed_result_regions
             __props__.__dict__["analytics_engine"] = analytics_engine
             __props__.__dict__["auto_approved_change_types"] = auto_approved_change_types
             if creator_display_name is None and not opts.urn:
@@ -364,7 +384,7 @@ class Collaboration(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["collaboration_identifier"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["autoApprovedChangeTypes[*]", "creatorDisplayName", "creatorMemberAbilities[*]", "creatorMlMemberAbilities", "creatorPaymentConfiguration", "dataEncryptionMetadata", "jobLogStatus", "members[*]", "queryLogStatus"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["allowedResultRegions[*]", "autoApprovedChangeTypes[*]", "creatorDisplayName", "creatorMemberAbilities[*]", "creatorMlMemberAbilities", "creatorPaymentConfiguration", "dataEncryptionMetadata", "jobLogStatus", "members[*]", "queryLogStatus"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Collaboration, __self__).__init__(
             'aws-native:cleanrooms:Collaboration',
@@ -388,6 +408,7 @@ class Collaboration(pulumi.CustomResource):
 
         __props__ = CollaborationArgs.__new__(CollaborationArgs)
 
+        __props__.__dict__["allowed_result_regions"] = None
         __props__.__dict__["analytics_engine"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["auto_approved_change_types"] = None
@@ -404,6 +425,14 @@ class Collaboration(pulumi.CustomResource):
         __props__.__dict__["query_log_status"] = None
         __props__.__dict__["tags"] = None
         return Collaboration(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedResultRegions")
+    def allowed_result_regions(self) -> pulumi.Output[Optional[Sequence['CollaborationSupportedS3Region']]]:
+        """
+        The AWS Regions where collaboration query results can be stored. Returns the list of Region identifiers that were specified when the collaboration was created. This list is used to enforce regional storage policies and compliance requirements.
+        """
+        return pulumi.get(self, "allowed_result_regions")
 
     @_builtins.property
     @pulumi.getter(name="analyticsEngine")

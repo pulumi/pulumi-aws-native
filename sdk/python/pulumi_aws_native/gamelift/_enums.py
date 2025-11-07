@@ -68,6 +68,7 @@ class BuildOperatingSystem(_builtins.str, Enum):
     AMAZON_LINUX2023 = "AMAZON_LINUX_2023"
     WINDOWS2012 = "WINDOWS_2012"
     WINDOWS2016 = "WINDOWS_2016"
+    WINDOWS2022 = "WINDOWS_2022"
 
 
 @pulumi.type_token("aws-native:gamelift:ContainerFleetBillingType")

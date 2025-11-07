@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.Kinesis
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Kinesis.StreamEnhancedMetric> DesiredShardLevelMetrics;
         /// <summary>
+        /// Maximum size of a data record in KiB allowed to be put into Kinesis stream.
+        /// </summary>
+        public readonly int? MaxRecordSizeInKiB;
+        /// <summary>
         /// The number of hours for the data records that are stored in shards to remain accessible.
         /// </summary>
         public readonly int? RetentionPeriodHours;
@@ -98,6 +102,8 @@ namespace Pulumi.AwsNative.Kinesis
 
             ImmutableArray<Pulumi.AwsNative.Kinesis.StreamEnhancedMetric> desiredShardLevelMetrics,
 
+            int? maxRecordSizeInKiB,
+
             int? retentionPeriodHours,
 
             int? shardCount,
@@ -110,6 +116,7 @@ namespace Pulumi.AwsNative.Kinesis
         {
             Arn = arn;
             DesiredShardLevelMetrics = desiredShardLevelMetrics;
+            MaxRecordSizeInKiB = maxRecordSizeInKiB;
             RetentionPeriodHours = retentionPeriodHours;
             ShardCount = shardCount;
             StreamEncryption = streamEncryption;

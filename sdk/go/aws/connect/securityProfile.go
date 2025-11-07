@@ -24,7 +24,8 @@ type SecurityProfile struct {
 	// A list of third-party applications that the security profile will give access to.
 	Applications SecurityProfileApplicationArrayOutput `pulumi:"applications"`
 	// The description of the security profile.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description                        pulumi.StringPtrOutput                                `pulumi:"description"`
+	GranularAccessControlConfiguration GranularAccessControlConfigurationPropertiesPtrOutput `pulumi:"granularAccessControlConfiguration"`
 	// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
 	HierarchyRestrictedResources pulumi.StringArrayOutput `pulumi:"hierarchyRestrictedResources"`
 	// The identifier of the Amazon Connect instance.
@@ -100,7 +101,8 @@ type securityProfileArgs struct {
 	// A list of third-party applications that the security profile will give access to.
 	Applications []SecurityProfileApplication `pulumi:"applications"`
 	// The description of the security profile.
-	Description *string `pulumi:"description"`
+	Description                        *string                                       `pulumi:"description"`
+	GranularAccessControlConfiguration *GranularAccessControlConfigurationProperties `pulumi:"granularAccessControlConfiguration"`
 	// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
 	HierarchyRestrictedResources []string `pulumi:"hierarchyRestrictedResources"`
 	// The identifier of the Amazon Connect instance.
@@ -124,7 +126,8 @@ type SecurityProfileArgs struct {
 	// A list of third-party applications that the security profile will give access to.
 	Applications SecurityProfileApplicationArrayInput
 	// The description of the security profile.
-	Description pulumi.StringPtrInput
+	Description                        pulumi.StringPtrInput
+	GranularAccessControlConfiguration GranularAccessControlConfigurationPropertiesPtrInput
 	// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
 	HierarchyRestrictedResources pulumi.StringArrayInput
 	// The identifier of the Amazon Connect instance.
@@ -194,6 +197,12 @@ func (o SecurityProfileOutput) Applications() SecurityProfileApplicationArrayOut
 // The description of the security profile.
 func (o SecurityProfileOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityProfileOutput) GranularAccessControlConfiguration() GranularAccessControlConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *SecurityProfile) GranularAccessControlConfigurationPropertiesPtrOutput {
+		return v.GranularAccessControlConfiguration
+	}).(GranularAccessControlConfigurationPropertiesPtrOutput)
 }
 
 // The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.

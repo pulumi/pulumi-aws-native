@@ -156,6 +156,9 @@ class VpcOrigin(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The account ID of the AWS account that owns the VPC origin.
+        """
         return pulumi.get(self, "account_id")
 
     @_builtins.property

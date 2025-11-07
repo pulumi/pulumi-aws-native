@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.Cassandra
         }
 
         public static KeyspaceRegionListItem AfSouth1 { get; } = new KeyspaceRegionListItem("af-south-1");
+        public static KeyspaceRegionListItem ApEast1 { get; } = new KeyspaceRegionListItem("ap-east-1");
         public static KeyspaceRegionListItem ApNortheast1 { get; } = new KeyspaceRegionListItem("ap-northeast-1");
         public static KeyspaceRegionListItem ApNortheast2 { get; } = new KeyspaceRegionListItem("ap-northeast-2");
         public static KeyspaceRegionListItem ApSouth1 { get; } = new KeyspaceRegionListItem("ap-south-1");
@@ -29,6 +30,8 @@ namespace Pulumi.AwsNative.Cassandra
         public static KeyspaceRegionListItem EuWest1 { get; } = new KeyspaceRegionListItem("eu-west-1");
         public static KeyspaceRegionListItem EuWest2 { get; } = new KeyspaceRegionListItem("eu-west-2");
         public static KeyspaceRegionListItem EuWest3 { get; } = new KeyspaceRegionListItem("eu-west-3");
+        public static KeyspaceRegionListItem MeCentral1 { get; } = new KeyspaceRegionListItem("me-central-1");
+        public static KeyspaceRegionListItem MeSouth1 { get; } = new KeyspaceRegionListItem("me-south-1");
         public static KeyspaceRegionListItem SaEast1 { get; } = new KeyspaceRegionListItem("sa-east-1");
         public static KeyspaceRegionListItem UsEast1 { get; } = new KeyspaceRegionListItem("us-east-1");
         public static KeyspaceRegionListItem UsEast2 { get; } = new KeyspaceRegionListItem("us-east-2");

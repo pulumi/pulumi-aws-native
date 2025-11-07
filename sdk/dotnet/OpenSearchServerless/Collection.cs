@@ -116,6 +116,12 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the AWS KMS key used to encrypt the collection.
+        /// </summary>
+        [Output("kmsKeyArn")]
+        public Output<string> KmsKeyArn { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the collection.
         /// 
         /// The name must meet the following criteria:
@@ -171,6 +177,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
                 ReplaceOnChanges =
                 {
                     "name",
+                    "standbyReplicas",
                     "tags[*]",
                     "type",
                 },

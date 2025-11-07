@@ -16,6 +16,10 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ApiKeyAndroidAppArgs',
+    'ApiKeyAndroidAppArgsDict',
+    'ApiKeyAppleAppArgs',
+    'ApiKeyAppleAppArgsDict',
     'ApiKeyRestrictionsArgs',
     'ApiKeyRestrictionsArgsDict',
     'MapConfigurationArgs',
@@ -25,6 +29,62 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ApiKeyAndroidAppArgsDict(TypedDict):
+        certificate_fingerprint: pulumi.Input[_builtins.str]
+        package: pulumi.Input[_builtins.str]
+elif False:
+    ApiKeyAndroidAppArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApiKeyAndroidAppArgs:
+    def __init__(__self__, *,
+                 certificate_fingerprint: pulumi.Input[_builtins.str],
+                 package: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "certificate_fingerprint", certificate_fingerprint)
+        pulumi.set(__self__, "package", package)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateFingerprint")
+    def certificate_fingerprint(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "certificate_fingerprint")
+
+    @certificate_fingerprint.setter
+    def certificate_fingerprint(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "certificate_fingerprint", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def package(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "package")
+
+    @package.setter
+    def package(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "package", value)
+
+
+if not MYPY:
+    class ApiKeyAppleAppArgsDict(TypedDict):
+        bundle_id: pulumi.Input[_builtins.str]
+elif False:
+    ApiKeyAppleAppArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApiKeyAppleAppArgs:
+    def __init__(__self__, *,
+                 bundle_id: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "bundle_id", bundle_id)
+
+    @_builtins.property
+    @pulumi.getter(name="bundleId")
+    def bundle_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "bundle_id")
+
+    @bundle_id.setter
+    def bundle_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bundle_id", value)
+
 
 if not MYPY:
     class ApiKeyRestrictionsArgsDict(TypedDict):
@@ -81,6 +141,8 @@ if not MYPY:
 
         For more information about ARN format, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) .
         """
+        allow_android_apps: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiKeyAndroidAppArgsDict']]]]
+        allow_apple_apps: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiKeyAppleAppArgsDict']]]]
         allow_referers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
         An optional list of allowed HTTP referers for which requests must originate from. Requests using this API key from other domains will not be allowed.
@@ -104,6 +166,8 @@ class ApiKeyRestrictionsArgs:
     def __init__(__self__, *,
                  allow_actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  allow_resources: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 allow_android_apps: Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyAndroidAppArgs']]]] = None,
+                 allow_apple_apps: Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyAppleAppArgs']]]] = None,
                  allow_referers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allow_actions: A list of allowed actions that an API key resource grants permissions to perform. You must have at least one action for each type of resource. For example, if you have a place resource, you must include at least one place action.
@@ -168,6 +232,10 @@ class ApiKeyRestrictionsArgs:
         """
         pulumi.set(__self__, "allow_actions", allow_actions)
         pulumi.set(__self__, "allow_resources", allow_resources)
+        if allow_android_apps is not None:
+            pulumi.set(__self__, "allow_android_apps", allow_android_apps)
+        if allow_apple_apps is not None:
+            pulumi.set(__self__, "allow_apple_apps", allow_apple_apps)
         if allow_referers is not None:
             pulumi.set(__self__, "allow_referers", allow_referers)
 
@@ -239,6 +307,24 @@ class ApiKeyRestrictionsArgs:
     @allow_resources.setter
     def allow_resources(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "allow_resources", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowAndroidApps")
+    def allow_android_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyAndroidAppArgs']]]]:
+        return pulumi.get(self, "allow_android_apps")
+
+    @allow_android_apps.setter
+    def allow_android_apps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyAndroidAppArgs']]]]):
+        pulumi.set(self, "allow_android_apps", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowAppleApps")
+    def allow_apple_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyAppleAppArgs']]]]:
+        return pulumi.get(self, "allow_apple_apps")
+
+    @allow_apple_apps.setter
+    def allow_apple_apps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyAppleAppArgs']]]]):
+        pulumi.set(self, "allow_apple_apps", value)
 
     @_builtins.property
     @pulumi.getter(name="allowReferers")

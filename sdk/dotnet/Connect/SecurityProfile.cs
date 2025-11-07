@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Connect
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("granularAccessControlConfiguration")]
+        public Output<Outputs.GranularAccessControlConfigurationProperties?> GranularAccessControlConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
         /// </summary>
@@ -178,6 +181,9 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("granularAccessControlConfiguration")]
+        public Input<Inputs.GranularAccessControlConfigurationPropertiesArgs>? GranularAccessControlConfiguration { get; set; }
 
         [Input("hierarchyRestrictedResources")]
         private InputList<string>? _hierarchyRestrictedResources;

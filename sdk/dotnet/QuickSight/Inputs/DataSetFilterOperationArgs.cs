@@ -22,6 +22,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("conditionExpression")]
         public Input<string>? ConditionExpression { get; set; }
 
+        [Input("dateFilterCondition")]
+        public Input<Inputs.DataSetDateFilterConditionArgs>? DateFilterCondition { get; set; }
+
+        [Input("numericFilterCondition")]
+        public Input<Inputs.DataSetNumericFilterConditionArgs>? NumericFilterCondition { get; set; }
+
+        [Input("stringFilterCondition")]
+        public Input<Inputs.DataSetStringFilterConditionArgs>? StringFilterCondition { get; set; }
+
         public DataSetFilterOperationArgs()
         {
         }

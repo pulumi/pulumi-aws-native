@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// &lt;p&gt;Column name.&lt;/p&gt;
         /// </summary>
-        public readonly string? ColumnName;
+        public readonly string ColumnName;
         /// <summary>
         /// &lt;p&gt;When casting a column from string to datetime type, you can supply a string in a
         ///             format supported by Amazon QuickSight to denote the source data format.&lt;/p&gt;
@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private DataSetCastColumnTypeOperation(
-            string? columnName,
+            string columnName,
 
             string? format,
 

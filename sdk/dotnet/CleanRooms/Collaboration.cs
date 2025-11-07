@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.CleanRooms
     public partial class Collaboration : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The AWS Regions where collaboration query results can be stored. Returns the list of Region identifiers that were specified when the collaboration was created. This list is used to enforce regional storage policies and compliance requirements.
+        /// </summary>
+        [Output("allowedResultRegions")]
+        public Output<ImmutableArray<Pulumi.AwsNative.CleanRooms.CollaborationSupportedS3Region>> AllowedResultRegions { get; private set; } = null!;
+
+        /// <summary>
         /// The analytics engine for the collaboration.
         /// 
         /// &gt; After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
@@ -142,6 +148,7 @@ namespace Pulumi.AwsNative.CleanRooms
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "allowedResultRegions[*]",
                     "autoApprovedChangeTypes[*]",
                     "creatorDisplayName",
                     "creatorMemberAbilities[*]",
@@ -174,6 +181,18 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class CollaborationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("allowedResultRegions")]
+        private InputList<Pulumi.AwsNative.CleanRooms.CollaborationSupportedS3Region>? _allowedResultRegions;
+
+        /// <summary>
+        /// The AWS Regions where collaboration query results can be stored. Returns the list of Region identifiers that were specified when the collaboration was created. This list is used to enforce regional storage policies and compliance requirements.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.CleanRooms.CollaborationSupportedS3Region> AllowedResultRegions
+        {
+            get => _allowedResultRegions ?? (_allowedResultRegions = new InputList<Pulumi.AwsNative.CleanRooms.CollaborationSupportedS3Region>());
+            set => _allowedResultRegions = value;
+        }
+
         /// <summary>
         /// The analytics engine for the collaboration.
         /// 

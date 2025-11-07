@@ -102,6 +102,10 @@ export class Collection extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
+     * The ARN of the AWS KMS key used to encrypt the collection.
+     */
+    declare public /*out*/ readonly kmsKeyArn: pulumi.Output<string>;
+    /**
      * The name of the collection.
      *
      * The name must meet the following criteria:
@@ -144,19 +148,21 @@ export class Collection extends pulumi.CustomResource {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["collectionEndpoint"] = undefined /*out*/;
             resourceInputs["dashboardEndpoint"] = undefined /*out*/;
+            resourceInputs["kmsKeyArn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["collectionEndpoint"] = undefined /*out*/;
             resourceInputs["dashboardEndpoint"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["standbyReplicas"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name", "tags[*]", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["name", "standbyReplicas", "tags[*]", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Collection.__pulumiType, name, resourceInputs, opts);
     }

@@ -13,6 +13,200 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ApiKeyAndroidApp struct {
+	CertificateFingerprint string `pulumi:"certificateFingerprint"`
+	Package                string `pulumi:"package"`
+}
+
+// ApiKeyAndroidAppInput is an input type that accepts ApiKeyAndroidAppArgs and ApiKeyAndroidAppOutput values.
+// You can construct a concrete instance of `ApiKeyAndroidAppInput` via:
+//
+//	ApiKeyAndroidAppArgs{...}
+type ApiKeyAndroidAppInput interface {
+	pulumi.Input
+
+	ToApiKeyAndroidAppOutput() ApiKeyAndroidAppOutput
+	ToApiKeyAndroidAppOutputWithContext(context.Context) ApiKeyAndroidAppOutput
+}
+
+type ApiKeyAndroidAppArgs struct {
+	CertificateFingerprint pulumi.StringInput `pulumi:"certificateFingerprint"`
+	Package                pulumi.StringInput `pulumi:"package"`
+}
+
+func (ApiKeyAndroidAppArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiKeyAndroidApp)(nil)).Elem()
+}
+
+func (i ApiKeyAndroidAppArgs) ToApiKeyAndroidAppOutput() ApiKeyAndroidAppOutput {
+	return i.ToApiKeyAndroidAppOutputWithContext(context.Background())
+}
+
+func (i ApiKeyAndroidAppArgs) ToApiKeyAndroidAppOutputWithContext(ctx context.Context) ApiKeyAndroidAppOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyAndroidAppOutput)
+}
+
+// ApiKeyAndroidAppArrayInput is an input type that accepts ApiKeyAndroidAppArray and ApiKeyAndroidAppArrayOutput values.
+// You can construct a concrete instance of `ApiKeyAndroidAppArrayInput` via:
+//
+//	ApiKeyAndroidAppArray{ ApiKeyAndroidAppArgs{...} }
+type ApiKeyAndroidAppArrayInput interface {
+	pulumi.Input
+
+	ToApiKeyAndroidAppArrayOutput() ApiKeyAndroidAppArrayOutput
+	ToApiKeyAndroidAppArrayOutputWithContext(context.Context) ApiKeyAndroidAppArrayOutput
+}
+
+type ApiKeyAndroidAppArray []ApiKeyAndroidAppInput
+
+func (ApiKeyAndroidAppArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiKeyAndroidApp)(nil)).Elem()
+}
+
+func (i ApiKeyAndroidAppArray) ToApiKeyAndroidAppArrayOutput() ApiKeyAndroidAppArrayOutput {
+	return i.ToApiKeyAndroidAppArrayOutputWithContext(context.Background())
+}
+
+func (i ApiKeyAndroidAppArray) ToApiKeyAndroidAppArrayOutputWithContext(ctx context.Context) ApiKeyAndroidAppArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyAndroidAppArrayOutput)
+}
+
+type ApiKeyAndroidAppOutput struct{ *pulumi.OutputState }
+
+func (ApiKeyAndroidAppOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiKeyAndroidApp)(nil)).Elem()
+}
+
+func (o ApiKeyAndroidAppOutput) ToApiKeyAndroidAppOutput() ApiKeyAndroidAppOutput {
+	return o
+}
+
+func (o ApiKeyAndroidAppOutput) ToApiKeyAndroidAppOutputWithContext(ctx context.Context) ApiKeyAndroidAppOutput {
+	return o
+}
+
+func (o ApiKeyAndroidAppOutput) CertificateFingerprint() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiKeyAndroidApp) string { return v.CertificateFingerprint }).(pulumi.StringOutput)
+}
+
+func (o ApiKeyAndroidAppOutput) Package() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiKeyAndroidApp) string { return v.Package }).(pulumi.StringOutput)
+}
+
+type ApiKeyAndroidAppArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiKeyAndroidAppArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiKeyAndroidApp)(nil)).Elem()
+}
+
+func (o ApiKeyAndroidAppArrayOutput) ToApiKeyAndroidAppArrayOutput() ApiKeyAndroidAppArrayOutput {
+	return o
+}
+
+func (o ApiKeyAndroidAppArrayOutput) ToApiKeyAndroidAppArrayOutputWithContext(ctx context.Context) ApiKeyAndroidAppArrayOutput {
+	return o
+}
+
+func (o ApiKeyAndroidAppArrayOutput) Index(i pulumi.IntInput) ApiKeyAndroidAppOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiKeyAndroidApp {
+		return vs[0].([]ApiKeyAndroidApp)[vs[1].(int)]
+	}).(ApiKeyAndroidAppOutput)
+}
+
+type ApiKeyAppleApp struct {
+	BundleId string `pulumi:"bundleId"`
+}
+
+// ApiKeyAppleAppInput is an input type that accepts ApiKeyAppleAppArgs and ApiKeyAppleAppOutput values.
+// You can construct a concrete instance of `ApiKeyAppleAppInput` via:
+//
+//	ApiKeyAppleAppArgs{...}
+type ApiKeyAppleAppInput interface {
+	pulumi.Input
+
+	ToApiKeyAppleAppOutput() ApiKeyAppleAppOutput
+	ToApiKeyAppleAppOutputWithContext(context.Context) ApiKeyAppleAppOutput
+}
+
+type ApiKeyAppleAppArgs struct {
+	BundleId pulumi.StringInput `pulumi:"bundleId"`
+}
+
+func (ApiKeyAppleAppArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiKeyAppleApp)(nil)).Elem()
+}
+
+func (i ApiKeyAppleAppArgs) ToApiKeyAppleAppOutput() ApiKeyAppleAppOutput {
+	return i.ToApiKeyAppleAppOutputWithContext(context.Background())
+}
+
+func (i ApiKeyAppleAppArgs) ToApiKeyAppleAppOutputWithContext(ctx context.Context) ApiKeyAppleAppOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyAppleAppOutput)
+}
+
+// ApiKeyAppleAppArrayInput is an input type that accepts ApiKeyAppleAppArray and ApiKeyAppleAppArrayOutput values.
+// You can construct a concrete instance of `ApiKeyAppleAppArrayInput` via:
+//
+//	ApiKeyAppleAppArray{ ApiKeyAppleAppArgs{...} }
+type ApiKeyAppleAppArrayInput interface {
+	pulumi.Input
+
+	ToApiKeyAppleAppArrayOutput() ApiKeyAppleAppArrayOutput
+	ToApiKeyAppleAppArrayOutputWithContext(context.Context) ApiKeyAppleAppArrayOutput
+}
+
+type ApiKeyAppleAppArray []ApiKeyAppleAppInput
+
+func (ApiKeyAppleAppArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiKeyAppleApp)(nil)).Elem()
+}
+
+func (i ApiKeyAppleAppArray) ToApiKeyAppleAppArrayOutput() ApiKeyAppleAppArrayOutput {
+	return i.ToApiKeyAppleAppArrayOutputWithContext(context.Background())
+}
+
+func (i ApiKeyAppleAppArray) ToApiKeyAppleAppArrayOutputWithContext(ctx context.Context) ApiKeyAppleAppArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyAppleAppArrayOutput)
+}
+
+type ApiKeyAppleAppOutput struct{ *pulumi.OutputState }
+
+func (ApiKeyAppleAppOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiKeyAppleApp)(nil)).Elem()
+}
+
+func (o ApiKeyAppleAppOutput) ToApiKeyAppleAppOutput() ApiKeyAppleAppOutput {
+	return o
+}
+
+func (o ApiKeyAppleAppOutput) ToApiKeyAppleAppOutputWithContext(ctx context.Context) ApiKeyAppleAppOutput {
+	return o
+}
+
+func (o ApiKeyAppleAppOutput) BundleId() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiKeyAppleApp) string { return v.BundleId }).(pulumi.StringOutput)
+}
+
+type ApiKeyAppleAppArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiKeyAppleAppArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiKeyAppleApp)(nil)).Elem()
+}
+
+func (o ApiKeyAppleAppArrayOutput) ToApiKeyAppleAppArrayOutput() ApiKeyAppleAppArrayOutput {
+	return o
+}
+
+func (o ApiKeyAppleAppArrayOutput) ToApiKeyAppleAppArrayOutputWithContext(ctx context.Context) ApiKeyAppleAppArrayOutput {
+	return o
+}
+
+func (o ApiKeyAppleAppArrayOutput) Index(i pulumi.IntInput) ApiKeyAppleAppOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiKeyAppleApp {
+		return vs[0].([]ApiKeyAppleApp)[vs[1].(int)]
+	}).(ApiKeyAppleAppOutput)
+}
+
 type ApiKeyRestrictions struct {
 	// A list of allowed actions that an API key resource grants permissions to perform. You must have at least one action for each type of resource. For example, if you have a place resource, you must include at least one place action.
 	//
@@ -53,7 +247,9 @@ type ApiKeyRestrictions struct {
 	// - `geo-routes:SnapToRoads` - Allows snapping GPS points to a likely route.
 	//
 	// > You must use these strings exactly. For example, to provide access to map rendering, the only valid action is `geo:GetMap*` as an input to the list. `["geo:GetMap*"]` is valid but `["geo:GetTile"]` is not. Similarly, you cannot use `["geo:SearchPlaceIndexFor*"]` - you must list each of the Place actions separately.
-	AllowActions []string `pulumi:"allowActions"`
+	AllowActions     []string           `pulumi:"allowActions"`
+	AllowAndroidApps []ApiKeyAndroidApp `pulumi:"allowAndroidApps"`
+	AllowAppleApps   []ApiKeyAppleApp   `pulumi:"allowAppleApps"`
 	// An optional list of allowed HTTP referers for which requests must originate from. Requests using this API key from other domains will not be allowed.
 	//
 	// Requirements:
@@ -129,7 +325,9 @@ type ApiKeyRestrictionsArgs struct {
 	// - `geo-routes:SnapToRoads` - Allows snapping GPS points to a likely route.
 	//
 	// > You must use these strings exactly. For example, to provide access to map rendering, the only valid action is `geo:GetMap*` as an input to the list. `["geo:GetMap*"]` is valid but `["geo:GetTile"]` is not. Similarly, you cannot use `["geo:SearchPlaceIndexFor*"]` - you must list each of the Place actions separately.
-	AllowActions pulumi.StringArrayInput `pulumi:"allowActions"`
+	AllowActions     pulumi.StringArrayInput    `pulumi:"allowActions"`
+	AllowAndroidApps ApiKeyAndroidAppArrayInput `pulumi:"allowAndroidApps"`
+	AllowAppleApps   ApiKeyAppleAppArrayInput   `pulumi:"allowAppleApps"`
 	// An optional list of allowed HTTP referers for which requests must originate from. Requests using this API key from other domains will not be allowed.
 	//
 	// Requirements:
@@ -221,6 +419,14 @@ func (o ApiKeyRestrictionsOutput) ToApiKeyRestrictionsOutputWithContext(ctx cont
 // > You must use these strings exactly. For example, to provide access to map rendering, the only valid action is `geo:GetMap*` as an input to the list. `["geo:GetMap*"]` is valid but `["geo:GetTile"]` is not. Similarly, you cannot use `["geo:SearchPlaceIndexFor*"]` - you must list each of the Place actions separately.
 func (o ApiKeyRestrictionsOutput) AllowActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApiKeyRestrictions) []string { return v.AllowActions }).(pulumi.StringArrayOutput)
+}
+
+func (o ApiKeyRestrictionsOutput) AllowAndroidApps() ApiKeyAndroidAppArrayOutput {
+	return o.ApplyT(func(v ApiKeyRestrictions) []ApiKeyAndroidApp { return v.AllowAndroidApps }).(ApiKeyAndroidAppArrayOutput)
+}
+
+func (o ApiKeyRestrictionsOutput) AllowAppleApps() ApiKeyAppleAppArrayOutput {
+	return o.ApplyT(func(v ApiKeyRestrictions) []ApiKeyAppleApp { return v.AllowAppleApps }).(ApiKeyAppleAppArrayOutput)
 }
 
 // An optional list of allowed HTTP referers for which requests must originate from. Requests using this API key from other domains will not be allowed.
@@ -321,6 +527,24 @@ func (o ApiKeyRestrictionsPtrOutput) AllowActions() pulumi.StringArrayOutput {
 		}
 		return v.AllowActions
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o ApiKeyRestrictionsPtrOutput) AllowAndroidApps() ApiKeyAndroidAppArrayOutput {
+	return o.ApplyT(func(v *ApiKeyRestrictions) []ApiKeyAndroidApp {
+		if v == nil {
+			return nil
+		}
+		return v.AllowAndroidApps
+	}).(ApiKeyAndroidAppArrayOutput)
+}
+
+func (o ApiKeyRestrictionsPtrOutput) AllowAppleApps() ApiKeyAppleAppArrayOutput {
+	return o.ApplyT(func(v *ApiKeyRestrictions) []ApiKeyAppleApp {
+		if v == nil {
+			return nil
+		}
+		return v.AllowAppleApps
+	}).(ApiKeyAppleAppArrayOutput)
 }
 
 // An optional list of allowed HTTP referers for which requests must originate from. Requests using this API key from other domains will not be allowed.
@@ -756,10 +980,18 @@ type TrackerTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyAndroidAppInput)(nil)).Elem(), ApiKeyAndroidAppArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyAndroidAppArrayInput)(nil)).Elem(), ApiKeyAndroidAppArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyAppleAppInput)(nil)).Elem(), ApiKeyAppleAppArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyAppleAppArrayInput)(nil)).Elem(), ApiKeyAppleAppArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyRestrictionsInput)(nil)).Elem(), ApiKeyRestrictionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MapConfigurationInput)(nil)).Elem(), MapConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaceIndexDataSourceConfigurationInput)(nil)).Elem(), PlaceIndexDataSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaceIndexDataSourceConfigurationPtrInput)(nil)).Elem(), PlaceIndexDataSourceConfigurationArgs{})
+	pulumi.RegisterOutputType(ApiKeyAndroidAppOutput{})
+	pulumi.RegisterOutputType(ApiKeyAndroidAppArrayOutput{})
+	pulumi.RegisterOutputType(ApiKeyAppleAppOutput{})
+	pulumi.RegisterOutputType(ApiKeyAppleAppArrayOutput{})
 	pulumi.RegisterOutputType(ApiKeyRestrictionsOutput{})
 	pulumi.RegisterOutputType(ApiKeyRestrictionsPtrOutput{})
 	pulumi.RegisterOutputType(MapConfigurationOutput{})

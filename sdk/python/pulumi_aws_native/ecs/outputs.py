@@ -4373,7 +4373,7 @@ class TaskDefinitionContainerDefinition(dict):
                  +  Images in other online repositories are qualified further by a domain name (for example, ``quay.io/assemblyline/ubuntu``).
         :param _builtins.str name: The name of a container. If you're linking multiple containers together in a task definition, the ``name`` of one container can be entered in the ``links`` of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to ``name`` in the docker container create command and the ``--name`` option to docker run.
         :param Sequence[_builtins.str] command: The command that's passed to the container. This parameter maps to ``Cmd`` in the docker container create command and the ``COMMAND`` parameter to docker run. If there are multiple arguments, each argument is a separated string in the array.
-        :param _builtins.int cpu: The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the docker container create commandand the ``--cpu-shares`` option to docker run.
+        :param _builtins.int cpu: The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the docker container create command and the ``--cpu-shares`` option to docker run.
                 This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.
                  You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://docs.aws.amazon.com/ec2/instance-types/) detail page by 1,024.
                  Linux containers share unallocated CPU units with other containers on the container instance with the same ratio as their allocated amount. For example, if you run a single-container task on a single-core instance type with 512 CPU units specified for that container, and that's the only task running on the container instance, that container could use the full 1,024 CPU unit share at any given time. However, if you launched another copy of the same task on that container instance, each task is guaranteed a minimum of 512 CPU units when needed. Moreover, each container could float to higher CPU usage if the other container was not using it. If both tasks were 100% active all of the time, they would be limited to 512 CPU units.
@@ -4611,7 +4611,7 @@ class TaskDefinitionContainerDefinition(dict):
     @pulumi.getter
     def cpu(self) -> Optional[_builtins.int]:
         """
-        The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the docker container create commandand the ``--cpu-shares`` option to docker run.
+        The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the docker container create command and the ``--cpu-shares`` option to docker run.
          This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.
           You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://docs.aws.amazon.com/ec2/instance-types/) detail page by 1,024.
           Linux containers share unallocated CPU units with other containers on the container instance with the same ratio as their allocated amount. For example, if you run a single-container task on a single-core instance type with 512 CPU units specified for that container, and that's the only task running on the container instance, that container could use the full 1,024 CPU unit share at any given time. However, if you launched another copy of the same task on that container instance, each task is guaranteed a minimum of 512 CPU units when needed. Moreover, each container could float to higher CPU usage if the other container was not using it. If both tasks were 100% active all of the time, they would be limited to 512 CPU units.
@@ -6684,7 +6684,7 @@ class TaskDefinitionRuntimePlatform(dict):
         Information about the platform for the Amazon ECS service or task.
          For more information about ``RuntimePlatform``, see [RuntimePlatform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) in the *Amazon Elastic Container Service Developer Guide*.
         :param _builtins.str cpu_architecture: The CPU architecture.
-                You can run your Linux tasks on an ARM-based platform by setting the value to ``ARM64``. This option is available for tasks that run on Linux Amazon EC2 instance or Linux containers on Fargate.
+                You can run your Linux tasks on an ARM-based platform by setting the value to ``ARM64``. This option is available for tasks that run on Linux Amazon EC2 instance, Amazon ECS Managed Instances, or Linux containers on Fargate.
         :param _builtins.str operating_system_family: The operating system.
         """
         if cpu_architecture is not None:
@@ -6697,7 +6697,7 @@ class TaskDefinitionRuntimePlatform(dict):
     def cpu_architecture(self) -> Optional[_builtins.str]:
         """
         The CPU architecture.
-         You can run your Linux tasks on an ARM-based platform by setting the value to ``ARM64``. This option is available for tasks that run on Linux Amazon EC2 instance or Linux containers on Fargate.
+         You can run your Linux tasks on an ARM-based platform by setting the value to ``ARM64``. This option is available for tasks that run on Linux Amazon EC2 instance, Amazon ECS Managed Instances, or Linux containers on Fargate.
         """
         return pulumi.get(self, "cpu_architecture")
 

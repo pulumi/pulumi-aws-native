@@ -20,6 +20,7 @@ __all__ = [
 @pulumi.type_token("aws-native:cassandra:KeyspaceRegionListItem")
 class KeyspaceRegionListItem(_builtins.str, Enum):
     AF_SOUTH1 = "af-south-1"
+    AP_EAST1 = "ap-east-1"
     AP_NORTHEAST1 = "ap-northeast-1"
     AP_NORTHEAST2 = "ap-northeast-2"
     AP_SOUTH1 = "ap-south-1"
@@ -31,6 +32,8 @@ class KeyspaceRegionListItem(_builtins.str, Enum):
     EU_WEST1 = "eu-west-1"
     EU_WEST2 = "eu-west-2"
     EU_WEST3 = "eu-west-3"
+    ME_CENTRAL1 = "me-central-1"
+    ME_SOUTH1 = "me-south-1"
     SA_EAST1 = "sa-east-1"
     US_EAST1 = "us-east-1"
     US_EAST2 = "us-east-2"

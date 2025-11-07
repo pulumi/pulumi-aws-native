@@ -40,14 +40,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         [Input("integerStaticValues")]
-        private InputList<double>? _integerStaticValues;
+        private InputList<int>? _integerStaticValues;
 
         /// <summary>
         /// &lt;p&gt;A list of static default values for a given integer parameter.&lt;/p&gt;
         /// </summary>
-        public InputList<double> IntegerStaticValues
+        public InputList<int> IntegerStaticValues
         {
-            get => _integerStaticValues ?? (_integerStaticValues = new InputList<double>());
+            get => _integerStaticValues ?? (_integerStaticValues = new InputList<int>());
             set => _integerStaticValues = value;
         }
 

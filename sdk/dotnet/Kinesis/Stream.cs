@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Kinesis
         public Output<ImmutableArray<Pulumi.AwsNative.Kinesis.StreamEnhancedMetric>> DesiredShardLevelMetrics { get; private set; } = null!;
 
         /// <summary>
+        /// Maximum size of a data record in KiB allowed to be put into Kinesis stream.
+        /// </summary>
+        [Output("maxRecordSizeInKiB")]
+        public Output<int?> MaxRecordSizeInKiB { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Kinesis stream.
         /// </summary>
         [Output("name")]
@@ -123,6 +129,12 @@ namespace Pulumi.AwsNative.Kinesis
             get => _desiredShardLevelMetrics ?? (_desiredShardLevelMetrics = new InputList<Pulumi.AwsNative.Kinesis.StreamEnhancedMetric>());
             set => _desiredShardLevelMetrics = value;
         }
+
+        /// <summary>
+        /// Maximum size of a data record in KiB allowed to be put into Kinesis stream.
+        /// </summary>
+        [Input("maxRecordSizeInKiB")]
+        public Input<int>? MaxRecordSizeInKiB { get; set; }
 
         /// <summary>
         /// The name of the Kinesis stream.

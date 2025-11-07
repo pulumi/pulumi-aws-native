@@ -17,15 +17,24 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetCreateColumnsOperation
     {
+        public readonly string? Alias;
         /// <summary>
         /// &lt;p&gt;Calculated columns to create.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.DataSetCalculatedColumn> Columns;
+        public readonly Outputs.DataSetTransformOperationSource? Source;
 
         [OutputConstructor]
-        private DataSetCreateColumnsOperation(ImmutableArray<Outputs.DataSetCalculatedColumn> columns)
+        private DataSetCreateColumnsOperation(
+            string? alias,
+
+            ImmutableArray<Outputs.DataSetCalculatedColumn> columns,
+
+            Outputs.DataSetTransformOperationSource? source)
         {
+            Alias = alias;
             Columns = columns;
+            Source = source;
         }
     }
 }

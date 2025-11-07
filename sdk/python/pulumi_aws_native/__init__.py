@@ -3277,6 +3277,7 @@ _utilities.register(
   "mod": "servicecatalog",
   "fqn": "pulumi_aws_native.servicecatalog",
   "classes": {
+   "aws-native:servicecatalog:CloudFormationProduct": "CloudFormationProduct",
    "aws-native:servicecatalog:CloudFormationProvisionedProduct": "CloudFormationProvisionedProduct",
    "aws-native:servicecatalog:LaunchNotificationConstraint": "LaunchNotificationConstraint",
    "aws-native:servicecatalog:LaunchTemplateConstraint": "LaunchTemplateConstraint",
@@ -3319,6 +3320,7 @@ _utilities.register(
    "aws-native:ses:MailManagerRelay": "MailManagerRelay",
    "aws-native:ses:MailManagerRuleSet": "MailManagerRuleSet",
    "aws-native:ses:MailManagerTrafficPolicy": "MailManagerTrafficPolicy",
+   "aws-native:ses:MultiRegionEndpoint": "MultiRegionEndpoint",
    "aws-native:ses:Template": "Template",
    "aws-native:ses:VdmAttributes": "VdmAttributes"
   }

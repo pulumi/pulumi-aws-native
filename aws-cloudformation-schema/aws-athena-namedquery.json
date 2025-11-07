@@ -57,5 +57,7 @@
   "createOnlyProperties" : [ "/properties/Name", "/properties/Database", "/properties/Description", "/properties/QueryString", "/properties/WorkGroup" ],
   "primaryIdentifier" : [ "/properties/NamedQueryId" ],
   "additionalProperties" : false,
-  "taggable" : false
+  "tagging" : {
+    "taggable" : false
+  }
 }

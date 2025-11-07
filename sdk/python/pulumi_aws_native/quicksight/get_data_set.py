@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataSetResult:
-    def __init__(__self__, arn=None, column_groups=None, column_level_permission_rules=None, consumed_spice_capacity_in_bytes=None, created_time=None, data_set_refresh_properties=None, data_set_usage_configuration=None, dataset_parameters=None, import_mode=None, last_updated_time=None, logical_table_map=None, name=None, output_columns=None, performance_configuration=None, permissions=None, physical_table_map=None, row_level_permission_data_set=None, row_level_permission_tag_configuration=None, tags=None, use_as=None):
+    def __init__(__self__, arn=None, column_groups=None, column_level_permission_rules=None, consumed_spice_capacity_in_bytes=None, created_time=None, data_prep_configuration=None, data_set_refresh_properties=None, data_set_usage_configuration=None, dataset_parameters=None, import_mode=None, last_updated_time=None, logical_table_map=None, name=None, output_columns=None, performance_configuration=None, permissions=None, physical_table_map=None, row_level_permission_data_set=None, row_level_permission_tag_configuration=None, semantic_model_configuration=None, tags=None, use_as=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +42,9 @@ class GetDataSetResult:
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
+        if data_prep_configuration and not isinstance(data_prep_configuration, dict):
+            raise TypeError("Expected argument 'data_prep_configuration' to be a dict")
+        pulumi.set(__self__, "data_prep_configuration", data_prep_configuration)
         if data_set_refresh_properties and not isinstance(data_set_refresh_properties, dict):
             raise TypeError("Expected argument 'data_set_refresh_properties' to be a dict")
         pulumi.set(__self__, "data_set_refresh_properties", data_set_refresh_properties)
@@ -81,6 +84,9 @@ class GetDataSetResult:
         if row_level_permission_tag_configuration and not isinstance(row_level_permission_tag_configuration, dict):
             raise TypeError("Expected argument 'row_level_permission_tag_configuration' to be a dict")
         pulumi.set(__self__, "row_level_permission_tag_configuration", row_level_permission_tag_configuration)
+        if semantic_model_configuration and not isinstance(semantic_model_configuration, dict):
+            raise TypeError("Expected argument 'semantic_model_configuration' to be a dict")
+        pulumi.set(__self__, "semantic_model_configuration", semantic_model_configuration)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -132,6 +138,11 @@ class GetDataSetResult:
         return pulumi.get(self, "created_time")
 
     @_builtins.property
+    @pulumi.getter(name="dataPrepConfiguration")
+    def data_prep_configuration(self) -> Optional['outputs.DataSetDataPrepConfiguration']:
+        return pulumi.get(self, "data_prep_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="dataSetRefreshProperties")
     def data_set_refresh_properties(self) -> Optional['outputs.DataSetRefreshProperties']:
         """
@@ -174,9 +185,6 @@ class GetDataSetResult:
     @_builtins.property
     @pulumi.getter(name="logicalTableMap")
     def logical_table_map(self) -> Optional[Mapping[str, 'outputs.DataSetLogicalTable']]:
-        """
-        Configures the combination and transformation of the data from the physical tables.
-        """
         return pulumi.get(self, "logical_table_map")
 
     @_builtins.property
@@ -223,18 +231,17 @@ class GetDataSetResult:
     @_builtins.property
     @pulumi.getter(name="rowLevelPermissionDataSet")
     def row_level_permission_data_set(self) -> Optional['outputs.DataSetRowLevelPermissionDataSet']:
-        """
-        The row-level security configuration for the data that you want to create.
-        """
         return pulumi.get(self, "row_level_permission_data_set")
 
     @_builtins.property
     @pulumi.getter(name="rowLevelPermissionTagConfiguration")
     def row_level_permission_tag_configuration(self) -> Optional['outputs.DataSetRowLevelPermissionTagConfiguration']:
-        """
-        The element you can use to define tags for row-level security.
-        """
         return pulumi.get(self, "row_level_permission_tag_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="semanticModelConfiguration")
+    def semantic_model_configuration(self) -> Optional['outputs.DataSetSemanticModelConfiguration']:
+        return pulumi.get(self, "semantic_model_configuration")
 
     @_builtins.property
     @pulumi.getter
@@ -264,6 +271,7 @@ class AwaitableGetDataSetResult(GetDataSetResult):
             column_level_permission_rules=self.column_level_permission_rules,
             consumed_spice_capacity_in_bytes=self.consumed_spice_capacity_in_bytes,
             created_time=self.created_time,
+            data_prep_configuration=self.data_prep_configuration,
             data_set_refresh_properties=self.data_set_refresh_properties,
             data_set_usage_configuration=self.data_set_usage_configuration,
             dataset_parameters=self.dataset_parameters,
@@ -277,6 +285,7 @@ class AwaitableGetDataSetResult(GetDataSetResult):
             physical_table_map=self.physical_table_map,
             row_level_permission_data_set=self.row_level_permission_data_set,
             row_level_permission_tag_configuration=self.row_level_permission_tag_configuration,
+            semantic_model_configuration=self.semantic_model_configuration,
             tags=self.tags,
             use_as=self.use_as)
 
@@ -303,6 +312,7 @@ def get_data_set(aws_account_id: Optional[_builtins.str] = None,
         column_level_permission_rules=pulumi.get(__ret__, 'column_level_permission_rules'),
         consumed_spice_capacity_in_bytes=pulumi.get(__ret__, 'consumed_spice_capacity_in_bytes'),
         created_time=pulumi.get(__ret__, 'created_time'),
+        data_prep_configuration=pulumi.get(__ret__, 'data_prep_configuration'),
         data_set_refresh_properties=pulumi.get(__ret__, 'data_set_refresh_properties'),
         data_set_usage_configuration=pulumi.get(__ret__, 'data_set_usage_configuration'),
         dataset_parameters=pulumi.get(__ret__, 'dataset_parameters'),
@@ -316,6 +326,7 @@ def get_data_set(aws_account_id: Optional[_builtins.str] = None,
         physical_table_map=pulumi.get(__ret__, 'physical_table_map'),
         row_level_permission_data_set=pulumi.get(__ret__, 'row_level_permission_data_set'),
         row_level_permission_tag_configuration=pulumi.get(__ret__, 'row_level_permission_tag_configuration'),
+        semantic_model_configuration=pulumi.get(__ret__, 'semantic_model_configuration'),
         tags=pulumi.get(__ret__, 'tags'),
         use_as=pulumi.get(__ret__, 'use_as'))
 def get_data_set_output(aws_account_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -339,6 +350,7 @@ def get_data_set_output(aws_account_id: Optional[pulumi.Input[_builtins.str]] = 
         column_level_permission_rules=pulumi.get(__response__, 'column_level_permission_rules'),
         consumed_spice_capacity_in_bytes=pulumi.get(__response__, 'consumed_spice_capacity_in_bytes'),
         created_time=pulumi.get(__response__, 'created_time'),
+        data_prep_configuration=pulumi.get(__response__, 'data_prep_configuration'),
         data_set_refresh_properties=pulumi.get(__response__, 'data_set_refresh_properties'),
         data_set_usage_configuration=pulumi.get(__response__, 'data_set_usage_configuration'),
         dataset_parameters=pulumi.get(__response__, 'dataset_parameters'),
@@ -352,5 +364,6 @@ def get_data_set_output(aws_account_id: Optional[pulumi.Input[_builtins.str]] = 
         physical_table_map=pulumi.get(__response__, 'physical_table_map'),
         row_level_permission_data_set=pulumi.get(__response__, 'row_level_permission_data_set'),
         row_level_permission_tag_configuration=pulumi.get(__response__, 'row_level_permission_tag_configuration'),
+        semantic_model_configuration=pulumi.get(__response__, 'semantic_model_configuration'),
         tags=pulumi.get(__response__, 'tags'),
         use_as=pulumi.get(__response__, 'use_as')))

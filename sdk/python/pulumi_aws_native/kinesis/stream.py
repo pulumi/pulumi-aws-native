@@ -25,6 +25,7 @@ __all__ = ['StreamArgs', 'Stream']
 class StreamArgs:
     def __init__(__self__, *,
                  desired_shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]]] = None,
+                 max_record_size_in_ki_b: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  retention_period_hours: Optional[pulumi.Input[_builtins.int]] = None,
                  shard_count: Optional[pulumi.Input[_builtins.int]] = None,
@@ -34,6 +35,7 @@ class StreamArgs:
         """
         The set of arguments for constructing a Stream resource.
         :param pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]] desired_shard_level_metrics: The final list of shard-level metrics
+        :param pulumi.Input[_builtins.int] max_record_size_in_ki_b: Maximum size of a data record in KiB allowed to be put into Kinesis stream.
         :param pulumi.Input[_builtins.str] name: The name of the Kinesis stream.
         :param pulumi.Input[_builtins.int] retention_period_hours: The number of hours for the data records that are stored in shards to remain accessible.
         :param pulumi.Input[_builtins.int] shard_count: The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
@@ -43,6 +45,8 @@ class StreamArgs:
         """
         if desired_shard_level_metrics is not None:
             pulumi.set(__self__, "desired_shard_level_metrics", desired_shard_level_metrics)
+        if max_record_size_in_ki_b is not None:
+            pulumi.set(__self__, "max_record_size_in_ki_b", max_record_size_in_ki_b)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if retention_period_hours is not None:
@@ -67,6 +71,18 @@ class StreamArgs:
     @desired_shard_level_metrics.setter
     def desired_shard_level_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]]]):
         pulumi.set(self, "desired_shard_level_metrics", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxRecordSizeInKiB")
+    def max_record_size_in_ki_b(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Maximum size of a data record in KiB allowed to be put into Kinesis stream.
+        """
+        return pulumi.get(self, "max_record_size_in_ki_b")
+
+    @max_record_size_in_ki_b.setter
+    def max_record_size_in_ki_b(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_record_size_in_ki_b", value)
 
     @_builtins.property
     @pulumi.getter
@@ -148,6 +164,7 @@ class Stream(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  desired_shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]]] = None,
+                 max_record_size_in_ki_b: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  retention_period_hours: Optional[pulumi.Input[_builtins.int]] = None,
                  shard_count: Optional[pulumi.Input[_builtins.int]] = None,
@@ -161,6 +178,7 @@ class Stream(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]] desired_shard_level_metrics: The final list of shard-level metrics
+        :param pulumi.Input[_builtins.int] max_record_size_in_ki_b: Maximum size of a data record in KiB allowed to be put into Kinesis stream.
         :param pulumi.Input[_builtins.str] name: The name of the Kinesis stream.
         :param pulumi.Input[_builtins.int] retention_period_hours: The number of hours for the data records that are stored in shards to remain accessible.
         :param pulumi.Input[_builtins.int] shard_count: The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
@@ -193,6 +211,7 @@ class Stream(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  desired_shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]]] = None,
+                 max_record_size_in_ki_b: Optional[pulumi.Input[_builtins.int]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  retention_period_hours: Optional[pulumi.Input[_builtins.int]] = None,
                  shard_count: Optional[pulumi.Input[_builtins.int]] = None,
@@ -209,6 +228,7 @@ class Stream(pulumi.CustomResource):
             __props__ = StreamArgs.__new__(StreamArgs)
 
             __props__.__dict__["desired_shard_level_metrics"] = desired_shard_level_metrics
+            __props__.__dict__["max_record_size_in_ki_b"] = max_record_size_in_ki_b
             __props__.__dict__["name"] = name
             __props__.__dict__["retention_period_hours"] = retention_period_hours
             __props__.__dict__["shard_count"] = shard_count
@@ -242,6 +262,7 @@ class Stream(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["desired_shard_level_metrics"] = None
+        __props__.__dict__["max_record_size_in_ki_b"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["retention_period_hours"] = None
         __props__.__dict__["shard_count"] = None
@@ -265,6 +286,14 @@ class Stream(pulumi.CustomResource):
         The final list of shard-level metrics
         """
         return pulumi.get(self, "desired_shard_level_metrics")
+
+    @_builtins.property
+    @pulumi.getter(name="maxRecordSizeInKiB")
+    def max_record_size_in_ki_b(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Maximum size of a data record in KiB allowed to be put into Kinesis stream.
+        """
+        return pulumi.get(self, "max_record_size_in_ki_b")
 
     @_builtins.property
     @pulumi.getter

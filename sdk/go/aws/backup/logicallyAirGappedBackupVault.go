@@ -33,7 +33,8 @@ type LogicallyAirGappedBackupVault struct {
 	// This setting specifies the minimum retention period that the vault retains its recovery points.
 	//
 	// The minimum value accepted is 7 days.
-	MinRetentionDays pulumi.IntOutput `pulumi:"minRetentionDays"`
+	MinRetentionDays   pulumi.IntOutput       `pulumi:"minRetentionDays"`
+	MpaApprovalTeamArn pulumi.StringPtrOutput `pulumi:"mpaApprovalTeamArn"`
 	// Returns event notifications for the specified backup vault.
 	Notifications LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput `pulumi:"notifications"`
 	// The vault state. The possible values are `CREATING` , `AVAILABLE` , and `FAILED` .
@@ -107,7 +108,8 @@ type logicallyAirGappedBackupVaultArgs struct {
 	// This setting specifies the minimum retention period that the vault retains its recovery points.
 	//
 	// The minimum value accepted is 7 days.
-	MinRetentionDays int `pulumi:"minRetentionDays"`
+	MinRetentionDays   int     `pulumi:"minRetentionDays"`
+	MpaApprovalTeamArn *string `pulumi:"mpaApprovalTeamArn"`
 	// Returns event notifications for the specified backup vault.
 	Notifications *LogicallyAirGappedBackupVaultNotificationObjectType `pulumi:"notifications"`
 }
@@ -127,7 +129,8 @@ type LogicallyAirGappedBackupVaultArgs struct {
 	// This setting specifies the minimum retention period that the vault retains its recovery points.
 	//
 	// The minimum value accepted is 7 days.
-	MinRetentionDays pulumi.IntInput
+	MinRetentionDays   pulumi.IntInput
+	MpaApprovalTeamArn pulumi.StringPtrInput
 	// Returns event notifications for the specified backup vault.
 	Notifications LogicallyAirGappedBackupVaultNotificationObjectTypePtrInput
 }
@@ -206,6 +209,10 @@ func (o LogicallyAirGappedBackupVaultOutput) MaxRetentionDays() pulumi.IntOutput
 // The minimum value accepted is 7 days.
 func (o LogicallyAirGappedBackupVaultOutput) MinRetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.IntOutput { return v.MinRetentionDays }).(pulumi.IntOutput)
+}
+
+func (o LogicallyAirGappedBackupVaultOutput) MpaApprovalTeamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.StringPtrOutput { return v.MpaApprovalTeamArn }).(pulumi.StringPtrOutput)
 }
 
 // Returns event notifications for the specified backup vault.

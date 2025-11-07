@@ -44,6 +44,7 @@ __all__ = [
     'RuleSendNotificationActionContentType',
     'RuleSendNotificationActionDeliveryMethod',
     'RuleTriggerEventSourceEventSourceName',
+    'SecurityProfilePrimaryAttributeValueAccessType',
     'TaskTemplateFieldType',
     'TaskTemplateStatus',
     'TrafficDistributionGroupStatus',
@@ -442,6 +443,14 @@ class RuleTriggerEventSourceEventSourceName(_builtins.str, Enum):
     ON_METRIC_DATA_UPDATE = "OnMetricDataUpdate"
     ON_CASE_CREATE = "OnCaseCreate"
     ON_CASE_UPDATE = "OnCaseUpdate"
+
+
+@pulumi.type_token("aws-native:connect:SecurityProfilePrimaryAttributeValueAccessType")
+class SecurityProfilePrimaryAttributeValueAccessType(_builtins.str, Enum):
+    """
+    Specifies the type of access granted. Currently, only "ALLOW" is supported
+    """
+    ALLOW = "ALLOW"
 
 
 @pulumi.type_token("aws-native:connect:TaskTemplateFieldType")

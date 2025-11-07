@@ -81,6 +81,7 @@ namespace Pulumi.AwsNative.Backup
         /// The ARN of the server-side encryption key.
         /// </summary>
         public readonly string? EncryptionKeyArn;
+        public readonly string? MpaApprovalTeamArn;
         /// <summary>
         /// Returns event notifications for the specified backup vault.
         /// </summary>
@@ -104,6 +105,8 @@ namespace Pulumi.AwsNative.Backup
 
             string? encryptionKeyArn,
 
+            string? mpaApprovalTeamArn,
+
             Outputs.LogicallyAirGappedBackupVaultNotificationObjectType? notifications,
 
             string? vaultState,
@@ -114,6 +117,7 @@ namespace Pulumi.AwsNative.Backup
             BackupVaultArn = backupVaultArn;
             BackupVaultTags = backupVaultTags;
             EncryptionKeyArn = encryptionKeyArn;
+            MpaApprovalTeamArn = mpaApprovalTeamArn;
             Notifications = notifications;
             VaultState = vaultState;
             VaultType = vaultType;

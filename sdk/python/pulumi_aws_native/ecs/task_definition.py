@@ -82,7 +82,7 @@ class TaskDefinitionArgs:
         :param pulumi.Input[_builtins.str] pid_mode: The process namespace to use for the containers in the task. The valid values are ``host`` or ``task``. On Fargate for Linux containers, the only valid value is ``task``. For example, monitoring sidecars might need ``pidMode`` to access information about other containers running in the same task.
                 If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance.
                 If ``task`` is specified, all containers within the specified task share the same process namespace.
-                If no value is specified, the default is a private namespace for each container.
+                If no value is specified, the The default is a private namespace for each container.
                 If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure.
                  This parameter is not supported for Windows containers.
                   This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
@@ -91,7 +91,7 @@ class TaskDefinitionArgs:
         :param pulumi.Input['TaskDefinitionProxyConfigurationArgs'] proxy_configuration: The configuration details for the App Mesh proxy.
                 Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to use a proxy configuration. If your container instances are launched from the Amazon ECS optimized AMI version ``20190301`` or later, they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] requires_compatibilities: The task launch types the task definition was validated against. The valid values are ``MANAGED_INSTANCES``, ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
-        :param pulumi.Input['TaskDefinitionRuntimePlatformArgs'] runtime_platform: The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
+        :param pulumi.Input['TaskDefinitionRuntimePlatformArgs'] runtime_platform: The operating system that your tasks definitions run on.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.
                 The following basic restrictions apply to tags:
                  +  Maximum number of tags per resource - 50
@@ -294,7 +294,7 @@ class TaskDefinitionArgs:
         The process namespace to use for the containers in the task. The valid values are ``host`` or ``task``. On Fargate for Linux containers, the only valid value is ``task``. For example, monitoring sidecars might need ``pidMode`` to access information about other containers running in the same task.
          If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance.
          If ``task`` is specified, all containers within the specified task share the same process namespace.
-         If no value is specified, the default is a private namespace for each container.
+         If no value is specified, the The default is a private namespace for each container.
          If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure.
           This parameter is not supported for Windows containers.
            This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
@@ -347,7 +347,7 @@ class TaskDefinitionArgs:
     @pulumi.getter(name="runtimePlatform")
     def runtime_platform(self) -> Optional[pulumi.Input['TaskDefinitionRuntimePlatformArgs']]:
         """
-        The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
+        The operating system that your tasks definitions run on.
         """
         return pulumi.get(self, "runtime_platform")
 
@@ -649,7 +649,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] pid_mode: The process namespace to use for the containers in the task. The valid values are ``host`` or ``task``. On Fargate for Linux containers, the only valid value is ``task``. For example, monitoring sidecars might need ``pidMode`` to access information about other containers running in the same task.
                 If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance.
                 If ``task`` is specified, all containers within the specified task share the same process namespace.
-                If no value is specified, the default is a private namespace for each container.
+                If no value is specified, the The default is a private namespace for each container.
                 If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure.
                  This parameter is not supported for Windows containers.
                   This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
@@ -658,7 +658,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']] proxy_configuration: The configuration details for the App Mesh proxy.
                 Your Amazon ECS container instances require at least version 1.26.0 of the container agent and at least version 1.26.0-1 of the ``ecs-init`` package to use a proxy configuration. If your container instances are launched from the Amazon ECS optimized AMI version ``20190301`` or later, they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] requires_compatibilities: The task launch types the task definition was validated against. The valid values are ``MANAGED_INSTANCES``, ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
-        :param pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']] runtime_platform: The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
+        :param pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']] runtime_platform: The operating system that your tasks definitions run on.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.
                 The following basic restrictions apply to tags:
                  +  Maximum number of tags per resource - 50
@@ -1077,7 +1077,7 @@ class TaskDefinition(pulumi.CustomResource):
         The process namespace to use for the containers in the task. The valid values are ``host`` or ``task``. On Fargate for Linux containers, the only valid value is ``task``. For example, monitoring sidecars might need ``pidMode`` to access information about other containers running in the same task.
          If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance.
          If ``task`` is specified, all containers within the specified task share the same process namespace.
-         If no value is specified, the default is a private namespace for each container.
+         If no value is specified, the The default is a private namespace for each container.
          If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure.
           This parameter is not supported for Windows containers.
            This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
@@ -1114,7 +1114,7 @@ class TaskDefinition(pulumi.CustomResource):
     @pulumi.getter(name="runtimePlatform")
     def runtime_platform(self) -> pulumi.Output[Optional['outputs.TaskDefinitionRuntimePlatform']]:
         """
-        The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
+        The operating system that your tasks definitions run on.
         """
         return pulumi.get(self, "runtime_platform")
 

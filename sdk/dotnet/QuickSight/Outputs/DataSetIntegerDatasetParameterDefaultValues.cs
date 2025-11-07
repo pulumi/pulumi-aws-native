@@ -19,10 +19,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// &lt;p&gt;A list of static default values for a given integer parameter.&lt;/p&gt;
         /// </summary>
-        public readonly ImmutableArray<double> StaticValues;
+        public readonly ImmutableArray<int> StaticValues;
 
         [OutputConstructor]
-        private DataSetIntegerDatasetParameterDefaultValues(ImmutableArray<double> staticValues)
+        private DataSetIntegerDatasetParameterDefaultValues(ImmutableArray<int> staticValues)
         {
             StaticValues = staticValues;
         }

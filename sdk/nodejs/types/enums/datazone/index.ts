@@ -24,6 +24,16 @@ export const ConnectionOAuth2GrantType = {
  */
 export type ConnectionOAuth2GrantType = (typeof ConnectionOAuth2GrantType)[keyof typeof ConnectionOAuth2GrantType];
 
+export const ConnectionScope = {
+    Domain: "DOMAIN",
+    Project: "PROJECT",
+} as const;
+
+/**
+ * The scope of the connection.
+ */
+export type ConnectionScope = (typeof ConnectionScope)[keyof typeof ConnectionScope];
+
 export const DataSourceEnableSetting = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

@@ -46,6 +46,10 @@ export class Stream extends pulumi.CustomResource {
      */
     declare public readonly desiredShardLevelMetrics: pulumi.Output<enums.kinesis.StreamEnhancedMetric[] | undefined>;
     /**
+     * Maximum size of a data record in KiB allowed to be put into Kinesis stream.
+     */
+    declare public readonly maxRecordSizeInKiB: pulumi.Output<number | undefined>;
+    /**
      * The name of the Kinesis stream.
      */
     declare public readonly name: pulumi.Output<string | undefined>;
@@ -82,6 +86,7 @@ export class Stream extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["desiredShardLevelMetrics"] = args?.desiredShardLevelMetrics;
+            resourceInputs["maxRecordSizeInKiB"] = args?.maxRecordSizeInKiB;
             resourceInputs["name"] = args?.name;
             resourceInputs["retentionPeriodHours"] = args?.retentionPeriodHours;
             resourceInputs["shardCount"] = args?.shardCount;
@@ -92,6 +97,7 @@ export class Stream extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["desiredShardLevelMetrics"] = undefined /*out*/;
+            resourceInputs["maxRecordSizeInKiB"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["retentionPeriodHours"] = undefined /*out*/;
             resourceInputs["shardCount"] = undefined /*out*/;
@@ -114,6 +120,10 @@ export interface StreamArgs {
      * The final list of shard-level metrics
      */
     desiredShardLevelMetrics?: pulumi.Input<pulumi.Input<enums.kinesis.StreamEnhancedMetric>[]>;
+    /**
+     * Maximum size of a data record in KiB allowed to be put into Kinesis stream.
+     */
+    maxRecordSizeInKiB?: pulumi.Input<number>;
     /**
      * The name of the Kinesis stream.
      */

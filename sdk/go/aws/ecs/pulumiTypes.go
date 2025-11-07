@@ -10772,7 +10772,7 @@ func (o TaskDefinitionAuthorizationConfigPtrOutput) Iam() TaskDefinitionAuthoriz
 type TaskDefinitionContainerDefinition struct {
 	// The command that's passed to the container. This parameter maps to ``Cmd`` in the docker container create command and the ``COMMAND`` parameter to docker run. If there are multiple arguments, each argument is a separated string in the array.
 	Command []string `pulumi:"command"`
-	// The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the docker container create commandand the ``--cpu-shares`` option to docker run.
+	// The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the docker container create command and the ``--cpu-shares`` option to docker run.
 	//  This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.
 	//   You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://docs.aws.amazon.com/ec2/instance-types/) detail page by 1,024.
 	//   Linux containers share unallocated CPU units with other containers on the container instance with the same ratio as their allocated amount. For example, if you run a single-container task on a single-core instance type with 512 CPU units specified for that container, and that's the only task running on the container instance, that container could use the full 1,024 CPU unit share at any given time. However, if you launched another copy of the same task on that container instance, each task is guaranteed a minimum of 512 CPU units when needed. Moreover, each container could float to higher CPU usage if the other container was not using it. If both tasks were 100% active all of the time, they would be limited to 512 CPU units.
@@ -10958,7 +10958,7 @@ type TaskDefinitionContainerDefinitionInput interface {
 type TaskDefinitionContainerDefinitionArgs struct {
 	// The command that's passed to the container. This parameter maps to ``Cmd`` in the docker container create command and the ``COMMAND`` parameter to docker run. If there are multiple arguments, each argument is a separated string in the array.
 	Command pulumi.StringArrayInput `pulumi:"command"`
-	// The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the docker container create commandand the ``--cpu-shares`` option to docker run.
+	// The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the docker container create command and the ``--cpu-shares`` option to docker run.
 	//  This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.
 	//   You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://docs.aws.amazon.com/ec2/instance-types/) detail page by 1,024.
 	//   Linux containers share unallocated CPU units with other containers on the container instance with the same ratio as their allocated amount. For example, if you run a single-container task on a single-core instance type with 512 CPU units specified for that container, and that's the only task running on the container instance, that container could use the full 1,024 CPU unit share at any given time. However, if you launched another copy of the same task on that container instance, each task is guaranteed a minimum of 512 CPU units when needed. Moreover, each container could float to higher CPU usage if the other container was not using it. If both tasks were 100% active all of the time, they would be limited to 512 CPU units.
@@ -11186,7 +11186,7 @@ func (o TaskDefinitionContainerDefinitionOutput) Command() pulumi.StringArrayOut
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []string { return v.Command }).(pulumi.StringArrayOutput)
 }
 
-// The number of “cpu“ units reserved for the container. This parameter maps to “CpuShares“ in the docker container create commandand the “--cpu-shares“ option to docker run.
+// The number of “cpu“ units reserved for the container. This parameter maps to “CpuShares“ in the docker container create command and the “--cpu-shares“ option to docker run.
 //
 //	This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.
 //	 You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://docs.aws.amazon.com/ec2/instance-types/) detail page by 1,024.
@@ -15669,7 +15669,7 @@ func (o TaskDefinitionRestartPolicyPtrOutput) RestartAttemptPeriod() pulumi.IntP
 //	For more information about ``RuntimePlatform``, see [RuntimePlatform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) in the *Amazon Elastic Container Service Developer Guide*.
 type TaskDefinitionRuntimePlatform struct {
 	// The CPU architecture.
-	//  You can run your Linux tasks on an ARM-based platform by setting the value to ``ARM64``. This option is available for tasks that run on Linux Amazon EC2 instance or Linux containers on Fargate.
+	//  You can run your Linux tasks on an ARM-based platform by setting the value to ``ARM64``. This option is available for tasks that run on Linux Amazon EC2 instance, Amazon ECS Managed Instances, or Linux containers on Fargate.
 	CpuArchitecture *string `pulumi:"cpuArchitecture"`
 	// The operating system.
 	OperatingSystemFamily *string `pulumi:"operatingSystemFamily"`
@@ -15691,7 +15691,7 @@ type TaskDefinitionRuntimePlatformInput interface {
 //	For more information about ``RuntimePlatform``, see [RuntimePlatform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) in the *Amazon Elastic Container Service Developer Guide*.
 type TaskDefinitionRuntimePlatformArgs struct {
 	// The CPU architecture.
-	//  You can run your Linux tasks on an ARM-based platform by setting the value to ``ARM64``. This option is available for tasks that run on Linux Amazon EC2 instance or Linux containers on Fargate.
+	//  You can run your Linux tasks on an ARM-based platform by setting the value to ``ARM64``. This option is available for tasks that run on Linux Amazon EC2 instance, Amazon ECS Managed Instances, or Linux containers on Fargate.
 	CpuArchitecture pulumi.StringPtrInput `pulumi:"cpuArchitecture"`
 	// The operating system.
 	OperatingSystemFamily pulumi.StringPtrInput `pulumi:"operatingSystemFamily"`
@@ -15779,7 +15779,7 @@ func (o TaskDefinitionRuntimePlatformOutput) ToTaskDefinitionRuntimePlatformPtrO
 
 // The CPU architecture.
 //
-//	You can run your Linux tasks on an ARM-based platform by setting the value to ``ARM64``. This option is available for tasks that run on Linux Amazon EC2 instance or Linux containers on Fargate.
+//	You can run your Linux tasks on an ARM-based platform by setting the value to ``ARM64``. This option is available for tasks that run on Linux Amazon EC2 instance, Amazon ECS Managed Instances, or Linux containers on Fargate.
 func (o TaskDefinitionRuntimePlatformOutput) CpuArchitecture() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionRuntimePlatform) *string { return v.CpuArchitecture }).(pulumi.StringPtrOutput)
 }
@@ -15815,7 +15815,7 @@ func (o TaskDefinitionRuntimePlatformPtrOutput) Elem() TaskDefinitionRuntimePlat
 
 // The CPU architecture.
 //
-//	You can run your Linux tasks on an ARM-based platform by setting the value to ``ARM64``. This option is available for tasks that run on Linux Amazon EC2 instance or Linux containers on Fargate.
+//	You can run your Linux tasks on an ARM-based platform by setting the value to ``ARM64``. This option is available for tasks that run on Linux Amazon EC2 instance, Amazon ECS Managed Instances, or Linux containers on Fargate.
 func (o TaskDefinitionRuntimePlatformPtrOutput) CpuArchitecture() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionRuntimePlatform) *string {
 		if v == nil {

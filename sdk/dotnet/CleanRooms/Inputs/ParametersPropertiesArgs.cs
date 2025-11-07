@@ -15,17 +15,28 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
     /// </summary>
     public sealed class ParametersPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("budgetParameters")]
+        private InputList<Inputs.PrivacyBudgetTemplateBudgetParameterArgs>? _budgetParameters;
+        public InputList<Inputs.PrivacyBudgetTemplateBudgetParameterArgs> BudgetParameters
+        {
+            get => _budgetParameters ?? (_budgetParameters = new InputList<Inputs.PrivacyBudgetTemplateBudgetParameterArgs>());
+            set => _budgetParameters = value;
+        }
+
         /// <summary>
         /// The epsilon value that you want to use.
         /// </summary>
-        [Input("epsilon", required: true)]
-        public Input<int> Epsilon { get; set; } = null!;
+        [Input("epsilon")]
+        public Input<int>? Epsilon { get; set; }
+
+        [Input("resourceArn")]
+        public Input<string>? ResourceArn { get; set; }
 
         /// <summary>
         /// Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
         /// </summary>
-        [Input("usersNoisePerQuery", required: true)]
-        public Input<int> UsersNoisePerQuery { get; set; } = null!;
+        [Input("usersNoisePerQuery")]
+        public Input<int>? UsersNoisePerQuery { get; set; }
 
         public ParametersPropertiesArgs()
         {

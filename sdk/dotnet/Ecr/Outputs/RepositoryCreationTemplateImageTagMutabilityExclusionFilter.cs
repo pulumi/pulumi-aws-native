@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Ecr.Outputs
 {
 
     /// <summary>
-    /// Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.
+    /// A filter that specifies which image tags should be excluded from the repository's image tag mutability setting.
     /// </summary>
     [OutputType]
     public sealed class RepositoryCreationTemplateImageTagMutabilityExclusionFilter

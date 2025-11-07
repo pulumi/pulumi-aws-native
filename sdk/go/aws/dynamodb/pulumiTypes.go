@@ -2129,7 +2129,7 @@ type GlobalTableReplicaStreamSpecification struct {
 	// In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
 	//
 	// You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
-	ResourcePolicy GlobalTableResourcePolicy `pulumi:"resourcePolicy"`
+	ResourcePolicy *GlobalTableResourcePolicy `pulumi:"resourcePolicy"`
 }
 
 // GlobalTableReplicaStreamSpecificationInput is an input type that accepts GlobalTableReplicaStreamSpecificationArgs and GlobalTableReplicaStreamSpecificationOutput values.
@@ -2149,7 +2149,7 @@ type GlobalTableReplicaStreamSpecificationArgs struct {
 	// In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
 	//
 	// You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
-	ResourcePolicy GlobalTableResourcePolicyInput `pulumi:"resourcePolicy"`
+	ResourcePolicy GlobalTableResourcePolicyPtrInput `pulumi:"resourcePolicy"`
 }
 
 func (GlobalTableReplicaStreamSpecificationArgs) ElementType() reflect.Type {
@@ -2234,8 +2234,8 @@ func (o GlobalTableReplicaStreamSpecificationOutput) ToGlobalTableReplicaStreamS
 // In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
 //
 // You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
-func (o GlobalTableReplicaStreamSpecificationOutput) ResourcePolicy() GlobalTableResourcePolicyOutput {
-	return o.ApplyT(func(v GlobalTableReplicaStreamSpecification) GlobalTableResourcePolicy { return v.ResourcePolicy }).(GlobalTableResourcePolicyOutput)
+func (o GlobalTableReplicaStreamSpecificationOutput) ResourcePolicy() GlobalTableResourcePolicyPtrOutput {
+	return o.ApplyT(func(v GlobalTableReplicaStreamSpecification) *GlobalTableResourcePolicy { return v.ResourcePolicy }).(GlobalTableResourcePolicyPtrOutput)
 }
 
 type GlobalTableReplicaStreamSpecificationPtrOutput struct{ *pulumi.OutputState }
@@ -2272,7 +2272,7 @@ func (o GlobalTableReplicaStreamSpecificationPtrOutput) ResourcePolicy() GlobalT
 		if v == nil {
 			return nil
 		}
-		return &v.ResourcePolicy
+		return v.ResourcePolicy
 	}).(GlobalTableResourcePolicyPtrOutput)
 }
 

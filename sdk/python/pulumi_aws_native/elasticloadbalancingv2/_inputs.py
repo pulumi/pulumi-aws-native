@@ -2523,8 +2523,17 @@ class ListenerRuleRewriteConfigObjectArgs:
 
 if not MYPY:
     class ListenerRuleRewriteConfigArgsDict(TypedDict):
+        """
+        Information about a rewrite transform. This transform matches a pattern and replaces it with the specified string.
+        """
         regex: pulumi.Input[_builtins.str]
+        """
+        The regular expression to match in the input string. The maximum length of the string is 1,024 characters.
+        """
         replace: pulumi.Input[_builtins.str]
+        """
+        The replacement string to use when rewriting the matched input. The maximum length of the string is 1,024 characters. You can specify capture groups in the regular expression (for example, $1 and $2).
+        """
 elif False:
     ListenerRuleRewriteConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2533,12 +2542,20 @@ class ListenerRuleRewriteConfigArgs:
     def __init__(__self__, *,
                  regex: pulumi.Input[_builtins.str],
                  replace: pulumi.Input[_builtins.str]):
+        """
+        Information about a rewrite transform. This transform matches a pattern and replaces it with the specified string.
+        :param pulumi.Input[_builtins.str] regex: The regular expression to match in the input string. The maximum length of the string is 1,024 characters.
+        :param pulumi.Input[_builtins.str] replace: The replacement string to use when rewriting the matched input. The maximum length of the string is 1,024 characters. You can specify capture groups in the regular expression (for example, $1 and $2).
+        """
         pulumi.set(__self__, "regex", regex)
         pulumi.set(__self__, "replace", replace)
 
     @_builtins.property
     @pulumi.getter
     def regex(self) -> pulumi.Input[_builtins.str]:
+        """
+        The regular expression to match in the input string. The maximum length of the string is 1,024 characters.
+        """
         return pulumi.get(self, "regex")
 
     @regex.setter
@@ -2548,6 +2565,9 @@ class ListenerRuleRewriteConfigArgs:
     @_builtins.property
     @pulumi.getter
     def replace(self) -> pulumi.Input[_builtins.str]:
+        """
+        The replacement string to use when rewriting the matched input. The maximum length of the string is 1,024 characters. You can specify capture groups in the regular expression (for example, $1 and $2).
+        """
         return pulumi.get(self, "replace")
 
     @replace.setter
@@ -2592,7 +2612,7 @@ if not MYPY:
         """
         regex_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
-        The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when `Field` is `http-header` , `host-header` , or `path-pattern` .
+        The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when ``Field`` is ``http-header``, ``host-header``, or ``path-pattern``.
         """
         source_ip_config: NotRequired[pulumi.Input['ListenerRuleSourceIpConfigArgsDict']]
         """
@@ -2643,7 +2663,7 @@ class ListenerRuleRuleConditionArgs:
         :param pulumi.Input['ListenerRuleHttpRequestMethodConfigArgs'] http_request_method_config: Information for an HTTP method condition. Specify only when ``Field`` is ``http-request-method``.
         :param pulumi.Input['ListenerRulePathPatternConfigArgs'] path_pattern_config: Information for a path pattern condition. Specify only when ``Field`` is ``path-pattern``.
         :param pulumi.Input['ListenerRuleQueryStringConfigArgs'] query_string_config: Information for a query string condition. Specify only when ``Field`` is ``query-string``.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regex_values: The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when `Field` is `http-header` , `host-header` , or `path-pattern` .
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regex_values: The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when ``Field`` is ``http-header``, ``host-header``, or ``path-pattern``.
         :param pulumi.Input['ListenerRuleSourceIpConfigArgs'] source_ip_config: Information for a source IP condition. Specify only when ``Field`` is ``source-ip``.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: The condition value. Specify only when ``Field`` is ``host-header`` or ``path-pattern``. Alternatively, to specify multiple host names or multiple path patterns, use ``HostHeaderConfig`` or ``PathPatternConfig``.
                 If ``Field`` is ``host-header`` and you're not using ``HostHeaderConfig``, you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters.
@@ -2760,7 +2780,7 @@ class ListenerRuleRuleConditionArgs:
     @pulumi.getter(name="regexValues")
     def regex_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when `Field` is `http-header` , `host-header` , or `path-pattern` .
+        The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when ``Field`` is ``http-header``, ``host-header``, or ``path-pattern``.
         """
         return pulumi.get(self, "regex_values")
 

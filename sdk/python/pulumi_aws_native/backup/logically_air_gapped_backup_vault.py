@@ -26,6 +26,7 @@ class LogicallyAirGappedBackupVaultArgs:
                  access_policy: Optional[Any] = None,
                  backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
                  backup_vault_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 mpa_approval_team_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  notifications: Optional[pulumi.Input['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs']] = None):
         """
         The set of arguments for constructing a LogicallyAirGappedBackupVault resource.
@@ -48,6 +49,8 @@ class LogicallyAirGappedBackupVaultArgs:
             pulumi.set(__self__, "backup_vault_name", backup_vault_name)
         if backup_vault_tags is not None:
             pulumi.set(__self__, "backup_vault_tags", backup_vault_tags)
+        if mpa_approval_team_arn is not None:
+            pulumi.set(__self__, "mpa_approval_team_arn", mpa_approval_team_arn)
         if notifications is not None:
             pulumi.set(__self__, "notifications", notifications)
 
@@ -116,6 +119,15 @@ class LogicallyAirGappedBackupVaultArgs:
         pulumi.set(self, "backup_vault_tags", value)
 
     @_builtins.property
+    @pulumi.getter(name="mpaApprovalTeamArn")
+    def mpa_approval_team_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "mpa_approval_team_arn")
+
+    @mpa_approval_team_arn.setter
+    def mpa_approval_team_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "mpa_approval_team_arn", value)
+
+    @_builtins.property
     @pulumi.getter
     def notifications(self) -> Optional[pulumi.Input['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs']]:
         """
@@ -139,6 +151,7 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
                  backup_vault_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  max_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
                  min_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 mpa_approval_team_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  notifications: Optional[pulumi.Input[Union['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs', 'LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict']]] = None,
                  __props__=None):
         """
@@ -186,6 +199,7 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
                  backup_vault_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  max_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
                  min_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 mpa_approval_team_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  notifications: Optional[pulumi.Input[Union['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs', 'LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -205,6 +219,7 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
             if min_retention_days is None and not opts.urn:
                 raise TypeError("Missing required property 'min_retention_days'")
             __props__.__dict__["min_retention_days"] = min_retention_days
+            __props__.__dict__["mpa_approval_team_arn"] = mpa_approval_team_arn
             __props__.__dict__["notifications"] = notifications
             __props__.__dict__["backup_vault_arn"] = None
             __props__.__dict__["encryption_key_arn"] = None
@@ -241,6 +256,7 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
         __props__.__dict__["encryption_key_arn"] = None
         __props__.__dict__["max_retention_days"] = None
         __props__.__dict__["min_retention_days"] = None
+        __props__.__dict__["mpa_approval_team_arn"] = None
         __props__.__dict__["notifications"] = None
         __props__.__dict__["vault_state"] = None
         __props__.__dict__["vault_type"] = None
@@ -305,6 +321,11 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
         The minimum value accepted is 7 days.
         """
         return pulumi.get(self, "min_retention_days")
+
+    @_builtins.property
+    @pulumi.getter(name="mpaApprovalTeamArn")
+    def mpa_approval_team_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "mpa_approval_team_arn")
 
     @_builtins.property
     @pulumi.getter

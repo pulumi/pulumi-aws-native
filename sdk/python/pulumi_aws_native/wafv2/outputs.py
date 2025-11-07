@@ -4554,12 +4554,16 @@ class WebAclApplicationConfig(dict):
                  attributes: Sequence['outputs.WebAclApplicationAttribute']):
         """
         Configures the ability for the WAF; console to store and retrieve application attributes during the webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+        :param Sequence['WebAclApplicationAttribute'] attributes: Contains the attribute name and a list of values for that attribute.
         """
         pulumi.set(__self__, "attributes", attributes)
 
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> Sequence['outputs.WebAclApplicationAttribute']:
+        """
+        Contains the attribute name and a list of values for that attribute.
+        """
         return pulumi.get(self, "attributes")
 
 

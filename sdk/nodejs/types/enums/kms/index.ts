@@ -33,6 +33,7 @@ export const KeySpec = {
     MlDsa44: "ML_DSA_44",
     MlDsa65: "ML_DSA_65",
     MlDsa87: "ML_DSA_87",
+    EccNistEdwards25519: "ECC_NIST_EDWARDS25519",
 } as const;
 
 /**

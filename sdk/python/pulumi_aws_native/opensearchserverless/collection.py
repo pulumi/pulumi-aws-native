@@ -271,7 +271,8 @@ class Collection(pulumi.CustomResource):
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["collection_endpoint"] = None
             __props__.__dict__["dashboard_endpoint"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "tags[*]", "type"])
+            __props__.__dict__["kms_key_arn"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "standbyReplicas", "tags[*]", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Collection, __self__).__init__(
             'aws-native:opensearchserverless:Collection',
@@ -300,6 +301,7 @@ class Collection(pulumi.CustomResource):
         __props__.__dict__["collection_endpoint"] = None
         __props__.__dict__["dashboard_endpoint"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["kms_key_arn"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["standby_replicas"] = None
         __props__.__dict__["tags"] = None
@@ -345,6 +347,14 @@ class Collection(pulumi.CustomResource):
         The description of the collection
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ARN of the AWS KMS key used to encrypt the collection.
+        """
+        return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
     @pulumi.getter

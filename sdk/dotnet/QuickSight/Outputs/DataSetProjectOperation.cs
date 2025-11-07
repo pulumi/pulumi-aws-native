@@ -17,15 +17,24 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetProjectOperation
     {
+        public readonly string? Alias;
         /// <summary>
         /// &lt;p&gt;Projected columns.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<string> ProjectedColumns;
+        public readonly Outputs.DataSetTransformOperationSource? Source;
 
         [OutputConstructor]
-        private DataSetProjectOperation(ImmutableArray<string> projectedColumns)
+        private DataSetProjectOperation(
+            string? alias,
+
+            ImmutableArray<string> projectedColumns,
+
+            Outputs.DataSetTransformOperationSource? source)
         {
+            Alias = alias;
             ProjectedColumns = projectedColumns;
+            Source = source;
         }
     }
 }

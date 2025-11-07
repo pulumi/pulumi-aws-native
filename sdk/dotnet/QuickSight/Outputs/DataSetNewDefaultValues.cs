@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// &lt;p&gt;A list of static default values for a given integer parameter.&lt;/p&gt;
         /// </summary>
-        public readonly ImmutableArray<double> IntegerStaticValues;
+        public readonly ImmutableArray<int> IntegerStaticValues;
         /// <summary>
         /// &lt;p&gt;A list of static default values for a given string parameter.&lt;/p&gt;
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             ImmutableArray<double> decimalStaticValues,
 
-            ImmutableArray<double> integerStaticValues,
+            ImmutableArray<int> integerStaticValues,
 
             ImmutableArray<string> stringStaticValues)
         {

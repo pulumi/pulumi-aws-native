@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("s3Source")]
         public Input<Inputs.DataSetS3SourceArgs>? S3Source { get; set; }
 
+        [Input("saaSTable")]
+        public Input<Inputs.DataSetSaaSTableArgs>? SaaSTable { get; set; }
+
         public DataSetPhysicalTableArgs()
         {
         }

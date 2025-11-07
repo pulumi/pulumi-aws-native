@@ -185,6 +185,7 @@ const (
 	BuildOperatingSystemAmazonLinux2023 = BuildOperatingSystem("AMAZON_LINUX_2023")
 	BuildOperatingSystemWindows2012     = BuildOperatingSystem("WINDOWS_2012")
 	BuildOperatingSystemWindows2016     = BuildOperatingSystem("WINDOWS_2016")
+	BuildOperatingSystemWindows2022     = BuildOperatingSystem("WINDOWS_2022")
 )
 
 func (BuildOperatingSystem) ElementType() reflect.Type {
@@ -314,6 +315,7 @@ func (o BuildOperatingSystemPtrOutput) ToStringPtrOutputWithContext(ctx context.
 //	BuildOperatingSystemAmazonLinux2023
 //	BuildOperatingSystemWindows2012
 //	BuildOperatingSystemWindows2016
+//	BuildOperatingSystemWindows2022
 type BuildOperatingSystemInput interface {
 	pulumi.Input
 

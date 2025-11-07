@@ -2,9 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -46,9 +43,9 @@ export interface GetCollectionResult {
      */
     readonly id?: string;
     /**
-     * Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
+     * The ARN of the AWS KMS key used to encrypt the collection.
      */
-    readonly standbyReplicas?: enums.opensearchserverless.CollectionStandbyReplicas;
+    readonly kmsKeyArn?: string;
 }
 /**
  * Amazon OpenSearchServerless collection resource

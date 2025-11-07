@@ -112,6 +112,8 @@ __all__ = [
     'MailManagerTrafficPolicyPolicyCondition3Properties',
     'MailManagerTrafficPolicyPolicyCondition4Properties',
     'MailManagerTrafficPolicyPolicyStatement',
+    'MultiRegionEndpointDetails',
+    'MultiRegionEndpointRouteDetailsItemProperties',
     'Template',
     'VdmAttributesDashboardAttributes',
     'VdmAttributesGuardianAttributes',
@@ -3151,6 +3153,53 @@ class MailManagerTrafficPolicyPolicyStatement(dict):
         The list of conditions to apply to incoming messages for filtering email traffic.
         """
         return pulumi.get(self, "conditions")
+
+
+@pulumi.output_type
+class MultiRegionEndpointDetails(dict):
+    """
+    Contains details of a multi-region endpoint (global-endpoint) being created.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "routeDetails":
+            suggest = "route_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultiRegionEndpointDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultiRegionEndpointDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultiRegionEndpointDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 route_details: Sequence['outputs.MultiRegionEndpointRouteDetailsItemProperties']):
+        """
+        Contains details of a multi-region endpoint (global-endpoint) being created.
+        """
+        pulumi.set(__self__, "route_details", route_details)
+
+    @_builtins.property
+    @pulumi.getter(name="routeDetails")
+    def route_details(self) -> Sequence['outputs.MultiRegionEndpointRouteDetailsItemProperties']:
+        return pulumi.get(self, "route_details")
+
+
+@pulumi.output_type
+class MultiRegionEndpointRouteDetailsItemProperties(dict):
+    def __init__(__self__, *,
+                 region: _builtins.str):
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        return pulumi.get(self, "region")
 
 
 @pulumi.output_type

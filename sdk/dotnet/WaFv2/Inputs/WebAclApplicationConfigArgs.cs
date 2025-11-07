@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     {
         [Input("attributes", required: true)]
         private InputList<Inputs.WebAclApplicationAttributeArgs>? _attributes;
+
+        /// <summary>
+        /// Contains the attribute name and a list of values for that attribute.
+        /// </summary>
         public InputList<Inputs.WebAclApplicationAttributeArgs> Attributes
         {
             get => _attributes ?? (_attributes = new InputList<Inputs.WebAclApplicationAttributeArgs>());

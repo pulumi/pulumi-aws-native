@@ -43870,6 +43870,185 @@ func (o DataSetColumnTagNameArrayOutput) Index(i pulumi.IntInput) DataSetColumnT
 	}).(DataSetColumnTagNameOutput)
 }
 
+type DataSetDataPrepSimpleAggregationFunctionType string
+
+const (
+	DataSetDataPrepSimpleAggregationFunctionTypeCount             = DataSetDataPrepSimpleAggregationFunctionType("COUNT")
+	DataSetDataPrepSimpleAggregationFunctionTypeDistinctCount     = DataSetDataPrepSimpleAggregationFunctionType("DISTINCT_COUNT")
+	DataSetDataPrepSimpleAggregationFunctionTypeSum               = DataSetDataPrepSimpleAggregationFunctionType("SUM")
+	DataSetDataPrepSimpleAggregationFunctionTypeAverage           = DataSetDataPrepSimpleAggregationFunctionType("AVERAGE")
+	DataSetDataPrepSimpleAggregationFunctionTypeMedian            = DataSetDataPrepSimpleAggregationFunctionType("MEDIAN")
+	DataSetDataPrepSimpleAggregationFunctionTypeMax               = DataSetDataPrepSimpleAggregationFunctionType("MAX")
+	DataSetDataPrepSimpleAggregationFunctionTypeMin               = DataSetDataPrepSimpleAggregationFunctionType("MIN")
+	DataSetDataPrepSimpleAggregationFunctionTypeVariance          = DataSetDataPrepSimpleAggregationFunctionType("VARIANCE")
+	DataSetDataPrepSimpleAggregationFunctionTypeStandardDeviation = DataSetDataPrepSimpleAggregationFunctionType("STANDARD_DEVIATION")
+)
+
+func (DataSetDataPrepSimpleAggregationFunctionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetDataPrepSimpleAggregationFunctionType)(nil)).Elem()
+}
+
+func (e DataSetDataPrepSimpleAggregationFunctionType) ToDataSetDataPrepSimpleAggregationFunctionTypeOutput() DataSetDataPrepSimpleAggregationFunctionTypeOutput {
+	return pulumi.ToOutput(e).(DataSetDataPrepSimpleAggregationFunctionTypeOutput)
+}
+
+func (e DataSetDataPrepSimpleAggregationFunctionType) ToDataSetDataPrepSimpleAggregationFunctionTypeOutputWithContext(ctx context.Context) DataSetDataPrepSimpleAggregationFunctionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSetDataPrepSimpleAggregationFunctionTypeOutput)
+}
+
+func (e DataSetDataPrepSimpleAggregationFunctionType) ToDataSetDataPrepSimpleAggregationFunctionTypePtrOutput() DataSetDataPrepSimpleAggregationFunctionTypePtrOutput {
+	return e.ToDataSetDataPrepSimpleAggregationFunctionTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataSetDataPrepSimpleAggregationFunctionType) ToDataSetDataPrepSimpleAggregationFunctionTypePtrOutputWithContext(ctx context.Context) DataSetDataPrepSimpleAggregationFunctionTypePtrOutput {
+	return DataSetDataPrepSimpleAggregationFunctionType(e).ToDataSetDataPrepSimpleAggregationFunctionTypeOutputWithContext(ctx).ToDataSetDataPrepSimpleAggregationFunctionTypePtrOutputWithContext(ctx)
+}
+
+func (e DataSetDataPrepSimpleAggregationFunctionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSetDataPrepSimpleAggregationFunctionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSetDataPrepSimpleAggregationFunctionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSetDataPrepSimpleAggregationFunctionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSetDataPrepSimpleAggregationFunctionTypeOutput struct{ *pulumi.OutputState }
+
+func (DataSetDataPrepSimpleAggregationFunctionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetDataPrepSimpleAggregationFunctionType)(nil)).Elem()
+}
+
+func (o DataSetDataPrepSimpleAggregationFunctionTypeOutput) ToDataSetDataPrepSimpleAggregationFunctionTypeOutput() DataSetDataPrepSimpleAggregationFunctionTypeOutput {
+	return o
+}
+
+func (o DataSetDataPrepSimpleAggregationFunctionTypeOutput) ToDataSetDataPrepSimpleAggregationFunctionTypeOutputWithContext(ctx context.Context) DataSetDataPrepSimpleAggregationFunctionTypeOutput {
+	return o
+}
+
+func (o DataSetDataPrepSimpleAggregationFunctionTypeOutput) ToDataSetDataPrepSimpleAggregationFunctionTypePtrOutput() DataSetDataPrepSimpleAggregationFunctionTypePtrOutput {
+	return o.ToDataSetDataPrepSimpleAggregationFunctionTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataSetDataPrepSimpleAggregationFunctionTypeOutput) ToDataSetDataPrepSimpleAggregationFunctionTypePtrOutputWithContext(ctx context.Context) DataSetDataPrepSimpleAggregationFunctionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetDataPrepSimpleAggregationFunctionType) *DataSetDataPrepSimpleAggregationFunctionType {
+		return &v
+	}).(DataSetDataPrepSimpleAggregationFunctionTypePtrOutput)
+}
+
+func (o DataSetDataPrepSimpleAggregationFunctionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSetDataPrepSimpleAggregationFunctionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetDataPrepSimpleAggregationFunctionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSetDataPrepSimpleAggregationFunctionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetDataPrepSimpleAggregationFunctionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetDataPrepSimpleAggregationFunctionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetDataPrepSimpleAggregationFunctionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetDataPrepSimpleAggregationFunctionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetDataPrepSimpleAggregationFunctionType)(nil)).Elem()
+}
+
+func (o DataSetDataPrepSimpleAggregationFunctionTypePtrOutput) ToDataSetDataPrepSimpleAggregationFunctionTypePtrOutput() DataSetDataPrepSimpleAggregationFunctionTypePtrOutput {
+	return o
+}
+
+func (o DataSetDataPrepSimpleAggregationFunctionTypePtrOutput) ToDataSetDataPrepSimpleAggregationFunctionTypePtrOutputWithContext(ctx context.Context) DataSetDataPrepSimpleAggregationFunctionTypePtrOutput {
+	return o
+}
+
+func (o DataSetDataPrepSimpleAggregationFunctionTypePtrOutput) Elem() DataSetDataPrepSimpleAggregationFunctionTypeOutput {
+	return o.ApplyT(func(v *DataSetDataPrepSimpleAggregationFunctionType) DataSetDataPrepSimpleAggregationFunctionType {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetDataPrepSimpleAggregationFunctionType
+		return ret
+	}).(DataSetDataPrepSimpleAggregationFunctionTypeOutput)
+}
+
+func (o DataSetDataPrepSimpleAggregationFunctionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetDataPrepSimpleAggregationFunctionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSetDataPrepSimpleAggregationFunctionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSetDataPrepSimpleAggregationFunctionTypeInput is an input type that accepts values of the DataSetDataPrepSimpleAggregationFunctionType enum
+// A concrete instance of `DataSetDataPrepSimpleAggregationFunctionTypeInput` can be one of the following:
+//
+//	DataSetDataPrepSimpleAggregationFunctionTypeCount
+//	DataSetDataPrepSimpleAggregationFunctionTypeDistinctCount
+//	DataSetDataPrepSimpleAggregationFunctionTypeSum
+//	DataSetDataPrepSimpleAggregationFunctionTypeAverage
+//	DataSetDataPrepSimpleAggregationFunctionTypeMedian
+//	DataSetDataPrepSimpleAggregationFunctionTypeMax
+//	DataSetDataPrepSimpleAggregationFunctionTypeMin
+//	DataSetDataPrepSimpleAggregationFunctionTypeVariance
+//	DataSetDataPrepSimpleAggregationFunctionTypeStandardDeviation
+type DataSetDataPrepSimpleAggregationFunctionTypeInput interface {
+	pulumi.Input
+
+	ToDataSetDataPrepSimpleAggregationFunctionTypeOutput() DataSetDataPrepSimpleAggregationFunctionTypeOutput
+	ToDataSetDataPrepSimpleAggregationFunctionTypeOutputWithContext(context.Context) DataSetDataPrepSimpleAggregationFunctionTypeOutput
+}
+
+var dataSetDataPrepSimpleAggregationFunctionTypePtrType = reflect.TypeOf((**DataSetDataPrepSimpleAggregationFunctionType)(nil)).Elem()
+
+type DataSetDataPrepSimpleAggregationFunctionTypePtrInput interface {
+	pulumi.Input
+
+	ToDataSetDataPrepSimpleAggregationFunctionTypePtrOutput() DataSetDataPrepSimpleAggregationFunctionTypePtrOutput
+	ToDataSetDataPrepSimpleAggregationFunctionTypePtrOutputWithContext(context.Context) DataSetDataPrepSimpleAggregationFunctionTypePtrOutput
+}
+
+type dataSetDataPrepSimpleAggregationFunctionTypePtr string
+
+func DataSetDataPrepSimpleAggregationFunctionTypePtr(v string) DataSetDataPrepSimpleAggregationFunctionTypePtrInput {
+	return (*dataSetDataPrepSimpleAggregationFunctionTypePtr)(&v)
+}
+
+func (*dataSetDataPrepSimpleAggregationFunctionTypePtr) ElementType() reflect.Type {
+	return dataSetDataPrepSimpleAggregationFunctionTypePtrType
+}
+
+func (in *dataSetDataPrepSimpleAggregationFunctionTypePtr) ToDataSetDataPrepSimpleAggregationFunctionTypePtrOutput() DataSetDataPrepSimpleAggregationFunctionTypePtrOutput {
+	return pulumi.ToOutput(in).(DataSetDataPrepSimpleAggregationFunctionTypePtrOutput)
+}
+
+func (in *dataSetDataPrepSimpleAggregationFunctionTypePtr) ToDataSetDataPrepSimpleAggregationFunctionTypePtrOutputWithContext(ctx context.Context) DataSetDataPrepSimpleAggregationFunctionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSetDataPrepSimpleAggregationFunctionTypePtrOutput)
+}
+
 type DataSetDatasetParameterValueType string
 
 const (
@@ -44033,6 +44212,175 @@ func (in *dataSetDatasetParameterValueTypePtr) ToDataSetDatasetParameterValueTyp
 
 func (in *dataSetDatasetParameterValueTypePtr) ToDataSetDatasetParameterValueTypePtrOutputWithContext(ctx context.Context) DataSetDatasetParameterValueTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSetDatasetParameterValueTypePtrOutput)
+}
+
+type DataSetDateComparisonFilterOperator string
+
+const (
+	DataSetDateComparisonFilterOperatorBefore           = DataSetDateComparisonFilterOperator("BEFORE")
+	DataSetDateComparisonFilterOperatorBeforeOrEqualsTo = DataSetDateComparisonFilterOperator("BEFORE_OR_EQUALS_TO")
+	DataSetDateComparisonFilterOperatorAfter            = DataSetDateComparisonFilterOperator("AFTER")
+	DataSetDateComparisonFilterOperatorAfterOrEqualsTo  = DataSetDateComparisonFilterOperator("AFTER_OR_EQUALS_TO")
+)
+
+func (DataSetDateComparisonFilterOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetDateComparisonFilterOperator)(nil)).Elem()
+}
+
+func (e DataSetDateComparisonFilterOperator) ToDataSetDateComparisonFilterOperatorOutput() DataSetDateComparisonFilterOperatorOutput {
+	return pulumi.ToOutput(e).(DataSetDateComparisonFilterOperatorOutput)
+}
+
+func (e DataSetDateComparisonFilterOperator) ToDataSetDateComparisonFilterOperatorOutputWithContext(ctx context.Context) DataSetDateComparisonFilterOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSetDateComparisonFilterOperatorOutput)
+}
+
+func (e DataSetDateComparisonFilterOperator) ToDataSetDateComparisonFilterOperatorPtrOutput() DataSetDateComparisonFilterOperatorPtrOutput {
+	return e.ToDataSetDateComparisonFilterOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e DataSetDateComparisonFilterOperator) ToDataSetDateComparisonFilterOperatorPtrOutputWithContext(ctx context.Context) DataSetDateComparisonFilterOperatorPtrOutput {
+	return DataSetDateComparisonFilterOperator(e).ToDataSetDateComparisonFilterOperatorOutputWithContext(ctx).ToDataSetDateComparisonFilterOperatorPtrOutputWithContext(ctx)
+}
+
+func (e DataSetDateComparisonFilterOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSetDateComparisonFilterOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSetDateComparisonFilterOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSetDateComparisonFilterOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSetDateComparisonFilterOperatorOutput struct{ *pulumi.OutputState }
+
+func (DataSetDateComparisonFilterOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetDateComparisonFilterOperator)(nil)).Elem()
+}
+
+func (o DataSetDateComparisonFilterOperatorOutput) ToDataSetDateComparisonFilterOperatorOutput() DataSetDateComparisonFilterOperatorOutput {
+	return o
+}
+
+func (o DataSetDateComparisonFilterOperatorOutput) ToDataSetDateComparisonFilterOperatorOutputWithContext(ctx context.Context) DataSetDateComparisonFilterOperatorOutput {
+	return o
+}
+
+func (o DataSetDateComparisonFilterOperatorOutput) ToDataSetDateComparisonFilterOperatorPtrOutput() DataSetDateComparisonFilterOperatorPtrOutput {
+	return o.ToDataSetDateComparisonFilterOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetDateComparisonFilterOperatorOutput) ToDataSetDateComparisonFilterOperatorPtrOutputWithContext(ctx context.Context) DataSetDateComparisonFilterOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetDateComparisonFilterOperator) *DataSetDateComparisonFilterOperator {
+		return &v
+	}).(DataSetDateComparisonFilterOperatorPtrOutput)
+}
+
+func (o DataSetDateComparisonFilterOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSetDateComparisonFilterOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetDateComparisonFilterOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSetDateComparisonFilterOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetDateComparisonFilterOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetDateComparisonFilterOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetDateComparisonFilterOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetDateComparisonFilterOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetDateComparisonFilterOperator)(nil)).Elem()
+}
+
+func (o DataSetDateComparisonFilterOperatorPtrOutput) ToDataSetDateComparisonFilterOperatorPtrOutput() DataSetDateComparisonFilterOperatorPtrOutput {
+	return o
+}
+
+func (o DataSetDateComparisonFilterOperatorPtrOutput) ToDataSetDateComparisonFilterOperatorPtrOutputWithContext(ctx context.Context) DataSetDateComparisonFilterOperatorPtrOutput {
+	return o
+}
+
+func (o DataSetDateComparisonFilterOperatorPtrOutput) Elem() DataSetDateComparisonFilterOperatorOutput {
+	return o.ApplyT(func(v *DataSetDateComparisonFilterOperator) DataSetDateComparisonFilterOperator {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetDateComparisonFilterOperator
+		return ret
+	}).(DataSetDateComparisonFilterOperatorOutput)
+}
+
+func (o DataSetDateComparisonFilterOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetDateComparisonFilterOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSetDateComparisonFilterOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSetDateComparisonFilterOperatorInput is an input type that accepts values of the DataSetDateComparisonFilterOperator enum
+// A concrete instance of `DataSetDateComparisonFilterOperatorInput` can be one of the following:
+//
+//	DataSetDateComparisonFilterOperatorBefore
+//	DataSetDateComparisonFilterOperatorBeforeOrEqualsTo
+//	DataSetDateComparisonFilterOperatorAfter
+//	DataSetDateComparisonFilterOperatorAfterOrEqualsTo
+type DataSetDateComparisonFilterOperatorInput interface {
+	pulumi.Input
+
+	ToDataSetDateComparisonFilterOperatorOutput() DataSetDateComparisonFilterOperatorOutput
+	ToDataSetDateComparisonFilterOperatorOutputWithContext(context.Context) DataSetDateComparisonFilterOperatorOutput
+}
+
+var dataSetDateComparisonFilterOperatorPtrType = reflect.TypeOf((**DataSetDateComparisonFilterOperator)(nil)).Elem()
+
+type DataSetDateComparisonFilterOperatorPtrInput interface {
+	pulumi.Input
+
+	ToDataSetDateComparisonFilterOperatorPtrOutput() DataSetDateComparisonFilterOperatorPtrOutput
+	ToDataSetDateComparisonFilterOperatorPtrOutputWithContext(context.Context) DataSetDateComparisonFilterOperatorPtrOutput
+}
+
+type dataSetDateComparisonFilterOperatorPtr string
+
+func DataSetDateComparisonFilterOperatorPtr(v string) DataSetDateComparisonFilterOperatorPtrInput {
+	return (*dataSetDateComparisonFilterOperatorPtr)(&v)
+}
+
+func (*dataSetDateComparisonFilterOperatorPtr) ElementType() reflect.Type {
+	return dataSetDateComparisonFilterOperatorPtrType
+}
+
+func (in *dataSetDateComparisonFilterOperatorPtr) ToDataSetDateComparisonFilterOperatorPtrOutput() DataSetDateComparisonFilterOperatorPtrOutput {
+	return pulumi.ToOutput(in).(DataSetDateComparisonFilterOperatorPtrOutput)
+}
+
+func (in *dataSetDateComparisonFilterOperatorPtr) ToDataSetDateComparisonFilterOperatorPtrOutputWithContext(ctx context.Context) DataSetDateComparisonFilterOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSetDateComparisonFilterOperatorPtrOutput)
 }
 
 type DataSetFileFormat string
@@ -44894,6 +45242,175 @@ func (in *dataSetInputColumnDataTypePtr) ToDataSetInputColumnDataTypePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(DataSetInputColumnDataTypePtrOutput)
 }
 
+type DataSetJoinOperationType string
+
+const (
+	DataSetJoinOperationTypeInner = DataSetJoinOperationType("INNER")
+	DataSetJoinOperationTypeOuter = DataSetJoinOperationType("OUTER")
+	DataSetJoinOperationTypeLeft  = DataSetJoinOperationType("LEFT")
+	DataSetJoinOperationTypeRight = DataSetJoinOperationType("RIGHT")
+)
+
+func (DataSetJoinOperationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetJoinOperationType)(nil)).Elem()
+}
+
+func (e DataSetJoinOperationType) ToDataSetJoinOperationTypeOutput() DataSetJoinOperationTypeOutput {
+	return pulumi.ToOutput(e).(DataSetJoinOperationTypeOutput)
+}
+
+func (e DataSetJoinOperationType) ToDataSetJoinOperationTypeOutputWithContext(ctx context.Context) DataSetJoinOperationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSetJoinOperationTypeOutput)
+}
+
+func (e DataSetJoinOperationType) ToDataSetJoinOperationTypePtrOutput() DataSetJoinOperationTypePtrOutput {
+	return e.ToDataSetJoinOperationTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataSetJoinOperationType) ToDataSetJoinOperationTypePtrOutputWithContext(ctx context.Context) DataSetJoinOperationTypePtrOutput {
+	return DataSetJoinOperationType(e).ToDataSetJoinOperationTypeOutputWithContext(ctx).ToDataSetJoinOperationTypePtrOutputWithContext(ctx)
+}
+
+func (e DataSetJoinOperationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSetJoinOperationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSetJoinOperationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSetJoinOperationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSetJoinOperationTypeOutput struct{ *pulumi.OutputState }
+
+func (DataSetJoinOperationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetJoinOperationType)(nil)).Elem()
+}
+
+func (o DataSetJoinOperationTypeOutput) ToDataSetJoinOperationTypeOutput() DataSetJoinOperationTypeOutput {
+	return o
+}
+
+func (o DataSetJoinOperationTypeOutput) ToDataSetJoinOperationTypeOutputWithContext(ctx context.Context) DataSetJoinOperationTypeOutput {
+	return o
+}
+
+func (o DataSetJoinOperationTypeOutput) ToDataSetJoinOperationTypePtrOutput() DataSetJoinOperationTypePtrOutput {
+	return o.ToDataSetJoinOperationTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataSetJoinOperationTypeOutput) ToDataSetJoinOperationTypePtrOutputWithContext(ctx context.Context) DataSetJoinOperationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetJoinOperationType) *DataSetJoinOperationType {
+		return &v
+	}).(DataSetJoinOperationTypePtrOutput)
+}
+
+func (o DataSetJoinOperationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSetJoinOperationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetJoinOperationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSetJoinOperationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetJoinOperationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetJoinOperationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetJoinOperationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetJoinOperationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetJoinOperationType)(nil)).Elem()
+}
+
+func (o DataSetJoinOperationTypePtrOutput) ToDataSetJoinOperationTypePtrOutput() DataSetJoinOperationTypePtrOutput {
+	return o
+}
+
+func (o DataSetJoinOperationTypePtrOutput) ToDataSetJoinOperationTypePtrOutputWithContext(ctx context.Context) DataSetJoinOperationTypePtrOutput {
+	return o
+}
+
+func (o DataSetJoinOperationTypePtrOutput) Elem() DataSetJoinOperationTypeOutput {
+	return o.ApplyT(func(v *DataSetJoinOperationType) DataSetJoinOperationType {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetJoinOperationType
+		return ret
+	}).(DataSetJoinOperationTypeOutput)
+}
+
+func (o DataSetJoinOperationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetJoinOperationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSetJoinOperationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSetJoinOperationTypeInput is an input type that accepts values of the DataSetJoinOperationType enum
+// A concrete instance of `DataSetJoinOperationTypeInput` can be one of the following:
+//
+//	DataSetJoinOperationTypeInner
+//	DataSetJoinOperationTypeOuter
+//	DataSetJoinOperationTypeLeft
+//	DataSetJoinOperationTypeRight
+type DataSetJoinOperationTypeInput interface {
+	pulumi.Input
+
+	ToDataSetJoinOperationTypeOutput() DataSetJoinOperationTypeOutput
+	ToDataSetJoinOperationTypeOutputWithContext(context.Context) DataSetJoinOperationTypeOutput
+}
+
+var dataSetJoinOperationTypePtrType = reflect.TypeOf((**DataSetJoinOperationType)(nil)).Elem()
+
+type DataSetJoinOperationTypePtrInput interface {
+	pulumi.Input
+
+	ToDataSetJoinOperationTypePtrOutput() DataSetJoinOperationTypePtrOutput
+	ToDataSetJoinOperationTypePtrOutputWithContext(context.Context) DataSetJoinOperationTypePtrOutput
+}
+
+type dataSetJoinOperationTypePtr string
+
+func DataSetJoinOperationTypePtr(v string) DataSetJoinOperationTypePtrInput {
+	return (*dataSetJoinOperationTypePtr)(&v)
+}
+
+func (*dataSetJoinOperationTypePtr) ElementType() reflect.Type {
+	return dataSetJoinOperationTypePtrType
+}
+
+func (in *dataSetJoinOperationTypePtr) ToDataSetJoinOperationTypePtrOutput() DataSetJoinOperationTypePtrOutput {
+	return pulumi.ToOutput(in).(DataSetJoinOperationTypePtrOutput)
+}
+
+func (in *dataSetJoinOperationTypePtr) ToDataSetJoinOperationTypePtrOutputWithContext(ctx context.Context) DataSetJoinOperationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSetJoinOperationTypePtrOutput)
+}
+
 type DataSetJoinType string
 
 const (
@@ -45228,6 +45745,179 @@ func (in *dataSetLookbackWindowSizeUnitPtr) ToDataSetLookbackWindowSizeUnitPtrOu
 
 func (in *dataSetLookbackWindowSizeUnitPtr) ToDataSetLookbackWindowSizeUnitPtrOutputWithContext(ctx context.Context) DataSetLookbackWindowSizeUnitPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSetLookbackWindowSizeUnitPtrOutput)
+}
+
+type DataSetNumericComparisonFilterOperator string
+
+const (
+	DataSetNumericComparisonFilterOperatorEquals                = DataSetNumericComparisonFilterOperator("EQUALS")
+	DataSetNumericComparisonFilterOperatorDoesNotEqual          = DataSetNumericComparisonFilterOperator("DOES_NOT_EQUAL")
+	DataSetNumericComparisonFilterOperatorGreaterThan           = DataSetNumericComparisonFilterOperator("GREATER_THAN")
+	DataSetNumericComparisonFilterOperatorGreaterThanOrEqualsTo = DataSetNumericComparisonFilterOperator("GREATER_THAN_OR_EQUALS_TO")
+	DataSetNumericComparisonFilterOperatorLessThan              = DataSetNumericComparisonFilterOperator("LESS_THAN")
+	DataSetNumericComparisonFilterOperatorLessThanOrEqualsTo    = DataSetNumericComparisonFilterOperator("LESS_THAN_OR_EQUALS_TO")
+)
+
+func (DataSetNumericComparisonFilterOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetNumericComparisonFilterOperator)(nil)).Elem()
+}
+
+func (e DataSetNumericComparisonFilterOperator) ToDataSetNumericComparisonFilterOperatorOutput() DataSetNumericComparisonFilterOperatorOutput {
+	return pulumi.ToOutput(e).(DataSetNumericComparisonFilterOperatorOutput)
+}
+
+func (e DataSetNumericComparisonFilterOperator) ToDataSetNumericComparisonFilterOperatorOutputWithContext(ctx context.Context) DataSetNumericComparisonFilterOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSetNumericComparisonFilterOperatorOutput)
+}
+
+func (e DataSetNumericComparisonFilterOperator) ToDataSetNumericComparisonFilterOperatorPtrOutput() DataSetNumericComparisonFilterOperatorPtrOutput {
+	return e.ToDataSetNumericComparisonFilterOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e DataSetNumericComparisonFilterOperator) ToDataSetNumericComparisonFilterOperatorPtrOutputWithContext(ctx context.Context) DataSetNumericComparisonFilterOperatorPtrOutput {
+	return DataSetNumericComparisonFilterOperator(e).ToDataSetNumericComparisonFilterOperatorOutputWithContext(ctx).ToDataSetNumericComparisonFilterOperatorPtrOutputWithContext(ctx)
+}
+
+func (e DataSetNumericComparisonFilterOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSetNumericComparisonFilterOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSetNumericComparisonFilterOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSetNumericComparisonFilterOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSetNumericComparisonFilterOperatorOutput struct{ *pulumi.OutputState }
+
+func (DataSetNumericComparisonFilterOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetNumericComparisonFilterOperator)(nil)).Elem()
+}
+
+func (o DataSetNumericComparisonFilterOperatorOutput) ToDataSetNumericComparisonFilterOperatorOutput() DataSetNumericComparisonFilterOperatorOutput {
+	return o
+}
+
+func (o DataSetNumericComparisonFilterOperatorOutput) ToDataSetNumericComparisonFilterOperatorOutputWithContext(ctx context.Context) DataSetNumericComparisonFilterOperatorOutput {
+	return o
+}
+
+func (o DataSetNumericComparisonFilterOperatorOutput) ToDataSetNumericComparisonFilterOperatorPtrOutput() DataSetNumericComparisonFilterOperatorPtrOutput {
+	return o.ToDataSetNumericComparisonFilterOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetNumericComparisonFilterOperatorOutput) ToDataSetNumericComparisonFilterOperatorPtrOutputWithContext(ctx context.Context) DataSetNumericComparisonFilterOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetNumericComparisonFilterOperator) *DataSetNumericComparisonFilterOperator {
+		return &v
+	}).(DataSetNumericComparisonFilterOperatorPtrOutput)
+}
+
+func (o DataSetNumericComparisonFilterOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSetNumericComparisonFilterOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetNumericComparisonFilterOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSetNumericComparisonFilterOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetNumericComparisonFilterOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetNumericComparisonFilterOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetNumericComparisonFilterOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetNumericComparisonFilterOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetNumericComparisonFilterOperator)(nil)).Elem()
+}
+
+func (o DataSetNumericComparisonFilterOperatorPtrOutput) ToDataSetNumericComparisonFilterOperatorPtrOutput() DataSetNumericComparisonFilterOperatorPtrOutput {
+	return o
+}
+
+func (o DataSetNumericComparisonFilterOperatorPtrOutput) ToDataSetNumericComparisonFilterOperatorPtrOutputWithContext(ctx context.Context) DataSetNumericComparisonFilterOperatorPtrOutput {
+	return o
+}
+
+func (o DataSetNumericComparisonFilterOperatorPtrOutput) Elem() DataSetNumericComparisonFilterOperatorOutput {
+	return o.ApplyT(func(v *DataSetNumericComparisonFilterOperator) DataSetNumericComparisonFilterOperator {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetNumericComparisonFilterOperator
+		return ret
+	}).(DataSetNumericComparisonFilterOperatorOutput)
+}
+
+func (o DataSetNumericComparisonFilterOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetNumericComparisonFilterOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSetNumericComparisonFilterOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSetNumericComparisonFilterOperatorInput is an input type that accepts values of the DataSetNumericComparisonFilterOperator enum
+// A concrete instance of `DataSetNumericComparisonFilterOperatorInput` can be one of the following:
+//
+//	DataSetNumericComparisonFilterOperatorEquals
+//	DataSetNumericComparisonFilterOperatorDoesNotEqual
+//	DataSetNumericComparisonFilterOperatorGreaterThan
+//	DataSetNumericComparisonFilterOperatorGreaterThanOrEqualsTo
+//	DataSetNumericComparisonFilterOperatorLessThan
+//	DataSetNumericComparisonFilterOperatorLessThanOrEqualsTo
+type DataSetNumericComparisonFilterOperatorInput interface {
+	pulumi.Input
+
+	ToDataSetNumericComparisonFilterOperatorOutput() DataSetNumericComparisonFilterOperatorOutput
+	ToDataSetNumericComparisonFilterOperatorOutputWithContext(context.Context) DataSetNumericComparisonFilterOperatorOutput
+}
+
+var dataSetNumericComparisonFilterOperatorPtrType = reflect.TypeOf((**DataSetNumericComparisonFilterOperator)(nil)).Elem()
+
+type DataSetNumericComparisonFilterOperatorPtrInput interface {
+	pulumi.Input
+
+	ToDataSetNumericComparisonFilterOperatorPtrOutput() DataSetNumericComparisonFilterOperatorPtrOutput
+	ToDataSetNumericComparisonFilterOperatorPtrOutputWithContext(context.Context) DataSetNumericComparisonFilterOperatorPtrOutput
+}
+
+type dataSetNumericComparisonFilterOperatorPtr string
+
+func DataSetNumericComparisonFilterOperatorPtr(v string) DataSetNumericComparisonFilterOperatorPtrInput {
+	return (*dataSetNumericComparisonFilterOperatorPtr)(&v)
+}
+
+func (*dataSetNumericComparisonFilterOperatorPtr) ElementType() reflect.Type {
+	return dataSetNumericComparisonFilterOperatorPtrType
+}
+
+func (in *dataSetNumericComparisonFilterOperatorPtr) ToDataSetNumericComparisonFilterOperatorPtrOutput() DataSetNumericComparisonFilterOperatorPtrOutput {
+	return pulumi.ToOutput(in).(DataSetNumericComparisonFilterOperatorPtrOutput)
+}
+
+func (in *dataSetNumericComparisonFilterOperatorPtr) ToDataSetNumericComparisonFilterOperatorPtrOutputWithContext(ctx context.Context) DataSetNumericComparisonFilterOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSetNumericComparisonFilterOperatorPtrOutput)
 }
 
 type DataSetRefreshFailureAlertStatus string
@@ -45888,6 +46578,344 @@ func (in *dataSetStatusPtr) ToDataSetStatusPtrOutput() DataSetStatusPtrOutput {
 
 func (in *dataSetStatusPtr) ToDataSetStatusPtrOutputWithContext(ctx context.Context) DataSetStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSetStatusPtrOutput)
+}
+
+type DataSetStringComparisonFilterOperator string
+
+const (
+	DataSetStringComparisonFilterOperatorEquals         = DataSetStringComparisonFilterOperator("EQUALS")
+	DataSetStringComparisonFilterOperatorDoesNotEqual   = DataSetStringComparisonFilterOperator("DOES_NOT_EQUAL")
+	DataSetStringComparisonFilterOperatorContains       = DataSetStringComparisonFilterOperator("CONTAINS")
+	DataSetStringComparisonFilterOperatorDoesNotContain = DataSetStringComparisonFilterOperator("DOES_NOT_CONTAIN")
+	DataSetStringComparisonFilterOperatorStartsWith     = DataSetStringComparisonFilterOperator("STARTS_WITH")
+	DataSetStringComparisonFilterOperatorEndsWith       = DataSetStringComparisonFilterOperator("ENDS_WITH")
+)
+
+func (DataSetStringComparisonFilterOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetStringComparisonFilterOperator)(nil)).Elem()
+}
+
+func (e DataSetStringComparisonFilterOperator) ToDataSetStringComparisonFilterOperatorOutput() DataSetStringComparisonFilterOperatorOutput {
+	return pulumi.ToOutput(e).(DataSetStringComparisonFilterOperatorOutput)
+}
+
+func (e DataSetStringComparisonFilterOperator) ToDataSetStringComparisonFilterOperatorOutputWithContext(ctx context.Context) DataSetStringComparisonFilterOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSetStringComparisonFilterOperatorOutput)
+}
+
+func (e DataSetStringComparisonFilterOperator) ToDataSetStringComparisonFilterOperatorPtrOutput() DataSetStringComparisonFilterOperatorPtrOutput {
+	return e.ToDataSetStringComparisonFilterOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e DataSetStringComparisonFilterOperator) ToDataSetStringComparisonFilterOperatorPtrOutputWithContext(ctx context.Context) DataSetStringComparisonFilterOperatorPtrOutput {
+	return DataSetStringComparisonFilterOperator(e).ToDataSetStringComparisonFilterOperatorOutputWithContext(ctx).ToDataSetStringComparisonFilterOperatorPtrOutputWithContext(ctx)
+}
+
+func (e DataSetStringComparisonFilterOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSetStringComparisonFilterOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSetStringComparisonFilterOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSetStringComparisonFilterOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSetStringComparisonFilterOperatorOutput struct{ *pulumi.OutputState }
+
+func (DataSetStringComparisonFilterOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetStringComparisonFilterOperator)(nil)).Elem()
+}
+
+func (o DataSetStringComparisonFilterOperatorOutput) ToDataSetStringComparisonFilterOperatorOutput() DataSetStringComparisonFilterOperatorOutput {
+	return o
+}
+
+func (o DataSetStringComparisonFilterOperatorOutput) ToDataSetStringComparisonFilterOperatorOutputWithContext(ctx context.Context) DataSetStringComparisonFilterOperatorOutput {
+	return o
+}
+
+func (o DataSetStringComparisonFilterOperatorOutput) ToDataSetStringComparisonFilterOperatorPtrOutput() DataSetStringComparisonFilterOperatorPtrOutput {
+	return o.ToDataSetStringComparisonFilterOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetStringComparisonFilterOperatorOutput) ToDataSetStringComparisonFilterOperatorPtrOutputWithContext(ctx context.Context) DataSetStringComparisonFilterOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetStringComparisonFilterOperator) *DataSetStringComparisonFilterOperator {
+		return &v
+	}).(DataSetStringComparisonFilterOperatorPtrOutput)
+}
+
+func (o DataSetStringComparisonFilterOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSetStringComparisonFilterOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetStringComparisonFilterOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSetStringComparisonFilterOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetStringComparisonFilterOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetStringComparisonFilterOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetStringComparisonFilterOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetStringComparisonFilterOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetStringComparisonFilterOperator)(nil)).Elem()
+}
+
+func (o DataSetStringComparisonFilterOperatorPtrOutput) ToDataSetStringComparisonFilterOperatorPtrOutput() DataSetStringComparisonFilterOperatorPtrOutput {
+	return o
+}
+
+func (o DataSetStringComparisonFilterOperatorPtrOutput) ToDataSetStringComparisonFilterOperatorPtrOutputWithContext(ctx context.Context) DataSetStringComparisonFilterOperatorPtrOutput {
+	return o
+}
+
+func (o DataSetStringComparisonFilterOperatorPtrOutput) Elem() DataSetStringComparisonFilterOperatorOutput {
+	return o.ApplyT(func(v *DataSetStringComparisonFilterOperator) DataSetStringComparisonFilterOperator {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetStringComparisonFilterOperator
+		return ret
+	}).(DataSetStringComparisonFilterOperatorOutput)
+}
+
+func (o DataSetStringComparisonFilterOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetStringComparisonFilterOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSetStringComparisonFilterOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSetStringComparisonFilterOperatorInput is an input type that accepts values of the DataSetStringComparisonFilterOperator enum
+// A concrete instance of `DataSetStringComparisonFilterOperatorInput` can be one of the following:
+//
+//	DataSetStringComparisonFilterOperatorEquals
+//	DataSetStringComparisonFilterOperatorDoesNotEqual
+//	DataSetStringComparisonFilterOperatorContains
+//	DataSetStringComparisonFilterOperatorDoesNotContain
+//	DataSetStringComparisonFilterOperatorStartsWith
+//	DataSetStringComparisonFilterOperatorEndsWith
+type DataSetStringComparisonFilterOperatorInput interface {
+	pulumi.Input
+
+	ToDataSetStringComparisonFilterOperatorOutput() DataSetStringComparisonFilterOperatorOutput
+	ToDataSetStringComparisonFilterOperatorOutputWithContext(context.Context) DataSetStringComparisonFilterOperatorOutput
+}
+
+var dataSetStringComparisonFilterOperatorPtrType = reflect.TypeOf((**DataSetStringComparisonFilterOperator)(nil)).Elem()
+
+type DataSetStringComparisonFilterOperatorPtrInput interface {
+	pulumi.Input
+
+	ToDataSetStringComparisonFilterOperatorPtrOutput() DataSetStringComparisonFilterOperatorPtrOutput
+	ToDataSetStringComparisonFilterOperatorPtrOutputWithContext(context.Context) DataSetStringComparisonFilterOperatorPtrOutput
+}
+
+type dataSetStringComparisonFilterOperatorPtr string
+
+func DataSetStringComparisonFilterOperatorPtr(v string) DataSetStringComparisonFilterOperatorPtrInput {
+	return (*dataSetStringComparisonFilterOperatorPtr)(&v)
+}
+
+func (*dataSetStringComparisonFilterOperatorPtr) ElementType() reflect.Type {
+	return dataSetStringComparisonFilterOperatorPtrType
+}
+
+func (in *dataSetStringComparisonFilterOperatorPtr) ToDataSetStringComparisonFilterOperatorPtrOutput() DataSetStringComparisonFilterOperatorPtrOutput {
+	return pulumi.ToOutput(in).(DataSetStringComparisonFilterOperatorPtrOutput)
+}
+
+func (in *dataSetStringComparisonFilterOperatorPtr) ToDataSetStringComparisonFilterOperatorPtrOutputWithContext(ctx context.Context) DataSetStringComparisonFilterOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSetStringComparisonFilterOperatorPtrOutput)
+}
+
+type DataSetStringListFilterOperator string
+
+const (
+	DataSetStringListFilterOperatorInclude = DataSetStringListFilterOperator("INCLUDE")
+	DataSetStringListFilterOperatorExclude = DataSetStringListFilterOperator("EXCLUDE")
+)
+
+func (DataSetStringListFilterOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetStringListFilterOperator)(nil)).Elem()
+}
+
+func (e DataSetStringListFilterOperator) ToDataSetStringListFilterOperatorOutput() DataSetStringListFilterOperatorOutput {
+	return pulumi.ToOutput(e).(DataSetStringListFilterOperatorOutput)
+}
+
+func (e DataSetStringListFilterOperator) ToDataSetStringListFilterOperatorOutputWithContext(ctx context.Context) DataSetStringListFilterOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSetStringListFilterOperatorOutput)
+}
+
+func (e DataSetStringListFilterOperator) ToDataSetStringListFilterOperatorPtrOutput() DataSetStringListFilterOperatorPtrOutput {
+	return e.ToDataSetStringListFilterOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e DataSetStringListFilterOperator) ToDataSetStringListFilterOperatorPtrOutputWithContext(ctx context.Context) DataSetStringListFilterOperatorPtrOutput {
+	return DataSetStringListFilterOperator(e).ToDataSetStringListFilterOperatorOutputWithContext(ctx).ToDataSetStringListFilterOperatorPtrOutputWithContext(ctx)
+}
+
+func (e DataSetStringListFilterOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSetStringListFilterOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSetStringListFilterOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSetStringListFilterOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSetStringListFilterOperatorOutput struct{ *pulumi.OutputState }
+
+func (DataSetStringListFilterOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetStringListFilterOperator)(nil)).Elem()
+}
+
+func (o DataSetStringListFilterOperatorOutput) ToDataSetStringListFilterOperatorOutput() DataSetStringListFilterOperatorOutput {
+	return o
+}
+
+func (o DataSetStringListFilterOperatorOutput) ToDataSetStringListFilterOperatorOutputWithContext(ctx context.Context) DataSetStringListFilterOperatorOutput {
+	return o
+}
+
+func (o DataSetStringListFilterOperatorOutput) ToDataSetStringListFilterOperatorPtrOutput() DataSetStringListFilterOperatorPtrOutput {
+	return o.ToDataSetStringListFilterOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetStringListFilterOperatorOutput) ToDataSetStringListFilterOperatorPtrOutputWithContext(ctx context.Context) DataSetStringListFilterOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetStringListFilterOperator) *DataSetStringListFilterOperator {
+		return &v
+	}).(DataSetStringListFilterOperatorPtrOutput)
+}
+
+func (o DataSetStringListFilterOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSetStringListFilterOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetStringListFilterOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSetStringListFilterOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetStringListFilterOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetStringListFilterOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetStringListFilterOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetStringListFilterOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetStringListFilterOperator)(nil)).Elem()
+}
+
+func (o DataSetStringListFilterOperatorPtrOutput) ToDataSetStringListFilterOperatorPtrOutput() DataSetStringListFilterOperatorPtrOutput {
+	return o
+}
+
+func (o DataSetStringListFilterOperatorPtrOutput) ToDataSetStringListFilterOperatorPtrOutputWithContext(ctx context.Context) DataSetStringListFilterOperatorPtrOutput {
+	return o
+}
+
+func (o DataSetStringListFilterOperatorPtrOutput) Elem() DataSetStringListFilterOperatorOutput {
+	return o.ApplyT(func(v *DataSetStringListFilterOperator) DataSetStringListFilterOperator {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetStringListFilterOperator
+		return ret
+	}).(DataSetStringListFilterOperatorOutput)
+}
+
+func (o DataSetStringListFilterOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetStringListFilterOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSetStringListFilterOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSetStringListFilterOperatorInput is an input type that accepts values of the DataSetStringListFilterOperator enum
+// A concrete instance of `DataSetStringListFilterOperatorInput` can be one of the following:
+//
+//	DataSetStringListFilterOperatorInclude
+//	DataSetStringListFilterOperatorExclude
+type DataSetStringListFilterOperatorInput interface {
+	pulumi.Input
+
+	ToDataSetStringListFilterOperatorOutput() DataSetStringListFilterOperatorOutput
+	ToDataSetStringListFilterOperatorOutputWithContext(context.Context) DataSetStringListFilterOperatorOutput
+}
+
+var dataSetStringListFilterOperatorPtrType = reflect.TypeOf((**DataSetStringListFilterOperator)(nil)).Elem()
+
+type DataSetStringListFilterOperatorPtrInput interface {
+	pulumi.Input
+
+	ToDataSetStringListFilterOperatorPtrOutput() DataSetStringListFilterOperatorPtrOutput
+	ToDataSetStringListFilterOperatorPtrOutputWithContext(context.Context) DataSetStringListFilterOperatorPtrOutput
+}
+
+type dataSetStringListFilterOperatorPtr string
+
+func DataSetStringListFilterOperatorPtr(v string) DataSetStringListFilterOperatorPtrInput {
+	return (*dataSetStringListFilterOperatorPtr)(&v)
+}
+
+func (*dataSetStringListFilterOperatorPtr) ElementType() reflect.Type {
+	return dataSetStringListFilterOperatorPtrType
+}
+
+func (in *dataSetStringListFilterOperatorPtr) ToDataSetStringListFilterOperatorPtrOutput() DataSetStringListFilterOperatorPtrOutput {
+	return pulumi.ToOutput(in).(DataSetStringListFilterOperatorPtrOutput)
+}
+
+func (in *dataSetStringListFilterOperatorPtr) ToDataSetStringListFilterOperatorPtrOutputWithContext(ctx context.Context) DataSetStringListFilterOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSetStringListFilterOperatorPtrOutput)
 }
 
 type DataSetTextQualifier string
@@ -47005,57 +48033,58 @@ func (in *dataSourceStarburstProductTypePtr) ToDataSourceStarburstProductTypePtr
 type DataSourceType string
 
 const (
-	DataSourceTypeAdobeAnalytics      = DataSourceType("ADOBE_ANALYTICS")
-	DataSourceTypeAmazonElasticsearch = DataSourceType("AMAZON_ELASTICSEARCH")
-	DataSourceTypeAmazonOpensearch    = DataSourceType("AMAZON_OPENSEARCH")
-	DataSourceTypeAthena              = DataSourceType("ATHENA")
-	DataSourceTypeAurora              = DataSourceType("AURORA")
-	DataSourceTypeAuroraPostgresql    = DataSourceType("AURORA_POSTGRESQL")
-	DataSourceTypeAwsIotAnalytics     = DataSourceType("AWS_IOT_ANALYTICS")
-	DataSourceTypeDatabricks          = DataSourceType("DATABRICKS")
-	DataSourceTypeDenodo              = DataSourceType("DENODO")
-	DataSourceTypeDremio              = DataSourceType("DREMIO")
-	DataSourceTypeDynamodb            = DataSourceType("DYNAMODB")
-	DataSourceTypeSaphana             = DataSourceType("SAPHANA")
-	DataSourceTypeDb2as400            = DataSourceType("DB2_AS400")
-	DataSourceTypeExasol              = DataSourceType("EXASOL")
-	DataSourceTypeFile                = DataSourceType("FILE")
-	DataSourceTypeGithub              = DataSourceType("GITHUB")
-	DataSourceTypeJira                = DataSourceType("JIRA")
-	DataSourceTypeMariadb             = DataSourceType("MARIADB")
-	DataSourceTypeMysql               = DataSourceType("MYSQL")
-	DataSourceTypeOracle              = DataSourceType("ORACLE")
-	DataSourceTypePostgresql          = DataSourceType("POSTGRESQL")
-	DataSourceTypePresto              = DataSourceType("PRESTO")
-	DataSourceTypeQbusiness           = DataSourceType("QBUSINESS")
-	DataSourceTypeRedshift            = DataSourceType("REDSHIFT")
-	DataSourceTypeS3                  = DataSourceType("S3")
-	DataSourceTypeS3Tables            = DataSourceType("S3_TABLES")
-	DataSourceTypeS3KnowledgeBase     = DataSourceType("S3_KNOWLEDGE_BASE")
-	DataSourceTypeSalesforce          = DataSourceType("SALESFORCE")
-	DataSourceTypeServicenow          = DataSourceType("SERVICENOW")
-	DataSourceTypeSnowflake           = DataSourceType("SNOWFLAKE")
-	DataSourceTypeSpark               = DataSourceType("SPARK")
-	DataSourceTypeSpice               = DataSourceType("SPICE")
-	DataSourceTypeSqlserver           = DataSourceType("SQLSERVER")
-	DataSourceTypeTeradata            = DataSourceType("TERADATA")
-	DataSourceTypeTimestream          = DataSourceType("TIMESTREAM")
-	DataSourceTypeTwitter             = DataSourceType("TWITTER")
-	DataSourceTypeBigquery            = DataSourceType("BIGQUERY")
-	DataSourceTypeGoogleAnalytics     = DataSourceType("GOOGLE_ANALYTICS")
-	DataSourceTypeTrino               = DataSourceType("TRINO")
-	DataSourceTypeStarburst           = DataSourceType("STARBURST")
-	DataSourceTypeMongo               = DataSourceType("MONGO")
-	DataSourceTypeMongoAtlas          = DataSourceType("MONGO_ATLAS")
-	DataSourceTypeDocumentdb          = DataSourceType("DOCUMENTDB")
-	DataSourceTypeAppflow             = DataSourceType("APPFLOW")
-	DataSourceTypeImpala              = DataSourceType("IMPALA")
-	DataSourceTypeGlue                = DataSourceType("GLUE")
-	DataSourceTypeGoogleDrive         = DataSourceType("GOOGLE_DRIVE")
-	DataSourceTypeConfluence          = DataSourceType("CONFLUENCE")
-	DataSourceTypeSharepoint          = DataSourceType("SHAREPOINT")
-	DataSourceTypeOneDrive            = DataSourceType("ONE_DRIVE")
-	DataSourceTypeWebCrawler          = DataSourceType("WEB_CRAWLER")
+	DataSourceTypeAdobeAnalytics               = DataSourceType("ADOBE_ANALYTICS")
+	DataSourceTypeAmazonElasticsearch          = DataSourceType("AMAZON_ELASTICSEARCH")
+	DataSourceTypeAmazonOpensearch             = DataSourceType("AMAZON_OPENSEARCH")
+	DataSourceTypeAthena                       = DataSourceType("ATHENA")
+	DataSourceTypeAurora                       = DataSourceType("AURORA")
+	DataSourceTypeAuroraPostgresql             = DataSourceType("AURORA_POSTGRESQL")
+	DataSourceTypeAwsIotAnalytics              = DataSourceType("AWS_IOT_ANALYTICS")
+	DataSourceTypeDatabricks                   = DataSourceType("DATABRICKS")
+	DataSourceTypeDenodo                       = DataSourceType("DENODO")
+	DataSourceTypeDremio                       = DataSourceType("DREMIO")
+	DataSourceTypeDynamodb                     = DataSourceType("DYNAMODB")
+	DataSourceTypeSaphana                      = DataSourceType("SAPHANA")
+	DataSourceTypeDb2as400                     = DataSourceType("DB2_AS400")
+	DataSourceTypeExasol                       = DataSourceType("EXASOL")
+	DataSourceTypeFile                         = DataSourceType("FILE")
+	DataSourceTypeGithub                       = DataSourceType("GITHUB")
+	DataSourceTypeInternationalDataCorporation = DataSourceType("INTERNATIONAL_DATA_CORPORATION")
+	DataSourceTypeJira                         = DataSourceType("JIRA")
+	DataSourceTypeMariadb                      = DataSourceType("MARIADB")
+	DataSourceTypeMysql                        = DataSourceType("MYSQL")
+	DataSourceTypeOracle                       = DataSourceType("ORACLE")
+	DataSourceTypePostgresql                   = DataSourceType("POSTGRESQL")
+	DataSourceTypePresto                       = DataSourceType("PRESTO")
+	DataSourceTypeQbusiness                    = DataSourceType("QBUSINESS")
+	DataSourceTypeRedshift                     = DataSourceType("REDSHIFT")
+	DataSourceTypeS3                           = DataSourceType("S3")
+	DataSourceTypeS3Tables                     = DataSourceType("S3_TABLES")
+	DataSourceTypeS3KnowledgeBase              = DataSourceType("S3_KNOWLEDGE_BASE")
+	DataSourceTypeSalesforce                   = DataSourceType("SALESFORCE")
+	DataSourceTypeServicenow                   = DataSourceType("SERVICENOW")
+	DataSourceTypeSnowflake                    = DataSourceType("SNOWFLAKE")
+	DataSourceTypeSpark                        = DataSourceType("SPARK")
+	DataSourceTypeSpice                        = DataSourceType("SPICE")
+	DataSourceTypeSqlserver                    = DataSourceType("SQLSERVER")
+	DataSourceTypeTeradata                     = DataSourceType("TERADATA")
+	DataSourceTypeTimestream                   = DataSourceType("TIMESTREAM")
+	DataSourceTypeTwitter                      = DataSourceType("TWITTER")
+	DataSourceTypeBigquery                     = DataSourceType("BIGQUERY")
+	DataSourceTypeGoogleAnalytics              = DataSourceType("GOOGLE_ANALYTICS")
+	DataSourceTypeTrino                        = DataSourceType("TRINO")
+	DataSourceTypeStarburst                    = DataSourceType("STARBURST")
+	DataSourceTypeMongo                        = DataSourceType("MONGO")
+	DataSourceTypeMongoAtlas                   = DataSourceType("MONGO_ATLAS")
+	DataSourceTypeDocumentdb                   = DataSourceType("DOCUMENTDB")
+	DataSourceTypeAppflow                      = DataSourceType("APPFLOW")
+	DataSourceTypeImpala                       = DataSourceType("IMPALA")
+	DataSourceTypeGlue                         = DataSourceType("GLUE")
+	DataSourceTypeGoogleDrive                  = DataSourceType("GOOGLE_DRIVE")
+	DataSourceTypeConfluence                   = DataSourceType("CONFLUENCE")
+	DataSourceTypeSharepoint                   = DataSourceType("SHAREPOINT")
+	DataSourceTypeOneDrive                     = DataSourceType("ONE_DRIVE")
+	DataSourceTypeWebCrawler                   = DataSourceType("WEB_CRAWLER")
 )
 
 func (DataSourceType) ElementType() reflect.Type {
@@ -47196,6 +48225,7 @@ func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 //	DataSourceTypeExasol
 //	DataSourceTypeFile
 //	DataSourceTypeGithub
+//	DataSourceTypeInternationalDataCorporation
 //	DataSourceTypeJira
 //	DataSourceTypeMariadb
 //	DataSourceTypeMysql
@@ -73333,8 +74363,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnTagNameInput)(nil)).Elem(), DataSetColumnTagName("COLUMN_GEOGRAPHIC_ROLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnTagNamePtrInput)(nil)).Elem(), DataSetColumnTagName("COLUMN_GEOGRAPHIC_ROLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnTagNameArrayInput)(nil)).Elem(), DataSetColumnTagNameArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetDataPrepSimpleAggregationFunctionTypeInput)(nil)).Elem(), DataSetDataPrepSimpleAggregationFunctionType("COUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetDataPrepSimpleAggregationFunctionTypePtrInput)(nil)).Elem(), DataSetDataPrepSimpleAggregationFunctionType("COUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetDatasetParameterValueTypeInput)(nil)).Elem(), DataSetDatasetParameterValueType("MULTI_VALUED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetDatasetParameterValueTypePtrInput)(nil)).Elem(), DataSetDatasetParameterValueType("MULTI_VALUED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetDateComparisonFilterOperatorInput)(nil)).Elem(), DataSetDateComparisonFilterOperator("BEFORE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetDateComparisonFilterOperatorPtrInput)(nil)).Elem(), DataSetDateComparisonFilterOperator("BEFORE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetFileFormatInput)(nil)).Elem(), DataSetFileFormat("CSV"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetFileFormatPtrInput)(nil)).Elem(), DataSetFileFormat("CSV"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetGeoSpatialCountryCodeInput)(nil)).Elem(), DataSetGeoSpatialCountryCode("US"))
@@ -73345,10 +74379,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetImportModePtrInput)(nil)).Elem(), DataSetImportMode("SPICE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetInputColumnDataTypeInput)(nil)).Elem(), DataSetInputColumnDataType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetInputColumnDataTypePtrInput)(nil)).Elem(), DataSetInputColumnDataType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetJoinOperationTypeInput)(nil)).Elem(), DataSetJoinOperationType("INNER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetJoinOperationTypePtrInput)(nil)).Elem(), DataSetJoinOperationType("INNER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetJoinTypeInput)(nil)).Elem(), DataSetJoinType("INNER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetJoinTypePtrInput)(nil)).Elem(), DataSetJoinType("INNER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLookbackWindowSizeUnitInput)(nil)).Elem(), DataSetLookbackWindowSizeUnit("HOUR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetLookbackWindowSizeUnitPtrInput)(nil)).Elem(), DataSetLookbackWindowSizeUnit("HOUR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetNumericComparisonFilterOperatorInput)(nil)).Elem(), DataSetNumericComparisonFilterOperator("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetNumericComparisonFilterOperatorPtrInput)(nil)).Elem(), DataSetNumericComparisonFilterOperator("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRefreshFailureAlertStatusInput)(nil)).Elem(), DataSetRefreshFailureAlertStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRefreshFailureAlertStatusPtrInput)(nil)).Elem(), DataSetRefreshFailureAlertStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRowLevelPermissionFormatVersionInput)(nil)).Elem(), DataSetRowLevelPermissionFormatVersion("VERSION_1"))
@@ -73357,6 +74395,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRowLevelPermissionPolicyPtrInput)(nil)).Elem(), DataSetRowLevelPermissionPolicy("GRANT_ACCESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetStatusInput)(nil)).Elem(), DataSetStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetStatusPtrInput)(nil)).Elem(), DataSetStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetStringComparisonFilterOperatorInput)(nil)).Elem(), DataSetStringComparisonFilterOperator("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetStringComparisonFilterOperatorPtrInput)(nil)).Elem(), DataSetStringComparisonFilterOperator("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetStringListFilterOperatorInput)(nil)).Elem(), DataSetStringListFilterOperator("INCLUDE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetStringListFilterOperatorPtrInput)(nil)).Elem(), DataSetStringListFilterOperator("INCLUDE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetTextQualifierInput)(nil)).Elem(), DataSetTextQualifier("DOUBLE_QUOTE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetTextQualifierPtrInput)(nil)).Elem(), DataSetTextQualifier("DOUBLE_QUOTE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetTimeGranularityInput)(nil)).Elem(), DataSetTimeGranularity("YEAR"))
@@ -74195,8 +75237,12 @@ func init() {
 	pulumi.RegisterOutputType(DataSetColumnTagNameOutput{})
 	pulumi.RegisterOutputType(DataSetColumnTagNamePtrOutput{})
 	pulumi.RegisterOutputType(DataSetColumnTagNameArrayOutput{})
+	pulumi.RegisterOutputType(DataSetDataPrepSimpleAggregationFunctionTypeOutput{})
+	pulumi.RegisterOutputType(DataSetDataPrepSimpleAggregationFunctionTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSetDatasetParameterValueTypeOutput{})
 	pulumi.RegisterOutputType(DataSetDatasetParameterValueTypePtrOutput{})
+	pulumi.RegisterOutputType(DataSetDateComparisonFilterOperatorOutput{})
+	pulumi.RegisterOutputType(DataSetDateComparisonFilterOperatorPtrOutput{})
 	pulumi.RegisterOutputType(DataSetFileFormatOutput{})
 	pulumi.RegisterOutputType(DataSetFileFormatPtrOutput{})
 	pulumi.RegisterOutputType(DataSetGeoSpatialCountryCodeOutput{})
@@ -74207,10 +75253,14 @@ func init() {
 	pulumi.RegisterOutputType(DataSetImportModePtrOutput{})
 	pulumi.RegisterOutputType(DataSetInputColumnDataTypeOutput{})
 	pulumi.RegisterOutputType(DataSetInputColumnDataTypePtrOutput{})
+	pulumi.RegisterOutputType(DataSetJoinOperationTypeOutput{})
+	pulumi.RegisterOutputType(DataSetJoinOperationTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSetJoinTypeOutput{})
 	pulumi.RegisterOutputType(DataSetJoinTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSetLookbackWindowSizeUnitOutput{})
 	pulumi.RegisterOutputType(DataSetLookbackWindowSizeUnitPtrOutput{})
+	pulumi.RegisterOutputType(DataSetNumericComparisonFilterOperatorOutput{})
+	pulumi.RegisterOutputType(DataSetNumericComparisonFilterOperatorPtrOutput{})
 	pulumi.RegisterOutputType(DataSetRefreshFailureAlertStatusOutput{})
 	pulumi.RegisterOutputType(DataSetRefreshFailureAlertStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataSetRowLevelPermissionFormatVersionOutput{})
@@ -74219,6 +75269,10 @@ func init() {
 	pulumi.RegisterOutputType(DataSetRowLevelPermissionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DataSetStatusOutput{})
 	pulumi.RegisterOutputType(DataSetStatusPtrOutput{})
+	pulumi.RegisterOutputType(DataSetStringComparisonFilterOperatorOutput{})
+	pulumi.RegisterOutputType(DataSetStringComparisonFilterOperatorPtrOutput{})
+	pulumi.RegisterOutputType(DataSetStringListFilterOperatorOutput{})
+	pulumi.RegisterOutputType(DataSetStringListFilterOperatorPtrOutput{})
 	pulumi.RegisterOutputType(DataSetTextQualifierOutput{})
 	pulumi.RegisterOutputType(DataSetTextQualifierPtrOutput{})
 	pulumi.RegisterOutputType(DataSetTimeGranularityOutput{})

@@ -7946,6 +7946,162 @@ type MailManagerTrafficPolicyTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Contains details of a multi-region endpoint (global-endpoint) being created.
+type MultiRegionEndpointDetails struct {
+	RouteDetails []MultiRegionEndpointRouteDetailsItemProperties `pulumi:"routeDetails"`
+}
+
+// MultiRegionEndpointDetailsInput is an input type that accepts MultiRegionEndpointDetailsArgs and MultiRegionEndpointDetailsOutput values.
+// You can construct a concrete instance of `MultiRegionEndpointDetailsInput` via:
+//
+//	MultiRegionEndpointDetailsArgs{...}
+type MultiRegionEndpointDetailsInput interface {
+	pulumi.Input
+
+	ToMultiRegionEndpointDetailsOutput() MultiRegionEndpointDetailsOutput
+	ToMultiRegionEndpointDetailsOutputWithContext(context.Context) MultiRegionEndpointDetailsOutput
+}
+
+// Contains details of a multi-region endpoint (global-endpoint) being created.
+type MultiRegionEndpointDetailsArgs struct {
+	RouteDetails MultiRegionEndpointRouteDetailsItemPropertiesArrayInput `pulumi:"routeDetails"`
+}
+
+func (MultiRegionEndpointDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionEndpointDetails)(nil)).Elem()
+}
+
+func (i MultiRegionEndpointDetailsArgs) ToMultiRegionEndpointDetailsOutput() MultiRegionEndpointDetailsOutput {
+	return i.ToMultiRegionEndpointDetailsOutputWithContext(context.Background())
+}
+
+func (i MultiRegionEndpointDetailsArgs) ToMultiRegionEndpointDetailsOutputWithContext(ctx context.Context) MultiRegionEndpointDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionEndpointDetailsOutput)
+}
+
+// Contains details of a multi-region endpoint (global-endpoint) being created.
+type MultiRegionEndpointDetailsOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionEndpointDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionEndpointDetails)(nil)).Elem()
+}
+
+func (o MultiRegionEndpointDetailsOutput) ToMultiRegionEndpointDetailsOutput() MultiRegionEndpointDetailsOutput {
+	return o
+}
+
+func (o MultiRegionEndpointDetailsOutput) ToMultiRegionEndpointDetailsOutputWithContext(ctx context.Context) MultiRegionEndpointDetailsOutput {
+	return o
+}
+
+func (o MultiRegionEndpointDetailsOutput) RouteDetails() MultiRegionEndpointRouteDetailsItemPropertiesArrayOutput {
+	return o.ApplyT(func(v MultiRegionEndpointDetails) []MultiRegionEndpointRouteDetailsItemProperties {
+		return v.RouteDetails
+	}).(MultiRegionEndpointRouteDetailsItemPropertiesArrayOutput)
+}
+
+type MultiRegionEndpointRouteDetailsItemProperties struct {
+	Region string `pulumi:"region"`
+}
+
+// MultiRegionEndpointRouteDetailsItemPropertiesInput is an input type that accepts MultiRegionEndpointRouteDetailsItemPropertiesArgs and MultiRegionEndpointRouteDetailsItemPropertiesOutput values.
+// You can construct a concrete instance of `MultiRegionEndpointRouteDetailsItemPropertiesInput` via:
+//
+//	MultiRegionEndpointRouteDetailsItemPropertiesArgs{...}
+type MultiRegionEndpointRouteDetailsItemPropertiesInput interface {
+	pulumi.Input
+
+	ToMultiRegionEndpointRouteDetailsItemPropertiesOutput() MultiRegionEndpointRouteDetailsItemPropertiesOutput
+	ToMultiRegionEndpointRouteDetailsItemPropertiesOutputWithContext(context.Context) MultiRegionEndpointRouteDetailsItemPropertiesOutput
+}
+
+type MultiRegionEndpointRouteDetailsItemPropertiesArgs struct {
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (MultiRegionEndpointRouteDetailsItemPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionEndpointRouteDetailsItemProperties)(nil)).Elem()
+}
+
+func (i MultiRegionEndpointRouteDetailsItemPropertiesArgs) ToMultiRegionEndpointRouteDetailsItemPropertiesOutput() MultiRegionEndpointRouteDetailsItemPropertiesOutput {
+	return i.ToMultiRegionEndpointRouteDetailsItemPropertiesOutputWithContext(context.Background())
+}
+
+func (i MultiRegionEndpointRouteDetailsItemPropertiesArgs) ToMultiRegionEndpointRouteDetailsItemPropertiesOutputWithContext(ctx context.Context) MultiRegionEndpointRouteDetailsItemPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionEndpointRouteDetailsItemPropertiesOutput)
+}
+
+// MultiRegionEndpointRouteDetailsItemPropertiesArrayInput is an input type that accepts MultiRegionEndpointRouteDetailsItemPropertiesArray and MultiRegionEndpointRouteDetailsItemPropertiesArrayOutput values.
+// You can construct a concrete instance of `MultiRegionEndpointRouteDetailsItemPropertiesArrayInput` via:
+//
+//	MultiRegionEndpointRouteDetailsItemPropertiesArray{ MultiRegionEndpointRouteDetailsItemPropertiesArgs{...} }
+type MultiRegionEndpointRouteDetailsItemPropertiesArrayInput interface {
+	pulumi.Input
+
+	ToMultiRegionEndpointRouteDetailsItemPropertiesArrayOutput() MultiRegionEndpointRouteDetailsItemPropertiesArrayOutput
+	ToMultiRegionEndpointRouteDetailsItemPropertiesArrayOutputWithContext(context.Context) MultiRegionEndpointRouteDetailsItemPropertiesArrayOutput
+}
+
+type MultiRegionEndpointRouteDetailsItemPropertiesArray []MultiRegionEndpointRouteDetailsItemPropertiesInput
+
+func (MultiRegionEndpointRouteDetailsItemPropertiesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultiRegionEndpointRouteDetailsItemProperties)(nil)).Elem()
+}
+
+func (i MultiRegionEndpointRouteDetailsItemPropertiesArray) ToMultiRegionEndpointRouteDetailsItemPropertiesArrayOutput() MultiRegionEndpointRouteDetailsItemPropertiesArrayOutput {
+	return i.ToMultiRegionEndpointRouteDetailsItemPropertiesArrayOutputWithContext(context.Background())
+}
+
+func (i MultiRegionEndpointRouteDetailsItemPropertiesArray) ToMultiRegionEndpointRouteDetailsItemPropertiesArrayOutputWithContext(ctx context.Context) MultiRegionEndpointRouteDetailsItemPropertiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionEndpointRouteDetailsItemPropertiesArrayOutput)
+}
+
+type MultiRegionEndpointRouteDetailsItemPropertiesOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionEndpointRouteDetailsItemPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionEndpointRouteDetailsItemProperties)(nil)).Elem()
+}
+
+func (o MultiRegionEndpointRouteDetailsItemPropertiesOutput) ToMultiRegionEndpointRouteDetailsItemPropertiesOutput() MultiRegionEndpointRouteDetailsItemPropertiesOutput {
+	return o
+}
+
+func (o MultiRegionEndpointRouteDetailsItemPropertiesOutput) ToMultiRegionEndpointRouteDetailsItemPropertiesOutputWithContext(ctx context.Context) MultiRegionEndpointRouteDetailsItemPropertiesOutput {
+	return o
+}
+
+func (o MultiRegionEndpointRouteDetailsItemPropertiesOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v MultiRegionEndpointRouteDetailsItemProperties) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type MultiRegionEndpointRouteDetailsItemPropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionEndpointRouteDetailsItemPropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultiRegionEndpointRouteDetailsItemProperties)(nil)).Elem()
+}
+
+func (o MultiRegionEndpointRouteDetailsItemPropertiesArrayOutput) ToMultiRegionEndpointRouteDetailsItemPropertiesArrayOutput() MultiRegionEndpointRouteDetailsItemPropertiesArrayOutput {
+	return o
+}
+
+func (o MultiRegionEndpointRouteDetailsItemPropertiesArrayOutput) ToMultiRegionEndpointRouteDetailsItemPropertiesArrayOutputWithContext(ctx context.Context) MultiRegionEndpointRouteDetailsItemPropertiesArrayOutput {
+	return o
+}
+
+func (o MultiRegionEndpointRouteDetailsItemPropertiesArrayOutput) Index(i pulumi.IntInput) MultiRegionEndpointRouteDetailsItemPropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultiRegionEndpointRouteDetailsItemProperties {
+		return vs[0].([]MultiRegionEndpointRouteDetailsItemProperties)[vs[1].(int)]
+	}).(MultiRegionEndpointRouteDetailsItemPropertiesOutput)
+}
+
+// An object that defines the tags that are associated with a resource.
+type MultiRegionEndpointTag struct {
+	// One part of a key-value pair that defines a tag.
+	Key string `pulumi:"key"`
+	// The optional part of a key-value pair that defines a tag.
+	Value string `pulumi:"value"`
+}
+
 // The content of the email, composed of a subject line, an HTML part, and a text-only part
 type TemplateType struct {
 	// The HTML body of the email.
@@ -8547,6 +8703,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyPolicyCondition4PropertiesInput)(nil)).Elem(), MailManagerTrafficPolicyPolicyCondition4PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyPolicyStatementInput)(nil)).Elem(), MailManagerTrafficPolicyPolicyStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MailManagerTrafficPolicyPolicyStatementArrayInput)(nil)).Elem(), MailManagerTrafficPolicyPolicyStatementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionEndpointDetailsInput)(nil)).Elem(), MultiRegionEndpointDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionEndpointRouteDetailsItemPropertiesInput)(nil)).Elem(), MultiRegionEndpointRouteDetailsItemPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionEndpointRouteDetailsItemPropertiesArrayInput)(nil)).Elem(), MultiRegionEndpointRouteDetailsItemPropertiesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTypeInput)(nil)).Elem(), TemplateTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTypePtrInput)(nil)).Elem(), TemplateTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VdmAttributesDashboardAttributesInput)(nil)).Elem(), VdmAttributesDashboardAttributesArgs{})
@@ -8680,6 +8839,9 @@ func init() {
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyPolicyCondition4PropertiesOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyPolicyStatementOutput{})
 	pulumi.RegisterOutputType(MailManagerTrafficPolicyPolicyStatementArrayOutput{})
+	pulumi.RegisterOutputType(MultiRegionEndpointDetailsOutput{})
+	pulumi.RegisterOutputType(MultiRegionEndpointRouteDetailsItemPropertiesOutput{})
+	pulumi.RegisterOutputType(MultiRegionEndpointRouteDetailsItemPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(TemplateTypeOutput{})
 	pulumi.RegisterOutputType(TemplateTypePtrOutput{})
 	pulumi.RegisterOutputType(VdmAttributesDashboardAttributesOutput{})

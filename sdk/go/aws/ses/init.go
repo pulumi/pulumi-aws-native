@@ -47,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MailManagerRuleSet{}
 	case "aws-native:ses:MailManagerTrafficPolicy":
 		r = &MailManagerTrafficPolicy{}
+	case "aws-native:ses:MultiRegionEndpoint":
+		r = &MultiRegionEndpoint{}
 	case "aws-native:ses:Template":
 		r = &Template{}
 	case "aws-native:ses:VdmAttributes":

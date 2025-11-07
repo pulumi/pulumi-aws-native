@@ -79,6 +79,7 @@ namespace Pulumi.AwsNative.Connect
         /// The description of the security profile.
         /// </summary>
         public readonly string? Description;
+        public readonly Outputs.GranularAccessControlConfigurationProperties? GranularAccessControlConfiguration;
         /// <summary>
         /// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
         /// </summary>
@@ -118,6 +119,8 @@ namespace Pulumi.AwsNative.Connect
 
             string? description,
 
+            Outputs.GranularAccessControlConfigurationProperties? granularAccessControlConfiguration,
+
             ImmutableArray<string> hierarchyRestrictedResources,
 
             string? lastModifiedRegion,
@@ -136,6 +139,7 @@ namespace Pulumi.AwsNative.Connect
             AllowedAccessControlTags = allowedAccessControlTags;
             Applications = applications;
             Description = description;
+            GranularAccessControlConfiguration = granularAccessControlConfiguration;
             HierarchyRestrictedResources = hierarchyRestrictedResources;
             LastModifiedRegion = lastModifiedRegion;
             LastModifiedTime = lastModifiedTime;

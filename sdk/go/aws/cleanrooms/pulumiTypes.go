@@ -3878,10 +3878,11 @@ type ConfiguredTableAssociationTag struct {
 }
 
 type ConfiguredTableAthenaTableReference struct {
-	DatabaseName   string  `pulumi:"databaseName"`
-	OutputLocation *string `pulumi:"outputLocation"`
-	TableName      string  `pulumi:"tableName"`
-	WorkGroup      string  `pulumi:"workGroup"`
+	DatabaseName   string                           `pulumi:"databaseName"`
+	OutputLocation *string                          `pulumi:"outputLocation"`
+	Region         *ConfiguredTableCommercialRegion `pulumi:"region"`
+	TableName      string                           `pulumi:"tableName"`
+	WorkGroup      string                           `pulumi:"workGroup"`
 }
 
 // ConfiguredTableAthenaTableReferenceInput is an input type that accepts ConfiguredTableAthenaTableReferenceArgs and ConfiguredTableAthenaTableReferenceOutput values.
@@ -3896,10 +3897,11 @@ type ConfiguredTableAthenaTableReferenceInput interface {
 }
 
 type ConfiguredTableAthenaTableReferenceArgs struct {
-	DatabaseName   pulumi.StringInput    `pulumi:"databaseName"`
-	OutputLocation pulumi.StringPtrInput `pulumi:"outputLocation"`
-	TableName      pulumi.StringInput    `pulumi:"tableName"`
-	WorkGroup      pulumi.StringInput    `pulumi:"workGroup"`
+	DatabaseName   pulumi.StringInput                      `pulumi:"databaseName"`
+	OutputLocation pulumi.StringPtrInput                   `pulumi:"outputLocation"`
+	Region         ConfiguredTableCommercialRegionPtrInput `pulumi:"region"`
+	TableName      pulumi.StringInput                      `pulumi:"tableName"`
+	WorkGroup      pulumi.StringInput                      `pulumi:"workGroup"`
 }
 
 func (ConfiguredTableAthenaTableReferenceArgs) ElementType() reflect.Type {
@@ -3934,6 +3936,10 @@ func (o ConfiguredTableAthenaTableReferenceOutput) DatabaseName() pulumi.StringO
 
 func (o ConfiguredTableAthenaTableReferenceOutput) OutputLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfiguredTableAthenaTableReference) *string { return v.OutputLocation }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfiguredTableAthenaTableReferenceOutput) Region() ConfiguredTableCommercialRegionPtrOutput {
+	return o.ApplyT(func(v ConfiguredTableAthenaTableReference) *ConfiguredTableCommercialRegion { return v.Region }).(ConfiguredTableCommercialRegionPtrOutput)
 }
 
 func (o ConfiguredTableAthenaTableReferenceOutput) TableName() pulumi.StringOutput {
@@ -3984,6 +3990,15 @@ func (o ConfiguredTableAthenaTableReferencePtrOutput) OutputLocation() pulumi.St
 		}
 		return v.OutputLocation
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfiguredTableAthenaTableReferencePtrOutput) Region() ConfiguredTableCommercialRegionPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableAthenaTableReference) *ConfiguredTableCommercialRegion {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(ConfiguredTableCommercialRegionPtrOutput)
 }
 
 func (o ConfiguredTableAthenaTableReferencePtrOutput) TableName() pulumi.StringPtrOutput {
@@ -4234,8 +4249,9 @@ func (o ConfiguredTableDifferentialPrivacyColumnArrayOutput) Index(i pulumi.IntI
 }
 
 type ConfiguredTableGlueTableReference struct {
-	DatabaseName string `pulumi:"databaseName"`
-	TableName    string `pulumi:"tableName"`
+	DatabaseName string                           `pulumi:"databaseName"`
+	Region       *ConfiguredTableCommercialRegion `pulumi:"region"`
+	TableName    string                           `pulumi:"tableName"`
 }
 
 // ConfiguredTableGlueTableReferenceInput is an input type that accepts ConfiguredTableGlueTableReferenceArgs and ConfiguredTableGlueTableReferenceOutput values.
@@ -4250,8 +4266,9 @@ type ConfiguredTableGlueTableReferenceInput interface {
 }
 
 type ConfiguredTableGlueTableReferenceArgs struct {
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	TableName    pulumi.StringInput `pulumi:"tableName"`
+	DatabaseName pulumi.StringInput                      `pulumi:"databaseName"`
+	Region       ConfiguredTableCommercialRegionPtrInput `pulumi:"region"`
+	TableName    pulumi.StringInput                      `pulumi:"tableName"`
 }
 
 func (ConfiguredTableGlueTableReferenceArgs) ElementType() reflect.Type {
@@ -4282,6 +4299,10 @@ func (o ConfiguredTableGlueTableReferenceOutput) ToConfiguredTableGlueTableRefer
 
 func (o ConfiguredTableGlueTableReferenceOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfiguredTableGlueTableReference) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableGlueTableReferenceOutput) Region() ConfiguredTableCommercialRegionPtrOutput {
+	return o.ApplyT(func(v ConfiguredTableGlueTableReference) *ConfiguredTableCommercialRegion { return v.Region }).(ConfiguredTableCommercialRegionPtrOutput)
 }
 
 func (o ConfiguredTableGlueTableReferenceOutput) TableName() pulumi.StringOutput {
@@ -4319,6 +4340,15 @@ func (o ConfiguredTableGlueTableReferencePtrOutput) DatabaseName() pulumi.String
 		}
 		return &v.DatabaseName
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfiguredTableGlueTableReferencePtrOutput) Region() ConfiguredTableCommercialRegionPtrOutput {
+	return o.ApplyT(func(v *ConfiguredTableGlueTableReference) *ConfiguredTableCommercialRegion {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(ConfiguredTableCommercialRegionPtrOutput)
 }
 
 func (o ConfiguredTableGlueTableReferencePtrOutput) TableName() pulumi.StringPtrOutput {
@@ -7396,10 +7426,12 @@ type MembershipTag struct {
 
 // Specifies the epsilon and noise parameters for the privacy budget template.
 type ParametersProperties struct {
+	BudgetParameters []PrivacyBudgetTemplateBudgetParameter `pulumi:"budgetParameters"`
 	// The epsilon value that you want to use.
-	Epsilon int `pulumi:"epsilon"`
+	Epsilon     *int    `pulumi:"epsilon"`
+	ResourceArn *string `pulumi:"resourceArn"`
 	// Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
-	UsersNoisePerQuery int `pulumi:"usersNoisePerQuery"`
+	UsersNoisePerQuery *int `pulumi:"usersNoisePerQuery"`
 }
 
 // ParametersPropertiesInput is an input type that accepts ParametersPropertiesArgs and ParametersPropertiesOutput values.
@@ -7415,10 +7447,12 @@ type ParametersPropertiesInput interface {
 
 // Specifies the epsilon and noise parameters for the privacy budget template.
 type ParametersPropertiesArgs struct {
+	BudgetParameters PrivacyBudgetTemplateBudgetParameterArrayInput `pulumi:"budgetParameters"`
 	// The epsilon value that you want to use.
-	Epsilon pulumi.IntInput `pulumi:"epsilon"`
+	Epsilon     pulumi.IntPtrInput    `pulumi:"epsilon"`
+	ResourceArn pulumi.StringPtrInput `pulumi:"resourceArn"`
 	// Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
-	UsersNoisePerQuery pulumi.IntInput `pulumi:"usersNoisePerQuery"`
+	UsersNoisePerQuery pulumi.IntPtrInput `pulumi:"usersNoisePerQuery"`
 }
 
 func (ParametersPropertiesArgs) ElementType() reflect.Type {
@@ -7448,14 +7482,22 @@ func (o ParametersPropertiesOutput) ToParametersPropertiesOutputWithContext(ctx 
 	return o
 }
 
+func (o ParametersPropertiesOutput) BudgetParameters() PrivacyBudgetTemplateBudgetParameterArrayOutput {
+	return o.ApplyT(func(v ParametersProperties) []PrivacyBudgetTemplateBudgetParameter { return v.BudgetParameters }).(PrivacyBudgetTemplateBudgetParameterArrayOutput)
+}
+
 // The epsilon value that you want to use.
-func (o ParametersPropertiesOutput) Epsilon() pulumi.IntOutput {
-	return o.ApplyT(func(v ParametersProperties) int { return v.Epsilon }).(pulumi.IntOutput)
+func (o ParametersPropertiesOutput) Epsilon() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ParametersProperties) *int { return v.Epsilon }).(pulumi.IntPtrOutput)
+}
+
+func (o ParametersPropertiesOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParametersProperties) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
 // Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
-func (o ParametersPropertiesOutput) UsersNoisePerQuery() pulumi.IntOutput {
-	return o.ApplyT(func(v ParametersProperties) int { return v.UsersNoisePerQuery }).(pulumi.IntOutput)
+func (o ParametersPropertiesOutput) UsersNoisePerQuery() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ParametersProperties) *int { return v.UsersNoisePerQuery }).(pulumi.IntPtrOutput)
 }
 
 type ParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -7482,14 +7524,32 @@ func (o ParametersPropertiesPtrOutput) Elem() ParametersPropertiesOutput {
 	}).(ParametersPropertiesOutput)
 }
 
+func (o ParametersPropertiesPtrOutput) BudgetParameters() PrivacyBudgetTemplateBudgetParameterArrayOutput {
+	return o.ApplyT(func(v *ParametersProperties) []PrivacyBudgetTemplateBudgetParameter {
+		if v == nil {
+			return nil
+		}
+		return v.BudgetParameters
+	}).(PrivacyBudgetTemplateBudgetParameterArrayOutput)
+}
+
 // The epsilon value that you want to use.
 func (o ParametersPropertiesPtrOutput) Epsilon() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ParametersProperties) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.Epsilon
+		return v.Epsilon
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o ParametersPropertiesPtrOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ParametersProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
@@ -7498,8 +7558,125 @@ func (o ParametersPropertiesPtrOutput) UsersNoisePerQuery() pulumi.IntPtrOutput 
 		if v == nil {
 			return nil
 		}
-		return &v.UsersNoisePerQuery
+		return v.UsersNoisePerQuery
 	}).(pulumi.IntPtrOutput)
+}
+
+type PrivacyBudgetTemplateBudgetParameter struct {
+	// Whether this individual budget parameter automatically refreshes when the budget period resets.
+	AutoRefresh *PrivacyBudgetTemplateBudgetParameterAutoRefresh `pulumi:"autoRefresh"`
+	// The budget allocation amount for this specific parameter.
+	Budget int `pulumi:"budget"`
+	// The type of budget parameter being configured.
+	Type PrivacyBudgetTemplateBudgetParameterType `pulumi:"type"`
+}
+
+// PrivacyBudgetTemplateBudgetParameterInput is an input type that accepts PrivacyBudgetTemplateBudgetParameterArgs and PrivacyBudgetTemplateBudgetParameterOutput values.
+// You can construct a concrete instance of `PrivacyBudgetTemplateBudgetParameterInput` via:
+//
+//	PrivacyBudgetTemplateBudgetParameterArgs{...}
+type PrivacyBudgetTemplateBudgetParameterInput interface {
+	pulumi.Input
+
+	ToPrivacyBudgetTemplateBudgetParameterOutput() PrivacyBudgetTemplateBudgetParameterOutput
+	ToPrivacyBudgetTemplateBudgetParameterOutputWithContext(context.Context) PrivacyBudgetTemplateBudgetParameterOutput
+}
+
+type PrivacyBudgetTemplateBudgetParameterArgs struct {
+	// Whether this individual budget parameter automatically refreshes when the budget period resets.
+	AutoRefresh PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrInput `pulumi:"autoRefresh"`
+	// The budget allocation amount for this specific parameter.
+	Budget pulumi.IntInput `pulumi:"budget"`
+	// The type of budget parameter being configured.
+	Type PrivacyBudgetTemplateBudgetParameterTypeInput `pulumi:"type"`
+}
+
+func (PrivacyBudgetTemplateBudgetParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivacyBudgetTemplateBudgetParameter)(nil)).Elem()
+}
+
+func (i PrivacyBudgetTemplateBudgetParameterArgs) ToPrivacyBudgetTemplateBudgetParameterOutput() PrivacyBudgetTemplateBudgetParameterOutput {
+	return i.ToPrivacyBudgetTemplateBudgetParameterOutputWithContext(context.Background())
+}
+
+func (i PrivacyBudgetTemplateBudgetParameterArgs) ToPrivacyBudgetTemplateBudgetParameterOutputWithContext(ctx context.Context) PrivacyBudgetTemplateBudgetParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivacyBudgetTemplateBudgetParameterOutput)
+}
+
+// PrivacyBudgetTemplateBudgetParameterArrayInput is an input type that accepts PrivacyBudgetTemplateBudgetParameterArray and PrivacyBudgetTemplateBudgetParameterArrayOutput values.
+// You can construct a concrete instance of `PrivacyBudgetTemplateBudgetParameterArrayInput` via:
+//
+//	PrivacyBudgetTemplateBudgetParameterArray{ PrivacyBudgetTemplateBudgetParameterArgs{...} }
+type PrivacyBudgetTemplateBudgetParameterArrayInput interface {
+	pulumi.Input
+
+	ToPrivacyBudgetTemplateBudgetParameterArrayOutput() PrivacyBudgetTemplateBudgetParameterArrayOutput
+	ToPrivacyBudgetTemplateBudgetParameterArrayOutputWithContext(context.Context) PrivacyBudgetTemplateBudgetParameterArrayOutput
+}
+
+type PrivacyBudgetTemplateBudgetParameterArray []PrivacyBudgetTemplateBudgetParameterInput
+
+func (PrivacyBudgetTemplateBudgetParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivacyBudgetTemplateBudgetParameter)(nil)).Elem()
+}
+
+func (i PrivacyBudgetTemplateBudgetParameterArray) ToPrivacyBudgetTemplateBudgetParameterArrayOutput() PrivacyBudgetTemplateBudgetParameterArrayOutput {
+	return i.ToPrivacyBudgetTemplateBudgetParameterArrayOutputWithContext(context.Background())
+}
+
+func (i PrivacyBudgetTemplateBudgetParameterArray) ToPrivacyBudgetTemplateBudgetParameterArrayOutputWithContext(ctx context.Context) PrivacyBudgetTemplateBudgetParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivacyBudgetTemplateBudgetParameterArrayOutput)
+}
+
+type PrivacyBudgetTemplateBudgetParameterOutput struct{ *pulumi.OutputState }
+
+func (PrivacyBudgetTemplateBudgetParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivacyBudgetTemplateBudgetParameter)(nil)).Elem()
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterOutput) ToPrivacyBudgetTemplateBudgetParameterOutput() PrivacyBudgetTemplateBudgetParameterOutput {
+	return o
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterOutput) ToPrivacyBudgetTemplateBudgetParameterOutputWithContext(ctx context.Context) PrivacyBudgetTemplateBudgetParameterOutput {
+	return o
+}
+
+// Whether this individual budget parameter automatically refreshes when the budget period resets.
+func (o PrivacyBudgetTemplateBudgetParameterOutput) AutoRefresh() PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput {
+	return o.ApplyT(func(v PrivacyBudgetTemplateBudgetParameter) *PrivacyBudgetTemplateBudgetParameterAutoRefresh {
+		return v.AutoRefresh
+	}).(PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput)
+}
+
+// The budget allocation amount for this specific parameter.
+func (o PrivacyBudgetTemplateBudgetParameterOutput) Budget() pulumi.IntOutput {
+	return o.ApplyT(func(v PrivacyBudgetTemplateBudgetParameter) int { return v.Budget }).(pulumi.IntOutput)
+}
+
+// The type of budget parameter being configured.
+func (o PrivacyBudgetTemplateBudgetParameterOutput) Type() PrivacyBudgetTemplateBudgetParameterTypeOutput {
+	return o.ApplyT(func(v PrivacyBudgetTemplateBudgetParameter) PrivacyBudgetTemplateBudgetParameterType { return v.Type }).(PrivacyBudgetTemplateBudgetParameterTypeOutput)
+}
+
+type PrivacyBudgetTemplateBudgetParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivacyBudgetTemplateBudgetParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivacyBudgetTemplateBudgetParameter)(nil)).Elem()
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterArrayOutput) ToPrivacyBudgetTemplateBudgetParameterArrayOutput() PrivacyBudgetTemplateBudgetParameterArrayOutput {
+	return o
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterArrayOutput) ToPrivacyBudgetTemplateBudgetParameterArrayOutputWithContext(ctx context.Context) PrivacyBudgetTemplateBudgetParameterArrayOutput {
+	return o
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterArrayOutput) Index(i pulumi.IntInput) PrivacyBudgetTemplateBudgetParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivacyBudgetTemplateBudgetParameter {
+		return vs[0].([]PrivacyBudgetTemplateBudgetParameter)[vs[1].(int)]
+	}).(PrivacyBudgetTemplateBudgetParameterOutput)
 }
 
 type PrivacyBudgetTemplateTag struct {
@@ -7615,6 +7792,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipQueryComputePaymentConfigInput)(nil)).Elem(), MembershipQueryComputePaymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipQueryComputePaymentConfigPtrInput)(nil)).Elem(), MembershipQueryComputePaymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParametersPropertiesInput)(nil)).Elem(), ParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivacyBudgetTemplateBudgetParameterInput)(nil)).Elem(), PrivacyBudgetTemplateBudgetParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivacyBudgetTemplateBudgetParameterArrayInput)(nil)).Elem(), PrivacyBudgetTemplateBudgetParameterArray{})
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisSchemaOutput{})
@@ -7732,4 +7911,6 @@ func init() {
 	pulumi.RegisterOutputType(MembershipQueryComputePaymentConfigPtrOutput{})
 	pulumi.RegisterOutputType(ParametersPropertiesOutput{})
 	pulumi.RegisterOutputType(ParametersPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PrivacyBudgetTemplateBudgetParameterOutput{})
+	pulumi.RegisterOutputType(PrivacyBudgetTemplateBudgetParameterArrayOutput{})
 }

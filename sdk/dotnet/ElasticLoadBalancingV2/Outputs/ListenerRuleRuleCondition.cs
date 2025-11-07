@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         /// </summary>
         public readonly Outputs.ListenerRuleQueryStringConfig? QueryStringConfig;
         /// <summary>
-        /// The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when `Field` is `http-header` , `host-header` , or `path-pattern` .
+        /// The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when ``Field`` is ``http-header``, ``host-header``, or ``path-pattern``.
         /// </summary>
         public readonly ImmutableArray<string> RegexValues;
         /// <summary>

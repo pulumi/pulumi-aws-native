@@ -17,6 +17,8 @@ import (
 type Collaboration struct {
 	pulumi.CustomResourceState
 
+	// The AWS Regions where collaboration query results can be stored. Returns the list of Region identifiers that were specified when the collaboration was created. This list is used to enforce regional storage policies and compliance requirements.
+	AllowedResultRegions CollaborationSupportedS3RegionArrayOutput `pulumi:"allowedResultRegions"`
 	// The analytics engine for the collaboration.
 	//
 	// > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
@@ -78,6 +80,7 @@ func NewCollaboration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'QueryLogStatus'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"allowedResultRegions[*]",
 		"autoApprovedChangeTypes[*]",
 		"creatorDisplayName",
 		"creatorMemberAbilities[*]",
@@ -122,6 +125,8 @@ func (CollaborationState) ElementType() reflect.Type {
 }
 
 type collaborationArgs struct {
+	// The AWS Regions where collaboration query results can be stored. Returns the list of Region identifiers that were specified when the collaboration was created. This list is used to enforce regional storage policies and compliance requirements.
+	AllowedResultRegions []CollaborationSupportedS3Region `pulumi:"allowedResultRegions"`
 	// The analytics engine for the collaboration.
 	//
 	// > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
@@ -160,6 +165,8 @@ type collaborationArgs struct {
 
 // The set of arguments for constructing a Collaboration resource.
 type CollaborationArgs struct {
+	// The AWS Regions where collaboration query results can be stored. Returns the list of Region identifiers that were specified when the collaboration was created. This list is used to enforce regional storage policies and compliance requirements.
+	AllowedResultRegions CollaborationSupportedS3RegionArrayInput
 	// The analytics engine for the collaboration.
 	//
 	// > After July 16, 2025, the `CLEAN_ROOMS_SQL` parameter will no longer be available.
@@ -231,6 +238,11 @@ func (o CollaborationOutput) ToCollaborationOutput() CollaborationOutput {
 
 func (o CollaborationOutput) ToCollaborationOutputWithContext(ctx context.Context) CollaborationOutput {
 	return o
+}
+
+// The AWS Regions where collaboration query results can be stored. Returns the list of Region identifiers that were specified when the collaboration was created. This list is used to enforce regional storage policies and compliance requirements.
+func (o CollaborationOutput) AllowedResultRegions() CollaborationSupportedS3RegionArrayOutput {
+	return o.ApplyT(func(v *Collaboration) CollaborationSupportedS3RegionArrayOutput { return v.AllowedResultRegions }).(CollaborationSupportedS3RegionArrayOutput)
 }
 
 // The analytics engine for the collaboration.

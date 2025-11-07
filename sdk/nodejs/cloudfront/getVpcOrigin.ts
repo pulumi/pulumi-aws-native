@@ -25,6 +25,9 @@ export interface GetVpcOriginArgs {
 }
 
 export interface GetVpcOriginResult {
+    /**
+     * The account ID of the AWS account that owns the VPC origin.
+     */
     readonly accountId?: string;
     /**
      * The VPC origin ARN.

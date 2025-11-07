@@ -46,6 +46,7 @@ __all__ = [
     'EvaluationFormSingleSelectQuestionRuleCategoryAutomation',
     'EvaluationFormTextQuestionAutomation',
     'EvaluationFormTextQuestionProperties',
+    'GranularAccessControlConfigurationProperties',
     'HoursOfOperationConfig',
     'HoursOfOperationOverride',
     'HoursOfOperationOverrideConfig',
@@ -83,6 +84,9 @@ __all__ = [
     'RuleTriggerEventSource',
     'RuleUpdateCaseAction',
     'SecurityProfileApplication',
+    'SecurityProfileDataTableAccessControlConfiguration',
+    'SecurityProfilePrimaryAttributeAccessControlConfigurationItem',
+    'SecurityProfilePrimaryAttributeValue',
     'SecurityProfileTag',
     'TaskTemplateDefaultFieldValue',
     'TaskTemplateField',
@@ -1605,6 +1609,36 @@ class EvaluationFormTextQuestionProperties(dict):
         Specifies how the question can be automatically answered.
         """
         return pulumi.get(self, "automation")
+
+
+@pulumi.output_type
+class GranularAccessControlConfigurationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataTableAccessControlConfiguration":
+            suggest = "data_table_access_control_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GranularAccessControlConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GranularAccessControlConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GranularAccessControlConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_table_access_control_configuration: Optional['outputs.SecurityProfileDataTableAccessControlConfiguration'] = None):
+        if data_table_access_control_configuration is not None:
+            pulumi.set(__self__, "data_table_access_control_configuration", data_table_access_control_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="dataTableAccessControlConfiguration")
+    def data_table_access_control_configuration(self) -> Optional['outputs.SecurityProfileDataTableAccessControlConfiguration']:
+        return pulumi.get(self, "data_table_access_control_configuration")
 
 
 @pulumi.output_type
@@ -3565,6 +3599,144 @@ class SecurityProfileApplication(dict):
         Namespace of the application that you want to give access to.
         """
         return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class SecurityProfileDataTableAccessControlConfiguration(dict):
+    """
+    Defines the access control configuration for data tables.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primaryAttributeAccessControlConfiguration":
+            suggest = "primary_attribute_access_control_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityProfileDataTableAccessControlConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityProfileDataTableAccessControlConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityProfileDataTableAccessControlConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 primary_attribute_access_control_configuration: Optional['outputs.SecurityProfilePrimaryAttributeAccessControlConfigurationItem'] = None):
+        """
+        Defines the access control configuration for data tables.
+        """
+        if primary_attribute_access_control_configuration is not None:
+            pulumi.set(__self__, "primary_attribute_access_control_configuration", primary_attribute_access_control_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryAttributeAccessControlConfiguration")
+    def primary_attribute_access_control_configuration(self) -> Optional['outputs.SecurityProfilePrimaryAttributeAccessControlConfigurationItem']:
+        return pulumi.get(self, "primary_attribute_access_control_configuration")
+
+
+@pulumi.output_type
+class SecurityProfilePrimaryAttributeAccessControlConfigurationItem(dict):
+    """
+    Contains the configuration for record-based access control.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primaryAttributeValues":
+            suggest = "primary_attribute_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityProfilePrimaryAttributeAccessControlConfigurationItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityProfilePrimaryAttributeAccessControlConfigurationItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityProfilePrimaryAttributeAccessControlConfigurationItem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 primary_attribute_values: Sequence['outputs.SecurityProfilePrimaryAttributeValue']):
+        """
+        Contains the configuration for record-based access control.
+        :param Sequence['SecurityProfilePrimaryAttributeValue'] primary_attribute_values: An array of PrimaryAttributeValue objects.
+        """
+        pulumi.set(__self__, "primary_attribute_values", primary_attribute_values)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryAttributeValues")
+    def primary_attribute_values(self) -> Sequence['outputs.SecurityProfilePrimaryAttributeValue']:
+        """
+        An array of PrimaryAttributeValue objects.
+        """
+        return pulumi.get(self, "primary_attribute_values")
+
+
+@pulumi.output_type
+class SecurityProfilePrimaryAttributeValue(dict):
+    """
+    An object defining the access control for a specific attribute and its values.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessType":
+            suggest = "access_type"
+        elif key == "attributeName":
+            suggest = "attribute_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityProfilePrimaryAttributeValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityProfilePrimaryAttributeValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityProfilePrimaryAttributeValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_type: 'SecurityProfilePrimaryAttributeValueAccessType',
+                 attribute_name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        An object defining the access control for a specific attribute and its values.
+        :param 'SecurityProfilePrimaryAttributeValueAccessType' access_type: Specifies the type of access granted. Currently, only "ALLOW" is supported
+        :param _builtins.str attribute_name: The name of the primary attribute.
+        :param Sequence[_builtins.str] values: An array of allowed primary values for the specified primary attribute.
+        """
+        pulumi.set(__self__, "access_type", access_type)
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="accessType")
+    def access_type(self) -> 'SecurityProfilePrimaryAttributeValueAccessType':
+        """
+        Specifies the type of access granted. Currently, only "ALLOW" is supported
+        """
+        return pulumi.get(self, "access_type")
+
+    @_builtins.property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> _builtins.str:
+        """
+        The name of the primary attribute.
+        """
+        return pulumi.get(self, "attribute_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        An array of allowed primary values for the specified primary attribute.
+        """
+        return pulumi.get(self, "values")
 
 
 @pulumi.output_type

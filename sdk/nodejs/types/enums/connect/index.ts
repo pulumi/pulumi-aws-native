@@ -432,6 +432,15 @@ export const RuleTriggerEventSourceEventSourceName = {
  */
 export type RuleTriggerEventSourceEventSourceName = (typeof RuleTriggerEventSourceEventSourceName)[keyof typeof RuleTriggerEventSourceEventSourceName];
 
+export const SecurityProfilePrimaryAttributeValueAccessType = {
+    Allow: "ALLOW",
+} as const;
+
+/**
+ * Specifies the type of access granted. Currently, only "ALLOW" is supported
+ */
+export type SecurityProfilePrimaryAttributeValueAccessType = (typeof SecurityProfilePrimaryAttributeValueAccessType)[keyof typeof SecurityProfilePrimaryAttributeValueAccessType];
+
 export const TaskTemplateFieldType = {
     Name: "NAME",
     Description: "DESCRIPTION",

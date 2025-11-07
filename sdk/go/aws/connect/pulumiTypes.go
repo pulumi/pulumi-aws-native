@@ -4550,6 +4550,141 @@ func (o EvaluationFormTextQuestionPropertiesPtrOutput) Automation() EvaluationFo
 	}).(EvaluationFormTextQuestionAutomationPtrOutput)
 }
 
+type GranularAccessControlConfigurationProperties struct {
+	DataTableAccessControlConfiguration *SecurityProfileDataTableAccessControlConfiguration `pulumi:"dataTableAccessControlConfiguration"`
+}
+
+// GranularAccessControlConfigurationPropertiesInput is an input type that accepts GranularAccessControlConfigurationPropertiesArgs and GranularAccessControlConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `GranularAccessControlConfigurationPropertiesInput` via:
+//
+//	GranularAccessControlConfigurationPropertiesArgs{...}
+type GranularAccessControlConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToGranularAccessControlConfigurationPropertiesOutput() GranularAccessControlConfigurationPropertiesOutput
+	ToGranularAccessControlConfigurationPropertiesOutputWithContext(context.Context) GranularAccessControlConfigurationPropertiesOutput
+}
+
+type GranularAccessControlConfigurationPropertiesArgs struct {
+	DataTableAccessControlConfiguration SecurityProfileDataTableAccessControlConfigurationPtrInput `pulumi:"dataTableAccessControlConfiguration"`
+}
+
+func (GranularAccessControlConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GranularAccessControlConfigurationProperties)(nil)).Elem()
+}
+
+func (i GranularAccessControlConfigurationPropertiesArgs) ToGranularAccessControlConfigurationPropertiesOutput() GranularAccessControlConfigurationPropertiesOutput {
+	return i.ToGranularAccessControlConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i GranularAccessControlConfigurationPropertiesArgs) ToGranularAccessControlConfigurationPropertiesOutputWithContext(ctx context.Context) GranularAccessControlConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GranularAccessControlConfigurationPropertiesOutput)
+}
+
+func (i GranularAccessControlConfigurationPropertiesArgs) ToGranularAccessControlConfigurationPropertiesPtrOutput() GranularAccessControlConfigurationPropertiesPtrOutput {
+	return i.ToGranularAccessControlConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i GranularAccessControlConfigurationPropertiesArgs) ToGranularAccessControlConfigurationPropertiesPtrOutputWithContext(ctx context.Context) GranularAccessControlConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GranularAccessControlConfigurationPropertiesOutput).ToGranularAccessControlConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// GranularAccessControlConfigurationPropertiesPtrInput is an input type that accepts GranularAccessControlConfigurationPropertiesArgs, GranularAccessControlConfigurationPropertiesPtr and GranularAccessControlConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `GranularAccessControlConfigurationPropertiesPtrInput` via:
+//
+//	        GranularAccessControlConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type GranularAccessControlConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToGranularAccessControlConfigurationPropertiesPtrOutput() GranularAccessControlConfigurationPropertiesPtrOutput
+	ToGranularAccessControlConfigurationPropertiesPtrOutputWithContext(context.Context) GranularAccessControlConfigurationPropertiesPtrOutput
+}
+
+type granularAccessControlConfigurationPropertiesPtrType GranularAccessControlConfigurationPropertiesArgs
+
+func GranularAccessControlConfigurationPropertiesPtr(v *GranularAccessControlConfigurationPropertiesArgs) GranularAccessControlConfigurationPropertiesPtrInput {
+	return (*granularAccessControlConfigurationPropertiesPtrType)(v)
+}
+
+func (*granularAccessControlConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GranularAccessControlConfigurationProperties)(nil)).Elem()
+}
+
+func (i *granularAccessControlConfigurationPropertiesPtrType) ToGranularAccessControlConfigurationPropertiesPtrOutput() GranularAccessControlConfigurationPropertiesPtrOutput {
+	return i.ToGranularAccessControlConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *granularAccessControlConfigurationPropertiesPtrType) ToGranularAccessControlConfigurationPropertiesPtrOutputWithContext(ctx context.Context) GranularAccessControlConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GranularAccessControlConfigurationPropertiesPtrOutput)
+}
+
+type GranularAccessControlConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (GranularAccessControlConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GranularAccessControlConfigurationProperties)(nil)).Elem()
+}
+
+func (o GranularAccessControlConfigurationPropertiesOutput) ToGranularAccessControlConfigurationPropertiesOutput() GranularAccessControlConfigurationPropertiesOutput {
+	return o
+}
+
+func (o GranularAccessControlConfigurationPropertiesOutput) ToGranularAccessControlConfigurationPropertiesOutputWithContext(ctx context.Context) GranularAccessControlConfigurationPropertiesOutput {
+	return o
+}
+
+func (o GranularAccessControlConfigurationPropertiesOutput) ToGranularAccessControlConfigurationPropertiesPtrOutput() GranularAccessControlConfigurationPropertiesPtrOutput {
+	return o.ToGranularAccessControlConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o GranularAccessControlConfigurationPropertiesOutput) ToGranularAccessControlConfigurationPropertiesPtrOutputWithContext(ctx context.Context) GranularAccessControlConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GranularAccessControlConfigurationProperties) *GranularAccessControlConfigurationProperties {
+		return &v
+	}).(GranularAccessControlConfigurationPropertiesPtrOutput)
+}
+
+func (o GranularAccessControlConfigurationPropertiesOutput) DataTableAccessControlConfiguration() SecurityProfileDataTableAccessControlConfigurationPtrOutput {
+	return o.ApplyT(func(v GranularAccessControlConfigurationProperties) *SecurityProfileDataTableAccessControlConfiguration {
+		return v.DataTableAccessControlConfiguration
+	}).(SecurityProfileDataTableAccessControlConfigurationPtrOutput)
+}
+
+type GranularAccessControlConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GranularAccessControlConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GranularAccessControlConfigurationProperties)(nil)).Elem()
+}
+
+func (o GranularAccessControlConfigurationPropertiesPtrOutput) ToGranularAccessControlConfigurationPropertiesPtrOutput() GranularAccessControlConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o GranularAccessControlConfigurationPropertiesPtrOutput) ToGranularAccessControlConfigurationPropertiesPtrOutputWithContext(ctx context.Context) GranularAccessControlConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o GranularAccessControlConfigurationPropertiesPtrOutput) Elem() GranularAccessControlConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *GranularAccessControlConfigurationProperties) GranularAccessControlConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret GranularAccessControlConfigurationProperties
+		return ret
+	}).(GranularAccessControlConfigurationPropertiesOutput)
+}
+
+func (o GranularAccessControlConfigurationPropertiesPtrOutput) DataTableAccessControlConfiguration() SecurityProfileDataTableAccessControlConfigurationPtrOutput {
+	return o.ApplyT(func(v *GranularAccessControlConfigurationProperties) *SecurityProfileDataTableAccessControlConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DataTableAccessControlConfiguration
+	}).(SecurityProfileDataTableAccessControlConfigurationPtrOutput)
+}
+
 // Contains information about the hours of operation.
 type HoursOfOperationConfig struct {
 	// The day that the hours of operation applies to.
@@ -9230,6 +9365,406 @@ func (o SecurityProfileApplicationArrayOutput) Index(i pulumi.IntInput) Security
 	}).(SecurityProfileApplicationOutput)
 }
 
+// Defines the access control configuration for data tables.
+type SecurityProfileDataTableAccessControlConfiguration struct {
+	PrimaryAttributeAccessControlConfiguration *SecurityProfilePrimaryAttributeAccessControlConfigurationItem `pulumi:"primaryAttributeAccessControlConfiguration"`
+}
+
+// SecurityProfileDataTableAccessControlConfigurationInput is an input type that accepts SecurityProfileDataTableAccessControlConfigurationArgs and SecurityProfileDataTableAccessControlConfigurationOutput values.
+// You can construct a concrete instance of `SecurityProfileDataTableAccessControlConfigurationInput` via:
+//
+//	SecurityProfileDataTableAccessControlConfigurationArgs{...}
+type SecurityProfileDataTableAccessControlConfigurationInput interface {
+	pulumi.Input
+
+	ToSecurityProfileDataTableAccessControlConfigurationOutput() SecurityProfileDataTableAccessControlConfigurationOutput
+	ToSecurityProfileDataTableAccessControlConfigurationOutputWithContext(context.Context) SecurityProfileDataTableAccessControlConfigurationOutput
+}
+
+// Defines the access control configuration for data tables.
+type SecurityProfileDataTableAccessControlConfigurationArgs struct {
+	PrimaryAttributeAccessControlConfiguration SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrInput `pulumi:"primaryAttributeAccessControlConfiguration"`
+}
+
+func (SecurityProfileDataTableAccessControlConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfileDataTableAccessControlConfiguration)(nil)).Elem()
+}
+
+func (i SecurityProfileDataTableAccessControlConfigurationArgs) ToSecurityProfileDataTableAccessControlConfigurationOutput() SecurityProfileDataTableAccessControlConfigurationOutput {
+	return i.ToSecurityProfileDataTableAccessControlConfigurationOutputWithContext(context.Background())
+}
+
+func (i SecurityProfileDataTableAccessControlConfigurationArgs) ToSecurityProfileDataTableAccessControlConfigurationOutputWithContext(ctx context.Context) SecurityProfileDataTableAccessControlConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileDataTableAccessControlConfigurationOutput)
+}
+
+func (i SecurityProfileDataTableAccessControlConfigurationArgs) ToSecurityProfileDataTableAccessControlConfigurationPtrOutput() SecurityProfileDataTableAccessControlConfigurationPtrOutput {
+	return i.ToSecurityProfileDataTableAccessControlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityProfileDataTableAccessControlConfigurationArgs) ToSecurityProfileDataTableAccessControlConfigurationPtrOutputWithContext(ctx context.Context) SecurityProfileDataTableAccessControlConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileDataTableAccessControlConfigurationOutput).ToSecurityProfileDataTableAccessControlConfigurationPtrOutputWithContext(ctx)
+}
+
+// SecurityProfileDataTableAccessControlConfigurationPtrInput is an input type that accepts SecurityProfileDataTableAccessControlConfigurationArgs, SecurityProfileDataTableAccessControlConfigurationPtr and SecurityProfileDataTableAccessControlConfigurationPtrOutput values.
+// You can construct a concrete instance of `SecurityProfileDataTableAccessControlConfigurationPtrInput` via:
+//
+//	        SecurityProfileDataTableAccessControlConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityProfileDataTableAccessControlConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToSecurityProfileDataTableAccessControlConfigurationPtrOutput() SecurityProfileDataTableAccessControlConfigurationPtrOutput
+	ToSecurityProfileDataTableAccessControlConfigurationPtrOutputWithContext(context.Context) SecurityProfileDataTableAccessControlConfigurationPtrOutput
+}
+
+type securityProfileDataTableAccessControlConfigurationPtrType SecurityProfileDataTableAccessControlConfigurationArgs
+
+func SecurityProfileDataTableAccessControlConfigurationPtr(v *SecurityProfileDataTableAccessControlConfigurationArgs) SecurityProfileDataTableAccessControlConfigurationPtrInput {
+	return (*securityProfileDataTableAccessControlConfigurationPtrType)(v)
+}
+
+func (*securityProfileDataTableAccessControlConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityProfileDataTableAccessControlConfiguration)(nil)).Elem()
+}
+
+func (i *securityProfileDataTableAccessControlConfigurationPtrType) ToSecurityProfileDataTableAccessControlConfigurationPtrOutput() SecurityProfileDataTableAccessControlConfigurationPtrOutput {
+	return i.ToSecurityProfileDataTableAccessControlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *securityProfileDataTableAccessControlConfigurationPtrType) ToSecurityProfileDataTableAccessControlConfigurationPtrOutputWithContext(ctx context.Context) SecurityProfileDataTableAccessControlConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileDataTableAccessControlConfigurationPtrOutput)
+}
+
+// Defines the access control configuration for data tables.
+type SecurityProfileDataTableAccessControlConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfileDataTableAccessControlConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfileDataTableAccessControlConfiguration)(nil)).Elem()
+}
+
+func (o SecurityProfileDataTableAccessControlConfigurationOutput) ToSecurityProfileDataTableAccessControlConfigurationOutput() SecurityProfileDataTableAccessControlConfigurationOutput {
+	return o
+}
+
+func (o SecurityProfileDataTableAccessControlConfigurationOutput) ToSecurityProfileDataTableAccessControlConfigurationOutputWithContext(ctx context.Context) SecurityProfileDataTableAccessControlConfigurationOutput {
+	return o
+}
+
+func (o SecurityProfileDataTableAccessControlConfigurationOutput) ToSecurityProfileDataTableAccessControlConfigurationPtrOutput() SecurityProfileDataTableAccessControlConfigurationPtrOutput {
+	return o.ToSecurityProfileDataTableAccessControlConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityProfileDataTableAccessControlConfigurationOutput) ToSecurityProfileDataTableAccessControlConfigurationPtrOutputWithContext(ctx context.Context) SecurityProfileDataTableAccessControlConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityProfileDataTableAccessControlConfiguration) *SecurityProfileDataTableAccessControlConfiguration {
+		return &v
+	}).(SecurityProfileDataTableAccessControlConfigurationPtrOutput)
+}
+
+func (o SecurityProfileDataTableAccessControlConfigurationOutput) PrimaryAttributeAccessControlConfiguration() SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput {
+	return o.ApplyT(func(v SecurityProfileDataTableAccessControlConfiguration) *SecurityProfilePrimaryAttributeAccessControlConfigurationItem {
+		return v.PrimaryAttributeAccessControlConfiguration
+	}).(SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput)
+}
+
+type SecurityProfileDataTableAccessControlConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfileDataTableAccessControlConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityProfileDataTableAccessControlConfiguration)(nil)).Elem()
+}
+
+func (o SecurityProfileDataTableAccessControlConfigurationPtrOutput) ToSecurityProfileDataTableAccessControlConfigurationPtrOutput() SecurityProfileDataTableAccessControlConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityProfileDataTableAccessControlConfigurationPtrOutput) ToSecurityProfileDataTableAccessControlConfigurationPtrOutputWithContext(ctx context.Context) SecurityProfileDataTableAccessControlConfigurationPtrOutput {
+	return o
+}
+
+func (o SecurityProfileDataTableAccessControlConfigurationPtrOutput) Elem() SecurityProfileDataTableAccessControlConfigurationOutput {
+	return o.ApplyT(func(v *SecurityProfileDataTableAccessControlConfiguration) SecurityProfileDataTableAccessControlConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityProfileDataTableAccessControlConfiguration
+		return ret
+	}).(SecurityProfileDataTableAccessControlConfigurationOutput)
+}
+
+func (o SecurityProfileDataTableAccessControlConfigurationPtrOutput) PrimaryAttributeAccessControlConfiguration() SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput {
+	return o.ApplyT(func(v *SecurityProfileDataTableAccessControlConfiguration) *SecurityProfilePrimaryAttributeAccessControlConfigurationItem {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryAttributeAccessControlConfiguration
+	}).(SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput)
+}
+
+// Contains the configuration for record-based access control.
+type SecurityProfilePrimaryAttributeAccessControlConfigurationItem struct {
+	// An array of PrimaryAttributeValue objects.
+	PrimaryAttributeValues []SecurityProfilePrimaryAttributeValue `pulumi:"primaryAttributeValues"`
+}
+
+// SecurityProfilePrimaryAttributeAccessControlConfigurationItemInput is an input type that accepts SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs and SecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput values.
+// You can construct a concrete instance of `SecurityProfilePrimaryAttributeAccessControlConfigurationItemInput` via:
+//
+//	SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs{...}
+type SecurityProfilePrimaryAttributeAccessControlConfigurationItemInput interface {
+	pulumi.Input
+
+	ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput() SecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput
+	ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemOutputWithContext(context.Context) SecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput
+}
+
+// Contains the configuration for record-based access control.
+type SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs struct {
+	// An array of PrimaryAttributeValue objects.
+	PrimaryAttributeValues SecurityProfilePrimaryAttributeValueArrayInput `pulumi:"primaryAttributeValues"`
+}
+
+func (SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfilePrimaryAttributeAccessControlConfigurationItem)(nil)).Elem()
+}
+
+func (i SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs) ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput() SecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput {
+	return i.ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemOutputWithContext(context.Background())
+}
+
+func (i SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs) ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemOutputWithContext(ctx context.Context) SecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput)
+}
+
+func (i SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs) ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput() SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput {
+	return i.ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs) ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutputWithContext(ctx context.Context) SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput).ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutputWithContext(ctx)
+}
+
+// SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrInput is an input type that accepts SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs, SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtr and SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput values.
+// You can construct a concrete instance of `SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrInput` via:
+//
+//	        SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrInput interface {
+	pulumi.Input
+
+	ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput() SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput
+	ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutputWithContext(context.Context) SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput
+}
+
+type securityProfilePrimaryAttributeAccessControlConfigurationItemPtrType SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs
+
+func SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtr(v *SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs) SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrInput {
+	return (*securityProfilePrimaryAttributeAccessControlConfigurationItemPtrType)(v)
+}
+
+func (*securityProfilePrimaryAttributeAccessControlConfigurationItemPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityProfilePrimaryAttributeAccessControlConfigurationItem)(nil)).Elem()
+}
+
+func (i *securityProfilePrimaryAttributeAccessControlConfigurationItemPtrType) ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput() SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput {
+	return i.ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutputWithContext(context.Background())
+}
+
+func (i *securityProfilePrimaryAttributeAccessControlConfigurationItemPtrType) ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutputWithContext(ctx context.Context) SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput)
+}
+
+// Contains the configuration for record-based access control.
+type SecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfilePrimaryAttributeAccessControlConfigurationItem)(nil)).Elem()
+}
+
+func (o SecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput) ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput() SecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput {
+	return o
+}
+
+func (o SecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput) ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemOutputWithContext(ctx context.Context) SecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput {
+	return o
+}
+
+func (o SecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput) ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput() SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput {
+	return o.ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput) ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutputWithContext(ctx context.Context) SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityProfilePrimaryAttributeAccessControlConfigurationItem) *SecurityProfilePrimaryAttributeAccessControlConfigurationItem {
+		return &v
+	}).(SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput)
+}
+
+// An array of PrimaryAttributeValue objects.
+func (o SecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput) PrimaryAttributeValues() SecurityProfilePrimaryAttributeValueArrayOutput {
+	return o.ApplyT(func(v SecurityProfilePrimaryAttributeAccessControlConfigurationItem) []SecurityProfilePrimaryAttributeValue {
+		return v.PrimaryAttributeValues
+	}).(SecurityProfilePrimaryAttributeValueArrayOutput)
+}
+
+type SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityProfilePrimaryAttributeAccessControlConfigurationItem)(nil)).Elem()
+}
+
+func (o SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput) ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput() SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput {
+	return o
+}
+
+func (o SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput) ToSecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutputWithContext(ctx context.Context) SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput {
+	return o
+}
+
+func (o SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput) Elem() SecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput {
+	return o.ApplyT(func(v *SecurityProfilePrimaryAttributeAccessControlConfigurationItem) SecurityProfilePrimaryAttributeAccessControlConfigurationItem {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityProfilePrimaryAttributeAccessControlConfigurationItem
+		return ret
+	}).(SecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput)
+}
+
+// An array of PrimaryAttributeValue objects.
+func (o SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput) PrimaryAttributeValues() SecurityProfilePrimaryAttributeValueArrayOutput {
+	return o.ApplyT(func(v *SecurityProfilePrimaryAttributeAccessControlConfigurationItem) []SecurityProfilePrimaryAttributeValue {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryAttributeValues
+	}).(SecurityProfilePrimaryAttributeValueArrayOutput)
+}
+
+// An object defining the access control for a specific attribute and its values.
+type SecurityProfilePrimaryAttributeValue struct {
+	// Specifies the type of access granted. Currently, only "ALLOW" is supported
+	AccessType SecurityProfilePrimaryAttributeValueAccessType `pulumi:"accessType"`
+	// The name of the primary attribute.
+	AttributeName string `pulumi:"attributeName"`
+	// An array of allowed primary values for the specified primary attribute.
+	Values []string `pulumi:"values"`
+}
+
+// SecurityProfilePrimaryAttributeValueInput is an input type that accepts SecurityProfilePrimaryAttributeValueArgs and SecurityProfilePrimaryAttributeValueOutput values.
+// You can construct a concrete instance of `SecurityProfilePrimaryAttributeValueInput` via:
+//
+//	SecurityProfilePrimaryAttributeValueArgs{...}
+type SecurityProfilePrimaryAttributeValueInput interface {
+	pulumi.Input
+
+	ToSecurityProfilePrimaryAttributeValueOutput() SecurityProfilePrimaryAttributeValueOutput
+	ToSecurityProfilePrimaryAttributeValueOutputWithContext(context.Context) SecurityProfilePrimaryAttributeValueOutput
+}
+
+// An object defining the access control for a specific attribute and its values.
+type SecurityProfilePrimaryAttributeValueArgs struct {
+	// Specifies the type of access granted. Currently, only "ALLOW" is supported
+	AccessType SecurityProfilePrimaryAttributeValueAccessTypeInput `pulumi:"accessType"`
+	// The name of the primary attribute.
+	AttributeName pulumi.StringInput `pulumi:"attributeName"`
+	// An array of allowed primary values for the specified primary attribute.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (SecurityProfilePrimaryAttributeValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfilePrimaryAttributeValue)(nil)).Elem()
+}
+
+func (i SecurityProfilePrimaryAttributeValueArgs) ToSecurityProfilePrimaryAttributeValueOutput() SecurityProfilePrimaryAttributeValueOutput {
+	return i.ToSecurityProfilePrimaryAttributeValueOutputWithContext(context.Background())
+}
+
+func (i SecurityProfilePrimaryAttributeValueArgs) ToSecurityProfilePrimaryAttributeValueOutputWithContext(ctx context.Context) SecurityProfilePrimaryAttributeValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfilePrimaryAttributeValueOutput)
+}
+
+// SecurityProfilePrimaryAttributeValueArrayInput is an input type that accepts SecurityProfilePrimaryAttributeValueArray and SecurityProfilePrimaryAttributeValueArrayOutput values.
+// You can construct a concrete instance of `SecurityProfilePrimaryAttributeValueArrayInput` via:
+//
+//	SecurityProfilePrimaryAttributeValueArray{ SecurityProfilePrimaryAttributeValueArgs{...} }
+type SecurityProfilePrimaryAttributeValueArrayInput interface {
+	pulumi.Input
+
+	ToSecurityProfilePrimaryAttributeValueArrayOutput() SecurityProfilePrimaryAttributeValueArrayOutput
+	ToSecurityProfilePrimaryAttributeValueArrayOutputWithContext(context.Context) SecurityProfilePrimaryAttributeValueArrayOutput
+}
+
+type SecurityProfilePrimaryAttributeValueArray []SecurityProfilePrimaryAttributeValueInput
+
+func (SecurityProfilePrimaryAttributeValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityProfilePrimaryAttributeValue)(nil)).Elem()
+}
+
+func (i SecurityProfilePrimaryAttributeValueArray) ToSecurityProfilePrimaryAttributeValueArrayOutput() SecurityProfilePrimaryAttributeValueArrayOutput {
+	return i.ToSecurityProfilePrimaryAttributeValueArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityProfilePrimaryAttributeValueArray) ToSecurityProfilePrimaryAttributeValueArrayOutputWithContext(ctx context.Context) SecurityProfilePrimaryAttributeValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfilePrimaryAttributeValueArrayOutput)
+}
+
+// An object defining the access control for a specific attribute and its values.
+type SecurityProfilePrimaryAttributeValueOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfilePrimaryAttributeValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfilePrimaryAttributeValue)(nil)).Elem()
+}
+
+func (o SecurityProfilePrimaryAttributeValueOutput) ToSecurityProfilePrimaryAttributeValueOutput() SecurityProfilePrimaryAttributeValueOutput {
+	return o
+}
+
+func (o SecurityProfilePrimaryAttributeValueOutput) ToSecurityProfilePrimaryAttributeValueOutputWithContext(ctx context.Context) SecurityProfilePrimaryAttributeValueOutput {
+	return o
+}
+
+// Specifies the type of access granted. Currently, only "ALLOW" is supported
+func (o SecurityProfilePrimaryAttributeValueOutput) AccessType() SecurityProfilePrimaryAttributeValueAccessTypeOutput {
+	return o.ApplyT(func(v SecurityProfilePrimaryAttributeValue) SecurityProfilePrimaryAttributeValueAccessType {
+		return v.AccessType
+	}).(SecurityProfilePrimaryAttributeValueAccessTypeOutput)
+}
+
+// The name of the primary attribute.
+func (o SecurityProfilePrimaryAttributeValueOutput) AttributeName() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityProfilePrimaryAttributeValue) string { return v.AttributeName }).(pulumi.StringOutput)
+}
+
+// An array of allowed primary values for the specified primary attribute.
+func (o SecurityProfilePrimaryAttributeValueOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityProfilePrimaryAttributeValue) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type SecurityProfilePrimaryAttributeValueArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfilePrimaryAttributeValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityProfilePrimaryAttributeValue)(nil)).Elem()
+}
+
+func (o SecurityProfilePrimaryAttributeValueArrayOutput) ToSecurityProfilePrimaryAttributeValueArrayOutput() SecurityProfilePrimaryAttributeValueArrayOutput {
+	return o
+}
+
+func (o SecurityProfilePrimaryAttributeValueArrayOutput) ToSecurityProfilePrimaryAttributeValueArrayOutputWithContext(ctx context.Context) SecurityProfilePrimaryAttributeValueArrayOutput {
+	return o
+}
+
+func (o SecurityProfilePrimaryAttributeValueArrayOutput) Index(i pulumi.IntInput) SecurityProfilePrimaryAttributeValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityProfilePrimaryAttributeValue {
+		return vs[0].([]SecurityProfilePrimaryAttributeValue)[vs[1].(int)]
+	}).(SecurityProfilePrimaryAttributeValueOutput)
+}
+
 // A key-value pair to associate with a resource.
 type SecurityProfileTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -11772,6 +12307,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormTextQuestionAutomationPtrInput)(nil)).Elem(), EvaluationFormTextQuestionAutomationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormTextQuestionPropertiesInput)(nil)).Elem(), EvaluationFormTextQuestionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormTextQuestionPropertiesPtrInput)(nil)).Elem(), EvaluationFormTextQuestionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GranularAccessControlConfigurationPropertiesInput)(nil)).Elem(), GranularAccessControlConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GranularAccessControlConfigurationPropertiesPtrInput)(nil)).Elem(), GranularAccessControlConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigInput)(nil)).Elem(), HoursOfOperationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigArrayInput)(nil)).Elem(), HoursOfOperationConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationOverrideInput)(nil)).Elem(), HoursOfOperationOverrideArgs{})
@@ -11837,6 +12374,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleUpdateCaseActionArrayInput)(nil)).Elem(), RuleUpdateCaseActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileApplicationInput)(nil)).Elem(), SecurityProfileApplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileApplicationArrayInput)(nil)).Elem(), SecurityProfileApplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileDataTableAccessControlConfigurationInput)(nil)).Elem(), SecurityProfileDataTableAccessControlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileDataTableAccessControlConfigurationPtrInput)(nil)).Elem(), SecurityProfileDataTableAccessControlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfilePrimaryAttributeAccessControlConfigurationItemInput)(nil)).Elem(), SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrInput)(nil)).Elem(), SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfilePrimaryAttributeValueInput)(nil)).Elem(), SecurityProfilePrimaryAttributeValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfilePrimaryAttributeValueArrayInput)(nil)).Elem(), SecurityProfilePrimaryAttributeValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileTagInput)(nil)).Elem(), SecurityProfileTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileTagArrayInput)(nil)).Elem(), SecurityProfileTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateDefaultFieldValueInput)(nil)).Elem(), TaskTemplateDefaultFieldValueArgs{})
@@ -11926,6 +12469,8 @@ func init() {
 	pulumi.RegisterOutputType(EvaluationFormTextQuestionAutomationPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormTextQuestionPropertiesOutput{})
 	pulumi.RegisterOutputType(EvaluationFormTextQuestionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GranularAccessControlConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(GranularAccessControlConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationConfigOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationConfigArrayOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationOverrideOutput{})
@@ -11994,6 +12539,12 @@ func init() {
 	pulumi.RegisterOutputType(RuleUpdateCaseActionArrayOutput{})
 	pulumi.RegisterOutputType(SecurityProfileApplicationOutput{})
 	pulumi.RegisterOutputType(SecurityProfileApplicationArrayOutput{})
+	pulumi.RegisterOutputType(SecurityProfileDataTableAccessControlConfigurationOutput{})
+	pulumi.RegisterOutputType(SecurityProfileDataTableAccessControlConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(SecurityProfilePrimaryAttributeAccessControlConfigurationItemOutput{})
+	pulumi.RegisterOutputType(SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput{})
+	pulumi.RegisterOutputType(SecurityProfilePrimaryAttributeValueOutput{})
+	pulumi.RegisterOutputType(SecurityProfilePrimaryAttributeValueArrayOutput{})
 	pulumi.RegisterOutputType(SecurityProfileTagOutput{})
 	pulumi.RegisterOutputType(SecurityProfileTagArrayOutput{})
 	pulumi.RegisterOutputType(TaskTemplateDefaultFieldValueOutput{})

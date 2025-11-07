@@ -84,9 +84,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
+        /// The ARN of the AWS KMS key used to encrypt the collection.
         /// </summary>
-        public readonly Pulumi.AwsNative.OpenSearchServerless.CollectionStandbyReplicas? StandbyReplicas;
+        public readonly string? KmsKeyArn;
 
         [OutputConstructor]
         private GetCollectionResult(
@@ -100,14 +100,14 @@ namespace Pulumi.AwsNative.OpenSearchServerless
 
             string? id,
 
-            Pulumi.AwsNative.OpenSearchServerless.CollectionStandbyReplicas? standbyReplicas)
+            string? kmsKeyArn)
         {
             Arn = arn;
             CollectionEndpoint = collectionEndpoint;
             DashboardEndpoint = dashboardEndpoint;
             Description = description;
             Id = id;
-            StandbyReplicas = standbyReplicas;
+            KmsKeyArn = kmsKeyArn;
         }
     }
 }

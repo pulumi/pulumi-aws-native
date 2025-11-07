@@ -847,7 +847,7 @@ func (o RepositoryCreationTemplateEncryptionConfigurationPtrOutput) KmsKey() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.
+// A filter that specifies which image tags should be excluded from the repository's image tag mutability setting.
 type RepositoryCreationTemplateImageTagMutabilityExclusionFilter struct {
 	ImageTagMutabilityExclusionFilterType  RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterType `pulumi:"imageTagMutabilityExclusionFilterType"`
 	ImageTagMutabilityExclusionFilterValue string                                                                                           `pulumi:"imageTagMutabilityExclusionFilterValue"`
@@ -864,7 +864,7 @@ type RepositoryCreationTemplateImageTagMutabilityExclusionFilterInput interface 
 	ToRepositoryCreationTemplateImageTagMutabilityExclusionFilterOutputWithContext(context.Context) RepositoryCreationTemplateImageTagMutabilityExclusionFilterOutput
 }
 
-// Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.
+// A filter that specifies which image tags should be excluded from the repository's image tag mutability setting.
 type RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs struct {
 	ImageTagMutabilityExclusionFilterType  RepositoryCreationTemplateImageTagMutabilityExclusionFilterImageTagMutabilityExclusionFilterTypeInput `pulumi:"imageTagMutabilityExclusionFilterType"`
 	ImageTagMutabilityExclusionFilterValue pulumi.StringInput                                                                                    `pulumi:"imageTagMutabilityExclusionFilterValue"`
@@ -907,7 +907,7 @@ func (i RepositoryCreationTemplateImageTagMutabilityExclusionFilterArray) ToRepo
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCreationTemplateImageTagMutabilityExclusionFilterArrayOutput)
 }
 
-// Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.
+// A filter that specifies which image tags should be excluded from the repository's image tag mutability setting.
 type RepositoryCreationTemplateImageTagMutabilityExclusionFilterOutput struct{ *pulumi.OutputState }
 
 func (RepositoryCreationTemplateImageTagMutabilityExclusionFilterOutput) ElementType() reflect.Type {

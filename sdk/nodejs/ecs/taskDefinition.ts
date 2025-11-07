@@ -286,7 +286,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      * The process namespace to use for the containers in the task. The valid values are ``host`` or ``task``. On Fargate for Linux containers, the only valid value is ``task``. For example, monitoring sidecars might need ``pidMode`` to access information about other containers running in the same task.
      *  If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance.
      *  If ``task`` is specified, all containers within the specified task share the same process namespace.
-     *  If no value is specified, the default is a private namespace for each container.
+     *  If no value is specified, the The default is a private namespace for each container.
      *  If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure.
      *   This parameter is not supported for Windows containers.
      *    This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
@@ -307,7 +307,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     declare public readonly requiresCompatibilities: pulumi.Output<string[] | undefined>;
     /**
-     * The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
+     * The operating system that your tasks definitions run on.
      */
     declare public readonly runtimePlatform: pulumi.Output<outputs.ecs.TaskDefinitionRuntimePlatform | undefined>;
     /**
@@ -467,7 +467,7 @@ export interface TaskDefinitionArgs {
      * The process namespace to use for the containers in the task. The valid values are ``host`` or ``task``. On Fargate for Linux containers, the only valid value is ``task``. For example, monitoring sidecars might need ``pidMode`` to access information about other containers running in the same task.
      *  If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance.
      *  If ``task`` is specified, all containers within the specified task share the same process namespace.
-     *  If no value is specified, the default is a private namespace for each container.
+     *  If no value is specified, the The default is a private namespace for each container.
      *  If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure.
      *   This parameter is not supported for Windows containers.
      *    This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
@@ -488,7 +488,7 @@ export interface TaskDefinitionArgs {
      */
     requiresCompatibilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
+     * The operating system that your tasks definitions run on.
      */
     runtimePlatform?: pulumi.Input<inputs.ecs.TaskDefinitionRuntimePlatformArgs>;
     /**

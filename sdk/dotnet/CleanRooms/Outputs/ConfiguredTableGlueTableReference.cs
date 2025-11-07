@@ -14,15 +14,19 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     public sealed class ConfiguredTableGlueTableReference
     {
         public readonly string DatabaseName;
+        public readonly Pulumi.AwsNative.CleanRooms.ConfiguredTableCommercialRegion? Region;
         public readonly string TableName;
 
         [OutputConstructor]
         private ConfiguredTableGlueTableReference(
             string databaseName,
 
+            Pulumi.AwsNative.CleanRooms.ConfiguredTableCommercialRegion? region,
+
             string tableName)
         {
             DatabaseName = databaseName;
+            Region = region;
             TableName = tableName;
         }
     }

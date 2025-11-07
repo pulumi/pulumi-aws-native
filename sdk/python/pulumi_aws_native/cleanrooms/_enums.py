@@ -16,12 +16,14 @@ __all__ = [
     'CollaborationJobLogStatus',
     'CollaborationMemberAbility',
     'CollaborationQueryLogStatus',
+    'CollaborationSupportedS3Region',
     'ConfiguredTableAdditionalAnalyses',
     'ConfiguredTableAggregateFunctionName',
     'ConfiguredTableAggregationType',
     'ConfiguredTableAnalysisMethod',
     'ConfiguredTableAnalysisRuleType',
     'ConfiguredTableAssociationAnalysisRuleType',
+    'ConfiguredTableCommercialRegion',
     'ConfiguredTableJoinOperator',
     'ConfiguredTableJoinRequiredOption',
     'ConfiguredTableScalarFunctions',
@@ -32,6 +34,8 @@ __all__ = [
     'MembershipQueryLogStatus',
     'MembershipResultFormat',
     'PrivacyBudgetTemplateAutoRefresh',
+    'PrivacyBudgetTemplateBudgetParameterAutoRefresh',
+    'PrivacyBudgetTemplateBudgetParameterType',
     'PrivacyBudgetTemplatePrivacyBudgetType',
 ]
 
@@ -126,6 +130,43 @@ class CollaborationQueryLogStatus(_builtins.str, Enum):
     DISABLED = "DISABLED"
 
 
+@pulumi.type_token("aws-native:cleanrooms:CollaborationSupportedS3Region")
+class CollaborationSupportedS3Region(_builtins.str, Enum):
+    US_WEST1 = "us-west-1"
+    US_WEST2 = "us-west-2"
+    US_EAST1 = "us-east-1"
+    US_EAST2 = "us-east-2"
+    AF_SOUTH1 = "af-south-1"
+    AP_EAST1 = "ap-east-1"
+    AP_EAST2 = "ap-east-2"
+    AP_SOUTH2 = "ap-south-2"
+    AP_SOUTHEAST1 = "ap-southeast-1"
+    AP_SOUTHEAST2 = "ap-southeast-2"
+    AP_SOUTHEAST3 = "ap-southeast-3"
+    AP_SOUTHEAST5 = "ap-southeast-5"
+    AP_SOUTHEAST4 = "ap-southeast-4"
+    AP_SOUTHEAST7 = "ap-southeast-7"
+    AP_SOUTH1 = "ap-south-1"
+    AP_NORTHEAST3 = "ap-northeast-3"
+    AP_NORTHEAST1 = "ap-northeast-1"
+    AP_NORTHEAST2 = "ap-northeast-2"
+    CA_CENTRAL1 = "ca-central-1"
+    CA_WEST1 = "ca-west-1"
+    EU_SOUTH1 = "eu-south-1"
+    EU_WEST3 = "eu-west-3"
+    EU_SOUTH2 = "eu-south-2"
+    EU_CENTRAL2 = "eu-central-2"
+    EU_CENTRAL1 = "eu-central-1"
+    EU_NORTH1 = "eu-north-1"
+    EU_WEST1 = "eu-west-1"
+    EU_WEST2 = "eu-west-2"
+    ME_SOUTH1 = "me-south-1"
+    ME_CENTRAL1 = "me-central-1"
+    IL_CENTRAL1 = "il-central-1"
+    SA_EAST1 = "sa-east-1"
+    MX_CENTRAL1 = "mx-central-1"
+
+
 @pulumi.type_token("aws-native:cleanrooms:ConfiguredTableAdditionalAnalyses")
 class ConfiguredTableAdditionalAnalyses(_builtins.str, Enum):
     ALLOWED = "ALLOWED"
@@ -166,6 +207,42 @@ class ConfiguredTableAssociationAnalysisRuleType(_builtins.str, Enum):
     AGGREGATION = "AGGREGATION"
     LIST = "LIST"
     CUSTOM = "CUSTOM"
+
+
+@pulumi.type_token("aws-native:cleanrooms:ConfiguredTableCommercialRegion")
+class ConfiguredTableCommercialRegion(_builtins.str, Enum):
+    US_WEST1 = "us-west-1"
+    US_WEST2 = "us-west-2"
+    US_EAST1 = "us-east-1"
+    US_EAST2 = "us-east-2"
+    AF_SOUTH1 = "af-south-1"
+    AP_EAST1 = "ap-east-1"
+    AP_SOUTH2 = "ap-south-2"
+    AP_SOUTHEAST1 = "ap-southeast-1"
+    AP_SOUTHEAST2 = "ap-southeast-2"
+    AP_SOUTHEAST5 = "ap-southeast-5"
+    AP_SOUTHEAST4 = "ap-southeast-4"
+    AP_SOUTHEAST7 = "ap-southeast-7"
+    AP_SOUTH1 = "ap-south-1"
+    AP_NORTHEAST3 = "ap-northeast-3"
+    AP_NORTHEAST1 = "ap-northeast-1"
+    AP_NORTHEAST2 = "ap-northeast-2"
+    CA_CENTRAL1 = "ca-central-1"
+    CA_WEST1 = "ca-west-1"
+    EU_SOUTH1 = "eu-south-1"
+    EU_WEST3 = "eu-west-3"
+    EU_SOUTH2 = "eu-south-2"
+    EU_CENTRAL2 = "eu-central-2"
+    EU_CENTRAL1 = "eu-central-1"
+    EU_NORTH1 = "eu-north-1"
+    EU_WEST1 = "eu-west-1"
+    EU_WEST2 = "eu-west-2"
+    ME_SOUTH1 = "me-south-1"
+    ME_CENTRAL1 = "me-central-1"
+    IL_CENTRAL1 = "il-central-1"
+    SA_EAST1 = "sa-east-1"
+    MX_CENTRAL1 = "mx-central-1"
+    AP_EAST2 = "ap-east-2"
 
 
 @pulumi.type_token("aws-native:cleanrooms:ConfiguredTableJoinOperator")
@@ -260,9 +337,30 @@ class PrivacyBudgetTemplateAutoRefresh(_builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:cleanrooms:PrivacyBudgetTemplateBudgetParameterAutoRefresh")
+class PrivacyBudgetTemplateBudgetParameterAutoRefresh(_builtins.str, Enum):
+    """
+    Whether this individual budget parameter automatically refreshes when the budget period resets.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:cleanrooms:PrivacyBudgetTemplateBudgetParameterType")
+class PrivacyBudgetTemplateBudgetParameterType(_builtins.str, Enum):
+    """
+    The type of budget parameter being configured.
+    """
+    CALENDAR_DAY = "CALENDAR_DAY"
+    CALENDAR_MONTH = "CALENDAR_MONTH"
+    CALENDAR_WEEK = "CALENDAR_WEEK"
+    LIFETIME = "LIFETIME"
+
+
 @pulumi.type_token("aws-native:cleanrooms:PrivacyBudgetTemplatePrivacyBudgetType")
 class PrivacyBudgetTemplatePrivacyBudgetType(_builtins.str, Enum):
     """
     Specifies the type of the privacy budget template.
     """
     DIFFERENTIAL_PRIVACY = "DIFFERENTIAL_PRIVACY"
+    ACCESS_BUDGET = "ACCESS_BUDGET"

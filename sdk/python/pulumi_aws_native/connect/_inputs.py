@@ -74,6 +74,8 @@ __all__ = [
     'EvaluationFormTextQuestionAutomationArgsDict',
     'EvaluationFormTextQuestionPropertiesArgs',
     'EvaluationFormTextQuestionPropertiesArgsDict',
+    'GranularAccessControlConfigurationPropertiesArgs',
+    'GranularAccessControlConfigurationPropertiesArgsDict',
     'HoursOfOperationConfigArgs',
     'HoursOfOperationConfigArgsDict',
     'HoursOfOperationOverrideConfigArgs',
@@ -148,6 +150,12 @@ __all__ = [
     'RuleUpdateCaseActionArgsDict',
     'SecurityProfileApplicationArgs',
     'SecurityProfileApplicationArgsDict',
+    'SecurityProfileDataTableAccessControlConfigurationArgs',
+    'SecurityProfileDataTableAccessControlConfigurationArgsDict',
+    'SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs',
+    'SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgsDict',
+    'SecurityProfilePrimaryAttributeValueArgs',
+    'SecurityProfilePrimaryAttributeValueArgsDict',
     'SecurityProfileTagArgs',
     'SecurityProfileTagArgsDict',
     'TaskTemplateDefaultFieldValueArgs',
@@ -2048,6 +2056,29 @@ class EvaluationFormTextQuestionPropertiesArgs:
     @automation.setter
     def automation(self, value: Optional[pulumi.Input['EvaluationFormTextQuestionAutomationArgs']]):
         pulumi.set(self, "automation", value)
+
+
+if not MYPY:
+    class GranularAccessControlConfigurationPropertiesArgsDict(TypedDict):
+        data_table_access_control_configuration: NotRequired[pulumi.Input['SecurityProfileDataTableAccessControlConfigurationArgsDict']]
+elif False:
+    GranularAccessControlConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GranularAccessControlConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 data_table_access_control_configuration: Optional[pulumi.Input['SecurityProfileDataTableAccessControlConfigurationArgs']] = None):
+        if data_table_access_control_configuration is not None:
+            pulumi.set(__self__, "data_table_access_control_configuration", data_table_access_control_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="dataTableAccessControlConfiguration")
+    def data_table_access_control_configuration(self) -> Optional[pulumi.Input['SecurityProfileDataTableAccessControlConfigurationArgs']]:
+        return pulumi.get(self, "data_table_access_control_configuration")
+
+    @data_table_access_control_configuration.setter
+    def data_table_access_control_configuration(self, value: Optional[pulumi.Input['SecurityProfileDataTableAccessControlConfigurationArgs']]):
+        pulumi.set(self, "data_table_access_control_configuration", value)
 
 
 if not MYPY:
@@ -4324,6 +4355,143 @@ class SecurityProfileApplicationArgs:
     @namespace.setter
     def namespace(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "namespace", value)
+
+
+if not MYPY:
+    class SecurityProfileDataTableAccessControlConfigurationArgsDict(TypedDict):
+        """
+        Defines the access control configuration for data tables.
+        """
+        primary_attribute_access_control_configuration: NotRequired[pulumi.Input['SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgsDict']]
+elif False:
+    SecurityProfileDataTableAccessControlConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SecurityProfileDataTableAccessControlConfigurationArgs:
+    def __init__(__self__, *,
+                 primary_attribute_access_control_configuration: Optional[pulumi.Input['SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs']] = None):
+        """
+        Defines the access control configuration for data tables.
+        """
+        if primary_attribute_access_control_configuration is not None:
+            pulumi.set(__self__, "primary_attribute_access_control_configuration", primary_attribute_access_control_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryAttributeAccessControlConfiguration")
+    def primary_attribute_access_control_configuration(self) -> Optional[pulumi.Input['SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs']]:
+        return pulumi.get(self, "primary_attribute_access_control_configuration")
+
+    @primary_attribute_access_control_configuration.setter
+    def primary_attribute_access_control_configuration(self, value: Optional[pulumi.Input['SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs']]):
+        pulumi.set(self, "primary_attribute_access_control_configuration", value)
+
+
+if not MYPY:
+    class SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgsDict(TypedDict):
+        """
+        Contains the configuration for record-based access control.
+        """
+        primary_attribute_values: pulumi.Input[Sequence[pulumi.Input['SecurityProfilePrimaryAttributeValueArgsDict']]]
+        """
+        An array of PrimaryAttributeValue objects.
+        """
+elif False:
+    SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs:
+    def __init__(__self__, *,
+                 primary_attribute_values: pulumi.Input[Sequence[pulumi.Input['SecurityProfilePrimaryAttributeValueArgs']]]):
+        """
+        Contains the configuration for record-based access control.
+        :param pulumi.Input[Sequence[pulumi.Input['SecurityProfilePrimaryAttributeValueArgs']]] primary_attribute_values: An array of PrimaryAttributeValue objects.
+        """
+        pulumi.set(__self__, "primary_attribute_values", primary_attribute_values)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryAttributeValues")
+    def primary_attribute_values(self) -> pulumi.Input[Sequence[pulumi.Input['SecurityProfilePrimaryAttributeValueArgs']]]:
+        """
+        An array of PrimaryAttributeValue objects.
+        """
+        return pulumi.get(self, "primary_attribute_values")
+
+    @primary_attribute_values.setter
+    def primary_attribute_values(self, value: pulumi.Input[Sequence[pulumi.Input['SecurityProfilePrimaryAttributeValueArgs']]]):
+        pulumi.set(self, "primary_attribute_values", value)
+
+
+if not MYPY:
+    class SecurityProfilePrimaryAttributeValueArgsDict(TypedDict):
+        """
+        An object defining the access control for a specific attribute and its values.
+        """
+        access_type: pulumi.Input['SecurityProfilePrimaryAttributeValueAccessType']
+        """
+        Specifies the type of access granted. Currently, only "ALLOW" is supported
+        """
+        attribute_name: pulumi.Input[_builtins.str]
+        """
+        The name of the primary attribute.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        An array of allowed primary values for the specified primary attribute.
+        """
+elif False:
+    SecurityProfilePrimaryAttributeValueArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SecurityProfilePrimaryAttributeValueArgs:
+    def __init__(__self__, *,
+                 access_type: pulumi.Input['SecurityProfilePrimaryAttributeValueAccessType'],
+                 attribute_name: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        An object defining the access control for a specific attribute and its values.
+        :param pulumi.Input['SecurityProfilePrimaryAttributeValueAccessType'] access_type: Specifies the type of access granted. Currently, only "ALLOW" is supported
+        :param pulumi.Input[_builtins.str] attribute_name: The name of the primary attribute.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: An array of allowed primary values for the specified primary attribute.
+        """
+        pulumi.set(__self__, "access_type", access_type)
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter(name="accessType")
+    def access_type(self) -> pulumi.Input['SecurityProfilePrimaryAttributeValueAccessType']:
+        """
+        Specifies the type of access granted. Currently, only "ALLOW" is supported
+        """
+        return pulumi.get(self, "access_type")
+
+    @access_type.setter
+    def access_type(self, value: pulumi.Input['SecurityProfilePrimaryAttributeValueAccessType']):
+        pulumi.set(self, "access_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the primary attribute.
+        """
+        return pulumi.get(self, "attribute_name")
+
+    @attribute_name.setter
+    def attribute_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "attribute_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        An array of allowed primary values for the specified primary attribute.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
 
 
 if not MYPY:

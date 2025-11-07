@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CloudFormationProductArgs } from "./cloudFormationProduct";
+export type CloudFormationProduct = import("./cloudFormationProduct").CloudFormationProduct;
+export const CloudFormationProduct: typeof import("./cloudFormationProduct").CloudFormationProduct = null as any;
+utilities.lazyLoad(exports, ["CloudFormationProduct"], () => require("./cloudFormationProduct"));
+
 export { CloudFormationProvisionedProductArgs } from "./cloudFormationProvisionedProduct";
 export type CloudFormationProvisionedProduct = import("./cloudFormationProvisionedProduct").CloudFormationProvisionedProduct;
 export const CloudFormationProvisionedProduct: typeof import("./cloudFormationProvisionedProduct").CloudFormationProvisionedProduct = null as any;
 utilities.lazyLoad(exports, ["CloudFormationProvisionedProduct"], () => require("./cloudFormationProvisionedProduct"));
+
+export { GetCloudFormationProductArgs, GetCloudFormationProductResult, GetCloudFormationProductOutputArgs } from "./getCloudFormationProduct";
+export const getCloudFormationProduct: typeof import("./getCloudFormationProduct").getCloudFormationProduct = null as any;
+export const getCloudFormationProductOutput: typeof import("./getCloudFormationProduct").getCloudFormationProductOutput = null as any;
+utilities.lazyLoad(exports, ["getCloudFormationProduct","getCloudFormationProductOutput"], () => require("./getCloudFormationProduct"));
 
 export { GetCloudFormationProvisionedProductArgs, GetCloudFormationProvisionedProductResult, GetCloudFormationProvisionedProductOutputArgs } from "./getCloudFormationProvisionedProduct";
 export const getCloudFormationProvisionedProduct: typeof import("./getCloudFormationProvisionedProduct").getCloudFormationProvisionedProduct = null as any;
@@ -103,6 +113,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:servicecatalog:CloudFormationProduct":
+                return new CloudFormationProduct(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:CloudFormationProvisionedProduct":
                 return new CloudFormationProvisionedProduct(name, <any>undefined, { urn })
             case "aws-native:servicecatalog:LaunchNotificationConstraint":

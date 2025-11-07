@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DataSetInputColumnArgs : global::Pulumi.ResourceArgs
     {
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
         /// <summary>
         /// &lt;p&gt;The name of this column in the underlying data source.&lt;/p&gt;
         /// </summary>

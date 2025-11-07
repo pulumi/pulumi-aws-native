@@ -7669,6 +7669,41 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct DataSetDataPrepSimpleAggregationFunctionType : IEquatable<DataSetDataPrepSimpleAggregationFunctionType>
+    {
+        private readonly string _value;
+
+        private DataSetDataPrepSimpleAggregationFunctionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSetDataPrepSimpleAggregationFunctionType Count { get; } = new DataSetDataPrepSimpleAggregationFunctionType("COUNT");
+        public static DataSetDataPrepSimpleAggregationFunctionType DistinctCount { get; } = new DataSetDataPrepSimpleAggregationFunctionType("DISTINCT_COUNT");
+        public static DataSetDataPrepSimpleAggregationFunctionType Sum { get; } = new DataSetDataPrepSimpleAggregationFunctionType("SUM");
+        public static DataSetDataPrepSimpleAggregationFunctionType Average { get; } = new DataSetDataPrepSimpleAggregationFunctionType("AVERAGE");
+        public static DataSetDataPrepSimpleAggregationFunctionType Median { get; } = new DataSetDataPrepSimpleAggregationFunctionType("MEDIAN");
+        public static DataSetDataPrepSimpleAggregationFunctionType Max { get; } = new DataSetDataPrepSimpleAggregationFunctionType("MAX");
+        public static DataSetDataPrepSimpleAggregationFunctionType Min { get; } = new DataSetDataPrepSimpleAggregationFunctionType("MIN");
+        public static DataSetDataPrepSimpleAggregationFunctionType Variance { get; } = new DataSetDataPrepSimpleAggregationFunctionType("VARIANCE");
+        public static DataSetDataPrepSimpleAggregationFunctionType StandardDeviation { get; } = new DataSetDataPrepSimpleAggregationFunctionType("STANDARD_DEVIATION");
+
+        public static bool operator ==(DataSetDataPrepSimpleAggregationFunctionType left, DataSetDataPrepSimpleAggregationFunctionType right) => left.Equals(right);
+        public static bool operator !=(DataSetDataPrepSimpleAggregationFunctionType left, DataSetDataPrepSimpleAggregationFunctionType right) => !left.Equals(right);
+
+        public static explicit operator string(DataSetDataPrepSimpleAggregationFunctionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSetDataPrepSimpleAggregationFunctionType other && Equals(other);
+        public bool Equals(DataSetDataPrepSimpleAggregationFunctionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DataSetDatasetParameterValueType : IEquatable<DataSetDatasetParameterValueType>
     {
         private readonly string _value;
@@ -7689,6 +7724,36 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataSetDatasetParameterValueType other && Equals(other);
         public bool Equals(DataSetDatasetParameterValueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataSetDateComparisonFilterOperator : IEquatable<DataSetDateComparisonFilterOperator>
+    {
+        private readonly string _value;
+
+        private DataSetDateComparisonFilterOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSetDateComparisonFilterOperator Before { get; } = new DataSetDateComparisonFilterOperator("BEFORE");
+        public static DataSetDateComparisonFilterOperator BeforeOrEqualsTo { get; } = new DataSetDateComparisonFilterOperator("BEFORE_OR_EQUALS_TO");
+        public static DataSetDateComparisonFilterOperator After { get; } = new DataSetDateComparisonFilterOperator("AFTER");
+        public static DataSetDateComparisonFilterOperator AfterOrEqualsTo { get; } = new DataSetDateComparisonFilterOperator("AFTER_OR_EQUALS_TO");
+
+        public static bool operator ==(DataSetDateComparisonFilterOperator left, DataSetDateComparisonFilterOperator right) => left.Equals(right);
+        public static bool operator !=(DataSetDateComparisonFilterOperator left, DataSetDateComparisonFilterOperator right) => !left.Equals(right);
+
+        public static explicit operator string(DataSetDateComparisonFilterOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSetDateComparisonFilterOperator other && Equals(other);
+        public bool Equals(DataSetDateComparisonFilterOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -7854,6 +7919,36 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct DataSetJoinOperationType : IEquatable<DataSetJoinOperationType>
+    {
+        private readonly string _value;
+
+        private DataSetJoinOperationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSetJoinOperationType Inner { get; } = new DataSetJoinOperationType("INNER");
+        public static DataSetJoinOperationType Outer { get; } = new DataSetJoinOperationType("OUTER");
+        public static DataSetJoinOperationType Left { get; } = new DataSetJoinOperationType("LEFT");
+        public static DataSetJoinOperationType Right { get; } = new DataSetJoinOperationType("RIGHT");
+
+        public static bool operator ==(DataSetJoinOperationType left, DataSetJoinOperationType right) => left.Equals(right);
+        public static bool operator !=(DataSetJoinOperationType left, DataSetJoinOperationType right) => !left.Equals(right);
+
+        public static explicit operator string(DataSetJoinOperationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSetJoinOperationType other && Equals(other);
+        public bool Equals(DataSetJoinOperationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DataSetJoinType : IEquatable<DataSetJoinType>
     {
         private readonly string _value;
@@ -7905,6 +8000,38 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataSetLookbackWindowSizeUnit other && Equals(other);
         public bool Equals(DataSetLookbackWindowSizeUnit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataSetNumericComparisonFilterOperator : IEquatable<DataSetNumericComparisonFilterOperator>
+    {
+        private readonly string _value;
+
+        private DataSetNumericComparisonFilterOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSetNumericComparisonFilterOperator EqualsValue { get; } = new DataSetNumericComparisonFilterOperator("EQUALS");
+        public static DataSetNumericComparisonFilterOperator DoesNotEqual { get; } = new DataSetNumericComparisonFilterOperator("DOES_NOT_EQUAL");
+        public static DataSetNumericComparisonFilterOperator GreaterThan { get; } = new DataSetNumericComparisonFilterOperator("GREATER_THAN");
+        public static DataSetNumericComparisonFilterOperator GreaterThanOrEqualsTo { get; } = new DataSetNumericComparisonFilterOperator("GREATER_THAN_OR_EQUALS_TO");
+        public static DataSetNumericComparisonFilterOperator LessThan { get; } = new DataSetNumericComparisonFilterOperator("LESS_THAN");
+        public static DataSetNumericComparisonFilterOperator LessThanOrEqualsTo { get; } = new DataSetNumericComparisonFilterOperator("LESS_THAN_OR_EQUALS_TO");
+
+        public static bool operator ==(DataSetNumericComparisonFilterOperator left, DataSetNumericComparisonFilterOperator right) => left.Equals(right);
+        public static bool operator !=(DataSetNumericComparisonFilterOperator left, DataSetNumericComparisonFilterOperator right) => !left.Equals(right);
+
+        public static explicit operator string(DataSetNumericComparisonFilterOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSetNumericComparisonFilterOperator other && Equals(other);
+        public bool Equals(DataSetNumericComparisonFilterOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -8017,6 +8144,66 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataSetStatus other && Equals(other);
         public bool Equals(DataSetStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataSetStringComparisonFilterOperator : IEquatable<DataSetStringComparisonFilterOperator>
+    {
+        private readonly string _value;
+
+        private DataSetStringComparisonFilterOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSetStringComparisonFilterOperator EqualsValue { get; } = new DataSetStringComparisonFilterOperator("EQUALS");
+        public static DataSetStringComparisonFilterOperator DoesNotEqual { get; } = new DataSetStringComparisonFilterOperator("DOES_NOT_EQUAL");
+        public static DataSetStringComparisonFilterOperator Contains { get; } = new DataSetStringComparisonFilterOperator("CONTAINS");
+        public static DataSetStringComparisonFilterOperator DoesNotContain { get; } = new DataSetStringComparisonFilterOperator("DOES_NOT_CONTAIN");
+        public static DataSetStringComparisonFilterOperator StartsWith { get; } = new DataSetStringComparisonFilterOperator("STARTS_WITH");
+        public static DataSetStringComparisonFilterOperator EndsWith { get; } = new DataSetStringComparisonFilterOperator("ENDS_WITH");
+
+        public static bool operator ==(DataSetStringComparisonFilterOperator left, DataSetStringComparisonFilterOperator right) => left.Equals(right);
+        public static bool operator !=(DataSetStringComparisonFilterOperator left, DataSetStringComparisonFilterOperator right) => !left.Equals(right);
+
+        public static explicit operator string(DataSetStringComparisonFilterOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSetStringComparisonFilterOperator other && Equals(other);
+        public bool Equals(DataSetStringComparisonFilterOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataSetStringListFilterOperator : IEquatable<DataSetStringListFilterOperator>
+    {
+        private readonly string _value;
+
+        private DataSetStringListFilterOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSetStringListFilterOperator Include { get; } = new DataSetStringListFilterOperator("INCLUDE");
+        public static DataSetStringListFilterOperator Exclude { get; } = new DataSetStringListFilterOperator("EXCLUDE");
+
+        public static bool operator ==(DataSetStringListFilterOperator left, DataSetStringListFilterOperator right) => left.Equals(right);
+        public static bool operator !=(DataSetStringListFilterOperator left, DataSetStringListFilterOperator right) => !left.Equals(right);
+
+        public static explicit operator string(DataSetStringListFilterOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSetStringListFilterOperator other && Equals(other);
+        public bool Equals(DataSetStringListFilterOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -8265,6 +8452,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static DataSourceType Exasol { get; } = new DataSourceType("EXASOL");
         public static DataSourceType File { get; } = new DataSourceType("FILE");
         public static DataSourceType Github { get; } = new DataSourceType("GITHUB");
+        public static DataSourceType InternationalDataCorporation { get; } = new DataSourceType("INTERNATIONAL_DATA_CORPORATION");
         public static DataSourceType Jira { get; } = new DataSourceType("JIRA");
         public static DataSourceType Mariadb { get; } = new DataSourceType("MARIADB");
         public static DataSourceType Mysql { get; } = new DataSourceType("MYSQL");

@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.Backup
         [Output("minRetentionDays")]
         public Output<int> MinRetentionDays { get; private set; } = null!;
 
+        [Output("mpaApprovalTeamArn")]
+        public Output<string?> MpaApprovalTeamArn { get; private set; } = null!;
+
         /// <summary>
         /// Returns event notifications for the specified backup vault.
         /// </summary>
@@ -169,6 +172,9 @@ namespace Pulumi.AwsNative.Backup
         /// </summary>
         [Input("minRetentionDays", required: true)]
         public Input<int> MinRetentionDays { get; set; } = null!;
+
+        [Input("mpaApprovalTeamArn")]
+        public Input<string>? MpaApprovalTeamArn { get; set; }
 
         /// <summary>
         /// Returns event notifications for the specified backup vault.

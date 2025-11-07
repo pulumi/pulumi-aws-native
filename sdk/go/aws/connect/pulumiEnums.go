@@ -6120,6 +6120,170 @@ func (in *ruleTriggerEventSourceEventSourceNamePtr) ToRuleTriggerEventSourceEven
 	return pulumi.ToOutputWithContext(ctx, in).(RuleTriggerEventSourceEventSourceNamePtrOutput)
 }
 
+// Specifies the type of access granted. Currently, only "ALLOW" is supported
+type SecurityProfilePrimaryAttributeValueAccessType string
+
+const (
+	SecurityProfilePrimaryAttributeValueAccessTypeAllow = SecurityProfilePrimaryAttributeValueAccessType("ALLOW")
+)
+
+func (SecurityProfilePrimaryAttributeValueAccessType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfilePrimaryAttributeValueAccessType)(nil)).Elem()
+}
+
+func (e SecurityProfilePrimaryAttributeValueAccessType) ToSecurityProfilePrimaryAttributeValueAccessTypeOutput() SecurityProfilePrimaryAttributeValueAccessTypeOutput {
+	return pulumi.ToOutput(e).(SecurityProfilePrimaryAttributeValueAccessTypeOutput)
+}
+
+func (e SecurityProfilePrimaryAttributeValueAccessType) ToSecurityProfilePrimaryAttributeValueAccessTypeOutputWithContext(ctx context.Context) SecurityProfilePrimaryAttributeValueAccessTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SecurityProfilePrimaryAttributeValueAccessTypeOutput)
+}
+
+func (e SecurityProfilePrimaryAttributeValueAccessType) ToSecurityProfilePrimaryAttributeValueAccessTypePtrOutput() SecurityProfilePrimaryAttributeValueAccessTypePtrOutput {
+	return e.ToSecurityProfilePrimaryAttributeValueAccessTypePtrOutputWithContext(context.Background())
+}
+
+func (e SecurityProfilePrimaryAttributeValueAccessType) ToSecurityProfilePrimaryAttributeValueAccessTypePtrOutputWithContext(ctx context.Context) SecurityProfilePrimaryAttributeValueAccessTypePtrOutput {
+	return SecurityProfilePrimaryAttributeValueAccessType(e).ToSecurityProfilePrimaryAttributeValueAccessTypeOutputWithContext(ctx).ToSecurityProfilePrimaryAttributeValueAccessTypePtrOutputWithContext(ctx)
+}
+
+func (e SecurityProfilePrimaryAttributeValueAccessType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityProfilePrimaryAttributeValueAccessType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityProfilePrimaryAttributeValueAccessType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityProfilePrimaryAttributeValueAccessType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SecurityProfilePrimaryAttributeValueAccessTypeOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfilePrimaryAttributeValueAccessTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfilePrimaryAttributeValueAccessType)(nil)).Elem()
+}
+
+func (o SecurityProfilePrimaryAttributeValueAccessTypeOutput) ToSecurityProfilePrimaryAttributeValueAccessTypeOutput() SecurityProfilePrimaryAttributeValueAccessTypeOutput {
+	return o
+}
+
+func (o SecurityProfilePrimaryAttributeValueAccessTypeOutput) ToSecurityProfilePrimaryAttributeValueAccessTypeOutputWithContext(ctx context.Context) SecurityProfilePrimaryAttributeValueAccessTypeOutput {
+	return o
+}
+
+func (o SecurityProfilePrimaryAttributeValueAccessTypeOutput) ToSecurityProfilePrimaryAttributeValueAccessTypePtrOutput() SecurityProfilePrimaryAttributeValueAccessTypePtrOutput {
+	return o.ToSecurityProfilePrimaryAttributeValueAccessTypePtrOutputWithContext(context.Background())
+}
+
+func (o SecurityProfilePrimaryAttributeValueAccessTypeOutput) ToSecurityProfilePrimaryAttributeValueAccessTypePtrOutputWithContext(ctx context.Context) SecurityProfilePrimaryAttributeValueAccessTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityProfilePrimaryAttributeValueAccessType) *SecurityProfilePrimaryAttributeValueAccessType {
+		return &v
+	}).(SecurityProfilePrimaryAttributeValueAccessTypePtrOutput)
+}
+
+func (o SecurityProfilePrimaryAttributeValueAccessTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SecurityProfilePrimaryAttributeValueAccessTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityProfilePrimaryAttributeValueAccessType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SecurityProfilePrimaryAttributeValueAccessTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityProfilePrimaryAttributeValueAccessTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityProfilePrimaryAttributeValueAccessType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SecurityProfilePrimaryAttributeValueAccessTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfilePrimaryAttributeValueAccessTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityProfilePrimaryAttributeValueAccessType)(nil)).Elem()
+}
+
+func (o SecurityProfilePrimaryAttributeValueAccessTypePtrOutput) ToSecurityProfilePrimaryAttributeValueAccessTypePtrOutput() SecurityProfilePrimaryAttributeValueAccessTypePtrOutput {
+	return o
+}
+
+func (o SecurityProfilePrimaryAttributeValueAccessTypePtrOutput) ToSecurityProfilePrimaryAttributeValueAccessTypePtrOutputWithContext(ctx context.Context) SecurityProfilePrimaryAttributeValueAccessTypePtrOutput {
+	return o
+}
+
+func (o SecurityProfilePrimaryAttributeValueAccessTypePtrOutput) Elem() SecurityProfilePrimaryAttributeValueAccessTypeOutput {
+	return o.ApplyT(func(v *SecurityProfilePrimaryAttributeValueAccessType) SecurityProfilePrimaryAttributeValueAccessType {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityProfilePrimaryAttributeValueAccessType
+		return ret
+	}).(SecurityProfilePrimaryAttributeValueAccessTypeOutput)
+}
+
+func (o SecurityProfilePrimaryAttributeValueAccessTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityProfilePrimaryAttributeValueAccessTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SecurityProfilePrimaryAttributeValueAccessType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SecurityProfilePrimaryAttributeValueAccessTypeInput is an input type that accepts values of the SecurityProfilePrimaryAttributeValueAccessType enum
+// A concrete instance of `SecurityProfilePrimaryAttributeValueAccessTypeInput` can be one of the following:
+//
+//	SecurityProfilePrimaryAttributeValueAccessTypeAllow
+type SecurityProfilePrimaryAttributeValueAccessTypeInput interface {
+	pulumi.Input
+
+	ToSecurityProfilePrimaryAttributeValueAccessTypeOutput() SecurityProfilePrimaryAttributeValueAccessTypeOutput
+	ToSecurityProfilePrimaryAttributeValueAccessTypeOutputWithContext(context.Context) SecurityProfilePrimaryAttributeValueAccessTypeOutput
+}
+
+var securityProfilePrimaryAttributeValueAccessTypePtrType = reflect.TypeOf((**SecurityProfilePrimaryAttributeValueAccessType)(nil)).Elem()
+
+type SecurityProfilePrimaryAttributeValueAccessTypePtrInput interface {
+	pulumi.Input
+
+	ToSecurityProfilePrimaryAttributeValueAccessTypePtrOutput() SecurityProfilePrimaryAttributeValueAccessTypePtrOutput
+	ToSecurityProfilePrimaryAttributeValueAccessTypePtrOutputWithContext(context.Context) SecurityProfilePrimaryAttributeValueAccessTypePtrOutput
+}
+
+type securityProfilePrimaryAttributeValueAccessTypePtr string
+
+func SecurityProfilePrimaryAttributeValueAccessTypePtr(v string) SecurityProfilePrimaryAttributeValueAccessTypePtrInput {
+	return (*securityProfilePrimaryAttributeValueAccessTypePtr)(&v)
+}
+
+func (*securityProfilePrimaryAttributeValueAccessTypePtr) ElementType() reflect.Type {
+	return securityProfilePrimaryAttributeValueAccessTypePtrType
+}
+
+func (in *securityProfilePrimaryAttributeValueAccessTypePtr) ToSecurityProfilePrimaryAttributeValueAccessTypePtrOutput() SecurityProfilePrimaryAttributeValueAccessTypePtrOutput {
+	return pulumi.ToOutput(in).(SecurityProfilePrimaryAttributeValueAccessTypePtrOutput)
+}
+
+func (in *securityProfilePrimaryAttributeValueAccessTypePtr) ToSecurityProfilePrimaryAttributeValueAccessTypePtrOutputWithContext(ctx context.Context) SecurityProfilePrimaryAttributeValueAccessTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SecurityProfilePrimaryAttributeValueAccessTypePtrOutput)
+}
+
 // The type of the task template's field
 type TaskTemplateFieldType string
 
@@ -6808,6 +6972,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionDeliveryMethodPtrInput)(nil)).Elem(), RuleSendNotificationActionDeliveryMethod("EMAIL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTriggerEventSourceEventSourceNameInput)(nil)).Elem(), RuleTriggerEventSourceEventSourceName("OnContactEvaluationSubmit"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTriggerEventSourceEventSourceNamePtrInput)(nil)).Elem(), RuleTriggerEventSourceEventSourceName("OnContactEvaluationSubmit"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfilePrimaryAttributeValueAccessTypeInput)(nil)).Elem(), SecurityProfilePrimaryAttributeValueAccessType("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfilePrimaryAttributeValueAccessTypePtrInput)(nil)).Elem(), SecurityProfilePrimaryAttributeValueAccessType("ALLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateFieldTypeInput)(nil)).Elem(), TaskTemplateFieldType("NAME"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateFieldTypePtrInput)(nil)).Elem(), TaskTemplateFieldType("NAME"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateStatusInput)(nil)).Elem(), TaskTemplateStatus("ACTIVE"))
@@ -6888,6 +7054,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleSendNotificationActionDeliveryMethodPtrOutput{})
 	pulumi.RegisterOutputType(RuleTriggerEventSourceEventSourceNameOutput{})
 	pulumi.RegisterOutputType(RuleTriggerEventSourceEventSourceNamePtrOutput{})
+	pulumi.RegisterOutputType(SecurityProfilePrimaryAttributeValueAccessTypeOutput{})
+	pulumi.RegisterOutputType(SecurityProfilePrimaryAttributeValueAccessTypePtrOutput{})
 	pulumi.RegisterOutputType(TaskTemplateFieldTypeOutput{})
 	pulumi.RegisterOutputType(TaskTemplateFieldTypePtrOutput{})
 	pulumi.RegisterOutputType(TaskTemplateStatusOutput{})

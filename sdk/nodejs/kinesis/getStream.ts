@@ -34,6 +34,10 @@ export interface GetStreamResult {
      */
     readonly desiredShardLevelMetrics?: enums.kinesis.StreamEnhancedMetric[];
     /**
+     * Maximum size of a data record in KiB allowed to be put into Kinesis stream.
+     */
+    readonly maxRecordSizeInKiB?: number;
+    /**
      * The number of hours for the data records that are stored in shards to remain accessible.
      */
     readonly retentionPeriodHours?: number;

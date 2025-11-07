@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ConnectionAmazonQPropertiesInputArgs',
+    'ConnectionAmazonQPropertiesInputArgsDict',
     'ConnectionAthenaPropertiesInputArgs',
     'ConnectionAthenaPropertiesInputArgsDict',
     'ConnectionAuthenticationConfigurationInputArgs',
@@ -60,6 +62,8 @@ __all__ = [
     'ConnectionPropertiesInput6PropertiesArgsDict',
     'ConnectionPropertiesInput7PropertiesArgs',
     'ConnectionPropertiesInput7PropertiesArgsDict',
+    'ConnectionPropertiesInput8PropertiesArgs',
+    'ConnectionPropertiesInput8PropertiesArgsDict',
     'ConnectionRedshiftCredentials0PropertiesArgs',
     'ConnectionRedshiftCredentials0PropertiesArgsDict',
     'ConnectionRedshiftCredentials1PropertiesArgs',
@@ -231,6 +235,75 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ConnectionAmazonQPropertiesInputArgsDict(TypedDict):
+        """
+        Amazon Q properties of the connection.
+        """
+        auth_mode: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The authentication mode of the connection's AmazonQ properties
+        """
+        is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Specifies whether Amazon Q is enabled for the connection
+        """
+        profile_arn: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    ConnectionAmazonQPropertiesInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectionAmazonQPropertiesInputArgs:
+    def __init__(__self__, *,
+                 auth_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 profile_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Amazon Q properties of the connection.
+        :param pulumi.Input[_builtins.str] auth_mode: The authentication mode of the connection's AmazonQ properties
+        :param pulumi.Input[_builtins.bool] is_enabled: Specifies whether Amazon Q is enabled for the connection
+        """
+        if auth_mode is not None:
+            pulumi.set(__self__, "auth_mode", auth_mode)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if profile_arn is not None:
+            pulumi.set(__self__, "profile_arn", profile_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The authentication mode of the connection's AmazonQ properties
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @auth_mode.setter
+    def auth_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "auth_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether Amazon Q is enabled for the connection
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="profileArn")
+    def profile_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "profile_arn")
+
+    @profile_arn.setter
+    def profile_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "profile_arn", value)
+
 
 if not MYPY:
     class ConnectionAthenaPropertiesInputArgsDict(TypedDict):
@@ -1227,12 +1300,34 @@ class ConnectionPropertiesInput5PropertiesArgs:
 
 if not MYPY:
     class ConnectionPropertiesInput6PropertiesArgsDict(TypedDict):
-        spark_glue_properties: pulumi.Input['ConnectionSparkGluePropertiesInputArgsDict']
+        amazon_q_properties: pulumi.Input['ConnectionAmazonQPropertiesInputArgsDict']
 elif False:
     ConnectionPropertiesInput6PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionPropertiesInput6PropertiesArgs:
+    def __init__(__self__, *,
+                 amazon_q_properties: pulumi.Input['ConnectionAmazonQPropertiesInputArgs']):
+        pulumi.set(__self__, "amazon_q_properties", amazon_q_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="amazonQProperties")
+    def amazon_q_properties(self) -> pulumi.Input['ConnectionAmazonQPropertiesInputArgs']:
+        return pulumi.get(self, "amazon_q_properties")
+
+    @amazon_q_properties.setter
+    def amazon_q_properties(self, value: pulumi.Input['ConnectionAmazonQPropertiesInputArgs']):
+        pulumi.set(self, "amazon_q_properties", value)
+
+
+if not MYPY:
+    class ConnectionPropertiesInput7PropertiesArgsDict(TypedDict):
+        spark_glue_properties: pulumi.Input['ConnectionSparkGluePropertiesInputArgsDict']
+elif False:
+    ConnectionPropertiesInput7PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectionPropertiesInput7PropertiesArgs:
     def __init__(__self__, *,
                  spark_glue_properties: pulumi.Input['ConnectionSparkGluePropertiesInputArgs']):
         pulumi.set(__self__, "spark_glue_properties", spark_glue_properties)
@@ -1248,13 +1343,13 @@ class ConnectionPropertiesInput6PropertiesArgs:
 
 
 if not MYPY:
-    class ConnectionPropertiesInput7PropertiesArgsDict(TypedDict):
+    class ConnectionPropertiesInput8PropertiesArgsDict(TypedDict):
         s3_properties: pulumi.Input['ConnectionS3PropertiesInputArgsDict']
 elif False:
-    ConnectionPropertiesInput7PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    ConnectionPropertiesInput8PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class ConnectionPropertiesInput7PropertiesArgs:
+class ConnectionPropertiesInput8PropertiesArgs:
     def __init__(__self__, *,
                  s3_properties: pulumi.Input['ConnectionS3PropertiesInputArgs']):
         pulumi.set(__self__, "s3_properties", s3_properties)

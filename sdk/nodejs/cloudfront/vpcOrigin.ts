@@ -37,6 +37,9 @@ export class VpcOrigin extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcOrigin.__pulumiType;
     }
 
+    /**
+     * The account ID of the AWS account that owns the VPC origin.
+     */
     declare public /*out*/ readonly accountId: pulumi.Output<string>;
     /**
      * The VPC origin ARN.

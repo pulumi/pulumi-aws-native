@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     {
         public readonly string DatabaseName;
         public readonly string? OutputLocation;
+        public readonly Pulumi.AwsNative.CleanRooms.ConfiguredTableCommercialRegion? Region;
         public readonly string TableName;
         public readonly string WorkGroup;
 
@@ -24,12 +25,15 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
 
             string? outputLocation,
 
+            Pulumi.AwsNative.CleanRooms.ConfiguredTableCommercialRegion? region,
+
             string tableName,
 
             string workGroup)
         {
             DatabaseName = databaseName;
             OutputLocation = outputLocation;
+            Region = region;
             TableName = tableName;
             WorkGroup = workGroup;
         }

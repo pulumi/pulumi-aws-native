@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['SecurityProfileArgs', 'SecurityProfile']
@@ -28,6 +29,7 @@ class SecurityProfileArgs:
                  allowed_access_control_tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]] = None,
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileApplicationArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 granular_access_control_configuration: Optional[pulumi.Input['GranularAccessControlConfigurationPropertiesArgs']] = None,
                  hierarchy_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  security_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -55,6 +57,8 @@ class SecurityProfileArgs:
             pulumi.set(__self__, "applications", applications)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if granular_access_control_configuration is not None:
+            pulumi.set(__self__, "granular_access_control_configuration", granular_access_control_configuration)
         if hierarchy_restricted_resources is not None:
             pulumi.set(__self__, "hierarchy_restricted_resources", hierarchy_restricted_resources)
         if permissions is not None:
@@ -127,6 +131,15 @@ class SecurityProfileArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="granularAccessControlConfiguration")
+    def granular_access_control_configuration(self) -> Optional[pulumi.Input['GranularAccessControlConfigurationPropertiesArgs']]:
+        return pulumi.get(self, "granular_access_control_configuration")
+
+    @granular_access_control_configuration.setter
+    def granular_access_control_configuration(self, value: Optional[pulumi.Input['GranularAccessControlConfigurationPropertiesArgs']]):
+        pulumi.set(self, "granular_access_control_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="hierarchyRestrictedResources")
     def hierarchy_restricted_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -197,6 +210,7 @@ class SecurityProfile(pulumi.CustomResource):
                  allowed_access_control_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileTagArgs', 'SecurityProfileTagArgsDict']]]]] = None,
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileApplicationArgs', 'SecurityProfileApplicationArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 granular_access_control_configuration: Optional[pulumi.Input[Union['GranularAccessControlConfigurationPropertiesArgs', 'GranularAccessControlConfigurationPropertiesArgsDict']]] = None,
                  hierarchy_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -248,6 +262,7 @@ class SecurityProfile(pulumi.CustomResource):
                  allowed_access_control_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileTagArgs', 'SecurityProfileTagArgsDict']]]]] = None,
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileApplicationArgs', 'SecurityProfileApplicationArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 granular_access_control_configuration: Optional[pulumi.Input[Union['GranularAccessControlConfigurationPropertiesArgs', 'GranularAccessControlConfigurationPropertiesArgsDict']]] = None,
                  hierarchy_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -267,6 +282,7 @@ class SecurityProfile(pulumi.CustomResource):
             __props__.__dict__["allowed_access_control_tags"] = allowed_access_control_tags
             __props__.__dict__["applications"] = applications
             __props__.__dict__["description"] = description
+            __props__.__dict__["granular_access_control_configuration"] = granular_access_control_configuration
             __props__.__dict__["hierarchy_restricted_resources"] = hierarchy_restricted_resources
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")
@@ -306,6 +322,7 @@ class SecurityProfile(pulumi.CustomResource):
         __props__.__dict__["allowed_access_control_tags"] = None
         __props__.__dict__["applications"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["granular_access_control_configuration"] = None
         __props__.__dict__["hierarchy_restricted_resources"] = None
         __props__.__dict__["instance_arn"] = None
         __props__.__dict__["last_modified_region"] = None
@@ -348,6 +365,11 @@ class SecurityProfile(pulumi.CustomResource):
         The description of the security profile.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="granularAccessControlConfiguration")
+    def granular_access_control_configuration(self) -> pulumi.Output[Optional['outputs.GranularAccessControlConfigurationProperties']]:
+        return pulumi.get(self, "granular_access_control_configuration")
 
     @_builtins.property
     @pulumi.getter(name="hierarchyRestrictedResources")

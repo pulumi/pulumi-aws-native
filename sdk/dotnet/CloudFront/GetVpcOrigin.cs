@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.CloudFront
     [OutputType]
     public sealed class GetVpcOriginResult
     {
+        /// <summary>
+        /// The account ID of the AWS account that owns the VPC origin.
+        /// </summary>
         public readonly string? AccountId;
         /// <summary>
         /// The VPC origin ARN.

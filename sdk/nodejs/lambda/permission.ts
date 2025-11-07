@@ -64,7 +64,7 @@ export class Permission extends pulumi.CustomResource {
      */
     declare public readonly functionUrlAuthType: pulumi.Output<enums.lambda.PermissionFunctionUrlAuthType | undefined>;
     /**
-     * Restricts the `lambda:InvokeFunction` action to function URL calls. When set to `true` , this prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
+     * Restricts the `lambda:InvokeFunction` action to function URL calls. When specified, this option prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
      */
     declare public readonly invokedViaFunctionUrl: pulumi.Output<boolean | undefined>;
     /**
@@ -161,7 +161,7 @@ export interface PermissionArgs {
      */
     functionUrlAuthType?: pulumi.Input<enums.lambda.PermissionFunctionUrlAuthType>;
     /**
-     * Restricts the `lambda:InvokeFunction` action to function URL calls. When set to `true` , this prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
+     * Restricts the `lambda:InvokeFunction` action to function URL calls. When specified, this option prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) .
      */
     invokedViaFunctionUrl?: pulumi.Input<boolean>;
     /**

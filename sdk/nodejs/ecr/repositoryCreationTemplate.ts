@@ -62,7 +62,7 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
      */
     declare public readonly imageTagMutability: pulumi.Output<enums.ecr.RepositoryCreationTemplateImageTagMutability | undefined>;
     /**
-     * Defines the image tag mutability exclusion filters to apply when creating repositories from this template. These filters specify which image tags can override the repository's default image tag mutability setting.
+     * A list of filters that specify which image tags are excluded from the repository creation template's image tag mutability setting.
      */
     declare public readonly imageTagMutabilityExclusionFilters: pulumi.Output<outputs.ecr.RepositoryCreationTemplateImageTagMutabilityExclusionFilter[] | undefined>;
     /**
@@ -161,7 +161,7 @@ export interface RepositoryCreationTemplateArgs {
      */
     imageTagMutability?: pulumi.Input<enums.ecr.RepositoryCreationTemplateImageTagMutability>;
     /**
-     * Defines the image tag mutability exclusion filters to apply when creating repositories from this template. These filters specify which image tags can override the repository's default image tag mutability setting.
+     * A list of filters that specify which image tags are excluded from the repository creation template's image tag mutability setting.
      */
     imageTagMutabilityExclusionFilters?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs>[]>;
     /**

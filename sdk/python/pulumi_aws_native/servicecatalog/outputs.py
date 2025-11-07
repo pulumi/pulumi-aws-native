@@ -13,13 +13,324 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CloudFormationProductCodeStarParameters',
+    'CloudFormationProductProvisioningArtifactProperties',
+    'CloudFormationProductProvisioningArtifactPropertiesInfoProperties',
+    'CloudFormationProductSourceConnection',
+    'CloudFormationProductSourceConnectionConnectionParametersProperties',
     'CloudFormationProvisionedProductProvisioningParameter',
     'CloudFormationProvisionedProductProvisioningPreferences',
     'ServiceActionDefinitionParameter',
 ]
+
+@pulumi.output_type
+class CloudFormationProductCodeStarParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "artifactPath":
+            suggest = "artifact_path"
+        elif key == "connectionArn":
+            suggest = "connection_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudFormationProductCodeStarParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudFormationProductCodeStarParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudFormationProductCodeStarParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 artifact_path: _builtins.str,
+                 branch: _builtins.str,
+                 connection_arn: _builtins.str,
+                 repository: _builtins.str):
+        """
+        :param _builtins.str artifact_path: The absolute path where the artifact resides within the repo and branch, formatted as "folder/file.json".
+        :param _builtins.str branch: The specific branch where the artifact resides.
+        :param _builtins.str connection_arn: The CodeStar ARN, which is the connection between AWS Service Catalog and the external repository.
+        :param _builtins.str repository: The specific repository where the product's artifact-to-be-synced resides, formatted as "Account/Repo."
+        """
+        pulumi.set(__self__, "artifact_path", artifact_path)
+        pulumi.set(__self__, "branch", branch)
+        pulumi.set(__self__, "connection_arn", connection_arn)
+        pulumi.set(__self__, "repository", repository)
+
+    @_builtins.property
+    @pulumi.getter(name="artifactPath")
+    def artifact_path(self) -> _builtins.str:
+        """
+        The absolute path where the artifact resides within the repo and branch, formatted as "folder/file.json".
+        """
+        return pulumi.get(self, "artifact_path")
+
+    @_builtins.property
+    @pulumi.getter
+    def branch(self) -> _builtins.str:
+        """
+        The specific branch where the artifact resides.
+        """
+        return pulumi.get(self, "branch")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionArn")
+    def connection_arn(self) -> _builtins.str:
+        """
+        The CodeStar ARN, which is the connection between AWS Service Catalog and the external repository.
+        """
+        return pulumi.get(self, "connection_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def repository(self) -> _builtins.str:
+        """
+        The specific repository where the product's artifact-to-be-synced resides, formatted as "Account/Repo."
+        """
+        return pulumi.get(self, "repository")
+
+
+@pulumi.output_type
+class CloudFormationProductProvisioningArtifactProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableTemplateValidation":
+            suggest = "disable_template_validation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudFormationProductProvisioningArtifactProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudFormationProductProvisioningArtifactProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudFormationProductProvisioningArtifactProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 info: 'outputs.CloudFormationProductProvisioningArtifactPropertiesInfoProperties',
+                 description: Optional[_builtins.str] = None,
+                 disable_template_validation: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None,
+                 type: Optional['CloudFormationProductProvisioningArtifactPropertiesType'] = None):
+        """
+        :param 'CloudFormationProductProvisioningArtifactPropertiesInfoProperties' info: Specify the template source with one of the following options, but not both. Keys accepted: [ LoadTemplateFromURL, ImportFromPhysicalId ] The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
+               
+               "LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."
+               
+               ImportFromPhysicalId: The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]
+        :param _builtins.str description: The description of the provisioning artifact, including how it differs from the previous provisioning artifact.
+        :param _builtins.bool disable_template_validation: If set to true, AWS Service Catalog stops validating the specified provisioning artifact even if it is invalid.
+        :param _builtins.str name: The name of the provisioning artifact (for example, v1 v2beta). No spaces are allowed.
+        :param 'CloudFormationProductProvisioningArtifactPropertiesType' type: The type of provisioning artifact. Valid values are CLOUD_FORMATION_TEMPLATE, TERRAFORM_OPEN_SOURCE, TERRAFORM_CLOUD, EXTERNAL
+        """
+        pulumi.set(__self__, "info", info)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if disable_template_validation is not None:
+            pulumi.set(__self__, "disable_template_validation", disable_template_validation)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def info(self) -> 'outputs.CloudFormationProductProvisioningArtifactPropertiesInfoProperties':
+        """
+        Specify the template source with one of the following options, but not both. Keys accepted: [ LoadTemplateFromURL, ImportFromPhysicalId ] The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
+
+        "LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."
+
+        ImportFromPhysicalId: The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]
+        """
+        return pulumi.get(self, "info")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The description of the provisioning artifact, including how it differs from the previous provisioning artifact.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="disableTemplateValidation")
+    def disable_template_validation(self) -> Optional[_builtins.bool]:
+        """
+        If set to true, AWS Service Catalog stops validating the specified provisioning artifact even if it is invalid.
+        """
+        return pulumi.get(self, "disable_template_validation")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the provisioning artifact (for example, v1 v2beta). No spaces are allowed.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional['CloudFormationProductProvisioningArtifactPropertiesType']:
+        """
+        The type of provisioning artifact. Valid values are CLOUD_FORMATION_TEMPLATE, TERRAFORM_OPEN_SOURCE, TERRAFORM_CLOUD, EXTERNAL
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class CloudFormationProductProvisioningArtifactPropertiesInfoProperties(dict):
+    """
+    Specify the template source with one of the following options, but not both. Keys accepted: [ LoadTemplateFromURL, ImportFromPhysicalId ] The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
+
+    "LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."
+
+    ImportFromPhysicalId: The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "importFromPhysicalId":
+            suggest = "import_from_physical_id"
+        elif key == "loadTemplateFromUrl":
+            suggest = "load_template_from_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudFormationProductProvisioningArtifactPropertiesInfoProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudFormationProductProvisioningArtifactPropertiesInfoProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudFormationProductProvisioningArtifactPropertiesInfoProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 import_from_physical_id: Optional[_builtins.str] = None,
+                 load_template_from_url: Optional[_builtins.str] = None):
+        """
+        Specify the template source with one of the following options, but not both. Keys accepted: [ LoadTemplateFromURL, ImportFromPhysicalId ] The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
+
+        "LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."
+
+        ImportFromPhysicalId: The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]
+        :param _builtins.str import_from_physical_id: The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn
+        :param _builtins.str load_template_from_url: The URL of the AWS CloudFormation template in Amazon S3 in JSON format.
+        """
+        if import_from_physical_id is not None:
+            pulumi.set(__self__, "import_from_physical_id", import_from_physical_id)
+        if load_template_from_url is not None:
+            pulumi.set(__self__, "load_template_from_url", load_template_from_url)
+
+    @_builtins.property
+    @pulumi.getter(name="importFromPhysicalId")
+    def import_from_physical_id(self) -> Optional[_builtins.str]:
+        """
+        The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn
+        """
+        return pulumi.get(self, "import_from_physical_id")
+
+    @_builtins.property
+    @pulumi.getter(name="loadTemplateFromUrl")
+    def load_template_from_url(self) -> Optional[_builtins.str]:
+        """
+        The URL of the AWS CloudFormation template in Amazon S3 in JSON format.
+        """
+        return pulumi.get(self, "load_template_from_url")
+
+
+@pulumi.output_type
+class CloudFormationProductSourceConnection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionParameters":
+            suggest = "connection_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudFormationProductSourceConnection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudFormationProductSourceConnection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudFormationProductSourceConnection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_parameters: 'outputs.CloudFormationProductSourceConnectionConnectionParametersProperties',
+                 type: _builtins.str):
+        """
+        :param 'CloudFormationProductSourceConnectionConnectionParametersProperties' connection_parameters: The connection details based on the connection Type.
+        :param _builtins.str type: The only supported SourceConnection type is Codestar.
+        """
+        pulumi.set(__self__, "connection_parameters", connection_parameters)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionParameters")
+    def connection_parameters(self) -> 'outputs.CloudFormationProductSourceConnectionConnectionParametersProperties':
+        """
+        The connection details based on the connection Type.
+        """
+        return pulumi.get(self, "connection_parameters")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The only supported SourceConnection type is Codestar.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class CloudFormationProductSourceConnectionConnectionParametersProperties(dict):
+    """
+    The connection details based on the connection Type.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codeStar":
+            suggest = "code_star"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CloudFormationProductSourceConnectionConnectionParametersProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CloudFormationProductSourceConnectionConnectionParametersProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CloudFormationProductSourceConnectionConnectionParametersProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code_star: Optional['outputs.CloudFormationProductCodeStarParameters'] = None):
+        """
+        The connection details based on the connection Type.
+        """
+        if code_star is not None:
+            pulumi.set(__self__, "code_star", code_star)
+
+    @_builtins.property
+    @pulumi.getter(name="codeStar")
+    def code_star(self) -> Optional['outputs.CloudFormationProductCodeStarParameters']:
+        return pulumi.get(self, "code_star")
+
 
 @pulumi.output_type
 class CloudFormationProvisionedProductProvisioningParameter(dict):

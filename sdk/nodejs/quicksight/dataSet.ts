@@ -64,6 +64,7 @@ export class DataSet extends pulumi.CustomResource {
      * <p>The time that this dataset was created.</p>
      */
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
+    declare public readonly dataPrepConfiguration: pulumi.Output<outputs.quicksight.DataSetDataPrepConfiguration | undefined>;
     /**
      * An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
      */
@@ -100,9 +101,6 @@ export class DataSet extends pulumi.CustomResource {
      * <p>The last time that this dataset was updated.</p>
      */
     declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
-    /**
-     * Configures the combination and transformation of the data from the physical tables.
-     */
     declare public readonly logicalTableMap: pulumi.Output<{[key: string]: outputs.quicksight.DataSetLogicalTable} | undefined>;
     /**
      * <p>The display name for the dataset.</p>
@@ -125,14 +123,9 @@ export class DataSet extends pulumi.CustomResource {
      * Declares the physical tables that are available in the underlying data sources.
      */
     declare public readonly physicalTableMap: pulumi.Output<{[key: string]: outputs.quicksight.DataSetPhysicalTable} | undefined>;
-    /**
-     * The row-level security configuration for the data that you want to create.
-     */
     declare public readonly rowLevelPermissionDataSet: pulumi.Output<outputs.quicksight.DataSetRowLevelPermissionDataSet | undefined>;
-    /**
-     * The element you can use to define tags for row-level security.
-     */
     declare public readonly rowLevelPermissionTagConfiguration: pulumi.Output<outputs.quicksight.DataSetRowLevelPermissionTagConfiguration | undefined>;
+    declare public readonly semanticModelConfiguration: pulumi.Output<outputs.quicksight.DataSetSemanticModelConfiguration | undefined>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
      */
@@ -156,6 +149,7 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["awsAccountId"] = args?.awsAccountId;
             resourceInputs["columnGroups"] = args?.columnGroups;
             resourceInputs["columnLevelPermissionRules"] = args?.columnLevelPermissionRules;
+            resourceInputs["dataPrepConfiguration"] = args?.dataPrepConfiguration;
             resourceInputs["dataSetId"] = args?.dataSetId;
             resourceInputs["dataSetRefreshProperties"] = args?.dataSetRefreshProperties;
             resourceInputs["dataSetUsageConfiguration"] = args?.dataSetUsageConfiguration;
@@ -171,6 +165,7 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["physicalTableMap"] = args?.physicalTableMap;
             resourceInputs["rowLevelPermissionDataSet"] = args?.rowLevelPermissionDataSet;
             resourceInputs["rowLevelPermissionTagConfiguration"] = args?.rowLevelPermissionTagConfiguration;
+            resourceInputs["semanticModelConfiguration"] = args?.semanticModelConfiguration;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["useAs"] = args?.useAs;
             resourceInputs["arn"] = undefined /*out*/;
@@ -185,6 +180,7 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["columnLevelPermissionRules"] = undefined /*out*/;
             resourceInputs["consumedSpiceCapacityInBytes"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["dataPrepConfiguration"] = undefined /*out*/;
             resourceInputs["dataSetId"] = undefined /*out*/;
             resourceInputs["dataSetRefreshProperties"] = undefined /*out*/;
             resourceInputs["dataSetUsageConfiguration"] = undefined /*out*/;
@@ -202,6 +198,7 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["physicalTableMap"] = undefined /*out*/;
             resourceInputs["rowLevelPermissionDataSet"] = undefined /*out*/;
             resourceInputs["rowLevelPermissionTagConfiguration"] = undefined /*out*/;
+            resourceInputs["semanticModelConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["useAs"] = undefined /*out*/;
         }
@@ -230,6 +227,7 @@ export interface DataSetArgs {
      *             </code>.</p>
      */
     columnLevelPermissionRules?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnLevelPermissionRuleArgs>[]>;
+    dataPrepConfiguration?: pulumi.Input<inputs.quicksight.DataSetDataPrepConfigurationArgs>;
     /**
      * An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
      */
@@ -262,9 +260,6 @@ export interface DataSetArgs {
      * The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
      */
     ingestionWaitPolicy?: pulumi.Input<inputs.quicksight.DataSetIngestionWaitPolicyArgs>;
-    /**
-     * Configures the combination and transformation of the data from the physical tables.
-     */
     logicalTableMap?: pulumi.Input<{[key: string]: pulumi.Input<inputs.quicksight.DataSetLogicalTableArgs>}>;
     /**
      * <p>The display name for the dataset.</p>
@@ -282,14 +277,9 @@ export interface DataSetArgs {
      * Declares the physical tables that are available in the underlying data sources.
      */
     physicalTableMap?: pulumi.Input<{[key: string]: pulumi.Input<inputs.quicksight.DataSetPhysicalTableArgs>}>;
-    /**
-     * The row-level security configuration for the data that you want to create.
-     */
     rowLevelPermissionDataSet?: pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionDataSetArgs>;
-    /**
-     * The element you can use to define tags for row-level security.
-     */
     rowLevelPermissionTagConfiguration?: pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionTagConfigurationArgs>;
+    semanticModelConfiguration?: pulumi.Input<inputs.quicksight.DataSetSemanticModelConfigurationArgs>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
      */

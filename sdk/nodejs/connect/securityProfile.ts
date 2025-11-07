@@ -53,6 +53,7 @@ export class SecurityProfile extends pulumi.CustomResource {
      * The description of the security profile.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly granularAccessControlConfiguration: pulumi.Output<outputs.connect.GranularAccessControlConfigurationProperties | undefined>;
     /**
      * The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
      */
@@ -108,6 +109,7 @@ export class SecurityProfile extends pulumi.CustomResource {
             resourceInputs["allowedAccessControlTags"] = args?.allowedAccessControlTags;
             resourceInputs["applications"] = args?.applications;
             resourceInputs["description"] = args?.description;
+            resourceInputs["granularAccessControlConfiguration"] = args?.granularAccessControlConfiguration;
             resourceInputs["hierarchyRestrictedResources"] = args?.hierarchyRestrictedResources;
             resourceInputs["instanceArn"] = args?.instanceArn;
             resourceInputs["permissions"] = args?.permissions;
@@ -122,6 +124,7 @@ export class SecurityProfile extends pulumi.CustomResource {
             resourceInputs["allowedAccessControlTags"] = undefined /*out*/;
             resourceInputs["applications"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["granularAccessControlConfiguration"] = undefined /*out*/;
             resourceInputs["hierarchyRestrictedResources"] = undefined /*out*/;
             resourceInputs["instanceArn"] = undefined /*out*/;
             resourceInputs["lastModifiedRegion"] = undefined /*out*/;
@@ -159,6 +162,7 @@ export interface SecurityProfileArgs {
      * The description of the security profile.
      */
     description?: pulumi.Input<string>;
+    granularAccessControlConfiguration?: pulumi.Input<inputs.connect.GranularAccessControlConfigurationPropertiesArgs>;
     /**
      * The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
      */

@@ -15,6 +15,7 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetSecurityProfileResult',
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetSecurityProfileResult:
-    def __init__(__self__, allowed_access_control_hierarchy_group_id=None, allowed_access_control_tags=None, applications=None, description=None, hierarchy_restricted_resources=None, last_modified_region=None, last_modified_time=None, permissions=None, security_profile_arn=None, tag_restricted_resources=None, tags=None):
+    def __init__(__self__, allowed_access_control_hierarchy_group_id=None, allowed_access_control_tags=None, applications=None, description=None, granular_access_control_configuration=None, hierarchy_restricted_resources=None, last_modified_region=None, last_modified_time=None, permissions=None, security_profile_arn=None, tag_restricted_resources=None, tags=None):
         if allowed_access_control_hierarchy_group_id and not isinstance(allowed_access_control_hierarchy_group_id, str):
             raise TypeError("Expected argument 'allowed_access_control_hierarchy_group_id' to be a str")
         pulumi.set(__self__, "allowed_access_control_hierarchy_group_id", allowed_access_control_hierarchy_group_id)
@@ -38,6 +39,9 @@ class GetSecurityProfileResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if granular_access_control_configuration and not isinstance(granular_access_control_configuration, dict):
+            raise TypeError("Expected argument 'granular_access_control_configuration' to be a dict")
+        pulumi.set(__self__, "granular_access_control_configuration", granular_access_control_configuration)
         if hierarchy_restricted_resources and not isinstance(hierarchy_restricted_resources, list):
             raise TypeError("Expected argument 'hierarchy_restricted_resources' to be a list")
         pulumi.set(__self__, "hierarchy_restricted_resources", hierarchy_restricted_resources)
@@ -91,6 +95,11 @@ class GetSecurityProfileResult:
         The description of the security profile.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="granularAccessControlConfiguration")
+    def granular_access_control_configuration(self) -> Optional['outputs.GranularAccessControlConfigurationProperties']:
+        return pulumi.get(self, "granular_access_control_configuration")
 
     @_builtins.property
     @pulumi.getter(name="hierarchyRestrictedResources")
@@ -159,6 +168,7 @@ class AwaitableGetSecurityProfileResult(GetSecurityProfileResult):
             allowed_access_control_tags=self.allowed_access_control_tags,
             applications=self.applications,
             description=self.description,
+            granular_access_control_configuration=self.granular_access_control_configuration,
             hierarchy_restricted_resources=self.hierarchy_restricted_resources,
             last_modified_region=self.last_modified_region,
             last_modified_time=self.last_modified_time,
@@ -186,6 +196,7 @@ def get_security_profile(security_profile_arn: Optional[_builtins.str] = None,
         allowed_access_control_tags=pulumi.get(__ret__, 'allowed_access_control_tags'),
         applications=pulumi.get(__ret__, 'applications'),
         description=pulumi.get(__ret__, 'description'),
+        granular_access_control_configuration=pulumi.get(__ret__, 'granular_access_control_configuration'),
         hierarchy_restricted_resources=pulumi.get(__ret__, 'hierarchy_restricted_resources'),
         last_modified_region=pulumi.get(__ret__, 'last_modified_region'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
@@ -210,6 +221,7 @@ def get_security_profile_output(security_profile_arn: Optional[pulumi.Input[_bui
         allowed_access_control_tags=pulumi.get(__response__, 'allowed_access_control_tags'),
         applications=pulumi.get(__response__, 'applications'),
         description=pulumi.get(__response__, 'description'),
+        granular_access_control_configuration=pulumi.get(__response__, 'granular_access_control_configuration'),
         hierarchy_restricted_resources=pulumi.get(__response__, 'hierarchy_restricted_resources'),
         last_modified_region=pulumi.get(__response__, 'last_modified_region'),
         last_modified_time=pulumi.get(__response__, 'last_modified_time'),

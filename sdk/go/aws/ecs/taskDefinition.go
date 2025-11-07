@@ -335,7 +335,7 @@ type TaskDefinition struct {
 	// The process namespace to use for the containers in the task. The valid values are ``host`` or ``task``. On Fargate for Linux containers, the only valid value is ``task``. For example, monitoring sidecars might need ``pidMode`` to access information about other containers running in the same task.
 	//  If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance.
 	//  If ``task`` is specified, all containers within the specified task share the same process namespace.
-	//  If no value is specified, the default is a private namespace for each container.
+	//  If no value is specified, the The default is a private namespace for each container.
 	//  If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure.
 	//   This parameter is not supported for Windows containers.
 	//    This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
@@ -348,7 +348,7 @@ type TaskDefinition struct {
 	ProxyConfiguration TaskDefinitionProxyConfigurationPtrOutput `pulumi:"proxyConfiguration"`
 	// The task launch types the task definition was validated against. The valid values are ``MANAGED_INSTANCES``, ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
 	RequiresCompatibilities pulumi.StringArrayOutput `pulumi:"requiresCompatibilities"`
-	// The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
+	// The operating system that your tasks definitions run on.
 	RuntimePlatform TaskDefinitionRuntimePlatformPtrOutput `pulumi:"runtimePlatform"`
 	// The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.
 	//  The following basic restrictions apply to tags:
@@ -479,7 +479,7 @@ type taskDefinitionArgs struct {
 	// The process namespace to use for the containers in the task. The valid values are ``host`` or ``task``. On Fargate for Linux containers, the only valid value is ``task``. For example, monitoring sidecars might need ``pidMode`` to access information about other containers running in the same task.
 	//  If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance.
 	//  If ``task`` is specified, all containers within the specified task share the same process namespace.
-	//  If no value is specified, the default is a private namespace for each container.
+	//  If no value is specified, the The default is a private namespace for each container.
 	//  If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure.
 	//   This parameter is not supported for Windows containers.
 	//    This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
@@ -492,7 +492,7 @@ type taskDefinitionArgs struct {
 	ProxyConfiguration *TaskDefinitionProxyConfiguration `pulumi:"proxyConfiguration"`
 	// The task launch types the task definition was validated against. The valid values are ``MANAGED_INSTANCES``, ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
 	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
-	// The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
+	// The operating system that your tasks definitions run on.
 	RuntimePlatform *TaskDefinitionRuntimePlatform `pulumi:"runtimePlatform"`
 	// The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.
 	//  The following basic restrictions apply to tags:
@@ -563,7 +563,7 @@ type TaskDefinitionArgs struct {
 	// The process namespace to use for the containers in the task. The valid values are ``host`` or ``task``. On Fargate for Linux containers, the only valid value is ``task``. For example, monitoring sidecars might need ``pidMode`` to access information about other containers running in the same task.
 	//  If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance.
 	//  If ``task`` is specified, all containers within the specified task share the same process namespace.
-	//  If no value is specified, the default is a private namespace for each container.
+	//  If no value is specified, the The default is a private namespace for each container.
 	//  If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure.
 	//   This parameter is not supported for Windows containers.
 	//    This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
@@ -576,7 +576,7 @@ type TaskDefinitionArgs struct {
 	ProxyConfiguration TaskDefinitionProxyConfigurationPtrInput
 	// The task launch types the task definition was validated against. The valid values are ``MANAGED_INSTANCES``, ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
 	RequiresCompatibilities pulumi.StringArrayInput
-	// The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
+	// The operating system that your tasks definitions run on.
 	RuntimePlatform TaskDefinitionRuntimePlatformPtrInput
 	// The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.
 	//  The following basic restrictions apply to tags:
@@ -718,7 +718,7 @@ func (o TaskDefinitionOutput) NetworkMode() pulumi.StringPtrOutput {
 //
 //	If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance.
 //	If ``task`` is specified, all containers within the specified task share the same process namespace.
-//	If no value is specified, the default is a private namespace for each container.
+//	If no value is specified, the The default is a private namespace for each container.
 //	If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure.
 //	 This parameter is not supported for Windows containers.
 //	  This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
@@ -745,7 +745,7 @@ func (o TaskDefinitionOutput) RequiresCompatibilities() pulumi.StringArrayOutput
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringArrayOutput { return v.RequiresCompatibilities }).(pulumi.StringArrayOutput)
 }
 
-// The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
+// The operating system that your tasks definitions run on.
 func (o TaskDefinitionOutput) RuntimePlatform() TaskDefinitionRuntimePlatformPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) TaskDefinitionRuntimePlatformPtrOutput { return v.RuntimePlatform }).(TaskDefinitionRuntimePlatformPtrOutput)
 }

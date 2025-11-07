@@ -219,22 +219,23 @@ func (in *keyOriginPtr) ToKeyOriginPtrOutputWithContext(ctx context.Context) Key
 type KeySpec string
 
 const (
-	KeySpecSymmetricDefault = KeySpec("SYMMETRIC_DEFAULT")
-	KeySpecRsa2048          = KeySpec("RSA_2048")
-	KeySpecRsa3072          = KeySpec("RSA_3072")
-	KeySpecRsa4096          = KeySpec("RSA_4096")
-	KeySpecEccNistP256      = KeySpec("ECC_NIST_P256")
-	KeySpecEccNistP384      = KeySpec("ECC_NIST_P384")
-	KeySpecEccNistP521      = KeySpec("ECC_NIST_P521")
-	KeySpecEccSecgP256k1    = KeySpec("ECC_SECG_P256K1")
-	KeySpecHmac224          = KeySpec("HMAC_224")
-	KeySpecHmac256          = KeySpec("HMAC_256")
-	KeySpecHmac384          = KeySpec("HMAC_384")
-	KeySpecHmac512          = KeySpec("HMAC_512")
-	KeySpecSm2              = KeySpec("SM2")
-	KeySpecMlDsa44          = KeySpec("ML_DSA_44")
-	KeySpecMlDsa65          = KeySpec("ML_DSA_65")
-	KeySpecMlDsa87          = KeySpec("ML_DSA_87")
+	KeySpecSymmetricDefault    = KeySpec("SYMMETRIC_DEFAULT")
+	KeySpecRsa2048             = KeySpec("RSA_2048")
+	KeySpecRsa3072             = KeySpec("RSA_3072")
+	KeySpecRsa4096             = KeySpec("RSA_4096")
+	KeySpecEccNistP256         = KeySpec("ECC_NIST_P256")
+	KeySpecEccNistP384         = KeySpec("ECC_NIST_P384")
+	KeySpecEccNistP521         = KeySpec("ECC_NIST_P521")
+	KeySpecEccSecgP256k1       = KeySpec("ECC_SECG_P256K1")
+	KeySpecHmac224             = KeySpec("HMAC_224")
+	KeySpecHmac256             = KeySpec("HMAC_256")
+	KeySpecHmac384             = KeySpec("HMAC_384")
+	KeySpecHmac512             = KeySpec("HMAC_512")
+	KeySpecSm2                 = KeySpec("SM2")
+	KeySpecMlDsa44             = KeySpec("ML_DSA_44")
+	KeySpecMlDsa65             = KeySpec("ML_DSA_65")
+	KeySpecMlDsa87             = KeySpec("ML_DSA_87")
+	KeySpecEccNistEdwards25519 = KeySpec("ECC_NIST_EDWARDS25519")
 )
 
 func (KeySpec) ElementType() reflect.Type {
@@ -375,6 +376,7 @@ func (o KeySpecPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 //	KeySpecMlDsa44
 //	KeySpecMlDsa65
 //	KeySpecMlDsa87
+//	KeySpecEccNistEdwards25519
 type KeySpecInput interface {
 	pulumi.Input
 

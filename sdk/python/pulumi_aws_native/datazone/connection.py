@@ -29,7 +29,8 @@ class ConnectionArgs:
                  environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 props: Optional[pulumi.Input[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgs']]] = None):
+                 props: Optional[pulumi.Input[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgs', 'ConnectionPropertiesInput8PropertiesArgs']]] = None,
+                 scope: Optional[pulumi.Input['ConnectionScope']] = None):
         """
         The set of arguments for constructing a Connection resource.
         :param pulumi.Input[_builtins.str] domain_identifier: The identifier of the domain in which the connection is created.
@@ -39,7 +40,8 @@ class ConnectionArgs:
         :param pulumi.Input[_builtins.str] environment_identifier: The identifier of the environment in which the connection is created.
         :param pulumi.Input[_builtins.str] name: The name of the connection.
         :param pulumi.Input[_builtins.str] project_identifier: The identifier of the project in which the connection should be created. If 
-        :param pulumi.Input[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgs']] props: Connection props.
+        :param pulumi.Input[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgs', 'ConnectionPropertiesInput8PropertiesArgs']] props: Connection props.
+        :param pulumi.Input['ConnectionScope'] scope: The scope of the connection.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         if aws_location is not None:
@@ -56,6 +58,8 @@ class ConnectionArgs:
             pulumi.set(__self__, "project_identifier", project_identifier)
         if props is not None:
             pulumi.set(__self__, "props", props)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
 
     @_builtins.property
     @pulumi.getter(name="domainIdentifier")
@@ -143,15 +147,27 @@ class ConnectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def props(self) -> Optional[pulumi.Input[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgs']]]:
+    def props(self) -> Optional[pulumi.Input[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgs', 'ConnectionPropertiesInput8PropertiesArgs']]]:
         """
         Connection props.
         """
         return pulumi.get(self, "props")
 
     @props.setter
-    def props(self, value: Optional[pulumi.Input[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgs']]]):
+    def props(self, value: Optional[pulumi.Input[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgs', 'ConnectionPropertiesInput8PropertiesArgs']]]):
         pulumi.set(self, "props", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input['ConnectionScope']]:
+        """
+        The scope of the connection.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input['ConnectionScope']]):
+        pulumi.set(self, "scope", value)
 
 
 @pulumi.type_token("aws-native:datazone:Connection")
@@ -167,7 +183,8 @@ class Connection(pulumi.CustomResource):
                  environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 props: Optional[pulumi.Input[Union[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput0PropertiesArgsDict'], Union['ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgsDict'], Union['ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgsDict'], Union['ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgsDict'], Union['ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgsDict'], Union['ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgsDict'], Union['ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgsDict'], Union['ConnectionPropertiesInput7PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgsDict']]]] = None,
+                 props: Optional[pulumi.Input[Union[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput0PropertiesArgsDict'], Union['ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgsDict'], Union['ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgsDict'], Union['ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgsDict'], Union['ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgsDict'], Union['ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgsDict'], Union['ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgsDict'], Union['ConnectionPropertiesInput7PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgsDict'], Union['ConnectionPropertiesInput8PropertiesArgs', 'ConnectionPropertiesInput8PropertiesArgsDict']]]] = None,
+                 scope: Optional[pulumi.Input['ConnectionScope']] = None,
                  __props__=None):
         """
         Connections enables users to connect their DataZone resources (domains, projects, and environments) to external resources/services (data, compute, etc)
@@ -181,7 +198,8 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] environment_identifier: The identifier of the environment in which the connection is created.
         :param pulumi.Input[_builtins.str] name: The name of the connection.
         :param pulumi.Input[_builtins.str] project_identifier: The identifier of the project in which the connection should be created. If 
-        :param pulumi.Input[Union[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput0PropertiesArgsDict'], Union['ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgsDict'], Union['ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgsDict'], Union['ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgsDict'], Union['ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgsDict'], Union['ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgsDict'], Union['ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgsDict'], Union['ConnectionPropertiesInput7PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgsDict']]] props: Connection props.
+        :param pulumi.Input[Union[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput0PropertiesArgsDict'], Union['ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgsDict'], Union['ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgsDict'], Union['ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgsDict'], Union['ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgsDict'], Union['ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgsDict'], Union['ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgsDict'], Union['ConnectionPropertiesInput7PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgsDict'], Union['ConnectionPropertiesInput8PropertiesArgs', 'ConnectionPropertiesInput8PropertiesArgsDict']]] props: Connection props.
+        :param pulumi.Input['ConnectionScope'] scope: The scope of the connection.
         """
         ...
     @overload
@@ -214,7 +232,8 @@ class Connection(pulumi.CustomResource):
                  environment_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  project_identifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 props: Optional[pulumi.Input[Union[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput0PropertiesArgsDict'], Union['ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgsDict'], Union['ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgsDict'], Union['ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgsDict'], Union['ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgsDict'], Union['ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgsDict'], Union['ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgsDict'], Union['ConnectionPropertiesInput7PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgsDict']]]] = None,
+                 props: Optional[pulumi.Input[Union[Union['ConnectionPropertiesInput0PropertiesArgs', 'ConnectionPropertiesInput0PropertiesArgsDict'], Union['ConnectionPropertiesInput1PropertiesArgs', 'ConnectionPropertiesInput1PropertiesArgsDict'], Union['ConnectionPropertiesInput2PropertiesArgs', 'ConnectionPropertiesInput2PropertiesArgsDict'], Union['ConnectionPropertiesInput3PropertiesArgs', 'ConnectionPropertiesInput3PropertiesArgsDict'], Union['ConnectionPropertiesInput4PropertiesArgs', 'ConnectionPropertiesInput4PropertiesArgsDict'], Union['ConnectionPropertiesInput5PropertiesArgs', 'ConnectionPropertiesInput5PropertiesArgsDict'], Union['ConnectionPropertiesInput6PropertiesArgs', 'ConnectionPropertiesInput6PropertiesArgsDict'], Union['ConnectionPropertiesInput7PropertiesArgs', 'ConnectionPropertiesInput7PropertiesArgsDict'], Union['ConnectionPropertiesInput8PropertiesArgs', 'ConnectionPropertiesInput8PropertiesArgsDict']]]] = None,
+                 scope: Optional[pulumi.Input['ConnectionScope']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -234,6 +253,7 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["project_identifier"] = project_identifier
             __props__.__dict__["props"] = props
+            __props__.__dict__["scope"] = scope
             __props__.__dict__["connection_id"] = None
             __props__.__dict__["domain_id"] = None
             __props__.__dict__["domain_unit_id"] = None
@@ -241,7 +261,7 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["environment_user_role"] = None
             __props__.__dict__["project_id"] = None
             __props__.__dict__["type"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "enableTrustedIdentityPropagation", "environmentIdentifier", "name", "projectIdentifier"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "enableTrustedIdentityPropagation", "environmentIdentifier", "name", "projectIdentifier", "scope"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Connection, __self__).__init__(
             'aws-native:datazone:Connection',
@@ -279,6 +299,7 @@ class Connection(pulumi.CustomResource):
         __props__.__dict__["project_id"] = None
         __props__.__dict__["project_identifier"] = None
         __props__.__dict__["props"] = None
+        __props__.__dict__["scope"] = None
         __props__.__dict__["type"] = None
         return Connection(resource_name, opts=opts, __props__=__props__)
 
@@ -393,6 +414,14 @@ class Connection(pulumi.CustomResource):
         Connection props.
         """
         return pulumi.get(self, "props")
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> pulumi.Output[Optional['ConnectionScope']]:
+        """
+        The scope of the connection.
+        """
+        return pulumi.get(self, "scope")
 
     @_builtins.property
     @pulumi.getter

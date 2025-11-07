@@ -10,6 +10,354 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The type of product.
+type CloudFormationProductProductType string
+
+const (
+	CloudFormationProductProductTypeCloudFormationTemplate = CloudFormationProductProductType("CLOUD_FORMATION_TEMPLATE")
+	CloudFormationProductProductTypeMarketplaceAmi         = CloudFormationProductProductType("MARKETPLACE_AMI")
+	CloudFormationProductProductTypeMarketplaceCar         = CloudFormationProductProductType("MARKETPLACE_CAR")
+	CloudFormationProductProductTypeTerraformOpenSource    = CloudFormationProductProductType("TERRAFORM_OPEN_SOURCE")
+	CloudFormationProductProductTypeTerraformCloud         = CloudFormationProductProductType("TERRAFORM_CLOUD")
+	CloudFormationProductProductTypeExternal               = CloudFormationProductProductType("EXTERNAL")
+)
+
+func (CloudFormationProductProductType) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProductProductType)(nil)).Elem()
+}
+
+func (e CloudFormationProductProductType) ToCloudFormationProductProductTypeOutput() CloudFormationProductProductTypeOutput {
+	return pulumi.ToOutput(e).(CloudFormationProductProductTypeOutput)
+}
+
+func (e CloudFormationProductProductType) ToCloudFormationProductProductTypeOutputWithContext(ctx context.Context) CloudFormationProductProductTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CloudFormationProductProductTypeOutput)
+}
+
+func (e CloudFormationProductProductType) ToCloudFormationProductProductTypePtrOutput() CloudFormationProductProductTypePtrOutput {
+	return e.ToCloudFormationProductProductTypePtrOutputWithContext(context.Background())
+}
+
+func (e CloudFormationProductProductType) ToCloudFormationProductProductTypePtrOutputWithContext(ctx context.Context) CloudFormationProductProductTypePtrOutput {
+	return CloudFormationProductProductType(e).ToCloudFormationProductProductTypeOutputWithContext(ctx).ToCloudFormationProductProductTypePtrOutputWithContext(ctx)
+}
+
+func (e CloudFormationProductProductType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CloudFormationProductProductType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CloudFormationProductProductType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CloudFormationProductProductType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CloudFormationProductProductTypeOutput struct{ *pulumi.OutputState }
+
+func (CloudFormationProductProductTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProductProductType)(nil)).Elem()
+}
+
+func (o CloudFormationProductProductTypeOutput) ToCloudFormationProductProductTypeOutput() CloudFormationProductProductTypeOutput {
+	return o
+}
+
+func (o CloudFormationProductProductTypeOutput) ToCloudFormationProductProductTypeOutputWithContext(ctx context.Context) CloudFormationProductProductTypeOutput {
+	return o
+}
+
+func (o CloudFormationProductProductTypeOutput) ToCloudFormationProductProductTypePtrOutput() CloudFormationProductProductTypePtrOutput {
+	return o.ToCloudFormationProductProductTypePtrOutputWithContext(context.Background())
+}
+
+func (o CloudFormationProductProductTypeOutput) ToCloudFormationProductProductTypePtrOutputWithContext(ctx context.Context) CloudFormationProductProductTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudFormationProductProductType) *CloudFormationProductProductType {
+		return &v
+	}).(CloudFormationProductProductTypePtrOutput)
+}
+
+func (o CloudFormationProductProductTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CloudFormationProductProductTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CloudFormationProductProductType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CloudFormationProductProductTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CloudFormationProductProductTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CloudFormationProductProductType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CloudFormationProductProductTypePtrOutput struct{ *pulumi.OutputState }
+
+func (CloudFormationProductProductTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudFormationProductProductType)(nil)).Elem()
+}
+
+func (o CloudFormationProductProductTypePtrOutput) ToCloudFormationProductProductTypePtrOutput() CloudFormationProductProductTypePtrOutput {
+	return o
+}
+
+func (o CloudFormationProductProductTypePtrOutput) ToCloudFormationProductProductTypePtrOutputWithContext(ctx context.Context) CloudFormationProductProductTypePtrOutput {
+	return o
+}
+
+func (o CloudFormationProductProductTypePtrOutput) Elem() CloudFormationProductProductTypeOutput {
+	return o.ApplyT(func(v *CloudFormationProductProductType) CloudFormationProductProductType {
+		if v != nil {
+			return *v
+		}
+		var ret CloudFormationProductProductType
+		return ret
+	}).(CloudFormationProductProductTypeOutput)
+}
+
+func (o CloudFormationProductProductTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CloudFormationProductProductTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CloudFormationProductProductType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CloudFormationProductProductTypeInput is an input type that accepts values of the CloudFormationProductProductType enum
+// A concrete instance of `CloudFormationProductProductTypeInput` can be one of the following:
+//
+//	CloudFormationProductProductTypeCloudFormationTemplate
+//	CloudFormationProductProductTypeMarketplaceAmi
+//	CloudFormationProductProductTypeMarketplaceCar
+//	CloudFormationProductProductTypeTerraformOpenSource
+//	CloudFormationProductProductTypeTerraformCloud
+//	CloudFormationProductProductTypeExternal
+type CloudFormationProductProductTypeInput interface {
+	pulumi.Input
+
+	ToCloudFormationProductProductTypeOutput() CloudFormationProductProductTypeOutput
+	ToCloudFormationProductProductTypeOutputWithContext(context.Context) CloudFormationProductProductTypeOutput
+}
+
+var cloudFormationProductProductTypePtrType = reflect.TypeOf((**CloudFormationProductProductType)(nil)).Elem()
+
+type CloudFormationProductProductTypePtrInput interface {
+	pulumi.Input
+
+	ToCloudFormationProductProductTypePtrOutput() CloudFormationProductProductTypePtrOutput
+	ToCloudFormationProductProductTypePtrOutputWithContext(context.Context) CloudFormationProductProductTypePtrOutput
+}
+
+type cloudFormationProductProductTypePtr string
+
+func CloudFormationProductProductTypePtr(v string) CloudFormationProductProductTypePtrInput {
+	return (*cloudFormationProductProductTypePtr)(&v)
+}
+
+func (*cloudFormationProductProductTypePtr) ElementType() reflect.Type {
+	return cloudFormationProductProductTypePtrType
+}
+
+func (in *cloudFormationProductProductTypePtr) ToCloudFormationProductProductTypePtrOutput() CloudFormationProductProductTypePtrOutput {
+	return pulumi.ToOutput(in).(CloudFormationProductProductTypePtrOutput)
+}
+
+func (in *cloudFormationProductProductTypePtr) ToCloudFormationProductProductTypePtrOutputWithContext(ctx context.Context) CloudFormationProductProductTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CloudFormationProductProductTypePtrOutput)
+}
+
+// The type of provisioning artifact. Valid values are CLOUD_FORMATION_TEMPLATE, TERRAFORM_OPEN_SOURCE, TERRAFORM_CLOUD, EXTERNAL
+type CloudFormationProductProvisioningArtifactPropertiesType string
+
+const (
+	CloudFormationProductProvisioningArtifactPropertiesTypeCloudFormationTemplate = CloudFormationProductProvisioningArtifactPropertiesType("CLOUD_FORMATION_TEMPLATE")
+	CloudFormationProductProvisioningArtifactPropertiesTypeMarketplaceAmi         = CloudFormationProductProvisioningArtifactPropertiesType("MARKETPLACE_AMI")
+	CloudFormationProductProvisioningArtifactPropertiesTypeMarketplaceCar         = CloudFormationProductProvisioningArtifactPropertiesType("MARKETPLACE_CAR")
+	CloudFormationProductProvisioningArtifactPropertiesTypeTerraformOpenSource    = CloudFormationProductProvisioningArtifactPropertiesType("TERRAFORM_OPEN_SOURCE")
+	CloudFormationProductProvisioningArtifactPropertiesTypeTerraformCloud         = CloudFormationProductProvisioningArtifactPropertiesType("TERRAFORM_CLOUD")
+	CloudFormationProductProvisioningArtifactPropertiesTypeExternal               = CloudFormationProductProvisioningArtifactPropertiesType("EXTERNAL")
+)
+
+func (CloudFormationProductProvisioningArtifactPropertiesType) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProductProvisioningArtifactPropertiesType)(nil)).Elem()
+}
+
+func (e CloudFormationProductProvisioningArtifactPropertiesType) ToCloudFormationProductProvisioningArtifactPropertiesTypeOutput() CloudFormationProductProvisioningArtifactPropertiesTypeOutput {
+	return pulumi.ToOutput(e).(CloudFormationProductProvisioningArtifactPropertiesTypeOutput)
+}
+
+func (e CloudFormationProductProvisioningArtifactPropertiesType) ToCloudFormationProductProvisioningArtifactPropertiesTypeOutputWithContext(ctx context.Context) CloudFormationProductProvisioningArtifactPropertiesTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CloudFormationProductProvisioningArtifactPropertiesTypeOutput)
+}
+
+func (e CloudFormationProductProvisioningArtifactPropertiesType) ToCloudFormationProductProvisioningArtifactPropertiesTypePtrOutput() CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput {
+	return e.ToCloudFormationProductProvisioningArtifactPropertiesTypePtrOutputWithContext(context.Background())
+}
+
+func (e CloudFormationProductProvisioningArtifactPropertiesType) ToCloudFormationProductProvisioningArtifactPropertiesTypePtrOutputWithContext(ctx context.Context) CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput {
+	return CloudFormationProductProvisioningArtifactPropertiesType(e).ToCloudFormationProductProvisioningArtifactPropertiesTypeOutputWithContext(ctx).ToCloudFormationProductProvisioningArtifactPropertiesTypePtrOutputWithContext(ctx)
+}
+
+func (e CloudFormationProductProvisioningArtifactPropertiesType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CloudFormationProductProvisioningArtifactPropertiesType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CloudFormationProductProvisioningArtifactPropertiesType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CloudFormationProductProvisioningArtifactPropertiesType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CloudFormationProductProvisioningArtifactPropertiesTypeOutput struct{ *pulumi.OutputState }
+
+func (CloudFormationProductProvisioningArtifactPropertiesTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProductProvisioningArtifactPropertiesType)(nil)).Elem()
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesTypeOutput) ToCloudFormationProductProvisioningArtifactPropertiesTypeOutput() CloudFormationProductProvisioningArtifactPropertiesTypeOutput {
+	return o
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesTypeOutput) ToCloudFormationProductProvisioningArtifactPropertiesTypeOutputWithContext(ctx context.Context) CloudFormationProductProvisioningArtifactPropertiesTypeOutput {
+	return o
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesTypeOutput) ToCloudFormationProductProvisioningArtifactPropertiesTypePtrOutput() CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput {
+	return o.ToCloudFormationProductProvisioningArtifactPropertiesTypePtrOutputWithContext(context.Background())
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesTypeOutput) ToCloudFormationProductProvisioningArtifactPropertiesTypePtrOutputWithContext(ctx context.Context) CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudFormationProductProvisioningArtifactPropertiesType) *CloudFormationProductProvisioningArtifactPropertiesType {
+		return &v
+	}).(CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput)
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CloudFormationProductProvisioningArtifactPropertiesType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CloudFormationProductProvisioningArtifactPropertiesType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput struct{ *pulumi.OutputState }
+
+func (CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CloudFormationProductProvisioningArtifactPropertiesType)(nil)).Elem()
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput) ToCloudFormationProductProvisioningArtifactPropertiesTypePtrOutput() CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput {
+	return o
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput) ToCloudFormationProductProvisioningArtifactPropertiesTypePtrOutputWithContext(ctx context.Context) CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput {
+	return o
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput) Elem() CloudFormationProductProvisioningArtifactPropertiesTypeOutput {
+	return o.ApplyT(func(v *CloudFormationProductProvisioningArtifactPropertiesType) CloudFormationProductProvisioningArtifactPropertiesType {
+		if v != nil {
+			return *v
+		}
+		var ret CloudFormationProductProvisioningArtifactPropertiesType
+		return ret
+	}).(CloudFormationProductProvisioningArtifactPropertiesTypeOutput)
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CloudFormationProductProvisioningArtifactPropertiesType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CloudFormationProductProvisioningArtifactPropertiesTypeInput is an input type that accepts values of the CloudFormationProductProvisioningArtifactPropertiesType enum
+// A concrete instance of `CloudFormationProductProvisioningArtifactPropertiesTypeInput` can be one of the following:
+//
+//	CloudFormationProductProvisioningArtifactPropertiesTypeCloudFormationTemplate
+//	CloudFormationProductProvisioningArtifactPropertiesTypeMarketplaceAmi
+//	CloudFormationProductProvisioningArtifactPropertiesTypeMarketplaceCar
+//	CloudFormationProductProvisioningArtifactPropertiesTypeTerraformOpenSource
+//	CloudFormationProductProvisioningArtifactPropertiesTypeTerraformCloud
+//	CloudFormationProductProvisioningArtifactPropertiesTypeExternal
+type CloudFormationProductProvisioningArtifactPropertiesTypeInput interface {
+	pulumi.Input
+
+	ToCloudFormationProductProvisioningArtifactPropertiesTypeOutput() CloudFormationProductProvisioningArtifactPropertiesTypeOutput
+	ToCloudFormationProductProvisioningArtifactPropertiesTypeOutputWithContext(context.Context) CloudFormationProductProvisioningArtifactPropertiesTypeOutput
+}
+
+var cloudFormationProductProvisioningArtifactPropertiesTypePtrType = reflect.TypeOf((**CloudFormationProductProvisioningArtifactPropertiesType)(nil)).Elem()
+
+type CloudFormationProductProvisioningArtifactPropertiesTypePtrInput interface {
+	pulumi.Input
+
+	ToCloudFormationProductProvisioningArtifactPropertiesTypePtrOutput() CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput
+	ToCloudFormationProductProvisioningArtifactPropertiesTypePtrOutputWithContext(context.Context) CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput
+}
+
+type cloudFormationProductProvisioningArtifactPropertiesTypePtr string
+
+func CloudFormationProductProvisioningArtifactPropertiesTypePtr(v string) CloudFormationProductProvisioningArtifactPropertiesTypePtrInput {
+	return (*cloudFormationProductProvisioningArtifactPropertiesTypePtr)(&v)
+}
+
+func (*cloudFormationProductProvisioningArtifactPropertiesTypePtr) ElementType() reflect.Type {
+	return cloudFormationProductProvisioningArtifactPropertiesTypePtrType
+}
+
+func (in *cloudFormationProductProvisioningArtifactPropertiesTypePtr) ToCloudFormationProductProvisioningArtifactPropertiesTypePtrOutput() CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput {
+	return pulumi.ToOutput(in).(CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput)
+}
+
+func (in *cloudFormationProductProvisioningArtifactPropertiesTypePtr) ToCloudFormationProductProvisioningArtifactPropertiesTypePtrOutputWithContext(ctx context.Context) CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput)
+}
+
 // The language code.
 //
 // - `jp` - Japanese
@@ -692,6 +1040,10 @@ func (in *serviceActionDefinitionTypePtr) ToServiceActionDefinitionTypePtrOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductProductTypeInput)(nil)).Elem(), CloudFormationProductProductType("CLOUD_FORMATION_TEMPLATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductProductTypePtrInput)(nil)).Elem(), CloudFormationProductProductType("CLOUD_FORMATION_TEMPLATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductProvisioningArtifactPropertiesTypeInput)(nil)).Elem(), CloudFormationProductProvisioningArtifactPropertiesType("CLOUD_FORMATION_TEMPLATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProductProvisioningArtifactPropertiesTypePtrInput)(nil)).Elem(), CloudFormationProductProvisioningArtifactPropertiesType("CLOUD_FORMATION_TEMPLATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductAcceptLanguageInput)(nil)).Elem(), CloudFormationProvisionedProductAcceptLanguage("en"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductAcceptLanguagePtrInput)(nil)).Elem(), CloudFormationProvisionedProductAcceptLanguage("en"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeInput)(nil)).Elem(), CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType("CREATE"))
@@ -700,6 +1052,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionAcceptLanguagePtrInput)(nil)).Elem(), ServiceActionAcceptLanguage("en"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionDefinitionTypeInput)(nil)).Elem(), ServiceActionDefinitionType("SSM_AUTOMATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionDefinitionTypePtrInput)(nil)).Elem(), ServiceActionDefinitionType("SSM_AUTOMATION"))
+	pulumi.RegisterOutputType(CloudFormationProductProductTypeOutput{})
+	pulumi.RegisterOutputType(CloudFormationProductProductTypePtrOutput{})
+	pulumi.RegisterOutputType(CloudFormationProductProvisioningArtifactPropertiesTypeOutput{})
+	pulumi.RegisterOutputType(CloudFormationProductProvisioningArtifactPropertiesTypePtrOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductAcceptLanguageOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductAcceptLanguagePtrOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeOutput{})

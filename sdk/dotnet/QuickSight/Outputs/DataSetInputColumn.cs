@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetInputColumn
     {
+        public readonly string? Id;
         /// <summary>
         /// &lt;p&gt;The name of this column in the underlying data source.&lt;/p&gt;
         /// </summary>
@@ -31,12 +32,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private DataSetInputColumn(
+            string? id,
+
             string name,
 
             Pulumi.AwsNative.QuickSight.DataSetColumnDataSubType? subType,
 
             Pulumi.AwsNative.QuickSight.DataSetInputColumnDataType type)
         {
+            Id = id;
             Name = name;
             SubType = subType;
             Type = type;

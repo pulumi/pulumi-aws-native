@@ -56,6 +56,7 @@ namespace Pulumi.AwsNative.GameLift
         public static BuildOperatingSystem AmazonLinux2023 { get; } = new BuildOperatingSystem("AMAZON_LINUX_2023");
         public static BuildOperatingSystem Windows2012 { get; } = new BuildOperatingSystem("WINDOWS_2012");
         public static BuildOperatingSystem Windows2016 { get; } = new BuildOperatingSystem("WINDOWS_2016");
+        public static BuildOperatingSystem Windows2022 { get; } = new BuildOperatingSystem("WINDOWS_2022");
 
         public static bool operator ==(BuildOperatingSystem left, BuildOperatingSystem right) => left.Equals(right);
         public static bool operator !=(BuildOperatingSystem left, BuildOperatingSystem right) => !left.Equals(right);

@@ -30,6 +30,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// A physical table type for as S3 data source.
         /// </summary>
         public readonly Outputs.DataSetS3Source? S3Source;
+        public readonly Outputs.DataSetSaaSTable? SaaSTable;
 
         [OutputConstructor]
         private DataSetPhysicalTable(
@@ -37,11 +38,14 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DataSetRelationalTable? relationalTable,
 
-            Outputs.DataSetS3Source? s3Source)
+            Outputs.DataSetS3Source? s3Source,
+
+            Outputs.DataSetSaaSTable? saaSTable)
         {
             CustomSql = customSql;
             RelationalTable = relationalTable;
             S3Source = s3Source;
+            SaaSTable = saaSTable;
         }
     }
 }

@@ -25,6 +25,7 @@ from .get_mail_manager_ingress_point import *
 from .get_mail_manager_relay import *
 from .get_mail_manager_rule_set import *
 from .get_mail_manager_traffic_policy import *
+from .get_multi_region_endpoint import *
 from .get_template import *
 from .get_vdm_attributes import *
 from .mail_manager_addon_instance import *
@@ -35,6 +36,7 @@ from .mail_manager_ingress_point import *
 from .mail_manager_relay import *
 from .mail_manager_rule_set import *
 from .mail_manager_traffic_policy import *
+from .multi_region_endpoint import *
 from .template import *
 from .vdm_attributes import *
 from ._inputs import *

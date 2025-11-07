@@ -36,7 +36,8 @@ type LookupSecurityProfileResult struct {
 	// A list of third-party applications that the security profile will give access to.
 	Applications []SecurityProfileApplication `pulumi:"applications"`
 	// The description of the security profile.
-	Description *string `pulumi:"description"`
+	Description                        *string                                       `pulumi:"description"`
+	GranularAccessControlConfiguration *GranularAccessControlConfigurationProperties `pulumi:"granularAccessControlConfiguration"`
 	// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
 	HierarchyRestrictedResources []string `pulumi:"hierarchyRestrictedResources"`
 	// The AWS Region where this resource was last modified.
@@ -103,6 +104,12 @@ func (o LookupSecurityProfileResultOutput) Applications() SecurityProfileApplica
 // The description of the security profile.
 func (o LookupSecurityProfileResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSecurityProfileResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupSecurityProfileResultOutput) GranularAccessControlConfiguration() GranularAccessControlConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupSecurityProfileResult) *GranularAccessControlConfigurationProperties {
+		return v.GranularAccessControlConfiguration
+	}).(GranularAccessControlConfigurationPropertiesPtrOutput)
 }
 
 // The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.

@@ -4,6 +4,7 @@
 
 export const KeyspaceRegionListItem = {
     AfSouth1: "af-south-1",
+    ApEast1: "ap-east-1",
     ApNortheast1: "ap-northeast-1",
     ApNortheast2: "ap-northeast-2",
     ApSouth1: "ap-south-1",
@@ -15,6 +16,8 @@ export const KeyspaceRegionListItem = {
     EuWest1: "eu-west-1",
     EuWest2: "eu-west-2",
     EuWest3: "eu-west-3",
+    MeCentral1: "me-central-1",
+    MeSouth1: "me-south-1",
     SaEast1: "sa-east-1",
     UsEast1: "us-east-1",
     UsEast2: "us-east-2",

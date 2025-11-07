@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
+        [Output("dataPrepConfiguration")]
+        public Output<Outputs.DataSetDataPrepConfiguration?> DataPrepConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
         /// </summary>
@@ -108,9 +111,6 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// Configures the combination and transformation of the data from the physical tables.
-        /// </summary>
         [Output("logicalTableMap")]
         public Output<ImmutableDictionary<string, Outputs.DataSetLogicalTable>?> LogicalTableMap { get; private set; } = null!;
 
@@ -145,17 +145,14 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("physicalTableMap")]
         public Output<ImmutableDictionary<string, Outputs.DataSetPhysicalTable>?> PhysicalTableMap { get; private set; } = null!;
 
-        /// <summary>
-        /// The row-level security configuration for the data that you want to create.
-        /// </summary>
         [Output("rowLevelPermissionDataSet")]
         public Output<Outputs.DataSetRowLevelPermissionDataSet?> RowLevelPermissionDataSet { get; private set; } = null!;
 
-        /// <summary>
-        /// The element you can use to define tags for row-level security.
-        /// </summary>
         [Output("rowLevelPermissionTagConfiguration")]
         public Output<Outputs.DataSetRowLevelPermissionTagConfiguration?> RowLevelPermissionTagConfiguration { get; private set; } = null!;
+
+        [Output("semanticModelConfiguration")]
+        public Output<Outputs.DataSetSemanticModelConfiguration?> SemanticModelConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.&lt;/p&gt;
@@ -251,6 +248,9 @@ namespace Pulumi.AwsNative.QuickSight
             set => _columnLevelPermissionRules = value;
         }
 
+        [Input("dataPrepConfiguration")]
+        public Input<Inputs.DataSetDataPrepConfigurationArgs>? DataPrepConfiguration { get; set; }
+
         /// <summary>
         /// An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
         /// </summary>
@@ -319,10 +319,6 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("logicalTableMap")]
         private InputMap<Inputs.DataSetLogicalTableArgs>? _logicalTableMap;
-
-        /// <summary>
-        /// Configures the combination and transformation of the data from the physical tables.
-        /// </summary>
         public InputMap<Inputs.DataSetLogicalTableArgs> LogicalTableMap
         {
             get => _logicalTableMap ?? (_logicalTableMap = new InputMap<Inputs.DataSetLogicalTableArgs>());
@@ -365,17 +361,14 @@ namespace Pulumi.AwsNative.QuickSight
             set => _physicalTableMap = value;
         }
 
-        /// <summary>
-        /// The row-level security configuration for the data that you want to create.
-        /// </summary>
         [Input("rowLevelPermissionDataSet")]
         public Input<Inputs.DataSetRowLevelPermissionDataSetArgs>? RowLevelPermissionDataSet { get; set; }
 
-        /// <summary>
-        /// The element you can use to define tags for row-level security.
-        /// </summary>
         [Input("rowLevelPermissionTagConfiguration")]
         public Input<Inputs.DataSetRowLevelPermissionTagConfigurationArgs>? RowLevelPermissionTagConfiguration { get; set; }
+
+        [Input("semanticModelConfiguration")]
+        public Input<Inputs.DataSetSemanticModelConfigurationArgs>? SemanticModelConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

@@ -44,6 +44,8 @@ type Connection struct {
 	ProjectIdentifier pulumi.StringPtrOutput `pulumi:"projectIdentifier"`
 	// Connection props.
 	Props pulumi.AnyOutput `pulumi:"props"`
+	// The scope of the connection.
+	Scope ConnectionScopePtrOutput `pulumi:"scope"`
 	// The type of the connection.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -64,6 +66,7 @@ func NewConnection(ctx *pulumi.Context,
 		"environmentIdentifier",
 		"name",
 		"projectIdentifier",
+		"scope",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -115,6 +118,8 @@ type connectionArgs struct {
 	ProjectIdentifier *string `pulumi:"projectIdentifier"`
 	// Connection props.
 	Props interface{} `pulumi:"props"`
+	// The scope of the connection.
+	Scope *ConnectionScope `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a Connection resource.
@@ -135,6 +140,8 @@ type ConnectionArgs struct {
 	ProjectIdentifier pulumi.StringPtrInput
 	// Connection props.
 	Props pulumi.Input
+	// The scope of the connection.
+	Scope ConnectionScopePtrInput
 }
 
 func (ConnectionArgs) ElementType() reflect.Type {
@@ -242,6 +249,11 @@ func (o ConnectionOutput) ProjectIdentifier() pulumi.StringPtrOutput {
 // Connection props.
 func (o ConnectionOutput) Props() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Connection) pulumi.AnyOutput { return v.Props }).(pulumi.AnyOutput)
+}
+
+// The scope of the connection.
+func (o ConnectionOutput) Scope() ConnectionScopePtrOutput {
+	return o.ApplyT(func(v *Connection) ConnectionScopePtrOutput { return v.Scope }).(ConnectionScopePtrOutput)
 }
 
 // The type of the connection.

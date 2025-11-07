@@ -1215,6 +1215,36 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// Specifies the type of access granted. Currently, only "ALLOW" is supported
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityProfilePrimaryAttributeValueAccessType : IEquatable<SecurityProfilePrimaryAttributeValueAccessType>
+    {
+        private readonly string _value;
+
+        private SecurityProfilePrimaryAttributeValueAccessType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityProfilePrimaryAttributeValueAccessType Allow { get; } = new SecurityProfilePrimaryAttributeValueAccessType("ALLOW");
+
+        public static bool operator ==(SecurityProfilePrimaryAttributeValueAccessType left, SecurityProfilePrimaryAttributeValueAccessType right) => left.Equals(right);
+        public static bool operator !=(SecurityProfilePrimaryAttributeValueAccessType left, SecurityProfilePrimaryAttributeValueAccessType right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityProfilePrimaryAttributeValueAccessType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityProfilePrimaryAttributeValueAccessType other && Equals(other);
+        public bool Equals(SecurityProfilePrimaryAttributeValueAccessType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the task template's field
     /// </summary>
     [EnumType]

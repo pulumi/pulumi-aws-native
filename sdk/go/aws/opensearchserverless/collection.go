@@ -104,6 +104,8 @@ type Collection struct {
 	DashboardEndpoint pulumi.StringOutput `pulumi:"dashboardEndpoint"`
 	// The description of the collection
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The ARN of the AWS KMS key used to encrypt the collection.
+	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// The name of the collection.
 	//
 	// The name must meet the following criteria:
@@ -129,6 +131,7 @@ func NewCollection(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"name",
+		"standbyReplicas",
 		"tags[*]",
 		"type",
 	})
@@ -264,6 +267,11 @@ func (o CollectionOutput) DashboardEndpoint() pulumi.StringOutput {
 // The description of the collection
 func (o CollectionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the AWS KMS key used to encrypt the collection.
+func (o CollectionOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
 
 // The name of the collection.

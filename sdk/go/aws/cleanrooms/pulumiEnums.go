@@ -1685,6 +1685,278 @@ func (in *collaborationQueryLogStatusPtr) ToCollaborationQueryLogStatusPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(CollaborationQueryLogStatusPtrOutput)
 }
 
+type CollaborationSupportedS3Region string
+
+const (
+	CollaborationSupportedS3RegionUsWest1      = CollaborationSupportedS3Region("us-west-1")
+	CollaborationSupportedS3RegionUsWest2      = CollaborationSupportedS3Region("us-west-2")
+	CollaborationSupportedS3RegionUsEast1      = CollaborationSupportedS3Region("us-east-1")
+	CollaborationSupportedS3RegionUsEast2      = CollaborationSupportedS3Region("us-east-2")
+	CollaborationSupportedS3RegionAfSouth1     = CollaborationSupportedS3Region("af-south-1")
+	CollaborationSupportedS3RegionApEast1      = CollaborationSupportedS3Region("ap-east-1")
+	CollaborationSupportedS3RegionApEast2      = CollaborationSupportedS3Region("ap-east-2")
+	CollaborationSupportedS3RegionApSouth2     = CollaborationSupportedS3Region("ap-south-2")
+	CollaborationSupportedS3RegionApSoutheast1 = CollaborationSupportedS3Region("ap-southeast-1")
+	CollaborationSupportedS3RegionApSoutheast2 = CollaborationSupportedS3Region("ap-southeast-2")
+	CollaborationSupportedS3RegionApSoutheast3 = CollaborationSupportedS3Region("ap-southeast-3")
+	CollaborationSupportedS3RegionApSoutheast5 = CollaborationSupportedS3Region("ap-southeast-5")
+	CollaborationSupportedS3RegionApSoutheast4 = CollaborationSupportedS3Region("ap-southeast-4")
+	CollaborationSupportedS3RegionApSoutheast7 = CollaborationSupportedS3Region("ap-southeast-7")
+	CollaborationSupportedS3RegionApSouth1     = CollaborationSupportedS3Region("ap-south-1")
+	CollaborationSupportedS3RegionApNortheast3 = CollaborationSupportedS3Region("ap-northeast-3")
+	CollaborationSupportedS3RegionApNortheast1 = CollaborationSupportedS3Region("ap-northeast-1")
+	CollaborationSupportedS3RegionApNortheast2 = CollaborationSupportedS3Region("ap-northeast-2")
+	CollaborationSupportedS3RegionCaCentral1   = CollaborationSupportedS3Region("ca-central-1")
+	CollaborationSupportedS3RegionCaWest1      = CollaborationSupportedS3Region("ca-west-1")
+	CollaborationSupportedS3RegionEuSouth1     = CollaborationSupportedS3Region("eu-south-1")
+	CollaborationSupportedS3RegionEuWest3      = CollaborationSupportedS3Region("eu-west-3")
+	CollaborationSupportedS3RegionEuSouth2     = CollaborationSupportedS3Region("eu-south-2")
+	CollaborationSupportedS3RegionEuCentral2   = CollaborationSupportedS3Region("eu-central-2")
+	CollaborationSupportedS3RegionEuCentral1   = CollaborationSupportedS3Region("eu-central-1")
+	CollaborationSupportedS3RegionEuNorth1     = CollaborationSupportedS3Region("eu-north-1")
+	CollaborationSupportedS3RegionEuWest1      = CollaborationSupportedS3Region("eu-west-1")
+	CollaborationSupportedS3RegionEuWest2      = CollaborationSupportedS3Region("eu-west-2")
+	CollaborationSupportedS3RegionMeSouth1     = CollaborationSupportedS3Region("me-south-1")
+	CollaborationSupportedS3RegionMeCentral1   = CollaborationSupportedS3Region("me-central-1")
+	CollaborationSupportedS3RegionIlCentral1   = CollaborationSupportedS3Region("il-central-1")
+	CollaborationSupportedS3RegionSaEast1      = CollaborationSupportedS3Region("sa-east-1")
+	CollaborationSupportedS3RegionMxCentral1   = CollaborationSupportedS3Region("mx-central-1")
+)
+
+func (CollaborationSupportedS3Region) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationSupportedS3Region)(nil)).Elem()
+}
+
+func (e CollaborationSupportedS3Region) ToCollaborationSupportedS3RegionOutput() CollaborationSupportedS3RegionOutput {
+	return pulumi.ToOutput(e).(CollaborationSupportedS3RegionOutput)
+}
+
+func (e CollaborationSupportedS3Region) ToCollaborationSupportedS3RegionOutputWithContext(ctx context.Context) CollaborationSupportedS3RegionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CollaborationSupportedS3RegionOutput)
+}
+
+func (e CollaborationSupportedS3Region) ToCollaborationSupportedS3RegionPtrOutput() CollaborationSupportedS3RegionPtrOutput {
+	return e.ToCollaborationSupportedS3RegionPtrOutputWithContext(context.Background())
+}
+
+func (e CollaborationSupportedS3Region) ToCollaborationSupportedS3RegionPtrOutputWithContext(ctx context.Context) CollaborationSupportedS3RegionPtrOutput {
+	return CollaborationSupportedS3Region(e).ToCollaborationSupportedS3RegionOutputWithContext(ctx).ToCollaborationSupportedS3RegionPtrOutputWithContext(ctx)
+}
+
+func (e CollaborationSupportedS3Region) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CollaborationSupportedS3Region) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CollaborationSupportedS3Region) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CollaborationSupportedS3Region) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CollaborationSupportedS3RegionOutput struct{ *pulumi.OutputState }
+
+func (CollaborationSupportedS3RegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationSupportedS3Region)(nil)).Elem()
+}
+
+func (o CollaborationSupportedS3RegionOutput) ToCollaborationSupportedS3RegionOutput() CollaborationSupportedS3RegionOutput {
+	return o
+}
+
+func (o CollaborationSupportedS3RegionOutput) ToCollaborationSupportedS3RegionOutputWithContext(ctx context.Context) CollaborationSupportedS3RegionOutput {
+	return o
+}
+
+func (o CollaborationSupportedS3RegionOutput) ToCollaborationSupportedS3RegionPtrOutput() CollaborationSupportedS3RegionPtrOutput {
+	return o.ToCollaborationSupportedS3RegionPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationSupportedS3RegionOutput) ToCollaborationSupportedS3RegionPtrOutputWithContext(ctx context.Context) CollaborationSupportedS3RegionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollaborationSupportedS3Region) *CollaborationSupportedS3Region {
+		return &v
+	}).(CollaborationSupportedS3RegionPtrOutput)
+}
+
+func (o CollaborationSupportedS3RegionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CollaborationSupportedS3RegionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CollaborationSupportedS3Region) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CollaborationSupportedS3RegionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationSupportedS3RegionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CollaborationSupportedS3Region) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CollaborationSupportedS3RegionPtrOutput struct{ *pulumi.OutputState }
+
+func (CollaborationSupportedS3RegionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationSupportedS3Region)(nil)).Elem()
+}
+
+func (o CollaborationSupportedS3RegionPtrOutput) ToCollaborationSupportedS3RegionPtrOutput() CollaborationSupportedS3RegionPtrOutput {
+	return o
+}
+
+func (o CollaborationSupportedS3RegionPtrOutput) ToCollaborationSupportedS3RegionPtrOutputWithContext(ctx context.Context) CollaborationSupportedS3RegionPtrOutput {
+	return o
+}
+
+func (o CollaborationSupportedS3RegionPtrOutput) Elem() CollaborationSupportedS3RegionOutput {
+	return o.ApplyT(func(v *CollaborationSupportedS3Region) CollaborationSupportedS3Region {
+		if v != nil {
+			return *v
+		}
+		var ret CollaborationSupportedS3Region
+		return ret
+	}).(CollaborationSupportedS3RegionOutput)
+}
+
+func (o CollaborationSupportedS3RegionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationSupportedS3RegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CollaborationSupportedS3Region) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CollaborationSupportedS3RegionInput is an input type that accepts values of the CollaborationSupportedS3Region enum
+// A concrete instance of `CollaborationSupportedS3RegionInput` can be one of the following:
+//
+//	CollaborationSupportedS3RegionUsWest1
+//	CollaborationSupportedS3RegionUsWest2
+//	CollaborationSupportedS3RegionUsEast1
+//	CollaborationSupportedS3RegionUsEast2
+//	CollaborationSupportedS3RegionAfSouth1
+//	CollaborationSupportedS3RegionApEast1
+//	CollaborationSupportedS3RegionApEast2
+//	CollaborationSupportedS3RegionApSouth2
+//	CollaborationSupportedS3RegionApSoutheast1
+//	CollaborationSupportedS3RegionApSoutheast2
+//	CollaborationSupportedS3RegionApSoutheast3
+//	CollaborationSupportedS3RegionApSoutheast5
+//	CollaborationSupportedS3RegionApSoutheast4
+//	CollaborationSupportedS3RegionApSoutheast7
+//	CollaborationSupportedS3RegionApSouth1
+//	CollaborationSupportedS3RegionApNortheast3
+//	CollaborationSupportedS3RegionApNortheast1
+//	CollaborationSupportedS3RegionApNortheast2
+//	CollaborationSupportedS3RegionCaCentral1
+//	CollaborationSupportedS3RegionCaWest1
+//	CollaborationSupportedS3RegionEuSouth1
+//	CollaborationSupportedS3RegionEuWest3
+//	CollaborationSupportedS3RegionEuSouth2
+//	CollaborationSupportedS3RegionEuCentral2
+//	CollaborationSupportedS3RegionEuCentral1
+//	CollaborationSupportedS3RegionEuNorth1
+//	CollaborationSupportedS3RegionEuWest1
+//	CollaborationSupportedS3RegionEuWest2
+//	CollaborationSupportedS3RegionMeSouth1
+//	CollaborationSupportedS3RegionMeCentral1
+//	CollaborationSupportedS3RegionIlCentral1
+//	CollaborationSupportedS3RegionSaEast1
+//	CollaborationSupportedS3RegionMxCentral1
+type CollaborationSupportedS3RegionInput interface {
+	pulumi.Input
+
+	ToCollaborationSupportedS3RegionOutput() CollaborationSupportedS3RegionOutput
+	ToCollaborationSupportedS3RegionOutputWithContext(context.Context) CollaborationSupportedS3RegionOutput
+}
+
+var collaborationSupportedS3RegionPtrType = reflect.TypeOf((**CollaborationSupportedS3Region)(nil)).Elem()
+
+type CollaborationSupportedS3RegionPtrInput interface {
+	pulumi.Input
+
+	ToCollaborationSupportedS3RegionPtrOutput() CollaborationSupportedS3RegionPtrOutput
+	ToCollaborationSupportedS3RegionPtrOutputWithContext(context.Context) CollaborationSupportedS3RegionPtrOutput
+}
+
+type collaborationSupportedS3RegionPtr string
+
+func CollaborationSupportedS3RegionPtr(v string) CollaborationSupportedS3RegionPtrInput {
+	return (*collaborationSupportedS3RegionPtr)(&v)
+}
+
+func (*collaborationSupportedS3RegionPtr) ElementType() reflect.Type {
+	return collaborationSupportedS3RegionPtrType
+}
+
+func (in *collaborationSupportedS3RegionPtr) ToCollaborationSupportedS3RegionPtrOutput() CollaborationSupportedS3RegionPtrOutput {
+	return pulumi.ToOutput(in).(CollaborationSupportedS3RegionPtrOutput)
+}
+
+func (in *collaborationSupportedS3RegionPtr) ToCollaborationSupportedS3RegionPtrOutputWithContext(ctx context.Context) CollaborationSupportedS3RegionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CollaborationSupportedS3RegionPtrOutput)
+}
+
+// CollaborationSupportedS3RegionArrayInput is an input type that accepts CollaborationSupportedS3RegionArray and CollaborationSupportedS3RegionArrayOutput values.
+// You can construct a concrete instance of `CollaborationSupportedS3RegionArrayInput` via:
+//
+//	CollaborationSupportedS3RegionArray{ CollaborationSupportedS3RegionArgs{...} }
+type CollaborationSupportedS3RegionArrayInput interface {
+	pulumi.Input
+
+	ToCollaborationSupportedS3RegionArrayOutput() CollaborationSupportedS3RegionArrayOutput
+	ToCollaborationSupportedS3RegionArrayOutputWithContext(context.Context) CollaborationSupportedS3RegionArrayOutput
+}
+
+type CollaborationSupportedS3RegionArray []CollaborationSupportedS3Region
+
+func (CollaborationSupportedS3RegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CollaborationSupportedS3Region)(nil)).Elem()
+}
+
+func (i CollaborationSupportedS3RegionArray) ToCollaborationSupportedS3RegionArrayOutput() CollaborationSupportedS3RegionArrayOutput {
+	return i.ToCollaborationSupportedS3RegionArrayOutputWithContext(context.Background())
+}
+
+func (i CollaborationSupportedS3RegionArray) ToCollaborationSupportedS3RegionArrayOutputWithContext(ctx context.Context) CollaborationSupportedS3RegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationSupportedS3RegionArrayOutput)
+}
+
+type CollaborationSupportedS3RegionArrayOutput struct{ *pulumi.OutputState }
+
+func (CollaborationSupportedS3RegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CollaborationSupportedS3Region)(nil)).Elem()
+}
+
+func (o CollaborationSupportedS3RegionArrayOutput) ToCollaborationSupportedS3RegionArrayOutput() CollaborationSupportedS3RegionArrayOutput {
+	return o
+}
+
+func (o CollaborationSupportedS3RegionArrayOutput) ToCollaborationSupportedS3RegionArrayOutputWithContext(ctx context.Context) CollaborationSupportedS3RegionArrayOutput {
+	return o
+}
+
+func (o CollaborationSupportedS3RegionArrayOutput) Index(i pulumi.IntInput) CollaborationSupportedS3RegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CollaborationSupportedS3Region {
+		return vs[0].([]CollaborationSupportedS3Region)[vs[1].(int)]
+	}).(CollaborationSupportedS3RegionOutput)
+}
+
 type ConfiguredTableAdditionalAnalyses string
 
 const (
@@ -2685,6 +2957,231 @@ func (in *configuredTableAssociationAnalysisRuleTypePtr) ToConfiguredTableAssoci
 
 func (in *configuredTableAssociationAnalysisRuleTypePtr) ToConfiguredTableAssociationAnalysisRuleTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAssociationAnalysisRuleTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConfiguredTableAssociationAnalysisRuleTypePtrOutput)
+}
+
+type ConfiguredTableCommercialRegion string
+
+const (
+	ConfiguredTableCommercialRegionUsWest1      = ConfiguredTableCommercialRegion("us-west-1")
+	ConfiguredTableCommercialRegionUsWest2      = ConfiguredTableCommercialRegion("us-west-2")
+	ConfiguredTableCommercialRegionUsEast1      = ConfiguredTableCommercialRegion("us-east-1")
+	ConfiguredTableCommercialRegionUsEast2      = ConfiguredTableCommercialRegion("us-east-2")
+	ConfiguredTableCommercialRegionAfSouth1     = ConfiguredTableCommercialRegion("af-south-1")
+	ConfiguredTableCommercialRegionApEast1      = ConfiguredTableCommercialRegion("ap-east-1")
+	ConfiguredTableCommercialRegionApSouth2     = ConfiguredTableCommercialRegion("ap-south-2")
+	ConfiguredTableCommercialRegionApSoutheast1 = ConfiguredTableCommercialRegion("ap-southeast-1")
+	ConfiguredTableCommercialRegionApSoutheast2 = ConfiguredTableCommercialRegion("ap-southeast-2")
+	ConfiguredTableCommercialRegionApSoutheast5 = ConfiguredTableCommercialRegion("ap-southeast-5")
+	ConfiguredTableCommercialRegionApSoutheast4 = ConfiguredTableCommercialRegion("ap-southeast-4")
+	ConfiguredTableCommercialRegionApSoutheast7 = ConfiguredTableCommercialRegion("ap-southeast-7")
+	ConfiguredTableCommercialRegionApSouth1     = ConfiguredTableCommercialRegion("ap-south-1")
+	ConfiguredTableCommercialRegionApNortheast3 = ConfiguredTableCommercialRegion("ap-northeast-3")
+	ConfiguredTableCommercialRegionApNortheast1 = ConfiguredTableCommercialRegion("ap-northeast-1")
+	ConfiguredTableCommercialRegionApNortheast2 = ConfiguredTableCommercialRegion("ap-northeast-2")
+	ConfiguredTableCommercialRegionCaCentral1   = ConfiguredTableCommercialRegion("ca-central-1")
+	ConfiguredTableCommercialRegionCaWest1      = ConfiguredTableCommercialRegion("ca-west-1")
+	ConfiguredTableCommercialRegionEuSouth1     = ConfiguredTableCommercialRegion("eu-south-1")
+	ConfiguredTableCommercialRegionEuWest3      = ConfiguredTableCommercialRegion("eu-west-3")
+	ConfiguredTableCommercialRegionEuSouth2     = ConfiguredTableCommercialRegion("eu-south-2")
+	ConfiguredTableCommercialRegionEuCentral2   = ConfiguredTableCommercialRegion("eu-central-2")
+	ConfiguredTableCommercialRegionEuCentral1   = ConfiguredTableCommercialRegion("eu-central-1")
+	ConfiguredTableCommercialRegionEuNorth1     = ConfiguredTableCommercialRegion("eu-north-1")
+	ConfiguredTableCommercialRegionEuWest1      = ConfiguredTableCommercialRegion("eu-west-1")
+	ConfiguredTableCommercialRegionEuWest2      = ConfiguredTableCommercialRegion("eu-west-2")
+	ConfiguredTableCommercialRegionMeSouth1     = ConfiguredTableCommercialRegion("me-south-1")
+	ConfiguredTableCommercialRegionMeCentral1   = ConfiguredTableCommercialRegion("me-central-1")
+	ConfiguredTableCommercialRegionIlCentral1   = ConfiguredTableCommercialRegion("il-central-1")
+	ConfiguredTableCommercialRegionSaEast1      = ConfiguredTableCommercialRegion("sa-east-1")
+	ConfiguredTableCommercialRegionMxCentral1   = ConfiguredTableCommercialRegion("mx-central-1")
+	ConfiguredTableCommercialRegionApEast2      = ConfiguredTableCommercialRegion("ap-east-2")
+)
+
+func (ConfiguredTableCommercialRegion) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableCommercialRegion)(nil)).Elem()
+}
+
+func (e ConfiguredTableCommercialRegion) ToConfiguredTableCommercialRegionOutput() ConfiguredTableCommercialRegionOutput {
+	return pulumi.ToOutput(e).(ConfiguredTableCommercialRegionOutput)
+}
+
+func (e ConfiguredTableCommercialRegion) ToConfiguredTableCommercialRegionOutputWithContext(ctx context.Context) ConfiguredTableCommercialRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConfiguredTableCommercialRegionOutput)
+}
+
+func (e ConfiguredTableCommercialRegion) ToConfiguredTableCommercialRegionPtrOutput() ConfiguredTableCommercialRegionPtrOutput {
+	return e.ToConfiguredTableCommercialRegionPtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableCommercialRegion) ToConfiguredTableCommercialRegionPtrOutputWithContext(ctx context.Context) ConfiguredTableCommercialRegionPtrOutput {
+	return ConfiguredTableCommercialRegion(e).ToConfiguredTableCommercialRegionOutputWithContext(ctx).ToConfiguredTableCommercialRegionPtrOutputWithContext(ctx)
+}
+
+func (e ConfiguredTableCommercialRegion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableCommercialRegion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableCommercialRegion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableCommercialRegion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConfiguredTableCommercialRegionOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableCommercialRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableCommercialRegion)(nil)).Elem()
+}
+
+func (o ConfiguredTableCommercialRegionOutput) ToConfiguredTableCommercialRegionOutput() ConfiguredTableCommercialRegionOutput {
+	return o
+}
+
+func (o ConfiguredTableCommercialRegionOutput) ToConfiguredTableCommercialRegionOutputWithContext(ctx context.Context) ConfiguredTableCommercialRegionOutput {
+	return o
+}
+
+func (o ConfiguredTableCommercialRegionOutput) ToConfiguredTableCommercialRegionPtrOutput() ConfiguredTableCommercialRegionPtrOutput {
+	return o.ToConfiguredTableCommercialRegionPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableCommercialRegionOutput) ToConfiguredTableCommercialRegionPtrOutputWithContext(ctx context.Context) ConfiguredTableCommercialRegionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredTableCommercialRegion) *ConfiguredTableCommercialRegion {
+		return &v
+	}).(ConfiguredTableCommercialRegionPtrOutput)
+}
+
+func (o ConfiguredTableCommercialRegionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableCommercialRegionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableCommercialRegion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableCommercialRegionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableCommercialRegionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableCommercialRegion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfiguredTableCommercialRegionPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableCommercialRegionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableCommercialRegion)(nil)).Elem()
+}
+
+func (o ConfiguredTableCommercialRegionPtrOutput) ToConfiguredTableCommercialRegionPtrOutput() ConfiguredTableCommercialRegionPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableCommercialRegionPtrOutput) ToConfiguredTableCommercialRegionPtrOutputWithContext(ctx context.Context) ConfiguredTableCommercialRegionPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableCommercialRegionPtrOutput) Elem() ConfiguredTableCommercialRegionOutput {
+	return o.ApplyT(func(v *ConfiguredTableCommercialRegion) ConfiguredTableCommercialRegion {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableCommercialRegion
+		return ret
+	}).(ConfiguredTableCommercialRegionOutput)
+}
+
+func (o ConfiguredTableCommercialRegionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableCommercialRegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConfiguredTableCommercialRegion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConfiguredTableCommercialRegionInput is an input type that accepts values of the ConfiguredTableCommercialRegion enum
+// A concrete instance of `ConfiguredTableCommercialRegionInput` can be one of the following:
+//
+//	ConfiguredTableCommercialRegionUsWest1
+//	ConfiguredTableCommercialRegionUsWest2
+//	ConfiguredTableCommercialRegionUsEast1
+//	ConfiguredTableCommercialRegionUsEast2
+//	ConfiguredTableCommercialRegionAfSouth1
+//	ConfiguredTableCommercialRegionApEast1
+//	ConfiguredTableCommercialRegionApSouth2
+//	ConfiguredTableCommercialRegionApSoutheast1
+//	ConfiguredTableCommercialRegionApSoutheast2
+//	ConfiguredTableCommercialRegionApSoutheast5
+//	ConfiguredTableCommercialRegionApSoutheast4
+//	ConfiguredTableCommercialRegionApSoutheast7
+//	ConfiguredTableCommercialRegionApSouth1
+//	ConfiguredTableCommercialRegionApNortheast3
+//	ConfiguredTableCommercialRegionApNortheast1
+//	ConfiguredTableCommercialRegionApNortheast2
+//	ConfiguredTableCommercialRegionCaCentral1
+//	ConfiguredTableCommercialRegionCaWest1
+//	ConfiguredTableCommercialRegionEuSouth1
+//	ConfiguredTableCommercialRegionEuWest3
+//	ConfiguredTableCommercialRegionEuSouth2
+//	ConfiguredTableCommercialRegionEuCentral2
+//	ConfiguredTableCommercialRegionEuCentral1
+//	ConfiguredTableCommercialRegionEuNorth1
+//	ConfiguredTableCommercialRegionEuWest1
+//	ConfiguredTableCommercialRegionEuWest2
+//	ConfiguredTableCommercialRegionMeSouth1
+//	ConfiguredTableCommercialRegionMeCentral1
+//	ConfiguredTableCommercialRegionIlCentral1
+//	ConfiguredTableCommercialRegionSaEast1
+//	ConfiguredTableCommercialRegionMxCentral1
+//	ConfiguredTableCommercialRegionApEast2
+type ConfiguredTableCommercialRegionInput interface {
+	pulumi.Input
+
+	ToConfiguredTableCommercialRegionOutput() ConfiguredTableCommercialRegionOutput
+	ToConfiguredTableCommercialRegionOutputWithContext(context.Context) ConfiguredTableCommercialRegionOutput
+}
+
+var configuredTableCommercialRegionPtrType = reflect.TypeOf((**ConfiguredTableCommercialRegion)(nil)).Elem()
+
+type ConfiguredTableCommercialRegionPtrInput interface {
+	pulumi.Input
+
+	ToConfiguredTableCommercialRegionPtrOutput() ConfiguredTableCommercialRegionPtrOutput
+	ToConfiguredTableCommercialRegionPtrOutputWithContext(context.Context) ConfiguredTableCommercialRegionPtrOutput
+}
+
+type configuredTableCommercialRegionPtr string
+
+func ConfiguredTableCommercialRegionPtr(v string) ConfiguredTableCommercialRegionPtrInput {
+	return (*configuredTableCommercialRegionPtr)(&v)
+}
+
+func (*configuredTableCommercialRegionPtr) ElementType() reflect.Type {
+	return configuredTableCommercialRegionPtrType
+}
+
+func (in *configuredTableCommercialRegionPtr) ToConfiguredTableCommercialRegionPtrOutput() ConfiguredTableCommercialRegionPtrOutput {
+	return pulumi.ToOutput(in).(ConfiguredTableCommercialRegionPtrOutput)
+}
+
+func (in *configuredTableCommercialRegionPtr) ToConfiguredTableCommercialRegionPtrOutputWithContext(ctx context.Context) ConfiguredTableCommercialRegionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConfiguredTableCommercialRegionPtrOutput)
 }
 
 type ConfiguredTableJoinOperator string
@@ -4369,11 +4866,348 @@ func (in *privacyBudgetTemplateAutoRefreshPtr) ToPrivacyBudgetTemplateAutoRefres
 	return pulumi.ToOutputWithContext(ctx, in).(PrivacyBudgetTemplateAutoRefreshPtrOutput)
 }
 
+// Whether this individual budget parameter automatically refreshes when the budget period resets.
+type PrivacyBudgetTemplateBudgetParameterAutoRefresh string
+
+const (
+	PrivacyBudgetTemplateBudgetParameterAutoRefreshEnabled  = PrivacyBudgetTemplateBudgetParameterAutoRefresh("ENABLED")
+	PrivacyBudgetTemplateBudgetParameterAutoRefreshDisabled = PrivacyBudgetTemplateBudgetParameterAutoRefresh("DISABLED")
+)
+
+func (PrivacyBudgetTemplateBudgetParameterAutoRefresh) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivacyBudgetTemplateBudgetParameterAutoRefresh)(nil)).Elem()
+}
+
+func (e PrivacyBudgetTemplateBudgetParameterAutoRefresh) ToPrivacyBudgetTemplateBudgetParameterAutoRefreshOutput() PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput {
+	return pulumi.ToOutput(e).(PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput)
+}
+
+func (e PrivacyBudgetTemplateBudgetParameterAutoRefresh) ToPrivacyBudgetTemplateBudgetParameterAutoRefreshOutputWithContext(ctx context.Context) PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput)
+}
+
+func (e PrivacyBudgetTemplateBudgetParameterAutoRefresh) ToPrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput() PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput {
+	return e.ToPrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutputWithContext(context.Background())
+}
+
+func (e PrivacyBudgetTemplateBudgetParameterAutoRefresh) ToPrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutputWithContext(ctx context.Context) PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput {
+	return PrivacyBudgetTemplateBudgetParameterAutoRefresh(e).ToPrivacyBudgetTemplateBudgetParameterAutoRefreshOutputWithContext(ctx).ToPrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutputWithContext(ctx)
+}
+
+func (e PrivacyBudgetTemplateBudgetParameterAutoRefresh) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrivacyBudgetTemplateBudgetParameterAutoRefresh) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrivacyBudgetTemplateBudgetParameterAutoRefresh) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PrivacyBudgetTemplateBudgetParameterAutoRefresh) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput struct{ *pulumi.OutputState }
+
+func (PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivacyBudgetTemplateBudgetParameterAutoRefresh)(nil)).Elem()
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput) ToPrivacyBudgetTemplateBudgetParameterAutoRefreshOutput() PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput {
+	return o
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput) ToPrivacyBudgetTemplateBudgetParameterAutoRefreshOutputWithContext(ctx context.Context) PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput {
+	return o
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput) ToPrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput() PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput {
+	return o.ToPrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutputWithContext(context.Background())
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput) ToPrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutputWithContext(ctx context.Context) PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivacyBudgetTemplateBudgetParameterAutoRefresh) *PrivacyBudgetTemplateBudgetParameterAutoRefresh {
+		return &v
+	}).(PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput)
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivacyBudgetTemplateBudgetParameterAutoRefresh) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivacyBudgetTemplateBudgetParameterAutoRefresh) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivacyBudgetTemplateBudgetParameterAutoRefresh)(nil)).Elem()
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput) ToPrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput() PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput {
+	return o
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput) ToPrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutputWithContext(ctx context.Context) PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput {
+	return o
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput) Elem() PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput {
+	return o.ApplyT(func(v *PrivacyBudgetTemplateBudgetParameterAutoRefresh) PrivacyBudgetTemplateBudgetParameterAutoRefresh {
+		if v != nil {
+			return *v
+		}
+		var ret PrivacyBudgetTemplateBudgetParameterAutoRefresh
+		return ret
+	}).(PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput)
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrivacyBudgetTemplateBudgetParameterAutoRefresh) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PrivacyBudgetTemplateBudgetParameterAutoRefreshInput is an input type that accepts values of the PrivacyBudgetTemplateBudgetParameterAutoRefresh enum
+// A concrete instance of `PrivacyBudgetTemplateBudgetParameterAutoRefreshInput` can be one of the following:
+//
+//	PrivacyBudgetTemplateBudgetParameterAutoRefreshEnabled
+//	PrivacyBudgetTemplateBudgetParameterAutoRefreshDisabled
+type PrivacyBudgetTemplateBudgetParameterAutoRefreshInput interface {
+	pulumi.Input
+
+	ToPrivacyBudgetTemplateBudgetParameterAutoRefreshOutput() PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput
+	ToPrivacyBudgetTemplateBudgetParameterAutoRefreshOutputWithContext(context.Context) PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput
+}
+
+var privacyBudgetTemplateBudgetParameterAutoRefreshPtrType = reflect.TypeOf((**PrivacyBudgetTemplateBudgetParameterAutoRefresh)(nil)).Elem()
+
+type PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrInput interface {
+	pulumi.Input
+
+	ToPrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput() PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput
+	ToPrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutputWithContext(context.Context) PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput
+}
+
+type privacyBudgetTemplateBudgetParameterAutoRefreshPtr string
+
+func PrivacyBudgetTemplateBudgetParameterAutoRefreshPtr(v string) PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrInput {
+	return (*privacyBudgetTemplateBudgetParameterAutoRefreshPtr)(&v)
+}
+
+func (*privacyBudgetTemplateBudgetParameterAutoRefreshPtr) ElementType() reflect.Type {
+	return privacyBudgetTemplateBudgetParameterAutoRefreshPtrType
+}
+
+func (in *privacyBudgetTemplateBudgetParameterAutoRefreshPtr) ToPrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput() PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput {
+	return pulumi.ToOutput(in).(PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput)
+}
+
+func (in *privacyBudgetTemplateBudgetParameterAutoRefreshPtr) ToPrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutputWithContext(ctx context.Context) PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput)
+}
+
+// The type of budget parameter being configured.
+type PrivacyBudgetTemplateBudgetParameterType string
+
+const (
+	PrivacyBudgetTemplateBudgetParameterTypeCalendarDay   = PrivacyBudgetTemplateBudgetParameterType("CALENDAR_DAY")
+	PrivacyBudgetTemplateBudgetParameterTypeCalendarMonth = PrivacyBudgetTemplateBudgetParameterType("CALENDAR_MONTH")
+	PrivacyBudgetTemplateBudgetParameterTypeCalendarWeek  = PrivacyBudgetTemplateBudgetParameterType("CALENDAR_WEEK")
+	PrivacyBudgetTemplateBudgetParameterTypeLifetime      = PrivacyBudgetTemplateBudgetParameterType("LIFETIME")
+)
+
+func (PrivacyBudgetTemplateBudgetParameterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivacyBudgetTemplateBudgetParameterType)(nil)).Elem()
+}
+
+func (e PrivacyBudgetTemplateBudgetParameterType) ToPrivacyBudgetTemplateBudgetParameterTypeOutput() PrivacyBudgetTemplateBudgetParameterTypeOutput {
+	return pulumi.ToOutput(e).(PrivacyBudgetTemplateBudgetParameterTypeOutput)
+}
+
+func (e PrivacyBudgetTemplateBudgetParameterType) ToPrivacyBudgetTemplateBudgetParameterTypeOutputWithContext(ctx context.Context) PrivacyBudgetTemplateBudgetParameterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PrivacyBudgetTemplateBudgetParameterTypeOutput)
+}
+
+func (e PrivacyBudgetTemplateBudgetParameterType) ToPrivacyBudgetTemplateBudgetParameterTypePtrOutput() PrivacyBudgetTemplateBudgetParameterTypePtrOutput {
+	return e.ToPrivacyBudgetTemplateBudgetParameterTypePtrOutputWithContext(context.Background())
+}
+
+func (e PrivacyBudgetTemplateBudgetParameterType) ToPrivacyBudgetTemplateBudgetParameterTypePtrOutputWithContext(ctx context.Context) PrivacyBudgetTemplateBudgetParameterTypePtrOutput {
+	return PrivacyBudgetTemplateBudgetParameterType(e).ToPrivacyBudgetTemplateBudgetParameterTypeOutputWithContext(ctx).ToPrivacyBudgetTemplateBudgetParameterTypePtrOutputWithContext(ctx)
+}
+
+func (e PrivacyBudgetTemplateBudgetParameterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrivacyBudgetTemplateBudgetParameterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrivacyBudgetTemplateBudgetParameterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PrivacyBudgetTemplateBudgetParameterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PrivacyBudgetTemplateBudgetParameterTypeOutput struct{ *pulumi.OutputState }
+
+func (PrivacyBudgetTemplateBudgetParameterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivacyBudgetTemplateBudgetParameterType)(nil)).Elem()
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterTypeOutput) ToPrivacyBudgetTemplateBudgetParameterTypeOutput() PrivacyBudgetTemplateBudgetParameterTypeOutput {
+	return o
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterTypeOutput) ToPrivacyBudgetTemplateBudgetParameterTypeOutputWithContext(ctx context.Context) PrivacyBudgetTemplateBudgetParameterTypeOutput {
+	return o
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterTypeOutput) ToPrivacyBudgetTemplateBudgetParameterTypePtrOutput() PrivacyBudgetTemplateBudgetParameterTypePtrOutput {
+	return o.ToPrivacyBudgetTemplateBudgetParameterTypePtrOutputWithContext(context.Background())
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterTypeOutput) ToPrivacyBudgetTemplateBudgetParameterTypePtrOutputWithContext(ctx context.Context) PrivacyBudgetTemplateBudgetParameterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivacyBudgetTemplateBudgetParameterType) *PrivacyBudgetTemplateBudgetParameterType {
+		return &v
+	}).(PrivacyBudgetTemplateBudgetParameterTypePtrOutput)
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivacyBudgetTemplateBudgetParameterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivacyBudgetTemplateBudgetParameterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivacyBudgetTemplateBudgetParameterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivacyBudgetTemplateBudgetParameterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivacyBudgetTemplateBudgetParameterType)(nil)).Elem()
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterTypePtrOutput) ToPrivacyBudgetTemplateBudgetParameterTypePtrOutput() PrivacyBudgetTemplateBudgetParameterTypePtrOutput {
+	return o
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterTypePtrOutput) ToPrivacyBudgetTemplateBudgetParameterTypePtrOutputWithContext(ctx context.Context) PrivacyBudgetTemplateBudgetParameterTypePtrOutput {
+	return o
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterTypePtrOutput) Elem() PrivacyBudgetTemplateBudgetParameterTypeOutput {
+	return o.ApplyT(func(v *PrivacyBudgetTemplateBudgetParameterType) PrivacyBudgetTemplateBudgetParameterType {
+		if v != nil {
+			return *v
+		}
+		var ret PrivacyBudgetTemplateBudgetParameterType
+		return ret
+	}).(PrivacyBudgetTemplateBudgetParameterTypeOutput)
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrivacyBudgetTemplateBudgetParameterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrivacyBudgetTemplateBudgetParameterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PrivacyBudgetTemplateBudgetParameterTypeInput is an input type that accepts values of the PrivacyBudgetTemplateBudgetParameterType enum
+// A concrete instance of `PrivacyBudgetTemplateBudgetParameterTypeInput` can be one of the following:
+//
+//	PrivacyBudgetTemplateBudgetParameterTypeCalendarDay
+//	PrivacyBudgetTemplateBudgetParameterTypeCalendarMonth
+//	PrivacyBudgetTemplateBudgetParameterTypeCalendarWeek
+//	PrivacyBudgetTemplateBudgetParameterTypeLifetime
+type PrivacyBudgetTemplateBudgetParameterTypeInput interface {
+	pulumi.Input
+
+	ToPrivacyBudgetTemplateBudgetParameterTypeOutput() PrivacyBudgetTemplateBudgetParameterTypeOutput
+	ToPrivacyBudgetTemplateBudgetParameterTypeOutputWithContext(context.Context) PrivacyBudgetTemplateBudgetParameterTypeOutput
+}
+
+var privacyBudgetTemplateBudgetParameterTypePtrType = reflect.TypeOf((**PrivacyBudgetTemplateBudgetParameterType)(nil)).Elem()
+
+type PrivacyBudgetTemplateBudgetParameterTypePtrInput interface {
+	pulumi.Input
+
+	ToPrivacyBudgetTemplateBudgetParameterTypePtrOutput() PrivacyBudgetTemplateBudgetParameterTypePtrOutput
+	ToPrivacyBudgetTemplateBudgetParameterTypePtrOutputWithContext(context.Context) PrivacyBudgetTemplateBudgetParameterTypePtrOutput
+}
+
+type privacyBudgetTemplateBudgetParameterTypePtr string
+
+func PrivacyBudgetTemplateBudgetParameterTypePtr(v string) PrivacyBudgetTemplateBudgetParameterTypePtrInput {
+	return (*privacyBudgetTemplateBudgetParameterTypePtr)(&v)
+}
+
+func (*privacyBudgetTemplateBudgetParameterTypePtr) ElementType() reflect.Type {
+	return privacyBudgetTemplateBudgetParameterTypePtrType
+}
+
+func (in *privacyBudgetTemplateBudgetParameterTypePtr) ToPrivacyBudgetTemplateBudgetParameterTypePtrOutput() PrivacyBudgetTemplateBudgetParameterTypePtrOutput {
+	return pulumi.ToOutput(in).(PrivacyBudgetTemplateBudgetParameterTypePtrOutput)
+}
+
+func (in *privacyBudgetTemplateBudgetParameterTypePtr) ToPrivacyBudgetTemplateBudgetParameterTypePtrOutputWithContext(ctx context.Context) PrivacyBudgetTemplateBudgetParameterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PrivacyBudgetTemplateBudgetParameterTypePtrOutput)
+}
+
 // Specifies the type of the privacy budget template.
 type PrivacyBudgetTemplatePrivacyBudgetType string
 
 const (
 	PrivacyBudgetTemplatePrivacyBudgetTypeDifferentialPrivacy = PrivacyBudgetTemplatePrivacyBudgetType("DIFFERENTIAL_PRIVACY")
+	PrivacyBudgetTemplatePrivacyBudgetTypeAccessBudget        = PrivacyBudgetTemplatePrivacyBudgetType("ACCESS_BUDGET")
 )
 
 func (PrivacyBudgetTemplatePrivacyBudgetType) ElementType() reflect.Type {
@@ -4499,6 +5333,7 @@ func (o PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput) ToStringPtrOutputWithCo
 // A concrete instance of `PrivacyBudgetTemplatePrivacyBudgetTypeInput` can be one of the following:
 //
 //	PrivacyBudgetTemplatePrivacyBudgetTypeDifferentialPrivacy
+//	PrivacyBudgetTemplatePrivacyBudgetTypeAccessBudget
 type PrivacyBudgetTemplatePrivacyBudgetTypeInput interface {
 	pulumi.Input
 
@@ -4555,6 +5390,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberAbilityArrayInput)(nil)).Elem(), CollaborationMemberAbilityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationQueryLogStatusInput)(nil)).Elem(), CollaborationQueryLogStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationQueryLogStatusPtrInput)(nil)).Elem(), CollaborationQueryLogStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationSupportedS3RegionInput)(nil)).Elem(), CollaborationSupportedS3Region("us-west-1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationSupportedS3RegionPtrInput)(nil)).Elem(), CollaborationSupportedS3Region("us-west-1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationSupportedS3RegionArrayInput)(nil)).Elem(), CollaborationSupportedS3RegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAdditionalAnalysesInput)(nil)).Elem(), ConfiguredTableAdditionalAnalyses("ALLOWED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAdditionalAnalysesPtrInput)(nil)).Elem(), ConfiguredTableAdditionalAnalyses("ALLOWED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregateFunctionNameInput)(nil)).Elem(), ConfiguredTableAggregateFunctionName("SUM"))
@@ -4567,6 +5405,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRuleTypePtrInput)(nil)).Elem(), ConfiguredTableAnalysisRuleType("AGGREGATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationAnalysisRuleTypeInput)(nil)).Elem(), ConfiguredTableAssociationAnalysisRuleType("AGGREGATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationAnalysisRuleTypePtrInput)(nil)).Elem(), ConfiguredTableAssociationAnalysisRuleType("AGGREGATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableCommercialRegionInput)(nil)).Elem(), ConfiguredTableCommercialRegion("us-west-1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableCommercialRegionPtrInput)(nil)).Elem(), ConfiguredTableCommercialRegion("us-west-1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableJoinOperatorInput)(nil)).Elem(), ConfiguredTableJoinOperator("OR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableJoinOperatorPtrInput)(nil)).Elem(), ConfiguredTableJoinOperator("OR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableJoinOperatorArrayInput)(nil)).Elem(), ConfiguredTableJoinOperatorArray{})
@@ -4586,6 +5426,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipResultFormatPtrInput)(nil)).Elem(), MembershipResultFormat("CSV"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivacyBudgetTemplateAutoRefreshInput)(nil)).Elem(), PrivacyBudgetTemplateAutoRefresh("CALENDAR_MONTH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivacyBudgetTemplateAutoRefreshPtrInput)(nil)).Elem(), PrivacyBudgetTemplateAutoRefresh("CALENDAR_MONTH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivacyBudgetTemplateBudgetParameterAutoRefreshInput)(nil)).Elem(), PrivacyBudgetTemplateBudgetParameterAutoRefresh("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrInput)(nil)).Elem(), PrivacyBudgetTemplateBudgetParameterAutoRefresh("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivacyBudgetTemplateBudgetParameterTypeInput)(nil)).Elem(), PrivacyBudgetTemplateBudgetParameterType("CALENDAR_DAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivacyBudgetTemplateBudgetParameterTypePtrInput)(nil)).Elem(), PrivacyBudgetTemplateBudgetParameterType("CALENDAR_DAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivacyBudgetTemplatePrivacyBudgetTypeInput)(nil)).Elem(), PrivacyBudgetTemplatePrivacyBudgetType("DIFFERENTIAL_PRIVACY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivacyBudgetTemplatePrivacyBudgetTypePtrInput)(nil)).Elem(), PrivacyBudgetTemplatePrivacyBudgetType("DIFFERENTIAL_PRIVACY"))
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterTypeOutput{})
@@ -4609,6 +5453,9 @@ func init() {
 	pulumi.RegisterOutputType(CollaborationMemberAbilityArrayOutput{})
 	pulumi.RegisterOutputType(CollaborationQueryLogStatusOutput{})
 	pulumi.RegisterOutputType(CollaborationQueryLogStatusPtrOutput{})
+	pulumi.RegisterOutputType(CollaborationSupportedS3RegionOutput{})
+	pulumi.RegisterOutputType(CollaborationSupportedS3RegionPtrOutput{})
+	pulumi.RegisterOutputType(CollaborationSupportedS3RegionArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAdditionalAnalysesOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAdditionalAnalysesPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAggregateFunctionNameOutput{})
@@ -4621,6 +5468,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRuleTypePtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAssociationAnalysisRuleTypeOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAssociationAnalysisRuleTypePtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableCommercialRegionOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableCommercialRegionPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableJoinOperatorOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableJoinOperatorPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableJoinOperatorArrayOutput{})
@@ -4644,6 +5493,10 @@ func init() {
 	pulumi.RegisterOutputType(MembershipResultFormatPtrOutput{})
 	pulumi.RegisterOutputType(PrivacyBudgetTemplateAutoRefreshOutput{})
 	pulumi.RegisterOutputType(PrivacyBudgetTemplateAutoRefreshPtrOutput{})
+	pulumi.RegisterOutputType(PrivacyBudgetTemplateBudgetParameterAutoRefreshOutput{})
+	pulumi.RegisterOutputType(PrivacyBudgetTemplateBudgetParameterAutoRefreshPtrOutput{})
+	pulumi.RegisterOutputType(PrivacyBudgetTemplateBudgetParameterTypeOutput{})
+	pulumi.RegisterOutputType(PrivacyBudgetTemplateBudgetParameterTypePtrOutput{})
 	pulumi.RegisterOutputType(PrivacyBudgetTemplatePrivacyBudgetTypeOutput{})
 	pulumi.RegisterOutputType(PrivacyBudgetTemplatePrivacyBudgetTypePtrOutput{})
 }

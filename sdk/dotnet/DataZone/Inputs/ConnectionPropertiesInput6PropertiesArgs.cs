@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.DataZone.Inputs
 
     public sealed class ConnectionPropertiesInput6PropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("sparkGlueProperties", required: true)]
-        public Input<Inputs.ConnectionSparkGluePropertiesInputArgs> SparkGlueProperties { get; set; } = null!;
+        [Input("amazonQProperties", required: true)]
+        public Input<Inputs.ConnectionAmazonQPropertiesInputArgs> AmazonQProperties { get; set; } = null!;
 
         public ConnectionPropertiesInput6PropertiesArgs()
         {

@@ -69,6 +69,7 @@ export class LogicallyAirGappedBackupVault extends pulumi.CustomResource {
      * The minimum value accepted is 7 days.
      */
     declare public readonly minRetentionDays: pulumi.Output<number>;
+    declare public readonly mpaApprovalTeamArn: pulumi.Output<string | undefined>;
     /**
      * Returns event notifications for the specified backup vault.
      */
@@ -104,6 +105,7 @@ export class LogicallyAirGappedBackupVault extends pulumi.CustomResource {
             resourceInputs["backupVaultTags"] = args?.backupVaultTags;
             resourceInputs["maxRetentionDays"] = args?.maxRetentionDays;
             resourceInputs["minRetentionDays"] = args?.minRetentionDays;
+            resourceInputs["mpaApprovalTeamArn"] = args?.mpaApprovalTeamArn;
             resourceInputs["notifications"] = args?.notifications;
             resourceInputs["backupVaultArn"] = undefined /*out*/;
             resourceInputs["encryptionKeyArn"] = undefined /*out*/;
@@ -117,6 +119,7 @@ export class LogicallyAirGappedBackupVault extends pulumi.CustomResource {
             resourceInputs["encryptionKeyArn"] = undefined /*out*/;
             resourceInputs["maxRetentionDays"] = undefined /*out*/;
             resourceInputs["minRetentionDays"] = undefined /*out*/;
+            resourceInputs["mpaApprovalTeamArn"] = undefined /*out*/;
             resourceInputs["notifications"] = undefined /*out*/;
             resourceInputs["vaultState"] = undefined /*out*/;
             resourceInputs["vaultType"] = undefined /*out*/;
@@ -156,6 +159,7 @@ export interface LogicallyAirGappedBackupVaultArgs {
      * The minimum value accepted is 7 days.
      */
     minRetentionDays: pulumi.Input<number>;
+    mpaApprovalTeamArn?: pulumi.Input<string>;
     /**
      * Returns event notifications for the specified backup vault.
      */

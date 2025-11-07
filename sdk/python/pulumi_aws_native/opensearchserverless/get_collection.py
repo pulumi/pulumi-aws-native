@@ -13,7 +13,6 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from ._enums import *
 
 __all__ = [
     'GetCollectionResult',
@@ -24,7 +23,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCollectionResult:
-    def __init__(__self__, arn=None, collection_endpoint=None, dashboard_endpoint=None, description=None, id=None, standby_replicas=None):
+    def __init__(__self__, arn=None, collection_endpoint=None, dashboard_endpoint=None, description=None, id=None, kms_key_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,9 +39,9 @@ class GetCollectionResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if standby_replicas and not isinstance(standby_replicas, str):
-            raise TypeError("Expected argument 'standby_replicas' to be a str")
-        pulumi.set(__self__, "standby_replicas", standby_replicas)
+        if kms_key_arn and not isinstance(kms_key_arn, str):
+            raise TypeError("Expected argument 'kms_key_arn' to be a str")
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
     @_builtins.property
     @pulumi.getter
@@ -85,12 +84,12 @@ class GetCollectionResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
-    @pulumi.getter(name="standbyReplicas")
-    def standby_replicas(self) -> Optional['CollectionStandbyReplicas']:
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
         """
-        Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
+        The ARN of the AWS KMS key used to encrypt the collection.
         """
-        return pulumi.get(self, "standby_replicas")
+        return pulumi.get(self, "kms_key_arn")
 
 
 class AwaitableGetCollectionResult(GetCollectionResult):
@@ -104,7 +103,7 @@ class AwaitableGetCollectionResult(GetCollectionResult):
             dashboard_endpoint=self.dashboard_endpoint,
             description=self.description,
             id=self.id,
-            standby_replicas=self.standby_replicas)
+            kms_key_arn=self.kms_key_arn)
 
 
 def get_collection(id: Optional[_builtins.str] = None,
@@ -126,7 +125,7 @@ def get_collection(id: Optional[_builtins.str] = None,
         dashboard_endpoint=pulumi.get(__ret__, 'dashboard_endpoint'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
-        standby_replicas=pulumi.get(__ret__, 'standby_replicas'))
+        kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'))
 def get_collection_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCollectionResult]:
     """
@@ -145,4 +144,4 @@ def get_collection_output(id: Optional[pulumi.Input[_builtins.str]] = None,
         dashboard_endpoint=pulumi.get(__response__, 'dashboard_endpoint'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
-        standby_replicas=pulumi.get(__response__, 'standby_replicas')))
+        kms_key_arn=pulumi.get(__response__, 'kms_key_arn')))

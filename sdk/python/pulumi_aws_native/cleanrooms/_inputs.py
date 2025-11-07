@@ -144,6 +144,8 @@ __all__ = [
     'MembershipQueryComputePaymentConfigArgsDict',
     'ParametersPropertiesArgs',
     'ParametersPropertiesArgsDict',
+    'PrivacyBudgetTemplateBudgetParameterArgs',
+    'PrivacyBudgetTemplateBudgetParameterArgsDict',
 ]
 
 MYPY = False
@@ -1780,6 +1782,7 @@ if not MYPY:
         table_name: pulumi.Input[_builtins.str]
         work_group: pulumi.Input[_builtins.str]
         output_location: NotRequired[pulumi.Input[_builtins.str]]
+        region: NotRequired[pulumi.Input['ConfiguredTableCommercialRegion']]
 elif False:
     ConfiguredTableAthenaTableReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1789,12 +1792,15 @@ class ConfiguredTableAthenaTableReferenceArgs:
                  database_name: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
                  work_group: pulumi.Input[_builtins.str],
-                 output_location: Optional[pulumi.Input[_builtins.str]] = None):
+                 output_location: Optional[pulumi.Input[_builtins.str]] = None,
+                 region: Optional[pulumi.Input['ConfiguredTableCommercialRegion']] = None):
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "table_name", table_name)
         pulumi.set(__self__, "work_group", work_group)
         if output_location is not None:
             pulumi.set(__self__, "output_location", output_location)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
@@ -1831,6 +1837,15 @@ class ConfiguredTableAthenaTableReferenceArgs:
     @output_location.setter
     def output_location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "output_location", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input['ConfiguredTableCommercialRegion']]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input['ConfiguredTableCommercialRegion']]):
+        pulumi.set(self, "region", value)
 
 
 if not MYPY:
@@ -1881,6 +1896,7 @@ if not MYPY:
     class ConfiguredTableGlueTableReferenceArgsDict(TypedDict):
         database_name: pulumi.Input[_builtins.str]
         table_name: pulumi.Input[_builtins.str]
+        region: NotRequired[pulumi.Input['ConfiguredTableCommercialRegion']]
 elif False:
     ConfiguredTableGlueTableReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1888,9 +1904,12 @@ elif False:
 class ConfiguredTableGlueTableReferenceArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[_builtins.str],
-                 table_name: pulumi.Input[_builtins.str]):
+                 table_name: pulumi.Input[_builtins.str],
+                 region: Optional[pulumi.Input['ConfiguredTableCommercialRegion']] = None):
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "table_name", table_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
@@ -1909,6 +1928,15 @@ class ConfiguredTableGlueTableReferenceArgs:
     @table_name.setter
     def table_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "table_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input['ConfiguredTableCommercialRegion']]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input['ConfiguredTableCommercialRegion']]):
+        pulumi.set(self, "region", value)
 
 
 if not MYPY:
@@ -2904,11 +2932,13 @@ if not MYPY:
         """
         Specifies the epsilon and noise parameters for the privacy budget template.
         """
-        epsilon: pulumi.Input[_builtins.int]
+        budget_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivacyBudgetTemplateBudgetParameterArgsDict']]]]
+        epsilon: NotRequired[pulumi.Input[_builtins.int]]
         """
         The epsilon value that you want to use.
         """
-        users_noise_per_query: pulumi.Input[_builtins.int]
+        resource_arn: NotRequired[pulumi.Input[_builtins.str]]
+        users_noise_per_query: NotRequired[pulumi.Input[_builtins.int]]
         """
         Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
         """
@@ -2918,38 +2948,134 @@ elif False:
 @pulumi.input_type
 class ParametersPropertiesArgs:
     def __init__(__self__, *,
-                 epsilon: pulumi.Input[_builtins.int],
-                 users_noise_per_query: pulumi.Input[_builtins.int]):
+                 budget_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['PrivacyBudgetTemplateBudgetParameterArgs']]]] = None,
+                 epsilon: Optional[pulumi.Input[_builtins.int]] = None,
+                 resource_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 users_noise_per_query: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Specifies the epsilon and noise parameters for the privacy budget template.
         :param pulumi.Input[_builtins.int] epsilon: The epsilon value that you want to use.
         :param pulumi.Input[_builtins.int] users_noise_per_query: Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
         """
-        pulumi.set(__self__, "epsilon", epsilon)
-        pulumi.set(__self__, "users_noise_per_query", users_noise_per_query)
+        if budget_parameters is not None:
+            pulumi.set(__self__, "budget_parameters", budget_parameters)
+        if epsilon is not None:
+            pulumi.set(__self__, "epsilon", epsilon)
+        if resource_arn is not None:
+            pulumi.set(__self__, "resource_arn", resource_arn)
+        if users_noise_per_query is not None:
+            pulumi.set(__self__, "users_noise_per_query", users_noise_per_query)
+
+    @_builtins.property
+    @pulumi.getter(name="budgetParameters")
+    def budget_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivacyBudgetTemplateBudgetParameterArgs']]]]:
+        return pulumi.get(self, "budget_parameters")
+
+    @budget_parameters.setter
+    def budget_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivacyBudgetTemplateBudgetParameterArgs']]]]):
+        pulumi.set(self, "budget_parameters", value)
 
     @_builtins.property
     @pulumi.getter
-    def epsilon(self) -> pulumi.Input[_builtins.int]:
+    def epsilon(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         The epsilon value that you want to use.
         """
         return pulumi.get(self, "epsilon")
 
     @epsilon.setter
-    def epsilon(self, value: pulumi.Input[_builtins.int]):
+    def epsilon(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "epsilon", value)
 
     @_builtins.property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_arn", value)
+
+    @_builtins.property
     @pulumi.getter(name="usersNoisePerQuery")
-    def users_noise_per_query(self) -> pulumi.Input[_builtins.int]:
+    def users_noise_per_query(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         Noise added per query is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.
         """
         return pulumi.get(self, "users_noise_per_query")
 
     @users_noise_per_query.setter
-    def users_noise_per_query(self, value: pulumi.Input[_builtins.int]):
+    def users_noise_per_query(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "users_noise_per_query", value)
+
+
+if not MYPY:
+    class PrivacyBudgetTemplateBudgetParameterArgsDict(TypedDict):
+        budget: pulumi.Input[_builtins.int]
+        """
+        The budget allocation amount for this specific parameter.
+        """
+        type: pulumi.Input['PrivacyBudgetTemplateBudgetParameterType']
+        """
+        The type of budget parameter being configured.
+        """
+        auto_refresh: NotRequired[pulumi.Input['PrivacyBudgetTemplateBudgetParameterAutoRefresh']]
+        """
+        Whether this individual budget parameter automatically refreshes when the budget period resets.
+        """
+elif False:
+    PrivacyBudgetTemplateBudgetParameterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PrivacyBudgetTemplateBudgetParameterArgs:
+    def __init__(__self__, *,
+                 budget: pulumi.Input[_builtins.int],
+                 type: pulumi.Input['PrivacyBudgetTemplateBudgetParameterType'],
+                 auto_refresh: Optional[pulumi.Input['PrivacyBudgetTemplateBudgetParameterAutoRefresh']] = None):
+        """
+        :param pulumi.Input[_builtins.int] budget: The budget allocation amount for this specific parameter.
+        :param pulumi.Input['PrivacyBudgetTemplateBudgetParameterType'] type: The type of budget parameter being configured.
+        :param pulumi.Input['PrivacyBudgetTemplateBudgetParameterAutoRefresh'] auto_refresh: Whether this individual budget parameter automatically refreshes when the budget period resets.
+        """
+        pulumi.set(__self__, "budget", budget)
+        pulumi.set(__self__, "type", type)
+        if auto_refresh is not None:
+            pulumi.set(__self__, "auto_refresh", auto_refresh)
+
+    @_builtins.property
+    @pulumi.getter
+    def budget(self) -> pulumi.Input[_builtins.int]:
+        """
+        The budget allocation amount for this specific parameter.
+        """
+        return pulumi.get(self, "budget")
+
+    @budget.setter
+    def budget(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "budget", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['PrivacyBudgetTemplateBudgetParameterType']:
+        """
+        The type of budget parameter being configured.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['PrivacyBudgetTemplateBudgetParameterType']):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRefresh")
+    def auto_refresh(self) -> Optional[pulumi.Input['PrivacyBudgetTemplateBudgetParameterAutoRefresh']]:
+        """
+        Whether this individual budget parameter automatically refreshes when the budget period resets.
+        """
+        return pulumi.get(self, "auto_refresh")
+
+    @auto_refresh.setter
+    def auto_refresh(self, value: Optional[pulumi.Input['PrivacyBudgetTemplateBudgetParameterAutoRefresh']]):
+        pulumi.set(self, "auto_refresh", value)
 
 

@@ -4373,6 +4373,7 @@ class DistributionVpcOriginConfig(dict):
                 For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
         :param _builtins.int origin_read_timeout: Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.
                 For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+        :param _builtins.str owner_account_id: The account ID of the AWS account that owns the VPC origin.
         """
         pulumi.set(__self__, "vpc_origin_id", vpc_origin_id)
         if origin_keepalive_timeout is not None:
@@ -4411,6 +4412,9 @@ class DistributionVpcOriginConfig(dict):
     @_builtins.property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> Optional[_builtins.str]:
+        """
+        The account ID of the AWS account that owns the VPC origin.
+        """
         return pulumi.get(self, "owner_account_id")
 
 
