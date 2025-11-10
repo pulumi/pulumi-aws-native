@@ -1650,6 +1650,10 @@
         },
         "description": "Environment variables for the agent runtime"
       },
+      "lifecycleConfiguration": {
+        "$ref": "#/types/aws-native:bedrockagentcore:RuntimeLifecycleConfiguration",
+        "description": "Lifecycle configuration for managing runtime sessions"
+      },
       "networkConfiguration": {
         "$ref": "#/types/aws-native:bedrockagentcore:RuntimeNetworkConfiguration",
         "description": "Network access configuration for the Agent"
@@ -1657,6 +1661,10 @@
       "protocolConfiguration": {
         "$ref": "#/types/aws-native:bedrockagentcore:RuntimeProtocolConfiguration",
         "description": "Protocol configuration for the agent runtime"
+      },
+      "requestHeaderConfiguration": {
+        "$ref": "#/types/aws-native:bedrockagentcore:RuntimeRequestHeaderConfiguration",
+        "description": "Configuration for HTTP request headers"
       },
       "roleArn": {
         "type": "string",
@@ -15923,6 +15931,12 @@
   "aws-native:vpclattice:ServiceNetworkVpcAssociation": {
     "cfTypeName": "AWS::VpcLattice::ServiceNetworkVpcAssociation",
     "properties": {
+      "dnsOptions": {
+        "$ref": "#/types/aws-native:vpclattice:ServiceNetworkVpcAssociationDnsOptions"
+      },
+      "privateDnsEnabled": {
+        "type": "boolean"
+      },
       "securityGroupIds": {
         "type": "array",
         "items": {

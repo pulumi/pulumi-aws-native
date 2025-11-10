@@ -199,7 +199,7 @@
     }
   },
   "additionalProperties" : false,
-  "required" : [ "Name", "Version", "Components", "ParentImage" ],
+  "required" : [ "Name", "Version", "ParentImage" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/Version", "/properties/Components", "/properties/ParentImage", "/properties/Description", "/properties/BlockDeviceMappings", "/properties/WorkingDirectory" ],

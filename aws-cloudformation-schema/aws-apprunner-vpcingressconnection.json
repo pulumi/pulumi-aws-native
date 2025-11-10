@@ -81,13 +81,14 @@
     "tagOnCreate" : true,
     "tagUpdatable" : false,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "apprunner:TagResource", "apprunner:UntagResource", "apprunner:ListTagsForResource" ]
   },
   "additionalProperties" : false,
   "required" : [ "ServiceArn", "IngressVpcConfiguration" ],
   "createOnlyProperties" : [ "/properties/VpcIngressConnectionName", "/properties/ServiceArn", "/properties/Tags" ],
-  "readOnlyProperties" : [ "/properties/VpcIngressConnectionArn", "/properties/DomainName", "/properties/Status" ],
   "writeOnlyProperties" : [ "/properties/Tags" ],
+  "readOnlyProperties" : [ "/properties/VpcIngressConnectionArn", "/properties/DomainName", "/properties/Status" ],
   "primaryIdentifier" : [ "/properties/VpcIngressConnectionArn" ],
   "handlers" : {
     "create" : {
@@ -97,10 +98,10 @@
       "permissions" : [ "apprunner:DescribeVpcIngressConnection" ]
     },
     "update" : {
-      "permissions" : [ "apprunner:UpdateVpcIngressConnection" ]
+      "permissions" : [ "apprunner:UpdateVpcIngressConnection", "apprunner:DescribeVpcIngressConnection", "ec2:DescribeVpcs", "ec2:DescribeVpcEndpoints", "ec2:DescribeSubnets" ]
     },
     "delete" : {
-      "permissions" : [ "apprunner:DeleteVpcIngressConnection" ]
+      "permissions" : [ "apprunner:DeleteVpcIngressConnection", "apprunner:DescribeVpcIngressConnection" ]
     },
     "list" : {
       "permissions" : [ "apprunner:ListVpcIngressConnections" ]
