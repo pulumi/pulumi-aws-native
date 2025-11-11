@@ -268,6 +268,9 @@
           }
         }
       },
+      "endpointAccessMode": {
+        "type": "string"
+      },
       "endpointConfiguration": {
         "$ref": "#/types/aws-native:apigateway:DomainNameEndpointConfiguration",
         "description": "The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name."
@@ -335,6 +338,9 @@
       "domainName": {
         "type": "string",
         "description": "Represents a custom domain name as a user-friendly host name of an API (RestApi)."
+      },
+      "endpointAccessMode": {
+        "type": "string"
       },
       "endpointConfiguration": {
         "$ref": "#/types/aws-native:apigateway:DomainNameV2EndpointConfiguration",
@@ -1650,6 +1656,10 @@
         },
         "description": "Environment variables for the agent runtime"
       },
+      "lifecycleConfiguration": {
+        "$ref": "#/types/aws-native:bedrockagentcore:RuntimeLifecycleConfiguration",
+        "description": "Lifecycle configuration for managing runtime sessions"
+      },
       "networkConfiguration": {
         "$ref": "#/types/aws-native:bedrockagentcore:RuntimeNetworkConfiguration",
         "description": "Network access configuration for the Agent"
@@ -1657,6 +1667,10 @@
       "protocolConfiguration": {
         "$ref": "#/types/aws-native:bedrockagentcore:RuntimeProtocolConfiguration",
         "description": "Protocol configuration for the agent runtime"
+      },
+      "requestHeaderConfiguration": {
+        "$ref": "#/types/aws-native:bedrockagentcore:RuntimeRequestHeaderConfiguration",
+        "description": "Configuration for HTTP request headers"
       },
       "roleArn": {
         "type": "string",
@@ -2649,7 +2663,8 @@
     "cfTypeName": "AWS::Connect::EvaluationForm",
     "properties": {
       "autoEvaluationConfiguration": {
-        "$ref": "#/types/aws-native:connect:EvaluationFormAutoEvaluationConfiguration"
+        "$ref": "#/types/aws-native:connect:EvaluationFormAutoEvaluationConfiguration",
+        "description": "The automatic evaluation configuration of an evaluation form."
       },
       "description": {
         "type": "string",
@@ -2912,6 +2927,12 @@
       "manifest": {
         "$ref": "pulumi.json#/Any",
         "description": "The landing zone manifest JSON text file that specifies the landing zone configurations.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property."
+      },
+      "remediationTypes": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:controltower:LandingZoneRemediationTypesItem"
+        }
       },
       "tags": {
         "type": "array",
@@ -6281,6 +6302,9 @@
         "type": "string",
         "description": "Enable or disable DNS support. Enabled by default."
       },
+      "encryptionSupport": {
+        "$ref": "#/types/aws-native:ec2:TransitGatewayEncryptionSupport"
+      },
       "multicastSupport": {
         "type": "string",
         "description": "Indicates whether multicast is enabled on the transit gateway"
@@ -6800,7 +6824,8 @@
         "description": "The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.\n Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both."
       },
       "availabilityZoneId": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of the Availability Zone for the volume."
       },
       "encrypted": {
         "type": "boolean",
@@ -6831,7 +6856,8 @@
         "description": "The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size."
       },
       "sourceVolumeId": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of the source volume from which the volume copy was created. Only for volume copies."
       },
       "tags": {
         "type": "array",
@@ -10036,11 +10062,11 @@
       },
       "functionUrlAuthType": {
         "$ref": "#/types/aws-native:lambda:PermissionFunctionUrlAuthType",
-        "description": "The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html)."
+        "description": "The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html)."
       },
       "invokedViaFunctionUrl": {
         "type": "boolean",
-        "description": "Restricts the `lambda:InvokeFunction` action to function URL calls. When specified, this option prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) ."
+        "description": "Restricts the ``lambda:InvokeFunction`` action to function URL calls. When specified, this option prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html)."
       },
       "principal": {
         "type": "string",
@@ -15923,6 +15949,12 @@
   "aws-native:vpclattice:ServiceNetworkVpcAssociation": {
     "cfTypeName": "AWS::VpcLattice::ServiceNetworkVpcAssociation",
     "properties": {
+      "dnsOptions": {
+        "$ref": "#/types/aws-native:vpclattice:ServiceNetworkVpcAssociationDnsOptions"
+      },
+      "privateDnsEnabled": {
+        "type": "boolean"
+      },
       "securityGroupIds": {
         "type": "array",
         "items": {

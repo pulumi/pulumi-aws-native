@@ -436,9 +436,9 @@
     "permissions" : [ "apprunner:TagResource", "apprunner:UntagResource", "apprunner:ListTagsForResource" ]
   },
   "required" : [ "SourceConfiguration" ],
-  "createOnlyProperties" : [ "/properties/ServiceName", "/properties/EncryptionConfiguration" ],
+  "createOnlyProperties" : [ "/properties/ServiceName", "/properties/EncryptionConfiguration", "/properties/Tags" ],
   "readOnlyProperties" : [ "/properties/ServiceArn", "/properties/ServiceId", "/properties/ServiceUrl", "/properties/Status" ],
-  "writeOnlyProperties" : [ "/properties/AutoScalingConfigurationArn" ],
+  "writeOnlyProperties" : [ "/properties/AutoScalingConfigurationArn", "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/ServiceArn" ],
   "handlers" : {
     "create" : {

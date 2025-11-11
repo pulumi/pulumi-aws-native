@@ -190,7 +190,7 @@
         },
         "KeySchema" : {
           "minItems" : 1,
-          "maxItems" : 2,
+          "maxItems" : 8,
           "uniqueItems" : true,
           "type" : "array",
           "items" : {

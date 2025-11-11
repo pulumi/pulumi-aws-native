@@ -222,7 +222,7 @@
   },
   "additionalProperties" : false,
   "oneOf" : [ {
-    "required" : [ "Name", "Version", "Components", "ParentImage", "TargetRepository", "ContainerType" ]
+    "required" : [ "Name", "Version", "ParentImage", "TargetRepository", "ContainerType" ]
   } ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
