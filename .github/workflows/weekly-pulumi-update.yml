@@ -37,6 +37,8 @@ jobs:
       uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
     - name: Setup Tools
       uses: ./.github/actions/setup-tools
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Update Pulumi/Pulumi
       id: gomod
       run: >-
