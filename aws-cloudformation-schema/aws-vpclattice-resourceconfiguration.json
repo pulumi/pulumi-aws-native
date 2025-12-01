@@ -10,7 +10,7 @@
   "typeName" : "AWS::VpcLattice::ResourceConfiguration",
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ],
   "description" : "VpcLattice ResourceConfiguration CFN resource",
-  "createOnlyProperties" : [ "/properties/ResourceGatewayId", "/properties/ResourceConfigurationType", "/properties/ProtocolType", "/properties/ResourceConfigurationAuthType" ],
+  "createOnlyProperties" : [ "/properties/ResourceGatewayId", "/properties/ResourceConfigurationType", "/properties/ProtocolType", "/properties/ResourceConfigurationAuthType", "/properties/CustomDomainName", "/properties/GroupDomain", "/properties/DomainVerificationId" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "required" : [ "Name", "ResourceConfigurationType" ],
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
@@ -92,12 +92,10 @@
     }
   },
   "properties" : {
-    "AllowAssociationToSharableServiceNetwork" : {
-      "type" : "boolean"
-    },
-    "ProtocolType" : {
+    "CustomDomainName" : {
+      "minLength" : 3,
       "type" : "string",
-      "enum" : [ "TCP" ]
+      "maxLength" : 255
     },
     "PortRanges" : {
       "insertionOrder" : false,
@@ -105,10 +103,6 @@
       "items" : {
         "$ref" : "#/definitions/PortRange"
       }
-    },
-    "ResourceConfigurationType" : {
-      "type" : "string",
-      "enum" : [ "GROUP", "CHILD", "SINGLE", "ARN" ]
     },
     "ResourceConfigurationDefinition" : {
       "oneOf" : [ {
@@ -144,6 +138,41 @@
       } ],
       "type" : "object"
     },
+    "GroupDomain" : {
+      "minLength" : 3,
+      "type" : "string",
+      "maxLength" : 255
+    },
+    "ResourceConfigurationAuthType" : {
+      "type" : "string",
+      "enum" : [ "NONE", "AWS_IAM" ]
+    },
+    "ResourceConfigurationGroupId" : {
+      "$ref" : "#/definitions/Id"
+    },
+    "Name" : {
+      "minLength" : 3,
+      "pattern" : "^(?!rcfg-)(?![-])(?!.*[-]$)(?!.*[-]{2})[a-z0-9-]+$",
+      "type" : "string",
+      "maxLength" : 40
+    },
+    "AllowAssociationToSharableServiceNetwork" : {
+      "type" : "boolean"
+    },
+    "ProtocolType" : {
+      "type" : "string",
+      "enum" : [ "TCP" ]
+    },
+    "ResourceConfigurationType" : {
+      "type" : "string",
+      "enum" : [ "GROUP", "CHILD", "SINGLE", "ARN" ]
+    },
+    "DomainVerificationId" : {
+      "minLength" : 20,
+      "pattern" : "^dv-[a-fA-F0-9]{17}$",
+      "type" : "string",
+      "maxLength" : 20
+    },
     "Id" : {
       "$ref" : "#/definitions/Id"
     },
@@ -156,13 +185,6 @@
       "type" : "string",
       "maxLength" : 2048
     },
-    "ResourceConfigurationAuthType" : {
-      "type" : "string",
-      "enum" : [ "NONE", "AWS_IAM" ]
-    },
-    "ResourceConfigurationGroupId" : {
-      "$ref" : "#/definitions/Id"
-    },
     "Tags" : {
       "minItems" : 0,
       "maxItems" : 50,
@@ -172,12 +194,6 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
-    },
-    "Name" : {
-      "minLength" : 3,
-      "pattern" : "^(?!rcfg-)(?![-])(?!.*[-]$)(?!.*[-]{2})[a-z0-9-]+$",
-      "type" : "string",
-      "maxLength" : 40
     }
   }
 }

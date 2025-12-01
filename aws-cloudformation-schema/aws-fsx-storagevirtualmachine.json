@@ -52,6 +52,9 @@
         "OrganizationalUnitDistinguishedName" : {
           "type" : "string"
         },
+        "DomainJoinServiceAccountSecret" : {
+          "type" : "string"
+        },
         "DnsIps" : {
           "type" : "array",
           "uniqueItems" : false,

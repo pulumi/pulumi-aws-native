@@ -300,6 +300,35 @@
       },
       "required" : [ "Enabled" ],
       "additionalProperties" : false
+    },
+    "Readiness" : {
+      "description" : "Progress information for data store setup.",
+      "type" : "object",
+      "properties" : {
+        "ProgressPercentage" : {
+          "description" : "The percentage of progress completed.",
+          "type" : "integer",
+          "minimum" : 0,
+          "maximum" : 100
+        },
+        "Message" : {
+          "description" : "A message describing the current progress.",
+          "type" : "string"
+        }
+      }
+    },
+    "DataStore" : {
+      "description" : "Configuration and status of the data store for the domain.",
+      "type" : "object",
+      "properties" : {
+        "Enabled" : {
+          "description" : "Whether the data store is enabled.",
+          "type" : "boolean"
+        },
+        "Readiness" : {
+          "$ref" : "#/definitions/Readiness"
+        }
+      }
     }
   },
   "properties" : {
@@ -334,6 +363,9 @@
     "RuleBasedMatching" : {
       "$ref" : "#/definitions/RuleBasedMatching"
     },
+    "DataStore" : {
+      "$ref" : "#/definitions/DataStore"
+    },
     "Stats" : {
       "$ref" : "#/definitions/DomainStats"
     },
@@ -365,24 +397,24 @@
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "profile:TagResource", "profile:UntagResource", "profile:ListTagsForResource" ]
   },
-  "readOnlyProperties" : [ "/properties/LastUpdatedAt", "/properties/CreatedAt", "/properties/RuleBasedMatching/Status", "/properties/Stats" ],
+  "readOnlyProperties" : [ "/properties/LastUpdatedAt", "/properties/CreatedAt", "/properties/RuleBasedMatching/Status", "/properties/Stats", "/properties/DataStore/Readiness" ],
   "createOnlyProperties" : [ "/properties/DomainName" ],
   "primaryIdentifier" : [ "/properties/DomainName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "profile:CreateDomain", "profile:TagResource" ]
+      "permissions" : [ "profile:CreateDomain", "profile:TagResource", "kms:CreateGrant", "kms:DescribeKey", "kms:GetKeyPolicy", "kms:PutKeyPolicy", "kms:ListGrants" ]
     },
     "read" : {
-      "permissions" : [ "profile:GetDomain" ]
+      "permissions" : [ "profile:GetDomain", "kms:CreateGrant", "kms:DescribeKey", "kms:GetKeyPolicy", "kms:PutKeyPolicy", "kms:ListGrants" ]
     },
     "update" : {
-      "permissions" : [ "profile:GetDomain", "profile:UpdateDomain", "profile:UntagResource", "profile:TagResource" ]
+      "permissions" : [ "profile:GetDomain", "profile:UpdateDomain", "profile:UntagResource", "profile:TagResource", "kms:CreateGrant", "kms:DescribeKey", "kms:GetKeyPolicy", "kms:PutKeyPolicy", "kms:ListGrants" ]
     },
     "delete" : {
-      "permissions" : [ "profile:DeleteDomain" ]
+      "permissions" : [ "profile:DeleteDomain", "kms:CreateGrant", "kms:DescribeKey", "kms:GetKeyPolicy", "kms:PutKeyPolicy", "kms:ListGrants" ]
     },
     "list" : {
-      "permissions" : [ "profile:ListDomains" ]
+      "permissions" : [ "profile:ListDomains", "kms:CreateGrant", "kms:DescribeKey", "kms:GetKeyPolicy", "kms:PutKeyPolicy", "kms:ListGrants" ]
     }
   }
 }

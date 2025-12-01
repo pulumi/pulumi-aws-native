@@ -950,7 +950,8 @@
     }
   },
   "required" : [ "AuthMode", "DefaultUserSettings", "DomainName" ],
-  "createOnlyProperties" : [ "/properties/AuthMode", "/properties/DomainName", "/properties/DomainSettings/RStudioServerProDomainSettings/DefaultResourceSpec", "/properties/KmsKeyId", "/properties/VpcId", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/AuthMode", "/properties/DomainName", "/properties/DomainSettings/RStudioServerProDomainSettings/DefaultResourceSpec", "/properties/KmsKeyId", "/properties/Tags" ],
+  "conditionalCreateOnlyProperties" : [ "/properties/VpcId" ],
   "writeOnlyProperties" : [ "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/DomainId" ],
   "readOnlyProperties" : [ "/properties/DomainArn", "/properties/Url", "/properties/DomainId", "/properties/HomeEfsFileSystemId", "/properties/SecurityGroupIdForDomainBoundary", "/properties/SingleSignOnManagedApplicationInstanceId", "/properties/SingleSignOnApplicationArn" ],

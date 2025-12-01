@@ -67,13 +67,14 @@
     "tagOnCreate" : true,
     "tagUpdatable" : false,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "apprunner:TagResource", "apprunner:UntagResource", "apprunner:ListTagsForResource" ]
   },
   "additionalProperties" : false,
   "required" : [ "Subnets" ],
   "createOnlyProperties" : [ "/properties/VpcConnectorName", "/properties/Subnets", "/properties/SecurityGroups", "/properties/Tags" ],
-  "readOnlyProperties" : [ "/properties/VpcConnectorArn", "/properties/VpcConnectorRevision" ],
   "writeOnlyProperties" : [ "/properties/Tags" ],
+  "readOnlyProperties" : [ "/properties/VpcConnectorArn", "/properties/VpcConnectorRevision" ],
   "primaryIdentifier" : [ "/properties/VpcConnectorArn" ],
   "handlers" : {
     "create" : {
