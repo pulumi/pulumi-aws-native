@@ -7,6 +7,7 @@ AWS::NimbleStudio::Studio
 AWS::NimbleStudio::StudioComponent
 AWS::OpsWorksCM::Server
 AWS::SNS::TopicPolicy
+AWS::ServiceCatalog::CloudFormationProduct
 AWSQS::EKS::Cluster
 AWSQS::Kubernetes::Get
 AWSQS::Kubernetes::Helm

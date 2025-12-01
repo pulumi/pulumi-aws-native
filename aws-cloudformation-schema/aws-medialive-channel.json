@@ -1433,6 +1433,9 @@
         },
         "Hdr10Settings" : {
           "$ref" : "#/definitions/Hdr10Settings"
+        },
+        "Hlg2020Settings" : {
+          "$ref" : "#/definitions/Hlg2020Settings"
         }
       }
     },
@@ -2322,6 +2325,10 @@
           "type" : "integer"
         }
       }
+    },
+    "Hlg2020Settings" : {
+      "type" : "object",
+      "additionalProperties" : false
     },
     "EmbeddedPlusScte20DestinationSettings" : {
       "type" : "object",
@@ -3281,6 +3288,12 @@
         },
         "ColorSpaceSettings" : {
           "$ref" : "#/definitions/Av1ColorSpaceSettings"
+        },
+        "SpatialAq" : {
+          "type" : "string"
+        },
+        "TemporalAq" : {
+          "type" : "string"
         },
         "QvbrQualityLevel" : {
           "type" : "integer"

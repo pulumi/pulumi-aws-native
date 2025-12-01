@@ -189,6 +189,7 @@ AWS::CloudFormation::StackSet
 AWS::CloudFormation::TypeActivation
 AWS::CloudFront::CachePolicy
 AWS::CloudFront::CloudFrontOriginAccessIdentity
+AWS::CloudFront::ConnectionFunction
 AWS::CloudFront::ConnectionGroup
 AWS::CloudFront::ContinuousDeploymentPolicy
 AWS::CloudFront::Distribution
@@ -202,6 +203,7 @@ AWS::CloudFront::OriginRequestPolicy
 AWS::CloudFront::PublicKey
 AWS::CloudFront::RealtimeLogConfig
 AWS::CloudFront::ResponseHeadersPolicy
+AWS::CloudFront::TrustStore
 AWS::CloudFront::VpcOrigin
 AWS::CloudTrail::Channel
 AWS::CloudTrail::Dashboard
@@ -431,6 +433,8 @@ AWS::EC2::TransitGateway
 AWS::EC2::TransitGatewayAttachment
 AWS::EC2::TransitGatewayConnect
 AWS::EC2::TransitGatewayConnectPeer
+AWS::EC2::TransitGatewayMeteringPolicy
+AWS::EC2::TransitGatewayMeteringPolicyEntry
 AWS::EC2::TransitGatewayMulticastDomain
 AWS::EC2::TransitGatewayMulticastDomainAssociation
 AWS::EC2::TransitGatewayMulticastGroupMember
@@ -446,12 +450,14 @@ AWS::EC2::VPCBlockPublicAccessExclusion
 AWS::EC2::VPCBlockPublicAccessOptions
 AWS::EC2::VPCCidrBlock
 AWS::EC2::VPCDHCPOptionsAssociation
+AWS::EC2::VPCEncryptionControl
 AWS::EC2::VPCEndpoint
 AWS::EC2::VPCEndpointConnectionNotification
 AWS::EC2::VPCEndpointService
 AWS::EC2::VPCEndpointServicePermissions
 AWS::EC2::VPCGatewayAttachment
 AWS::EC2::VPCPeeringConnection
+AWS::EC2::VPNConcentrator
 AWS::EC2::VPNConnection
 AWS::EC2::VPNConnectionRoute
 AWS::EC2::VPNGateway
@@ -462,14 +468,17 @@ AWS::EC2::VerifiedAccessTrustProvider
 AWS::EC2::Volume
 AWS::EC2::VolumeAttachment
 AWS::ECR::PullThroughCacheRule
+AWS::ECR::PullTimeUpdateExclusion
 AWS::ECR::RegistryPolicy
 AWS::ECR::RegistryScanningConfiguration
 AWS::ECR::ReplicationConfiguration
 AWS::ECR::Repository
 AWS::ECR::RepositoryCreationTemplate
+AWS::ECR::SigningConfiguration
 AWS::ECS::CapacityProvider
 AWS::ECS::Cluster
 AWS::ECS::ClusterCapacityProviderAssociations
+AWS::ECS::ExpressGatewayService
 AWS::ECS::PrimaryTaskSet
 AWS::ECS::Service
 AWS::ECS::TaskDefinition
@@ -479,6 +488,7 @@ AWS::EFS::FileSystem
 AWS::EFS::MountTarget
 AWS::EKS::AccessEntry
 AWS::EKS::Addon
+AWS::EKS::Capability
 AWS::EKS::Cluster
 AWS::EKS::FargateProfile
 AWS::EKS::IdentityProviderConfig
@@ -567,6 +577,8 @@ AWS::GlobalAccelerator::EndpointGroup
 AWS::GlobalAccelerator::Listener
 AWS::Glue::Crawler
 AWS::Glue::Database
+AWS::Glue::IdentityCenterConfiguration
+AWS::Glue::Integration
 AWS::Glue::IntegrationResourceProperty
 AWS::Glue::Job
 AWS::Glue::Registry
@@ -719,6 +731,7 @@ AWS::LakeFormation::PrincipalPermissions
 AWS::LakeFormation::Tag
 AWS::LakeFormation::TagAssociation
 AWS::Lambda::Alias
+AWS::Lambda::CapacityProvider
 AWS::Lambda::CodeSigningConfig
 AWS::Lambda::EventInvokeConfig
 AWS::Lambda::EventSourceMapping
@@ -795,6 +808,9 @@ AWS::MediaConnect::FlowOutput
 AWS::MediaConnect::FlowSource
 AWS::MediaConnect::FlowVpcInterface
 AWS::MediaConnect::Gateway
+AWS::MediaConnect::RouterInput
+AWS::MediaConnect::RouterNetworkInterface
+AWS::MediaConnect::RouterOutput
 AWS::MediaLive::ChannelPlacementGroup
 AWS::MediaLive::CloudWatchAlarmTemplate
 AWS::MediaLive::CloudWatchAlarmTemplateGroup
@@ -954,7 +970,9 @@ AWS::RDS::EventSubscription
 AWS::RDS::GlobalCluster
 AWS::RDS::Integration
 AWS::RDS::OptionGroup
+AWS::RTBFabric::InboundExternalLink
 AWS::RTBFabric::Link
+AWS::RTBFabric::OutboundExternalLink
 AWS::RTBFabric::RequesterGateway
 AWS::RTBFabric::ResponderGateway
 AWS::RUM::AppMonitor
@@ -1201,6 +1219,7 @@ AWS::VerifiedPermissions::PolicyTemplate
 AWS::VoiceID::Domain
 AWS::VpcLattice::AccessLogSubscription
 AWS::VpcLattice::AuthPolicy
+AWS::VpcLattice::DomainVerification
 AWS::VpcLattice::Listener
 AWS::VpcLattice::ResourceConfiguration
 AWS::VpcLattice::ResourceGateway

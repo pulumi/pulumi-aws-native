@@ -120,7 +120,7 @@
     "ResourceType" : {
       "description" : "The resource type retained by the retention rule.",
       "type" : "string",
-      "enum" : [ "EBS_SNAPSHOT", "EC2_IMAGE" ]
+      "enum" : [ "EBS_SNAPSHOT", "EC2_IMAGE", "EBS_VOLUME" ]
     },
     "Tags" : {
       "description" : "Information about the tags assigned to the retention rule.",

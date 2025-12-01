@@ -39,6 +39,9 @@
     "Name" : {
       "type" : "string"
     },
+    "RouterSettings" : {
+      "$ref" : "#/definitions/RouterSettings"
+    },
     "Type" : {
       "type" : "string"
     },
@@ -180,6 +183,34 @@
         }
       }
     },
+    "RouterDestinationSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AvailabilityZoneName" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RouterSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "SecretArn" : {
+          "type" : "string"
+        },
+        "Destinations" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/RouterDestinationSettings"
+          }
+        },
+        "EncryptionType" : {
+          "type" : "string"
+        }
+      }
+    },
     "Smpte2110ReceiverGroupSdpSettings" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -296,7 +327,7 @@
       }
     }
   },
-  "createOnlyProperties" : [ "/properties/Vpc", "/properties/Type", "/properties/InputNetworkLocation" ],
+  "createOnlyProperties" : [ "/properties/Vpc", "/properties/Type", "/properties/RouterSettings", "/properties/InputNetworkLocation" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ]
 }

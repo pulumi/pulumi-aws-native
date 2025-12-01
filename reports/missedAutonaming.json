@@ -268,6 +268,10 @@
           }
         }
       },
+      "endpointAccessMode": {
+        "type": "string",
+        "description": "The endpoint access mode for your DomainName."
+      },
       "endpointConfiguration": {
         "$ref": "#/types/aws-native:apigateway:DomainNameEndpointConfiguration",
         "description": "The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name."
@@ -290,7 +294,7 @@
       },
       "securityPolicy": {
         "type": "string",
-        "description": "The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` ."
+        "description": "The Transport Layer Security (TLS) version + cipher suite for this DomainName."
       },
       "tags": {
         "type": "array",
@@ -336,6 +340,10 @@
         "type": "string",
         "description": "Represents a custom domain name as a user-friendly host name of an API (RestApi)."
       },
+      "endpointAccessMode": {
+        "type": "string",
+        "description": "The endpoint access mode for your DomainName."
+      },
       "endpointConfiguration": {
         "$ref": "#/types/aws-native:apigateway:DomainNameV2EndpointConfiguration",
         "description": "The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it."
@@ -350,7 +358,7 @@
       },
       "securityPolicy": {
         "type": "string",
-        "description": "The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported."
+        "description": "The Transport Layer Security (TLS) version + cipher suite for this DomainName."
       },
       "tags": {
         "type": "array",
@@ -1650,6 +1658,10 @@
         },
         "description": "Environment variables for the agent runtime"
       },
+      "lifecycleConfiguration": {
+        "$ref": "#/types/aws-native:bedrockagentcore:RuntimeLifecycleConfiguration",
+        "description": "Lifecycle configuration for managing runtime sessions"
+      },
       "networkConfiguration": {
         "$ref": "#/types/aws-native:bedrockagentcore:RuntimeNetworkConfiguration",
         "description": "Network access configuration for the Agent"
@@ -1657,6 +1669,10 @@
       "protocolConfiguration": {
         "$ref": "#/types/aws-native:bedrockagentcore:RuntimeProtocolConfiguration",
         "description": "Protocol configuration for the agent runtime"
+      },
+      "requestHeaderConfiguration": {
+        "$ref": "#/types/aws-native:bedrockagentcore:RuntimeRequestHeaderConfiguration",
+        "description": "Configuration for HTTP request headers"
       },
       "roleArn": {
         "type": "string",
@@ -2649,7 +2665,8 @@
     "cfTypeName": "AWS::Connect::EvaluationForm",
     "properties": {
       "autoEvaluationConfiguration": {
-        "$ref": "#/types/aws-native:connect:EvaluationFormAutoEvaluationConfiguration"
+        "$ref": "#/types/aws-native:connect:EvaluationFormAutoEvaluationConfiguration",
+        "description": "The automatic evaluation configuration of an evaluation form."
       },
       "description": {
         "type": "string",
@@ -2666,6 +2683,9 @@
         },
         "description": "Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.\n *Minimum size*: 1\n *Maximum size*: 100"
       },
+      "languageConfiguration": {
+        "$ref": "#/types/aws-native:connect:EvaluationFormLanguageConfiguration"
+      },
       "scoringStrategy": {
         "$ref": "#/types/aws-native:connect:EvaluationFormScoringStrategy",
         "description": "A scoring strategy of the evaluation form."
@@ -2680,6 +2700,9 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The tags used to organize, track, or control access for this resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }."
+      },
+      "targetConfiguration": {
+        "$ref": "#/types/aws-native:connect:EvaluationFormTargetConfiguration"
       },
       "title": {
         "type": "string",
@@ -2912,6 +2935,13 @@
       "manifest": {
         "$ref": "pulumi.json#/Any",
         "description": "The landing zone manifest JSON text file that specifies the landing zone configurations.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property."
+      },
+      "remediationTypes": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:controltower:LandingZoneRemediationTypesItem"
+        },
+        "description": "The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement."
       },
       "tags": {
         "type": "array",
@@ -3854,11 +3884,11 @@
       },
       "identityCenterInstanceArn": {
         "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users."
+        "description": "The Amazon Resource Name of the IAM Identity Center instance responsible for authenticating monitor users."
       },
       "roleArn": {
         "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources."
+        "description": "The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources."
       },
       "subdomain": {
         "type": "string",
@@ -4145,6 +4175,10 @@
         "$ref": "#/types/aws-native:dsql:MultiRegionPropertiesProperties",
         "description": "The Multi-region properties associated to this cluster."
       },
+      "policyDocument": {
+        "type": "string",
+        "description": "The IAM policy applied to the cluster resource."
+      },
       "tags": {
         "type": "array",
         "items": {
@@ -4211,7 +4245,7 @@
       },
       "instanceCount": {
         "type": "integer",
-        "description": "The number of instances for which to reserve capacity.\n\n\u003e You can request future-dated Capacity Reservations for an instance count with a minimum of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *16 * m5.xlarge = 64 vCPUs* ). \n\nValid range: 1 - 1000"
+        "description": "The number of instances for which to reserve capacity.\n\n\u003e You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ). \n\nValid range: 1 - 1000"
       },
       "instanceMatchCriteria": {
         "type": "string",
@@ -5131,6 +5165,10 @@
       "description": {
         "type": "string",
         "description": "The description of the scope."
+      },
+      "externalAuthorityConfiguration": {
+        "$ref": "#/types/aws-native:ec2:IpamScopeExternalAuthorityConfiguration",
+        "description": "The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.\n\nFor more information, see [Integrate VPC IPAM with Infoblox infrastructure](https://docs.aws.amazon.com/vpc/latest/ipam/integrate-infoblox-ipam.html) in the *Amazon VPC IPAM User Guide* ."
       },
       "ipamId": {
         "type": "string",
@@ -6281,6 +6319,10 @@
         "type": "string",
         "description": "Enable or disable DNS support. Enabled by default."
       },
+      "encryptionSupport": {
+        "$ref": "#/types/aws-native:ec2:TransitGatewayEncryptionSupport",
+        "description": "Enable or disable encryption support. Disabled by default."
+      },
       "multicastSupport": {
         "type": "string",
         "description": "Indicates whether multicast is enabled on the transit gateway"
@@ -6381,6 +6423,82 @@
       "transitGatewayAttachmentId": {
         "type": "string",
         "description": "The ID of the Connect attachment."
+      }
+    }
+  },
+  "aws-native:ec2:TransitGatewayMeteringPolicy": {
+    "cfTypeName": "AWS::EC2::TransitGatewayMeteringPolicy",
+    "properties": {
+      "middleboxAttachmentIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Middle box attachment Ids"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags assigned to the transit gateway metering policy."
+      },
+      "transitGatewayId": {
+        "type": "string",
+        "description": "The Id of transit gateway"
+      }
+    }
+  },
+  "aws-native:ec2:TransitGatewayMeteringPolicyEntry": {
+    "cfTypeName": "AWS::EC2::TransitGatewayMeteringPolicyEntry",
+    "properties": {
+      "destinationCidrBlock": {
+        "type": "string",
+        "description": "The list of IP addresses of the instances receiving traffic from the transit gateway"
+      },
+      "destinationPortRange": {
+        "type": "string",
+        "description": "The list of ports on destination instances receiving traffic from the transit gateway"
+      },
+      "destinationTransitGatewayAttachmentId": {
+        "type": "string",
+        "description": "The ID of the source attachment through which traffic leaves a transit gateway"
+      },
+      "destinationTransitGatewayAttachmentType": {
+        "$ref": "#/types/aws-native:ec2:TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType",
+        "description": "The type of the attachment through which traffic leaves a transit gateway"
+      },
+      "meteredAccount": {
+        "$ref": "#/types/aws-native:ec2:TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType",
+        "description": "The resource owner information responsible for paying default billable charges for the traffic flow"
+      },
+      "policyRuleNumber": {
+        "type": "integer",
+        "description": "The rule number of the metering policy entry"
+      },
+      "protocol": {
+        "type": "string",
+        "description": "The protocol of the traffic"
+      },
+      "sourceCidrBlock": {
+        "type": "string",
+        "description": "The list of IP addresses of the instances sending traffic to the transit gateway for which the metering policy entry is applicable"
+      },
+      "sourcePortRange": {
+        "type": "string",
+        "description": "The list of ports on source instances sending traffic to the transit gateway"
+      },
+      "sourceTransitGatewayAttachmentId": {
+        "type": "string",
+        "description": "The ID of the source attachment through which traffic enters a transit gateway"
+      },
+      "sourceTransitGatewayAttachmentType": {
+        "$ref": "#/types/aws-native:ec2:TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType",
+        "description": "The type of the attachment through which traffic enters a  transit gateway"
+      },
+      "transitGatewayMeteringPolicyId": {
+        "type": "string",
+        "description": "The ID of the transit gateway metering policy for which the entry is being created"
       }
     }
   },
@@ -6800,7 +6918,8 @@
         "description": "The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.\n Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both."
       },
       "availabilityZoneId": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of the Availability Zone in which to create the volume. For example, `use1-az1` .\n\nEither `AvailabilityZone` or `AvailabilityZoneId` must be specified, but not both.\n\nIf you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume."
       },
       "encrypted": {
         "type": "boolean",
@@ -6831,7 +6950,8 @@
         "description": "The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size."
       },
       "sourceVolumeId": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of the source EBS volume to copy. When specified, the volume is created as an exact copy of the specified volume. Only specify to create a volume copy. To create a new empty volume or to create a volume from a snapshot, omit this parameter,"
       },
       "tags": {
         "type": "array",
@@ -6982,6 +7102,58 @@
       "vpcId": {
         "type": "string",
         "description": "The ID of the VPC."
+      }
+    }
+  },
+  "aws-native:ec2:VpcEncryptionControl": {
+    "cfTypeName": "AWS::EC2::VPCEncryptionControl",
+    "properties": {
+      "egressOnlyInternetGatewayExclusionInput": {
+        "$ref": "#/types/aws-native:ec2:VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput",
+        "description": "Used to enable or disable EIGW exclusion"
+      },
+      "elasticFileSystemExclusionInput": {
+        "$ref": "#/types/aws-native:ec2:VpcEncryptionControlElasticFileSystemExclusionInput",
+        "description": "Used to enable or disable EFS exclusion"
+      },
+      "internetGatewayExclusionInput": {
+        "$ref": "#/types/aws-native:ec2:VpcEncryptionControlInternetGatewayExclusionInput",
+        "description": "Used to enable or disable IGW exclusion"
+      },
+      "lambdaExclusionInput": {
+        "$ref": "#/types/aws-native:ec2:VpcEncryptionControlLambdaExclusionInput",
+        "description": "Used to enable or disable Lambda exclusion"
+      },
+      "mode": {
+        "$ref": "#/types/aws-native:ec2:VpcEncryptionControlMode",
+        "description": "The VPC encryption control mode, either monitor or enforce."
+      },
+      "natGatewayExclusionInput": {
+        "$ref": "#/types/aws-native:ec2:VpcEncryptionControlNatGatewayExclusionInput",
+        "description": "Used to enable or disable Nat gateway exclusion"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags to assign to the VPC encryption control."
+      },
+      "virtualPrivateGatewayExclusionInput": {
+        "$ref": "#/types/aws-native:ec2:VpcEncryptionControlVirtualPrivateGatewayExclusionInput",
+        "description": "Used to enable or disable VGW exclusion"
+      },
+      "vpcId": {
+        "type": "string",
+        "description": "The VPC on which this VPC encryption control is applied."
+      },
+      "vpcLatticeExclusionInput": {
+        "$ref": "#/types/aws-native:ec2:VpcEncryptionControlVpcLatticeExclusionInput",
+        "description": "Used to enable or disable Vpc Lattice exclusion"
+      },
+      "vpcPeeringExclusionInput": {
+        "$ref": "#/types/aws-native:ec2:VpcEncryptionControlVpcPeeringExclusionInput",
+        "description": "Used to enable or disable VPC peering exclusion"
       }
     }
   },
@@ -7212,6 +7384,26 @@
       }
     }
   },
+  "aws-native:ec2:VpnConcentrator": {
+    "cfTypeName": "AWS::EC2::VPNConcentrator",
+    "properties": {
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Any tags assigned to the VPN concentrator."
+      },
+      "transitGatewayId": {
+        "type": "string",
+        "description": "The ID of the transit gateway"
+      },
+      "type": {
+        "type": "string",
+        "description": "The type of VPN concentrator"
+      }
+    }
+  },
   "aws-native:ec2:VpnConnection": {
     "cfTypeName": "AWS::EC2::VPNConnection",
     "properties": {
@@ -7266,6 +7458,9 @@
         "type": "string",
         "description": "The transit gateway attachment ID to use for the VPN tunnel.\n Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``."
       },
+      "tunnelBandwidth": {
+        "$ref": "#/types/aws-native:ec2:VpnConnectionTunnelBandwidth"
+      },
       "tunnelInsideIpVersion": {
         "type": "string",
         "description": "Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.\n Default: ``ipv4``"
@@ -7273,6 +7468,9 @@
       "type": {
         "type": "string",
         "description": "The type of VPN connection."
+      },
+      "vpnConcentratorId": {
+        "type": "string"
       },
       "vpnGatewayId": {
         "type": "string",
@@ -7346,6 +7544,15 @@
       "upstreamRepositoryPrefix": {
         "type": "string",
         "description": "The upstream repository prefix associated with the pull through cache rule."
+      }
+    }
+  },
+  "aws-native:ecr:PullTimeUpdateExclusion": {
+    "cfTypeName": "AWS::ECR::PullTimeUpdateExclusion",
+    "properties": {
+      "principalArn": {
+        "type": "string",
+        "description": "The ARN of the IAM principal to remove from the pull time update exclusion list."
       }
     }
   },
@@ -7439,6 +7646,18 @@
           "$ref": "#/types/aws-native:ecr:RepositoryCreationTemplateTag"
         },
         "description": "The metadata to apply to the repository to help you categorize and organize. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters."
+      }
+    }
+  },
+  "aws-native:ecr:SigningConfiguration": {
+    "cfTypeName": "AWS::ECR::SigningConfiguration",
+    "properties": {
+      "rules": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:ecr:SigningConfigurationRule"
+        },
+        "description": "Array of signing rules that define which repositories should be signed and with which signing profiles."
       }
     }
   },
@@ -8367,7 +8586,7 @@
     "properties": {
       "snsRoleName": {
         "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity."
+        "description": "The Amazon Resource Name (ARN) of the IAM role that allows Amazon  to record AWS Firewall Manager activity."
       },
       "snsTopicArn": {
         "type": "string",
@@ -8426,23 +8645,23 @@
     "properties": {
       "batchImportMetaDataOnCreate": {
         "type": "boolean",
-        "description": "A boolean flag indicating whether an import data repository task to import metadata should run after the data repository association is created. The task runs if this flag is set to ``true``."
+        "description": "A boolean flag indicating whether an import data repository task to import metadata should run after the data repository association is created. The task runs if this flag is set to true."
       },
       "dataRepositoryPath": {
         "type": "string",
-        "description": "The path to the Amazon S3 data repository that will be linked to the file system. The path can be an S3 bucket or prefix in the format ``s3://myBucket/myPrefix/``. This path specifies where in the S3 data repository files will be imported from or exported to."
+        "description": "The path to the Amazon S3 data repository that will be linked to the file system. The path can be an S3 bucket or prefix in the format s3://myBucket/myPrefix/ . This path specifies where in the S3 data repository files will be imported from or exported to."
       },
       "fileSystemId": {
         "type": "string",
-        "description": "The ID of the file system on which the data repository association is configured."
+        "description": "The globally unique ID of the file system, assigned by Amazon FSx."
       },
       "fileSystemPath": {
         "type": "string",
-        "description": "A path on the Amazon FSx for Lustre file system that points to a high-level directory (such as ``/ns1/``) or subdirectory (such as ``/ns1/subdir/``) that will be mapped 1-1 with ``DataRepositoryPath``. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path ``/ns1/``, then you cannot link another data repository with file system path ``/ns1/ns2``.\n This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.\n  If you specify only a forward slash (``/``) as the file system path, you can link only one data repository to the file system. You can only specify \"/\" as the file system path for the first data repository associated with a file system."
+        "description": "This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory."
       },
       "importedFileChunkSize": {
         "type": "integer",
-        "description": "For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system or cache.\n The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB."
+        "description": "For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system."
       },
       "s3": {
         "$ref": "#/types/aws-native:fsx:DataRepositoryAssociationS3",
@@ -8453,7 +8672,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "An array of key-value pairs to apply to this resource.\n For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html)."
+        "description": "A list of Tag values, with a maximum of 50 elements."
       }
     }
   },
@@ -8689,6 +8908,26 @@
       }
     }
   },
+  "aws-native:glue:IdentityCenterConfiguration": {
+    "cfTypeName": "AWS::Glue::IdentityCenterConfiguration",
+    "properties": {
+      "instanceArn": {
+        "type": "string",
+        "description": "The IAM identity center instance arn"
+      },
+      "scopes": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The downstream scopes that Glue identity center configuration can access"
+      },
+      "userBackgroundSessionsEnabled": {
+        "type": "boolean",
+        "description": "Enable or disable user background sessions for Glue Identity Center"
+      }
+    }
+  },
   "aws-native:glue:IntegrationResourceProperty": {
     "cfTypeName": "AWS::Glue::IntegrationResourceProperty",
     "properties": {
@@ -8759,7 +8998,7 @@
         "additionalProperties": {
           "type": "string"
         },
-        "description": "Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .\n\nThis `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.\n\n```json\n\"Tags\": { \"KeyName0\": \"value\", \"KeyName1\": \"value\", \"KeyName2\": \"value\"\n}\n```"
+        "description": "Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .\n\nThis `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in CloudFormation templates.\n\n```json\n\"Tags\": { \"KeyName0\": \"value\", \"KeyName1\": \"value\", \"KeyName2\": \"value\"\n}\n```"
       }
     }
   },
@@ -9253,7 +9492,7 @@
       },
       "kmsAccessRoleArn": {
         "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer."
+        "description": "The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS  on behalf of the customer."
       },
       "kmsKeyArn": {
         "type": "string",
@@ -9656,7 +9895,7 @@
       },
       "keySpec": {
         "$ref": "#/types/aws-native:kms:KeySpec",
-        "description": "Specifies the type of KMS key to create. The default value, ``SYMMETRIC_DEFAULT``, creates a KMS key with a 256-bit symmetric key for encryption and decryption. In China Regions, ``SYMMETRIC_DEFAULT`` creates a 128-bit symmetric key that uses SM4 encryption. You can't change the ``KeySpec`` value after the KMS key is created. For help choosing a key spec for your KMS key, see [Choosing a KMS key type](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *Developer Guide*.\n The ``KeySpec`` property determines the type of key material in the KMS key and the algorithms that the KMS key supports. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see [condition keys](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms) in the *Developer Guide*.\n  If you change the value of the ``KeySpec`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.\n   [services that are integrated with](https://docs.aws.amazon.com/kms/features/#AWS_Service_Integration) use symmetric encryption KMS keys to protect your data. These services do not support encryption with asymmetric KMS keys. For help determining whether a KMS key is asymmetric, see [Identifying asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *Developer Guide*.\n  KMS supports the following key specs for KMS keys:\n  +  Symmetric encryption key (default)\n  +  ``SYMMETRIC_DEFAULT`` (AES-256-GCM)\n  \n  +  HMAC keys (symmetric)\n  +   ``HMAC_224`` \n  +   ``HMAC_256`` \n  +   ``HMAC_384`` \n  +   ``HMAC_512`` \n  \n  +  Asymmetric RSA key pairs (encryption and decryption *or* signing and verification)\n  +   ``RSA_2048`` \n  +   ``RSA_3072`` \n  +   ``RSA_4096`` \n  \n  +  Asymmetric NIST-recommended elliptic curve key pairs (signing and verification *or* deriving shared secrets)\n  +  ``ECC_NIST_P256`` (secp256r1)\n  +  ``ECC_NIST_P384`` (secp384r1)\n  +  ``ECC_NIST_P521`` (secp521r1)\n  \n  +  Other asymmetric elliptic curve key pairs (signing and verification)\n  +  ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.\n  \n  +  Asymmetric ML-DSA key pairs (signing and verification)\n  +   ``ML_DSA_44`` \n  +   ``ML_DSA_65`` \n  +   ``ML_DSA_87`` \n  \n  +  SM2 key pairs (encryption and decryption *or* signing and verification *or* deriving shared secrets)\n  +  ``SM2`` (China Regions only)"
+        "description": "Specifies the type of KMS key to create. The default value, ``SYMMETRIC_DEFAULT``, creates a KMS key with a 256-bit symmetric key for encryption and decryption. In China Regions, ``SYMMETRIC_DEFAULT`` creates a 128-bit symmetric key that uses SM4 encryption. You can't change the ``KeySpec`` value after the KMS key is created. For help choosing a key spec for your KMS key, see [Choosing a KMS key type](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html) in the *Developer Guide*.\n The ``KeySpec`` property determines the type of key material in the KMS key and the algorithms that the KMS key supports. To further restrict the algorithms that can be used with the KMS key, use a condition key in its key policy or IAM policy. For more information, see [condition keys](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms) in the *Developer Guide*.\n  If you change the value of the ``KeySpec`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.\n   [services that are integrated with](https://docs.aws.amazon.com/kms/features/#AWS_Service_Integration) use symmetric encryption KMS keys to protect your data. These services do not support encryption with asymmetric KMS keys. For help determining whether a KMS key is asymmetric, see [Identifying asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *Developer Guide*.\n  KMS supports the following key specs for KMS keys:\n  +  Symmetric encryption key (default)\n  +  ``SYMMETRIC_DEFAULT`` (AES-256-GCM)\n  \n  +  HMAC keys (symmetric)\n  +   ``HMAC_224`` \n  +   ``HMAC_256`` \n  +   ``HMAC_384`` \n  +   ``HMAC_512`` \n  \n  +  Asymmetric RSA key pairs (encryption and decryption *or* signing and verification)\n  +   ``RSA_2048`` \n  +   ``RSA_3072`` \n  +   ``RSA_4096`` \n  \n  +  Asymmetric NIST-recommended elliptic curve key pairs (signing and verification *or* deriving shared secrets)\n  +  ``ECC_NIST_P256`` (secp256r1)\n  +  ``ECC_NIST_P384`` (secp384r1)\n  +  ``ECC_NIST_P521`` (secp521r1)\n  +  ``ECC_NIST_EDWARDS25519`` (ed25519) - signing and verification only\n  +  *Note:* For ECC_NIST_EDWARDS25519 KMS keys, the ED25519_SHA_512 signing algorithm requires [MessageType:RAW](https://docs.aws.amazon.com/kms/latest/APIReference/API_Sign.html#KMS-Sign-request-MessageType), while ED25519_PH_SHA_512 requires [MessageType:DIGEST](https://docs.aws.amazon.com/kms/latest/APIReference/API_Sign.html#KMS-Sign-request-MessageType). These message types cannot be used interchangeably.\n  \n  \n  +  Other asymmetric elliptic curve key pairs (signing and verification)\n  +  ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.\n  \n  +  Asymmetric ML-DSA key pairs (signing and verification)\n  +   ``ML_DSA_44`` \n  +   ``ML_DSA_65`` \n  +   ``ML_DSA_87`` \n  \n  +  SM2 key pairs (encryption and decryption *or* signing and verification *or* deriving shared secrets)\n  +  ``SM2`` (China Regions only)"
       },
       "keyUsage": {
         "$ref": "#/types/aws-native:kms:KeyUsage",
@@ -9885,6 +10124,10 @@
         "type": "string",
         "description": "The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics)."
       },
+      "loggingConfig": {
+        "$ref": "#/types/aws-native:lambda:EventSourceMappingLoggingConfig",
+        "description": "The function's Amazon CloudWatch Logs configuration settings."
+      },
       "maximumBatchingWindowInSeconds": {
         "type": "integer",
         "description": "The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.\n *Default (, , event sources)*: 0\n *Default (, Kafka, , event sources)*: 500 ms\n *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1."
@@ -9907,7 +10150,7 @@
       },
       "provisionedPollerConfig": {
         "$ref": "#/types/aws-native:lambda:EventSourceMappingProvisionedPollerConfig",
-        "description": "(Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode)."
+        "description": "(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode)."
       },
       "queues": {
         "type": "array",
@@ -9918,7 +10161,7 @@
       },
       "scalingConfig": {
         "$ref": "#/types/aws-native:lambda:EventSourceMappingScalingConfig",
-        "description": "(Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency)."
+        "description": "This property is for Amazon SQS event sources only. You cannot use ``ProvisionedPollerConfig`` while using ``ScalingConfig``. These options are mutually exclusive. To remove the scaling configuration, pass an empty value."
       },
       "selfManagedEventSource": {
         "$ref": "#/types/aws-native:lambda:EventSourceMappingSelfManagedEventSource",
@@ -10036,11 +10279,11 @@
       },
       "functionUrlAuthType": {
         "$ref": "#/types/aws-native:lambda:PermissionFunctionUrlAuthType",
-        "description": "The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html)."
+        "description": "The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html)."
       },
       "invokedViaFunctionUrl": {
         "type": "boolean",
-        "description": "Restricts the `lambda:InvokeFunction` action to function URL calls. When specified, this option prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) ."
+        "description": "Restricts the ``lambda:InvokeFunction`` action to function URL calls. When specified, this option prevents the principal from invoking the function by any means other than the function URL. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html)."
       },
       "principal": {
         "type": "string",
@@ -11926,7 +12169,7 @@
       },
       "encryptionConfiguration": {
         "$ref": "#/types/aws-native:qbusiness:ApplicationEncryptionConfiguration",
-        "description": "Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys."
+        "description": "Provides the identifier of the AWS  key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys."
       },
       "iamIdentityProviderArn": {
         "type": "string",
@@ -12009,7 +12252,7 @@
       },
       "configuration": {
         "$ref": "pulumi.json#/Any",
-        "description": "Use this property to specify a JSON or YAML schema with configuration properties specific to your data source connector to connect your data source repository to Amazon Q Business . You must use the JSON or YAML schema provided by Amazon Q .\n\nThe following links have the configuration properties and schemas for AWS CloudFormation for the following connectors:\n\n- [Amazon Simple Storage Service](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/s3-cfn.html)\n- [Amazon Q Web Crawler](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/web-crawler-cfn.html)\n\nSimilarly, you can find configuration templates and properties for your specific data source using the following steps:\n\n- Navigate to the [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) page in the Amazon Q Business User Guide, and select the data source connector of your choice.\n- Then, from that specific data source connector's page, choose the topic containing *Using AWS CloudFormation* to find the schemas for your data source connector, including configuration parameter descriptions and examples.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property."
+        "description": "Use this property to specify a JSON or YAML schema with configuration properties specific to your data source connector to connect your data source repository to Amazon Q Business . You must use the JSON or YAML schema provided by Amazon Q .\n\nThe following links have the configuration properties and schemas for AWS CloudFormation for the following connectors:\n\n- [Amazon Simple Storage Service](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/s3-cfn.html)\n- [Amazon Q Web Crawler](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/web-crawler-cfn.html)\n\nSimilarly, you can find configuration templates and properties for your specific data source using the following steps:\n\n- Navigate to the [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) page in the Amazon Q Business User Guide, and select the data source connector of your choice.\n- Then, from that specific data source connector's page, choose the topic containing *Using CloudFormation* to find the schemas for your data source connector, including configuration parameter descriptions and examples.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property."
       },
       "description": {
         "type": "string",
@@ -13598,6 +13841,26 @@
       }
     }
   },
+  "aws-native:rtbfabric:InboundExternalLink": {
+    "cfTypeName": "AWS::RTBFabric::InboundExternalLink",
+    "properties": {
+      "gatewayId": {
+        "type": "string"
+      },
+      "linkAttributes": {
+        "$ref": "#/types/aws-native:rtbfabric:InboundExternalLinkLinkAttributes"
+      },
+      "linkLogSettings": {
+        "$ref": "#/types/aws-native:rtbfabric:InboundExternalLinkLinkLogSettings"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      }
+    }
+  },
   "aws-native:rtbfabric:Link": {
     "cfTypeName": "AWS::RTBFabric::Link",
     "properties": {
@@ -13633,6 +13896,29 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "A map of the key-value pairs of the tag or tags to assign to the resource."
+      }
+    }
+  },
+  "aws-native:rtbfabric:OutboundExternalLink": {
+    "cfTypeName": "AWS::RTBFabric::OutboundExternalLink",
+    "properties": {
+      "gatewayId": {
+        "type": "string"
+      },
+      "linkAttributes": {
+        "$ref": "#/types/aws-native:rtbfabric:OutboundExternalLinkLinkAttributes"
+      },
+      "linkLogSettings": {
+        "$ref": "#/types/aws-native:rtbfabric:OutboundExternalLinkLinkLogSettings"
+      },
+      "publicEndpoint": {
+        "type": "string"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
       }
     }
   },
@@ -14060,6 +14346,17 @@
   "aws-native:secretsmanager:RotationSchedule": {
     "cfTypeName": "AWS::SecretsManager::RotationSchedule",
     "properties": {
+      "externalSecretRotationMetadata": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:secretsmanager:RotationScheduleExternalSecretRotationMetadataItem"
+        },
+        "description": "The list of metadata needed to successfully rotate a managed external secret."
+      },
+      "externalSecretRotationRoleArn": {
+        "type": "string",
+        "description": "The ARN of the IAM role that is used by Secrets Manager to rotate a managed external secret."
+      },
       "hostedRotationLambda": {
         "$ref": "#/types/aws-native:secretsmanager:RotationScheduleHostedRotationLambda",
         "description": "Creates a new Lambda rotation function based on one of the Secrets Manager rotation function templates. To use a rotation function that already exists, specify RotationLambdaARN instead."
@@ -15863,6 +16160,22 @@
       }
     }
   },
+  "aws-native:vpclattice:DomainVerification": {
+    "cfTypeName": "AWS::VpcLattice::DomainVerification",
+    "properties": {
+      "domainName": {
+        "type": "string",
+        "description": "The domain name being verified."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags associated with the domain verification."
+      }
+    }
+  },
   "aws-native:vpclattice:ResourcePolicy": {
     "cfTypeName": "AWS::VpcLattice::ResourcePolicy",
     "properties": {
@@ -15879,6 +16192,10 @@
   "aws-native:vpclattice:ServiceNetworkResourceAssociation": {
     "cfTypeName": "AWS::VpcLattice::ServiceNetworkResourceAssociation",
     "properties": {
+      "privateDnsEnabled": {
+        "type": "boolean",
+        "description": "Indicates if private DNS is enabled for the service network resource association."
+      },
       "resourceConfigurationId": {
         "type": "string",
         "description": "The ID of the resource configuration associated with the service network."
@@ -15923,6 +16240,14 @@
   "aws-native:vpclattice:ServiceNetworkVpcAssociation": {
     "cfTypeName": "AWS::VpcLattice::ServiceNetworkVpcAssociation",
     "properties": {
+      "dnsOptions": {
+        "$ref": "#/types/aws-native:vpclattice:ServiceNetworkVpcAssociationDnsOptions",
+        "description": "The DNS options for the service network VPC association."
+      },
+      "privateDnsEnabled": {
+        "type": "boolean",
+        "description": "Indicates if private DNS is enabled for the service network VPC association."
+      },
       "securityGroupIds": {
         "type": "array",
         "items": {
@@ -16193,6 +16518,10 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The tags to add to the browser settings resource. A tag is a key-value pair."
+      },
+      "webContentFilteringPolicy": {
+        "$ref": "#/types/aws-native:workspacesweb:BrowserSettingsWebContentFilteringPolicy",
+        "description": "The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security."
       }
     }
   },
@@ -16347,7 +16676,7 @@
       },
       "sessionLoggerArn": {
         "type": "string",
-        "description": "The ARN of the session logger that is assocaited with the portal."
+        "description": "The ARN of the session logger that is associated with the portal."
       },
       "tags": {
         "type": "array",
@@ -16407,7 +16736,8 @@
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
-        }
+        },
+        "description": "The tags of the session logger."
       }
     }
   },

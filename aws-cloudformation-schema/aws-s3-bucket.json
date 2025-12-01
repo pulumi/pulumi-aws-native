@@ -108,6 +108,11 @@
       },
       "type" : "array"
     },
+    "AbacStatus" : {
+      "description" : "",
+      "enum" : [ "Enabled", "Disabled" ],
+      "type" : "string"
+    },
     "VersioningConfiguration" : {
       "$ref" : "#/definitions/VersioningConfiguration",
       "description" : "Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.\n  When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket."
@@ -284,6 +289,10 @@
         "ServerSideEncryptionByDefault" : {
           "$ref" : "#/definitions/ServerSideEncryptionByDefault",
           "description" : "Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied."
+        },
+        "BlockedEncryptionTypes" : {
+          "$ref" : "#/definitions/BlockedEncryptionTypes",
+          "description" : ""
         }
       }
     },
@@ -303,6 +312,26 @@
       },
       "additionalProperties" : false,
       "required" : [ "SSEAlgorithm" ]
+    },
+    "BlockedEncryptionTypes" : {
+      "description" : "",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "EncryptionType" : {
+          "$ref" : "#/definitions/BlockedEncryptionTypeList"
+        }
+      }
+    },
+    "BlockedEncryptionTypeList" : {
+      "description" : "List of encryption types.",
+      "type" : "array",
+      "items" : {
+        "type" : "string",
+        "enum" : [ "NONE", "SSE-C" ]
+      },
+      "uniqueItems" : true,
+      "insertionOrder" : true
     },
     "CorsConfiguration" : {
       "type" : "object",
@@ -1580,7 +1609,7 @@
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
-    "permissions" : [ "s3:PutBucketTagging", "s3:GetBucketTagging", "s3:DeleteBucketTagging" ]
+    "permissions" : [ "s3:PutBucketTagging", "s3:GetBucketTagging", "s3:DeleteBucketTagging", "s3:TagResource", "s3:UntagResource", "s3:ListTagsForResource" ]
   },
   "createOnlyProperties" : [ "/properties/BucketName", "/properties/MetadataConfiguration/JournalTableConfiguration/EncryptionConfiguration" ],
   "primaryIdentifier" : [ "/properties/BucketName" ],
@@ -1593,13 +1622,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "s3:CreateBucket", "s3:PutBucketTagging", "s3:PutAnalyticsConfiguration", "s3:PutEncryptionConfiguration", "s3:PutBucketCORS", "s3:PutInventoryConfiguration", "s3:PutLifecycleConfiguration", "s3:PutMetricsConfiguration", "s3:PutBucketNotification", "s3:PutBucketReplication", "s3:PutBucketWebsite", "s3:PutAccelerateConfiguration", "s3:PutBucketPublicAccessBlock", "s3:PutReplicationConfiguration", "s3:PutObjectAcl", "s3:PutBucketObjectLockConfiguration", "s3:GetBucketAcl", "s3:ListBucket", "iam:PassRole", "s3:DeleteObject", "s3:PutBucketLogging", "s3:PutBucketVersioning", "s3:PutObjectLockConfiguration", "s3:PutBucketOwnershipControls", "s3:PutIntelligentTieringConfiguration", "s3:GetBucketMetadataTableConfiguration", "s3:CreateBucketMetadataTableConfiguration", "s3tables:CreateNamespace", "s3tables:CreateTable", "s3tables:CreateTableBucket", "s3tables:GetTable", "s3tables:PutTableEncryption", "s3tables:PutTablePolicy", "s3tables:GetTableMetadataLocation", "s3tables:UpdateTableMetadataLocation" ]
+      "permissions" : [ "s3:CreateBucket", "s3:PutBucketTagging", "s3:TagResource", "s3:PutBucketAbac", "s3:PutAnalyticsConfiguration", "s3:PutEncryptionConfiguration", "s3:PutBucketCORS", "s3:PutInventoryConfiguration", "s3:PutLifecycleConfiguration", "s3:PutMetricsConfiguration", "s3:PutBucketNotification", "s3:PutBucketReplication", "s3:PutBucketWebsite", "s3:PutAccelerateConfiguration", "s3:PutBucketPublicAccessBlock", "s3:PutReplicationConfiguration", "s3:PutObjectAcl", "s3:PutBucketObjectLockConfiguration", "s3:GetBucketAcl", "s3:ListBucket", "iam:PassRole", "s3:DeleteObject", "s3:PutBucketLogging", "s3:PutBucketVersioning", "s3:PutObjectLockConfiguration", "s3:PutBucketOwnershipControls", "s3:PutIntelligentTieringConfiguration", "s3:GetBucketMetadataTableConfiguration", "s3:CreateBucketMetadataTableConfiguration", "s3tables:CreateNamespace", "s3tables:CreateTable", "s3tables:CreateTableBucket", "s3tables:GetTable", "s3tables:PutTableBucketPolicy", "s3tables:PutTableEncryption", "s3tables:PutTablePolicy", "s3tables:GetTableMetadataLocation", "s3tables:UpdateTableMetadataLocation" ]
     },
     "read" : {
-      "permissions" : [ "s3:GetAccelerateConfiguration", "s3:GetLifecycleConfiguration", "s3:GetBucketPublicAccessBlock", "s3:GetAnalyticsConfiguration", "s3:GetBucketCORS", "s3:GetEncryptionConfiguration", "s3:GetInventoryConfiguration", "s3:GetBucketLogging", "s3:GetMetricsConfiguration", "s3:GetBucketNotification", "s3:GetBucketVersioning", "s3:GetReplicationConfiguration", "S3:GetBucketWebsite", "s3:GetBucketPublicAccessBlock", "s3:GetBucketObjectLockConfiguration", "s3:GetBucketTagging", "s3:GetBucketOwnershipControls", "s3:GetIntelligentTieringConfiguration", "s3:GetBucketMetadataTableConfiguration", "s3:ListBucket" ]
+      "permissions" : [ "s3:GetAccelerateConfiguration", "s3:GetLifecycleConfiguration", "s3:GetBucketPublicAccessBlock", "s3:GetAnalyticsConfiguration", "s3:GetBucketCORS", "s3:GetEncryptionConfiguration", "s3:GetInventoryConfiguration", "s3:GetBucketLogging", "s3:GetMetricsConfiguration", "s3:GetBucketNotification", "s3:GetBucketVersioning", "s3:GetReplicationConfiguration", "S3:GetBucketWebsite", "s3:GetBucketPublicAccessBlock", "s3:GetBucketObjectLockConfiguration", "s3:GetBucketTagging", "s3:ListTagsForResource", "s3:GetBucketAbac", "s3:GetBucketOwnershipControls", "s3:GetIntelligentTieringConfiguration", "s3:GetBucketMetadataTableConfiguration", "s3:ListBucket" ]
     },
     "update" : {
-      "permissions" : [ "s3:PutBucketAcl", "s3:PutBucketTagging", "s3:PutAnalyticsConfiguration", "s3:PutEncryptionConfiguration", "s3:PutBucketCORS", "s3:PutInventoryConfiguration", "s3:PutLifecycleConfiguration", "s3:PutMetricsConfiguration", "s3:PutBucketNotification", "s3:PutBucketReplication", "s3:PutBucketWebsite", "s3:PutAccelerateConfiguration", "s3:GetBucketMetadataTableConfiguration", "s3:DeleteBucketMetadataTableConfiguration", "s3:CreateBucketMetadataTableConfiguration", "s3:UpdateBucketMetadataJournalTableConfiguration", "s3:UpdateBucketMetadataInventoryTableConfiguration", "s3tables:CreateNamespace", "s3tables:CreateTable", "s3tables:CreateTableBucket", "s3tables:GetTable", "s3tables:PutTableEncryption", "s3tables:PutTablePolicy", "s3tables:GetTableMetadataLocation", "s3tables:UpdateTableMetadataLocation", "s3:PutBucketPublicAccessBlock", "s3:PutReplicationConfiguration", "s3:PutBucketOwnershipControls", "s3:PutIntelligentTieringConfiguration", "s3:DeleteBucketWebsite", "s3:PutBucketLogging", "s3:PutBucketVersioning", "s3:PutObjectLockConfiguration", "s3:PutBucketObjectLockConfiguration", "s3:DeleteBucketAnalyticsConfiguration", "s3:DeleteBucketCors", "s3:DeleteBucketMetricsConfiguration", "s3:DeleteBucketEncryption", "s3:DeleteBucketLifecycle", "s3:DeleteBucketReplication", "iam:PassRole", "s3:ListBucket" ]
+      "permissions" : [ "s3:PutBucketAcl", "s3:PutBucketTagging", "s3:TagResource", "s3:UntagResource", "s3:PutBucketAbac", "s3:PutAnalyticsConfiguration", "s3:PutEncryptionConfiguration", "s3:PutBucketCORS", "s3:PutInventoryConfiguration", "s3:PutLifecycleConfiguration", "s3:PutMetricsConfiguration", "s3:PutBucketNotification", "s3:PutBucketReplication", "s3:PutBucketWebsite", "s3:PutAccelerateConfiguration", "s3:GetBucketMetadataTableConfiguration", "s3:DeleteBucketMetadataTableConfiguration", "s3:CreateBucketMetadataTableConfiguration", "s3:UpdateBucketMetadataJournalTableConfiguration", "s3:UpdateBucketMetadataInventoryTableConfiguration", "s3tables:CreateNamespace", "s3tables:CreateTable", "s3tables:CreateTableBucket", "s3tables:GetTable", "s3tables:PutTableBucketPolicy", "s3tables:PutTableEncryption", "s3tables:PutTablePolicy", "s3tables:GetTableMetadataLocation", "s3tables:UpdateTableMetadataLocation", "s3:PutBucketPublicAccessBlock", "s3:PutReplicationConfiguration", "s3:PutBucketOwnershipControls", "s3:PutIntelligentTieringConfiguration", "s3:DeleteBucketWebsite", "s3:PutBucketLogging", "s3:PutBucketVersioning", "s3:PutObjectLockConfiguration", "s3:PutBucketObjectLockConfiguration", "s3:DeleteBucketAnalyticsConfiguration", "s3:DeleteBucketCors", "s3:DeleteBucketMetricsConfiguration", "s3:DeleteBucketEncryption", "s3:DeleteBucketLifecycle", "s3:DeleteBucketReplication", "iam:PassRole", "s3:ListBucket" ]
     },
     "delete" : {
       "permissions" : [ "s3:DeleteBucket", "s3:ListBucket" ]

@@ -67,7 +67,7 @@
     },
     "LinkStatus" : {
       "type" : "string",
-      "enum" : [ "PENDING_CREATION", "PENDING_REQUEST", "REQUESTED", "ACCEPTED", "ACTIVE", "DECLINED", "FAILED", "PENDING_DELETION", "DELETED", "PENDING_UPDATE", "PENDING_ISOLATION", "ISOLATED", "PENDING_RESTORATION", "UNKNOWN_TO_SDK_VERSION" ]
+      "enum" : [ "PENDING_CREATION", "PENDING_REQUEST", "REQUESTED", "ACCEPTED", "ACTIVE", "REJECTED", "FAILED", "PENDING_DELETION", "DELETED", "PENDING_UPDATE", "PENDING_ISOLATION", "ISOLATED", "PENDING_RESTORATION", "UNKNOWN_TO_SDK_VERSION" ]
     },
     "CreatedTimestamp" : {
       "type" : "string"
@@ -406,7 +406,7 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : true,
+    "cloudFormationSystemTags" : false,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "rtbfabric:TagResource", "rtbfabric:UntagResource", "rtbfabric:ListTagsForResource" ]
   },
