@@ -27,7 +27,7 @@ jobs:
       contents: write
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+      uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
       with:
         lfs: true    
     - env:
@@ -43,7 +43,7 @@ jobs:
       uses: ./.github/actions/setup-tools
       with:
         cache: 'true'
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
     - name: Generate Pulumi Access Token
       id: generate_pulumi_token
       uses: pulumi/auth-actions@1c89817aab0c66407723cdef72b05266e7376640 # v1.0.1
@@ -52,7 +52,7 @@ jobs:
         requested-token-type: urn:pulumi:token-type:access_token:organization
         export-environment-variables: false
     - name: Export AWS Credentials
-      uses: pulumi/esc-action@6cf9520e68354d86f81c455e8d43eabd58f5c9f5 # v1.5.0
+      uses: pulumi/esc-action@efb0bc8946938f0dfbfa00e829196ec95f0d0ea7 # v1.4.0
       env:
         PULUMI_ACCESS_TOKEN: ${{ steps.generate_pulumi_token.outputs.pulumi-access-token }}
       with:
