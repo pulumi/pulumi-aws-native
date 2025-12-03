@@ -1028,6 +1028,22 @@ func (ctx *cfSchemaContext) gatherListHandlerSchema() *metadata.ListHandlerSchem
 					prop.Type = typ
 				}
 
+				if prop.Description == "" && prop.Type == "" {
+					if ref, ok := propMap["$ref"].(string); ok {
+						name := parsePropertyNameFromRef(ref)
+						if name != "" {
+							if propSchema, ok := ctx.resourceSpec.Properties[name]; ok && propSchema != nil {
+								if prop.Description == "" && propSchema.Description != "" {
+									prop.Description = naming.SanitizeCfnString(propSchema.Description)
+								}
+								if prop.Type == "" {
+									prop.Type = firstPrimitiveType(propSchema.Type)
+								}
+							}
+						}
+					}
+				}
+
 				// Only include properties when at least one field is present.
 				if prop.Description == "" && prop.Type == "" {
 					continue
@@ -1046,6 +1062,37 @@ func (ctx *cfSchemaContext) gatherListHandlerSchema() *metadata.ListHandlerSchem
 	}
 
 	return result
+}
+
+func parsePropertyNameFromRef(ref string) string {
+	const propToken = "/properties/"
+	idx := strings.Index(ref, propToken)
+	if idx == -1 {
+		return ""
+	}
+	return ref[idx+len(propToken):]
+}
+
+func firstPrimitiveType(types jsschema.PrimitiveTypes) string {
+	for _, t := range types {
+		switch t {
+		case jsschema.StringType:
+			return "string"
+		case jsschema.NumberType:
+			return "number"
+		case jsschema.IntegerType:
+			return "integer"
+		case jsschema.BooleanType:
+			return "boolean"
+		case jsschema.ArrayType:
+			return "array"
+		case jsschema.ObjectType:
+			return "object"
+		case jsschema.NullType:
+			return "null"
+		}
+	}
+	return ""
 }
 
 func addUntypedPropDocs(propertySpec *pschema.PropertySpec, cfTypeName string) {

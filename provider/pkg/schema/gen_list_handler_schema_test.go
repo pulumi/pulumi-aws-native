@@ -13,6 +13,12 @@ import (
 func TestGatherListHandlerSchema(t *testing.T) {
 	ctx := cfSchemaContext{
 		resourceSpec: &jsschema.Schema{
+			Properties: map[string]*jsschema.Schema{
+				"FunctionName": {
+					Type:        jsschema.PrimitiveTypes{jsschema.StringType},
+					Description: "The name of the function from base schema.",
+				},
+			},
 			Extras: map[string]interface{}{
 				"handlers": map[string]interface{}{
 					"list": map[string]interface{}{
@@ -43,6 +49,41 @@ func TestGatherListHandlerSchema(t *testing.T) {
 		"FunctionName": {
 			Description: "The name of the function.",
 			Type:        "string",
+		},
+	}, listSchema.Properties)
+}
+
+func TestGatherListHandlerSchemaWithRefFallback(t *testing.T) {
+	ctx := cfSchemaContext{
+		resourceSpec: &jsschema.Schema{
+			Properties: map[string]*jsschema.Schema{
+				"ApiId": {
+					Type: jsschema.PrimitiveTypes{jsschema.StringType},
+				},
+			},
+			Extras: map[string]interface{}{
+				"handlers": map[string]interface{}{
+					"list": map[string]interface{}{
+						"handlerSchema": map[string]interface{}{
+							"properties": map[string]interface{}{
+								"ApiId": map[string]interface{}{
+									"$ref": "resource-schema.json#/properties/ApiId",
+								},
+							},
+							"required": []interface{}{"ApiId"},
+						},
+					},
+				},
+			},
+		},
+	}
+
+	listSchema := ctx.gatherListHandlerSchema()
+	require.NotNil(t, listSchema)
+	assert.Equal(t, []string{"ApiId"}, listSchema.Required)
+	assert.Equal(t, map[string]metadata.ListHandlerProperty{
+		"ApiId": {
+			Type: "string",
 		},
 	}, listSchema.Properties)
 }
