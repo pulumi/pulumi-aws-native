@@ -957,6 +957,7 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 		TagsProperty:      naming.ToSdkName(tagsProp),
 		TagsStyle:         tagsStyle,
 		PrimaryIdentifier: ctx.gatherResourcePrimaryIdentifier(),
+		ListHandlerSchema: ctx.gatherListHandlerSchema(),
 	}
 	return nil
 }
@@ -968,6 +969,83 @@ func (ctx *cfSchemaContext) gatherResourcePrimaryIdentifier() []string {
 		identifiers[i] = naming.ToSdkName(v)
 	}
 	return identifiers
+}
+
+func (ctx *cfSchemaContext) gatherListHandlerSchema() *metadata.ListHandlerSchema {
+	handlersAny, ok := ctx.resourceSpec.Extras["handlers"]
+	if !ok {
+		return nil
+	}
+	handlers, ok := handlersAny.(map[string]interface{})
+	if !ok {
+		return nil
+	}
+
+	listAny, ok := handlers["list"]
+	if !ok {
+		return nil
+	}
+	list, ok := listAny.(map[string]interface{})
+	if !ok {
+		return nil
+	}
+
+	handlerSchemaAny, ok := list["handlerSchema"]
+	if !ok {
+		return nil
+	}
+	handlerSchema, ok := handlerSchemaAny.(map[string]interface{})
+	if !ok {
+		return nil
+	}
+
+	result := &metadata.ListHandlerSchema{}
+
+	if reqAny, ok := handlerSchema["required"]; ok {
+		if reqSlice, ok := reqAny.([]interface{}); ok {
+			for _, v := range reqSlice {
+				if s, ok := v.(string); ok {
+					result.Required = append(result.Required, s)
+				}
+			}
+		}
+	}
+
+	if propsAny, ok := handlerSchema["properties"]; ok {
+		if propsMap, ok := propsAny.(map[string]interface{}); ok {
+			result.Properties = map[string]metadata.ListHandlerProperty{}
+			for name, propVal := range propsMap {
+				propMap, ok := propVal.(map[string]interface{})
+				if !ok {
+					continue
+				}
+
+				var prop metadata.ListHandlerProperty
+				if desc, ok := propMap["description"].(string); ok {
+					prop.Description = desc
+				}
+				if typ, ok := propMap["type"].(string); ok {
+					prop.Type = typ
+				}
+
+				// Only include properties when at least one field is present.
+				if prop.Description == "" && prop.Type == "" {
+					continue
+				}
+
+				result.Properties[name] = prop
+			}
+			if len(result.Properties) == 0 {
+				result.Properties = nil
+			}
+		}
+	}
+
+	if len(result.Required) == 0 && len(result.Properties) == 0 {
+		return nil
+	}
+
+	return result
 }
 
 func addUntypedPropDocs(propertySpec *pschema.PropertySpec, cfTypeName string) {
