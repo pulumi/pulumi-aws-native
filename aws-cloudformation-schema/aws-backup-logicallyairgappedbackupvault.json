@@ -77,12 +77,12 @@
     "permissions" : [ "backup:TagResource", "backup:UntagResource", "backup:ListTags" ]
   },
   "required" : [ "BackupVaultName", "MinRetentionDays", "MaxRetentionDays" ],
-  "createOnlyProperties" : [ "/properties/BackupVaultName", "/properties/MinRetentionDays", "/properties/MaxRetentionDays" ],
-  "readOnlyProperties" : [ "/properties/BackupVaultArn", "/properties/EncryptionKeyArn", "/properties/VaultState", "/properties/VaultType" ],
+  "createOnlyProperties" : [ "/properties/BackupVaultName", "/properties/MinRetentionDays", "/properties/MaxRetentionDays", "/properties/EncryptionKeyArn" ],
+  "readOnlyProperties" : [ "/properties/BackupVaultArn", "/properties/VaultState", "/properties/VaultType" ],
   "primaryIdentifier" : [ "/properties/BackupVaultName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "backup:TagResource", "backup:AssociateBackupVaultMpaApprovalTeam", "backup:CreateLogicallyAirGappedBackupVault", "backup:PutBackupVaultAccessPolicy", "backup:PutBackupVaultNotifications", "backup-storage:Mount", "backup-storage:MountCapsule", "backup:DescribeBackupVault", "mpa:GetApprovalTeam" ]
+      "permissions" : [ "backup:TagResource", "backup:AssociateBackupVaultMpaApprovalTeam", "backup:CreateLogicallyAirGappedBackupVault", "backup:PutBackupVaultAccessPolicy", "backup:PutBackupVaultNotifications", "backup-storage:Mount", "backup-storage:MountCapsule", "backup:DescribeBackupVault", "mpa:GetApprovalTeam", "kms:DescribeKey", "kms:CreateGrant" ]
     },
     "read" : {
       "permissions" : [ "backup:DescribeBackupVault", "backup:GetBackupVaultNotifications", "backup:GetBackupVaultAccessPolicy", "backup:ListTags" ]

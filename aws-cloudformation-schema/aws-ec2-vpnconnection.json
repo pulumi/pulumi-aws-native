@@ -11,7 +11,7 @@
   "typeName" : "AWS::EC2::VPNConnection",
   "readOnlyProperties" : [ "/properties/VpnConnectionId" ],
   "description" : "Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.\n To specify a VPN connection between a transit gateway and customer gateway, use the ``TransitGatewayId`` and ``CustomerGatewayId`` properties.\n To specify a VPN connection between a virtual private gateway and customer gateway, use the ``VpnGatewayId`` and ``CustomerGatewayId`` properties.\n For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.",
-  "createOnlyProperties" : [ "/properties/Type", "/properties/CustomerGatewayId", "/properties/VpnGatewayId", "/properties/TransitGatewayId", "/properties/EnableAcceleration", "/properties/LocalIpv4NetworkCidr", "/properties/LocalIpv6NetworkCidr", "/properties/OutsideIpAddressType", "/properties/RemoteIpv4NetworkCidr", "/properties/RemoteIpv6NetworkCidr", "/properties/StaticRoutesOnly", "/properties/TransportTransitGatewayAttachmentId", "/properties/TunnelInsideIpVersion", "/properties/PreSharedKeyStorage", "/properties/VpnTunnelOptionsSpecifications" ],
+  "createOnlyProperties" : [ "/properties/Type", "/properties/CustomerGatewayId", "/properties/VpnGatewayId", "/properties/VpnConcentratorId", "/properties/TransitGatewayId", "/properties/EnableAcceleration", "/properties/LocalIpv4NetworkCidr", "/properties/LocalIpv6NetworkCidr", "/properties/OutsideIpAddressType", "/properties/RemoteIpv4NetworkCidr", "/properties/RemoteIpv6NetworkCidr", "/properties/StaticRoutesOnly", "/properties/TransportTransitGatewayAttachmentId", "/properties/TunnelInsideIpVersion", "/properties/PreSharedKeyStorage", "/properties/TunnelBandwidth", "/properties/VpnTunnelOptionsSpecifications" ],
   "primaryIdentifier" : [ "/properties/VpnConnectionId" ],
   "required" : [ "Type", "CustomerGatewayId" ],
   "handlers" : {
@@ -39,6 +39,10 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "BgpLogEnabled" : {
+          "description" : "",
+          "type" : "boolean"
+        },
         "LogEnabled" : {
           "description" : "Enable or disable VPN tunnel logging feature. Default value is ``False``.\n Valid values: ``True`` | ``False``",
           "type" : "boolean"
@@ -48,9 +52,18 @@
           "type" : "string",
           "enum" : [ "json", "text" ]
         },
+        "BgpLogGroupArn" : {
+          "description" : "",
+          "type" : "string"
+        },
         "LogGroupArn" : {
           "description" : "The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.",
           "type" : "string"
+        },
+        "BgpLogOutputFormat" : {
+          "description" : "",
+          "type" : "string",
+          "enum" : [ "json", "text" ]
         }
       }
     },
@@ -343,12 +356,22 @@
       "description" : "The type of VPN connection.",
       "type" : "string"
     },
+    "TunnelBandwidth" : {
+      "default" : "standard",
+      "description" : "",
+      "type" : "string",
+      "enum" : [ "standard", "large" ]
+    },
     "LocalIpv4NetworkCidr" : {
       "description" : "The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.\n Default: ``0.0.0.0/0``",
       "type" : "string"
     },
     "VpnGatewayId" : {
       "description" : "The ID of the virtual private gateway at the AWS side of the VPN connection.\n You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.",
+      "type" : "string"
+    },
+    "VpnConcentratorId" : {
+      "description" : "",
       "type" : "string"
     },
     "PreSharedKeyStorage" : {

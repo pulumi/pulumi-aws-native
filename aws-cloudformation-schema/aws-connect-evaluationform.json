@@ -8,6 +8,13 @@
       "type" : "string",
       "pattern" : "^[a-zA-Z0-9._-]{1,40}$"
     },
+    "ReferenceIdList" : {
+      "description" : "The list of reference id.",
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/RefId"
+      }
+    },
     "Weight" : {
       "description" : "The item weight used for scoring.",
       "type" : "number",
@@ -21,14 +28,39 @@
       "maximum" : 10
     },
     "AutomaticFailConfiguration" : {
-      "description" : "",
+      "description" : "Information about automatic fail configuration for an evaluation form.",
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
         "TargetSection" : {
-          "description" : "The target section refId to control failure propagation boundary.",
+          "description" : "The referenceId of the target section for auto failure.",
           "type" : "string",
           "pattern" : "^[a-zA-Z0-9._-]{1,40}$"
+        }
+      }
+    },
+    "EvaluationFormTargetConfiguration" : {
+      "description" : "",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ContactInteractionType" : {
+          "description" : "The interaction type of a contact",
+          "type" : "string",
+          "enum" : [ "AGENT", "AUTOMATED" ]
+        }
+      },
+      "required" : [ "ContactInteractionType" ]
+    },
+    "EvaluationFormLanguageConfiguration" : {
+      "description" : "",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "FormLanguage" : {
+          "description" : "The language of the form",
+          "type" : "string",
+          "enum" : [ "de-DE", "en-US", "es-ES", "fr-FR", "it-IT", "pt-BR" ]
         }
       }
     },
@@ -97,21 +129,21 @@
       "required" : [ "RefId", "Title" ]
     },
     "EvaluationFormItemEnablementConfiguration" : {
-      "description" : "",
+      "description" : "An item enablement configuration.",
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
         "Condition" : {
-          "description" : "Specifies the logical condition that determines when to apply the enablement rules.",
+          "description" : "A condition for item enablement configuration.",
           "$ref" : "#/definitions/EvaluationFormItemEnablementCondition"
         },
         "Action" : {
-          "description" : "Defines the enablement status to be applied when the specified condition is met.",
+          "description" : "An enablement action that if condition is satisfied.",
           "type" : "string",
           "enum" : [ "DISABLE", "ENABLE" ]
         },
         "DefaultAction" : {
-          "description" : "Specifies the default enablement status to be applied when the condition is not satisfied.",
+          "description" : "An enablement action that if condition is not satisfied.",
           "type" : "string",
           "enum" : [ "DISABLE", "ENABLE" ]
         }
@@ -119,12 +151,12 @@
       "required" : [ "Condition", "Action" ]
     },
     "EvaluationFormItemEnablementCondition" : {
-      "description" : "",
+      "description" : "A condition for item enablement.",
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
         "Operands" : {
-          "description" : "The list of operands that compose the condition. Each operand represents a specific criteria to be evaluated.",
+          "description" : "Operands of the enablement condition.",
           "type" : "array",
           "insertionOrder" : true,
           "minItems" : 1,
@@ -133,7 +165,7 @@
           }
         },
         "Operator" : {
-          "description" : "The logical operator used to combine multiple operands, determining how the condition is evaluated as a whole.",
+          "description" : "The operator to be used to be applied to operands if more than one provided.",
           "type" : "string",
           "enum" : [ "OR", "AND" ]
         }
@@ -141,27 +173,27 @@
       "required" : [ "Operands" ]
     },
     "EvaluationFormItemEnablementConditionOperand" : {
-      "description" : "",
+      "description" : "An operand of the enablement condition.",
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
         "Expression" : {
-          "description" : "A direct comparison expression that evaluates a form item's value against specified criteria.",
+          "description" : "An expression of the enablement condition.",
           "$ref" : "#/definitions/EvaluationFormItemEnablementExpression"
         }
       }
     },
     "EvaluationFormItemEnablementExpression" : {
-      "description" : "",
+      "description" : "An expression that defines a basic building block of conditional enablement.",
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
         "Source" : {
-          "description" : "Identifies the form item whose value will be evaluated in the expression.",
+          "description" : "A source item of enablement expression.",
           "$ref" : "#/definitions/EvaluationFormItemEnablementSource"
         },
         "Values" : {
-          "description" : "The list of possible values to compare against the source form item's value.",
+          "description" : "A list of values from source item.",
           "type" : "array",
           "insertionOrder" : true,
           "minItems" : 1,
@@ -170,41 +202,42 @@
           }
         },
         "Comparator" : {
-          "description" : "Specifies the comparison method to determine if the source value matches any of the specified values.",
+          "description" : "A comparator to be used against list of values.",
           "type" : "string",
-          "enum" : [ "IN", "NOT_IN" ]
+          "enum" : [ "IN", "NOT_IN", "ALL_IN", "EXACT" ]
         }
       },
       "required" : [ "Source", "Values", "Comparator" ]
     },
     "EvaluationFormItemEnablementSource" : {
-      "description" : "",
+      "description" : "An enablement expression source item.",
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
         "Type" : {
-          "description" : "The type of the source entity.",
+          "description" : "A type of source item.",
           "type" : "string",
           "enum" : [ "QUESTION_REF_ID" ]
         },
         "RefId" : {
-          "$ref" : "#/definitions/RefId"
+          "$ref" : "#/definitions/RefId",
+          "description" : "A referenceId of the source item."
         }
       },
       "required" : [ "Type" ]
     },
     "EvaluationFormItemEnablementSourceValue" : {
-      "description" : "",
+      "description" : "An enablement expression source value.",
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
         "Type" : {
-          "description" : "Type of the source entity value.",
+          "description" : "A type of source item value.",
           "type" : "string",
           "enum" : [ "OPTION_REF_ID" ]
         },
         "RefId" : {
-          "description" : "The reference id of the source entity value.",
+          "description" : "A referenceId of the source value.",
           "$ref" : "#/definitions/RefId"
         }
       }
@@ -231,7 +264,7 @@
           "type" : "boolean"
         },
         "AutomaticFailConfiguration" : {
-          "description" : "",
+          "description" : "A configuration for automatic fail.",
           "$ref" : "#/definitions/AutomaticFailConfiguration"
         }
       },
@@ -245,7 +278,7 @@
         "Label" : {
           "description" : "The property label of the automation.",
           "type" : "string",
-          "enum" : [ "OVERALL_CUSTOMER_SENTIMENT_SCORE", "OVERALL_AGENT_SENTIMENT_SCORE", "NON_TALK_TIME", "NON_TALK_TIME_PERCENTAGE", "NUMBER_OF_INTERRUPTIONS", "CONTACT_DURATION", "AGENT_INTERACTION_DURATION", "CUSTOMER_HOLD_TIME", "LONGEST_HOLD_DURATION", "NUMBER_OF_HOLDS", "AGENT_INTERACTION_AND_HOLD_DURATION" ]
+          "enum" : [ "OVERALL_CUSTOMER_SENTIMENT_SCORE", "OVERALL_AGENT_SENTIMENT_SCORE", "NON_TALK_TIME", "NON_TALK_TIME_PERCENTAGE", "NUMBER_OF_INTERRUPTIONS", "CONTACT_DURATION", "AGENT_INTERACTION_DURATION", "CUSTOMER_HOLD_TIME", "LONGEST_HOLD_DURATION", "NUMBER_OF_HOLDS", "AGENT_INTERACTION_AND_HOLD_DURATION", "CUSTOMER_SENTIMENT_SCORE_WITHOUT_AGENT", "CUSTOMER_SENTIMENT_SCORE_WITH_AGENT" ]
         }
       },
       "required" : [ "Label" ]
@@ -260,7 +293,7 @@
           "$ref" : "#/definitions/NumericQuestionPropertyValueAutomation"
         },
         "AnswerSource" : {
-          "description" : "",
+          "description" : "A source of automation answer for numeric question.",
           "$ref" : "#/definitions/EvaluationFormQuestionAutomationAnswerSource"
         }
       }
@@ -350,7 +383,7 @@
           "$ref" : "#/definitions/RefId"
         },
         "AnswerSource" : {
-          "description" : "",
+          "description" : "Automation answer source.",
           "$ref" : "#/definitions/EvaluationFormQuestionAutomationAnswerSource"
         }
       },
@@ -380,7 +413,7 @@
           "type" : "boolean"
         },
         "AutomaticFailConfiguration" : {
-          "description" : "",
+          "description" : "Whether automatic fail is configured on a single select question.",
           "$ref" : "#/definitions/AutomaticFailConfiguration"
         }
       },
@@ -414,12 +447,12 @@
       "required" : [ "Options" ]
     },
     "EvaluationFormQuestionAutomationAnswerSource" : {
-      "description" : "",
+      "description" : "A question automation answer.",
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
         "SourceType" : {
-          "description" : "The type of the answer sourcr",
+          "description" : "The automation answer source type.",
           "type" : "string",
           "enum" : [ "CONTACT_LENS_DATA", "GEN_AI" ]
         }
@@ -427,26 +460,132 @@
       "required" : [ "SourceType" ]
     },
     "EvaluationFormTextQuestionProperties" : {
-      "description" : "",
+      "description" : "Information about properties for a text question in an evaluation form.",
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
         "Automation" : {
-          "description" : "Specifies how the question can be automatically answered.",
+          "description" : "The automation properties of the text question.",
           "$ref" : "#/definitions/EvaluationFormTextQuestionAutomation"
         }
       }
     },
     "EvaluationFormTextQuestionAutomation" : {
-      "description" : "",
+      "description" : "Information about the automation configuration in text questions.",
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
         "AnswerSource" : {
-          "description" : "The source of automation answer of the question.",
+          "description" : "Automation answer source.",
           "$ref" : "#/definitions/EvaluationFormQuestionAutomationAnswerSource"
         }
       }
+    },
+    "EvaluationFormMultiSelectQuestionAutomationOption" : {
+      "description" : "",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "RuleCategory" : {
+          "description" : "The automation option based on Rules categories.",
+          "$ref" : "#/definitions/MultiSelectQuestionRuleCategoryAutomation"
+        }
+      },
+      "required" : [ "RuleCategory" ]
+    },
+    "MultiSelectQuestionRuleCategoryAutomation" : {
+      "description" : "",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Category" : {
+          "description" : "The category name as defined in Rules.",
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 50
+        },
+        "Condition" : {
+          "description" : "The automation condition applied on contact categories.",
+          "type" : "string",
+          "enum" : [ "PRESENT", "NOT_PRESENT" ]
+        },
+        "OptionRefIds" : {
+          "description" : "The option identifiers referencing the options to be selected when the automation option is triggered.",
+          "$ref" : "#/definitions/ReferenceIdList"
+        }
+      },
+      "required" : [ "Category", "Condition", "OptionRefIds" ]
+    },
+    "EvaluationFormMultiSelectQuestionAutomation" : {
+      "description" : "",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Options" : {
+          "description" : "The answer options for the automation.",
+          "type" : "array",
+          "insertionOrder" : true,
+          "minItems" : 1,
+          "maxItems" : 20,
+          "items" : {
+            "$ref" : "#/definitions/EvaluationFormMultiSelectQuestionAutomationOption"
+          }
+        },
+        "DefaultOptionRefIds" : {
+          "description" : "The option reference identifiers of the default answers.",
+          "$ref" : "#/definitions/ReferenceIdList"
+        },
+        "AnswerSource" : {
+          "description" : "The source of automation answer of the question.",
+          "$ref" : "#/definitions/EvaluationFormQuestionAutomationAnswerSource"
+        }
+      },
+      "required" : [ "Options" ]
+    },
+    "EvaluationFormMultiSelectQuestionOption" : {
+      "description" : "",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "RefId" : {
+          "description" : "The identifier used to reference the option.",
+          "$ref" : "#/definitions/RefId"
+        },
+        "Text" : {
+          "description" : "The title of the option.",
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 128
+        }
+      },
+      "required" : [ "RefId", "Text" ]
+    },
+    "EvaluationFormMultiSelectQuestionProperties" : {
+      "description" : "",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Options" : {
+          "description" : "The list of options for the question.",
+          "type" : "array",
+          "insertionOrder" : true,
+          "minItems" : 2,
+          "maxItems" : 256,
+          "items" : {
+            "$ref" : "#/definitions/EvaluationFormMultiSelectQuestionOption"
+          }
+        },
+        "DisplayAs" : {
+          "description" : "The display mode of the multi-select question.",
+          "type" : "string",
+          "enum" : [ "DROPDOWN", "CHECKBOX" ]
+        },
+        "Automation" : {
+          "description" : "The automation properties for the multi-select question.",
+          "$ref" : "#/definitions/EvaluationFormMultiSelectQuestionAutomation"
+        }
+      },
+      "required" : [ "Options" ]
     },
     "EvaluationFormQuestionTypeProperties" : {
       "description" : "Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.",
@@ -462,8 +601,12 @@
           "$ref" : "#/definitions/EvaluationFormSingleSelectQuestionProperties"
         },
         "Text" : {
-          "description" : "",
+          "description" : "The properties of the text question.",
           "$ref" : "#/definitions/EvaluationFormTextQuestionProperties"
+        },
+        "MultiSelect" : {
+          "description" : "",
+          "$ref" : "#/definitions/EvaluationFormMultiSelectQuestionProperties"
         }
       }
     },
@@ -494,7 +637,7 @@
         "QuestionType" : {
           "description" : "The type of the question.\n *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``",
           "type" : "string",
-          "enum" : [ "NUMERIC", "SINGLESELECT", "TEXT" ]
+          "enum" : [ "NUMERIC", "SINGLESELECT", "TEXT", "MULTISELECT", "DATETIME" ]
         },
         "QuestionTypeProperties" : {
           "description" : "The properties of the type of question. Text questions do not have to define question type properties.",
@@ -505,7 +648,7 @@
           "$ref" : "#/definitions/Weight"
         },
         "Enablement" : {
-          "description" : "",
+          "description" : "A question conditional enablement.",
           "$ref" : "#/definitions/EvaluationFormItemEnablementConfiguration"
         }
       },
@@ -530,7 +673,7 @@
       "required" : [ "Mode", "Status" ]
     },
     "AutoEvaluationConfiguration" : {
-      "description" : "",
+      "description" : "Configuration information about automated evaluations.",
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
@@ -598,7 +741,7 @@
       "$ref" : "#/definitions/ScoringStrategy"
     },
     "AutoEvaluationConfiguration" : {
-      "description" : "",
+      "description" : "The automatic evaluation configuration of an evaluation form.",
       "$ref" : "#/definitions/AutoEvaluationConfiguration"
     },
     "Status" : {
@@ -606,6 +749,14 @@
       "type" : "string",
       "default" : "DRAFT",
       "enum" : [ "DRAFT", "ACTIVE" ]
+    },
+    "TargetConfiguration" : {
+      "description" : "",
+      "$ref" : "#/definitions/EvaluationFormTargetConfiguration"
+    },
+    "LanguageConfiguration" : {
+      "description" : "",
+      "$ref" : "#/definitions/EvaluationFormLanguageConfiguration"
     },
     "Tags" : {
       "description" : "The tags used to organize, track, or control access for this resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.",

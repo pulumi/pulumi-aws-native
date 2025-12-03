@@ -47,6 +47,17 @@
       "additionalProperties" : false,
       "description" : "Recording configuration for browser"
     },
+    "BrowserSigning" : {
+      "type" : "object",
+      "properties" : {
+        "Enabled" : {
+          "type" : "boolean",
+          "default" : false
+        }
+      },
+      "additionalProperties" : false,
+      "description" : "Browser signing configuration"
+    },
     "S3Location" : {
       "type" : "object",
       "properties" : {
@@ -195,6 +206,10 @@
       "$ref" : "#/definitions/RecordingConfig",
       "description" : "Recording configuration for browser."
     },
+    "BrowserSigning" : {
+      "$ref" : "#/definitions/BrowserSigning",
+      "description" : "Browser signing configuration."
+    },
     "ExecutionRoleArn" : {
       "$ref" : "#/definitions/RoleArn",
       "description" : "The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources."
@@ -226,7 +241,7 @@
   "readOnlyProperties" : [ "/properties/BrowserId", "/properties/BrowserArn", "/properties/Status", "/properties/FailureReason", "/properties/CreatedAt", "/properties/LastUpdatedAt" ],
   "primaryIdentifier" : [ "/properties/BrowserId" ],
   "additionalIdentifiers" : [ [ "/properties/BrowserArn" ] ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Description", "/properties/NetworkConfiguration", "/properties/RecordingConfig", "/properties/ExecutionRoleArn" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Description", "/properties/NetworkConfiguration", "/properties/RecordingConfig", "/properties/BrowserSigning", "/properties/ExecutionRoleArn" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "bedrock-agentcore:CreateBrowser", "bedrock-agentcore:GetBrowser", "bedrock-agentcore:TagResource", "bedrock-agentcore:ListTagsForResource", "iam:CreateServiceLinkedRole", "iam:PassRole" ]

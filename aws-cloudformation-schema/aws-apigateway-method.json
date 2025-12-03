@@ -126,6 +126,10 @@
             "type" : "string"
           }
         },
+        "IntegrationTarget" : {
+          "description" : "",
+          "type" : "string"
+        },
         "ContentHandling" : {
           "description" : "",
           "type" : "string",

@@ -19,6 +19,28 @@
         }
       },
       "required" : [ "Key", "Value" ]
+    },
+    "DnsOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "PrivateDnsPreference" : {
+          "type" : "string",
+          "enum" : [ "VERIFIED_DOMAINS_ONLY", "ALL_DOMAINS", "VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS", "SPECIFIED_DOMAINS_ONLY" ]
+        },
+        "PrivateDnsSpecifiedDomains" : {
+          "type" : "array",
+          "insertionOrder" : false,
+          "uniqueItems" : true,
+          "minItems" : 1,
+          "maxItems" : 10,
+          "items" : {
+            "type" : "string",
+            "minLength" : 1,
+            "maxLength" : 255
+          }
+        }
+      }
     }
   },
   "properties" : {
@@ -97,11 +119,17 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    },
+    "PrivateDnsEnabled" : {
+      "type" : "boolean"
+    },
+    "DnsOptions" : {
+      "$ref" : "#/definitions/DnsOptions"
     }
   },
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/Id", "/properties/ServiceNetworkArn", "/properties/ServiceNetworkId", "/properties/ServiceNetworkName", "/properties/Status", "/properties/VpcId" ],
   "writeOnlyProperties" : [ "/properties/ServiceNetworkIdentifier", "/properties/VpcIdentifier" ],
-  "createOnlyProperties" : [ "/properties/ServiceNetworkIdentifier", "/properties/VpcIdentifier" ],
+  "createOnlyProperties" : [ "/properties/ServiceNetworkIdentifier", "/properties/VpcIdentifier", "/properties/PrivateDnsEnabled", "/properties/DnsOptions", "/properties/DnsOptions/PrivateDnsPreference", "/properties/DnsOptions/PrivateDnsSpecifiedDomains" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "additionalIdentifiers" : [ [ "/properties/Id" ], [ "/properties/ServiceNetworkIdentifier", "/properties/VpcIdentifier" ] ],
   "handlers" : {
