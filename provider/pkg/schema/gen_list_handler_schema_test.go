@@ -88,6 +88,43 @@ func TestGatherListHandlerSchemaWithRefFallback(t *testing.T) {
 	}, listSchema.Properties)
 }
 
+func TestGatherListHandlerSchemaWithRefDifferentName(t *testing.T) {
+	ctx := cfSchemaContext{
+		resourceSpec: &jsschema.Schema{
+			Properties: map[string]*jsschema.Schema{
+				"ActualName": {
+					Type:        jsschema.PrimitiveTypes{jsschema.StringType},
+					Description: "Description from base property.",
+				},
+			},
+			Extras: map[string]interface{}{
+				"handlers": map[string]interface{}{
+					"list": map[string]interface{}{
+						"handlerSchema": map[string]interface{}{
+							"properties": map[string]interface{}{
+								"AliasName": map[string]interface{}{
+									"$ref": "resource-schema.json#/properties/ActualName",
+								},
+							},
+							"required": []interface{}{"AliasName"},
+						},
+					},
+				},
+			},
+		},
+	}
+
+	listSchema := ctx.gatherListHandlerSchema()
+	require.NotNil(t, listSchema)
+	assert.Equal(t, []string{"AliasName"}, listSchema.Required)
+	assert.Equal(t, map[string]metadata.ListHandlerProperty{
+		"AliasName": {
+			Description: "Description from base property.",
+			Type:        "string",
+		},
+	}, listSchema.Properties)
+}
+
 func TestGatherListHandlerSchemaMissing(t *testing.T) {
 	ctx := cfSchemaContext{
 		resourceSpec: &jsschema.Schema{
