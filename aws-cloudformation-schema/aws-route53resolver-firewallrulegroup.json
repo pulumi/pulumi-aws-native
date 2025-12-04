@@ -63,7 +63,7 @@
         "DnsThreatProtection" : {
           "description" : "FirewallDomainRedirectionAction",
           "type" : "string",
-          "enum" : [ "DGA", "DNS_TUNNELING" ]
+          "enum" : [ "DGA", "DNS_TUNNELING", "DICTIONARY_DGA" ]
         },
         "FirewallDomainRedirectionAction" : {
           "description" : "FirewallDomainRedirectionAction",

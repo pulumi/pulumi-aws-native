@@ -29,10 +29,12 @@ __all__ = [
     'DomainAutoMerging',
     'DomainConflictResolution',
     'DomainConsolidation',
+    'DomainDataStore',
     'DomainExportingConfig',
     'DomainJobSchedule',
     'DomainMatching',
     'DomainMatchingRule',
+    'DomainReadiness',
     'DomainRuleBasedMatching',
     'DomainS3ExportingConfig',
     'DomainStats',
@@ -684,6 +686,37 @@ class DomainConsolidation(dict):
 
 
 @pulumi.output_type
+class DomainDataStore(dict):
+    """
+    Configuration and status of the data store for the domain.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[_builtins.bool] = None,
+                 readiness: Optional['outputs.DomainReadiness'] = None):
+        """
+        Configuration and status of the data store for the domain.
+        :param _builtins.bool enabled: Whether the data store is enabled.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if readiness is not None:
+            pulumi.set(__self__, "readiness", readiness)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether the data store is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def readiness(self) -> Optional['outputs.DomainReadiness']:
+        return pulumi.get(self, "readiness")
+
+
+@pulumi.output_type
 class DomainExportingConfig(dict):
     """
     Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
@@ -868,6 +901,58 @@ class DomainMatchingRule(dict):
         A single rule level of the `MatchRules` . Configures how the rule-based matching process should match profiles.
         """
         return pulumi.get(self, "rule")
+
+
+@pulumi.output_type
+class DomainReadiness(dict):
+    """
+    Progress information for data store setup.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "progressPercentage":
+            suggest = "progress_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainReadiness. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainReadiness.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainReadiness.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 message: Optional[_builtins.str] = None,
+                 progress_percentage: Optional[_builtins.int] = None):
+        """
+        Progress information for data store setup.
+        :param _builtins.str message: A message describing the current progress.
+        :param _builtins.int progress_percentage: The percentage of progress completed.
+        """
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if progress_percentage is not None:
+            pulumi.set(__self__, "progress_percentage", progress_percentage)
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> Optional[_builtins.str]:
+        """
+        A message describing the current progress.
+        """
+        return pulumi.get(self, "message")
+
+    @_builtins.property
+    @pulumi.getter(name="progressPercentage")
+    def progress_percentage(self) -> Optional[_builtins.int]:
+        """
+        The percentage of progress completed.
+        """
+        return pulumi.get(self, "progress_percentage")
 
 
 @pulumi.output_type

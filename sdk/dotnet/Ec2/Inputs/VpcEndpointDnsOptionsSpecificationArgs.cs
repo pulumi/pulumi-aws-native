@@ -27,6 +27,24 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("privateDnsOnlyForInboundResolverEndpoint")]
         public Input<Pulumi.AwsNative.Ec2.VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint>? PrivateDnsOnlyForInboundResolverEndpoint { get; set; }
 
+        /// <summary>
+        /// The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+        /// </summary>
+        [Input("privateDnsPreference")]
+        public Input<Pulumi.AwsNative.Ec2.VpcEndpointDnsOptionsSpecificationPrivateDnsPreference>? PrivateDnsPreference { get; set; }
+
+        [Input("privateDnsSpecifiedDomains")]
+        private InputList<string>? _privateDnsSpecifiedDomains;
+
+        /// <summary>
+        /// Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
+        /// </summary>
+        public InputList<string> PrivateDnsSpecifiedDomains
+        {
+            get => _privateDnsSpecifiedDomains ?? (_privateDnsSpecifiedDomains = new InputList<string>());
+            set => _privateDnsSpecifiedDomains = value;
+        }
+
         public VpcEndpointDnsOptionsSpecificationArgs()
         {
         }

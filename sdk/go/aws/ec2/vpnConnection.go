@@ -54,12 +54,14 @@ type VpnConnection struct {
 	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
 	// The transit gateway attachment ID to use for the VPN tunnel.
 	//  Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``.
-	TransportTransitGatewayAttachmentId pulumi.StringPtrOutput `pulumi:"transportTransitGatewayAttachmentId"`
+	TransportTransitGatewayAttachmentId pulumi.StringPtrOutput                `pulumi:"transportTransitGatewayAttachmentId"`
+	TunnelBandwidth                     VpnConnectionTunnelBandwidthPtrOutput `pulumi:"tunnelBandwidth"`
 	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
 	//  Default: ``ipv4``
 	TunnelInsideIpVersion pulumi.StringPtrOutput `pulumi:"tunnelInsideIpVersion"`
 	// The type of VPN connection.
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type              pulumi.StringOutput    `pulumi:"type"`
+	VpnConcentratorId pulumi.StringPtrOutput `pulumi:"vpnConcentratorId"`
 	// The ID of the VPN connection.
 	VpnConnectionId pulumi.StringOutput `pulumi:"vpnConnectionId"`
 	// The ID of the virtual private gateway at the AWS side of the VPN connection.
@@ -94,8 +96,10 @@ func NewVpnConnection(ctx *pulumi.Context,
 		"staticRoutesOnly",
 		"transitGatewayId",
 		"transportTransitGatewayAttachmentId",
+		"tunnelBandwidth",
 		"tunnelInsideIpVersion",
 		"type",
+		"vpnConcentratorId",
 		"vpnGatewayId",
 		"vpnTunnelOptionsSpecifications[*]",
 	})
@@ -166,12 +170,14 @@ type vpnConnectionArgs struct {
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// The transit gateway attachment ID to use for the VPN tunnel.
 	//  Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``.
-	TransportTransitGatewayAttachmentId *string `pulumi:"transportTransitGatewayAttachmentId"`
+	TransportTransitGatewayAttachmentId *string                       `pulumi:"transportTransitGatewayAttachmentId"`
+	TunnelBandwidth                     *VpnConnectionTunnelBandwidth `pulumi:"tunnelBandwidth"`
 	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
 	//  Default: ``ipv4``
 	TunnelInsideIpVersion *string `pulumi:"tunnelInsideIpVersion"`
 	// The type of VPN connection.
-	Type string `pulumi:"type"`
+	Type              string  `pulumi:"type"`
+	VpnConcentratorId *string `pulumi:"vpnConcentratorId"`
 	// The ID of the virtual private gateway at the AWS side of the VPN connection.
 	//  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
 	VpnGatewayId *string `pulumi:"vpnGatewayId"`
@@ -215,11 +221,13 @@ type VpnConnectionArgs struct {
 	// The transit gateway attachment ID to use for the VPN tunnel.
 	//  Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``.
 	TransportTransitGatewayAttachmentId pulumi.StringPtrInput
+	TunnelBandwidth                     VpnConnectionTunnelBandwidthPtrInput
 	// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
 	//  Default: ``ipv4``
 	TunnelInsideIpVersion pulumi.StringPtrInput
 	// The type of VPN connection.
-	Type pulumi.StringInput
+	Type              pulumi.StringInput
+	VpnConcentratorId pulumi.StringPtrInput
 	// The ID of the virtual private gateway at the AWS side of the VPN connection.
 	//  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
 	VpnGatewayId pulumi.StringPtrInput
@@ -343,6 +351,10 @@ func (o VpnConnectionOutput) TransportTransitGatewayAttachmentId() pulumi.String
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.TransportTransitGatewayAttachmentId }).(pulumi.StringPtrOutput)
 }
 
+func (o VpnConnectionOutput) TunnelBandwidth() VpnConnectionTunnelBandwidthPtrOutput {
+	return o.ApplyT(func(v *VpnConnection) VpnConnectionTunnelBandwidthPtrOutput { return v.TunnelBandwidth }).(VpnConnectionTunnelBandwidthPtrOutput)
+}
+
 // Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
 //
 //	Default: ``ipv4``
@@ -353,6 +365,10 @@ func (o VpnConnectionOutput) TunnelInsideIpVersion() pulumi.StringPtrOutput {
 // The type of VPN connection.
 func (o VpnConnectionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o VpnConnectionOutput) VpnConcentratorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.VpnConcentratorId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the VPN connection.

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetDateFilterValue
     {
+        /// <summary>
+        /// A static date value used for filtering.
+        /// </summary>
         public readonly string? StaticValue;
 
         [OutputConstructor]

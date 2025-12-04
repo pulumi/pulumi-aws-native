@@ -44,26 +44,43 @@ class GetTermsResult:
     @_builtins.property
     @pulumi.getter
     def enforcement(self) -> Optional['TermsEnforcementType']:
+        """
+        This parameter is reserved for future use and currently accepts one value.
+        """
         return pulumi.get(self, "enforcement")
 
     @_builtins.property
     @pulumi.getter
     def links(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        A map of URLs to languages. For each localized language that will view the requested `TermsName` , assign a URL. A selection of `cognito:default` displays for all languages that don't have a language-specific URL.
+
+        For example, `"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"` .
+        """
         return pulumi.get(self, "links")
 
     @_builtins.property
     @pulumi.getter(name="termsId")
     def terms_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the terms documents.
+        """
         return pulumi.get(self, "terms_id")
 
     @_builtins.property
     @pulumi.getter(name="termsName")
     def terms_name(self) -> Optional[_builtins.str]:
+        """
+        The type and friendly name of the terms documents.
+        """
         return pulumi.get(self, "terms_name")
 
     @_builtins.property
     @pulumi.getter(name="termsSource")
     def terms_source(self) -> Optional['TermsSourceType']:
+        """
+        This parameter is reserved for future use and currently accepts one value.
+        """
         return pulumi.get(self, "terms_source")
 
 
@@ -85,6 +102,10 @@ def get_terms(terms_id: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTermsResult:
     """
     Resource Type definition for AWS::Cognito::Terms
+
+
+    :param _builtins.str terms_id: The ID of the terms documents.
+    :param _builtins.str user_pool_id: The ID of the user pool that contains the terms documents.
     """
     __args__ = dict()
     __args__['termsId'] = terms_id
@@ -103,6 +124,10 @@ def get_terms_output(terms_id: Optional[pulumi.Input[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTermsResult]:
     """
     Resource Type definition for AWS::Cognito::Terms
+
+
+    :param _builtins.str terms_id: The ID of the terms documents.
+    :param _builtins.str user_pool_id: The ID of the user pool that contains the terms documents.
     """
     __args__ = dict()
     __args__['termsId'] = terms_id

@@ -13,10 +13,19 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     public sealed class DataAutomationProjectAudioOverrideConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The output and input language configuration for your audio.
+        /// </summary>
+        [Input("languageConfiguration")]
+        public Input<Inputs.DataAutomationProjectAudioLanguageConfigurationArgs>? LanguageConfiguration { get; set; }
+
+        /// <summary>
         /// Sets modality processing for audio files. All modalities are enabled by default.
         /// </summary>
         [Input("modalityProcessing")]
         public Input<Inputs.DataAutomationProjectModalityProcessingConfigurationArgs>? ModalityProcessing { get; set; }
+
+        [Input("sensitiveDataConfiguration")]
+        public Input<Inputs.DataAutomationProjectSensitiveDataConfigurationArgs>? SensitiveDataConfiguration { get; set; }
 
         public DataAutomationProjectAudioOverrideConfigurationArgs()
         {

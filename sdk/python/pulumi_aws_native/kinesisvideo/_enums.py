@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'SignalingChannelType',
+    'StreamStorageConfigurationDefaultStorageTier',
 ]
 
 
@@ -17,3 +18,12 @@ class SignalingChannelType(_builtins.str, Enum):
     The type of the Kinesis Video Signaling Channel to create. Currently, SINGLE_MASTER is the only supported channel type.
     """
     SINGLE_MASTER = "SINGLE_MASTER"
+
+
+@pulumi.type_token("aws-native:kinesisvideo:StreamStorageConfigurationDefaultStorageTier")
+class StreamStorageConfigurationDefaultStorageTier(_builtins.str, Enum):
+    """
+    The storage tier for the Kinesis Video Stream. Determines the storage class used for stream data.
+    """
+    HOT = "HOT"
+    WARM = "WARM"

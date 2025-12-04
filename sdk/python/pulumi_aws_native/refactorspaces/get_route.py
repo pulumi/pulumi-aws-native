@@ -50,7 +50,7 @@ class GetRouteResult:
     @pulumi.getter(name="pathResourceToId")
     def path_resource_to_id(self) -> Optional[_builtins.str]:
         """
-        A mapping of Amazon API Gateway path resources to resource IDs.
+        A mapping of ABPlong path resources to resource IDs.
         """
         return pulumi.get(self, "path_resource_to_id")
 

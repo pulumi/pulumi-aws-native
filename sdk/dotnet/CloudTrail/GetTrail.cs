@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.CloudTrail
         /// </summary>
         public readonly ImmutableArray<Outputs.TrailAdvancedEventSelector> AdvancedEventSelectors;
         /// <summary>
+        /// Specifies the aggregation configuration to aggregate CloudTrail Events. A maximum of 1 aggregation configuration is allowed.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TrailAggregationConfiguration> AggregationConfigurations;
+        /// <summary>
         /// `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
         /// </summary>
         public readonly string? Arn;
@@ -132,7 +136,7 @@ namespace Pulumi.AwsNative.CloudTrail
         /// </summary>
         public readonly string? S3KeyPrefix;
         /// <summary>
-        /// `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
+        /// `Ref` returns the ARN of the Amazon  topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
         /// </summary>
         public readonly string? SnsTopicArn;
         /// <summary>
@@ -147,6 +151,8 @@ namespace Pulumi.AwsNative.CloudTrail
         [OutputConstructor]
         private GetTrailResult(
             ImmutableArray<Outputs.TrailAdvancedEventSelector> advancedEventSelectors,
+
+            ImmutableArray<Outputs.TrailAggregationConfiguration> aggregationConfigurations,
 
             string? arn,
 
@@ -181,6 +187,7 @@ namespace Pulumi.AwsNative.CloudTrail
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AdvancedEventSelectors = advancedEventSelectors;
+            AggregationConfigurations = aggregationConfigurations;
             Arn = arn;
             CloudWatchLogsLogGroupArn = cloudWatchLogsLogGroupArn;
             CloudWatchLogsRoleArn = cloudWatchLogsRoleArn;

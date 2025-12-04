@@ -214,7 +214,7 @@ if not MYPY:
     class ApplicationEncryptionConfigurationArgsDict(TypedDict):
         kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The identifier of the AWS KMS key. Amazon Q Business doesn't support asymmetric keys.
+        The identifier of the AWS  key. Amazon Q Business doesn't support asymmetric keys.
         """
 elif False:
     ApplicationEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -224,7 +224,7 @@ class ApplicationEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] kms_key_id: The identifier of the AWS KMS key. Amazon Q Business doesn't support asymmetric keys.
+        :param pulumi.Input[_builtins.str] kms_key_id: The identifier of the AWS  key. Amazon Q Business doesn't support asymmetric keys.
         """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -233,7 +233,7 @@ class ApplicationEncryptionConfigurationArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The identifier of the AWS KMS key. Amazon Q Business doesn't support asymmetric keys.
+        The identifier of the AWS  key. Amazon Q Business doesn't support asymmetric keys.
         """
         return pulumi.get(self, "kms_key_id")
 

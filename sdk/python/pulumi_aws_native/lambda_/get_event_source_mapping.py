@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventSourceMappingResult:
-    def __init__(__self__, amazon_managed_kafka_event_source_config=None, batch_size=None, bisect_batch_on_function_error=None, destination_config=None, document_db_event_source_config=None, enabled=None, event_source_mapping_arn=None, filter_criteria=None, function_name=None, function_response_types=None, id=None, kms_key_arn=None, maximum_batching_window_in_seconds=None, maximum_record_age_in_seconds=None, maximum_retry_attempts=None, metrics_config=None, parallelization_factor=None, provisioned_poller_config=None, queues=None, scaling_config=None, self_managed_kafka_event_source_config=None, source_access_configurations=None, tags=None, topics=None, tumbling_window_in_seconds=None):
+    def __init__(__self__, amazon_managed_kafka_event_source_config=None, batch_size=None, bisect_batch_on_function_error=None, destination_config=None, document_db_event_source_config=None, enabled=None, event_source_mapping_arn=None, filter_criteria=None, function_name=None, function_response_types=None, id=None, kms_key_arn=None, logging_config=None, maximum_batching_window_in_seconds=None, maximum_record_age_in_seconds=None, maximum_retry_attempts=None, metrics_config=None, parallelization_factor=None, provisioned_poller_config=None, queues=None, scaling_config=None, self_managed_kafka_event_source_config=None, source_access_configurations=None, tags=None, topics=None, tumbling_window_in_seconds=None):
         if amazon_managed_kafka_event_source_config and not isinstance(amazon_managed_kafka_event_source_config, dict):
             raise TypeError("Expected argument 'amazon_managed_kafka_event_source_config' to be a dict")
         pulumi.set(__self__, "amazon_managed_kafka_event_source_config", amazon_managed_kafka_event_source_config)
@@ -63,6 +63,9 @@ class GetEventSourceMappingResult:
         if kms_key_arn and not isinstance(kms_key_arn, str):
             raise TypeError("Expected argument 'kms_key_arn' to be a str")
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if logging_config and not isinstance(logging_config, dict):
+            raise TypeError("Expected argument 'logging_config' to be a dict")
+        pulumi.set(__self__, "logging_config", logging_config)
         if maximum_batching_window_in_seconds and not isinstance(maximum_batching_window_in_seconds, int):
             raise TypeError("Expected argument 'maximum_batching_window_in_seconds' to be a int")
         pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
@@ -217,6 +220,14 @@ class GetEventSourceMappingResult:
         return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
+    @pulumi.getter(name="loggingConfig")
+    def logging_config(self) -> Optional['outputs.EventSourceMappingLoggingConfig']:
+        """
+        The function's Amazon CloudWatch Logs configuration settings.
+        """
+        return pulumi.get(self, "logging_config")
+
+    @_builtins.property
     @pulumi.getter(name="maximumBatchingWindowInSeconds")
     def maximum_batching_window_in_seconds(self) -> Optional[_builtins.int]:
         """
@@ -264,7 +275,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="provisionedPollerConfig")
     def provisioned_poller_config(self) -> Optional['outputs.EventSourceMappingProvisionedPollerConfig']:
         """
-        (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
+        (Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
         """
         return pulumi.get(self, "provisioned_poller_config")
 
@@ -280,7 +291,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="scalingConfig")
     def scaling_config(self) -> Optional['outputs.EventSourceMappingScalingConfig']:
         """
-        (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+        This property is for Amazon SQS event sources only. You cannot use ``ProvisionedPollerConfig`` while using ``ScalingConfig``. These options are mutually exclusive. To remove the scaling configuration, pass an empty value.
         """
         return pulumi.get(self, "scaling_config")
 
@@ -344,6 +355,7 @@ class AwaitableGetEventSourceMappingResult(GetEventSourceMappingResult):
             function_response_types=self.function_response_types,
             id=self.id,
             kms_key_arn=self.kms_key_arn,
+            logging_config=self.logging_config,
             maximum_batching_window_in_seconds=self.maximum_batching_window_in_seconds,
             maximum_record_age_in_seconds=self.maximum_record_age_in_seconds,
             maximum_retry_attempts=self.maximum_retry_attempts,
@@ -393,6 +405,7 @@ def get_event_source_mapping(id: Optional[_builtins.str] = None,
         function_response_types=pulumi.get(__ret__, 'function_response_types'),
         id=pulumi.get(__ret__, 'id'),
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
+        logging_config=pulumi.get(__ret__, 'logging_config'),
         maximum_batching_window_in_seconds=pulumi.get(__ret__, 'maximum_batching_window_in_seconds'),
         maximum_record_age_in_seconds=pulumi.get(__ret__, 'maximum_record_age_in_seconds'),
         maximum_retry_attempts=pulumi.get(__ret__, 'maximum_retry_attempts'),
@@ -439,6 +452,7 @@ def get_event_source_mapping_output(id: Optional[pulumi.Input[_builtins.str]] = 
         function_response_types=pulumi.get(__response__, 'function_response_types'),
         id=pulumi.get(__response__, 'id'),
         kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
+        logging_config=pulumi.get(__response__, 'logging_config'),
         maximum_batching_window_in_seconds=pulumi.get(__response__, 'maximum_batching_window_in_seconds'),
         maximum_record_age_in_seconds=pulumi.get(__response__, 'maximum_record_age_in_seconds'),
         maximum_retry_attempts=pulumi.get(__response__, 'maximum_retry_attempts'),

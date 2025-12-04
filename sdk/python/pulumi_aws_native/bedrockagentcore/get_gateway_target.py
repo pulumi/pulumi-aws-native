@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGatewayTargetResult:
-    def __init__(__self__, created_at=None, credential_provider_configurations=None, description=None, gateway_arn=None, name=None, status=None, status_reasons=None, target_configuration=None, target_id=None, updated_at=None):
+    def __init__(__self__, created_at=None, credential_provider_configurations=None, description=None, gateway_arn=None, last_synchronized_at=None, name=None, status=None, status_reasons=None, target_configuration=None, target_id=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -38,6 +38,9 @@ class GetGatewayTargetResult:
         if gateway_arn and not isinstance(gateway_arn, str):
             raise TypeError("Expected argument 'gateway_arn' to be a str")
         pulumi.set(__self__, "gateway_arn", gateway_arn)
+        if last_synchronized_at and not isinstance(last_synchronized_at, str):
+            raise TypeError("Expected argument 'last_synchronized_at' to be a str")
+        pulumi.set(__self__, "last_synchronized_at", last_synchronized_at)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -85,6 +88,11 @@ class GetGatewayTargetResult:
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "gateway_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="lastSynchronizedAt")
+    def last_synchronized_at(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_synchronized_at")
 
     @_builtins.property
     @pulumi.getter
@@ -145,6 +153,7 @@ class AwaitableGetGatewayTargetResult(GetGatewayTargetResult):
             credential_provider_configurations=self.credential_provider_configurations,
             description=self.description,
             gateway_arn=self.gateway_arn,
+            last_synchronized_at=self.last_synchronized_at,
             name=self.name,
             status=self.status,
             status_reasons=self.status_reasons,
@@ -174,6 +183,7 @@ def get_gateway_target(gateway_identifier: Optional[_builtins.str] = None,
         credential_provider_configurations=pulumi.get(__ret__, 'credential_provider_configurations'),
         description=pulumi.get(__ret__, 'description'),
         gateway_arn=pulumi.get(__ret__, 'gateway_arn'),
+        last_synchronized_at=pulumi.get(__ret__, 'last_synchronized_at'),
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
         status_reasons=pulumi.get(__ret__, 'status_reasons'),
@@ -200,6 +210,7 @@ def get_gateway_target_output(gateway_identifier: Optional[pulumi.Input[_builtin
         credential_provider_configurations=pulumi.get(__response__, 'credential_provider_configurations'),
         description=pulumi.get(__response__, 'description'),
         gateway_arn=pulumi.get(__response__, 'gateway_arn'),
+        last_synchronized_at=pulumi.get(__response__, 'last_synchronized_at'),
         name=pulumi.get(__response__, 'name'),
         status=pulumi.get(__response__, 'status'),
         status_reasons=pulumi.get(__response__, 'status_reasons'),

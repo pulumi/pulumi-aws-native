@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.S3
     public sealed class GetBucketResult
     {
         /// <summary>
+        /// The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see [Using tags with S3 general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html) .
+        /// </summary>
+        public readonly Pulumi.AwsNative.S3.BucketAbacStatus? AbacStatus;
+        /// <summary>
         /// Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
         /// </summary>
         public readonly Outputs.BucketAccelerateConfiguration? AccelerateConfiguration;
@@ -196,6 +200,8 @@ namespace Pulumi.AwsNative.S3
 
         [OutputConstructor]
         private GetBucketResult(
+            Pulumi.AwsNative.S3.BucketAbacStatus? abacStatus,
+
             Outputs.BucketAccelerateConfiguration? accelerateConfiguration,
 
             ImmutableArray<Outputs.BucketAnalyticsConfiguration> analyticsConfigurations,
@@ -246,6 +252,7 @@ namespace Pulumi.AwsNative.S3
 
             string? websiteUrl)
         {
+            AbacStatus = abacStatus;
             AccelerateConfiguration = accelerateConfiguration;
             AnalyticsConfigurations = analyticsConfigurations;
             Arn = arn;

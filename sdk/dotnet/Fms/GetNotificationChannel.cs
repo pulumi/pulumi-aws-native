@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Fms
     public sealed class GetNotificationChannelResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
+        /// The Amazon Resource Name (ARN) of the IAM role that allows Amazon  to record AWS Firewall Manager activity.
         /// </summary>
         public readonly string? SnsRoleName;
         /// <summary>

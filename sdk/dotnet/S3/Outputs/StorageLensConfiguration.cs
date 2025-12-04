@@ -32,6 +32,7 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
         /// </summary>
         public readonly Outputs.StorageLensBucketsAndRegions? Exclude;
+        public readonly Outputs.StorageLensExpandedPrefixesDataExport? ExpandedPrefixesDataExport;
         /// <summary>
         /// This property contains the details of the ID of the S3 Storage Lens configuration.
         /// </summary>
@@ -44,6 +45,10 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
         /// </summary>
         public readonly bool IsEnabled;
+        /// <summary>
+        /// The delimiter to divide S3 key into hierarchy of prefixes.
+        /// </summary>
+        public readonly string? PrefixDelimiter;
         /// <summary>
         /// The ARN for the Amazon S3 Storage Lens configuration.
         /// </summary>
@@ -59,11 +64,15 @@ namespace Pulumi.AwsNative.S3.Outputs
 
             Outputs.StorageLensBucketsAndRegions? exclude,
 
+            Outputs.StorageLensExpandedPrefixesDataExport? expandedPrefixesDataExport,
+
             string id,
 
             Outputs.StorageLensBucketsAndRegions? include,
 
             bool isEnabled,
+
+            string? prefixDelimiter,
 
             string? storageLensArn)
         {
@@ -71,9 +80,11 @@ namespace Pulumi.AwsNative.S3.Outputs
             AwsOrg = awsOrg;
             DataExport = dataExport;
             Exclude = exclude;
+            ExpandedPrefixesDataExport = expandedPrefixesDataExport;
             Id = id;
             Include = include;
             IsEnabled = isEnabled;
+            PrefixDelimiter = prefixDelimiter;
             StorageLensArn = storageLensArn;
         }
     }

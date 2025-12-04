@@ -50,6 +50,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly encryptionDetails: pulumi.Output<outputs.dsql.EncryptionDetailsProperties>;
     /**
+     * The DSQL cluster endpoint.
+     */
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
+    /**
      * The ID of the created cluster.
      */
     declare public /*out*/ readonly identifier: pulumi.Output<string>;
@@ -61,6 +65,14 @@ export class Cluster extends pulumi.CustomResource {
      * The Multi-region properties associated to this cluster.
      */
     declare public readonly multiRegionProperties: pulumi.Output<outputs.dsql.MultiRegionPropertiesProperties | undefined>;
+    /**
+     * The IAM policy applied to the cluster resource.
+     */
+    declare public readonly policyDocument: pulumi.Output<string | undefined>;
+    /**
+     * The version number of the cluster's resource based policy
+     */
+    declare public /*out*/ readonly policyVersion: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the cluster.
      */
@@ -92,10 +104,13 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["deletionProtectionEnabled"] = args?.deletionProtectionEnabled;
             resourceInputs["kmsEncryptionKey"] = args?.kmsEncryptionKey;
             resourceInputs["multiRegionProperties"] = args?.multiRegionProperties;
+            resourceInputs["policyDocument"] = args?.policyDocument;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["encryptionDetails"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["identifier"] = undefined /*out*/;
+            resourceInputs["policyVersion"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["vpcEndpointServiceName"] = undefined /*out*/;
@@ -103,9 +118,12 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["deletionProtectionEnabled"] = undefined /*out*/;
             resourceInputs["encryptionDetails"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["identifier"] = undefined /*out*/;
             resourceInputs["kmsEncryptionKey"] = undefined /*out*/;
             resourceInputs["multiRegionProperties"] = undefined /*out*/;
+            resourceInputs["policyDocument"] = undefined /*out*/;
+            resourceInputs["policyVersion"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -132,6 +150,10 @@ export interface ClusterArgs {
      * The Multi-region properties associated to this cluster.
      */
     multiRegionProperties?: pulumi.Input<inputs.dsql.MultiRegionPropertiesPropertiesArgs>;
+    /**
+     * The IAM policy applied to the cluster resource.
+     */
+    policyDocument?: pulumi.Input<string>;
     /**
      * A map of key and value pairs this cluster is tagged with.
      */

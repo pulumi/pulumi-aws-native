@@ -194,7 +194,7 @@ export class Topic extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * Returns the ARN of an Amazon SNS topic.
+     * Returns the ARN of an Amazon  topic.
      */
     declare public /*out*/ readonly topicArn: pulumi.Output<string>;
     /**

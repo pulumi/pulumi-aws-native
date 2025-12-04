@@ -38,13 +38,17 @@ export class S3AccessPointAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * The Name of the S3AccessPointAttachment
+     * The name of the S3 access point attachment; also used for the name of the S3 access point.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * The OntapConfiguration of the S3 access point attachment.
+     */
+    declare public readonly ontapConfiguration: pulumi.Output<outputs.fsx.S3AccessPointAttachmentS3AccessPointOntapConfiguration | undefined>;
+    /**
      * The OpenZFSConfiguration of the S3 access point attachment.
      */
-    declare public readonly openZfsConfiguration: pulumi.Output<outputs.fsx.S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration>;
+    declare public readonly openZfsConfiguration: pulumi.Output<outputs.fsx.S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration | undefined>;
     /**
      * The S3 access point configuration of the S3 access point attachment.
      */
@@ -65,24 +69,23 @@ export class S3AccessPointAttachment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.openZfsConfiguration === undefined && !opts.urn) {
-                throw new Error("Missing required property 'openZfsConfiguration'");
-            }
             if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["name"] = args?.name;
+            resourceInputs["ontapConfiguration"] = args?.ontapConfiguration;
             resourceInputs["openZfsConfiguration"] = args?.openZfsConfiguration;
             resourceInputs["s3AccessPoint"] = args?.s3AccessPoint;
             resourceInputs["type"] = args?.type;
         } else {
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["ontapConfiguration"] = undefined /*out*/;
             resourceInputs["openZfsConfiguration"] = undefined /*out*/;
             resourceInputs["s3AccessPoint"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name", "openZfsConfiguration", "s3AccessPoint", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["name", "ontapConfiguration", "openZfsConfiguration", "s3AccessPoint", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(S3AccessPointAttachment.__pulumiType, name, resourceInputs, opts);
     }
@@ -93,13 +96,17 @@ export class S3AccessPointAttachment extends pulumi.CustomResource {
  */
 export interface S3AccessPointAttachmentArgs {
     /**
-     * The Name of the S3AccessPointAttachment
+     * The name of the S3 access point attachment; also used for the name of the S3 access point.
      */
     name?: pulumi.Input<string>;
     /**
+     * The OntapConfiguration of the S3 access point attachment.
+     */
+    ontapConfiguration?: pulumi.Input<inputs.fsx.S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs>;
+    /**
      * The OpenZFSConfiguration of the S3 access point attachment.
      */
-    openZfsConfiguration: pulumi.Input<inputs.fsx.S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs>;
+    openZfsConfiguration?: pulumi.Input<inputs.fsx.S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs>;
     /**
      * The S3 access point configuration of the S3 access point attachment.
      */

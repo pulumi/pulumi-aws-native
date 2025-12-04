@@ -102,7 +102,7 @@ class EncryptionConfigProperties(dict):
         """
         A Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access the key.
         :param _builtins.str kms_key_arn: The Amazon Resource Name (ARN) of the KMS key.
-        :param _builtins.str role_arn: The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.
+        :param _builtins.str role_arn: The ARN of the IAM role that Amazon Forecast can assume to access the AWS  key.
                
                Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `InvalidInputException` error.
         """
@@ -123,7 +123,7 @@ class EncryptionConfigProperties(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[_builtins.str]:
         """
-        The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.
+        The ARN of the IAM role that Amazon Forecast can assume to access the AWS  key.
 
         Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `InvalidInputException` error.
         """

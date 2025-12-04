@@ -52,7 +52,7 @@ if not MYPY:
         """
         kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+        An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS  key to encrypt data. To specify a AWS  key in a different AWS account, you must use the key ARN or alias ARN.
         """
 elif False:
     ActivityEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -66,7 +66,7 @@ class ActivityEncryptionConfigurationArgs:
         """
         :param pulumi.Input['ActivityEncryptionConfigurationType'] type: Encryption option for an activity.
         :param pulumi.Input[_builtins.int] kms_data_key_reuse_period_seconds: Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
-        :param pulumi.Input[_builtins.str] kms_key_id: An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+        :param pulumi.Input[_builtins.str] kms_key_id: An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS  key to encrypt data. To specify a AWS  key in a different AWS account, you must use the key ARN or alias ARN.
         """
         pulumi.set(__self__, "type", type)
         if kms_data_key_reuse_period_seconds is not None:
@@ -102,7 +102,7 @@ class ActivityEncryptionConfigurationArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+        An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS  key to encrypt data. To specify a AWS  key in a different AWS account, you must use the key ARN or alias ARN.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -337,7 +337,7 @@ if not MYPY:
         """
         kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+        An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS  key to encrypt data. To specify a AWS  key in a different AWS account, you must use the key ARN or alias ARN.
         """
 elif False:
     StateMachineEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -351,7 +351,7 @@ class StateMachineEncryptionConfigurationArgs:
         """
         :param pulumi.Input['StateMachineEncryptionConfigurationType'] type: Encryption option for a state machine.
         :param pulumi.Input[_builtins.int] kms_data_key_reuse_period_seconds: Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
-        :param pulumi.Input[_builtins.str] kms_key_id: An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+        :param pulumi.Input[_builtins.str] kms_key_id: An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS  key to encrypt data. To specify a AWS  key in a different AWS account, you must use the key ARN or alias ARN.
         """
         pulumi.set(__self__, "type", type)
         if kms_data_key_reuse_period_seconds is not None:
@@ -387,7 +387,7 @@ class StateMachineEncryptionConfigurationArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+        An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS  key to encrypt data. To specify a AWS  key in a different AWS account, you must use the key ARN or alias ARN.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -400,7 +400,7 @@ if not MYPY:
     class StateMachineLogDestinationArgsDict(TypedDict):
         cloud_watch_logs_log_group: NotRequired[pulumi.Input['StateMachineCloudWatchLogsLogGroupArgsDict']]
         """
-        An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the AWS CloudFormation User Guide.
+        An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the CloudFormation User Guide.
         """
 elif False:
     StateMachineLogDestinationArgsDict: TypeAlias = Mapping[str, Any]
@@ -410,7 +410,7 @@ class StateMachineLogDestinationArgs:
     def __init__(__self__, *,
                  cloud_watch_logs_log_group: Optional[pulumi.Input['StateMachineCloudWatchLogsLogGroupArgs']] = None):
         """
-        :param pulumi.Input['StateMachineCloudWatchLogsLogGroupArgs'] cloud_watch_logs_log_group: An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the AWS CloudFormation User Guide.
+        :param pulumi.Input['StateMachineCloudWatchLogsLogGroupArgs'] cloud_watch_logs_log_group: An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the CloudFormation User Guide.
         """
         if cloud_watch_logs_log_group is not None:
             pulumi.set(__self__, "cloud_watch_logs_log_group", cloud_watch_logs_log_group)
@@ -419,7 +419,7 @@ class StateMachineLogDestinationArgs:
     @pulumi.getter(name="cloudWatchLogsLogGroup")
     def cloud_watch_logs_log_group(self) -> Optional[pulumi.Input['StateMachineCloudWatchLogsLogGroupArgs']]:
         """
-        An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the AWS CloudFormation User Guide.
+        An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the CloudFormation User Guide.
         """
         return pulumi.get(self, "cloud_watch_logs_log_group")
 

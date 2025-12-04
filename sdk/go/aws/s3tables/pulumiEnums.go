@@ -176,6 +176,172 @@ func (in *tableBucketEncryptionConfigurationSseAlgorithmPtr) ToTableBucketEncryp
 	return pulumi.ToOutputWithContext(ctx, in).(TableBucketEncryptionConfigurationSseAlgorithmPtrOutput)
 }
 
+// Indicates whether Metrics are enabled.
+type TableBucketMetricsConfigurationStatus string
+
+const (
+	TableBucketMetricsConfigurationStatusEnabled  = TableBucketMetricsConfigurationStatus("Enabled")
+	TableBucketMetricsConfigurationStatusDisabled = TableBucketMetricsConfigurationStatus("Disabled")
+)
+
+func (TableBucketMetricsConfigurationStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketMetricsConfigurationStatus)(nil)).Elem()
+}
+
+func (e TableBucketMetricsConfigurationStatus) ToTableBucketMetricsConfigurationStatusOutput() TableBucketMetricsConfigurationStatusOutput {
+	return pulumi.ToOutput(e).(TableBucketMetricsConfigurationStatusOutput)
+}
+
+func (e TableBucketMetricsConfigurationStatus) ToTableBucketMetricsConfigurationStatusOutputWithContext(ctx context.Context) TableBucketMetricsConfigurationStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TableBucketMetricsConfigurationStatusOutput)
+}
+
+func (e TableBucketMetricsConfigurationStatus) ToTableBucketMetricsConfigurationStatusPtrOutput() TableBucketMetricsConfigurationStatusPtrOutput {
+	return e.ToTableBucketMetricsConfigurationStatusPtrOutputWithContext(context.Background())
+}
+
+func (e TableBucketMetricsConfigurationStatus) ToTableBucketMetricsConfigurationStatusPtrOutputWithContext(ctx context.Context) TableBucketMetricsConfigurationStatusPtrOutput {
+	return TableBucketMetricsConfigurationStatus(e).ToTableBucketMetricsConfigurationStatusOutputWithContext(ctx).ToTableBucketMetricsConfigurationStatusPtrOutputWithContext(ctx)
+}
+
+func (e TableBucketMetricsConfigurationStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableBucketMetricsConfigurationStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableBucketMetricsConfigurationStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TableBucketMetricsConfigurationStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TableBucketMetricsConfigurationStatusOutput struct{ *pulumi.OutputState }
+
+func (TableBucketMetricsConfigurationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketMetricsConfigurationStatus)(nil)).Elem()
+}
+
+func (o TableBucketMetricsConfigurationStatusOutput) ToTableBucketMetricsConfigurationStatusOutput() TableBucketMetricsConfigurationStatusOutput {
+	return o
+}
+
+func (o TableBucketMetricsConfigurationStatusOutput) ToTableBucketMetricsConfigurationStatusOutputWithContext(ctx context.Context) TableBucketMetricsConfigurationStatusOutput {
+	return o
+}
+
+func (o TableBucketMetricsConfigurationStatusOutput) ToTableBucketMetricsConfigurationStatusPtrOutput() TableBucketMetricsConfigurationStatusPtrOutput {
+	return o.ToTableBucketMetricsConfigurationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o TableBucketMetricsConfigurationStatusOutput) ToTableBucketMetricsConfigurationStatusPtrOutputWithContext(ctx context.Context) TableBucketMetricsConfigurationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableBucketMetricsConfigurationStatus) *TableBucketMetricsConfigurationStatus {
+		return &v
+	}).(TableBucketMetricsConfigurationStatusPtrOutput)
+}
+
+func (o TableBucketMetricsConfigurationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TableBucketMetricsConfigurationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableBucketMetricsConfigurationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TableBucketMetricsConfigurationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableBucketMetricsConfigurationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableBucketMetricsConfigurationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableBucketMetricsConfigurationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (TableBucketMetricsConfigurationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableBucketMetricsConfigurationStatus)(nil)).Elem()
+}
+
+func (o TableBucketMetricsConfigurationStatusPtrOutput) ToTableBucketMetricsConfigurationStatusPtrOutput() TableBucketMetricsConfigurationStatusPtrOutput {
+	return o
+}
+
+func (o TableBucketMetricsConfigurationStatusPtrOutput) ToTableBucketMetricsConfigurationStatusPtrOutputWithContext(ctx context.Context) TableBucketMetricsConfigurationStatusPtrOutput {
+	return o
+}
+
+func (o TableBucketMetricsConfigurationStatusPtrOutput) Elem() TableBucketMetricsConfigurationStatusOutput {
+	return o.ApplyT(func(v *TableBucketMetricsConfigurationStatus) TableBucketMetricsConfigurationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret TableBucketMetricsConfigurationStatus
+		return ret
+	}).(TableBucketMetricsConfigurationStatusOutput)
+}
+
+func (o TableBucketMetricsConfigurationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableBucketMetricsConfigurationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TableBucketMetricsConfigurationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TableBucketMetricsConfigurationStatusInput is an input type that accepts values of the TableBucketMetricsConfigurationStatus enum
+// A concrete instance of `TableBucketMetricsConfigurationStatusInput` can be one of the following:
+//
+//	TableBucketMetricsConfigurationStatusEnabled
+//	TableBucketMetricsConfigurationStatusDisabled
+type TableBucketMetricsConfigurationStatusInput interface {
+	pulumi.Input
+
+	ToTableBucketMetricsConfigurationStatusOutput() TableBucketMetricsConfigurationStatusOutput
+	ToTableBucketMetricsConfigurationStatusOutputWithContext(context.Context) TableBucketMetricsConfigurationStatusOutput
+}
+
+var tableBucketMetricsConfigurationStatusPtrType = reflect.TypeOf((**TableBucketMetricsConfigurationStatus)(nil)).Elem()
+
+type TableBucketMetricsConfigurationStatusPtrInput interface {
+	pulumi.Input
+
+	ToTableBucketMetricsConfigurationStatusPtrOutput() TableBucketMetricsConfigurationStatusPtrOutput
+	ToTableBucketMetricsConfigurationStatusPtrOutputWithContext(context.Context) TableBucketMetricsConfigurationStatusPtrOutput
+}
+
+type tableBucketMetricsConfigurationStatusPtr string
+
+func TableBucketMetricsConfigurationStatusPtr(v string) TableBucketMetricsConfigurationStatusPtrInput {
+	return (*tableBucketMetricsConfigurationStatusPtr)(&v)
+}
+
+func (*tableBucketMetricsConfigurationStatusPtr) ElementType() reflect.Type {
+	return tableBucketMetricsConfigurationStatusPtrType
+}
+
+func (in *tableBucketMetricsConfigurationStatusPtr) ToTableBucketMetricsConfigurationStatusPtrOutput() TableBucketMetricsConfigurationStatusPtrOutput {
+	return pulumi.ToOutput(in).(TableBucketMetricsConfigurationStatusPtrOutput)
+}
+
+func (in *tableBucketMetricsConfigurationStatusPtr) ToTableBucketMetricsConfigurationStatusPtrOutputWithContext(ctx context.Context) TableBucketMetricsConfigurationStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TableBucketMetricsConfigurationStatusPtrOutput)
+}
+
 // Indicates whether the Unreferenced File Removal maintenance action is enabled.
 type TableBucketUnreferencedFileRemovalStatus string
 
@@ -1005,6 +1171,8 @@ func (in *tableWithoutMetadataPtr) ToTableWithoutMetadataPtrOutputWithContext(ct
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationSseAlgorithmInput)(nil)).Elem(), TableBucketEncryptionConfigurationSseAlgorithm("AES256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationSseAlgorithmPtrInput)(nil)).Elem(), TableBucketEncryptionConfigurationSseAlgorithm("AES256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketMetricsConfigurationStatusInput)(nil)).Elem(), TableBucketMetricsConfigurationStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketMetricsConfigurationStatusPtrInput)(nil)).Elem(), TableBucketMetricsConfigurationStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketUnreferencedFileRemovalStatusInput)(nil)).Elem(), TableBucketUnreferencedFileRemovalStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketUnreferencedFileRemovalStatusPtrInput)(nil)).Elem(), TableBucketUnreferencedFileRemovalStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableCompactionStatusInput)(nil)).Elem(), TableCompactionStatus("enabled"))
@@ -1017,6 +1185,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableWithoutMetadataPtrInput)(nil)).Elem(), TableWithoutMetadata("Yes"))
 	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationSseAlgorithmOutput{})
 	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationSseAlgorithmPtrOutput{})
+	pulumi.RegisterOutputType(TableBucketMetricsConfigurationStatusOutput{})
+	pulumi.RegisterOutputType(TableBucketMetricsConfigurationStatusPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketUnreferencedFileRemovalStatusOutput{})
 	pulumi.RegisterOutputType(TableBucketUnreferencedFileRemovalStatusPtrOutput{})
 	pulumi.RegisterOutputType(TableCompactionStatusOutput{})

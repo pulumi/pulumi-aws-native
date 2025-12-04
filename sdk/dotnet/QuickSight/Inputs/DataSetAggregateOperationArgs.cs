@@ -14,23 +14,37 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("aggregations", required: true)]
         private InputList<Inputs.DataSetAggregationArgs>? _aggregations;
+
+        /// <summary>
+        /// The list of aggregation functions to apply to the grouped data, such as `SUM` , `COUNT` , or `AVERAGE` .
+        /// </summary>
         public InputList<Inputs.DataSetAggregationArgs> Aggregations
         {
             get => _aggregations ?? (_aggregations = new InputList<Inputs.DataSetAggregationArgs>());
             set => _aggregations = value;
         }
 
+        /// <summary>
+        /// Alias for this operation.
+        /// </summary>
         [Input("alias", required: true)]
         public Input<string> Alias { get; set; } = null!;
 
         [Input("groupByColumnNames")]
         private InputList<string>? _groupByColumnNames;
+
+        /// <summary>
+        /// The list of column names to group by when performing the aggregation. Rows with the same values in these columns will be grouped together.
+        /// </summary>
         public InputList<string> GroupByColumnNames
         {
             get => _groupByColumnNames ?? (_groupByColumnNames = new InputList<string>());
             set => _groupByColumnNames = value;
         }
 
+        /// <summary>
+        /// The source transform operation that provides input data for the aggregation.
+        /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.DataSetTransformOperationSourceArgs> Source { get; set; } = null!;
 

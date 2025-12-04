@@ -69,6 +69,9 @@ export class SessionLogger extends pulumi.CustomResource {
      * The ARN of the session logger resource.
      */
     declare public /*out*/ readonly sessionLoggerArn: pulumi.Output<string>;
+    /**
+     * The tags of the session logger.
+     */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -139,5 +142,8 @@ export interface SessionLoggerArgs {
      * The configuration that specifies where logs are fowarded.
      */
     logConfiguration: pulumi.Input<inputs.workspacesweb.SessionLoggerLogConfigurationArgs>;
+    /**
+     * The tags of the session logger.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

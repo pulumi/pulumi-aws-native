@@ -930,6 +930,240 @@ func (o CloudFrontOriginAccessIdentityConfigPtrOutput) Comment() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+type ConnectionFunctionConfig struct {
+	// A comment to describe the function.
+	Comment string `pulumi:"comment"`
+	// The configuration for the key value store associations.
+	KeyValueStoreAssociations []ConnectionFunctionKeyValueStoreAssociation `pulumi:"keyValueStoreAssociations"`
+	// The function's runtime environment version.
+	Runtime ConnectionFunctionConfigRuntime `pulumi:"runtime"`
+}
+
+// ConnectionFunctionConfigInput is an input type that accepts ConnectionFunctionConfigArgs and ConnectionFunctionConfigOutput values.
+// You can construct a concrete instance of `ConnectionFunctionConfigInput` via:
+//
+//	ConnectionFunctionConfigArgs{...}
+type ConnectionFunctionConfigInput interface {
+	pulumi.Input
+
+	ToConnectionFunctionConfigOutput() ConnectionFunctionConfigOutput
+	ToConnectionFunctionConfigOutputWithContext(context.Context) ConnectionFunctionConfigOutput
+}
+
+type ConnectionFunctionConfigArgs struct {
+	// A comment to describe the function.
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// The configuration for the key value store associations.
+	KeyValueStoreAssociations ConnectionFunctionKeyValueStoreAssociationArrayInput `pulumi:"keyValueStoreAssociations"`
+	// The function's runtime environment version.
+	Runtime ConnectionFunctionConfigRuntimeInput `pulumi:"runtime"`
+}
+
+func (ConnectionFunctionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionFunctionConfig)(nil)).Elem()
+}
+
+func (i ConnectionFunctionConfigArgs) ToConnectionFunctionConfigOutput() ConnectionFunctionConfigOutput {
+	return i.ToConnectionFunctionConfigOutputWithContext(context.Background())
+}
+
+func (i ConnectionFunctionConfigArgs) ToConnectionFunctionConfigOutputWithContext(ctx context.Context) ConnectionFunctionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionFunctionConfigOutput)
+}
+
+type ConnectionFunctionConfigOutput struct{ *pulumi.OutputState }
+
+func (ConnectionFunctionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionFunctionConfig)(nil)).Elem()
+}
+
+func (o ConnectionFunctionConfigOutput) ToConnectionFunctionConfigOutput() ConnectionFunctionConfigOutput {
+	return o
+}
+
+func (o ConnectionFunctionConfigOutput) ToConnectionFunctionConfigOutputWithContext(ctx context.Context) ConnectionFunctionConfigOutput {
+	return o
+}
+
+// A comment to describe the function.
+func (o ConnectionFunctionConfigOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionFunctionConfig) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+// The configuration for the key value store associations.
+func (o ConnectionFunctionConfigOutput) KeyValueStoreAssociations() ConnectionFunctionKeyValueStoreAssociationArrayOutput {
+	return o.ApplyT(func(v ConnectionFunctionConfig) []ConnectionFunctionKeyValueStoreAssociation {
+		return v.KeyValueStoreAssociations
+	}).(ConnectionFunctionKeyValueStoreAssociationArrayOutput)
+}
+
+// The function's runtime environment version.
+func (o ConnectionFunctionConfigOutput) Runtime() ConnectionFunctionConfigRuntimeOutput {
+	return o.ApplyT(func(v ConnectionFunctionConfig) ConnectionFunctionConfigRuntime { return v.Runtime }).(ConnectionFunctionConfigRuntimeOutput)
+}
+
+type ConnectionFunctionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionFunctionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionFunctionConfig)(nil)).Elem()
+}
+
+func (o ConnectionFunctionConfigPtrOutput) ToConnectionFunctionConfigPtrOutput() ConnectionFunctionConfigPtrOutput {
+	return o
+}
+
+func (o ConnectionFunctionConfigPtrOutput) ToConnectionFunctionConfigPtrOutputWithContext(ctx context.Context) ConnectionFunctionConfigPtrOutput {
+	return o
+}
+
+func (o ConnectionFunctionConfigPtrOutput) Elem() ConnectionFunctionConfigOutput {
+	return o.ApplyT(func(v *ConnectionFunctionConfig) ConnectionFunctionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionFunctionConfig
+		return ret
+	}).(ConnectionFunctionConfigOutput)
+}
+
+// A comment to describe the function.
+func (o ConnectionFunctionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionFunctionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration for the key value store associations.
+func (o ConnectionFunctionConfigPtrOutput) KeyValueStoreAssociations() ConnectionFunctionKeyValueStoreAssociationArrayOutput {
+	return o.ApplyT(func(v *ConnectionFunctionConfig) []ConnectionFunctionKeyValueStoreAssociation {
+		if v == nil {
+			return nil
+		}
+		return v.KeyValueStoreAssociations
+	}).(ConnectionFunctionKeyValueStoreAssociationArrayOutput)
+}
+
+// The function's runtime environment version.
+func (o ConnectionFunctionConfigPtrOutput) Runtime() ConnectionFunctionConfigRuntimePtrOutput {
+	return o.ApplyT(func(v *ConnectionFunctionConfig) *ConnectionFunctionConfigRuntime {
+		if v == nil {
+			return nil
+		}
+		return &v.Runtime
+	}).(ConnectionFunctionConfigRuntimePtrOutput)
+}
+
+type ConnectionFunctionKeyValueStoreAssociation struct {
+	// The Amazon Resource Name (ARN) of the key value store association.
+	KeyValueStoreArn string `pulumi:"keyValueStoreArn"`
+}
+
+// ConnectionFunctionKeyValueStoreAssociationInput is an input type that accepts ConnectionFunctionKeyValueStoreAssociationArgs and ConnectionFunctionKeyValueStoreAssociationOutput values.
+// You can construct a concrete instance of `ConnectionFunctionKeyValueStoreAssociationInput` via:
+//
+//	ConnectionFunctionKeyValueStoreAssociationArgs{...}
+type ConnectionFunctionKeyValueStoreAssociationInput interface {
+	pulumi.Input
+
+	ToConnectionFunctionKeyValueStoreAssociationOutput() ConnectionFunctionKeyValueStoreAssociationOutput
+	ToConnectionFunctionKeyValueStoreAssociationOutputWithContext(context.Context) ConnectionFunctionKeyValueStoreAssociationOutput
+}
+
+type ConnectionFunctionKeyValueStoreAssociationArgs struct {
+	// The Amazon Resource Name (ARN) of the key value store association.
+	KeyValueStoreArn pulumi.StringInput `pulumi:"keyValueStoreArn"`
+}
+
+func (ConnectionFunctionKeyValueStoreAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionFunctionKeyValueStoreAssociation)(nil)).Elem()
+}
+
+func (i ConnectionFunctionKeyValueStoreAssociationArgs) ToConnectionFunctionKeyValueStoreAssociationOutput() ConnectionFunctionKeyValueStoreAssociationOutput {
+	return i.ToConnectionFunctionKeyValueStoreAssociationOutputWithContext(context.Background())
+}
+
+func (i ConnectionFunctionKeyValueStoreAssociationArgs) ToConnectionFunctionKeyValueStoreAssociationOutputWithContext(ctx context.Context) ConnectionFunctionKeyValueStoreAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionFunctionKeyValueStoreAssociationOutput)
+}
+
+// ConnectionFunctionKeyValueStoreAssociationArrayInput is an input type that accepts ConnectionFunctionKeyValueStoreAssociationArray and ConnectionFunctionKeyValueStoreAssociationArrayOutput values.
+// You can construct a concrete instance of `ConnectionFunctionKeyValueStoreAssociationArrayInput` via:
+//
+//	ConnectionFunctionKeyValueStoreAssociationArray{ ConnectionFunctionKeyValueStoreAssociationArgs{...} }
+type ConnectionFunctionKeyValueStoreAssociationArrayInput interface {
+	pulumi.Input
+
+	ToConnectionFunctionKeyValueStoreAssociationArrayOutput() ConnectionFunctionKeyValueStoreAssociationArrayOutput
+	ToConnectionFunctionKeyValueStoreAssociationArrayOutputWithContext(context.Context) ConnectionFunctionKeyValueStoreAssociationArrayOutput
+}
+
+type ConnectionFunctionKeyValueStoreAssociationArray []ConnectionFunctionKeyValueStoreAssociationInput
+
+func (ConnectionFunctionKeyValueStoreAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionFunctionKeyValueStoreAssociation)(nil)).Elem()
+}
+
+func (i ConnectionFunctionKeyValueStoreAssociationArray) ToConnectionFunctionKeyValueStoreAssociationArrayOutput() ConnectionFunctionKeyValueStoreAssociationArrayOutput {
+	return i.ToConnectionFunctionKeyValueStoreAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectionFunctionKeyValueStoreAssociationArray) ToConnectionFunctionKeyValueStoreAssociationArrayOutputWithContext(ctx context.Context) ConnectionFunctionKeyValueStoreAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionFunctionKeyValueStoreAssociationArrayOutput)
+}
+
+type ConnectionFunctionKeyValueStoreAssociationOutput struct{ *pulumi.OutputState }
+
+func (ConnectionFunctionKeyValueStoreAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionFunctionKeyValueStoreAssociation)(nil)).Elem()
+}
+
+func (o ConnectionFunctionKeyValueStoreAssociationOutput) ToConnectionFunctionKeyValueStoreAssociationOutput() ConnectionFunctionKeyValueStoreAssociationOutput {
+	return o
+}
+
+func (o ConnectionFunctionKeyValueStoreAssociationOutput) ToConnectionFunctionKeyValueStoreAssociationOutputWithContext(ctx context.Context) ConnectionFunctionKeyValueStoreAssociationOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the key value store association.
+func (o ConnectionFunctionKeyValueStoreAssociationOutput) KeyValueStoreArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionFunctionKeyValueStoreAssociation) string { return v.KeyValueStoreArn }).(pulumi.StringOutput)
+}
+
+type ConnectionFunctionKeyValueStoreAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectionFunctionKeyValueStoreAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionFunctionKeyValueStoreAssociation)(nil)).Elem()
+}
+
+func (o ConnectionFunctionKeyValueStoreAssociationArrayOutput) ToConnectionFunctionKeyValueStoreAssociationArrayOutput() ConnectionFunctionKeyValueStoreAssociationArrayOutput {
+	return o
+}
+
+func (o ConnectionFunctionKeyValueStoreAssociationArrayOutput) ToConnectionFunctionKeyValueStoreAssociationArrayOutputWithContext(ctx context.Context) ConnectionFunctionKeyValueStoreAssociationArrayOutput {
+	return o
+}
+
+func (o ConnectionFunctionKeyValueStoreAssociationArrayOutput) Index(i pulumi.IntInput) ConnectionFunctionKeyValueStoreAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectionFunctionKeyValueStoreAssociation {
+		return vs[0].([]ConnectionFunctionKeyValueStoreAssociation)[vs[1].(int)]
+	}).(ConnectionFunctionKeyValueStoreAssociationOutput)
+}
+
+type ConnectionFunctionTag struct {
+	// A string that contains `Tag` key.
+	//
+	// The string length should be between 1 and 128 characters. Valid characters include `a-z` , `A-Z` , `0-9` , space, and the special characters `_ - . : / = + @` .
+	Key string `pulumi:"key"`
+	// A string that contains an optional `Tag` value.
+	//
+	// The string length should be between 0 and 256 characters. Valid characters include `a-z` , `A-Z` , `0-9` , space, and the special characters `_ - . : / = + @` .
+	Value string `pulumi:"value"`
+}
+
 // A complex type that contains “Tag“ key and “Tag“ value.
 type ConnectionGroupTag struct {
 	// A string that contains ``Tag`` key.
@@ -2540,6 +2774,8 @@ type DistributionConfig struct {
 	Cnames []string `pulumi:"cnames"`
 	// A comment to describe the distribution. The comment cannot be longer than 128 characters.
 	Comment *string `pulumi:"comment"`
+	// The distribution's connection function association.
+	ConnectionFunctionAssociation *DistributionConnectionFunctionAssociation `pulumi:"connectionFunctionAssociation"`
 	// This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants (tenant-only).
 	ConnectionMode *DistributionConnectionMode `pulumi:"connectionMode"`
 	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
@@ -2606,6 +2842,8 @@ type DistributionConfig struct {
 	TenantConfig *DistributionConfigTenantConfigProperties `pulumi:"tenantConfig"`
 	// A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
 	ViewerCertificate *DistributionViewerCertificate `pulumi:"viewerCertificate"`
+	// The distribution's viewer mTLS configuration.
+	ViewerMtlsConfig *DistributionViewerMtlsConfig `pulumi:"viewerMtlsConfig"`
 	// Multi-tenant distributions only support WAF V2 web ACLs.
 	//   A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
 	//  WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
@@ -2638,6 +2876,8 @@ type DistributionConfigArgs struct {
 	Cnames pulumi.StringArrayInput `pulumi:"cnames"`
 	// A comment to describe the distribution. The comment cannot be longer than 128 characters.
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// The distribution's connection function association.
+	ConnectionFunctionAssociation DistributionConnectionFunctionAssociationPtrInput `pulumi:"connectionFunctionAssociation"`
 	// This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants (tenant-only).
 	ConnectionMode DistributionConnectionModePtrInput `pulumi:"connectionMode"`
 	// This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
@@ -2704,6 +2944,8 @@ type DistributionConfigArgs struct {
 	TenantConfig DistributionConfigTenantConfigPropertiesPtrInput `pulumi:"tenantConfig"`
 	// A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
 	ViewerCertificate DistributionViewerCertificatePtrInput `pulumi:"viewerCertificate"`
+	// The distribution's viewer mTLS configuration.
+	ViewerMtlsConfig DistributionViewerMtlsConfigPtrInput `pulumi:"viewerMtlsConfig"`
 	// Multi-tenant distributions only support WAF V2 web ACLs.
 	//   A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
 	//  WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
@@ -2766,6 +3008,13 @@ func (o DistributionConfigOutput) Cnames() pulumi.StringArrayOutput {
 // A comment to describe the distribution. The comment cannot be longer than 128 characters.
 func (o DistributionConfigOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// The distribution's connection function association.
+func (o DistributionConfigOutput) ConnectionFunctionAssociation() DistributionConnectionFunctionAssociationPtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *DistributionConnectionFunctionAssociation {
+		return v.ConnectionFunctionAssociation
+	}).(DistributionConnectionFunctionAssociationPtrOutput)
 }
 
 // This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants (tenant-only).
@@ -2902,6 +3151,11 @@ func (o DistributionConfigOutput) ViewerCertificate() DistributionViewerCertific
 	return o.ApplyT(func(v DistributionConfig) *DistributionViewerCertificate { return v.ViewerCertificate }).(DistributionViewerCertificatePtrOutput)
 }
 
+// The distribution's viewer mTLS configuration.
+func (o DistributionConfigOutput) ViewerMtlsConfig() DistributionViewerMtlsConfigPtrOutput {
+	return o.ApplyT(func(v DistributionConfig) *DistributionViewerMtlsConfig { return v.ViewerMtlsConfig }).(DistributionViewerMtlsConfigPtrOutput)
+}
+
 // Multi-tenant distributions only support WAF V2 web ACLs.
 //
 //	 A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
@@ -2988,6 +3242,16 @@ func (o DistributionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 		}
 		return v.Comment
 	}).(pulumi.StringPtrOutput)
+}
+
+// The distribution's connection function association.
+func (o DistributionConfigPtrOutput) ConnectionFunctionAssociation() DistributionConnectionFunctionAssociationPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *DistributionConnectionFunctionAssociation {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionFunctionAssociation
+	}).(DistributionConnectionFunctionAssociationPtrOutput)
 }
 
 // This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants (tenant-only).
@@ -3214,6 +3478,16 @@ func (o DistributionConfigPtrOutput) ViewerCertificate() DistributionViewerCerti
 	}).(DistributionViewerCertificatePtrOutput)
 }
 
+// The distribution's viewer mTLS configuration.
+func (o DistributionConfigPtrOutput) ViewerMtlsConfig() DistributionViewerMtlsConfigPtrOutput {
+	return o.ApplyT(func(v *DistributionConfig) *DistributionViewerMtlsConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ViewerMtlsConfig
+	}).(DistributionViewerMtlsConfigPtrOutput)
+}
+
 // Multi-tenant distributions only support WAF V2 web ACLs.
 //
 //	 A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
@@ -3369,6 +3643,143 @@ func (o DistributionConfigTenantConfigPropertiesPtrOutput) ParameterDefinitions(
 		}
 		return v.ParameterDefinitions
 	}).(DistributionParameterDefinitionArrayOutput)
+}
+
+type DistributionConnectionFunctionAssociation struct {
+	// The association's ID.
+	Id string `pulumi:"id"`
+}
+
+// DistributionConnectionFunctionAssociationInput is an input type that accepts DistributionConnectionFunctionAssociationArgs and DistributionConnectionFunctionAssociationOutput values.
+// You can construct a concrete instance of `DistributionConnectionFunctionAssociationInput` via:
+//
+//	DistributionConnectionFunctionAssociationArgs{...}
+type DistributionConnectionFunctionAssociationInput interface {
+	pulumi.Input
+
+	ToDistributionConnectionFunctionAssociationOutput() DistributionConnectionFunctionAssociationOutput
+	ToDistributionConnectionFunctionAssociationOutputWithContext(context.Context) DistributionConnectionFunctionAssociationOutput
+}
+
+type DistributionConnectionFunctionAssociationArgs struct {
+	// The association's ID.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (DistributionConnectionFunctionAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConnectionFunctionAssociation)(nil)).Elem()
+}
+
+func (i DistributionConnectionFunctionAssociationArgs) ToDistributionConnectionFunctionAssociationOutput() DistributionConnectionFunctionAssociationOutput {
+	return i.ToDistributionConnectionFunctionAssociationOutputWithContext(context.Background())
+}
+
+func (i DistributionConnectionFunctionAssociationArgs) ToDistributionConnectionFunctionAssociationOutputWithContext(ctx context.Context) DistributionConnectionFunctionAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConnectionFunctionAssociationOutput)
+}
+
+func (i DistributionConnectionFunctionAssociationArgs) ToDistributionConnectionFunctionAssociationPtrOutput() DistributionConnectionFunctionAssociationPtrOutput {
+	return i.ToDistributionConnectionFunctionAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionConnectionFunctionAssociationArgs) ToDistributionConnectionFunctionAssociationPtrOutputWithContext(ctx context.Context) DistributionConnectionFunctionAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConnectionFunctionAssociationOutput).ToDistributionConnectionFunctionAssociationPtrOutputWithContext(ctx)
+}
+
+// DistributionConnectionFunctionAssociationPtrInput is an input type that accepts DistributionConnectionFunctionAssociationArgs, DistributionConnectionFunctionAssociationPtr and DistributionConnectionFunctionAssociationPtrOutput values.
+// You can construct a concrete instance of `DistributionConnectionFunctionAssociationPtrInput` via:
+//
+//	        DistributionConnectionFunctionAssociationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionConnectionFunctionAssociationPtrInput interface {
+	pulumi.Input
+
+	ToDistributionConnectionFunctionAssociationPtrOutput() DistributionConnectionFunctionAssociationPtrOutput
+	ToDistributionConnectionFunctionAssociationPtrOutputWithContext(context.Context) DistributionConnectionFunctionAssociationPtrOutput
+}
+
+type distributionConnectionFunctionAssociationPtrType DistributionConnectionFunctionAssociationArgs
+
+func DistributionConnectionFunctionAssociationPtr(v *DistributionConnectionFunctionAssociationArgs) DistributionConnectionFunctionAssociationPtrInput {
+	return (*distributionConnectionFunctionAssociationPtrType)(v)
+}
+
+func (*distributionConnectionFunctionAssociationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConnectionFunctionAssociation)(nil)).Elem()
+}
+
+func (i *distributionConnectionFunctionAssociationPtrType) ToDistributionConnectionFunctionAssociationPtrOutput() DistributionConnectionFunctionAssociationPtrOutput {
+	return i.ToDistributionConnectionFunctionAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionConnectionFunctionAssociationPtrType) ToDistributionConnectionFunctionAssociationPtrOutputWithContext(ctx context.Context) DistributionConnectionFunctionAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConnectionFunctionAssociationPtrOutput)
+}
+
+type DistributionConnectionFunctionAssociationOutput struct{ *pulumi.OutputState }
+
+func (DistributionConnectionFunctionAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConnectionFunctionAssociation)(nil)).Elem()
+}
+
+func (o DistributionConnectionFunctionAssociationOutput) ToDistributionConnectionFunctionAssociationOutput() DistributionConnectionFunctionAssociationOutput {
+	return o
+}
+
+func (o DistributionConnectionFunctionAssociationOutput) ToDistributionConnectionFunctionAssociationOutputWithContext(ctx context.Context) DistributionConnectionFunctionAssociationOutput {
+	return o
+}
+
+func (o DistributionConnectionFunctionAssociationOutput) ToDistributionConnectionFunctionAssociationPtrOutput() DistributionConnectionFunctionAssociationPtrOutput {
+	return o.ToDistributionConnectionFunctionAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionConnectionFunctionAssociationOutput) ToDistributionConnectionFunctionAssociationPtrOutputWithContext(ctx context.Context) DistributionConnectionFunctionAssociationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConnectionFunctionAssociation) *DistributionConnectionFunctionAssociation {
+		return &v
+	}).(DistributionConnectionFunctionAssociationPtrOutput)
+}
+
+// The association's ID.
+func (o DistributionConnectionFunctionAssociationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionConnectionFunctionAssociation) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type DistributionConnectionFunctionAssociationPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionConnectionFunctionAssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConnectionFunctionAssociation)(nil)).Elem()
+}
+
+func (o DistributionConnectionFunctionAssociationPtrOutput) ToDistributionConnectionFunctionAssociationPtrOutput() DistributionConnectionFunctionAssociationPtrOutput {
+	return o
+}
+
+func (o DistributionConnectionFunctionAssociationPtrOutput) ToDistributionConnectionFunctionAssociationPtrOutputWithContext(ctx context.Context) DistributionConnectionFunctionAssociationPtrOutput {
+	return o
+}
+
+func (o DistributionConnectionFunctionAssociationPtrOutput) Elem() DistributionConnectionFunctionAssociationOutput {
+	return o.ApplyT(func(v *DistributionConnectionFunctionAssociation) DistributionConnectionFunctionAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionConnectionFunctionAssociation
+		return ret
+	}).(DistributionConnectionFunctionAssociationOutput)
+}
+
+// The association's ID.
+func (o DistributionConnectionFunctionAssociationPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConnectionFunctionAssociation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
@@ -8952,6 +9363,181 @@ func (o DistributionTenantWebAclCustomizationPtrOutput) Arn() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type DistributionTrustStoreConfig struct {
+	// The configuration to use to advertise trust store CA names.
+	AdvertiseTrustStoreCaNames *bool `pulumi:"advertiseTrustStoreCaNames"`
+	// The configuration to use to ignore certificate expiration.
+	IgnoreCertificateExpiry *bool `pulumi:"ignoreCertificateExpiry"`
+	// The trust store ID.
+	TrustStoreId string `pulumi:"trustStoreId"`
+}
+
+// DistributionTrustStoreConfigInput is an input type that accepts DistributionTrustStoreConfigArgs and DistributionTrustStoreConfigOutput values.
+// You can construct a concrete instance of `DistributionTrustStoreConfigInput` via:
+//
+//	DistributionTrustStoreConfigArgs{...}
+type DistributionTrustStoreConfigInput interface {
+	pulumi.Input
+
+	ToDistributionTrustStoreConfigOutput() DistributionTrustStoreConfigOutput
+	ToDistributionTrustStoreConfigOutputWithContext(context.Context) DistributionTrustStoreConfigOutput
+}
+
+type DistributionTrustStoreConfigArgs struct {
+	// The configuration to use to advertise trust store CA names.
+	AdvertiseTrustStoreCaNames pulumi.BoolPtrInput `pulumi:"advertiseTrustStoreCaNames"`
+	// The configuration to use to ignore certificate expiration.
+	IgnoreCertificateExpiry pulumi.BoolPtrInput `pulumi:"ignoreCertificateExpiry"`
+	// The trust store ID.
+	TrustStoreId pulumi.StringInput `pulumi:"trustStoreId"`
+}
+
+func (DistributionTrustStoreConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTrustStoreConfig)(nil)).Elem()
+}
+
+func (i DistributionTrustStoreConfigArgs) ToDistributionTrustStoreConfigOutput() DistributionTrustStoreConfigOutput {
+	return i.ToDistributionTrustStoreConfigOutputWithContext(context.Background())
+}
+
+func (i DistributionTrustStoreConfigArgs) ToDistributionTrustStoreConfigOutputWithContext(ctx context.Context) DistributionTrustStoreConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTrustStoreConfigOutput)
+}
+
+func (i DistributionTrustStoreConfigArgs) ToDistributionTrustStoreConfigPtrOutput() DistributionTrustStoreConfigPtrOutput {
+	return i.ToDistributionTrustStoreConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionTrustStoreConfigArgs) ToDistributionTrustStoreConfigPtrOutputWithContext(ctx context.Context) DistributionTrustStoreConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTrustStoreConfigOutput).ToDistributionTrustStoreConfigPtrOutputWithContext(ctx)
+}
+
+// DistributionTrustStoreConfigPtrInput is an input type that accepts DistributionTrustStoreConfigArgs, DistributionTrustStoreConfigPtr and DistributionTrustStoreConfigPtrOutput values.
+// You can construct a concrete instance of `DistributionTrustStoreConfigPtrInput` via:
+//
+//	        DistributionTrustStoreConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionTrustStoreConfigPtrInput interface {
+	pulumi.Input
+
+	ToDistributionTrustStoreConfigPtrOutput() DistributionTrustStoreConfigPtrOutput
+	ToDistributionTrustStoreConfigPtrOutputWithContext(context.Context) DistributionTrustStoreConfigPtrOutput
+}
+
+type distributionTrustStoreConfigPtrType DistributionTrustStoreConfigArgs
+
+func DistributionTrustStoreConfigPtr(v *DistributionTrustStoreConfigArgs) DistributionTrustStoreConfigPtrInput {
+	return (*distributionTrustStoreConfigPtrType)(v)
+}
+
+func (*distributionTrustStoreConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTrustStoreConfig)(nil)).Elem()
+}
+
+func (i *distributionTrustStoreConfigPtrType) ToDistributionTrustStoreConfigPtrOutput() DistributionTrustStoreConfigPtrOutput {
+	return i.ToDistributionTrustStoreConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionTrustStoreConfigPtrType) ToDistributionTrustStoreConfigPtrOutputWithContext(ctx context.Context) DistributionTrustStoreConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTrustStoreConfigPtrOutput)
+}
+
+type DistributionTrustStoreConfigOutput struct{ *pulumi.OutputState }
+
+func (DistributionTrustStoreConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTrustStoreConfig)(nil)).Elem()
+}
+
+func (o DistributionTrustStoreConfigOutput) ToDistributionTrustStoreConfigOutput() DistributionTrustStoreConfigOutput {
+	return o
+}
+
+func (o DistributionTrustStoreConfigOutput) ToDistributionTrustStoreConfigOutputWithContext(ctx context.Context) DistributionTrustStoreConfigOutput {
+	return o
+}
+
+func (o DistributionTrustStoreConfigOutput) ToDistributionTrustStoreConfigPtrOutput() DistributionTrustStoreConfigPtrOutput {
+	return o.ToDistributionTrustStoreConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionTrustStoreConfigOutput) ToDistributionTrustStoreConfigPtrOutputWithContext(ctx context.Context) DistributionTrustStoreConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionTrustStoreConfig) *DistributionTrustStoreConfig {
+		return &v
+	}).(DistributionTrustStoreConfigPtrOutput)
+}
+
+// The configuration to use to advertise trust store CA names.
+func (o DistributionTrustStoreConfigOutput) AdvertiseTrustStoreCaNames() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DistributionTrustStoreConfig) *bool { return v.AdvertiseTrustStoreCaNames }).(pulumi.BoolPtrOutput)
+}
+
+// The configuration to use to ignore certificate expiration.
+func (o DistributionTrustStoreConfigOutput) IgnoreCertificateExpiry() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DistributionTrustStoreConfig) *bool { return v.IgnoreCertificateExpiry }).(pulumi.BoolPtrOutput)
+}
+
+// The trust store ID.
+func (o DistributionTrustStoreConfigOutput) TrustStoreId() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionTrustStoreConfig) string { return v.TrustStoreId }).(pulumi.StringOutput)
+}
+
+type DistributionTrustStoreConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionTrustStoreConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionTrustStoreConfig)(nil)).Elem()
+}
+
+func (o DistributionTrustStoreConfigPtrOutput) ToDistributionTrustStoreConfigPtrOutput() DistributionTrustStoreConfigPtrOutput {
+	return o
+}
+
+func (o DistributionTrustStoreConfigPtrOutput) ToDistributionTrustStoreConfigPtrOutputWithContext(ctx context.Context) DistributionTrustStoreConfigPtrOutput {
+	return o
+}
+
+func (o DistributionTrustStoreConfigPtrOutput) Elem() DistributionTrustStoreConfigOutput {
+	return o.ApplyT(func(v *DistributionTrustStoreConfig) DistributionTrustStoreConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionTrustStoreConfig
+		return ret
+	}).(DistributionTrustStoreConfigOutput)
+}
+
+// The configuration to use to advertise trust store CA names.
+func (o DistributionTrustStoreConfigPtrOutput) AdvertiseTrustStoreCaNames() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DistributionTrustStoreConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AdvertiseTrustStoreCaNames
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The configuration to use to ignore certificate expiration.
+func (o DistributionTrustStoreConfigPtrOutput) IgnoreCertificateExpiry() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DistributionTrustStoreConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreCertificateExpiry
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The trust store ID.
+func (o DistributionTrustStoreConfigPtrOutput) TrustStoreId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionTrustStoreConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TrustStoreId
+	}).(pulumi.StringPtrOutput)
+}
+
 // A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
 //
 //	If the distribution doesn't use ``Aliases`` (also known as alternate domain names or CNAMEs)—that is, if the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``—set ``CloudFrontDefaultCertificate`` to ``true`` and leave all other fields empty.
@@ -9308,6 +9894,162 @@ func (o DistributionViewerCertificatePtrOutput) SslSupportMethod() pulumi.String
 		}
 		return v.SslSupportMethod
 	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionViewerMtlsConfig struct {
+	// The viewer mTLS mode.
+	Mode *DistributionViewerMtlsMode `pulumi:"mode"`
+	// The trust store configuration associated with the viewer mTLS configuration.
+	TrustStoreConfig *DistributionTrustStoreConfig `pulumi:"trustStoreConfig"`
+}
+
+// DistributionViewerMtlsConfigInput is an input type that accepts DistributionViewerMtlsConfigArgs and DistributionViewerMtlsConfigOutput values.
+// You can construct a concrete instance of `DistributionViewerMtlsConfigInput` via:
+//
+//	DistributionViewerMtlsConfigArgs{...}
+type DistributionViewerMtlsConfigInput interface {
+	pulumi.Input
+
+	ToDistributionViewerMtlsConfigOutput() DistributionViewerMtlsConfigOutput
+	ToDistributionViewerMtlsConfigOutputWithContext(context.Context) DistributionViewerMtlsConfigOutput
+}
+
+type DistributionViewerMtlsConfigArgs struct {
+	// The viewer mTLS mode.
+	Mode DistributionViewerMtlsModePtrInput `pulumi:"mode"`
+	// The trust store configuration associated with the viewer mTLS configuration.
+	TrustStoreConfig DistributionTrustStoreConfigPtrInput `pulumi:"trustStoreConfig"`
+}
+
+func (DistributionViewerMtlsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionViewerMtlsConfig)(nil)).Elem()
+}
+
+func (i DistributionViewerMtlsConfigArgs) ToDistributionViewerMtlsConfigOutput() DistributionViewerMtlsConfigOutput {
+	return i.ToDistributionViewerMtlsConfigOutputWithContext(context.Background())
+}
+
+func (i DistributionViewerMtlsConfigArgs) ToDistributionViewerMtlsConfigOutputWithContext(ctx context.Context) DistributionViewerMtlsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionViewerMtlsConfigOutput)
+}
+
+func (i DistributionViewerMtlsConfigArgs) ToDistributionViewerMtlsConfigPtrOutput() DistributionViewerMtlsConfigPtrOutput {
+	return i.ToDistributionViewerMtlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionViewerMtlsConfigArgs) ToDistributionViewerMtlsConfigPtrOutputWithContext(ctx context.Context) DistributionViewerMtlsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionViewerMtlsConfigOutput).ToDistributionViewerMtlsConfigPtrOutputWithContext(ctx)
+}
+
+// DistributionViewerMtlsConfigPtrInput is an input type that accepts DistributionViewerMtlsConfigArgs, DistributionViewerMtlsConfigPtr and DistributionViewerMtlsConfigPtrOutput values.
+// You can construct a concrete instance of `DistributionViewerMtlsConfigPtrInput` via:
+//
+//	        DistributionViewerMtlsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionViewerMtlsConfigPtrInput interface {
+	pulumi.Input
+
+	ToDistributionViewerMtlsConfigPtrOutput() DistributionViewerMtlsConfigPtrOutput
+	ToDistributionViewerMtlsConfigPtrOutputWithContext(context.Context) DistributionViewerMtlsConfigPtrOutput
+}
+
+type distributionViewerMtlsConfigPtrType DistributionViewerMtlsConfigArgs
+
+func DistributionViewerMtlsConfigPtr(v *DistributionViewerMtlsConfigArgs) DistributionViewerMtlsConfigPtrInput {
+	return (*distributionViewerMtlsConfigPtrType)(v)
+}
+
+func (*distributionViewerMtlsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionViewerMtlsConfig)(nil)).Elem()
+}
+
+func (i *distributionViewerMtlsConfigPtrType) ToDistributionViewerMtlsConfigPtrOutput() DistributionViewerMtlsConfigPtrOutput {
+	return i.ToDistributionViewerMtlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionViewerMtlsConfigPtrType) ToDistributionViewerMtlsConfigPtrOutputWithContext(ctx context.Context) DistributionViewerMtlsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionViewerMtlsConfigPtrOutput)
+}
+
+type DistributionViewerMtlsConfigOutput struct{ *pulumi.OutputState }
+
+func (DistributionViewerMtlsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionViewerMtlsConfig)(nil)).Elem()
+}
+
+func (o DistributionViewerMtlsConfigOutput) ToDistributionViewerMtlsConfigOutput() DistributionViewerMtlsConfigOutput {
+	return o
+}
+
+func (o DistributionViewerMtlsConfigOutput) ToDistributionViewerMtlsConfigOutputWithContext(ctx context.Context) DistributionViewerMtlsConfigOutput {
+	return o
+}
+
+func (o DistributionViewerMtlsConfigOutput) ToDistributionViewerMtlsConfigPtrOutput() DistributionViewerMtlsConfigPtrOutput {
+	return o.ToDistributionViewerMtlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionViewerMtlsConfigOutput) ToDistributionViewerMtlsConfigPtrOutputWithContext(ctx context.Context) DistributionViewerMtlsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionViewerMtlsConfig) *DistributionViewerMtlsConfig {
+		return &v
+	}).(DistributionViewerMtlsConfigPtrOutput)
+}
+
+// The viewer mTLS mode.
+func (o DistributionViewerMtlsConfigOutput) Mode() DistributionViewerMtlsModePtrOutput {
+	return o.ApplyT(func(v DistributionViewerMtlsConfig) *DistributionViewerMtlsMode { return v.Mode }).(DistributionViewerMtlsModePtrOutput)
+}
+
+// The trust store configuration associated with the viewer mTLS configuration.
+func (o DistributionViewerMtlsConfigOutput) TrustStoreConfig() DistributionTrustStoreConfigPtrOutput {
+	return o.ApplyT(func(v DistributionViewerMtlsConfig) *DistributionTrustStoreConfig { return v.TrustStoreConfig }).(DistributionTrustStoreConfigPtrOutput)
+}
+
+type DistributionViewerMtlsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionViewerMtlsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionViewerMtlsConfig)(nil)).Elem()
+}
+
+func (o DistributionViewerMtlsConfigPtrOutput) ToDistributionViewerMtlsConfigPtrOutput() DistributionViewerMtlsConfigPtrOutput {
+	return o
+}
+
+func (o DistributionViewerMtlsConfigPtrOutput) ToDistributionViewerMtlsConfigPtrOutputWithContext(ctx context.Context) DistributionViewerMtlsConfigPtrOutput {
+	return o
+}
+
+func (o DistributionViewerMtlsConfigPtrOutput) Elem() DistributionViewerMtlsConfigOutput {
+	return o.ApplyT(func(v *DistributionViewerMtlsConfig) DistributionViewerMtlsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionViewerMtlsConfig
+		return ret
+	}).(DistributionViewerMtlsConfigOutput)
+}
+
+// The viewer mTLS mode.
+func (o DistributionViewerMtlsConfigPtrOutput) Mode() DistributionViewerMtlsModePtrOutput {
+	return o.ApplyT(func(v *DistributionViewerMtlsConfig) *DistributionViewerMtlsMode {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(DistributionViewerMtlsModePtrOutput)
+}
+
+// The trust store configuration associated with the viewer mTLS configuration.
+func (o DistributionViewerMtlsConfigPtrOutput) TrustStoreConfig() DistributionTrustStoreConfigPtrOutput {
+	return o.ApplyT(func(v *DistributionViewerMtlsConfig) *DistributionTrustStoreConfig {
+		if v == nil {
+			return nil
+		}
+		return v.TrustStoreConfig
+	}).(DistributionTrustStoreConfigPtrOutput)
 }
 
 // An Amazon CloudFront VPC origin configuration.
@@ -14694,6 +15436,350 @@ func (o ResponseHeadersPolicyXssProtectionPtrOutput) ReportUri() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+type TrustStoreCaCertificatesBundleS3Location struct {
+	// The S3 bucket containing the CA certificates bundle PEM file
+	Bucket string `pulumi:"bucket"`
+	// The S3 object key of the CA certificates bundle PEM file
+	Key string `pulumi:"key"`
+	// The S3 bucket region
+	Region string `pulumi:"region"`
+	// The S3 object version of the CA certificates bundle PEM file
+	Version *string `pulumi:"version"`
+}
+
+// TrustStoreCaCertificatesBundleS3LocationInput is an input type that accepts TrustStoreCaCertificatesBundleS3LocationArgs and TrustStoreCaCertificatesBundleS3LocationOutput values.
+// You can construct a concrete instance of `TrustStoreCaCertificatesBundleS3LocationInput` via:
+//
+//	TrustStoreCaCertificatesBundleS3LocationArgs{...}
+type TrustStoreCaCertificatesBundleS3LocationInput interface {
+	pulumi.Input
+
+	ToTrustStoreCaCertificatesBundleS3LocationOutput() TrustStoreCaCertificatesBundleS3LocationOutput
+	ToTrustStoreCaCertificatesBundleS3LocationOutputWithContext(context.Context) TrustStoreCaCertificatesBundleS3LocationOutput
+}
+
+type TrustStoreCaCertificatesBundleS3LocationArgs struct {
+	// The S3 bucket containing the CA certificates bundle PEM file
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The S3 object key of the CA certificates bundle PEM file
+	Key pulumi.StringInput `pulumi:"key"`
+	// The S3 bucket region
+	Region pulumi.StringInput `pulumi:"region"`
+	// The S3 object version of the CA certificates bundle PEM file
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (TrustStoreCaCertificatesBundleS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustStoreCaCertificatesBundleS3Location)(nil)).Elem()
+}
+
+func (i TrustStoreCaCertificatesBundleS3LocationArgs) ToTrustStoreCaCertificatesBundleS3LocationOutput() TrustStoreCaCertificatesBundleS3LocationOutput {
+	return i.ToTrustStoreCaCertificatesBundleS3LocationOutputWithContext(context.Background())
+}
+
+func (i TrustStoreCaCertificatesBundleS3LocationArgs) ToTrustStoreCaCertificatesBundleS3LocationOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreCaCertificatesBundleS3LocationOutput)
+}
+
+func (i TrustStoreCaCertificatesBundleS3LocationArgs) ToTrustStoreCaCertificatesBundleS3LocationPtrOutput() TrustStoreCaCertificatesBundleS3LocationPtrOutput {
+	return i.ToTrustStoreCaCertificatesBundleS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i TrustStoreCaCertificatesBundleS3LocationArgs) ToTrustStoreCaCertificatesBundleS3LocationPtrOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreCaCertificatesBundleS3LocationOutput).ToTrustStoreCaCertificatesBundleS3LocationPtrOutputWithContext(ctx)
+}
+
+// TrustStoreCaCertificatesBundleS3LocationPtrInput is an input type that accepts TrustStoreCaCertificatesBundleS3LocationArgs, TrustStoreCaCertificatesBundleS3LocationPtr and TrustStoreCaCertificatesBundleS3LocationPtrOutput values.
+// You can construct a concrete instance of `TrustStoreCaCertificatesBundleS3LocationPtrInput` via:
+//
+//	        TrustStoreCaCertificatesBundleS3LocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrustStoreCaCertificatesBundleS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToTrustStoreCaCertificatesBundleS3LocationPtrOutput() TrustStoreCaCertificatesBundleS3LocationPtrOutput
+	ToTrustStoreCaCertificatesBundleS3LocationPtrOutputWithContext(context.Context) TrustStoreCaCertificatesBundleS3LocationPtrOutput
+}
+
+type trustStoreCaCertificatesBundleS3LocationPtrType TrustStoreCaCertificatesBundleS3LocationArgs
+
+func TrustStoreCaCertificatesBundleS3LocationPtr(v *TrustStoreCaCertificatesBundleS3LocationArgs) TrustStoreCaCertificatesBundleS3LocationPtrInput {
+	return (*trustStoreCaCertificatesBundleS3LocationPtrType)(v)
+}
+
+func (*trustStoreCaCertificatesBundleS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrustStoreCaCertificatesBundleS3Location)(nil)).Elem()
+}
+
+func (i *trustStoreCaCertificatesBundleS3LocationPtrType) ToTrustStoreCaCertificatesBundleS3LocationPtrOutput() TrustStoreCaCertificatesBundleS3LocationPtrOutput {
+	return i.ToTrustStoreCaCertificatesBundleS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *trustStoreCaCertificatesBundleS3LocationPtrType) ToTrustStoreCaCertificatesBundleS3LocationPtrOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreCaCertificatesBundleS3LocationPtrOutput)
+}
+
+type TrustStoreCaCertificatesBundleS3LocationOutput struct{ *pulumi.OutputState }
+
+func (TrustStoreCaCertificatesBundleS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustStoreCaCertificatesBundleS3Location)(nil)).Elem()
+}
+
+func (o TrustStoreCaCertificatesBundleS3LocationOutput) ToTrustStoreCaCertificatesBundleS3LocationOutput() TrustStoreCaCertificatesBundleS3LocationOutput {
+	return o
+}
+
+func (o TrustStoreCaCertificatesBundleS3LocationOutput) ToTrustStoreCaCertificatesBundleS3LocationOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleS3LocationOutput {
+	return o
+}
+
+func (o TrustStoreCaCertificatesBundleS3LocationOutput) ToTrustStoreCaCertificatesBundleS3LocationPtrOutput() TrustStoreCaCertificatesBundleS3LocationPtrOutput {
+	return o.ToTrustStoreCaCertificatesBundleS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o TrustStoreCaCertificatesBundleS3LocationOutput) ToTrustStoreCaCertificatesBundleS3LocationPtrOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrustStoreCaCertificatesBundleS3Location) *TrustStoreCaCertificatesBundleS3Location {
+		return &v
+	}).(TrustStoreCaCertificatesBundleS3LocationPtrOutput)
+}
+
+// The S3 bucket containing the CA certificates bundle PEM file
+func (o TrustStoreCaCertificatesBundleS3LocationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v TrustStoreCaCertificatesBundleS3Location) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The S3 object key of the CA certificates bundle PEM file
+func (o TrustStoreCaCertificatesBundleS3LocationOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TrustStoreCaCertificatesBundleS3Location) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The S3 bucket region
+func (o TrustStoreCaCertificatesBundleS3LocationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v TrustStoreCaCertificatesBundleS3Location) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// The S3 object version of the CA certificates bundle PEM file
+func (o TrustStoreCaCertificatesBundleS3LocationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrustStoreCaCertificatesBundleS3Location) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type TrustStoreCaCertificatesBundleS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (TrustStoreCaCertificatesBundleS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrustStoreCaCertificatesBundleS3Location)(nil)).Elem()
+}
+
+func (o TrustStoreCaCertificatesBundleS3LocationPtrOutput) ToTrustStoreCaCertificatesBundleS3LocationPtrOutput() TrustStoreCaCertificatesBundleS3LocationPtrOutput {
+	return o
+}
+
+func (o TrustStoreCaCertificatesBundleS3LocationPtrOutput) ToTrustStoreCaCertificatesBundleS3LocationPtrOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleS3LocationPtrOutput {
+	return o
+}
+
+func (o TrustStoreCaCertificatesBundleS3LocationPtrOutput) Elem() TrustStoreCaCertificatesBundleS3LocationOutput {
+	return o.ApplyT(func(v *TrustStoreCaCertificatesBundleS3Location) TrustStoreCaCertificatesBundleS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret TrustStoreCaCertificatesBundleS3Location
+		return ret
+	}).(TrustStoreCaCertificatesBundleS3LocationOutput)
+}
+
+// The S3 bucket containing the CA certificates bundle PEM file
+func (o TrustStoreCaCertificatesBundleS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrustStoreCaCertificatesBundleS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 object key of the CA certificates bundle PEM file
+func (o TrustStoreCaCertificatesBundleS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrustStoreCaCertificatesBundleS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 bucket region
+func (o TrustStoreCaCertificatesBundleS3LocationPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrustStoreCaCertificatesBundleS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 object version of the CA certificates bundle PEM file
+func (o TrustStoreCaCertificatesBundleS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrustStoreCaCertificatesBundleS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrustStoreCaCertificatesBundleSource struct {
+	// The CA certificates bundle location in Amazon S3.
+	CaCertificatesBundleS3Location TrustStoreCaCertificatesBundleS3Location `pulumi:"caCertificatesBundleS3Location"`
+}
+
+// TrustStoreCaCertificatesBundleSourceInput is an input type that accepts TrustStoreCaCertificatesBundleSourceArgs and TrustStoreCaCertificatesBundleSourceOutput values.
+// You can construct a concrete instance of `TrustStoreCaCertificatesBundleSourceInput` via:
+//
+//	TrustStoreCaCertificatesBundleSourceArgs{...}
+type TrustStoreCaCertificatesBundleSourceInput interface {
+	pulumi.Input
+
+	ToTrustStoreCaCertificatesBundleSourceOutput() TrustStoreCaCertificatesBundleSourceOutput
+	ToTrustStoreCaCertificatesBundleSourceOutputWithContext(context.Context) TrustStoreCaCertificatesBundleSourceOutput
+}
+
+type TrustStoreCaCertificatesBundleSourceArgs struct {
+	// The CA certificates bundle location in Amazon S3.
+	CaCertificatesBundleS3Location TrustStoreCaCertificatesBundleS3LocationInput `pulumi:"caCertificatesBundleS3Location"`
+}
+
+func (TrustStoreCaCertificatesBundleSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustStoreCaCertificatesBundleSource)(nil)).Elem()
+}
+
+func (i TrustStoreCaCertificatesBundleSourceArgs) ToTrustStoreCaCertificatesBundleSourceOutput() TrustStoreCaCertificatesBundleSourceOutput {
+	return i.ToTrustStoreCaCertificatesBundleSourceOutputWithContext(context.Background())
+}
+
+func (i TrustStoreCaCertificatesBundleSourceArgs) ToTrustStoreCaCertificatesBundleSourceOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreCaCertificatesBundleSourceOutput)
+}
+
+func (i TrustStoreCaCertificatesBundleSourceArgs) ToTrustStoreCaCertificatesBundleSourcePtrOutput() TrustStoreCaCertificatesBundleSourcePtrOutput {
+	return i.ToTrustStoreCaCertificatesBundleSourcePtrOutputWithContext(context.Background())
+}
+
+func (i TrustStoreCaCertificatesBundleSourceArgs) ToTrustStoreCaCertificatesBundleSourcePtrOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreCaCertificatesBundleSourceOutput).ToTrustStoreCaCertificatesBundleSourcePtrOutputWithContext(ctx)
+}
+
+// TrustStoreCaCertificatesBundleSourcePtrInput is an input type that accepts TrustStoreCaCertificatesBundleSourceArgs, TrustStoreCaCertificatesBundleSourcePtr and TrustStoreCaCertificatesBundleSourcePtrOutput values.
+// You can construct a concrete instance of `TrustStoreCaCertificatesBundleSourcePtrInput` via:
+//
+//	        TrustStoreCaCertificatesBundleSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type TrustStoreCaCertificatesBundleSourcePtrInput interface {
+	pulumi.Input
+
+	ToTrustStoreCaCertificatesBundleSourcePtrOutput() TrustStoreCaCertificatesBundleSourcePtrOutput
+	ToTrustStoreCaCertificatesBundleSourcePtrOutputWithContext(context.Context) TrustStoreCaCertificatesBundleSourcePtrOutput
+}
+
+type trustStoreCaCertificatesBundleSourcePtrType TrustStoreCaCertificatesBundleSourceArgs
+
+func TrustStoreCaCertificatesBundleSourcePtr(v *TrustStoreCaCertificatesBundleSourceArgs) TrustStoreCaCertificatesBundleSourcePtrInput {
+	return (*trustStoreCaCertificatesBundleSourcePtrType)(v)
+}
+
+func (*trustStoreCaCertificatesBundleSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrustStoreCaCertificatesBundleSource)(nil)).Elem()
+}
+
+func (i *trustStoreCaCertificatesBundleSourcePtrType) ToTrustStoreCaCertificatesBundleSourcePtrOutput() TrustStoreCaCertificatesBundleSourcePtrOutput {
+	return i.ToTrustStoreCaCertificatesBundleSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *trustStoreCaCertificatesBundleSourcePtrType) ToTrustStoreCaCertificatesBundleSourcePtrOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreCaCertificatesBundleSourcePtrOutput)
+}
+
+type TrustStoreCaCertificatesBundleSourceOutput struct{ *pulumi.OutputState }
+
+func (TrustStoreCaCertificatesBundleSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustStoreCaCertificatesBundleSource)(nil)).Elem()
+}
+
+func (o TrustStoreCaCertificatesBundleSourceOutput) ToTrustStoreCaCertificatesBundleSourceOutput() TrustStoreCaCertificatesBundleSourceOutput {
+	return o
+}
+
+func (o TrustStoreCaCertificatesBundleSourceOutput) ToTrustStoreCaCertificatesBundleSourceOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleSourceOutput {
+	return o
+}
+
+func (o TrustStoreCaCertificatesBundleSourceOutput) ToTrustStoreCaCertificatesBundleSourcePtrOutput() TrustStoreCaCertificatesBundleSourcePtrOutput {
+	return o.ToTrustStoreCaCertificatesBundleSourcePtrOutputWithContext(context.Background())
+}
+
+func (o TrustStoreCaCertificatesBundleSourceOutput) ToTrustStoreCaCertificatesBundleSourcePtrOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrustStoreCaCertificatesBundleSource) *TrustStoreCaCertificatesBundleSource {
+		return &v
+	}).(TrustStoreCaCertificatesBundleSourcePtrOutput)
+}
+
+// The CA certificates bundle location in Amazon S3.
+func (o TrustStoreCaCertificatesBundleSourceOutput) CaCertificatesBundleS3Location() TrustStoreCaCertificatesBundleS3LocationOutput {
+	return o.ApplyT(func(v TrustStoreCaCertificatesBundleSource) TrustStoreCaCertificatesBundleS3Location {
+		return v.CaCertificatesBundleS3Location
+	}).(TrustStoreCaCertificatesBundleS3LocationOutput)
+}
+
+type TrustStoreCaCertificatesBundleSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (TrustStoreCaCertificatesBundleSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrustStoreCaCertificatesBundleSource)(nil)).Elem()
+}
+
+func (o TrustStoreCaCertificatesBundleSourcePtrOutput) ToTrustStoreCaCertificatesBundleSourcePtrOutput() TrustStoreCaCertificatesBundleSourcePtrOutput {
+	return o
+}
+
+func (o TrustStoreCaCertificatesBundleSourcePtrOutput) ToTrustStoreCaCertificatesBundleSourcePtrOutputWithContext(ctx context.Context) TrustStoreCaCertificatesBundleSourcePtrOutput {
+	return o
+}
+
+func (o TrustStoreCaCertificatesBundleSourcePtrOutput) Elem() TrustStoreCaCertificatesBundleSourceOutput {
+	return o.ApplyT(func(v *TrustStoreCaCertificatesBundleSource) TrustStoreCaCertificatesBundleSource {
+		if v != nil {
+			return *v
+		}
+		var ret TrustStoreCaCertificatesBundleSource
+		return ret
+	}).(TrustStoreCaCertificatesBundleSourceOutput)
+}
+
+// The CA certificates bundle location in Amazon S3.
+func (o TrustStoreCaCertificatesBundleSourcePtrOutput) CaCertificatesBundleS3Location() TrustStoreCaCertificatesBundleS3LocationPtrOutput {
+	return o.ApplyT(func(v *TrustStoreCaCertificatesBundleSource) *TrustStoreCaCertificatesBundleS3Location {
+		if v == nil {
+			return nil
+		}
+		return &v.CaCertificatesBundleS3Location
+	}).(TrustStoreCaCertificatesBundleS3LocationPtrOutput)
+}
+
+type TrustStoreTag struct {
+	// A string that contains `Tag` key.
+	//
+	// The string length should be between 1 and 128 characters. Valid characters include `a-z` , `A-Z` , `0-9` , space, and the special characters `_ - . : / = + @` .
+	Key string `pulumi:"key"`
+	// A string that contains an optional `Tag` value.
+	//
+	// The string length should be between 0 and 256 characters. Valid characters include `a-z` , `A-Z` , `0-9` , space, and the special characters `_ - . : / = + @` .
+	Value string `pulumi:"value"`
+}
+
 // An Amazon CloudFront VPC origin endpoint configuration.
 type VpcOriginEndpointConfig struct {
 	// The ARN of the CloudFront VPC origin endpoint configuration.
@@ -14901,6 +15987,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyQueryStringsConfigInput)(nil)).Elem(), CachePolicyQueryStringsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFrontOriginAccessIdentityConfigInput)(nil)).Elem(), CloudFrontOriginAccessIdentityConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionFunctionConfigInput)(nil)).Elem(), ConnectionFunctionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionFunctionKeyValueStoreAssociationInput)(nil)).Elem(), ConnectionFunctionKeyValueStoreAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionFunctionKeyValueStoreAssociationArrayInput)(nil)).Elem(), ConnectionFunctionKeyValueStoreAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyConfigInput)(nil)).Elem(), ContinuousDeploymentPolicyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesInput)(nil)).Elem(), ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesPtrInput)(nil)).Elem(), ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesArgs{})
@@ -14919,6 +16008,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigInput)(nil)).Elem(), DistributionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigTenantConfigPropertiesInput)(nil)).Elem(), DistributionConfigTenantConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigTenantConfigPropertiesPtrInput)(nil)).Elem(), DistributionConfigTenantConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConnectionFunctionAssociationInput)(nil)).Elem(), DistributionConnectionFunctionAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConnectionFunctionAssociationPtrInput)(nil)).Elem(), DistributionConnectionFunctionAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCookiesInput)(nil)).Elem(), DistributionCookiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCookiesPtrInput)(nil)).Elem(), DistributionCookiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCustomErrorResponseInput)(nil)).Elem(), DistributionCustomErrorResponseArgs{})
@@ -14978,8 +16069,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantParameterArrayInput)(nil)).Elem(), DistributionTenantParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantWebAclCustomizationInput)(nil)).Elem(), DistributionTenantWebAclCustomizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantWebAclCustomizationPtrInput)(nil)).Elem(), DistributionTenantWebAclCustomizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTrustStoreConfigInput)(nil)).Elem(), DistributionTrustStoreConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTrustStoreConfigPtrInput)(nil)).Elem(), DistributionTrustStoreConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerCertificateInput)(nil)).Elem(), DistributionViewerCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerCertificatePtrInput)(nil)).Elem(), DistributionViewerCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerMtlsConfigInput)(nil)).Elem(), DistributionViewerMtlsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerMtlsConfigPtrInput)(nil)).Elem(), DistributionViewerMtlsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionVpcOriginConfigInput)(nil)).Elem(), DistributionVpcOriginConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionVpcOriginConfigPtrInput)(nil)).Elem(), DistributionVpcOriginConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConfigInput)(nil)).Elem(), FunctionConfigArgs{})
@@ -15037,6 +16132,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyStrictTransportSecurityPtrInput)(nil)).Elem(), ResponseHeadersPolicyStrictTransportSecurityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyXssProtectionInput)(nil)).Elem(), ResponseHeadersPolicyXssProtectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyXssProtectionPtrInput)(nil)).Elem(), ResponseHeadersPolicyXssProtectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreCaCertificatesBundleS3LocationInput)(nil)).Elem(), TrustStoreCaCertificatesBundleS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreCaCertificatesBundleS3LocationPtrInput)(nil)).Elem(), TrustStoreCaCertificatesBundleS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreCaCertificatesBundleSourceInput)(nil)).Elem(), TrustStoreCaCertificatesBundleSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreCaCertificatesBundleSourcePtrInput)(nil)).Elem(), TrustStoreCaCertificatesBundleSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcOriginEndpointConfigInput)(nil)).Elem(), VpcOriginEndpointConfigArgs{})
 	pulumi.RegisterOutputType(CachePolicyConfigOutput{})
 	pulumi.RegisterOutputType(CachePolicyConfigPtrOutput{})
@@ -15050,6 +16149,10 @@ func init() {
 	pulumi.RegisterOutputType(CachePolicyQueryStringsConfigPtrOutput{})
 	pulumi.RegisterOutputType(CloudFrontOriginAccessIdentityConfigOutput{})
 	pulumi.RegisterOutputType(CloudFrontOriginAccessIdentityConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionFunctionConfigOutput{})
+	pulumi.RegisterOutputType(ConnectionFunctionConfigPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionFunctionKeyValueStoreAssociationOutput{})
+	pulumi.RegisterOutputType(ConnectionFunctionKeyValueStoreAssociationArrayOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyConfigOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyConfigPtrOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesOutput{})
@@ -15070,6 +16173,8 @@ func init() {
 	pulumi.RegisterOutputType(DistributionConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionConfigTenantConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(DistributionConfigTenantConfigPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DistributionConnectionFunctionAssociationOutput{})
+	pulumi.RegisterOutputType(DistributionConnectionFunctionAssociationPtrOutput{})
 	pulumi.RegisterOutputType(DistributionCookiesOutput{})
 	pulumi.RegisterOutputType(DistributionCookiesPtrOutput{})
 	pulumi.RegisterOutputType(DistributionCustomErrorResponseOutput{})
@@ -15132,8 +16237,12 @@ func init() {
 	pulumi.RegisterOutputType(DistributionTenantParameterArrayOutput{})
 	pulumi.RegisterOutputType(DistributionTenantWebAclCustomizationOutput{})
 	pulumi.RegisterOutputType(DistributionTenantWebAclCustomizationPtrOutput{})
+	pulumi.RegisterOutputType(DistributionTrustStoreConfigOutput{})
+	pulumi.RegisterOutputType(DistributionTrustStoreConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificateOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificatePtrOutput{})
+	pulumi.RegisterOutputType(DistributionViewerMtlsConfigOutput{})
+	pulumi.RegisterOutputType(DistributionViewerMtlsConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionVpcOriginConfigOutput{})
 	pulumi.RegisterOutputType(DistributionVpcOriginConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionConfigOutput{})
@@ -15201,6 +16310,10 @@ func init() {
 	pulumi.RegisterOutputType(ResponseHeadersPolicyStrictTransportSecurityPtrOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyXssProtectionOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyXssProtectionPtrOutput{})
+	pulumi.RegisterOutputType(TrustStoreCaCertificatesBundleS3LocationOutput{})
+	pulumi.RegisterOutputType(TrustStoreCaCertificatesBundleS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(TrustStoreCaCertificatesBundleSourceOutput{})
+	pulumi.RegisterOutputType(TrustStoreCaCertificatesBundleSourcePtrOutput{})
 	pulumi.RegisterOutputType(VpcOriginEndpointConfigOutput{})
 	pulumi.RegisterOutputType(VpcOriginEndpointConfigPtrOutput{})
 }

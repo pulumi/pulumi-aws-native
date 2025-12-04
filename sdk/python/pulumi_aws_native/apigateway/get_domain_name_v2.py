@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainNameV2Result:
-    def __init__(__self__, certificate_arn=None, domain_name_arn=None, domain_name_id=None, policy=None, routing_mode=None, tags=None):
+    def __init__(__self__, certificate_arn=None, domain_name_arn=None, domain_name_id=None, endpoint_access_mode=None, policy=None, routing_mode=None, tags=None):
         if certificate_arn and not isinstance(certificate_arn, str):
             raise TypeError("Expected argument 'certificate_arn' to be a str")
         pulumi.set(__self__, "certificate_arn", certificate_arn)
@@ -35,6 +35,9 @@ class GetDomainNameV2Result:
         if domain_name_id and not isinstance(domain_name_id, str):
             raise TypeError("Expected argument 'domain_name_id' to be a str")
         pulumi.set(__self__, "domain_name_id", domain_name_id)
+        if endpoint_access_mode and not isinstance(endpoint_access_mode, str):
+            raise TypeError("Expected argument 'endpoint_access_mode' to be a str")
+        pulumi.set(__self__, "endpoint_access_mode", endpoint_access_mode)
         if policy and not isinstance(policy, dict):
             raise TypeError("Expected argument 'policy' to be a dict")
         pulumi.set(__self__, "policy", policy)
@@ -68,6 +71,14 @@ class GetDomainNameV2Result:
         The domain name ID.
         """
         return pulumi.get(self, "domain_name_id")
+
+    @_builtins.property
+    @pulumi.getter(name="endpointAccessMode")
+    def endpoint_access_mode(self) -> Optional[_builtins.str]:
+        """
+        The endpoint access mode for your DomainName.
+        """
+        return pulumi.get(self, "endpoint_access_mode")
 
     @_builtins.property
     @pulumi.getter
@@ -105,6 +116,7 @@ class AwaitableGetDomainNameV2Result(GetDomainNameV2Result):
             certificate_arn=self.certificate_arn,
             domain_name_arn=self.domain_name_arn,
             domain_name_id=self.domain_name_id,
+            endpoint_access_mode=self.endpoint_access_mode,
             policy=self.policy,
             routing_mode=self.routing_mode,
             tags=self.tags)
@@ -127,6 +139,7 @@ def get_domain_name_v2(domain_name_arn: Optional[_builtins.str] = None,
         certificate_arn=pulumi.get(__ret__, 'certificate_arn'),
         domain_name_arn=pulumi.get(__ret__, 'domain_name_arn'),
         domain_name_id=pulumi.get(__ret__, 'domain_name_id'),
+        endpoint_access_mode=pulumi.get(__ret__, 'endpoint_access_mode'),
         policy=pulumi.get(__ret__, 'policy'),
         routing_mode=pulumi.get(__ret__, 'routing_mode'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -146,6 +159,7 @@ def get_domain_name_v2_output(domain_name_arn: Optional[pulumi.Input[_builtins.s
         certificate_arn=pulumi.get(__response__, 'certificate_arn'),
         domain_name_arn=pulumi.get(__response__, 'domain_name_arn'),
         domain_name_id=pulumi.get(__response__, 'domain_name_id'),
+        endpoint_access_mode=pulumi.get(__response__, 'endpoint_access_mode'),
         policy=pulumi.get(__response__, 'policy'),
         routing_mode=pulumi.get(__response__, 'routing_mode'),
         tags=pulumi.get(__response__, 'tags')))

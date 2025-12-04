@@ -862,10 +862,10 @@ class AutomationRuleV2DateFilter(dict):
         :param 'AutomationRuleV2DateRange' date_range: A date range for the date filter.
         :param _builtins.str end: A timestamp that provides the end date for the date filter.
                
-               For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+               For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         :param _builtins.str start: A timestamp that provides the start date for the date filter.
                
-               For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+               For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
@@ -888,7 +888,7 @@ class AutomationRuleV2DateFilter(dict):
         """
         A timestamp that provides the end date for the date filter.
 
-        For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         """
         return pulumi.get(self, "end")
 
@@ -898,7 +898,7 @@ class AutomationRuleV2DateFilter(dict):
         """
         A timestamp that provides the start date for the date filter.
 
-        For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         """
         return pulumi.get(self, "start")
 
@@ -4142,10 +4142,10 @@ class InsightDateFilter(dict):
         :param 'InsightDateRange' date_range: A date range for the date filter.
         :param _builtins.str end: A timestamp that provides the end date for the date filter.
                
-               For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+               For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         :param _builtins.str start: A timestamp that provides the start date for the date filter.
                
-               For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+               For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
@@ -4168,7 +4168,7 @@ class InsightDateFilter(dict):
         """
         A timestamp that provides the end date for the date filter.
 
-        For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         """
         return pulumi.get(self, "end")
 
@@ -4178,7 +4178,7 @@ class InsightDateFilter(dict):
         """
         A timestamp that provides the start date for the date filter.
 
-        For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         """
         return pulumi.get(self, "start")
 
@@ -4390,7 +4390,7 @@ class InsightStringFilter(dict):
                - `ResourceType NOT_EQUALS AwsIamPolicy`
                - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
                
-               `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
+               `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *Security Hub User Guide* .
         :param _builtins.str value: The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub` . If you provide `security hub` as the filter value, there's no match.
         """
         pulumi.set(__self__, "comparison", comparison)
@@ -4429,7 +4429,7 @@ class InsightStringFilter(dict):
         - `ResourceType NOT_EQUALS AwsIamPolicy`
         - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
 
-        `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub User Guide* .
+        `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *Security Hub User Guide* .
         """
         return pulumi.get(self, "comparison")
 
@@ -4465,7 +4465,7 @@ class SecurityControlParameterConfiguration(dict):
                  value_type: 'SecurityControlParameterConfigurationValueType',
                  value: Optional['outputs.SecurityControlParameterValue'] = None):
         """
-        :param 'SecurityControlParameterConfigurationValueType' value_type: Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+        :param 'SecurityControlParameterConfigurationValueType' value_type: Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior.
                
                When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
                
@@ -4480,7 +4480,7 @@ class SecurityControlParameterConfiguration(dict):
     @pulumi.getter(name="valueType")
     def value_type(self) -> 'SecurityControlParameterConfigurationValueType':
         """
-        Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+        Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior.
 
         When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
 

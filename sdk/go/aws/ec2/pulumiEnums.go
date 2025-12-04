@@ -1586,6 +1586,13 @@ const (
 	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemT4g           = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("t4g")
 	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemVu9p          = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("vu9p")
 	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemV100          = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("v100")
+	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemL40s          = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("l40s")
+	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemL4            = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("l4")
+	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemGaudiHl205    = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("gaudi-hl-205")
+	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemInferentia2   = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("inferentia2")
+	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemTrainium      = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("trainium")
+	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemTrainium2     = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("trainium2")
+	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemU30           = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("u30")
 )
 
 func (Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem) ElementType() reflect.Type {
@@ -1722,6 +1729,13 @@ func (o Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToStri
 //	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemT4g
 //	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemVu9p
 //	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemV100
+//	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemL40s
+//	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemL4
+//	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemGaudiHl205
+//	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemInferentia2
+//	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemTrainium
+//	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemTrainium2
+//	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemU30
 type Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemInput interface {
 	pulumi.Input
 
@@ -1807,6 +1821,7 @@ const (
 	Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemGpu       = Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem("gpu")
 	Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemFpga      = Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem("fpga")
 	Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemInference = Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem("inference")
+	Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemMedia     = Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem("media")
 )
 
 func (Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem) ElementType() reflect.Type {
@@ -1934,6 +1949,7 @@ func (o Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToStri
 //	Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemGpu
 //	Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemFpga
 //	Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemInference
+//	Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemMedia
 type Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemInput interface {
 	pulumi.Input
 
@@ -4628,6 +4644,7 @@ const (
 	FlowLogResourceTypeVpc                      = FlowLogResourceType("VPC")
 	FlowLogResourceTypeTransitGateway           = FlowLogResourceType("TransitGateway")
 	FlowLogResourceTypeTransitGatewayAttachment = FlowLogResourceType("TransitGatewayAttachment")
+	FlowLogResourceTypeRegionalNatGateway       = FlowLogResourceType("RegionalNatGateway")
 )
 
 func (FlowLogResourceType) ElementType() reflect.Type {
@@ -4757,6 +4774,7 @@ func (o FlowLogResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 //	FlowLogResourceTypeVpc
 //	FlowLogResourceTypeTransitGateway
 //	FlowLogResourceTypeTransitGatewayAttachment
+//	FlowLogResourceTypeRegionalNatGateway
 type FlowLogResourceTypeInput interface {
 	pulumi.Input
 
@@ -6635,6 +6653,170 @@ func (o IpamPoolStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+// An external service connecting to your AWS IPAM scope.
+type IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType string
+
+const (
+	IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeInfoblox = IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType("infoblox")
+)
+
+func (IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType)(nil)).Elem()
+}
+
+func (e IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType) ToIpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput() IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput {
+	return pulumi.ToOutput(e).(IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput)
+}
+
+func (e IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType) ToIpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutputWithContext(ctx context.Context) IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput)
+}
+
+func (e IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType) ToIpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput() IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput {
+	return e.ToIpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutputWithContext(context.Background())
+}
+
+func (e IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType) ToIpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutputWithContext(ctx context.Context) IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput {
+	return IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType(e).ToIpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutputWithContext(ctx).ToIpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutputWithContext(ctx)
+}
+
+func (e IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput struct{ *pulumi.OutputState }
+
+func (IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType)(nil)).Elem()
+}
+
+func (o IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput) ToIpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput() IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput {
+	return o
+}
+
+func (o IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput) ToIpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutputWithContext(ctx context.Context) IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput {
+	return o
+}
+
+func (o IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput) ToIpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput() IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput {
+	return o.ToIpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutputWithContext(context.Background())
+}
+
+func (o IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput) ToIpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutputWithContext(ctx context.Context) IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType) *IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType {
+		return &v
+	}).(IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput)
+}
+
+func (o IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType)(nil)).Elem()
+}
+
+func (o IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput) ToIpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput() IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput {
+	return o
+}
+
+func (o IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput) ToIpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutputWithContext(ctx context.Context) IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput {
+	return o
+}
+
+func (o IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput) Elem() IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput {
+	return o.ApplyT(func(v *IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType) IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType {
+		if v != nil {
+			return *v
+		}
+		var ret IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType
+		return ret
+	}).(IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput)
+}
+
+func (o IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeInput is an input type that accepts values of the IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType enum
+// A concrete instance of `IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeInput` can be one of the following:
+//
+//	IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeInfoblox
+type IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeInput interface {
+	pulumi.Input
+
+	ToIpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput() IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput
+	ToIpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutputWithContext(context.Context) IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput
+}
+
+var ipamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrType = reflect.TypeOf((**IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType)(nil)).Elem()
+
+type IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrInput interface {
+	pulumi.Input
+
+	ToIpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput() IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput
+	ToIpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutputWithContext(context.Context) IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput
+}
+
+type ipamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtr string
+
+func IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtr(v string) IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrInput {
+	return (*ipamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtr)(&v)
+}
+
+func (*ipamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtr) ElementType() reflect.Type {
+	return ipamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrType
+}
+
+func (in *ipamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtr) ToIpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput() IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput {
+	return pulumi.ToOutput(in).(IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput)
+}
+
+func (in *ipamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtr) ToIpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutputWithContext(ctx context.Context) IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput)
 }
 
 // Determines whether this scope contains publicly routable space or space for a private network
@@ -9213,6 +9395,13 @@ const (
 	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemT4g           = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("t4g")
 	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemVu9p          = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("vu9p")
 	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemV100          = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("v100")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemL40s          = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("l40s")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemL4            = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("l4")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemGaudiHl205    = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("gaudi-hl-205")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemInferentia2   = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("inferentia2")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemTrainium      = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("trainium")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemTrainium2     = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("trainium2")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemU30           = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("u30")
 )
 
 func (SpotFleetInstanceRequirementsRequestAcceleratorNamesItem) ElementType() reflect.Type {
@@ -9349,6 +9538,13 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrOutput) ToStr
 //	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemT4g
 //	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemVu9p
 //	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemV100
+//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemL40s
+//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemL4
+//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemGaudiHl205
+//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemInferentia2
+//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemTrainium
+//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemTrainium2
+//	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemU30
 type SpotFleetInstanceRequirementsRequestAcceleratorNamesItemInput interface {
 	pulumi.Input
 
@@ -9434,6 +9630,7 @@ const (
 	SpotFleetInstanceRequirementsRequestAcceleratorTypesItemGpu       = SpotFleetInstanceRequirementsRequestAcceleratorTypesItem("gpu")
 	SpotFleetInstanceRequirementsRequestAcceleratorTypesItemFpga      = SpotFleetInstanceRequirementsRequestAcceleratorTypesItem("fpga")
 	SpotFleetInstanceRequirementsRequestAcceleratorTypesItemInference = SpotFleetInstanceRequirementsRequestAcceleratorTypesItem("inference")
+	SpotFleetInstanceRequirementsRequestAcceleratorTypesItemMedia     = SpotFleetInstanceRequirementsRequestAcceleratorTypesItem("media")
 )
 
 func (SpotFleetInstanceRequirementsRequestAcceleratorTypesItem) ElementType() reflect.Type {
@@ -9561,6 +9758,7 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrOutput) ToStr
 //	SpotFleetInstanceRequirementsRequestAcceleratorTypesItemGpu
 //	SpotFleetInstanceRequirementsRequestAcceleratorTypesItemFpga
 //	SpotFleetInstanceRequirementsRequestAcceleratorTypesItemInference
+//	SpotFleetInstanceRequirementsRequestAcceleratorTypesItemMedia
 type SpotFleetInstanceRequirementsRequestAcceleratorTypesItemInput interface {
 	pulumi.Input
 
@@ -12452,6 +12650,512 @@ func (o TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput) Index(i pulum
 	}).(TrafficMirrorFilterTrafficMirrorNetworkServiceOutput)
 }
 
+// Enable or disable encryption support. Disabled by default.
+type TransitGatewayEncryptionSupport string
+
+const (
+	TransitGatewayEncryptionSupportDisable = TransitGatewayEncryptionSupport("disable")
+	TransitGatewayEncryptionSupportEnable  = TransitGatewayEncryptionSupport("enable")
+)
+
+func (TransitGatewayEncryptionSupport) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayEncryptionSupport)(nil)).Elem()
+}
+
+func (e TransitGatewayEncryptionSupport) ToTransitGatewayEncryptionSupportOutput() TransitGatewayEncryptionSupportOutput {
+	return pulumi.ToOutput(e).(TransitGatewayEncryptionSupportOutput)
+}
+
+func (e TransitGatewayEncryptionSupport) ToTransitGatewayEncryptionSupportOutputWithContext(ctx context.Context) TransitGatewayEncryptionSupportOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransitGatewayEncryptionSupportOutput)
+}
+
+func (e TransitGatewayEncryptionSupport) ToTransitGatewayEncryptionSupportPtrOutput() TransitGatewayEncryptionSupportPtrOutput {
+	return e.ToTransitGatewayEncryptionSupportPtrOutputWithContext(context.Background())
+}
+
+func (e TransitGatewayEncryptionSupport) ToTransitGatewayEncryptionSupportPtrOutputWithContext(ctx context.Context) TransitGatewayEncryptionSupportPtrOutput {
+	return TransitGatewayEncryptionSupport(e).ToTransitGatewayEncryptionSupportOutputWithContext(ctx).ToTransitGatewayEncryptionSupportPtrOutputWithContext(ctx)
+}
+
+func (e TransitGatewayEncryptionSupport) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransitGatewayEncryptionSupport) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransitGatewayEncryptionSupport) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TransitGatewayEncryptionSupport) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransitGatewayEncryptionSupportOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayEncryptionSupportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayEncryptionSupport)(nil)).Elem()
+}
+
+func (o TransitGatewayEncryptionSupportOutput) ToTransitGatewayEncryptionSupportOutput() TransitGatewayEncryptionSupportOutput {
+	return o
+}
+
+func (o TransitGatewayEncryptionSupportOutput) ToTransitGatewayEncryptionSupportOutputWithContext(ctx context.Context) TransitGatewayEncryptionSupportOutput {
+	return o
+}
+
+func (o TransitGatewayEncryptionSupportOutput) ToTransitGatewayEncryptionSupportPtrOutput() TransitGatewayEncryptionSupportPtrOutput {
+	return o.ToTransitGatewayEncryptionSupportPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayEncryptionSupportOutput) ToTransitGatewayEncryptionSupportPtrOutputWithContext(ctx context.Context) TransitGatewayEncryptionSupportPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayEncryptionSupport) *TransitGatewayEncryptionSupport {
+		return &v
+	}).(TransitGatewayEncryptionSupportPtrOutput)
+}
+
+func (o TransitGatewayEncryptionSupportOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayEncryptionSupportOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransitGatewayEncryptionSupport) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransitGatewayEncryptionSupportOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayEncryptionSupportOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransitGatewayEncryptionSupport) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransitGatewayEncryptionSupportPtrOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayEncryptionSupportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayEncryptionSupport)(nil)).Elem()
+}
+
+func (o TransitGatewayEncryptionSupportPtrOutput) ToTransitGatewayEncryptionSupportPtrOutput() TransitGatewayEncryptionSupportPtrOutput {
+	return o
+}
+
+func (o TransitGatewayEncryptionSupportPtrOutput) ToTransitGatewayEncryptionSupportPtrOutputWithContext(ctx context.Context) TransitGatewayEncryptionSupportPtrOutput {
+	return o
+}
+
+func (o TransitGatewayEncryptionSupportPtrOutput) Elem() TransitGatewayEncryptionSupportOutput {
+	return o.ApplyT(func(v *TransitGatewayEncryptionSupport) TransitGatewayEncryptionSupport {
+		if v != nil {
+			return *v
+		}
+		var ret TransitGatewayEncryptionSupport
+		return ret
+	}).(TransitGatewayEncryptionSupportOutput)
+}
+
+func (o TransitGatewayEncryptionSupportPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayEncryptionSupportPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransitGatewayEncryptionSupport) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TransitGatewayEncryptionSupportInput is an input type that accepts values of the TransitGatewayEncryptionSupport enum
+// A concrete instance of `TransitGatewayEncryptionSupportInput` can be one of the following:
+//
+//	TransitGatewayEncryptionSupportDisable
+//	TransitGatewayEncryptionSupportEnable
+type TransitGatewayEncryptionSupportInput interface {
+	pulumi.Input
+
+	ToTransitGatewayEncryptionSupportOutput() TransitGatewayEncryptionSupportOutput
+	ToTransitGatewayEncryptionSupportOutputWithContext(context.Context) TransitGatewayEncryptionSupportOutput
+}
+
+var transitGatewayEncryptionSupportPtrType = reflect.TypeOf((**TransitGatewayEncryptionSupport)(nil)).Elem()
+
+type TransitGatewayEncryptionSupportPtrInput interface {
+	pulumi.Input
+
+	ToTransitGatewayEncryptionSupportPtrOutput() TransitGatewayEncryptionSupportPtrOutput
+	ToTransitGatewayEncryptionSupportPtrOutputWithContext(context.Context) TransitGatewayEncryptionSupportPtrOutput
+}
+
+type transitGatewayEncryptionSupportPtr string
+
+func TransitGatewayEncryptionSupportPtr(v string) TransitGatewayEncryptionSupportPtrInput {
+	return (*transitGatewayEncryptionSupportPtr)(&v)
+}
+
+func (*transitGatewayEncryptionSupportPtr) ElementType() reflect.Type {
+	return transitGatewayEncryptionSupportPtrType
+}
+
+func (in *transitGatewayEncryptionSupportPtr) ToTransitGatewayEncryptionSupportPtrOutput() TransitGatewayEncryptionSupportPtrOutput {
+	return pulumi.ToOutput(in).(TransitGatewayEncryptionSupportPtrOutput)
+}
+
+func (in *transitGatewayEncryptionSupportPtr) ToTransitGatewayEncryptionSupportPtrOutputWithContext(ctx context.Context) TransitGatewayEncryptionSupportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransitGatewayEncryptionSupportPtrOutput)
+}
+
+type TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType string
+
+const (
+	TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeVpc                  = TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("vpc")
+	TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeVpn                  = TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("vpn")
+	TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeDirectConnectGateway = TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("direct-connect-gateway")
+	TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePeering              = TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("peering")
+	TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeNetworkFunction      = TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("network-function")
+	TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeVpnConcentrator      = TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("vpn-concentrator")
+)
+
+func (TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType)(nil)).Elem()
+}
+
+func (e TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType) ToTransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput() TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput {
+	return pulumi.ToOutput(e).(TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput)
+}
+
+func (e TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType) ToTransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutputWithContext(ctx context.Context) TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput)
+}
+
+func (e TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType) ToTransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput() TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput {
+	return e.ToTransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType) ToTransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutputWithContext(ctx context.Context) TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput {
+	return TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType(e).ToTransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutputWithContext(ctx).ToTransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutputWithContext(ctx)
+}
+
+func (e TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType)(nil)).Elem()
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput) ToTransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput() TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput {
+	return o
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput) ToTransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutputWithContext(ctx context.Context) TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput {
+	return o
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput) ToTransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput() TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput {
+	return o.ToTransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput) ToTransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutputWithContext(ctx context.Context) TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType) *TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType {
+		return &v
+	}).(TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput)
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType)(nil)).Elem()
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput) ToTransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput() TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput {
+	return o
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput) ToTransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutputWithContext(ctx context.Context) TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput {
+	return o
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput) Elem() TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput {
+	return o.ApplyT(func(v *TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType) TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType {
+		if v != nil {
+			return *v
+		}
+		var ret TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType
+		return ret
+	}).(TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput)
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeInput is an input type that accepts values of the TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType enum
+// A concrete instance of `TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeInput` can be one of the following:
+//
+//	TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeVpc
+//	TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeVpn
+//	TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeDirectConnectGateway
+//	TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePeering
+//	TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeNetworkFunction
+//	TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeVpnConcentrator
+type TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeInput interface {
+	pulumi.Input
+
+	ToTransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput() TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput
+	ToTransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutputWithContext(context.Context) TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput
+}
+
+var transitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrType = reflect.TypeOf((**TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType)(nil)).Elem()
+
+type TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrInput interface {
+	pulumi.Input
+
+	ToTransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput() TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput
+	ToTransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutputWithContext(context.Context) TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput
+}
+
+type transitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtr string
+
+func TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtr(v string) TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrInput {
+	return (*transitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtr)(&v)
+}
+
+func (*transitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtr) ElementType() reflect.Type {
+	return transitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrType
+}
+
+func (in *transitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtr) ToTransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput() TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput {
+	return pulumi.ToOutput(in).(TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput)
+}
+
+func (in *transitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtr) ToTransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutputWithContext(ctx context.Context) TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput)
+}
+
+type TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType string
+
+const (
+	TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeSourceAttachmentOwner      = TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType("source-attachment-owner")
+	TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeDestinationAttachmentOwner = TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType("destination-attachment-owner")
+	TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeTransitGatewayOwner        = TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType("transit-gateway-owner")
+)
+
+func (TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType)(nil)).Elem()
+}
+
+func (e TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType) ToTransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput() TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput {
+	return pulumi.ToOutput(e).(TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput)
+}
+
+func (e TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType) ToTransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutputWithContext(ctx context.Context) TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput)
+}
+
+func (e TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType) ToTransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput() TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput {
+	return e.ToTransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutputWithContext(context.Background())
+}
+
+func (e TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType) ToTransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutputWithContext(ctx context.Context) TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput {
+	return TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType(e).ToTransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutputWithContext(ctx).ToTransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutputWithContext(ctx)
+}
+
+func (e TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType)(nil)).Elem()
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput) ToTransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput() TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput {
+	return o
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput) ToTransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutputWithContext(ctx context.Context) TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput {
+	return o
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput) ToTransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput() TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput {
+	return o.ToTransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput) ToTransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutputWithContext(ctx context.Context) TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType) *TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType {
+		return &v
+	}).(TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput)
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType)(nil)).Elem()
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput) ToTransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput() TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput {
+	return o
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput) ToTransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutputWithContext(ctx context.Context) TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput {
+	return o
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput) Elem() TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput {
+	return o.ApplyT(func(v *TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType) TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType {
+		if v != nil {
+			return *v
+		}
+		var ret TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType
+		return ret
+	}).(TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput)
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeInput is an input type that accepts values of the TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType enum
+// A concrete instance of `TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeInput` can be one of the following:
+//
+//	TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeSourceAttachmentOwner
+//	TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeDestinationAttachmentOwner
+//	TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeTransitGatewayOwner
+type TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeInput interface {
+	pulumi.Input
+
+	ToTransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput() TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput
+	ToTransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutputWithContext(context.Context) TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput
+}
+
+var transitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrType = reflect.TypeOf((**TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType)(nil)).Elem()
+
+type TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrInput interface {
+	pulumi.Input
+
+	ToTransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput() TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput
+	ToTransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutputWithContext(context.Context) TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput
+}
+
+type transitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtr string
+
+func TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtr(v string) TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrInput {
+	return (*transitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtr)(&v)
+}
+
+func (*transitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtr) ElementType() reflect.Type {
+	return transitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrType
+}
+
+func (in *transitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtr) ToTransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput() TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput {
+	return pulumi.ToOutput(in).(TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput)
+}
+
+func (in *transitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtr) ToTransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutputWithContext(ctx context.Context) TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput)
+}
+
 // The desired Block Public Access Exclusion Mode for a specific VPC/Subnet.
 type VpcBlockPublicAccessExclusionInternetGatewayExclusionMode string
 
@@ -12782,6 +13486,1598 @@ func (in *vpcBlockPublicAccessOptionsInternetGatewayBlockModePtr) ToVpcBlockPubl
 
 func (in *vpcBlockPublicAccessOptionsInternetGatewayBlockModePtr) ToVpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutputWithContext(ctx context.Context) VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput)
+}
+
+// Used to enable or disable EIGW exclusion
+type VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput string
+
+const (
+	VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputEnable  = VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput("enable")
+	VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputDisable = VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput("disable")
+)
+
+func (VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput)(nil)).Elem()
+}
+
+func (e VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput) ToVpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput() VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput {
+	return pulumi.ToOutput(e).(VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput)
+}
+
+func (e VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput) ToVpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutputWithContext(ctx context.Context) VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput)
+}
+
+func (e VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput) ToVpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput() VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput {
+	return e.ToVpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput) ToVpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput {
+	return VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput(e).ToVpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutputWithContext(ctx).ToVpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutputWithContext(ctx)
+}
+
+func (e VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput) ToVpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput() VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput {
+	return o
+}
+
+func (o VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput) ToVpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutputWithContext(ctx context.Context) VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput {
+	return o
+}
+
+func (o VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput) ToVpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput() VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput {
+	return o.ToVpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput) ToVpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput) *VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput {
+		return &v
+	}).(VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput)
+}
+
+func (o VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput) ToVpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput() VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput) ToVpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput) Elem() VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput) VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput
+		return ret
+	}).(VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput)
+}
+
+func (o VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputInput is an input type that accepts values of the VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput enum
+// A concrete instance of `VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputInput` can be one of the following:
+//
+//	VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputEnable
+//	VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputDisable
+type VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputInput interface {
+	pulumi.Input
+
+	ToVpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput() VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput
+	ToVpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutputWithContext(context.Context) VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput
+}
+
+var vpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrType = reflect.TypeOf((**VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput)(nil)).Elem()
+
+type VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrInput interface {
+	pulumi.Input
+
+	ToVpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput() VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput
+	ToVpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutputWithContext(context.Context) VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput
+}
+
+type vpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtr string
+
+func VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtr(v string) VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrInput {
+	return (*vpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtr)(&v)
+}
+
+func (*vpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtr) ElementType() reflect.Type {
+	return vpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrType
+}
+
+func (in *vpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtr) ToVpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput() VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput {
+	return pulumi.ToOutput(in).(VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput)
+}
+
+func (in *vpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtr) ToVpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput)
+}
+
+// Used to enable or disable EFS exclusion
+type VpcEncryptionControlElasticFileSystemExclusionInput string
+
+const (
+	VpcEncryptionControlElasticFileSystemExclusionInputEnable  = VpcEncryptionControlElasticFileSystemExclusionInput("enable")
+	VpcEncryptionControlElasticFileSystemExclusionInputDisable = VpcEncryptionControlElasticFileSystemExclusionInput("disable")
+)
+
+func (VpcEncryptionControlElasticFileSystemExclusionInput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlElasticFileSystemExclusionInput)(nil)).Elem()
+}
+
+func (e VpcEncryptionControlElasticFileSystemExclusionInput) ToVpcEncryptionControlElasticFileSystemExclusionInputOutput() VpcEncryptionControlElasticFileSystemExclusionInputOutput {
+	return pulumi.ToOutput(e).(VpcEncryptionControlElasticFileSystemExclusionInputOutput)
+}
+
+func (e VpcEncryptionControlElasticFileSystemExclusionInput) ToVpcEncryptionControlElasticFileSystemExclusionInputOutputWithContext(ctx context.Context) VpcEncryptionControlElasticFileSystemExclusionInputOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcEncryptionControlElasticFileSystemExclusionInputOutput)
+}
+
+func (e VpcEncryptionControlElasticFileSystemExclusionInput) ToVpcEncryptionControlElasticFileSystemExclusionInputPtrOutput() VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput {
+	return e.ToVpcEncryptionControlElasticFileSystemExclusionInputPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEncryptionControlElasticFileSystemExclusionInput) ToVpcEncryptionControlElasticFileSystemExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput {
+	return VpcEncryptionControlElasticFileSystemExclusionInput(e).ToVpcEncryptionControlElasticFileSystemExclusionInputOutputWithContext(ctx).ToVpcEncryptionControlElasticFileSystemExclusionInputPtrOutputWithContext(ctx)
+}
+
+func (e VpcEncryptionControlElasticFileSystemExclusionInput) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEncryptionControlElasticFileSystemExclusionInput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEncryptionControlElasticFileSystemExclusionInput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEncryptionControlElasticFileSystemExclusionInput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpcEncryptionControlElasticFileSystemExclusionInputOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlElasticFileSystemExclusionInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlElasticFileSystemExclusionInput)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlElasticFileSystemExclusionInputOutput) ToVpcEncryptionControlElasticFileSystemExclusionInputOutput() VpcEncryptionControlElasticFileSystemExclusionInputOutput {
+	return o
+}
+
+func (o VpcEncryptionControlElasticFileSystemExclusionInputOutput) ToVpcEncryptionControlElasticFileSystemExclusionInputOutputWithContext(ctx context.Context) VpcEncryptionControlElasticFileSystemExclusionInputOutput {
+	return o
+}
+
+func (o VpcEncryptionControlElasticFileSystemExclusionInputOutput) ToVpcEncryptionControlElasticFileSystemExclusionInputPtrOutput() VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput {
+	return o.ToVpcEncryptionControlElasticFileSystemExclusionInputPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlElasticFileSystemExclusionInputOutput) ToVpcEncryptionControlElasticFileSystemExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEncryptionControlElasticFileSystemExclusionInput) *VpcEncryptionControlElasticFileSystemExclusionInput {
+		return &v
+	}).(VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput)
+}
+
+func (o VpcEncryptionControlElasticFileSystemExclusionInputOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlElasticFileSystemExclusionInputOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEncryptionControlElasticFileSystemExclusionInput) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcEncryptionControlElasticFileSystemExclusionInputOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlElasticFileSystemExclusionInputOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEncryptionControlElasticFileSystemExclusionInput) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEncryptionControlElasticFileSystemExclusionInput)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput) ToVpcEncryptionControlElasticFileSystemExclusionInputPtrOutput() VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput) ToVpcEncryptionControlElasticFileSystemExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput) Elem() VpcEncryptionControlElasticFileSystemExclusionInputOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlElasticFileSystemExclusionInput) VpcEncryptionControlElasticFileSystemExclusionInput {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEncryptionControlElasticFileSystemExclusionInput
+		return ret
+	}).(VpcEncryptionControlElasticFileSystemExclusionInputOutput)
+}
+
+func (o VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcEncryptionControlElasticFileSystemExclusionInput) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpcEncryptionControlElasticFileSystemExclusionInputInput is an input type that accepts values of the VpcEncryptionControlElasticFileSystemExclusionInput enum
+// A concrete instance of `VpcEncryptionControlElasticFileSystemExclusionInputInput` can be one of the following:
+//
+//	VpcEncryptionControlElasticFileSystemExclusionInputEnable
+//	VpcEncryptionControlElasticFileSystemExclusionInputDisable
+type VpcEncryptionControlElasticFileSystemExclusionInputInput interface {
+	pulumi.Input
+
+	ToVpcEncryptionControlElasticFileSystemExclusionInputOutput() VpcEncryptionControlElasticFileSystemExclusionInputOutput
+	ToVpcEncryptionControlElasticFileSystemExclusionInputOutputWithContext(context.Context) VpcEncryptionControlElasticFileSystemExclusionInputOutput
+}
+
+var vpcEncryptionControlElasticFileSystemExclusionInputPtrType = reflect.TypeOf((**VpcEncryptionControlElasticFileSystemExclusionInput)(nil)).Elem()
+
+type VpcEncryptionControlElasticFileSystemExclusionInputPtrInput interface {
+	pulumi.Input
+
+	ToVpcEncryptionControlElasticFileSystemExclusionInputPtrOutput() VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput
+	ToVpcEncryptionControlElasticFileSystemExclusionInputPtrOutputWithContext(context.Context) VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput
+}
+
+type vpcEncryptionControlElasticFileSystemExclusionInputPtr string
+
+func VpcEncryptionControlElasticFileSystemExclusionInputPtr(v string) VpcEncryptionControlElasticFileSystemExclusionInputPtrInput {
+	return (*vpcEncryptionControlElasticFileSystemExclusionInputPtr)(&v)
+}
+
+func (*vpcEncryptionControlElasticFileSystemExclusionInputPtr) ElementType() reflect.Type {
+	return vpcEncryptionControlElasticFileSystemExclusionInputPtrType
+}
+
+func (in *vpcEncryptionControlElasticFileSystemExclusionInputPtr) ToVpcEncryptionControlElasticFileSystemExclusionInputPtrOutput() VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput {
+	return pulumi.ToOutput(in).(VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput)
+}
+
+func (in *vpcEncryptionControlElasticFileSystemExclusionInputPtr) ToVpcEncryptionControlElasticFileSystemExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput)
+}
+
+// Used to enable or disable IGW exclusion
+type VpcEncryptionControlInternetGatewayExclusionInput string
+
+const (
+	VpcEncryptionControlInternetGatewayExclusionInputEnable  = VpcEncryptionControlInternetGatewayExclusionInput("enable")
+	VpcEncryptionControlInternetGatewayExclusionInputDisable = VpcEncryptionControlInternetGatewayExclusionInput("disable")
+)
+
+func (VpcEncryptionControlInternetGatewayExclusionInput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlInternetGatewayExclusionInput)(nil)).Elem()
+}
+
+func (e VpcEncryptionControlInternetGatewayExclusionInput) ToVpcEncryptionControlInternetGatewayExclusionInputOutput() VpcEncryptionControlInternetGatewayExclusionInputOutput {
+	return pulumi.ToOutput(e).(VpcEncryptionControlInternetGatewayExclusionInputOutput)
+}
+
+func (e VpcEncryptionControlInternetGatewayExclusionInput) ToVpcEncryptionControlInternetGatewayExclusionInputOutputWithContext(ctx context.Context) VpcEncryptionControlInternetGatewayExclusionInputOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcEncryptionControlInternetGatewayExclusionInputOutput)
+}
+
+func (e VpcEncryptionControlInternetGatewayExclusionInput) ToVpcEncryptionControlInternetGatewayExclusionInputPtrOutput() VpcEncryptionControlInternetGatewayExclusionInputPtrOutput {
+	return e.ToVpcEncryptionControlInternetGatewayExclusionInputPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEncryptionControlInternetGatewayExclusionInput) ToVpcEncryptionControlInternetGatewayExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlInternetGatewayExclusionInputPtrOutput {
+	return VpcEncryptionControlInternetGatewayExclusionInput(e).ToVpcEncryptionControlInternetGatewayExclusionInputOutputWithContext(ctx).ToVpcEncryptionControlInternetGatewayExclusionInputPtrOutputWithContext(ctx)
+}
+
+func (e VpcEncryptionControlInternetGatewayExclusionInput) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEncryptionControlInternetGatewayExclusionInput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEncryptionControlInternetGatewayExclusionInput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEncryptionControlInternetGatewayExclusionInput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpcEncryptionControlInternetGatewayExclusionInputOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlInternetGatewayExclusionInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlInternetGatewayExclusionInput)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlInternetGatewayExclusionInputOutput) ToVpcEncryptionControlInternetGatewayExclusionInputOutput() VpcEncryptionControlInternetGatewayExclusionInputOutput {
+	return o
+}
+
+func (o VpcEncryptionControlInternetGatewayExclusionInputOutput) ToVpcEncryptionControlInternetGatewayExclusionInputOutputWithContext(ctx context.Context) VpcEncryptionControlInternetGatewayExclusionInputOutput {
+	return o
+}
+
+func (o VpcEncryptionControlInternetGatewayExclusionInputOutput) ToVpcEncryptionControlInternetGatewayExclusionInputPtrOutput() VpcEncryptionControlInternetGatewayExclusionInputPtrOutput {
+	return o.ToVpcEncryptionControlInternetGatewayExclusionInputPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlInternetGatewayExclusionInputOutput) ToVpcEncryptionControlInternetGatewayExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlInternetGatewayExclusionInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEncryptionControlInternetGatewayExclusionInput) *VpcEncryptionControlInternetGatewayExclusionInput {
+		return &v
+	}).(VpcEncryptionControlInternetGatewayExclusionInputPtrOutput)
+}
+
+func (o VpcEncryptionControlInternetGatewayExclusionInputOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlInternetGatewayExclusionInputOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEncryptionControlInternetGatewayExclusionInput) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcEncryptionControlInternetGatewayExclusionInputOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlInternetGatewayExclusionInputOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEncryptionControlInternetGatewayExclusionInput) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcEncryptionControlInternetGatewayExclusionInputPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlInternetGatewayExclusionInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEncryptionControlInternetGatewayExclusionInput)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlInternetGatewayExclusionInputPtrOutput) ToVpcEncryptionControlInternetGatewayExclusionInputPtrOutput() VpcEncryptionControlInternetGatewayExclusionInputPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlInternetGatewayExclusionInputPtrOutput) ToVpcEncryptionControlInternetGatewayExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlInternetGatewayExclusionInputPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlInternetGatewayExclusionInputPtrOutput) Elem() VpcEncryptionControlInternetGatewayExclusionInputOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlInternetGatewayExclusionInput) VpcEncryptionControlInternetGatewayExclusionInput {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEncryptionControlInternetGatewayExclusionInput
+		return ret
+	}).(VpcEncryptionControlInternetGatewayExclusionInputOutput)
+}
+
+func (o VpcEncryptionControlInternetGatewayExclusionInputPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlInternetGatewayExclusionInputPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcEncryptionControlInternetGatewayExclusionInput) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpcEncryptionControlInternetGatewayExclusionInputInput is an input type that accepts values of the VpcEncryptionControlInternetGatewayExclusionInput enum
+// A concrete instance of `VpcEncryptionControlInternetGatewayExclusionInputInput` can be one of the following:
+//
+//	VpcEncryptionControlInternetGatewayExclusionInputEnable
+//	VpcEncryptionControlInternetGatewayExclusionInputDisable
+type VpcEncryptionControlInternetGatewayExclusionInputInput interface {
+	pulumi.Input
+
+	ToVpcEncryptionControlInternetGatewayExclusionInputOutput() VpcEncryptionControlInternetGatewayExclusionInputOutput
+	ToVpcEncryptionControlInternetGatewayExclusionInputOutputWithContext(context.Context) VpcEncryptionControlInternetGatewayExclusionInputOutput
+}
+
+var vpcEncryptionControlInternetGatewayExclusionInputPtrType = reflect.TypeOf((**VpcEncryptionControlInternetGatewayExclusionInput)(nil)).Elem()
+
+type VpcEncryptionControlInternetGatewayExclusionInputPtrInput interface {
+	pulumi.Input
+
+	ToVpcEncryptionControlInternetGatewayExclusionInputPtrOutput() VpcEncryptionControlInternetGatewayExclusionInputPtrOutput
+	ToVpcEncryptionControlInternetGatewayExclusionInputPtrOutputWithContext(context.Context) VpcEncryptionControlInternetGatewayExclusionInputPtrOutput
+}
+
+type vpcEncryptionControlInternetGatewayExclusionInputPtr string
+
+func VpcEncryptionControlInternetGatewayExclusionInputPtr(v string) VpcEncryptionControlInternetGatewayExclusionInputPtrInput {
+	return (*vpcEncryptionControlInternetGatewayExclusionInputPtr)(&v)
+}
+
+func (*vpcEncryptionControlInternetGatewayExclusionInputPtr) ElementType() reflect.Type {
+	return vpcEncryptionControlInternetGatewayExclusionInputPtrType
+}
+
+func (in *vpcEncryptionControlInternetGatewayExclusionInputPtr) ToVpcEncryptionControlInternetGatewayExclusionInputPtrOutput() VpcEncryptionControlInternetGatewayExclusionInputPtrOutput {
+	return pulumi.ToOutput(in).(VpcEncryptionControlInternetGatewayExclusionInputPtrOutput)
+}
+
+func (in *vpcEncryptionControlInternetGatewayExclusionInputPtr) ToVpcEncryptionControlInternetGatewayExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlInternetGatewayExclusionInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcEncryptionControlInternetGatewayExclusionInputPtrOutput)
+}
+
+// Used to enable or disable Lambda exclusion
+type VpcEncryptionControlLambdaExclusionInput string
+
+const (
+	VpcEncryptionControlLambdaExclusionInputEnable  = VpcEncryptionControlLambdaExclusionInput("enable")
+	VpcEncryptionControlLambdaExclusionInputDisable = VpcEncryptionControlLambdaExclusionInput("disable")
+)
+
+func (VpcEncryptionControlLambdaExclusionInput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlLambdaExclusionInput)(nil)).Elem()
+}
+
+func (e VpcEncryptionControlLambdaExclusionInput) ToVpcEncryptionControlLambdaExclusionInputOutput() VpcEncryptionControlLambdaExclusionInputOutput {
+	return pulumi.ToOutput(e).(VpcEncryptionControlLambdaExclusionInputOutput)
+}
+
+func (e VpcEncryptionControlLambdaExclusionInput) ToVpcEncryptionControlLambdaExclusionInputOutputWithContext(ctx context.Context) VpcEncryptionControlLambdaExclusionInputOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcEncryptionControlLambdaExclusionInputOutput)
+}
+
+func (e VpcEncryptionControlLambdaExclusionInput) ToVpcEncryptionControlLambdaExclusionInputPtrOutput() VpcEncryptionControlLambdaExclusionInputPtrOutput {
+	return e.ToVpcEncryptionControlLambdaExclusionInputPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEncryptionControlLambdaExclusionInput) ToVpcEncryptionControlLambdaExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlLambdaExclusionInputPtrOutput {
+	return VpcEncryptionControlLambdaExclusionInput(e).ToVpcEncryptionControlLambdaExclusionInputOutputWithContext(ctx).ToVpcEncryptionControlLambdaExclusionInputPtrOutputWithContext(ctx)
+}
+
+func (e VpcEncryptionControlLambdaExclusionInput) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEncryptionControlLambdaExclusionInput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEncryptionControlLambdaExclusionInput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEncryptionControlLambdaExclusionInput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpcEncryptionControlLambdaExclusionInputOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlLambdaExclusionInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlLambdaExclusionInput)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlLambdaExclusionInputOutput) ToVpcEncryptionControlLambdaExclusionInputOutput() VpcEncryptionControlLambdaExclusionInputOutput {
+	return o
+}
+
+func (o VpcEncryptionControlLambdaExclusionInputOutput) ToVpcEncryptionControlLambdaExclusionInputOutputWithContext(ctx context.Context) VpcEncryptionControlLambdaExclusionInputOutput {
+	return o
+}
+
+func (o VpcEncryptionControlLambdaExclusionInputOutput) ToVpcEncryptionControlLambdaExclusionInputPtrOutput() VpcEncryptionControlLambdaExclusionInputPtrOutput {
+	return o.ToVpcEncryptionControlLambdaExclusionInputPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlLambdaExclusionInputOutput) ToVpcEncryptionControlLambdaExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlLambdaExclusionInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEncryptionControlLambdaExclusionInput) *VpcEncryptionControlLambdaExclusionInput {
+		return &v
+	}).(VpcEncryptionControlLambdaExclusionInputPtrOutput)
+}
+
+func (o VpcEncryptionControlLambdaExclusionInputOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlLambdaExclusionInputOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEncryptionControlLambdaExclusionInput) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcEncryptionControlLambdaExclusionInputOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlLambdaExclusionInputOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEncryptionControlLambdaExclusionInput) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcEncryptionControlLambdaExclusionInputPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlLambdaExclusionInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEncryptionControlLambdaExclusionInput)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlLambdaExclusionInputPtrOutput) ToVpcEncryptionControlLambdaExclusionInputPtrOutput() VpcEncryptionControlLambdaExclusionInputPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlLambdaExclusionInputPtrOutput) ToVpcEncryptionControlLambdaExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlLambdaExclusionInputPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlLambdaExclusionInputPtrOutput) Elem() VpcEncryptionControlLambdaExclusionInputOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlLambdaExclusionInput) VpcEncryptionControlLambdaExclusionInput {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEncryptionControlLambdaExclusionInput
+		return ret
+	}).(VpcEncryptionControlLambdaExclusionInputOutput)
+}
+
+func (o VpcEncryptionControlLambdaExclusionInputPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlLambdaExclusionInputPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcEncryptionControlLambdaExclusionInput) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpcEncryptionControlLambdaExclusionInputInput is an input type that accepts values of the VpcEncryptionControlLambdaExclusionInput enum
+// A concrete instance of `VpcEncryptionControlLambdaExclusionInputInput` can be one of the following:
+//
+//	VpcEncryptionControlLambdaExclusionInputEnable
+//	VpcEncryptionControlLambdaExclusionInputDisable
+type VpcEncryptionControlLambdaExclusionInputInput interface {
+	pulumi.Input
+
+	ToVpcEncryptionControlLambdaExclusionInputOutput() VpcEncryptionControlLambdaExclusionInputOutput
+	ToVpcEncryptionControlLambdaExclusionInputOutputWithContext(context.Context) VpcEncryptionControlLambdaExclusionInputOutput
+}
+
+var vpcEncryptionControlLambdaExclusionInputPtrType = reflect.TypeOf((**VpcEncryptionControlLambdaExclusionInput)(nil)).Elem()
+
+type VpcEncryptionControlLambdaExclusionInputPtrInput interface {
+	pulumi.Input
+
+	ToVpcEncryptionControlLambdaExclusionInputPtrOutput() VpcEncryptionControlLambdaExclusionInputPtrOutput
+	ToVpcEncryptionControlLambdaExclusionInputPtrOutputWithContext(context.Context) VpcEncryptionControlLambdaExclusionInputPtrOutput
+}
+
+type vpcEncryptionControlLambdaExclusionInputPtr string
+
+func VpcEncryptionControlLambdaExclusionInputPtr(v string) VpcEncryptionControlLambdaExclusionInputPtrInput {
+	return (*vpcEncryptionControlLambdaExclusionInputPtr)(&v)
+}
+
+func (*vpcEncryptionControlLambdaExclusionInputPtr) ElementType() reflect.Type {
+	return vpcEncryptionControlLambdaExclusionInputPtrType
+}
+
+func (in *vpcEncryptionControlLambdaExclusionInputPtr) ToVpcEncryptionControlLambdaExclusionInputPtrOutput() VpcEncryptionControlLambdaExclusionInputPtrOutput {
+	return pulumi.ToOutput(in).(VpcEncryptionControlLambdaExclusionInputPtrOutput)
+}
+
+func (in *vpcEncryptionControlLambdaExclusionInputPtr) ToVpcEncryptionControlLambdaExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlLambdaExclusionInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcEncryptionControlLambdaExclusionInputPtrOutput)
+}
+
+// The VPC encryption control mode, either monitor or enforce.
+type VpcEncryptionControlMode string
+
+const (
+	VpcEncryptionControlModeMonitor = VpcEncryptionControlMode("monitor")
+	VpcEncryptionControlModeEnforce = VpcEncryptionControlMode("enforce")
+)
+
+func (VpcEncryptionControlMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlMode)(nil)).Elem()
+}
+
+func (e VpcEncryptionControlMode) ToVpcEncryptionControlModeOutput() VpcEncryptionControlModeOutput {
+	return pulumi.ToOutput(e).(VpcEncryptionControlModeOutput)
+}
+
+func (e VpcEncryptionControlMode) ToVpcEncryptionControlModeOutputWithContext(ctx context.Context) VpcEncryptionControlModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcEncryptionControlModeOutput)
+}
+
+func (e VpcEncryptionControlMode) ToVpcEncryptionControlModePtrOutput() VpcEncryptionControlModePtrOutput {
+	return e.ToVpcEncryptionControlModePtrOutputWithContext(context.Background())
+}
+
+func (e VpcEncryptionControlMode) ToVpcEncryptionControlModePtrOutputWithContext(ctx context.Context) VpcEncryptionControlModePtrOutput {
+	return VpcEncryptionControlMode(e).ToVpcEncryptionControlModeOutputWithContext(ctx).ToVpcEncryptionControlModePtrOutputWithContext(ctx)
+}
+
+func (e VpcEncryptionControlMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEncryptionControlMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEncryptionControlMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEncryptionControlMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpcEncryptionControlModeOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlMode)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlModeOutput) ToVpcEncryptionControlModeOutput() VpcEncryptionControlModeOutput {
+	return o
+}
+
+func (o VpcEncryptionControlModeOutput) ToVpcEncryptionControlModeOutputWithContext(ctx context.Context) VpcEncryptionControlModeOutput {
+	return o
+}
+
+func (o VpcEncryptionControlModeOutput) ToVpcEncryptionControlModePtrOutput() VpcEncryptionControlModePtrOutput {
+	return o.ToVpcEncryptionControlModePtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlModeOutput) ToVpcEncryptionControlModePtrOutputWithContext(ctx context.Context) VpcEncryptionControlModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEncryptionControlMode) *VpcEncryptionControlMode {
+		return &v
+	}).(VpcEncryptionControlModePtrOutput)
+}
+
+func (o VpcEncryptionControlModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEncryptionControlMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcEncryptionControlModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEncryptionControlMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcEncryptionControlModePtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEncryptionControlMode)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlModePtrOutput) ToVpcEncryptionControlModePtrOutput() VpcEncryptionControlModePtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlModePtrOutput) ToVpcEncryptionControlModePtrOutputWithContext(ctx context.Context) VpcEncryptionControlModePtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlModePtrOutput) Elem() VpcEncryptionControlModeOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlMode) VpcEncryptionControlMode {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEncryptionControlMode
+		return ret
+	}).(VpcEncryptionControlModeOutput)
+}
+
+func (o VpcEncryptionControlModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcEncryptionControlMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpcEncryptionControlModeInput is an input type that accepts values of the VpcEncryptionControlMode enum
+// A concrete instance of `VpcEncryptionControlModeInput` can be one of the following:
+//
+//	VpcEncryptionControlModeMonitor
+//	VpcEncryptionControlModeEnforce
+type VpcEncryptionControlModeInput interface {
+	pulumi.Input
+
+	ToVpcEncryptionControlModeOutput() VpcEncryptionControlModeOutput
+	ToVpcEncryptionControlModeOutputWithContext(context.Context) VpcEncryptionControlModeOutput
+}
+
+var vpcEncryptionControlModePtrType = reflect.TypeOf((**VpcEncryptionControlMode)(nil)).Elem()
+
+type VpcEncryptionControlModePtrInput interface {
+	pulumi.Input
+
+	ToVpcEncryptionControlModePtrOutput() VpcEncryptionControlModePtrOutput
+	ToVpcEncryptionControlModePtrOutputWithContext(context.Context) VpcEncryptionControlModePtrOutput
+}
+
+type vpcEncryptionControlModePtr string
+
+func VpcEncryptionControlModePtr(v string) VpcEncryptionControlModePtrInput {
+	return (*vpcEncryptionControlModePtr)(&v)
+}
+
+func (*vpcEncryptionControlModePtr) ElementType() reflect.Type {
+	return vpcEncryptionControlModePtrType
+}
+
+func (in *vpcEncryptionControlModePtr) ToVpcEncryptionControlModePtrOutput() VpcEncryptionControlModePtrOutput {
+	return pulumi.ToOutput(in).(VpcEncryptionControlModePtrOutput)
+}
+
+func (in *vpcEncryptionControlModePtr) ToVpcEncryptionControlModePtrOutputWithContext(ctx context.Context) VpcEncryptionControlModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcEncryptionControlModePtrOutput)
+}
+
+// Used to enable or disable Nat gateway exclusion
+type VpcEncryptionControlNatGatewayExclusionInput string
+
+const (
+	VpcEncryptionControlNatGatewayExclusionInputEnable  = VpcEncryptionControlNatGatewayExclusionInput("enable")
+	VpcEncryptionControlNatGatewayExclusionInputDisable = VpcEncryptionControlNatGatewayExclusionInput("disable")
+)
+
+func (VpcEncryptionControlNatGatewayExclusionInput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlNatGatewayExclusionInput)(nil)).Elem()
+}
+
+func (e VpcEncryptionControlNatGatewayExclusionInput) ToVpcEncryptionControlNatGatewayExclusionInputOutput() VpcEncryptionControlNatGatewayExclusionInputOutput {
+	return pulumi.ToOutput(e).(VpcEncryptionControlNatGatewayExclusionInputOutput)
+}
+
+func (e VpcEncryptionControlNatGatewayExclusionInput) ToVpcEncryptionControlNatGatewayExclusionInputOutputWithContext(ctx context.Context) VpcEncryptionControlNatGatewayExclusionInputOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcEncryptionControlNatGatewayExclusionInputOutput)
+}
+
+func (e VpcEncryptionControlNatGatewayExclusionInput) ToVpcEncryptionControlNatGatewayExclusionInputPtrOutput() VpcEncryptionControlNatGatewayExclusionInputPtrOutput {
+	return e.ToVpcEncryptionControlNatGatewayExclusionInputPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEncryptionControlNatGatewayExclusionInput) ToVpcEncryptionControlNatGatewayExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlNatGatewayExclusionInputPtrOutput {
+	return VpcEncryptionControlNatGatewayExclusionInput(e).ToVpcEncryptionControlNatGatewayExclusionInputOutputWithContext(ctx).ToVpcEncryptionControlNatGatewayExclusionInputPtrOutputWithContext(ctx)
+}
+
+func (e VpcEncryptionControlNatGatewayExclusionInput) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEncryptionControlNatGatewayExclusionInput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEncryptionControlNatGatewayExclusionInput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEncryptionControlNatGatewayExclusionInput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpcEncryptionControlNatGatewayExclusionInputOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlNatGatewayExclusionInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlNatGatewayExclusionInput)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlNatGatewayExclusionInputOutput) ToVpcEncryptionControlNatGatewayExclusionInputOutput() VpcEncryptionControlNatGatewayExclusionInputOutput {
+	return o
+}
+
+func (o VpcEncryptionControlNatGatewayExclusionInputOutput) ToVpcEncryptionControlNatGatewayExclusionInputOutputWithContext(ctx context.Context) VpcEncryptionControlNatGatewayExclusionInputOutput {
+	return o
+}
+
+func (o VpcEncryptionControlNatGatewayExclusionInputOutput) ToVpcEncryptionControlNatGatewayExclusionInputPtrOutput() VpcEncryptionControlNatGatewayExclusionInputPtrOutput {
+	return o.ToVpcEncryptionControlNatGatewayExclusionInputPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlNatGatewayExclusionInputOutput) ToVpcEncryptionControlNatGatewayExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlNatGatewayExclusionInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEncryptionControlNatGatewayExclusionInput) *VpcEncryptionControlNatGatewayExclusionInput {
+		return &v
+	}).(VpcEncryptionControlNatGatewayExclusionInputPtrOutput)
+}
+
+func (o VpcEncryptionControlNatGatewayExclusionInputOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlNatGatewayExclusionInputOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEncryptionControlNatGatewayExclusionInput) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcEncryptionControlNatGatewayExclusionInputOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlNatGatewayExclusionInputOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEncryptionControlNatGatewayExclusionInput) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcEncryptionControlNatGatewayExclusionInputPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlNatGatewayExclusionInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEncryptionControlNatGatewayExclusionInput)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlNatGatewayExclusionInputPtrOutput) ToVpcEncryptionControlNatGatewayExclusionInputPtrOutput() VpcEncryptionControlNatGatewayExclusionInputPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlNatGatewayExclusionInputPtrOutput) ToVpcEncryptionControlNatGatewayExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlNatGatewayExclusionInputPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlNatGatewayExclusionInputPtrOutput) Elem() VpcEncryptionControlNatGatewayExclusionInputOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlNatGatewayExclusionInput) VpcEncryptionControlNatGatewayExclusionInput {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEncryptionControlNatGatewayExclusionInput
+		return ret
+	}).(VpcEncryptionControlNatGatewayExclusionInputOutput)
+}
+
+func (o VpcEncryptionControlNatGatewayExclusionInputPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlNatGatewayExclusionInputPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcEncryptionControlNatGatewayExclusionInput) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpcEncryptionControlNatGatewayExclusionInputInput is an input type that accepts values of the VpcEncryptionControlNatGatewayExclusionInput enum
+// A concrete instance of `VpcEncryptionControlNatGatewayExclusionInputInput` can be one of the following:
+//
+//	VpcEncryptionControlNatGatewayExclusionInputEnable
+//	VpcEncryptionControlNatGatewayExclusionInputDisable
+type VpcEncryptionControlNatGatewayExclusionInputInput interface {
+	pulumi.Input
+
+	ToVpcEncryptionControlNatGatewayExclusionInputOutput() VpcEncryptionControlNatGatewayExclusionInputOutput
+	ToVpcEncryptionControlNatGatewayExclusionInputOutputWithContext(context.Context) VpcEncryptionControlNatGatewayExclusionInputOutput
+}
+
+var vpcEncryptionControlNatGatewayExclusionInputPtrType = reflect.TypeOf((**VpcEncryptionControlNatGatewayExclusionInput)(nil)).Elem()
+
+type VpcEncryptionControlNatGatewayExclusionInputPtrInput interface {
+	pulumi.Input
+
+	ToVpcEncryptionControlNatGatewayExclusionInputPtrOutput() VpcEncryptionControlNatGatewayExclusionInputPtrOutput
+	ToVpcEncryptionControlNatGatewayExclusionInputPtrOutputWithContext(context.Context) VpcEncryptionControlNatGatewayExclusionInputPtrOutput
+}
+
+type vpcEncryptionControlNatGatewayExclusionInputPtr string
+
+func VpcEncryptionControlNatGatewayExclusionInputPtr(v string) VpcEncryptionControlNatGatewayExclusionInputPtrInput {
+	return (*vpcEncryptionControlNatGatewayExclusionInputPtr)(&v)
+}
+
+func (*vpcEncryptionControlNatGatewayExclusionInputPtr) ElementType() reflect.Type {
+	return vpcEncryptionControlNatGatewayExclusionInputPtrType
+}
+
+func (in *vpcEncryptionControlNatGatewayExclusionInputPtr) ToVpcEncryptionControlNatGatewayExclusionInputPtrOutput() VpcEncryptionControlNatGatewayExclusionInputPtrOutput {
+	return pulumi.ToOutput(in).(VpcEncryptionControlNatGatewayExclusionInputPtrOutput)
+}
+
+func (in *vpcEncryptionControlNatGatewayExclusionInputPtr) ToVpcEncryptionControlNatGatewayExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlNatGatewayExclusionInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcEncryptionControlNatGatewayExclusionInputPtrOutput)
+}
+
+// The current state of the VPC encryption control.
+type VpcEncryptionControlStateEnum string
+
+const (
+	VpcEncryptionControlStateEnumCreating          = VpcEncryptionControlStateEnum("creating")
+	VpcEncryptionControlStateEnumAvailable         = VpcEncryptionControlStateEnum("available")
+	VpcEncryptionControlStateEnumMonitorInProgress = VpcEncryptionControlStateEnum("monitor-in-progress")
+	VpcEncryptionControlStateEnumEnforceInProgress = VpcEncryptionControlStateEnum("enforce-in-progress")
+	VpcEncryptionControlStateEnumMonitorFailed     = VpcEncryptionControlStateEnum("monitor-failed")
+	VpcEncryptionControlStateEnumEnforceFailed     = VpcEncryptionControlStateEnum("enforce-failed")
+	VpcEncryptionControlStateEnumDeleting          = VpcEncryptionControlStateEnum("deleting")
+	VpcEncryptionControlStateEnumDeleted           = VpcEncryptionControlStateEnum("deleted")
+	VpcEncryptionControlStateEnumDeleteFailed      = VpcEncryptionControlStateEnum("delete-failed")
+)
+
+type VpcEncryptionControlStateEnumOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlStateEnum)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlStateEnumOutput) ToVpcEncryptionControlStateEnumOutput() VpcEncryptionControlStateEnumOutput {
+	return o
+}
+
+func (o VpcEncryptionControlStateEnumOutput) ToVpcEncryptionControlStateEnumOutputWithContext(ctx context.Context) VpcEncryptionControlStateEnumOutput {
+	return o
+}
+
+func (o VpcEncryptionControlStateEnumOutput) ToVpcEncryptionControlStateEnumPtrOutput() VpcEncryptionControlStateEnumPtrOutput {
+	return o.ToVpcEncryptionControlStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlStateEnumOutput) ToVpcEncryptionControlStateEnumPtrOutputWithContext(ctx context.Context) VpcEncryptionControlStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEncryptionControlStateEnum) *VpcEncryptionControlStateEnum {
+		return &v
+	}).(VpcEncryptionControlStateEnumPtrOutput)
+}
+
+func (o VpcEncryptionControlStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEncryptionControlStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcEncryptionControlStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEncryptionControlStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcEncryptionControlStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEncryptionControlStateEnum)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlStateEnumPtrOutput) ToVpcEncryptionControlStateEnumPtrOutput() VpcEncryptionControlStateEnumPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlStateEnumPtrOutput) ToVpcEncryptionControlStateEnumPtrOutputWithContext(ctx context.Context) VpcEncryptionControlStateEnumPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlStateEnumPtrOutput) Elem() VpcEncryptionControlStateEnumOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlStateEnum) VpcEncryptionControlStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEncryptionControlStateEnum
+		return ret
+	}).(VpcEncryptionControlStateEnumOutput)
+}
+
+func (o VpcEncryptionControlStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcEncryptionControlStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Used to enable or disable VGW exclusion
+type VpcEncryptionControlVirtualPrivateGatewayExclusionInput string
+
+const (
+	VpcEncryptionControlVirtualPrivateGatewayExclusionInputEnable  = VpcEncryptionControlVirtualPrivateGatewayExclusionInput("enable")
+	VpcEncryptionControlVirtualPrivateGatewayExclusionInputDisable = VpcEncryptionControlVirtualPrivateGatewayExclusionInput("disable")
+)
+
+func (VpcEncryptionControlVirtualPrivateGatewayExclusionInput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlVirtualPrivateGatewayExclusionInput)(nil)).Elem()
+}
+
+func (e VpcEncryptionControlVirtualPrivateGatewayExclusionInput) ToVpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput() VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput {
+	return pulumi.ToOutput(e).(VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput)
+}
+
+func (e VpcEncryptionControlVirtualPrivateGatewayExclusionInput) ToVpcEncryptionControlVirtualPrivateGatewayExclusionInputOutputWithContext(ctx context.Context) VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput)
+}
+
+func (e VpcEncryptionControlVirtualPrivateGatewayExclusionInput) ToVpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput() VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput {
+	return e.ToVpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEncryptionControlVirtualPrivateGatewayExclusionInput) ToVpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput {
+	return VpcEncryptionControlVirtualPrivateGatewayExclusionInput(e).ToVpcEncryptionControlVirtualPrivateGatewayExclusionInputOutputWithContext(ctx).ToVpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutputWithContext(ctx)
+}
+
+func (e VpcEncryptionControlVirtualPrivateGatewayExclusionInput) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEncryptionControlVirtualPrivateGatewayExclusionInput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEncryptionControlVirtualPrivateGatewayExclusionInput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEncryptionControlVirtualPrivateGatewayExclusionInput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlVirtualPrivateGatewayExclusionInput)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput) ToVpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput() VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput {
+	return o
+}
+
+func (o VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput) ToVpcEncryptionControlVirtualPrivateGatewayExclusionInputOutputWithContext(ctx context.Context) VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput {
+	return o
+}
+
+func (o VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput) ToVpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput() VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput {
+	return o.ToVpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput) ToVpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEncryptionControlVirtualPrivateGatewayExclusionInput) *VpcEncryptionControlVirtualPrivateGatewayExclusionInput {
+		return &v
+	}).(VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput)
+}
+
+func (o VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEncryptionControlVirtualPrivateGatewayExclusionInput) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEncryptionControlVirtualPrivateGatewayExclusionInput) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEncryptionControlVirtualPrivateGatewayExclusionInput)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput) ToVpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput() VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput) ToVpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput) Elem() VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlVirtualPrivateGatewayExclusionInput) VpcEncryptionControlVirtualPrivateGatewayExclusionInput {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEncryptionControlVirtualPrivateGatewayExclusionInput
+		return ret
+	}).(VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput)
+}
+
+func (o VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcEncryptionControlVirtualPrivateGatewayExclusionInput) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpcEncryptionControlVirtualPrivateGatewayExclusionInputInput is an input type that accepts values of the VpcEncryptionControlVirtualPrivateGatewayExclusionInput enum
+// A concrete instance of `VpcEncryptionControlVirtualPrivateGatewayExclusionInputInput` can be one of the following:
+//
+//	VpcEncryptionControlVirtualPrivateGatewayExclusionInputEnable
+//	VpcEncryptionControlVirtualPrivateGatewayExclusionInputDisable
+type VpcEncryptionControlVirtualPrivateGatewayExclusionInputInput interface {
+	pulumi.Input
+
+	ToVpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput() VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput
+	ToVpcEncryptionControlVirtualPrivateGatewayExclusionInputOutputWithContext(context.Context) VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput
+}
+
+var vpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrType = reflect.TypeOf((**VpcEncryptionControlVirtualPrivateGatewayExclusionInput)(nil)).Elem()
+
+type VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrInput interface {
+	pulumi.Input
+
+	ToVpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput() VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput
+	ToVpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutputWithContext(context.Context) VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput
+}
+
+type vpcEncryptionControlVirtualPrivateGatewayExclusionInputPtr string
+
+func VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtr(v string) VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrInput {
+	return (*vpcEncryptionControlVirtualPrivateGatewayExclusionInputPtr)(&v)
+}
+
+func (*vpcEncryptionControlVirtualPrivateGatewayExclusionInputPtr) ElementType() reflect.Type {
+	return vpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrType
+}
+
+func (in *vpcEncryptionControlVirtualPrivateGatewayExclusionInputPtr) ToVpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput() VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput {
+	return pulumi.ToOutput(in).(VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput)
+}
+
+func (in *vpcEncryptionControlVirtualPrivateGatewayExclusionInputPtr) ToVpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput)
+}
+
+// Used to enable or disable Vpc Lattice exclusion
+type VpcEncryptionControlVpcLatticeExclusionInput string
+
+const (
+	VpcEncryptionControlVpcLatticeExclusionInputEnable  = VpcEncryptionControlVpcLatticeExclusionInput("enable")
+	VpcEncryptionControlVpcLatticeExclusionInputDisable = VpcEncryptionControlVpcLatticeExclusionInput("disable")
+)
+
+func (VpcEncryptionControlVpcLatticeExclusionInput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlVpcLatticeExclusionInput)(nil)).Elem()
+}
+
+func (e VpcEncryptionControlVpcLatticeExclusionInput) ToVpcEncryptionControlVpcLatticeExclusionInputOutput() VpcEncryptionControlVpcLatticeExclusionInputOutput {
+	return pulumi.ToOutput(e).(VpcEncryptionControlVpcLatticeExclusionInputOutput)
+}
+
+func (e VpcEncryptionControlVpcLatticeExclusionInput) ToVpcEncryptionControlVpcLatticeExclusionInputOutputWithContext(ctx context.Context) VpcEncryptionControlVpcLatticeExclusionInputOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcEncryptionControlVpcLatticeExclusionInputOutput)
+}
+
+func (e VpcEncryptionControlVpcLatticeExclusionInput) ToVpcEncryptionControlVpcLatticeExclusionInputPtrOutput() VpcEncryptionControlVpcLatticeExclusionInputPtrOutput {
+	return e.ToVpcEncryptionControlVpcLatticeExclusionInputPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEncryptionControlVpcLatticeExclusionInput) ToVpcEncryptionControlVpcLatticeExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlVpcLatticeExclusionInputPtrOutput {
+	return VpcEncryptionControlVpcLatticeExclusionInput(e).ToVpcEncryptionControlVpcLatticeExclusionInputOutputWithContext(ctx).ToVpcEncryptionControlVpcLatticeExclusionInputPtrOutputWithContext(ctx)
+}
+
+func (e VpcEncryptionControlVpcLatticeExclusionInput) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEncryptionControlVpcLatticeExclusionInput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEncryptionControlVpcLatticeExclusionInput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEncryptionControlVpcLatticeExclusionInput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpcEncryptionControlVpcLatticeExclusionInputOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlVpcLatticeExclusionInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlVpcLatticeExclusionInput)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlVpcLatticeExclusionInputOutput) ToVpcEncryptionControlVpcLatticeExclusionInputOutput() VpcEncryptionControlVpcLatticeExclusionInputOutput {
+	return o
+}
+
+func (o VpcEncryptionControlVpcLatticeExclusionInputOutput) ToVpcEncryptionControlVpcLatticeExclusionInputOutputWithContext(ctx context.Context) VpcEncryptionControlVpcLatticeExclusionInputOutput {
+	return o
+}
+
+func (o VpcEncryptionControlVpcLatticeExclusionInputOutput) ToVpcEncryptionControlVpcLatticeExclusionInputPtrOutput() VpcEncryptionControlVpcLatticeExclusionInputPtrOutput {
+	return o.ToVpcEncryptionControlVpcLatticeExclusionInputPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlVpcLatticeExclusionInputOutput) ToVpcEncryptionControlVpcLatticeExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlVpcLatticeExclusionInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEncryptionControlVpcLatticeExclusionInput) *VpcEncryptionControlVpcLatticeExclusionInput {
+		return &v
+	}).(VpcEncryptionControlVpcLatticeExclusionInputPtrOutput)
+}
+
+func (o VpcEncryptionControlVpcLatticeExclusionInputOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlVpcLatticeExclusionInputOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEncryptionControlVpcLatticeExclusionInput) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcEncryptionControlVpcLatticeExclusionInputOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlVpcLatticeExclusionInputOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEncryptionControlVpcLatticeExclusionInput) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcEncryptionControlVpcLatticeExclusionInputPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlVpcLatticeExclusionInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEncryptionControlVpcLatticeExclusionInput)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlVpcLatticeExclusionInputPtrOutput) ToVpcEncryptionControlVpcLatticeExclusionInputPtrOutput() VpcEncryptionControlVpcLatticeExclusionInputPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlVpcLatticeExclusionInputPtrOutput) ToVpcEncryptionControlVpcLatticeExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlVpcLatticeExclusionInputPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlVpcLatticeExclusionInputPtrOutput) Elem() VpcEncryptionControlVpcLatticeExclusionInputOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlVpcLatticeExclusionInput) VpcEncryptionControlVpcLatticeExclusionInput {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEncryptionControlVpcLatticeExclusionInput
+		return ret
+	}).(VpcEncryptionControlVpcLatticeExclusionInputOutput)
+}
+
+func (o VpcEncryptionControlVpcLatticeExclusionInputPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlVpcLatticeExclusionInputPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcEncryptionControlVpcLatticeExclusionInput) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpcEncryptionControlVpcLatticeExclusionInputInput is an input type that accepts values of the VpcEncryptionControlVpcLatticeExclusionInput enum
+// A concrete instance of `VpcEncryptionControlVpcLatticeExclusionInputInput` can be one of the following:
+//
+//	VpcEncryptionControlVpcLatticeExclusionInputEnable
+//	VpcEncryptionControlVpcLatticeExclusionInputDisable
+type VpcEncryptionControlVpcLatticeExclusionInputInput interface {
+	pulumi.Input
+
+	ToVpcEncryptionControlVpcLatticeExclusionInputOutput() VpcEncryptionControlVpcLatticeExclusionInputOutput
+	ToVpcEncryptionControlVpcLatticeExclusionInputOutputWithContext(context.Context) VpcEncryptionControlVpcLatticeExclusionInputOutput
+}
+
+var vpcEncryptionControlVpcLatticeExclusionInputPtrType = reflect.TypeOf((**VpcEncryptionControlVpcLatticeExclusionInput)(nil)).Elem()
+
+type VpcEncryptionControlVpcLatticeExclusionInputPtrInput interface {
+	pulumi.Input
+
+	ToVpcEncryptionControlVpcLatticeExclusionInputPtrOutput() VpcEncryptionControlVpcLatticeExclusionInputPtrOutput
+	ToVpcEncryptionControlVpcLatticeExclusionInputPtrOutputWithContext(context.Context) VpcEncryptionControlVpcLatticeExclusionInputPtrOutput
+}
+
+type vpcEncryptionControlVpcLatticeExclusionInputPtr string
+
+func VpcEncryptionControlVpcLatticeExclusionInputPtr(v string) VpcEncryptionControlVpcLatticeExclusionInputPtrInput {
+	return (*vpcEncryptionControlVpcLatticeExclusionInputPtr)(&v)
+}
+
+func (*vpcEncryptionControlVpcLatticeExclusionInputPtr) ElementType() reflect.Type {
+	return vpcEncryptionControlVpcLatticeExclusionInputPtrType
+}
+
+func (in *vpcEncryptionControlVpcLatticeExclusionInputPtr) ToVpcEncryptionControlVpcLatticeExclusionInputPtrOutput() VpcEncryptionControlVpcLatticeExclusionInputPtrOutput {
+	return pulumi.ToOutput(in).(VpcEncryptionControlVpcLatticeExclusionInputPtrOutput)
+}
+
+func (in *vpcEncryptionControlVpcLatticeExclusionInputPtr) ToVpcEncryptionControlVpcLatticeExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlVpcLatticeExclusionInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcEncryptionControlVpcLatticeExclusionInputPtrOutput)
+}
+
+// Used to enable or disable VPC peering exclusion
+type VpcEncryptionControlVpcPeeringExclusionInput string
+
+const (
+	VpcEncryptionControlVpcPeeringExclusionInputEnable  = VpcEncryptionControlVpcPeeringExclusionInput("enable")
+	VpcEncryptionControlVpcPeeringExclusionInputDisable = VpcEncryptionControlVpcPeeringExclusionInput("disable")
+)
+
+func (VpcEncryptionControlVpcPeeringExclusionInput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlVpcPeeringExclusionInput)(nil)).Elem()
+}
+
+func (e VpcEncryptionControlVpcPeeringExclusionInput) ToVpcEncryptionControlVpcPeeringExclusionInputOutput() VpcEncryptionControlVpcPeeringExclusionInputOutput {
+	return pulumi.ToOutput(e).(VpcEncryptionControlVpcPeeringExclusionInputOutput)
+}
+
+func (e VpcEncryptionControlVpcPeeringExclusionInput) ToVpcEncryptionControlVpcPeeringExclusionInputOutputWithContext(ctx context.Context) VpcEncryptionControlVpcPeeringExclusionInputOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcEncryptionControlVpcPeeringExclusionInputOutput)
+}
+
+func (e VpcEncryptionControlVpcPeeringExclusionInput) ToVpcEncryptionControlVpcPeeringExclusionInputPtrOutput() VpcEncryptionControlVpcPeeringExclusionInputPtrOutput {
+	return e.ToVpcEncryptionControlVpcPeeringExclusionInputPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEncryptionControlVpcPeeringExclusionInput) ToVpcEncryptionControlVpcPeeringExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlVpcPeeringExclusionInputPtrOutput {
+	return VpcEncryptionControlVpcPeeringExclusionInput(e).ToVpcEncryptionControlVpcPeeringExclusionInputOutputWithContext(ctx).ToVpcEncryptionControlVpcPeeringExclusionInputPtrOutputWithContext(ctx)
+}
+
+func (e VpcEncryptionControlVpcPeeringExclusionInput) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEncryptionControlVpcPeeringExclusionInput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEncryptionControlVpcPeeringExclusionInput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEncryptionControlVpcPeeringExclusionInput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpcEncryptionControlVpcPeeringExclusionInputOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlVpcPeeringExclusionInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlVpcPeeringExclusionInput)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlVpcPeeringExclusionInputOutput) ToVpcEncryptionControlVpcPeeringExclusionInputOutput() VpcEncryptionControlVpcPeeringExclusionInputOutput {
+	return o
+}
+
+func (o VpcEncryptionControlVpcPeeringExclusionInputOutput) ToVpcEncryptionControlVpcPeeringExclusionInputOutputWithContext(ctx context.Context) VpcEncryptionControlVpcPeeringExclusionInputOutput {
+	return o
+}
+
+func (o VpcEncryptionControlVpcPeeringExclusionInputOutput) ToVpcEncryptionControlVpcPeeringExclusionInputPtrOutput() VpcEncryptionControlVpcPeeringExclusionInputPtrOutput {
+	return o.ToVpcEncryptionControlVpcPeeringExclusionInputPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlVpcPeeringExclusionInputOutput) ToVpcEncryptionControlVpcPeeringExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlVpcPeeringExclusionInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEncryptionControlVpcPeeringExclusionInput) *VpcEncryptionControlVpcPeeringExclusionInput {
+		return &v
+	}).(VpcEncryptionControlVpcPeeringExclusionInputPtrOutput)
+}
+
+func (o VpcEncryptionControlVpcPeeringExclusionInputOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlVpcPeeringExclusionInputOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEncryptionControlVpcPeeringExclusionInput) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcEncryptionControlVpcPeeringExclusionInputOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlVpcPeeringExclusionInputOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEncryptionControlVpcPeeringExclusionInput) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcEncryptionControlVpcPeeringExclusionInputPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlVpcPeeringExclusionInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEncryptionControlVpcPeeringExclusionInput)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlVpcPeeringExclusionInputPtrOutput) ToVpcEncryptionControlVpcPeeringExclusionInputPtrOutput() VpcEncryptionControlVpcPeeringExclusionInputPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlVpcPeeringExclusionInputPtrOutput) ToVpcEncryptionControlVpcPeeringExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlVpcPeeringExclusionInputPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlVpcPeeringExclusionInputPtrOutput) Elem() VpcEncryptionControlVpcPeeringExclusionInputOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlVpcPeeringExclusionInput) VpcEncryptionControlVpcPeeringExclusionInput {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEncryptionControlVpcPeeringExclusionInput
+		return ret
+	}).(VpcEncryptionControlVpcPeeringExclusionInputOutput)
+}
+
+func (o VpcEncryptionControlVpcPeeringExclusionInputPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEncryptionControlVpcPeeringExclusionInputPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcEncryptionControlVpcPeeringExclusionInput) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpcEncryptionControlVpcPeeringExclusionInputInput is an input type that accepts values of the VpcEncryptionControlVpcPeeringExclusionInput enum
+// A concrete instance of `VpcEncryptionControlVpcPeeringExclusionInputInput` can be one of the following:
+//
+//	VpcEncryptionControlVpcPeeringExclusionInputEnable
+//	VpcEncryptionControlVpcPeeringExclusionInputDisable
+type VpcEncryptionControlVpcPeeringExclusionInputInput interface {
+	pulumi.Input
+
+	ToVpcEncryptionControlVpcPeeringExclusionInputOutput() VpcEncryptionControlVpcPeeringExclusionInputOutput
+	ToVpcEncryptionControlVpcPeeringExclusionInputOutputWithContext(context.Context) VpcEncryptionControlVpcPeeringExclusionInputOutput
+}
+
+var vpcEncryptionControlVpcPeeringExclusionInputPtrType = reflect.TypeOf((**VpcEncryptionControlVpcPeeringExclusionInput)(nil)).Elem()
+
+type VpcEncryptionControlVpcPeeringExclusionInputPtrInput interface {
+	pulumi.Input
+
+	ToVpcEncryptionControlVpcPeeringExclusionInputPtrOutput() VpcEncryptionControlVpcPeeringExclusionInputPtrOutput
+	ToVpcEncryptionControlVpcPeeringExclusionInputPtrOutputWithContext(context.Context) VpcEncryptionControlVpcPeeringExclusionInputPtrOutput
+}
+
+type vpcEncryptionControlVpcPeeringExclusionInputPtr string
+
+func VpcEncryptionControlVpcPeeringExclusionInputPtr(v string) VpcEncryptionControlVpcPeeringExclusionInputPtrInput {
+	return (*vpcEncryptionControlVpcPeeringExclusionInputPtr)(&v)
+}
+
+func (*vpcEncryptionControlVpcPeeringExclusionInputPtr) ElementType() reflect.Type {
+	return vpcEncryptionControlVpcPeeringExclusionInputPtrType
+}
+
+func (in *vpcEncryptionControlVpcPeeringExclusionInputPtr) ToVpcEncryptionControlVpcPeeringExclusionInputPtrOutput() VpcEncryptionControlVpcPeeringExclusionInputPtrOutput {
+	return pulumi.ToOutput(in).(VpcEncryptionControlVpcPeeringExclusionInputPtrOutput)
+}
+
+func (in *vpcEncryptionControlVpcPeeringExclusionInputPtr) ToVpcEncryptionControlVpcPeeringExclusionInputPtrOutputWithContext(ctx context.Context) VpcEncryptionControlVpcPeeringExclusionInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcEncryptionControlVpcPeeringExclusionInputPtrOutput)
 }
 
 // The DNS records created for the endpoint.
@@ -13122,6 +15418,176 @@ func (in *vpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndp
 
 func (in *vpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtr) ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput)
+}
+
+// The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+type VpcEndpointDnsOptionsSpecificationPrivateDnsPreference string
+
+const (
+	VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceVerifiedDomainsOnly                = VpcEndpointDnsOptionsSpecificationPrivateDnsPreference("VERIFIED_DOMAINS_ONLY")
+	VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceAllDomains                         = VpcEndpointDnsOptionsSpecificationPrivateDnsPreference("ALL_DOMAINS")
+	VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceVerifiedDomainsAndSpecifiedDomains = VpcEndpointDnsOptionsSpecificationPrivateDnsPreference("VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS")
+	VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceSpecifiedDomainsOnly               = VpcEndpointDnsOptionsSpecificationPrivateDnsPreference("SPECIFIED_DOMAINS_ONLY")
+)
+
+func (VpcEndpointDnsOptionsSpecificationPrivateDnsPreference) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationPrivateDnsPreference)(nil)).Elem()
+}
+
+func (e VpcEndpointDnsOptionsSpecificationPrivateDnsPreference) ToVpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput() VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput {
+	return pulumi.ToOutput(e).(VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput)
+}
+
+func (e VpcEndpointDnsOptionsSpecificationPrivateDnsPreference) ToVpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput)
+}
+
+func (e VpcEndpointDnsOptionsSpecificationPrivateDnsPreference) ToVpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput() VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput {
+	return e.ToVpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutputWithContext(context.Background())
+}
+
+func (e VpcEndpointDnsOptionsSpecificationPrivateDnsPreference) ToVpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput {
+	return VpcEndpointDnsOptionsSpecificationPrivateDnsPreference(e).ToVpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutputWithContext(ctx).ToVpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutputWithContext(ctx)
+}
+
+func (e VpcEndpointDnsOptionsSpecificationPrivateDnsPreference) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEndpointDnsOptionsSpecificationPrivateDnsPreference) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEndpointDnsOptionsSpecificationPrivateDnsPreference) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEndpointDnsOptionsSpecificationPrivateDnsPreference) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationPrivateDnsPreference)(nil)).Elem()
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput) ToVpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput() VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput {
+	return o
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput) ToVpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput {
+	return o
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput) ToVpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput() VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput {
+	return o.ToVpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput) ToVpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEndpointDnsOptionsSpecificationPrivateDnsPreference) *VpcEndpointDnsOptionsSpecificationPrivateDnsPreference {
+		return &v
+	}).(VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput)
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEndpointDnsOptionsSpecificationPrivateDnsPreference) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEndpointDnsOptionsSpecificationPrivateDnsPreference) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointDnsOptionsSpecificationPrivateDnsPreference)(nil)).Elem()
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput) ToVpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput() VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput {
+	return o
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput) ToVpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput {
+	return o
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput) Elem() VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput {
+	return o.ApplyT(func(v *VpcEndpointDnsOptionsSpecificationPrivateDnsPreference) VpcEndpointDnsOptionsSpecificationPrivateDnsPreference {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEndpointDnsOptionsSpecificationPrivateDnsPreference
+		return ret
+	}).(VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput)
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcEndpointDnsOptionsSpecificationPrivateDnsPreference) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceInput is an input type that accepts values of the VpcEndpointDnsOptionsSpecificationPrivateDnsPreference enum
+// A concrete instance of `VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceInput` can be one of the following:
+//
+//	VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceVerifiedDomainsOnly
+//	VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceAllDomains
+//	VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceVerifiedDomainsAndSpecifiedDomains
+//	VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceSpecifiedDomainsOnly
+type VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceInput interface {
+	pulumi.Input
+
+	ToVpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput() VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput
+	ToVpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutputWithContext(context.Context) VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput
+}
+
+var vpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrType = reflect.TypeOf((**VpcEndpointDnsOptionsSpecificationPrivateDnsPreference)(nil)).Elem()
+
+type VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrInput interface {
+	pulumi.Input
+
+	ToVpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput() VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput
+	ToVpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutputWithContext(context.Context) VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput
+}
+
+type vpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtr string
+
+func VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtr(v string) VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrInput {
+	return (*vpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtr)(&v)
+}
+
+func (*vpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtr) ElementType() reflect.Type {
+	return vpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrType
+}
+
+func (in *vpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtr) ToVpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput() VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput {
+	return pulumi.ToOutput(in).(VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput)
+}
+
+func (in *vpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtr) ToVpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput)
 }
 
 // The supported IP address types.
@@ -13676,6 +16142,174 @@ func (in *vpcEndpointTypePtr) ToVpcEndpointTypePtrOutput() VpcEndpointTypePtrOut
 
 func (in *vpcEndpointTypePtr) ToVpcEndpointTypePtrOutputWithContext(ctx context.Context) VpcEndpointTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VpcEndpointTypePtrOutput)
+}
+
+// The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
+//
+// Valid values: `json` | `text`
+type VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat string
+
+const (
+	VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatJson = VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat("json")
+	VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatText = VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat("text")
+)
+
+func (VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat)(nil)).Elem()
+}
+
+func (e VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat) ToVpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput() VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput {
+	return pulumi.ToOutput(e).(VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput)
+}
+
+func (e VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat) ToVpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutputWithContext(ctx context.Context) VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput)
+}
+
+func (e VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat) ToVpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput() VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput {
+	return e.ToVpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat) ToVpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutputWithContext(ctx context.Context) VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput {
+	return VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat(e).ToVpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutputWithContext(ctx).ToVpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutputWithContext(ctx)
+}
+
+func (e VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat)(nil)).Elem()
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput) ToVpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput() VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput {
+	return o
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput) ToVpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutputWithContext(ctx context.Context) VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput {
+	return o
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput) ToVpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput() VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput {
+	return o.ToVpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput) ToVpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutputWithContext(ctx context.Context) VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat) *VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat {
+		return &v
+	}).(VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput)
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat)(nil)).Elem()
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput) ToVpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput() VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput {
+	return o
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput) ToVpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutputWithContext(ctx context.Context) VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput {
+	return o
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput) Elem() VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput {
+	return o.ApplyT(func(v *VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat) VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat {
+		if v != nil {
+			return *v
+		}
+		var ret VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat
+		return ret
+	}).(VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput)
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatInput is an input type that accepts values of the VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat enum
+// A concrete instance of `VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatInput` can be one of the following:
+//
+//	VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatJson
+//	VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatText
+type VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatInput interface {
+	pulumi.Input
+
+	ToVpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput() VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput
+	ToVpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutputWithContext(context.Context) VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput
+}
+
+var vpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrType = reflect.TypeOf((**VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat)(nil)).Elem()
+
+type VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrInput interface {
+	pulumi.Input
+
+	ToVpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput() VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput
+	ToVpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutputWithContext(context.Context) VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput
+}
+
+type vpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtr string
+
+func VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtr(v string) VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrInput {
+	return (*vpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtr)(&v)
+}
+
+func (*vpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtr) ElementType() reflect.Type {
+	return vpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrType
+}
+
+func (in *vpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtr) ToVpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput() VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput {
+	return pulumi.ToOutput(in).(VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput)
+}
+
+func (in *vpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtr) ToVpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutputWithContext(ctx context.Context) VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput)
 }
 
 // Set log format. Default format is “json“.
@@ -14858,6 +17492,171 @@ func (in *vpnConnectionPreSharedKeyStoragePtr) ToVpnConnectionPreSharedKeyStorag
 	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionPreSharedKeyStoragePtrOutput)
 }
 
+type VpnConnectionTunnelBandwidth string
+
+const (
+	VpnConnectionTunnelBandwidthStandard = VpnConnectionTunnelBandwidth("standard")
+	VpnConnectionTunnelBandwidthLarge    = VpnConnectionTunnelBandwidth("large")
+)
+
+func (VpnConnectionTunnelBandwidth) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionTunnelBandwidth)(nil)).Elem()
+}
+
+func (e VpnConnectionTunnelBandwidth) ToVpnConnectionTunnelBandwidthOutput() VpnConnectionTunnelBandwidthOutput {
+	return pulumi.ToOutput(e).(VpnConnectionTunnelBandwidthOutput)
+}
+
+func (e VpnConnectionTunnelBandwidth) ToVpnConnectionTunnelBandwidthOutputWithContext(ctx context.Context) VpnConnectionTunnelBandwidthOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpnConnectionTunnelBandwidthOutput)
+}
+
+func (e VpnConnectionTunnelBandwidth) ToVpnConnectionTunnelBandwidthPtrOutput() VpnConnectionTunnelBandwidthPtrOutput {
+	return e.ToVpnConnectionTunnelBandwidthPtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionTunnelBandwidth) ToVpnConnectionTunnelBandwidthPtrOutputWithContext(ctx context.Context) VpnConnectionTunnelBandwidthPtrOutput {
+	return VpnConnectionTunnelBandwidth(e).ToVpnConnectionTunnelBandwidthOutputWithContext(ctx).ToVpnConnectionTunnelBandwidthPtrOutputWithContext(ctx)
+}
+
+func (e VpnConnectionTunnelBandwidth) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionTunnelBandwidth) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpnConnectionTunnelBandwidth) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpnConnectionTunnelBandwidth) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpnConnectionTunnelBandwidthOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionTunnelBandwidthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionTunnelBandwidth)(nil)).Elem()
+}
+
+func (o VpnConnectionTunnelBandwidthOutput) ToVpnConnectionTunnelBandwidthOutput() VpnConnectionTunnelBandwidthOutput {
+	return o
+}
+
+func (o VpnConnectionTunnelBandwidthOutput) ToVpnConnectionTunnelBandwidthOutputWithContext(ctx context.Context) VpnConnectionTunnelBandwidthOutput {
+	return o
+}
+
+func (o VpnConnectionTunnelBandwidthOutput) ToVpnConnectionTunnelBandwidthPtrOutput() VpnConnectionTunnelBandwidthPtrOutput {
+	return o.ToVpnConnectionTunnelBandwidthPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionTunnelBandwidthOutput) ToVpnConnectionTunnelBandwidthPtrOutputWithContext(ctx context.Context) VpnConnectionTunnelBandwidthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionTunnelBandwidth) *VpnConnectionTunnelBandwidth {
+		return &v
+	}).(VpnConnectionTunnelBandwidthPtrOutput)
+}
+
+func (o VpnConnectionTunnelBandwidthOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionTunnelBandwidthOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionTunnelBandwidth) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpnConnectionTunnelBandwidthOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionTunnelBandwidthOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpnConnectionTunnelBandwidth) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpnConnectionTunnelBandwidthPtrOutput struct{ *pulumi.OutputState }
+
+func (VpnConnectionTunnelBandwidthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionTunnelBandwidth)(nil)).Elem()
+}
+
+func (o VpnConnectionTunnelBandwidthPtrOutput) ToVpnConnectionTunnelBandwidthPtrOutput() VpnConnectionTunnelBandwidthPtrOutput {
+	return o
+}
+
+func (o VpnConnectionTunnelBandwidthPtrOutput) ToVpnConnectionTunnelBandwidthPtrOutputWithContext(ctx context.Context) VpnConnectionTunnelBandwidthPtrOutput {
+	return o
+}
+
+func (o VpnConnectionTunnelBandwidthPtrOutput) Elem() VpnConnectionTunnelBandwidthOutput {
+	return o.ApplyT(func(v *VpnConnectionTunnelBandwidth) VpnConnectionTunnelBandwidth {
+		if v != nil {
+			return *v
+		}
+		var ret VpnConnectionTunnelBandwidth
+		return ret
+	}).(VpnConnectionTunnelBandwidthOutput)
+}
+
+func (o VpnConnectionTunnelBandwidthPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpnConnectionTunnelBandwidthPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpnConnectionTunnelBandwidth) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpnConnectionTunnelBandwidthInput is an input type that accepts values of the VpnConnectionTunnelBandwidth enum
+// A concrete instance of `VpnConnectionTunnelBandwidthInput` can be one of the following:
+//
+//	VpnConnectionTunnelBandwidthStandard
+//	VpnConnectionTunnelBandwidthLarge
+type VpnConnectionTunnelBandwidthInput interface {
+	pulumi.Input
+
+	ToVpnConnectionTunnelBandwidthOutput() VpnConnectionTunnelBandwidthOutput
+	ToVpnConnectionTunnelBandwidthOutputWithContext(context.Context) VpnConnectionTunnelBandwidthOutput
+}
+
+var vpnConnectionTunnelBandwidthPtrType = reflect.TypeOf((**VpnConnectionTunnelBandwidth)(nil)).Elem()
+
+type VpnConnectionTunnelBandwidthPtrInput interface {
+	pulumi.Input
+
+	ToVpnConnectionTunnelBandwidthPtrOutput() VpnConnectionTunnelBandwidthPtrOutput
+	ToVpnConnectionTunnelBandwidthPtrOutputWithContext(context.Context) VpnConnectionTunnelBandwidthPtrOutput
+}
+
+type vpnConnectionTunnelBandwidthPtr string
+
+func VpnConnectionTunnelBandwidthPtr(v string) VpnConnectionTunnelBandwidthPtrInput {
+	return (*vpnConnectionTunnelBandwidthPtr)(&v)
+}
+
+func (*vpnConnectionTunnelBandwidthPtr) ElementType() reflect.Type {
+	return vpnConnectionTunnelBandwidthPtrType
+}
+
+func (in *vpnConnectionTunnelBandwidthPtr) ToVpnConnectionTunnelBandwidthPtrOutput() VpnConnectionTunnelBandwidthPtrOutput {
+	return pulumi.ToOutput(in).(VpnConnectionTunnelBandwidthPtrOutput)
+}
+
+func (in *vpnConnectionTunnelBandwidthPtr) ToVpnConnectionTunnelBandwidthPtrOutputWithContext(ctx context.Context) VpnConnectionTunnelBandwidthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionTunnelBandwidthPtrOutput)
+}
+
 // The action to take after DPD timeout occurs. Specify “restart“ to restart the IKE initiation. Specify “clear“ to end the IKE session.
 //
 //	Valid Values: ``clear`` | ``none`` | ``restart``
@@ -15277,6 +18076,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolAwsServicePtrInput)(nil)).Elem(), IpamPoolAwsService("ec2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolPublicIpSourceInput)(nil)).Elem(), IpamPoolPublicIpSource("byoip"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolPublicIpSourcePtrInput)(nil)).Elem(), IpamPoolPublicIpSource("byoip"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeInput)(nil)).Elem(), IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType("infoblox"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrInput)(nil)).Elem(), IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType("infoblox"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamTierInput)(nil)).Elem(), IpamTier("free"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamTierPtrInput)(nil)).Elem(), IpamTier("free"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyPairKeyFormatInput)(nil)).Elem(), KeyPairKeyFormat("pem"))
@@ -15343,14 +18144,40 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterTrafficMirrorNetworkServiceInput)(nil)).Elem(), TrafficMirrorFilterTrafficMirrorNetworkService("amazon-dns"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterTrafficMirrorNetworkServicePtrInput)(nil)).Elem(), TrafficMirrorFilterTrafficMirrorNetworkService("amazon-dns"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterTrafficMirrorNetworkServiceArrayInput)(nil)).Elem(), TrafficMirrorFilterTrafficMirrorNetworkServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayEncryptionSupportInput)(nil)).Elem(), TransitGatewayEncryptionSupport("disable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayEncryptionSupportPtrInput)(nil)).Elem(), TransitGatewayEncryptionSupport("disable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeInput)(nil)).Elem(), TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("vpc"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrInput)(nil)).Elem(), TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("vpc"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeInput)(nil)).Elem(), TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType("source-attachment-owner"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrInput)(nil)).Elem(), TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType("source-attachment-owner"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessExclusionInternetGatewayExclusionModeInput)(nil)).Elem(), VpcBlockPublicAccessExclusionInternetGatewayExclusionMode("allow-bidirectional"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrInput)(nil)).Elem(), VpcBlockPublicAccessExclusionInternetGatewayExclusionMode("allow-bidirectional"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessOptionsInternetGatewayBlockModeInput)(nil)).Elem(), VpcBlockPublicAccessOptionsInternetGatewayBlockMode("block-bidirectional"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrInput)(nil)).Elem(), VpcBlockPublicAccessOptionsInternetGatewayBlockMode("block-bidirectional"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputInput)(nil)).Elem(), VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrInput)(nil)).Elem(), VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEncryptionControlElasticFileSystemExclusionInputInput)(nil)).Elem(), VpcEncryptionControlElasticFileSystemExclusionInput("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEncryptionControlElasticFileSystemExclusionInputPtrInput)(nil)).Elem(), VpcEncryptionControlElasticFileSystemExclusionInput("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEncryptionControlInternetGatewayExclusionInputInput)(nil)).Elem(), VpcEncryptionControlInternetGatewayExclusionInput("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEncryptionControlInternetGatewayExclusionInputPtrInput)(nil)).Elem(), VpcEncryptionControlInternetGatewayExclusionInput("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEncryptionControlLambdaExclusionInputInput)(nil)).Elem(), VpcEncryptionControlLambdaExclusionInput("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEncryptionControlLambdaExclusionInputPtrInput)(nil)).Elem(), VpcEncryptionControlLambdaExclusionInput("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEncryptionControlModeInput)(nil)).Elem(), VpcEncryptionControlMode("monitor"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEncryptionControlModePtrInput)(nil)).Elem(), VpcEncryptionControlMode("monitor"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEncryptionControlNatGatewayExclusionInputInput)(nil)).Elem(), VpcEncryptionControlNatGatewayExclusionInput("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEncryptionControlNatGatewayExclusionInputPtrInput)(nil)).Elem(), VpcEncryptionControlNatGatewayExclusionInput("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEncryptionControlVirtualPrivateGatewayExclusionInputInput)(nil)).Elem(), VpcEncryptionControlVirtualPrivateGatewayExclusionInput("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrInput)(nil)).Elem(), VpcEncryptionControlVirtualPrivateGatewayExclusionInput("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEncryptionControlVpcLatticeExclusionInputInput)(nil)).Elem(), VpcEncryptionControlVpcLatticeExclusionInput("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEncryptionControlVpcLatticeExclusionInputPtrInput)(nil)).Elem(), VpcEncryptionControlVpcLatticeExclusionInput("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEncryptionControlVpcPeeringExclusionInputInput)(nil)).Elem(), VpcEncryptionControlVpcPeeringExclusionInput("enable"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEncryptionControlVpcPeeringExclusionInputPtrInput)(nil)).Elem(), VpcEncryptionControlVpcPeeringExclusionInput("enable"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeInput)(nil)).Elem(), VpcEndpointDnsOptionsSpecificationDnsRecordIpType("ipv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrInput)(nil)).Elem(), VpcEndpointDnsOptionsSpecificationDnsRecordIpType("ipv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointInput)(nil)).Elem(), VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint("OnlyInboundResolver"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrInput)(nil)).Elem(), VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint("OnlyInboundResolver"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceInput)(nil)).Elem(), VpcEndpointDnsOptionsSpecificationPrivateDnsPreference("VERIFIED_DOMAINS_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrInput)(nil)).Elem(), VpcEndpointDnsOptionsSpecificationPrivateDnsPreference("VERIFIED_DOMAINS_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointIpAddressTypeInput)(nil)).Elem(), VpcEndpointIpAddressType("ipv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointIpAddressTypePtrInput)(nil)).Elem(), VpcEndpointIpAddressType("ipv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServiceIpAddressTypeInput)(nil)).Elem(), VpcEndpointServiceIpAddressType("ipv4"))
@@ -15358,6 +18185,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServiceIpAddressTypeArrayInput)(nil)).Elem(), VpcEndpointServiceIpAddressTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointTypeInput)(nil)).Elem(), VpcEndpointType("Interface"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointTypePtrInput)(nil)).Elem(), VpcEndpointType("Interface"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatInput)(nil)).Elem(), VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat("json"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrInput)(nil)).Elem(), VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat("json"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatInput)(nil)).Elem(), VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat("json"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrInput)(nil)).Elem(), VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat("json"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionIkeVersionsRequestListValueValueInput)(nil)).Elem(), VpnConnectionIkeVersionsRequestListValueValue("ikev1"))
@@ -15372,6 +18201,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrInput)(nil)).Elem(), VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue("SHA1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionPreSharedKeyStorageInput)(nil)).Elem(), VpnConnectionPreSharedKeyStorage("Standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionPreSharedKeyStoragePtrInput)(nil)).Elem(), VpnConnectionPreSharedKeyStorage("Standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionTunnelBandwidthInput)(nil)).Elem(), VpnConnectionTunnelBandwidth("standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionTunnelBandwidthPtrInput)(nil)).Elem(), VpnConnectionTunnelBandwidth("standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction("clear"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction("clear"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationStartupActionInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationStartupAction("add"))
@@ -15458,6 +18289,8 @@ func init() {
 	pulumi.RegisterOutputType(IpamPoolPublicIpSourcePtrOutput{})
 	pulumi.RegisterOutputType(IpamPoolStateEnumOutput{})
 	pulumi.RegisterOutputType(IpamPoolStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput{})
+	pulumi.RegisterOutputType(IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput{})
 	pulumi.RegisterOutputType(IpamScopeTypeOutput{})
 	pulumi.RegisterOutputType(IpamScopeTypePtrOutput{})
 	pulumi.RegisterOutputType(IpamTierOutput{})
@@ -15534,14 +18367,42 @@ func init() {
 	pulumi.RegisterOutputType(TrafficMirrorFilterTrafficMirrorNetworkServiceOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterTrafficMirrorNetworkServicePtrOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterTrafficMirrorNetworkServiceArrayOutput{})
+	pulumi.RegisterOutputType(TransitGatewayEncryptionSupportOutput{})
+	pulumi.RegisterOutputType(TransitGatewayEncryptionSupportPtrOutput{})
+	pulumi.RegisterOutputType(TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypeOutput{})
+	pulumi.RegisterOutputType(TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceTypePtrOutput{})
+	pulumi.RegisterOutputType(TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypeOutput{})
+	pulumi.RegisterOutputType(TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerTypePtrOutput{})
 	pulumi.RegisterOutputType(VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput{})
 	pulumi.RegisterOutputType(VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput{})
 	pulumi.RegisterOutputType(VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput{})
 	pulumi.RegisterOutputType(VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlEgressOnlyInternetGatewayExclusionInputPtrOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlElasticFileSystemExclusionInputOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlElasticFileSystemExclusionInputPtrOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlInternetGatewayExclusionInputOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlInternetGatewayExclusionInputPtrOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlLambdaExclusionInputOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlLambdaExclusionInputPtrOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlModeOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlModePtrOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlNatGatewayExclusionInputOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlNatGatewayExclusionInputPtrOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlStateEnumOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlVirtualPrivateGatewayExclusionInputOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlVirtualPrivateGatewayExclusionInputPtrOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlVpcLatticeExclusionInputOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlVpcLatticeExclusionInputPtrOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlVpcPeeringExclusionInputOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlVpcPeeringExclusionInputPtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput{})
 	pulumi.RegisterOutputType(VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput{})
 	pulumi.RegisterOutputType(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput{})
+	pulumi.RegisterOutputType(VpcEndpointDnsOptionsSpecificationPrivateDnsPreferenceOutput{})
+	pulumi.RegisterOutputType(VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointIpAddressTypeOutput{})
 	pulumi.RegisterOutputType(VpcEndpointIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointServiceIpAddressTypeOutput{})
@@ -15549,6 +18410,8 @@ func init() {
 	pulumi.RegisterOutputType(VpcEndpointServiceIpAddressTypeArrayOutput{})
 	pulumi.RegisterOutputType(VpcEndpointTypeOutput{})
 	pulumi.RegisterOutputType(VpcEndpointTypePtrOutput{})
+	pulumi.RegisterOutputType(VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatOutput{})
+	pulumi.RegisterOutputType(VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput{})
 	pulumi.RegisterOutputType(VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionIkeVersionsRequestListValueValueOutput{})
@@ -15563,6 +18426,8 @@ func init() {
 	pulumi.RegisterOutputType(VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionPreSharedKeyStorageOutput{})
 	pulumi.RegisterOutputType(VpnConnectionPreSharedKeyStoragePtrOutput{})
+	pulumi.RegisterOutputType(VpnConnectionTunnelBandwidthOutput{})
+	pulumi.RegisterOutputType(VpnConnectionTunnelBandwidthPtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionOutput{})
 	pulumi.RegisterOutputType(VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionVpnTunnelOptionsSpecificationStartupActionOutput{})

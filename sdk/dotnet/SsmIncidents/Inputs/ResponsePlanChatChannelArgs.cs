@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.SsmIncidents.Inputs
         private InputList<string>? _chatbotSns;
 
         /// <summary>
-        /// The Amazon SNS targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
+        /// The Amazon  targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon  topics
         /// </summary>
         public InputList<string> ChatbotSns
         {

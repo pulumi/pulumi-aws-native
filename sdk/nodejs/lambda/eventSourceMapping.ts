@@ -121,6 +121,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
+     * The function's Amazon CloudWatch Logs configuration settings.
+     */
+    declare public readonly loggingConfig: pulumi.Output<outputs.lambda.EventSourceMappingLoggingConfig | undefined>;
+    /**
      * The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
      *  *Default (, , event sources)*: 0
      *  *Default (, Kafka, , event sources)*: 500 ms
@@ -145,7 +149,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     declare public readonly parallelizationFactor: pulumi.Output<number | undefined>;
     /**
-     * (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
+     * (Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
      */
     declare public readonly provisionedPollerConfig: pulumi.Output<outputs.lambda.EventSourceMappingProvisionedPollerConfig | undefined>;
     /**
@@ -153,7 +157,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     declare public readonly queues: pulumi.Output<string[] | undefined>;
     /**
-     * (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+     * This property is for Amazon SQS event sources only. You cannot use ``ProvisionedPollerConfig`` while using ``ScalingConfig``. These options are mutually exclusive. To remove the scaling configuration, pass an empty value.
      */
     declare public readonly scalingConfig: pulumi.Output<outputs.lambda.EventSourceMappingScalingConfig | undefined>;
     /**
@@ -218,6 +222,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["functionName"] = args?.functionName;
             resourceInputs["functionResponseTypes"] = args?.functionResponseTypes;
             resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
+            resourceInputs["loggingConfig"] = args?.loggingConfig;
             resourceInputs["maximumBatchingWindowInSeconds"] = args?.maximumBatchingWindowInSeconds;
             resourceInputs["maximumRecordAgeInSeconds"] = args?.maximumRecordAgeInSeconds;
             resourceInputs["maximumRetryAttempts"] = args?.maximumRetryAttempts;
@@ -250,6 +255,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["functionName"] = undefined /*out*/;
             resourceInputs["functionResponseTypes"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
+            resourceInputs["loggingConfig"] = undefined /*out*/;
             resourceInputs["maximumBatchingWindowInSeconds"] = undefined /*out*/;
             resourceInputs["maximumRecordAgeInSeconds"] = undefined /*out*/;
             resourceInputs["maximumRetryAttempts"] = undefined /*out*/;
@@ -346,6 +352,10 @@ export interface EventSourceMappingArgs {
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
+     * The function's Amazon CloudWatch Logs configuration settings.
+     */
+    loggingConfig?: pulumi.Input<inputs.lambda.EventSourceMappingLoggingConfigArgs>;
+    /**
      * The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
      *  *Default (, , event sources)*: 0
      *  *Default (, Kafka, , event sources)*: 500 ms
@@ -370,7 +380,7 @@ export interface EventSourceMappingArgs {
      */
     parallelizationFactor?: pulumi.Input<number>;
     /**
-     * (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
+     * (Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
      */
     provisionedPollerConfig?: pulumi.Input<inputs.lambda.EventSourceMappingProvisionedPollerConfigArgs>;
     /**
@@ -378,7 +388,7 @@ export interface EventSourceMappingArgs {
      */
     queues?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+     * This property is for Amazon SQS event sources only. You cannot use ``ProvisionedPollerConfig`` while using ``ScalingConfig``. These options are mutually exclusive. To remove the scaling configuration, pass an empty value.
      */
     scalingConfig?: pulumi.Input<inputs.lambda.EventSourceMappingScalingConfigArgs>;
     /**

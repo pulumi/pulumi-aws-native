@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetDateFilterValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A static date value used for filtering.
+        /// </summary>
         [Input("staticValue")]
         public Input<string>? StaticValue { get; set; }
 

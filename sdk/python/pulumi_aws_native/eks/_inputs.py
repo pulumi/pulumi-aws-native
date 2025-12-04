@@ -22,6 +22,18 @@ __all__ = [
     'AccessEntryAccessScopeArgsDict',
     'AddonPodIdentityAssociationArgs',
     'AddonPodIdentityAssociationArgsDict',
+    'CapabilityArgoCdRoleMappingArgs',
+    'CapabilityArgoCdRoleMappingArgsDict',
+    'CapabilityArgoCdArgs',
+    'CapabilityArgoCdArgsDict',
+    'CapabilityAwsIdcArgs',
+    'CapabilityAwsIdcArgsDict',
+    'CapabilityConfigurationArgs',
+    'CapabilityConfigurationArgsDict',
+    'CapabilityNetworkAccessArgs',
+    'CapabilityNetworkAccessArgsDict',
+    'CapabilitySsoIdentityArgs',
+    'CapabilitySsoIdentityArgsDict',
     'ClusterAccessConfigArgs',
     'ClusterAccessConfigArgsDict',
     'ClusterBlockStorageArgs',
@@ -30,6 +42,8 @@ __all__ = [
     'ClusterComputeConfigArgsDict',
     'ClusterControlPlanePlacementArgs',
     'ClusterControlPlanePlacementArgsDict',
+    'ClusterControlPlaneScalingConfigArgs',
+    'ClusterControlPlaneScalingConfigArgsDict',
     'ClusterElasticLoadBalancingArgs',
     'ClusterElasticLoadBalancingArgsDict',
     'ClusterEncryptionConfigArgs',
@@ -252,6 +266,355 @@ class AddonPodIdentityAssociationArgs:
 
 
 if not MYPY:
+    class CapabilityArgoCdRoleMappingArgsDict(TypedDict):
+        """
+        A mapping between an Argo CD role and IAM Identity Center identities. This defines which users or groups have specific permissions in Argo CD.
+        """
+        identities: pulumi.Input[Sequence[pulumi.Input['CapabilitySsoIdentityArgsDict']]]
+        """
+        A list of IAM Identity Center identities (users or groups) that should be assigned this Argo CD role.
+        """
+        role: pulumi.Input['CapabilityArgoCdRoleMappingRole']
+        """
+        The Argo CD role to assign. Valid values are: ADMIN (full administrative access to Argo CD), EDITOR (edit access to Argo CD resources), or VIEWER (read-only access to Argo CD resources).
+        """
+elif False:
+    CapabilityArgoCdRoleMappingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapabilityArgoCdRoleMappingArgs:
+    def __init__(__self__, *,
+                 identities: pulumi.Input[Sequence[pulumi.Input['CapabilitySsoIdentityArgs']]],
+                 role: pulumi.Input['CapabilityArgoCdRoleMappingRole']):
+        """
+        A mapping between an Argo CD role and IAM Identity Center identities. This defines which users or groups have specific permissions in Argo CD.
+        :param pulumi.Input[Sequence[pulumi.Input['CapabilitySsoIdentityArgs']]] identities: A list of IAM Identity Center identities (users or groups) that should be assigned this Argo CD role.
+        :param pulumi.Input['CapabilityArgoCdRoleMappingRole'] role: The Argo CD role to assign. Valid values are: ADMIN (full administrative access to Argo CD), EDITOR (edit access to Argo CD resources), or VIEWER (read-only access to Argo CD resources).
+        """
+        pulumi.set(__self__, "identities", identities)
+        pulumi.set(__self__, "role", role)
+
+    @_builtins.property
+    @pulumi.getter
+    def identities(self) -> pulumi.Input[Sequence[pulumi.Input['CapabilitySsoIdentityArgs']]]:
+        """
+        A list of IAM Identity Center identities (users or groups) that should be assigned this Argo CD role.
+        """
+        return pulumi.get(self, "identities")
+
+    @identities.setter
+    def identities(self, value: pulumi.Input[Sequence[pulumi.Input['CapabilitySsoIdentityArgs']]]):
+        pulumi.set(self, "identities", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def role(self) -> pulumi.Input['CapabilityArgoCdRoleMappingRole']:
+        """
+        The Argo CD role to assign. Valid values are: ADMIN (full administrative access to Argo CD), EDITOR (edit access to Argo CD resources), or VIEWER (read-only access to Argo CD resources).
+        """
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: pulumi.Input['CapabilityArgoCdRoleMappingRole']):
+        pulumi.set(self, "role", value)
+
+
+if not MYPY:
+    class CapabilityArgoCdArgsDict(TypedDict):
+        """
+        Configuration settings for an Argo CD capability. This includes the Kubernetes namespace, IAM Identity Center integration, RBAC role mappings, and network access configuration.
+        """
+        aws_idc: pulumi.Input['CapabilityAwsIdcArgsDict']
+        namespace: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
+        """
+        network_access: NotRequired[pulumi.Input['CapabilityNetworkAccessArgsDict']]
+        rbac_role_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapabilityArgoCdRoleMappingArgsDict']]]]
+        """
+        A list of role mappings that define which IAM Identity Center users or groups have which Argo CD roles. Each mapping associates an Argo CD role (ADMIN, EDITOR, or VIEWER) with one or more IAM Identity Center identities.
+        """
+        server_url: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The URL of the Argo CD server. Use this URL to access the Argo CD web interface and API.
+        """
+elif False:
+    CapabilityArgoCdArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapabilityArgoCdArgs:
+    def __init__(__self__, *,
+                 aws_idc: pulumi.Input['CapabilityAwsIdcArgs'],
+                 namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_access: Optional[pulumi.Input['CapabilityNetworkAccessArgs']] = None,
+                 rbac_role_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgoCdRoleMappingArgs']]]] = None,
+                 server_url: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Configuration settings for an Argo CD capability. This includes the Kubernetes namespace, IAM Identity Center integration, RBAC role mappings, and network access configuration.
+        :param pulumi.Input[_builtins.str] namespace: The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
+        :param pulumi.Input[Sequence[pulumi.Input['CapabilityArgoCdRoleMappingArgs']]] rbac_role_mappings: A list of role mappings that define which IAM Identity Center users or groups have which Argo CD roles. Each mapping associates an Argo CD role (ADMIN, EDITOR, or VIEWER) with one or more IAM Identity Center identities.
+        :param pulumi.Input[_builtins.str] server_url: The URL of the Argo CD server. Use this URL to access the Argo CD web interface and API.
+        """
+        pulumi.set(__self__, "aws_idc", aws_idc)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if network_access is not None:
+            pulumi.set(__self__, "network_access", network_access)
+        if rbac_role_mappings is not None:
+            pulumi.set(__self__, "rbac_role_mappings", rbac_role_mappings)
+        if server_url is not None:
+            pulumi.set(__self__, "server_url", server_url)
+
+    @_builtins.property
+    @pulumi.getter(name="awsIdc")
+    def aws_idc(self) -> pulumi.Input['CapabilityAwsIdcArgs']:
+        return pulumi.get(self, "aws_idc")
+
+    @aws_idc.setter
+    def aws_idc(self, value: pulumi.Input['CapabilityAwsIdcArgs']):
+        pulumi.set(self, "aws_idc", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkAccess")
+    def network_access(self) -> Optional[pulumi.Input['CapabilityNetworkAccessArgs']]:
+        return pulumi.get(self, "network_access")
+
+    @network_access.setter
+    def network_access(self, value: Optional[pulumi.Input['CapabilityNetworkAccessArgs']]):
+        pulumi.set(self, "network_access", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rbacRoleMappings")
+    def rbac_role_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgoCdRoleMappingArgs']]]]:
+        """
+        A list of role mappings that define which IAM Identity Center users or groups have which Argo CD roles. Each mapping associates an Argo CD role (ADMIN, EDITOR, or VIEWER) with one or more IAM Identity Center identities.
+        """
+        return pulumi.get(self, "rbac_role_mappings")
+
+    @rbac_role_mappings.setter
+    def rbac_role_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgoCdRoleMappingArgs']]]]):
+        pulumi.set(self, "rbac_role_mappings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverUrl")
+    def server_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The URL of the Argo CD server. Use this URL to access the Argo CD web interface and API.
+        """
+        return pulumi.get(self, "server_url")
+
+    @server_url.setter
+    def server_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "server_url", value)
+
+
+if not MYPY:
+    class CapabilityAwsIdcArgsDict(TypedDict):
+        """
+        Configuration for integrating Argo CD with IAM Identity Center. This allows you to use your organization's identity provider for authentication to Argo CD.
+        """
+        idc_instance_arn: pulumi.Input[_builtins.str]
+        """
+        The ARN of the IAM Identity Center instance to use for authentication.
+        """
+        idc_managed_application_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ARN of the managed application created in IAM Identity Center for this Argo CD capability. This application is automatically created and managed by EKS.
+        """
+        idc_region: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Region where your IAM Identity Center instance is located.
+        """
+elif False:
+    CapabilityAwsIdcArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapabilityAwsIdcArgs:
+    def __init__(__self__, *,
+                 idc_instance_arn: pulumi.Input[_builtins.str],
+                 idc_managed_application_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 idc_region: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Configuration for integrating Argo CD with IAM Identity Center. This allows you to use your organization's identity provider for authentication to Argo CD.
+        :param pulumi.Input[_builtins.str] idc_instance_arn: The ARN of the IAM Identity Center instance to use for authentication.
+        :param pulumi.Input[_builtins.str] idc_managed_application_arn: The ARN of the managed application created in IAM Identity Center for this Argo CD capability. This application is automatically created and managed by EKS.
+        :param pulumi.Input[_builtins.str] idc_region: The Region where your IAM Identity Center instance is located.
+        """
+        pulumi.set(__self__, "idc_instance_arn", idc_instance_arn)
+        if idc_managed_application_arn is not None:
+            pulumi.set(__self__, "idc_managed_application_arn", idc_managed_application_arn)
+        if idc_region is not None:
+            pulumi.set(__self__, "idc_region", idc_region)
+
+    @_builtins.property
+    @pulumi.getter(name="idcInstanceArn")
+    def idc_instance_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the IAM Identity Center instance to use for authentication.
+        """
+        return pulumi.get(self, "idc_instance_arn")
+
+    @idc_instance_arn.setter
+    def idc_instance_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "idc_instance_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="idcManagedApplicationArn")
+    def idc_managed_application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the managed application created in IAM Identity Center for this Argo CD capability. This application is automatically created and managed by EKS.
+        """
+        return pulumi.get(self, "idc_managed_application_arn")
+
+    @idc_managed_application_arn.setter
+    def idc_managed_application_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "idc_managed_application_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="idcRegion")
+    def idc_region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Region where your IAM Identity Center instance is located.
+        """
+        return pulumi.get(self, "idc_region")
+
+    @idc_region.setter
+    def idc_region(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "idc_region", value)
+
+
+if not MYPY:
+    class CapabilityConfigurationArgsDict(TypedDict):
+        """
+        Configuration settings for a capability. The structure of this object varies depending on the capability type.
+        """
+        argo_cd: NotRequired[pulumi.Input['CapabilityArgoCdArgsDict']]
+elif False:
+    CapabilityConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapabilityConfigurationArgs:
+    def __init__(__self__, *,
+                 argo_cd: Optional[pulumi.Input['CapabilityArgoCdArgs']] = None):
+        """
+        Configuration settings for a capability. The structure of this object varies depending on the capability type.
+        """
+        if argo_cd is not None:
+            pulumi.set(__self__, "argo_cd", argo_cd)
+
+    @_builtins.property
+    @pulumi.getter(name="argoCd")
+    def argo_cd(self) -> Optional[pulumi.Input['CapabilityArgoCdArgs']]:
+        return pulumi.get(self, "argo_cd")
+
+    @argo_cd.setter
+    def argo_cd(self, value: Optional[pulumi.Input['CapabilityArgoCdArgs']]):
+        pulumi.set(self, "argo_cd", value)
+
+
+if not MYPY:
+    class CapabilityNetworkAccessArgsDict(TypedDict):
+        """
+        Configuration for network access to the Argo CD capability's managed API server endpoint. By default, the Argo CD server is accessible via a public endpoint. You can optionally specify one or more VPC endpoint IDs to enable private connectivity from your VPCs.
+        """
+        vpce_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        A list of VPC endpoint IDs to associate with the managed Argo CD API server endpoint. Each VPC endpoint provides private connectivity from a specific VPC to the Argo CD server. You can specify multiple VPC endpoint IDs to enable access from multiple VPCs.
+        """
+elif False:
+    CapabilityNetworkAccessArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapabilityNetworkAccessArgs:
+    def __init__(__self__, *,
+                 vpce_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Configuration for network access to the Argo CD capability's managed API server endpoint. By default, the Argo CD server is accessible via a public endpoint. You can optionally specify one or more VPC endpoint IDs to enable private connectivity from your VPCs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpce_ids: A list of VPC endpoint IDs to associate with the managed Argo CD API server endpoint. Each VPC endpoint provides private connectivity from a specific VPC to the Argo CD server. You can specify multiple VPC endpoint IDs to enable access from multiple VPCs.
+        """
+        if vpce_ids is not None:
+            pulumi.set(__self__, "vpce_ids", vpce_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="vpceIds")
+    def vpce_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of VPC endpoint IDs to associate with the managed Argo CD API server endpoint. Each VPC endpoint provides private connectivity from a specific VPC to the Argo CD server. You can specify multiple VPC endpoint IDs to enable access from multiple VPCs.
+        """
+        return pulumi.get(self, "vpce_ids")
+
+    @vpce_ids.setter
+    def vpce_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "vpce_ids", value)
+
+
+if not MYPY:
+    class CapabilitySsoIdentityArgsDict(TypedDict):
+        """
+        An IAM Identity Center identity (user or group) that can be assigned permissions in a capability.
+        """
+        id: pulumi.Input[_builtins.str]
+        """
+        The unique identifier of the IAM Identity Center user or group.
+        """
+        type: pulumi.Input['CapabilitySsoIdentityType']
+        """
+        The type of identity. Valid values are SSO_USER or SSO_GROUP.
+        """
+elif False:
+    CapabilitySsoIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapabilitySsoIdentityArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str],
+                 type: pulumi.Input['CapabilitySsoIdentityType']):
+        """
+        An IAM Identity Center identity (user or group) that can be assigned permissions in a capability.
+        :param pulumi.Input[_builtins.str] id: The unique identifier of the IAM Identity Center user or group.
+        :param pulumi.Input['CapabilitySsoIdentityType'] type: The type of identity. Valid values are SSO_USER or SSO_GROUP.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique identifier of the IAM Identity Center user or group.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['CapabilitySsoIdentityType']:
+        """
+        The type of identity. Valid values are SSO_USER or SSO_GROUP.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['CapabilitySsoIdentityType']):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
     class ClusterAccessConfigArgsDict(TypedDict):
         """
         An object representing the Access Config to use for the cluster.
@@ -453,6 +816,42 @@ class ClusterControlPlanePlacementArgs:
     @group_name.setter
     def group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "group_name", value)
+
+
+if not MYPY:
+    class ClusterControlPlaneScalingConfigArgsDict(TypedDict):
+        """
+        Configuration for provisioned control plane scaling.
+        """
+        tier: NotRequired[pulumi.Input['ClusterControlPlaneScalingConfigTier']]
+        """
+        The scaling tier for the provisioned control plane.
+        """
+elif False:
+    ClusterControlPlaneScalingConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterControlPlaneScalingConfigArgs:
+    def __init__(__self__, *,
+                 tier: Optional[pulumi.Input['ClusterControlPlaneScalingConfigTier']] = None):
+        """
+        Configuration for provisioned control plane scaling.
+        :param pulumi.Input['ClusterControlPlaneScalingConfigTier'] tier: The scaling tier for the provisioned control plane.
+        """
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @_builtins.property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input['ClusterControlPlaneScalingConfigTier']]:
+        """
+        The scaling tier for the provisioned control plane.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input['ClusterControlPlaneScalingConfigTier']]):
+        pulumi.set(self, "tier", value)
 
 
 if not MYPY:

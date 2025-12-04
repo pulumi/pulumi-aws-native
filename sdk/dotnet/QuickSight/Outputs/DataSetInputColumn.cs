@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetInputColumn
     {
+        /// <summary>
+        /// A unique identifier for the input column.
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// &lt;p&gt;The name of this column in the underlying data source.&lt;/p&gt;

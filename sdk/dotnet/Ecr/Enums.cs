@@ -346,4 +346,34 @@ namespace Pulumi.AwsNative.Ecr
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Type of repository filter
+    /// </summary>
+    [EnumType]
+    public readonly struct SigningConfigurationFilterType : IEquatable<SigningConfigurationFilterType>
+    {
+        private readonly string _value;
+
+        private SigningConfigurationFilterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SigningConfigurationFilterType WildcardMatch { get; } = new SigningConfigurationFilterType("WILDCARD_MATCH");
+
+        public static bool operator ==(SigningConfigurationFilterType left, SigningConfigurationFilterType right) => left.Equals(right);
+        public static bool operator !=(SigningConfigurationFilterType left, SigningConfigurationFilterType right) => !left.Equals(right);
+
+        public static explicit operator string(SigningConfigurationFilterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SigningConfigurationFilterType other && Equals(other);
+        public bool Equals(SigningConfigurationFilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

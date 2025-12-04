@@ -28,6 +28,14 @@ class TermsArgs:
                  terms_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Terms resource.
+        :param pulumi.Input['TermsEnforcementType'] enforcement: This parameter is reserved for future use and currently accepts one value.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] links: A map of URLs to languages. For each localized language that will view the requested `TermsName` , assign a URL. A selection of `cognito:default` displays for all languages that don't have a language-specific URL.
+               
+               For example, `"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"` .
+        :param pulumi.Input['TermsSourceType'] terms_source: This parameter is reserved for future use and currently accepts one value.
+        :param pulumi.Input[_builtins.str] user_pool_id: The ID of the user pool that contains the terms documents.
+        :param pulumi.Input[_builtins.str] client_id: The ID of the app client that the terms documents are assigned to.
+        :param pulumi.Input[_builtins.str] terms_name: The type and friendly name of the terms documents.
         """
         pulumi.set(__self__, "enforcement", enforcement)
         pulumi.set(__self__, "links", links)
@@ -41,6 +49,9 @@ class TermsArgs:
     @_builtins.property
     @pulumi.getter
     def enforcement(self) -> pulumi.Input['TermsEnforcementType']:
+        """
+        This parameter is reserved for future use and currently accepts one value.
+        """
         return pulumi.get(self, "enforcement")
 
     @enforcement.setter
@@ -50,6 +61,11 @@ class TermsArgs:
     @_builtins.property
     @pulumi.getter
     def links(self) -> pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]:
+        """
+        A map of URLs to languages. For each localized language that will view the requested `TermsName` , assign a URL. A selection of `cognito:default` displays for all languages that don't have a language-specific URL.
+
+        For example, `"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"` .
+        """
         return pulumi.get(self, "links")
 
     @links.setter
@@ -59,6 +75,9 @@ class TermsArgs:
     @_builtins.property
     @pulumi.getter(name="termsSource")
     def terms_source(self) -> pulumi.Input['TermsSourceType']:
+        """
+        This parameter is reserved for future use and currently accepts one value.
+        """
         return pulumi.get(self, "terms_source")
 
     @terms_source.setter
@@ -68,6 +87,9 @@ class TermsArgs:
     @_builtins.property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the user pool that contains the terms documents.
+        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -77,6 +99,9 @@ class TermsArgs:
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the app client that the terms documents are assigned to.
+        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -86,6 +111,9 @@ class TermsArgs:
     @_builtins.property
     @pulumi.getter(name="termsName")
     def terms_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The type and friendly name of the terms documents.
+        """
         return pulumi.get(self, "terms_name")
 
     @terms_name.setter
@@ -111,6 +139,14 @@ class Terms(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] client_id: The ID of the app client that the terms documents are assigned to.
+        :param pulumi.Input['TermsEnforcementType'] enforcement: This parameter is reserved for future use and currently accepts one value.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] links: A map of URLs to languages. For each localized language that will view the requested `TermsName` , assign a URL. A selection of `cognito:default` displays for all languages that don't have a language-specific URL.
+               
+               For example, `"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"` .
+        :param pulumi.Input[_builtins.str] terms_name: The type and friendly name of the terms documents.
+        :param pulumi.Input['TermsSourceType'] terms_source: This parameter is reserved for future use and currently accepts one value.
+        :param pulumi.Input[_builtins.str] user_pool_id: The ID of the user pool that contains the terms documents.
         """
         ...
     @overload
@@ -202,35 +238,58 @@ class Terms(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The ID of the app client that the terms documents are assigned to.
+        """
         return pulumi.get(self, "client_id")
 
     @_builtins.property
     @pulumi.getter
     def enforcement(self) -> pulumi.Output['TermsEnforcementType']:
+        """
+        This parameter is reserved for future use and currently accepts one value.
+        """
         return pulumi.get(self, "enforcement")
 
     @_builtins.property
     @pulumi.getter
     def links(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
+        """
+        A map of URLs to languages. For each localized language that will view the requested `TermsName` , assign a URL. A selection of `cognito:default` displays for all languages that don't have a language-specific URL.
+
+        For example, `"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"` .
+        """
         return pulumi.get(self, "links")
 
     @_builtins.property
     @pulumi.getter(name="termsId")
     def terms_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ID of the terms documents.
+        """
         return pulumi.get(self, "terms_id")
 
     @_builtins.property
     @pulumi.getter(name="termsName")
     def terms_name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The type and friendly name of the terms documents.
+        """
         return pulumi.get(self, "terms_name")
 
     @_builtins.property
     @pulumi.getter(name="termsSource")
     def terms_source(self) -> pulumi.Output['TermsSourceType']:
+        """
+        This parameter is reserved for future use and currently accepts one value.
+        """
         return pulumi.get(self, "terms_source")
 
     @_builtins.property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ID of the user pool that contains the terms documents.
+        """
         return pulumi.get(self, "user_pool_id")
 

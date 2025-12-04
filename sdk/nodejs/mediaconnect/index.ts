@@ -90,6 +90,36 @@ export const getGateway: typeof import("./getGateway").getGateway = null as any;
 export const getGatewayOutput: typeof import("./getGateway").getGatewayOutput = null as any;
 utilities.lazyLoad(exports, ["getGateway","getGatewayOutput"], () => require("./getGateway"));
 
+export { GetRouterInputArgs, GetRouterInputResult, GetRouterInputOutputArgs } from "./getRouterInput";
+export const getRouterInput: typeof import("./getRouterInput").getRouterInput = null as any;
+export const getRouterInputOutput: typeof import("./getRouterInput").getRouterInputOutput = null as any;
+utilities.lazyLoad(exports, ["getRouterInput","getRouterInputOutput"], () => require("./getRouterInput"));
+
+export { GetRouterNetworkInterfaceArgs, GetRouterNetworkInterfaceResult, GetRouterNetworkInterfaceOutputArgs } from "./getRouterNetworkInterface";
+export const getRouterNetworkInterface: typeof import("./getRouterNetworkInterface").getRouterNetworkInterface = null as any;
+export const getRouterNetworkInterfaceOutput: typeof import("./getRouterNetworkInterface").getRouterNetworkInterfaceOutput = null as any;
+utilities.lazyLoad(exports, ["getRouterNetworkInterface","getRouterNetworkInterfaceOutput"], () => require("./getRouterNetworkInterface"));
+
+export { GetRouterOutputResourceArgs, GetRouterOutputResourceResult, GetRouterOutputResourceOutputArgs } from "./getRouterOutputResource";
+export const getRouterOutputResource: typeof import("./getRouterOutputResource").getRouterOutputResource = null as any;
+export const getRouterOutputResourceOutput: typeof import("./getRouterOutputResource").getRouterOutputResourceOutput = null as any;
+utilities.lazyLoad(exports, ["getRouterOutputResource","getRouterOutputResourceOutput"], () => require("./getRouterOutputResource"));
+
+export { RouterInputArgs } from "./routerInput";
+export type RouterInput = import("./routerInput").RouterInput;
+export const RouterInput: typeof import("./routerInput").RouterInput = null as any;
+utilities.lazyLoad(exports, ["RouterInput"], () => require("./routerInput"));
+
+export { RouterNetworkInterfaceArgs } from "./routerNetworkInterface";
+export type RouterNetworkInterface = import("./routerNetworkInterface").RouterNetworkInterface;
+export const RouterNetworkInterface: typeof import("./routerNetworkInterface").RouterNetworkInterface = null as any;
+utilities.lazyLoad(exports, ["RouterNetworkInterface"], () => require("./routerNetworkInterface"));
+
+export { RouterOutputResourceArgs } from "./routerOutputResource";
+export type RouterOutputResource = import("./routerOutputResource").RouterOutputResource;
+export const RouterOutputResource: typeof import("./routerOutputResource").RouterOutputResource = null as any;
+utilities.lazyLoad(exports, ["RouterOutputResource"], () => require("./routerOutputResource"));
+
 
 // Export enums:
 export * from "../types/enums/mediaconnect";
@@ -116,6 +146,12 @@ const _module = {
                 return new FlowVpcInterface(name, <any>undefined, { urn })
             case "aws-native:mediaconnect:Gateway":
                 return new Gateway(name, <any>undefined, { urn })
+            case "aws-native:mediaconnect:RouterInput":
+                return new RouterInput(name, <any>undefined, { urn })
+            case "aws-native:mediaconnect:RouterNetworkInterface":
+                return new RouterNetworkInterface(name, <any>undefined, { urn })
+            case "aws-native:mediaconnect:RouterOutputResource":
+                return new RouterOutputResource(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

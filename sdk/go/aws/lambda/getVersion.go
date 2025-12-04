@@ -30,6 +30,8 @@ type LookupVersionArgs struct {
 type LookupVersionResult struct {
 	// The ARN of the version.
 	FunctionArn *string `pulumi:"functionArn"`
+	// The scaling configuration to apply to the function, including minimum and maximum execution environment limits.
+	FunctionScalingConfig *VersionFunctionScalingConfig `pulumi:"functionScalingConfig"`
 	// The version number.
 	Version *string `pulumi:"version"`
 }
@@ -69,6 +71,11 @@ func (o LookupVersionResultOutput) ToLookupVersionResultOutputWithContext(ctx co
 // The ARN of the version.
 func (o LookupVersionResultOutput) FunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVersionResult) *string { return v.FunctionArn }).(pulumi.StringPtrOutput)
+}
+
+// The scaling configuration to apply to the function, including minimum and maximum execution environment limits.
+func (o LookupVersionResultOutput) FunctionScalingConfig() VersionFunctionScalingConfigPtrOutput {
+	return o.ApplyT(func(v LookupVersionResult) *VersionFunctionScalingConfig { return v.FunctionScalingConfig }).(VersionFunctionScalingConfigPtrOutput)
 }
 
 // The version number.

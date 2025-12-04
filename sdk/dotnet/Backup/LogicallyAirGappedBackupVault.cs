@@ -42,10 +42,10 @@ namespace Pulumi.AwsNative.Backup
         public Output<ImmutableDictionary<string, string>?> BackupVaultTags { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the server-side encryption key.
+        /// The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
         /// </summary>
         [Output("encryptionKeyArn")]
-        public Output<string> EncryptionKeyArn { get; private set; } = null!;
+        public Output<string?> EncryptionKeyArn { get; private set; } = null!;
 
         /// <summary>
         /// The maximum retention period that the vault retains its recovery points.
@@ -108,6 +108,7 @@ namespace Pulumi.AwsNative.Backup
                 ReplaceOnChanges =
                 {
                     "backupVaultName",
+                    "encryptionKeyArn",
                     "maxRetentionDays",
                     "minRetentionDays",
                 },
@@ -158,6 +159,12 @@ namespace Pulumi.AwsNative.Backup
             get => _backupVaultTags ?? (_backupVaultTags = new InputMap<string>());
             set => _backupVaultTags = value;
         }
+
+        /// <summary>
+        /// The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+        /// </summary>
+        [Input("encryptionKeyArn")]
+        public Input<string>? EncryptionKeyArn { get; set; }
 
         /// <summary>
         /// The maximum retention period that the vault retains its recovery points.

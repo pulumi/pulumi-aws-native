@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
     public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The resource ID of the API Gateway for the proxy.
+        /// The resource ID of the ABP for the proxy.
         /// </summary>
         [Output("apiGatewayId")]
         public Output<string> ApiGatewayId { get; private set; } = null!;
@@ -70,13 +70,13 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public Output<Pulumi.AwsNative.RefactorSpaces.ApplicationProxyType> ProxyType { get; private set; } = null!;
 
         /// <summary>
-        /// The endpoint URL of the Amazon API Gateway proxy.
+        /// The endpoint URL of the ABPlong proxy.
         /// </summary>
         [Output("proxyUrl")]
         public Output<string> ProxyUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the API Gateway stage. The name defaults to `prod` .
+        /// The name of the ABP stage. The name defaults to `prod` .
         /// </summary>
         [Output("stageName")]
         public Output<string> StageName { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public Output<string> VpcId { get; private set; } = null!;
 
         /// <summary>
-        /// The `VpcLink` ID of the API Gateway proxy.
+        /// The `VpcLink` ID of the ABP proxy.
         /// </summary>
         [Output("vpcLinkId")]
         public Output<string> VpcLinkId { get; private set; } = null!;

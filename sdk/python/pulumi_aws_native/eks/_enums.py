@@ -9,7 +9,12 @@ from enum import Enum
 __all__ = [
     'AccessEntryAccessScopeType',
     'AddonResolveConflicts',
+    'CapabilityArgoCdRoleMappingRole',
+    'CapabilityDeletePropagationPolicy',
+    'CapabilitySsoIdentityType',
+    'CapabilityType',
     'ClusterAccessConfigAuthenticationMode',
+    'ClusterControlPlaneScalingConfigTier',
     'ClusterKubernetesNetworkConfigIpFamily',
     'ClusterLoggingTypeConfigType',
     'ClusterUpgradePolicySupportType',
@@ -37,6 +42,43 @@ class AddonResolveConflicts(_builtins.str, Enum):
     PRESERVE = "PRESERVE"
 
 
+@pulumi.type_token("aws-native:eks:CapabilityArgoCdRoleMappingRole")
+class CapabilityArgoCdRoleMappingRole(_builtins.str, Enum):
+    """
+    The Argo CD role to assign. Valid values are: ADMIN (full administrative access to Argo CD), EDITOR (edit access to Argo CD resources), or VIEWER (read-only access to Argo CD resources).
+    """
+    ADMIN = "ADMIN"
+    EDITOR = "EDITOR"
+    VIEWER = "VIEWER"
+
+
+@pulumi.type_token("aws-native:eks:CapabilityDeletePropagationPolicy")
+class CapabilityDeletePropagationPolicy(_builtins.str, Enum):
+    """
+    Specifies how Kubernetes resources managed by the capability should be handled when the capability is deleted. Currently, the only supported value is RETAIN which retains all Kubernetes resources managed by the capability when the capability is deleted.
+    """
+    RETAIN = "RETAIN"
+
+
+@pulumi.type_token("aws-native:eks:CapabilitySsoIdentityType")
+class CapabilitySsoIdentityType(_builtins.str, Enum):
+    """
+    The type of identity. Valid values are SSO_USER or SSO_GROUP.
+    """
+    SSO_USER = "SSO_USER"
+    SSO_GROUP = "SSO_GROUP"
+
+
+@pulumi.type_token("aws-native:eks:CapabilityType")
+class CapabilityType(_builtins.str, Enum):
+    """
+    The type of capability to create. Valid values are: ACK (AWS Controllers for Kubernetes, which lets you manage AWS resources directly from Kubernetes), ARGOCD (Argo CD for GitOps-based continuous delivery), or KRO (Kube Resource Orchestrator for composing and managing custom Kubernetes resources).
+    """
+    ARGOCD = "ARGOCD"
+    ACK = "ACK"
+    KRO = "KRO"
+
+
 @pulumi.type_token("aws-native:eks:ClusterAccessConfigAuthenticationMode")
 class ClusterAccessConfigAuthenticationMode(_builtins.str, Enum):
     """
@@ -45,6 +87,17 @@ class ClusterAccessConfigAuthenticationMode(_builtins.str, Enum):
     CONFIG_MAP = "CONFIG_MAP"
     API_AND_CONFIG_MAP = "API_AND_CONFIG_MAP"
     API = "API"
+
+
+@pulumi.type_token("aws-native:eks:ClusterControlPlaneScalingConfigTier")
+class ClusterControlPlaneScalingConfigTier(_builtins.str, Enum):
+    """
+    The scaling tier for the provisioned control plane.
+    """
+    STANDARD = "standard"
+    TIER_XL = "tier-xl"
+    TIER2XL = "tier-2xl"
+    TIER4XL = "tier-4xl"
 
 
 @pulumi.type_token("aws-native:eks:ClusterKubernetesNetworkConfigIpFamily")

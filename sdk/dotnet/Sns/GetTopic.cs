@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Sns
     public sealed class GetTopicArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Returns the ARN of an Amazon SNS topic.
+        /// Returns the ARN of an Amazon  topic.
         /// </summary>
         [Input("topicArn", required: true)]
         public string TopicArn { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.Sns
     public sealed class GetTopicInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Returns the ARN of an Amazon SNS topic.
+        /// Returns the ARN of an Amazon  topic.
         /// </summary>
         [Input("topicArn", required: true)]
         public Input<string> TopicArn { get; set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.Sns
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
-        /// Returns the ARN of an Amazon SNS topic.
+        /// Returns the ARN of an Amazon  topic.
         /// </summary>
         public readonly string? TopicArn;
         /// <summary>

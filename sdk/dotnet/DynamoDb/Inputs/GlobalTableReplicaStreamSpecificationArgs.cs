@@ -19,8 +19,8 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
         /// 
         /// You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
         /// </summary>
-        [Input("resourcePolicy")]
-        public Input<Inputs.GlobalTableResourcePolicyArgs>? ResourcePolicy { get; set; }
+        [Input("resourcePolicy", required: true)]
+        public Input<Inputs.GlobalTableResourcePolicyArgs> ResourcePolicy { get; set; } = null!;
 
         public GlobalTableReplicaStreamSpecificationArgs()
         {

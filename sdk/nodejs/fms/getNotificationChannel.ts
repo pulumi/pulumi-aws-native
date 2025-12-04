@@ -23,7 +23,7 @@ export interface GetNotificationChannelArgs {
 
 export interface GetNotificationChannelResult {
     /**
-     * The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
+     * The Amazon Resource Name (ARN) of the IAM role that allows Amazon  to record AWS Firewall Manager activity.
      */
     readonly snsRoleName?: string;
     /**

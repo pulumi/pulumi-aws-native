@@ -36,4 +36,35 @@ namespace Pulumi.AwsNative.KinesisVideo
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The storage tier for the Kinesis Video Stream. Determines the storage class used for stream data.
+    /// </summary>
+    [EnumType]
+    public readonly struct StreamStorageConfigurationDefaultStorageTier : IEquatable<StreamStorageConfigurationDefaultStorageTier>
+    {
+        private readonly string _value;
+
+        private StreamStorageConfigurationDefaultStorageTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StreamStorageConfigurationDefaultStorageTier Hot { get; } = new StreamStorageConfigurationDefaultStorageTier("HOT");
+        public static StreamStorageConfigurationDefaultStorageTier Warm { get; } = new StreamStorageConfigurationDefaultStorageTier("WARM");
+
+        public static bool operator ==(StreamStorageConfigurationDefaultStorageTier left, StreamStorageConfigurationDefaultStorageTier right) => left.Equals(right);
+        public static bool operator !=(StreamStorageConfigurationDefaultStorageTier left, StreamStorageConfigurationDefaultStorageTier right) => !left.Equals(right);
+
+        public static explicit operator string(StreamStorageConfigurationDefaultStorageTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StreamStorageConfigurationDefaultStorageTier other && Equals(other);
+        public bool Equals(StreamStorageConfigurationDefaultStorageTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

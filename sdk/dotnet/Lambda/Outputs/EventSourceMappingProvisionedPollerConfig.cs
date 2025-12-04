@@ -11,28 +11,35 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
     /// <summary>
-    /// The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use provisioned mode to customize the minimum and maximum number of event pollers for your event source.
+    /// The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers for your event source.
     /// </summary>
     [OutputType]
     public sealed class EventSourceMappingProvisionedPollerConfig
     {
         /// <summary>
-        /// The maximum number of event pollers this event source can scale up to.
+        /// The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
         /// </summary>
         public readonly int? MaximumPollers;
         /// <summary>
-        /// The minimum number of event pollers this event source can scale down to.
+        /// The minimum number of event pollers this event source can scale down to. For Amazon SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 1.
         /// </summary>
         public readonly int? MinimumPollers;
+        /// <summary>
+        /// (Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+        /// </summary>
+        public readonly string? PollerGroupName;
 
         [OutputConstructor]
         private EventSourceMappingProvisionedPollerConfig(
             int? maximumPollers,
 
-            int? minimumPollers)
+            int? minimumPollers,
+
+            string? pollerGroupName)
         {
             MaximumPollers = maximumPollers;
             MinimumPollers = minimumPollers;
+            PollerGroupName = pollerGroupName;
         }
     }
 }

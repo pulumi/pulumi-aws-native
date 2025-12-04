@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetSourceTableArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A parent dataset that serves as the data source instead of a physical table.
+        /// </summary>
         [Input("dataSet")]
         public Input<Inputs.DataSetParentDataSetArgs>? DataSet { get; set; }
 
+        /// <summary>
+        /// The identifier of the physical table that serves as the data source.
+        /// </summary>
         [Input("physicalTableId")]
         public Input<string>? PhysicalTableId { get; set; }
 

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetColumnToUnpivot
     {
+        /// <summary>
+        /// The name of the column to unpivot from the source data.
+        /// </summary>
         public readonly string? ColumnName;
+        /// <summary>
+        /// The value to assign to this column in the unpivoted result, typically the column name or a descriptive label.
+        /// </summary>
         public readonly string? NewValue;
 
         [OutputConstructor]

@@ -12,17 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetRenameColumnsOperationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Alias for this operation.
+        /// </summary>
         [Input("alias", required: true)]
         public Input<string> Alias { get; set; } = null!;
 
         [Input("renameColumnOperations", required: true)]
         private InputList<Inputs.DataSetRenameColumnOperationArgs>? _renameColumnOperations;
+
+        /// <summary>
+        /// The list of column rename operations to perform, specifying old and new column names.
+        /// </summary>
         public InputList<Inputs.DataSetRenameColumnOperationArgs> RenameColumnOperations
         {
             get => _renameColumnOperations ?? (_renameColumnOperations = new InputList<Inputs.DataSetRenameColumnOperationArgs>());
             set => _renameColumnOperations = value;
         }
 
+        /// <summary>
+        /// The source transform operation that provides input data for column renaming.
+        /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.DataSetTransformOperationSourceArgs> Source { get; set; } = null!;
 

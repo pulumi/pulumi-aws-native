@@ -710,7 +710,8 @@ type Table struct {
 	// Name for Cassandra table
 	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
 	// An array of key-value pairs to apply to this resource
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags           aws.TagArrayOutput           `pulumi:"tags"`
+	WarmThroughput TableWarmThroughputPtrOutput `pulumi:"warmThroughput"`
 }
 
 // NewTable registers a new resource with the given unique name, arguments, and options.
@@ -812,7 +813,8 @@ type tableArgs struct {
 	// Name for Cassandra table
 	TableName *string `pulumi:"tableName"`
 	// An array of key-value pairs to apply to this resource
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags           []aws.Tag            `pulumi:"tags"`
+	WarmThroughput *TableWarmThroughput `pulumi:"warmThroughput"`
 }
 
 // The set of arguments for constructing a Table resource.
@@ -862,7 +864,8 @@ type TableArgs struct {
 	// Name for Cassandra table
 	TableName pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource
-	Tags aws.TagArrayInput
+	Tags           aws.TagArrayInput
+	WarmThroughput TableWarmThroughputPtrInput
 }
 
 func (TableArgs) ElementType() reflect.Type {
@@ -988,6 +991,10 @@ func (o TableOutput) TableName() pulumi.StringPtrOutput {
 // An array of key-value pairs to apply to this resource
 func (o TableOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Table) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o TableOutput) WarmThroughput() TableWarmThroughputPtrOutput {
+	return o.ApplyT(func(v *Table) TableWarmThroughputPtrOutput { return v.WarmThroughput }).(TableWarmThroughputPtrOutput)
 }
 
 func init() {

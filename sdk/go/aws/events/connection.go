@@ -77,7 +77,7 @@ type Connection struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The private resource the HTTP request will be sent to.
 	InvocationConnectivityParameters InvocationConnectivityParametersPropertiesPtrOutput `pulumi:"invocationConnectivityParameters"`
-	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	// The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 	//
 	// If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the connection.
 	//
@@ -145,7 +145,7 @@ type connectionArgs struct {
 	Description *string `pulumi:"description"`
 	// The private resource the HTTP request will be sent to.
 	InvocationConnectivityParameters *InvocationConnectivityParametersProperties `pulumi:"invocationConnectivityParameters"`
-	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	// The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 	//
 	// If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the connection.
 	//
@@ -169,7 +169,7 @@ type ConnectionArgs struct {
 	Description pulumi.StringPtrInput
 	// The private resource the HTTP request will be sent to.
 	InvocationConnectivityParameters InvocationConnectivityParametersPropertiesPtrInput
-	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	// The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 	//
 	// If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the connection.
 	//
@@ -252,7 +252,7 @@ func (o ConnectionOutput) InvocationConnectivityParameters() InvocationConnectiv
 	}).(InvocationConnectivityParametersPropertiesPtrOutput)
 }
 
-// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+// The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 //
 // If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the connection.
 //

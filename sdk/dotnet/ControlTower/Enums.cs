@@ -36,6 +36,33 @@ namespace Pulumi.AwsNative.ControlTower
     }
 
     [EnumType]
+    public readonly struct LandingZoneRemediationTypesItem : IEquatable<LandingZoneRemediationTypesItem>
+    {
+        private readonly string _value;
+
+        private LandingZoneRemediationTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LandingZoneRemediationTypesItem InheritanceDrift { get; } = new LandingZoneRemediationTypesItem("INHERITANCE_DRIFT");
+
+        public static bool operator ==(LandingZoneRemediationTypesItem left, LandingZoneRemediationTypesItem right) => left.Equals(right);
+        public static bool operator !=(LandingZoneRemediationTypesItem left, LandingZoneRemediationTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(LandingZoneRemediationTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LandingZoneRemediationTypesItem other && Equals(other);
+        public bool Equals(LandingZoneRemediationTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct LandingZoneStatus : IEquatable<LandingZoneStatus>
     {
         private readonly string _value;

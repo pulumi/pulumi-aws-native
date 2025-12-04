@@ -66,6 +66,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly computeConfig: pulumi.Output<outputs.eks.ClusterComputeConfig | undefined>;
     /**
+     * The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.
+     */
+    declare public readonly controlPlaneScalingConfig: pulumi.Output<outputs.eks.ClusterControlPlaneScalingConfig | undefined>;
+    /**
      * Set this value to true to enable deletion protection for the cluster.
      */
     declare public readonly deletionProtection: pulumi.Output<boolean | undefined>;
@@ -160,6 +164,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["accessConfig"] = args?.accessConfig;
             resourceInputs["bootstrapSelfManagedAddons"] = args?.bootstrapSelfManagedAddons;
             resourceInputs["computeConfig"] = args?.computeConfig;
+            resourceInputs["controlPlaneScalingConfig"] = args?.controlPlaneScalingConfig;
             resourceInputs["deletionProtection"] = args?.deletionProtection;
             resourceInputs["encryptionConfig"] = args?.encryptionConfig;
             resourceInputs["force"] = args?.force;
@@ -190,6 +195,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["certificateAuthorityData"] = undefined /*out*/;
             resourceInputs["clusterSecurityGroupId"] = undefined /*out*/;
             resourceInputs["computeConfig"] = undefined /*out*/;
+            resourceInputs["controlPlaneScalingConfig"] = undefined /*out*/;
             resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["encryptionConfig"] = undefined /*out*/;
             resourceInputs["encryptionConfigKeyArn"] = undefined /*out*/;
@@ -232,6 +238,10 @@ export interface ClusterArgs {
      * Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
      */
     computeConfig?: pulumi.Input<inputs.eks.ClusterComputeConfigArgs>;
+    /**
+     * The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.
+     */
+    controlPlaneScalingConfig?: pulumi.Input<inputs.eks.ClusterControlPlaneScalingConfigArgs>;
     /**
      * Set this value to true to enable deletion protection for the cluster.
      */

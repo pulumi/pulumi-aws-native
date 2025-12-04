@@ -43,6 +43,16 @@ export const AccessPointNetworkOrigin = {
  */
 export type AccessPointNetworkOrigin = (typeof AccessPointNetworkOrigin)[keyof typeof AccessPointNetworkOrigin];
 
+export const BucketAbacStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see [Using tags with S3 general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html) .
+ */
+export type BucketAbacStatus = (typeof BucketAbacStatus)[keyof typeof BucketAbacStatus];
+
 export const BucketAccelerateConfigurationAccelerationStatus = {
     Enabled: "Enabled",
     Suspended: "Suspended",
@@ -71,6 +81,13 @@ export const BucketAccessControl = {
  *   The majority of access control configurations can be successfully and more easily achieved with bucket policies. For more information, see [AWS::S3::BucketPolicy](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html). For examples of common policy configurations, including S3 Server Access Logs buckets and more, see [Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html) in the *Amazon S3 User Guide*.
  */
 export type BucketAccessControl = (typeof BucketAccessControl)[keyof typeof BucketAccessControl];
+
+export const BucketBlockedEncryptionTypeListItem = {
+    None: "NONE",
+    SseC: "SSE-C",
+} as const;
+
+export type BucketBlockedEncryptionTypeListItem = (typeof BucketBlockedEncryptionTypeListItem)[keyof typeof BucketBlockedEncryptionTypeListItem];
 
 export const BucketCorsRuleAllowedMethodsItem = {
     Get: "GET",

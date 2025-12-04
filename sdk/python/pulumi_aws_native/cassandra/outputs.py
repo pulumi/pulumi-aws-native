@@ -30,6 +30,7 @@ __all__ = [
     'TableScalingPolicy',
     'TableTag',
     'TableTargetTrackingScalingPolicyConfiguration',
+    'TableWarmThroughput',
     'TypeField',
 ]
 
@@ -824,6 +825,52 @@ class TableTargetTrackingScalingPolicyConfiguration(dict):
         A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts.
         """
         return pulumi.get(self, "scale_out_cooldown")
+
+
+@pulumi.output_type
+class TableWarmThroughput(dict):
+    """
+    Warm throughput configuration for the table
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "readUnitsPerSecond":
+            suggest = "read_units_per_second"
+        elif key == "writeUnitsPerSecond":
+            suggest = "write_units_per_second"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableWarmThroughput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableWarmThroughput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableWarmThroughput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 read_units_per_second: Optional[_builtins.int] = None,
+                 write_units_per_second: Optional[_builtins.int] = None):
+        """
+        Warm throughput configuration for the table
+        """
+        if read_units_per_second is not None:
+            pulumi.set(__self__, "read_units_per_second", read_units_per_second)
+        if write_units_per_second is not None:
+            pulumi.set(__self__, "write_units_per_second", write_units_per_second)
+
+    @_builtins.property
+    @pulumi.getter(name="readUnitsPerSecond")
+    def read_units_per_second(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "read_units_per_second")
+
+    @_builtins.property
+    @pulumi.getter(name="writeUnitsPerSecond")
+    def write_units_per_second(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "write_units_per_second")
 
 
 @pulumi.output_type

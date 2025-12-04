@@ -324,6 +324,13 @@ namespace Pulumi.AwsNative.Ec2
         public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem T4g { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("t4g");
         public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem Vu9p { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("vu9p");
         public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem V100 { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("v100");
+        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem L40s { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("l40s");
+        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem L4 { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("l4");
+        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem GaudiHl205 { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("gaudi-hl-205");
+        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem Inferentia2 { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("inferentia2");
+        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem Trainium { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("trainium");
+        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem Trainium2 { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("trainium2");
+        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem U30 { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("u30");
 
         public static bool operator ==(Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem left, Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem right) => left.Equals(right);
         public static bool operator !=(Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem left, Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem right) => !left.Equals(right);
@@ -353,6 +360,7 @@ namespace Pulumi.AwsNative.Ec2
         public static Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem Gpu { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem("gpu");
         public static Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem Fpga { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem("fpga");
         public static Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem Inference { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem("inference");
+        public static Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem Media { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem("media");
 
         public static bool operator ==(Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem left, Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem right) => left.Equals(right);
         public static bool operator !=(Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem left, Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem right) => !left.Equals(right);
@@ -905,6 +913,7 @@ namespace Pulumi.AwsNative.Ec2
         public static FlowLogResourceType Vpc { get; } = new FlowLogResourceType("VPC");
         public static FlowLogResourceType TransitGateway { get; } = new FlowLogResourceType("TransitGateway");
         public static FlowLogResourceType TransitGatewayAttachment { get; } = new FlowLogResourceType("TransitGatewayAttachment");
+        public static FlowLogResourceType RegionalNatGateway { get; } = new FlowLogResourceType("RegionalNatGateway");
 
         public static bool operator ==(FlowLogResourceType left, FlowLogResourceType right) => left.Equals(right);
         public static bool operator !=(FlowLogResourceType left, FlowLogResourceType right) => !left.Equals(right);
@@ -1290,6 +1299,36 @@ namespace Pulumi.AwsNative.Ec2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IpamPoolState other && Equals(other);
         public bool Equals(IpamPoolState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// An external service connecting to your AWS IPAM scope.
+    /// </summary>
+    [EnumType]
+    public readonly struct IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType : IEquatable<IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType>
+    {
+        private readonly string _value;
+
+        private IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType Infoblox { get; } = new IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType("infoblox");
+
+        public static bool operator ==(IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType left, IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType right) => left.Equals(right);
+        public static bool operator !=(IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType left, IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType right) => !left.Equals(right);
+
+        public static explicit operator string(IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType other && Equals(other);
+        public bool Equals(IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1852,6 +1891,13 @@ namespace Pulumi.AwsNative.Ec2
         public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem T4g { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("t4g");
         public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem Vu9p { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("vu9p");
         public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem V100 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("v100");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem L40s { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("l40s");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem L4 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("l4");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem GaudiHl205 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("gaudi-hl-205");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem Inferentia2 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("inferentia2");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem Trainium { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("trainium");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem Trainium2 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("trainium2");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem U30 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("u30");
 
         public static bool operator ==(SpotFleetInstanceRequirementsRequestAcceleratorNamesItem left, SpotFleetInstanceRequirementsRequestAcceleratorNamesItem right) => left.Equals(right);
         public static bool operator !=(SpotFleetInstanceRequirementsRequestAcceleratorNamesItem left, SpotFleetInstanceRequirementsRequestAcceleratorNamesItem right) => !left.Equals(right);
@@ -1881,6 +1927,7 @@ namespace Pulumi.AwsNative.Ec2
         public static SpotFleetInstanceRequirementsRequestAcceleratorTypesItem Gpu { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorTypesItem("gpu");
         public static SpotFleetInstanceRequirementsRequestAcceleratorTypesItem Fpga { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorTypesItem("fpga");
         public static SpotFleetInstanceRequirementsRequestAcceleratorTypesItem Inference { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorTypesItem("inference");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorTypesItem Media { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorTypesItem("media");
 
         public static bool operator ==(SpotFleetInstanceRequirementsRequestAcceleratorTypesItem left, SpotFleetInstanceRequirementsRequestAcceleratorTypesItem right) => left.Equals(right);
         public static bool operator !=(SpotFleetInstanceRequirementsRequestAcceleratorTypesItem left, SpotFleetInstanceRequirementsRequestAcceleratorTypesItem right) => !left.Equals(right);
@@ -2444,6 +2491,98 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// Enable or disable encryption support. Disabled by default.
+    /// </summary>
+    [EnumType]
+    public readonly struct TransitGatewayEncryptionSupport : IEquatable<TransitGatewayEncryptionSupport>
+    {
+        private readonly string _value;
+
+        private TransitGatewayEncryptionSupport(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TransitGatewayEncryptionSupport Disable { get; } = new TransitGatewayEncryptionSupport("disable");
+        public static TransitGatewayEncryptionSupport Enable { get; } = new TransitGatewayEncryptionSupport("enable");
+
+        public static bool operator ==(TransitGatewayEncryptionSupport left, TransitGatewayEncryptionSupport right) => left.Equals(right);
+        public static bool operator !=(TransitGatewayEncryptionSupport left, TransitGatewayEncryptionSupport right) => !left.Equals(right);
+
+        public static explicit operator string(TransitGatewayEncryptionSupport value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TransitGatewayEncryptionSupport other && Equals(other);
+        public bool Equals(TransitGatewayEncryptionSupport other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType : IEquatable<TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType>
+    {
+        private readonly string _value;
+
+        private TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType Vpc { get; } = new TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("vpc");
+        public static TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType Vpn { get; } = new TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("vpn");
+        public static TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType DirectConnectGateway { get; } = new TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("direct-connect-gateway");
+        public static TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType Peering { get; } = new TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("peering");
+        public static TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType NetworkFunction { get; } = new TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("network-function");
+        public static TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType VpnConcentrator { get; } = new TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType("vpn-concentrator");
+
+        public static bool operator ==(TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType left, TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType right) => left.Equals(right);
+        public static bool operator !=(TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType left, TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType right) => !left.Equals(right);
+
+        public static explicit operator string(TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType other && Equals(other);
+        public bool Equals(TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType : IEquatable<TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType>
+    {
+        private readonly string _value;
+
+        private TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType SourceAttachmentOwner { get; } = new TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType("source-attachment-owner");
+        public static TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType DestinationAttachmentOwner { get; } = new TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType("destination-attachment-owner");
+        public static TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType TransitGatewayOwner { get; } = new TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType("transit-gateway-owner");
+
+        public static bool operator ==(TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType left, TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType right) => left.Equals(right);
+        public static bool operator !=(TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType left, TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType right) => !left.Equals(right);
+
+        public static explicit operator string(TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType other && Equals(other);
+        public bool Equals(TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The desired Block Public Access Exclusion Mode for a specific VPC/Subnet.
     /// </summary>
     [EnumType]
@@ -2498,6 +2637,323 @@ namespace Pulumi.AwsNative.Ec2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VpcBlockPublicAccessOptionsInternetGatewayBlockMode other && Equals(other);
         public bool Equals(VpcBlockPublicAccessOptionsInternetGatewayBlockMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Used to enable or disable EIGW exclusion
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput : IEquatable<VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput>
+    {
+        private readonly string _value;
+
+        private VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput Enable { get; } = new VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput("enable");
+        public static VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput Disable { get; } = new VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput("disable");
+
+        public static bool operator ==(VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput left, VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput right) => left.Equals(right);
+        public static bool operator !=(VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput left, VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput other && Equals(other);
+        public bool Equals(VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Used to enable or disable EFS exclusion
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcEncryptionControlElasticFileSystemExclusionInput : IEquatable<VpcEncryptionControlElasticFileSystemExclusionInput>
+    {
+        private readonly string _value;
+
+        private VpcEncryptionControlElasticFileSystemExclusionInput(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEncryptionControlElasticFileSystemExclusionInput Enable { get; } = new VpcEncryptionControlElasticFileSystemExclusionInput("enable");
+        public static VpcEncryptionControlElasticFileSystemExclusionInput Disable { get; } = new VpcEncryptionControlElasticFileSystemExclusionInput("disable");
+
+        public static bool operator ==(VpcEncryptionControlElasticFileSystemExclusionInput left, VpcEncryptionControlElasticFileSystemExclusionInput right) => left.Equals(right);
+        public static bool operator !=(VpcEncryptionControlElasticFileSystemExclusionInput left, VpcEncryptionControlElasticFileSystemExclusionInput right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEncryptionControlElasticFileSystemExclusionInput value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEncryptionControlElasticFileSystemExclusionInput other && Equals(other);
+        public bool Equals(VpcEncryptionControlElasticFileSystemExclusionInput other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Used to enable or disable IGW exclusion
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcEncryptionControlInternetGatewayExclusionInput : IEquatable<VpcEncryptionControlInternetGatewayExclusionInput>
+    {
+        private readonly string _value;
+
+        private VpcEncryptionControlInternetGatewayExclusionInput(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEncryptionControlInternetGatewayExclusionInput Enable { get; } = new VpcEncryptionControlInternetGatewayExclusionInput("enable");
+        public static VpcEncryptionControlInternetGatewayExclusionInput Disable { get; } = new VpcEncryptionControlInternetGatewayExclusionInput("disable");
+
+        public static bool operator ==(VpcEncryptionControlInternetGatewayExclusionInput left, VpcEncryptionControlInternetGatewayExclusionInput right) => left.Equals(right);
+        public static bool operator !=(VpcEncryptionControlInternetGatewayExclusionInput left, VpcEncryptionControlInternetGatewayExclusionInput right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEncryptionControlInternetGatewayExclusionInput value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEncryptionControlInternetGatewayExclusionInput other && Equals(other);
+        public bool Equals(VpcEncryptionControlInternetGatewayExclusionInput other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Used to enable or disable Lambda exclusion
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcEncryptionControlLambdaExclusionInput : IEquatable<VpcEncryptionControlLambdaExclusionInput>
+    {
+        private readonly string _value;
+
+        private VpcEncryptionControlLambdaExclusionInput(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEncryptionControlLambdaExclusionInput Enable { get; } = new VpcEncryptionControlLambdaExclusionInput("enable");
+        public static VpcEncryptionControlLambdaExclusionInput Disable { get; } = new VpcEncryptionControlLambdaExclusionInput("disable");
+
+        public static bool operator ==(VpcEncryptionControlLambdaExclusionInput left, VpcEncryptionControlLambdaExclusionInput right) => left.Equals(right);
+        public static bool operator !=(VpcEncryptionControlLambdaExclusionInput left, VpcEncryptionControlLambdaExclusionInput right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEncryptionControlLambdaExclusionInput value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEncryptionControlLambdaExclusionInput other && Equals(other);
+        public bool Equals(VpcEncryptionControlLambdaExclusionInput other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The VPC encryption control mode, either monitor or enforce.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcEncryptionControlMode : IEquatable<VpcEncryptionControlMode>
+    {
+        private readonly string _value;
+
+        private VpcEncryptionControlMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEncryptionControlMode Monitor { get; } = new VpcEncryptionControlMode("monitor");
+        public static VpcEncryptionControlMode Enforce { get; } = new VpcEncryptionControlMode("enforce");
+
+        public static bool operator ==(VpcEncryptionControlMode left, VpcEncryptionControlMode right) => left.Equals(right);
+        public static bool operator !=(VpcEncryptionControlMode left, VpcEncryptionControlMode right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEncryptionControlMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEncryptionControlMode other && Equals(other);
+        public bool Equals(VpcEncryptionControlMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Used to enable or disable Nat gateway exclusion
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcEncryptionControlNatGatewayExclusionInput : IEquatable<VpcEncryptionControlNatGatewayExclusionInput>
+    {
+        private readonly string _value;
+
+        private VpcEncryptionControlNatGatewayExclusionInput(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEncryptionControlNatGatewayExclusionInput Enable { get; } = new VpcEncryptionControlNatGatewayExclusionInput("enable");
+        public static VpcEncryptionControlNatGatewayExclusionInput Disable { get; } = new VpcEncryptionControlNatGatewayExclusionInput("disable");
+
+        public static bool operator ==(VpcEncryptionControlNatGatewayExclusionInput left, VpcEncryptionControlNatGatewayExclusionInput right) => left.Equals(right);
+        public static bool operator !=(VpcEncryptionControlNatGatewayExclusionInput left, VpcEncryptionControlNatGatewayExclusionInput right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEncryptionControlNatGatewayExclusionInput value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEncryptionControlNatGatewayExclusionInput other && Equals(other);
+        public bool Equals(VpcEncryptionControlNatGatewayExclusionInput other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current state of the VPC encryption control.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcEncryptionControlState : IEquatable<VpcEncryptionControlState>
+    {
+        private readonly string _value;
+
+        private VpcEncryptionControlState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEncryptionControlState Creating { get; } = new VpcEncryptionControlState("creating");
+        public static VpcEncryptionControlState Available { get; } = new VpcEncryptionControlState("available");
+        public static VpcEncryptionControlState MonitorInProgress { get; } = new VpcEncryptionControlState("monitor-in-progress");
+        public static VpcEncryptionControlState EnforceInProgress { get; } = new VpcEncryptionControlState("enforce-in-progress");
+        public static VpcEncryptionControlState MonitorFailed { get; } = new VpcEncryptionControlState("monitor-failed");
+        public static VpcEncryptionControlState EnforceFailed { get; } = new VpcEncryptionControlState("enforce-failed");
+        public static VpcEncryptionControlState Deleting { get; } = new VpcEncryptionControlState("deleting");
+        public static VpcEncryptionControlState Deleted { get; } = new VpcEncryptionControlState("deleted");
+        public static VpcEncryptionControlState DeleteFailed { get; } = new VpcEncryptionControlState("delete-failed");
+
+        public static bool operator ==(VpcEncryptionControlState left, VpcEncryptionControlState right) => left.Equals(right);
+        public static bool operator !=(VpcEncryptionControlState left, VpcEncryptionControlState right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEncryptionControlState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEncryptionControlState other && Equals(other);
+        public bool Equals(VpcEncryptionControlState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Used to enable or disable VGW exclusion
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcEncryptionControlVirtualPrivateGatewayExclusionInput : IEquatable<VpcEncryptionControlVirtualPrivateGatewayExclusionInput>
+    {
+        private readonly string _value;
+
+        private VpcEncryptionControlVirtualPrivateGatewayExclusionInput(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEncryptionControlVirtualPrivateGatewayExclusionInput Enable { get; } = new VpcEncryptionControlVirtualPrivateGatewayExclusionInput("enable");
+        public static VpcEncryptionControlVirtualPrivateGatewayExclusionInput Disable { get; } = new VpcEncryptionControlVirtualPrivateGatewayExclusionInput("disable");
+
+        public static bool operator ==(VpcEncryptionControlVirtualPrivateGatewayExclusionInput left, VpcEncryptionControlVirtualPrivateGatewayExclusionInput right) => left.Equals(right);
+        public static bool operator !=(VpcEncryptionControlVirtualPrivateGatewayExclusionInput left, VpcEncryptionControlVirtualPrivateGatewayExclusionInput right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEncryptionControlVirtualPrivateGatewayExclusionInput value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEncryptionControlVirtualPrivateGatewayExclusionInput other && Equals(other);
+        public bool Equals(VpcEncryptionControlVirtualPrivateGatewayExclusionInput other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Used to enable or disable Vpc Lattice exclusion
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcEncryptionControlVpcLatticeExclusionInput : IEquatable<VpcEncryptionControlVpcLatticeExclusionInput>
+    {
+        private readonly string _value;
+
+        private VpcEncryptionControlVpcLatticeExclusionInput(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEncryptionControlVpcLatticeExclusionInput Enable { get; } = new VpcEncryptionControlVpcLatticeExclusionInput("enable");
+        public static VpcEncryptionControlVpcLatticeExclusionInput Disable { get; } = new VpcEncryptionControlVpcLatticeExclusionInput("disable");
+
+        public static bool operator ==(VpcEncryptionControlVpcLatticeExclusionInput left, VpcEncryptionControlVpcLatticeExclusionInput right) => left.Equals(right);
+        public static bool operator !=(VpcEncryptionControlVpcLatticeExclusionInput left, VpcEncryptionControlVpcLatticeExclusionInput right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEncryptionControlVpcLatticeExclusionInput value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEncryptionControlVpcLatticeExclusionInput other && Equals(other);
+        public bool Equals(VpcEncryptionControlVpcLatticeExclusionInput other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Used to enable or disable VPC peering exclusion
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcEncryptionControlVpcPeeringExclusionInput : IEquatable<VpcEncryptionControlVpcPeeringExclusionInput>
+    {
+        private readonly string _value;
+
+        private VpcEncryptionControlVpcPeeringExclusionInput(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEncryptionControlVpcPeeringExclusionInput Enable { get; } = new VpcEncryptionControlVpcPeeringExclusionInput("enable");
+        public static VpcEncryptionControlVpcPeeringExclusionInput Disable { get; } = new VpcEncryptionControlVpcPeeringExclusionInput("disable");
+
+        public static bool operator ==(VpcEncryptionControlVpcPeeringExclusionInput left, VpcEncryptionControlVpcPeeringExclusionInput right) => left.Equals(right);
+        public static bool operator !=(VpcEncryptionControlVpcPeeringExclusionInput left, VpcEncryptionControlVpcPeeringExclusionInput right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEncryptionControlVpcPeeringExclusionInput value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEncryptionControlVpcPeeringExclusionInput other && Equals(other);
+        public bool Equals(VpcEncryptionControlVpcPeeringExclusionInput other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2564,6 +3020,39 @@ namespace Pulumi.AwsNative.Ec2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint other && Equals(other);
         public bool Equals(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcEndpointDnsOptionsSpecificationPrivateDnsPreference : IEquatable<VpcEndpointDnsOptionsSpecificationPrivateDnsPreference>
+    {
+        private readonly string _value;
+
+        private VpcEndpointDnsOptionsSpecificationPrivateDnsPreference(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEndpointDnsOptionsSpecificationPrivateDnsPreference VerifiedDomainsOnly { get; } = new VpcEndpointDnsOptionsSpecificationPrivateDnsPreference("VERIFIED_DOMAINS_ONLY");
+        public static VpcEndpointDnsOptionsSpecificationPrivateDnsPreference AllDomains { get; } = new VpcEndpointDnsOptionsSpecificationPrivateDnsPreference("ALL_DOMAINS");
+        public static VpcEndpointDnsOptionsSpecificationPrivateDnsPreference VerifiedDomainsAndSpecifiedDomains { get; } = new VpcEndpointDnsOptionsSpecificationPrivateDnsPreference("VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS");
+        public static VpcEndpointDnsOptionsSpecificationPrivateDnsPreference SpecifiedDomainsOnly { get; } = new VpcEndpointDnsOptionsSpecificationPrivateDnsPreference("SPECIFIED_DOMAINS_ONLY");
+
+        public static bool operator ==(VpcEndpointDnsOptionsSpecificationPrivateDnsPreference left, VpcEndpointDnsOptionsSpecificationPrivateDnsPreference right) => left.Equals(right);
+        public static bool operator !=(VpcEndpointDnsOptionsSpecificationPrivateDnsPreference left, VpcEndpointDnsOptionsSpecificationPrivateDnsPreference right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEndpointDnsOptionsSpecificationPrivateDnsPreference value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEndpointDnsOptionsSpecificationPrivateDnsPreference other && Equals(other);
+        public bool Equals(VpcEndpointDnsOptionsSpecificationPrivateDnsPreference other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2660,6 +3149,39 @@ namespace Pulumi.AwsNative.Ec2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VpcEndpointType other && Equals(other);
         public bool Equals(VpcEndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
+    /// 
+    /// Valid values: `json` | `text`
+    /// </summary>
+    [EnumType]
+    public readonly struct VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat : IEquatable<VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat>
+    {
+        private readonly string _value;
+
+        private VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat Json { get; } = new VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat("json");
+        public static VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat Text { get; } = new VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat("text");
+
+        public static bool operator ==(VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat left, VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat right) => left.Equals(right);
+        public static bool operator !=(VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat left, VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat right) => !left.Equals(right);
+
+        public static explicit operator string(VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat other && Equals(other);
+        public bool Equals(VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2886,6 +3408,34 @@ namespace Pulumi.AwsNative.Ec2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VpnConnectionPreSharedKeyStorage other && Equals(other);
         public bool Equals(VpnConnectionPreSharedKeyStorage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct VpnConnectionTunnelBandwidth : IEquatable<VpnConnectionTunnelBandwidth>
+    {
+        private readonly string _value;
+
+        private VpnConnectionTunnelBandwidth(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnConnectionTunnelBandwidth Standard { get; } = new VpnConnectionTunnelBandwidth("standard");
+        public static VpnConnectionTunnelBandwidth Large { get; } = new VpnConnectionTunnelBandwidth("large");
+
+        public static bool operator ==(VpnConnectionTunnelBandwidth left, VpnConnectionTunnelBandwidth right) => left.Equals(right);
+        public static bool operator !=(VpnConnectionTunnelBandwidth left, VpnConnectionTunnelBandwidth right) => !left.Equals(right);
+
+        public static explicit operator string(VpnConnectionTunnelBandwidth value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnConnectionTunnelBandwidth other && Equals(other);
+        public bool Equals(VpnConnectionTunnelBandwidth other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

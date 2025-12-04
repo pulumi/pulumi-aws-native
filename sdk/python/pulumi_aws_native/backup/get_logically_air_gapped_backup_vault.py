@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetLogicallyAirGappedBackupVaultResult:
-    def __init__(__self__, access_policy=None, backup_vault_arn=None, backup_vault_tags=None, encryption_key_arn=None, mpa_approval_team_arn=None, notifications=None, vault_state=None, vault_type=None):
+    def __init__(__self__, access_policy=None, backup_vault_arn=None, backup_vault_tags=None, mpa_approval_team_arn=None, notifications=None, vault_state=None, vault_type=None):
         if access_policy and not isinstance(access_policy, dict):
             raise TypeError("Expected argument 'access_policy' to be a dict")
         pulumi.set(__self__, "access_policy", access_policy)
@@ -34,9 +34,6 @@ class GetLogicallyAirGappedBackupVaultResult:
         if backup_vault_tags and not isinstance(backup_vault_tags, dict):
             raise TypeError("Expected argument 'backup_vault_tags' to be a dict")
         pulumi.set(__self__, "backup_vault_tags", backup_vault_tags)
-        if encryption_key_arn and not isinstance(encryption_key_arn, str):
-            raise TypeError("Expected argument 'encryption_key_arn' to be a str")
-        pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
         if mpa_approval_team_arn and not isinstance(mpa_approval_team_arn, str):
             raise TypeError("Expected argument 'mpa_approval_team_arn' to be a str")
         pulumi.set(__self__, "mpa_approval_team_arn", mpa_approval_team_arn)
@@ -77,14 +74,6 @@ class GetLogicallyAirGappedBackupVaultResult:
         return pulumi.get(self, "backup_vault_tags")
 
     @_builtins.property
-    @pulumi.getter(name="encryptionKeyArn")
-    def encryption_key_arn(self) -> Optional[_builtins.str]:
-        """
-        The ARN of the server-side encryption key.
-        """
-        return pulumi.get(self, "encryption_key_arn")
-
-    @_builtins.property
     @pulumi.getter(name="mpaApprovalTeamArn")
     def mpa_approval_team_arn(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "mpa_approval_team_arn")
@@ -123,7 +112,6 @@ class AwaitableGetLogicallyAirGappedBackupVaultResult(GetLogicallyAirGappedBacku
             access_policy=self.access_policy,
             backup_vault_arn=self.backup_vault_arn,
             backup_vault_tags=self.backup_vault_tags,
-            encryption_key_arn=self.encryption_key_arn,
             mpa_approval_team_arn=self.mpa_approval_team_arn,
             notifications=self.notifications,
             vault_state=self.vault_state,
@@ -147,7 +135,6 @@ def get_logically_air_gapped_backup_vault(backup_vault_name: Optional[_builtins.
         access_policy=pulumi.get(__ret__, 'access_policy'),
         backup_vault_arn=pulumi.get(__ret__, 'backup_vault_arn'),
         backup_vault_tags=pulumi.get(__ret__, 'backup_vault_tags'),
-        encryption_key_arn=pulumi.get(__ret__, 'encryption_key_arn'),
         mpa_approval_team_arn=pulumi.get(__ret__, 'mpa_approval_team_arn'),
         notifications=pulumi.get(__ret__, 'notifications'),
         vault_state=pulumi.get(__ret__, 'vault_state'),
@@ -168,7 +155,6 @@ def get_logically_air_gapped_backup_vault_output(backup_vault_name: Optional[pul
         access_policy=pulumi.get(__response__, 'access_policy'),
         backup_vault_arn=pulumi.get(__response__, 'backup_vault_arn'),
         backup_vault_tags=pulumi.get(__response__, 'backup_vault_tags'),
-        encryption_key_arn=pulumi.get(__response__, 'encryption_key_arn'),
         mpa_approval_team_arn=pulumi.get(__response__, 'mpa_approval_team_arn'),
         notifications=pulumi.get(__response__, 'notifications'),
         vault_state=pulumi.get(__response__, 'vault_state'),

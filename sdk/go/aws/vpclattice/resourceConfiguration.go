@@ -23,6 +23,12 @@ type ResourceConfiguration struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the resource configuration.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The custom domain name.
+	CustomDomainName pulumi.StringPtrOutput `pulumi:"customDomainName"`
+	// The domain verification ID.
+	DomainVerificationId pulumi.StringPtrOutput `pulumi:"domainVerificationId"`
+	// (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain.
+	GroupDomain pulumi.StringPtrOutput `pulumi:"groupDomain"`
 	// The name of the resource configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
@@ -63,6 +69,9 @@ func NewResourceConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceConfigurationType'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"customDomainName",
+		"domainVerificationId",
+		"groupDomain",
 		"protocolType",
 		"resourceConfigurationAuthType",
 		"resourceConfigurationType",
@@ -104,6 +113,12 @@ func (ResourceConfigurationState) ElementType() reflect.Type {
 type resourceConfigurationArgs struct {
 	// Specifies whether the resource configuration can be associated with a sharable service network.
 	AllowAssociationToSharableServiceNetwork *bool `pulumi:"allowAssociationToSharableServiceNetwork"`
+	// The custom domain name.
+	CustomDomainName *string `pulumi:"customDomainName"`
+	// The domain verification ID.
+	DomainVerificationId *string `pulumi:"domainVerificationId"`
+	// (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain.
+	GroupDomain *string `pulumi:"groupDomain"`
 	// The name of the resource configuration.
 	Name *string `pulumi:"name"`
 	// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
@@ -137,6 +152,12 @@ type resourceConfigurationArgs struct {
 type ResourceConfigurationArgs struct {
 	// Specifies whether the resource configuration can be associated with a sharable service network.
 	AllowAssociationToSharableServiceNetwork pulumi.BoolPtrInput
+	// The custom domain name.
+	CustomDomainName pulumi.StringPtrInput
+	// The domain verification ID.
+	DomainVerificationId pulumi.StringPtrInput
+	// (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain.
+	GroupDomain pulumi.StringPtrInput
 	// The name of the resource configuration.
 	Name pulumi.StringPtrInput
 	// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
@@ -216,6 +237,21 @@ func (o ResourceConfigurationOutput) Arn() pulumi.StringOutput {
 // The ID of the resource configuration.
 func (o ResourceConfigurationOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
+}
+
+// The custom domain name.
+func (o ResourceConfigurationOutput) CustomDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringPtrOutput { return v.CustomDomainName }).(pulumi.StringPtrOutput)
+}
+
+// The domain verification ID.
+func (o ResourceConfigurationOutput) DomainVerificationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringPtrOutput { return v.DomainVerificationId }).(pulumi.StringPtrOutput)
+}
+
+// (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain.
+func (o ResourceConfigurationOutput) GroupDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringPtrOutput { return v.GroupDomain }).(pulumi.StringPtrOutput)
 }
 
 // The name of the resource configuration.

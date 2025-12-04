@@ -141,7 +141,7 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
-    /// The logical operator used to combine multiple operands, determining how the condition is evaluated as a whole.
+    /// The operator to be used to be applied to operands if more than one provided.
     /// </summary>
     [EnumType]
     public readonly struct EvaluationFormItemEnablementConditionOperator : IEquatable<EvaluationFormItemEnablementConditionOperator>
@@ -172,7 +172,7 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
-    /// Defines the enablement status to be applied when the specified condition is met.
+    /// An enablement action that if condition is satisfied.
     /// </summary>
     [EnumType]
     public readonly struct EvaluationFormItemEnablementConfigurationAction : IEquatable<EvaluationFormItemEnablementConfigurationAction>
@@ -203,7 +203,7 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
-    /// Specifies the default enablement status to be applied when the condition is not satisfied.
+    /// An enablement action that if condition is not satisfied.
     /// </summary>
     [EnumType]
     public readonly struct EvaluationFormItemEnablementConfigurationDefaultAction : IEquatable<EvaluationFormItemEnablementConfigurationDefaultAction>
@@ -234,7 +234,7 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
-    /// Specifies the comparison method to determine if the source value matches any of the specified values.
+    /// A comparator to be used against list of values.
     /// </summary>
     [EnumType]
     public readonly struct EvaluationFormItemEnablementExpressionComparator : IEquatable<EvaluationFormItemEnablementExpressionComparator>
@@ -248,6 +248,8 @@ namespace Pulumi.AwsNative.Connect
 
         public static EvaluationFormItemEnablementExpressionComparator In { get; } = new EvaluationFormItemEnablementExpressionComparator("IN");
         public static EvaluationFormItemEnablementExpressionComparator NotIn { get; } = new EvaluationFormItemEnablementExpressionComparator("NOT_IN");
+        public static EvaluationFormItemEnablementExpressionComparator AllIn { get; } = new EvaluationFormItemEnablementExpressionComparator("ALL_IN");
+        public static EvaluationFormItemEnablementExpressionComparator Exact { get; } = new EvaluationFormItemEnablementExpressionComparator("EXACT");
 
         public static bool operator ==(EvaluationFormItemEnablementExpressionComparator left, EvaluationFormItemEnablementExpressionComparator right) => left.Equals(right);
         public static bool operator !=(EvaluationFormItemEnablementExpressionComparator left, EvaluationFormItemEnablementExpressionComparator right) => !left.Equals(right);
@@ -265,7 +267,7 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
-    /// The type of the source entity.
+    /// A type of source item.
     /// </summary>
     [EnumType]
     public readonly struct EvaluationFormItemEnablementSourceType : IEquatable<EvaluationFormItemEnablementSourceType>
@@ -295,7 +297,7 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
-    /// Type of the source entity value.
+    /// A type of source item value.
     /// </summary>
     [EnumType]
     public readonly struct EvaluationFormItemEnablementSourceValueType : IEquatable<EvaluationFormItemEnablementSourceValueType>
@@ -317,6 +319,103 @@ namespace Pulumi.AwsNative.Connect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EvaluationFormItemEnablementSourceValueType other && Equals(other);
         public bool Equals(EvaluationFormItemEnablementSourceValueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The language of the form
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormLanguageConfigurationFormLanguage : IEquatable<EvaluationFormLanguageConfigurationFormLanguage>
+    {
+        private readonly string _value;
+
+        private EvaluationFormLanguageConfigurationFormLanguage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormLanguageConfigurationFormLanguage DeDe { get; } = new EvaluationFormLanguageConfigurationFormLanguage("de-DE");
+        public static EvaluationFormLanguageConfigurationFormLanguage EnUs { get; } = new EvaluationFormLanguageConfigurationFormLanguage("en-US");
+        public static EvaluationFormLanguageConfigurationFormLanguage EsEs { get; } = new EvaluationFormLanguageConfigurationFormLanguage("es-ES");
+        public static EvaluationFormLanguageConfigurationFormLanguage FrFr { get; } = new EvaluationFormLanguageConfigurationFormLanguage("fr-FR");
+        public static EvaluationFormLanguageConfigurationFormLanguage ItIt { get; } = new EvaluationFormLanguageConfigurationFormLanguage("it-IT");
+        public static EvaluationFormLanguageConfigurationFormLanguage PtBr { get; } = new EvaluationFormLanguageConfigurationFormLanguage("pt-BR");
+
+        public static bool operator ==(EvaluationFormLanguageConfigurationFormLanguage left, EvaluationFormLanguageConfigurationFormLanguage right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormLanguageConfigurationFormLanguage left, EvaluationFormLanguageConfigurationFormLanguage right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormLanguageConfigurationFormLanguage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormLanguageConfigurationFormLanguage other && Equals(other);
+        public bool Equals(EvaluationFormLanguageConfigurationFormLanguage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The display mode of the multi-select question.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormMultiSelectQuestionPropertiesDisplayAs : IEquatable<EvaluationFormMultiSelectQuestionPropertiesDisplayAs>
+    {
+        private readonly string _value;
+
+        private EvaluationFormMultiSelectQuestionPropertiesDisplayAs(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormMultiSelectQuestionPropertiesDisplayAs Dropdown { get; } = new EvaluationFormMultiSelectQuestionPropertiesDisplayAs("DROPDOWN");
+        public static EvaluationFormMultiSelectQuestionPropertiesDisplayAs Checkbox { get; } = new EvaluationFormMultiSelectQuestionPropertiesDisplayAs("CHECKBOX");
+
+        public static bool operator ==(EvaluationFormMultiSelectQuestionPropertiesDisplayAs left, EvaluationFormMultiSelectQuestionPropertiesDisplayAs right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormMultiSelectQuestionPropertiesDisplayAs left, EvaluationFormMultiSelectQuestionPropertiesDisplayAs right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormMultiSelectQuestionPropertiesDisplayAs value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormMultiSelectQuestionPropertiesDisplayAs other && Equals(other);
+        public bool Equals(EvaluationFormMultiSelectQuestionPropertiesDisplayAs other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The automation condition applied on contact categories.
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition : IEquatable<EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition>
+    {
+        private readonly string _value;
+
+        private EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition Present { get; } = new EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition("PRESENT");
+        public static EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition NotPresent { get; } = new EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition("NOT_PRESENT");
+
+        public static bool operator ==(EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition left, EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition left, EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition other && Equals(other);
+        public bool Equals(EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -348,6 +447,8 @@ namespace Pulumi.AwsNative.Connect
         public static EvaluationFormNumericQuestionPropertyValueAutomationLabel LongestHoldDuration { get; } = new EvaluationFormNumericQuestionPropertyValueAutomationLabel("LONGEST_HOLD_DURATION");
         public static EvaluationFormNumericQuestionPropertyValueAutomationLabel NumberOfHolds { get; } = new EvaluationFormNumericQuestionPropertyValueAutomationLabel("NUMBER_OF_HOLDS");
         public static EvaluationFormNumericQuestionPropertyValueAutomationLabel AgentInteractionAndHoldDuration { get; } = new EvaluationFormNumericQuestionPropertyValueAutomationLabel("AGENT_INTERACTION_AND_HOLD_DURATION");
+        public static EvaluationFormNumericQuestionPropertyValueAutomationLabel CustomerSentimentScoreWithoutAgent { get; } = new EvaluationFormNumericQuestionPropertyValueAutomationLabel("CUSTOMER_SENTIMENT_SCORE_WITHOUT_AGENT");
+        public static EvaluationFormNumericQuestionPropertyValueAutomationLabel CustomerSentimentScoreWithAgent { get; } = new EvaluationFormNumericQuestionPropertyValueAutomationLabel("CUSTOMER_SENTIMENT_SCORE_WITH_AGENT");
 
         public static bool operator ==(EvaluationFormNumericQuestionPropertyValueAutomationLabel left, EvaluationFormNumericQuestionPropertyValueAutomationLabel right) => left.Equals(right);
         public static bool operator !=(EvaluationFormNumericQuestionPropertyValueAutomationLabel left, EvaluationFormNumericQuestionPropertyValueAutomationLabel right) => !left.Equals(right);
@@ -365,7 +466,7 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
-    /// The type of the answer sourcr
+    /// The automation answer source type.
     /// </summary>
     [EnumType]
     public readonly struct EvaluationFormQuestionAutomationAnswerSourceSourceType : IEquatable<EvaluationFormQuestionAutomationAnswerSourceSourceType>
@@ -412,6 +513,8 @@ namespace Pulumi.AwsNative.Connect
         public static EvaluationFormQuestionQuestionType Numeric { get; } = new EvaluationFormQuestionQuestionType("NUMERIC");
         public static EvaluationFormQuestionQuestionType Singleselect { get; } = new EvaluationFormQuestionQuestionType("SINGLESELECT");
         public static EvaluationFormQuestionQuestionType Text { get; } = new EvaluationFormQuestionQuestionType("TEXT");
+        public static EvaluationFormQuestionQuestionType Multiselect { get; } = new EvaluationFormQuestionQuestionType("MULTISELECT");
+        public static EvaluationFormQuestionQuestionType Datetime { get; } = new EvaluationFormQuestionQuestionType("DATETIME");
 
         public static bool operator ==(EvaluationFormQuestionQuestionType left, EvaluationFormQuestionQuestionType right) => left.Equals(right);
         public static bool operator !=(EvaluationFormQuestionQuestionType left, EvaluationFormQuestionQuestionType right) => !left.Equals(right);
@@ -582,6 +685,37 @@ namespace Pulumi.AwsNative.Connect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EvaluationFormStatus other && Equals(other);
         public bool Equals(EvaluationFormStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The interaction type of a contact
+    /// </summary>
+    [EnumType]
+    public readonly struct EvaluationFormTargetConfigurationContactInteractionType : IEquatable<EvaluationFormTargetConfigurationContactInteractionType>
+    {
+        private readonly string _value;
+
+        private EvaluationFormTargetConfigurationContactInteractionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EvaluationFormTargetConfigurationContactInteractionType Agent { get; } = new EvaluationFormTargetConfigurationContactInteractionType("AGENT");
+        public static EvaluationFormTargetConfigurationContactInteractionType Automated { get; } = new EvaluationFormTargetConfigurationContactInteractionType("AUTOMATED");
+
+        public static bool operator ==(EvaluationFormTargetConfigurationContactInteractionType left, EvaluationFormTargetConfigurationContactInteractionType right) => left.Equals(right);
+        public static bool operator !=(EvaluationFormTargetConfigurationContactInteractionType left, EvaluationFormTargetConfigurationContactInteractionType right) => !left.Equals(right);
+
+        public static explicit operator string(EvaluationFormTargetConfigurationContactInteractionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EvaluationFormTargetConfigurationContactInteractionType other && Equals(other);
+        public bool Equals(EvaluationFormTargetConfigurationContactInteractionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

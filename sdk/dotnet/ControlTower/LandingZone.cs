@@ -48,6 +48,12 @@ namespace Pulumi.AwsNative.ControlTower
         public Output<object> Manifest { get; private set; } = null!;
 
         /// <summary>
+        /// The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.
+        /// </summary>
+        [Output("remediationTypes")]
+        public Output<ImmutableArray<Pulumi.AwsNative.ControlTower.LandingZoneRemediationTypesItem>> RemediationTypes { get; private set; } = null!;
+
+        /// <summary>
         /// The landing zone deployment status. One of `ACTIVE` , `PROCESSING` , `FAILED` .
         /// </summary>
         [Output("status")]
@@ -117,6 +123,18 @@ namespace Pulumi.AwsNative.ControlTower
         /// </summary>
         [Input("manifest", required: true)]
         public Input<object> Manifest { get; set; } = null!;
+
+        [Input("remediationTypes")]
+        private InputList<Pulumi.AwsNative.ControlTower.LandingZoneRemediationTypesItem>? _remediationTypes;
+
+        /// <summary>
+        /// The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.ControlTower.LandingZoneRemediationTypesItem> RemediationTypes
+        {
+            get => _remediationTypes ?? (_remediationTypes = new InputList<Pulumi.AwsNative.ControlTower.LandingZoneRemediationTypesItem>());
+            set => _remediationTypes = value;
+        }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

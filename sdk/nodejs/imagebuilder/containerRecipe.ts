@@ -74,6 +74,10 @@ export class ContainerRecipe extends pulumi.CustomResource {
      */
     declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
+     * The latest version references of the container recipe.
+     */
+    declare public /*out*/ readonly latestVersion: pulumi.Output<outputs.imagebuilder.ContainerRecipeLatestVersion>;
+    /**
      * The name of the container recipe.
      */
     declare public readonly name: pulumi.Output<string | undefined>;
@@ -129,6 +133,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
             resourceInputs["version"] = args?.version;
             resourceInputs["workingDirectory"] = args?.workingDirectory;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["latestVersion"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["components"] = undefined /*out*/;
@@ -139,6 +144,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
             resourceInputs["imageOsVersionOverride"] = undefined /*out*/;
             resourceInputs["instanceConfiguration"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["latestVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["parentImage"] = undefined /*out*/;
             resourceInputs["platformOverride"] = undefined /*out*/;

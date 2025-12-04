@@ -216,6 +216,13 @@ export const DataAutomationProjectAudioExtractionCategoryType = {
 
 export type DataAutomationProjectAudioExtractionCategoryType = (typeof DataAutomationProjectAudioExtractionCategoryType)[keyof typeof DataAutomationProjectAudioExtractionCategoryType];
 
+export const DataAutomationProjectAudioGenerativeOutputLanguage = {
+    Default: "DEFAULT",
+    En: "EN",
+} as const;
+
+export type DataAutomationProjectAudioGenerativeOutputLanguage = (typeof DataAutomationProjectAudioGenerativeOutputLanguage)[keyof typeof DataAutomationProjectAudioGenerativeOutputLanguage];
+
 export const DataAutomationProjectAudioStandardGenerativeFieldType = {
     AudioSummary: "AUDIO_SUMMARY",
     Iab: "IAB",
@@ -276,6 +283,90 @@ export const DataAutomationProjectImageStandardGenerativeFieldType = {
 } as const;
 
 export type DataAutomationProjectImageStandardGenerativeFieldType = (typeof DataAutomationProjectImageStandardGenerativeFieldType)[keyof typeof DataAutomationProjectImageStandardGenerativeFieldType];
+
+export const DataAutomationProjectLanguage = {
+    En: "EN",
+    De: "DE",
+    Es: "ES",
+    Fr: "FR",
+    It: "IT",
+    Pt: "PT",
+    Ja: "JA",
+    Ko: "KO",
+    Cn: "CN",
+    Tw: "TW",
+    Hk: "HK",
+} as const;
+
+export type DataAutomationProjectLanguage = (typeof DataAutomationProjectLanguage)[keyof typeof DataAutomationProjectLanguage];
+
+export const DataAutomationProjectPiiEntityTypes = {
+    All: "ALL",
+    Address: "ADDRESS",
+    Age: "AGE",
+    Name: "NAME",
+    Email: "EMAIL",
+    Phone: "PHONE",
+    Username: "USERNAME",
+    Password: "PASSWORD",
+    DriverId: "DRIVER_ID",
+    LicensePlate: "LICENSE_PLATE",
+    VehicleIdentificationNumber: "VEHICLE_IDENTIFICATION_NUMBER",
+    CreditDebitCardCvv: "CREDIT_DEBIT_CARD_CVV",
+    CreditDebitCardExpiry: "CREDIT_DEBIT_CARD_EXPIRY",
+    CreditDebitCardNumber: "CREDIT_DEBIT_CARD_NUMBER",
+    Pin: "PIN",
+    InternationalBankAccountNumber: "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
+    SwiftCode: "SWIFT_CODE",
+    IpAddress: "IP_ADDRESS",
+    MacAddress: "MAC_ADDRESS",
+    Url: "URL",
+    AwsAccessKey: "AWS_ACCESS_KEY",
+    AwsSecretKey: "AWS_SECRET_KEY",
+    UsBankAccountNumber: "US_BANK_ACCOUNT_NUMBER",
+    UsBankRoutingNumber: "US_BANK_ROUTING_NUMBER",
+    UsIndividualTaxIdentificationNumber: "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
+    UsPassportNumber: "US_PASSPORT_NUMBER",
+    UsSocialSecurityNumber: "US_SOCIAL_SECURITY_NUMBER",
+    CaHealthNumber: "CA_HEALTH_NUMBER",
+    CaSocialInsuranceNumber: "CA_SOCIAL_INSURANCE_NUMBER",
+    UkNationalHealthServiceNumber: "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
+    UkNationalInsuranceNumber: "UK_NATIONAL_INSURANCE_NUMBER",
+    UkUniqueTaxpayerReferenceNumber: "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
+} as const;
+
+export type DataAutomationProjectPiiEntityTypes = (typeof DataAutomationProjectPiiEntityTypes)[keyof typeof DataAutomationProjectPiiEntityTypes];
+
+export const DataAutomationProjectPiiRedactionMaskMode = {
+    Pii: "PII",
+    EntityType: "ENTITY_TYPE",
+} as const;
+
+export type DataAutomationProjectPiiRedactionMaskMode = (typeof DataAutomationProjectPiiRedactionMaskMode)[keyof typeof DataAutomationProjectPiiRedactionMaskMode];
+
+export const DataAutomationProjectProjectType = {
+    Async: "ASYNC",
+    Sync: "SYNC",
+} as const;
+
+/**
+ * Type of the DataAutomationProject - Sync or Async
+ */
+export type DataAutomationProjectProjectType = (typeof DataAutomationProjectProjectType)[keyof typeof DataAutomationProjectProjectType];
+
+export const DataAutomationProjectSensitiveDataDetectionMode = {
+    Detection: "DETECTION",
+    DetectionAndRedaction: "DETECTION_AND_REDACTION",
+} as const;
+
+export type DataAutomationProjectSensitiveDataDetectionMode = (typeof DataAutomationProjectSensitiveDataDetectionMode)[keyof typeof DataAutomationProjectSensitiveDataDetectionMode];
+
+export const DataAutomationProjectSensitiveDataDetectionScope = {
+    Standard: "STANDARD",
+    Custom: "CUSTOM",
+} as const;
+
+export type DataAutomationProjectSensitiveDataDetectionScope = (typeof DataAutomationProjectSensitiveDataDetectionScope)[keyof typeof DataAutomationProjectSensitiveDataDetectionScope];
 
 export const DataAutomationProjectStage = {
     Development: "DEVELOPMENT",
@@ -994,6 +1085,7 @@ export const KnowledgeBaseStorageType = {
     Rds: "RDS",
     MongoDbAtlas: "MONGO_DB_ATLAS",
     NeptuneAnalytics: "NEPTUNE_ANALYTICS",
+    S3Vectors: "S3_VECTORS",
     OpensearchManagedCluster: "OPENSEARCH_MANAGED_CLUSTER",
 } as const;
 

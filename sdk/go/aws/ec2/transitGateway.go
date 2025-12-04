@@ -32,6 +32,10 @@ type TransitGateway struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Enable or disable DNS support. Enabled by default.
 	DnsSupport pulumi.StringPtrOutput `pulumi:"dnsSupport"`
+	// Enable or disable encryption support. Disabled by default.
+	EncryptionSupport TransitGatewayEncryptionSupportPtrOutput `pulumi:"encryptionSupport"`
+	// The encryption support state of the transit gateway.
+	EncryptionSupportState pulumi.StringOutput `pulumi:"encryptionSupportState"`
 	// Indicates whether multicast is enabled on the transit gateway
 	MulticastSupport pulumi.StringPtrOutput `pulumi:"multicastSupport"`
 	// The ID of the default propagation route table.
@@ -108,6 +112,8 @@ type transitGatewayArgs struct {
 	Description *string `pulumi:"description"`
 	// Enable or disable DNS support. Enabled by default.
 	DnsSupport *string `pulumi:"dnsSupport"`
+	// Enable or disable encryption support. Disabled by default.
+	EncryptionSupport *TransitGatewayEncryptionSupport `pulumi:"encryptionSupport"`
 	// Indicates whether multicast is enabled on the transit gateway
 	MulticastSupport *string `pulumi:"multicastSupport"`
 	// The ID of the default propagation route table.
@@ -140,6 +146,8 @@ type TransitGatewayArgs struct {
 	Description pulumi.StringPtrInput
 	// Enable or disable DNS support. Enabled by default.
 	DnsSupport pulumi.StringPtrInput
+	// Enable or disable encryption support. Disabled by default.
+	EncryptionSupport TransitGatewayEncryptionSupportPtrInput
 	// Indicates whether multicast is enabled on the transit gateway
 	MulticastSupport pulumi.StringPtrInput
 	// The ID of the default propagation route table.
@@ -231,6 +239,16 @@ func (o TransitGatewayOutput) Description() pulumi.StringPtrOutput {
 // Enable or disable DNS support. Enabled by default.
 func (o TransitGatewayOutput) DnsSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.DnsSupport }).(pulumi.StringPtrOutput)
+}
+
+// Enable or disable encryption support. Disabled by default.
+func (o TransitGatewayOutput) EncryptionSupport() TransitGatewayEncryptionSupportPtrOutput {
+	return o.ApplyT(func(v *TransitGateway) TransitGatewayEncryptionSupportPtrOutput { return v.EncryptionSupport }).(TransitGatewayEncryptionSupportPtrOutput)
+}
+
+// The encryption support state of the transit gateway.
+func (o TransitGatewayOutput) EncryptionSupportState() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.EncryptionSupportState }).(pulumi.StringOutput)
 }
 
 // Indicates whether multicast is enabled on the transit gateway

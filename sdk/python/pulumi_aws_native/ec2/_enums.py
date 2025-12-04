@@ -45,6 +45,7 @@ __all__ = [
     'IpamPoolIpamScopeType',
     'IpamPoolPublicIpSource',
     'IpamPoolState',
+    'IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType',
     'IpamScopeType',
     'IpamTier',
     'KeyPairKeyFormat',
@@ -79,13 +80,28 @@ __all__ = [
     'SpotFleetSpotPlacementTenancy',
     'SpotFleetTagSpecificationResourceType',
     'TrafficMirrorFilterTrafficMirrorNetworkService',
+    'TransitGatewayEncryptionSupport',
+    'TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType',
+    'TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType',
     'VpcBlockPublicAccessExclusionInternetGatewayExclusionMode',
     'VpcBlockPublicAccessOptionsInternetGatewayBlockMode',
+    'VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput',
+    'VpcEncryptionControlElasticFileSystemExclusionInput',
+    'VpcEncryptionControlInternetGatewayExclusionInput',
+    'VpcEncryptionControlLambdaExclusionInput',
+    'VpcEncryptionControlMode',
+    'VpcEncryptionControlNatGatewayExclusionInput',
+    'VpcEncryptionControlState',
+    'VpcEncryptionControlVirtualPrivateGatewayExclusionInput',
+    'VpcEncryptionControlVpcLatticeExclusionInput',
+    'VpcEncryptionControlVpcPeeringExclusionInput',
     'VpcEndpointDnsOptionsSpecificationDnsRecordIpType',
     'VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint',
+    'VpcEndpointDnsOptionsSpecificationPrivateDnsPreference',
     'VpcEndpointIpAddressType',
     'VpcEndpointServiceIpAddressType',
     'VpcEndpointType',
+    'VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat',
     'VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat',
     'VpnConnectionIkeVersionsRequestListValueValue',
     'VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue',
@@ -93,6 +109,7 @@ __all__ = [
     'VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue',
     'VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue',
     'VpnConnectionPreSharedKeyStorage',
+    'VpnConnectionTunnelBandwidth',
     'VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction',
     'VpnConnectionVpnTunnelOptionsSpecificationStartupAction',
 ]
@@ -209,6 +226,13 @@ class Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem(_builtins.str, Enu
     T4G = "t4g"
     VU9P = "vu9p"
     V100 = "v100"
+    L40S = "l40s"
+    L4 = "l4"
+    GAUDI_HL205 = "gaudi-hl-205"
+    INFERENTIA2 = "inferentia2"
+    TRAINIUM = "trainium"
+    TRAINIUM2 = "trainium2"
+    U30 = "u30"
 
 
 @pulumi.type_token("aws-native:ec2:Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem")
@@ -216,6 +240,7 @@ class Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem(_builtins.str, Enu
     GPU = "gpu"
     FPGA = "fpga"
     INFERENCE = "inference"
+    MEDIA = "media"
 
 
 @pulumi.type_token("aws-native:ec2:Ec2FleetInstanceRequirementsRequestBareMetal")
@@ -438,6 +463,7 @@ class FlowLogResourceType(_builtins.str, Enum):
     VPC = "VPC"
     TRANSIT_GATEWAY = "TransitGateway"
     TRANSIT_GATEWAY_ATTACHMENT = "TransitGatewayAttachment"
+    REGIONAL_NAT_GATEWAY = "RegionalNatGateway"
 
 
 @pulumi.type_token("aws-native:ec2:FlowLogTrafficType")
@@ -550,6 +576,14 @@ class IpamPoolState(_builtins.str, Enum):
     MODIFY_COMPLETE = "modify-complete"
     DELETE_IN_PROGRESS = "delete-in-progress"
     DELETE_COMPLETE = "delete-complete"
+
+
+@pulumi.type_token("aws-native:ec2:IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType")
+class IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType(_builtins.str, Enum):
+    """
+    An external service connecting to your AWS IPAM scope.
+    """
+    INFOBLOX = "infoblox"
 
 
 @pulumi.type_token("aws-native:ec2:IpamScopeType")
@@ -725,6 +759,13 @@ class SpotFleetInstanceRequirementsRequestAcceleratorNamesItem(_builtins.str, En
     T4G = "t4g"
     VU9P = "vu9p"
     V100 = "v100"
+    L40S = "l40s"
+    L4 = "l4"
+    GAUDI_HL205 = "gaudi-hl-205"
+    INFERENTIA2 = "inferentia2"
+    TRAINIUM = "trainium"
+    TRAINIUM2 = "trainium2"
+    U30 = "u30"
 
 
 @pulumi.type_token("aws-native:ec2:SpotFleetInstanceRequirementsRequestAcceleratorTypesItem")
@@ -732,6 +773,7 @@ class SpotFleetInstanceRequirementsRequestAcceleratorTypesItem(_builtins.str, En
     GPU = "gpu"
     FPGA = "fpga"
     INFERENCE = "inference"
+    MEDIA = "media"
 
 
 @pulumi.type_token("aws-native:ec2:SpotFleetInstanceRequirementsRequestBareMetal")
@@ -950,6 +992,32 @@ class TrafficMirrorFilterTrafficMirrorNetworkService(_builtins.str, Enum):
     AMAZON_DNS = "amazon-dns"
 
 
+@pulumi.type_token("aws-native:ec2:TransitGatewayEncryptionSupport")
+class TransitGatewayEncryptionSupport(_builtins.str, Enum):
+    """
+    Enable or disable encryption support. Disabled by default.
+    """
+    DISABLE = "disable"
+    ENABLE = "enable"
+
+
+@pulumi.type_token("aws-native:ec2:TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType")
+class TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType(_builtins.str, Enum):
+    VPC = "vpc"
+    VPN = "vpn"
+    DIRECT_CONNECT_GATEWAY = "direct-connect-gateway"
+    PEERING = "peering"
+    NETWORK_FUNCTION = "network-function"
+    VPN_CONCENTRATOR = "vpn-concentrator"
+
+
+@pulumi.type_token("aws-native:ec2:TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType")
+class TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType(_builtins.str, Enum):
+    SOURCE_ATTACHMENT_OWNER = "source-attachment-owner"
+    DESTINATION_ATTACHMENT_OWNER = "destination-attachment-owner"
+    TRANSIT_GATEWAY_OWNER = "transit-gateway-owner"
+
+
 @pulumi.type_token("aws-native:ec2:VpcBlockPublicAccessExclusionInternetGatewayExclusionMode")
 class VpcBlockPublicAccessExclusionInternetGatewayExclusionMode(_builtins.str, Enum):
     """
@@ -966,6 +1034,103 @@ class VpcBlockPublicAccessOptionsInternetGatewayBlockMode(_builtins.str, Enum):
     """
     BLOCK_BIDIRECTIONAL = "block-bidirectional"
     BLOCK_INGRESS = "block-ingress"
+
+
+@pulumi.type_token("aws-native:ec2:VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput")
+class VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput(_builtins.str, Enum):
+    """
+    Used to enable or disable EIGW exclusion
+    """
+    ENABLE = "enable"
+    DISABLE = "disable"
+
+
+@pulumi.type_token("aws-native:ec2:VpcEncryptionControlElasticFileSystemExclusionInput")
+class VpcEncryptionControlElasticFileSystemExclusionInput(_builtins.str, Enum):
+    """
+    Used to enable or disable EFS exclusion
+    """
+    ENABLE = "enable"
+    DISABLE = "disable"
+
+
+@pulumi.type_token("aws-native:ec2:VpcEncryptionControlInternetGatewayExclusionInput")
+class VpcEncryptionControlInternetGatewayExclusionInput(_builtins.str, Enum):
+    """
+    Used to enable or disable IGW exclusion
+    """
+    ENABLE = "enable"
+    DISABLE = "disable"
+
+
+@pulumi.type_token("aws-native:ec2:VpcEncryptionControlLambdaExclusionInput")
+class VpcEncryptionControlLambdaExclusionInput(_builtins.str, Enum):
+    """
+    Used to enable or disable Lambda exclusion
+    """
+    ENABLE = "enable"
+    DISABLE = "disable"
+
+
+@pulumi.type_token("aws-native:ec2:VpcEncryptionControlMode")
+class VpcEncryptionControlMode(_builtins.str, Enum):
+    """
+    The VPC encryption control mode, either monitor or enforce.
+    """
+    MONITOR = "monitor"
+    ENFORCE = "enforce"
+
+
+@pulumi.type_token("aws-native:ec2:VpcEncryptionControlNatGatewayExclusionInput")
+class VpcEncryptionControlNatGatewayExclusionInput(_builtins.str, Enum):
+    """
+    Used to enable or disable Nat gateway exclusion
+    """
+    ENABLE = "enable"
+    DISABLE = "disable"
+
+
+@pulumi.type_token("aws-native:ec2:VpcEncryptionControlState")
+class VpcEncryptionControlState(_builtins.str, Enum):
+    """
+    The current state of the VPC encryption control.
+    """
+    CREATING = "creating"
+    AVAILABLE = "available"
+    MONITOR_IN_PROGRESS = "monitor-in-progress"
+    ENFORCE_IN_PROGRESS = "enforce-in-progress"
+    MONITOR_FAILED = "monitor-failed"
+    ENFORCE_FAILED = "enforce-failed"
+    DELETING = "deleting"
+    DELETED = "deleted"
+    DELETE_FAILED = "delete-failed"
+
+
+@pulumi.type_token("aws-native:ec2:VpcEncryptionControlVirtualPrivateGatewayExclusionInput")
+class VpcEncryptionControlVirtualPrivateGatewayExclusionInput(_builtins.str, Enum):
+    """
+    Used to enable or disable VGW exclusion
+    """
+    ENABLE = "enable"
+    DISABLE = "disable"
+
+
+@pulumi.type_token("aws-native:ec2:VpcEncryptionControlVpcLatticeExclusionInput")
+class VpcEncryptionControlVpcLatticeExclusionInput(_builtins.str, Enum):
+    """
+    Used to enable or disable Vpc Lattice exclusion
+    """
+    ENABLE = "enable"
+    DISABLE = "disable"
+
+
+@pulumi.type_token("aws-native:ec2:VpcEncryptionControlVpcPeeringExclusionInput")
+class VpcEncryptionControlVpcPeeringExclusionInput(_builtins.str, Enum):
+    """
+    Used to enable or disable VPC peering exclusion
+    """
+    ENABLE = "enable"
+    DISABLE = "disable"
 
 
 @pulumi.type_token("aws-native:ec2:VpcEndpointDnsOptionsSpecificationDnsRecordIpType")
@@ -988,6 +1153,17 @@ class VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint
     ONLY_INBOUND_RESOLVER = "OnlyInboundResolver"
     ALL_RESOLVERS = "AllResolvers"
     NOT_SPECIFIED = "NotSpecified"
+
+
+@pulumi.type_token("aws-native:ec2:VpcEndpointDnsOptionsSpecificationPrivateDnsPreference")
+class VpcEndpointDnsOptionsSpecificationPrivateDnsPreference(_builtins.str, Enum):
+    """
+    The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+    """
+    VERIFIED_DOMAINS_ONLY = "VERIFIED_DOMAINS_ONLY"
+    ALL_DOMAINS = "ALL_DOMAINS"
+    VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS = "VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS"
+    SPECIFIED_DOMAINS_ONLY = "SPECIFIED_DOMAINS_ONLY"
 
 
 @pulumi.type_token("aws-native:ec2:VpcEndpointIpAddressType")
@@ -1018,6 +1194,17 @@ class VpcEndpointType(_builtins.str, Enum):
     GATEWAY_LOAD_BALANCER = "GatewayLoadBalancer"
     SERVICE_NETWORK = "ServiceNetwork"
     RESOURCE = "Resource"
+
+
+@pulumi.type_token("aws-native:ec2:VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat")
+class VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat(_builtins.str, Enum):
+    """
+    The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
+
+    Valid values: `json` | `text`
+    """
+    JSON = "json"
+    TEXT = "text"
 
 
 @pulumi.type_token("aws-native:ec2:VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat")
@@ -1090,6 +1277,12 @@ class VpnConnectionPreSharedKeyStorage(_builtins.str, Enum):
     """
     STANDARD = "Standard"
     SECRETS_MANAGER = "SecretsManager"
+
+
+@pulumi.type_token("aws-native:ec2:VpnConnectionTunnelBandwidth")
+class VpnConnectionTunnelBandwidth(_builtins.str, Enum):
+    STANDARD = "standard"
+    LARGE = "large"
 
 
 @pulumi.type_token("aws-native:ec2:VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction")

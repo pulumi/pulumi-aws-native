@@ -71,6 +71,7 @@ export class AppMonitor extends pulumi.CustomResource {
      * A name for the app monitor
      */
     declare public readonly name: pulumi.Output<string>;
+    declare public readonly platform: pulumi.Output<enums.rum.AppMonitorPlatform | undefined>;
     /**
      * Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
      */
@@ -106,6 +107,7 @@ export class AppMonitor extends pulumi.CustomResource {
             resourceInputs["domain"] = args?.domain;
             resourceInputs["domainList"] = args?.domainList;
             resourceInputs["name"] = args?.name;
+            resourceInputs["platform"] = args?.platform;
             resourceInputs["resourcePolicy"] = args?.resourcePolicy;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
@@ -118,11 +120,12 @@ export class AppMonitor extends pulumi.CustomResource {
             resourceInputs["domain"] = undefined /*out*/;
             resourceInputs["domainList"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["platform"] = undefined /*out*/;
             resourceInputs["resourcePolicy"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        const replaceOnChanges = { replaceOnChanges: ["name", "platform"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AppMonitor.__pulumiType, name, resourceInputs, opts);
     }
@@ -162,6 +165,7 @@ export interface AppMonitorArgs {
      * A name for the app monitor
      */
     name?: pulumi.Input<string>;
+    platform?: pulumi.Input<enums.rum.AppMonitorPlatform>;
     /**
      * Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
      */

@@ -2650,8 +2650,194 @@ func (o DatabasePrincipalPrivilegesArrayOutput) Index(i pulumi.IntInput) Databas
 	}).(DatabasePrincipalPrivilegesOutput)
 }
 
+// The configuration settings for the integration.
+type IntegrationConfig struct {
+	// Enables continuous synchronization for on-demand data extractions.
+	ContinuousSync *bool `pulumi:"continuousSync"`
+	// Specifies the frequency at which CDC (Change Data Capture) pulls or incremental loads should occur.
+	RefreshInterval *string `pulumi:"refreshInterval"`
+	// A collection of key-value pairs that specify additional properties for the integration source. These properties provide configuration options that can be used to customize the behavior of the ODB source during data integration operations.
+	SourceProperties map[string]string `pulumi:"sourceProperties"`
+}
+
+// IntegrationConfigInput is an input type that accepts IntegrationConfigArgs and IntegrationConfigOutput values.
+// You can construct a concrete instance of `IntegrationConfigInput` via:
+//
+//	IntegrationConfigArgs{...}
+type IntegrationConfigInput interface {
+	pulumi.Input
+
+	ToIntegrationConfigOutput() IntegrationConfigOutput
+	ToIntegrationConfigOutputWithContext(context.Context) IntegrationConfigOutput
+}
+
+// The configuration settings for the integration.
+type IntegrationConfigArgs struct {
+	// Enables continuous synchronization for on-demand data extractions.
+	ContinuousSync pulumi.BoolPtrInput `pulumi:"continuousSync"`
+	// Specifies the frequency at which CDC (Change Data Capture) pulls or incremental loads should occur.
+	RefreshInterval pulumi.StringPtrInput `pulumi:"refreshInterval"`
+	// A collection of key-value pairs that specify additional properties for the integration source. These properties provide configuration options that can be used to customize the behavior of the ODB source during data integration operations.
+	SourceProperties pulumi.StringMapInput `pulumi:"sourceProperties"`
+}
+
+func (IntegrationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationConfig)(nil)).Elem()
+}
+
+func (i IntegrationConfigArgs) ToIntegrationConfigOutput() IntegrationConfigOutput {
+	return i.ToIntegrationConfigOutputWithContext(context.Background())
+}
+
+func (i IntegrationConfigArgs) ToIntegrationConfigOutputWithContext(ctx context.Context) IntegrationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationConfigOutput)
+}
+
+func (i IntegrationConfigArgs) ToIntegrationConfigPtrOutput() IntegrationConfigPtrOutput {
+	return i.ToIntegrationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationConfigArgs) ToIntegrationConfigPtrOutputWithContext(ctx context.Context) IntegrationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationConfigOutput).ToIntegrationConfigPtrOutputWithContext(ctx)
+}
+
+// IntegrationConfigPtrInput is an input type that accepts IntegrationConfigArgs, IntegrationConfigPtr and IntegrationConfigPtrOutput values.
+// You can construct a concrete instance of `IntegrationConfigPtrInput` via:
+//
+//	        IntegrationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationConfigPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationConfigPtrOutput() IntegrationConfigPtrOutput
+	ToIntegrationConfigPtrOutputWithContext(context.Context) IntegrationConfigPtrOutput
+}
+
+type integrationConfigPtrType IntegrationConfigArgs
+
+func IntegrationConfigPtr(v *IntegrationConfigArgs) IntegrationConfigPtrInput {
+	return (*integrationConfigPtrType)(v)
+}
+
+func (*integrationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationConfig)(nil)).Elem()
+}
+
+func (i *integrationConfigPtrType) ToIntegrationConfigPtrOutput() IntegrationConfigPtrOutput {
+	return i.ToIntegrationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationConfigPtrType) ToIntegrationConfigPtrOutputWithContext(ctx context.Context) IntegrationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationConfigPtrOutput)
+}
+
+// The configuration settings for the integration.
+type IntegrationConfigOutput struct{ *pulumi.OutputState }
+
+func (IntegrationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationConfig)(nil)).Elem()
+}
+
+func (o IntegrationConfigOutput) ToIntegrationConfigOutput() IntegrationConfigOutput {
+	return o
+}
+
+func (o IntegrationConfigOutput) ToIntegrationConfigOutputWithContext(ctx context.Context) IntegrationConfigOutput {
+	return o
+}
+
+func (o IntegrationConfigOutput) ToIntegrationConfigPtrOutput() IntegrationConfigPtrOutput {
+	return o.ToIntegrationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationConfigOutput) ToIntegrationConfigPtrOutputWithContext(ctx context.Context) IntegrationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationConfig) *IntegrationConfig {
+		return &v
+	}).(IntegrationConfigPtrOutput)
+}
+
+// Enables continuous synchronization for on-demand data extractions.
+func (o IntegrationConfigOutput) ContinuousSync() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IntegrationConfig) *bool { return v.ContinuousSync }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the frequency at which CDC (Change Data Capture) pulls or incremental loads should occur.
+func (o IntegrationConfigOutput) RefreshInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationConfig) *string { return v.RefreshInterval }).(pulumi.StringPtrOutput)
+}
+
+// A collection of key-value pairs that specify additional properties for the integration source. These properties provide configuration options that can be used to customize the behavior of the ODB source during data integration operations.
+func (o IntegrationConfigOutput) SourceProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v IntegrationConfig) map[string]string { return v.SourceProperties }).(pulumi.StringMapOutput)
+}
+
+type IntegrationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationConfig)(nil)).Elem()
+}
+
+func (o IntegrationConfigPtrOutput) ToIntegrationConfigPtrOutput() IntegrationConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationConfigPtrOutput) ToIntegrationConfigPtrOutputWithContext(ctx context.Context) IntegrationConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationConfigPtrOutput) Elem() IntegrationConfigOutput {
+	return o.ApplyT(func(v *IntegrationConfig) IntegrationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationConfig
+		return ret
+	}).(IntegrationConfigOutput)
+}
+
+// Enables continuous synchronization for on-demand data extractions.
+func (o IntegrationConfigPtrOutput) ContinuousSync() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IntegrationConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ContinuousSync
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the frequency at which CDC (Change Data Capture) pulls or incremental loads should occur.
+func (o IntegrationConfigPtrOutput) RefreshInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshInterval
+	}).(pulumi.StringPtrOutput)
+}
+
+// A collection of key-value pairs that specify additional properties for the integration source. These properties provide configuration options that can be used to customize the behavior of the ODB source during data integration operations.
+func (o IntegrationConfigPtrOutput) SourceProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IntegrationConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceProperties
+	}).(pulumi.StringMapOutput)
+}
+
 // A key-value pair to associate with a resource.
 type IntegrationResourcePropertyTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
+// A key-value pair to associate with a resource.
+type IntegrationTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -4999,6 +5185,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseInputTypeInput)(nil)).Elem(), DatabaseInputTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalPrivilegesInput)(nil)).Elem(), DatabasePrincipalPrivilegesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePrincipalPrivilegesArrayInput)(nil)).Elem(), DatabasePrincipalPrivilegesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationConfigInput)(nil)).Elem(), IntegrationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationConfigPtrInput)(nil)).Elem(), IntegrationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobCommandInput)(nil)).Elem(), JobCommandArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobConnectionsListInput)(nil)).Elem(), JobConnectionsListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobConnectionsListPtrInput)(nil)).Elem(), JobConnectionsListArgs{})
@@ -5065,6 +5253,8 @@ func init() {
 	pulumi.RegisterOutputType(DatabaseInputTypePtrOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalPrivilegesOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalPrivilegesArrayOutput{})
+	pulumi.RegisterOutputType(IntegrationConfigOutput{})
+	pulumi.RegisterOutputType(IntegrationConfigPtrOutput{})
 	pulumi.RegisterOutputType(JobCommandOutput{})
 	pulumi.RegisterOutputType(JobCommandPtrOutput{})
 	pulumi.RegisterOutputType(JobConnectionsListOutput{})

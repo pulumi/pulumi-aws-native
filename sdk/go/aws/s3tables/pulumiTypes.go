@@ -174,6 +174,146 @@ func (o TableBucketEncryptionConfigurationPtrOutput) SseAlgorithm() TableBucketE
 	}).(TableBucketEncryptionConfigurationSseAlgorithmPtrOutput)
 }
 
+// Settings governing the Metric configuration for the table bucket.
+type TableBucketMetricsConfiguration struct {
+	// Indicates whether Metrics are enabled.
+	Status *TableBucketMetricsConfigurationStatus `pulumi:"status"`
+}
+
+// TableBucketMetricsConfigurationInput is an input type that accepts TableBucketMetricsConfigurationArgs and TableBucketMetricsConfigurationOutput values.
+// You can construct a concrete instance of `TableBucketMetricsConfigurationInput` via:
+//
+//	TableBucketMetricsConfigurationArgs{...}
+type TableBucketMetricsConfigurationInput interface {
+	pulumi.Input
+
+	ToTableBucketMetricsConfigurationOutput() TableBucketMetricsConfigurationOutput
+	ToTableBucketMetricsConfigurationOutputWithContext(context.Context) TableBucketMetricsConfigurationOutput
+}
+
+// Settings governing the Metric configuration for the table bucket.
+type TableBucketMetricsConfigurationArgs struct {
+	// Indicates whether Metrics are enabled.
+	Status TableBucketMetricsConfigurationStatusPtrInput `pulumi:"status"`
+}
+
+func (TableBucketMetricsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketMetricsConfiguration)(nil)).Elem()
+}
+
+func (i TableBucketMetricsConfigurationArgs) ToTableBucketMetricsConfigurationOutput() TableBucketMetricsConfigurationOutput {
+	return i.ToTableBucketMetricsConfigurationOutputWithContext(context.Background())
+}
+
+func (i TableBucketMetricsConfigurationArgs) ToTableBucketMetricsConfigurationOutputWithContext(ctx context.Context) TableBucketMetricsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketMetricsConfigurationOutput)
+}
+
+func (i TableBucketMetricsConfigurationArgs) ToTableBucketMetricsConfigurationPtrOutput() TableBucketMetricsConfigurationPtrOutput {
+	return i.ToTableBucketMetricsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TableBucketMetricsConfigurationArgs) ToTableBucketMetricsConfigurationPtrOutputWithContext(ctx context.Context) TableBucketMetricsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketMetricsConfigurationOutput).ToTableBucketMetricsConfigurationPtrOutputWithContext(ctx)
+}
+
+// TableBucketMetricsConfigurationPtrInput is an input type that accepts TableBucketMetricsConfigurationArgs, TableBucketMetricsConfigurationPtr and TableBucketMetricsConfigurationPtrOutput values.
+// You can construct a concrete instance of `TableBucketMetricsConfigurationPtrInput` via:
+//
+//	        TableBucketMetricsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableBucketMetricsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTableBucketMetricsConfigurationPtrOutput() TableBucketMetricsConfigurationPtrOutput
+	ToTableBucketMetricsConfigurationPtrOutputWithContext(context.Context) TableBucketMetricsConfigurationPtrOutput
+}
+
+type tableBucketMetricsConfigurationPtrType TableBucketMetricsConfigurationArgs
+
+func TableBucketMetricsConfigurationPtr(v *TableBucketMetricsConfigurationArgs) TableBucketMetricsConfigurationPtrInput {
+	return (*tableBucketMetricsConfigurationPtrType)(v)
+}
+
+func (*tableBucketMetricsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableBucketMetricsConfiguration)(nil)).Elem()
+}
+
+func (i *tableBucketMetricsConfigurationPtrType) ToTableBucketMetricsConfigurationPtrOutput() TableBucketMetricsConfigurationPtrOutput {
+	return i.ToTableBucketMetricsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *tableBucketMetricsConfigurationPtrType) ToTableBucketMetricsConfigurationPtrOutputWithContext(ctx context.Context) TableBucketMetricsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableBucketMetricsConfigurationPtrOutput)
+}
+
+// Settings governing the Metric configuration for the table bucket.
+type TableBucketMetricsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TableBucketMetricsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketMetricsConfiguration)(nil)).Elem()
+}
+
+func (o TableBucketMetricsConfigurationOutput) ToTableBucketMetricsConfigurationOutput() TableBucketMetricsConfigurationOutput {
+	return o
+}
+
+func (o TableBucketMetricsConfigurationOutput) ToTableBucketMetricsConfigurationOutputWithContext(ctx context.Context) TableBucketMetricsConfigurationOutput {
+	return o
+}
+
+func (o TableBucketMetricsConfigurationOutput) ToTableBucketMetricsConfigurationPtrOutput() TableBucketMetricsConfigurationPtrOutput {
+	return o.ToTableBucketMetricsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TableBucketMetricsConfigurationOutput) ToTableBucketMetricsConfigurationPtrOutputWithContext(ctx context.Context) TableBucketMetricsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableBucketMetricsConfiguration) *TableBucketMetricsConfiguration {
+		return &v
+	}).(TableBucketMetricsConfigurationPtrOutput)
+}
+
+// Indicates whether Metrics are enabled.
+func (o TableBucketMetricsConfigurationOutput) Status() TableBucketMetricsConfigurationStatusPtrOutput {
+	return o.ApplyT(func(v TableBucketMetricsConfiguration) *TableBucketMetricsConfigurationStatus { return v.Status }).(TableBucketMetricsConfigurationStatusPtrOutput)
+}
+
+type TableBucketMetricsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TableBucketMetricsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableBucketMetricsConfiguration)(nil)).Elem()
+}
+
+func (o TableBucketMetricsConfigurationPtrOutput) ToTableBucketMetricsConfigurationPtrOutput() TableBucketMetricsConfigurationPtrOutput {
+	return o
+}
+
+func (o TableBucketMetricsConfigurationPtrOutput) ToTableBucketMetricsConfigurationPtrOutputWithContext(ctx context.Context) TableBucketMetricsConfigurationPtrOutput {
+	return o
+}
+
+func (o TableBucketMetricsConfigurationPtrOutput) Elem() TableBucketMetricsConfigurationOutput {
+	return o.ApplyT(func(v *TableBucketMetricsConfiguration) TableBucketMetricsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TableBucketMetricsConfiguration
+		return ret
+	}).(TableBucketMetricsConfigurationOutput)
+}
+
+// Indicates whether Metrics are enabled.
+func (o TableBucketMetricsConfigurationPtrOutput) Status() TableBucketMetricsConfigurationStatusPtrOutput {
+	return o.ApplyT(func(v *TableBucketMetricsConfiguration) *TableBucketMetricsConfigurationStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(TableBucketMetricsConfigurationStatusPtrOutput)
+}
+
 // A policy document containing permissions to add to the specified table bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
 type TableBucketPolicyResourcePolicy struct {
 }
@@ -242,6 +382,13 @@ func (o TableBucketPolicyResourcePolicyPtrOutput) Elem() TableBucketPolicyResour
 		var ret TableBucketPolicyResourcePolicy
 		return ret
 	}).(TableBucketPolicyResourcePolicyOutput)
+}
+
+type TableBucketTag struct {
+	// Tag key must be between 1 to 128 characters in length. Tag key cannot start with 'aws:' and can only contain alphanumeric characters, spaces, _, ., /, =, +, -, and @.
+	Key string `pulumi:"key"`
+	// Tag value must be between 0 to 256 characters in length. Tag value can only contain alphanumeric characters, spaces, _, ., /, =, +, -, and @.
+	Value string `pulumi:"value"`
 }
 
 // Settings governing the Unreferenced File Removal maintenance action. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots.
@@ -1227,9 +1374,18 @@ func (o TableSnapshotManagementPtrOutput) Status() TableSnapshotManagementStatus
 	}).(TableSnapshotManagementStatusPtrOutput)
 }
 
+type TableTag struct {
+	// Tag key must be between 1 to 128 characters in length. Tag key cannot start with 'aws:' and can only contain alphanumeric characters, spaces, _, ., /, =, +, -, and @.
+	Key string `pulumi:"key"`
+	// Tag value must be between 0 to 256 characters in length. Tag value can only contain alphanumeric characters, spaces, _, ., /, =, +, -, and @.
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationInput)(nil)).Elem(), TableBucketEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationPtrInput)(nil)).Elem(), TableBucketEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketMetricsConfigurationInput)(nil)).Elem(), TableBucketMetricsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketMetricsConfigurationPtrInput)(nil)).Elem(), TableBucketMetricsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketPolicyResourcePolicyInput)(nil)).Elem(), TableBucketPolicyResourcePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketUnreferencedFileRemovalInput)(nil)).Elem(), TableBucketUnreferencedFileRemovalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketUnreferencedFileRemovalPtrInput)(nil)).Elem(), TableBucketUnreferencedFileRemovalArgs{})
@@ -1246,6 +1402,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSnapshotManagementPtrInput)(nil)).Elem(), TableSnapshotManagementArgs{})
 	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TableBucketMetricsConfigurationOutput{})
+	pulumi.RegisterOutputType(TableBucketMetricsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketPolicyResourcePolicyOutput{})
 	pulumi.RegisterOutputType(TableBucketPolicyResourcePolicyPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketUnreferencedFileRemovalOutput{})

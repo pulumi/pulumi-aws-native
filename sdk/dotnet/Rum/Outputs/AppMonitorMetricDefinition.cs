@@ -71,11 +71,57 @@ namespace Pulumi.AwsNative.Rum.Outputs
         /// 
         /// WebVitalsLargestContentfulPaint
         /// 
+        /// WebVitalsInteractionToNextPaint
+        /// 
         /// JsErrorCount
         /// 
         /// HttpErrorCount
         /// 
         /// SessionCount
+        /// 
+        /// PageViewCount
+        /// 
+        /// Http4xxCount
+        /// 
+        /// Http5xxCount
+        /// 
+        /// SessionDuration
+        /// 
+        /// PageViewCountPerSession
+        /// 
+        /// JsErrorCountPerSession
+        /// 
+        /// Http4xxCountPerSession
+        /// 
+        /// Http5xxCountPerSession
+        /// 
+        /// JsErrorCountPerPageView
+        /// 
+        /// Http4xxCountPerPageView
+        /// 
+        /// Http5xxCountPerPageView
+        /// 
+        /// TimeOnPage
+        /// 
+        /// ColdLaunchTime
+        /// 
+        /// WarmLaunchTime
+        /// 
+        /// CrashCount
+        /// 
+        /// ANRCount
+        /// 
+        /// AppHangCount
+        /// 
+        /// ScreenLoadCount
+        /// 
+        /// ScreenLoadTime
+        /// 
+        /// NetworkLatency
+        /// 
+        /// SpanPayloadSize
+        /// 
+        /// LogEventPayloadSize
         /// </summary>
         public readonly string Name;
         /// <summary>

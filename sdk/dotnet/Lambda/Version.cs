@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.Lambda
         public Output<string> FunctionName { get; private set; } = null!;
 
         /// <summary>
+        /// The scaling configuration to apply to the function, including minimum and maximum execution environment limits.
+        /// </summary>
+        [Output("functionScalingConfig")]
+        public Output<Outputs.VersionFunctionScalingConfig?> FunctionScalingConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
         /// </summary>
         [Output("provisionedConcurrencyConfig")]
@@ -127,6 +133,12 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
+
+        /// <summary>
+        /// The scaling configuration to apply to the function, including minimum and maximum execution environment limits.
+        /// </summary>
+        [Input("functionScalingConfig")]
+        public Input<Inputs.VersionFunctionScalingConfigArgs>? FunctionScalingConfig { get; set; }
 
         /// <summary>
         /// Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.

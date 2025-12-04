@@ -37,12 +37,35 @@ export class Terms extends pulumi.CustomResource {
         return obj['__pulumiType'] === Terms.__pulumiType;
     }
 
+    /**
+     * The ID of the app client that the terms documents are assigned to.
+     */
     declare public readonly clientId: pulumi.Output<string | undefined>;
+    /**
+     * This parameter is reserved for future use and currently accepts one value.
+     */
     declare public readonly enforcement: pulumi.Output<enums.cognito.TermsEnforcementType>;
+    /**
+     * A map of URLs to languages. For each localized language that will view the requested `TermsName` , assign a URL. A selection of `cognito:default` displays for all languages that don't have a language-specific URL.
+     *
+     * For example, `"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"` .
+     */
     declare public readonly links: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The ID of the terms documents.
+     */
     declare public /*out*/ readonly termsId: pulumi.Output<string>;
+    /**
+     * The type and friendly name of the terms documents.
+     */
     declare public readonly termsName: pulumi.Output<string>;
+    /**
+     * This parameter is reserved for future use and currently accepts one value.
+     */
     declare public readonly termsSource: pulumi.Output<enums.cognito.TermsSourceType>;
+    /**
+     * The ID of the user pool that contains the terms documents.
+     */
     declare public readonly userPoolId: pulumi.Output<string>;
 
     /**
@@ -95,10 +118,30 @@ export class Terms extends pulumi.CustomResource {
  * The set of arguments for constructing a Terms resource.
  */
 export interface TermsArgs {
+    /**
+     * The ID of the app client that the terms documents are assigned to.
+     */
     clientId?: pulumi.Input<string>;
+    /**
+     * This parameter is reserved for future use and currently accepts one value.
+     */
     enforcement: pulumi.Input<enums.cognito.TermsEnforcementType>;
+    /**
+     * A map of URLs to languages. For each localized language that will view the requested `TermsName` , assign a URL. A selection of `cognito:default` displays for all languages that don't have a language-specific URL.
+     *
+     * For example, `"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"` .
+     */
     links: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The type and friendly name of the terms documents.
+     */
     termsName?: pulumi.Input<string>;
+    /**
+     * This parameter is reserved for future use and currently accepts one value.
+     */
     termsSource: pulumi.Input<enums.cognito.TermsSourceType>;
+    /**
+     * The ID of the user pool that contains the terms documents.
+     */
     userPoolId: pulumi.Input<string>;
 }

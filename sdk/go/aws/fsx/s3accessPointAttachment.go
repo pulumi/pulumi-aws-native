@@ -16,10 +16,12 @@ import (
 type S3AccessPointAttachment struct {
 	pulumi.CustomResourceState
 
-	// The Name of the S3AccessPointAttachment
+	// The name of the S3 access point attachment; also used for the name of the S3 access point.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The OntapConfiguration of the S3 access point attachment.
+	OntapConfiguration S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput `pulumi:"ontapConfiguration"`
 	// The OpenZFSConfiguration of the S3 access point attachment.
-	OpenZfsConfiguration S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput `pulumi:"openZfsConfiguration"`
+	OpenZfsConfiguration S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput `pulumi:"openZfsConfiguration"`
 	// The S3 access point configuration of the S3 access point attachment.
 	S3AccessPoint S3AccessPointAttachmentS3AccessPointPtrOutput `pulumi:"s3AccessPoint"`
 	// The type of Amazon FSx volume that the S3 access point is attached to.
@@ -33,14 +35,12 @@ func NewS3AccessPointAttachment(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.OpenZfsConfiguration == nil {
-		return nil, errors.New("invalid value for required argument 'OpenZfsConfiguration'")
-	}
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"name",
+		"ontapConfiguration",
 		"openZfsConfiguration",
 		"s3AccessPoint",
 		"type",
@@ -79,10 +79,12 @@ func (S3AccessPointAttachmentState) ElementType() reflect.Type {
 }
 
 type s3accessPointAttachmentArgs struct {
-	// The Name of the S3AccessPointAttachment
+	// The name of the S3 access point attachment; also used for the name of the S3 access point.
 	Name *string `pulumi:"name"`
+	// The OntapConfiguration of the S3 access point attachment.
+	OntapConfiguration *S3AccessPointAttachmentS3AccessPointOntapConfiguration `pulumi:"ontapConfiguration"`
 	// The OpenZFSConfiguration of the S3 access point attachment.
-	OpenZfsConfiguration S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration `pulumi:"openZfsConfiguration"`
+	OpenZfsConfiguration *S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration `pulumi:"openZfsConfiguration"`
 	// The S3 access point configuration of the S3 access point attachment.
 	S3AccessPoint *S3AccessPointAttachmentS3AccessPoint `pulumi:"s3AccessPoint"`
 	// The type of Amazon FSx volume that the S3 access point is attached to.
@@ -91,10 +93,12 @@ type s3accessPointAttachmentArgs struct {
 
 // The set of arguments for constructing a S3AccessPointAttachment resource.
 type S3AccessPointAttachmentArgs struct {
-	// The Name of the S3AccessPointAttachment
+	// The name of the S3 access point attachment; also used for the name of the S3 access point.
 	Name pulumi.StringPtrInput
+	// The OntapConfiguration of the S3 access point attachment.
+	OntapConfiguration S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrInput
 	// The OpenZFSConfiguration of the S3 access point attachment.
-	OpenZfsConfiguration S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationInput
+	OpenZfsConfiguration S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrInput
 	// The S3 access point configuration of the S3 access point attachment.
 	S3AccessPoint S3AccessPointAttachmentS3AccessPointPtrInput
 	// The type of Amazon FSx volume that the S3 access point is attached to.
@@ -138,16 +142,23 @@ func (o S3AccessPointAttachmentOutput) ToS3AccessPointAttachmentOutputWithContex
 	return o
 }
 
-// The Name of the S3AccessPointAttachment
+// The name of the S3 access point attachment; also used for the name of the S3 access point.
 func (o S3AccessPointAttachmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3AccessPointAttachment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The OntapConfiguration of the S3 access point attachment.
+func (o S3AccessPointAttachmentOutput) OntapConfiguration() S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachment) S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput {
+		return v.OntapConfiguration
+	}).(S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput)
+}
+
 // The OpenZFSConfiguration of the S3 access point attachment.
-func (o S3AccessPointAttachmentOutput) OpenZfsConfiguration() S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput {
-	return o.ApplyT(func(v *S3AccessPointAttachment) S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput {
+func (o S3AccessPointAttachmentOutput) OpenZfsConfiguration() S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachment) S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput {
 		return v.OpenZfsConfiguration
-	}).(S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput)
+	}).(S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput)
 }
 
 // The S3 access point configuration of the S3 access point attachment.

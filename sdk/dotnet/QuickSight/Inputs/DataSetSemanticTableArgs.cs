@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetSemanticTableArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Alias for the semantic table.
+        /// </summary>
         [Input("alias", required: true)]
         public Input<string> Alias { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the destination table from data preparation that provides data to this semantic table.
+        /// </summary>
         [Input("destinationTableId", required: true)]
         public Input<string> DestinationTableId { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration for row level security that control data access for this semantic table.
+        /// </summary>
         [Input("rowLevelPermissionConfiguration")]
         public Input<Inputs.DataSetRowLevelPermissionConfigurationArgs>? RowLevelPermissionConfiguration { get; set; }
 

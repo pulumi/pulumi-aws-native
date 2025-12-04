@@ -38,6 +38,7 @@ __all__ = [
     'SegmentDefinitionProfileType',
     'SegmentDefinitionProfileTypeDimensionType',
     'SegmentDefinitionRangeOverrideUnit',
+    'SegmentDefinitionSegmentType',
     'SegmentDefinitionStringDimensionType',
 ]
 
@@ -457,6 +458,15 @@ class SegmentDefinitionRangeOverrideUnit(_builtins.str, Enum):
     The unit to be applied to the range.
     """
     DAYS = "DAYS"
+
+
+@pulumi.type_token("aws-native:customerprofiles:SegmentDefinitionSegmentType")
+class SegmentDefinitionSegmentType(_builtins.str, Enum):
+    """
+    The SQL query that defines the segment criteria.
+    """
+    CLASSIC = "CLASSIC"
+    ENHANCED = "ENHANCED"
 
 
 @pulumi.type_token("aws-native:customerprofiles:SegmentDefinitionStringDimensionType")

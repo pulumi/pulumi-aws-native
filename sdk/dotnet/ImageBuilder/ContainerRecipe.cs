@@ -70,6 +70,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// The latest version references of the container recipe.
+        /// </summary>
+        [Output("latestVersion")]
+        public Output<Outputs.ContainerRecipeLatestVersion> LatestVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the container recipe.
         /// </summary>
         [Output("name")]

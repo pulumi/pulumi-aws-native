@@ -20,7 +20,7 @@ type ConfigurationPolicy struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The universally unique identifier (UUID) of the configuration policy.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
-	// An object that defines how AWS Security Hub is configured. It includes whether Security Hub is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub enables all other controls (including newly released controls).
+	// An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub enables all other controls (including newly released controls).
 	ConfigurationPolicy ConfigurationPolicyPolicyOutput `pulumi:"configurationPolicy"`
 	// The date and time, in UTC and ISO 8601 format.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
@@ -30,7 +30,7 @@ type ConfigurationPolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Indicates whether the service that the configuration policy applies to is enabled in the policy.
 	ServiceEnabled pulumi.BoolOutput `pulumi:"serviceEnabled"`
-	// User-defined tags associated with a configuration policy. For more information, see [Tagging AWS Security Hub resources](https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html) in the *Security Hub user guide* .
+	// User-defined tags associated with a configuration policy. For more information, see [Tagging Security Hub resources](https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html) in the *Security Hub user guide* .
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The date and time, in UTC and ISO 8601 format.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -79,25 +79,25 @@ func (ConfigurationPolicyState) ElementType() reflect.Type {
 }
 
 type configurationPolicyArgs struct {
-	// An object that defines how AWS Security Hub is configured. It includes whether Security Hub is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub enables all other controls (including newly released controls).
+	// An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub enables all other controls (including newly released controls).
 	ConfigurationPolicy ConfigurationPolicyPolicy `pulumi:"configurationPolicy"`
 	// The description of the configuration policy.
 	Description *string `pulumi:"description"`
 	// The name of the configuration policy.
 	Name *string `pulumi:"name"`
-	// User-defined tags associated with a configuration policy. For more information, see [Tagging AWS Security Hub resources](https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html) in the *Security Hub user guide* .
+	// User-defined tags associated with a configuration policy. For more information, see [Tagging Security Hub resources](https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html) in the *Security Hub user guide* .
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConfigurationPolicy resource.
 type ConfigurationPolicyArgs struct {
-	// An object that defines how AWS Security Hub is configured. It includes whether Security Hub is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub enables all other controls (including newly released controls).
+	// An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub enables all other controls (including newly released controls).
 	ConfigurationPolicy ConfigurationPolicyPolicyInput
 	// The description of the configuration policy.
 	Description pulumi.StringPtrInput
 	// The name of the configuration policy.
 	Name pulumi.StringPtrInput
-	// User-defined tags associated with a configuration policy. For more information, see [Tagging AWS Security Hub resources](https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html) in the *Security Hub user guide* .
+	// User-defined tags associated with a configuration policy. For more information, see [Tagging Security Hub resources](https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html) in the *Security Hub user guide* .
 	Tags pulumi.StringMapInput
 }
 
@@ -148,7 +148,7 @@ func (o ConfigurationPolicyOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationPolicy) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// An object that defines how AWS Security Hub is configured. It includes whether Security Hub is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub enables all other controls (including newly released controls).
+// An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub enables all other controls (including newly released controls).
 func (o ConfigurationPolicyOutput) ConfigurationPolicy() ConfigurationPolicyPolicyOutput {
 	return o.ApplyT(func(v *ConfigurationPolicy) ConfigurationPolicyPolicyOutput { return v.ConfigurationPolicy }).(ConfigurationPolicyPolicyOutput)
 }
@@ -173,7 +173,7 @@ func (o ConfigurationPolicyOutput) ServiceEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ConfigurationPolicy) pulumi.BoolOutput { return v.ServiceEnabled }).(pulumi.BoolOutput)
 }
 
-// User-defined tags associated with a configuration policy. For more information, see [Tagging AWS Security Hub resources](https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html) in the *Security Hub user guide* .
+// User-defined tags associated with a configuration policy. For more information, see [Tagging Security Hub resources](https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html) in the *Security Hub user guide* .
 func (o ConfigurationPolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConfigurationPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

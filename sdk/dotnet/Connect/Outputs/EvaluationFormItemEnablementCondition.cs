@@ -10,15 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Outputs
 {
 
+    /// <summary>
+    /// A condition for item enablement.
+    /// </summary>
     [OutputType]
     public sealed class EvaluationFormItemEnablementCondition
     {
         /// <summary>
-        /// The list of operands that compose the condition. Each operand represents a specific criteria to be evaluated.
+        /// Operands of the enablement condition.
         /// </summary>
         public readonly ImmutableArray<Outputs.EvaluationFormItemEnablementConditionOperand> Operands;
         /// <summary>
-        /// The logical operator used to combine multiple operands, determining how the condition is evaluated as a whole.
+        /// The operator to be used to be applied to operands if more than one provided.
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.EvaluationFormItemEnablementConditionOperator? Operator;
 

@@ -65,6 +65,9 @@ namespace Pulumi.AwsNative.Rum
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("platform")]
+        public Output<Pulumi.AwsNative.Rum.AppMonitorPlatform?> Platform { get; private set; } = null!;
+
         /// <summary>
         /// Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
         /// </summary>
@@ -111,6 +114,7 @@ namespace Pulumi.AwsNative.Rum
                 ReplaceOnChanges =
                 {
                     "name",
+                    "platform",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -183,6 +187,9 @@ namespace Pulumi.AwsNative.Rum
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("platform")]
+        public Input<Pulumi.AwsNative.Rum.AppMonitorPlatform>? Platform { get; set; }
 
         /// <summary>
         /// Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .

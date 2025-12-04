@@ -76,6 +76,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<string> LastUpdatedAt { get; private set; } = null!;
 
         /// <summary>
+        /// Lifecycle configuration for managing runtime sessions
+        /// </summary>
+        [Output("lifecycleConfiguration")]
+        public Output<Outputs.RuntimeLifecycleConfiguration?> LifecycleConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Network access configuration for the Agent
         /// </summary>
         [Output("networkConfiguration")]
@@ -86,6 +92,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Output("protocolConfiguration")]
         public Output<Pulumi.AwsNative.BedrockAgentCore.RuntimeProtocolConfiguration?> ProtocolConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration for HTTP request headers
+        /// </summary>
+        [Output("requestHeaderConfiguration")]
+        public Output<Outputs.RuntimeRequestHeaderConfiguration?> RequestHeaderConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of an IAM role
@@ -197,6 +209,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         }
 
         /// <summary>
+        /// Lifecycle configuration for managing runtime sessions
+        /// </summary>
+        [Input("lifecycleConfiguration")]
+        public Input<Inputs.RuntimeLifecycleConfigurationArgs>? LifecycleConfiguration { get; set; }
+
+        /// <summary>
         /// Network access configuration for the Agent
         /// </summary>
         [Input("networkConfiguration", required: true)]
@@ -207,6 +225,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Input("protocolConfiguration")]
         public Input<Pulumi.AwsNative.BedrockAgentCore.RuntimeProtocolConfiguration>? ProtocolConfiguration { get; set; }
+
+        /// <summary>
+        /// Configuration for HTTP request headers
+        /// </summary>
+        [Input("requestHeaderConfiguration")]
+        public Input<Inputs.RuntimeRequestHeaderConfigurationArgs>? RequestHeaderConfiguration { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of an IAM role

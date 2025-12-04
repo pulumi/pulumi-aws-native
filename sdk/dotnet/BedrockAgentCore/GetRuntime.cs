@@ -100,6 +100,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         public readonly string? LastUpdatedAt;
         /// <summary>
+        /// Lifecycle configuration for managing runtime sessions
+        /// </summary>
+        public readonly Outputs.RuntimeLifecycleConfiguration? LifecycleConfiguration;
+        /// <summary>
         /// Network access configuration for the Agent
         /// </summary>
         public readonly Outputs.RuntimeNetworkConfiguration? NetworkConfiguration;
@@ -107,6 +111,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// Protocol configuration for the agent runtime
         /// </summary>
         public readonly Pulumi.AwsNative.BedrockAgentCore.RuntimeProtocolConfiguration? ProtocolConfiguration;
+        /// <summary>
+        /// Configuration for HTTP request headers
+        /// </summary>
+        public readonly Outputs.RuntimeRequestHeaderConfiguration? RequestHeaderConfiguration;
         /// <summary>
         /// Amazon Resource Name (ARN) of an IAM role
         /// </summary>
@@ -144,9 +152,13 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             string? lastUpdatedAt,
 
+            Outputs.RuntimeLifecycleConfiguration? lifecycleConfiguration,
+
             Outputs.RuntimeNetworkConfiguration? networkConfiguration,
 
             Pulumi.AwsNative.BedrockAgentCore.RuntimeProtocolConfiguration? protocolConfiguration,
+
+            Outputs.RuntimeRequestHeaderConfiguration? requestHeaderConfiguration,
 
             string? roleArn,
 
@@ -165,8 +177,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             Description = description;
             EnvironmentVariables = environmentVariables;
             LastUpdatedAt = lastUpdatedAt;
+            LifecycleConfiguration = lifecycleConfiguration;
             NetworkConfiguration = networkConfiguration;
             ProtocolConfiguration = protocolConfiguration;
+            RequestHeaderConfiguration = requestHeaderConfiguration;
             RoleArn = roleArn;
             Status = status;
             Tags = tags;

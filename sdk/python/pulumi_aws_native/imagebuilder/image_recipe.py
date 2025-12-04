@@ -22,30 +22,29 @@ __all__ = ['ImageRecipeArgs', 'ImageRecipe']
 @pulumi.input_type
 class ImageRecipeArgs:
     def __init__(__self__, *,
-                 components: pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]],
                  parent_image: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.str],
                  additional_instance_configuration: Optional[pulumi.Input['ImageRecipeAdditionalInstanceConfigurationArgs']] = None,
                  ami_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]]] = None,
+                 components: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  working_directory: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ImageRecipe resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]] components: The components of the image recipe.
         :param pulumi.Input[_builtins.str] parent_image: The parent image of the image recipe.
         :param pulumi.Input[_builtins.str] version: The version of the image recipe.
         :param pulumi.Input['ImageRecipeAdditionalInstanceConfigurationArgs'] additional_instance_configuration: Specify additional settings and launch scripts for your build instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ami_tags: The tags to apply to the AMI created by this image recipe.
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]] block_device_mappings: The block device mappings to apply when creating images from this recipe.
+        :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]] components: The components of the image recipe.
         :param pulumi.Input[_builtins.str] description: The description of the image recipe.
         :param pulumi.Input[_builtins.str] name: The name of the image recipe.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags of the image recipe.
         :param pulumi.Input[_builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
-        pulumi.set(__self__, "components", components)
         pulumi.set(__self__, "parent_image", parent_image)
         pulumi.set(__self__, "version", version)
         if additional_instance_configuration is not None:
@@ -54,6 +53,8 @@ class ImageRecipeArgs:
             pulumi.set(__self__, "ami_tags", ami_tags)
         if block_device_mappings is not None:
             pulumi.set(__self__, "block_device_mappings", block_device_mappings)
+        if components is not None:
+            pulumi.set(__self__, "components", components)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -62,18 +63,6 @@ class ImageRecipeArgs:
             pulumi.set(__self__, "tags", tags)
         if working_directory is not None:
             pulumi.set(__self__, "working_directory", working_directory)
-
-    @_builtins.property
-    @pulumi.getter
-    def components(self) -> pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]]:
-        """
-        The components of the image recipe.
-        """
-        return pulumi.get(self, "components")
-
-    @components.setter
-    def components(self, value: pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]]):
-        pulumi.set(self, "components", value)
 
     @_builtins.property
     @pulumi.getter(name="parentImage")
@@ -134,6 +123,18 @@ class ImageRecipeArgs:
     @block_device_mappings.setter
     def block_device_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]]]):
         pulumi.set(self, "block_device_mappings", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]]]:
+        """
+        The components of the image recipe.
+        """
+        return pulumi.get(self, "components")
+
+    @components.setter
+    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]]]):
+        pulumi.set(self, "components", value)
 
     @_builtins.property
     @pulumi.getter
@@ -263,8 +264,6 @@ class ImageRecipe(pulumi.CustomResource):
             __props__.__dict__["additional_instance_configuration"] = additional_instance_configuration
             __props__.__dict__["ami_tags"] = ami_tags
             __props__.__dict__["block_device_mappings"] = block_device_mappings
-            if components is None and not opts.urn:
-                raise TypeError("Missing required property 'components'")
             __props__.__dict__["components"] = components
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
@@ -277,6 +276,7 @@ class ImageRecipe(pulumi.CustomResource):
             __props__.__dict__["version"] = version
             __props__.__dict__["working_directory"] = working_directory
             __props__.__dict__["arn"] = None
+            __props__.__dict__["latest_version"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["blockDeviceMappings[*]", "components[*]", "description", "name", "parentImage", "version", "workingDirectory"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ImageRecipe, __self__).__init__(
@@ -307,6 +307,7 @@ class ImageRecipe(pulumi.CustomResource):
         __props__.__dict__["block_device_mappings"] = None
         __props__.__dict__["components"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["latest_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["parent_image"] = None
         __props__.__dict__["tags"] = None
@@ -348,7 +349,7 @@ class ImageRecipe(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def components(self) -> pulumi.Output[Sequence['outputs.ImageRecipeComponentConfiguration']]:
+    def components(self) -> pulumi.Output[Optional[Sequence['outputs.ImageRecipeComponentConfiguration']]]:
         """
         The components of the image recipe.
         """
@@ -361,6 +362,14 @@ class ImageRecipe(pulumi.CustomResource):
         The description of the image recipe.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="latestVersion")
+    def latest_version(self) -> pulumi.Output['outputs.ImageRecipeLatestVersion']:
+        """
+        The latest version references of the image recipe.
+        """
+        return pulumi.get(self, "latest_version")
 
     @_builtins.property
     @pulumi.getter

@@ -30,7 +30,8 @@ type LookupDomainArgs struct {
 
 type LookupDomainResult struct {
 	// The time of this integration got created
-	CreatedAt *string `pulumi:"createdAt"`
+	CreatedAt *string          `pulumi:"createdAt"`
+	DataStore *DomainDataStore `pulumi:"dataStore"`
 	// The URL of the SQS dead letter queue
 	DeadLetterQueueUrl *string `pulumi:"deadLetterQueueUrl"`
 	// The default encryption key
@@ -83,6 +84,10 @@ func (o LookupDomainResultOutput) ToLookupDomainResultOutputWithContext(ctx cont
 // The time of this integration got created
 func (o LookupDomainResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDomainResultOutput) DataStore() DomainDataStorePtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainDataStore { return v.DataStore }).(DomainDataStorePtrOutput)
 }
 
 // The URL of the SQS dead letter queue

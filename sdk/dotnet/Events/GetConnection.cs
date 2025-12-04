@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.Events
         /// </summary>
         public readonly Outputs.InvocationConnectivityParametersProperties? InvocationConnectivityParameters;
         /// <summary>
-        /// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        /// The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
         /// 
         /// If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the connection.
         /// 

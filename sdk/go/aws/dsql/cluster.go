@@ -22,12 +22,18 @@ type Cluster struct {
 	DeletionProtectionEnabled pulumi.BoolPtrOutput `pulumi:"deletionProtectionEnabled"`
 	// The encryption configuration details for the cluster.
 	EncryptionDetails EncryptionDetailsPropertiesOutput `pulumi:"encryptionDetails"`
+	// The DSQL cluster endpoint.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// The ID of the created cluster.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// The KMS key that encrypts data on the cluster.
 	KmsEncryptionKey pulumi.StringPtrOutput `pulumi:"kmsEncryptionKey"`
 	// The Multi-region properties associated to this cluster.
 	MultiRegionProperties MultiRegionPropertiesPropertiesPtrOutput `pulumi:"multiRegionProperties"`
+	// The IAM policy applied to the cluster resource.
+	PolicyDocument pulumi.StringPtrOutput `pulumi:"policyDocument"`
+	// The version number of the cluster's resource based policy
+	PolicyVersion pulumi.StringOutput `pulumi:"policyVersion"`
 	// The Amazon Resource Name (ARN) for the cluster.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// The status of the cluster.
@@ -84,6 +90,8 @@ type clusterArgs struct {
 	KmsEncryptionKey *string `pulumi:"kmsEncryptionKey"`
 	// The Multi-region properties associated to this cluster.
 	MultiRegionProperties *MultiRegionPropertiesProperties `pulumi:"multiRegionProperties"`
+	// The IAM policy applied to the cluster resource.
+	PolicyDocument *string `pulumi:"policyDocument"`
 	// A map of key and value pairs this cluster is tagged with.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -96,6 +104,8 @@ type ClusterArgs struct {
 	KmsEncryptionKey pulumi.StringPtrInput
 	// The Multi-region properties associated to this cluster.
 	MultiRegionProperties MultiRegionPropertiesPropertiesPtrInput
+	// The IAM policy applied to the cluster resource.
+	PolicyDocument pulumi.StringPtrInput
 	// A map of key and value pairs this cluster is tagged with.
 	Tags aws.TagArrayInput
 }
@@ -152,6 +162,11 @@ func (o ClusterOutput) EncryptionDetails() EncryptionDetailsPropertiesOutput {
 	return o.ApplyT(func(v *Cluster) EncryptionDetailsPropertiesOutput { return v.EncryptionDetails }).(EncryptionDetailsPropertiesOutput)
 }
 
+// The DSQL cluster endpoint.
+func (o ClusterOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+}
+
 // The ID of the created cluster.
 func (o ClusterOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
@@ -165,6 +180,16 @@ func (o ClusterOutput) KmsEncryptionKey() pulumi.StringPtrOutput {
 // The Multi-region properties associated to this cluster.
 func (o ClusterOutput) MultiRegionProperties() MultiRegionPropertiesPropertiesPtrOutput {
 	return o.ApplyT(func(v *Cluster) MultiRegionPropertiesPropertiesPtrOutput { return v.MultiRegionProperties }).(MultiRegionPropertiesPropertiesPtrOutput)
+}
+
+// The IAM policy applied to the cluster resource.
+func (o ClusterOutput) PolicyDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.PolicyDocument }).(pulumi.StringPtrOutput)
+}
+
+// The version number of the cluster's resource based policy
+func (o ClusterOutput) PolicyVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.PolicyVersion }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) for the cluster.

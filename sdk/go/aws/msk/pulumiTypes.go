@@ -3007,6 +3007,139 @@ func (o ClusterPublicAccessPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ClusterRebalancing struct {
+	Status ClusterRebalancingStatus `pulumi:"status"`
+}
+
+// ClusterRebalancingInput is an input type that accepts ClusterRebalancingArgs and ClusterRebalancingOutput values.
+// You can construct a concrete instance of `ClusterRebalancingInput` via:
+//
+//	ClusterRebalancingArgs{...}
+type ClusterRebalancingInput interface {
+	pulumi.Input
+
+	ToClusterRebalancingOutput() ClusterRebalancingOutput
+	ToClusterRebalancingOutputWithContext(context.Context) ClusterRebalancingOutput
+}
+
+type ClusterRebalancingArgs struct {
+	Status ClusterRebalancingStatusInput `pulumi:"status"`
+}
+
+func (ClusterRebalancingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRebalancing)(nil)).Elem()
+}
+
+func (i ClusterRebalancingArgs) ToClusterRebalancingOutput() ClusterRebalancingOutput {
+	return i.ToClusterRebalancingOutputWithContext(context.Background())
+}
+
+func (i ClusterRebalancingArgs) ToClusterRebalancingOutputWithContext(ctx context.Context) ClusterRebalancingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRebalancingOutput)
+}
+
+func (i ClusterRebalancingArgs) ToClusterRebalancingPtrOutput() ClusterRebalancingPtrOutput {
+	return i.ToClusterRebalancingPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterRebalancingArgs) ToClusterRebalancingPtrOutputWithContext(ctx context.Context) ClusterRebalancingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRebalancingOutput).ToClusterRebalancingPtrOutputWithContext(ctx)
+}
+
+// ClusterRebalancingPtrInput is an input type that accepts ClusterRebalancingArgs, ClusterRebalancingPtr and ClusterRebalancingPtrOutput values.
+// You can construct a concrete instance of `ClusterRebalancingPtrInput` via:
+//
+//	        ClusterRebalancingArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterRebalancingPtrInput interface {
+	pulumi.Input
+
+	ToClusterRebalancingPtrOutput() ClusterRebalancingPtrOutput
+	ToClusterRebalancingPtrOutputWithContext(context.Context) ClusterRebalancingPtrOutput
+}
+
+type clusterRebalancingPtrType ClusterRebalancingArgs
+
+func ClusterRebalancingPtr(v *ClusterRebalancingArgs) ClusterRebalancingPtrInput {
+	return (*clusterRebalancingPtrType)(v)
+}
+
+func (*clusterRebalancingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRebalancing)(nil)).Elem()
+}
+
+func (i *clusterRebalancingPtrType) ToClusterRebalancingPtrOutput() ClusterRebalancingPtrOutput {
+	return i.ToClusterRebalancingPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterRebalancingPtrType) ToClusterRebalancingPtrOutputWithContext(ctx context.Context) ClusterRebalancingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRebalancingPtrOutput)
+}
+
+type ClusterRebalancingOutput struct{ *pulumi.OutputState }
+
+func (ClusterRebalancingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRebalancing)(nil)).Elem()
+}
+
+func (o ClusterRebalancingOutput) ToClusterRebalancingOutput() ClusterRebalancingOutput {
+	return o
+}
+
+func (o ClusterRebalancingOutput) ToClusterRebalancingOutputWithContext(ctx context.Context) ClusterRebalancingOutput {
+	return o
+}
+
+func (o ClusterRebalancingOutput) ToClusterRebalancingPtrOutput() ClusterRebalancingPtrOutput {
+	return o.ToClusterRebalancingPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterRebalancingOutput) ToClusterRebalancingPtrOutputWithContext(ctx context.Context) ClusterRebalancingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterRebalancing) *ClusterRebalancing {
+		return &v
+	}).(ClusterRebalancingPtrOutput)
+}
+
+func (o ClusterRebalancingOutput) Status() ClusterRebalancingStatusOutput {
+	return o.ApplyT(func(v ClusterRebalancing) ClusterRebalancingStatus { return v.Status }).(ClusterRebalancingStatusOutput)
+}
+
+type ClusterRebalancingPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterRebalancingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRebalancing)(nil)).Elem()
+}
+
+func (o ClusterRebalancingPtrOutput) ToClusterRebalancingPtrOutput() ClusterRebalancingPtrOutput {
+	return o
+}
+
+func (o ClusterRebalancingPtrOutput) ToClusterRebalancingPtrOutputWithContext(ctx context.Context) ClusterRebalancingPtrOutput {
+	return o
+}
+
+func (o ClusterRebalancingPtrOutput) Elem() ClusterRebalancingOutput {
+	return o.ApplyT(func(v *ClusterRebalancing) ClusterRebalancing {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterRebalancing
+		return ret
+	}).(ClusterRebalancingOutput)
+}
+
+func (o ClusterRebalancingPtrOutput) Status() ClusterRebalancingStatusPtrOutput {
+	return o.ApplyT(func(v *ClusterRebalancing) *ClusterRebalancingStatus {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(ClusterRebalancingStatusPtrOutput)
+}
+
 type ClusterS3 struct {
 	// The name of the S3 bucket that is the destination for broker logs.
 	Bucket *string `pulumi:"bucket"`
@@ -6083,6 +6216,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterProvisionedThroughputPtrInput)(nil)).Elem(), ClusterProvisionedThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPublicAccessInput)(nil)).Elem(), ClusterPublicAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPublicAccessPtrInput)(nil)).Elem(), ClusterPublicAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRebalancingInput)(nil)).Elem(), ClusterRebalancingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRebalancingPtrInput)(nil)).Elem(), ClusterRebalancingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterS3Input)(nil)).Elem(), ClusterS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterS3PtrInput)(nil)).Elem(), ClusterS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSaslInput)(nil)).Elem(), ClusterSaslArgs{})
@@ -6164,6 +6299,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterProvisionedThroughputPtrOutput{})
 	pulumi.RegisterOutputType(ClusterPublicAccessOutput{})
 	pulumi.RegisterOutputType(ClusterPublicAccessPtrOutput{})
+	pulumi.RegisterOutputType(ClusterRebalancingOutput{})
+	pulumi.RegisterOutputType(ClusterRebalancingPtrOutput{})
 	pulumi.RegisterOutputType(ClusterS3Output{})
 	pulumi.RegisterOutputType(ClusterS3PtrOutput{})
 	pulumi.RegisterOutputType(ClusterSaslOutput{})

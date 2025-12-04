@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetStringComparisonFilterCondition
     {
+        /// <summary>
+        /// The comparison operator to use, such as `EQUALS` , `CONTAINS` , `STARTS_WITH` , `ENDS_WITH` , or their negations.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetStringComparisonFilterOperator Operator;
+        /// <summary>
+        /// The string value to compare against.
+        /// </summary>
         public readonly Outputs.DataSetStringFilterValue? Value;
 
         [OutputConstructor]

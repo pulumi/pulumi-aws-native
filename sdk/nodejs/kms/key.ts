@@ -125,6 +125,9 @@ export class Key extends pulumi.CustomResource {
      *   +  ``ECC_NIST_P256`` (secp256r1)
      *   +  ``ECC_NIST_P384`` (secp384r1)
      *   +  ``ECC_NIST_P521`` (secp521r1)
+     *   +  ``ECC_NIST_EDWARDS25519`` (ed25519) - signing and verification only
+     *   +  *Note:* For ECC_NIST_EDWARDS25519 KMS keys, the ED25519_SHA_512 signing algorithm requires [MessageType:RAW](https://docs.aws.amazon.com/kms/latest/APIReference/API_Sign.html#KMS-Sign-request-MessageType), while ED25519_PH_SHA_512 requires [MessageType:DIGEST](https://docs.aws.amazon.com/kms/latest/APIReference/API_Sign.html#KMS-Sign-request-MessageType). These message types cannot be used interchangeably.
+     *   
      *   
      *   +  Other asymmetric elliptic curve key pairs (signing and verification)
      *   +  ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.
@@ -308,6 +311,9 @@ export interface KeyArgs {
      *   +  ``ECC_NIST_P256`` (secp256r1)
      *   +  ``ECC_NIST_P384`` (secp384r1)
      *   +  ``ECC_NIST_P521`` (secp521r1)
+     *   +  ``ECC_NIST_EDWARDS25519`` (ed25519) - signing and verification only
+     *   +  *Note:* For ECC_NIST_EDWARDS25519 KMS keys, the ED25519_SHA_512 signing algorithm requires [MessageType:RAW](https://docs.aws.amazon.com/kms/latest/APIReference/API_Sign.html#KMS-Sign-request-MessageType), while ED25519_PH_SHA_512 requires [MessageType:DIGEST](https://docs.aws.amazon.com/kms/latest/APIReference/API_Sign.html#KMS-Sign-request-MessageType). These message types cannot be used interchangeably.
+     *   
      *   
      *   +  Other asymmetric elliptic curve key pairs (signing and verification)
      *   +  ``ECC_SECG_P256K1`` (secp256k1), commonly used for cryptocurrencies.

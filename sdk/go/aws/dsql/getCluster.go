@@ -35,10 +35,16 @@ type LookupClusterResult struct {
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
 	// The encryption configuration details for the cluster.
 	EncryptionDetails *EncryptionDetailsProperties `pulumi:"encryptionDetails"`
+	// The DSQL cluster endpoint.
+	Endpoint *string `pulumi:"endpoint"`
 	// The ID of the created cluster.
 	Identifier *string `pulumi:"identifier"`
 	// The Multi-region properties associated to this cluster.
 	MultiRegionProperties *MultiRegionPropertiesProperties `pulumi:"multiRegionProperties"`
+	// The IAM policy applied to the cluster resource.
+	PolicyDocument *string `pulumi:"policyDocument"`
+	// The version number of the cluster's resource based policy
+	PolicyVersion *string `pulumi:"policyVersion"`
 	// The Amazon Resource Name (ARN) for the cluster.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// The status of the cluster.
@@ -96,6 +102,11 @@ func (o LookupClusterResultOutput) EncryptionDetails() EncryptionDetailsProperti
 	return o.ApplyT(func(v LookupClusterResult) *EncryptionDetailsProperties { return v.EncryptionDetails }).(EncryptionDetailsPropertiesPtrOutput)
 }
 
+// The DSQL cluster endpoint.
+func (o LookupClusterResultOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
 // The ID of the created cluster.
 func (o LookupClusterResultOutput) Identifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.Identifier }).(pulumi.StringPtrOutput)
@@ -104,6 +115,16 @@ func (o LookupClusterResultOutput) Identifier() pulumi.StringPtrOutput {
 // The Multi-region properties associated to this cluster.
 func (o LookupClusterResultOutput) MultiRegionProperties() MultiRegionPropertiesPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *MultiRegionPropertiesProperties { return v.MultiRegionProperties }).(MultiRegionPropertiesPropertiesPtrOutput)
+}
+
+// The IAM policy applied to the cluster resource.
+func (o LookupClusterResultOutput) PolicyDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.PolicyDocument }).(pulumi.StringPtrOutput)
+}
+
+// The version number of the cluster's resource based policy
+func (o LookupClusterResultOutput) PolicyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.PolicyVersion }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) for the cluster.

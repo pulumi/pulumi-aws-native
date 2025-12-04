@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -19,6 +20,8 @@ type Project struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the project to create.
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -67,12 +70,16 @@ func (ProjectState) ElementType() reflect.Type {
 type projectArgs struct {
 	// The name of the project to create.
 	ProjectName *string `pulumi:"projectName"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
 	// The name of the project to create.
 	ProjectName pulumi.StringPtrInput
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayInput
 }
 
 func (ProjectArgs) ElementType() reflect.Type {
@@ -120,6 +127,11 @@ func (o ProjectOutput) Arn() pulumi.StringOutput {
 // The name of the project to create.
 func (o ProjectOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o ProjectOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Project) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

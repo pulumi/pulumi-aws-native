@@ -30,13 +30,13 @@ namespace Pulumi.AwsNative.Deadline
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
+        /// The Amazon Resource Name that the IAM Identity Center assigned to the monitor when it was created.
         /// </summary>
         [Output("identityCenterApplicationArn")]
         public Output<string> IdentityCenterApplicationArn { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
+        /// The Amazon Resource Name of the IAM Identity Center instance responsible for authenticating monitor users.
         /// </summary>
         [Output("identityCenterInstanceArn")]
         public Output<string> IdentityCenterInstanceArn { get; private set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.Deadline
         public Output<string> MonitorId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+        /// The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -129,13 +129,13 @@ namespace Pulumi.AwsNative.Deadline
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
+        /// The Amazon Resource Name of the IAM Identity Center instance responsible for authenticating monitor users.
         /// </summary>
         [Input("identityCenterInstanceArn", required: true)]
         public Input<string> IdentityCenterInstanceArn { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+        /// The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

@@ -29,6 +29,8 @@ type LandingZone struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
 	Manifest pulumi.AnyOutput `pulumi:"manifest"`
+	// The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.
+	RemediationTypes LandingZoneRemediationTypesItemArrayOutput `pulumi:"remediationTypes"`
 	// The landing zone deployment status. One of `ACTIVE` , `PROCESSING` , `FAILED` .
 	Status LandingZoneStatusOutput `pulumi:"status"`
 	// Tags to be applied to the landing zone.
@@ -87,6 +89,8 @@ type landingZoneArgs struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
 	Manifest interface{} `pulumi:"manifest"`
+	// The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.
+	RemediationTypes []LandingZoneRemediationTypesItem `pulumi:"remediationTypes"`
 	// Tags to be applied to the landing zone.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The landing zone's current deployed version.
@@ -99,6 +103,8 @@ type LandingZoneArgs struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
 	Manifest pulumi.Input
+	// The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.
+	RemediationTypes LandingZoneRemediationTypesItemArrayInput
 	// Tags to be applied to the landing zone.
 	Tags aws.TagArrayInput
 	// The landing zone's current deployed version.
@@ -167,6 +173,11 @@ func (o LandingZoneOutput) LatestAvailableVersion() pulumi.StringOutput {
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
 func (o LandingZoneOutput) Manifest() pulumi.AnyOutput {
 	return o.ApplyT(func(v *LandingZone) pulumi.AnyOutput { return v.Manifest }).(pulumi.AnyOutput)
+}
+
+// The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.
+func (o LandingZoneOutput) RemediationTypes() LandingZoneRemediationTypesItemArrayOutput {
+	return o.ApplyT(func(v *LandingZone) LandingZoneRemediationTypesItemArrayOutput { return v.RemediationTypes }).(LandingZoneRemediationTypesItemArrayOutput)
 }
 
 // The landing zone deployment status. One of `ACTIVE` , `PROCESSING` , `FAILED` .

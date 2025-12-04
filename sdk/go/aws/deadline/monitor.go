@@ -23,13 +23,13 @@ type Monitor struct {
 	//
 	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
+	// The Amazon Resource Name that the IAM Identity Center assigned to the monitor when it was created.
 	IdentityCenterApplicationArn pulumi.StringOutput `pulumi:"identityCenterApplicationArn"`
-	// The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
+	// The Amazon Resource Name of the IAM Identity Center instance responsible for authenticating monitor users.
 	IdentityCenterInstanceArn pulumi.StringOutput `pulumi:"identityCenterInstanceArn"`
 	// The unique identifier for the monitor.
 	MonitorId pulumi.StringOutput `pulumi:"monitorId"`
-	// The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+	// The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
 	Subdomain pulumi.StringOutput `pulumi:"subdomain"`
@@ -99,9 +99,9 @@ type monitorArgs struct {
 	//
 	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName string `pulumi:"displayName"`
-	// The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
+	// The Amazon Resource Name of the IAM Identity Center instance responsible for authenticating monitor users.
 	IdentityCenterInstanceArn string `pulumi:"identityCenterInstanceArn"`
-	// The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+	// The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
 	RoleArn string `pulumi:"roleArn"`
 	// The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
 	Subdomain string `pulumi:"subdomain"`
@@ -115,9 +115,9 @@ type MonitorArgs struct {
 	//
 	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName pulumi.StringInput
-	// The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
+	// The Amazon Resource Name of the IAM Identity Center instance responsible for authenticating monitor users.
 	IdentityCenterInstanceArn pulumi.StringInput
-	// The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+	// The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
 	RoleArn pulumi.StringInput
 	// The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
 	Subdomain pulumi.StringInput
@@ -174,12 +174,12 @@ func (o MonitorOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
+// The Amazon Resource Name that the IAM Identity Center assigned to the monitor when it was created.
 func (o MonitorOutput) IdentityCenterApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.IdentityCenterApplicationArn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
+// The Amazon Resource Name of the IAM Identity Center instance responsible for authenticating monitor users.
 func (o MonitorOutput) IdentityCenterInstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.IdentityCenterInstanceArn }).(pulumi.StringOutput)
 }
@@ -189,7 +189,7 @@ func (o MonitorOutput) MonitorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.MonitorId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+// The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
 func (o MonitorOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

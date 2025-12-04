@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class EvaluationFormNumericQuestionAutomation
     {
+        /// <summary>
+        /// A source of automation answer for numeric question.
+        /// </summary>
         public readonly Outputs.EvaluationFormQuestionAutomationAnswerSource? AnswerSource;
         /// <summary>
         /// The property value of the automation.

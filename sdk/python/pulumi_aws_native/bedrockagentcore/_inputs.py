@@ -18,6 +18,8 @@ from ._enums import *
 __all__ = [
     'BrowserCustomBrowserNetworkConfigurationArgs',
     'BrowserCustomBrowserNetworkConfigurationArgsDict',
+    'BrowserCustomBrowserSigningArgs',
+    'BrowserCustomBrowserSigningArgsDict',
     'BrowserCustomRecordingConfigArgs',
     'BrowserCustomRecordingConfigArgsDict',
     'BrowserCustomS3LocationArgs',
@@ -50,12 +52,16 @@ __all__ = [
     'GatewayTargetCredentialProviderConfigurationArgsDict',
     'GatewayTargetMcpLambdaTargetConfigurationArgs',
     'GatewayTargetMcpLambdaTargetConfigurationArgsDict',
+    'GatewayTargetMcpServerTargetConfigurationArgs',
+    'GatewayTargetMcpServerTargetConfigurationArgsDict',
     'GatewayTargetMcpTargetConfiguration0PropertiesArgs',
     'GatewayTargetMcpTargetConfiguration0PropertiesArgsDict',
     'GatewayTargetMcpTargetConfiguration1PropertiesArgs',
     'GatewayTargetMcpTargetConfiguration1PropertiesArgsDict',
     'GatewayTargetMcpTargetConfiguration2PropertiesArgs',
     'GatewayTargetMcpTargetConfiguration2PropertiesArgsDict',
+    'GatewayTargetMcpTargetConfiguration3PropertiesArgs',
+    'GatewayTargetMcpTargetConfiguration3PropertiesArgsDict',
     'GatewayTargetOAuthCredentialProviderArgs',
     'GatewayTargetOAuthCredentialProviderArgsDict',
     'GatewayTargetS3ConfigurationArgs',
@@ -114,12 +120,22 @@ __all__ = [
     'RuntimeAgentRuntimeArtifactArgsDict',
     'RuntimeAuthorizerConfigurationArgs',
     'RuntimeAuthorizerConfigurationArgsDict',
+    'RuntimeCodeConfigurationArgs',
+    'RuntimeCodeConfigurationArgsDict',
+    'RuntimeCodeArgs',
+    'RuntimeCodeArgsDict',
     'RuntimeContainerConfigurationArgs',
     'RuntimeContainerConfigurationArgsDict',
     'RuntimeCustomJwtAuthorizerConfigurationArgs',
     'RuntimeCustomJwtAuthorizerConfigurationArgsDict',
+    'RuntimeLifecycleConfigurationArgs',
+    'RuntimeLifecycleConfigurationArgsDict',
     'RuntimeNetworkConfigurationArgs',
     'RuntimeNetworkConfigurationArgsDict',
+    'RuntimeRequestHeaderConfigurationArgs',
+    'RuntimeRequestHeaderConfigurationArgsDict',
+    'RuntimeS3LocationArgs',
+    'RuntimeS3LocationArgsDict',
     'RuntimeVpcConfigArgs',
     'RuntimeVpcConfigArgsDict',
 ]
@@ -172,6 +188,35 @@ class BrowserCustomBrowserNetworkConfigurationArgs:
     @vpc_config.setter
     def vpc_config(self, value: Optional[pulumi.Input['BrowserCustomVpcConfigArgs']]):
         pulumi.set(self, "vpc_config", value)
+
+
+if not MYPY:
+    class BrowserCustomBrowserSigningArgsDict(TypedDict):
+        """
+        Browser signing configuration
+        """
+        enabled: NotRequired[pulumi.Input[_builtins.bool]]
+elif False:
+    BrowserCustomBrowserSigningArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BrowserCustomBrowserSigningArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        Browser signing configuration
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 if not MYPY:
@@ -788,6 +833,28 @@ class GatewayTargetMcpLambdaTargetConfigurationArgs:
 
 
 if not MYPY:
+    class GatewayTargetMcpServerTargetConfigurationArgsDict(TypedDict):
+        endpoint: pulumi.Input[_builtins.str]
+elif False:
+    GatewayTargetMcpServerTargetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GatewayTargetMcpServerTargetConfigurationArgs:
+    def __init__(__self__, *,
+                 endpoint: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "endpoint", endpoint)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoint", value)
+
+
+if not MYPY:
     class GatewayTargetMcpTargetConfiguration0PropertiesArgsDict(TypedDict):
         open_api_schema: pulumi.Input[Union['GatewayTargetApiSchemaConfiguration0PropertiesArgsDict', 'GatewayTargetApiSchemaConfiguration1PropertiesArgsDict']]
 elif False:
@@ -851,6 +918,28 @@ class GatewayTargetMcpTargetConfiguration2PropertiesArgs:
     @lambda_.setter
     def lambda_(self, value: pulumi.Input['GatewayTargetMcpLambdaTargetConfigurationArgs']):
         pulumi.set(self, "lambda_", value)
+
+
+if not MYPY:
+    class GatewayTargetMcpTargetConfiguration3PropertiesArgsDict(TypedDict):
+        mcp_server: pulumi.Input['GatewayTargetMcpServerTargetConfigurationArgsDict']
+elif False:
+    GatewayTargetMcpTargetConfiguration3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GatewayTargetMcpTargetConfiguration3PropertiesArgs:
+    def __init__(__self__, *,
+                 mcp_server: pulumi.Input['GatewayTargetMcpServerTargetConfigurationArgs']):
+        pulumi.set(__self__, "mcp_server", mcp_server)
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServer")
+    def mcp_server(self) -> pulumi.Input['GatewayTargetMcpServerTargetConfigurationArgs']:
+        return pulumi.get(self, "mcp_server")
+
+    @mcp_server.setter
+    def mcp_server(self, value: pulumi.Input['GatewayTargetMcpServerTargetConfigurationArgs']):
+        pulumi.set(self, "mcp_server", value)
 
 
 if not MYPY:
@@ -1012,23 +1101,23 @@ class GatewayTargetSchemaDefinitionArgs:
 
 if not MYPY:
     class GatewayTargetTargetConfigurationPropertiesArgsDict(TypedDict):
-        mcp: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration1PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration2PropertiesArgsDict']]
+        mcp: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration1PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration2PropertiesArgsDict', 'GatewayTargetMcpTargetConfiguration3PropertiesArgsDict']]
 elif False:
     GatewayTargetTargetConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GatewayTargetTargetConfigurationPropertiesArgs:
     def __init__(__self__, *,
-                 mcp: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgs', 'GatewayTargetMcpTargetConfiguration1PropertiesArgs', 'GatewayTargetMcpTargetConfiguration2PropertiesArgs']]):
+                 mcp: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgs', 'GatewayTargetMcpTargetConfiguration1PropertiesArgs', 'GatewayTargetMcpTargetConfiguration2PropertiesArgs', 'GatewayTargetMcpTargetConfiguration3PropertiesArgs']]):
         pulumi.set(__self__, "mcp", mcp)
 
     @_builtins.property
     @pulumi.getter
-    def mcp(self) -> pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgs', 'GatewayTargetMcpTargetConfiguration1PropertiesArgs', 'GatewayTargetMcpTargetConfiguration2PropertiesArgs']]:
+    def mcp(self) -> pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgs', 'GatewayTargetMcpTargetConfiguration1PropertiesArgs', 'GatewayTargetMcpTargetConfiguration2PropertiesArgs', 'GatewayTargetMcpTargetConfiguration3PropertiesArgs']]:
         return pulumi.get(self, "mcp")
 
     @mcp.setter
-    def mcp(self, value: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgs', 'GatewayTargetMcpTargetConfiguration1PropertiesArgs', 'GatewayTargetMcpTargetConfiguration2PropertiesArgs']]):
+    def mcp(self, value: pulumi.Input[Union['GatewayTargetMcpTargetConfiguration0PropertiesArgs', 'GatewayTargetMcpTargetConfiguration1PropertiesArgs', 'GatewayTargetMcpTargetConfiguration2PropertiesArgs', 'GatewayTargetMcpTargetConfiguration3PropertiesArgs']]):
         pulumi.set(self, "mcp", value)
 
 
@@ -2342,6 +2431,7 @@ class MemoryUserPreferenceOverrideArgs:
 
 if not MYPY:
     class RuntimeAgentRuntimeArtifactArgsDict(TypedDict):
+        code_configuration: NotRequired[pulumi.Input['RuntimeCodeConfigurationArgsDict']]
         container_configuration: NotRequired[pulumi.Input['RuntimeContainerConfigurationArgsDict']]
         """
         Representation of a container configuration.
@@ -2352,12 +2442,24 @@ elif False:
 @pulumi.input_type
 class RuntimeAgentRuntimeArtifactArgs:
     def __init__(__self__, *,
+                 code_configuration: Optional[pulumi.Input['RuntimeCodeConfigurationArgs']] = None,
                  container_configuration: Optional[pulumi.Input['RuntimeContainerConfigurationArgs']] = None):
         """
         :param pulumi.Input['RuntimeContainerConfigurationArgs'] container_configuration: Representation of a container configuration.
         """
+        if code_configuration is not None:
+            pulumi.set(__self__, "code_configuration", code_configuration)
         if container_configuration is not None:
             pulumi.set(__self__, "container_configuration", container_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="codeConfiguration")
+    def code_configuration(self) -> Optional[pulumi.Input['RuntimeCodeConfigurationArgs']]:
+        return pulumi.get(self, "code_configuration")
+
+    @code_configuration.setter
+    def code_configuration(self, value: Optional[pulumi.Input['RuntimeCodeConfigurationArgs']]):
+        pulumi.set(self, "code_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="containerConfiguration")
@@ -2406,6 +2508,87 @@ class RuntimeAuthorizerConfigurationArgs:
     @custom_jwt_authorizer.setter
     def custom_jwt_authorizer(self, value: Optional[pulumi.Input['RuntimeCustomJwtAuthorizerConfigurationArgs']]):
         pulumi.set(self, "custom_jwt_authorizer", value)
+
+
+if not MYPY:
+    class RuntimeCodeConfigurationArgsDict(TypedDict):
+        """
+        Representation of a code configuration
+        """
+        code: pulumi.Input['RuntimeCodeArgsDict']
+        entry_point: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        runtime: pulumi.Input['RuntimeAgentManagedRuntimeType']
+elif False:
+    RuntimeCodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuntimeCodeConfigurationArgs:
+    def __init__(__self__, *,
+                 code: pulumi.Input['RuntimeCodeArgs'],
+                 entry_point: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 runtime: pulumi.Input['RuntimeAgentManagedRuntimeType']):
+        """
+        Representation of a code configuration
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "entry_point", entry_point)
+        pulumi.set(__self__, "runtime", runtime)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> pulumi.Input['RuntimeCodeArgs']:
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: pulumi.Input['RuntimeCodeArgs']):
+        pulumi.set(self, "code", value)
+
+    @_builtins.property
+    @pulumi.getter(name="entryPoint")
+    def entry_point(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "entry_point")
+
+    @entry_point.setter
+    def entry_point(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "entry_point", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def runtime(self) -> pulumi.Input['RuntimeAgentManagedRuntimeType']:
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: pulumi.Input['RuntimeAgentManagedRuntimeType']):
+        pulumi.set(self, "runtime", value)
+
+
+if not MYPY:
+    class RuntimeCodeArgsDict(TypedDict):
+        """
+        Object represents source code from zip file
+        """
+        s3: NotRequired[pulumi.Input['RuntimeS3LocationArgsDict']]
+elif False:
+    RuntimeCodeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuntimeCodeArgs:
+    def __init__(__self__, *,
+                 s3: Optional[pulumi.Input['RuntimeS3LocationArgs']] = None):
+        """
+        Object represents source code from zip file
+        """
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> Optional[pulumi.Input['RuntimeS3LocationArgs']]:
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: Optional[pulumi.Input['RuntimeS3LocationArgs']]):
+        pulumi.set(self, "s3", value)
 
 
 if not MYPY:
@@ -2515,6 +2698,62 @@ class RuntimeCustomJwtAuthorizerConfigurationArgs:
 
 
 if not MYPY:
+    class RuntimeLifecycleConfigurationArgsDict(TypedDict):
+        """
+        Configuration for managing the lifecycle of runtime sessions and resources
+        """
+        idle_runtime_session_timeout: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Timeout in seconds for idle runtime sessions
+        """
+        max_lifetime: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Maximum lifetime in seconds for runtime sessions
+        """
+elif False:
+    RuntimeLifecycleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuntimeLifecycleConfigurationArgs:
+    def __init__(__self__, *,
+                 idle_runtime_session_timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 max_lifetime: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        Configuration for managing the lifecycle of runtime sessions and resources
+        :param pulumi.Input[_builtins.int] idle_runtime_session_timeout: Timeout in seconds for idle runtime sessions
+        :param pulumi.Input[_builtins.int] max_lifetime: Maximum lifetime in seconds for runtime sessions
+        """
+        if idle_runtime_session_timeout is not None:
+            pulumi.set(__self__, "idle_runtime_session_timeout", idle_runtime_session_timeout)
+        if max_lifetime is not None:
+            pulumi.set(__self__, "max_lifetime", max_lifetime)
+
+    @_builtins.property
+    @pulumi.getter(name="idleRuntimeSessionTimeout")
+    def idle_runtime_session_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Timeout in seconds for idle runtime sessions
+        """
+        return pulumi.get(self, "idle_runtime_session_timeout")
+
+    @idle_runtime_session_timeout.setter
+    def idle_runtime_session_timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "idle_runtime_session_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxLifetime")
+    def max_lifetime(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Maximum lifetime in seconds for runtime sessions
+        """
+        return pulumi.get(self, "max_lifetime")
+
+    @max_lifetime.setter
+    def max_lifetime(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_lifetime", value)
+
+
+if not MYPY:
     class RuntimeNetworkConfigurationArgsDict(TypedDict):
         network_mode: pulumi.Input['RuntimeNetworkMode']
         """
@@ -2556,6 +2795,109 @@ class RuntimeNetworkConfigurationArgs:
     @network_mode_config.setter
     def network_mode_config(self, value: Optional[pulumi.Input['RuntimeVpcConfigArgs']]):
         pulumi.set(self, "network_mode_config", value)
+
+
+if not MYPY:
+    class RuntimeRequestHeaderConfigurationArgsDict(TypedDict):
+        """
+        Configuration for HTTP request headers
+        """
+        request_header_allowlist: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+elif False:
+    RuntimeRequestHeaderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuntimeRequestHeaderConfigurationArgs:
+    def __init__(__self__, *,
+                 request_header_allowlist: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Configuration for HTTP request headers
+        """
+        if request_header_allowlist is not None:
+            pulumi.set(__self__, "request_header_allowlist", request_header_allowlist)
+
+    @_builtins.property
+    @pulumi.getter(name="requestHeaderAllowlist")
+    def request_header_allowlist(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "request_header_allowlist")
+
+    @request_header_allowlist.setter
+    def request_header_allowlist(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "request_header_allowlist", value)
+
+
+if not MYPY:
+    class RuntimeS3LocationArgsDict(TypedDict):
+        """
+        S3 Location Configuration
+        """
+        bucket: pulumi.Input[_builtins.str]
+        """
+        S3 bucket name
+        """
+        prefix: pulumi.Input[_builtins.str]
+        """
+        S3 object key prefix
+        """
+        version_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        S3 object version ID
+        """
+elif False:
+    RuntimeS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuntimeS3LocationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[_builtins.str],
+                 prefix: pulumi.Input[_builtins.str],
+                 version_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        S3 Location Configuration
+        :param pulumi.Input[_builtins.str] bucket: S3 bucket name
+        :param pulumi.Input[_builtins.str] prefix: S3 object key prefix
+        :param pulumi.Input[_builtins.str] version_id: S3 object version ID
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "prefix", prefix)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 bucket name
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[_builtins.str]:
+        """
+        S3 object key prefix
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        S3 object version ID
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
 
 
 if not MYPY:

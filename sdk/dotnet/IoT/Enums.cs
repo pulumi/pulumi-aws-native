@@ -531,7 +531,7 @@ namespace Pulumi.AwsNative.IoT
     }
 
     /// <summary>
-    /// The health status of KMS key and AWS KMS access role. If either KMS key or AWS KMS access role is `UNHEALTHY` , the return value will be `UNHEALTHY` . To use a customer managed KMS key, the value of `configurationStatus` must be `HEALTHY` .
+    /// The health status of KMS key and AWS  access role. If either KMS key or AWS  access role is `UNHEALTHY` , the return value will be `UNHEALTHY` . To use a customer managed KMS key, the value of `configurationStatus` must be `HEALTHY` .
     /// </summary>
     [EnumType]
     public readonly struct EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus : IEquatable<EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus>

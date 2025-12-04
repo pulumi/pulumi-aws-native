@@ -176,9 +176,12 @@ func (in *aiAgentAiAgentAssociationConfigurationTypePtr) ToAiAgentAiAgentAssocia
 type AiAgentAiAgentType string
 
 const (
-	AiAgentAiAgentTypeManualSearch         = AiAgentAiAgentType("MANUAL_SEARCH")
-	AiAgentAiAgentTypeAnswerRecommendation = AiAgentAiAgentType("ANSWER_RECOMMENDATION")
-	AiAgentAiAgentTypeSelfService          = AiAgentAiAgentType("SELF_SERVICE")
+	AiAgentAiAgentTypeManualSearch          = AiAgentAiAgentType("MANUAL_SEARCH")
+	AiAgentAiAgentTypeAnswerRecommendation  = AiAgentAiAgentType("ANSWER_RECOMMENDATION")
+	AiAgentAiAgentTypeSelfService           = AiAgentAiAgentType("SELF_SERVICE")
+	AiAgentAiAgentTypeEmailResponse         = AiAgentAiAgentType("EMAIL_RESPONSE")
+	AiAgentAiAgentTypeEmailOverview         = AiAgentAiAgentType("EMAIL_OVERVIEW")
+	AiAgentAiAgentTypeEmailGenerativeAnswer = AiAgentAiAgentType("EMAIL_GENERATIVE_ANSWER")
 )
 
 func (AiAgentAiAgentType) ElementType() reflect.Type {
@@ -306,6 +309,9 @@ func (o AiAgentAiAgentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 //	AiAgentAiAgentTypeManualSearch
 //	AiAgentAiAgentTypeAnswerRecommendation
 //	AiAgentAiAgentTypeSelfService
+//	AiAgentAiAgentTypeEmailResponse
+//	AiAgentAiAgentTypeEmailOverview
+//	AiAgentAiAgentTypeEmailGenerativeAnswer
 type AiAgentAiAgentTypeInput interface {
 	pulumi.Input
 

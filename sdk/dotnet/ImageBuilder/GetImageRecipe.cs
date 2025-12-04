@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// The latest version references of the image recipe.
+        /// </summary>
+        public readonly Outputs.ImageRecipeLatestVersion? LatestVersion;
+        /// <summary>
         /// The tags of the image recipe.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -88,11 +92,14 @@ namespace Pulumi.AwsNative.ImageBuilder
 
             string? arn,
 
+            Outputs.ImageRecipeLatestVersion? latestVersion,
+
             ImmutableDictionary<string, string>? tags)
         {
             AdditionalInstanceConfiguration = additionalInstanceConfiguration;
             AmiTags = amiTags;
             Arn = arn;
+            LatestVersion = latestVersion;
             Tags = tags;
         }
     }

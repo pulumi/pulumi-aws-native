@@ -38,7 +38,7 @@ class ConnectionArgs:
                > OAUTH tokens are refreshed when a 401 or 407 response is returned.
         :param pulumi.Input[_builtins.str] description: Description of the connection.
         :param pulumi.Input['InvocationConnectivityParametersPropertiesArgs'] invocation_connectivity_parameters: The private resource the HTTP request will be sent to.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
                
                If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the connection.
                
@@ -114,7 +114,7 @@ class ConnectionArgs:
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 
         If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the connection.
 
@@ -191,7 +191,7 @@ class Connection(pulumi.CustomResource):
                > OAUTH tokens are refreshed when a 401 or 407 response is returned.
         :param pulumi.Input[_builtins.str] description: Description of the connection.
         :param pulumi.Input[Union['InvocationConnectivityParametersPropertiesArgs', 'InvocationConnectivityParametersPropertiesArgsDict']] invocation_connectivity_parameters: The private resource the HTTP request will be sent to.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
                
                If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the connection.
                
@@ -363,7 +363,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 
         If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the connection.
 

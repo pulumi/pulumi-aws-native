@@ -7046,7 +7046,7 @@ func (o BotGrammarSlotTypeSettingPtrOutput) Source() BotGrammarSlotTypeSourcePtr
 }
 
 type BotGrammarSlotTypeSource struct {
-	// The AWS KMS key required to decrypt the contents of the grammar, if any.
+	// The AWS  key required to decrypt the contents of the grammar, if any.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The name of the Amazon S3 bucket that contains the grammar source.
 	S3BucketName string `pulumi:"s3BucketName"`
@@ -7066,7 +7066,7 @@ type BotGrammarSlotTypeSourceInput interface {
 }
 
 type BotGrammarSlotTypeSourceArgs struct {
-	// The AWS KMS key required to decrypt the contents of the grammar, if any.
+	// The AWS  key required to decrypt the contents of the grammar, if any.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// The name of the Amazon S3 bucket that contains the grammar source.
 	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
@@ -7151,7 +7151,7 @@ func (o BotGrammarSlotTypeSourceOutput) ToBotGrammarSlotTypeSourcePtrOutputWithC
 	}).(BotGrammarSlotTypeSourcePtrOutput)
 }
 
-// The AWS KMS key required to decrypt the contents of the grammar, if any.
+// The AWS  key required to decrypt the contents of the grammar, if any.
 func (o BotGrammarSlotTypeSourceOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotGrammarSlotTypeSource) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -7190,7 +7190,7 @@ func (o BotGrammarSlotTypeSourcePtrOutput) Elem() BotGrammarSlotTypeSourceOutput
 	}).(BotGrammarSlotTypeSourceOutput)
 }
 
-// The AWS KMS key required to decrypt the contents of the grammar, if any.
+// The AWS  key required to decrypt the contents of the grammar, if any.
 func (o BotGrammarSlotTypeSourcePtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotGrammarSlotTypeSource) *string {
 		if v == nil {

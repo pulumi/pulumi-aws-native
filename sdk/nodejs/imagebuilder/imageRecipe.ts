@@ -56,11 +56,15 @@ export class ImageRecipe extends pulumi.CustomResource {
     /**
      * The components of the image recipe.
      */
-    declare public readonly components: pulumi.Output<outputs.imagebuilder.ImageRecipeComponentConfiguration[]>;
+    declare public readonly components: pulumi.Output<outputs.imagebuilder.ImageRecipeComponentConfiguration[] | undefined>;
     /**
      * The description of the image recipe.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * The latest version references of the image recipe.
+     */
+    declare public /*out*/ readonly latestVersion: pulumi.Output<outputs.imagebuilder.ImageRecipeLatestVersion>;
     /**
      * The name of the image recipe.
      */
@@ -93,9 +97,6 @@ export class ImageRecipe extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.components === undefined && !opts.urn) {
-                throw new Error("Missing required property 'components'");
-            }
             if (args?.parentImage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentImage'");
             }
@@ -113,6 +114,7 @@ export class ImageRecipe extends pulumi.CustomResource {
             resourceInputs["version"] = args?.version;
             resourceInputs["workingDirectory"] = args?.workingDirectory;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["latestVersion"] = undefined /*out*/;
         } else {
             resourceInputs["additionalInstanceConfiguration"] = undefined /*out*/;
             resourceInputs["amiTags"] = undefined /*out*/;
@@ -120,6 +122,7 @@ export class ImageRecipe extends pulumi.CustomResource {
             resourceInputs["blockDeviceMappings"] = undefined /*out*/;
             resourceInputs["components"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["latestVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["parentImage"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -152,7 +155,7 @@ export interface ImageRecipeArgs {
     /**
      * The components of the image recipe.
      */
-    components: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeComponentConfigurationArgs>[]>;
+    components?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeComponentConfigurationArgs>[]>;
     /**
      * The description of the image recipe.
      */

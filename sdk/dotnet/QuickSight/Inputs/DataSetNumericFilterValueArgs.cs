@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetNumericFilterValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A static numeric value used for filtering.
+        /// </summary>
         [Input("staticValue")]
         public Input<double>? StaticValue { get; set; }
 

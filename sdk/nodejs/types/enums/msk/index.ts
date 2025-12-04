@@ -31,6 +31,13 @@ export const ClusterEnhancedMonitoring = {
  */
 export type ClusterEnhancedMonitoring = (typeof ClusterEnhancedMonitoring)[keyof typeof ClusterEnhancedMonitoring];
 
+export const ClusterRebalancingStatus = {
+    Paused: "PAUSED",
+    Active: "ACTIVE",
+} as const;
+
+export type ClusterRebalancingStatus = (typeof ClusterRebalancingStatus)[keyof typeof ClusterRebalancingStatus];
+
 export const ClusterStorageMode = {
     Local: "LOCAL",
     Tiered: "TIERED",

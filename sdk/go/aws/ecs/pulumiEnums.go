@@ -2815,6 +2815,354 @@ const (
 	ClusterCapacityProviderAssociationsCapacityProvider0FargateSpot = ClusterCapacityProviderAssociationsCapacityProvider0("FARGATE_SPOT")
 )
 
+type ExpressGatewayServiceAccessType string
+
+const (
+	ExpressGatewayServiceAccessTypePublic  = ExpressGatewayServiceAccessType("PUBLIC")
+	ExpressGatewayServiceAccessTypePrivate = ExpressGatewayServiceAccessType("PRIVATE")
+)
+
+type ExpressGatewayServiceAccessTypeOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceAccessTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceAccessType)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceAccessTypeOutput) ToExpressGatewayServiceAccessTypeOutput() ExpressGatewayServiceAccessTypeOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceAccessTypeOutput) ToExpressGatewayServiceAccessTypeOutputWithContext(ctx context.Context) ExpressGatewayServiceAccessTypeOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceAccessTypeOutput) ToExpressGatewayServiceAccessTypePtrOutput() ExpressGatewayServiceAccessTypePtrOutput {
+	return o.ToExpressGatewayServiceAccessTypePtrOutputWithContext(context.Background())
+}
+
+func (o ExpressGatewayServiceAccessTypeOutput) ToExpressGatewayServiceAccessTypePtrOutputWithContext(ctx context.Context) ExpressGatewayServiceAccessTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressGatewayServiceAccessType) *ExpressGatewayServiceAccessType {
+		return &v
+	}).(ExpressGatewayServiceAccessTypePtrOutput)
+}
+
+func (o ExpressGatewayServiceAccessTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ExpressGatewayServiceAccessTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ExpressGatewayServiceAccessType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ExpressGatewayServiceAccessTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressGatewayServiceAccessTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ExpressGatewayServiceAccessType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExpressGatewayServiceAccessTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceAccessTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServiceAccessType)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceAccessTypePtrOutput) ToExpressGatewayServiceAccessTypePtrOutput() ExpressGatewayServiceAccessTypePtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceAccessTypePtrOutput) ToExpressGatewayServiceAccessTypePtrOutputWithContext(ctx context.Context) ExpressGatewayServiceAccessTypePtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceAccessTypePtrOutput) Elem() ExpressGatewayServiceAccessTypeOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceAccessType) ExpressGatewayServiceAccessType {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressGatewayServiceAccessType
+		return ret
+	}).(ExpressGatewayServiceAccessTypeOutput)
+}
+
+func (o ExpressGatewayServiceAccessTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressGatewayServiceAccessTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ExpressGatewayServiceAccessType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExpressGatewayServiceScalingMetric string
+
+const (
+	ExpressGatewayServiceScalingMetricAverageCpu            = ExpressGatewayServiceScalingMetric("AVERAGE_CPU")
+	ExpressGatewayServiceScalingMetricAverageMemory         = ExpressGatewayServiceScalingMetric("AVERAGE_MEMORY")
+	ExpressGatewayServiceScalingMetricRequestCountPerTarget = ExpressGatewayServiceScalingMetric("REQUEST_COUNT_PER_TARGET")
+)
+
+func (ExpressGatewayServiceScalingMetric) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceScalingMetric)(nil)).Elem()
+}
+
+func (e ExpressGatewayServiceScalingMetric) ToExpressGatewayServiceScalingMetricOutput() ExpressGatewayServiceScalingMetricOutput {
+	return pulumi.ToOutput(e).(ExpressGatewayServiceScalingMetricOutput)
+}
+
+func (e ExpressGatewayServiceScalingMetric) ToExpressGatewayServiceScalingMetricOutputWithContext(ctx context.Context) ExpressGatewayServiceScalingMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ExpressGatewayServiceScalingMetricOutput)
+}
+
+func (e ExpressGatewayServiceScalingMetric) ToExpressGatewayServiceScalingMetricPtrOutput() ExpressGatewayServiceScalingMetricPtrOutput {
+	return e.ToExpressGatewayServiceScalingMetricPtrOutputWithContext(context.Background())
+}
+
+func (e ExpressGatewayServiceScalingMetric) ToExpressGatewayServiceScalingMetricPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceScalingMetricPtrOutput {
+	return ExpressGatewayServiceScalingMetric(e).ToExpressGatewayServiceScalingMetricOutputWithContext(ctx).ToExpressGatewayServiceScalingMetricPtrOutputWithContext(ctx)
+}
+
+func (e ExpressGatewayServiceScalingMetric) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ExpressGatewayServiceScalingMetric) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ExpressGatewayServiceScalingMetric) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ExpressGatewayServiceScalingMetric) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ExpressGatewayServiceScalingMetricOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceScalingMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceScalingMetric)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceScalingMetricOutput) ToExpressGatewayServiceScalingMetricOutput() ExpressGatewayServiceScalingMetricOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceScalingMetricOutput) ToExpressGatewayServiceScalingMetricOutputWithContext(ctx context.Context) ExpressGatewayServiceScalingMetricOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceScalingMetricOutput) ToExpressGatewayServiceScalingMetricPtrOutput() ExpressGatewayServiceScalingMetricPtrOutput {
+	return o.ToExpressGatewayServiceScalingMetricPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressGatewayServiceScalingMetricOutput) ToExpressGatewayServiceScalingMetricPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceScalingMetricPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressGatewayServiceScalingMetric) *ExpressGatewayServiceScalingMetric {
+		return &v
+	}).(ExpressGatewayServiceScalingMetricPtrOutput)
+}
+
+func (o ExpressGatewayServiceScalingMetricOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ExpressGatewayServiceScalingMetricOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ExpressGatewayServiceScalingMetric) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ExpressGatewayServiceScalingMetricOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressGatewayServiceScalingMetricOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ExpressGatewayServiceScalingMetric) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExpressGatewayServiceScalingMetricPtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceScalingMetricPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServiceScalingMetric)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceScalingMetricPtrOutput) ToExpressGatewayServiceScalingMetricPtrOutput() ExpressGatewayServiceScalingMetricPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceScalingMetricPtrOutput) ToExpressGatewayServiceScalingMetricPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceScalingMetricPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceScalingMetricPtrOutput) Elem() ExpressGatewayServiceScalingMetricOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceScalingMetric) ExpressGatewayServiceScalingMetric {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressGatewayServiceScalingMetric
+		return ret
+	}).(ExpressGatewayServiceScalingMetricOutput)
+}
+
+func (o ExpressGatewayServiceScalingMetricPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressGatewayServiceScalingMetricPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ExpressGatewayServiceScalingMetric) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ExpressGatewayServiceScalingMetricInput is an input type that accepts values of the ExpressGatewayServiceScalingMetric enum
+// A concrete instance of `ExpressGatewayServiceScalingMetricInput` can be one of the following:
+//
+//	ExpressGatewayServiceScalingMetricAverageCpu
+//	ExpressGatewayServiceScalingMetricAverageMemory
+//	ExpressGatewayServiceScalingMetricRequestCountPerTarget
+type ExpressGatewayServiceScalingMetricInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceScalingMetricOutput() ExpressGatewayServiceScalingMetricOutput
+	ToExpressGatewayServiceScalingMetricOutputWithContext(context.Context) ExpressGatewayServiceScalingMetricOutput
+}
+
+var expressGatewayServiceScalingMetricPtrType = reflect.TypeOf((**ExpressGatewayServiceScalingMetric)(nil)).Elem()
+
+type ExpressGatewayServiceScalingMetricPtrInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceScalingMetricPtrOutput() ExpressGatewayServiceScalingMetricPtrOutput
+	ToExpressGatewayServiceScalingMetricPtrOutputWithContext(context.Context) ExpressGatewayServiceScalingMetricPtrOutput
+}
+
+type expressGatewayServiceScalingMetricPtr string
+
+func ExpressGatewayServiceScalingMetricPtr(v string) ExpressGatewayServiceScalingMetricPtrInput {
+	return (*expressGatewayServiceScalingMetricPtr)(&v)
+}
+
+func (*expressGatewayServiceScalingMetricPtr) ElementType() reflect.Type {
+	return expressGatewayServiceScalingMetricPtrType
+}
+
+func (in *expressGatewayServiceScalingMetricPtr) ToExpressGatewayServiceScalingMetricPtrOutput() ExpressGatewayServiceScalingMetricPtrOutput {
+	return pulumi.ToOutput(in).(ExpressGatewayServiceScalingMetricPtrOutput)
+}
+
+func (in *expressGatewayServiceScalingMetricPtr) ToExpressGatewayServiceScalingMetricPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceScalingMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ExpressGatewayServiceScalingMetricPtrOutput)
+}
+
+type ExpressGatewayServiceStatusCode string
+
+const (
+	ExpressGatewayServiceStatusCodeActive   = ExpressGatewayServiceStatusCode("ACTIVE")
+	ExpressGatewayServiceStatusCodeDraining = ExpressGatewayServiceStatusCode("DRAINING")
+	ExpressGatewayServiceStatusCodeInactive = ExpressGatewayServiceStatusCode("INACTIVE")
+)
+
+type ExpressGatewayServiceStatusCodeOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceStatusCodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceStatusCode)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceStatusCodeOutput) ToExpressGatewayServiceStatusCodeOutput() ExpressGatewayServiceStatusCodeOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceStatusCodeOutput) ToExpressGatewayServiceStatusCodeOutputWithContext(ctx context.Context) ExpressGatewayServiceStatusCodeOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceStatusCodeOutput) ToExpressGatewayServiceStatusCodePtrOutput() ExpressGatewayServiceStatusCodePtrOutput {
+	return o.ToExpressGatewayServiceStatusCodePtrOutputWithContext(context.Background())
+}
+
+func (o ExpressGatewayServiceStatusCodeOutput) ToExpressGatewayServiceStatusCodePtrOutputWithContext(ctx context.Context) ExpressGatewayServiceStatusCodePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressGatewayServiceStatusCode) *ExpressGatewayServiceStatusCode {
+		return &v
+	}).(ExpressGatewayServiceStatusCodePtrOutput)
+}
+
+func (o ExpressGatewayServiceStatusCodeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ExpressGatewayServiceStatusCodeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ExpressGatewayServiceStatusCode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ExpressGatewayServiceStatusCodeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressGatewayServiceStatusCodeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ExpressGatewayServiceStatusCode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExpressGatewayServiceStatusCodePtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceStatusCodePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServiceStatusCode)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceStatusCodePtrOutput) ToExpressGatewayServiceStatusCodePtrOutput() ExpressGatewayServiceStatusCodePtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceStatusCodePtrOutput) ToExpressGatewayServiceStatusCodePtrOutputWithContext(ctx context.Context) ExpressGatewayServiceStatusCodePtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceStatusCodePtrOutput) Elem() ExpressGatewayServiceStatusCodeOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceStatusCode) ExpressGatewayServiceStatusCode {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressGatewayServiceStatusCode
+		return ret
+	}).(ExpressGatewayServiceStatusCodeOutput)
+}
+
+func (o ExpressGatewayServiceStatusCodePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressGatewayServiceStatusCodePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ExpressGatewayServiceStatusCode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Indicates whether to use Availability Zone rebalancing for the service.
 //
 //	For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -3324,7 +3672,7 @@ func (in *serviceConnectAccessLogConfigurationFormatPtr) ToServiceConnectAccessL
 
 // Specifies whether to include query parameters in Service Connect access logs.
 //
-// When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is `DISABLED` .
+//	When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is ``DISABLED``.
 type ServiceConnectAccessLogConfigurationIncludeQueryParameters string
 
 const (
@@ -6299,6 +6647,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedScalingStatusPtrInput)(nil)).Elem(), CapacityProviderManagedScalingStatus("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProviderAssociationsCapacityProviderInput)(nil)).Elem(), ClusterCapacityProviderAssociationsCapacityProvider("FARGATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProviderAssociationsCapacityProviderPtrInput)(nil)).Elem(), ClusterCapacityProviderAssociationsCapacityProvider("FARGATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceScalingMetricInput)(nil)).Elem(), ExpressGatewayServiceScalingMetric("AVERAGE_CPU"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceScalingMetricPtrInput)(nil)).Elem(), ExpressGatewayServiceScalingMetric("AVERAGE_CPU"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAvailabilityZoneRebalancingInput)(nil)).Elem(), ServiceAvailabilityZoneRebalancing("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAvailabilityZoneRebalancingPtrInput)(nil)).Elem(), ServiceAvailabilityZoneRebalancing("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationAssignPublicIpInput)(nil)).Elem(), ServiceAwsVpcConfigurationAssignPublicIp("DISABLED"))
@@ -6376,6 +6726,12 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderManagedScalingStatusPtrOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsCapacityProviderOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsCapacityProviderPtrOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceAccessTypeOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceAccessTypePtrOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceScalingMetricOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceScalingMetricPtrOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceStatusCodeOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceStatusCodePtrOutput{})
 	pulumi.RegisterOutputType(ServiceAvailabilityZoneRebalancingOutput{})
 	pulumi.RegisterOutputType(ServiceAvailabilityZoneRebalancingPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationAssignPublicIpOutput{})

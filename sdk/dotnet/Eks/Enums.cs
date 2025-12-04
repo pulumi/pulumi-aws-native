@@ -71,6 +71,131 @@ namespace Pulumi.AwsNative.Eks
     }
 
     /// <summary>
+    /// The Argo CD role to assign. Valid values are: ADMIN (full administrative access to Argo CD), EDITOR (edit access to Argo CD resources), or VIEWER (read-only access to Argo CD resources).
+    /// </summary>
+    [EnumType]
+    public readonly struct CapabilityArgoCdRoleMappingRole : IEquatable<CapabilityArgoCdRoleMappingRole>
+    {
+        private readonly string _value;
+
+        private CapabilityArgoCdRoleMappingRole(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapabilityArgoCdRoleMappingRole Admin { get; } = new CapabilityArgoCdRoleMappingRole("ADMIN");
+        public static CapabilityArgoCdRoleMappingRole Editor { get; } = new CapabilityArgoCdRoleMappingRole("EDITOR");
+        public static CapabilityArgoCdRoleMappingRole Viewer { get; } = new CapabilityArgoCdRoleMappingRole("VIEWER");
+
+        public static bool operator ==(CapabilityArgoCdRoleMappingRole left, CapabilityArgoCdRoleMappingRole right) => left.Equals(right);
+        public static bool operator !=(CapabilityArgoCdRoleMappingRole left, CapabilityArgoCdRoleMappingRole right) => !left.Equals(right);
+
+        public static explicit operator string(CapabilityArgoCdRoleMappingRole value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapabilityArgoCdRoleMappingRole other && Equals(other);
+        public bool Equals(CapabilityArgoCdRoleMappingRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies how Kubernetes resources managed by the capability should be handled when the capability is deleted. Currently, the only supported value is RETAIN which retains all Kubernetes resources managed by the capability when the capability is deleted.
+    /// </summary>
+    [EnumType]
+    public readonly struct CapabilityDeletePropagationPolicy : IEquatable<CapabilityDeletePropagationPolicy>
+    {
+        private readonly string _value;
+
+        private CapabilityDeletePropagationPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapabilityDeletePropagationPolicy Retain { get; } = new CapabilityDeletePropagationPolicy("RETAIN");
+
+        public static bool operator ==(CapabilityDeletePropagationPolicy left, CapabilityDeletePropagationPolicy right) => left.Equals(right);
+        public static bool operator !=(CapabilityDeletePropagationPolicy left, CapabilityDeletePropagationPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(CapabilityDeletePropagationPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapabilityDeletePropagationPolicy other && Equals(other);
+        public bool Equals(CapabilityDeletePropagationPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of identity. Valid values are SSO_USER or SSO_GROUP.
+    /// </summary>
+    [EnumType]
+    public readonly struct CapabilitySsoIdentityType : IEquatable<CapabilitySsoIdentityType>
+    {
+        private readonly string _value;
+
+        private CapabilitySsoIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapabilitySsoIdentityType SsoUser { get; } = new CapabilitySsoIdentityType("SSO_USER");
+        public static CapabilitySsoIdentityType SsoGroup { get; } = new CapabilitySsoIdentityType("SSO_GROUP");
+
+        public static bool operator ==(CapabilitySsoIdentityType left, CapabilitySsoIdentityType right) => left.Equals(right);
+        public static bool operator !=(CapabilitySsoIdentityType left, CapabilitySsoIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(CapabilitySsoIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapabilitySsoIdentityType other && Equals(other);
+        public bool Equals(CapabilitySsoIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of capability to create. Valid values are: ACK (AWS Controllers for Kubernetes, which lets you manage AWS resources directly from Kubernetes), ARGOCD (Argo CD for GitOps-based continuous delivery), or KRO (Kube Resource Orchestrator for composing and managing custom Kubernetes resources).
+    /// </summary>
+    [EnumType]
+    public readonly struct CapabilityType : IEquatable<CapabilityType>
+    {
+        private readonly string _value;
+
+        private CapabilityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapabilityType Argocd { get; } = new CapabilityType("ARGOCD");
+        public static CapabilityType Ack { get; } = new CapabilityType("ACK");
+        public static CapabilityType Kro { get; } = new CapabilityType("KRO");
+
+        public static bool operator ==(CapabilityType left, CapabilityType right) => left.Equals(right);
+        public static bool operator !=(CapabilityType left, CapabilityType right) => !left.Equals(right);
+
+        public static explicit operator string(CapabilityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapabilityType other && Equals(other);
+        public bool Equals(CapabilityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specify the authentication mode that should be used to create your cluster.
     /// </summary>
     [EnumType]
@@ -95,6 +220,39 @@ namespace Pulumi.AwsNative.Eks
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ClusterAccessConfigAuthenticationMode other && Equals(other);
         public bool Equals(ClusterAccessConfigAuthenticationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The scaling tier for the provisioned control plane.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterControlPlaneScalingConfigTier : IEquatable<ClusterControlPlaneScalingConfigTier>
+    {
+        private readonly string _value;
+
+        private ClusterControlPlaneScalingConfigTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterControlPlaneScalingConfigTier Standard { get; } = new ClusterControlPlaneScalingConfigTier("standard");
+        public static ClusterControlPlaneScalingConfigTier TierXl { get; } = new ClusterControlPlaneScalingConfigTier("tier-xl");
+        public static ClusterControlPlaneScalingConfigTier Tier2xl { get; } = new ClusterControlPlaneScalingConfigTier("tier-2xl");
+        public static ClusterControlPlaneScalingConfigTier Tier4xl { get; } = new ClusterControlPlaneScalingConfigTier("tier-4xl");
+
+        public static bool operator ==(ClusterControlPlaneScalingConfigTier left, ClusterControlPlaneScalingConfigTier right) => left.Equals(right);
+        public static bool operator !=(ClusterControlPlaneScalingConfigTier left, ClusterControlPlaneScalingConfigTier right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterControlPlaneScalingConfigTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterControlPlaneScalingConfigTier other && Equals(other);
+        public bool Equals(ClusterControlPlaneScalingConfigTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -26,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetTrailResult:
-    def __init__(__self__, advanced_event_selectors=None, arn=None, cloud_watch_logs_log_group_arn=None, cloud_watch_logs_role_arn=None, enable_log_file_validation=None, event_selectors=None, include_global_service_events=None, insight_selectors=None, is_logging=None, is_multi_region_trail=None, is_organization_trail=None, kms_key_id=None, s3_bucket_name=None, s3_key_prefix=None, sns_topic_arn=None, sns_topic_name=None, tags=None):
+    def __init__(__self__, advanced_event_selectors=None, aggregation_configurations=None, arn=None, cloud_watch_logs_log_group_arn=None, cloud_watch_logs_role_arn=None, enable_log_file_validation=None, event_selectors=None, include_global_service_events=None, insight_selectors=None, is_logging=None, is_multi_region_trail=None, is_organization_trail=None, kms_key_id=None, s3_bucket_name=None, s3_key_prefix=None, sns_topic_arn=None, sns_topic_name=None, tags=None):
         if advanced_event_selectors and not isinstance(advanced_event_selectors, list):
             raise TypeError("Expected argument 'advanced_event_selectors' to be a list")
         pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
+        if aggregation_configurations and not isinstance(aggregation_configurations, list):
+            raise TypeError("Expected argument 'aggregation_configurations' to be a list")
+        pulumi.set(__self__, "aggregation_configurations", aggregation_configurations)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -86,6 +89,14 @@ class GetTrailResult:
         The advanced event selectors that were used to select events for the data store.
         """
         return pulumi.get(self, "advanced_event_selectors")
+
+    @_builtins.property
+    @pulumi.getter(name="aggregationConfigurations")
+    def aggregation_configurations(self) -> Optional[Sequence['outputs.TrailAggregationConfiguration']]:
+        """
+        Specifies the aggregation configuration to aggregate CloudTrail Events. A maximum of 1 aggregation configuration is allowed.
+        """
+        return pulumi.get(self, "aggregation_configurations")
 
     @_builtins.property
     @pulumi.getter
@@ -195,7 +206,7 @@ class GetTrailResult:
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> Optional[_builtins.str]:
         """
-        `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
+        `Ref` returns the ARN of the Amazon  topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
         """
         return pulumi.get(self, "sns_topic_arn")
 
@@ -223,6 +234,7 @@ class AwaitableGetTrailResult(GetTrailResult):
             yield self
         return GetTrailResult(
             advanced_event_selectors=self.advanced_event_selectors,
+            aggregation_configurations=self.aggregation_configurations,
             arn=self.arn,
             cloud_watch_logs_log_group_arn=self.cloud_watch_logs_log_group_arn,
             cloud_watch_logs_role_arn=self.cloud_watch_logs_role_arn,
@@ -262,6 +274,7 @@ def get_trail(trail_name: Optional[_builtins.str] = None,
 
     return AwaitableGetTrailResult(
         advanced_event_selectors=pulumi.get(__ret__, 'advanced_event_selectors'),
+        aggregation_configurations=pulumi.get(__ret__, 'aggregation_configurations'),
         arn=pulumi.get(__ret__, 'arn'),
         cloud_watch_logs_log_group_arn=pulumi.get(__ret__, 'cloud_watch_logs_log_group_arn'),
         cloud_watch_logs_role_arn=pulumi.get(__ret__, 'cloud_watch_logs_role_arn'),
@@ -298,6 +311,7 @@ def get_trail_output(trail_name: Optional[pulumi.Input[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudtrail:getTrail', __args__, opts=opts, typ=GetTrailResult)
     return __ret__.apply(lambda __response__: GetTrailResult(
         advanced_event_selectors=pulumi.get(__response__, 'advanced_event_selectors'),
+        aggregation_configurations=pulumi.get(__response__, 'aggregation_configurations'),
         arn=pulumi.get(__response__, 'arn'),
         cloud_watch_logs_log_group_arn=pulumi.get(__response__, 'cloud_watch_logs_log_group_arn'),
         cloud_watch_logs_role_arn=pulumi.get(__response__, 'cloud_watch_logs_role_arn'),

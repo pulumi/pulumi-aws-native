@@ -77,10 +77,6 @@ namespace Pulumi.AwsNative.Backup
         /// The tags to assign to the vault.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? BackupVaultTags;
-        /// <summary>
-        /// The ARN of the server-side encryption key.
-        /// </summary>
-        public readonly string? EncryptionKeyArn;
         public readonly string? MpaApprovalTeamArn;
         /// <summary>
         /// Returns event notifications for the specified backup vault.
@@ -103,8 +99,6 @@ namespace Pulumi.AwsNative.Backup
 
             ImmutableDictionary<string, string>? backupVaultTags,
 
-            string? encryptionKeyArn,
-
             string? mpaApprovalTeamArn,
 
             Outputs.LogicallyAirGappedBackupVaultNotificationObjectType? notifications,
@@ -116,7 +110,6 @@ namespace Pulumi.AwsNative.Backup
             AccessPolicy = accessPolicy;
             BackupVaultArn = backupVaultArn;
             BackupVaultTags = backupVaultTags;
-            EncryptionKeyArn = encryptionKeyArn;
             MpaApprovalTeamArn = mpaApprovalTeamArn;
             Notifications = notifications;
             VaultState = vaultState;

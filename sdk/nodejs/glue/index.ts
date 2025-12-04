@@ -25,6 +25,16 @@ export const getDatabase: typeof import("./getDatabase").getDatabase = null as a
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
 
+export { GetIdentityCenterConfigurationArgs, GetIdentityCenterConfigurationResult, GetIdentityCenterConfigurationOutputArgs } from "./getIdentityCenterConfiguration";
+export const getIdentityCenterConfiguration: typeof import("./getIdentityCenterConfiguration").getIdentityCenterConfiguration = null as any;
+export const getIdentityCenterConfigurationOutput: typeof import("./getIdentityCenterConfiguration").getIdentityCenterConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getIdentityCenterConfiguration","getIdentityCenterConfigurationOutput"], () => require("./getIdentityCenterConfiguration"));
+
+export { GetIntegrationArgs, GetIntegrationResult, GetIntegrationOutputArgs } from "./getIntegration";
+export const getIntegration: typeof import("./getIntegration").getIntegration = null as any;
+export const getIntegrationOutput: typeof import("./getIntegration").getIntegrationOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegration","getIntegrationOutput"], () => require("./getIntegration"));
+
 export { GetIntegrationResourcePropertyArgs, GetIntegrationResourcePropertyResult, GetIntegrationResourcePropertyOutputArgs } from "./getIntegrationResourceProperty";
 export const getIntegrationResourceProperty: typeof import("./getIntegrationResourceProperty").getIntegrationResourceProperty = null as any;
 export const getIntegrationResourcePropertyOutput: typeof import("./getIntegrationResourceProperty").getIntegrationResourcePropertyOutput = null as any;
@@ -59,6 +69,16 @@ export { GetUsageProfileArgs, GetUsageProfileResult, GetUsageProfileOutputArgs }
 export const getUsageProfile: typeof import("./getUsageProfile").getUsageProfile = null as any;
 export const getUsageProfileOutput: typeof import("./getUsageProfile").getUsageProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getUsageProfile","getUsageProfileOutput"], () => require("./getUsageProfile"));
+
+export { IdentityCenterConfigurationArgs } from "./identityCenterConfiguration";
+export type IdentityCenterConfiguration = import("./identityCenterConfiguration").IdentityCenterConfiguration;
+export const IdentityCenterConfiguration: typeof import("./identityCenterConfiguration").IdentityCenterConfiguration = null as any;
+utilities.lazyLoad(exports, ["IdentityCenterConfiguration"], () => require("./identityCenterConfiguration"));
+
+export { IntegrationArgs } from "./integration";
+export type Integration = import("./integration").Integration;
+export const Integration: typeof import("./integration").Integration = null as any;
+utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
 
 export { IntegrationResourcePropertyArgs } from "./integrationResourceProperty";
 export type IntegrationResourceProperty = import("./integrationResourceProperty").IntegrationResourceProperty;
@@ -112,6 +132,10 @@ const _module = {
                 return new Crawler(name, <any>undefined, { urn })
             case "aws-native:glue:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "aws-native:glue:IdentityCenterConfiguration":
+                return new IdentityCenterConfiguration(name, <any>undefined, { urn })
+            case "aws-native:glue:Integration":
+                return new Integration(name, <any>undefined, { urn })
             case "aws-native:glue:IntegrationResourceProperty":
                 return new IntegrationResourceProperty(name, <any>undefined, { urn })
             case "aws-native:glue:Job":

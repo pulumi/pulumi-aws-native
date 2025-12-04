@@ -67,6 +67,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// The time of this integration got created
         /// </summary>
         public readonly string? CreatedAt;
+        public readonly Outputs.DomainDataStore? DataStore;
         /// <summary>
         /// The URL of the SQS dead letter queue
         /// </summary>
@@ -101,6 +102,8 @@ namespace Pulumi.AwsNative.CustomerProfiles
         private GetDomainResult(
             string? createdAt,
 
+            Outputs.DomainDataStore? dataStore,
+
             string? deadLetterQueueUrl,
 
             string? defaultEncryptionKey,
@@ -118,6 +121,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CreatedAt = createdAt;
+            DataStore = dataStore;
             DeadLetterQueueUrl = deadLetterQueueUrl;
             DefaultEncryptionKey = defaultEncryptionKey;
             DefaultExpirationDays = defaultExpirationDays;

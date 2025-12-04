@@ -10,13 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
+    /// <summary>
+    /// A condition for item enablement.
+    /// </summary>
     public sealed class EvaluationFormItemEnablementConditionArgs : global::Pulumi.ResourceArgs
     {
         [Input("operands", required: true)]
         private InputList<Inputs.EvaluationFormItemEnablementConditionOperandArgs>? _operands;
 
         /// <summary>
-        /// The list of operands that compose the condition. Each operand represents a specific criteria to be evaluated.
+        /// Operands of the enablement condition.
         /// </summary>
         public InputList<Inputs.EvaluationFormItemEnablementConditionOperandArgs> Operands
         {
@@ -25,7 +28,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
         }
 
         /// <summary>
-        /// The logical operator used to combine multiple operands, determining how the condition is evaluated as a whole.
+        /// The operator to be used to be applied to operands if more than one provided.
         /// </summary>
         [Input("operator")]
         public Input<Pulumi.AwsNative.Connect.EvaluationFormItemEnablementConditionOperator>? Operator { get; set; }

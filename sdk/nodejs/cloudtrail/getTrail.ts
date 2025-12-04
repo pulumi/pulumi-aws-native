@@ -36,6 +36,10 @@ export interface GetTrailResult {
      */
     readonly advancedEventSelectors?: outputs.cloudtrail.TrailAdvancedEventSelector[];
     /**
+     * Specifies the aggregation configuration to aggregate CloudTrail Events. A maximum of 1 aggregation configuration is allowed.
+     */
+    readonly aggregationConfigurations?: outputs.cloudtrail.TrailAggregationConfiguration[];
+    /**
      * `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
      */
     readonly arn?: string;
@@ -88,7 +92,7 @@ export interface GetTrailResult {
      */
     readonly s3KeyPrefix?: string;
     /**
-     * `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
+     * `Ref` returns the ARN of the Amazon  topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
      */
     readonly snsTopicArn?: string;
     /**

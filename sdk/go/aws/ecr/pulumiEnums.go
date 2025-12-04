@@ -1884,6 +1884,170 @@ func (in *repositoryImageTagMutabilityExclusionFilterTypePtr) ToRepositoryImageT
 	return pulumi.ToOutputWithContext(ctx, in).(RepositoryImageTagMutabilityExclusionFilterTypePtrOutput)
 }
 
+// Type of repository filter
+type SigningConfigurationFilterType string
+
+const (
+	SigningConfigurationFilterTypeWildcardMatch = SigningConfigurationFilterType("WILDCARD_MATCH")
+)
+
+func (SigningConfigurationFilterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SigningConfigurationFilterType)(nil)).Elem()
+}
+
+func (e SigningConfigurationFilterType) ToSigningConfigurationFilterTypeOutput() SigningConfigurationFilterTypeOutput {
+	return pulumi.ToOutput(e).(SigningConfigurationFilterTypeOutput)
+}
+
+func (e SigningConfigurationFilterType) ToSigningConfigurationFilterTypeOutputWithContext(ctx context.Context) SigningConfigurationFilterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SigningConfigurationFilterTypeOutput)
+}
+
+func (e SigningConfigurationFilterType) ToSigningConfigurationFilterTypePtrOutput() SigningConfigurationFilterTypePtrOutput {
+	return e.ToSigningConfigurationFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (e SigningConfigurationFilterType) ToSigningConfigurationFilterTypePtrOutputWithContext(ctx context.Context) SigningConfigurationFilterTypePtrOutput {
+	return SigningConfigurationFilterType(e).ToSigningConfigurationFilterTypeOutputWithContext(ctx).ToSigningConfigurationFilterTypePtrOutputWithContext(ctx)
+}
+
+func (e SigningConfigurationFilterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SigningConfigurationFilterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SigningConfigurationFilterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SigningConfigurationFilterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SigningConfigurationFilterTypeOutput struct{ *pulumi.OutputState }
+
+func (SigningConfigurationFilterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SigningConfigurationFilterType)(nil)).Elem()
+}
+
+func (o SigningConfigurationFilterTypeOutput) ToSigningConfigurationFilterTypeOutput() SigningConfigurationFilterTypeOutput {
+	return o
+}
+
+func (o SigningConfigurationFilterTypeOutput) ToSigningConfigurationFilterTypeOutputWithContext(ctx context.Context) SigningConfigurationFilterTypeOutput {
+	return o
+}
+
+func (o SigningConfigurationFilterTypeOutput) ToSigningConfigurationFilterTypePtrOutput() SigningConfigurationFilterTypePtrOutput {
+	return o.ToSigningConfigurationFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (o SigningConfigurationFilterTypeOutput) ToSigningConfigurationFilterTypePtrOutputWithContext(ctx context.Context) SigningConfigurationFilterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SigningConfigurationFilterType) *SigningConfigurationFilterType {
+		return &v
+	}).(SigningConfigurationFilterTypePtrOutput)
+}
+
+func (o SigningConfigurationFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SigningConfigurationFilterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SigningConfigurationFilterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SigningConfigurationFilterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SigningConfigurationFilterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SigningConfigurationFilterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SigningConfigurationFilterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SigningConfigurationFilterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SigningConfigurationFilterType)(nil)).Elem()
+}
+
+func (o SigningConfigurationFilterTypePtrOutput) ToSigningConfigurationFilterTypePtrOutput() SigningConfigurationFilterTypePtrOutput {
+	return o
+}
+
+func (o SigningConfigurationFilterTypePtrOutput) ToSigningConfigurationFilterTypePtrOutputWithContext(ctx context.Context) SigningConfigurationFilterTypePtrOutput {
+	return o
+}
+
+func (o SigningConfigurationFilterTypePtrOutput) Elem() SigningConfigurationFilterTypeOutput {
+	return o.ApplyT(func(v *SigningConfigurationFilterType) SigningConfigurationFilterType {
+		if v != nil {
+			return *v
+		}
+		var ret SigningConfigurationFilterType
+		return ret
+	}).(SigningConfigurationFilterTypeOutput)
+}
+
+func (o SigningConfigurationFilterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SigningConfigurationFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SigningConfigurationFilterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SigningConfigurationFilterTypeInput is an input type that accepts values of the SigningConfigurationFilterType enum
+// A concrete instance of `SigningConfigurationFilterTypeInput` can be one of the following:
+//
+//	SigningConfigurationFilterTypeWildcardMatch
+type SigningConfigurationFilterTypeInput interface {
+	pulumi.Input
+
+	ToSigningConfigurationFilterTypeOutput() SigningConfigurationFilterTypeOutput
+	ToSigningConfigurationFilterTypeOutputWithContext(context.Context) SigningConfigurationFilterTypeOutput
+}
+
+var signingConfigurationFilterTypePtrType = reflect.TypeOf((**SigningConfigurationFilterType)(nil)).Elem()
+
+type SigningConfigurationFilterTypePtrInput interface {
+	pulumi.Input
+
+	ToSigningConfigurationFilterTypePtrOutput() SigningConfigurationFilterTypePtrOutput
+	ToSigningConfigurationFilterTypePtrOutputWithContext(context.Context) SigningConfigurationFilterTypePtrOutput
+}
+
+type signingConfigurationFilterTypePtr string
+
+func SigningConfigurationFilterTypePtr(v string) SigningConfigurationFilterTypePtrInput {
+	return (*signingConfigurationFilterTypePtr)(&v)
+}
+
+func (*signingConfigurationFilterTypePtr) ElementType() reflect.Type {
+	return signingConfigurationFilterTypePtrType
+}
+
+func (in *signingConfigurationFilterTypePtr) ToSigningConfigurationFilterTypePtrOutput() SigningConfigurationFilterTypePtrOutput {
+	return pulumi.ToOutput(in).(SigningConfigurationFilterTypePtrOutput)
+}
+
+func (in *signingConfigurationFilterTypePtr) ToSigningConfigurationFilterTypePtrOutputWithContext(ctx context.Context) SigningConfigurationFilterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SigningConfigurationFilterTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationFilterTypeInput)(nil)).Elem(), RegistryScanningConfigurationFilterType("WILDCARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationFilterTypePtrInput)(nil)).Elem(), RegistryScanningConfigurationFilterType("WILDCARD"))
@@ -1908,6 +2072,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageTagMutabilityPtrInput)(nil)).Elem(), RepositoryImageTagMutability("MUTABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageTagMutabilityExclusionFilterTypeInput)(nil)).Elem(), RepositoryImageTagMutabilityExclusionFilterType("WILDCARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageTagMutabilityExclusionFilterTypePtrInput)(nil)).Elem(), RepositoryImageTagMutabilityExclusionFilterType("WILDCARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningConfigurationFilterTypeInput)(nil)).Elem(), SigningConfigurationFilterType("WILDCARD_MATCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningConfigurationFilterTypePtrInput)(nil)).Elem(), SigningConfigurationFilterType("WILDCARD_MATCH"))
 	pulumi.RegisterOutputType(RegistryScanningConfigurationFilterTypeOutput{})
 	pulumi.RegisterOutputType(RegistryScanningConfigurationFilterTypePtrOutput{})
 	pulumi.RegisterOutputType(RegistryScanningConfigurationScanFrequencyOutput{})
@@ -1931,4 +2097,6 @@ func init() {
 	pulumi.RegisterOutputType(RepositoryImageTagMutabilityPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryImageTagMutabilityExclusionFilterTypeOutput{})
 	pulumi.RegisterOutputType(RepositoryImageTagMutabilityExclusionFilterTypePtrOutput{})
+	pulumi.RegisterOutputType(SigningConfigurationFilterTypeOutput{})
+	pulumi.RegisterOutputType(SigningConfigurationFilterTypePtrOutput{})
 }

@@ -28,8 +28,10 @@ class PartnerAppArgs:
                  execution_role_arn: pulumi.Input[_builtins.str],
                  tier: pulumi.Input[_builtins.str],
                  type: pulumi.Input['PartnerAppType'],
+                 app_version: Optional[pulumi.Input[_builtins.str]] = None,
                  application_config: Optional[pulumi.Input['PartnerAppConfigArgs']] = None,
                  client_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_iam_session_based_identity: Optional[pulumi.Input[_builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_config: Optional[pulumi.Input['PartnerAppMaintenanceConfigArgs']] = None,
@@ -41,8 +43,10 @@ class PartnerAppArgs:
         :param pulumi.Input[_builtins.str] execution_role_arn: The execution role for the user.
         :param pulumi.Input[_builtins.str] tier: The tier of the PartnerApp.
         :param pulumi.Input['PartnerAppType'] type: The type of PartnerApp.
+        :param pulumi.Input[_builtins.str] app_version: The version of the PartnerApp.
         :param pulumi.Input['PartnerAppConfigArgs'] application_config: A collection of settings that specify the maintenance schedule for the PartnerApp.
         :param pulumi.Input[_builtins.str] client_token: The client token for the PartnerApp.
+        :param pulumi.Input[_builtins.bool] enable_auto_minor_version_upgrade: Enables automatic minor version upgrades for the PartnerApp.
         :param pulumi.Input[_builtins.bool] enable_iam_session_based_identity: Enables IAM Session based Identity for PartnerApp.
         :param pulumi.Input[_builtins.str] kms_key_id: The AWS KMS customer managed key used to encrypt the data associated with the PartnerApp.
         :param pulumi.Input['PartnerAppMaintenanceConfigArgs'] maintenance_config: A collection of settings that specify the maintenance schedule for the PartnerApp.
@@ -53,10 +57,14 @@ class PartnerAppArgs:
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         pulumi.set(__self__, "tier", tier)
         pulumi.set(__self__, "type", type)
+        if app_version is not None:
+            pulumi.set(__self__, "app_version", app_version)
         if application_config is not None:
             pulumi.set(__self__, "application_config", application_config)
         if client_token is not None:
             pulumi.set(__self__, "client_token", client_token)
+        if enable_auto_minor_version_upgrade is not None:
+            pulumi.set(__self__, "enable_auto_minor_version_upgrade", enable_auto_minor_version_upgrade)
         if enable_iam_session_based_identity is not None:
             pulumi.set(__self__, "enable_iam_session_based_identity", enable_iam_session_based_identity)
         if kms_key_id is not None:
@@ -117,6 +125,18 @@ class PartnerAppArgs:
         pulumi.set(self, "type", value)
 
     @_builtins.property
+    @pulumi.getter(name="appVersion")
+    def app_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The version of the PartnerApp.
+        """
+        return pulumi.get(self, "app_version")
+
+    @app_version.setter
+    def app_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "app_version", value)
+
+    @_builtins.property
     @pulumi.getter(name="applicationConfig")
     def application_config(self) -> Optional[pulumi.Input['PartnerAppConfigArgs']]:
         """
@@ -139,6 +159,18 @@ class PartnerAppArgs:
     @client_token.setter
     def client_token(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "client_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableAutoMinorVersionUpgrade")
+    def enable_auto_minor_version_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables automatic minor version upgrades for the PartnerApp.
+        """
+        return pulumi.get(self, "enable_auto_minor_version_upgrade")
+
+    @enable_auto_minor_version_upgrade.setter
+    def enable_auto_minor_version_upgrade(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_auto_minor_version_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="enableIamSessionBasedIdentity")
@@ -207,9 +239,11 @@ class PartnerApp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_version: Optional[pulumi.Input[_builtins.str]] = None,
                  application_config: Optional[pulumi.Input[Union['PartnerAppConfigArgs', 'PartnerAppConfigArgsDict']]] = None,
                  auth_type: Optional[pulumi.Input['PartnerAppAuthType']] = None,
                  client_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_iam_session_based_identity: Optional[pulumi.Input[_builtins.bool]] = None,
                  execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -224,9 +258,11 @@ class PartnerApp(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] app_version: The version of the PartnerApp.
         :param pulumi.Input[Union['PartnerAppConfigArgs', 'PartnerAppConfigArgsDict']] application_config: A collection of settings that specify the maintenance schedule for the PartnerApp.
         :param pulumi.Input['PartnerAppAuthType'] auth_type: The Auth type of PartnerApp.
         :param pulumi.Input[_builtins.str] client_token: The client token for the PartnerApp.
+        :param pulumi.Input[_builtins.bool] enable_auto_minor_version_upgrade: Enables automatic minor version upgrades for the PartnerApp.
         :param pulumi.Input[_builtins.bool] enable_iam_session_based_identity: Enables IAM Session based Identity for PartnerApp.
         :param pulumi.Input[_builtins.str] execution_role_arn: The execution role for the user.
         :param pulumi.Input[_builtins.str] kms_key_id: The AWS KMS customer managed key used to encrypt the data associated with the PartnerApp.
@@ -260,9 +296,11 @@ class PartnerApp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_version: Optional[pulumi.Input[_builtins.str]] = None,
                  application_config: Optional[pulumi.Input[Union['PartnerAppConfigArgs', 'PartnerAppConfigArgsDict']]] = None,
                  auth_type: Optional[pulumi.Input['PartnerAppAuthType']] = None,
                  client_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_auto_minor_version_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_iam_session_based_identity: Optional[pulumi.Input[_builtins.bool]] = None,
                  execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -280,11 +318,13 @@ class PartnerApp(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PartnerAppArgs.__new__(PartnerAppArgs)
 
+            __props__.__dict__["app_version"] = app_version
             __props__.__dict__["application_config"] = application_config
             if auth_type is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_type'")
             __props__.__dict__["auth_type"] = auth_type
             __props__.__dict__["client_token"] = client_token
+            __props__.__dict__["enable_auto_minor_version_upgrade"] = enable_auto_minor_version_upgrade
             __props__.__dict__["enable_iam_session_based_identity"] = enable_iam_session_based_identity
             if execution_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'execution_role_arn'")
@@ -301,6 +341,7 @@ class PartnerApp(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
             __props__.__dict__["base_url"] = None
+            __props__.__dict__["current_version_eol_date"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["authType", "executionRoleArn", "kmsKeyId", "name", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PartnerApp, __self__).__init__(
@@ -325,11 +366,14 @@ class PartnerApp(pulumi.CustomResource):
 
         __props__ = PartnerAppArgs.__new__(PartnerAppArgs)
 
+        __props__.__dict__["app_version"] = None
         __props__.__dict__["application_config"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["auth_type"] = None
         __props__.__dict__["base_url"] = None
         __props__.__dict__["client_token"] = None
+        __props__.__dict__["current_version_eol_date"] = None
+        __props__.__dict__["enable_auto_minor_version_upgrade"] = None
         __props__.__dict__["enable_iam_session_based_identity"] = None
         __props__.__dict__["execution_role_arn"] = None
         __props__.__dict__["kms_key_id"] = None
@@ -339,6 +383,14 @@ class PartnerApp(pulumi.CustomResource):
         __props__.__dict__["tier"] = None
         __props__.__dict__["type"] = None
         return PartnerApp(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="appVersion")
+    def app_version(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The version of the PartnerApp.
+        """
+        return pulumi.get(self, "app_version")
 
     @_builtins.property
     @pulumi.getter(name="applicationConfig")
@@ -379,6 +431,22 @@ class PartnerApp(pulumi.CustomResource):
         The client token for the PartnerApp.
         """
         return pulumi.get(self, "client_token")
+
+    @_builtins.property
+    @pulumi.getter(name="currentVersionEolDate")
+    def current_version_eol_date(self) -> pulumi.Output[_builtins.str]:
+        """
+        The end-of-life date for the current version of the PartnerApp.
+        """
+        return pulumi.get(self, "current_version_eol_date")
+
+    @_builtins.property
+    @pulumi.getter(name="enableAutoMinorVersionUpgrade")
+    def enable_auto_minor_version_upgrade(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Enables automatic minor version upgrades for the PartnerApp.
+        """
+        return pulumi.get(self, "enable_auto_minor_version_upgrade")
 
     @_builtins.property
     @pulumi.getter(name="enableIamSessionBasedIdentity")

@@ -22,6 +22,18 @@ namespace Pulumi.AwsNative.SecretsManager
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
+        /// The list of metadata needed to successfully rotate a managed external secret.
+        /// </summary>
+        [Output("externalSecretRotationMetadata")]
+        public Output<ImmutableArray<Outputs.RotationScheduleExternalSecretRotationMetadataItem>> ExternalSecretRotationMetadata { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of the IAM role that is used by Secrets Manager to rotate a managed external secret.
+        /// </summary>
+        [Output("externalSecretRotationRoleArn")]
+        public Output<string?> ExternalSecretRotationRoleArn { get; private set; } = null!;
+
+        /// <summary>
         /// Creates a new Lambda rotation function based on one of the Secrets Manager rotation function templates. To use a rotation function that already exists, specify RotationLambdaARN instead.
         /// </summary>
         [Output("hostedRotationLambda")]
@@ -100,6 +112,24 @@ namespace Pulumi.AwsNative.SecretsManager
 
     public sealed class RotationScheduleArgs : global::Pulumi.ResourceArgs
     {
+        [Input("externalSecretRotationMetadata")]
+        private InputList<Inputs.RotationScheduleExternalSecretRotationMetadataItemArgs>? _externalSecretRotationMetadata;
+
+        /// <summary>
+        /// The list of metadata needed to successfully rotate a managed external secret.
+        /// </summary>
+        public InputList<Inputs.RotationScheduleExternalSecretRotationMetadataItemArgs> ExternalSecretRotationMetadata
+        {
+            get => _externalSecretRotationMetadata ?? (_externalSecretRotationMetadata = new InputList<Inputs.RotationScheduleExternalSecretRotationMetadataItemArgs>());
+            set => _externalSecretRotationMetadata = value;
+        }
+
+        /// <summary>
+        /// The ARN of the IAM role that is used by Secrets Manager to rotate a managed external secret.
+        /// </summary>
+        [Input("externalSecretRotationRoleArn")]
+        public Input<string>? ExternalSecretRotationRoleArn { get; set; }
+
         /// <summary>
         /// Creates a new Lambda rotation function based on one of the Secrets Manager rotation function templates. To use a rotation function that already exists, specify RotationLambdaARN instead.
         /// </summary>

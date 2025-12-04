@@ -41,6 +41,10 @@ export interface GetBrowserSettingsResult {
      * The tags to add to the browser settings resource. A tag is a key-value pair.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.
+     */
+    readonly webContentFilteringPolicy?: outputs.workspacesweb.BrowserSettingsWebContentFilteringPolicy;
 }
 /**
  * Definition of AWS::WorkSpacesWeb::BrowserSettings Resource Type

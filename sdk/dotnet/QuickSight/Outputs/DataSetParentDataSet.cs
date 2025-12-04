@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetParentDataSet
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the parent dataset.
+        /// </summary>
         public readonly string DataSetArn;
+        /// <summary>
+        /// The list of input columns available from the parent dataset.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSetInputColumn> InputColumns;
 
         [OutputConstructor]

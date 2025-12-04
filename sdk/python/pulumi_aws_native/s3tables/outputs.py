@@ -18,6 +18,7 @@ from ._enums import *
 
 __all__ = [
     'TableBucketEncryptionConfiguration',
+    'TableBucketMetricsConfiguration',
     'TableBucketPolicyResourcePolicy',
     'TableBucketUnreferencedFileRemoval',
     'TableCompaction',
@@ -80,6 +81,29 @@ class TableBucketEncryptionConfiguration(dict):
         Server-side encryption algorithm
         """
         return pulumi.get(self, "sse_algorithm")
+
+
+@pulumi.output_type
+class TableBucketMetricsConfiguration(dict):
+    """
+    Settings governing the Metric configuration for the table bucket.
+    """
+    def __init__(__self__, *,
+                 status: Optional['TableBucketMetricsConfigurationStatus'] = None):
+        """
+        Settings governing the Metric configuration for the table bucket.
+        :param 'TableBucketMetricsConfigurationStatus' status: Indicates whether Metrics are enabled.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional['TableBucketMetricsConfigurationStatus']:
+        """
+        Indicates whether Metrics are enabled.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

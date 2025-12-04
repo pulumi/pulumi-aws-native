@@ -134,6 +134,8 @@ class BackupPlanBackupRuleResourceType(dict):
             suggest = "schedule_expression_timezone"
         elif key == "startWindowMinutes":
             suggest = "start_window_minutes"
+        elif key == "targetLogicallyAirGappedBackupVaultArn":
+            suggest = "target_logically_air_gapped_backup_vault_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BackupPlanBackupRuleResourceType. Access the value via the '{suggest}' property getter instead.")
@@ -157,7 +159,8 @@ class BackupPlanBackupRuleResourceType(dict):
                  recovery_point_tags: Optional[Mapping[str, _builtins.str]] = None,
                  schedule_expression: Optional[_builtins.str] = None,
                  schedule_expression_timezone: Optional[_builtins.str] = None,
-                 start_window_minutes: Optional[_builtins.float] = None):
+                 start_window_minutes: Optional[_builtins.float] = None,
+                 target_logically_air_gapped_backup_vault_arn: Optional[_builtins.str] = None):
         """
         :param _builtins.str rule_name: A display name for a backup rule.
         :param _builtins.str target_backup_vault: The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of letters, numbers, and hyphens.
@@ -198,6 +201,8 @@ class BackupPlanBackupRuleResourceType(dict):
             pulumi.set(__self__, "schedule_expression_timezone", schedule_expression_timezone)
         if start_window_minutes is not None:
             pulumi.set(__self__, "start_window_minutes", start_window_minutes)
+        if target_logically_air_gapped_backup_vault_arn is not None:
+            pulumi.set(__self__, "target_logically_air_gapped_backup_vault_arn", target_logically_air_gapped_backup_vault_arn)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
@@ -293,6 +298,11 @@ class BackupPlanBackupRuleResourceType(dict):
         If this value is included, it must be at least 60 minutes to avoid errors.
         """
         return pulumi.get(self, "start_window_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="targetLogicallyAirGappedBackupVaultArn")
+    def target_logically_air_gapped_backup_vault_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "target_logically_air_gapped_backup_vault_arn")
 
 
 @pulumi.output_type

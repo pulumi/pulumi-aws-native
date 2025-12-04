@@ -115,6 +115,7 @@ namespace Pulumi.AwsNative.Cassandra
         /// An array of key-value pairs to apply to this resource
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly Outputs.TableWarmThroughput? WarmThroughput;
 
         [OutputConstructor]
         private GetTableResult(
@@ -130,7 +131,9 @@ namespace Pulumi.AwsNative.Cassandra
 
             ImmutableArray<Outputs.TableColumn> regularColumns,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            Outputs.TableWarmThroughput? warmThroughput)
         {
             BillingMode = billingMode;
             CdcSpecification = cdcSpecification;
@@ -139,6 +142,7 @@ namespace Pulumi.AwsNative.Cassandra
             PointInTimeRecoveryEnabled = pointInTimeRecoveryEnabled;
             RegularColumns = regularColumns;
             Tags = tags;
+            WarmThroughput = warmThroughput;
         }
     }
 }

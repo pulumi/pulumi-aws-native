@@ -402,6 +402,595 @@ func (o AliasVersionWeightArrayOutput) Index(i pulumi.IntInput) AliasVersionWeig
 	}).(AliasVersionWeightOutput)
 }
 
+// Specifications for the types of EC2 instances that the capacity provider can use.
+type CapacityProviderInstanceRequirements struct {
+	// A list of instance types that the capacity provider can use. Supports wildcards (for example, m5.*).
+	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
+	// The instruction set architecture for EC2 instances. Specify either x86_64 or arm64.
+	Architectures []CapacityProviderArchitecture `pulumi:"architectures"`
+	// A list of instance types that the capacity provider should not use. Takes precedence over AllowedInstanceTypes.
+	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
+}
+
+// CapacityProviderInstanceRequirementsInput is an input type that accepts CapacityProviderInstanceRequirementsArgs and CapacityProviderInstanceRequirementsOutput values.
+// You can construct a concrete instance of `CapacityProviderInstanceRequirementsInput` via:
+//
+//	CapacityProviderInstanceRequirementsArgs{...}
+type CapacityProviderInstanceRequirementsInput interface {
+	pulumi.Input
+
+	ToCapacityProviderInstanceRequirementsOutput() CapacityProviderInstanceRequirementsOutput
+	ToCapacityProviderInstanceRequirementsOutputWithContext(context.Context) CapacityProviderInstanceRequirementsOutput
+}
+
+// Specifications for the types of EC2 instances that the capacity provider can use.
+type CapacityProviderInstanceRequirementsArgs struct {
+	// A list of instance types that the capacity provider can use. Supports wildcards (for example, m5.*).
+	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
+	// The instruction set architecture for EC2 instances. Specify either x86_64 or arm64.
+	Architectures CapacityProviderArchitectureArrayInput `pulumi:"architectures"`
+	// A list of instance types that the capacity provider should not use. Takes precedence over AllowedInstanceTypes.
+	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
+}
+
+func (CapacityProviderInstanceRequirementsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderInstanceRequirements)(nil)).Elem()
+}
+
+func (i CapacityProviderInstanceRequirementsArgs) ToCapacityProviderInstanceRequirementsOutput() CapacityProviderInstanceRequirementsOutput {
+	return i.ToCapacityProviderInstanceRequirementsOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderInstanceRequirementsArgs) ToCapacityProviderInstanceRequirementsOutputWithContext(ctx context.Context) CapacityProviderInstanceRequirementsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderInstanceRequirementsOutput)
+}
+
+func (i CapacityProviderInstanceRequirementsArgs) ToCapacityProviderInstanceRequirementsPtrOutput() CapacityProviderInstanceRequirementsPtrOutput {
+	return i.ToCapacityProviderInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderInstanceRequirementsArgs) ToCapacityProviderInstanceRequirementsPtrOutputWithContext(ctx context.Context) CapacityProviderInstanceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderInstanceRequirementsOutput).ToCapacityProviderInstanceRequirementsPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderInstanceRequirementsPtrInput is an input type that accepts CapacityProviderInstanceRequirementsArgs, CapacityProviderInstanceRequirementsPtr and CapacityProviderInstanceRequirementsPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderInstanceRequirementsPtrInput` via:
+//
+//	        CapacityProviderInstanceRequirementsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderInstanceRequirementsPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderInstanceRequirementsPtrOutput() CapacityProviderInstanceRequirementsPtrOutput
+	ToCapacityProviderInstanceRequirementsPtrOutputWithContext(context.Context) CapacityProviderInstanceRequirementsPtrOutput
+}
+
+type capacityProviderInstanceRequirementsPtrType CapacityProviderInstanceRequirementsArgs
+
+func CapacityProviderInstanceRequirementsPtr(v *CapacityProviderInstanceRequirementsArgs) CapacityProviderInstanceRequirementsPtrInput {
+	return (*capacityProviderInstanceRequirementsPtrType)(v)
+}
+
+func (*capacityProviderInstanceRequirementsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderInstanceRequirements)(nil)).Elem()
+}
+
+func (i *capacityProviderInstanceRequirementsPtrType) ToCapacityProviderInstanceRequirementsPtrOutput() CapacityProviderInstanceRequirementsPtrOutput {
+	return i.ToCapacityProviderInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderInstanceRequirementsPtrType) ToCapacityProviderInstanceRequirementsPtrOutputWithContext(ctx context.Context) CapacityProviderInstanceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderInstanceRequirementsPtrOutput)
+}
+
+// Specifications for the types of EC2 instances that the capacity provider can use.
+type CapacityProviderInstanceRequirementsOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderInstanceRequirementsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderInstanceRequirements)(nil)).Elem()
+}
+
+func (o CapacityProviderInstanceRequirementsOutput) ToCapacityProviderInstanceRequirementsOutput() CapacityProviderInstanceRequirementsOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceRequirementsOutput) ToCapacityProviderInstanceRequirementsOutputWithContext(ctx context.Context) CapacityProviderInstanceRequirementsOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceRequirementsOutput) ToCapacityProviderInstanceRequirementsPtrOutput() CapacityProviderInstanceRequirementsPtrOutput {
+	return o.ToCapacityProviderInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderInstanceRequirementsOutput) ToCapacityProviderInstanceRequirementsPtrOutputWithContext(ctx context.Context) CapacityProviderInstanceRequirementsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderInstanceRequirements) *CapacityProviderInstanceRequirements {
+		return &v
+	}).(CapacityProviderInstanceRequirementsPtrOutput)
+}
+
+// A list of instance types that the capacity provider can use. Supports wildcards (for example, m5.*).
+func (o CapacityProviderInstanceRequirementsOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirements) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+// The instruction set architecture for EC2 instances. Specify either x86_64 or arm64.
+func (o CapacityProviderInstanceRequirementsOutput) Architectures() CapacityProviderArchitectureArrayOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirements) []CapacityProviderArchitecture { return v.Architectures }).(CapacityProviderArchitectureArrayOutput)
+}
+
+// A list of instance types that the capacity provider should not use. Takes precedence over AllowedInstanceTypes.
+func (o CapacityProviderInstanceRequirementsOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceRequirements) []string { return v.ExcludedInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+type CapacityProviderInstanceRequirementsPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderInstanceRequirementsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderInstanceRequirements)(nil)).Elem()
+}
+
+func (o CapacityProviderInstanceRequirementsPtrOutput) ToCapacityProviderInstanceRequirementsPtrOutput() CapacityProviderInstanceRequirementsPtrOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceRequirementsPtrOutput) ToCapacityProviderInstanceRequirementsPtrOutputWithContext(ctx context.Context) CapacityProviderInstanceRequirementsPtrOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceRequirementsPtrOutput) Elem() CapacityProviderInstanceRequirementsOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirements) CapacityProviderInstanceRequirements {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderInstanceRequirements
+		return ret
+	}).(CapacityProviderInstanceRequirementsOutput)
+}
+
+// A list of instance types that the capacity provider can use. Supports wildcards (for example, m5.*).
+func (o CapacityProviderInstanceRequirementsPtrOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// The instruction set architecture for EC2 instances. Specify either x86_64 or arm64.
+func (o CapacityProviderInstanceRequirementsPtrOutput) Architectures() CapacityProviderArchitectureArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirements) []CapacityProviderArchitecture {
+		if v == nil {
+			return nil
+		}
+		return v.Architectures
+	}).(CapacityProviderArchitectureArrayOutput)
+}
+
+// A list of instance types that the capacity provider should not use. Takes precedence over AllowedInstanceTypes.
+func (o CapacityProviderInstanceRequirementsPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// IAM permissions configuration for the capacity provider.
+type CapacityProviderPermissionsConfig struct {
+	// The ARN of the IAM role that Lambda assumes to manage the capacity provider.
+	CapacityProviderOperatorRoleArn string `pulumi:"capacityProviderOperatorRoleArn"`
+}
+
+// CapacityProviderPermissionsConfigInput is an input type that accepts CapacityProviderPermissionsConfigArgs and CapacityProviderPermissionsConfigOutput values.
+// You can construct a concrete instance of `CapacityProviderPermissionsConfigInput` via:
+//
+//	CapacityProviderPermissionsConfigArgs{...}
+type CapacityProviderPermissionsConfigInput interface {
+	pulumi.Input
+
+	ToCapacityProviderPermissionsConfigOutput() CapacityProviderPermissionsConfigOutput
+	ToCapacityProviderPermissionsConfigOutputWithContext(context.Context) CapacityProviderPermissionsConfigOutput
+}
+
+// IAM permissions configuration for the capacity provider.
+type CapacityProviderPermissionsConfigArgs struct {
+	// The ARN of the IAM role that Lambda assumes to manage the capacity provider.
+	CapacityProviderOperatorRoleArn pulumi.StringInput `pulumi:"capacityProviderOperatorRoleArn"`
+}
+
+func (CapacityProviderPermissionsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderPermissionsConfig)(nil)).Elem()
+}
+
+func (i CapacityProviderPermissionsConfigArgs) ToCapacityProviderPermissionsConfigOutput() CapacityProviderPermissionsConfigOutput {
+	return i.ToCapacityProviderPermissionsConfigOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderPermissionsConfigArgs) ToCapacityProviderPermissionsConfigOutputWithContext(ctx context.Context) CapacityProviderPermissionsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderPermissionsConfigOutput)
+}
+
+// IAM permissions configuration for the capacity provider.
+type CapacityProviderPermissionsConfigOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderPermissionsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderPermissionsConfig)(nil)).Elem()
+}
+
+func (o CapacityProviderPermissionsConfigOutput) ToCapacityProviderPermissionsConfigOutput() CapacityProviderPermissionsConfigOutput {
+	return o
+}
+
+func (o CapacityProviderPermissionsConfigOutput) ToCapacityProviderPermissionsConfigOutputWithContext(ctx context.Context) CapacityProviderPermissionsConfigOutput {
+	return o
+}
+
+// The ARN of the IAM role that Lambda assumes to manage the capacity provider.
+func (o CapacityProviderPermissionsConfigOutput) CapacityProviderOperatorRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityProviderPermissionsConfig) string { return v.CapacityProviderOperatorRoleArn }).(pulumi.StringOutput)
+}
+
+// The scaling configuration for the capacity provider.
+type CapacityProviderScalingConfig struct {
+	// The maximum number of EC2 instances that the capacity provider can scale up to.
+	MaxVCpuCount *int                         `pulumi:"maxVCpuCount"`
+	ScalingMode  *CapacityProviderScalingMode `pulumi:"scalingMode"`
+	// A list of target tracking scaling policies for the capacity provider.
+	ScalingPolicies []CapacityProviderTargetTrackingScalingPolicy `pulumi:"scalingPolicies"`
+}
+
+// CapacityProviderScalingConfigInput is an input type that accepts CapacityProviderScalingConfigArgs and CapacityProviderScalingConfigOutput values.
+// You can construct a concrete instance of `CapacityProviderScalingConfigInput` via:
+//
+//	CapacityProviderScalingConfigArgs{...}
+type CapacityProviderScalingConfigInput interface {
+	pulumi.Input
+
+	ToCapacityProviderScalingConfigOutput() CapacityProviderScalingConfigOutput
+	ToCapacityProviderScalingConfigOutputWithContext(context.Context) CapacityProviderScalingConfigOutput
+}
+
+// The scaling configuration for the capacity provider.
+type CapacityProviderScalingConfigArgs struct {
+	// The maximum number of EC2 instances that the capacity provider can scale up to.
+	MaxVCpuCount pulumi.IntPtrInput                  `pulumi:"maxVCpuCount"`
+	ScalingMode  CapacityProviderScalingModePtrInput `pulumi:"scalingMode"`
+	// A list of target tracking scaling policies for the capacity provider.
+	ScalingPolicies CapacityProviderTargetTrackingScalingPolicyArrayInput `pulumi:"scalingPolicies"`
+}
+
+func (CapacityProviderScalingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderScalingConfig)(nil)).Elem()
+}
+
+func (i CapacityProviderScalingConfigArgs) ToCapacityProviderScalingConfigOutput() CapacityProviderScalingConfigOutput {
+	return i.ToCapacityProviderScalingConfigOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderScalingConfigArgs) ToCapacityProviderScalingConfigOutputWithContext(ctx context.Context) CapacityProviderScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderScalingConfigOutput)
+}
+
+func (i CapacityProviderScalingConfigArgs) ToCapacityProviderScalingConfigPtrOutput() CapacityProviderScalingConfigPtrOutput {
+	return i.ToCapacityProviderScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderScalingConfigArgs) ToCapacityProviderScalingConfigPtrOutputWithContext(ctx context.Context) CapacityProviderScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderScalingConfigOutput).ToCapacityProviderScalingConfigPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderScalingConfigPtrInput is an input type that accepts CapacityProviderScalingConfigArgs, CapacityProviderScalingConfigPtr and CapacityProviderScalingConfigPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderScalingConfigPtrInput` via:
+//
+//	        CapacityProviderScalingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderScalingConfigPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderScalingConfigPtrOutput() CapacityProviderScalingConfigPtrOutput
+	ToCapacityProviderScalingConfigPtrOutputWithContext(context.Context) CapacityProviderScalingConfigPtrOutput
+}
+
+type capacityProviderScalingConfigPtrType CapacityProviderScalingConfigArgs
+
+func CapacityProviderScalingConfigPtr(v *CapacityProviderScalingConfigArgs) CapacityProviderScalingConfigPtrInput {
+	return (*capacityProviderScalingConfigPtrType)(v)
+}
+
+func (*capacityProviderScalingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderScalingConfig)(nil)).Elem()
+}
+
+func (i *capacityProviderScalingConfigPtrType) ToCapacityProviderScalingConfigPtrOutput() CapacityProviderScalingConfigPtrOutput {
+	return i.ToCapacityProviderScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderScalingConfigPtrType) ToCapacityProviderScalingConfigPtrOutputWithContext(ctx context.Context) CapacityProviderScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderScalingConfigPtrOutput)
+}
+
+// The scaling configuration for the capacity provider.
+type CapacityProviderScalingConfigOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderScalingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderScalingConfig)(nil)).Elem()
+}
+
+func (o CapacityProviderScalingConfigOutput) ToCapacityProviderScalingConfigOutput() CapacityProviderScalingConfigOutput {
+	return o
+}
+
+func (o CapacityProviderScalingConfigOutput) ToCapacityProviderScalingConfigOutputWithContext(ctx context.Context) CapacityProviderScalingConfigOutput {
+	return o
+}
+
+func (o CapacityProviderScalingConfigOutput) ToCapacityProviderScalingConfigPtrOutput() CapacityProviderScalingConfigPtrOutput {
+	return o.ToCapacityProviderScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderScalingConfigOutput) ToCapacityProviderScalingConfigPtrOutputWithContext(ctx context.Context) CapacityProviderScalingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderScalingConfig) *CapacityProviderScalingConfig {
+		return &v
+	}).(CapacityProviderScalingConfigPtrOutput)
+}
+
+// The maximum number of EC2 instances that the capacity provider can scale up to.
+func (o CapacityProviderScalingConfigOutput) MaxVCpuCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderScalingConfig) *int { return v.MaxVCpuCount }).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderScalingConfigOutput) ScalingMode() CapacityProviderScalingModePtrOutput {
+	return o.ApplyT(func(v CapacityProviderScalingConfig) *CapacityProviderScalingMode { return v.ScalingMode }).(CapacityProviderScalingModePtrOutput)
+}
+
+// A list of target tracking scaling policies for the capacity provider.
+func (o CapacityProviderScalingConfigOutput) ScalingPolicies() CapacityProviderTargetTrackingScalingPolicyArrayOutput {
+	return o.ApplyT(func(v CapacityProviderScalingConfig) []CapacityProviderTargetTrackingScalingPolicy {
+		return v.ScalingPolicies
+	}).(CapacityProviderTargetTrackingScalingPolicyArrayOutput)
+}
+
+type CapacityProviderScalingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderScalingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderScalingConfig)(nil)).Elem()
+}
+
+func (o CapacityProviderScalingConfigPtrOutput) ToCapacityProviderScalingConfigPtrOutput() CapacityProviderScalingConfigPtrOutput {
+	return o
+}
+
+func (o CapacityProviderScalingConfigPtrOutput) ToCapacityProviderScalingConfigPtrOutputWithContext(ctx context.Context) CapacityProviderScalingConfigPtrOutput {
+	return o
+}
+
+func (o CapacityProviderScalingConfigPtrOutput) Elem() CapacityProviderScalingConfigOutput {
+	return o.ApplyT(func(v *CapacityProviderScalingConfig) CapacityProviderScalingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderScalingConfig
+		return ret
+	}).(CapacityProviderScalingConfigOutput)
+}
+
+// The maximum number of EC2 instances that the capacity provider can scale up to.
+func (o CapacityProviderScalingConfigPtrOutput) MaxVCpuCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderScalingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxVCpuCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CapacityProviderScalingConfigPtrOutput) ScalingMode() CapacityProviderScalingModePtrOutput {
+	return o.ApplyT(func(v *CapacityProviderScalingConfig) *CapacityProviderScalingMode {
+		if v == nil {
+			return nil
+		}
+		return v.ScalingMode
+	}).(CapacityProviderScalingModePtrOutput)
+}
+
+// A list of target tracking scaling policies for the capacity provider.
+func (o CapacityProviderScalingConfigPtrOutput) ScalingPolicies() CapacityProviderTargetTrackingScalingPolicyArrayOutput {
+	return o.ApplyT(func(v *CapacityProviderScalingConfig) []CapacityProviderTargetTrackingScalingPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ScalingPolicies
+	}).(CapacityProviderTargetTrackingScalingPolicyArrayOutput)
+}
+
+// A key-value pair that provides metadata for the capacity provider.
+type CapacityProviderTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value *string `pulumi:"value"`
+}
+
+// A target tracking scaling policy for the capacity provider.
+type CapacityProviderTargetTrackingScalingPolicy struct {
+	PredefinedMetricType CapacityProviderPredefinedMetricType `pulumi:"predefinedMetricType"`
+	// The target value for the metric as a percentage (for example, 70.0 for 70%).
+	TargetValue float64 `pulumi:"targetValue"`
+}
+
+// CapacityProviderTargetTrackingScalingPolicyInput is an input type that accepts CapacityProviderTargetTrackingScalingPolicyArgs and CapacityProviderTargetTrackingScalingPolicyOutput values.
+// You can construct a concrete instance of `CapacityProviderTargetTrackingScalingPolicyInput` via:
+//
+//	CapacityProviderTargetTrackingScalingPolicyArgs{...}
+type CapacityProviderTargetTrackingScalingPolicyInput interface {
+	pulumi.Input
+
+	ToCapacityProviderTargetTrackingScalingPolicyOutput() CapacityProviderTargetTrackingScalingPolicyOutput
+	ToCapacityProviderTargetTrackingScalingPolicyOutputWithContext(context.Context) CapacityProviderTargetTrackingScalingPolicyOutput
+}
+
+// A target tracking scaling policy for the capacity provider.
+type CapacityProviderTargetTrackingScalingPolicyArgs struct {
+	PredefinedMetricType CapacityProviderPredefinedMetricTypeInput `pulumi:"predefinedMetricType"`
+	// The target value for the metric as a percentage (for example, 70.0 for 70%).
+	TargetValue pulumi.Float64Input `pulumi:"targetValue"`
+}
+
+func (CapacityProviderTargetTrackingScalingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderTargetTrackingScalingPolicy)(nil)).Elem()
+}
+
+func (i CapacityProviderTargetTrackingScalingPolicyArgs) ToCapacityProviderTargetTrackingScalingPolicyOutput() CapacityProviderTargetTrackingScalingPolicyOutput {
+	return i.ToCapacityProviderTargetTrackingScalingPolicyOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderTargetTrackingScalingPolicyArgs) ToCapacityProviderTargetTrackingScalingPolicyOutputWithContext(ctx context.Context) CapacityProviderTargetTrackingScalingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderTargetTrackingScalingPolicyOutput)
+}
+
+// CapacityProviderTargetTrackingScalingPolicyArrayInput is an input type that accepts CapacityProviderTargetTrackingScalingPolicyArray and CapacityProviderTargetTrackingScalingPolicyArrayOutput values.
+// You can construct a concrete instance of `CapacityProviderTargetTrackingScalingPolicyArrayInput` via:
+//
+//	CapacityProviderTargetTrackingScalingPolicyArray{ CapacityProviderTargetTrackingScalingPolicyArgs{...} }
+type CapacityProviderTargetTrackingScalingPolicyArrayInput interface {
+	pulumi.Input
+
+	ToCapacityProviderTargetTrackingScalingPolicyArrayOutput() CapacityProviderTargetTrackingScalingPolicyArrayOutput
+	ToCapacityProviderTargetTrackingScalingPolicyArrayOutputWithContext(context.Context) CapacityProviderTargetTrackingScalingPolicyArrayOutput
+}
+
+type CapacityProviderTargetTrackingScalingPolicyArray []CapacityProviderTargetTrackingScalingPolicyInput
+
+func (CapacityProviderTargetTrackingScalingPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityProviderTargetTrackingScalingPolicy)(nil)).Elem()
+}
+
+func (i CapacityProviderTargetTrackingScalingPolicyArray) ToCapacityProviderTargetTrackingScalingPolicyArrayOutput() CapacityProviderTargetTrackingScalingPolicyArrayOutput {
+	return i.ToCapacityProviderTargetTrackingScalingPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderTargetTrackingScalingPolicyArray) ToCapacityProviderTargetTrackingScalingPolicyArrayOutputWithContext(ctx context.Context) CapacityProviderTargetTrackingScalingPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderTargetTrackingScalingPolicyArrayOutput)
+}
+
+// A target tracking scaling policy for the capacity provider.
+type CapacityProviderTargetTrackingScalingPolicyOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderTargetTrackingScalingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderTargetTrackingScalingPolicy)(nil)).Elem()
+}
+
+func (o CapacityProviderTargetTrackingScalingPolicyOutput) ToCapacityProviderTargetTrackingScalingPolicyOutput() CapacityProviderTargetTrackingScalingPolicyOutput {
+	return o
+}
+
+func (o CapacityProviderTargetTrackingScalingPolicyOutput) ToCapacityProviderTargetTrackingScalingPolicyOutputWithContext(ctx context.Context) CapacityProviderTargetTrackingScalingPolicyOutput {
+	return o
+}
+
+func (o CapacityProviderTargetTrackingScalingPolicyOutput) PredefinedMetricType() CapacityProviderPredefinedMetricTypeOutput {
+	return o.ApplyT(func(v CapacityProviderTargetTrackingScalingPolicy) CapacityProviderPredefinedMetricType {
+		return v.PredefinedMetricType
+	}).(CapacityProviderPredefinedMetricTypeOutput)
+}
+
+// The target value for the metric as a percentage (for example, 70.0 for 70%).
+func (o CapacityProviderTargetTrackingScalingPolicyOutput) TargetValue() pulumi.Float64Output {
+	return o.ApplyT(func(v CapacityProviderTargetTrackingScalingPolicy) float64 { return v.TargetValue }).(pulumi.Float64Output)
+}
+
+type CapacityProviderTargetTrackingScalingPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderTargetTrackingScalingPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityProviderTargetTrackingScalingPolicy)(nil)).Elem()
+}
+
+func (o CapacityProviderTargetTrackingScalingPolicyArrayOutput) ToCapacityProviderTargetTrackingScalingPolicyArrayOutput() CapacityProviderTargetTrackingScalingPolicyArrayOutput {
+	return o
+}
+
+func (o CapacityProviderTargetTrackingScalingPolicyArrayOutput) ToCapacityProviderTargetTrackingScalingPolicyArrayOutputWithContext(ctx context.Context) CapacityProviderTargetTrackingScalingPolicyArrayOutput {
+	return o
+}
+
+func (o CapacityProviderTargetTrackingScalingPolicyArrayOutput) Index(i pulumi.IntInput) CapacityProviderTargetTrackingScalingPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityProviderTargetTrackingScalingPolicy {
+		return vs[0].([]CapacityProviderTargetTrackingScalingPolicy)[vs[1].(int)]
+	}).(CapacityProviderTargetTrackingScalingPolicyOutput)
+}
+
+// VPC configuration for the capacity provider.
+type CapacityProviderVpcConfig struct {
+	// A list of security group IDs to associate with EC2 instances.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// A list of subnet IDs where the capacity provider can launch EC2 instances.
+	SubnetIds []string `pulumi:"subnetIds"`
+}
+
+// CapacityProviderVpcConfigInput is an input type that accepts CapacityProviderVpcConfigArgs and CapacityProviderVpcConfigOutput values.
+// You can construct a concrete instance of `CapacityProviderVpcConfigInput` via:
+//
+//	CapacityProviderVpcConfigArgs{...}
+type CapacityProviderVpcConfigInput interface {
+	pulumi.Input
+
+	ToCapacityProviderVpcConfigOutput() CapacityProviderVpcConfigOutput
+	ToCapacityProviderVpcConfigOutputWithContext(context.Context) CapacityProviderVpcConfigOutput
+}
+
+// VPC configuration for the capacity provider.
+type CapacityProviderVpcConfigArgs struct {
+	// A list of security group IDs to associate with EC2 instances.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// A list of subnet IDs where the capacity provider can launch EC2 instances.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (CapacityProviderVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderVpcConfig)(nil)).Elem()
+}
+
+func (i CapacityProviderVpcConfigArgs) ToCapacityProviderVpcConfigOutput() CapacityProviderVpcConfigOutput {
+	return i.ToCapacityProviderVpcConfigOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderVpcConfigArgs) ToCapacityProviderVpcConfigOutputWithContext(ctx context.Context) CapacityProviderVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderVpcConfigOutput)
+}
+
+// VPC configuration for the capacity provider.
+type CapacityProviderVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderVpcConfig)(nil)).Elem()
+}
+
+func (o CapacityProviderVpcConfigOutput) ToCapacityProviderVpcConfigOutput() CapacityProviderVpcConfigOutput {
+	return o
+}
+
+func (o CapacityProviderVpcConfigOutput) ToCapacityProviderVpcConfigOutputWithContext(ctx context.Context) CapacityProviderVpcConfigOutput {
+	return o
+}
+
+// A list of security group IDs to associate with EC2 instances.
+func (o CapacityProviderVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of subnet IDs where the capacity provider can launch EC2 instances.
+func (o CapacityProviderVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapacityProviderVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
 // When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
 type CodeSigningConfigAllowedPublishers struct {
 	// List of Signing profile version Arns
@@ -1956,6 +2545,148 @@ func (o EventSourceMappingFilterCriteriaPtrOutput) Filters() EventSourceMappingF
 	}).(EventSourceMappingFilterArrayOutput)
 }
 
+// The function's Amazon CloudWatch Logs configuration settings.
+type EventSourceMappingLoggingConfig struct {
+	// Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
+	SystemLogLevel *EventSourceMappingLoggingConfigSystemLogLevel `pulumi:"systemLogLevel"`
+}
+
+// EventSourceMappingLoggingConfigInput is an input type that accepts EventSourceMappingLoggingConfigArgs and EventSourceMappingLoggingConfigOutput values.
+// You can construct a concrete instance of `EventSourceMappingLoggingConfigInput` via:
+//
+//	EventSourceMappingLoggingConfigArgs{...}
+type EventSourceMappingLoggingConfigInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingLoggingConfigOutput() EventSourceMappingLoggingConfigOutput
+	ToEventSourceMappingLoggingConfigOutputWithContext(context.Context) EventSourceMappingLoggingConfigOutput
+}
+
+// The function's Amazon CloudWatch Logs configuration settings.
+type EventSourceMappingLoggingConfigArgs struct {
+	// Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
+	SystemLogLevel EventSourceMappingLoggingConfigSystemLogLevelPtrInput `pulumi:"systemLogLevel"`
+}
+
+func (EventSourceMappingLoggingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingLoggingConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingLoggingConfigArgs) ToEventSourceMappingLoggingConfigOutput() EventSourceMappingLoggingConfigOutput {
+	return i.ToEventSourceMappingLoggingConfigOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingLoggingConfigArgs) ToEventSourceMappingLoggingConfigOutputWithContext(ctx context.Context) EventSourceMappingLoggingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingLoggingConfigOutput)
+}
+
+func (i EventSourceMappingLoggingConfigArgs) ToEventSourceMappingLoggingConfigPtrOutput() EventSourceMappingLoggingConfigPtrOutput {
+	return i.ToEventSourceMappingLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingLoggingConfigArgs) ToEventSourceMappingLoggingConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingLoggingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingLoggingConfigOutput).ToEventSourceMappingLoggingConfigPtrOutputWithContext(ctx)
+}
+
+// EventSourceMappingLoggingConfigPtrInput is an input type that accepts EventSourceMappingLoggingConfigArgs, EventSourceMappingLoggingConfigPtr and EventSourceMappingLoggingConfigPtrOutput values.
+// You can construct a concrete instance of `EventSourceMappingLoggingConfigPtrInput` via:
+//
+//	        EventSourceMappingLoggingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventSourceMappingLoggingConfigPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingLoggingConfigPtrOutput() EventSourceMappingLoggingConfigPtrOutput
+	ToEventSourceMappingLoggingConfigPtrOutputWithContext(context.Context) EventSourceMappingLoggingConfigPtrOutput
+}
+
+type eventSourceMappingLoggingConfigPtrType EventSourceMappingLoggingConfigArgs
+
+func EventSourceMappingLoggingConfigPtr(v *EventSourceMappingLoggingConfigArgs) EventSourceMappingLoggingConfigPtrInput {
+	return (*eventSourceMappingLoggingConfigPtrType)(v)
+}
+
+func (*eventSourceMappingLoggingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingLoggingConfig)(nil)).Elem()
+}
+
+func (i *eventSourceMappingLoggingConfigPtrType) ToEventSourceMappingLoggingConfigPtrOutput() EventSourceMappingLoggingConfigPtrOutput {
+	return i.ToEventSourceMappingLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceMappingLoggingConfigPtrType) ToEventSourceMappingLoggingConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingLoggingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingLoggingConfigPtrOutput)
+}
+
+// The function's Amazon CloudWatch Logs configuration settings.
+type EventSourceMappingLoggingConfigOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingLoggingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingLoggingConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingLoggingConfigOutput) ToEventSourceMappingLoggingConfigOutput() EventSourceMappingLoggingConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingLoggingConfigOutput) ToEventSourceMappingLoggingConfigOutputWithContext(ctx context.Context) EventSourceMappingLoggingConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingLoggingConfigOutput) ToEventSourceMappingLoggingConfigPtrOutput() EventSourceMappingLoggingConfigPtrOutput {
+	return o.ToEventSourceMappingLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingLoggingConfigOutput) ToEventSourceMappingLoggingConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingLoggingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingLoggingConfig) *EventSourceMappingLoggingConfig {
+		return &v
+	}).(EventSourceMappingLoggingConfigPtrOutput)
+}
+
+// Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where “DEBUG“ is the highest level and “WARN“ is the lowest.
+func (o EventSourceMappingLoggingConfigOutput) SystemLogLevel() EventSourceMappingLoggingConfigSystemLogLevelPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingLoggingConfig) *EventSourceMappingLoggingConfigSystemLogLevel {
+		return v.SystemLogLevel
+	}).(EventSourceMappingLoggingConfigSystemLogLevelPtrOutput)
+}
+
+type EventSourceMappingLoggingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingLoggingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingLoggingConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingLoggingConfigPtrOutput) ToEventSourceMappingLoggingConfigPtrOutput() EventSourceMappingLoggingConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingLoggingConfigPtrOutput) ToEventSourceMappingLoggingConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingLoggingConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingLoggingConfigPtrOutput) Elem() EventSourceMappingLoggingConfigOutput {
+	return o.ApplyT(func(v *EventSourceMappingLoggingConfig) EventSourceMappingLoggingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingLoggingConfig
+		return ret
+	}).(EventSourceMappingLoggingConfigOutput)
+}
+
+// Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where “DEBUG“ is the highest level and “WARN“ is the lowest.
+func (o EventSourceMappingLoggingConfigPtrOutput) SystemLogLevel() EventSourceMappingLoggingConfigSystemLogLevelPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingLoggingConfig) *EventSourceMappingLoggingConfigSystemLogLevel {
+		if v == nil {
+			return nil
+		}
+		return v.SystemLogLevel
+	}).(EventSourceMappingLoggingConfigSystemLogLevelPtrOutput)
+}
+
 // The metrics configuration for your event source. Use this configuration object to define which metrics you want your event source mapping to produce.
 type EventSourceMappingMetricsConfig struct {
 	// The metrics you want your event source mapping to produce. Include ``EventCount`` to receive event source mapping metrics related to the number of events processed by your event source mapping. For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
@@ -2100,7 +2831,8 @@ func (o EventSourceMappingMetricsConfigPtrOutput) Metrics() EventSourceMappingMe
 type EventSourceMappingOnFailure struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
 	//  To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
-	//  To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
+	//   Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending ``OnFailure`` event to the destination. For details on this behavior, refer to [Retaining records of asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html).
+	//   To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
 	Destination *string `pulumi:"destination"`
 }
 
@@ -2119,7 +2851,8 @@ type EventSourceMappingOnFailureInput interface {
 type EventSourceMappingOnFailureArgs struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
 	//  To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
-	//  To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
+	//   Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending ``OnFailure`` event to the destination. For details on this behavior, refer to [Retaining records of asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html).
+	//   To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
 	Destination pulumi.StringPtrInput `pulumi:"destination"`
 }
 
@@ -2204,7 +2937,8 @@ func (o EventSourceMappingOnFailureOutput) ToEventSourceMappingOnFailurePtrOutpu
 // The Amazon Resource Name (ARN) of the destination resource.
 //
 //	To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
-//	To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
+//	 Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending ``OnFailure`` event to the destination. For details on this behavior, refer to [Retaining records of asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html).
+//	 To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
 func (o EventSourceMappingOnFailureOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingOnFailure) *string { return v.Destination }).(pulumi.StringPtrOutput)
 }
@@ -2236,7 +2970,8 @@ func (o EventSourceMappingOnFailurePtrOutput) Elem() EventSourceMappingOnFailure
 // The Amazon Resource Name (ARN) of the destination resource.
 //
 //	To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
-//	To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
+//	 Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending ``OnFailure`` event to the destination. For details on this behavior, refer to [Retaining records of asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html).
+//	 To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
 func (o EventSourceMappingOnFailurePtrOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingOnFailure) *string {
 		if v == nil {
@@ -2246,12 +2981,14 @@ func (o EventSourceMappingOnFailurePtrOutput) Destination() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use provisioned mode to customize the minimum and maximum number of event pollers for your event source.
+// The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers for your event source.
 type EventSourceMappingProvisionedPollerConfig struct {
-	// The maximum number of event pollers this event source can scale up to.
+	// The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
 	MaximumPollers *int `pulumi:"maximumPollers"`
-	// The minimum number of event pollers this event source can scale down to.
+	// The minimum number of event pollers this event source can scale down to. For Amazon SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 1.
 	MinimumPollers *int `pulumi:"minimumPollers"`
+	// (Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+	PollerGroupName *string `pulumi:"pollerGroupName"`
 }
 
 // EventSourceMappingProvisionedPollerConfigInput is an input type that accepts EventSourceMappingProvisionedPollerConfigArgs and EventSourceMappingProvisionedPollerConfigOutput values.
@@ -2265,12 +3002,14 @@ type EventSourceMappingProvisionedPollerConfigInput interface {
 	ToEventSourceMappingProvisionedPollerConfigOutputWithContext(context.Context) EventSourceMappingProvisionedPollerConfigOutput
 }
 
-// The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use provisioned mode to customize the minimum and maximum number of event pollers for your event source.
+// The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers for your event source.
 type EventSourceMappingProvisionedPollerConfigArgs struct {
-	// The maximum number of event pollers this event source can scale up to.
+	// The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
 	MaximumPollers pulumi.IntPtrInput `pulumi:"maximumPollers"`
-	// The minimum number of event pollers this event source can scale down to.
+	// The minimum number of event pollers this event source can scale down to. For Amazon SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 1.
 	MinimumPollers pulumi.IntPtrInput `pulumi:"minimumPollers"`
+	// (Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+	PollerGroupName pulumi.StringPtrInput `pulumi:"pollerGroupName"`
 }
 
 func (EventSourceMappingProvisionedPollerConfigArgs) ElementType() reflect.Type {
@@ -2326,7 +3065,7 @@ func (i *eventSourceMappingProvisionedPollerConfigPtrType) ToEventSourceMappingP
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingProvisionedPollerConfigPtrOutput)
 }
 
-// The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use provisioned mode to customize the minimum and maximum number of event pollers for your event source.
+// The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers for your event source.
 type EventSourceMappingProvisionedPollerConfigOutput struct{ *pulumi.OutputState }
 
 func (EventSourceMappingProvisionedPollerConfigOutput) ElementType() reflect.Type {
@@ -2351,14 +3090,19 @@ func (o EventSourceMappingProvisionedPollerConfigOutput) ToEventSourceMappingPro
 	}).(EventSourceMappingProvisionedPollerConfigPtrOutput)
 }
 
-// The maximum number of event pollers this event source can scale up to.
+// The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
 func (o EventSourceMappingProvisionedPollerConfigOutput) MaximumPollers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingProvisionedPollerConfig) *int { return v.MaximumPollers }).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of event pollers this event source can scale down to.
+// The minimum number of event pollers this event source can scale down to. For Amazon SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 1.
 func (o EventSourceMappingProvisionedPollerConfigOutput) MinimumPollers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingProvisionedPollerConfig) *int { return v.MinimumPollers }).(pulumi.IntPtrOutput)
+}
+
+// (Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+func (o EventSourceMappingProvisionedPollerConfigOutput) PollerGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingProvisionedPollerConfig) *string { return v.PollerGroupName }).(pulumi.StringPtrOutput)
 }
 
 type EventSourceMappingProvisionedPollerConfigPtrOutput struct{ *pulumi.OutputState }
@@ -2385,7 +3129,7 @@ func (o EventSourceMappingProvisionedPollerConfigPtrOutput) Elem() EventSourceMa
 	}).(EventSourceMappingProvisionedPollerConfigOutput)
 }
 
-// The maximum number of event pollers this event source can scale up to.
+// The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
 func (o EventSourceMappingProvisionedPollerConfigPtrOutput) MaximumPollers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingProvisionedPollerConfig) *int {
 		if v == nil {
@@ -2395,7 +3139,7 @@ func (o EventSourceMappingProvisionedPollerConfigPtrOutput) MaximumPollers() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of event pollers this event source can scale down to.
+// The minimum number of event pollers this event source can scale down to. For Amazon SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 1.
 func (o EventSourceMappingProvisionedPollerConfigPtrOutput) MinimumPollers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingProvisionedPollerConfig) *int {
 		if v == nil {
@@ -2403,6 +3147,16 @@ func (o EventSourceMappingProvisionedPollerConfigPtrOutput) MinimumPollers() pul
 		}
 		return v.MinimumPollers
 	}).(pulumi.IntPtrOutput)
+}
+
+// (Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+func (o EventSourceMappingProvisionedPollerConfigPtrOutput) PollerGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingProvisionedPollerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PollerGroupName
+	}).(pulumi.StringPtrOutput)
 }
 
 // (Amazon SQS only) The scaling configuration for the event source. To remove the configuration, pass an empty value.
@@ -3433,6 +4187,141 @@ type EventSourceMappingTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type FunctionCapacityProviderConfig struct {
+	LambdaManagedInstancesCapacityProviderConfig FunctionLambdaManagedInstancesCapacityProviderConfig `pulumi:"lambdaManagedInstancesCapacityProviderConfig"`
+}
+
+// FunctionCapacityProviderConfigInput is an input type that accepts FunctionCapacityProviderConfigArgs and FunctionCapacityProviderConfigOutput values.
+// You can construct a concrete instance of `FunctionCapacityProviderConfigInput` via:
+//
+//	FunctionCapacityProviderConfigArgs{...}
+type FunctionCapacityProviderConfigInput interface {
+	pulumi.Input
+
+	ToFunctionCapacityProviderConfigOutput() FunctionCapacityProviderConfigOutput
+	ToFunctionCapacityProviderConfigOutputWithContext(context.Context) FunctionCapacityProviderConfigOutput
+}
+
+type FunctionCapacityProviderConfigArgs struct {
+	LambdaManagedInstancesCapacityProviderConfig FunctionLambdaManagedInstancesCapacityProviderConfigInput `pulumi:"lambdaManagedInstancesCapacityProviderConfig"`
+}
+
+func (FunctionCapacityProviderConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionCapacityProviderConfig)(nil)).Elem()
+}
+
+func (i FunctionCapacityProviderConfigArgs) ToFunctionCapacityProviderConfigOutput() FunctionCapacityProviderConfigOutput {
+	return i.ToFunctionCapacityProviderConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionCapacityProviderConfigArgs) ToFunctionCapacityProviderConfigOutputWithContext(ctx context.Context) FunctionCapacityProviderConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionCapacityProviderConfigOutput)
+}
+
+func (i FunctionCapacityProviderConfigArgs) ToFunctionCapacityProviderConfigPtrOutput() FunctionCapacityProviderConfigPtrOutput {
+	return i.ToFunctionCapacityProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionCapacityProviderConfigArgs) ToFunctionCapacityProviderConfigPtrOutputWithContext(ctx context.Context) FunctionCapacityProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionCapacityProviderConfigOutput).ToFunctionCapacityProviderConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionCapacityProviderConfigPtrInput is an input type that accepts FunctionCapacityProviderConfigArgs, FunctionCapacityProviderConfigPtr and FunctionCapacityProviderConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionCapacityProviderConfigPtrInput` via:
+//
+//	        FunctionCapacityProviderConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionCapacityProviderConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionCapacityProviderConfigPtrOutput() FunctionCapacityProviderConfigPtrOutput
+	ToFunctionCapacityProviderConfigPtrOutputWithContext(context.Context) FunctionCapacityProviderConfigPtrOutput
+}
+
+type functionCapacityProviderConfigPtrType FunctionCapacityProviderConfigArgs
+
+func FunctionCapacityProviderConfigPtr(v *FunctionCapacityProviderConfigArgs) FunctionCapacityProviderConfigPtrInput {
+	return (*functionCapacityProviderConfigPtrType)(v)
+}
+
+func (*functionCapacityProviderConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionCapacityProviderConfig)(nil)).Elem()
+}
+
+func (i *functionCapacityProviderConfigPtrType) ToFunctionCapacityProviderConfigPtrOutput() FunctionCapacityProviderConfigPtrOutput {
+	return i.ToFunctionCapacityProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionCapacityProviderConfigPtrType) ToFunctionCapacityProviderConfigPtrOutputWithContext(ctx context.Context) FunctionCapacityProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionCapacityProviderConfigPtrOutput)
+}
+
+type FunctionCapacityProviderConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionCapacityProviderConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionCapacityProviderConfig)(nil)).Elem()
+}
+
+func (o FunctionCapacityProviderConfigOutput) ToFunctionCapacityProviderConfigOutput() FunctionCapacityProviderConfigOutput {
+	return o
+}
+
+func (o FunctionCapacityProviderConfigOutput) ToFunctionCapacityProviderConfigOutputWithContext(ctx context.Context) FunctionCapacityProviderConfigOutput {
+	return o
+}
+
+func (o FunctionCapacityProviderConfigOutput) ToFunctionCapacityProviderConfigPtrOutput() FunctionCapacityProviderConfigPtrOutput {
+	return o.ToFunctionCapacityProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionCapacityProviderConfigOutput) ToFunctionCapacityProviderConfigPtrOutputWithContext(ctx context.Context) FunctionCapacityProviderConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionCapacityProviderConfig) *FunctionCapacityProviderConfig {
+		return &v
+	}).(FunctionCapacityProviderConfigPtrOutput)
+}
+
+func (o FunctionCapacityProviderConfigOutput) LambdaManagedInstancesCapacityProviderConfig() FunctionLambdaManagedInstancesCapacityProviderConfigOutput {
+	return o.ApplyT(func(v FunctionCapacityProviderConfig) FunctionLambdaManagedInstancesCapacityProviderConfig {
+		return v.LambdaManagedInstancesCapacityProviderConfig
+	}).(FunctionLambdaManagedInstancesCapacityProviderConfigOutput)
+}
+
+type FunctionCapacityProviderConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionCapacityProviderConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionCapacityProviderConfig)(nil)).Elem()
+}
+
+func (o FunctionCapacityProviderConfigPtrOutput) ToFunctionCapacityProviderConfigPtrOutput() FunctionCapacityProviderConfigPtrOutput {
+	return o
+}
+
+func (o FunctionCapacityProviderConfigPtrOutput) ToFunctionCapacityProviderConfigPtrOutputWithContext(ctx context.Context) FunctionCapacityProviderConfigPtrOutput {
+	return o
+}
+
+func (o FunctionCapacityProviderConfigPtrOutput) Elem() FunctionCapacityProviderConfigOutput {
+	return o.ApplyT(func(v *FunctionCapacityProviderConfig) FunctionCapacityProviderConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionCapacityProviderConfig
+		return ret
+	}).(FunctionCapacityProviderConfigOutput)
+}
+
+func (o FunctionCapacityProviderConfigPtrOutput) LambdaManagedInstancesCapacityProviderConfig() FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput {
+	return o.ApplyT(func(v *FunctionCapacityProviderConfig) *FunctionLambdaManagedInstancesCapacityProviderConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaManagedInstancesCapacityProviderConfig
+	}).(FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput)
+}
+
 // The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.
 //
 //	When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that LAM treats the file as a CommonJS module. ES modules aren't supported for inline functions.
@@ -4353,6 +5242,185 @@ func (o FunctionImageConfigPtrOutput) WorkingDirectory() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type FunctionLambdaManagedInstancesCapacityProviderConfig struct {
+	// The Amazon Resource Name (ARN) of the capacity provider.
+	CapacityProviderArn string `pulumi:"capacityProviderArn"`
+	// The amount of memory in GiB allocated per vCPU for execution environments.
+	ExecutionEnvironmentMemoryGiBPerVCpu *float64 `pulumi:"executionEnvironmentMemoryGiBPerVCpu"`
+	// The maximum number of concurrent execution environments that can run on each compute instance.
+	PerExecutionEnvironmentMaxConcurrency *int `pulumi:"perExecutionEnvironmentMaxConcurrency"`
+}
+
+// FunctionLambdaManagedInstancesCapacityProviderConfigInput is an input type that accepts FunctionLambdaManagedInstancesCapacityProviderConfigArgs and FunctionLambdaManagedInstancesCapacityProviderConfigOutput values.
+// You can construct a concrete instance of `FunctionLambdaManagedInstancesCapacityProviderConfigInput` via:
+//
+//	FunctionLambdaManagedInstancesCapacityProviderConfigArgs{...}
+type FunctionLambdaManagedInstancesCapacityProviderConfigInput interface {
+	pulumi.Input
+
+	ToFunctionLambdaManagedInstancesCapacityProviderConfigOutput() FunctionLambdaManagedInstancesCapacityProviderConfigOutput
+	ToFunctionLambdaManagedInstancesCapacityProviderConfigOutputWithContext(context.Context) FunctionLambdaManagedInstancesCapacityProviderConfigOutput
+}
+
+type FunctionLambdaManagedInstancesCapacityProviderConfigArgs struct {
+	// The Amazon Resource Name (ARN) of the capacity provider.
+	CapacityProviderArn pulumi.StringInput `pulumi:"capacityProviderArn"`
+	// The amount of memory in GiB allocated per vCPU for execution environments.
+	ExecutionEnvironmentMemoryGiBPerVCpu pulumi.Float64PtrInput `pulumi:"executionEnvironmentMemoryGiBPerVCpu"`
+	// The maximum number of concurrent execution environments that can run on each compute instance.
+	PerExecutionEnvironmentMaxConcurrency pulumi.IntPtrInput `pulumi:"perExecutionEnvironmentMaxConcurrency"`
+}
+
+func (FunctionLambdaManagedInstancesCapacityProviderConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionLambdaManagedInstancesCapacityProviderConfig)(nil)).Elem()
+}
+
+func (i FunctionLambdaManagedInstancesCapacityProviderConfigArgs) ToFunctionLambdaManagedInstancesCapacityProviderConfigOutput() FunctionLambdaManagedInstancesCapacityProviderConfigOutput {
+	return i.ToFunctionLambdaManagedInstancesCapacityProviderConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionLambdaManagedInstancesCapacityProviderConfigArgs) ToFunctionLambdaManagedInstancesCapacityProviderConfigOutputWithContext(ctx context.Context) FunctionLambdaManagedInstancesCapacityProviderConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionLambdaManagedInstancesCapacityProviderConfigOutput)
+}
+
+func (i FunctionLambdaManagedInstancesCapacityProviderConfigArgs) ToFunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput() FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput {
+	return i.ToFunctionLambdaManagedInstancesCapacityProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionLambdaManagedInstancesCapacityProviderConfigArgs) ToFunctionLambdaManagedInstancesCapacityProviderConfigPtrOutputWithContext(ctx context.Context) FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionLambdaManagedInstancesCapacityProviderConfigOutput).ToFunctionLambdaManagedInstancesCapacityProviderConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionLambdaManagedInstancesCapacityProviderConfigPtrInput is an input type that accepts FunctionLambdaManagedInstancesCapacityProviderConfigArgs, FunctionLambdaManagedInstancesCapacityProviderConfigPtr and FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionLambdaManagedInstancesCapacityProviderConfigPtrInput` via:
+//
+//	        FunctionLambdaManagedInstancesCapacityProviderConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionLambdaManagedInstancesCapacityProviderConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput() FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput
+	ToFunctionLambdaManagedInstancesCapacityProviderConfigPtrOutputWithContext(context.Context) FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput
+}
+
+type functionLambdaManagedInstancesCapacityProviderConfigPtrType FunctionLambdaManagedInstancesCapacityProviderConfigArgs
+
+func FunctionLambdaManagedInstancesCapacityProviderConfigPtr(v *FunctionLambdaManagedInstancesCapacityProviderConfigArgs) FunctionLambdaManagedInstancesCapacityProviderConfigPtrInput {
+	return (*functionLambdaManagedInstancesCapacityProviderConfigPtrType)(v)
+}
+
+func (*functionLambdaManagedInstancesCapacityProviderConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionLambdaManagedInstancesCapacityProviderConfig)(nil)).Elem()
+}
+
+func (i *functionLambdaManagedInstancesCapacityProviderConfigPtrType) ToFunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput() FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput {
+	return i.ToFunctionLambdaManagedInstancesCapacityProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionLambdaManagedInstancesCapacityProviderConfigPtrType) ToFunctionLambdaManagedInstancesCapacityProviderConfigPtrOutputWithContext(ctx context.Context) FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput)
+}
+
+type FunctionLambdaManagedInstancesCapacityProviderConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionLambdaManagedInstancesCapacityProviderConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionLambdaManagedInstancesCapacityProviderConfig)(nil)).Elem()
+}
+
+func (o FunctionLambdaManagedInstancesCapacityProviderConfigOutput) ToFunctionLambdaManagedInstancesCapacityProviderConfigOutput() FunctionLambdaManagedInstancesCapacityProviderConfigOutput {
+	return o
+}
+
+func (o FunctionLambdaManagedInstancesCapacityProviderConfigOutput) ToFunctionLambdaManagedInstancesCapacityProviderConfigOutputWithContext(ctx context.Context) FunctionLambdaManagedInstancesCapacityProviderConfigOutput {
+	return o
+}
+
+func (o FunctionLambdaManagedInstancesCapacityProviderConfigOutput) ToFunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput() FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput {
+	return o.ToFunctionLambdaManagedInstancesCapacityProviderConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionLambdaManagedInstancesCapacityProviderConfigOutput) ToFunctionLambdaManagedInstancesCapacityProviderConfigPtrOutputWithContext(ctx context.Context) FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionLambdaManagedInstancesCapacityProviderConfig) *FunctionLambdaManagedInstancesCapacityProviderConfig {
+		return &v
+	}).(FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the capacity provider.
+func (o FunctionLambdaManagedInstancesCapacityProviderConfigOutput) CapacityProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionLambdaManagedInstancesCapacityProviderConfig) string { return v.CapacityProviderArn }).(pulumi.StringOutput)
+}
+
+// The amount of memory in GiB allocated per vCPU for execution environments.
+func (o FunctionLambdaManagedInstancesCapacityProviderConfigOutput) ExecutionEnvironmentMemoryGiBPerVCpu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FunctionLambdaManagedInstancesCapacityProviderConfig) *float64 {
+		return v.ExecutionEnvironmentMemoryGiBPerVCpu
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The maximum number of concurrent execution environments that can run on each compute instance.
+func (o FunctionLambdaManagedInstancesCapacityProviderConfigOutput) PerExecutionEnvironmentMaxConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionLambdaManagedInstancesCapacityProviderConfig) *int {
+		return v.PerExecutionEnvironmentMaxConcurrency
+	}).(pulumi.IntPtrOutput)
+}
+
+type FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionLambdaManagedInstancesCapacityProviderConfig)(nil)).Elem()
+}
+
+func (o FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput) ToFunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput() FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput {
+	return o
+}
+
+func (o FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput) ToFunctionLambdaManagedInstancesCapacityProviderConfigPtrOutputWithContext(ctx context.Context) FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput {
+	return o
+}
+
+func (o FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput) Elem() FunctionLambdaManagedInstancesCapacityProviderConfigOutput {
+	return o.ApplyT(func(v *FunctionLambdaManagedInstancesCapacityProviderConfig) FunctionLambdaManagedInstancesCapacityProviderConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionLambdaManagedInstancesCapacityProviderConfig
+		return ret
+	}).(FunctionLambdaManagedInstancesCapacityProviderConfigOutput)
+}
+
+// The Amazon Resource Name (ARN) of the capacity provider.
+func (o FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput) CapacityProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionLambdaManagedInstancesCapacityProviderConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CapacityProviderArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The amount of memory in GiB allocated per vCPU for execution environments.
+func (o FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput) ExecutionEnvironmentMemoryGiBPerVCpu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FunctionLambdaManagedInstancesCapacityProviderConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionEnvironmentMemoryGiBPerVCpu
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The maximum number of concurrent execution environments that can run on each compute instance.
+func (o FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput) PerExecutionEnvironmentMaxConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionLambdaManagedInstancesCapacityProviderConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PerExecutionEnvironmentMaxConcurrency
+	}).(pulumi.IntPtrOutput)
+}
+
 // The function's Amazon CloudWatch Logs configuration settings.
 type FunctionLoggingConfig struct {
 	// Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the selected level of detail and lower, where ``TRACE`` is the highest level and ``FATAL`` is the lowest.
@@ -4743,6 +5811,162 @@ func (o FunctionRuntimeManagementConfigPtrOutput) UpdateRuntimeOn() FunctionRunt
 	}).(FunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutput)
 }
 
+type FunctionScalingConfig struct {
+	// The maximum number of execution environments that can be provisioned for the function.
+	MaxExecutionEnvironments *int `pulumi:"maxExecutionEnvironments"`
+	// The minimum number of execution environments to maintain for the function.
+	MinExecutionEnvironments *int `pulumi:"minExecutionEnvironments"`
+}
+
+// FunctionScalingConfigInput is an input type that accepts FunctionScalingConfigArgs and FunctionScalingConfigOutput values.
+// You can construct a concrete instance of `FunctionScalingConfigInput` via:
+//
+//	FunctionScalingConfigArgs{...}
+type FunctionScalingConfigInput interface {
+	pulumi.Input
+
+	ToFunctionScalingConfigOutput() FunctionScalingConfigOutput
+	ToFunctionScalingConfigOutputWithContext(context.Context) FunctionScalingConfigOutput
+}
+
+type FunctionScalingConfigArgs struct {
+	// The maximum number of execution environments that can be provisioned for the function.
+	MaxExecutionEnvironments pulumi.IntPtrInput `pulumi:"maxExecutionEnvironments"`
+	// The minimum number of execution environments to maintain for the function.
+	MinExecutionEnvironments pulumi.IntPtrInput `pulumi:"minExecutionEnvironments"`
+}
+
+func (FunctionScalingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionScalingConfig)(nil)).Elem()
+}
+
+func (i FunctionScalingConfigArgs) ToFunctionScalingConfigOutput() FunctionScalingConfigOutput {
+	return i.ToFunctionScalingConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionScalingConfigArgs) ToFunctionScalingConfigOutputWithContext(ctx context.Context) FunctionScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionScalingConfigOutput)
+}
+
+func (i FunctionScalingConfigArgs) ToFunctionScalingConfigPtrOutput() FunctionScalingConfigPtrOutput {
+	return i.ToFunctionScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionScalingConfigArgs) ToFunctionScalingConfigPtrOutputWithContext(ctx context.Context) FunctionScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionScalingConfigOutput).ToFunctionScalingConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionScalingConfigPtrInput is an input type that accepts FunctionScalingConfigArgs, FunctionScalingConfigPtr and FunctionScalingConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionScalingConfigPtrInput` via:
+//
+//	        FunctionScalingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionScalingConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionScalingConfigPtrOutput() FunctionScalingConfigPtrOutput
+	ToFunctionScalingConfigPtrOutputWithContext(context.Context) FunctionScalingConfigPtrOutput
+}
+
+type functionScalingConfigPtrType FunctionScalingConfigArgs
+
+func FunctionScalingConfigPtr(v *FunctionScalingConfigArgs) FunctionScalingConfigPtrInput {
+	return (*functionScalingConfigPtrType)(v)
+}
+
+func (*functionScalingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionScalingConfig)(nil)).Elem()
+}
+
+func (i *functionScalingConfigPtrType) ToFunctionScalingConfigPtrOutput() FunctionScalingConfigPtrOutput {
+	return i.ToFunctionScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionScalingConfigPtrType) ToFunctionScalingConfigPtrOutputWithContext(ctx context.Context) FunctionScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionScalingConfigPtrOutput)
+}
+
+type FunctionScalingConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionScalingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionScalingConfig)(nil)).Elem()
+}
+
+func (o FunctionScalingConfigOutput) ToFunctionScalingConfigOutput() FunctionScalingConfigOutput {
+	return o
+}
+
+func (o FunctionScalingConfigOutput) ToFunctionScalingConfigOutputWithContext(ctx context.Context) FunctionScalingConfigOutput {
+	return o
+}
+
+func (o FunctionScalingConfigOutput) ToFunctionScalingConfigPtrOutput() FunctionScalingConfigPtrOutput {
+	return o.ToFunctionScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionScalingConfigOutput) ToFunctionScalingConfigPtrOutputWithContext(ctx context.Context) FunctionScalingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionScalingConfig) *FunctionScalingConfig {
+		return &v
+	}).(FunctionScalingConfigPtrOutput)
+}
+
+// The maximum number of execution environments that can be provisioned for the function.
+func (o FunctionScalingConfigOutput) MaxExecutionEnvironments() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionScalingConfig) *int { return v.MaxExecutionEnvironments }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of execution environments to maintain for the function.
+func (o FunctionScalingConfigOutput) MinExecutionEnvironments() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionScalingConfig) *int { return v.MinExecutionEnvironments }).(pulumi.IntPtrOutput)
+}
+
+type FunctionScalingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionScalingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionScalingConfig)(nil)).Elem()
+}
+
+func (o FunctionScalingConfigPtrOutput) ToFunctionScalingConfigPtrOutput() FunctionScalingConfigPtrOutput {
+	return o
+}
+
+func (o FunctionScalingConfigPtrOutput) ToFunctionScalingConfigPtrOutputWithContext(ctx context.Context) FunctionScalingConfigPtrOutput {
+	return o
+}
+
+func (o FunctionScalingConfigPtrOutput) Elem() FunctionScalingConfigOutput {
+	return o.ApplyT(func(v *FunctionScalingConfig) FunctionScalingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionScalingConfig
+		return ret
+	}).(FunctionScalingConfigOutput)
+}
+
+// The maximum number of execution environments that can be provisioned for the function.
+func (o FunctionScalingConfigPtrOutput) MaxExecutionEnvironments() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionScalingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxExecutionEnvironments
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of execution environments to maintain for the function.
+func (o FunctionScalingConfigPtrOutput) MinExecutionEnvironments() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionScalingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinExecutionEnvironments
+	}).(pulumi.IntPtrOutput)
+}
+
 // The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
 type FunctionSnapStart struct {
 	// Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
@@ -4968,6 +6192,143 @@ type FunctionTag struct {
 	Key string `pulumi:"key"`
 	// The value for this tag.
 	Value *string `pulumi:"value"`
+}
+
+type FunctionTenancyConfig struct {
+	// Determines how your Lambda function isolates execution environments between tenants.
+	TenantIsolationMode FunctionTenancyConfigTenantIsolationMode `pulumi:"tenantIsolationMode"`
+}
+
+// FunctionTenancyConfigInput is an input type that accepts FunctionTenancyConfigArgs and FunctionTenancyConfigOutput values.
+// You can construct a concrete instance of `FunctionTenancyConfigInput` via:
+//
+//	FunctionTenancyConfigArgs{...}
+type FunctionTenancyConfigInput interface {
+	pulumi.Input
+
+	ToFunctionTenancyConfigOutput() FunctionTenancyConfigOutput
+	ToFunctionTenancyConfigOutputWithContext(context.Context) FunctionTenancyConfigOutput
+}
+
+type FunctionTenancyConfigArgs struct {
+	// Determines how your Lambda function isolates execution environments between tenants.
+	TenantIsolationMode FunctionTenancyConfigTenantIsolationModeInput `pulumi:"tenantIsolationMode"`
+}
+
+func (FunctionTenancyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionTenancyConfig)(nil)).Elem()
+}
+
+func (i FunctionTenancyConfigArgs) ToFunctionTenancyConfigOutput() FunctionTenancyConfigOutput {
+	return i.ToFunctionTenancyConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionTenancyConfigArgs) ToFunctionTenancyConfigOutputWithContext(ctx context.Context) FunctionTenancyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionTenancyConfigOutput)
+}
+
+func (i FunctionTenancyConfigArgs) ToFunctionTenancyConfigPtrOutput() FunctionTenancyConfigPtrOutput {
+	return i.ToFunctionTenancyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionTenancyConfigArgs) ToFunctionTenancyConfigPtrOutputWithContext(ctx context.Context) FunctionTenancyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionTenancyConfigOutput).ToFunctionTenancyConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionTenancyConfigPtrInput is an input type that accepts FunctionTenancyConfigArgs, FunctionTenancyConfigPtr and FunctionTenancyConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionTenancyConfigPtrInput` via:
+//
+//	        FunctionTenancyConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionTenancyConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionTenancyConfigPtrOutput() FunctionTenancyConfigPtrOutput
+	ToFunctionTenancyConfigPtrOutputWithContext(context.Context) FunctionTenancyConfigPtrOutput
+}
+
+type functionTenancyConfigPtrType FunctionTenancyConfigArgs
+
+func FunctionTenancyConfigPtr(v *FunctionTenancyConfigArgs) FunctionTenancyConfigPtrInput {
+	return (*functionTenancyConfigPtrType)(v)
+}
+
+func (*functionTenancyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionTenancyConfig)(nil)).Elem()
+}
+
+func (i *functionTenancyConfigPtrType) ToFunctionTenancyConfigPtrOutput() FunctionTenancyConfigPtrOutput {
+	return i.ToFunctionTenancyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionTenancyConfigPtrType) ToFunctionTenancyConfigPtrOutputWithContext(ctx context.Context) FunctionTenancyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionTenancyConfigPtrOutput)
+}
+
+type FunctionTenancyConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionTenancyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionTenancyConfig)(nil)).Elem()
+}
+
+func (o FunctionTenancyConfigOutput) ToFunctionTenancyConfigOutput() FunctionTenancyConfigOutput {
+	return o
+}
+
+func (o FunctionTenancyConfigOutput) ToFunctionTenancyConfigOutputWithContext(ctx context.Context) FunctionTenancyConfigOutput {
+	return o
+}
+
+func (o FunctionTenancyConfigOutput) ToFunctionTenancyConfigPtrOutput() FunctionTenancyConfigPtrOutput {
+	return o.ToFunctionTenancyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionTenancyConfigOutput) ToFunctionTenancyConfigPtrOutputWithContext(ctx context.Context) FunctionTenancyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionTenancyConfig) *FunctionTenancyConfig {
+		return &v
+	}).(FunctionTenancyConfigPtrOutput)
+}
+
+// Determines how your Lambda function isolates execution environments between tenants.
+func (o FunctionTenancyConfigOutput) TenantIsolationMode() FunctionTenancyConfigTenantIsolationModeOutput {
+	return o.ApplyT(func(v FunctionTenancyConfig) FunctionTenancyConfigTenantIsolationMode { return v.TenantIsolationMode }).(FunctionTenancyConfigTenantIsolationModeOutput)
+}
+
+type FunctionTenancyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionTenancyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionTenancyConfig)(nil)).Elem()
+}
+
+func (o FunctionTenancyConfigPtrOutput) ToFunctionTenancyConfigPtrOutput() FunctionTenancyConfigPtrOutput {
+	return o
+}
+
+func (o FunctionTenancyConfigPtrOutput) ToFunctionTenancyConfigPtrOutputWithContext(ctx context.Context) FunctionTenancyConfigPtrOutput {
+	return o
+}
+
+func (o FunctionTenancyConfigPtrOutput) Elem() FunctionTenancyConfigOutput {
+	return o.ApplyT(func(v *FunctionTenancyConfig) FunctionTenancyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionTenancyConfig
+		return ret
+	}).(FunctionTenancyConfigOutput)
+}
+
+// Determines how your Lambda function isolates execution environments between tenants.
+func (o FunctionTenancyConfigPtrOutput) TenantIsolationMode() FunctionTenancyConfigTenantIsolationModePtrOutput {
+	return o.ApplyT(func(v *FunctionTenancyConfig) *FunctionTenancyConfigTenantIsolationMode {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantIsolationMode
+	}).(FunctionTenancyConfigTenantIsolationModePtrOutput)
 }
 
 // The function's [](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html) tracing configuration. To sample and record incoming requests, set “Mode“ to “Active“.
@@ -5599,6 +6960,165 @@ func (o UrlCorsPtrOutput) MaxAge() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+type VersionFunctionScalingConfig struct {
+	// The maximum number of execution environments that can be provisioned for the function.
+	MaxExecutionEnvironments *int `pulumi:"maxExecutionEnvironments"`
+	// The minimum number of execution environments to maintain for the function.
+	MinExecutionEnvironments *int `pulumi:"minExecutionEnvironments"`
+}
+
+// VersionFunctionScalingConfigInput is an input type that accepts VersionFunctionScalingConfigArgs and VersionFunctionScalingConfigOutput values.
+// You can construct a concrete instance of `VersionFunctionScalingConfigInput` via:
+//
+//	VersionFunctionScalingConfigArgs{...}
+type VersionFunctionScalingConfigInput interface {
+	pulumi.Input
+
+	ToVersionFunctionScalingConfigOutput() VersionFunctionScalingConfigOutput
+	ToVersionFunctionScalingConfigOutputWithContext(context.Context) VersionFunctionScalingConfigOutput
+}
+
+// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+type VersionFunctionScalingConfigArgs struct {
+	// The maximum number of execution environments that can be provisioned for the function.
+	MaxExecutionEnvironments pulumi.IntPtrInput `pulumi:"maxExecutionEnvironments"`
+	// The minimum number of execution environments to maintain for the function.
+	MinExecutionEnvironments pulumi.IntPtrInput `pulumi:"minExecutionEnvironments"`
+}
+
+func (VersionFunctionScalingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VersionFunctionScalingConfig)(nil)).Elem()
+}
+
+func (i VersionFunctionScalingConfigArgs) ToVersionFunctionScalingConfigOutput() VersionFunctionScalingConfigOutput {
+	return i.ToVersionFunctionScalingConfigOutputWithContext(context.Background())
+}
+
+func (i VersionFunctionScalingConfigArgs) ToVersionFunctionScalingConfigOutputWithContext(ctx context.Context) VersionFunctionScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VersionFunctionScalingConfigOutput)
+}
+
+func (i VersionFunctionScalingConfigArgs) ToVersionFunctionScalingConfigPtrOutput() VersionFunctionScalingConfigPtrOutput {
+	return i.ToVersionFunctionScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i VersionFunctionScalingConfigArgs) ToVersionFunctionScalingConfigPtrOutputWithContext(ctx context.Context) VersionFunctionScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VersionFunctionScalingConfigOutput).ToVersionFunctionScalingConfigPtrOutputWithContext(ctx)
+}
+
+// VersionFunctionScalingConfigPtrInput is an input type that accepts VersionFunctionScalingConfigArgs, VersionFunctionScalingConfigPtr and VersionFunctionScalingConfigPtrOutput values.
+// You can construct a concrete instance of `VersionFunctionScalingConfigPtrInput` via:
+//
+//	        VersionFunctionScalingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type VersionFunctionScalingConfigPtrInput interface {
+	pulumi.Input
+
+	ToVersionFunctionScalingConfigPtrOutput() VersionFunctionScalingConfigPtrOutput
+	ToVersionFunctionScalingConfigPtrOutputWithContext(context.Context) VersionFunctionScalingConfigPtrOutput
+}
+
+type versionFunctionScalingConfigPtrType VersionFunctionScalingConfigArgs
+
+func VersionFunctionScalingConfigPtr(v *VersionFunctionScalingConfigArgs) VersionFunctionScalingConfigPtrInput {
+	return (*versionFunctionScalingConfigPtrType)(v)
+}
+
+func (*versionFunctionScalingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VersionFunctionScalingConfig)(nil)).Elem()
+}
+
+func (i *versionFunctionScalingConfigPtrType) ToVersionFunctionScalingConfigPtrOutput() VersionFunctionScalingConfigPtrOutput {
+	return i.ToVersionFunctionScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *versionFunctionScalingConfigPtrType) ToVersionFunctionScalingConfigPtrOutputWithContext(ctx context.Context) VersionFunctionScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VersionFunctionScalingConfigPtrOutput)
+}
+
+// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+type VersionFunctionScalingConfigOutput struct{ *pulumi.OutputState }
+
+func (VersionFunctionScalingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VersionFunctionScalingConfig)(nil)).Elem()
+}
+
+func (o VersionFunctionScalingConfigOutput) ToVersionFunctionScalingConfigOutput() VersionFunctionScalingConfigOutput {
+	return o
+}
+
+func (o VersionFunctionScalingConfigOutput) ToVersionFunctionScalingConfigOutputWithContext(ctx context.Context) VersionFunctionScalingConfigOutput {
+	return o
+}
+
+func (o VersionFunctionScalingConfigOutput) ToVersionFunctionScalingConfigPtrOutput() VersionFunctionScalingConfigPtrOutput {
+	return o.ToVersionFunctionScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o VersionFunctionScalingConfigOutput) ToVersionFunctionScalingConfigPtrOutputWithContext(ctx context.Context) VersionFunctionScalingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VersionFunctionScalingConfig) *VersionFunctionScalingConfig {
+		return &v
+	}).(VersionFunctionScalingConfigPtrOutput)
+}
+
+// The maximum number of execution environments that can be provisioned for the function.
+func (o VersionFunctionScalingConfigOutput) MaxExecutionEnvironments() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VersionFunctionScalingConfig) *int { return v.MaxExecutionEnvironments }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of execution environments to maintain for the function.
+func (o VersionFunctionScalingConfigOutput) MinExecutionEnvironments() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VersionFunctionScalingConfig) *int { return v.MinExecutionEnvironments }).(pulumi.IntPtrOutput)
+}
+
+type VersionFunctionScalingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (VersionFunctionScalingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VersionFunctionScalingConfig)(nil)).Elem()
+}
+
+func (o VersionFunctionScalingConfigPtrOutput) ToVersionFunctionScalingConfigPtrOutput() VersionFunctionScalingConfigPtrOutput {
+	return o
+}
+
+func (o VersionFunctionScalingConfigPtrOutput) ToVersionFunctionScalingConfigPtrOutputWithContext(ctx context.Context) VersionFunctionScalingConfigPtrOutput {
+	return o
+}
+
+func (o VersionFunctionScalingConfigPtrOutput) Elem() VersionFunctionScalingConfigOutput {
+	return o.ApplyT(func(v *VersionFunctionScalingConfig) VersionFunctionScalingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret VersionFunctionScalingConfig
+		return ret
+	}).(VersionFunctionScalingConfigOutput)
+}
+
+// The maximum number of execution environments that can be provisioned for the function.
+func (o VersionFunctionScalingConfigPtrOutput) MaxExecutionEnvironments() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VersionFunctionScalingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxExecutionEnvironments
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of execution environments to maintain for the function.
+func (o VersionFunctionScalingConfigPtrOutput) MinExecutionEnvironments() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VersionFunctionScalingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinExecutionEnvironments
+	}).(pulumi.IntPtrOutput)
+}
+
 // A provisioned concurrency configuration for a function's version.
 type VersionProvisionedConcurrencyConfiguration struct {
 	// The amount of provisioned concurrency to allocate for the version.
@@ -5905,6 +7425,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingConfigurationPtrInput)(nil)).Elem(), AliasRoutingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasVersionWeightInput)(nil)).Elem(), AliasVersionWeightArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasVersionWeightArrayInput)(nil)).Elem(), AliasVersionWeightArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceRequirementsInput)(nil)).Elem(), CapacityProviderInstanceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceRequirementsPtrInput)(nil)).Elem(), CapacityProviderInstanceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderPermissionsConfigInput)(nil)).Elem(), CapacityProviderPermissionsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderScalingConfigInput)(nil)).Elem(), CapacityProviderScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderScalingConfigPtrInput)(nil)).Elem(), CapacityProviderScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderTargetTrackingScalingPolicyInput)(nil)).Elem(), CapacityProviderTargetTrackingScalingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderTargetTrackingScalingPolicyArrayInput)(nil)).Elem(), CapacityProviderTargetTrackingScalingPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderVpcConfigInput)(nil)).Elem(), CapacityProviderVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigAllowedPublishersInput)(nil)).Elem(), CodeSigningConfigAllowedPublishersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigCodeSigningPoliciesInput)(nil)).Elem(), CodeSigningConfigCodeSigningPoliciesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigCodeSigningPoliciesPtrInput)(nil)).Elem(), CodeSigningConfigCodeSigningPoliciesArgs{})
@@ -5926,6 +7454,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFilterArrayInput)(nil)).Elem(), EventSourceMappingFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFilterCriteriaInput)(nil)).Elem(), EventSourceMappingFilterCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFilterCriteriaPtrInput)(nil)).Elem(), EventSourceMappingFilterCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingLoggingConfigInput)(nil)).Elem(), EventSourceMappingLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingLoggingConfigPtrInput)(nil)).Elem(), EventSourceMappingLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingMetricsConfigInput)(nil)).Elem(), EventSourceMappingMetricsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingMetricsConfigPtrInput)(nil)).Elem(), EventSourceMappingMetricsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingOnFailureInput)(nil)).Elem(), EventSourceMappingOnFailureArgs{})
@@ -5946,6 +7476,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedKafkaEventSourceConfigPtrInput)(nil)).Elem(), EventSourceMappingSelfManagedKafkaEventSourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSourceAccessConfigurationInput)(nil)).Elem(), EventSourceMappingSourceAccessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSourceAccessConfigurationArrayInput)(nil)).Elem(), EventSourceMappingSourceAccessConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCapacityProviderConfigInput)(nil)).Elem(), FunctionCapacityProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCapacityProviderConfigPtrInput)(nil)).Elem(), FunctionCapacityProviderConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCodeInput)(nil)).Elem(), FunctionCodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDeadLetterConfigInput)(nil)).Elem(), FunctionDeadLetterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDeadLetterConfigPtrInput)(nil)).Elem(), FunctionDeadLetterConfigArgs{})
@@ -5957,12 +7489,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionFileSystemConfigArrayInput)(nil)).Elem(), FunctionFileSystemConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionImageConfigInput)(nil)).Elem(), FunctionImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionImageConfigPtrInput)(nil)).Elem(), FunctionImageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLambdaManagedInstancesCapacityProviderConfigInput)(nil)).Elem(), FunctionLambdaManagedInstancesCapacityProviderConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLambdaManagedInstancesCapacityProviderConfigPtrInput)(nil)).Elem(), FunctionLambdaManagedInstancesCapacityProviderConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigInput)(nil)).Elem(), FunctionLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigPtrInput)(nil)).Elem(), FunctionLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeManagementConfigInput)(nil)).Elem(), FunctionRuntimeManagementConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeManagementConfigPtrInput)(nil)).Elem(), FunctionRuntimeManagementConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionScalingConfigInput)(nil)).Elem(), FunctionScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionScalingConfigPtrInput)(nil)).Elem(), FunctionScalingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartInput)(nil)).Elem(), FunctionSnapStartArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartPtrInput)(nil)).Elem(), FunctionSnapStartArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTenancyConfigInput)(nil)).Elem(), FunctionTenancyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTenancyConfigPtrInput)(nil)).Elem(), FunctionTenancyConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigInput)(nil)).Elem(), FunctionTracingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigPtrInput)(nil)).Elem(), FunctionTracingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionVpcConfigInput)(nil)).Elem(), FunctionVpcConfigArgs{})
@@ -5970,6 +7508,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LayerVersionContentInput)(nil)).Elem(), LayerVersionContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlCorsInput)(nil)).Elem(), UrlCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlCorsPtrInput)(nil)).Elem(), UrlCorsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VersionFunctionScalingConfigInput)(nil)).Elem(), VersionFunctionScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VersionFunctionScalingConfigPtrInput)(nil)).Elem(), VersionFunctionScalingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VersionProvisionedConcurrencyConfigurationInput)(nil)).Elem(), VersionProvisionedConcurrencyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VersionProvisionedConcurrencyConfigurationPtrInput)(nil)).Elem(), VersionProvisionedConcurrencyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VersionRuntimePolicyInput)(nil)).Elem(), VersionRuntimePolicyArgs{})
@@ -5980,6 +7520,14 @@ func init() {
 	pulumi.RegisterOutputType(AliasRoutingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AliasVersionWeightOutput{})
 	pulumi.RegisterOutputType(AliasVersionWeightArrayOutput{})
+	pulumi.RegisterOutputType(CapacityProviderInstanceRequirementsOutput{})
+	pulumi.RegisterOutputType(CapacityProviderInstanceRequirementsPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderPermissionsConfigOutput{})
+	pulumi.RegisterOutputType(CapacityProviderScalingConfigOutput{})
+	pulumi.RegisterOutputType(CapacityProviderScalingConfigPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderTargetTrackingScalingPolicyOutput{})
+	pulumi.RegisterOutputType(CapacityProviderTargetTrackingScalingPolicyArrayOutput{})
+	pulumi.RegisterOutputType(CapacityProviderVpcConfigOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersPtrOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesOutput{})
@@ -6002,6 +7550,8 @@ func init() {
 	pulumi.RegisterOutputType(EventSourceMappingFilterArrayOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFilterCriteriaOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFilterCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingLoggingConfigOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingMetricsConfigOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingMetricsConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingOnFailureOutput{})
@@ -6022,6 +7572,8 @@ func init() {
 	pulumi.RegisterOutputType(EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(FunctionCapacityProviderConfigOutput{})
+	pulumi.RegisterOutputType(FunctionCapacityProviderConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionCodeOutput{})
 	pulumi.RegisterOutputType(FunctionCodePtrOutput{})
 	pulumi.RegisterOutputType(FunctionDeadLetterConfigOutput{})
@@ -6034,14 +7586,20 @@ func init() {
 	pulumi.RegisterOutputType(FunctionFileSystemConfigArrayOutput{})
 	pulumi.RegisterOutputType(FunctionImageConfigOutput{})
 	pulumi.RegisterOutputType(FunctionImageConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionLambdaManagedInstancesCapacityProviderConfigOutput{})
+	pulumi.RegisterOutputType(FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionLoggingConfigOutput{})
 	pulumi.RegisterOutputType(FunctionLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionRuntimeManagementConfigOutput{})
 	pulumi.RegisterOutputType(FunctionRuntimeManagementConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionScalingConfigOutput{})
+	pulumi.RegisterOutputType(FunctionScalingConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartPtrOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartResponseOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartResponsePtrOutput{})
+	pulumi.RegisterOutputType(FunctionTenancyConfigOutput{})
+	pulumi.RegisterOutputType(FunctionTenancyConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionVpcConfigOutput{})
@@ -6049,6 +7607,8 @@ func init() {
 	pulumi.RegisterOutputType(LayerVersionContentOutput{})
 	pulumi.RegisterOutputType(UrlCorsOutput{})
 	pulumi.RegisterOutputType(UrlCorsPtrOutput{})
+	pulumi.RegisterOutputType(VersionFunctionScalingConfigOutput{})
+	pulumi.RegisterOutputType(VersionFunctionScalingConfigPtrOutput{})
 	pulumi.RegisterOutputType(VersionProvisionedConcurrencyConfigurationOutput{})
 	pulumi.RegisterOutputType(VersionProvisionedConcurrencyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VersionRuntimePolicyOutput{})

@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetDataPrepListAggregationFunctionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to include only distinct values in the concatenated result, removing duplicates.
+        /// </summary>
         [Input("distinct", required: true)]
         public Input<bool> Distinct { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the column containing values to be concatenated.
+        /// </summary>
         [Input("inputColumnName")]
         public Input<string>? InputColumnName { get; set; }
 
+        /// <summary>
+        /// The string used to separate values in the concatenated result.
+        /// </summary>
         [Input("separator", required: true)]
         public Input<string> Separator { get; set; } = null!;
 

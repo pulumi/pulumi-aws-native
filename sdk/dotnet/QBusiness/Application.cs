@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.QBusiness
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+        /// Provides the identifier of the AWS  key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
         /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.ApplicationEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
@@ -227,7 +227,7 @@ namespace Pulumi.AwsNative.QBusiness
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+        /// Provides the identifier of the AWS  key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.ApplicationEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }

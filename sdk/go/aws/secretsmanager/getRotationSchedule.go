@@ -28,6 +28,10 @@ type LookupRotationScheduleArgs struct {
 }
 
 type LookupRotationScheduleResult struct {
+	// The list of metadata needed to successfully rotate a managed external secret.
+	ExternalSecretRotationMetadata []RotationScheduleExternalSecretRotationMetadataItem `pulumi:"externalSecretRotationMetadata"`
+	// The ARN of the IAM role that is used by Secrets Manager to rotate a managed external secret.
+	ExternalSecretRotationRoleArn *string `pulumi:"externalSecretRotationRoleArn"`
 	// The ARN of the secret.
 	Id *string `pulumi:"id"`
 	// The ARN of an existing Lambda rotation function. To specify a rotation function that is also defined in this template, use the Ref function.
@@ -66,6 +70,18 @@ func (o LookupRotationScheduleResultOutput) ToLookupRotationScheduleResultOutput
 
 func (o LookupRotationScheduleResultOutput) ToLookupRotationScheduleResultOutputWithContext(ctx context.Context) LookupRotationScheduleResultOutput {
 	return o
+}
+
+// The list of metadata needed to successfully rotate a managed external secret.
+func (o LookupRotationScheduleResultOutput) ExternalSecretRotationMetadata() RotationScheduleExternalSecretRotationMetadataItemArrayOutput {
+	return o.ApplyT(func(v LookupRotationScheduleResult) []RotationScheduleExternalSecretRotationMetadataItem {
+		return v.ExternalSecretRotationMetadata
+	}).(RotationScheduleExternalSecretRotationMetadataItemArrayOutput)
+}
+
+// The ARN of the IAM role that is used by Secrets Manager to rotate a managed external secret.
+func (o LookupRotationScheduleResultOutput) ExternalSecretRotationRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRotationScheduleResult) *string { return v.ExternalSecretRotationRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The ARN of the secret.

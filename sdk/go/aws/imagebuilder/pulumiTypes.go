@@ -907,6 +907,117 @@ func (o ContainerRecipeInstanceConfigurationPtrOutput) Image() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The latest version references of the container recipe.
+type ContainerRecipeLatestVersion struct {
+	// The latest version ARN of the created container recipe.
+	Arn *string `pulumi:"arn"`
+	// The latest version ARN of the created container recipe, with the same major version.
+	Major *string `pulumi:"major"`
+	// The latest version ARN of the created container recipe, with the same minor version.
+	Minor *string `pulumi:"minor"`
+	// The latest version ARN of the created container recipe, with the same patch version.
+	Patch *string `pulumi:"patch"`
+}
+
+// The latest version references of the container recipe.
+type ContainerRecipeLatestVersionOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeLatestVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerRecipeLatestVersion)(nil)).Elem()
+}
+
+func (o ContainerRecipeLatestVersionOutput) ToContainerRecipeLatestVersionOutput() ContainerRecipeLatestVersionOutput {
+	return o
+}
+
+func (o ContainerRecipeLatestVersionOutput) ToContainerRecipeLatestVersionOutputWithContext(ctx context.Context) ContainerRecipeLatestVersionOutput {
+	return o
+}
+
+// The latest version ARN of the created container recipe.
+func (o ContainerRecipeLatestVersionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeLatestVersion) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created container recipe, with the same major version.
+func (o ContainerRecipeLatestVersionOutput) Major() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeLatestVersion) *string { return v.Major }).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created container recipe, with the same minor version.
+func (o ContainerRecipeLatestVersionOutput) Minor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeLatestVersion) *string { return v.Minor }).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created container recipe, with the same patch version.
+func (o ContainerRecipeLatestVersionOutput) Patch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerRecipeLatestVersion) *string { return v.Patch }).(pulumi.StringPtrOutput)
+}
+
+type ContainerRecipeLatestVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerRecipeLatestVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerRecipeLatestVersion)(nil)).Elem()
+}
+
+func (o ContainerRecipeLatestVersionPtrOutput) ToContainerRecipeLatestVersionPtrOutput() ContainerRecipeLatestVersionPtrOutput {
+	return o
+}
+
+func (o ContainerRecipeLatestVersionPtrOutput) ToContainerRecipeLatestVersionPtrOutputWithContext(ctx context.Context) ContainerRecipeLatestVersionPtrOutput {
+	return o
+}
+
+func (o ContainerRecipeLatestVersionPtrOutput) Elem() ContainerRecipeLatestVersionOutput {
+	return o.ApplyT(func(v *ContainerRecipeLatestVersion) ContainerRecipeLatestVersion {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerRecipeLatestVersion
+		return ret
+	}).(ContainerRecipeLatestVersionOutput)
+}
+
+// The latest version ARN of the created container recipe.
+func (o ContainerRecipeLatestVersionPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeLatestVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created container recipe, with the same major version.
+func (o ContainerRecipeLatestVersionPtrOutput) Major() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeLatestVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Major
+	}).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created container recipe, with the same minor version.
+func (o ContainerRecipeLatestVersionPtrOutput) Minor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeLatestVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Minor
+	}).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created container recipe, with the same patch version.
+func (o ContainerRecipeLatestVersionPtrOutput) Patch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerRecipeLatestVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Patch
+	}).(pulumi.StringPtrOutput)
+}
+
 // The container repository where the output container image is stored.
 type ContainerRecipeTargetContainerRepository struct {
 	// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
@@ -5399,6 +5510,117 @@ func (o ImageRecipeInstanceBlockDeviceMappingArrayOutput) Index(i pulumi.IntInpu
 	}).(ImageRecipeInstanceBlockDeviceMappingOutput)
 }
 
+// The latest version references of the image recipe.
+type ImageRecipeLatestVersion struct {
+	// The latest version ARN of the created image recipe.
+	Arn *string `pulumi:"arn"`
+	// The latest version ARN of the created image recipe, with the same major version.
+	Major *string `pulumi:"major"`
+	// The latest version ARN of the created image recipe, with the same minor version.
+	Minor *string `pulumi:"minor"`
+	// The latest version ARN of the created image recipe, with the same patch version.
+	Patch *string `pulumi:"patch"`
+}
+
+// The latest version references of the image recipe.
+type ImageRecipeLatestVersionOutput struct{ *pulumi.OutputState }
+
+func (ImageRecipeLatestVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRecipeLatestVersion)(nil)).Elem()
+}
+
+func (o ImageRecipeLatestVersionOutput) ToImageRecipeLatestVersionOutput() ImageRecipeLatestVersionOutput {
+	return o
+}
+
+func (o ImageRecipeLatestVersionOutput) ToImageRecipeLatestVersionOutputWithContext(ctx context.Context) ImageRecipeLatestVersionOutput {
+	return o
+}
+
+// The latest version ARN of the created image recipe.
+func (o ImageRecipeLatestVersionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRecipeLatestVersion) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created image recipe, with the same major version.
+func (o ImageRecipeLatestVersionOutput) Major() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRecipeLatestVersion) *string { return v.Major }).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created image recipe, with the same minor version.
+func (o ImageRecipeLatestVersionOutput) Minor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRecipeLatestVersion) *string { return v.Minor }).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created image recipe, with the same patch version.
+func (o ImageRecipeLatestVersionOutput) Patch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRecipeLatestVersion) *string { return v.Patch }).(pulumi.StringPtrOutput)
+}
+
+type ImageRecipeLatestVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageRecipeLatestVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageRecipeLatestVersion)(nil)).Elem()
+}
+
+func (o ImageRecipeLatestVersionPtrOutput) ToImageRecipeLatestVersionPtrOutput() ImageRecipeLatestVersionPtrOutput {
+	return o
+}
+
+func (o ImageRecipeLatestVersionPtrOutput) ToImageRecipeLatestVersionPtrOutputWithContext(ctx context.Context) ImageRecipeLatestVersionPtrOutput {
+	return o
+}
+
+func (o ImageRecipeLatestVersionPtrOutput) Elem() ImageRecipeLatestVersionOutput {
+	return o.ApplyT(func(v *ImageRecipeLatestVersion) ImageRecipeLatestVersion {
+		if v != nil {
+			return *v
+		}
+		var ret ImageRecipeLatestVersion
+		return ret
+	}).(ImageRecipeLatestVersionOutput)
+}
+
+// The latest version ARN of the created image recipe.
+func (o ImageRecipeLatestVersionPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageRecipeLatestVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created image recipe, with the same major version.
+func (o ImageRecipeLatestVersionPtrOutput) Major() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageRecipeLatestVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Major
+	}).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created image recipe, with the same minor version.
+func (o ImageRecipeLatestVersionPtrOutput) Minor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageRecipeLatestVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Minor
+	}).(pulumi.StringPtrOutput)
+}
+
+// The latest version ARN of the created image recipe, with the same patch version.
+func (o ImageRecipeLatestVersionPtrOutput) Patch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageRecipeLatestVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Patch
+	}).(pulumi.StringPtrOutput)
+}
+
 // Contains settings for the SSM agent on your build instance.
 type ImageRecipeSystemsManagerAgent struct {
 	// Controls whether the SSM agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
@@ -8168,6 +8390,8 @@ func init() {
 	pulumi.RegisterOutputType(ContainerRecipeInstanceBlockDeviceMappingArrayOutput{})
 	pulumi.RegisterOutputType(ContainerRecipeInstanceConfigurationOutput{})
 	pulumi.RegisterOutputType(ContainerRecipeInstanceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeLatestVersionOutput{})
+	pulumi.RegisterOutputType(ContainerRecipeLatestVersionPtrOutput{})
 	pulumi.RegisterOutputType(ContainerRecipeTargetContainerRepositoryOutput{})
 	pulumi.RegisterOutputType(ContainerRecipeTargetContainerRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationAmiDistributionConfigurationOutput{})
@@ -8226,6 +8450,8 @@ func init() {
 	pulumi.RegisterOutputType(ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ImageRecipeInstanceBlockDeviceMappingOutput{})
 	pulumi.RegisterOutputType(ImageRecipeInstanceBlockDeviceMappingArrayOutput{})
+	pulumi.RegisterOutputType(ImageRecipeLatestVersionOutput{})
+	pulumi.RegisterOutputType(ImageRecipeLatestVersionPtrOutput{})
 	pulumi.RegisterOutputType(ImageRecipeSystemsManagerAgentOutput{})
 	pulumi.RegisterOutputType(ImageRecipeSystemsManagerAgentPtrOutput{})
 	pulumi.RegisterOutputType(ImageScanningConfigurationOutput{})

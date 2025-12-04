@@ -17,6 +17,7 @@ import (
 type EvaluationForm struct {
 	pulumi.CustomResourceState
 
+	// The automatic evaluation configuration of an evaluation form.
 	AutoEvaluationConfiguration EvaluationFormAutoEvaluationConfigurationPtrOutput `pulumi:"autoEvaluationConfiguration"`
 	// The description of the evaluation form.
 	//  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
@@ -28,14 +29,16 @@ type EvaluationForm struct {
 	// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
 	//  *Minimum size*: 1
 	//  *Maximum size*: 100
-	Items EvaluationFormBaseItemArrayOutput `pulumi:"items"`
+	Items                 EvaluationFormBaseItemArrayOutput            `pulumi:"items"`
+	LanguageConfiguration EvaluationFormLanguageConfigurationPtrOutput `pulumi:"languageConfiguration"`
 	// A scoring strategy of the evaluation form.
 	ScoringStrategy EvaluationFormScoringStrategyPtrOutput `pulumi:"scoringStrategy"`
 	// The status of the evaluation form.
 	//  *Allowed values*: ``DRAFT`` | ``ACTIVE``
 	Status EvaluationFormStatusOutput `pulumi:"status"`
 	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags                aws.TagArrayOutput                         `pulumi:"tags"`
+	TargetConfiguration EvaluationFormTargetConfigurationPtrOutput `pulumi:"targetConfiguration"`
 	// A title of the evaluation form.
 	Title pulumi.StringOutput `pulumi:"title"`
 }
@@ -92,6 +95,7 @@ func (EvaluationFormState) ElementType() reflect.Type {
 }
 
 type evaluationFormArgs struct {
+	// The automatic evaluation configuration of an evaluation form.
 	AutoEvaluationConfiguration *EvaluationFormAutoEvaluationConfiguration `pulumi:"autoEvaluationConfiguration"`
 	// The description of the evaluation form.
 	//  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
@@ -101,20 +105,23 @@ type evaluationFormArgs struct {
 	// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
 	//  *Minimum size*: 1
 	//  *Maximum size*: 100
-	Items []EvaluationFormBaseItem `pulumi:"items"`
+	Items                 []EvaluationFormBaseItem             `pulumi:"items"`
+	LanguageConfiguration *EvaluationFormLanguageConfiguration `pulumi:"languageConfiguration"`
 	// A scoring strategy of the evaluation form.
 	ScoringStrategy *EvaluationFormScoringStrategy `pulumi:"scoringStrategy"`
 	// The status of the evaluation form.
 	//  *Allowed values*: ``DRAFT`` | ``ACTIVE``
 	Status EvaluationFormStatus `pulumi:"status"`
 	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags                []aws.Tag                          `pulumi:"tags"`
+	TargetConfiguration *EvaluationFormTargetConfiguration `pulumi:"targetConfiguration"`
 	// A title of the evaluation form.
 	Title string `pulumi:"title"`
 }
 
 // The set of arguments for constructing a EvaluationForm resource.
 type EvaluationFormArgs struct {
+	// The automatic evaluation configuration of an evaluation form.
 	AutoEvaluationConfiguration EvaluationFormAutoEvaluationConfigurationPtrInput
 	// The description of the evaluation form.
 	//  *Length Constraints*: Minimum length of 0. Maximum length of 1024.
@@ -124,14 +131,16 @@ type EvaluationFormArgs struct {
 	// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
 	//  *Minimum size*: 1
 	//  *Maximum size*: 100
-	Items EvaluationFormBaseItemArrayInput
+	Items                 EvaluationFormBaseItemArrayInput
+	LanguageConfiguration EvaluationFormLanguageConfigurationPtrInput
 	// A scoring strategy of the evaluation form.
 	ScoringStrategy EvaluationFormScoringStrategyPtrInput
 	// The status of the evaluation form.
 	//  *Allowed values*: ``DRAFT`` | ``ACTIVE``
 	Status EvaluationFormStatusInput
 	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
-	Tags aws.TagArrayInput
+	Tags                aws.TagArrayInput
+	TargetConfiguration EvaluationFormTargetConfigurationPtrInput
 	// A title of the evaluation form.
 	Title pulumi.StringInput
 }
@@ -173,6 +182,7 @@ func (o EvaluationFormOutput) ToEvaluationFormOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The automatic evaluation configuration of an evaluation form.
 func (o EvaluationFormOutput) AutoEvaluationConfiguration() EvaluationFormAutoEvaluationConfigurationPtrOutput {
 	return o.ApplyT(func(v *EvaluationForm) EvaluationFormAutoEvaluationConfigurationPtrOutput {
 		return v.AutoEvaluationConfiguration
@@ -204,6 +214,10 @@ func (o EvaluationFormOutput) Items() EvaluationFormBaseItemArrayOutput {
 	return o.ApplyT(func(v *EvaluationForm) EvaluationFormBaseItemArrayOutput { return v.Items }).(EvaluationFormBaseItemArrayOutput)
 }
 
+func (o EvaluationFormOutput) LanguageConfiguration() EvaluationFormLanguageConfigurationPtrOutput {
+	return o.ApplyT(func(v *EvaluationForm) EvaluationFormLanguageConfigurationPtrOutput { return v.LanguageConfiguration }).(EvaluationFormLanguageConfigurationPtrOutput)
+}
+
 // A scoring strategy of the evaluation form.
 func (o EvaluationFormOutput) ScoringStrategy() EvaluationFormScoringStrategyPtrOutput {
 	return o.ApplyT(func(v *EvaluationForm) EvaluationFormScoringStrategyPtrOutput { return v.ScoringStrategy }).(EvaluationFormScoringStrategyPtrOutput)
@@ -219,6 +233,10 @@ func (o EvaluationFormOutput) Status() EvaluationFormStatusOutput {
 // The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 func (o EvaluationFormOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *EvaluationForm) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o EvaluationFormOutput) TargetConfiguration() EvaluationFormTargetConfigurationPtrOutput {
+	return o.ApplyT(func(v *EvaluationForm) EvaluationFormTargetConfigurationPtrOutput { return v.TargetConfiguration }).(EvaluationFormTargetConfigurationPtrOutput)
 }
 
 // A title of the evaluation form.

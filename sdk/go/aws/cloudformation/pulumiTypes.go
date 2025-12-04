@@ -1468,6 +1468,8 @@ func (o StackOutputTypeArrayOutput) Index(i pulumi.IntInput) StackOutputTypeOutp
 }
 
 type StackSetAutoDeployment struct {
+	// A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet's operation begins.
+	DependsOn []string `pulumi:"dependsOn"`
 	// If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
 	Enabled *bool `pulumi:"enabled"`
 	// If set to true, stack resources are retained when an account is removed from a target organization or OU. If set to false, stack resources are deleted. Specify only if Enabled is set to True.
@@ -1486,6 +1488,8 @@ type StackSetAutoDeploymentInput interface {
 }
 
 type StackSetAutoDeploymentArgs struct {
+	// A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet's operation begins.
+	DependsOn pulumi.StringArrayInput `pulumi:"dependsOn"`
 	// If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// If set to true, stack resources are retained when an account is removed from a target organization or OU. If set to false, stack resources are deleted. Specify only if Enabled is set to True.
@@ -1569,6 +1573,11 @@ func (o StackSetAutoDeploymentOutput) ToStackSetAutoDeploymentPtrOutputWithConte
 	}).(StackSetAutoDeploymentPtrOutput)
 }
 
+// A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet's operation begins.
+func (o StackSetAutoDeploymentOutput) DependsOn() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackSetAutoDeployment) []string { return v.DependsOn }).(pulumi.StringArrayOutput)
+}
+
 // If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
 func (o StackSetAutoDeploymentOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StackSetAutoDeployment) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -1601,6 +1610,16 @@ func (o StackSetAutoDeploymentPtrOutput) Elem() StackSetAutoDeploymentOutput {
 		var ret StackSetAutoDeployment
 		return ret
 	}).(StackSetAutoDeploymentOutput)
+}
+
+// A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet's operation begins.
+func (o StackSetAutoDeploymentPtrOutput) DependsOn() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StackSetAutoDeployment) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DependsOn
+	}).(pulumi.StringArrayOutput)
 }
 
 // If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.

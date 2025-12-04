@@ -401,6 +401,312 @@ func (o WorkGroupAclConfigurationPtrOutput) S3AclOption() WorkGroupS3AclOptionPt
 	}).(WorkGroupS3AclOptionPtrOutput)
 }
 
+// A classification refers to a set of specific configurations.
+type WorkGroupClassification struct {
+	// The name of the configuration classification.
+	Name *string `pulumi:"name"`
+	// A set of properties specified within a configuration classification.
+	Properties map[string]string `pulumi:"properties"`
+}
+
+// WorkGroupClassificationInput is an input type that accepts WorkGroupClassificationArgs and WorkGroupClassificationOutput values.
+// You can construct a concrete instance of `WorkGroupClassificationInput` via:
+//
+//	WorkGroupClassificationArgs{...}
+type WorkGroupClassificationInput interface {
+	pulumi.Input
+
+	ToWorkGroupClassificationOutput() WorkGroupClassificationOutput
+	ToWorkGroupClassificationOutputWithContext(context.Context) WorkGroupClassificationOutput
+}
+
+// A classification refers to a set of specific configurations.
+type WorkGroupClassificationArgs struct {
+	// The name of the configuration classification.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A set of properties specified within a configuration classification.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+}
+
+func (WorkGroupClassificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupClassification)(nil)).Elem()
+}
+
+func (i WorkGroupClassificationArgs) ToWorkGroupClassificationOutput() WorkGroupClassificationOutput {
+	return i.ToWorkGroupClassificationOutputWithContext(context.Background())
+}
+
+func (i WorkGroupClassificationArgs) ToWorkGroupClassificationOutputWithContext(ctx context.Context) WorkGroupClassificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupClassificationOutput)
+}
+
+// WorkGroupClassificationArrayInput is an input type that accepts WorkGroupClassificationArray and WorkGroupClassificationArrayOutput values.
+// You can construct a concrete instance of `WorkGroupClassificationArrayInput` via:
+//
+//	WorkGroupClassificationArray{ WorkGroupClassificationArgs{...} }
+type WorkGroupClassificationArrayInput interface {
+	pulumi.Input
+
+	ToWorkGroupClassificationArrayOutput() WorkGroupClassificationArrayOutput
+	ToWorkGroupClassificationArrayOutputWithContext(context.Context) WorkGroupClassificationArrayOutput
+}
+
+type WorkGroupClassificationArray []WorkGroupClassificationInput
+
+func (WorkGroupClassificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkGroupClassification)(nil)).Elem()
+}
+
+func (i WorkGroupClassificationArray) ToWorkGroupClassificationArrayOutput() WorkGroupClassificationArrayOutput {
+	return i.ToWorkGroupClassificationArrayOutputWithContext(context.Background())
+}
+
+func (i WorkGroupClassificationArray) ToWorkGroupClassificationArrayOutputWithContext(ctx context.Context) WorkGroupClassificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupClassificationArrayOutput)
+}
+
+// A classification refers to a set of specific configurations.
+type WorkGroupClassificationOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupClassificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupClassification)(nil)).Elem()
+}
+
+func (o WorkGroupClassificationOutput) ToWorkGroupClassificationOutput() WorkGroupClassificationOutput {
+	return o
+}
+
+func (o WorkGroupClassificationOutput) ToWorkGroupClassificationOutputWithContext(ctx context.Context) WorkGroupClassificationOutput {
+	return o
+}
+
+// The name of the configuration classification.
+func (o WorkGroupClassificationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkGroupClassification) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A set of properties specified within a configuration classification.
+func (o WorkGroupClassificationOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WorkGroupClassification) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+type WorkGroupClassificationArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupClassificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkGroupClassification)(nil)).Elem()
+}
+
+func (o WorkGroupClassificationArrayOutput) ToWorkGroupClassificationArrayOutput() WorkGroupClassificationArrayOutput {
+	return o
+}
+
+func (o WorkGroupClassificationArrayOutput) ToWorkGroupClassificationArrayOutputWithContext(ctx context.Context) WorkGroupClassificationArrayOutput {
+	return o
+}
+
+func (o WorkGroupClassificationArrayOutput) Index(i pulumi.IntInput) WorkGroupClassificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkGroupClassification {
+		return vs[0].([]WorkGroupClassification)[vs[1].(int)]
+	}).(WorkGroupClassificationOutput)
+}
+
+// Configuration settings for delivering logs to Amazon CloudWatch log groups.
+type WorkGroupCloudWatchLoggingConfiguration struct {
+	// Enables CloudWatch logging.
+	Enabled *bool `pulumi:"enabled"`
+	// The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
+	LogGroup *string `pulumi:"logGroup"`
+	// Prefix for the CloudWatch log stream name.
+	LogStreamNamePrefix *string `pulumi:"logStreamNamePrefix"`
+	// The types of logs that you want to publish to CloudWatch.
+	LogTypes map[string][]string `pulumi:"logTypes"`
+}
+
+// WorkGroupCloudWatchLoggingConfigurationInput is an input type that accepts WorkGroupCloudWatchLoggingConfigurationArgs and WorkGroupCloudWatchLoggingConfigurationOutput values.
+// You can construct a concrete instance of `WorkGroupCloudWatchLoggingConfigurationInput` via:
+//
+//	WorkGroupCloudWatchLoggingConfigurationArgs{...}
+type WorkGroupCloudWatchLoggingConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkGroupCloudWatchLoggingConfigurationOutput() WorkGroupCloudWatchLoggingConfigurationOutput
+	ToWorkGroupCloudWatchLoggingConfigurationOutputWithContext(context.Context) WorkGroupCloudWatchLoggingConfigurationOutput
+}
+
+// Configuration settings for delivering logs to Amazon CloudWatch log groups.
+type WorkGroupCloudWatchLoggingConfigurationArgs struct {
+	// Enables CloudWatch logging.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
+	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
+	// Prefix for the CloudWatch log stream name.
+	LogStreamNamePrefix pulumi.StringPtrInput `pulumi:"logStreamNamePrefix"`
+	// The types of logs that you want to publish to CloudWatch.
+	LogTypes pulumi.StringArrayMapInput `pulumi:"logTypes"`
+}
+
+func (WorkGroupCloudWatchLoggingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupCloudWatchLoggingConfiguration)(nil)).Elem()
+}
+
+func (i WorkGroupCloudWatchLoggingConfigurationArgs) ToWorkGroupCloudWatchLoggingConfigurationOutput() WorkGroupCloudWatchLoggingConfigurationOutput {
+	return i.ToWorkGroupCloudWatchLoggingConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkGroupCloudWatchLoggingConfigurationArgs) ToWorkGroupCloudWatchLoggingConfigurationOutputWithContext(ctx context.Context) WorkGroupCloudWatchLoggingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupCloudWatchLoggingConfigurationOutput)
+}
+
+func (i WorkGroupCloudWatchLoggingConfigurationArgs) ToWorkGroupCloudWatchLoggingConfigurationPtrOutput() WorkGroupCloudWatchLoggingConfigurationPtrOutput {
+	return i.ToWorkGroupCloudWatchLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkGroupCloudWatchLoggingConfigurationArgs) ToWorkGroupCloudWatchLoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupCloudWatchLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupCloudWatchLoggingConfigurationOutput).ToWorkGroupCloudWatchLoggingConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkGroupCloudWatchLoggingConfigurationPtrInput is an input type that accepts WorkGroupCloudWatchLoggingConfigurationArgs, WorkGroupCloudWatchLoggingConfigurationPtr and WorkGroupCloudWatchLoggingConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkGroupCloudWatchLoggingConfigurationPtrInput` via:
+//
+//	        WorkGroupCloudWatchLoggingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkGroupCloudWatchLoggingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkGroupCloudWatchLoggingConfigurationPtrOutput() WorkGroupCloudWatchLoggingConfigurationPtrOutput
+	ToWorkGroupCloudWatchLoggingConfigurationPtrOutputWithContext(context.Context) WorkGroupCloudWatchLoggingConfigurationPtrOutput
+}
+
+type workGroupCloudWatchLoggingConfigurationPtrType WorkGroupCloudWatchLoggingConfigurationArgs
+
+func WorkGroupCloudWatchLoggingConfigurationPtr(v *WorkGroupCloudWatchLoggingConfigurationArgs) WorkGroupCloudWatchLoggingConfigurationPtrInput {
+	return (*workGroupCloudWatchLoggingConfigurationPtrType)(v)
+}
+
+func (*workGroupCloudWatchLoggingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupCloudWatchLoggingConfiguration)(nil)).Elem()
+}
+
+func (i *workGroupCloudWatchLoggingConfigurationPtrType) ToWorkGroupCloudWatchLoggingConfigurationPtrOutput() WorkGroupCloudWatchLoggingConfigurationPtrOutput {
+	return i.ToWorkGroupCloudWatchLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workGroupCloudWatchLoggingConfigurationPtrType) ToWorkGroupCloudWatchLoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupCloudWatchLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupCloudWatchLoggingConfigurationPtrOutput)
+}
+
+// Configuration settings for delivering logs to Amazon CloudWatch log groups.
+type WorkGroupCloudWatchLoggingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupCloudWatchLoggingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupCloudWatchLoggingConfiguration)(nil)).Elem()
+}
+
+func (o WorkGroupCloudWatchLoggingConfigurationOutput) ToWorkGroupCloudWatchLoggingConfigurationOutput() WorkGroupCloudWatchLoggingConfigurationOutput {
+	return o
+}
+
+func (o WorkGroupCloudWatchLoggingConfigurationOutput) ToWorkGroupCloudWatchLoggingConfigurationOutputWithContext(ctx context.Context) WorkGroupCloudWatchLoggingConfigurationOutput {
+	return o
+}
+
+func (o WorkGroupCloudWatchLoggingConfigurationOutput) ToWorkGroupCloudWatchLoggingConfigurationPtrOutput() WorkGroupCloudWatchLoggingConfigurationPtrOutput {
+	return o.ToWorkGroupCloudWatchLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkGroupCloudWatchLoggingConfigurationOutput) ToWorkGroupCloudWatchLoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupCloudWatchLoggingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkGroupCloudWatchLoggingConfiguration) *WorkGroupCloudWatchLoggingConfiguration {
+		return &v
+	}).(WorkGroupCloudWatchLoggingConfigurationPtrOutput)
+}
+
+// Enables CloudWatch logging.
+func (o WorkGroupCloudWatchLoggingConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkGroupCloudWatchLoggingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
+func (o WorkGroupCloudWatchLoggingConfigurationOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkGroupCloudWatchLoggingConfiguration) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
+}
+
+// Prefix for the CloudWatch log stream name.
+func (o WorkGroupCloudWatchLoggingConfigurationOutput) LogStreamNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkGroupCloudWatchLoggingConfiguration) *string { return v.LogStreamNamePrefix }).(pulumi.StringPtrOutput)
+}
+
+// The types of logs that you want to publish to CloudWatch.
+func (o WorkGroupCloudWatchLoggingConfigurationOutput) LogTypes() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v WorkGroupCloudWatchLoggingConfiguration) map[string][]string { return v.LogTypes }).(pulumi.StringArrayMapOutput)
+}
+
+type WorkGroupCloudWatchLoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupCloudWatchLoggingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupCloudWatchLoggingConfiguration)(nil)).Elem()
+}
+
+func (o WorkGroupCloudWatchLoggingConfigurationPtrOutput) ToWorkGroupCloudWatchLoggingConfigurationPtrOutput() WorkGroupCloudWatchLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkGroupCloudWatchLoggingConfigurationPtrOutput) ToWorkGroupCloudWatchLoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupCloudWatchLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkGroupCloudWatchLoggingConfigurationPtrOutput) Elem() WorkGroupCloudWatchLoggingConfigurationOutput {
+	return o.ApplyT(func(v *WorkGroupCloudWatchLoggingConfiguration) WorkGroupCloudWatchLoggingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkGroupCloudWatchLoggingConfiguration
+		return ret
+	}).(WorkGroupCloudWatchLoggingConfigurationOutput)
+}
+
+// Enables CloudWatch logging.
+func (o WorkGroupCloudWatchLoggingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkGroupCloudWatchLoggingConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
+func (o WorkGroupCloudWatchLoggingConfigurationPtrOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkGroupCloudWatchLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// Prefix for the CloudWatch log stream name.
+func (o WorkGroupCloudWatchLoggingConfigurationPtrOutput) LogStreamNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkGroupCloudWatchLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreamNamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The types of logs that you want to publish to CloudWatch.
+func (o WorkGroupCloudWatchLoggingConfigurationPtrOutput) LogTypes() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *WorkGroupCloudWatchLoggingConfiguration) map[string][]string {
+		if v == nil {
+			return nil
+		}
+		return v.LogTypes
+	}).(pulumi.StringArrayMapOutput)
+}
+
 type WorkGroupConfiguration struct {
 	// Specifies a user defined JSON string that is passed to the session engine.
 	AdditionalConfiguration *string `pulumi:"additionalConfiguration"`
@@ -411,13 +717,16 @@ type WorkGroupConfiguration struct {
 	// Specifies the KMS key that is used to encrypt the user's data stores in Athena. This setting does not apply to Athena SQL workgroups.
 	CustomerContentEncryptionConfiguration *WorkGroupCustomerContentEncryptionConfiguration `pulumi:"customerContentEncryptionConfiguration"`
 	// If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see [Override client-side settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
-	EnforceWorkGroupConfiguration *bool `pulumi:"enforceWorkGroupConfiguration"`
+	EnforceWorkGroupConfiguration *bool                         `pulumi:"enforceWorkGroupConfiguration"`
+	EngineConfiguration           *WorkGroupEngineConfiguration `pulumi:"engineConfiguration"`
 	// The engine version that all queries running on the workgroup use.
 	EngineVersion *WorkGroupEngineVersion `pulumi:"engineVersion"`
 	// Role used to access user resources in an Athena for Apache Spark session. This property applies only to Spark-enabled workgroups in Athena.
 	ExecutionRole *string `pulumi:"executionRole"`
 	// The configuration for storing results in Athena owned storage, which includes whether this feature is enabled; whether encryption configuration, if any, is used for encrypting query results.
 	ManagedQueryResultsConfiguration *WorkGroupManagedQueryResultsConfiguration `pulumi:"managedQueryResultsConfiguration"`
+	// Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc.
+	MonitoringConfiguration *WorkGroupMonitoringConfiguration `pulumi:"monitoringConfiguration"`
 	// Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
 	PublishCloudWatchMetricsEnabled *bool `pulumi:"publishCloudWatchMetricsEnabled"`
 	// If set to `true` , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to `false` , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is `false` . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the *Amazon Simple Storage Service Developer Guide* .
@@ -447,13 +756,16 @@ type WorkGroupConfigurationArgs struct {
 	// Specifies the KMS key that is used to encrypt the user's data stores in Athena. This setting does not apply to Athena SQL workgroups.
 	CustomerContentEncryptionConfiguration WorkGroupCustomerContentEncryptionConfigurationPtrInput `pulumi:"customerContentEncryptionConfiguration"`
 	// If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see [Override client-side settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
-	EnforceWorkGroupConfiguration pulumi.BoolPtrInput `pulumi:"enforceWorkGroupConfiguration"`
+	EnforceWorkGroupConfiguration pulumi.BoolPtrInput                  `pulumi:"enforceWorkGroupConfiguration"`
+	EngineConfiguration           WorkGroupEngineConfigurationPtrInput `pulumi:"engineConfiguration"`
 	// The engine version that all queries running on the workgroup use.
 	EngineVersion WorkGroupEngineVersionPtrInput `pulumi:"engineVersion"`
 	// Role used to access user resources in an Athena for Apache Spark session. This property applies only to Spark-enabled workgroups in Athena.
 	ExecutionRole pulumi.StringPtrInput `pulumi:"executionRole"`
 	// The configuration for storing results in Athena owned storage, which includes whether this feature is enabled; whether encryption configuration, if any, is used for encrypting query results.
 	ManagedQueryResultsConfiguration WorkGroupManagedQueryResultsConfigurationPtrInput `pulumi:"managedQueryResultsConfiguration"`
+	// Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc.
+	MonitoringConfiguration WorkGroupMonitoringConfigurationPtrInput `pulumi:"monitoringConfiguration"`
 	// Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
 	PublishCloudWatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"publishCloudWatchMetricsEnabled"`
 	// If set to `true` , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to `false` , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is `false` . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the *Amazon Simple Storage Service Developer Guide* .
@@ -563,6 +875,10 @@ func (o WorkGroupConfigurationOutput) EnforceWorkGroupConfiguration() pulumi.Boo
 	return o.ApplyT(func(v WorkGroupConfiguration) *bool { return v.EnforceWorkGroupConfiguration }).(pulumi.BoolPtrOutput)
 }
 
+func (o WorkGroupConfigurationOutput) EngineConfiguration() WorkGroupEngineConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfiguration) *WorkGroupEngineConfiguration { return v.EngineConfiguration }).(WorkGroupEngineConfigurationPtrOutput)
+}
+
 // The engine version that all queries running on the workgroup use.
 func (o WorkGroupConfigurationOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
 	return o.ApplyT(func(v WorkGroupConfiguration) *WorkGroupEngineVersion { return v.EngineVersion }).(WorkGroupEngineVersionPtrOutput)
@@ -578,6 +894,11 @@ func (o WorkGroupConfigurationOutput) ManagedQueryResultsConfiguration() WorkGro
 	return o.ApplyT(func(v WorkGroupConfiguration) *WorkGroupManagedQueryResultsConfiguration {
 		return v.ManagedQueryResultsConfiguration
 	}).(WorkGroupManagedQueryResultsConfigurationPtrOutput)
+}
+
+// Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc.
+func (o WorkGroupConfigurationOutput) MonitoringConfiguration() WorkGroupMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfiguration) *WorkGroupMonitoringConfiguration { return v.MonitoringConfiguration }).(WorkGroupMonitoringConfigurationPtrOutput)
 }
 
 // Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
@@ -661,6 +982,15 @@ func (o WorkGroupConfigurationPtrOutput) EnforceWorkGroupConfiguration() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+func (o WorkGroupConfigurationPtrOutput) EngineConfiguration() WorkGroupEngineConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfiguration) *WorkGroupEngineConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EngineConfiguration
+	}).(WorkGroupEngineConfigurationPtrOutput)
+}
+
 // The engine version that all queries running on the workgroup use.
 func (o WorkGroupConfigurationPtrOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
 	return o.ApplyT(func(v *WorkGroupConfiguration) *WorkGroupEngineVersion {
@@ -689,6 +1019,16 @@ func (o WorkGroupConfigurationPtrOutput) ManagedQueryResultsConfiguration() Work
 		}
 		return v.ManagedQueryResultsConfiguration
 	}).(WorkGroupManagedQueryResultsConfigurationPtrOutput)
+}
+
+// Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc.
+func (o WorkGroupConfigurationPtrOutput) MonitoringConfiguration() WorkGroupMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfiguration) *WorkGroupMonitoringConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.MonitoringConfiguration
+	}).(WorkGroupMonitoringConfigurationPtrOutput)
 }
 
 // Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
@@ -727,9 +1067,11 @@ type WorkGroupConfigurationUpdates struct {
 	BytesScannedCutoffPerQuery                   *int                                             `pulumi:"bytesScannedCutoffPerQuery"`
 	CustomerContentEncryptionConfiguration       *WorkGroupCustomerContentEncryptionConfiguration `pulumi:"customerContentEncryptionConfiguration"`
 	EnforceWorkGroupConfiguration                *bool                                            `pulumi:"enforceWorkGroupConfiguration"`
+	EngineConfiguration                          *WorkGroupEngineConfiguration                    `pulumi:"engineConfiguration"`
 	EngineVersion                                *WorkGroupEngineVersion                          `pulumi:"engineVersion"`
 	ExecutionRole                                *string                                          `pulumi:"executionRole"`
 	ManagedQueryResultsConfiguration             *WorkGroupManagedQueryResultsConfiguration       `pulumi:"managedQueryResultsConfiguration"`
+	MonitoringConfiguration                      *WorkGroupMonitoringConfiguration                `pulumi:"monitoringConfiguration"`
 	PublishCloudWatchMetricsEnabled              *bool                                            `pulumi:"publishCloudWatchMetricsEnabled"`
 	RemoveBytesScannedCutoffPerQuery             *bool                                            `pulumi:"removeBytesScannedCutoffPerQuery"`
 	RemoveCustomerContentEncryptionConfiguration *bool                                            `pulumi:"removeCustomerContentEncryptionConfiguration"`
@@ -754,9 +1096,11 @@ type WorkGroupConfigurationUpdatesArgs struct {
 	BytesScannedCutoffPerQuery                   pulumi.IntPtrInput                                      `pulumi:"bytesScannedCutoffPerQuery"`
 	CustomerContentEncryptionConfiguration       WorkGroupCustomerContentEncryptionConfigurationPtrInput `pulumi:"customerContentEncryptionConfiguration"`
 	EnforceWorkGroupConfiguration                pulumi.BoolPtrInput                                     `pulumi:"enforceWorkGroupConfiguration"`
+	EngineConfiguration                          WorkGroupEngineConfigurationPtrInput                    `pulumi:"engineConfiguration"`
 	EngineVersion                                WorkGroupEngineVersionPtrInput                          `pulumi:"engineVersion"`
 	ExecutionRole                                pulumi.StringPtrInput                                   `pulumi:"executionRole"`
 	ManagedQueryResultsConfiguration             WorkGroupManagedQueryResultsConfigurationPtrInput       `pulumi:"managedQueryResultsConfiguration"`
+	MonitoringConfiguration                      WorkGroupMonitoringConfigurationPtrInput                `pulumi:"monitoringConfiguration"`
 	PublishCloudWatchMetricsEnabled              pulumi.BoolPtrInput                                     `pulumi:"publishCloudWatchMetricsEnabled"`
 	RemoveBytesScannedCutoffPerQuery             pulumi.BoolPtrInput                                     `pulumi:"removeBytesScannedCutoffPerQuery"`
 	RemoveCustomerContentEncryptionConfiguration pulumi.BoolPtrInput                                     `pulumi:"removeCustomerContentEncryptionConfiguration"`
@@ -860,6 +1204,10 @@ func (o WorkGroupConfigurationUpdatesOutput) EnforceWorkGroupConfiguration() pul
 	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *bool { return v.EnforceWorkGroupConfiguration }).(pulumi.BoolPtrOutput)
 }
 
+func (o WorkGroupConfigurationUpdatesOutput) EngineConfiguration() WorkGroupEngineConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *WorkGroupEngineConfiguration { return v.EngineConfiguration }).(WorkGroupEngineConfigurationPtrOutput)
+}
+
 func (o WorkGroupConfigurationUpdatesOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
 	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *WorkGroupEngineVersion { return v.EngineVersion }).(WorkGroupEngineVersionPtrOutput)
 }
@@ -872,6 +1220,12 @@ func (o WorkGroupConfigurationUpdatesOutput) ManagedQueryResultsConfiguration() 
 	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *WorkGroupManagedQueryResultsConfiguration {
 		return v.ManagedQueryResultsConfiguration
 	}).(WorkGroupManagedQueryResultsConfigurationPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesOutput) MonitoringConfiguration() WorkGroupMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkGroupConfigurationUpdates) *WorkGroupMonitoringConfiguration {
+		return v.MonitoringConfiguration
+	}).(WorkGroupMonitoringConfigurationPtrOutput)
 }
 
 func (o WorkGroupConfigurationUpdatesOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
@@ -956,6 +1310,15 @@ func (o WorkGroupConfigurationUpdatesPtrOutput) EnforceWorkGroupConfiguration() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+func (o WorkGroupConfigurationUpdatesPtrOutput) EngineConfiguration() WorkGroupEngineConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfigurationUpdates) *WorkGroupEngineConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EngineConfiguration
+	}).(WorkGroupEngineConfigurationPtrOutput)
+}
+
 func (o WorkGroupConfigurationUpdatesPtrOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
 	return o.ApplyT(func(v *WorkGroupConfigurationUpdates) *WorkGroupEngineVersion {
 		if v == nil {
@@ -981,6 +1344,15 @@ func (o WorkGroupConfigurationUpdatesPtrOutput) ManagedQueryResultsConfiguration
 		}
 		return v.ManagedQueryResultsConfiguration
 	}).(WorkGroupManagedQueryResultsConfigurationPtrOutput)
+}
+
+func (o WorkGroupConfigurationUpdatesPtrOutput) MonitoringConfiguration() WorkGroupMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkGroupConfigurationUpdates) *WorkGroupMonitoringConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.MonitoringConfiguration
+	}).(WorkGroupMonitoringConfigurationPtrOutput)
 }
 
 func (o WorkGroupConfigurationUpdatesPtrOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
@@ -1335,6 +1707,241 @@ func (o WorkGroupEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The engine configuration for running queries.
+type WorkGroupEngineConfiguration struct {
+	// Contains additional notebook engine MAP<string, string> parameter mappings in the form of key-value pairs. To specify an Athena notebook that the Jupyter server will download and serve, specify a value for the StartSessionRequest$NotebookVersion field, and then add a key named NotebookId to AdditionalConfigs that has the value of the Athena notebook ID.
+	AdditionalConfigs map[string]string `pulumi:"additionalConfigs"`
+	// The configuration classifications that can be specified for the engine.
+	Classifications []WorkGroupClassification `pulumi:"classifications"`
+	// The number of DPUs to use for the coordinator. A coordinator is a special executor that orchestrates processing work and manages other executors in a notebook session. The default is 1.
+	CoordinatorDpuSize *int `pulumi:"coordinatorDpuSize"`
+	// The default number of DPUs to use for executors. An executor is the smallest unit of compute that a notebook session can request from Athena. The default is 1.
+	DefaultExecutorDpuSize *int `pulumi:"defaultExecutorDpuSize"`
+	// The maximum number of DPUs that can run concurrently.
+	MaxConcurrentDpus *int `pulumi:"maxConcurrentDpus"`
+	// Specifies custom jar files and Spark properties for use cases like cluster encryption, table formats, and general Spark tuning.
+	SparkProperties map[string]string `pulumi:"sparkProperties"`
+}
+
+// WorkGroupEngineConfigurationInput is an input type that accepts WorkGroupEngineConfigurationArgs and WorkGroupEngineConfigurationOutput values.
+// You can construct a concrete instance of `WorkGroupEngineConfigurationInput` via:
+//
+//	WorkGroupEngineConfigurationArgs{...}
+type WorkGroupEngineConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkGroupEngineConfigurationOutput() WorkGroupEngineConfigurationOutput
+	ToWorkGroupEngineConfigurationOutputWithContext(context.Context) WorkGroupEngineConfigurationOutput
+}
+
+// The engine configuration for running queries.
+type WorkGroupEngineConfigurationArgs struct {
+	// Contains additional notebook engine MAP<string, string> parameter mappings in the form of key-value pairs. To specify an Athena notebook that the Jupyter server will download and serve, specify a value for the StartSessionRequest$NotebookVersion field, and then add a key named NotebookId to AdditionalConfigs that has the value of the Athena notebook ID.
+	AdditionalConfigs pulumi.StringMapInput `pulumi:"additionalConfigs"`
+	// The configuration classifications that can be specified for the engine.
+	Classifications WorkGroupClassificationArrayInput `pulumi:"classifications"`
+	// The number of DPUs to use for the coordinator. A coordinator is a special executor that orchestrates processing work and manages other executors in a notebook session. The default is 1.
+	CoordinatorDpuSize pulumi.IntPtrInput `pulumi:"coordinatorDpuSize"`
+	// The default number of DPUs to use for executors. An executor is the smallest unit of compute that a notebook session can request from Athena. The default is 1.
+	DefaultExecutorDpuSize pulumi.IntPtrInput `pulumi:"defaultExecutorDpuSize"`
+	// The maximum number of DPUs that can run concurrently.
+	MaxConcurrentDpus pulumi.IntPtrInput `pulumi:"maxConcurrentDpus"`
+	// Specifies custom jar files and Spark properties for use cases like cluster encryption, table formats, and general Spark tuning.
+	SparkProperties pulumi.StringMapInput `pulumi:"sparkProperties"`
+}
+
+func (WorkGroupEngineConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupEngineConfiguration)(nil)).Elem()
+}
+
+func (i WorkGroupEngineConfigurationArgs) ToWorkGroupEngineConfigurationOutput() WorkGroupEngineConfigurationOutput {
+	return i.ToWorkGroupEngineConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkGroupEngineConfigurationArgs) ToWorkGroupEngineConfigurationOutputWithContext(ctx context.Context) WorkGroupEngineConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupEngineConfigurationOutput)
+}
+
+func (i WorkGroupEngineConfigurationArgs) ToWorkGroupEngineConfigurationPtrOutput() WorkGroupEngineConfigurationPtrOutput {
+	return i.ToWorkGroupEngineConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkGroupEngineConfigurationArgs) ToWorkGroupEngineConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupEngineConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupEngineConfigurationOutput).ToWorkGroupEngineConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkGroupEngineConfigurationPtrInput is an input type that accepts WorkGroupEngineConfigurationArgs, WorkGroupEngineConfigurationPtr and WorkGroupEngineConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkGroupEngineConfigurationPtrInput` via:
+//
+//	        WorkGroupEngineConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkGroupEngineConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkGroupEngineConfigurationPtrOutput() WorkGroupEngineConfigurationPtrOutput
+	ToWorkGroupEngineConfigurationPtrOutputWithContext(context.Context) WorkGroupEngineConfigurationPtrOutput
+}
+
+type workGroupEngineConfigurationPtrType WorkGroupEngineConfigurationArgs
+
+func WorkGroupEngineConfigurationPtr(v *WorkGroupEngineConfigurationArgs) WorkGroupEngineConfigurationPtrInput {
+	return (*workGroupEngineConfigurationPtrType)(v)
+}
+
+func (*workGroupEngineConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupEngineConfiguration)(nil)).Elem()
+}
+
+func (i *workGroupEngineConfigurationPtrType) ToWorkGroupEngineConfigurationPtrOutput() WorkGroupEngineConfigurationPtrOutput {
+	return i.ToWorkGroupEngineConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workGroupEngineConfigurationPtrType) ToWorkGroupEngineConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupEngineConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupEngineConfigurationPtrOutput)
+}
+
+// The engine configuration for running queries.
+type WorkGroupEngineConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupEngineConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupEngineConfiguration)(nil)).Elem()
+}
+
+func (o WorkGroupEngineConfigurationOutput) ToWorkGroupEngineConfigurationOutput() WorkGroupEngineConfigurationOutput {
+	return o
+}
+
+func (o WorkGroupEngineConfigurationOutput) ToWorkGroupEngineConfigurationOutputWithContext(ctx context.Context) WorkGroupEngineConfigurationOutput {
+	return o
+}
+
+func (o WorkGroupEngineConfigurationOutput) ToWorkGroupEngineConfigurationPtrOutput() WorkGroupEngineConfigurationPtrOutput {
+	return o.ToWorkGroupEngineConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkGroupEngineConfigurationOutput) ToWorkGroupEngineConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupEngineConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkGroupEngineConfiguration) *WorkGroupEngineConfiguration {
+		return &v
+	}).(WorkGroupEngineConfigurationPtrOutput)
+}
+
+// Contains additional notebook engine MAP<string, string> parameter mappings in the form of key-value pairs. To specify an Athena notebook that the Jupyter server will download and serve, specify a value for the StartSessionRequest$NotebookVersion field, and then add a key named NotebookId to AdditionalConfigs that has the value of the Athena notebook ID.
+func (o WorkGroupEngineConfigurationOutput) AdditionalConfigs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WorkGroupEngineConfiguration) map[string]string { return v.AdditionalConfigs }).(pulumi.StringMapOutput)
+}
+
+// The configuration classifications that can be specified for the engine.
+func (o WorkGroupEngineConfigurationOutput) Classifications() WorkGroupClassificationArrayOutput {
+	return o.ApplyT(func(v WorkGroupEngineConfiguration) []WorkGroupClassification { return v.Classifications }).(WorkGroupClassificationArrayOutput)
+}
+
+// The number of DPUs to use for the coordinator. A coordinator is a special executor that orchestrates processing work and manages other executors in a notebook session. The default is 1.
+func (o WorkGroupEngineConfigurationOutput) CoordinatorDpuSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkGroupEngineConfiguration) *int { return v.CoordinatorDpuSize }).(pulumi.IntPtrOutput)
+}
+
+// The default number of DPUs to use for executors. An executor is the smallest unit of compute that a notebook session can request from Athena. The default is 1.
+func (o WorkGroupEngineConfigurationOutput) DefaultExecutorDpuSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkGroupEngineConfiguration) *int { return v.DefaultExecutorDpuSize }).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of DPUs that can run concurrently.
+func (o WorkGroupEngineConfigurationOutput) MaxConcurrentDpus() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkGroupEngineConfiguration) *int { return v.MaxConcurrentDpus }).(pulumi.IntPtrOutput)
+}
+
+// Specifies custom jar files and Spark properties for use cases like cluster encryption, table formats, and general Spark tuning.
+func (o WorkGroupEngineConfigurationOutput) SparkProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WorkGroupEngineConfiguration) map[string]string { return v.SparkProperties }).(pulumi.StringMapOutput)
+}
+
+type WorkGroupEngineConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupEngineConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupEngineConfiguration)(nil)).Elem()
+}
+
+func (o WorkGroupEngineConfigurationPtrOutput) ToWorkGroupEngineConfigurationPtrOutput() WorkGroupEngineConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkGroupEngineConfigurationPtrOutput) ToWorkGroupEngineConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupEngineConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkGroupEngineConfigurationPtrOutput) Elem() WorkGroupEngineConfigurationOutput {
+	return o.ApplyT(func(v *WorkGroupEngineConfiguration) WorkGroupEngineConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkGroupEngineConfiguration
+		return ret
+	}).(WorkGroupEngineConfigurationOutput)
+}
+
+// Contains additional notebook engine MAP<string, string> parameter mappings in the form of key-value pairs. To specify an Athena notebook that the Jupyter server will download and serve, specify a value for the StartSessionRequest$NotebookVersion field, and then add a key named NotebookId to AdditionalConfigs that has the value of the Athena notebook ID.
+func (o WorkGroupEngineConfigurationPtrOutput) AdditionalConfigs() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WorkGroupEngineConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalConfigs
+	}).(pulumi.StringMapOutput)
+}
+
+// The configuration classifications that can be specified for the engine.
+func (o WorkGroupEngineConfigurationPtrOutput) Classifications() WorkGroupClassificationArrayOutput {
+	return o.ApplyT(func(v *WorkGroupEngineConfiguration) []WorkGroupClassification {
+		if v == nil {
+			return nil
+		}
+		return v.Classifications
+	}).(WorkGroupClassificationArrayOutput)
+}
+
+// The number of DPUs to use for the coordinator. A coordinator is a special executor that orchestrates processing work and manages other executors in a notebook session. The default is 1.
+func (o WorkGroupEngineConfigurationPtrOutput) CoordinatorDpuSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkGroupEngineConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CoordinatorDpuSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// The default number of DPUs to use for executors. An executor is the smallest unit of compute that a notebook session can request from Athena. The default is 1.
+func (o WorkGroupEngineConfigurationPtrOutput) DefaultExecutorDpuSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkGroupEngineConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultExecutorDpuSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of DPUs that can run concurrently.
+func (o WorkGroupEngineConfigurationPtrOutput) MaxConcurrentDpus() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkGroupEngineConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentDpus
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies custom jar files and Spark properties for use cases like cluster encryption, table formats, and general Spark tuning.
+func (o WorkGroupEngineConfigurationPtrOutput) SparkProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WorkGroupEngineConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.SparkProperties
+	}).(pulumi.StringMapOutput)
+}
+
 // The Athena engine version for running queries.
 type WorkGroupEngineVersion struct {
 	// Read only. The engine version on which the query runs. If the user requests a valid engine version other than Auto, the effective engine version is the same as the engine version that the user requested. If the user requests Auto, the effective engine version is chosen by Athena. When a request to update the engine version is made by a `CreateWorkGroup` or `UpdateWorkGroup` operation, the `EffectiveEngineVersion` field is ignored.
@@ -1491,6 +2098,165 @@ func (o WorkGroupEngineVersionPtrOutput) SelectedEngineVersion() pulumi.StringPt
 			return nil
 		}
 		return v.SelectedEngineVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration settings for managed log persistence.
+type WorkGroupManagedLoggingConfiguration struct {
+	// Enables managed log persistence.
+	Enabled *bool `pulumi:"enabled"`
+	// The KMS key ARN to encrypt the logs stored in managed log persistence.
+	KmsKey *string `pulumi:"kmsKey"`
+}
+
+// WorkGroupManagedLoggingConfigurationInput is an input type that accepts WorkGroupManagedLoggingConfigurationArgs and WorkGroupManagedLoggingConfigurationOutput values.
+// You can construct a concrete instance of `WorkGroupManagedLoggingConfigurationInput` via:
+//
+//	WorkGroupManagedLoggingConfigurationArgs{...}
+type WorkGroupManagedLoggingConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkGroupManagedLoggingConfigurationOutput() WorkGroupManagedLoggingConfigurationOutput
+	ToWorkGroupManagedLoggingConfigurationOutputWithContext(context.Context) WorkGroupManagedLoggingConfigurationOutput
+}
+
+// Configuration settings for managed log persistence.
+type WorkGroupManagedLoggingConfigurationArgs struct {
+	// Enables managed log persistence.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The KMS key ARN to encrypt the logs stored in managed log persistence.
+	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
+}
+
+func (WorkGroupManagedLoggingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupManagedLoggingConfiguration)(nil)).Elem()
+}
+
+func (i WorkGroupManagedLoggingConfigurationArgs) ToWorkGroupManagedLoggingConfigurationOutput() WorkGroupManagedLoggingConfigurationOutput {
+	return i.ToWorkGroupManagedLoggingConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkGroupManagedLoggingConfigurationArgs) ToWorkGroupManagedLoggingConfigurationOutputWithContext(ctx context.Context) WorkGroupManagedLoggingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupManagedLoggingConfigurationOutput)
+}
+
+func (i WorkGroupManagedLoggingConfigurationArgs) ToWorkGroupManagedLoggingConfigurationPtrOutput() WorkGroupManagedLoggingConfigurationPtrOutput {
+	return i.ToWorkGroupManagedLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkGroupManagedLoggingConfigurationArgs) ToWorkGroupManagedLoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupManagedLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupManagedLoggingConfigurationOutput).ToWorkGroupManagedLoggingConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkGroupManagedLoggingConfigurationPtrInput is an input type that accepts WorkGroupManagedLoggingConfigurationArgs, WorkGroupManagedLoggingConfigurationPtr and WorkGroupManagedLoggingConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkGroupManagedLoggingConfigurationPtrInput` via:
+//
+//	        WorkGroupManagedLoggingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkGroupManagedLoggingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkGroupManagedLoggingConfigurationPtrOutput() WorkGroupManagedLoggingConfigurationPtrOutput
+	ToWorkGroupManagedLoggingConfigurationPtrOutputWithContext(context.Context) WorkGroupManagedLoggingConfigurationPtrOutput
+}
+
+type workGroupManagedLoggingConfigurationPtrType WorkGroupManagedLoggingConfigurationArgs
+
+func WorkGroupManagedLoggingConfigurationPtr(v *WorkGroupManagedLoggingConfigurationArgs) WorkGroupManagedLoggingConfigurationPtrInput {
+	return (*workGroupManagedLoggingConfigurationPtrType)(v)
+}
+
+func (*workGroupManagedLoggingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupManagedLoggingConfiguration)(nil)).Elem()
+}
+
+func (i *workGroupManagedLoggingConfigurationPtrType) ToWorkGroupManagedLoggingConfigurationPtrOutput() WorkGroupManagedLoggingConfigurationPtrOutput {
+	return i.ToWorkGroupManagedLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workGroupManagedLoggingConfigurationPtrType) ToWorkGroupManagedLoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupManagedLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupManagedLoggingConfigurationPtrOutput)
+}
+
+// Configuration settings for managed log persistence.
+type WorkGroupManagedLoggingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupManagedLoggingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupManagedLoggingConfiguration)(nil)).Elem()
+}
+
+func (o WorkGroupManagedLoggingConfigurationOutput) ToWorkGroupManagedLoggingConfigurationOutput() WorkGroupManagedLoggingConfigurationOutput {
+	return o
+}
+
+func (o WorkGroupManagedLoggingConfigurationOutput) ToWorkGroupManagedLoggingConfigurationOutputWithContext(ctx context.Context) WorkGroupManagedLoggingConfigurationOutput {
+	return o
+}
+
+func (o WorkGroupManagedLoggingConfigurationOutput) ToWorkGroupManagedLoggingConfigurationPtrOutput() WorkGroupManagedLoggingConfigurationPtrOutput {
+	return o.ToWorkGroupManagedLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkGroupManagedLoggingConfigurationOutput) ToWorkGroupManagedLoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupManagedLoggingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkGroupManagedLoggingConfiguration) *WorkGroupManagedLoggingConfiguration {
+		return &v
+	}).(WorkGroupManagedLoggingConfigurationPtrOutput)
+}
+
+// Enables managed log persistence.
+func (o WorkGroupManagedLoggingConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkGroupManagedLoggingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The KMS key ARN to encrypt the logs stored in managed log persistence.
+func (o WorkGroupManagedLoggingConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkGroupManagedLoggingConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
+}
+
+type WorkGroupManagedLoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupManagedLoggingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupManagedLoggingConfiguration)(nil)).Elem()
+}
+
+func (o WorkGroupManagedLoggingConfigurationPtrOutput) ToWorkGroupManagedLoggingConfigurationPtrOutput() WorkGroupManagedLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkGroupManagedLoggingConfigurationPtrOutput) ToWorkGroupManagedLoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupManagedLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkGroupManagedLoggingConfigurationPtrOutput) Elem() WorkGroupManagedLoggingConfigurationOutput {
+	return o.ApplyT(func(v *WorkGroupManagedLoggingConfiguration) WorkGroupManagedLoggingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkGroupManagedLoggingConfiguration
+		return ret
+	}).(WorkGroupManagedLoggingConfigurationOutput)
+}
+
+// Enables managed log persistence.
+func (o WorkGroupManagedLoggingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkGroupManagedLoggingConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The KMS key ARN to encrypt the logs stored in managed log persistence.
+func (o WorkGroupManagedLoggingConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkGroupManagedLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKey
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1789,6 +2555,190 @@ func (o WorkGroupManagedStorageEncryptionConfigurationPtrOutput) KmsKey() pulumi
 		}
 		return v.KmsKey
 	}).(pulumi.StringPtrOutput)
+}
+
+// Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc.
+type WorkGroupMonitoringConfiguration struct {
+	// Configuration settings for delivering logs to Amazon CloudWatch log groups.
+	CloudWatchLoggingConfiguration *WorkGroupCloudWatchLoggingConfiguration `pulumi:"cloudWatchLoggingConfiguration"`
+	// Configuration settings for managed log persistence.
+	ManagedLoggingConfiguration *WorkGroupManagedLoggingConfiguration `pulumi:"managedLoggingConfiguration"`
+	// Configuration settings for delivering logs to Amazon S3 buckets.
+	S3LoggingConfiguration *WorkGroupS3LoggingConfiguration `pulumi:"s3LoggingConfiguration"`
+}
+
+// WorkGroupMonitoringConfigurationInput is an input type that accepts WorkGroupMonitoringConfigurationArgs and WorkGroupMonitoringConfigurationOutput values.
+// You can construct a concrete instance of `WorkGroupMonitoringConfigurationInput` via:
+//
+//	WorkGroupMonitoringConfigurationArgs{...}
+type WorkGroupMonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkGroupMonitoringConfigurationOutput() WorkGroupMonitoringConfigurationOutput
+	ToWorkGroupMonitoringConfigurationOutputWithContext(context.Context) WorkGroupMonitoringConfigurationOutput
+}
+
+// Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc.
+type WorkGroupMonitoringConfigurationArgs struct {
+	// Configuration settings for delivering logs to Amazon CloudWatch log groups.
+	CloudWatchLoggingConfiguration WorkGroupCloudWatchLoggingConfigurationPtrInput `pulumi:"cloudWatchLoggingConfiguration"`
+	// Configuration settings for managed log persistence.
+	ManagedLoggingConfiguration WorkGroupManagedLoggingConfigurationPtrInput `pulumi:"managedLoggingConfiguration"`
+	// Configuration settings for delivering logs to Amazon S3 buckets.
+	S3LoggingConfiguration WorkGroupS3LoggingConfigurationPtrInput `pulumi:"s3LoggingConfiguration"`
+}
+
+func (WorkGroupMonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i WorkGroupMonitoringConfigurationArgs) ToWorkGroupMonitoringConfigurationOutput() WorkGroupMonitoringConfigurationOutput {
+	return i.ToWorkGroupMonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkGroupMonitoringConfigurationArgs) ToWorkGroupMonitoringConfigurationOutputWithContext(ctx context.Context) WorkGroupMonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupMonitoringConfigurationOutput)
+}
+
+func (i WorkGroupMonitoringConfigurationArgs) ToWorkGroupMonitoringConfigurationPtrOutput() WorkGroupMonitoringConfigurationPtrOutput {
+	return i.ToWorkGroupMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkGroupMonitoringConfigurationArgs) ToWorkGroupMonitoringConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupMonitoringConfigurationOutput).ToWorkGroupMonitoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkGroupMonitoringConfigurationPtrInput is an input type that accepts WorkGroupMonitoringConfigurationArgs, WorkGroupMonitoringConfigurationPtr and WorkGroupMonitoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkGroupMonitoringConfigurationPtrInput` via:
+//
+//	        WorkGroupMonitoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkGroupMonitoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkGroupMonitoringConfigurationPtrOutput() WorkGroupMonitoringConfigurationPtrOutput
+	ToWorkGroupMonitoringConfigurationPtrOutputWithContext(context.Context) WorkGroupMonitoringConfigurationPtrOutput
+}
+
+type workGroupMonitoringConfigurationPtrType WorkGroupMonitoringConfigurationArgs
+
+func WorkGroupMonitoringConfigurationPtr(v *WorkGroupMonitoringConfigurationArgs) WorkGroupMonitoringConfigurationPtrInput {
+	return (*workGroupMonitoringConfigurationPtrType)(v)
+}
+
+func (*workGroupMonitoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i *workGroupMonitoringConfigurationPtrType) ToWorkGroupMonitoringConfigurationPtrOutput() WorkGroupMonitoringConfigurationPtrOutput {
+	return i.ToWorkGroupMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workGroupMonitoringConfigurationPtrType) ToWorkGroupMonitoringConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupMonitoringConfigurationPtrOutput)
+}
+
+// Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc.
+type WorkGroupMonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupMonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o WorkGroupMonitoringConfigurationOutput) ToWorkGroupMonitoringConfigurationOutput() WorkGroupMonitoringConfigurationOutput {
+	return o
+}
+
+func (o WorkGroupMonitoringConfigurationOutput) ToWorkGroupMonitoringConfigurationOutputWithContext(ctx context.Context) WorkGroupMonitoringConfigurationOutput {
+	return o
+}
+
+func (o WorkGroupMonitoringConfigurationOutput) ToWorkGroupMonitoringConfigurationPtrOutput() WorkGroupMonitoringConfigurationPtrOutput {
+	return o.ToWorkGroupMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkGroupMonitoringConfigurationOutput) ToWorkGroupMonitoringConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupMonitoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkGroupMonitoringConfiguration) *WorkGroupMonitoringConfiguration {
+		return &v
+	}).(WorkGroupMonitoringConfigurationPtrOutput)
+}
+
+// Configuration settings for delivering logs to Amazon CloudWatch log groups.
+func (o WorkGroupMonitoringConfigurationOutput) CloudWatchLoggingConfiguration() WorkGroupCloudWatchLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkGroupMonitoringConfiguration) *WorkGroupCloudWatchLoggingConfiguration {
+		return v.CloudWatchLoggingConfiguration
+	}).(WorkGroupCloudWatchLoggingConfigurationPtrOutput)
+}
+
+// Configuration settings for managed log persistence.
+func (o WorkGroupMonitoringConfigurationOutput) ManagedLoggingConfiguration() WorkGroupManagedLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkGroupMonitoringConfiguration) *WorkGroupManagedLoggingConfiguration {
+		return v.ManagedLoggingConfiguration
+	}).(WorkGroupManagedLoggingConfigurationPtrOutput)
+}
+
+// Configuration settings for delivering logs to Amazon S3 buckets.
+func (o WorkGroupMonitoringConfigurationOutput) S3LoggingConfiguration() WorkGroupS3LoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkGroupMonitoringConfiguration) *WorkGroupS3LoggingConfiguration {
+		return v.S3LoggingConfiguration
+	}).(WorkGroupS3LoggingConfigurationPtrOutput)
+}
+
+type WorkGroupMonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupMonitoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o WorkGroupMonitoringConfigurationPtrOutput) ToWorkGroupMonitoringConfigurationPtrOutput() WorkGroupMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkGroupMonitoringConfigurationPtrOutput) ToWorkGroupMonitoringConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkGroupMonitoringConfigurationPtrOutput) Elem() WorkGroupMonitoringConfigurationOutput {
+	return o.ApplyT(func(v *WorkGroupMonitoringConfiguration) WorkGroupMonitoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkGroupMonitoringConfiguration
+		return ret
+	}).(WorkGroupMonitoringConfigurationOutput)
+}
+
+// Configuration settings for delivering logs to Amazon CloudWatch log groups.
+func (o WorkGroupMonitoringConfigurationPtrOutput) CloudWatchLoggingConfiguration() WorkGroupCloudWatchLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkGroupMonitoringConfiguration) *WorkGroupCloudWatchLoggingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchLoggingConfiguration
+	}).(WorkGroupCloudWatchLoggingConfigurationPtrOutput)
+}
+
+// Configuration settings for managed log persistence.
+func (o WorkGroupMonitoringConfigurationPtrOutput) ManagedLoggingConfiguration() WorkGroupManagedLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkGroupMonitoringConfiguration) *WorkGroupManagedLoggingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedLoggingConfiguration
+	}).(WorkGroupManagedLoggingConfigurationPtrOutput)
+}
+
+// Configuration settings for delivering logs to Amazon S3 buckets.
+func (o WorkGroupMonitoringConfigurationPtrOutput) S3LoggingConfiguration() WorkGroupS3LoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkGroupMonitoringConfiguration) *WorkGroupS3LoggingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.S3LoggingConfiguration
+	}).(WorkGroupS3LoggingConfigurationPtrOutput)
 }
 
 // The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the workgroup settings.
@@ -2281,6 +3231,184 @@ func (o WorkGroupResultConfigurationUpdatesPtrOutput) RemoveOutputLocation() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Configuration settings for delivering logs to Amazon S3 buckets.
+type WorkGroupS3LoggingConfiguration struct {
+	// Enables S3 log delivery.
+	Enabled *bool `pulumi:"enabled"`
+	// The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+	KmsKey *string `pulumi:"kmsKey"`
+	// The Amazon S3 destination URI for log publishing.
+	LogLocation *string `pulumi:"logLocation"`
+}
+
+// WorkGroupS3LoggingConfigurationInput is an input type that accepts WorkGroupS3LoggingConfigurationArgs and WorkGroupS3LoggingConfigurationOutput values.
+// You can construct a concrete instance of `WorkGroupS3LoggingConfigurationInput` via:
+//
+//	WorkGroupS3LoggingConfigurationArgs{...}
+type WorkGroupS3LoggingConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkGroupS3LoggingConfigurationOutput() WorkGroupS3LoggingConfigurationOutput
+	ToWorkGroupS3LoggingConfigurationOutputWithContext(context.Context) WorkGroupS3LoggingConfigurationOutput
+}
+
+// Configuration settings for delivering logs to Amazon S3 buckets.
+type WorkGroupS3LoggingConfigurationArgs struct {
+	// Enables S3 log delivery.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
+	// The Amazon S3 destination URI for log publishing.
+	LogLocation pulumi.StringPtrInput `pulumi:"logLocation"`
+}
+
+func (WorkGroupS3LoggingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupS3LoggingConfiguration)(nil)).Elem()
+}
+
+func (i WorkGroupS3LoggingConfigurationArgs) ToWorkGroupS3LoggingConfigurationOutput() WorkGroupS3LoggingConfigurationOutput {
+	return i.ToWorkGroupS3LoggingConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkGroupS3LoggingConfigurationArgs) ToWorkGroupS3LoggingConfigurationOutputWithContext(ctx context.Context) WorkGroupS3LoggingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupS3LoggingConfigurationOutput)
+}
+
+func (i WorkGroupS3LoggingConfigurationArgs) ToWorkGroupS3LoggingConfigurationPtrOutput() WorkGroupS3LoggingConfigurationPtrOutput {
+	return i.ToWorkGroupS3LoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkGroupS3LoggingConfigurationArgs) ToWorkGroupS3LoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupS3LoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupS3LoggingConfigurationOutput).ToWorkGroupS3LoggingConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkGroupS3LoggingConfigurationPtrInput is an input type that accepts WorkGroupS3LoggingConfigurationArgs, WorkGroupS3LoggingConfigurationPtr and WorkGroupS3LoggingConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkGroupS3LoggingConfigurationPtrInput` via:
+//
+//	        WorkGroupS3LoggingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkGroupS3LoggingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkGroupS3LoggingConfigurationPtrOutput() WorkGroupS3LoggingConfigurationPtrOutput
+	ToWorkGroupS3LoggingConfigurationPtrOutputWithContext(context.Context) WorkGroupS3LoggingConfigurationPtrOutput
+}
+
+type workGroupS3LoggingConfigurationPtrType WorkGroupS3LoggingConfigurationArgs
+
+func WorkGroupS3LoggingConfigurationPtr(v *WorkGroupS3LoggingConfigurationArgs) WorkGroupS3LoggingConfigurationPtrInput {
+	return (*workGroupS3LoggingConfigurationPtrType)(v)
+}
+
+func (*workGroupS3LoggingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupS3LoggingConfiguration)(nil)).Elem()
+}
+
+func (i *workGroupS3LoggingConfigurationPtrType) ToWorkGroupS3LoggingConfigurationPtrOutput() WorkGroupS3LoggingConfigurationPtrOutput {
+	return i.ToWorkGroupS3LoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workGroupS3LoggingConfigurationPtrType) ToWorkGroupS3LoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupS3LoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupS3LoggingConfigurationPtrOutput)
+}
+
+// Configuration settings for delivering logs to Amazon S3 buckets.
+type WorkGroupS3LoggingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupS3LoggingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupS3LoggingConfiguration)(nil)).Elem()
+}
+
+func (o WorkGroupS3LoggingConfigurationOutput) ToWorkGroupS3LoggingConfigurationOutput() WorkGroupS3LoggingConfigurationOutput {
+	return o
+}
+
+func (o WorkGroupS3LoggingConfigurationOutput) ToWorkGroupS3LoggingConfigurationOutputWithContext(ctx context.Context) WorkGroupS3LoggingConfigurationOutput {
+	return o
+}
+
+func (o WorkGroupS3LoggingConfigurationOutput) ToWorkGroupS3LoggingConfigurationPtrOutput() WorkGroupS3LoggingConfigurationPtrOutput {
+	return o.ToWorkGroupS3LoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkGroupS3LoggingConfigurationOutput) ToWorkGroupS3LoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupS3LoggingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkGroupS3LoggingConfiguration) *WorkGroupS3LoggingConfiguration {
+		return &v
+	}).(WorkGroupS3LoggingConfigurationPtrOutput)
+}
+
+// Enables S3 log delivery.
+func (o WorkGroupS3LoggingConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkGroupS3LoggingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+func (o WorkGroupS3LoggingConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkGroupS3LoggingConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 destination URI for log publishing.
+func (o WorkGroupS3LoggingConfigurationOutput) LogLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkGroupS3LoggingConfiguration) *string { return v.LogLocation }).(pulumi.StringPtrOutput)
+}
+
+type WorkGroupS3LoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupS3LoggingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkGroupS3LoggingConfiguration)(nil)).Elem()
+}
+
+func (o WorkGroupS3LoggingConfigurationPtrOutput) ToWorkGroupS3LoggingConfigurationPtrOutput() WorkGroupS3LoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkGroupS3LoggingConfigurationPtrOutput) ToWorkGroupS3LoggingConfigurationPtrOutputWithContext(ctx context.Context) WorkGroupS3LoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkGroupS3LoggingConfigurationPtrOutput) Elem() WorkGroupS3LoggingConfigurationOutput {
+	return o.ApplyT(func(v *WorkGroupS3LoggingConfiguration) WorkGroupS3LoggingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkGroupS3LoggingConfiguration
+		return ret
+	}).(WorkGroupS3LoggingConfigurationOutput)
+}
+
+// Enables S3 log delivery.
+func (o WorkGroupS3LoggingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkGroupS3LoggingConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+func (o WorkGroupS3LoggingConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkGroupS3LoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 destination URI for log publishing.
+func (o WorkGroupS3LoggingConfigurationPtrOutput) LogLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkGroupS3LoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogLocation
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkGroupTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -2293,6 +3421,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationCapacityAssignmentConfigurationPtrInput)(nil)).Elem(), CapacityReservationCapacityAssignmentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupAclConfigurationInput)(nil)).Elem(), WorkGroupAclConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupAclConfigurationPtrInput)(nil)).Elem(), WorkGroupAclConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupClassificationInput)(nil)).Elem(), WorkGroupClassificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupClassificationArrayInput)(nil)).Elem(), WorkGroupClassificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupCloudWatchLoggingConfigurationInput)(nil)).Elem(), WorkGroupCloudWatchLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupCloudWatchLoggingConfigurationPtrInput)(nil)).Elem(), WorkGroupCloudWatchLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupConfigurationInput)(nil)).Elem(), WorkGroupConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupConfigurationPtrInput)(nil)).Elem(), WorkGroupConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupConfigurationUpdatesInput)(nil)).Elem(), WorkGroupConfigurationUpdatesArgs{})
@@ -2301,22 +3433,34 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupCustomerContentEncryptionConfigurationPtrInput)(nil)).Elem(), WorkGroupCustomerContentEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEncryptionConfigurationInput)(nil)).Elem(), WorkGroupEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEncryptionConfigurationPtrInput)(nil)).Elem(), WorkGroupEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEngineConfigurationInput)(nil)).Elem(), WorkGroupEngineConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEngineConfigurationPtrInput)(nil)).Elem(), WorkGroupEngineConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEngineVersionInput)(nil)).Elem(), WorkGroupEngineVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupEngineVersionPtrInput)(nil)).Elem(), WorkGroupEngineVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupManagedLoggingConfigurationInput)(nil)).Elem(), WorkGroupManagedLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupManagedLoggingConfigurationPtrInput)(nil)).Elem(), WorkGroupManagedLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupManagedQueryResultsConfigurationInput)(nil)).Elem(), WorkGroupManagedQueryResultsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupManagedQueryResultsConfigurationPtrInput)(nil)).Elem(), WorkGroupManagedQueryResultsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupManagedStorageEncryptionConfigurationInput)(nil)).Elem(), WorkGroupManagedStorageEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupManagedStorageEncryptionConfigurationPtrInput)(nil)).Elem(), WorkGroupManagedStorageEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupMonitoringConfigurationInput)(nil)).Elem(), WorkGroupMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupMonitoringConfigurationPtrInput)(nil)).Elem(), WorkGroupMonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupResultConfigurationInput)(nil)).Elem(), WorkGroupResultConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupResultConfigurationPtrInput)(nil)).Elem(), WorkGroupResultConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupResultConfigurationUpdatesInput)(nil)).Elem(), WorkGroupResultConfigurationUpdatesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupResultConfigurationUpdatesPtrInput)(nil)).Elem(), WorkGroupResultConfigurationUpdatesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupS3LoggingConfigurationInput)(nil)).Elem(), WorkGroupS3LoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkGroupS3LoggingConfigurationPtrInput)(nil)).Elem(), WorkGroupS3LoggingConfigurationArgs{})
 	pulumi.RegisterOutputType(CapacityReservationCapacityAssignmentOutput{})
 	pulumi.RegisterOutputType(CapacityReservationCapacityAssignmentArrayOutput{})
 	pulumi.RegisterOutputType(CapacityReservationCapacityAssignmentConfigurationOutput{})
 	pulumi.RegisterOutputType(CapacityReservationCapacityAssignmentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupAclConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkGroupAclConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkGroupClassificationOutput{})
+	pulumi.RegisterOutputType(WorkGroupClassificationArrayOutput{})
+	pulumi.RegisterOutputType(WorkGroupCloudWatchLoggingConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkGroupCloudWatchLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkGroupConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupConfigurationUpdatesOutput{})
@@ -2325,14 +3469,22 @@ func init() {
 	pulumi.RegisterOutputType(WorkGroupCustomerContentEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkGroupEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkGroupEngineConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkGroupEngineConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupEngineVersionOutput{})
 	pulumi.RegisterOutputType(WorkGroupEngineVersionPtrOutput{})
+	pulumi.RegisterOutputType(WorkGroupManagedLoggingConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkGroupManagedLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupManagedQueryResultsConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkGroupManagedQueryResultsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupManagedStorageEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkGroupManagedStorageEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkGroupMonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkGroupMonitoringConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupResultConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkGroupResultConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupResultConfigurationUpdatesOutput{})
 	pulumi.RegisterOutputType(WorkGroupResultConfigurationUpdatesPtrOutput{})
+	pulumi.RegisterOutputType(WorkGroupS3LoggingConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkGroupS3LoggingConfigurationPtrOutput{})
 }

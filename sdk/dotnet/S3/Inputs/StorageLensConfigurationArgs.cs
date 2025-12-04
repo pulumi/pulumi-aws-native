@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("exclude")]
         public Input<Inputs.StorageLensBucketsAndRegionsArgs>? Exclude { get; set; }
 
+        [Input("expandedPrefixesDataExport")]
+        public Input<Inputs.StorageLensExpandedPrefixesDataExportArgs>? ExpandedPrefixesDataExport { get; set; }
+
         /// <summary>
         /// This property contains the details of the ID of the S3 Storage Lens configuration.
         /// </summary>
@@ -56,6 +59,12 @@ namespace Pulumi.AwsNative.S3.Inputs
         /// </summary>
         [Input("isEnabled", required: true)]
         public Input<bool> IsEnabled { get; set; } = null!;
+
+        /// <summary>
+        /// The delimiter to divide S3 key into hierarchy of prefixes.
+        /// </summary>
+        [Input("prefixDelimiter")]
+        public Input<string>? PrefixDelimiter { get; set; }
 
         /// <summary>
         /// The ARN for the Amazon S3 Storage Lens configuration.

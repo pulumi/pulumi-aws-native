@@ -1199,6 +1199,7 @@ _utilities.register(
   "classes": {
    "aws-native:cloudfront:CachePolicy": "CachePolicy",
    "aws-native:cloudfront:CloudFrontOriginAccessIdentity": "CloudFrontOriginAccessIdentity",
+   "aws-native:cloudfront:ConnectionFunction": "ConnectionFunction",
    "aws-native:cloudfront:ConnectionGroup": "ConnectionGroup",
    "aws-native:cloudfront:ContinuousDeploymentPolicy": "ContinuousDeploymentPolicy",
    "aws-native:cloudfront:Distribution": "Distribution",
@@ -1212,6 +1213,7 @@ _utilities.register(
    "aws-native:cloudfront:PublicKey": "PublicKey",
    "aws-native:cloudfront:RealtimeLogConfig": "RealtimeLogConfig",
    "aws-native:cloudfront:ResponseHeadersPolicy": "ResponseHeadersPolicy",
+   "aws-native:cloudfront:TrustStore": "TrustStore",
    "aws-native:cloudfront:VpcOrigin": "VpcOrigin"
   }
  },
@@ -1672,6 +1674,8 @@ _utilities.register(
    "aws-native:ec2:TransitGatewayAttachment": "TransitGatewayAttachment",
    "aws-native:ec2:TransitGatewayConnect": "TransitGatewayConnect",
    "aws-native:ec2:TransitGatewayConnectPeer": "TransitGatewayConnectPeer",
+   "aws-native:ec2:TransitGatewayMeteringPolicy": "TransitGatewayMeteringPolicy",
+   "aws-native:ec2:TransitGatewayMeteringPolicyEntry": "TransitGatewayMeteringPolicyEntry",
    "aws-native:ec2:TransitGatewayMulticastDomain": "TransitGatewayMulticastDomain",
    "aws-native:ec2:TransitGatewayMulticastDomainAssociation": "TransitGatewayMulticastDomainAssociation",
    "aws-native:ec2:TransitGatewayMulticastGroupMember": "TransitGatewayMulticastGroupMember",
@@ -1692,6 +1696,7 @@ _utilities.register(
    "aws-native:ec2:VpcBlockPublicAccessExclusion": "VpcBlockPublicAccessExclusion",
    "aws-native:ec2:VpcBlockPublicAccessOptions": "VpcBlockPublicAccessOptions",
    "aws-native:ec2:VpcCidrBlock": "VpcCidrBlock",
+   "aws-native:ec2:VpcEncryptionControl": "VpcEncryptionControl",
    "aws-native:ec2:VpcEndpoint": "VpcEndpoint",
    "aws-native:ec2:VpcEndpointConnectionNotification": "VpcEndpointConnectionNotification",
    "aws-native:ec2:VpcEndpointService": "VpcEndpointService",
@@ -1699,6 +1704,7 @@ _utilities.register(
    "aws-native:ec2:VpcGatewayAttachment": "VpcGatewayAttachment",
    "aws-native:ec2:VpcPeeringConnection": "VpcPeeringConnection",
    "aws-native:ec2:VpcdhcpOptionsAssociation": "VpcdhcpOptionsAssociation",
+   "aws-native:ec2:VpnConcentrator": "VpnConcentrator",
    "aws-native:ec2:VpnConnection": "VpnConnection",
    "aws-native:ec2:VpnConnectionRoute": "VpnConnectionRoute",
    "aws-native:ec2:VpnGateway": "VpnGateway"
@@ -1710,11 +1716,13 @@ _utilities.register(
   "fqn": "pulumi_aws_native.ecr",
   "classes": {
    "aws-native:ecr:PullThroughCacheRule": "PullThroughCacheRule",
+   "aws-native:ecr:PullTimeUpdateExclusion": "PullTimeUpdateExclusion",
    "aws-native:ecr:RegistryPolicy": "RegistryPolicy",
    "aws-native:ecr:RegistryScanningConfiguration": "RegistryScanningConfiguration",
    "aws-native:ecr:ReplicationConfiguration": "ReplicationConfiguration",
    "aws-native:ecr:Repository": "Repository",
-   "aws-native:ecr:RepositoryCreationTemplate": "RepositoryCreationTemplate"
+   "aws-native:ecr:RepositoryCreationTemplate": "RepositoryCreationTemplate",
+   "aws-native:ecr:SigningConfiguration": "SigningConfiguration"
   }
  },
  {
@@ -1725,6 +1733,7 @@ _utilities.register(
    "aws-native:ecs:CapacityProvider": "CapacityProvider",
    "aws-native:ecs:Cluster": "Cluster",
    "aws-native:ecs:ClusterCapacityProviderAssociations": "ClusterCapacityProviderAssociations",
+   "aws-native:ecs:ExpressGatewayService": "ExpressGatewayService",
    "aws-native:ecs:PrimaryTaskSet": "PrimaryTaskSet",
    "aws-native:ecs:Service": "Service",
    "aws-native:ecs:TaskDefinition": "TaskDefinition",
@@ -1748,6 +1757,7 @@ _utilities.register(
   "classes": {
    "aws-native:eks:AccessEntry": "AccessEntry",
    "aws-native:eks:Addon": "Addon",
+   "aws-native:eks:Capability": "Capability",
    "aws-native:eks:Cluster": "Cluster",
    "aws-native:eks:FargateProfile": "FargateProfile",
    "aws-native:eks:IdentityProviderConfig": "IdentityProviderConfig",
@@ -1981,6 +1991,8 @@ _utilities.register(
   "classes": {
    "aws-native:glue:Crawler": "Crawler",
    "aws-native:glue:Database": "Database",
+   "aws-native:glue:IdentityCenterConfiguration": "IdentityCenterConfiguration",
+   "aws-native:glue:Integration": "Integration",
    "aws-native:glue:IntegrationResourceProperty": "IntegrationResourceProperty",
    "aws-native:glue:Job": "Job",
    "aws-native:glue:Registry": "Registry",
@@ -2372,6 +2384,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.lambda_",
   "classes": {
    "aws-native:lambda:Alias": "Alias",
+   "aws-native:lambda:CapacityProvider": "CapacityProvider",
    "aws-native:lambda:CodeSigningConfig": "CodeSigningConfig",
    "aws-native:lambda:EventInvokeConfig": "EventInvokeConfig",
    "aws-native:lambda:EventSourceMapping": "EventSourceMapping",
@@ -2516,7 +2529,10 @@ _utilities.register(
    "aws-native:mediaconnect:FlowOutput": "FlowOutput",
    "aws-native:mediaconnect:FlowSource": "FlowSource",
    "aws-native:mediaconnect:FlowVpcInterface": "FlowVpcInterface",
-   "aws-native:mediaconnect:Gateway": "Gateway"
+   "aws-native:mediaconnect:Gateway": "Gateway",
+   "aws-native:mediaconnect:RouterInput": "RouterInput",
+   "aws-native:mediaconnect:RouterNetworkInterface": "RouterNetworkInterface",
+   "aws-native:mediaconnect:RouterOutputResource": "RouterOutputResource"
   }
  },
  {
@@ -3103,7 +3119,9 @@ _utilities.register(
   "mod": "rtbfabric",
   "fqn": "pulumi_aws_native.rtbfabric",
   "classes": {
+   "aws-native:rtbfabric:InboundExternalLink": "InboundExternalLink",
    "aws-native:rtbfabric:Link": "Link",
+   "aws-native:rtbfabric:OutboundExternalLink": "OutboundExternalLink",
    "aws-native:rtbfabric:RequesterGateway": "RequesterGateway",
    "aws-native:rtbfabric:ResponderGateway": "ResponderGateway"
   }
@@ -3540,6 +3558,7 @@ _utilities.register(
   "classes": {
    "aws-native:vpclattice:AccessLogSubscription": "AccessLogSubscription",
    "aws-native:vpclattice:AuthPolicy": "AuthPolicy",
+   "aws-native:vpclattice:DomainVerification": "DomainVerification",
    "aws-native:vpclattice:Listener": "Listener",
    "aws-native:vpclattice:ResourceConfiguration": "ResourceConfiguration",
    "aws-native:vpclattice:ResourceGateway": "ResourceGateway",

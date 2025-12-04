@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CloudTrail
         public Output<ImmutableArray<Outputs.TrailAdvancedEventSelector>> AdvancedEventSelectors { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the aggregation configuration to aggregate CloudTrail Events. A maximum of 1 aggregation configuration is allowed.
+        /// </summary>
+        [Output("aggregationConfigurations")]
+        public Output<ImmutableArray<Outputs.TrailAggregationConfiguration>> AggregationConfigurations { get; private set; } = null!;
+
+        /// <summary>
         /// `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
         /// </summary>
         [Output("arn")]
@@ -100,7 +106,7 @@ namespace Pulumi.AwsNative.CloudTrail
         public Output<string?> S3KeyPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
+        /// `Ref` returns the ARN of the Amazon  topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
         /// </summary>
         [Output("snsTopicArn")]
         public Output<string> SnsTopicArn { get; private set; } = null!;
@@ -188,6 +194,18 @@ namespace Pulumi.AwsNative.CloudTrail
         {
             get => _advancedEventSelectors ?? (_advancedEventSelectors = new InputList<Inputs.TrailAdvancedEventSelectorArgs>());
             set => _advancedEventSelectors = value;
+        }
+
+        [Input("aggregationConfigurations")]
+        private InputList<Inputs.TrailAggregationConfigurationArgs>? _aggregationConfigurations;
+
+        /// <summary>
+        /// Specifies the aggregation configuration to aggregate CloudTrail Events. A maximum of 1 aggregation configuration is allowed.
+        /// </summary>
+        public InputList<Inputs.TrailAggregationConfigurationArgs> AggregationConfigurations
+        {
+            get => _aggregationConfigurations ?? (_aggregationConfigurations = new InputList<Inputs.TrailAggregationConfigurationArgs>());
+            set => _aggregationConfigurations = value;
         }
 
         /// <summary>

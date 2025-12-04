@@ -10,3 +10,13 @@ export const SignalingChannelType = {
  * The type of the Kinesis Video Signaling Channel to create. Currently, SINGLE_MASTER is the only supported channel type.
  */
 export type SignalingChannelType = (typeof SignalingChannelType)[keyof typeof SignalingChannelType];
+
+export const StreamStorageConfigurationDefaultStorageTier = {
+    Hot: "HOT",
+    Warm: "WARM",
+} as const;
+
+/**
+ * The storage tier for the Kinesis Video Stream. Determines the storage class used for stream data.
+ */
+export type StreamStorageConfigurationDefaultStorageTier = (typeof StreamStorageConfigurationDefaultStorageTier)[keyof typeof StreamStorageConfigurationDefaultStorageTier];

@@ -587,6 +587,7 @@ export class Table extends pulumi.CustomResource {
      * An array of key-value pairs to apply to this resource
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly warmThroughput: pulumi.Output<outputs.cassandra.TableWarmThroughput | undefined>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -619,6 +620,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["replicaSpecifications"] = args?.replicaSpecifications;
             resourceInputs["tableName"] = args?.tableName;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["warmThroughput"] = args?.warmThroughput;
         } else {
             resourceInputs["autoScalingSpecifications"] = undefined /*out*/;
             resourceInputs["billingMode"] = undefined /*out*/;
@@ -634,6 +636,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["replicaSpecifications"] = undefined /*out*/;
             resourceInputs["tableName"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["warmThroughput"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["clientSideTimestampsEnabled", "clusteringKeyColumns[*]", "keyspaceName", "partitionKeyColumns[*]", "tableName"] };
@@ -720,4 +723,5 @@ export interface TableArgs {
      * An array of key-value pairs to apply to this resource
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    warmThroughput?: pulumi.Input<inputs.cassandra.TableWarmThroughputArgs>;
 }

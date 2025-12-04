@@ -217,7 +217,7 @@ type Topic struct {
 	// The list of tags to add to a new topic.
 	//   To be able to tag a topic on creation, you must have the ``sns:CreateTopic`` and ``sns:TagResource`` permissions.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// Returns the ARN of an Amazon SNS topic.
+	// Returns the ARN of an Amazon  topic.
 	TopicArn pulumi.StringOutput `pulumi:"topicArn"`
 	// The name of the topic you want to create. Topic names must include only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. FIFO topic names must end with ``.fifo``.
 	//  If you don't specify a name, CFN generates a unique physical ID and uses that ID for the topic name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
@@ -495,7 +495,7 @@ func (o TopicOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Topic) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// Returns the ARN of an Amazon SNS topic.
+// Returns the ARN of an Amazon  topic.
 func (o TopicOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.TopicArn }).(pulumi.StringOutput)
 }

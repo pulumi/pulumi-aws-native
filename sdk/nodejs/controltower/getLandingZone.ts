@@ -48,6 +48,10 @@ export interface GetLandingZoneResult {
      */
     readonly manifest?: any;
     /**
+     * The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.
+     */
+    readonly remediationTypes?: enums.controltower.LandingZoneRemediationTypesItem[];
+    /**
      * The landing zone deployment status. One of `ACTIVE` , `PROCESSING` , `FAILED` .
      */
     readonly status?: enums.controltower.LandingZoneStatus;

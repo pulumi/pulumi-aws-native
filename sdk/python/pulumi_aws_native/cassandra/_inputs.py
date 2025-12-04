@@ -42,6 +42,8 @@ __all__ = [
     'TableTagArgsDict',
     'TableTargetTrackingScalingPolicyConfigurationArgs',
     'TableTargetTrackingScalingPolicyConfigurationArgsDict',
+    'TableWarmThroughputArgs',
+    'TableWarmThroughputArgsDict',
     'TypeFieldArgs',
     'TypeFieldArgsDict',
 ]
@@ -963,6 +965,48 @@ class TableTargetTrackingScalingPolicyConfigurationArgs:
     @scale_out_cooldown.setter
     def scale_out_cooldown(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "scale_out_cooldown", value)
+
+
+if not MYPY:
+    class TableWarmThroughputArgsDict(TypedDict):
+        """
+        Warm throughput configuration for the table
+        """
+        read_units_per_second: NotRequired[pulumi.Input[_builtins.int]]
+        write_units_per_second: NotRequired[pulumi.Input[_builtins.int]]
+elif False:
+    TableWarmThroughputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableWarmThroughputArgs:
+    def __init__(__self__, *,
+                 read_units_per_second: Optional[pulumi.Input[_builtins.int]] = None,
+                 write_units_per_second: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        Warm throughput configuration for the table
+        """
+        if read_units_per_second is not None:
+            pulumi.set(__self__, "read_units_per_second", read_units_per_second)
+        if write_units_per_second is not None:
+            pulumi.set(__self__, "write_units_per_second", write_units_per_second)
+
+    @_builtins.property
+    @pulumi.getter(name="readUnitsPerSecond")
+    def read_units_per_second(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "read_units_per_second")
+
+    @read_units_per_second.setter
+    def read_units_per_second(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "read_units_per_second", value)
+
+    @_builtins.property
+    @pulumi.getter(name="writeUnitsPerSecond")
+    def write_units_per_second(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "write_units_per_second")
+
+    @write_units_per_second.setter
+    def write_units_per_second(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "write_units_per_second", value)
 
 
 if not MYPY:

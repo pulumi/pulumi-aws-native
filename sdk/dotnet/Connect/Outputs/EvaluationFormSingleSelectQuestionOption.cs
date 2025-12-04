@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
         /// </summary>
         public readonly bool? AutomaticFail;
+        /// <summary>
+        /// Whether automatic fail is configured on a single select question.
+        /// </summary>
         public readonly Outputs.EvaluationFormAutomaticFailConfiguration? AutomaticFailConfiguration;
         /// <summary>
         /// The identifier of the answer option. An identifier must be unique within the question.

@@ -37,7 +37,9 @@ class VpnConnectionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  transport_transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tunnel_bandwidth: Optional[pulumi.Input['VpnConnectionTunnelBandwidth']] = None,
                  tunnel_inside_ip_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 vpn_concentrator_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]]] = None):
         """
@@ -95,8 +97,12 @@ class VpnConnectionArgs:
             pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         if transport_transit_gateway_attachment_id is not None:
             pulumi.set(__self__, "transport_transit_gateway_attachment_id", transport_transit_gateway_attachment_id)
+        if tunnel_bandwidth is not None:
+            pulumi.set(__self__, "tunnel_bandwidth", tunnel_bandwidth)
         if tunnel_inside_ip_version is not None:
             pulumi.set(__self__, "tunnel_inside_ip_version", tunnel_inside_ip_version)
+        if vpn_concentrator_id is not None:
+            pulumi.set(__self__, "vpn_concentrator_id", vpn_concentrator_id)
         if vpn_gateway_id is not None:
             pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
         if vpn_tunnel_options_specifications is not None:
@@ -269,6 +275,15 @@ class VpnConnectionArgs:
         pulumi.set(self, "transport_transit_gateway_attachment_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="tunnelBandwidth")
+    def tunnel_bandwidth(self) -> Optional[pulumi.Input['VpnConnectionTunnelBandwidth']]:
+        return pulumi.get(self, "tunnel_bandwidth")
+
+    @tunnel_bandwidth.setter
+    def tunnel_bandwidth(self, value: Optional[pulumi.Input['VpnConnectionTunnelBandwidth']]):
+        pulumi.set(self, "tunnel_bandwidth", value)
+
+    @_builtins.property
     @pulumi.getter(name="tunnelInsideIpVersion")
     def tunnel_inside_ip_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -280,6 +295,15 @@ class VpnConnectionArgs:
     @tunnel_inside_ip_version.setter
     def tunnel_inside_ip_version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "tunnel_inside_ip_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpnConcentratorId")
+    def vpn_concentrator_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "vpn_concentrator_id")
+
+    @vpn_concentrator_id.setter
+    def vpn_concentrator_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "vpn_concentrator_id", value)
 
     @_builtins.property
     @pulumi.getter(name="vpnGatewayId")
@@ -325,8 +349,10 @@ class VpnConnection(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  transport_transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tunnel_bandwidth: Optional[pulumi.Input['VpnConnectionTunnelBandwidth']] = None,
                  tunnel_inside_ip_version: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
+                 vpn_concentrator_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnConnectionVpnTunnelOptionsSpecificationArgs', 'VpnConnectionVpnTunnelOptionsSpecificationArgsDict']]]]] = None,
                  __props__=None):
@@ -406,8 +432,10 @@ class VpnConnection(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  transport_transit_gateway_attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tunnel_bandwidth: Optional[pulumi.Input['VpnConnectionTunnelBandwidth']] = None,
                  tunnel_inside_ip_version: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
+                 vpn_concentrator_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnConnectionVpnTunnelOptionsSpecificationArgs', 'VpnConnectionVpnTunnelOptionsSpecificationArgsDict']]]]] = None,
                  __props__=None):
@@ -433,14 +461,16 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
             __props__.__dict__["transport_transit_gateway_attachment_id"] = transport_transit_gateway_attachment_id
+            __props__.__dict__["tunnel_bandwidth"] = tunnel_bandwidth
             __props__.__dict__["tunnel_inside_ip_version"] = tunnel_inside_ip_version
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["vpn_concentrator_id"] = vpn_concentrator_id
             __props__.__dict__["vpn_gateway_id"] = vpn_gateway_id
             __props__.__dict__["vpn_tunnel_options_specifications"] = vpn_tunnel_options_specifications
             __props__.__dict__["vpn_connection_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["customerGatewayId", "enableAcceleration", "localIpv4NetworkCidr", "localIpv6NetworkCidr", "outsideIpAddressType", "preSharedKeyStorage", "remoteIpv4NetworkCidr", "remoteIpv6NetworkCidr", "staticRoutesOnly", "transitGatewayId", "transportTransitGatewayAttachmentId", "tunnelInsideIpVersion", "type", "vpnGatewayId", "vpnTunnelOptionsSpecifications[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["customerGatewayId", "enableAcceleration", "localIpv4NetworkCidr", "localIpv6NetworkCidr", "outsideIpAddressType", "preSharedKeyStorage", "remoteIpv4NetworkCidr", "remoteIpv6NetworkCidr", "staticRoutesOnly", "transitGatewayId", "transportTransitGatewayAttachmentId", "tunnelBandwidth", "tunnelInsideIpVersion", "type", "vpnConcentratorId", "vpnGatewayId", "vpnTunnelOptionsSpecifications[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpnConnection, __self__).__init__(
             'aws-native:ec2:VpnConnection',
@@ -476,8 +506,10 @@ class VpnConnection(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["transit_gateway_id"] = None
         __props__.__dict__["transport_transit_gateway_attachment_id"] = None
+        __props__.__dict__["tunnel_bandwidth"] = None
         __props__.__dict__["tunnel_inside_ip_version"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["vpn_concentrator_id"] = None
         __props__.__dict__["vpn_connection_id"] = None
         __props__.__dict__["vpn_gateway_id"] = None
         __props__.__dict__["vpn_tunnel_options_specifications"] = None
@@ -590,6 +622,11 @@ class VpnConnection(pulumi.CustomResource):
         return pulumi.get(self, "transport_transit_gateway_attachment_id")
 
     @_builtins.property
+    @pulumi.getter(name="tunnelBandwidth")
+    def tunnel_bandwidth(self) -> pulumi.Output[Optional['VpnConnectionTunnelBandwidth']]:
+        return pulumi.get(self, "tunnel_bandwidth")
+
+    @_builtins.property
     @pulumi.getter(name="tunnelInsideIpVersion")
     def tunnel_inside_ip_version(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -605,6 +642,11 @@ class VpnConnection(pulumi.CustomResource):
         The type of VPN connection.
         """
         return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="vpnConcentratorId")
+    def vpn_concentrator_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "vpn_concentrator_id")
 
     @_builtins.property
     @pulumi.getter(name="vpnConnectionId")

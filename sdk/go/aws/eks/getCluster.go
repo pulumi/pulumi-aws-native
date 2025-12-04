@@ -39,6 +39,8 @@ type LookupClusterResult struct {
 	ClusterSecurityGroupId *string `pulumi:"clusterSecurityGroupId"`
 	// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
 	ComputeConfig *ClusterComputeConfig `pulumi:"computeConfig"`
+	// The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.
+	ControlPlaneScalingConfig *ClusterControlPlaneScalingConfig `pulumi:"controlPlaneScalingConfig"`
 	// Set this value to true to enable deletion protection for the cluster.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// Amazon Resource Name (ARN) or alias of the customer master key (CMK).
@@ -126,6 +128,11 @@ func (o LookupClusterResultOutput) ClusterSecurityGroupId() pulumi.StringPtrOutp
 // Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
 func (o LookupClusterResultOutput) ComputeConfig() ClusterComputeConfigPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterComputeConfig { return v.ComputeConfig }).(ClusterComputeConfigPtrOutput)
+}
+
+// The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.
+func (o LookupClusterResultOutput) ControlPlaneScalingConfig() ClusterControlPlaneScalingConfigPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterControlPlaneScalingConfig { return v.ControlPlaneScalingConfig }).(ClusterControlPlaneScalingConfigPtrOutput)
 }
 
 // Set this value to true to enable deletion protection for the cluster.

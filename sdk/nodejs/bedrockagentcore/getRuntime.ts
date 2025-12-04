@@ -62,6 +62,10 @@ export interface GetRuntimeResult {
      */
     readonly lastUpdatedAt?: string;
     /**
+     * Lifecycle configuration for managing runtime sessions
+     */
+    readonly lifecycleConfiguration?: outputs.bedrockagentcore.RuntimeLifecycleConfiguration;
+    /**
      * Network access configuration for the Agent
      */
     readonly networkConfiguration?: outputs.bedrockagentcore.RuntimeNetworkConfiguration;
@@ -69,6 +73,10 @@ export interface GetRuntimeResult {
      * Protocol configuration for the agent runtime
      */
     readonly protocolConfiguration?: enums.bedrockagentcore.RuntimeProtocolConfiguration;
+    /**
+     * Configuration for HTTP request headers
+     */
+    readonly requestHeaderConfiguration?: outputs.bedrockagentcore.RuntimeRequestHeaderConfiguration;
     /**
      * Amazon Resource Name (ARN) of an IAM role
      */

@@ -32,6 +32,8 @@ __all__ = [
     'BucketAccessControlTranslationArgsDict',
     'BucketAnalyticsConfigurationArgs',
     'BucketAnalyticsConfigurationArgsDict',
+    'BucketBlockedEncryptionTypesArgs',
+    'BucketBlockedEncryptionTypesArgsDict',
     'BucketCorsConfigurationArgs',
     'BucketCorsConfigurationArgsDict',
     'BucketCorsRuleArgs',
@@ -166,6 +168,8 @@ __all__ = [
     'StorageLensAdvancedCostOptimizationMetricsArgsDict',
     'StorageLensAdvancedDataProtectionMetricsArgs',
     'StorageLensAdvancedDataProtectionMetricsArgsDict',
+    'StorageLensAdvancedPerformanceMetricsArgs',
+    'StorageLensAdvancedPerformanceMetricsArgsDict',
     'StorageLensAwsOrgArgs',
     'StorageLensAwsOrgArgsDict',
     'StorageLensBucketLevelArgs',
@@ -182,6 +186,8 @@ __all__ = [
     'StorageLensDetailedStatusCodesMetricsArgsDict',
     'StorageLensEncryptionArgs',
     'StorageLensEncryptionArgsDict',
+    'StorageLensExpandedPrefixesDataExportArgs',
+    'StorageLensExpandedPrefixesDataExportArgsDict',
     'StorageLensGroupAndArgs',
     'StorageLensGroupAndArgsDict',
     'StorageLensGroupFilterArgs',
@@ -634,6 +640,44 @@ class BucketAnalyticsConfigurationArgs:
     @tag_filters.setter
     def tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgs']]]]):
         pulumi.set(self, "tag_filters", value)
+
+
+if not MYPY:
+    class BucketBlockedEncryptionTypesArgsDict(TypedDict):
+        encryption_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketBlockedEncryptionTypeListItem']]]]
+        """
+        The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.
+
+        > Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+        """
+elif False:
+    BucketBlockedEncryptionTypesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BucketBlockedEncryptionTypesArgs:
+    def __init__(__self__, *,
+                 encryption_type: Optional[pulumi.Input[Sequence[pulumi.Input['BucketBlockedEncryptionTypeListItem']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['BucketBlockedEncryptionTypeListItem']]] encryption_type: The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.
+               
+               > Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+        """
+        if encryption_type is not None:
+            pulumi.set(__self__, "encryption_type", encryption_type)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketBlockedEncryptionTypeListItem']]]]:
+        """
+        The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.
+
+        > Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @encryption_type.setter
+    def encryption_type(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketBlockedEncryptionTypeListItem']]]]):
+        pulumi.set(self, "encryption_type", value)
 
 
 if not MYPY:
@@ -4566,6 +4610,12 @@ if not MYPY:
            +  *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
           +  *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
         """
+        blocked_encryption_types: NotRequired[pulumi.Input['BucketBlockedEncryptionTypesArgsDict']]
+        """
+        A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block `PutObject` , `CopyObject` , `PostObject` , multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html) .
+
+        > Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+        """
         bucket_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
         """
         Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the ``BucketKeyEnabled`` element to ``true`` causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
@@ -4581,20 +4631,40 @@ elif False:
 @pulumi.input_type
 class BucketServerSideEncryptionRuleArgs:
     def __init__(__self__, *,
+                 blocked_encryption_types: Optional[pulumi.Input['BucketBlockedEncryptionTypesArgs']] = None,
                  bucket_key_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  server_side_encryption_by_default: Optional[pulumi.Input['BucketServerSideEncryptionByDefaultArgs']] = None):
         """
         Specifies the default server-side encryption configuration.
            +  *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
           +  *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
+        :param pulumi.Input['BucketBlockedEncryptionTypesArgs'] blocked_encryption_types: A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block `PutObject` , `CopyObject` , `PostObject` , multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html) .
+               
+               > Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
         :param pulumi.Input[_builtins.bool] bucket_key_enabled: Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the ``BucketKeyEnabled`` element to ``true`` causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
                 For more information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input['BucketServerSideEncryptionByDefaultArgs'] server_side_encryption_by_default: Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
         """
+        if blocked_encryption_types is not None:
+            pulumi.set(__self__, "blocked_encryption_types", blocked_encryption_types)
         if bucket_key_enabled is not None:
             pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
         if server_side_encryption_by_default is not None:
             pulumi.set(__self__, "server_side_encryption_by_default", server_side_encryption_by_default)
+
+    @_builtins.property
+    @pulumi.getter(name="blockedEncryptionTypes")
+    def blocked_encryption_types(self) -> Optional[pulumi.Input['BucketBlockedEncryptionTypesArgs']]:
+        """
+        A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block `PutObject` , `CopyObject` , `PostObject` , multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html) .
+
+        > Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+        """
+        return pulumi.get(self, "blocked_encryption_types")
+
+    @blocked_encryption_types.setter
+    def blocked_encryption_types(self, value: Optional[pulumi.Input['BucketBlockedEncryptionTypesArgs']]):
+        pulumi.set(self, "blocked_encryption_types", value)
 
     @_builtins.property
     @pulumi.getter(name="bucketKeyEnabled")
@@ -5345,6 +5415,7 @@ if not MYPY:
         """
         This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
         """
+        advanced_performance_metrics: NotRequired[pulumi.Input['StorageLensAdvancedPerformanceMetricsArgsDict']]
         detailed_status_codes_metrics: NotRequired[pulumi.Input['StorageLensDetailedStatusCodesMetricsArgsDict']]
         """
         This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
@@ -5363,6 +5434,7 @@ class StorageLensAccountLevelArgs:
                  activity_metrics: Optional[pulumi.Input['StorageLensActivityMetricsArgs']] = None,
                  advanced_cost_optimization_metrics: Optional[pulumi.Input['StorageLensAdvancedCostOptimizationMetricsArgs']] = None,
                  advanced_data_protection_metrics: Optional[pulumi.Input['StorageLensAdvancedDataProtectionMetricsArgs']] = None,
+                 advanced_performance_metrics: Optional[pulumi.Input['StorageLensAdvancedPerformanceMetricsArgs']] = None,
                  detailed_status_codes_metrics: Optional[pulumi.Input['StorageLensDetailedStatusCodesMetricsArgs']] = None,
                  storage_lens_group_level: Optional[pulumi.Input['StorageLensGroupLevelArgs']] = None):
         """
@@ -5381,6 +5453,8 @@ class StorageLensAccountLevelArgs:
             pulumi.set(__self__, "advanced_cost_optimization_metrics", advanced_cost_optimization_metrics)
         if advanced_data_protection_metrics is not None:
             pulumi.set(__self__, "advanced_data_protection_metrics", advanced_data_protection_metrics)
+        if advanced_performance_metrics is not None:
+            pulumi.set(__self__, "advanced_performance_metrics", advanced_performance_metrics)
         if detailed_status_codes_metrics is not None:
             pulumi.set(__self__, "detailed_status_codes_metrics", detailed_status_codes_metrics)
         if storage_lens_group_level is not None:
@@ -5433,6 +5507,15 @@ class StorageLensAccountLevelArgs:
     @advanced_data_protection_metrics.setter
     def advanced_data_protection_metrics(self, value: Optional[pulumi.Input['StorageLensAdvancedDataProtectionMetricsArgs']]):
         pulumi.set(self, "advanced_data_protection_metrics", value)
+
+    @_builtins.property
+    @pulumi.getter(name="advancedPerformanceMetrics")
+    def advanced_performance_metrics(self) -> Optional[pulumi.Input['StorageLensAdvancedPerformanceMetricsArgs']]:
+        return pulumi.get(self, "advanced_performance_metrics")
+
+    @advanced_performance_metrics.setter
+    def advanced_performance_metrics(self, value: Optional[pulumi.Input['StorageLensAdvancedPerformanceMetricsArgs']]):
+        pulumi.set(self, "advanced_performance_metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="detailedStatusCodesMetrics")
@@ -5568,6 +5651,42 @@ class StorageLensAdvancedDataProtectionMetricsArgs:
 
 
 if not MYPY:
+    class StorageLensAdvancedPerformanceMetricsArgsDict(TypedDict):
+        """
+        Advanced Performance Metrics.
+        """
+        is_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Specifies whether the Advanced Performance Metrics is enabled or disabled.
+        """
+elif False:
+    StorageLensAdvancedPerformanceMetricsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageLensAdvancedPerformanceMetricsArgs:
+    def __init__(__self__, *,
+                 is_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        Advanced Performance Metrics.
+        :param pulumi.Input[_builtins.bool] is_enabled: Specifies whether the Advanced Performance Metrics is enabled or disabled.
+        """
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether the Advanced Performance Metrics is enabled or disabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "is_enabled", value)
+
+
+if not MYPY:
     class StorageLensAwsOrgArgsDict(TypedDict):
         """
         The AWS Organizations ARN to use in the Amazon S3 Storage Lens configuration.
@@ -5619,6 +5738,7 @@ if not MYPY:
         """
         A property for bucket-level advanced data protection metrics for S3 Storage Lens.
         """
+        advanced_performance_metrics: NotRequired[pulumi.Input['StorageLensAdvancedPerformanceMetricsArgsDict']]
         detailed_status_codes_metrics: NotRequired[pulumi.Input['StorageLensDetailedStatusCodesMetricsArgsDict']]
         """
         A property for bucket-level detailed status code metrics for S3 Storage Lens.
@@ -5636,6 +5756,7 @@ class StorageLensBucketLevelArgs:
                  activity_metrics: Optional[pulumi.Input['StorageLensActivityMetricsArgs']] = None,
                  advanced_cost_optimization_metrics: Optional[pulumi.Input['StorageLensAdvancedCostOptimizationMetricsArgs']] = None,
                  advanced_data_protection_metrics: Optional[pulumi.Input['StorageLensAdvancedDataProtectionMetricsArgs']] = None,
+                 advanced_performance_metrics: Optional[pulumi.Input['StorageLensAdvancedPerformanceMetricsArgs']] = None,
                  detailed_status_codes_metrics: Optional[pulumi.Input['StorageLensDetailedStatusCodesMetricsArgs']] = None,
                  prefix_level: Optional[pulumi.Input['StorageLensPrefixLevelArgs']] = None):
         """
@@ -5652,6 +5773,8 @@ class StorageLensBucketLevelArgs:
             pulumi.set(__self__, "advanced_cost_optimization_metrics", advanced_cost_optimization_metrics)
         if advanced_data_protection_metrics is not None:
             pulumi.set(__self__, "advanced_data_protection_metrics", advanced_data_protection_metrics)
+        if advanced_performance_metrics is not None:
+            pulumi.set(__self__, "advanced_performance_metrics", advanced_performance_metrics)
         if detailed_status_codes_metrics is not None:
             pulumi.set(__self__, "detailed_status_codes_metrics", detailed_status_codes_metrics)
         if prefix_level is not None:
@@ -5692,6 +5815,15 @@ class StorageLensBucketLevelArgs:
     @advanced_data_protection_metrics.setter
     def advanced_data_protection_metrics(self, value: Optional[pulumi.Input['StorageLensAdvancedDataProtectionMetricsArgs']]):
         pulumi.set(self, "advanced_data_protection_metrics", value)
+
+    @_builtins.property
+    @pulumi.getter(name="advancedPerformanceMetrics")
+    def advanced_performance_metrics(self) -> Optional[pulumi.Input['StorageLensAdvancedPerformanceMetricsArgs']]:
+        return pulumi.get(self, "advanced_performance_metrics")
+
+    @advanced_performance_metrics.setter
+    def advanced_performance_metrics(self, value: Optional[pulumi.Input['StorageLensAdvancedPerformanceMetricsArgs']]):
+        pulumi.set(self, "advanced_performance_metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="detailedStatusCodesMetrics")
@@ -5838,9 +5970,14 @@ if not MYPY:
         """
         This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
         """
+        expanded_prefixes_data_export: NotRequired[pulumi.Input['StorageLensExpandedPrefixesDataExportArgsDict']]
         include: NotRequired[pulumi.Input['StorageLensBucketsAndRegionsArgsDict']]
         """
         This property contains the details of the bucket and or Regions included for Amazon S3 Storage Lens configuration.
+        """
+        prefix_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The delimiter to divide S3 key into hierarchy of prefixes.
         """
         storage_lens_arn: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -5858,7 +5995,9 @@ class StorageLensConfigurationArgs:
                  aws_org: Optional[pulumi.Input['StorageLensAwsOrgArgs']] = None,
                  data_export: Optional[pulumi.Input['StorageLensDataExportArgs']] = None,
                  exclude: Optional[pulumi.Input['StorageLensBucketsAndRegionsArgs']] = None,
+                 expanded_prefixes_data_export: Optional[pulumi.Input['StorageLensExpandedPrefixesDataExportArgs']] = None,
                  include: Optional[pulumi.Input['StorageLensBucketsAndRegionsArgs']] = None,
+                 prefix_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
                  storage_lens_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Specifies the details of Amazon S3 Storage Lens configuration.
@@ -5869,6 +6008,7 @@ class StorageLensConfigurationArgs:
         :param pulumi.Input['StorageLensDataExportArgs'] data_export: This property contains the details of this S3 Storage Lens configuration's metrics export.
         :param pulumi.Input['StorageLensBucketsAndRegionsArgs'] exclude: This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
         :param pulumi.Input['StorageLensBucketsAndRegionsArgs'] include: This property contains the details of the bucket and or Regions included for Amazon S3 Storage Lens configuration.
+        :param pulumi.Input[_builtins.str] prefix_delimiter: The delimiter to divide S3 key into hierarchy of prefixes.
         :param pulumi.Input[_builtins.str] storage_lens_arn: The ARN for the Amazon S3 Storage Lens configuration.
         """
         pulumi.set(__self__, "account_level", account_level)
@@ -5880,8 +6020,12 @@ class StorageLensConfigurationArgs:
             pulumi.set(__self__, "data_export", data_export)
         if exclude is not None:
             pulumi.set(__self__, "exclude", exclude)
+        if expanded_prefixes_data_export is not None:
+            pulumi.set(__self__, "expanded_prefixes_data_export", expanded_prefixes_data_export)
         if include is not None:
             pulumi.set(__self__, "include", include)
+        if prefix_delimiter is not None:
+            pulumi.set(__self__, "prefix_delimiter", prefix_delimiter)
         if storage_lens_arn is not None:
             pulumi.set(__self__, "storage_lens_arn", storage_lens_arn)
 
@@ -5958,6 +6102,15 @@ class StorageLensConfigurationArgs:
         pulumi.set(self, "exclude", value)
 
     @_builtins.property
+    @pulumi.getter(name="expandedPrefixesDataExport")
+    def expanded_prefixes_data_export(self) -> Optional[pulumi.Input['StorageLensExpandedPrefixesDataExportArgs']]:
+        return pulumi.get(self, "expanded_prefixes_data_export")
+
+    @expanded_prefixes_data_export.setter
+    def expanded_prefixes_data_export(self, value: Optional[pulumi.Input['StorageLensExpandedPrefixesDataExportArgs']]):
+        pulumi.set(self, "expanded_prefixes_data_export", value)
+
+    @_builtins.property
     @pulumi.getter
     def include(self) -> Optional[pulumi.Input['StorageLensBucketsAndRegionsArgs']]:
         """
@@ -5968,6 +6121,18 @@ class StorageLensConfigurationArgs:
     @include.setter
     def include(self, value: Optional[pulumi.Input['StorageLensBucketsAndRegionsArgs']]):
         pulumi.set(self, "include", value)
+
+    @_builtins.property
+    @pulumi.getter(name="prefixDelimiter")
+    def prefix_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The delimiter to divide S3 key into hierarchy of prefixes.
+        """
+        return pulumi.get(self, "prefix_delimiter")
+
+    @prefix_delimiter.setter
+    def prefix_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "prefix_delimiter", value)
 
     @_builtins.property
     @pulumi.getter(name="storageLensArn")
@@ -6090,6 +6255,35 @@ class StorageLensEncryptionArgs:
         Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
         """
         pass
+
+
+if not MYPY:
+    class StorageLensExpandedPrefixesDataExportArgsDict(TypedDict):
+        """
+        Expanded Prefixes Data Export.
+        """
+        s3_bucket_destination: NotRequired[pulumi.Input['StorageLensS3BucketDestinationArgsDict']]
+elif False:
+    StorageLensExpandedPrefixesDataExportArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageLensExpandedPrefixesDataExportArgs:
+    def __init__(__self__, *,
+                 s3_bucket_destination: Optional[pulumi.Input['StorageLensS3BucketDestinationArgs']] = None):
+        """
+        Expanded Prefixes Data Export.
+        """
+        if s3_bucket_destination is not None:
+            pulumi.set(__self__, "s3_bucket_destination", s3_bucket_destination)
+
+    @_builtins.property
+    @pulumi.getter(name="s3BucketDestination")
+    def s3_bucket_destination(self) -> Optional[pulumi.Input['StorageLensS3BucketDestinationArgs']]:
+        return pulumi.get(self, "s3_bucket_destination")
+
+    @s3_bucket_destination.setter
+    def s3_bucket_destination(self, value: Optional[pulumi.Input['StorageLensS3BucketDestinationArgs']]):
+        pulumi.set(self, "s3_bucket_destination", value)
 
 
 if not MYPY:

@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// <summary>
         /// The identifier of the directory corresponding to your WorkDocs site repository.
         /// 
-        /// You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the AWS Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
+        /// You can find the organization ID in the [Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
         /// </summary>
         [Input("organizationId", required: true)]
         public Input<string> OrganizationId { get; set; } = null!;

@@ -489,7 +489,7 @@ class BranchBackend(dict):
     def __init__(__self__, *,
                  stack_arn: Optional[_builtins.str] = None):
         """
-        :param _builtins.str stack_arn: The Amazon Resource Name (ARN) for the AWS CloudFormation stack.
+        :param _builtins.str stack_arn: The Amazon Resource Name (ARN) for the CloudFormation stack.
         """
         if stack_arn is not None:
             pulumi.set(__self__, "stack_arn", stack_arn)
@@ -498,7 +498,7 @@ class BranchBackend(dict):
     @pulumi.getter(name="stackArn")
     def stack_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the AWS CloudFormation stack.
+        The Amazon Resource Name (ARN) for the CloudFormation stack.
         """
         return pulumi.get(self, "stack_arn")
 

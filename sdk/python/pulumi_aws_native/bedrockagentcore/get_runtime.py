@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRuntimeResult:
-    def __init__(__self__, agent_runtime_arn=None, agent_runtime_artifact=None, agent_runtime_id=None, agent_runtime_version=None, authorizer_configuration=None, created_at=None, description=None, environment_variables=None, last_updated_at=None, network_configuration=None, protocol_configuration=None, role_arn=None, status=None, tags=None, workload_identity_details=None):
+    def __init__(__self__, agent_runtime_arn=None, agent_runtime_artifact=None, agent_runtime_id=None, agent_runtime_version=None, authorizer_configuration=None, created_at=None, description=None, environment_variables=None, last_updated_at=None, lifecycle_configuration=None, network_configuration=None, protocol_configuration=None, request_header_configuration=None, role_arn=None, status=None, tags=None, workload_identity_details=None):
         if agent_runtime_arn and not isinstance(agent_runtime_arn, str):
             raise TypeError("Expected argument 'agent_runtime_arn' to be a str")
         pulumi.set(__self__, "agent_runtime_arn", agent_runtime_arn)
@@ -53,12 +53,18 @@ class GetRuntimeResult:
         if last_updated_at and not isinstance(last_updated_at, str):
             raise TypeError("Expected argument 'last_updated_at' to be a str")
         pulumi.set(__self__, "last_updated_at", last_updated_at)
+        if lifecycle_configuration and not isinstance(lifecycle_configuration, dict):
+            raise TypeError("Expected argument 'lifecycle_configuration' to be a dict")
+        pulumi.set(__self__, "lifecycle_configuration", lifecycle_configuration)
         if network_configuration and not isinstance(network_configuration, dict):
             raise TypeError("Expected argument 'network_configuration' to be a dict")
         pulumi.set(__self__, "network_configuration", network_configuration)
         if protocol_configuration and not isinstance(protocol_configuration, str):
             raise TypeError("Expected argument 'protocol_configuration' to be a str")
         pulumi.set(__self__, "protocol_configuration", protocol_configuration)
+        if request_header_configuration and not isinstance(request_header_configuration, dict):
+            raise TypeError("Expected argument 'request_header_configuration' to be a dict")
+        pulumi.set(__self__, "request_header_configuration", request_header_configuration)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -145,6 +151,14 @@ class GetRuntimeResult:
         return pulumi.get(self, "last_updated_at")
 
     @_builtins.property
+    @pulumi.getter(name="lifecycleConfiguration")
+    def lifecycle_configuration(self) -> Optional['outputs.RuntimeLifecycleConfiguration']:
+        """
+        Lifecycle configuration for managing runtime sessions
+        """
+        return pulumi.get(self, "lifecycle_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional['outputs.RuntimeNetworkConfiguration']:
         """
@@ -159,6 +173,14 @@ class GetRuntimeResult:
         Protocol configuration for the agent runtime
         """
         return pulumi.get(self, "protocol_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="requestHeaderConfiguration")
+    def request_header_configuration(self) -> Optional['outputs.RuntimeRequestHeaderConfiguration']:
+        """
+        Configuration for HTTP request headers
+        """
+        return pulumi.get(self, "request_header_configuration")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
@@ -208,8 +230,10 @@ class AwaitableGetRuntimeResult(GetRuntimeResult):
             description=self.description,
             environment_variables=self.environment_variables,
             last_updated_at=self.last_updated_at,
+            lifecycle_configuration=self.lifecycle_configuration,
             network_configuration=self.network_configuration,
             protocol_configuration=self.protocol_configuration,
+            request_header_configuration=self.request_header_configuration,
             role_arn=self.role_arn,
             status=self.status,
             tags=self.tags,
@@ -239,8 +263,10 @@ def get_runtime(agent_runtime_id: Optional[_builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         environment_variables=pulumi.get(__ret__, 'environment_variables'),
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
+        lifecycle_configuration=pulumi.get(__ret__, 'lifecycle_configuration'),
         network_configuration=pulumi.get(__ret__, 'network_configuration'),
         protocol_configuration=pulumi.get(__ret__, 'protocol_configuration'),
+        request_header_configuration=pulumi.get(__ret__, 'request_header_configuration'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -267,8 +293,10 @@ def get_runtime_output(agent_runtime_id: Optional[pulumi.Input[_builtins.str]] =
         description=pulumi.get(__response__, 'description'),
         environment_variables=pulumi.get(__response__, 'environment_variables'),
         last_updated_at=pulumi.get(__response__, 'last_updated_at'),
+        lifecycle_configuration=pulumi.get(__response__, 'lifecycle_configuration'),
         network_configuration=pulumi.get(__response__, 'network_configuration'),
         protocol_configuration=pulumi.get(__response__, 'protocol_configuration'),
+        request_header_configuration=pulumi.get(__response__, 'request_header_configuration'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),

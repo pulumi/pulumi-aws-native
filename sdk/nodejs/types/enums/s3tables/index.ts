@@ -12,6 +12,16 @@ export const TableBucketEncryptionConfigurationSseAlgorithm = {
  */
 export type TableBucketEncryptionConfigurationSseAlgorithm = (typeof TableBucketEncryptionConfigurationSseAlgorithm)[keyof typeof TableBucketEncryptionConfigurationSseAlgorithm];
 
+export const TableBucketMetricsConfigurationStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Indicates whether Metrics are enabled.
+ */
+export type TableBucketMetricsConfigurationStatus = (typeof TableBucketMetricsConfigurationStatus)[keyof typeof TableBucketMetricsConfigurationStatus];
+
 export const TableBucketUnreferencedFileRemovalStatus = {
     Enabled: "Enabled",
     Disabled: "Disabled",

@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The latest version references of the image recipe.
+        /// </summary>
+        [Output("latestVersion")]
+        public Output<Outputs.ImageRecipeLatestVersion> LatestVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the image recipe.
         /// </summary>
         [Output("name")]
@@ -166,7 +172,7 @@ namespace Pulumi.AwsNative.ImageBuilder
             set => _blockDeviceMappings = value;
         }
 
-        [Input("components", required: true)]
+        [Input("components")]
         private InputList<Inputs.ImageRecipeComponentConfigurationArgs>? _components;
 
         /// <summary>

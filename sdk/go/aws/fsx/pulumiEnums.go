@@ -222,7 +222,173 @@ func (o DataRepositoryAssociationEventTypeArrayOutput) Index(i pulumi.IntInput) 
 	}).(DataRepositoryAssociationEventTypeOutput)
 }
 
-// Specifies the FSx for OpenZFS user identity type, accepts only `POSIX` .
+// Specifies the FSx for ONTAP user identity type, accepts either UNIX or WINDOWS.
+type S3AccessPointAttachmentOntapFileSystemIdentityType string
+
+const (
+	S3AccessPointAttachmentOntapFileSystemIdentityTypeUnix    = S3AccessPointAttachmentOntapFileSystemIdentityType("UNIX")
+	S3AccessPointAttachmentOntapFileSystemIdentityTypeWindows = S3AccessPointAttachmentOntapFileSystemIdentityType("WINDOWS")
+)
+
+func (S3AccessPointAttachmentOntapFileSystemIdentityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentOntapFileSystemIdentityType)(nil)).Elem()
+}
+
+func (e S3AccessPointAttachmentOntapFileSystemIdentityType) ToS3AccessPointAttachmentOntapFileSystemIdentityTypeOutput() S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput {
+	return pulumi.ToOutput(e).(S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput)
+}
+
+func (e S3AccessPointAttachmentOntapFileSystemIdentityType) ToS3AccessPointAttachmentOntapFileSystemIdentityTypeOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput)
+}
+
+func (e S3AccessPointAttachmentOntapFileSystemIdentityType) ToS3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput() S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput {
+	return e.ToS3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (e S3AccessPointAttachmentOntapFileSystemIdentityType) ToS3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput {
+	return S3AccessPointAttachmentOntapFileSystemIdentityType(e).ToS3AccessPointAttachmentOntapFileSystemIdentityTypeOutputWithContext(ctx).ToS3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutputWithContext(ctx)
+}
+
+func (e S3AccessPointAttachmentOntapFileSystemIdentityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e S3AccessPointAttachmentOntapFileSystemIdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e S3AccessPointAttachmentOntapFileSystemIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e S3AccessPointAttachmentOntapFileSystemIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentOntapFileSystemIdentityType)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput) ToS3AccessPointAttachmentOntapFileSystemIdentityTypeOutput() S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput) ToS3AccessPointAttachmentOntapFileSystemIdentityTypeOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput) ToS3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput() S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput {
+	return o.ToS3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (o S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput) ToS3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3AccessPointAttachmentOntapFileSystemIdentityType) *S3AccessPointAttachmentOntapFileSystemIdentityType {
+		return &v
+	}).(S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput)
+}
+
+func (o S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e S3AccessPointAttachmentOntapFileSystemIdentityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e S3AccessPointAttachmentOntapFileSystemIdentityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3AccessPointAttachmentOntapFileSystemIdentityType)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput) ToS3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput() S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput) ToS3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput) Elem() S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentOntapFileSystemIdentityType) S3AccessPointAttachmentOntapFileSystemIdentityType {
+		if v != nil {
+			return *v
+		}
+		var ret S3AccessPointAttachmentOntapFileSystemIdentityType
+		return ret
+	}).(S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput)
+}
+
+func (o S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *S3AccessPointAttachmentOntapFileSystemIdentityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3AccessPointAttachmentOntapFileSystemIdentityTypeInput is an input type that accepts values of the S3AccessPointAttachmentOntapFileSystemIdentityType enum
+// A concrete instance of `S3AccessPointAttachmentOntapFileSystemIdentityTypeInput` can be one of the following:
+//
+//	S3AccessPointAttachmentOntapFileSystemIdentityTypeUnix
+//	S3AccessPointAttachmentOntapFileSystemIdentityTypeWindows
+type S3AccessPointAttachmentOntapFileSystemIdentityTypeInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentOntapFileSystemIdentityTypeOutput() S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput
+	ToS3AccessPointAttachmentOntapFileSystemIdentityTypeOutputWithContext(context.Context) S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput
+}
+
+var s3accessPointAttachmentOntapFileSystemIdentityTypePtrType = reflect.TypeOf((**S3AccessPointAttachmentOntapFileSystemIdentityType)(nil)).Elem()
+
+type S3AccessPointAttachmentOntapFileSystemIdentityTypePtrInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput() S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput
+	ToS3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutputWithContext(context.Context) S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput
+}
+
+type s3accessPointAttachmentOntapFileSystemIdentityTypePtr string
+
+func S3AccessPointAttachmentOntapFileSystemIdentityTypePtr(v string) S3AccessPointAttachmentOntapFileSystemIdentityTypePtrInput {
+	return (*s3accessPointAttachmentOntapFileSystemIdentityTypePtr)(&v)
+}
+
+func (*s3accessPointAttachmentOntapFileSystemIdentityTypePtr) ElementType() reflect.Type {
+	return s3accessPointAttachmentOntapFileSystemIdentityTypePtrType
+}
+
+func (in *s3accessPointAttachmentOntapFileSystemIdentityTypePtr) ToS3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput() S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput {
+	return pulumi.ToOutput(in).(S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput)
+}
+
+func (in *s3accessPointAttachmentOntapFileSystemIdentityTypePtr) ToS3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput)
+}
+
+// Specifies the FSx for OpenZFS user identity type, accepts only POSIX.
 type S3AccessPointAttachmentOpenZfsFileSystemIdentityType string
 
 const (
@@ -391,6 +557,7 @@ type S3AccessPointAttachmentType string
 
 const (
 	S3AccessPointAttachmentTypeOpenzfs = S3AccessPointAttachmentType("OPENZFS")
+	S3AccessPointAttachmentTypeOntap   = S3AccessPointAttachmentType("ONTAP")
 )
 
 func (S3AccessPointAttachmentType) ElementType() reflect.Type {
@@ -516,6 +683,7 @@ func (o S3AccessPointAttachmentTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 // A concrete instance of `S3AccessPointAttachmentTypeInput` can be one of the following:
 //
 //	S3AccessPointAttachmentTypeOpenzfs
+//	S3AccessPointAttachmentTypeOntap
 type S3AccessPointAttachmentTypeInput interface {
 	pulumi.Input
 
@@ -554,6 +722,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationEventTypeInput)(nil)).Elem(), DataRepositoryAssociationEventType("NEW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationEventTypePtrInput)(nil)).Elem(), DataRepositoryAssociationEventType("NEW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationEventTypeArrayInput)(nil)).Elem(), DataRepositoryAssociationEventTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOntapFileSystemIdentityTypeInput)(nil)).Elem(), S3AccessPointAttachmentOntapFileSystemIdentityType("UNIX"))
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOntapFileSystemIdentityTypePtrInput)(nil)).Elem(), S3AccessPointAttachmentOntapFileSystemIdentityType("UNIX"))
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOpenZfsFileSystemIdentityTypeInput)(nil)).Elem(), S3AccessPointAttachmentOpenZfsFileSystemIdentityType("POSIX"))
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOpenZfsFileSystemIdentityTypePtrInput)(nil)).Elem(), S3AccessPointAttachmentOpenZfsFileSystemIdentityType("POSIX"))
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentTypeInput)(nil)).Elem(), S3AccessPointAttachmentType("OPENZFS"))
@@ -561,6 +731,8 @@ func init() {
 	pulumi.RegisterOutputType(DataRepositoryAssociationEventTypeOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationEventTypePtrOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationEventTypeArrayOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentOpenZfsFileSystemIdentityTypeOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentOpenZfsFileSystemIdentityTypePtrOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentTypeOutput{})

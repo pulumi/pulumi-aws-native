@@ -48,11 +48,11 @@ export class Monitor extends pulumi.CustomResource {
      */
     declare public readonly displayName: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
+     * The Amazon Resource Name that the IAM Identity Center assigned to the monitor when it was created.
      */
     declare public /*out*/ readonly identityCenterApplicationArn: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
+     * The Amazon Resource Name of the IAM Identity Center instance responsible for authenticating monitor users.
      */
     declare public readonly identityCenterInstanceArn: pulumi.Output<string>;
     /**
@@ -60,7 +60,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly monitorId: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+     * The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -137,11 +137,11 @@ export interface MonitorArgs {
      */
     displayName: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM Identity Center instance responsible for authenticating monitor users.
+     * The Amazon Resource Name of the IAM Identity Center instance responsible for authenticating monitor users.
      */
     identityCenterInstanceArn: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+     * The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
      */
     roleArn: pulumi.Input<string>;
     /**

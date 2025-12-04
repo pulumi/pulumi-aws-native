@@ -12,17 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetFiltersOperationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Alias for this operation.
+        /// </summary>
         [Input("alias", required: true)]
         public Input<string> Alias { get; set; } = null!;
 
         [Input("filterOperations", required: true)]
         private InputList<Inputs.DataSetFilterOperationArgs>? _filterOperations;
+
+        /// <summary>
+        /// The list of filter operations to apply.
+        /// </summary>
         public InputList<Inputs.DataSetFilterOperationArgs> FilterOperations
         {
             get => _filterOperations ?? (_filterOperations = new InputList<Inputs.DataSetFilterOperationArgs>());
             set => _filterOperations = value;
         }
 
+        /// <summary>
+        /// The source transform operation that provides input data for filtering.
+        /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.DataSetTransformOperationSourceArgs> Source { get; set; } = null!;
 

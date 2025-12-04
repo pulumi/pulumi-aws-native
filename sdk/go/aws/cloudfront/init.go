@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CachePolicy{}
 	case "aws-native:cloudfront:CloudFrontOriginAccessIdentity":
 		r = &CloudFrontOriginAccessIdentity{}
+	case "aws-native:cloudfront:ConnectionFunction":
+		r = &ConnectionFunction{}
 	case "aws-native:cloudfront:ConnectionGroup":
 		r = &ConnectionGroup{}
 	case "aws-native:cloudfront:ContinuousDeploymentPolicy":
@@ -51,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RealtimeLogConfig{}
 	case "aws-native:cloudfront:ResponseHeadersPolicy":
 		r = &ResponseHeadersPolicy{}
+	case "aws-native:cloudfront:TrustStore":
+		r = &TrustStore{}
 	case "aws-native:cloudfront:VpcOrigin":
 		r = &VpcOrigin{}
 	default:

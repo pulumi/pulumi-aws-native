@@ -9504,7 +9504,7 @@ type DataSourceWorkDocsConfiguration struct {
 	InclusionPatterns []string `pulumi:"inclusionPatterns"`
 	// The identifier of the directory corresponding to your WorkDocs site repository.
 	//
-	// You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the AWS Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
+	// You can find the organization ID in the [Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
 	OrganizationId string `pulumi:"organizationId"`
 	// `TRUE` to use the WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in WorkDocs.
 	UseChangeLog *bool `pulumi:"useChangeLog"`
@@ -9534,7 +9534,7 @@ type DataSourceWorkDocsConfigurationArgs struct {
 	InclusionPatterns pulumi.StringArrayInput `pulumi:"inclusionPatterns"`
 	// The identifier of the directory corresponding to your WorkDocs site repository.
 	//
-	// You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the AWS Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
+	// You can find the organization ID in the [Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
 	OrganizationId pulumi.StringInput `pulumi:"organizationId"`
 	// `TRUE` to use the WorkDocs change log to determine which documents require updating in the index. Depending on the change log's size, it may take longer for Amazon Kendra to use the change log than to scan all of your documents in WorkDocs.
 	UseChangeLog pulumi.BoolPtrInput `pulumi:"useChangeLog"`
@@ -9641,7 +9641,7 @@ func (o DataSourceWorkDocsConfigurationOutput) InclusionPatterns() pulumi.String
 
 // The identifier of the directory corresponding to your WorkDocs site repository.
 //
-// You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the AWS Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
+// You can find the organization ID in the [Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
 func (o DataSourceWorkDocsConfigurationOutput) OrganizationId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceWorkDocsConfiguration) string { return v.OrganizationId }).(pulumi.StringOutput)
 }
@@ -9719,7 +9719,7 @@ func (o DataSourceWorkDocsConfigurationPtrOutput) InclusionPatterns() pulumi.Str
 
 // The identifier of the directory corresponding to your WorkDocs site repository.
 //
-// You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the AWS Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
+// You can find the organization ID in the [Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
 func (o DataSourceWorkDocsConfigurationPtrOutput) OrganizationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceWorkDocsConfiguration) *string {
 		if v == nil {

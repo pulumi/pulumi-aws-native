@@ -22,6 +22,16 @@ __all__ = [
     'AliasRoutingConfigurationArgsDict',
     'AliasVersionWeightArgs',
     'AliasVersionWeightArgsDict',
+    'CapacityProviderInstanceRequirementsArgs',
+    'CapacityProviderInstanceRequirementsArgsDict',
+    'CapacityProviderPermissionsConfigArgs',
+    'CapacityProviderPermissionsConfigArgsDict',
+    'CapacityProviderScalingConfigArgs',
+    'CapacityProviderScalingConfigArgsDict',
+    'CapacityProviderTargetTrackingScalingPolicyArgs',
+    'CapacityProviderTargetTrackingScalingPolicyArgsDict',
+    'CapacityProviderVpcConfigArgs',
+    'CapacityProviderVpcConfigArgsDict',
     'CodeSigningConfigAllowedPublishersArgs',
     'CodeSigningConfigAllowedPublishersArgsDict',
     'CodeSigningConfigCodeSigningPoliciesArgs',
@@ -44,6 +54,8 @@ __all__ = [
     'EventSourceMappingFilterCriteriaArgsDict',
     'EventSourceMappingFilterArgs',
     'EventSourceMappingFilterArgsDict',
+    'EventSourceMappingLoggingConfigArgs',
+    'EventSourceMappingLoggingConfigArgsDict',
     'EventSourceMappingMetricsConfigArgs',
     'EventSourceMappingMetricsConfigArgsDict',
     'EventSourceMappingOnFailureArgs',
@@ -64,6 +76,8 @@ __all__ = [
     'EventSourceMappingSelfManagedKafkaEventSourceConfigArgsDict',
     'EventSourceMappingSourceAccessConfigurationArgs',
     'EventSourceMappingSourceAccessConfigurationArgsDict',
+    'FunctionCapacityProviderConfigArgs',
+    'FunctionCapacityProviderConfigArgsDict',
     'FunctionCodeArgs',
     'FunctionCodeArgsDict',
     'FunctionDeadLetterConfigArgs',
@@ -76,12 +90,18 @@ __all__ = [
     'FunctionFileSystemConfigArgsDict',
     'FunctionImageConfigArgs',
     'FunctionImageConfigArgsDict',
+    'FunctionLambdaManagedInstancesCapacityProviderConfigArgs',
+    'FunctionLambdaManagedInstancesCapacityProviderConfigArgsDict',
     'FunctionLoggingConfigArgs',
     'FunctionLoggingConfigArgsDict',
     'FunctionRuntimeManagementConfigArgs',
     'FunctionRuntimeManagementConfigArgsDict',
+    'FunctionScalingConfigArgs',
+    'FunctionScalingConfigArgsDict',
     'FunctionSnapStartArgs',
     'FunctionSnapStartArgsDict',
+    'FunctionTenancyConfigArgs',
+    'FunctionTenancyConfigArgsDict',
     'FunctionTracingConfigArgs',
     'FunctionTracingConfigArgsDict',
     'FunctionVpcConfigArgs',
@@ -90,6 +110,8 @@ __all__ = [
     'LayerVersionContentArgsDict',
     'UrlCorsArgs',
     'UrlCorsArgsDict',
+    'VersionFunctionScalingConfigArgs',
+    'VersionFunctionScalingConfigArgsDict',
     'VersionProvisionedConcurrencyConfigurationArgs',
     'VersionProvisionedConcurrencyConfigurationArgsDict',
     'VersionRuntimePolicyArgs',
@@ -221,6 +243,287 @@ class AliasVersionWeightArgs:
     @function_weight.setter
     def function_weight(self, value: pulumi.Input[_builtins.float]):
         pulumi.set(self, "function_weight", value)
+
+
+if not MYPY:
+    class CapacityProviderInstanceRequirementsArgsDict(TypedDict):
+        """
+        Specifications for the types of EC2 instances that the capacity provider can use.
+        """
+        allowed_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        A list of instance types that the capacity provider can use. Supports wildcards (for example, m5.*).
+        """
+        architectures: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityProviderArchitecture']]]]
+        """
+        The instruction set architecture for EC2 instances. Specify either x86_64 or arm64.
+        """
+        excluded_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        A list of instance types that the capacity provider should not use. Takes precedence over AllowedInstanceTypes.
+        """
+elif False:
+    CapacityProviderInstanceRequirementsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderInstanceRequirementsArgs:
+    def __init__(__self__, *,
+                 allowed_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 architectures: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderArchitecture']]]] = None,
+                 excluded_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Specifications for the types of EC2 instances that the capacity provider can use.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_instance_types: A list of instance types that the capacity provider can use. Supports wildcards (for example, m5.*).
+        :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderArchitecture']]] architectures: The instruction set architecture for EC2 instances. Specify either x86_64 or arm64.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_instance_types: A list of instance types that the capacity provider should not use. Takes precedence over AllowedInstanceTypes.
+        """
+        if allowed_instance_types is not None:
+            pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
+        if architectures is not None:
+            pulumi.set(__self__, "architectures", architectures)
+        if excluded_instance_types is not None:
+            pulumi.set(__self__, "excluded_instance_types", excluded_instance_types)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedInstanceTypes")
+    def allowed_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of instance types that the capacity provider can use. Supports wildcards (for example, m5.*).
+        """
+        return pulumi.get(self, "allowed_instance_types")
+
+    @allowed_instance_types.setter
+    def allowed_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_instance_types", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderArchitecture']]]]:
+        """
+        The instruction set architecture for EC2 instances. Specify either x86_64 or arm64.
+        """
+        return pulumi.get(self, "architectures")
+
+    @architectures.setter
+    def architectures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderArchitecture']]]]):
+        pulumi.set(self, "architectures", value)
+
+    @_builtins.property
+    @pulumi.getter(name="excludedInstanceTypes")
+    def excluded_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of instance types that the capacity provider should not use. Takes precedence over AllowedInstanceTypes.
+        """
+        return pulumi.get(self, "excluded_instance_types")
+
+    @excluded_instance_types.setter
+    def excluded_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "excluded_instance_types", value)
+
+
+if not MYPY:
+    class CapacityProviderPermissionsConfigArgsDict(TypedDict):
+        """
+        IAM permissions configuration for the capacity provider.
+        """
+        capacity_provider_operator_role_arn: pulumi.Input[_builtins.str]
+        """
+        The ARN of the IAM role that Lambda assumes to manage the capacity provider.
+        """
+elif False:
+    CapacityProviderPermissionsConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderPermissionsConfigArgs:
+    def __init__(__self__, *,
+                 capacity_provider_operator_role_arn: pulumi.Input[_builtins.str]):
+        """
+        IAM permissions configuration for the capacity provider.
+        :param pulumi.Input[_builtins.str] capacity_provider_operator_role_arn: The ARN of the IAM role that Lambda assumes to manage the capacity provider.
+        """
+        pulumi.set(__self__, "capacity_provider_operator_role_arn", capacity_provider_operator_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityProviderOperatorRoleArn")
+    def capacity_provider_operator_role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the IAM role that Lambda assumes to manage the capacity provider.
+        """
+        return pulumi.get(self, "capacity_provider_operator_role_arn")
+
+    @capacity_provider_operator_role_arn.setter
+    def capacity_provider_operator_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "capacity_provider_operator_role_arn", value)
+
+
+if not MYPY:
+    class CapacityProviderScalingConfigArgsDict(TypedDict):
+        """
+        The scaling configuration for the capacity provider.
+        """
+        max_v_cpu_count: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The maximum number of EC2 instances that the capacity provider can scale up to.
+        """
+        scaling_mode: NotRequired[pulumi.Input['CapacityProviderScalingMode']]
+        scaling_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTargetTrackingScalingPolicyArgsDict']]]]
+        """
+        A list of target tracking scaling policies for the capacity provider.
+        """
+elif False:
+    CapacityProviderScalingConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderScalingConfigArgs:
+    def __init__(__self__, *,
+                 max_v_cpu_count: Optional[pulumi.Input[_builtins.int]] = None,
+                 scaling_mode: Optional[pulumi.Input['CapacityProviderScalingMode']] = None,
+                 scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTargetTrackingScalingPolicyArgs']]]] = None):
+        """
+        The scaling configuration for the capacity provider.
+        :param pulumi.Input[_builtins.int] max_v_cpu_count: The maximum number of EC2 instances that the capacity provider can scale up to.
+        :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderTargetTrackingScalingPolicyArgs']]] scaling_policies: A list of target tracking scaling policies for the capacity provider.
+        """
+        if max_v_cpu_count is not None:
+            pulumi.set(__self__, "max_v_cpu_count", max_v_cpu_count)
+        if scaling_mode is not None:
+            pulumi.set(__self__, "scaling_mode", scaling_mode)
+        if scaling_policies is not None:
+            pulumi.set(__self__, "scaling_policies", scaling_policies)
+
+    @_builtins.property
+    @pulumi.getter(name="maxVCpuCount")
+    def max_v_cpu_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The maximum number of EC2 instances that the capacity provider can scale up to.
+        """
+        return pulumi.get(self, "max_v_cpu_count")
+
+    @max_v_cpu_count.setter
+    def max_v_cpu_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_v_cpu_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scalingMode")
+    def scaling_mode(self) -> Optional[pulumi.Input['CapacityProviderScalingMode']]:
+        return pulumi.get(self, "scaling_mode")
+
+    @scaling_mode.setter
+    def scaling_mode(self, value: Optional[pulumi.Input['CapacityProviderScalingMode']]):
+        pulumi.set(self, "scaling_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scalingPolicies")
+    def scaling_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTargetTrackingScalingPolicyArgs']]]]:
+        """
+        A list of target tracking scaling policies for the capacity provider.
+        """
+        return pulumi.get(self, "scaling_policies")
+
+    @scaling_policies.setter
+    def scaling_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTargetTrackingScalingPolicyArgs']]]]):
+        pulumi.set(self, "scaling_policies", value)
+
+
+if not MYPY:
+    class CapacityProviderTargetTrackingScalingPolicyArgsDict(TypedDict):
+        """
+        A target tracking scaling policy for the capacity provider.
+        """
+        predefined_metric_type: pulumi.Input['CapacityProviderPredefinedMetricType']
+        target_value: pulumi.Input[_builtins.float]
+        """
+        The target value for the metric as a percentage (for example, 70.0 for 70%).
+        """
+elif False:
+    CapacityProviderTargetTrackingScalingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderTargetTrackingScalingPolicyArgs:
+    def __init__(__self__, *,
+                 predefined_metric_type: pulumi.Input['CapacityProviderPredefinedMetricType'],
+                 target_value: pulumi.Input[_builtins.float]):
+        """
+        A target tracking scaling policy for the capacity provider.
+        :param pulumi.Input[_builtins.float] target_value: The target value for the metric as a percentage (for example, 70.0 for 70%).
+        """
+        pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
+        pulumi.set(__self__, "target_value", target_value)
+
+    @_builtins.property
+    @pulumi.getter(name="predefinedMetricType")
+    def predefined_metric_type(self) -> pulumi.Input['CapacityProviderPredefinedMetricType']:
+        return pulumi.get(self, "predefined_metric_type")
+
+    @predefined_metric_type.setter
+    def predefined_metric_type(self, value: pulumi.Input['CapacityProviderPredefinedMetricType']):
+        pulumi.set(self, "predefined_metric_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetValue")
+    def target_value(self) -> pulumi.Input[_builtins.float]:
+        """
+        The target value for the metric as a percentage (for example, 70.0 for 70%).
+        """
+        return pulumi.get(self, "target_value")
+
+    @target_value.setter
+    def target_value(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "target_value", value)
+
+
+if not MYPY:
+    class CapacityProviderVpcConfigArgsDict(TypedDict):
+        """
+        VPC configuration for the capacity provider.
+        """
+        security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        A list of security group IDs to associate with EC2 instances.
+        """
+        subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        A list of subnet IDs where the capacity provider can launch EC2 instances.
+        """
+elif False:
+    CapacityProviderVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CapacityProviderVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        VPC configuration for the capacity provider.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of security group IDs to associate with EC2 instances.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of subnet IDs where the capacity provider can launch EC2 instances.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of security group IDs to associate with EC2 instances.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of subnet IDs where the capacity provider can launch EC2 instances.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnet_ids", value)
 
 
 if not MYPY:
@@ -708,6 +1011,42 @@ class EventSourceMappingFilterArgs:
 
 
 if not MYPY:
+    class EventSourceMappingLoggingConfigArgsDict(TypedDict):
+        """
+        The function's Amazon CloudWatch Logs configuration settings.
+        """
+        system_log_level: NotRequired[pulumi.Input['EventSourceMappingLoggingConfigSystemLogLevel']]
+        """
+        Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
+        """
+elif False:
+    EventSourceMappingLoggingConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EventSourceMappingLoggingConfigArgs:
+    def __init__(__self__, *,
+                 system_log_level: Optional[pulumi.Input['EventSourceMappingLoggingConfigSystemLogLevel']] = None):
+        """
+        The function's Amazon CloudWatch Logs configuration settings.
+        :param pulumi.Input['EventSourceMappingLoggingConfigSystemLogLevel'] system_log_level: Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
+        """
+        if system_log_level is not None:
+            pulumi.set(__self__, "system_log_level", system_log_level)
+
+    @_builtins.property
+    @pulumi.getter(name="systemLogLevel")
+    def system_log_level(self) -> Optional[pulumi.Input['EventSourceMappingLoggingConfigSystemLogLevel']]:
+        """
+        Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
+        """
+        return pulumi.get(self, "system_log_level")
+
+    @system_log_level.setter
+    def system_log_level(self, value: Optional[pulumi.Input['EventSourceMappingLoggingConfigSystemLogLevel']]):
+        pulumi.set(self, "system_log_level", value)
+
+
+if not MYPY:
     class EventSourceMappingMetricsConfigArgsDict(TypedDict):
         """
         The metrics configuration for your event source. Use this configuration object to define which metrics you want your event source mapping to produce.
@@ -752,7 +1091,8 @@ if not MYPY:
         """
         The Amazon Resource Name (ARN) of the destination resource.
          To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
-         To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
+          Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending ``OnFailure`` event to the destination. For details on this behavior, refer to [Retaining records of asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html).
+          To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
         """
 elif False:
     EventSourceMappingOnFailureArgsDict: TypeAlias = Mapping[str, Any]
@@ -765,7 +1105,8 @@ class EventSourceMappingOnFailureArgs:
         A destination for events that failed processing. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
         :param pulumi.Input[_builtins.str] destination: The Amazon Resource Name (ARN) of the destination resource.
                 To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
-                To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
+                 Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending ``OnFailure`` event to the destination. For details on this behavior, refer to [Retaining records of asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html).
+                 To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
         """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
@@ -776,7 +1117,8 @@ class EventSourceMappingOnFailureArgs:
         """
         The Amazon Resource Name (ARN) of the destination resource.
          To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
-         To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
+          Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending ``OnFailure`` event to the destination. For details on this behavior, refer to [Retaining records of asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html).
+          To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
         """
         return pulumi.get(self, "destination")
 
@@ -788,15 +1130,19 @@ class EventSourceMappingOnFailureArgs:
 if not MYPY:
     class EventSourceMappingProvisionedPollerConfigArgsDict(TypedDict):
         """
-        The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use provisioned mode to customize the minimum and maximum number of event pollers for your event source.
+        The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers for your event source.
         """
         maximum_pollers: NotRequired[pulumi.Input[_builtins.int]]
         """
-        The maximum number of event pollers this event source can scale up to.
+        The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
         """
         minimum_pollers: NotRequired[pulumi.Input[_builtins.int]]
         """
-        The minimum number of event pollers this event source can scale down to.
+        The minimum number of event pollers this event source can scale down to. For Amazon SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 1.
+        """
+        poller_group_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        (Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
         """
 elif False:
     EventSourceMappingProvisionedPollerConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -805,22 +1151,26 @@ elif False:
 class EventSourceMappingProvisionedPollerConfigArgs:
     def __init__(__self__, *,
                  maximum_pollers: Optional[pulumi.Input[_builtins.int]] = None,
-                 minimum_pollers: Optional[pulumi.Input[_builtins.int]] = None):
+                 minimum_pollers: Optional[pulumi.Input[_builtins.int]] = None,
+                 poller_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use provisioned mode to customize the minimum and maximum number of event pollers for your event source.
-        :param pulumi.Input[_builtins.int] maximum_pollers: The maximum number of event pollers this event source can scale up to.
-        :param pulumi.Input[_builtins.int] minimum_pollers: The minimum number of event pollers this event source can scale down to.
+        The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers for your event source.
+        :param pulumi.Input[_builtins.int] maximum_pollers: The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
+        :param pulumi.Input[_builtins.int] minimum_pollers: The minimum number of event pollers this event source can scale down to. For Amazon SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 1.
+        :param pulumi.Input[_builtins.str] poller_group_name: (Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
         """
         if maximum_pollers is not None:
             pulumi.set(__self__, "maximum_pollers", maximum_pollers)
         if minimum_pollers is not None:
             pulumi.set(__self__, "minimum_pollers", minimum_pollers)
+        if poller_group_name is not None:
+            pulumi.set(__self__, "poller_group_name", poller_group_name)
 
     @_builtins.property
     @pulumi.getter(name="maximumPollers")
     def maximum_pollers(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The maximum number of event pollers this event source can scale up to.
+        The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
         """
         return pulumi.get(self, "maximum_pollers")
 
@@ -832,13 +1182,25 @@ class EventSourceMappingProvisionedPollerConfigArgs:
     @pulumi.getter(name="minimumPollers")
     def minimum_pollers(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The minimum number of event pollers this event source can scale down to.
+        The minimum number of event pollers this event source can scale down to. For Amazon SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 1.
         """
         return pulumi.get(self, "minimum_pollers")
 
     @minimum_pollers.setter
     def minimum_pollers(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "minimum_pollers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pollerGroupName")
+    def poller_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (Amazon MSK and self-managed Apache Kafka) The name of the provisioned poller group. Use this option to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+        """
+        return pulumi.get(self, "poller_group_name")
+
+    @poller_group_name.setter
+    def poller_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "poller_group_name", value)
 
 
 if not MYPY:
@@ -1257,6 +1619,28 @@ class EventSourceMappingSourceAccessConfigurationArgs:
 
 
 if not MYPY:
+    class FunctionCapacityProviderConfigArgsDict(TypedDict):
+        lambda_managed_instances_capacity_provider_config: pulumi.Input['FunctionLambdaManagedInstancesCapacityProviderConfigArgsDict']
+elif False:
+    FunctionCapacityProviderConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FunctionCapacityProviderConfigArgs:
+    def __init__(__self__, *,
+                 lambda_managed_instances_capacity_provider_config: pulumi.Input['FunctionLambdaManagedInstancesCapacityProviderConfigArgs']):
+        pulumi.set(__self__, "lambda_managed_instances_capacity_provider_config", lambda_managed_instances_capacity_provider_config)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaManagedInstancesCapacityProviderConfig")
+    def lambda_managed_instances_capacity_provider_config(self) -> pulumi.Input['FunctionLambdaManagedInstancesCapacityProviderConfigArgs']:
+        return pulumi.get(self, "lambda_managed_instances_capacity_provider_config")
+
+    @lambda_managed_instances_capacity_provider_config.setter
+    def lambda_managed_instances_capacity_provider_config(self, value: pulumi.Input['FunctionLambdaManagedInstancesCapacityProviderConfigArgs']):
+        pulumi.set(self, "lambda_managed_instances_capacity_provider_config", value)
+
+
+if not MYPY:
     class FunctionCodeArgsDict(TypedDict):
         """
         The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.
@@ -1646,6 +2030,77 @@ class FunctionImageConfigArgs:
 
 
 if not MYPY:
+    class FunctionLambdaManagedInstancesCapacityProviderConfigArgsDict(TypedDict):
+        capacity_provider_arn: pulumi.Input[_builtins.str]
+        """
+        The Amazon Resource Name (ARN) of the capacity provider.
+        """
+        execution_environment_memory_gi_b_per_v_cpu: NotRequired[pulumi.Input[_builtins.float]]
+        """
+        The amount of memory in GiB allocated per vCPU for execution environments.
+        """
+        per_execution_environment_max_concurrency: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The maximum number of concurrent execution environments that can run on each compute instance.
+        """
+elif False:
+    FunctionLambdaManagedInstancesCapacityProviderConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FunctionLambdaManagedInstancesCapacityProviderConfigArgs:
+    def __init__(__self__, *,
+                 capacity_provider_arn: pulumi.Input[_builtins.str],
+                 execution_environment_memory_gi_b_per_v_cpu: Optional[pulumi.Input[_builtins.float]] = None,
+                 per_execution_environment_max_concurrency: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] capacity_provider_arn: The Amazon Resource Name (ARN) of the capacity provider.
+        :param pulumi.Input[_builtins.float] execution_environment_memory_gi_b_per_v_cpu: The amount of memory in GiB allocated per vCPU for execution environments.
+        :param pulumi.Input[_builtins.int] per_execution_environment_max_concurrency: The maximum number of concurrent execution environments that can run on each compute instance.
+        """
+        pulumi.set(__self__, "capacity_provider_arn", capacity_provider_arn)
+        if execution_environment_memory_gi_b_per_v_cpu is not None:
+            pulumi.set(__self__, "execution_environment_memory_gi_b_per_v_cpu", execution_environment_memory_gi_b_per_v_cpu)
+        if per_execution_environment_max_concurrency is not None:
+            pulumi.set(__self__, "per_execution_environment_max_concurrency", per_execution_environment_max_concurrency)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityProviderArn")
+    def capacity_provider_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the capacity provider.
+        """
+        return pulumi.get(self, "capacity_provider_arn")
+
+    @capacity_provider_arn.setter
+    def capacity_provider_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "capacity_provider_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="executionEnvironmentMemoryGiBPerVCpu")
+    def execution_environment_memory_gi_b_per_v_cpu(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        The amount of memory in GiB allocated per vCPU for execution environments.
+        """
+        return pulumi.get(self, "execution_environment_memory_gi_b_per_v_cpu")
+
+    @execution_environment_memory_gi_b_per_v_cpu.setter
+    def execution_environment_memory_gi_b_per_v_cpu(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "execution_environment_memory_gi_b_per_v_cpu", value)
+
+    @_builtins.property
+    @pulumi.getter(name="perExecutionEnvironmentMaxConcurrency")
+    def per_execution_environment_max_concurrency(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The maximum number of concurrent execution environments that can run on each compute instance.
+        """
+        return pulumi.get(self, "per_execution_environment_max_concurrency")
+
+    @per_execution_environment_max_concurrency.setter
+    def per_execution_environment_max_concurrency(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "per_execution_environment_max_concurrency", value)
+
+
+if not MYPY:
     class FunctionLoggingConfigArgsDict(TypedDict):
         """
         The function's Amazon CloudWatch Logs configuration settings.
@@ -1815,6 +2270,58 @@ class FunctionRuntimeManagementConfigArgs:
 
 
 if not MYPY:
+    class FunctionScalingConfigArgsDict(TypedDict):
+        max_execution_environments: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The maximum number of execution environments that can be provisioned for the function.
+        """
+        min_execution_environments: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The minimum number of execution environments to maintain for the function.
+        """
+elif False:
+    FunctionScalingConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FunctionScalingConfigArgs:
+    def __init__(__self__, *,
+                 max_execution_environments: Optional[pulumi.Input[_builtins.int]] = None,
+                 min_execution_environments: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] max_execution_environments: The maximum number of execution environments that can be provisioned for the function.
+        :param pulumi.Input[_builtins.int] min_execution_environments: The minimum number of execution environments to maintain for the function.
+        """
+        if max_execution_environments is not None:
+            pulumi.set(__self__, "max_execution_environments", max_execution_environments)
+        if min_execution_environments is not None:
+            pulumi.set(__self__, "min_execution_environments", min_execution_environments)
+
+    @_builtins.property
+    @pulumi.getter(name="maxExecutionEnvironments")
+    def max_execution_environments(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The maximum number of execution environments that can be provisioned for the function.
+        """
+        return pulumi.get(self, "max_execution_environments")
+
+    @max_execution_environments.setter
+    def max_execution_environments(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_execution_environments", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minExecutionEnvironments")
+    def min_execution_environments(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The minimum number of execution environments to maintain for the function.
+        """
+        return pulumi.get(self, "min_execution_environments")
+
+    @min_execution_environments.setter
+    def min_execution_environments(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "min_execution_environments", value)
+
+
+if not MYPY:
     class FunctionSnapStartArgsDict(TypedDict):
         """
         The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
@@ -1847,6 +2354,37 @@ class FunctionSnapStartArgs:
     @apply_on.setter
     def apply_on(self, value: pulumi.Input['FunctionSnapStartApplyOn']):
         pulumi.set(self, "apply_on", value)
+
+
+if not MYPY:
+    class FunctionTenancyConfigArgsDict(TypedDict):
+        tenant_isolation_mode: pulumi.Input['FunctionTenancyConfigTenantIsolationMode']
+        """
+        Determines how your Lambda function isolates execution environments between tenants.
+        """
+elif False:
+    FunctionTenancyConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FunctionTenancyConfigArgs:
+    def __init__(__self__, *,
+                 tenant_isolation_mode: pulumi.Input['FunctionTenancyConfigTenantIsolationMode']):
+        """
+        :param pulumi.Input['FunctionTenancyConfigTenantIsolationMode'] tenant_isolation_mode: Determines how your Lambda function isolates execution environments between tenants.
+        """
+        pulumi.set(__self__, "tenant_isolation_mode", tenant_isolation_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantIsolationMode")
+    def tenant_isolation_mode(self) -> pulumi.Input['FunctionTenancyConfigTenantIsolationMode']:
+        """
+        Determines how your Lambda function isolates execution environments between tenants.
+        """
+        return pulumi.get(self, "tenant_isolation_mode")
+
+    @tenant_isolation_mode.setter
+    def tenant_isolation_mode(self, value: pulumi.Input['FunctionTenancyConfigTenantIsolationMode']):
+        pulumi.set(self, "tenant_isolation_mode", value)
 
 
 if not MYPY:
@@ -2165,6 +2703,62 @@ class UrlCorsArgs:
     @max_age.setter
     def max_age(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "max_age", value)
+
+
+if not MYPY:
+    class VersionFunctionScalingConfigArgsDict(TypedDict):
+        """
+        Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+        """
+        max_execution_environments: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The maximum number of execution environments that can be provisioned for the function.
+        """
+        min_execution_environments: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The minimum number of execution environments to maintain for the function.
+        """
+elif False:
+    VersionFunctionScalingConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VersionFunctionScalingConfigArgs:
+    def __init__(__self__, *,
+                 max_execution_environments: Optional[pulumi.Input[_builtins.int]] = None,
+                 min_execution_environments: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+        :param pulumi.Input[_builtins.int] max_execution_environments: The maximum number of execution environments that can be provisioned for the function.
+        :param pulumi.Input[_builtins.int] min_execution_environments: The minimum number of execution environments to maintain for the function.
+        """
+        if max_execution_environments is not None:
+            pulumi.set(__self__, "max_execution_environments", max_execution_environments)
+        if min_execution_environments is not None:
+            pulumi.set(__self__, "min_execution_environments", min_execution_environments)
+
+    @_builtins.property
+    @pulumi.getter(name="maxExecutionEnvironments")
+    def max_execution_environments(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The maximum number of execution environments that can be provisioned for the function.
+        """
+        return pulumi.get(self, "max_execution_environments")
+
+    @max_execution_environments.setter
+    def max_execution_environments(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_execution_environments", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minExecutionEnvironments")
+    def min_execution_environments(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The minimum number of execution environments to maintain for the function.
+        """
+        return pulumi.get(self, "min_execution_environments")
+
+    @min_execution_environments.setter
+    def min_execution_environments(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "min_execution_environments", value)
 
 
 if not MYPY:

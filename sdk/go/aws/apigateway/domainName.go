@@ -109,6 +109,8 @@ type DomainName struct {
 	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
 	// The ARN of the domain name.
 	DomainNameArn pulumi.StringOutput `pulumi:"domainNameArn"`
+	// The endpoint access mode for your DomainName.
+	EndpointAccessMode pulumi.StringPtrOutput `pulumi:"endpointAccessMode"`
 	// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
 	EndpointConfiguration DomainNameEndpointConfigurationPtrOutput `pulumi:"endpointConfiguration"`
 	// The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
@@ -123,7 +125,7 @@ type DomainName struct {
 	RegionalHostedZoneId pulumi.StringOutput `pulumi:"regionalHostedZoneId"`
 	// The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
 	RoutingMode DomainNameRoutingModePtrOutput `pulumi:"routingMode"`
-	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+	// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
 	SecurityPolicy pulumi.StringPtrOutput `pulumi:"securityPolicy"`
 	// The collection of tags. Each tag element is associated with a given resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -177,6 +179,8 @@ type domainNameArgs struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The custom domain name as an API host name, for example, `my-api.example.com` .
 	DomainName *string `pulumi:"domainName"`
+	// The endpoint access mode for your DomainName.
+	EndpointAccessMode *string `pulumi:"endpointAccessMode"`
 	// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
 	EndpointConfiguration *DomainNameEndpointConfiguration `pulumi:"endpointConfiguration"`
 	// The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
@@ -187,7 +191,7 @@ type domainNameArgs struct {
 	RegionalCertificateArn *string `pulumi:"regionalCertificateArn"`
 	// The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
 	RoutingMode *DomainNameRoutingMode `pulumi:"routingMode"`
-	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+	// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
 	SecurityPolicy *string `pulumi:"securityPolicy"`
 	// The collection of tags. Each tag element is associated with a given resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -199,6 +203,8 @@ type DomainNameArgs struct {
 	CertificateArn pulumi.StringPtrInput
 	// The custom domain name as an API host name, for example, `my-api.example.com` .
 	DomainName pulumi.StringPtrInput
+	// The endpoint access mode for your DomainName.
+	EndpointAccessMode pulumi.StringPtrInput
 	// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
 	EndpointConfiguration DomainNameEndpointConfigurationPtrInput
 	// The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
@@ -209,7 +215,7 @@ type DomainNameArgs struct {
 	RegionalCertificateArn pulumi.StringPtrInput
 	// The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
 	RoutingMode DomainNameRoutingModePtrInput
-	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+	// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
 	SecurityPolicy pulumi.StringPtrInput
 	// The collection of tags. Each tag element is associated with a given resource.
 	Tags aws.TagArrayInput
@@ -279,6 +285,11 @@ func (o DomainNameOutput) DomainNameArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.DomainNameArn }).(pulumi.StringOutput)
 }
 
+// The endpoint access mode for your DomainName.
+func (o DomainNameOutput) EndpointAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.EndpointAccessMode }).(pulumi.StringPtrOutput)
+}
+
 // The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
 func (o DomainNameOutput) EndpointConfiguration() DomainNameEndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v *DomainName) DomainNameEndpointConfigurationPtrOutput { return v.EndpointConfiguration }).(DomainNameEndpointConfigurationPtrOutput)
@@ -314,7 +325,7 @@ func (o DomainNameOutput) RoutingMode() DomainNameRoutingModePtrOutput {
 	return o.ApplyT(func(v *DomainName) DomainNameRoutingModePtrOutput { return v.RoutingMode }).(DomainNameRoutingModePtrOutput)
 }
 
-// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
 func (o DomainNameOutput) SecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
 }

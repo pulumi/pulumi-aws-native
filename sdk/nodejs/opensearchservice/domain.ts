@@ -54,6 +54,10 @@ export class Domain extends pulumi.CustomResource {
      */
     declare public readonly advancedSecurityOptions: pulumi.Output<outputs.opensearchservice.DomainAdvancedSecurityOptionsInput | undefined>;
     /**
+     * Container for parameters required to enable all machine learning features.
+     */
+    declare public readonly aimlOptions: pulumi.Output<outputs.opensearchservice.DomainAimlOptions | undefined>;
+    /**
      * The Amazon Resource Name (ARN) of the CloudFormation stack.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
@@ -87,7 +91,7 @@ export class Domain extends pulumi.CustomResource {
     declare public /*out*/ readonly domainEndpointV2: pulumi.Output<string>;
     declare public /*out*/ readonly domainEndpoints: pulumi.Output<{[key: string]: string}>;
     /**
-     * A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+     * A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
      *
      * Required when creating a new domain.
      *
@@ -99,7 +103,7 @@ export class Domain extends pulumi.CustomResource {
      */
     declare public readonly ebsOptions: pulumi.Output<outputs.opensearchservice.DomainEbsOptions | undefined>;
     /**
-     * Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
+     * Whether the domain should encrypt data at rest, and if so, the AWS  key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
      *
      * If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
      */
@@ -165,6 +169,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["accessPolicies"] = args?.accessPolicies;
             resourceInputs["advancedOptions"] = args?.advancedOptions;
             resourceInputs["advancedSecurityOptions"] = args?.advancedSecurityOptions;
+            resourceInputs["aimlOptions"] = args?.aimlOptions;
             resourceInputs["clusterConfig"] = args?.clusterConfig;
             resourceInputs["cognitoOptions"] = args?.cognitoOptions;
             resourceInputs["domainEndpointOptions"] = args?.domainEndpointOptions;
@@ -193,6 +198,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["accessPolicies"] = undefined /*out*/;
             resourceInputs["advancedOptions"] = undefined /*out*/;
             resourceInputs["advancedSecurityOptions"] = undefined /*out*/;
+            resourceInputs["aimlOptions"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clusterConfig"] = undefined /*out*/;
@@ -246,6 +252,10 @@ export interface DomainArgs {
      */
     advancedSecurityOptions?: pulumi.Input<inputs.opensearchservice.DomainAdvancedSecurityOptionsInputArgs>;
     /**
+     * Container for parameters required to enable all machine learning features.
+     */
+    aimlOptions?: pulumi.Input<inputs.opensearchservice.DomainAimlOptionsArgs>;
+    /**
      * Container for the cluster configuration of a domain.
      */
     clusterConfig?: pulumi.Input<inputs.opensearchservice.DomainClusterConfigArgs>;
@@ -258,7 +268,7 @@ export interface DomainArgs {
      */
     domainEndpointOptions?: pulumi.Input<inputs.opensearchservice.DomainEndpointOptionsArgs>;
     /**
-     * A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+     * A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
      *
      * Required when creating a new domain.
      *
@@ -270,7 +280,7 @@ export interface DomainArgs {
      */
     ebsOptions?: pulumi.Input<inputs.opensearchservice.DomainEbsOptionsArgs>;
     /**
-     * Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
+     * Whether the domain should encrypt data at rest, and if so, the AWS  key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
      *
      * If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
      */

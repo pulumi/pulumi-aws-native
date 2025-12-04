@@ -69,6 +69,7 @@ export interface GetClusterResult {
      * The settings for open monitoring.
      */
     readonly openMonitoring?: outputs.msk.ClusterOpenMonitoring;
+    readonly rebalancing?: outputs.msk.ClusterRebalancing;
     /**
      * This controls storage mode for supported storage tiers.
      */

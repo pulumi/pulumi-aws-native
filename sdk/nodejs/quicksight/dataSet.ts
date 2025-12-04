@@ -64,6 +64,9 @@ export class DataSet extends pulumi.CustomResource {
      * <p>The time that this dataset was created.</p>
      */
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
+    /**
+     * The data preparation configuration associated with this dataset.
+     */
     declare public readonly dataPrepConfiguration: pulumi.Output<outputs.quicksight.DataSetDataPrepConfiguration | undefined>;
     /**
      * An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
@@ -125,6 +128,9 @@ export class DataSet extends pulumi.CustomResource {
     declare public readonly physicalTableMap: pulumi.Output<{[key: string]: outputs.quicksight.DataSetPhysicalTable} | undefined>;
     declare public readonly rowLevelPermissionDataSet: pulumi.Output<outputs.quicksight.DataSetRowLevelPermissionDataSet | undefined>;
     declare public readonly rowLevelPermissionTagConfiguration: pulumi.Output<outputs.quicksight.DataSetRowLevelPermissionTagConfiguration | undefined>;
+    /**
+     * The semantic model configuration associated with this dataset.
+     */
     declare public readonly semanticModelConfiguration: pulumi.Output<outputs.quicksight.DataSetSemanticModelConfiguration | undefined>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
@@ -227,6 +233,9 @@ export interface DataSetArgs {
      *             </code>.</p>
      */
     columnLevelPermissionRules?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSetColumnLevelPermissionRuleArgs>[]>;
+    /**
+     * The data preparation configuration associated with this dataset.
+     */
     dataPrepConfiguration?: pulumi.Input<inputs.quicksight.DataSetDataPrepConfigurationArgs>;
     /**
      * An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
@@ -279,6 +288,9 @@ export interface DataSetArgs {
     physicalTableMap?: pulumi.Input<{[key: string]: pulumi.Input<inputs.quicksight.DataSetPhysicalTableArgs>}>;
     rowLevelPermissionDataSet?: pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionDataSetArgs>;
     rowLevelPermissionTagConfiguration?: pulumi.Input<inputs.quicksight.DataSetRowLevelPermissionTagConfigurationArgs>;
+    /**
+     * The semantic model configuration associated with this dataset.
+     */
     semanticModelConfiguration?: pulumi.Input<inputs.quicksight.DataSetSemanticModelConfigurationArgs>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>

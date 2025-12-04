@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetDestinationTableSource
     {
+        /// <summary>
+        /// The identifier of the transform operation that provides data to the destination table.
+        /// </summary>
         public readonly string TransformOperationId;
 
         [OutputConstructor]

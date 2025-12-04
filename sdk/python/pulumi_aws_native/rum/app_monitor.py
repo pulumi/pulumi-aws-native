@@ -31,6 +31,7 @@ class AppMonitorArgs:
                  domain: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 platform: Optional[pulumi.Input['AppMonitorPlatform']] = None,
                  resource_policy: Optional[pulumi.Input['AppMonitorResourcePolicyArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -69,6 +70,8 @@ class AppMonitorArgs:
             pulumi.set(__self__, "domain_list", domain_list)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
         if resource_policy is not None:
             pulumi.set(__self__, "resource_policy", resource_policy)
         if tags is not None:
@@ -161,6 +164,15 @@ class AppMonitorArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter
+    def platform(self) -> Optional[pulumi.Input['AppMonitorPlatform']]:
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: Optional[pulumi.Input['AppMonitorPlatform']]):
+        pulumi.set(self, "platform", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourcePolicy")
     def resource_policy(self) -> Optional[pulumi.Input['AppMonitorResourcePolicyArgs']]:
         """
@@ -206,6 +218,7 @@ class AppMonitor(pulumi.CustomResource):
                  domain: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 platform: Optional[pulumi.Input['AppMonitorPlatform']] = None,
                  resource_policy: Optional[pulumi.Input[Union['AppMonitorResourcePolicyArgs', 'AppMonitorResourcePolicyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -265,6 +278,7 @@ class AppMonitor(pulumi.CustomResource):
                  domain: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 platform: Optional[pulumi.Input['AppMonitorPlatform']] = None,
                  resource_policy: Optional[pulumi.Input[Union['AppMonitorResourcePolicyArgs', 'AppMonitorResourcePolicyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -283,10 +297,11 @@ class AppMonitor(pulumi.CustomResource):
             __props__.__dict__["domain"] = domain
             __props__.__dict__["domain_list"] = domain_list
             __props__.__dict__["name"] = name
+            __props__.__dict__["platform"] = platform
             __props__.__dict__["resource_policy"] = resource_policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "platform"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AppMonitor, __self__).__init__(
             'aws-native:rum:AppMonitor',
@@ -318,6 +333,7 @@ class AppMonitor(pulumi.CustomResource):
         __props__.__dict__["domain"] = None
         __props__.__dict__["domain_list"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["platform"] = None
         __props__.__dict__["resource_policy"] = None
         __props__.__dict__["tags"] = None
         return AppMonitor(resource_name, opts=opts, __props__=__props__)
@@ -387,6 +403,11 @@ class AppMonitor(pulumi.CustomResource):
         A name for the app monitor
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def platform(self) -> pulumi.Output[Optional['AppMonitorPlatform']]:
+        return pulumi.get(self, "platform")
 
     @_builtins.property
     @pulumi.getter(name="resourcePolicy")

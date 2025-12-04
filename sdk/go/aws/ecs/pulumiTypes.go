@@ -1727,6 +1727,8 @@ func (o CapacityProviderManagedInstancesNetworkConfigurationPtrOutput) Subnets()
 }
 
 type CapacityProviderManagedInstancesProvider struct {
+	// Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+	InfrastructureOptimization *CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties `pulumi:"infrastructureOptimization"`
 	// The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS assumes to manage instances. This role must include permissions for Amazon EC2 instance lifecycle management, networking, and any additional AWS services required for your workloads.
 	//
 	// For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the *Amazon ECS Developer Guide* .
@@ -1751,6 +1753,8 @@ type CapacityProviderManagedInstancesProviderInput interface {
 }
 
 type CapacityProviderManagedInstancesProviderArgs struct {
+	// Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+	InfrastructureOptimization CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrInput `pulumi:"infrastructureOptimization"`
 	// The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS assumes to manage instances. This role must include permissions for Amazon EC2 instance lifecycle management, networking, and any additional AWS services required for your workloads.
 	//
 	// For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the *Amazon ECS Developer Guide* .
@@ -1840,6 +1844,13 @@ func (o CapacityProviderManagedInstancesProviderOutput) ToCapacityProviderManage
 	}).(CapacityProviderManagedInstancesProviderPtrOutput)
 }
 
+// Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+func (o CapacityProviderManagedInstancesProviderOutput) InfrastructureOptimization() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProvider) *CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties {
+		return v.InfrastructureOptimization
+	}).(CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS assumes to manage instances. This role must include permissions for Amazon EC2 instance lifecycle management, networking, and any additional AWS services required for your workloads.
 //
 // For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the *Amazon ECS Developer Guide* .
@@ -1887,6 +1898,16 @@ func (o CapacityProviderManagedInstancesProviderPtrOutput) Elem() CapacityProvid
 	}).(CapacityProviderManagedInstancesProviderOutput)
 }
 
+// Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+func (o CapacityProviderManagedInstancesProviderPtrOutput) InfrastructureOptimization() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProvider) *CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.InfrastructureOptimization
+	}).(CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS assumes to manage instances. This role must include permissions for Amazon EC2 instance lifecycle management, networking, and any additional AWS services required for your workloads.
 //
 // For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the *Amazon ECS Developer Guide* .
@@ -1919,6 +1940,148 @@ func (o CapacityProviderManagedInstancesProviderPtrOutput) PropagateTags() Capac
 		}
 		return v.PropagateTags
 	}).(CapacityProviderManagedInstancesProviderPropagateTagsPtrOutput)
+}
+
+// Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+type CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties struct {
+	// This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are: Not set (null) - Uses the default optimization behavior, `-1` - Disables automatic infrastructure optimization, `0` to `3600` (inclusive) - Specifies the number of seconds to wait before optimizing instances.
+	ScaleInAfter *int `pulumi:"scaleInAfter"`
+}
+
+// CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesInput is an input type that accepts CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesArgs and CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesInput` via:
+//
+//	CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesArgs{...}
+type CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput
+	ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput
+}
+
+// Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+type CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesArgs struct {
+	// This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are: Not set (null) - Uses the default optimization behavior, `-1` - Disables automatic infrastructure optimization, `0` to `3600` (inclusive) - Specifies the number of seconds to wait before optimizing instances.
+	ScaleInAfter pulumi.IntPtrInput `pulumi:"scaleInAfter"`
+}
+
+func (CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties)(nil)).Elem()
+}
+
+func (i CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesArgs) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesArgs) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput)
+}
+
+func (i CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesArgs) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesArgs) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput).ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutputWithContext(ctx)
+}
+
+// CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrInput is an input type that accepts CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesArgs, CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtr and CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput values.
+// You can construct a concrete instance of `CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrInput` via:
+//
+//	        CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput
+	ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutputWithContext(context.Context) CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput
+}
+
+type capacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrType CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesArgs
+
+func CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtr(v *CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesArgs) CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrInput {
+	return (*capacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrType)(v)
+}
+
+func (*capacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties)(nil)).Elem()
+}
+
+func (i *capacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrType) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput {
+	return i.ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrType) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput)
+}
+
+// Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+type CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput {
+	return o.ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties) *CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties {
+		return &v
+	}).(CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput)
+}
+
+// This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are: Not set (null) - Uses the default optimization behavior, `-1` - Disables automatic infrastructure optimization, `0` to `3600` (inclusive) - Specifies the number of seconds to wait before optimizing instances.
+func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput) ScaleInAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties) *int {
+		return v.ScaleInAfter
+	}).(pulumi.IntPtrOutput)
+}
+
+type CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties)(nil)).Elem()
+}
+
+func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput) ToCapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutputWithContext(ctx context.Context) CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput {
+	return o
+}
+
+func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput) Elem() CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties) CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties
+		return ret
+	}).(CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput)
+}
+
+// This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are: Not set (null) - Uses the default optimization behavior, `-1` - Disables automatic infrastructure optimization, `0` to `3600` (inclusive) - Specifies the number of seconds to wait before optimizing instances.
+func (o CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput) ScaleInAfter() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleInAfter
+	}).(pulumi.IntPtrOutput)
 }
 
 type CapacityProviderManagedInstancesStorageConfiguration struct {
@@ -3336,18 +3499,18 @@ type ClusterCapacityProviderStrategyItem struct {
 	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider for each service. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of ``0`` is used.
 	//  Base value characteristics:
 	//   +  Only one capacity provider in a strategy can have a base defined
-	//   +  Default value is ``0`` if not specified
-	//   +  Valid range: 0 to 100,000
+	//   +  The default value is ``0`` if not specified
+	//   +  The valid range is 0 to 100,000
 	//   +  Base requirements are satisfied first before weight distribution
 	Base *int `pulumi:"base"`
-	// The short name of the capacity provider.
+	// The short name of the capacity provider. This can be either an AWS managed capacity provider (``FARGATE`` or ``FARGATE_SPOT``) or the name of a custom capacity provider that you created.
 	CapacityProvider *string `pulumi:"capacityProvider"`
 	// The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The ``weight`` value is taken into consideration after the ``base`` value, if defined, is satisfied.
 	//  If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail.
 	//  Weight value characteristics:
 	//   +  Weight is considered after the base value is satisfied
-	//   +  Default value is ``0`` if not specified
-	//   +  Valid range: 0 to 1,000
+	//   +  The default value is ``0`` if not specified
+	//   +  The valid range is 0 to 1,000
 	//   +  At least one capacity provider must have a weight greater than zero
 	//   +  Capacity providers with weight of ``0`` cannot place tasks
 	//
@@ -3377,18 +3540,18 @@ type ClusterCapacityProviderStrategyItemArgs struct {
 	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider for each service. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of ``0`` is used.
 	//  Base value characteristics:
 	//   +  Only one capacity provider in a strategy can have a base defined
-	//   +  Default value is ``0`` if not specified
-	//   +  Valid range: 0 to 100,000
+	//   +  The default value is ``0`` if not specified
+	//   +  The valid range is 0 to 100,000
 	//   +  Base requirements are satisfied first before weight distribution
 	Base pulumi.IntPtrInput `pulumi:"base"`
-	// The short name of the capacity provider.
+	// The short name of the capacity provider. This can be either an AWS managed capacity provider (``FARGATE`` or ``FARGATE_SPOT``) or the name of a custom capacity provider that you created.
 	CapacityProvider pulumi.StringPtrInput `pulumi:"capacityProvider"`
 	// The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The ``weight`` value is taken into consideration after the ``base`` value, if defined, is satisfied.
 	//  If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail.
 	//  Weight value characteristics:
 	//   +  Weight is considered after the base value is satisfied
-	//   +  Default value is ``0`` if not specified
-	//   +  Valid range: 0 to 1,000
+	//   +  The default value is ``0`` if not specified
+	//   +  The valid range is 0 to 1,000
 	//   +  At least one capacity provider must have a weight greater than zero
 	//   +  Capacity providers with weight of ``0`` cannot place tasks
 	//
@@ -3458,14 +3621,14 @@ func (o ClusterCapacityProviderStrategyItemOutput) ToClusterCapacityProviderStra
 //
 //	Base value characteristics:
 //	 +  Only one capacity provider in a strategy can have a base defined
-//	 +  Default value is ``0`` if not specified
-//	 +  Valid range: 0 to 100,000
+//	 +  The default value is ``0`` if not specified
+//	 +  The valid range is 0 to 100,000
 //	 +  Base requirements are satisfied first before weight distribution
 func (o ClusterCapacityProviderStrategyItemOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCapacityProviderStrategyItem) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
 
-// The short name of the capacity provider.
+// The short name of the capacity provider. This can be either an AWS managed capacity provider (“FARGATE“ or “FARGATE_SPOT“) or the name of a custom capacity provider that you created.
 func (o ClusterCapacityProviderStrategyItemOutput) CapacityProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCapacityProviderStrategyItem) *string { return v.CapacityProvider }).(pulumi.StringPtrOutput)
 }
@@ -3475,8 +3638,8 @@ func (o ClusterCapacityProviderStrategyItemOutput) CapacityProvider() pulumi.Str
 //	If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail.
 //	Weight value characteristics:
 //	 +  Weight is considered after the base value is satisfied
-//	 +  Default value is ``0`` if not specified
-//	 +  Valid range: 0 to 1,000
+//	 +  The default value is ``0`` if not specified
+//	 +  The valid range is 0 to 1,000
 //	 +  At least one capacity provider must have a weight greater than zero
 //	 +  Capacity providers with weight of ``0`` cannot place tasks
 //
@@ -4578,6 +4741,1327 @@ type ClusterTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type ExpressGatewayServiceAwsLogsConfiguration struct {
+	// The name of the CloudWatch Logs log group to send container logs to.
+	LogGroup string `pulumi:"logGroup"`
+	// The prefix for the CloudWatch Logs log stream names. The default for an Express service is `ecs` .
+	LogStreamPrefix string `pulumi:"logStreamPrefix"`
+}
+
+// ExpressGatewayServiceAwsLogsConfigurationInput is an input type that accepts ExpressGatewayServiceAwsLogsConfigurationArgs and ExpressGatewayServiceAwsLogsConfigurationOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceAwsLogsConfigurationInput` via:
+//
+//	ExpressGatewayServiceAwsLogsConfigurationArgs{...}
+type ExpressGatewayServiceAwsLogsConfigurationInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceAwsLogsConfigurationOutput() ExpressGatewayServiceAwsLogsConfigurationOutput
+	ToExpressGatewayServiceAwsLogsConfigurationOutputWithContext(context.Context) ExpressGatewayServiceAwsLogsConfigurationOutput
+}
+
+type ExpressGatewayServiceAwsLogsConfigurationArgs struct {
+	// The name of the CloudWatch Logs log group to send container logs to.
+	LogGroup pulumi.StringInput `pulumi:"logGroup"`
+	// The prefix for the CloudWatch Logs log stream names. The default for an Express service is `ecs` .
+	LogStreamPrefix pulumi.StringInput `pulumi:"logStreamPrefix"`
+}
+
+func (ExpressGatewayServiceAwsLogsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceAwsLogsConfiguration)(nil)).Elem()
+}
+
+func (i ExpressGatewayServiceAwsLogsConfigurationArgs) ToExpressGatewayServiceAwsLogsConfigurationOutput() ExpressGatewayServiceAwsLogsConfigurationOutput {
+	return i.ToExpressGatewayServiceAwsLogsConfigurationOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceAwsLogsConfigurationArgs) ToExpressGatewayServiceAwsLogsConfigurationOutputWithContext(ctx context.Context) ExpressGatewayServiceAwsLogsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceAwsLogsConfigurationOutput)
+}
+
+func (i ExpressGatewayServiceAwsLogsConfigurationArgs) ToExpressGatewayServiceAwsLogsConfigurationPtrOutput() ExpressGatewayServiceAwsLogsConfigurationPtrOutput {
+	return i.ToExpressGatewayServiceAwsLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceAwsLogsConfigurationArgs) ToExpressGatewayServiceAwsLogsConfigurationPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceAwsLogsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceAwsLogsConfigurationOutput).ToExpressGatewayServiceAwsLogsConfigurationPtrOutputWithContext(ctx)
+}
+
+// ExpressGatewayServiceAwsLogsConfigurationPtrInput is an input type that accepts ExpressGatewayServiceAwsLogsConfigurationArgs, ExpressGatewayServiceAwsLogsConfigurationPtr and ExpressGatewayServiceAwsLogsConfigurationPtrOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceAwsLogsConfigurationPtrInput` via:
+//
+//	        ExpressGatewayServiceAwsLogsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExpressGatewayServiceAwsLogsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceAwsLogsConfigurationPtrOutput() ExpressGatewayServiceAwsLogsConfigurationPtrOutput
+	ToExpressGatewayServiceAwsLogsConfigurationPtrOutputWithContext(context.Context) ExpressGatewayServiceAwsLogsConfigurationPtrOutput
+}
+
+type expressGatewayServiceAwsLogsConfigurationPtrType ExpressGatewayServiceAwsLogsConfigurationArgs
+
+func ExpressGatewayServiceAwsLogsConfigurationPtr(v *ExpressGatewayServiceAwsLogsConfigurationArgs) ExpressGatewayServiceAwsLogsConfigurationPtrInput {
+	return (*expressGatewayServiceAwsLogsConfigurationPtrType)(v)
+}
+
+func (*expressGatewayServiceAwsLogsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServiceAwsLogsConfiguration)(nil)).Elem()
+}
+
+func (i *expressGatewayServiceAwsLogsConfigurationPtrType) ToExpressGatewayServiceAwsLogsConfigurationPtrOutput() ExpressGatewayServiceAwsLogsConfigurationPtrOutput {
+	return i.ToExpressGatewayServiceAwsLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *expressGatewayServiceAwsLogsConfigurationPtrType) ToExpressGatewayServiceAwsLogsConfigurationPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceAwsLogsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceAwsLogsConfigurationPtrOutput)
+}
+
+type ExpressGatewayServiceAwsLogsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceAwsLogsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceAwsLogsConfiguration)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceAwsLogsConfigurationOutput) ToExpressGatewayServiceAwsLogsConfigurationOutput() ExpressGatewayServiceAwsLogsConfigurationOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceAwsLogsConfigurationOutput) ToExpressGatewayServiceAwsLogsConfigurationOutputWithContext(ctx context.Context) ExpressGatewayServiceAwsLogsConfigurationOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceAwsLogsConfigurationOutput) ToExpressGatewayServiceAwsLogsConfigurationPtrOutput() ExpressGatewayServiceAwsLogsConfigurationPtrOutput {
+	return o.ToExpressGatewayServiceAwsLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressGatewayServiceAwsLogsConfigurationOutput) ToExpressGatewayServiceAwsLogsConfigurationPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceAwsLogsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressGatewayServiceAwsLogsConfiguration) *ExpressGatewayServiceAwsLogsConfiguration {
+		return &v
+	}).(ExpressGatewayServiceAwsLogsConfigurationPtrOutput)
+}
+
+// The name of the CloudWatch Logs log group to send container logs to.
+func (o ExpressGatewayServiceAwsLogsConfigurationOutput) LogGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceAwsLogsConfiguration) string { return v.LogGroup }).(pulumi.StringOutput)
+}
+
+// The prefix for the CloudWatch Logs log stream names. The default for an Express service is `ecs` .
+func (o ExpressGatewayServiceAwsLogsConfigurationOutput) LogStreamPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceAwsLogsConfiguration) string { return v.LogStreamPrefix }).(pulumi.StringOutput)
+}
+
+type ExpressGatewayServiceAwsLogsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceAwsLogsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServiceAwsLogsConfiguration)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceAwsLogsConfigurationPtrOutput) ToExpressGatewayServiceAwsLogsConfigurationPtrOutput() ExpressGatewayServiceAwsLogsConfigurationPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceAwsLogsConfigurationPtrOutput) ToExpressGatewayServiceAwsLogsConfigurationPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceAwsLogsConfigurationPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceAwsLogsConfigurationPtrOutput) Elem() ExpressGatewayServiceAwsLogsConfigurationOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceAwsLogsConfiguration) ExpressGatewayServiceAwsLogsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressGatewayServiceAwsLogsConfiguration
+		return ret
+	}).(ExpressGatewayServiceAwsLogsConfigurationOutput)
+}
+
+// The name of the CloudWatch Logs log group to send container logs to.
+func (o ExpressGatewayServiceAwsLogsConfigurationPtrOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceAwsLogsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// The prefix for the CloudWatch Logs log stream names. The default for an Express service is `ecs` .
+func (o ExpressGatewayServiceAwsLogsConfigurationPtrOutput) LogStreamPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceAwsLogsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogStreamPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExpressGatewayServiceConfiguration struct {
+	// The CPU allocation for tasks in this service revision.
+	Cpu *string `pulumi:"cpu"`
+	// The Unix timestamp for when this service revision was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The ARN of the task execution role for the service revision.
+	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
+	// The health check path for this service revision.
+	HealthCheckPath *string `pulumi:"healthCheckPath"`
+	// The entry point into this service revision.
+	IngressPaths []ExpressGatewayServiceIngressPathSummary `pulumi:"ingressPaths"`
+	// The memory allocation for tasks in this service revision.
+	Memory *string `pulumi:"memory"`
+	// The network configuration for tasks in this service revision.
+	NetworkConfiguration *ExpressGatewayServiceNetworkConfiguration `pulumi:"networkConfiguration"`
+	// The primary container configuration for this service revision.
+	PrimaryContainer *ExpressGatewayServiceExpressGatewayContainer `pulumi:"primaryContainer"`
+	// The auto-scaling configuration for this service revision.
+	ScalingTarget *ExpressGatewayServiceExpressGatewayScalingTarget `pulumi:"scalingTarget"`
+	// The ARN of the service revision.
+	ServiceRevisionArn *string `pulumi:"serviceRevisionArn"`
+	// The ARN of the task role for the service revision.
+	TaskRoleArn *string `pulumi:"taskRoleArn"`
+}
+
+type ExpressGatewayServiceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceConfiguration)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceConfigurationOutput) ToExpressGatewayServiceConfigurationOutput() ExpressGatewayServiceConfigurationOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceConfigurationOutput) ToExpressGatewayServiceConfigurationOutputWithContext(ctx context.Context) ExpressGatewayServiceConfigurationOutput {
+	return o
+}
+
+// The CPU allocation for tasks in this service revision.
+func (o ExpressGatewayServiceConfigurationOutput) Cpu() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceConfiguration) *string { return v.Cpu }).(pulumi.StringPtrOutput)
+}
+
+// The Unix timestamp for when this service revision was created.
+func (o ExpressGatewayServiceConfigurationOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceConfiguration) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the task execution role for the service revision.
+func (o ExpressGatewayServiceConfigurationOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceConfiguration) *string { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The health check path for this service revision.
+func (o ExpressGatewayServiceConfigurationOutput) HealthCheckPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceConfiguration) *string { return v.HealthCheckPath }).(pulumi.StringPtrOutput)
+}
+
+// The entry point into this service revision.
+func (o ExpressGatewayServiceConfigurationOutput) IngressPaths() ExpressGatewayServiceIngressPathSummaryArrayOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceConfiguration) []ExpressGatewayServiceIngressPathSummary {
+		return v.IngressPaths
+	}).(ExpressGatewayServiceIngressPathSummaryArrayOutput)
+}
+
+// The memory allocation for tasks in this service revision.
+func (o ExpressGatewayServiceConfigurationOutput) Memory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceConfiguration) *string { return v.Memory }).(pulumi.StringPtrOutput)
+}
+
+// The network configuration for tasks in this service revision.
+func (o ExpressGatewayServiceConfigurationOutput) NetworkConfiguration() ExpressGatewayServiceNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceConfiguration) *ExpressGatewayServiceNetworkConfiguration {
+		return v.NetworkConfiguration
+	}).(ExpressGatewayServiceNetworkConfigurationPtrOutput)
+}
+
+// The primary container configuration for this service revision.
+func (o ExpressGatewayServiceConfigurationOutput) PrimaryContainer() ExpressGatewayServiceExpressGatewayContainerPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceConfiguration) *ExpressGatewayServiceExpressGatewayContainer {
+		return v.PrimaryContainer
+	}).(ExpressGatewayServiceExpressGatewayContainerPtrOutput)
+}
+
+// The auto-scaling configuration for this service revision.
+func (o ExpressGatewayServiceConfigurationOutput) ScalingTarget() ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceConfiguration) *ExpressGatewayServiceExpressGatewayScalingTarget {
+		return v.ScalingTarget
+	}).(ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput)
+}
+
+// The ARN of the service revision.
+func (o ExpressGatewayServiceConfigurationOutput) ServiceRevisionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceConfiguration) *string { return v.ServiceRevisionArn }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the task role for the service revision.
+func (o ExpressGatewayServiceConfigurationOutput) TaskRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceConfiguration) *string { return v.TaskRoleArn }).(pulumi.StringPtrOutput)
+}
+
+type ExpressGatewayServiceConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressGatewayServiceConfiguration)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceConfigurationArrayOutput) ToExpressGatewayServiceConfigurationArrayOutput() ExpressGatewayServiceConfigurationArrayOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceConfigurationArrayOutput) ToExpressGatewayServiceConfigurationArrayOutputWithContext(ctx context.Context) ExpressGatewayServiceConfigurationArrayOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceConfigurationArrayOutput) Index(i pulumi.IntInput) ExpressGatewayServiceConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressGatewayServiceConfiguration {
+		return vs[0].([]ExpressGatewayServiceConfiguration)[vs[1].(int)]
+	}).(ExpressGatewayServiceConfigurationOutput)
+}
+
+type ExpressGatewayServiceExpressGatewayContainer struct {
+	// The log configuration for the container.
+	AwsLogsConfiguration *ExpressGatewayServiceAwsLogsConfiguration `pulumi:"awsLogsConfiguration"`
+	// The command that is passed to the container.
+	Command []string `pulumi:"command"`
+	// The port number on the container that receives traffic from the load balancer. Default is 80.
+	ContainerPort *int `pulumi:"containerPort"`
+	// The environment variables to pass to the container.
+	Environment []ExpressGatewayServiceKeyValuePair `pulumi:"environment"`
+	// The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with either `repository-url/image:tag` or `repository-url/image@digest` .
+	//
+	// For Express services, the image typically contains a web application that listens on the specified container port. The image can be stored in Amazon ECR, Docker Hub, or any other container registry accessible to your execution role.
+	Image string `pulumi:"image"`
+	// The configuration for repository credentials for private registry authentication.
+	RepositoryCredentials *ExpressGatewayServiceExpressGatewayRepositoryCredentials `pulumi:"repositoryCredentials"`
+	// The secrets to pass to the container.
+	Secrets []ExpressGatewayServiceSecret `pulumi:"secrets"`
+}
+
+// ExpressGatewayServiceExpressGatewayContainerInput is an input type that accepts ExpressGatewayServiceExpressGatewayContainerArgs and ExpressGatewayServiceExpressGatewayContainerOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceExpressGatewayContainerInput` via:
+//
+//	ExpressGatewayServiceExpressGatewayContainerArgs{...}
+type ExpressGatewayServiceExpressGatewayContainerInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceExpressGatewayContainerOutput() ExpressGatewayServiceExpressGatewayContainerOutput
+	ToExpressGatewayServiceExpressGatewayContainerOutputWithContext(context.Context) ExpressGatewayServiceExpressGatewayContainerOutput
+}
+
+type ExpressGatewayServiceExpressGatewayContainerArgs struct {
+	// The log configuration for the container.
+	AwsLogsConfiguration ExpressGatewayServiceAwsLogsConfigurationPtrInput `pulumi:"awsLogsConfiguration"`
+	// The command that is passed to the container.
+	Command pulumi.StringArrayInput `pulumi:"command"`
+	// The port number on the container that receives traffic from the load balancer. Default is 80.
+	ContainerPort pulumi.IntPtrInput `pulumi:"containerPort"`
+	// The environment variables to pass to the container.
+	Environment ExpressGatewayServiceKeyValuePairArrayInput `pulumi:"environment"`
+	// The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with either `repository-url/image:tag` or `repository-url/image@digest` .
+	//
+	// For Express services, the image typically contains a web application that listens on the specified container port. The image can be stored in Amazon ECR, Docker Hub, or any other container registry accessible to your execution role.
+	Image pulumi.StringInput `pulumi:"image"`
+	// The configuration for repository credentials for private registry authentication.
+	RepositoryCredentials ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrInput `pulumi:"repositoryCredentials"`
+	// The secrets to pass to the container.
+	Secrets ExpressGatewayServiceSecretArrayInput `pulumi:"secrets"`
+}
+
+func (ExpressGatewayServiceExpressGatewayContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceExpressGatewayContainer)(nil)).Elem()
+}
+
+func (i ExpressGatewayServiceExpressGatewayContainerArgs) ToExpressGatewayServiceExpressGatewayContainerOutput() ExpressGatewayServiceExpressGatewayContainerOutput {
+	return i.ToExpressGatewayServiceExpressGatewayContainerOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceExpressGatewayContainerArgs) ToExpressGatewayServiceExpressGatewayContainerOutputWithContext(ctx context.Context) ExpressGatewayServiceExpressGatewayContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceExpressGatewayContainerOutput)
+}
+
+type ExpressGatewayServiceExpressGatewayContainerOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceExpressGatewayContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceExpressGatewayContainer)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceExpressGatewayContainerOutput) ToExpressGatewayServiceExpressGatewayContainerOutput() ExpressGatewayServiceExpressGatewayContainerOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceExpressGatewayContainerOutput) ToExpressGatewayServiceExpressGatewayContainerOutputWithContext(ctx context.Context) ExpressGatewayServiceExpressGatewayContainerOutput {
+	return o
+}
+
+// The log configuration for the container.
+func (o ExpressGatewayServiceExpressGatewayContainerOutput) AwsLogsConfiguration() ExpressGatewayServiceAwsLogsConfigurationPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceExpressGatewayContainer) *ExpressGatewayServiceAwsLogsConfiguration {
+		return v.AwsLogsConfiguration
+	}).(ExpressGatewayServiceAwsLogsConfigurationPtrOutput)
+}
+
+// The command that is passed to the container.
+func (o ExpressGatewayServiceExpressGatewayContainerOutput) Command() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceExpressGatewayContainer) []string { return v.Command }).(pulumi.StringArrayOutput)
+}
+
+// The port number on the container that receives traffic from the load balancer. Default is 80.
+func (o ExpressGatewayServiceExpressGatewayContainerOutput) ContainerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceExpressGatewayContainer) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
+}
+
+// The environment variables to pass to the container.
+func (o ExpressGatewayServiceExpressGatewayContainerOutput) Environment() ExpressGatewayServiceKeyValuePairArrayOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceExpressGatewayContainer) []ExpressGatewayServiceKeyValuePair {
+		return v.Environment
+	}).(ExpressGatewayServiceKeyValuePairArrayOutput)
+}
+
+// The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with either `repository-url/image:tag` or `repository-url/image@digest` .
+//
+// For Express services, the image typically contains a web application that listens on the specified container port. The image can be stored in Amazon ECR, Docker Hub, or any other container registry accessible to your execution role.
+func (o ExpressGatewayServiceExpressGatewayContainerOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceExpressGatewayContainer) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// The configuration for repository credentials for private registry authentication.
+func (o ExpressGatewayServiceExpressGatewayContainerOutput) RepositoryCredentials() ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceExpressGatewayContainer) *ExpressGatewayServiceExpressGatewayRepositoryCredentials {
+		return v.RepositoryCredentials
+	}).(ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput)
+}
+
+// The secrets to pass to the container.
+func (o ExpressGatewayServiceExpressGatewayContainerOutput) Secrets() ExpressGatewayServiceSecretArrayOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceExpressGatewayContainer) []ExpressGatewayServiceSecret { return v.Secrets }).(ExpressGatewayServiceSecretArrayOutput)
+}
+
+type ExpressGatewayServiceExpressGatewayContainerPtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceExpressGatewayContainerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServiceExpressGatewayContainer)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceExpressGatewayContainerPtrOutput) ToExpressGatewayServiceExpressGatewayContainerPtrOutput() ExpressGatewayServiceExpressGatewayContainerPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceExpressGatewayContainerPtrOutput) ToExpressGatewayServiceExpressGatewayContainerPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceExpressGatewayContainerPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceExpressGatewayContainerPtrOutput) Elem() ExpressGatewayServiceExpressGatewayContainerOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceExpressGatewayContainer) ExpressGatewayServiceExpressGatewayContainer {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressGatewayServiceExpressGatewayContainer
+		return ret
+	}).(ExpressGatewayServiceExpressGatewayContainerOutput)
+}
+
+// The log configuration for the container.
+func (o ExpressGatewayServiceExpressGatewayContainerPtrOutput) AwsLogsConfiguration() ExpressGatewayServiceAwsLogsConfigurationPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceExpressGatewayContainer) *ExpressGatewayServiceAwsLogsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AwsLogsConfiguration
+	}).(ExpressGatewayServiceAwsLogsConfigurationPtrOutput)
+}
+
+// The command that is passed to the container.
+func (o ExpressGatewayServiceExpressGatewayContainerPtrOutput) Command() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceExpressGatewayContainer) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Command
+	}).(pulumi.StringArrayOutput)
+}
+
+// The port number on the container that receives traffic from the load balancer. Default is 80.
+func (o ExpressGatewayServiceExpressGatewayContainerPtrOutput) ContainerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceExpressGatewayContainer) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// The environment variables to pass to the container.
+func (o ExpressGatewayServiceExpressGatewayContainerPtrOutput) Environment() ExpressGatewayServiceKeyValuePairArrayOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceExpressGatewayContainer) []ExpressGatewayServiceKeyValuePair {
+		if v == nil {
+			return nil
+		}
+		return v.Environment
+	}).(ExpressGatewayServiceKeyValuePairArrayOutput)
+}
+
+// The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with either `repository-url/image:tag` or `repository-url/image@digest` .
+//
+// For Express services, the image typically contains a web application that listens on the specified container port. The image can be stored in Amazon ECR, Docker Hub, or any other container registry accessible to your execution role.
+func (o ExpressGatewayServiceExpressGatewayContainerPtrOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceExpressGatewayContainer) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Image
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration for repository credentials for private registry authentication.
+func (o ExpressGatewayServiceExpressGatewayContainerPtrOutput) RepositoryCredentials() ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceExpressGatewayContainer) *ExpressGatewayServiceExpressGatewayRepositoryCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryCredentials
+	}).(ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput)
+}
+
+// The secrets to pass to the container.
+func (o ExpressGatewayServiceExpressGatewayContainerPtrOutput) Secrets() ExpressGatewayServiceSecretArrayOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceExpressGatewayContainer) []ExpressGatewayServiceSecret {
+		if v == nil {
+			return nil
+		}
+		return v.Secrets
+	}).(ExpressGatewayServiceSecretArrayOutput)
+}
+
+type ExpressGatewayServiceExpressGatewayRepositoryCredentials struct {
+	// The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
+	CredentialsParameter string `pulumi:"credentialsParameter"`
+}
+
+// ExpressGatewayServiceExpressGatewayRepositoryCredentialsInput is an input type that accepts ExpressGatewayServiceExpressGatewayRepositoryCredentialsArgs and ExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceExpressGatewayRepositoryCredentialsInput` via:
+//
+//	ExpressGatewayServiceExpressGatewayRepositoryCredentialsArgs{...}
+type ExpressGatewayServiceExpressGatewayRepositoryCredentialsInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput() ExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput
+	ToExpressGatewayServiceExpressGatewayRepositoryCredentialsOutputWithContext(context.Context) ExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput
+}
+
+type ExpressGatewayServiceExpressGatewayRepositoryCredentialsArgs struct {
+	// The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
+	CredentialsParameter pulumi.StringInput `pulumi:"credentialsParameter"`
+}
+
+func (ExpressGatewayServiceExpressGatewayRepositoryCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceExpressGatewayRepositoryCredentials)(nil)).Elem()
+}
+
+func (i ExpressGatewayServiceExpressGatewayRepositoryCredentialsArgs) ToExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput() ExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput {
+	return i.ToExpressGatewayServiceExpressGatewayRepositoryCredentialsOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceExpressGatewayRepositoryCredentialsArgs) ToExpressGatewayServiceExpressGatewayRepositoryCredentialsOutputWithContext(ctx context.Context) ExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput)
+}
+
+func (i ExpressGatewayServiceExpressGatewayRepositoryCredentialsArgs) ToExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput() ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput {
+	return i.ToExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceExpressGatewayRepositoryCredentialsArgs) ToExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput).ToExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutputWithContext(ctx)
+}
+
+// ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrInput is an input type that accepts ExpressGatewayServiceExpressGatewayRepositoryCredentialsArgs, ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtr and ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrInput` via:
+//
+//	        ExpressGatewayServiceExpressGatewayRepositoryCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput() ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput
+	ToExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutputWithContext(context.Context) ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput
+}
+
+type expressGatewayServiceExpressGatewayRepositoryCredentialsPtrType ExpressGatewayServiceExpressGatewayRepositoryCredentialsArgs
+
+func ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtr(v *ExpressGatewayServiceExpressGatewayRepositoryCredentialsArgs) ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrInput {
+	return (*expressGatewayServiceExpressGatewayRepositoryCredentialsPtrType)(v)
+}
+
+func (*expressGatewayServiceExpressGatewayRepositoryCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServiceExpressGatewayRepositoryCredentials)(nil)).Elem()
+}
+
+func (i *expressGatewayServiceExpressGatewayRepositoryCredentialsPtrType) ToExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput() ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput {
+	return i.ToExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *expressGatewayServiceExpressGatewayRepositoryCredentialsPtrType) ToExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput)
+}
+
+type ExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceExpressGatewayRepositoryCredentials)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput) ToExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput() ExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput) ToExpressGatewayServiceExpressGatewayRepositoryCredentialsOutputWithContext(ctx context.Context) ExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput) ToExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput() ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput {
+	return o.ToExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput) ToExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressGatewayServiceExpressGatewayRepositoryCredentials) *ExpressGatewayServiceExpressGatewayRepositoryCredentials {
+		return &v
+	}).(ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
+func (o ExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput) CredentialsParameter() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceExpressGatewayRepositoryCredentials) string { return v.CredentialsParameter }).(pulumi.StringOutput)
+}
+
+type ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServiceExpressGatewayRepositoryCredentials)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput) ToExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput() ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput) ToExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput) Elem() ExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceExpressGatewayRepositoryCredentials) ExpressGatewayServiceExpressGatewayRepositoryCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressGatewayServiceExpressGatewayRepositoryCredentials
+		return ret
+	}).(ExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput)
+}
+
+// The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
+func (o ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput) CredentialsParameter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceExpressGatewayRepositoryCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialsParameter
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExpressGatewayServiceExpressGatewayScalingTarget struct {
+	// The metric used for auto-scaling decisions. The default metric used for an Express service is `CPUUtilization` .
+	AutoScalingMetric *ExpressGatewayServiceScalingMetric `pulumi:"autoScalingMetric"`
+	// The target value for the auto-scaling metric. The default value for an Express service is 60.
+	AutoScalingTargetValue *int `pulumi:"autoScalingTargetValue"`
+	// The maximum number of tasks to run in the Express service.
+	MaxTaskCount *int `pulumi:"maxTaskCount"`
+	// The minimum number of tasks to run in the Express service.
+	MinTaskCount *int `pulumi:"minTaskCount"`
+}
+
+// ExpressGatewayServiceExpressGatewayScalingTargetInput is an input type that accepts ExpressGatewayServiceExpressGatewayScalingTargetArgs and ExpressGatewayServiceExpressGatewayScalingTargetOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceExpressGatewayScalingTargetInput` via:
+//
+//	ExpressGatewayServiceExpressGatewayScalingTargetArgs{...}
+type ExpressGatewayServiceExpressGatewayScalingTargetInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceExpressGatewayScalingTargetOutput() ExpressGatewayServiceExpressGatewayScalingTargetOutput
+	ToExpressGatewayServiceExpressGatewayScalingTargetOutputWithContext(context.Context) ExpressGatewayServiceExpressGatewayScalingTargetOutput
+}
+
+type ExpressGatewayServiceExpressGatewayScalingTargetArgs struct {
+	// The metric used for auto-scaling decisions. The default metric used for an Express service is `CPUUtilization` .
+	AutoScalingMetric ExpressGatewayServiceScalingMetricPtrInput `pulumi:"autoScalingMetric"`
+	// The target value for the auto-scaling metric. The default value for an Express service is 60.
+	AutoScalingTargetValue pulumi.IntPtrInput `pulumi:"autoScalingTargetValue"`
+	// The maximum number of tasks to run in the Express service.
+	MaxTaskCount pulumi.IntPtrInput `pulumi:"maxTaskCount"`
+	// The minimum number of tasks to run in the Express service.
+	MinTaskCount pulumi.IntPtrInput `pulumi:"minTaskCount"`
+}
+
+func (ExpressGatewayServiceExpressGatewayScalingTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceExpressGatewayScalingTarget)(nil)).Elem()
+}
+
+func (i ExpressGatewayServiceExpressGatewayScalingTargetArgs) ToExpressGatewayServiceExpressGatewayScalingTargetOutput() ExpressGatewayServiceExpressGatewayScalingTargetOutput {
+	return i.ToExpressGatewayServiceExpressGatewayScalingTargetOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceExpressGatewayScalingTargetArgs) ToExpressGatewayServiceExpressGatewayScalingTargetOutputWithContext(ctx context.Context) ExpressGatewayServiceExpressGatewayScalingTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceExpressGatewayScalingTargetOutput)
+}
+
+func (i ExpressGatewayServiceExpressGatewayScalingTargetArgs) ToExpressGatewayServiceExpressGatewayScalingTargetPtrOutput() ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput {
+	return i.ToExpressGatewayServiceExpressGatewayScalingTargetPtrOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceExpressGatewayScalingTargetArgs) ToExpressGatewayServiceExpressGatewayScalingTargetPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceExpressGatewayScalingTargetOutput).ToExpressGatewayServiceExpressGatewayScalingTargetPtrOutputWithContext(ctx)
+}
+
+// ExpressGatewayServiceExpressGatewayScalingTargetPtrInput is an input type that accepts ExpressGatewayServiceExpressGatewayScalingTargetArgs, ExpressGatewayServiceExpressGatewayScalingTargetPtr and ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceExpressGatewayScalingTargetPtrInput` via:
+//
+//	        ExpressGatewayServiceExpressGatewayScalingTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExpressGatewayServiceExpressGatewayScalingTargetPtrInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceExpressGatewayScalingTargetPtrOutput() ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput
+	ToExpressGatewayServiceExpressGatewayScalingTargetPtrOutputWithContext(context.Context) ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput
+}
+
+type expressGatewayServiceExpressGatewayScalingTargetPtrType ExpressGatewayServiceExpressGatewayScalingTargetArgs
+
+func ExpressGatewayServiceExpressGatewayScalingTargetPtr(v *ExpressGatewayServiceExpressGatewayScalingTargetArgs) ExpressGatewayServiceExpressGatewayScalingTargetPtrInput {
+	return (*expressGatewayServiceExpressGatewayScalingTargetPtrType)(v)
+}
+
+func (*expressGatewayServiceExpressGatewayScalingTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServiceExpressGatewayScalingTarget)(nil)).Elem()
+}
+
+func (i *expressGatewayServiceExpressGatewayScalingTargetPtrType) ToExpressGatewayServiceExpressGatewayScalingTargetPtrOutput() ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput {
+	return i.ToExpressGatewayServiceExpressGatewayScalingTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *expressGatewayServiceExpressGatewayScalingTargetPtrType) ToExpressGatewayServiceExpressGatewayScalingTargetPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput)
+}
+
+type ExpressGatewayServiceExpressGatewayScalingTargetOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceExpressGatewayScalingTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceExpressGatewayScalingTarget)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceExpressGatewayScalingTargetOutput) ToExpressGatewayServiceExpressGatewayScalingTargetOutput() ExpressGatewayServiceExpressGatewayScalingTargetOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceExpressGatewayScalingTargetOutput) ToExpressGatewayServiceExpressGatewayScalingTargetOutputWithContext(ctx context.Context) ExpressGatewayServiceExpressGatewayScalingTargetOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceExpressGatewayScalingTargetOutput) ToExpressGatewayServiceExpressGatewayScalingTargetPtrOutput() ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput {
+	return o.ToExpressGatewayServiceExpressGatewayScalingTargetPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressGatewayServiceExpressGatewayScalingTargetOutput) ToExpressGatewayServiceExpressGatewayScalingTargetPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressGatewayServiceExpressGatewayScalingTarget) *ExpressGatewayServiceExpressGatewayScalingTarget {
+		return &v
+	}).(ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput)
+}
+
+// The metric used for auto-scaling decisions. The default metric used for an Express service is `CPUUtilization` .
+func (o ExpressGatewayServiceExpressGatewayScalingTargetOutput) AutoScalingMetric() ExpressGatewayServiceScalingMetricPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceExpressGatewayScalingTarget) *ExpressGatewayServiceScalingMetric {
+		return v.AutoScalingMetric
+	}).(ExpressGatewayServiceScalingMetricPtrOutput)
+}
+
+// The target value for the auto-scaling metric. The default value for an Express service is 60.
+func (o ExpressGatewayServiceExpressGatewayScalingTargetOutput) AutoScalingTargetValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceExpressGatewayScalingTarget) *int { return v.AutoScalingTargetValue }).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of tasks to run in the Express service.
+func (o ExpressGatewayServiceExpressGatewayScalingTargetOutput) MaxTaskCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceExpressGatewayScalingTarget) *int { return v.MaxTaskCount }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of tasks to run in the Express service.
+func (o ExpressGatewayServiceExpressGatewayScalingTargetOutput) MinTaskCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceExpressGatewayScalingTarget) *int { return v.MinTaskCount }).(pulumi.IntPtrOutput)
+}
+
+type ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServiceExpressGatewayScalingTarget)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput) ToExpressGatewayServiceExpressGatewayScalingTargetPtrOutput() ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput) ToExpressGatewayServiceExpressGatewayScalingTargetPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput) Elem() ExpressGatewayServiceExpressGatewayScalingTargetOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceExpressGatewayScalingTarget) ExpressGatewayServiceExpressGatewayScalingTarget {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressGatewayServiceExpressGatewayScalingTarget
+		return ret
+	}).(ExpressGatewayServiceExpressGatewayScalingTargetOutput)
+}
+
+// The metric used for auto-scaling decisions. The default metric used for an Express service is `CPUUtilization` .
+func (o ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput) AutoScalingMetric() ExpressGatewayServiceScalingMetricPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceExpressGatewayScalingTarget) *ExpressGatewayServiceScalingMetric {
+		if v == nil {
+			return nil
+		}
+		return v.AutoScalingMetric
+	}).(ExpressGatewayServiceScalingMetricPtrOutput)
+}
+
+// The target value for the auto-scaling metric. The default value for an Express service is 60.
+func (o ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput) AutoScalingTargetValue() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceExpressGatewayScalingTarget) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AutoScalingTargetValue
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of tasks to run in the Express service.
+func (o ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput) MaxTaskCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceExpressGatewayScalingTarget) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxTaskCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of tasks to run in the Express service.
+func (o ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput) MinTaskCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceExpressGatewayScalingTarget) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinTaskCount
+	}).(pulumi.IntPtrOutput)
+}
+
+type ExpressGatewayServiceIngressPathSummary struct {
+	// The type of access to the endpoint for the Express service.
+	AccessType *ExpressGatewayServiceAccessType `pulumi:"accessType"`
+	// The endpoint for access to the service.
+	Endpoint *string `pulumi:"endpoint"`
+}
+
+type ExpressGatewayServiceIngressPathSummaryOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceIngressPathSummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceIngressPathSummary)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceIngressPathSummaryOutput) ToExpressGatewayServiceIngressPathSummaryOutput() ExpressGatewayServiceIngressPathSummaryOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceIngressPathSummaryOutput) ToExpressGatewayServiceIngressPathSummaryOutputWithContext(ctx context.Context) ExpressGatewayServiceIngressPathSummaryOutput {
+	return o
+}
+
+// The type of access to the endpoint for the Express service.
+func (o ExpressGatewayServiceIngressPathSummaryOutput) AccessType() ExpressGatewayServiceAccessTypePtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceIngressPathSummary) *ExpressGatewayServiceAccessType { return v.AccessType }).(ExpressGatewayServiceAccessTypePtrOutput)
+}
+
+// The endpoint for access to the service.
+func (o ExpressGatewayServiceIngressPathSummaryOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceIngressPathSummary) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+type ExpressGatewayServiceIngressPathSummaryArrayOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceIngressPathSummaryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressGatewayServiceIngressPathSummary)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceIngressPathSummaryArrayOutput) ToExpressGatewayServiceIngressPathSummaryArrayOutput() ExpressGatewayServiceIngressPathSummaryArrayOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceIngressPathSummaryArrayOutput) ToExpressGatewayServiceIngressPathSummaryArrayOutputWithContext(ctx context.Context) ExpressGatewayServiceIngressPathSummaryArrayOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceIngressPathSummaryArrayOutput) Index(i pulumi.IntInput) ExpressGatewayServiceIngressPathSummaryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressGatewayServiceIngressPathSummary {
+		return vs[0].([]ExpressGatewayServiceIngressPathSummary)[vs[1].(int)]
+	}).(ExpressGatewayServiceIngressPathSummaryOutput)
+}
+
+type ExpressGatewayServiceKeyValuePair struct {
+	// The name of the key-value pair. For environment variables, this is the name of the environment variable.
+	Name string `pulumi:"name"`
+	// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+	Value string `pulumi:"value"`
+}
+
+// ExpressGatewayServiceKeyValuePairInput is an input type that accepts ExpressGatewayServiceKeyValuePairArgs and ExpressGatewayServiceKeyValuePairOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceKeyValuePairInput` via:
+//
+//	ExpressGatewayServiceKeyValuePairArgs{...}
+type ExpressGatewayServiceKeyValuePairInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceKeyValuePairOutput() ExpressGatewayServiceKeyValuePairOutput
+	ToExpressGatewayServiceKeyValuePairOutputWithContext(context.Context) ExpressGatewayServiceKeyValuePairOutput
+}
+
+type ExpressGatewayServiceKeyValuePairArgs struct {
+	// The name of the key-value pair. For environment variables, this is the name of the environment variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ExpressGatewayServiceKeyValuePairArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceKeyValuePair)(nil)).Elem()
+}
+
+func (i ExpressGatewayServiceKeyValuePairArgs) ToExpressGatewayServiceKeyValuePairOutput() ExpressGatewayServiceKeyValuePairOutput {
+	return i.ToExpressGatewayServiceKeyValuePairOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceKeyValuePairArgs) ToExpressGatewayServiceKeyValuePairOutputWithContext(ctx context.Context) ExpressGatewayServiceKeyValuePairOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceKeyValuePairOutput)
+}
+
+// ExpressGatewayServiceKeyValuePairArrayInput is an input type that accepts ExpressGatewayServiceKeyValuePairArray and ExpressGatewayServiceKeyValuePairArrayOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceKeyValuePairArrayInput` via:
+//
+//	ExpressGatewayServiceKeyValuePairArray{ ExpressGatewayServiceKeyValuePairArgs{...} }
+type ExpressGatewayServiceKeyValuePairArrayInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceKeyValuePairArrayOutput() ExpressGatewayServiceKeyValuePairArrayOutput
+	ToExpressGatewayServiceKeyValuePairArrayOutputWithContext(context.Context) ExpressGatewayServiceKeyValuePairArrayOutput
+}
+
+type ExpressGatewayServiceKeyValuePairArray []ExpressGatewayServiceKeyValuePairInput
+
+func (ExpressGatewayServiceKeyValuePairArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressGatewayServiceKeyValuePair)(nil)).Elem()
+}
+
+func (i ExpressGatewayServiceKeyValuePairArray) ToExpressGatewayServiceKeyValuePairArrayOutput() ExpressGatewayServiceKeyValuePairArrayOutput {
+	return i.ToExpressGatewayServiceKeyValuePairArrayOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceKeyValuePairArray) ToExpressGatewayServiceKeyValuePairArrayOutputWithContext(ctx context.Context) ExpressGatewayServiceKeyValuePairArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceKeyValuePairArrayOutput)
+}
+
+type ExpressGatewayServiceKeyValuePairOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceKeyValuePairOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceKeyValuePair)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceKeyValuePairOutput) ToExpressGatewayServiceKeyValuePairOutput() ExpressGatewayServiceKeyValuePairOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceKeyValuePairOutput) ToExpressGatewayServiceKeyValuePairOutputWithContext(ctx context.Context) ExpressGatewayServiceKeyValuePairOutput {
+	return o
+}
+
+// The name of the key-value pair. For environment variables, this is the name of the environment variable.
+func (o ExpressGatewayServiceKeyValuePairOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceKeyValuePair) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the key-value pair. For environment variables, this is the value of the environment variable.
+func (o ExpressGatewayServiceKeyValuePairOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceKeyValuePair) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ExpressGatewayServiceKeyValuePairArrayOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceKeyValuePairArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressGatewayServiceKeyValuePair)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceKeyValuePairArrayOutput) ToExpressGatewayServiceKeyValuePairArrayOutput() ExpressGatewayServiceKeyValuePairArrayOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceKeyValuePairArrayOutput) ToExpressGatewayServiceKeyValuePairArrayOutputWithContext(ctx context.Context) ExpressGatewayServiceKeyValuePairArrayOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceKeyValuePairArrayOutput) Index(i pulumi.IntInput) ExpressGatewayServiceKeyValuePairOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressGatewayServiceKeyValuePair {
+		return vs[0].([]ExpressGatewayServiceKeyValuePair)[vs[1].(int)]
+	}).(ExpressGatewayServiceKeyValuePairOutput)
+}
+
+type ExpressGatewayServiceNetworkConfiguration struct {
+	// The IDs of the security groups associated with the Express service.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// The IDs of the subnets associated with the Express service.
+	Subnets []string `pulumi:"subnets"`
+}
+
+// ExpressGatewayServiceNetworkConfigurationInput is an input type that accepts ExpressGatewayServiceNetworkConfigurationArgs and ExpressGatewayServiceNetworkConfigurationOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceNetworkConfigurationInput` via:
+//
+//	ExpressGatewayServiceNetworkConfigurationArgs{...}
+type ExpressGatewayServiceNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceNetworkConfigurationOutput() ExpressGatewayServiceNetworkConfigurationOutput
+	ToExpressGatewayServiceNetworkConfigurationOutputWithContext(context.Context) ExpressGatewayServiceNetworkConfigurationOutput
+}
+
+type ExpressGatewayServiceNetworkConfigurationArgs struct {
+	// The IDs of the security groups associated with the Express service.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// The IDs of the subnets associated with the Express service.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (ExpressGatewayServiceNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceNetworkConfiguration)(nil)).Elem()
+}
+
+func (i ExpressGatewayServiceNetworkConfigurationArgs) ToExpressGatewayServiceNetworkConfigurationOutput() ExpressGatewayServiceNetworkConfigurationOutput {
+	return i.ToExpressGatewayServiceNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceNetworkConfigurationArgs) ToExpressGatewayServiceNetworkConfigurationOutputWithContext(ctx context.Context) ExpressGatewayServiceNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceNetworkConfigurationOutput)
+}
+
+func (i ExpressGatewayServiceNetworkConfigurationArgs) ToExpressGatewayServiceNetworkConfigurationPtrOutput() ExpressGatewayServiceNetworkConfigurationPtrOutput {
+	return i.ToExpressGatewayServiceNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceNetworkConfigurationArgs) ToExpressGatewayServiceNetworkConfigurationPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceNetworkConfigurationOutput).ToExpressGatewayServiceNetworkConfigurationPtrOutputWithContext(ctx)
+}
+
+// ExpressGatewayServiceNetworkConfigurationPtrInput is an input type that accepts ExpressGatewayServiceNetworkConfigurationArgs, ExpressGatewayServiceNetworkConfigurationPtr and ExpressGatewayServiceNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceNetworkConfigurationPtrInput` via:
+//
+//	        ExpressGatewayServiceNetworkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExpressGatewayServiceNetworkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceNetworkConfigurationPtrOutput() ExpressGatewayServiceNetworkConfigurationPtrOutput
+	ToExpressGatewayServiceNetworkConfigurationPtrOutputWithContext(context.Context) ExpressGatewayServiceNetworkConfigurationPtrOutput
+}
+
+type expressGatewayServiceNetworkConfigurationPtrType ExpressGatewayServiceNetworkConfigurationArgs
+
+func ExpressGatewayServiceNetworkConfigurationPtr(v *ExpressGatewayServiceNetworkConfigurationArgs) ExpressGatewayServiceNetworkConfigurationPtrInput {
+	return (*expressGatewayServiceNetworkConfigurationPtrType)(v)
+}
+
+func (*expressGatewayServiceNetworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServiceNetworkConfiguration)(nil)).Elem()
+}
+
+func (i *expressGatewayServiceNetworkConfigurationPtrType) ToExpressGatewayServiceNetworkConfigurationPtrOutput() ExpressGatewayServiceNetworkConfigurationPtrOutput {
+	return i.ToExpressGatewayServiceNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *expressGatewayServiceNetworkConfigurationPtrType) ToExpressGatewayServiceNetworkConfigurationPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceNetworkConfigurationPtrOutput)
+}
+
+type ExpressGatewayServiceNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceNetworkConfiguration)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceNetworkConfigurationOutput) ToExpressGatewayServiceNetworkConfigurationOutput() ExpressGatewayServiceNetworkConfigurationOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceNetworkConfigurationOutput) ToExpressGatewayServiceNetworkConfigurationOutputWithContext(ctx context.Context) ExpressGatewayServiceNetworkConfigurationOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceNetworkConfigurationOutput) ToExpressGatewayServiceNetworkConfigurationPtrOutput() ExpressGatewayServiceNetworkConfigurationPtrOutput {
+	return o.ToExpressGatewayServiceNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ExpressGatewayServiceNetworkConfigurationOutput) ToExpressGatewayServiceNetworkConfigurationPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceNetworkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressGatewayServiceNetworkConfiguration) *ExpressGatewayServiceNetworkConfiguration {
+		return &v
+	}).(ExpressGatewayServiceNetworkConfigurationPtrOutput)
+}
+
+// The IDs of the security groups associated with the Express service.
+func (o ExpressGatewayServiceNetworkConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceNetworkConfiguration) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// The IDs of the subnets associated with the Express service.
+func (o ExpressGatewayServiceNetworkConfigurationOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceNetworkConfiguration) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type ExpressGatewayServiceNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceNetworkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServiceNetworkConfiguration)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceNetworkConfigurationPtrOutput) ToExpressGatewayServiceNetworkConfigurationPtrOutput() ExpressGatewayServiceNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceNetworkConfigurationPtrOutput) ToExpressGatewayServiceNetworkConfigurationPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceNetworkConfigurationPtrOutput) Elem() ExpressGatewayServiceNetworkConfigurationOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceNetworkConfiguration) ExpressGatewayServiceNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressGatewayServiceNetworkConfiguration
+		return ret
+	}).(ExpressGatewayServiceNetworkConfigurationOutput)
+}
+
+// The IDs of the security groups associated with the Express service.
+func (o ExpressGatewayServiceNetworkConfigurationPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceNetworkConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// The IDs of the subnets associated with the Express service.
+func (o ExpressGatewayServiceNetworkConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceNetworkConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+type ExpressGatewayServiceSecret struct {
+	// The name of the secret.
+	Name string `pulumi:"name"`
+	// The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+	//
+	// For information about the require AWS Identity and Access Management permissions, see [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam) (for Secrets Manager) or [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html) (for Systems Manager Parameter store) in the *Amazon Elastic Container Service Developer Guide* .
+	//
+	// > If the SSM Parameter Store parameter exists in the same Region as the task you're launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
+	ValueFrom string `pulumi:"valueFrom"`
+}
+
+// ExpressGatewayServiceSecretInput is an input type that accepts ExpressGatewayServiceSecretArgs and ExpressGatewayServiceSecretOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceSecretInput` via:
+//
+//	ExpressGatewayServiceSecretArgs{...}
+type ExpressGatewayServiceSecretInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceSecretOutput() ExpressGatewayServiceSecretOutput
+	ToExpressGatewayServiceSecretOutputWithContext(context.Context) ExpressGatewayServiceSecretOutput
+}
+
+type ExpressGatewayServiceSecretArgs struct {
+	// The name of the secret.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+	//
+	// For information about the require AWS Identity and Access Management permissions, see [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam) (for Secrets Manager) or [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html) (for Systems Manager Parameter store) in the *Amazon Elastic Container Service Developer Guide* .
+	//
+	// > If the SSM Parameter Store parameter exists in the same Region as the task you're launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
+	ValueFrom pulumi.StringInput `pulumi:"valueFrom"`
+}
+
+func (ExpressGatewayServiceSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceSecret)(nil)).Elem()
+}
+
+func (i ExpressGatewayServiceSecretArgs) ToExpressGatewayServiceSecretOutput() ExpressGatewayServiceSecretOutput {
+	return i.ToExpressGatewayServiceSecretOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceSecretArgs) ToExpressGatewayServiceSecretOutputWithContext(ctx context.Context) ExpressGatewayServiceSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceSecretOutput)
+}
+
+// ExpressGatewayServiceSecretArrayInput is an input type that accepts ExpressGatewayServiceSecretArray and ExpressGatewayServiceSecretArrayOutput values.
+// You can construct a concrete instance of `ExpressGatewayServiceSecretArrayInput` via:
+//
+//	ExpressGatewayServiceSecretArray{ ExpressGatewayServiceSecretArgs{...} }
+type ExpressGatewayServiceSecretArrayInput interface {
+	pulumi.Input
+
+	ToExpressGatewayServiceSecretArrayOutput() ExpressGatewayServiceSecretArrayOutput
+	ToExpressGatewayServiceSecretArrayOutputWithContext(context.Context) ExpressGatewayServiceSecretArrayOutput
+}
+
+type ExpressGatewayServiceSecretArray []ExpressGatewayServiceSecretInput
+
+func (ExpressGatewayServiceSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressGatewayServiceSecret)(nil)).Elem()
+}
+
+func (i ExpressGatewayServiceSecretArray) ToExpressGatewayServiceSecretArrayOutput() ExpressGatewayServiceSecretArrayOutput {
+	return i.ToExpressGatewayServiceSecretArrayOutputWithContext(context.Background())
+}
+
+func (i ExpressGatewayServiceSecretArray) ToExpressGatewayServiceSecretArrayOutputWithContext(ctx context.Context) ExpressGatewayServiceSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressGatewayServiceSecretArrayOutput)
+}
+
+type ExpressGatewayServiceSecretOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceSecret)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceSecretOutput) ToExpressGatewayServiceSecretOutput() ExpressGatewayServiceSecretOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceSecretOutput) ToExpressGatewayServiceSecretOutputWithContext(ctx context.Context) ExpressGatewayServiceSecretOutput {
+	return o
+}
+
+// The name of the secret.
+func (o ExpressGatewayServiceSecretOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceSecret) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+//
+// For information about the require AWS Identity and Access Management permissions, see [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam) (for Secrets Manager) or [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html) (for Systems Manager Parameter store) in the *Amazon Elastic Container Service Developer Guide* .
+//
+// > If the SSM Parameter Store parameter exists in the same Region as the task you're launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
+func (o ExpressGatewayServiceSecretOutput) ValueFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceSecret) string { return v.ValueFrom }).(pulumi.StringOutput)
+}
+
+type ExpressGatewayServiceSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressGatewayServiceSecret)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceSecretArrayOutput) ToExpressGatewayServiceSecretArrayOutput() ExpressGatewayServiceSecretArrayOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceSecretArrayOutput) ToExpressGatewayServiceSecretArrayOutputWithContext(ctx context.Context) ExpressGatewayServiceSecretArrayOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceSecretArrayOutput) Index(i pulumi.IntInput) ExpressGatewayServiceSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressGatewayServiceSecret {
+		return vs[0].([]ExpressGatewayServiceSecret)[vs[1].(int)]
+	}).(ExpressGatewayServiceSecretOutput)
+}
+
+type ExpressGatewayServiceStatus struct {
+	// The status of the Express service.
+	StatusCode *ExpressGatewayServiceStatusCode `pulumi:"statusCode"`
+}
+
+type ExpressGatewayServiceStatusOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceStatus)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceStatusOutput) ToExpressGatewayServiceStatusOutput() ExpressGatewayServiceStatusOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceStatusOutput) ToExpressGatewayServiceStatusOutputWithContext(ctx context.Context) ExpressGatewayServiceStatusOutput {
+	return o
+}
+
+// The status of the Express service.
+func (o ExpressGatewayServiceStatusOutput) StatusCode() ExpressGatewayServiceStatusCodePtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceStatus) *ExpressGatewayServiceStatusCode { return v.StatusCode }).(ExpressGatewayServiceStatusCodePtrOutput)
+}
+
+type ExpressGatewayServiceStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServiceStatus)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceStatusPtrOutput) ToExpressGatewayServiceStatusPtrOutput() ExpressGatewayServiceStatusPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceStatusPtrOutput) ToExpressGatewayServiceStatusPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceStatusPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceStatusPtrOutput) Elem() ExpressGatewayServiceStatusOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceStatus) ExpressGatewayServiceStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressGatewayServiceStatus
+		return ret
+	}).(ExpressGatewayServiceStatusOutput)
+}
+
+// The status of the Express service.
+func (o ExpressGatewayServiceStatusPtrOutput) StatusCode() ExpressGatewayServiceStatusCodePtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceStatus) *ExpressGatewayServiceStatusCode {
+		if v == nil {
+			return nil
+		}
+		return v.StatusCode
+	}).(ExpressGatewayServiceStatusCodePtrOutput)
+}
+
+type ExpressGatewayServiceTag struct {
+	// One part of a key-value pair that make up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	Key string `pulumi:"key"`
+	// The optional part of a key-value pair that make up a tag. A `value` acts as a descriptor within a tag category (key).
+	Value string `pulumi:"value"`
+}
+
 // The advanced settings for a load balancer used in blue/green deployments. Specify the alternate target group, listener rules, and IAM role required for traffic shifting during blue/green deployments. For more information, see [Required resources for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceAdvancedConfiguration struct {
 	// The Amazon Resource Name (ARN) of the alternate target group for Amazon ECS blue/green deployments.
@@ -4979,6 +6463,11 @@ func (o ServiceAwsVpcConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
+// Configuration for a canary deployment strategy that shifts a fixed percentage of traffic to the new service revision, waits for a specified bake time, then shifts the remaining traffic.
+//
+//	The following validation applies only to Canary deployments created through CFN. CFN operations time out after 36 hours. Canary deployments can approach this limit because of their extended duration. This can cause CFN to roll back the deployment. To prevent timeout-related rollbacks, CFN rejects deployments when the calculated deployment time exceeds 33 hours based on your template configuration:
+//	 ``BakeTimeInMinutes + CanaryBakeTimeInMinutes``
+//	Additional backend processes (such as task scaling and running lifecycle hooks) can extend deployment time beyond these calculations. Even deployments under the 33-hour threshold might still time out if these processes cause the total duration to exceed 36 hours.
 type ServiceCanaryConfiguration struct {
 	// The amount of time in minutes to wait during the canary phase before shifting the remaining production traffic to the new service revision. Valid values are 0 to 1440 minutes (24 hours). The default value is 10.
 	CanaryBakeTimeInMinutes *int `pulumi:"canaryBakeTimeInMinutes"`
@@ -4997,6 +6486,11 @@ type ServiceCanaryConfigurationInput interface {
 	ToServiceCanaryConfigurationOutputWithContext(context.Context) ServiceCanaryConfigurationOutput
 }
 
+// Configuration for a canary deployment strategy that shifts a fixed percentage of traffic to the new service revision, waits for a specified bake time, then shifts the remaining traffic.
+//
+//	The following validation applies only to Canary deployments created through CFN. CFN operations time out after 36 hours. Canary deployments can approach this limit because of their extended duration. This can cause CFN to roll back the deployment. To prevent timeout-related rollbacks, CFN rejects deployments when the calculated deployment time exceeds 33 hours based on your template configuration:
+//	 ``BakeTimeInMinutes + CanaryBakeTimeInMinutes``
+//	Additional backend processes (such as task scaling and running lifecycle hooks) can extend deployment time beyond these calculations. Even deployments under the 33-hour threshold might still time out if these processes cause the total duration to exceed 36 hours.
 type ServiceCanaryConfigurationArgs struct {
 	// The amount of time in minutes to wait during the canary phase before shifting the remaining production traffic to the new service revision. Valid values are 0 to 1440 minutes (24 hours). The default value is 10.
 	CanaryBakeTimeInMinutes pulumi.IntPtrInput `pulumi:"canaryBakeTimeInMinutes"`
@@ -5057,6 +6551,11 @@ func (i *serviceCanaryConfigurationPtrType) ToServiceCanaryConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCanaryConfigurationPtrOutput)
 }
 
+// Configuration for a canary deployment strategy that shifts a fixed percentage of traffic to the new service revision, waits for a specified bake time, then shifts the remaining traffic.
+//
+//	The following validation applies only to Canary deployments created through CFN. CFN operations time out after 36 hours. Canary deployments can approach this limit because of their extended duration. This can cause CFN to roll back the deployment. To prevent timeout-related rollbacks, CFN rejects deployments when the calculated deployment time exceeds 33 hours based on your template configuration:
+//	 ``BakeTimeInMinutes + CanaryBakeTimeInMinutes``
+//	Additional backend processes (such as task scaling and running lifecycle hooks) can extend deployment time beyond these calculations. Even deployments under the 33-hour threshold might still time out if these processes cause the total duration to exceed 36 hours.
 type ServiceCanaryConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceCanaryConfigurationOutput) ElementType() reflect.Type {
@@ -5144,18 +6643,18 @@ type ServiceCapacityProviderStrategyItem struct {
 	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider for each service. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of ``0`` is used.
 	//  Base value characteristics:
 	//   +  Only one capacity provider in a strategy can have a base defined
-	//   +  Default value is ``0`` if not specified
-	//   +  Valid range: 0 to 100,000
+	//   +  The default value is ``0`` if not specified
+	//   +  The valid range is 0 to 100,000
 	//   +  Base requirements are satisfied first before weight distribution
 	Base *int `pulumi:"base"`
-	// The short name of the capacity provider.
+	// The short name of the capacity provider. This can be either an AWS managed capacity provider (``FARGATE`` or ``FARGATE_SPOT``) or the name of a custom capacity provider that you created.
 	CapacityProvider *string `pulumi:"capacityProvider"`
 	// The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The ``weight`` value is taken into consideration after the ``base`` value, if defined, is satisfied.
 	//  If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail.
 	//  Weight value characteristics:
 	//   +  Weight is considered after the base value is satisfied
-	//   +  Default value is ``0`` if not specified
-	//   +  Valid range: 0 to 1,000
+	//   +  The default value is ``0`` if not specified
+	//   +  The valid range is 0 to 1,000
 	//   +  At least one capacity provider must have a weight greater than zero
 	//   +  Capacity providers with weight of ``0`` cannot place tasks
 	//
@@ -5189,18 +6688,18 @@ type ServiceCapacityProviderStrategyItemArgs struct {
 	// The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider for each service. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of ``0`` is used.
 	//  Base value characteristics:
 	//   +  Only one capacity provider in a strategy can have a base defined
-	//   +  Default value is ``0`` if not specified
-	//   +  Valid range: 0 to 100,000
+	//   +  The default value is ``0`` if not specified
+	//   +  The valid range is 0 to 100,000
 	//   +  Base requirements are satisfied first before weight distribution
 	Base pulumi.IntPtrInput `pulumi:"base"`
-	// The short name of the capacity provider.
+	// The short name of the capacity provider. This can be either an AWS managed capacity provider (``FARGATE`` or ``FARGATE_SPOT``) or the name of a custom capacity provider that you created.
 	CapacityProvider pulumi.StringPtrInput `pulumi:"capacityProvider"`
 	// The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The ``weight`` value is taken into consideration after the ``base`` value, if defined, is satisfied.
 	//  If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail.
 	//  Weight value characteristics:
 	//   +  Weight is considered after the base value is satisfied
-	//   +  Default value is ``0`` if not specified
-	//   +  Valid range: 0 to 1,000
+	//   +  The default value is ``0`` if not specified
+	//   +  The valid range is 0 to 1,000
 	//   +  At least one capacity provider must have a weight greater than zero
 	//   +  Capacity providers with weight of ``0`` cannot place tasks
 	//
@@ -5274,14 +6773,14 @@ func (o ServiceCapacityProviderStrategyItemOutput) ToServiceCapacityProviderStra
 //
 //	Base value characteristics:
 //	 +  Only one capacity provider in a strategy can have a base defined
-//	 +  Default value is ``0`` if not specified
-//	 +  Valid range: 0 to 100,000
+//	 +  The default value is ``0`` if not specified
+//	 +  The valid range is 0 to 100,000
 //	 +  Base requirements are satisfied first before weight distribution
 func (o ServiceCapacityProviderStrategyItemOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceCapacityProviderStrategyItem) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
 
-// The short name of the capacity provider.
+// The short name of the capacity provider. This can be either an AWS managed capacity provider (“FARGATE“ or “FARGATE_SPOT“) or the name of a custom capacity provider that you created.
 func (o ServiceCapacityProviderStrategyItemOutput) CapacityProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceCapacityProviderStrategyItem) *string { return v.CapacityProvider }).(pulumi.StringPtrOutput)
 }
@@ -5291,8 +6790,8 @@ func (o ServiceCapacityProviderStrategyItemOutput) CapacityProvider() pulumi.Str
 //	If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail.
 //	Weight value characteristics:
 //	 +  Weight is considered after the base value is satisfied
-//	 +  Default value is ``0`` if not specified
-//	 +  Valid range: 0 to 1,000
+//	 +  The default value is ``0`` if not specified
+//	 +  The valid range is 0 to 1,000
 //	 +  At least one capacity provider must have a weight greater than zero
 //	 +  Capacity providers with weight of ``0`` cannot place tasks
 //
@@ -5327,12 +6826,14 @@ func (o ServiceCapacityProviderStrategyItemArrayOutput) Index(i pulumi.IntInput)
 	}).(ServiceCapacityProviderStrategyItemOutput)
 }
 
+// Configuration for Service Connect access logging. Access logs provide detailed information about requests made to your service, including request patterns, response codes, and timing data for debugging and monitoring purposes.
+//
+//	To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
 type ServiceConnectAccessLogConfiguration struct {
 	// The format for Service Connect access log output. Choose TEXT for human-readable logs or JSON for structured data that integrates well with log analysis tools.
 	Format ServiceConnectAccessLogConfigurationFormat `pulumi:"format"`
 	// Specifies whether to include query parameters in Service Connect access logs.
-	//
-	// When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is `DISABLED` .
+	//  When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is ``DISABLED``.
 	IncludeQueryParameters *ServiceConnectAccessLogConfigurationIncludeQueryParameters `pulumi:"includeQueryParameters"`
 }
 
@@ -5347,12 +6848,14 @@ type ServiceConnectAccessLogConfigurationInput interface {
 	ToServiceConnectAccessLogConfigurationOutputWithContext(context.Context) ServiceConnectAccessLogConfigurationOutput
 }
 
+// Configuration for Service Connect access logging. Access logs provide detailed information about requests made to your service, including request patterns, response codes, and timing data for debugging and monitoring purposes.
+//
+//	To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
 type ServiceConnectAccessLogConfigurationArgs struct {
 	// The format for Service Connect access log output. Choose TEXT for human-readable logs or JSON for structured data that integrates well with log analysis tools.
 	Format ServiceConnectAccessLogConfigurationFormatInput `pulumi:"format"`
 	// Specifies whether to include query parameters in Service Connect access logs.
-	//
-	// When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is `DISABLED` .
+	//  When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is ``DISABLED``.
 	IncludeQueryParameters ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrInput `pulumi:"includeQueryParameters"`
 }
 
@@ -5409,6 +6912,9 @@ func (i *serviceConnectAccessLogConfigurationPtrType) ToServiceConnectAccessLogC
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceConnectAccessLogConfigurationPtrOutput)
 }
 
+// Configuration for Service Connect access logging. Access logs provide detailed information about requests made to your service, including request patterns, response codes, and timing data for debugging and monitoring purposes.
+//
+//	To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
 type ServiceConnectAccessLogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceConnectAccessLogConfigurationOutput) ElementType() reflect.Type {
@@ -5442,7 +6948,7 @@ func (o ServiceConnectAccessLogConfigurationOutput) Format() ServiceConnectAcces
 
 // Specifies whether to include query parameters in Service Connect access logs.
 //
-// When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is `DISABLED` .
+//	When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is ``DISABLED``.
 func (o ServiceConnectAccessLogConfigurationOutput) IncludeQueryParameters() ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput {
 	return o.ApplyT(func(v ServiceConnectAccessLogConfiguration) *ServiceConnectAccessLogConfigurationIncludeQueryParameters {
 		return v.IncludeQueryParameters
@@ -5485,7 +6991,7 @@ func (o ServiceConnectAccessLogConfigurationPtrOutput) Format() ServiceConnectAc
 
 // Specifies whether to include query parameters in Service Connect access logs.
 //
-// When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is `DISABLED` .
+//	When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is ``DISABLED``.
 func (o ServiceConnectAccessLogConfigurationPtrOutput) IncludeQueryParameters() ServiceConnectAccessLogConfigurationIncludeQueryParametersPtrOutput {
 	return o.ApplyT(func(v *ServiceConnectAccessLogConfiguration) *ServiceConnectAccessLogConfigurationIncludeQueryParameters {
 		if v == nil {
@@ -5638,8 +7144,7 @@ func (o ServiceConnectClientAliasArrayOutput) Index(i pulumi.IntInput) ServiceCo
 //	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceConnectConfiguration struct {
 	// The configuration for Service Connect access logging. Access logs capture detailed information about requests made to your service, including request patterns, response codes, and timing data. They can be useful for debugging connectivity issues, monitoring service performance, and auditing service-to-service communication for security and compliance purposes.
-	//
-	// > To enable access logs, you must also specify a `logConfiguration` in the `serviceConnectConfiguration` .
+	//   To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
 	AccessLogConfiguration *ServiceConnectAccessLogConfiguration `pulumi:"accessLogConfiguration"`
 	// Specifies whether to use Service Connect with this service.
 	Enabled bool `pulumi:"enabled"`
@@ -5677,8 +7182,7 @@ type ServiceConnectConfigurationInput interface {
 //	Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
 type ServiceConnectConfigurationArgs struct {
 	// The configuration for Service Connect access logging. Access logs capture detailed information about requests made to your service, including request patterns, response codes, and timing data. They can be useful for debugging connectivity issues, monitoring service performance, and auditing service-to-service communication for security and compliance purposes.
-	//
-	// > To enable access logs, you must also specify a `logConfiguration` in the `serviceConnectConfiguration` .
+	//   To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
 	AccessLogConfiguration ServiceConnectAccessLogConfigurationPtrInput `pulumi:"accessLogConfiguration"`
 	// Specifies whether to use Service Connect with this service.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
@@ -5782,7 +7286,7 @@ func (o ServiceConnectConfigurationOutput) ToServiceConnectConfigurationPtrOutpu
 
 // The configuration for Service Connect access logging. Access logs capture detailed information about requests made to your service, including request patterns, response codes, and timing data. They can be useful for debugging connectivity issues, monitoring service performance, and auditing service-to-service communication for security and compliance purposes.
 //
-// > To enable access logs, you must also specify a `logConfiguration` in the `serviceConnectConfiguration` .
+//	To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
 func (o ServiceConnectConfigurationOutput) AccessLogConfiguration() ServiceConnectAccessLogConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceConnectConfiguration) *ServiceConnectAccessLogConfiguration {
 		return v.AccessLogConfiguration
@@ -5847,7 +7351,7 @@ func (o ServiceConnectConfigurationPtrOutput) Elem() ServiceConnectConfiguration
 
 // The configuration for Service Connect access logging. Access logs capture detailed information about requests made to your service, including request patterns, response codes, and timing data. They can be useful for debugging connectivity issues, monitoring service performance, and auditing service-to-service communication for security and compliance purposes.
 //
-// > To enable access logs, you must also specify a `logConfiguration` in the `serviceConnectConfiguration` .
+//	To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
 func (o ServiceConnectConfigurationPtrOutput) AccessLogConfiguration() ServiceConnectAccessLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceConnectConfiguration) *ServiceConnectAccessLogConfiguration {
 		if v == nil {
@@ -7192,14 +8696,14 @@ type ServiceDeploymentConfiguration struct {
 	//   +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
 	//   +  For all other cases, the value is set to 36 hours (2160 minutes).
 	BakeTimeInMinutes *int `pulumi:"bakeTimeInMinutes"`
-	// Configuration for canary deployment strategy. Only valid when the deployment strategy is `CANARY` . This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
+	// Configuration for canary deployment strategy. Only valid when the deployment strategy is ``CANARY``. This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
 	CanaryConfiguration *ServiceCanaryConfiguration `pulumi:"canaryConfiguration"`
 	// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
 	//   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
 	DeploymentCircuitBreaker *ServiceDeploymentCircuitBreaker `pulumi:"deploymentCircuitBreaker"`
 	// An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
 	LifecycleHooks []ServiceDeploymentLifecycleHook `pulumi:"lifecycleHooks"`
-	// Configuration for linear deployment strategy. Only valid when the deployment strategy is `LINEAR` . This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
+	// Configuration for linear deployment strategy. Only valid when the deployment strategy is ``LINEAR``. This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
 	LinearConfiguration *ServiceLinearConfiguration `pulumi:"linearConfiguration"`
 	// If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
 	//  The Amazon ECS scheduler uses this parameter to replace unhealthy tasks by starting replacement tasks first and then stopping the unhealthy tasks, as long as cluster resources for starting replacement tasks are available. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
@@ -7251,14 +8755,14 @@ type ServiceDeploymentConfigurationArgs struct {
 	//   +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
 	//   +  For all other cases, the value is set to 36 hours (2160 minutes).
 	BakeTimeInMinutes pulumi.IntPtrInput `pulumi:"bakeTimeInMinutes"`
-	// Configuration for canary deployment strategy. Only valid when the deployment strategy is `CANARY` . This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
+	// Configuration for canary deployment strategy. Only valid when the deployment strategy is ``CANARY``. This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
 	CanaryConfiguration ServiceCanaryConfigurationPtrInput `pulumi:"canaryConfiguration"`
 	// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
 	//   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
 	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrInput `pulumi:"deploymentCircuitBreaker"`
 	// An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
 	LifecycleHooks ServiceDeploymentLifecycleHookArrayInput `pulumi:"lifecycleHooks"`
-	// Configuration for linear deployment strategy. Only valid when the deployment strategy is `LINEAR` . This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
+	// Configuration for linear deployment strategy. Only valid when the deployment strategy is ``LINEAR``. This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
 	LinearConfiguration ServiceLinearConfigurationPtrInput `pulumi:"linearConfiguration"`
 	// If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
 	//  The Amazon ECS scheduler uses this parameter to replace unhealthy tasks by starting replacement tasks first and then stopping the unhealthy tasks, as long as cluster resources for starting replacement tasks are available. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
@@ -7382,7 +8886,7 @@ func (o ServiceDeploymentConfigurationOutput) BakeTimeInMinutes() pulumi.IntPtrO
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *int { return v.BakeTimeInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// Configuration for canary deployment strategy. Only valid when the deployment strategy is `CANARY` . This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
+// Configuration for canary deployment strategy. Only valid when the deployment strategy is “CANARY“. This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
 func (o ServiceDeploymentConfigurationOutput) CanaryConfiguration() ServiceCanaryConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *ServiceCanaryConfiguration { return v.CanaryConfiguration }).(ServiceCanaryConfigurationPtrOutput)
 }
@@ -7401,7 +8905,7 @@ func (o ServiceDeploymentConfigurationOutput) LifecycleHooks() ServiceDeployment
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) []ServiceDeploymentLifecycleHook { return v.LifecycleHooks }).(ServiceDeploymentLifecycleHookArrayOutput)
 }
 
-// Configuration for linear deployment strategy. Only valid when the deployment strategy is `LINEAR` . This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
+// Configuration for linear deployment strategy. Only valid when the deployment strategy is “LINEAR“. This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
 func (o ServiceDeploymentConfigurationOutput) LinearConfiguration() ServiceLinearConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *ServiceLinearConfiguration { return v.LinearConfiguration }).(ServiceLinearConfigurationPtrOutput)
 }
@@ -7493,7 +8997,7 @@ func (o ServiceDeploymentConfigurationPtrOutput) BakeTimeInMinutes() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// Configuration for canary deployment strategy. Only valid when the deployment strategy is `CANARY` . This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
+// Configuration for canary deployment strategy. Only valid when the deployment strategy is “CANARY“. This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
 func (o ServiceDeploymentConfigurationPtrOutput) CanaryConfiguration() ServiceCanaryConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *ServiceCanaryConfiguration {
 		if v == nil {
@@ -7525,7 +9029,7 @@ func (o ServiceDeploymentConfigurationPtrOutput) LifecycleHooks() ServiceDeploym
 	}).(ServiceDeploymentLifecycleHookArrayOutput)
 }
 
-// Configuration for linear deployment strategy. Only valid when the deployment strategy is `LINEAR` . This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
+// Configuration for linear deployment strategy. Only valid when the deployment strategy is “LINEAR“. This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
 func (o ServiceDeploymentConfigurationPtrOutput) LinearConfiguration() ServiceLinearConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *ServiceLinearConfiguration {
 		if v == nil {
@@ -8367,6 +9871,16 @@ func (o ServiceForceNewDeploymentPtrOutput) ForceNewDeploymentNonce() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration for a linear deployment strategy that shifts production traffic in equal percentage increments with configurable wait times between each step until 100 percent of traffic is shifted to the new service revision.
+//
+//	The following validation applies only to Linear deployments created through CFN. CFN operations time out after 36 hours. Linear deployments can approach this limit because of their extended duration. This can cause CFN to roll back the deployment. To prevent timeout-related rollbacks, CFN rejects deployments when the calculated deployment time exceeds 33 hours based on your template configuration:
+//	 ``BakeTimeInMinutes + (StepBakeTimeInMinutes × Number of deployment steps)``
+//	Where the number of deployment steps is calculated as follows:
+//	 +  *If StepPercent evenly divides by 100*: The number of deployment steps equals ``(100 ÷ StepPercent) - 1``
+//	 +  *Otherwise*: The number of deployment steps equals the floor of ``100 ÷ StepPercent``. For example, if ``StepPercent`` is 11, the number of deployment steps is 9 (not 9.1).
+//
+//	This calculation reflects that CFN doesn't apply the step bake time after the final traffic shift reaches 100%. For example, with a ``StepPercent`` of 50%, there are actually two traffic shifts, but only one deployment step is counted for validation purposes because the bake time is applied only after the first 50% shift, not after reaching 100%.
+//	Additional backend processes (such as task scaling and running lifecycle hooks) can extend deployment time beyond these calculations. Even deployments under the 33-hour threshold might still time out if these processes cause the total duration to exceed 36 hours.
 type ServiceLinearConfiguration struct {
 	// The amount of time in minutes to wait between each traffic shifting step during a linear deployment. Valid values are 0 to 1440 minutes (24 hours). The default value is 6. This bake time is not applied after reaching 100 percent traffic.
 	StepBakeTimeInMinutes *int `pulumi:"stepBakeTimeInMinutes"`
@@ -8385,6 +9899,16 @@ type ServiceLinearConfigurationInput interface {
 	ToServiceLinearConfigurationOutputWithContext(context.Context) ServiceLinearConfigurationOutput
 }
 
+// Configuration for a linear deployment strategy that shifts production traffic in equal percentage increments with configurable wait times between each step until 100 percent of traffic is shifted to the new service revision.
+//
+//	The following validation applies only to Linear deployments created through CFN. CFN operations time out after 36 hours. Linear deployments can approach this limit because of their extended duration. This can cause CFN to roll back the deployment. To prevent timeout-related rollbacks, CFN rejects deployments when the calculated deployment time exceeds 33 hours based on your template configuration:
+//	 ``BakeTimeInMinutes + (StepBakeTimeInMinutes × Number of deployment steps)``
+//	Where the number of deployment steps is calculated as follows:
+//	 +  *If StepPercent evenly divides by 100*: The number of deployment steps equals ``(100 ÷ StepPercent) - 1``
+//	 +  *Otherwise*: The number of deployment steps equals the floor of ``100 ÷ StepPercent``. For example, if ``StepPercent`` is 11, the number of deployment steps is 9 (not 9.1).
+//
+//	This calculation reflects that CFN doesn't apply the step bake time after the final traffic shift reaches 100%. For example, with a ``StepPercent`` of 50%, there are actually two traffic shifts, but only one deployment step is counted for validation purposes because the bake time is applied only after the first 50% shift, not after reaching 100%.
+//	Additional backend processes (such as task scaling and running lifecycle hooks) can extend deployment time beyond these calculations. Even deployments under the 33-hour threshold might still time out if these processes cause the total duration to exceed 36 hours.
 type ServiceLinearConfigurationArgs struct {
 	// The amount of time in minutes to wait between each traffic shifting step during a linear deployment. Valid values are 0 to 1440 minutes (24 hours). The default value is 6. This bake time is not applied after reaching 100 percent traffic.
 	StepBakeTimeInMinutes pulumi.IntPtrInput `pulumi:"stepBakeTimeInMinutes"`
@@ -8445,6 +9969,16 @@ func (i *serviceLinearConfigurationPtrType) ToServiceLinearConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLinearConfigurationPtrOutput)
 }
 
+// Configuration for a linear deployment strategy that shifts production traffic in equal percentage increments with configurable wait times between each step until 100 percent of traffic is shifted to the new service revision.
+//
+//	The following validation applies only to Linear deployments created through CFN. CFN operations time out after 36 hours. Linear deployments can approach this limit because of their extended duration. This can cause CFN to roll back the deployment. To prevent timeout-related rollbacks, CFN rejects deployments when the calculated deployment time exceeds 33 hours based on your template configuration:
+//	 ``BakeTimeInMinutes + (StepBakeTimeInMinutes × Number of deployment steps)``
+//	Where the number of deployment steps is calculated as follows:
+//	 +  *If StepPercent evenly divides by 100*: The number of deployment steps equals ``(100 ÷ StepPercent) - 1``
+//	 +  *Otherwise*: The number of deployment steps equals the floor of ``100 ÷ StepPercent``. For example, if ``StepPercent`` is 11, the number of deployment steps is 9 (not 9.1).
+//
+//	This calculation reflects that CFN doesn't apply the step bake time after the final traffic shift reaches 100%. For example, with a ``StepPercent`` of 50%, there are actually two traffic shifts, but only one deployment step is counted for validation purposes because the bake time is applied only after the first 50% shift, not after reaching 100%.
+//	Additional backend processes (such as task scaling and running lifecycle hooks) can extend deployment time beyond these calculations. Even deployments under the 33-hour threshold might still time out if these processes cause the total duration to exceed 36 hours.
 type ServiceLinearConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceLinearConfigurationOutput) ElementType() reflect.Type {
@@ -17617,6 +19151,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesNetworkConfigurationPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesStorageConfigurationInput)(nil)).Elem(), CapacityProviderManagedInstancesStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedInstancesStorageConfigurationPtrInput)(nil)).Elem(), CapacityProviderManagedInstancesStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedScalingInput)(nil)).Elem(), CapacityProviderManagedScalingArgs{})
@@ -17649,6 +19185,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServiceConnectDefaultsPtrInput)(nil)).Elem(), ClusterServiceConnectDefaultsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSettingsInput)(nil)).Elem(), ClusterSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSettingsArrayInput)(nil)).Elem(), ClusterSettingsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceAwsLogsConfigurationInput)(nil)).Elem(), ExpressGatewayServiceAwsLogsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceAwsLogsConfigurationPtrInput)(nil)).Elem(), ExpressGatewayServiceAwsLogsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceExpressGatewayContainerInput)(nil)).Elem(), ExpressGatewayServiceExpressGatewayContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceExpressGatewayRepositoryCredentialsInput)(nil)).Elem(), ExpressGatewayServiceExpressGatewayRepositoryCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrInput)(nil)).Elem(), ExpressGatewayServiceExpressGatewayRepositoryCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceExpressGatewayScalingTargetInput)(nil)).Elem(), ExpressGatewayServiceExpressGatewayScalingTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceExpressGatewayScalingTargetPtrInput)(nil)).Elem(), ExpressGatewayServiceExpressGatewayScalingTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceKeyValuePairInput)(nil)).Elem(), ExpressGatewayServiceKeyValuePairArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceKeyValuePairArrayInput)(nil)).Elem(), ExpressGatewayServiceKeyValuePairArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceNetworkConfigurationInput)(nil)).Elem(), ExpressGatewayServiceNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceNetworkConfigurationPtrInput)(nil)).Elem(), ExpressGatewayServiceNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceSecretInput)(nil)).Elem(), ExpressGatewayServiceSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExpressGatewayServiceSecretArrayInput)(nil)).Elem(), ExpressGatewayServiceSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAdvancedConfigurationInput)(nil)).Elem(), ServiceAdvancedConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAdvancedConfigurationPtrInput)(nil)).Elem(), ServiceAdvancedConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationInput)(nil)).Elem(), ServiceAwsVpcConfigurationArgs{})
@@ -17809,6 +19358,8 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesOutput{})
+	pulumi.RegisterOutputType(CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesStorageConfigurationOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedInstancesStorageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedScalingOutput{})
@@ -17841,6 +19392,26 @@ func init() {
 	pulumi.RegisterOutputType(ClusterServiceConnectDefaultsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSettingsOutput{})
 	pulumi.RegisterOutputType(ClusterSettingsArrayOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceAwsLogsConfigurationOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceAwsLogsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceConfigurationOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceExpressGatewayContainerOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceExpressGatewayContainerPtrOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceExpressGatewayScalingTargetOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceIngressPathSummaryOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceIngressPathSummaryArrayOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceKeyValuePairOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceKeyValuePairArrayOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceSecretOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceSecretArrayOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceStatusOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceStatusPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAdvancedConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceAdvancedConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationOutput{})

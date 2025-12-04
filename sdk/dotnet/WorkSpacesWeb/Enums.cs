@@ -8,6 +8,59 @@ using Pulumi;
 namespace Pulumi.AwsNative.WorkSpacesWeb
 {
     [EnumType]
+    public readonly struct BrowserSettingsCategory : IEquatable<BrowserSettingsCategory>
+    {
+        private readonly string _value;
+
+        private BrowserSettingsCategory(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BrowserSettingsCategory Cults { get; } = new BrowserSettingsCategory("Cults");
+        public static BrowserSettingsCategory Gambling { get; } = new BrowserSettingsCategory("Gambling");
+        public static BrowserSettingsCategory Nudity { get; } = new BrowserSettingsCategory("Nudity");
+        public static BrowserSettingsCategory Pornography { get; } = new BrowserSettingsCategory("Pornography");
+        public static BrowserSettingsCategory SexEducation { get; } = new BrowserSettingsCategory("SexEducation");
+        public static BrowserSettingsCategory Tasteless { get; } = new BrowserSettingsCategory("Tasteless");
+        public static BrowserSettingsCategory Violence { get; } = new BrowserSettingsCategory("Violence");
+        public static BrowserSettingsCategory DownloadSites { get; } = new BrowserSettingsCategory("DownloadSites");
+        public static BrowserSettingsCategory ImageSharing { get; } = new BrowserSettingsCategory("ImageSharing");
+        public static BrowserSettingsCategory PeerToPeer { get; } = new BrowserSettingsCategory("PeerToPeer");
+        public static BrowserSettingsCategory StreamingMediaAndDownloads { get; } = new BrowserSettingsCategory("StreamingMediaAndDownloads");
+        public static BrowserSettingsCategory GenerativeAi { get; } = new BrowserSettingsCategory("GenerativeAI");
+        public static BrowserSettingsCategory CriminalActivity { get; } = new BrowserSettingsCategory("CriminalActivity");
+        public static BrowserSettingsCategory Hacking { get; } = new BrowserSettingsCategory("Hacking");
+        public static BrowserSettingsCategory HateAndIntolerance { get; } = new BrowserSettingsCategory("HateAndIntolerance");
+        public static BrowserSettingsCategory IllegalDrug { get; } = new BrowserSettingsCategory("IllegalDrug");
+        public static BrowserSettingsCategory IllegalSoftware { get; } = new BrowserSettingsCategory("IllegalSoftware");
+        public static BrowserSettingsCategory SchoolCheating { get; } = new BrowserSettingsCategory("SchoolCheating");
+        public static BrowserSettingsCategory SelfHarm { get; } = new BrowserSettingsCategory("SelfHarm");
+        public static BrowserSettingsCategory Weapons { get; } = new BrowserSettingsCategory("Weapons");
+        public static BrowserSettingsCategory Chat { get; } = new BrowserSettingsCategory("Chat");
+        public static BrowserSettingsCategory Games { get; } = new BrowserSettingsCategory("Games");
+        public static BrowserSettingsCategory InstantMessaging { get; } = new BrowserSettingsCategory("InstantMessaging");
+        public static BrowserSettingsCategory ProfessionalNetwork { get; } = new BrowserSettingsCategory("ProfessionalNetwork");
+        public static BrowserSettingsCategory SocialNetworking { get; } = new BrowserSettingsCategory("SocialNetworking");
+        public static BrowserSettingsCategory WebBasedEmail { get; } = new BrowserSettingsCategory("WebBasedEmail");
+        public static BrowserSettingsCategory ParkedDomains { get; } = new BrowserSettingsCategory("ParkedDomains");
+
+        public static bool operator ==(BrowserSettingsCategory left, BrowserSettingsCategory right) => left.Equals(right);
+        public static bool operator !=(BrowserSettingsCategory left, BrowserSettingsCategory right) => !left.Equals(right);
+
+        public static explicit operator string(BrowserSettingsCategory value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BrowserSettingsCategory other && Equals(other);
+        public bool Equals(BrowserSettingsCategory other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DataProtectionSettingsRedactionPlaceHolderType : IEquatable<DataProtectionSettingsRedactionPlaceHolderType>
     {
         private readonly string _value;

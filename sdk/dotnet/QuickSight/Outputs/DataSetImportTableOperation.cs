@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetImportTableOperation
     {
+        /// <summary>
+        /// Alias for this operation.
+        /// </summary>
         public readonly string Alias;
+        /// <summary>
+        /// The source configuration that specifies which source table to import and any column mappings.
+        /// </summary>
         public readonly Outputs.DataSetImportTableOperationSource Source;
 
         [OutputConstructor]

@@ -22,12 +22,24 @@ __all__ = [
     'AiAgentAiAgentConfiguration1PropertiesArgsDict',
     'AiAgentAiAgentConfiguration2PropertiesArgs',
     'AiAgentAiAgentConfiguration2PropertiesArgsDict',
+    'AiAgentAiAgentConfiguration3PropertiesArgs',
+    'AiAgentAiAgentConfiguration3PropertiesArgsDict',
+    'AiAgentAiAgentConfiguration4PropertiesArgs',
+    'AiAgentAiAgentConfiguration4PropertiesArgsDict',
+    'AiAgentAiAgentConfiguration5PropertiesArgs',
+    'AiAgentAiAgentConfiguration5PropertiesArgsDict',
     'AiAgentAnswerRecommendationAiAgentConfigurationArgs',
     'AiAgentAnswerRecommendationAiAgentConfigurationArgsDict',
     'AiAgentAssociationConfigurationDataPropertiesArgs',
     'AiAgentAssociationConfigurationDataPropertiesArgsDict',
     'AiAgentAssociationConfigurationArgs',
     'AiAgentAssociationConfigurationArgsDict',
+    'AiAgentEmailGenerativeAnswerAiAgentConfigurationArgs',
+    'AiAgentEmailGenerativeAnswerAiAgentConfigurationArgsDict',
+    'AiAgentEmailOverviewAiAgentConfigurationArgs',
+    'AiAgentEmailOverviewAiAgentConfigurationArgsDict',
+    'AiAgentEmailResponseAiAgentConfigurationArgs',
+    'AiAgentEmailResponseAiAgentConfigurationArgsDict',
     'AiAgentKnowledgeBaseAssociationConfigurationDataArgs',
     'AiAgentKnowledgeBaseAssociationConfigurationDataArgsDict',
     'AiAgentManualSearchAiAgentConfigurationArgs',
@@ -217,6 +229,72 @@ class AiAgentAiAgentConfiguration2PropertiesArgs:
 
 
 if not MYPY:
+    class AiAgentAiAgentConfiguration3PropertiesArgsDict(TypedDict):
+        email_response_ai_agent_configuration: pulumi.Input['AiAgentEmailResponseAiAgentConfigurationArgsDict']
+elif False:
+    AiAgentAiAgentConfiguration3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentAiAgentConfiguration3PropertiesArgs:
+    def __init__(__self__, *,
+                 email_response_ai_agent_configuration: pulumi.Input['AiAgentEmailResponseAiAgentConfigurationArgs']):
+        pulumi.set(__self__, "email_response_ai_agent_configuration", email_response_ai_agent_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="emailResponseAiAgentConfiguration")
+    def email_response_ai_agent_configuration(self) -> pulumi.Input['AiAgentEmailResponseAiAgentConfigurationArgs']:
+        return pulumi.get(self, "email_response_ai_agent_configuration")
+
+    @email_response_ai_agent_configuration.setter
+    def email_response_ai_agent_configuration(self, value: pulumi.Input['AiAgentEmailResponseAiAgentConfigurationArgs']):
+        pulumi.set(self, "email_response_ai_agent_configuration", value)
+
+
+if not MYPY:
+    class AiAgentAiAgentConfiguration4PropertiesArgsDict(TypedDict):
+        email_overview_ai_agent_configuration: pulumi.Input['AiAgentEmailOverviewAiAgentConfigurationArgsDict']
+elif False:
+    AiAgentAiAgentConfiguration4PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentAiAgentConfiguration4PropertiesArgs:
+    def __init__(__self__, *,
+                 email_overview_ai_agent_configuration: pulumi.Input['AiAgentEmailOverviewAiAgentConfigurationArgs']):
+        pulumi.set(__self__, "email_overview_ai_agent_configuration", email_overview_ai_agent_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="emailOverviewAiAgentConfiguration")
+    def email_overview_ai_agent_configuration(self) -> pulumi.Input['AiAgentEmailOverviewAiAgentConfigurationArgs']:
+        return pulumi.get(self, "email_overview_ai_agent_configuration")
+
+    @email_overview_ai_agent_configuration.setter
+    def email_overview_ai_agent_configuration(self, value: pulumi.Input['AiAgentEmailOverviewAiAgentConfigurationArgs']):
+        pulumi.set(self, "email_overview_ai_agent_configuration", value)
+
+
+if not MYPY:
+    class AiAgentAiAgentConfiguration5PropertiesArgsDict(TypedDict):
+        email_generative_answer_ai_agent_configuration: pulumi.Input['AiAgentEmailGenerativeAnswerAiAgentConfigurationArgsDict']
+elif False:
+    AiAgentAiAgentConfiguration5PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentAiAgentConfiguration5PropertiesArgs:
+    def __init__(__self__, *,
+                 email_generative_answer_ai_agent_configuration: pulumi.Input['AiAgentEmailGenerativeAnswerAiAgentConfigurationArgs']):
+        pulumi.set(__self__, "email_generative_answer_ai_agent_configuration", email_generative_answer_ai_agent_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="emailGenerativeAnswerAiAgentConfiguration")
+    def email_generative_answer_ai_agent_configuration(self) -> pulumi.Input['AiAgentEmailGenerativeAnswerAiAgentConfigurationArgs']:
+        return pulumi.get(self, "email_generative_answer_ai_agent_configuration")
+
+    @email_generative_answer_ai_agent_configuration.setter
+    def email_generative_answer_ai_agent_configuration(self, value: pulumi.Input['AiAgentEmailGenerativeAnswerAiAgentConfigurationArgs']):
+        pulumi.set(self, "email_generative_answer_ai_agent_configuration", value)
+
+
+if not MYPY:
     class AiAgentAnswerRecommendationAiAgentConfigurationArgsDict(TypedDict):
         answer_generation_ai_guardrail_id: NotRequired[pulumi.Input[_builtins.str]]
         answer_generation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
@@ -373,6 +451,166 @@ class AiAgentAssociationConfigurationArgs:
     @association_type.setter
     def association_type(self, value: Optional[pulumi.Input['AiAgentAiAgentAssociationConfigurationType']]):
         pulumi.set(self, "association_type", value)
+
+
+if not MYPY:
+    class AiAgentEmailGenerativeAnswerAiAgentConfigurationArgsDict(TypedDict):
+        association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
+        email_generative_answer_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
+        email_query_reformulation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
+        locale: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    AiAgentEmailGenerativeAnswerAiAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentEmailGenerativeAnswerAiAgentConfigurationArgs:
+    def __init__(__self__, *,
+                 association_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]] = None,
+                 email_generative_answer_ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 email_query_reformulation_ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 locale: Optional[pulumi.Input[_builtins.str]] = None):
+        if association_configurations is not None:
+            pulumi.set(__self__, "association_configurations", association_configurations)
+        if email_generative_answer_ai_prompt_id is not None:
+            pulumi.set(__self__, "email_generative_answer_ai_prompt_id", email_generative_answer_ai_prompt_id)
+        if email_query_reformulation_ai_prompt_id is not None:
+            pulumi.set(__self__, "email_query_reformulation_ai_prompt_id", email_query_reformulation_ai_prompt_id)
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
+
+    @_builtins.property
+    @pulumi.getter(name="associationConfigurations")
+    def association_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]:
+        return pulumi.get(self, "association_configurations")
+
+    @association_configurations.setter
+    def association_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]):
+        pulumi.set(self, "association_configurations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="emailGenerativeAnswerAiPromptId")
+    def email_generative_answer_ai_prompt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "email_generative_answer_ai_prompt_id")
+
+    @email_generative_answer_ai_prompt_id.setter
+    def email_generative_answer_ai_prompt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "email_generative_answer_ai_prompt_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="emailQueryReformulationAiPromptId")
+    def email_query_reformulation_ai_prompt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "email_query_reformulation_ai_prompt_id")
+
+    @email_query_reformulation_ai_prompt_id.setter
+    def email_query_reformulation_ai_prompt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "email_query_reformulation_ai_prompt_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "locale")
+
+    @locale.setter
+    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "locale", value)
+
+
+if not MYPY:
+    class AiAgentEmailOverviewAiAgentConfigurationArgsDict(TypedDict):
+        email_overview_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
+        locale: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    AiAgentEmailOverviewAiAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentEmailOverviewAiAgentConfigurationArgs:
+    def __init__(__self__, *,
+                 email_overview_ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 locale: Optional[pulumi.Input[_builtins.str]] = None):
+        if email_overview_ai_prompt_id is not None:
+            pulumi.set(__self__, "email_overview_ai_prompt_id", email_overview_ai_prompt_id)
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
+
+    @_builtins.property
+    @pulumi.getter(name="emailOverviewAiPromptId")
+    def email_overview_ai_prompt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "email_overview_ai_prompt_id")
+
+    @email_overview_ai_prompt_id.setter
+    def email_overview_ai_prompt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "email_overview_ai_prompt_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "locale")
+
+    @locale.setter
+    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "locale", value)
+
+
+if not MYPY:
+    class AiAgentEmailResponseAiAgentConfigurationArgsDict(TypedDict):
+        association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
+        email_query_reformulation_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
+        email_response_ai_prompt_id: NotRequired[pulumi.Input[_builtins.str]]
+        locale: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    AiAgentEmailResponseAiAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentEmailResponseAiAgentConfigurationArgs:
+    def __init__(__self__, *,
+                 association_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]] = None,
+                 email_query_reformulation_ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 email_response_ai_prompt_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 locale: Optional[pulumi.Input[_builtins.str]] = None):
+        if association_configurations is not None:
+            pulumi.set(__self__, "association_configurations", association_configurations)
+        if email_query_reformulation_ai_prompt_id is not None:
+            pulumi.set(__self__, "email_query_reformulation_ai_prompt_id", email_query_reformulation_ai_prompt_id)
+        if email_response_ai_prompt_id is not None:
+            pulumi.set(__self__, "email_response_ai_prompt_id", email_response_ai_prompt_id)
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
+
+    @_builtins.property
+    @pulumi.getter(name="associationConfigurations")
+    def association_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]:
+        return pulumi.get(self, "association_configurations")
+
+    @association_configurations.setter
+    def association_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]):
+        pulumi.set(self, "association_configurations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="emailQueryReformulationAiPromptId")
+    def email_query_reformulation_ai_prompt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "email_query_reformulation_ai_prompt_id")
+
+    @email_query_reformulation_ai_prompt_id.setter
+    def email_query_reformulation_ai_prompt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "email_query_reformulation_ai_prompt_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="emailResponseAiPromptId")
+    def email_response_ai_prompt_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "email_response_ai_prompt_id")
+
+    @email_response_ai_prompt_id.setter
+    def email_response_ai_prompt_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "email_response_ai_prompt_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "locale")
+
+    @locale.setter
+    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "locale", value)
 
 
 if not MYPY:

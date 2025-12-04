@@ -10,18 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// Specifies an Amazon Elastic Block Store (Amazon EBS) volume.
+    /// Specifies an Amazon Elastic Block Store (Amazon EBS) volume. You can create an empty volume, a volume from a snapshot, or a volume copy from an existing source volume.
     /// 
-    /// When you use AWS CloudFormation to update an Amazon EBS volume that modifies `Iops` , `Size` , or `VolumeType` , there is a cooldown period before another operation can occur. This can cause your stack to report being in `UPDATE_IN_PROGRESS` or `UPDATE_ROLLBACK_IN_PROGRESS` for long periods of time.
-    /// 
-    /// Amazon EBS does not support sizing down an Amazon EBS volume. AWS CloudFormation does not attempt to modify an Amazon EBS volume to a smaller size on rollback.
-    /// 
-    /// Some common scenarios when you might encounter a cooldown period for Amazon EBS include:
-    /// 
-    /// - You successfully update an Amazon EBS volume and the update succeeds. When you attempt another update within the cooldown window, that update will be subject to a cooldown period.
-    /// - You successfully update an Amazon EBS volume and the update succeeds but another change in your `update-stack` call fails. The rollback will be subject to a cooldown period.
-    /// 
-    /// For more information, see [Requirements for EBS volume modifications](https://docs.aws.amazon.com/ebs/latest/userguide/modify-volume-requirements.html) .
+    /// &gt; - When you use AWS CloudFormation to update an Amazon EBS volume that modifies `Iops` , `Size` , or `VolumeType` , there is a cooldown period before another operation can occur. This can cause your stack to report being in `UPDATE_IN_PROGRESS` or `UPDATE_ROLLBACK_IN_PROGRESS` for long periods of time. Some common scenarios when you might encounter a cooldown period for Amazon EBS include:
+    /// &gt; 
+    /// &gt; - You successfully update an Amazon EBS volume and the update succeeds. When you attempt another update within the cooldown window, that update will be subject to a cooldown period.
+    /// &gt; - You successfully update an Amazon EBS volume and the update succeeds but another change in your `update-stack` call fails. The rollback will be subject to a cooldown period.
+    /// &gt; 
+    /// &gt; For more information, see [Requirements for EBS volume modifications](https://docs.aws.amazon.com/ebs/latest/userguide/modify-volume-requirements.html) .
+    /// &gt; - Amazon EBS does not support sizing down an Amazon EBS volume. AWS CloudFormation does not attempt to modify an Amazon EBS volume to a smaller size on rollback.
     /// 
     /// *DeletionPolicy attribute*
     /// 
@@ -45,6 +42,13 @@ namespace Pulumi.AwsNative.Ec2
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Availability Zone in which to create the volume. For example, `use1-az1` .
+        /// 
+        /// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified, but not both.
+        /// 
+        /// If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
+        /// </summary>
         [Output("availabilityZoneId")]
         public Output<string?> AvailabilityZoneId { get; private set; } = null!;
 
@@ -111,6 +115,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("snapshotId")]
         public Output<string?> SnapshotId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the source EBS volume to copy. When specified, the volume is created as an exact copy of the specified volume. Only specify to create a volume copy. To create a new empty volume or to create a volume from a snapshot, omit this parameter,
+        /// </summary>
         [Output("sourceVolumeId")]
         public Output<string?> SourceVolumeId { get; private set; } = null!;
 
@@ -219,6 +226,13 @@ namespace Pulumi.AwsNative.Ec2
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
+        /// <summary>
+        /// The ID of the Availability Zone in which to create the volume. For example, `use1-az1` .
+        /// 
+        /// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified, but not both.
+        /// 
+        /// If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
+        /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
 
@@ -285,6 +299,9 @@ namespace Pulumi.AwsNative.Ec2
         [Input("snapshotId")]
         public Input<string>? SnapshotId { get; set; }
 
+        /// <summary>
+        /// The ID of the source EBS volume to copy. When specified, the volume is created as an exact copy of the specified volume. Only specify to create a volume copy. To create a new empty volume or to create a volume from a snapshot, omit this parameter,
+        /// </summary>
         [Input("sourceVolumeId")]
         public Input<string>? SourceVolumeId { get; set; }
 

@@ -67,6 +67,12 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public Input<string>? Comment { get; set; }
 
         /// <summary>
+        /// The distribution's connection function association.
+        /// </summary>
+        [Input("connectionFunctionAssociation")]
+        public Input<Inputs.DistributionConnectionFunctionAssociationArgs>? ConnectionFunctionAssociation { get; set; }
+
+        /// <summary>
         /// This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants (tenant-only).
         /// </summary>
         [Input("connectionMode")]
@@ -215,6 +221,12 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         /// </summary>
         [Input("viewerCertificate")]
         public Input<Inputs.DistributionViewerCertificateArgs>? ViewerCertificate { get; set; }
+
+        /// <summary>
+        /// The distribution's viewer mTLS configuration.
+        /// </summary>
+        [Input("viewerMtlsConfig")]
+        public Input<Inputs.DistributionViewerMtlsConfigArgs>? ViewerMtlsConfig { get; set; }
 
         /// <summary>
         /// Multi-tenant distributions only support WAF V2 web ACLs.

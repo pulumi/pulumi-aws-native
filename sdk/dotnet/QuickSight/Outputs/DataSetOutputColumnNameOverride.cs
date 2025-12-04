@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetOutputColumnNameOverride
     {
+        /// <summary>
+        /// The new name to assign to the column in the output.
+        /// </summary>
         public readonly string OutputColumnName;
+        /// <summary>
+        /// The original name of the column from the source transform operation.
+        /// </summary>
         public readonly string? SourceColumnName;
 
         [OutputConstructor]

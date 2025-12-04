@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.StepFunctions
         /// 
         /// Activity configuration is immutable, and resource names must be unique. To set customer managed keys for encryption, you must create a *new Activity* . If you attempt to change the configuration in your CFN template for an existing activity, you will receive an `ActivityAlreadyExists` exception.
         /// 
-        /// To update your activity to include customer managed keys, set a new activity name within your AWS CloudFormation template.
+        /// To update your activity to include customer managed keys, set a new activity name within your CloudFormation template.
         /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.ActivityEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.AwsNative.StepFunctions
         /// 
         /// Activity configuration is immutable, and resource names must be unique. To set customer managed keys for encryption, you must create a *new Activity* . If you attempt to change the configuration in your CFN template for an existing activity, you will receive an `ActivityAlreadyExists` exception.
         /// 
-        /// To update your activity to include customer managed keys, set a new activity name within your AWS CloudFormation template.
+        /// To update your activity to include customer managed keys, set a new activity name within your CloudFormation template.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.ActivityEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }

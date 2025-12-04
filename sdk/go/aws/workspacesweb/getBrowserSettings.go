@@ -37,6 +37,8 @@ type LookupBrowserSettingsResult struct {
 	BrowserSettingsArn *string `pulumi:"browserSettingsArn"`
 	// The tags to add to the browser settings resource. A tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.
+	WebContentFilteringPolicy *BrowserSettingsWebContentFilteringPolicy `pulumi:"webContentFilteringPolicy"`
 }
 
 func LookupBrowserSettingsOutput(ctx *pulumi.Context, args LookupBrowserSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupBrowserSettingsResultOutput {
@@ -89,6 +91,13 @@ func (o LookupBrowserSettingsResultOutput) BrowserSettingsArn() pulumi.StringPtr
 // The tags to add to the browser settings resource. A tag is a key-value pair.
 func (o LookupBrowserSettingsResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupBrowserSettingsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.
+func (o LookupBrowserSettingsResultOutput) WebContentFilteringPolicy() BrowserSettingsWebContentFilteringPolicyPtrOutput {
+	return o.ApplyT(func(v LookupBrowserSettingsResult) *BrowserSettingsWebContentFilteringPolicy {
+		return v.WebContentFilteringPolicy
+	}).(BrowserSettingsWebContentFilteringPolicyPtrOutput)
 }
 
 func init() {

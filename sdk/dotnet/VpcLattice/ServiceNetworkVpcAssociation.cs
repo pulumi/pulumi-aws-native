@@ -34,6 +34,18 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
+        /// The DNS options for the service network VPC association.
+        /// </summary>
+        [Output("dnsOptions")]
+        public Output<Outputs.ServiceNetworkVpcAssociationDnsOptions?> DnsOptions { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates if private DNS is enabled for the service network VPC association.
+        /// </summary>
+        [Output("privateDnsEnabled")]
+        public Output<bool?> PrivateDnsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
         /// </summary>
         [Output("securityGroupIds")]
@@ -112,6 +124,8 @@ namespace Pulumi.AwsNative.VpcLattice
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "dnsOptions",
+                    "privateDnsEnabled",
                     "serviceNetworkIdentifier",
                     "vpcIdentifier",
                 },
@@ -137,6 +151,18 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class ServiceNetworkVpcAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The DNS options for the service network VPC association.
+        /// </summary>
+        [Input("dnsOptions")]
+        public Input<Inputs.ServiceNetworkVpcAssociationDnsOptionsArgs>? DnsOptions { get; set; }
+
+        /// <summary>
+        /// Indicates if private DNS is enabled for the service network VPC association.
+        /// </summary>
+        [Input("privateDnsEnabled")]
+        public Input<bool>? PrivateDnsEnabled { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 

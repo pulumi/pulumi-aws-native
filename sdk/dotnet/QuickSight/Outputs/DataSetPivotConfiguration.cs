@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetPivotConfiguration
     {
+        /// <summary>
+        /// The name of the column that contains the labels to be pivoted into separate columns.
+        /// </summary>
         public readonly string? LabelColumnName;
+        /// <summary>
+        /// The list of specific label values to pivot into separate columns.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSetPivotedLabel> PivotedLabels;
 
         [OutputConstructor]

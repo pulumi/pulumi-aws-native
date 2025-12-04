@@ -100,6 +100,18 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         public Input<Pulumi.AwsNative.MediaConnect.FlowSourceProtocol>? Protocol { get; set; }
 
         /// <summary>
+        /// Indicates if router integration is enabled or disabled on the flow source.
+        /// </summary>
+        [Input("routerIntegrationState")]
+        public Input<Pulumi.AwsNative.MediaConnect.FlowSourceRouterIntegrationState>? RouterIntegrationState { get; set; }
+
+        /// <summary>
+        /// The decryption configuration for the flow source when router integration is enabled.
+        /// </summary>
+        [Input("routerIntegrationTransitDecryption")]
+        public Input<Inputs.FlowTransitEncryptionArgs>? RouterIntegrationTransitDecryption { get; set; }
+
+        /// <summary>
         /// The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
         /// </summary>
         [Input("senderControlPort")]

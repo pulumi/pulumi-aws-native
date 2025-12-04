@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("columnIdMappings")]
         private InputList<Inputs.DataSetColumnIdMappingArgs>? _columnIdMappings;
+
+        /// <summary>
+        /// The mappings between source column identifiers and target column identifiers for this transformation.
+        /// </summary>
         public InputList<Inputs.DataSetColumnIdMappingArgs> ColumnIdMappings
         {
             get => _columnIdMappings ?? (_columnIdMappings = new InputList<Inputs.DataSetColumnIdMappingArgs>());
             set => _columnIdMappings = value;
         }
 
+        /// <summary>
+        /// The identifier of the transform operation that provides input data.
+        /// </summary>
         [Input("transformOperationId", required: true)]
         public Input<string> TransformOperationId { get; set; } = null!;
 

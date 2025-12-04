@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetStringFilterCondition
     {
+        /// <summary>
+        /// The name of the string column to filter.
+        /// </summary>
         public readonly string? ColumnName;
+        /// <summary>
+        /// A comparison-based filter condition for the string column.
+        /// </summary>
         public readonly Outputs.DataSetStringComparisonFilterCondition? ComparisonFilterCondition;
+        /// <summary>
+        /// A list-based filter condition that includes or excludes values from a specified list.
+        /// </summary>
         public readonly Outputs.DataSetStringListFilterCondition? ListFilterCondition;
 
         [OutputConstructor]

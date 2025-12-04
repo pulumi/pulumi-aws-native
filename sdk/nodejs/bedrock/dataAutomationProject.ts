@@ -78,6 +78,10 @@ export class DataAutomationProject extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly projectStage: pulumi.Output<enums.bedrock.DataAutomationProjectStage>;
     /**
+     * Type of the DataAutomationProject - Sync or Async
+     */
+    declare public readonly projectType: pulumi.Output<enums.bedrock.DataAutomationProjectProjectType | undefined>;
+    /**
      * The project's standard output configuration.
      */
     declare public readonly standardOutputConfiguration: pulumi.Output<outputs.bedrock.DataAutomationProjectStandardOutputConfiguration | undefined>;
@@ -107,6 +111,7 @@ export class DataAutomationProject extends pulumi.CustomResource {
             resourceInputs["overrideConfiguration"] = args?.overrideConfiguration;
             resourceInputs["projectDescription"] = args?.projectDescription;
             resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["projectType"] = args?.projectType;
             resourceInputs["standardOutputConfiguration"] = args?.standardOutputConfiguration;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["creationTime"] = undefined /*out*/;
@@ -125,12 +130,13 @@ export class DataAutomationProject extends pulumi.CustomResource {
             resourceInputs["projectDescription"] = undefined /*out*/;
             resourceInputs["projectName"] = undefined /*out*/;
             resourceInputs["projectStage"] = undefined /*out*/;
+            resourceInputs["projectType"] = undefined /*out*/;
             resourceInputs["standardOutputConfiguration"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["projectName"] };
+        const replaceOnChanges = { replaceOnChanges: ["projectName", "projectType"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DataAutomationProject.__pulumiType, name, resourceInputs, opts);
     }
@@ -164,6 +170,10 @@ export interface DataAutomationProjectArgs {
      * Name of the DataAutomationProject
      */
     projectName?: pulumi.Input<string>;
+    /**
+     * Type of the DataAutomationProject - Sync or Async
+     */
+    projectType?: pulumi.Input<enums.bedrock.DataAutomationProjectProjectType>;
     /**
      * The project's standard output configuration.
      */

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetStringFilterValue
     {
+        /// <summary>
+        /// A static string value used for filtering.
+        /// </summary>
         public readonly string? StaticValue;
 
         [OutputConstructor]

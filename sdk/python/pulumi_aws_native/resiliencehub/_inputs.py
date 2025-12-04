@@ -379,7 +379,7 @@ if not MYPY:
         """
         logical_stack_name: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Name of the AWS CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
+        Name of the CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
         """
         resource_name: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -408,7 +408,7 @@ class AppResourceMappingArgs:
         :param pulumi.Input[_builtins.str] eks_source_name: Name of the Amazon Elastic Kubernetes Service cluster and namespace that this resource is mapped to when the `mappingType` is `EKS` .
                
                > This parameter accepts values in "eks-cluster/namespace" format.
-        :param pulumi.Input[_builtins.str] logical_stack_name: Name of the AWS CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
+        :param pulumi.Input[_builtins.str] logical_stack_name: Name of the CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
         :param pulumi.Input[_builtins.str] resource_name: Name of the resource that this resource is mapped to when the `mappingType` is `Resource` .
         :param pulumi.Input[_builtins.str] terraform_source_name: Name of the Terraform source that this resource is mapped to when the `mappingType` is `Terraform` .
         """
@@ -465,7 +465,7 @@ class AppResourceMappingArgs:
     @pulumi.getter(name="logicalStackName")
     def logical_stack_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Name of the AWS CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
+        Name of the CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
         """
         return pulumi.get(self, "logical_stack_name")
 

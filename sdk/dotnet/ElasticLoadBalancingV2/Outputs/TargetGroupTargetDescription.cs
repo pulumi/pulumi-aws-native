@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         /// The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
         /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// The Server ID used by targets when using QUIC or TCP_QUIC protocols.
+        /// </summary>
+        public readonly string? QuicServerId;
 
         [OutputConstructor]
         private TargetGroupTargetDescription(
@@ -32,11 +36,14 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
             string id,
 
-            int? port)
+            int? port,
+
+            string? quicServerId)
         {
             AvailabilityZone = availabilityZone;
             Id = id;
             Port = port;
+            QuicServerId = quicServerId;
         }
     }
 }

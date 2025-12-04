@@ -26,8 +26,8 @@ type LogicallyAirGappedBackupVault struct {
 	BackupVaultName pulumi.StringOutput `pulumi:"backupVaultName"`
 	// The tags to assign to the vault.
 	BackupVaultTags pulumi.StringMapOutput `pulumi:"backupVaultTags"`
-	// The ARN of the server-side encryption key.
-	EncryptionKeyArn pulumi.StringOutput `pulumi:"encryptionKeyArn"`
+	// The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+	EncryptionKeyArn pulumi.StringPtrOutput `pulumi:"encryptionKeyArn"`
 	// The maximum retention period that the vault retains its recovery points.
 	MaxRetentionDays pulumi.IntOutput `pulumi:"maxRetentionDays"`
 	// This setting specifies the minimum retention period that the vault retains its recovery points.
@@ -58,6 +58,7 @@ func NewLogicallyAirGappedBackupVault(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"backupVaultName",
+		"encryptionKeyArn",
 		"maxRetentionDays",
 		"minRetentionDays",
 	})
@@ -103,6 +104,8 @@ type logicallyAirGappedBackupVaultArgs struct {
 	BackupVaultName *string `pulumi:"backupVaultName"`
 	// The tags to assign to the vault.
 	BackupVaultTags map[string]string `pulumi:"backupVaultTags"`
+	// The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// The maximum retention period that the vault retains its recovery points.
 	MaxRetentionDays int `pulumi:"maxRetentionDays"`
 	// This setting specifies the minimum retention period that the vault retains its recovery points.
@@ -124,6 +127,8 @@ type LogicallyAirGappedBackupVaultArgs struct {
 	BackupVaultName pulumi.StringPtrInput
 	// The tags to assign to the vault.
 	BackupVaultTags pulumi.StringMapInput
+	// The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+	EncryptionKeyArn pulumi.StringPtrInput
 	// The maximum retention period that the vault retains its recovery points.
 	MaxRetentionDays pulumi.IntInput
 	// This setting specifies the minimum retention period that the vault retains its recovery points.
@@ -194,9 +199,9 @@ func (o LogicallyAirGappedBackupVaultOutput) BackupVaultTags() pulumi.StringMapO
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.StringMapOutput { return v.BackupVaultTags }).(pulumi.StringMapOutput)
 }
 
-// The ARN of the server-side encryption key.
-func (o LogicallyAirGappedBackupVaultOutput) EncryptionKeyArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.StringOutput { return v.EncryptionKeyArn }).(pulumi.StringOutput)
+// The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+func (o LogicallyAirGappedBackupVaultOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.StringPtrOutput { return v.EncryptionKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // The maximum retention period that the vault retains its recovery points.

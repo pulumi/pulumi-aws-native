@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetAppendOperation
     {
+        /// <summary>
+        /// Alias for this operation.
+        /// </summary>
         public readonly string Alias;
+        /// <summary>
+        /// The list of columns to include in the appended result, mapping columns from both sources.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSetAppendedColumn> AppendedColumns;
+        /// <summary>
+        /// The first data source to be included in the append operation.
+        /// </summary>
         public readonly Outputs.DataSetTransformOperationSource? FirstSource;
+        /// <summary>
+        /// The second data source to be appended to the first source.
+        /// </summary>
         public readonly Outputs.DataSetTransformOperationSource? SecondSource;
 
         [OutputConstructor]

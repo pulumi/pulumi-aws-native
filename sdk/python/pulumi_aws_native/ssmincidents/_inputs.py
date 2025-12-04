@@ -168,7 +168,7 @@ if not MYPY:
         """
         chatbot_sns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
-        The Amazon SNS targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
+        The Amazon  targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon  topics
         """
 elif False:
     ResponsePlanChatChannelArgsDict: TypeAlias = Mapping[str, Any]
@@ -179,7 +179,7 @@ class ResponsePlanChatChannelArgs:
                  chatbot_sns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The chat channel configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] chatbot_sns: The Amazon SNS targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] chatbot_sns: The Amazon  targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon  topics
         """
         if chatbot_sns is not None:
             pulumi.set(__self__, "chatbot_sns", chatbot_sns)
@@ -188,7 +188,7 @@ class ResponsePlanChatChannelArgs:
     @pulumi.getter(name="chatbotSns")
     def chatbot_sns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The Amazon SNS targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
+        The Amazon  targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon  topics
         """
         return pulumi.get(self, "chatbot_sns")
 
@@ -460,7 +460,7 @@ if not MYPY:
         """
         sns_topic_arn: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The Amazon Resource Name (ARN) of the Amazon SNS topic.
+        The Amazon Resource Name (ARN) of the Amazon  topic.
         """
 elif False:
     ResponsePlanNotificationTargetItemArgsDict: TypeAlias = Mapping[str, Any]
@@ -471,7 +471,7 @@ class ResponsePlanNotificationTargetItemArgs:
                  sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A notification target.
-        :param pulumi.Input[_builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic.
+        :param pulumi.Input[_builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) of the Amazon  topic.
         """
         if sns_topic_arn is not None:
             pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
@@ -480,7 +480,7 @@ class ResponsePlanNotificationTargetItemArgs:
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Amazon SNS topic.
+        The Amazon Resource Name (ARN) of the Amazon  topic.
         """
         return pulumi.get(self, "sns_topic_arn")
 

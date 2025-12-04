@@ -2,6 +2,38 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ConnectionFunctionConfigRuntime = {
+    CloudfrontJs20: "cloudfront-js-2.0",
+} as const;
+
+/**
+ * The function's runtime environment version.
+ */
+export type ConnectionFunctionConfigRuntime = (typeof ConnectionFunctionConfigRuntime)[keyof typeof ConnectionFunctionConfigRuntime];
+
+export const ConnectionFunctionStage = {
+    Development: "DEVELOPMENT",
+    Live: "LIVE",
+} as const;
+
+/**
+ * The connection function stage.
+ */
+export type ConnectionFunctionStage = (typeof ConnectionFunctionStage)[keyof typeof ConnectionFunctionStage];
+
+export const ConnectionFunctionStatus = {
+    Unpublished: "UNPUBLISHED",
+    Deployed: "DEPLOYED",
+    Unassociated: "UNASSOCIATED",
+    Publishing: "PUBLISHING",
+    InProgress: "IN_PROGRESS",
+} as const;
+
+/**
+ * The connection function status.
+ */
+export type ConnectionFunctionStatus = (typeof ConnectionFunctionStatus)[keyof typeof ConnectionFunctionStatus];
+
 export const ContinuousDeploymentPolicyConfigType = {
     SingleWeight: "SingleWeight",
     SingleHeader: "SingleHeader",
@@ -103,6 +135,13 @@ export const DistributionTenantWebAclCustomizationAction = {
  */
 export type DistributionTenantWebAclCustomizationAction = (typeof DistributionTenantWebAclCustomizationAction)[keyof typeof DistributionTenantWebAclCustomizationAction];
 
+export const DistributionViewerMtlsMode = {
+    Required: "required",
+    Optional: "optional",
+} as const;
+
+export type DistributionViewerMtlsMode = (typeof DistributionViewerMtlsMode)[keyof typeof DistributionViewerMtlsMode];
+
 export const MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -112,3 +151,14 @@ export const MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetr
  * A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
  */
 export type MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus = (typeof MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus)[keyof typeof MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus];
+
+export const TrustStoreStatus = {
+    Pending: "PENDING",
+    Active: "ACTIVE",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * Current status of the trust store
+ */
+export type TrustStoreStatus = (typeof TrustStoreStatus)[keyof typeof TrustStoreStatus];

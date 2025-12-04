@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.AmazonMq.Inputs
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Enables the use of an AWS owned CMK using AWS KMS (KMS). Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
+        /// Enables the use of an AWS owned CMK using AWS  (KMS). Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
         /// </summary>
         [Input("useAwsOwnedKey", required: true)]
         public Input<bool> UseAwsOwnedKey { get; set; } = null!;

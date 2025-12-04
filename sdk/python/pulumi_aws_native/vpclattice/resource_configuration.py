@@ -26,6 +26,9 @@ class ResourceConfigurationArgs:
     def __init__(__self__, *,
                  resource_configuration_type: pulumi.Input['ResourceConfigurationType'],
                  allow_association_to_sharable_service_network: Optional[pulumi.Input[_builtins.bool]] = None,
+                 custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_verification_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_domain: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  protocol_type: Optional[pulumi.Input['ResourceConfigurationProtocolType']] = None,
@@ -43,6 +46,9 @@ class ResourceConfigurationArgs:
                - *CHILD* - A single resource that is part of a group resource configuration.
                - *ARN* - An AWS resource.
         :param pulumi.Input[_builtins.bool] allow_association_to_sharable_service_network: Specifies whether the resource configuration can be associated with a sharable service network.
+        :param pulumi.Input[_builtins.str] custom_domain_name: The custom domain name.
+        :param pulumi.Input[_builtins.str] domain_verification_id: The domain verification ID.
+        :param pulumi.Input[_builtins.str] group_domain: (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain.
         :param pulumi.Input[_builtins.str] name: The name of the resource configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
         :param pulumi.Input['ResourceConfigurationProtocolType'] protocol_type: (SINGLE, GROUP) The protocol accepted by the resource configuration.
@@ -59,6 +65,12 @@ class ResourceConfigurationArgs:
         pulumi.set(__self__, "resource_configuration_type", resource_configuration_type)
         if allow_association_to_sharable_service_network is not None:
             pulumi.set(__self__, "allow_association_to_sharable_service_network", allow_association_to_sharable_service_network)
+        if custom_domain_name is not None:
+            pulumi.set(__self__, "custom_domain_name", custom_domain_name)
+        if domain_verification_id is not None:
+            pulumi.set(__self__, "domain_verification_id", domain_verification_id)
+        if group_domain is not None:
+            pulumi.set(__self__, "group_domain", group_domain)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if port_ranges is not None:
@@ -104,6 +116,42 @@ class ResourceConfigurationArgs:
     @allow_association_to_sharable_service_network.setter
     def allow_association_to_sharable_service_network(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "allow_association_to_sharable_service_network", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customDomainName")
+    def custom_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The custom domain name.
+        """
+        return pulumi.get(self, "custom_domain_name")
+
+    @custom_domain_name.setter
+    def custom_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "custom_domain_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="domainVerificationId")
+    def domain_verification_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The domain verification ID.
+        """
+        return pulumi.get(self, "domain_verification_id")
+
+    @domain_verification_id.setter
+    def domain_verification_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "domain_verification_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="groupDomain")
+    def group_domain(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain.
+        """
+        return pulumi.get(self, "group_domain")
+
+    @group_domain.setter
+    def group_domain(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "group_domain", value)
 
     @_builtins.property
     @pulumi.getter
@@ -213,6 +261,9 @@ class ResourceConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_association_to_sharable_service_network: Optional[pulumi.Input[_builtins.bool]] = None,
+                 custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_verification_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_domain: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  protocol_type: Optional[pulumi.Input['ResourceConfigurationProtocolType']] = None,
@@ -229,6 +280,9 @@ class ResourceConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] allow_association_to_sharable_service_network: Specifies whether the resource configuration can be associated with a sharable service network.
+        :param pulumi.Input[_builtins.str] custom_domain_name: The custom domain name.
+        :param pulumi.Input[_builtins.str] domain_verification_id: The domain verification ID.
+        :param pulumi.Input[_builtins.str] group_domain: (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain.
         :param pulumi.Input[_builtins.str] name: The name of the resource configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
         :param pulumi.Input['ResourceConfigurationProtocolType'] protocol_type: (SINGLE, GROUP) The protocol accepted by the resource configuration.
@@ -273,6 +327,9 @@ class ResourceConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_association_to_sharable_service_network: Optional[pulumi.Input[_builtins.bool]] = None,
+                 custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_verification_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_domain: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  protocol_type: Optional[pulumi.Input['ResourceConfigurationProtocolType']] = None,
@@ -292,6 +349,9 @@ class ResourceConfiguration(pulumi.CustomResource):
             __props__ = ResourceConfigurationArgs.__new__(ResourceConfigurationArgs)
 
             __props__.__dict__["allow_association_to_sharable_service_network"] = allow_association_to_sharable_service_network
+            __props__.__dict__["custom_domain_name"] = custom_domain_name
+            __props__.__dict__["domain_verification_id"] = domain_verification_id
+            __props__.__dict__["group_domain"] = group_domain
             __props__.__dict__["name"] = name
             __props__.__dict__["port_ranges"] = port_ranges
             __props__.__dict__["protocol_type"] = protocol_type
@@ -305,7 +365,7 @@ class ResourceConfiguration(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["protocolType", "resourceConfigurationAuthType", "resourceConfigurationType", "resourceGatewayId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["customDomainName", "domainVerificationId", "groupDomain", "protocolType", "resourceConfigurationAuthType", "resourceConfigurationType", "resourceGatewayId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ResourceConfiguration, __self__).__init__(
             'aws-native:vpclattice:ResourceConfiguration',
@@ -332,6 +392,9 @@ class ResourceConfiguration(pulumi.CustomResource):
         __props__.__dict__["allow_association_to_sharable_service_network"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["aws_id"] = None
+        __props__.__dict__["custom_domain_name"] = None
+        __props__.__dict__["domain_verification_id"] = None
+        __props__.__dict__["group_domain"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["port_ranges"] = None
         __props__.__dict__["protocol_type"] = None
@@ -366,6 +429,30 @@ class ResourceConfiguration(pulumi.CustomResource):
         The ID of the resource configuration.
         """
         return pulumi.get(self, "aws_id")
+
+    @_builtins.property
+    @pulumi.getter(name="customDomainName")
+    def custom_domain_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The custom domain name.
+        """
+        return pulumi.get(self, "custom_domain_name")
+
+    @_builtins.property
+    @pulumi.getter(name="domainVerificationId")
+    def domain_verification_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The domain verification ID.
+        """
+        return pulumi.get(self, "domain_verification_id")
+
+    @_builtins.property
+    @pulumi.getter(name="groupDomain")
+    def group_domain(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain.
+        """
+        return pulumi.get(self, "group_domain")
 
     @_builtins.property
     @pulumi.getter

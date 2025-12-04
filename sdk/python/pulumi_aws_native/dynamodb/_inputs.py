@@ -1274,7 +1274,7 @@ if not MYPY:
     class GlobalTableReplicaSseSpecificationArgsDict(TypedDict):
         kms_master_key_id: pulumi.Input[_builtins.str]
         """
-        The AWS KMS key that should be used for the AWS KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
+        The AWS  key that should be used for the AWS  encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
         """
 elif False:
     GlobalTableReplicaSseSpecificationArgsDict: TypeAlias = Mapping[str, Any]
@@ -1284,7 +1284,7 @@ class GlobalTableReplicaSseSpecificationArgs:
     def __init__(__self__, *,
                  kms_master_key_id: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] kms_master_key_id: The AWS KMS key that should be used for the AWS KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
+        :param pulumi.Input[_builtins.str] kms_master_key_id: The AWS  key that should be used for the AWS  encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
         """
         pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
 
@@ -1292,7 +1292,7 @@ class GlobalTableReplicaSseSpecificationArgs:
     @pulumi.getter(name="kmsMasterKeyId")
     def kms_master_key_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The AWS KMS key that should be used for the AWS KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
+        The AWS  key that should be used for the AWS  encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
         """
         return pulumi.get(self, "kms_master_key_id")
 
@@ -1303,7 +1303,7 @@ class GlobalTableReplicaSseSpecificationArgs:
 
 if not MYPY:
     class GlobalTableReplicaStreamSpecificationArgsDict(TypedDict):
-        resource_policy: NotRequired[pulumi.Input['GlobalTableResourcePolicyArgsDict']]
+        resource_policy: pulumi.Input['GlobalTableResourcePolicyArgsDict']
         """
         A resource-based policy document that contains the permissions for the specified stream of a DynamoDB global table replica. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
 
@@ -1317,7 +1317,7 @@ elif False:
 @pulumi.input_type
 class GlobalTableReplicaStreamSpecificationArgs:
     def __init__(__self__, *,
-                 resource_policy: Optional[pulumi.Input['GlobalTableResourcePolicyArgs']] = None):
+                 resource_policy: pulumi.Input['GlobalTableResourcePolicyArgs']):
         """
         :param pulumi.Input['GlobalTableResourcePolicyArgs'] resource_policy: A resource-based policy document that contains the permissions for the specified stream of a DynamoDB global table replica. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
                
@@ -1325,12 +1325,11 @@ class GlobalTableReplicaStreamSpecificationArgs:
                
                You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
         """
-        if resource_policy is not None:
-            pulumi.set(__self__, "resource_policy", resource_policy)
+        pulumi.set(__self__, "resource_policy", resource_policy)
 
     @_builtins.property
     @pulumi.getter(name="resourcePolicy")
-    def resource_policy(self) -> Optional[pulumi.Input['GlobalTableResourcePolicyArgs']]:
+    def resource_policy(self) -> pulumi.Input['GlobalTableResourcePolicyArgs']:
         """
         A resource-based policy document that contains the permissions for the specified stream of a DynamoDB global table replica. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
 
@@ -1341,7 +1340,7 @@ class GlobalTableReplicaStreamSpecificationArgs:
         return pulumi.get(self, "resource_policy")
 
     @resource_policy.setter
-    def resource_policy(self, value: Optional[pulumi.Input['GlobalTableResourcePolicyArgs']]):
+    def resource_policy(self, value: pulumi.Input['GlobalTableResourcePolicyArgs']):
         pulumi.set(self, "resource_policy", value)
 
 
@@ -1380,13 +1379,13 @@ if not MYPY:
     class GlobalTableSseSpecificationArgsDict(TypedDict):
         sse_enabled: pulumi.Input[_builtins.bool]
         """
-        Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS KMS charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
+        Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS  charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
         """
         sse_type: NotRequired[pulumi.Input[_builtins.str]]
         """
         Server-side encryption type. The only supported value is:
 
-        - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS KMS ( AWS KMS charges apply).
+        - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS  ( AWS  charges apply).
         """
 elif False:
     GlobalTableSseSpecificationArgsDict: TypeAlias = Mapping[str, Any]
@@ -1397,10 +1396,10 @@ class GlobalTableSseSpecificationArgs:
                  sse_enabled: pulumi.Input[_builtins.bool],
                  sse_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.bool] sse_enabled: Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS KMS charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
+        :param pulumi.Input[_builtins.bool] sse_enabled: Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS  charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
         :param pulumi.Input[_builtins.str] sse_type: Server-side encryption type. The only supported value is:
                
-               - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS KMS ( AWS KMS charges apply).
+               - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS  ( AWS  charges apply).
         """
         pulumi.set(__self__, "sse_enabled", sse_enabled)
         if sse_type is not None:
@@ -1410,7 +1409,7 @@ class GlobalTableSseSpecificationArgs:
     @pulumi.getter(name="sseEnabled")
     def sse_enabled(self) -> pulumi.Input[_builtins.bool]:
         """
-        Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS KMS charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
+        Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS  charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
         """
         return pulumi.get(self, "sse_enabled")
 
@@ -1424,7 +1423,7 @@ class GlobalTableSseSpecificationArgs:
         """
         Server-side encryption type. The only supported value is:
 
-        - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS KMS ( AWS KMS charges apply).
+        - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS  ( AWS  charges apply).
         """
         return pulumi.get(self, "sse_type")
 

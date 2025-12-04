@@ -62,6 +62,9 @@
       "minLength" : 5,
       "maxLength" : 6,
       "enum" : [ "LOCAL", "TIERED" ]
+    },
+    "Rebalancing" : {
+      "$ref" : "#/definitions/Rebalancing"
     }
   },
   "definitions" : {
@@ -264,6 +267,17 @@
       },
       "required" : [ "ClientSubnets", "InstanceType" ]
     },
+    "Rebalancing" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Status" : {
+          "type" : "string",
+          "enum" : [ "PAUSED", "ACTIVE" ]
+        }
+      },
+      "required" : [ "Status" ]
+    },
     "EncryptionAtRest" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -460,7 +474,7 @@
   "required" : [ "BrokerNodeGroupInfo", "KafkaVersion", "NumberOfBrokerNodes", "ClusterName" ],
   "createOnlyProperties" : [ "/properties/BrokerNodeGroupInfo/BrokerAZDistribution", "/properties/BrokerNodeGroupInfo/ClientSubnets", "/properties/BrokerNodeGroupInfo/SecurityGroups", "/properties/EncryptionInfo/EncryptionAtRest", "/properties/EncryptionInfo/EncryptionInTransit/InCluster", "/properties/ClusterName" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
-  "readOnlyProperties" : [ "/properties/Arn" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/CurrentVersion" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
@@ -475,7 +489,7 @@
       "timeoutInMinutes" : 120
     },
     "update" : {
-      "permissions" : [ "kafka:UpdateMonitoring", "kafka:UpdateClusterKafkaVersion", "kafka:UpdateClusterConfiguration", "kafka:UpdateBrokerType", "kafka:UpdateBrokerCount", "kafka:UpdateBrokerStorage", "kafka:UpdateStorage", "kafka:UpdateSecurity", "kafka:UpdateConnectivity", "kafka:DescribeCluster", "kafka:DescribeClusterOperation", "kafka:TagResource", "kafka:UntagResource", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:DescribeSecurityGroups", "iam:AttachRolePolicy", "iam:CreateServiceLinkedRole", "iam:PutRolePolicy", "kms:DescribeKey", "kms:CreateGrant", "logs:CreateLogDelivery", "logs:GetLogDelivery", "logs:UpdateLogDelivery", "logs:DeleteLogDelivery", "logs:ListLogDeliveries", "s3:GetBucketPolicy", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups", "firehose:TagDeliveryStream", "acm-pca:GetCertificateAuthorityCertificate" ],
+      "permissions" : [ "kafka:UpdateMonitoring", "kafka:UpdateClusterKafkaVersion", "kafka:UpdateClusterConfiguration", "kafka:UpdateBrokerType", "kafka:UpdateBrokerCount", "kafka:UpdateBrokerStorage", "kafka:UpdateStorage", "kafka:UpdateSecurity", "kafka:UpdateConnectivity", "kafka:UpdateRebalancing", "kafka:DescribeCluster", "kafka:DescribeClusterOperation", "kafka:TagResource", "kafka:UntagResource", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "ec2:DescribeSecurityGroups", "ec2:DescribeRouteTables", "iam:AttachRolePolicy", "iam:CreateServiceLinkedRole", "iam:PutRolePolicy", "kms:DescribeKey", "kms:CreateGrant", "logs:CreateLogDelivery", "logs:GetLogDelivery", "logs:UpdateLogDelivery", "logs:DeleteLogDelivery", "logs:ListLogDeliveries", "s3:GetBucketPolicy", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies", "logs:DescribeLogGroups", "firehose:TagDeliveryStream", "acm-pca:GetCertificateAuthorityCertificate" ],
       "timeoutInMinutes" : 720
     },
     "delete" : {

@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class EvaluationFormQuestionTypeProperties
     {
+        public readonly Outputs.EvaluationFormMultiSelectQuestionProperties? MultiSelect;
         /// <summary>
         /// The properties of the numeric question.
         /// </summary>
@@ -24,16 +25,22 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// The properties of the numeric question.
         /// </summary>
         public readonly Outputs.EvaluationFormSingleSelectQuestionProperties? SingleSelect;
+        /// <summary>
+        /// The properties of the text question.
+        /// </summary>
         public readonly Outputs.EvaluationFormTextQuestionProperties? Text;
 
         [OutputConstructor]
         private EvaluationFormQuestionTypeProperties(
+            Outputs.EvaluationFormMultiSelectQuestionProperties? multiSelect,
+
             Outputs.EvaluationFormNumericQuestionProperties? numeric,
 
             Outputs.EvaluationFormSingleSelectQuestionProperties? singleSelect,
 
             Outputs.EvaluationFormTextQuestionProperties? text)
         {
+            MultiSelect = multiSelect;
             Numeric = numeric;
             SingleSelect = singleSelect;
             Text = text;

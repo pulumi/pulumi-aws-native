@@ -29,6 +29,7 @@ __all__ = [
     'MemorySummaryMemoryStrategyType',
     'MemoryUserPreferenceMemoryStrategyStatus',
     'MemoryUserPreferenceMemoryStrategyType',
+    'RuntimeAgentManagedRuntimeType',
     'RuntimeAgentStatus',
     'RuntimeEndpointAgentRuntimeEndpointStatus',
     'RuntimeNetworkMode',
@@ -143,6 +144,8 @@ class GatewayTargetTargetStatus(_builtins.str, Enum):
     DELETING = "DELETING"
     READY = "READY"
     FAILED = "FAILED"
+    SYNCHRONIZING = "SYNCHRONIZING"
+    SYNCHRONIZE_UNSUCCESSFUL = "SYNCHRONIZE_UNSUCCESSFUL"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:MemoryCustomMemoryStrategyStatus")
@@ -242,6 +245,17 @@ class MemoryUserPreferenceMemoryStrategyType(_builtins.str, Enum):
     SUMMARIZATION = "SUMMARIZATION"
     USER_PREFERENCE = "USER_PREFERENCE"
     CUSTOM = "CUSTOM"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:RuntimeAgentManagedRuntimeType")
+class RuntimeAgentManagedRuntimeType(_builtins.str, Enum):
+    """
+    Managed runtime types
+    """
+    PYTHON310 = "PYTHON_3_10"
+    PYTHON311 = "PYTHON_3_11"
+    PYTHON312 = "PYTHON_3_12"
+    PYTHON313 = "PYTHON_3_13"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:RuntimeAgentStatus")

@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("outputColumnNameOverrides", required: true)]
         private InputList<Inputs.DataSetOutputColumnNameOverrideArgs>? _outputColumnNameOverrides;
+
+        /// <summary>
+        /// A list of column name overrides to apply to the join operand's output columns.
+        /// </summary>
         public InputList<Inputs.DataSetOutputColumnNameOverrideArgs> OutputColumnNameOverrides
         {
             get => _outputColumnNameOverrides ?? (_outputColumnNameOverrides = new InputList<Inputs.DataSetOutputColumnNameOverrideArgs>());

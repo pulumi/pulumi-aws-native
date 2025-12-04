@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.ResilienceHub.Inputs
         public Input<string>? EksSourceName { get; set; }
 
         /// <summary>
-        /// Name of the AWS CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
+        /// Name of the CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
         /// </summary>
         [Input("logicalStackName")]
         public Input<string>? LogicalStackName { get; set; }

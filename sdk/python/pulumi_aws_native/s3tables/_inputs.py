@@ -18,6 +18,8 @@ from ._enums import *
 __all__ = [
     'TableBucketEncryptionConfigurationArgs',
     'TableBucketEncryptionConfigurationArgsDict',
+    'TableBucketMetricsConfigurationArgs',
+    'TableBucketMetricsConfigurationArgsDict',
     'TableBucketPolicyResourcePolicyArgs',
     'TableBucketPolicyResourcePolicyArgsDict',
     'TableBucketUnreferencedFileRemovalArgs',
@@ -92,6 +94,42 @@ class TableBucketEncryptionConfigurationArgs:
     @sse_algorithm.setter
     def sse_algorithm(self, value: Optional[pulumi.Input['TableBucketEncryptionConfigurationSseAlgorithm']]):
         pulumi.set(self, "sse_algorithm", value)
+
+
+if not MYPY:
+    class TableBucketMetricsConfigurationArgsDict(TypedDict):
+        """
+        Settings governing the Metric configuration for the table bucket.
+        """
+        status: NotRequired[pulumi.Input['TableBucketMetricsConfigurationStatus']]
+        """
+        Indicates whether Metrics are enabled.
+        """
+elif False:
+    TableBucketMetricsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableBucketMetricsConfigurationArgs:
+    def __init__(__self__, *,
+                 status: Optional[pulumi.Input['TableBucketMetricsConfigurationStatus']] = None):
+        """
+        Settings governing the Metric configuration for the table bucket.
+        :param pulumi.Input['TableBucketMetricsConfigurationStatus'] status: Indicates whether Metrics are enabled.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['TableBucketMetricsConfigurationStatus']]:
+        """
+        Indicates whether Metrics are enabled.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['TableBucketMetricsConfigurationStatus']]):
+        pulumi.set(self, "status", value)
 
 
 if not MYPY:

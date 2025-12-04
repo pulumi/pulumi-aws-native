@@ -43,6 +43,8 @@ namespace Pulumi.AwsNative.Backup
 
         /// <summary>
         /// The unique name of the restore testing selection that belongs to the related restore testing plan.
+        /// 
+        /// The name consists of only alphanumeric characters and underscores. Maximum length is 50.
         /// </summary>
         [Input("restoreTestingSelectionName", required: true)]
         public string RestoreTestingSelectionName { get; set; } = null!;
@@ -65,6 +67,8 @@ namespace Pulumi.AwsNative.Backup
 
         /// <summary>
         /// The unique name of the restore testing selection that belongs to the related restore testing plan.
+        /// 
+        /// The name consists of only alphanumeric characters and underscores. Maximum length is 50.
         /// </summary>
         [Input("restoreTestingSelectionName", required: true)]
         public Input<string> RestoreTestingSelectionName { get; set; } = null!;

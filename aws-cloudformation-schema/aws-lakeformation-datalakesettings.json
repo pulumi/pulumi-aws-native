@@ -18,6 +18,9 @@
     "Parameters" : {
       "type" : "object"
     },
+    "ReadOnlyAdmins" : {
+      "$ref" : "#/definitions/ReadOnlyAdmins"
+    },
     "AllowFullTableExternalDataAccess" : {
       "type" : "boolean"
     },
@@ -51,6 +54,10 @@
       "additionalProperties" : false
     },
     "CreateTableDefaultPermissions" : {
+      "type" : "object",
+      "additionalProperties" : false
+    },
+    "ReadOnlyAdmins" : {
       "type" : "object",
       "additionalProperties" : false
     },

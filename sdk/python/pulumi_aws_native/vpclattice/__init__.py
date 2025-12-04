@@ -9,8 +9,10 @@ import typing
 from ._enums import *
 from .access_log_subscription import *
 from .auth_policy import *
+from .domain_verification import *
 from .get_access_log_subscription import *
 from .get_auth_policy import *
+from .get_domain_verification import *
 from .get_listener import *
 from .get_resource_configuration import *
 from .get_resource_gateway import *

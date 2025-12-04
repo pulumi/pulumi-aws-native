@@ -42,7 +42,7 @@ type LookupNotificationRuleResult struct {
 	Status *NotificationRuleStatus `pulumi:"status"`
 	// A list of tags to apply to this notification rule. Key names cannot start with " `aws` ".
 	Tags map[string]string `pulumi:"tags"`
-	// A list of Amazon Resource Names (ARNs) of Amazon SNS topics and  clients to associate with the notification rule.
+	// A list of Amazon Resource Names (ARNs) of Amazon  topics and  clients to associate with the notification rule.
 	Targets []NotificationRuleTarget `pulumi:"targets"`
 }
 
@@ -113,7 +113,7 @@ func (o LookupNotificationRuleResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupNotificationRuleResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A list of Amazon Resource Names (ARNs) of Amazon SNS topics and  clients to associate with the notification rule.
+// A list of Amazon Resource Names (ARNs) of Amazon  topics and  clients to associate with the notification rule.
 func (o LookupNotificationRuleResultOutput) Targets() NotificationRuleTargetArrayOutput {
 	return o.ApplyT(func(v LookupNotificationRuleResult) []NotificationRuleTarget { return v.Targets }).(NotificationRuleTargetArrayOutput)
 }

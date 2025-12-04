@@ -78,7 +78,7 @@ class BrokerEncryptionOptions(dict):
                  use_aws_owned_key: _builtins.bool,
                  kms_key_id: Optional[_builtins.str] = None):
         """
-        :param _builtins.bool use_aws_owned_key: Enables the use of an AWS owned CMK using AWS KMS (KMS). Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
+        :param _builtins.bool use_aws_owned_key: Enables the use of an AWS owned CMK using AWS  (KMS). Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
         :param _builtins.str kms_key_id: The customer master key (CMK) to use for the A KMS (KMS). 
                This key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your data.
                The Key ARN is recommended so that drift can be detected,
@@ -92,7 +92,7 @@ class BrokerEncryptionOptions(dict):
     @pulumi.getter(name="useAwsOwnedKey")
     def use_aws_owned_key(self) -> _builtins.bool:
         """
-        Enables the use of an AWS owned CMK using AWS KMS (KMS). Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
+        Enables the use of an AWS owned CMK using AWS  (KMS). Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
         """
         return pulumi.get(self, "use_aws_owned_key")
 

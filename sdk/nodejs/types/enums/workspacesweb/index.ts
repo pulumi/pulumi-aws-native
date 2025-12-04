@@ -2,6 +2,38 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const BrowserSettingsCategory = {
+    Cults: "Cults",
+    Gambling: "Gambling",
+    Nudity: "Nudity",
+    Pornography: "Pornography",
+    SexEducation: "SexEducation",
+    Tasteless: "Tasteless",
+    Violence: "Violence",
+    DownloadSites: "DownloadSites",
+    ImageSharing: "ImageSharing",
+    PeerToPeer: "PeerToPeer",
+    StreamingMediaAndDownloads: "StreamingMediaAndDownloads",
+    GenerativeAi: "GenerativeAI",
+    CriminalActivity: "CriminalActivity",
+    Hacking: "Hacking",
+    HateAndIntolerance: "HateAndIntolerance",
+    IllegalDrug: "IllegalDrug",
+    IllegalSoftware: "IllegalSoftware",
+    SchoolCheating: "SchoolCheating",
+    SelfHarm: "SelfHarm",
+    Weapons: "Weapons",
+    Chat: "Chat",
+    Games: "Games",
+    InstantMessaging: "InstantMessaging",
+    ProfessionalNetwork: "ProfessionalNetwork",
+    SocialNetworking: "SocialNetworking",
+    WebBasedEmail: "WebBasedEmail",
+    ParkedDomains: "ParkedDomains",
+} as const;
+
+export type BrowserSettingsCategory = (typeof BrowserSettingsCategory)[keyof typeof BrowserSettingsCategory];
+
 export const DataProtectionSettingsRedactionPlaceHolderType = {
     CustomText: "CustomText",
 } as const;

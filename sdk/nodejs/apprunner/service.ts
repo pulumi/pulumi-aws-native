@@ -88,7 +88,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.
      */
-    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -133,7 +133,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["encryptionConfiguration", "serviceName"] };
+        const replaceOnChanges = { replaceOnChanges: ["encryptionConfiguration", "serviceName", "tags[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }
@@ -178,5 +178,5 @@ export interface ServiceArgs {
     /**
      * An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

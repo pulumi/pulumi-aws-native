@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetSaaSTableArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SaaS data source.
+        /// </summary>
         [Input("dataSourceArn", required: true)]
         public Input<string> DataSourceArn { get; set; } = null!;
 
         [Input("inputColumns", required: true)]
         private InputList<Inputs.DataSetInputColumnArgs>? _inputColumns;
+
+        /// <summary>
+        /// The list of input columns available from the SaaS table.
+        /// </summary>
         public InputList<Inputs.DataSetInputColumnArgs> InputColumns
         {
             get => _inputColumns ?? (_inputColumns = new InputList<Inputs.DataSetInputColumnArgs>());
@@ -25,6 +32,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("tablePath", required: true)]
         private InputList<Inputs.DataSetTablePathElementArgs>? _tablePath;
+
+        /// <summary>
+        /// The hierarchical path to the table within the SaaS data source.
+        /// </summary>
         public InputList<Inputs.DataSetTablePathElementArgs> TablePath
         {
             get => _tablePath ?? (_tablePath = new InputList<Inputs.DataSetTablePathElementArgs>());

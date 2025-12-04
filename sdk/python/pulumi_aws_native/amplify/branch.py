@@ -43,7 +43,7 @@ class BranchArgs:
         """
         The set of arguments for constructing a Branch resource.
         :param pulumi.Input[_builtins.str] app_id: The unique ID for an Amplify app.
-        :param pulumi.Input['BranchBackendArgs'] backend: The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
+        :param pulumi.Input['BranchBackendArgs'] backend: The backend for a `Branch` of an Amplify app. Use for a backend created from an CloudFormation stack.
                
                This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
         :param pulumi.Input['BranchBasicAuthConfigArgs'] basic_auth_config: The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
@@ -123,7 +123,7 @@ class BranchArgs:
     @pulumi.getter
     def backend(self) -> Optional[pulumi.Input['BranchBackendArgs']]:
         """
-        The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
+        The backend for a `Branch` of an Amplify app. Use for a backend created from an CloudFormation stack.
 
         This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
         """
@@ -345,7 +345,7 @@ class Branch(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The unique ID for an Amplify app.
-        :param pulumi.Input[Union['BranchBackendArgs', 'BranchBackendArgsDict']] backend: The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
+        :param pulumi.Input[Union['BranchBackendArgs', 'BranchBackendArgsDict']] backend: The backend for a `Branch` of an Amplify app. Use for a backend created from an CloudFormation stack.
                
                This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
         :param pulumi.Input[Union['BranchBasicAuthConfigArgs', 'BranchBasicAuthConfigArgsDict']] basic_auth_config: The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
@@ -508,7 +508,7 @@ class Branch(pulumi.CustomResource):
     @pulumi.getter
     def backend(self) -> pulumi.Output[Optional['outputs.BranchBackend']]:
         """
-        The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
+        The backend for a `Branch` of an Amplify app. Use for a backend created from an CloudFormation stack.
 
         This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
         """

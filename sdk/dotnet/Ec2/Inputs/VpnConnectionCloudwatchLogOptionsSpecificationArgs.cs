@@ -16,6 +16,28 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     public sealed class VpnConnectionCloudwatchLogOptionsSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
+        /// 
+        /// Valid values: `True` | `False`
+        /// </summary>
+        [Input("bgpLogEnabled")]
+        public Input<bool>? BgpLogEnabled { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.
+        /// </summary>
+        [Input("bgpLogGroupArn")]
+        public Input<string>? BgpLogGroupArn { get; set; }
+
+        /// <summary>
+        /// The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
+        /// 
+        /// Valid values: `json` | `text`
+        /// </summary>
+        [Input("bgpLogOutputFormat")]
+        public Input<Pulumi.AwsNative.Ec2.VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat>? BgpLogOutputFormat { get; set; }
+
+        /// <summary>
         /// Enable or disable VPN tunnel logging feature. Default value is ``False``.
         ///  Valid values: ``True`` | ``False``
         /// </summary>

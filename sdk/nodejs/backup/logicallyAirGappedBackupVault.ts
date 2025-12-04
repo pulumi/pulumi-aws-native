@@ -56,9 +56,9 @@ export class LogicallyAirGappedBackupVault extends pulumi.CustomResource {
      */
     declare public readonly backupVaultTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The ARN of the server-side encryption key.
+     * The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
      */
-    declare public /*out*/ readonly encryptionKeyArn: pulumi.Output<string>;
+    declare public readonly encryptionKeyArn: pulumi.Output<string | undefined>;
     /**
      * The maximum retention period that the vault retains its recovery points.
      */
@@ -103,12 +103,12 @@ export class LogicallyAirGappedBackupVault extends pulumi.CustomResource {
             resourceInputs["accessPolicy"] = args?.accessPolicy;
             resourceInputs["backupVaultName"] = args?.backupVaultName;
             resourceInputs["backupVaultTags"] = args?.backupVaultTags;
+            resourceInputs["encryptionKeyArn"] = args?.encryptionKeyArn;
             resourceInputs["maxRetentionDays"] = args?.maxRetentionDays;
             resourceInputs["minRetentionDays"] = args?.minRetentionDays;
             resourceInputs["mpaApprovalTeamArn"] = args?.mpaApprovalTeamArn;
             resourceInputs["notifications"] = args?.notifications;
             resourceInputs["backupVaultArn"] = undefined /*out*/;
-            resourceInputs["encryptionKeyArn"] = undefined /*out*/;
             resourceInputs["vaultState"] = undefined /*out*/;
             resourceInputs["vaultType"] = undefined /*out*/;
         } else {
@@ -125,7 +125,7 @@ export class LogicallyAirGappedBackupVault extends pulumi.CustomResource {
             resourceInputs["vaultType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["backupVaultName", "maxRetentionDays", "minRetentionDays"] };
+        const replaceOnChanges = { replaceOnChanges: ["backupVaultName", "encryptionKeyArn", "maxRetentionDays", "minRetentionDays"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(LogicallyAirGappedBackupVault.__pulumiType, name, resourceInputs, opts);
     }
@@ -149,6 +149,10 @@ export interface LogicallyAirGappedBackupVaultArgs {
      * The tags to assign to the vault.
      */
     backupVaultTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+     */
+    encryptionKeyArn?: pulumi.Input<string>;
     /**
      * The maximum retention period that the vault retains its recovery points.
      */

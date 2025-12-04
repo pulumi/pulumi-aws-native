@@ -27,6 +27,7 @@ __all__ = [
     'BlueprintStage',
     'BlueprintType',
     'DataAutomationProjectAudioExtractionCategoryType',
+    'DataAutomationProjectAudioGenerativeOutputLanguage',
     'DataAutomationProjectAudioStandardGenerativeFieldType',
     'DataAutomationProjectBlueprintStage',
     'DataAutomationProjectDesiredModality',
@@ -34,6 +35,12 @@ __all__ = [
     'DataAutomationProjectDocumentOutputTextFormatType',
     'DataAutomationProjectImageExtractionCategoryType',
     'DataAutomationProjectImageStandardGenerativeFieldType',
+    'DataAutomationProjectLanguage',
+    'DataAutomationProjectPiiEntityTypes',
+    'DataAutomationProjectPiiRedactionMaskMode',
+    'DataAutomationProjectProjectType',
+    'DataAutomationProjectSensitiveDataDetectionMode',
+    'DataAutomationProjectSensitiveDataDetectionScope',
     'DataAutomationProjectStage',
     'DataAutomationProjectState',
     'DataAutomationProjectStatus',
@@ -306,6 +313,12 @@ class DataAutomationProjectAudioExtractionCategoryType(_builtins.str, Enum):
     TOPIC_CONTENT_MODERATION = "TOPIC_CONTENT_MODERATION"
 
 
+@pulumi.type_token("aws-native:bedrock:DataAutomationProjectAudioGenerativeOutputLanguage")
+class DataAutomationProjectAudioGenerativeOutputLanguage(_builtins.str, Enum):
+    DEFAULT = "DEFAULT"
+    EN = "EN"
+
+
 @pulumi.type_token("aws-native:bedrock:DataAutomationProjectAudioStandardGenerativeFieldType")
 class DataAutomationProjectAudioStandardGenerativeFieldType(_builtins.str, Enum):
     AUDIO_SUMMARY = "AUDIO_SUMMARY"
@@ -358,6 +371,84 @@ class DataAutomationProjectImageExtractionCategoryType(_builtins.str, Enum):
 class DataAutomationProjectImageStandardGenerativeFieldType(_builtins.str, Enum):
     IMAGE_SUMMARY = "IMAGE_SUMMARY"
     IAB = "IAB"
+
+
+@pulumi.type_token("aws-native:bedrock:DataAutomationProjectLanguage")
+class DataAutomationProjectLanguage(_builtins.str, Enum):
+    EN = "EN"
+    DE = "DE"
+    ES = "ES"
+    FR = "FR"
+    IT = "IT"
+    PT = "PT"
+    JA = "JA"
+    KO = "KO"
+    CN = "CN"
+    TW = "TW"
+    HK = "HK"
+
+
+@pulumi.type_token("aws-native:bedrock:DataAutomationProjectPiiEntityTypes")
+class DataAutomationProjectPiiEntityTypes(_builtins.str, Enum):
+    ALL = "ALL"
+    ADDRESS = "ADDRESS"
+    AGE = "AGE"
+    NAME = "NAME"
+    EMAIL = "EMAIL"
+    PHONE = "PHONE"
+    USERNAME = "USERNAME"
+    PASSWORD = "PASSWORD"
+    DRIVER_ID = "DRIVER_ID"
+    LICENSE_PLATE = "LICENSE_PLATE"
+    VEHICLE_IDENTIFICATION_NUMBER = "VEHICLE_IDENTIFICATION_NUMBER"
+    CREDIT_DEBIT_CARD_CVV = "CREDIT_DEBIT_CARD_CVV"
+    CREDIT_DEBIT_CARD_EXPIRY = "CREDIT_DEBIT_CARD_EXPIRY"
+    CREDIT_DEBIT_CARD_NUMBER = "CREDIT_DEBIT_CARD_NUMBER"
+    PIN = "PIN"
+    INTERNATIONAL_BANK_ACCOUNT_NUMBER = "INTERNATIONAL_BANK_ACCOUNT_NUMBER"
+    SWIFT_CODE = "SWIFT_CODE"
+    IP_ADDRESS = "IP_ADDRESS"
+    MAC_ADDRESS = "MAC_ADDRESS"
+    URL = "URL"
+    AWS_ACCESS_KEY = "AWS_ACCESS_KEY"
+    AWS_SECRET_KEY = "AWS_SECRET_KEY"
+    US_BANK_ACCOUNT_NUMBER = "US_BANK_ACCOUNT_NUMBER"
+    US_BANK_ROUTING_NUMBER = "US_BANK_ROUTING_NUMBER"
+    US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER = "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER"
+    US_PASSPORT_NUMBER = "US_PASSPORT_NUMBER"
+    US_SOCIAL_SECURITY_NUMBER = "US_SOCIAL_SECURITY_NUMBER"
+    CA_HEALTH_NUMBER = "CA_HEALTH_NUMBER"
+    CA_SOCIAL_INSURANCE_NUMBER = "CA_SOCIAL_INSURANCE_NUMBER"
+    UK_NATIONAL_HEALTH_SERVICE_NUMBER = "UK_NATIONAL_HEALTH_SERVICE_NUMBER"
+    UK_NATIONAL_INSURANCE_NUMBER = "UK_NATIONAL_INSURANCE_NUMBER"
+    UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER = "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER"
+
+
+@pulumi.type_token("aws-native:bedrock:DataAutomationProjectPiiRedactionMaskMode")
+class DataAutomationProjectPiiRedactionMaskMode(_builtins.str, Enum):
+    PII = "PII"
+    ENTITY_TYPE = "ENTITY_TYPE"
+
+
+@pulumi.type_token("aws-native:bedrock:DataAutomationProjectProjectType")
+class DataAutomationProjectProjectType(_builtins.str, Enum):
+    """
+    Type of the DataAutomationProject - Sync or Async
+    """
+    ASYNC_ = "ASYNC"
+    SYNC = "SYNC"
+
+
+@pulumi.type_token("aws-native:bedrock:DataAutomationProjectSensitiveDataDetectionMode")
+class DataAutomationProjectSensitiveDataDetectionMode(_builtins.str, Enum):
+    DETECTION = "DETECTION"
+    DETECTION_AND_REDACTION = "DETECTION_AND_REDACTION"
+
+
+@pulumi.type_token("aws-native:bedrock:DataAutomationProjectSensitiveDataDetectionScope")
+class DataAutomationProjectSensitiveDataDetectionScope(_builtins.str, Enum):
+    STANDARD = "STANDARD"
+    CUSTOM = "CUSTOM"
 
 
 @pulumi.type_token("aws-native:bedrock:DataAutomationProjectStage")
@@ -1015,6 +1106,7 @@ class KnowledgeBaseStorageType(_builtins.str, Enum):
     RDS = "RDS"
     MONGO_DB_ATLAS = "MONGO_DB_ATLAS"
     NEPTUNE_ANALYTICS = "NEPTUNE_ANALYTICS"
+    S3_VECTORS = "S3_VECTORS"
     OPENSEARCH_MANAGED_CLUSTER = "OPENSEARCH_MANAGED_CLUSTER"
 
 

@@ -20,9 +20,15 @@ __all__ = [
     'AiAgentAiAgentConfiguration0Properties',
     'AiAgentAiAgentConfiguration1Properties',
     'AiAgentAiAgentConfiguration2Properties',
+    'AiAgentAiAgentConfiguration3Properties',
+    'AiAgentAiAgentConfiguration4Properties',
+    'AiAgentAiAgentConfiguration5Properties',
     'AiAgentAnswerRecommendationAiAgentConfiguration',
     'AiAgentAssociationConfiguration',
     'AiAgentAssociationConfigurationDataProperties',
+    'AiAgentEmailGenerativeAnswerAiAgentConfiguration',
+    'AiAgentEmailOverviewAiAgentConfiguration',
+    'AiAgentEmailResponseAiAgentConfiguration',
     'AiAgentKnowledgeBaseAssociationConfigurationData',
     'AiAgentManualSearchAiAgentConfiguration',
     'AiAgentOrCondition0Properties',
@@ -170,6 +176,93 @@ class AiAgentAiAgentConfiguration2Properties(dict):
     @pulumi.getter(name="selfServiceAiAgentConfiguration")
     def self_service_ai_agent_configuration(self) -> 'outputs.AiAgentSelfServiceAiAgentConfiguration':
         return pulumi.get(self, "self_service_ai_agent_configuration")
+
+
+@pulumi.output_type
+class AiAgentAiAgentConfiguration3Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailResponseAiAgentConfiguration":
+            suggest = "email_response_ai_agent_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentAiAgentConfiguration3Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentAiAgentConfiguration3Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentAiAgentConfiguration3Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email_response_ai_agent_configuration: 'outputs.AiAgentEmailResponseAiAgentConfiguration'):
+        pulumi.set(__self__, "email_response_ai_agent_configuration", email_response_ai_agent_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="emailResponseAiAgentConfiguration")
+    def email_response_ai_agent_configuration(self) -> 'outputs.AiAgentEmailResponseAiAgentConfiguration':
+        return pulumi.get(self, "email_response_ai_agent_configuration")
+
+
+@pulumi.output_type
+class AiAgentAiAgentConfiguration4Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailOverviewAiAgentConfiguration":
+            suggest = "email_overview_ai_agent_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentAiAgentConfiguration4Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentAiAgentConfiguration4Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentAiAgentConfiguration4Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email_overview_ai_agent_configuration: 'outputs.AiAgentEmailOverviewAiAgentConfiguration'):
+        pulumi.set(__self__, "email_overview_ai_agent_configuration", email_overview_ai_agent_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="emailOverviewAiAgentConfiguration")
+    def email_overview_ai_agent_configuration(self) -> 'outputs.AiAgentEmailOverviewAiAgentConfiguration':
+        return pulumi.get(self, "email_overview_ai_agent_configuration")
+
+
+@pulumi.output_type
+class AiAgentAiAgentConfiguration5Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailGenerativeAnswerAiAgentConfiguration":
+            suggest = "email_generative_answer_ai_agent_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentAiAgentConfiguration5Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentAiAgentConfiguration5Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentAiAgentConfiguration5Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email_generative_answer_ai_agent_configuration: 'outputs.AiAgentEmailGenerativeAnswerAiAgentConfiguration'):
+        pulumi.set(__self__, "email_generative_answer_ai_agent_configuration", email_generative_answer_ai_agent_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="emailGenerativeAnswerAiAgentConfiguration")
+    def email_generative_answer_ai_agent_configuration(self) -> 'outputs.AiAgentEmailGenerativeAnswerAiAgentConfiguration':
+        return pulumi.get(self, "email_generative_answer_ai_agent_configuration")
 
 
 @pulumi.output_type
@@ -327,6 +420,160 @@ class AiAgentAssociationConfigurationDataProperties(dict):
     @pulumi.getter(name="knowledgeBaseAssociationConfigurationData")
     def knowledge_base_association_configuration_data(self) -> 'outputs.AiAgentKnowledgeBaseAssociationConfigurationData':
         return pulumi.get(self, "knowledge_base_association_configuration_data")
+
+
+@pulumi.output_type
+class AiAgentEmailGenerativeAnswerAiAgentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "associationConfigurations":
+            suggest = "association_configurations"
+        elif key == "emailGenerativeAnswerAiPromptId":
+            suggest = "email_generative_answer_ai_prompt_id"
+        elif key == "emailQueryReformulationAiPromptId":
+            suggest = "email_query_reformulation_ai_prompt_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentEmailGenerativeAnswerAiAgentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentEmailGenerativeAnswerAiAgentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentEmailGenerativeAnswerAiAgentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 association_configurations: Optional[Sequence['outputs.AiAgentAssociationConfiguration']] = None,
+                 email_generative_answer_ai_prompt_id: Optional[_builtins.str] = None,
+                 email_query_reformulation_ai_prompt_id: Optional[_builtins.str] = None,
+                 locale: Optional[_builtins.str] = None):
+        if association_configurations is not None:
+            pulumi.set(__self__, "association_configurations", association_configurations)
+        if email_generative_answer_ai_prompt_id is not None:
+            pulumi.set(__self__, "email_generative_answer_ai_prompt_id", email_generative_answer_ai_prompt_id)
+        if email_query_reformulation_ai_prompt_id is not None:
+            pulumi.set(__self__, "email_query_reformulation_ai_prompt_id", email_query_reformulation_ai_prompt_id)
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
+
+    @_builtins.property
+    @pulumi.getter(name="associationConfigurations")
+    def association_configurations(self) -> Optional[Sequence['outputs.AiAgentAssociationConfiguration']]:
+        return pulumi.get(self, "association_configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="emailGenerativeAnswerAiPromptId")
+    def email_generative_answer_ai_prompt_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "email_generative_answer_ai_prompt_id")
+
+    @_builtins.property
+    @pulumi.getter(name="emailQueryReformulationAiPromptId")
+    def email_query_reformulation_ai_prompt_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "email_query_reformulation_ai_prompt_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def locale(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "locale")
+
+
+@pulumi.output_type
+class AiAgentEmailOverviewAiAgentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailOverviewAiPromptId":
+            suggest = "email_overview_ai_prompt_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentEmailOverviewAiAgentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentEmailOverviewAiAgentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentEmailOverviewAiAgentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email_overview_ai_prompt_id: Optional[_builtins.str] = None,
+                 locale: Optional[_builtins.str] = None):
+        if email_overview_ai_prompt_id is not None:
+            pulumi.set(__self__, "email_overview_ai_prompt_id", email_overview_ai_prompt_id)
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
+
+    @_builtins.property
+    @pulumi.getter(name="emailOverviewAiPromptId")
+    def email_overview_ai_prompt_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "email_overview_ai_prompt_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def locale(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "locale")
+
+
+@pulumi.output_type
+class AiAgentEmailResponseAiAgentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "associationConfigurations":
+            suggest = "association_configurations"
+        elif key == "emailQueryReformulationAiPromptId":
+            suggest = "email_query_reformulation_ai_prompt_id"
+        elif key == "emailResponseAiPromptId":
+            suggest = "email_response_ai_prompt_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentEmailResponseAiAgentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentEmailResponseAiAgentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentEmailResponseAiAgentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 association_configurations: Optional[Sequence['outputs.AiAgentAssociationConfiguration']] = None,
+                 email_query_reformulation_ai_prompt_id: Optional[_builtins.str] = None,
+                 email_response_ai_prompt_id: Optional[_builtins.str] = None,
+                 locale: Optional[_builtins.str] = None):
+        if association_configurations is not None:
+            pulumi.set(__self__, "association_configurations", association_configurations)
+        if email_query_reformulation_ai_prompt_id is not None:
+            pulumi.set(__self__, "email_query_reformulation_ai_prompt_id", email_query_reformulation_ai_prompt_id)
+        if email_response_ai_prompt_id is not None:
+            pulumi.set(__self__, "email_response_ai_prompt_id", email_response_ai_prompt_id)
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
+
+    @_builtins.property
+    @pulumi.getter(name="associationConfigurations")
+    def association_configurations(self) -> Optional[Sequence['outputs.AiAgentAssociationConfiguration']]:
+        return pulumi.get(self, "association_configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="emailQueryReformulationAiPromptId")
+    def email_query_reformulation_ai_prompt_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "email_query_reformulation_ai_prompt_id")
+
+    @_builtins.property
+    @pulumi.getter(name="emailResponseAiPromptId")
+    def email_response_ai_prompt_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "email_response_ai_prompt_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def locale(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "locale")
 
 
 @pulumi.output_type

@@ -12,29 +12,51 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetUnpivotOperationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Alias for this operation.
+        /// </summary>
         [Input("alias", required: true)]
         public Input<string> Alias { get; set; } = null!;
 
         [Input("columnsToUnpivot", required: true)]
         private InputList<Inputs.DataSetColumnToUnpivotArgs>? _columnsToUnpivot;
+
+        /// <summary>
+        /// The list of columns to unpivot from the source data.
+        /// </summary>
         public InputList<Inputs.DataSetColumnToUnpivotArgs> ColumnsToUnpivot
         {
             get => _columnsToUnpivot ?? (_columnsToUnpivot = new InputList<Inputs.DataSetColumnToUnpivotArgs>());
             set => _columnsToUnpivot = value;
         }
 
+        /// <summary>
+        /// The source transform operation that provides input data for unpivoting.
+        /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.DataSetTransformOperationSourceArgs> Source { get; set; } = null!;
 
+        /// <summary>
+        /// A unique identifier for the new column that will contain the unpivoted column names.
+        /// </summary>
         [Input("unpivotedLabelColumnId", required: true)]
         public Input<string> UnpivotedLabelColumnId { get; set; } = null!;
 
+        /// <summary>
+        /// The name for the new column that will contain the unpivoted column names.
+        /// </summary>
         [Input("unpivotedLabelColumnName", required: true)]
         public Input<string> UnpivotedLabelColumnName { get; set; } = null!;
 
+        /// <summary>
+        /// A unique identifier for the new column that will contain the unpivoted values.
+        /// </summary>
         [Input("unpivotedValueColumnId", required: true)]
         public Input<string> UnpivotedValueColumnId { get; set; } = null!;
 
+        /// <summary>
+        /// The name for the new column that will contain the unpivoted values.
+        /// </summary>
         [Input("unpivotedValueColumnName", required: true)]
         public Input<string> UnpivotedValueColumnName { get; set; } = null!;
 

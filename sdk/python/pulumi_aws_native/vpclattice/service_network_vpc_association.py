@@ -13,26 +13,36 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['ServiceNetworkVpcAssociationArgs', 'ServiceNetworkVpcAssociation']
 
 @pulumi.input_type
 class ServiceNetworkVpcAssociationArgs:
     def __init__(__self__, *,
+                 dns_options: Optional[pulumi.Input['ServiceNetworkVpcAssociationDnsOptionsArgs']] = None,
+                 private_dns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  service_network_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_identifier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceNetworkVpcAssociation resource.
+        :param pulumi.Input['ServiceNetworkVpcAssociationDnsOptionsArgs'] dns_options: The DNS options for the service network VPC association.
+        :param pulumi.Input[_builtins.bool] private_dns_enabled: Indicates if private DNS is enabled for the service network VPC association.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
         :param pulumi.Input[_builtins.str] service_network_identifier: The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the association.
         :param pulumi.Input[_builtins.str] vpc_identifier: The ID of the VPC.
         """
+        if dns_options is not None:
+            pulumi.set(__self__, "dns_options", dns_options)
+        if private_dns_enabled is not None:
+            pulumi.set(__self__, "private_dns_enabled", private_dns_enabled)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if service_network_identifier is not None:
@@ -41,6 +51,30 @@ class ServiceNetworkVpcAssociationArgs:
             pulumi.set(__self__, "tags", tags)
         if vpc_identifier is not None:
             pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsOptions")
+    def dns_options(self) -> Optional[pulumi.Input['ServiceNetworkVpcAssociationDnsOptionsArgs']]:
+        """
+        The DNS options for the service network VPC association.
+        """
+        return pulumi.get(self, "dns_options")
+
+    @dns_options.setter
+    def dns_options(self, value: Optional[pulumi.Input['ServiceNetworkVpcAssociationDnsOptionsArgs']]):
+        pulumi.set(self, "dns_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsEnabled")
+    def private_dns_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates if private DNS is enabled for the service network VPC association.
+        """
+        return pulumi.get(self, "private_dns_enabled")
+
+    @private_dns_enabled.setter
+    def private_dns_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "private_dns_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
@@ -97,6 +131,8 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 dns_options: Optional[pulumi.Input[Union['ServiceNetworkVpcAssociationDnsOptionsArgs', 'ServiceNetworkVpcAssociationDnsOptionsArgsDict']]] = None,
+                 private_dns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  service_network_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -107,6 +143,8 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['ServiceNetworkVpcAssociationDnsOptionsArgs', 'ServiceNetworkVpcAssociationDnsOptionsArgsDict']] dns_options: The DNS options for the service network VPC association.
+        :param pulumi.Input[_builtins.bool] private_dns_enabled: Indicates if private DNS is enabled for the service network VPC association.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
         :param pulumi.Input[_builtins.str] service_network_identifier: The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the association.
@@ -136,6 +174,8 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 dns_options: Optional[pulumi.Input[Union['ServiceNetworkVpcAssociationDnsOptionsArgs', 'ServiceNetworkVpcAssociationDnsOptionsArgsDict']]] = None,
+                 private_dns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  service_network_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -149,6 +189,8 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceNetworkVpcAssociationArgs.__new__(ServiceNetworkVpcAssociationArgs)
 
+            __props__.__dict__["dns_options"] = dns_options
+            __props__.__dict__["private_dns_enabled"] = private_dns_enabled
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["service_network_identifier"] = service_network_identifier
             __props__.__dict__["tags"] = tags
@@ -161,7 +203,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
             __props__.__dict__["service_network_name"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["vpc_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["serviceNetworkIdentifier", "vpcIdentifier"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dnsOptions", "privateDnsEnabled", "serviceNetworkIdentifier", "vpcIdentifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ServiceNetworkVpcAssociation, __self__).__init__(
             'aws-native:vpclattice:ServiceNetworkVpcAssociation',
@@ -188,6 +230,8 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["created_at"] = None
+        __props__.__dict__["dns_options"] = None
+        __props__.__dict__["private_dns_enabled"] = None
         __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["service_network_arn"] = None
         __props__.__dict__["service_network_id"] = None
@@ -222,6 +266,22 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         The date and time that the association was created, specified in ISO-8601 format.
         """
         return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="dnsOptions")
+    def dns_options(self) -> pulumi.Output[Optional['outputs.ServiceNetworkVpcAssociationDnsOptions']]:
+        """
+        The DNS options for the service network VPC association.
+        """
+        return pulumi.get(self, "dns_options")
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsEnabled")
+    def private_dns_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicates if private DNS is enabled for the service network VPC association.
+        """
+        return pulumi.get(self, "private_dns_enabled")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")

@@ -960,8 +960,8 @@ class ConfigurationDetailsProperties(dict):
                  error_code: Optional[_builtins.str] = None,
                  error_message: Optional[_builtins.str] = None):
         """
-        :param 'EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus' configuration_status: The health status of KMS key and AWS KMS access role. If either KMS key or AWS KMS access role is `UNHEALTHY` , the return value will be `UNHEALTHY` . To use a customer managed KMS key, the value of `configurationStatus` must be `HEALTHY` .
-        :param _builtins.str error_code: The error code that indicates either the KMS key or the AWS KMS access role is `UNHEALTHY` . Valid values: `KMS_KEY_VALIDATION_ERROR` and `ROLE_VALIDATION_ERROR` .
+        :param 'EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus' configuration_status: The health status of KMS key and AWS  access role. If either KMS key or AWS  access role is `UNHEALTHY` , the return value will be `UNHEALTHY` . To use a customer managed KMS key, the value of `configurationStatus` must be `HEALTHY` .
+        :param _builtins.str error_code: The error code that indicates either the KMS key or the AWS  access role is `UNHEALTHY` . Valid values: `KMS_KEY_VALIDATION_ERROR` and `ROLE_VALIDATION_ERROR` .
         :param _builtins.str error_message: The detailed error message that corresponds to the `errorCode` .
         """
         if configuration_status is not None:
@@ -975,7 +975,7 @@ class ConfigurationDetailsProperties(dict):
     @pulumi.getter(name="configurationStatus")
     def configuration_status(self) -> Optional['EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus']:
         """
-        The health status of KMS key and AWS KMS access role. If either KMS key or AWS KMS access role is `UNHEALTHY` , the return value will be `UNHEALTHY` . To use a customer managed KMS key, the value of `configurationStatus` must be `HEALTHY` .
+        The health status of KMS key and AWS  access role. If either KMS key or AWS  access role is `UNHEALTHY` , the return value will be `UNHEALTHY` . To use a customer managed KMS key, the value of `configurationStatus` must be `HEALTHY` .
         """
         return pulumi.get(self, "configuration_status")
 
@@ -983,7 +983,7 @@ class ConfigurationDetailsProperties(dict):
     @pulumi.getter(name="errorCode")
     def error_code(self) -> Optional[_builtins.str]:
         """
-        The error code that indicates either the KMS key or the AWS KMS access role is `UNHEALTHY` . Valid values: `KMS_KEY_VALIDATION_ERROR` and `ROLE_VALIDATION_ERROR` .
+        The error code that indicates either the KMS key or the AWS  access role is `UNHEALTHY` . Valid values: `KMS_KEY_VALIDATION_ERROR` and `ROLE_VALIDATION_ERROR` .
         """
         return pulumi.get(self, "error_code")
 

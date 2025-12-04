@@ -168,7 +168,7 @@ class GetTopicResult:
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> Optional[_builtins.str]:
         """
-        Returns the ARN of an Amazon SNS topic.
+        Returns the ARN of an Amazon  topic.
         """
         return pulumi.get(self, "topic_arn")
 
@@ -209,7 +209,7 @@ def get_topic(topic_arn: Optional[_builtins.str] = None,
        The structure of ``AUTHPARAMS`` depends on the .signature of the API request. For more information, see [Examples of the complete Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/sigv4-signed-request-examples.html) in the *General Reference*.
 
 
-    :param _builtins.str topic_arn: Returns the ARN of an Amazon SNS topic.
+    :param _builtins.str topic_arn: Returns the ARN of an Amazon  topic.
     """
     __args__ = dict()
     __args__['topicArn'] = topic_arn
@@ -237,7 +237,7 @@ def get_topic_output(topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
        The structure of ``AUTHPARAMS`` depends on the .signature of the API request. For more information, see [Examples of the complete Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/sigv4-signed-request-examples.html) in the *General Reference*.
 
 
-    :param _builtins.str topic_arn: Returns the ARN of an Amazon SNS topic.
+    :param _builtins.str topic_arn: Returns the ARN of an Amazon  topic.
     """
     __args__ = dict()
     __args__['topicArn'] = topic_arn

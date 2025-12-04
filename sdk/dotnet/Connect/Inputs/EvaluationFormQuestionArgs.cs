@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class EvaluationFormQuestionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A question conditional enablement.
+        /// </summary>
         [Input("enablement")]
         public Input<Inputs.EvaluationFormItemEnablementConfigurationArgs>? Enablement { get; set; }
 

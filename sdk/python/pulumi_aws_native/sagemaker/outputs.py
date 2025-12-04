@@ -27,18 +27,23 @@ __all__ = [
     'AppResourceSpec',
     'ClusterAlarmDetails',
     'ClusterAutoScalingConfig',
+    'ClusterCapacityRequirements',
     'ClusterCapacitySizeConfig',
     'ClusterDeploymentConfig',
     'ClusterEnvironmentConfig',
     'ClusterFSxLustreConfig',
     'ClusterInstanceGroup',
     'ClusterInstanceStorageConfig',
+    'ClusterKubernetesConfig',
+    'ClusterKubernetesTaint',
     'ClusterLifeCycleConfig',
+    'ClusterOnDemandOptions',
     'ClusterOrchestrator',
     'ClusterOrchestratorEksConfig',
     'ClusterRestrictedInstanceGroup',
     'ClusterRollingUpdatePolicy',
     'ClusterScheduledUpdateConfig',
+    'ClusterSpotOptions',
     'ClusterTieredStorageConfig',
     'ClusterVpcConfig',
     'DataQualityJobDefinitionBatchTransformInput',
@@ -845,6 +850,50 @@ class ClusterAutoScalingConfig(dict):
 
 
 @pulumi.output_type
+class ClusterCapacityRequirements(dict):
+    """
+    Specifies the capacity requirements configuration for an instance group
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onDemand":
+            suggest = "on_demand"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterCapacityRequirements. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterCapacityRequirements.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterCapacityRequirements.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 on_demand: Optional['outputs.ClusterOnDemandOptions'] = None,
+                 spot: Optional['outputs.ClusterSpotOptions'] = None):
+        """
+        Specifies the capacity requirements configuration for an instance group
+        """
+        if on_demand is not None:
+            pulumi.set(__self__, "on_demand", on_demand)
+        if spot is not None:
+            pulumi.set(__self__, "spot", spot)
+
+    @_builtins.property
+    @pulumi.getter(name="onDemand")
+    def on_demand(self) -> Optional['outputs.ClusterOnDemandOptions']:
+        return pulumi.get(self, "on_demand")
+
+    @_builtins.property
+    @pulumi.getter
+    def spot(self) -> Optional['outputs.ClusterSpotOptions']:
+        return pulumi.get(self, "spot")
+
+
+@pulumi.output_type
 class ClusterCapacitySizeConfig(dict):
     """
     The configuration of the size measurements of the AMI update. Using this configuration, you can specify whether SageMaker should update your instance group by an amount or percentage of instances.
@@ -1043,12 +1092,16 @@ class ClusterInstanceGroup(dict):
             suggest = "instance_type"
         elif key == "lifeCycleConfig":
             suggest = "life_cycle_config"
+        elif key == "capacityRequirements":
+            suggest = "capacity_requirements"
         elif key == "currentCount":
             suggest = "current_count"
         elif key == "imageId":
             suggest = "image_id"
         elif key == "instanceStorageConfigs":
             suggest = "instance_storage_configs"
+        elif key == "kubernetesConfig":
+            suggest = "kubernetes_config"
         elif key == "onStartDeepHealthChecks":
             suggest = "on_start_deep_health_checks"
         elif key == "overrideVpcConfig":
@@ -1077,9 +1130,11 @@ class ClusterInstanceGroup(dict):
                  instance_group_name: _builtins.str,
                  instance_type: _builtins.str,
                  life_cycle_config: 'outputs.ClusterLifeCycleConfig',
+                 capacity_requirements: Optional['outputs.ClusterCapacityRequirements'] = None,
                  current_count: Optional[_builtins.int] = None,
                  image_id: Optional[_builtins.str] = None,
                  instance_storage_configs: Optional[Sequence['outputs.ClusterInstanceStorageConfig']] = None,
+                 kubernetes_config: Optional['outputs.ClusterKubernetesConfig'] = None,
                  on_start_deep_health_checks: Optional[Sequence['ClusterDeepHealthCheckType']] = None,
                  override_vpc_config: Optional['outputs.ClusterVpcConfig'] = None,
                  scheduled_update_config: Optional['outputs.ClusterScheduledUpdateConfig'] = None,
@@ -1097,12 +1152,16 @@ class ClusterInstanceGroup(dict):
         pulumi.set(__self__, "instance_group_name", instance_group_name)
         pulumi.set(__self__, "instance_type", instance_type)
         pulumi.set(__self__, "life_cycle_config", life_cycle_config)
+        if capacity_requirements is not None:
+            pulumi.set(__self__, "capacity_requirements", capacity_requirements)
         if current_count is not None:
             pulumi.set(__self__, "current_count", current_count)
         if image_id is not None:
             pulumi.set(__self__, "image_id", image_id)
         if instance_storage_configs is not None:
             pulumi.set(__self__, "instance_storage_configs", instance_storage_configs)
+        if kubernetes_config is not None:
+            pulumi.set(__self__, "kubernetes_config", kubernetes_config)
         if on_start_deep_health_checks is not None:
             pulumi.set(__self__, "on_start_deep_health_checks", on_start_deep_health_checks)
         if override_vpc_config is not None:
@@ -1143,6 +1202,11 @@ class ClusterInstanceGroup(dict):
         return pulumi.get(self, "life_cycle_config")
 
     @_builtins.property
+    @pulumi.getter(name="capacityRequirements")
+    def capacity_requirements(self) -> Optional['outputs.ClusterCapacityRequirements']:
+        return pulumi.get(self, "capacity_requirements")
+
+    @_builtins.property
     @pulumi.getter(name="currentCount")
     def current_count(self) -> Optional[_builtins.int]:
         """
@@ -1159,6 +1223,11 @@ class ClusterInstanceGroup(dict):
     @pulumi.getter(name="instanceStorageConfigs")
     def instance_storage_configs(self) -> Optional[Sequence['outputs.ClusterInstanceStorageConfig']]:
         return pulumi.get(self, "instance_storage_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="kubernetesConfig")
+    def kubernetes_config(self) -> Optional['outputs.ClusterKubernetesConfig']:
+        return pulumi.get(self, "kubernetes_config")
 
     @_builtins.property
     @pulumi.getter(name="onStartDeepHealthChecks")
@@ -1202,6 +1271,78 @@ class ClusterInstanceStorageConfig(dict):
         Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group.
         """
         pass
+
+
+@pulumi.output_type
+class ClusterKubernetesConfig(dict):
+    """
+    Kubernetes configuration for cluster nodes including labels and taints.
+    """
+    def __init__(__self__, *,
+                 labels: Optional[Mapping[str, _builtins.str]] = None,
+                 taints: Optional[Sequence['outputs.ClusterKubernetesTaint']] = None):
+        """
+        Kubernetes configuration for cluster nodes including labels and taints.
+        """
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if taints is not None:
+            pulumi.set(__self__, "taints", taints)
+
+    @_builtins.property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "labels")
+
+    @_builtins.property
+    @pulumi.getter
+    def taints(self) -> Optional[Sequence['outputs.ClusterKubernetesTaint']]:
+        return pulumi.get(self, "taints")
+
+
+@pulumi.output_type
+class ClusterKubernetesTaint(dict):
+    """
+    A Kubernetes taint to apply to cluster nodes.
+    """
+    def __init__(__self__, *,
+                 effect: 'ClusterKubernetesTaintEffect',
+                 key: _builtins.str,
+                 value: Optional[_builtins.str] = None):
+        """
+        A Kubernetes taint to apply to cluster nodes.
+        :param 'ClusterKubernetesTaintEffect' effect: The effect of the taint.
+        :param _builtins.str key: The key of the taint.
+        :param _builtins.str value: The value of the taint.
+        """
+        pulumi.set(__self__, "effect", effect)
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def effect(self) -> 'ClusterKubernetesTaintEffect':
+        """
+        The effect of the taint.
+        """
+        return pulumi.get(self, "effect")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The key of the taint.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        The value of the taint.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1254,6 +1395,18 @@ class ClusterLifeCycleConfig(dict):
         An Amazon S3 bucket path where your lifecycle scripts are stored.
         """
         return pulumi.get(self, "source_s3_uri")
+
+
+@pulumi.output_type
+class ClusterOnDemandOptions(dict):
+    """
+    Options for OnDemand capacity
+    """
+    def __init__(__self__):
+        """
+        Options for OnDemand capacity
+        """
+        pass
 
 
 @pulumi.output_type
@@ -1556,6 +1709,18 @@ class ClusterScheduledUpdateConfig(dict):
     @pulumi.getter(name="deploymentConfig")
     def deployment_config(self) -> Optional['outputs.ClusterDeploymentConfig']:
         return pulumi.get(self, "deployment_config")
+
+
+@pulumi.output_type
+class ClusterSpotOptions(dict):
+    """
+    Options for Spot capacity
+    """
+    def __init__(__self__):
+        """
+        Options for Spot capacity
+        """
+        pass
 
 
 @pulumi.output_type

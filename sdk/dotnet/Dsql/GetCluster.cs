@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.Dsql
         /// </summary>
         public readonly Outputs.EncryptionDetailsProperties? EncryptionDetails;
         /// <summary>
+        /// The DSQL cluster endpoint.
+        /// </summary>
+        public readonly string? Endpoint;
+        /// <summary>
         /// The ID of the created cluster.
         /// </summary>
         public readonly string? Identifier;
@@ -83,6 +87,14 @@ namespace Pulumi.AwsNative.Dsql
         /// The Multi-region properties associated to this cluster.
         /// </summary>
         public readonly Outputs.MultiRegionPropertiesProperties? MultiRegionProperties;
+        /// <summary>
+        /// The IAM policy applied to the cluster resource.
+        /// </summary>
+        public readonly string? PolicyDocument;
+        /// <summary>
+        /// The version number of the cluster's resource based policy
+        /// </summary>
+        public readonly string? PolicyVersion;
         /// <summary>
         /// The Amazon Resource Name (ARN) for the cluster.
         /// </summary>
@@ -108,9 +120,15 @@ namespace Pulumi.AwsNative.Dsql
 
             Outputs.EncryptionDetailsProperties? encryptionDetails,
 
+            string? endpoint,
+
             string? identifier,
 
             Outputs.MultiRegionPropertiesProperties? multiRegionProperties,
+
+            string? policyDocument,
+
+            string? policyVersion,
 
             string? resourceArn,
 
@@ -123,8 +141,11 @@ namespace Pulumi.AwsNative.Dsql
             CreationTime = creationTime;
             DeletionProtectionEnabled = deletionProtectionEnabled;
             EncryptionDetails = encryptionDetails;
+            Endpoint = endpoint;
             Identifier = identifier;
             MultiRegionProperties = multiRegionProperties;
+            PolicyDocument = policyDocument;
+            PolicyVersion = policyVersion;
             ResourceArn = resourceArn;
             Status = status;
             Tags = tags;

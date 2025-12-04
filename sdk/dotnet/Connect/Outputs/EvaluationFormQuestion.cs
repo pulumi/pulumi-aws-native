@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class EvaluationFormQuestion
     {
+        /// <summary>
+        /// A question conditional enablement.
+        /// </summary>
         public readonly Outputs.EvaluationFormItemEnablementConfiguration? Enablement;
         /// <summary>
         /// The instructions of the section.

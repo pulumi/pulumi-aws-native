@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DataSetProjectOperationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Alias for this operation.
+        /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
@@ -31,6 +34,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _projectedColumns = value;
         }
 
+        /// <summary>
+        /// The source transform operation that provides input data for column projection.
+        /// </summary>
         [Input("source")]
         public Input<Inputs.DataSetTransformOperationSourceArgs>? Source { get; set; }
 

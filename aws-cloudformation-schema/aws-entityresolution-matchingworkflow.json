@@ -141,7 +141,7 @@
           "type" : "array",
           "insertionOrder" : false,
           "minItems" : 1,
-          "maxItems" : 15,
+          "maxItems" : 25,
           "items" : {
             "$ref" : "#/definitions/Rule"
           }
@@ -165,7 +165,7 @@
           "type" : "array",
           "insertionOrder" : false,
           "minItems" : 1,
-          "maxItems" : 15,
+          "maxItems" : 25,
           "items" : {
             "$ref" : "#/definitions/RuleCondition"
           }

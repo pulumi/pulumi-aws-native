@@ -42,6 +42,10 @@ export class Trail extends pulumi.CustomResource {
      */
     declare public readonly advancedEventSelectors: pulumi.Output<outputs.cloudtrail.TrailAdvancedEventSelector[] | undefined>;
     /**
+     * Specifies the aggregation configuration to aggregate CloudTrail Events. A maximum of 1 aggregation configuration is allowed.
+     */
+    declare public readonly aggregationConfigurations: pulumi.Output<outputs.cloudtrail.TrailAggregationConfiguration[] | undefined>;
+    /**
      * `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
@@ -94,7 +98,7 @@ export class Trail extends pulumi.CustomResource {
      */
     declare public readonly s3KeyPrefix: pulumi.Output<string | undefined>;
     /**
-     * `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
+     * `Ref` returns the ARN of the Amazon  topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
      */
     declare public /*out*/ readonly snsTopicArn: pulumi.Output<string>;
     /**
@@ -134,6 +138,7 @@ export class Trail extends pulumi.CustomResource {
                 throw new Error("Missing required property 's3BucketName'");
             }
             resourceInputs["advancedEventSelectors"] = args?.advancedEventSelectors;
+            resourceInputs["aggregationConfigurations"] = args?.aggregationConfigurations;
             resourceInputs["cloudWatchLogsLogGroupArn"] = args?.cloudWatchLogsLogGroupArn;
             resourceInputs["cloudWatchLogsRoleArn"] = args?.cloudWatchLogsRoleArn;
             resourceInputs["enableLogFileValidation"] = args?.enableLogFileValidation;
@@ -153,6 +158,7 @@ export class Trail extends pulumi.CustomResource {
             resourceInputs["snsTopicArn"] = undefined /*out*/;
         } else {
             resourceInputs["advancedEventSelectors"] = undefined /*out*/;
+            resourceInputs["aggregationConfigurations"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["cloudWatchLogsLogGroupArn"] = undefined /*out*/;
             resourceInputs["cloudWatchLogsRoleArn"] = undefined /*out*/;
@@ -186,6 +192,10 @@ export interface TrailArgs {
      * The advanced event selectors that were used to select events for the data store.
      */
     advancedEventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailAdvancedEventSelectorArgs>[]>;
+    /**
+     * Specifies the aggregation configuration to aggregate CloudTrail Events. A maximum of 1 aggregation configuration is allowed.
+     */
+    aggregationConfigurations?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailAggregationConfigurationArgs>[]>;
     /**
      * Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
      */

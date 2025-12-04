@@ -9,6 +9,7 @@ import typing
 from ._enums import *
 from .cache_policy import *
 from .cloud_front_origin_access_identity import *
+from .connection_function import *
 from .connection_group import *
 from .continuous_deployment_policy import *
 from .distribution import *
@@ -16,6 +17,7 @@ from .distribution_tenant import *
 from .function import *
 from .get_cache_policy import *
 from .get_cloud_front_origin_access_identity import *
+from .get_connection_function import *
 from .get_connection_group import *
 from .get_continuous_deployment_policy import *
 from .get_distribution import *
@@ -29,6 +31,7 @@ from .get_origin_request_policy import *
 from .get_public_key import *
 from .get_realtime_log_config import *
 from .get_response_headers_policy import *
+from .get_trust_store import *
 from .get_vpc_origin import *
 from .key_group import *
 from .key_value_store import *
@@ -38,6 +41,7 @@ from .origin_request_policy import *
 from .public_key import *
 from .realtime_log_config import *
 from .response_headers_policy import *
+from .trust_store import *
 from .vpc_origin import *
 from ._inputs import *
 from . import outputs

@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public readonly Pulumi.AwsNative.IoT.EncryptionConfigurationEncryptionType? EncryptionType;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+        /// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS  on behalf of the customer.
         /// </summary>
         public readonly string? KmsAccessRoleArn;
         /// <summary>

@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.SecurityHub
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// An object that defines how AWS Security Hub is configured. It includes whether Security Hub is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub enables all other controls (including newly released controls).
+        /// An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub enables all other controls (including newly released controls).
         /// </summary>
         public readonly Outputs.ConfigurationPolicyPolicy? ConfigurationPolicyValue;
         /// <summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.SecurityHub
         /// </summary>
         public readonly bool? ServiceEnabled;
         /// <summary>
-        /// User-defined tags associated with a configuration policy. For more information, see [Tagging AWS Security Hub resources](https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html) in the *Security Hub user guide* .
+        /// User-defined tags associated with a configuration policy. For more information, see [Tagging Security Hub resources](https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html) in the *Security Hub user guide* .
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>

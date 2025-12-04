@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// The latest version references of the container recipe.
+        /// </summary>
+        public readonly Outputs.ContainerRecipeLatestVersion? LatestVersion;
+        /// <summary>
         /// Tags that are attached to the container recipe.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -76,9 +80,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         private GetContainerRecipeResult(
             string? arn,
 
+            Outputs.ContainerRecipeLatestVersion? latestVersion,
+
             ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
+            LatestVersion = latestVersion;
             Tags = tags;
         }
     }

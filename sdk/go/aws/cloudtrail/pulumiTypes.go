@@ -1077,7 +1077,7 @@ type EventDataStoreTag struct {
 	Value string `pulumi:"value"`
 }
 
-// Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds. They help you control costs by logging only those events that are important to you.
+// Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record fields. They help you control costs by logging only those events that are important to you.
 type TrailAdvancedEventSelector struct {
 	// Contains all selector statements in an advanced event selector.
 	FieldSelectors []TrailAdvancedFieldSelector `pulumi:"fieldSelectors"`
@@ -1096,7 +1096,7 @@ type TrailAdvancedEventSelectorInput interface {
 	ToTrailAdvancedEventSelectorOutputWithContext(context.Context) TrailAdvancedEventSelectorOutput
 }
 
-// Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds. They help you control costs by logging only those events that are important to you.
+// Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record fields. They help you control costs by logging only those events that are important to you.
 type TrailAdvancedEventSelectorArgs struct {
 	// Contains all selector statements in an advanced event selector.
 	FieldSelectors TrailAdvancedFieldSelectorArrayInput `pulumi:"fieldSelectors"`
@@ -1141,7 +1141,7 @@ func (i TrailAdvancedEventSelectorArray) ToTrailAdvancedEventSelectorArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(TrailAdvancedEventSelectorArrayOutput)
 }
 
-// Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds. They help you control costs by logging only those events that are important to you.
+// Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record fields. They help you control costs by logging only those events that are important to you.
 type TrailAdvancedEventSelectorOutput struct{ *pulumi.OutputState }
 
 func (TrailAdvancedEventSelectorOutput) ElementType() reflect.Type {
@@ -1338,6 +1338,117 @@ func (o TrailAdvancedFieldSelectorArrayOutput) Index(i pulumi.IntInput) TrailAdv
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrailAdvancedFieldSelector {
 		return vs[0].([]TrailAdvancedFieldSelector)[vs[1].(int)]
 	}).(TrailAdvancedFieldSelectorOutput)
+}
+
+// Configure to add aggregation rules to aggregate CloudTrail Events.
+type TrailAggregationConfiguration struct {
+	// The category of events to be aggregated.
+	EventCategory TrailAggregationConfigurationEventCategory `pulumi:"eventCategory"`
+	// Contains all templates in an aggregation configuration.
+	Templates []TrailTemplate `pulumi:"templates"`
+}
+
+// TrailAggregationConfigurationInput is an input type that accepts TrailAggregationConfigurationArgs and TrailAggregationConfigurationOutput values.
+// You can construct a concrete instance of `TrailAggregationConfigurationInput` via:
+//
+//	TrailAggregationConfigurationArgs{...}
+type TrailAggregationConfigurationInput interface {
+	pulumi.Input
+
+	ToTrailAggregationConfigurationOutput() TrailAggregationConfigurationOutput
+	ToTrailAggregationConfigurationOutputWithContext(context.Context) TrailAggregationConfigurationOutput
+}
+
+// Configure to add aggregation rules to aggregate CloudTrail Events.
+type TrailAggregationConfigurationArgs struct {
+	// The category of events to be aggregated.
+	EventCategory TrailAggregationConfigurationEventCategoryInput `pulumi:"eventCategory"`
+	// Contains all templates in an aggregation configuration.
+	Templates TrailTemplateArrayInput `pulumi:"templates"`
+}
+
+func (TrailAggregationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrailAggregationConfiguration)(nil)).Elem()
+}
+
+func (i TrailAggregationConfigurationArgs) ToTrailAggregationConfigurationOutput() TrailAggregationConfigurationOutput {
+	return i.ToTrailAggregationConfigurationOutputWithContext(context.Background())
+}
+
+func (i TrailAggregationConfigurationArgs) ToTrailAggregationConfigurationOutputWithContext(ctx context.Context) TrailAggregationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrailAggregationConfigurationOutput)
+}
+
+// TrailAggregationConfigurationArrayInput is an input type that accepts TrailAggregationConfigurationArray and TrailAggregationConfigurationArrayOutput values.
+// You can construct a concrete instance of `TrailAggregationConfigurationArrayInput` via:
+//
+//	TrailAggregationConfigurationArray{ TrailAggregationConfigurationArgs{...} }
+type TrailAggregationConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToTrailAggregationConfigurationArrayOutput() TrailAggregationConfigurationArrayOutput
+	ToTrailAggregationConfigurationArrayOutputWithContext(context.Context) TrailAggregationConfigurationArrayOutput
+}
+
+type TrailAggregationConfigurationArray []TrailAggregationConfigurationInput
+
+func (TrailAggregationConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrailAggregationConfiguration)(nil)).Elem()
+}
+
+func (i TrailAggregationConfigurationArray) ToTrailAggregationConfigurationArrayOutput() TrailAggregationConfigurationArrayOutput {
+	return i.ToTrailAggregationConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i TrailAggregationConfigurationArray) ToTrailAggregationConfigurationArrayOutputWithContext(ctx context.Context) TrailAggregationConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrailAggregationConfigurationArrayOutput)
+}
+
+// Configure to add aggregation rules to aggregate CloudTrail Events.
+type TrailAggregationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TrailAggregationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrailAggregationConfiguration)(nil)).Elem()
+}
+
+func (o TrailAggregationConfigurationOutput) ToTrailAggregationConfigurationOutput() TrailAggregationConfigurationOutput {
+	return o
+}
+
+func (o TrailAggregationConfigurationOutput) ToTrailAggregationConfigurationOutputWithContext(ctx context.Context) TrailAggregationConfigurationOutput {
+	return o
+}
+
+// The category of events to be aggregated.
+func (o TrailAggregationConfigurationOutput) EventCategory() TrailAggregationConfigurationEventCategoryOutput {
+	return o.ApplyT(func(v TrailAggregationConfiguration) TrailAggregationConfigurationEventCategory {
+		return v.EventCategory
+	}).(TrailAggregationConfigurationEventCategoryOutput)
+}
+
+// Contains all templates in an aggregation configuration.
+func (o TrailAggregationConfigurationOutput) Templates() TrailTemplateArrayOutput {
+	return o.ApplyT(func(v TrailAggregationConfiguration) []TrailTemplate { return v.Templates }).(TrailTemplateArrayOutput)
+}
+
+type TrailAggregationConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (TrailAggregationConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrailAggregationConfiguration)(nil)).Elem()
+}
+
+func (o TrailAggregationConfigurationArrayOutput) ToTrailAggregationConfigurationArrayOutput() TrailAggregationConfigurationArrayOutput {
+	return o
+}
+
+func (o TrailAggregationConfigurationArrayOutput) ToTrailAggregationConfigurationArrayOutputWithContext(ctx context.Context) TrailAggregationConfigurationArrayOutput {
+	return o
+}
+
+func (o TrailAggregationConfigurationArrayOutput) Index(i pulumi.IntInput) TrailAggregationConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrailAggregationConfiguration {
+		return vs[0].([]TrailAggregationConfiguration)[vs[1].(int)]
+	}).(TrailAggregationConfigurationOutput)
 }
 
 // CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
@@ -1590,6 +1701,8 @@ func (o TrailEventSelectorArrayOutput) Index(i pulumi.IntInput) TrailEventSelect
 
 // A string that contains insight types that are logged on a trail.
 type TrailInsightSelector struct {
+	// The categories of events for which to log insights. By default, insights are logged for management events only.
+	EventCategories []TrailSourceEventCategory `pulumi:"eventCategories"`
 	// The type of insight to log on a trail.
 	InsightType *string `pulumi:"insightType"`
 }
@@ -1607,6 +1720,8 @@ type TrailInsightSelectorInput interface {
 
 // A string that contains insight types that are logged on a trail.
 type TrailInsightSelectorArgs struct {
+	// The categories of events for which to log insights. By default, insights are logged for management events only.
+	EventCategories TrailSourceEventCategoryArrayInput `pulumi:"eventCategories"`
 	// The type of insight to log on a trail.
 	InsightType pulumi.StringPtrInput `pulumi:"insightType"`
 }
@@ -1663,6 +1778,11 @@ func (o TrailInsightSelectorOutput) ToTrailInsightSelectorOutputWithContext(ctx 
 	return o
 }
 
+// The categories of events for which to log insights. By default, insights are logged for management events only.
+func (o TrailInsightSelectorOutput) EventCategories() TrailSourceEventCategoryArrayOutput {
+	return o.ApplyT(func(v TrailInsightSelector) []TrailSourceEventCategory { return v.EventCategories }).(TrailSourceEventCategoryArrayOutput)
+}
+
 // The type of insight to log on a trail.
 func (o TrailInsightSelectorOutput) InsightType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrailInsightSelector) *string { return v.InsightType }).(pulumi.StringPtrOutput)
@@ -1717,6 +1837,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailAdvancedEventSelectorArrayInput)(nil)).Elem(), TrailAdvancedEventSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailAdvancedFieldSelectorInput)(nil)).Elem(), TrailAdvancedFieldSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailAdvancedFieldSelectorArrayInput)(nil)).Elem(), TrailAdvancedFieldSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailAggregationConfigurationInput)(nil)).Elem(), TrailAggregationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailAggregationConfigurationArrayInput)(nil)).Elem(), TrailAggregationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailDataResourceInput)(nil)).Elem(), TrailDataResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailDataResourceArrayInput)(nil)).Elem(), TrailDataResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailEventSelectorInput)(nil)).Elem(), TrailEventSelectorArgs{})
@@ -1743,6 +1865,8 @@ func init() {
 	pulumi.RegisterOutputType(TrailAdvancedEventSelectorArrayOutput{})
 	pulumi.RegisterOutputType(TrailAdvancedFieldSelectorOutput{})
 	pulumi.RegisterOutputType(TrailAdvancedFieldSelectorArrayOutput{})
+	pulumi.RegisterOutputType(TrailAggregationConfigurationOutput{})
+	pulumi.RegisterOutputType(TrailAggregationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(TrailDataResourceOutput{})
 	pulumi.RegisterOutputType(TrailDataResourceArrayOutput{})
 	pulumi.RegisterOutputType(TrailEventSelectorOutput{})

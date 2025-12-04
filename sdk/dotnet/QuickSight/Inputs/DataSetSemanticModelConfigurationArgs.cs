@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("tableMap")]
         private InputMap<Inputs.DataSetSemanticTableArgs>? _tableMap;
+
+        /// <summary>
+        /// A map of semantic tables that define the analytical structure.
+        /// </summary>
         public InputMap<Inputs.DataSetSemanticTableArgs> TableMap
         {
             get => _tableMap ?? (_tableMap = new InputMap<Inputs.DataSetSemanticTableArgs>());

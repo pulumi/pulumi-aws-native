@@ -400,6 +400,16 @@ export const getTransitGatewayConnectPeer: typeof import("./getTransitGatewayCon
 export const getTransitGatewayConnectPeerOutput: typeof import("./getTransitGatewayConnectPeer").getTransitGatewayConnectPeerOutput = null as any;
 utilities.lazyLoad(exports, ["getTransitGatewayConnectPeer","getTransitGatewayConnectPeerOutput"], () => require("./getTransitGatewayConnectPeer"));
 
+export { GetTransitGatewayMeteringPolicyArgs, GetTransitGatewayMeteringPolicyResult, GetTransitGatewayMeteringPolicyOutputArgs } from "./getTransitGatewayMeteringPolicy";
+export const getTransitGatewayMeteringPolicy: typeof import("./getTransitGatewayMeteringPolicy").getTransitGatewayMeteringPolicy = null as any;
+export const getTransitGatewayMeteringPolicyOutput: typeof import("./getTransitGatewayMeteringPolicy").getTransitGatewayMeteringPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getTransitGatewayMeteringPolicy","getTransitGatewayMeteringPolicyOutput"], () => require("./getTransitGatewayMeteringPolicy"));
+
+export { GetTransitGatewayMeteringPolicyEntryArgs, GetTransitGatewayMeteringPolicyEntryResult, GetTransitGatewayMeteringPolicyEntryOutputArgs } from "./getTransitGatewayMeteringPolicyEntry";
+export const getTransitGatewayMeteringPolicyEntry: typeof import("./getTransitGatewayMeteringPolicyEntry").getTransitGatewayMeteringPolicyEntry = null as any;
+export const getTransitGatewayMeteringPolicyEntryOutput: typeof import("./getTransitGatewayMeteringPolicyEntry").getTransitGatewayMeteringPolicyEntryOutput = null as any;
+utilities.lazyLoad(exports, ["getTransitGatewayMeteringPolicyEntry","getTransitGatewayMeteringPolicyEntryOutput"], () => require("./getTransitGatewayMeteringPolicyEntry"));
+
 export { GetTransitGatewayMulticastDomainArgs, GetTransitGatewayMulticastDomainResult, GetTransitGatewayMulticastDomainOutputArgs } from "./getTransitGatewayMulticastDomain";
 export const getTransitGatewayMulticastDomain: typeof import("./getTransitGatewayMulticastDomain").getTransitGatewayMulticastDomain = null as any;
 export const getTransitGatewayMulticastDomainOutput: typeof import("./getTransitGatewayMulticastDomain").getTransitGatewayMulticastDomainOutput = null as any;
@@ -480,6 +490,11 @@ export const getVpcCidrBlock: typeof import("./getVpcCidrBlock").getVpcCidrBlock
 export const getVpcCidrBlockOutput: typeof import("./getVpcCidrBlock").getVpcCidrBlockOutput = null as any;
 utilities.lazyLoad(exports, ["getVpcCidrBlock","getVpcCidrBlockOutput"], () => require("./getVpcCidrBlock"));
 
+export { GetVpcEncryptionControlArgs, GetVpcEncryptionControlResult, GetVpcEncryptionControlOutputArgs } from "./getVpcEncryptionControl";
+export const getVpcEncryptionControl: typeof import("./getVpcEncryptionControl").getVpcEncryptionControl = null as any;
+export const getVpcEncryptionControlOutput: typeof import("./getVpcEncryptionControl").getVpcEncryptionControlOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcEncryptionControl","getVpcEncryptionControlOutput"], () => require("./getVpcEncryptionControl"));
+
 export { GetVpcEndpointArgs, GetVpcEndpointResult, GetVpcEndpointOutputArgs } from "./getVpcEndpoint";
 export const getVpcEndpoint: typeof import("./getVpcEndpoint").getVpcEndpoint = null as any;
 export const getVpcEndpointOutput: typeof import("./getVpcEndpoint").getVpcEndpointOutput = null as any;
@@ -509,6 +524,11 @@ export { GetVpcPeeringConnectionArgs, GetVpcPeeringConnectionResult, GetVpcPeeri
 export const getVpcPeeringConnection: typeof import("./getVpcPeeringConnection").getVpcPeeringConnection = null as any;
 export const getVpcPeeringConnectionOutput: typeof import("./getVpcPeeringConnection").getVpcPeeringConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getVpcPeeringConnection","getVpcPeeringConnectionOutput"], () => require("./getVpcPeeringConnection"));
+
+export { GetVpnConcentratorArgs, GetVpnConcentratorResult, GetVpnConcentratorOutputArgs } from "./getVpnConcentrator";
+export const getVpnConcentrator: typeof import("./getVpnConcentrator").getVpnConcentrator = null as any;
+export const getVpnConcentratorOutput: typeof import("./getVpnConcentrator").getVpnConcentratorOutput = null as any;
+utilities.lazyLoad(exports, ["getVpnConcentrator","getVpnConcentratorOutput"], () => require("./getVpnConcentrator"));
 
 export { GetVpnConnectionArgs, GetVpnConnectionResult, GetVpnConnectionOutputArgs } from "./getVpnConnection";
 export const getVpnConnection: typeof import("./getVpnConnection").getVpnConnection = null as any;
@@ -800,6 +820,16 @@ export type TransitGatewayConnectPeer = import("./transitGatewayConnectPeer").Tr
 export const TransitGatewayConnectPeer: typeof import("./transitGatewayConnectPeer").TransitGatewayConnectPeer = null as any;
 utilities.lazyLoad(exports, ["TransitGatewayConnectPeer"], () => require("./transitGatewayConnectPeer"));
 
+export { TransitGatewayMeteringPolicyArgs } from "./transitGatewayMeteringPolicy";
+export type TransitGatewayMeteringPolicy = import("./transitGatewayMeteringPolicy").TransitGatewayMeteringPolicy;
+export const TransitGatewayMeteringPolicy: typeof import("./transitGatewayMeteringPolicy").TransitGatewayMeteringPolicy = null as any;
+utilities.lazyLoad(exports, ["TransitGatewayMeteringPolicy"], () => require("./transitGatewayMeteringPolicy"));
+
+export { TransitGatewayMeteringPolicyEntryArgs } from "./transitGatewayMeteringPolicyEntry";
+export type TransitGatewayMeteringPolicyEntry = import("./transitGatewayMeteringPolicyEntry").TransitGatewayMeteringPolicyEntry;
+export const TransitGatewayMeteringPolicyEntry: typeof import("./transitGatewayMeteringPolicyEntry").TransitGatewayMeteringPolicyEntry = null as any;
+utilities.lazyLoad(exports, ["TransitGatewayMeteringPolicyEntry"], () => require("./transitGatewayMeteringPolicyEntry"));
+
 export { TransitGatewayMulticastDomainArgs } from "./transitGatewayMulticastDomain";
 export type TransitGatewayMulticastDomain = import("./transitGatewayMulticastDomain").TransitGatewayMulticastDomain;
 export const TransitGatewayMulticastDomain: typeof import("./transitGatewayMulticastDomain").TransitGatewayMulticastDomain = null as any;
@@ -900,6 +930,11 @@ export type VpcCidrBlock = import("./vpcCidrBlock").VpcCidrBlock;
 export const VpcCidrBlock: typeof import("./vpcCidrBlock").VpcCidrBlock = null as any;
 utilities.lazyLoad(exports, ["VpcCidrBlock"], () => require("./vpcCidrBlock"));
 
+export { VpcEncryptionControlArgs } from "./vpcEncryptionControl";
+export type VpcEncryptionControl = import("./vpcEncryptionControl").VpcEncryptionControl;
+export const VpcEncryptionControl: typeof import("./vpcEncryptionControl").VpcEncryptionControl = null as any;
+utilities.lazyLoad(exports, ["VpcEncryptionControl"], () => require("./vpcEncryptionControl"));
+
 export { VpcEndpointArgs } from "./vpcEndpoint";
 export type VpcEndpoint = import("./vpcEndpoint").VpcEndpoint;
 export const VpcEndpoint: typeof import("./vpcEndpoint").VpcEndpoint = null as any;
@@ -934,6 +969,11 @@ export { VpcdhcpOptionsAssociationArgs } from "./vpcdhcpOptionsAssociation";
 export type VpcdhcpOptionsAssociation = import("./vpcdhcpOptionsAssociation").VpcdhcpOptionsAssociation;
 export const VpcdhcpOptionsAssociation: typeof import("./vpcdhcpOptionsAssociation").VpcdhcpOptionsAssociation = null as any;
 utilities.lazyLoad(exports, ["VpcdhcpOptionsAssociation"], () => require("./vpcdhcpOptionsAssociation"));
+
+export { VpnConcentratorArgs } from "./vpnConcentrator";
+export type VpnConcentrator = import("./vpnConcentrator").VpnConcentrator;
+export const VpnConcentrator: typeof import("./vpnConcentrator").VpnConcentrator = null as any;
+utilities.lazyLoad(exports, ["VpnConcentrator"], () => require("./vpnConcentrator"));
 
 export { VpnConnectionArgs } from "./vpnConnection";
 export type VpnConnection = import("./vpnConnection").VpnConnection;
@@ -1096,6 +1136,10 @@ const _module = {
                 return new TransitGatewayConnect(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayConnectPeer":
                 return new TransitGatewayConnectPeer(name, <any>undefined, { urn })
+            case "aws-native:ec2:TransitGatewayMeteringPolicy":
+                return new TransitGatewayMeteringPolicy(name, <any>undefined, { urn })
+            case "aws-native:ec2:TransitGatewayMeteringPolicyEntry":
+                return new TransitGatewayMeteringPolicyEntry(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayMulticastDomain":
                 return new TransitGatewayMulticastDomain(name, <any>undefined, { urn })
             case "aws-native:ec2:TransitGatewayMulticastDomainAssociation":
@@ -1136,6 +1180,8 @@ const _module = {
                 return new VpcBlockPublicAccessOptions(name, <any>undefined, { urn })
             case "aws-native:ec2:VpcCidrBlock":
                 return new VpcCidrBlock(name, <any>undefined, { urn })
+            case "aws-native:ec2:VpcEncryptionControl":
+                return new VpcEncryptionControl(name, <any>undefined, { urn })
             case "aws-native:ec2:VpcEndpoint":
                 return new VpcEndpoint(name, <any>undefined, { urn })
             case "aws-native:ec2:VpcEndpointConnectionNotification":
@@ -1150,6 +1196,8 @@ const _module = {
                 return new VpcPeeringConnection(name, <any>undefined, { urn })
             case "aws-native:ec2:VpcdhcpOptionsAssociation":
                 return new VpcdhcpOptionsAssociation(name, <any>undefined, { urn })
+            case "aws-native:ec2:VpnConcentrator":
+                return new VpnConcentrator(name, <any>undefined, { urn })
             case "aws-native:ec2:VpnConnection":
                 return new VpnConnection(name, <any>undefined, { urn })
             case "aws-native:ec2:VpnConnectionRoute":

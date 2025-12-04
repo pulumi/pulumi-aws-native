@@ -23,7 +23,6 @@ __all__ = ['FlowOutputArgs', 'FlowOutput']
 class FlowOutputArgs:
     def __init__(__self__, *,
                  flow_arn: pulumi.Input[_builtins.str],
-                 protocol: pulumi.Input['FlowOutputProtocol'],
                  cidr_allow_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  destination: Optional[pulumi.Input[_builtins.str]] = None,
@@ -36,14 +35,16 @@ class FlowOutputArgs:
                  ndi_speed_hq_quality: Optional[pulumi.Input[_builtins.int]] = None,
                  output_status: Optional[pulumi.Input['FlowOutputOutputStatus']] = None,
                  port: Optional[pulumi.Input[_builtins.int]] = None,
+                 protocol: Optional[pulumi.Input['FlowOutputProtocol']] = None,
                  remote_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 router_integration_state: Optional[pulumi.Input['FlowOutputRouterIntegrationState']] = None,
+                 router_integration_transit_encryption: Optional[pulumi.Input['FlowOutputFlowTransitEncryptionArgs']] = None,
                  smoothing_latency: Optional[pulumi.Input[_builtins.int]] = None,
                  stream_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vpc_interface_attachment: Optional[pulumi.Input['FlowOutputVpcInterfaceAttachmentArgs']] = None):
         """
         The set of arguments for constructing a FlowOutput resource.
         :param pulumi.Input[_builtins.str] flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
-        :param pulumi.Input['FlowOutputProtocol'] protocol: The protocol that is used by the source or output.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_allow_list: The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         :param pulumi.Input[_builtins.str] description: A description of the output.
         :param pulumi.Input[_builtins.str] destination: The address where you want to send the output.
@@ -56,13 +57,14 @@ class FlowOutputArgs:
         :param pulumi.Input[_builtins.int] ndi_speed_hq_quality: A quality setting for the NDI Speed HQ encoder.
         :param pulumi.Input['FlowOutputOutputStatus'] output_status: An indication of whether the output should transmit data or not.
         :param pulumi.Input[_builtins.int] port: The port to use when content is distributed to this output.
+        :param pulumi.Input['FlowOutputProtocol'] protocol: The protocol that is used by the source or output.
         :param pulumi.Input[_builtins.str] remote_id: The remote ID for the Zixi-pull stream.
+        :param pulumi.Input['FlowOutputFlowTransitEncryptionArgs'] router_integration_transit_encryption: Encryption information.
         :param pulumi.Input[_builtins.int] smoothing_latency: The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
         :param pulumi.Input[_builtins.str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         :param pulumi.Input['FlowOutputVpcInterfaceAttachmentArgs'] vpc_interface_attachment: The name of the VPC interface attachment to use for this output.
         """
         pulumi.set(__self__, "flow_arn", flow_arn)
-        pulumi.set(__self__, "protocol", protocol)
         if cidr_allow_list is not None:
             pulumi.set(__self__, "cidr_allow_list", cidr_allow_list)
         if description is not None:
@@ -87,8 +89,14 @@ class FlowOutputArgs:
             pulumi.set(__self__, "output_status", output_status)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
         if remote_id is not None:
             pulumi.set(__self__, "remote_id", remote_id)
+        if router_integration_state is not None:
+            pulumi.set(__self__, "router_integration_state", router_integration_state)
+        if router_integration_transit_encryption is not None:
+            pulumi.set(__self__, "router_integration_transit_encryption", router_integration_transit_encryption)
         if smoothing_latency is not None:
             pulumi.set(__self__, "smoothing_latency", smoothing_latency)
         if stream_id is not None:
@@ -107,18 +115,6 @@ class FlowOutputArgs:
     @flow_arn.setter
     def flow_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "flow_arn", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def protocol(self) -> pulumi.Input['FlowOutputProtocol']:
-        """
-        The protocol that is used by the source or output.
-        """
-        return pulumi.get(self, "protocol")
-
-    @protocol.setter
-    def protocol(self, value: pulumi.Input['FlowOutputProtocol']):
-        pulumi.set(self, "protocol", value)
 
     @_builtins.property
     @pulumi.getter(name="cidrAllowList")
@@ -265,6 +261,18 @@ class FlowOutputArgs:
         pulumi.set(self, "port", value)
 
     @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input['FlowOutputProtocol']]:
+        """
+        The protocol that is used by the source or output.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input['FlowOutputProtocol']]):
+        pulumi.set(self, "protocol", value)
+
+    @_builtins.property
     @pulumi.getter(name="remoteId")
     def remote_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -275,6 +283,27 @@ class FlowOutputArgs:
     @remote_id.setter
     def remote_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "remote_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routerIntegrationState")
+    def router_integration_state(self) -> Optional[pulumi.Input['FlowOutputRouterIntegrationState']]:
+        return pulumi.get(self, "router_integration_state")
+
+    @router_integration_state.setter
+    def router_integration_state(self, value: Optional[pulumi.Input['FlowOutputRouterIntegrationState']]):
+        pulumi.set(self, "router_integration_state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routerIntegrationTransitEncryption")
+    def router_integration_transit_encryption(self) -> Optional[pulumi.Input['FlowOutputFlowTransitEncryptionArgs']]:
+        """
+        Encryption information.
+        """
+        return pulumi.get(self, "router_integration_transit_encryption")
+
+    @router_integration_transit_encryption.setter
+    def router_integration_transit_encryption(self, value: Optional[pulumi.Input['FlowOutputFlowTransitEncryptionArgs']]):
+        pulumi.set(self, "router_integration_transit_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="smoothingLatency")
@@ -334,6 +363,8 @@ class FlowOutput(pulumi.CustomResource):
                  port: Optional[pulumi.Input[_builtins.int]] = None,
                  protocol: Optional[pulumi.Input['FlowOutputProtocol']] = None,
                  remote_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 router_integration_state: Optional[pulumi.Input['FlowOutputRouterIntegrationState']] = None,
+                 router_integration_transit_encryption: Optional[pulumi.Input[Union['FlowOutputFlowTransitEncryptionArgs', 'FlowOutputFlowTransitEncryptionArgsDict']]] = None,
                  smoothing_latency: Optional[pulumi.Input[_builtins.int]] = None,
                  stream_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vpc_interface_attachment: Optional[pulumi.Input[Union['FlowOutputVpcInterfaceAttachmentArgs', 'FlowOutputVpcInterfaceAttachmentArgsDict']]] = None,
@@ -358,6 +389,7 @@ class FlowOutput(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] port: The port to use when content is distributed to this output.
         :param pulumi.Input['FlowOutputProtocol'] protocol: The protocol that is used by the source or output.
         :param pulumi.Input[_builtins.str] remote_id: The remote ID for the Zixi-pull stream.
+        :param pulumi.Input[Union['FlowOutputFlowTransitEncryptionArgs', 'FlowOutputFlowTransitEncryptionArgsDict']] router_integration_transit_encryption: Encryption information.
         :param pulumi.Input[_builtins.int] smoothing_latency: The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
         :param pulumi.Input[_builtins.str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         :param pulumi.Input[Union['FlowOutputVpcInterfaceAttachmentArgs', 'FlowOutputVpcInterfaceAttachmentArgsDict']] vpc_interface_attachment: The name of the VPC interface attachment to use for this output.
@@ -401,6 +433,8 @@ class FlowOutput(pulumi.CustomResource):
                  port: Optional[pulumi.Input[_builtins.int]] = None,
                  protocol: Optional[pulumi.Input['FlowOutputProtocol']] = None,
                  remote_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 router_integration_state: Optional[pulumi.Input['FlowOutputRouterIntegrationState']] = None,
+                 router_integration_transit_encryption: Optional[pulumi.Input[Union['FlowOutputFlowTransitEncryptionArgs', 'FlowOutputFlowTransitEncryptionArgsDict']]] = None,
                  smoothing_latency: Optional[pulumi.Input[_builtins.int]] = None,
                  stream_id: Optional[pulumi.Input[_builtins.str]] = None,
                  vpc_interface_attachment: Optional[pulumi.Input[Union['FlowOutputVpcInterfaceAttachmentArgs', 'FlowOutputVpcInterfaceAttachmentArgsDict']]] = None,
@@ -428,10 +462,10 @@ class FlowOutput(pulumi.CustomResource):
             __props__.__dict__["ndi_speed_hq_quality"] = ndi_speed_hq_quality
             __props__.__dict__["output_status"] = output_status
             __props__.__dict__["port"] = port
-            if protocol is None and not opts.urn:
-                raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
             __props__.__dict__["remote_id"] = remote_id
+            __props__.__dict__["router_integration_state"] = router_integration_state
+            __props__.__dict__["router_integration_transit_encryption"] = router_integration_transit_encryption
             __props__.__dict__["smoothing_latency"] = smoothing_latency
             __props__.__dict__["stream_id"] = stream_id
             __props__.__dict__["vpc_interface_attachment"] = vpc_interface_attachment
@@ -476,6 +510,8 @@ class FlowOutput(pulumi.CustomResource):
         __props__.__dict__["port"] = None
         __props__.__dict__["protocol"] = None
         __props__.__dict__["remote_id"] = None
+        __props__.__dict__["router_integration_state"] = None
+        __props__.__dict__["router_integration_transit_encryption"] = None
         __props__.__dict__["smoothing_latency"] = None
         __props__.__dict__["stream_id"] = None
         __props__.__dict__["vpc_interface_attachment"] = None
@@ -595,7 +631,7 @@ class FlowOutput(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> pulumi.Output['FlowOutputProtocol']:
+    def protocol(self) -> pulumi.Output[Optional['FlowOutputProtocol']]:
         """
         The protocol that is used by the source or output.
         """
@@ -608,6 +644,19 @@ class FlowOutput(pulumi.CustomResource):
         The remote ID for the Zixi-pull stream.
         """
         return pulumi.get(self, "remote_id")
+
+    @_builtins.property
+    @pulumi.getter(name="routerIntegrationState")
+    def router_integration_state(self) -> pulumi.Output[Optional['FlowOutputRouterIntegrationState']]:
+        return pulumi.get(self, "router_integration_state")
+
+    @_builtins.property
+    @pulumi.getter(name="routerIntegrationTransitEncryption")
+    def router_integration_transit_encryption(self) -> pulumi.Output[Optional['outputs.FlowOutputFlowTransitEncryption']]:
+        """
+        Encryption information.
+        """
+        return pulumi.get(self, "router_integration_transit_encryption")
 
     @_builtins.property
     @pulumi.getter(name="smoothingLatency")

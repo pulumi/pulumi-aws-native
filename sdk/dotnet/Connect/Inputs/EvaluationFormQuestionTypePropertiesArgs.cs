@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class EvaluationFormQuestionTypePropertiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("multiSelect")]
+        public Input<Inputs.EvaluationFormMultiSelectQuestionPropertiesArgs>? MultiSelect { get; set; }
+
         /// <summary>
         /// The properties of the numeric question.
         /// </summary>
@@ -27,6 +30,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("singleSelect")]
         public Input<Inputs.EvaluationFormSingleSelectQuestionPropertiesArgs>? SingleSelect { get; set; }
 
+        /// <summary>
+        /// The properties of the text question.
+        /// </summary>
         [Input("text")]
         public Input<Inputs.EvaluationFormTextQuestionPropertiesArgs>? Text { get; set; }
 

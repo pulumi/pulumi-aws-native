@@ -29,10 +29,15 @@ export interface GetTableBucketResult {
      * Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
      */
     readonly encryptionConfiguration?: outputs.s3tables.TableBucketEncryptionConfiguration;
+    readonly metricsConfiguration?: outputs.s3tables.TableBucketMetricsConfiguration;
     /**
      * The Amazon Resource Name (ARN) of the table bucket.
      */
     readonly tableBucketArn?: string;
+    /**
+     * User tags (key-value pairs) to associate with the table bucket.
+     */
+    readonly tags?: outputs.Tag[];
     /**
      * The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
      */

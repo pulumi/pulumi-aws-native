@@ -13,9 +13,11 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['IpamScopeArgs', 'IpamScope']
 
@@ -24,16 +26,22 @@ class IpamScopeArgs:
     def __init__(__self__, *,
                  ipam_id: pulumi.Input[_builtins.str],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_authority_configuration: Optional[pulumi.Input['IpamScopeExternalAuthorityConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a IpamScope resource.
         :param pulumi.Input[_builtins.str] ipam_id: The Id of the IPAM this scope is a part of.
         :param pulumi.Input[_builtins.str] description: The description of the scope.
+        :param pulumi.Input['IpamScopeExternalAuthorityConfigurationArgs'] external_authority_configuration: The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.
+               
+               For more information, see [Integrate VPC IPAM with Infoblox infrastructure](https://docs.aws.amazon.com/vpc/latest/ipam/integrate-infoblox-ipam.html) in the *Amazon VPC IPAM User Guide* .
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "ipam_id", ipam_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if external_authority_configuration is not None:
+            pulumi.set(__self__, "external_authority_configuration", external_authority_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -62,6 +70,20 @@ class IpamScopeArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="externalAuthorityConfiguration")
+    def external_authority_configuration(self) -> Optional[pulumi.Input['IpamScopeExternalAuthorityConfigurationArgs']]:
+        """
+        The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.
+
+        For more information, see [Integrate VPC IPAM with Infoblox infrastructure](https://docs.aws.amazon.com/vpc/latest/ipam/integrate-infoblox-ipam.html) in the *Amazon VPC IPAM User Guide* .
+        """
+        return pulumi.get(self, "external_authority_configuration")
+
+    @external_authority_configuration.setter
+    def external_authority_configuration(self, value: Optional[pulumi.Input['IpamScopeExternalAuthorityConfigurationArgs']]):
+        pulumi.set(self, "external_authority_configuration", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -81,6 +103,7 @@ class IpamScope(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_authority_configuration: Optional[pulumi.Input[Union['IpamScopeExternalAuthorityConfigurationArgs', 'IpamScopeExternalAuthorityConfigurationArgsDict']]] = None,
                  ipam_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -90,6 +113,9 @@ class IpamScope(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the scope.
+        :param pulumi.Input[Union['IpamScopeExternalAuthorityConfigurationArgs', 'IpamScopeExternalAuthorityConfigurationArgsDict']] external_authority_configuration: The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.
+               
+               For more information, see [Integrate VPC IPAM with Infoblox infrastructure](https://docs.aws.amazon.com/vpc/latest/ipam/integrate-infoblox-ipam.html) in the *Amazon VPC IPAM User Guide* .
         :param pulumi.Input[_builtins.str] ipam_id: The Id of the IPAM this scope is a part of.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -118,6 +144,7 @@ class IpamScope(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_authority_configuration: Optional[pulumi.Input[Union['IpamScopeExternalAuthorityConfigurationArgs', 'IpamScopeExternalAuthorityConfigurationArgsDict']]] = None,
                  ipam_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -130,6 +157,7 @@ class IpamScope(pulumi.CustomResource):
             __props__ = IpamScopeArgs.__new__(IpamScopeArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["external_authority_configuration"] = external_authority_configuration
             if ipam_id is None and not opts.urn:
                 raise TypeError("Missing required property 'ipam_id'")
             __props__.__dict__["ipam_id"] = ipam_id
@@ -166,6 +194,7 @@ class IpamScope(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["external_authority_configuration"] = None
         __props__.__dict__["ipam_arn"] = None
         __props__.__dict__["ipam_id"] = None
         __props__.__dict__["ipam_scope_id"] = None
@@ -190,6 +219,16 @@ class IpamScope(pulumi.CustomResource):
         The description of the scope.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="externalAuthorityConfiguration")
+    def external_authority_configuration(self) -> pulumi.Output[Optional['outputs.IpamScopeExternalAuthorityConfiguration']]:
+        """
+        The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.
+
+        For more information, see [Integrate VPC IPAM with Infoblox infrastructure](https://docs.aws.amazon.com/vpc/latest/ipam/integrate-infoblox-ipam.html) in the *Amazon VPC IPAM User Guide* .
+        """
+        return pulumi.get(self, "external_authority_configuration")
 
     @_builtins.property
     @pulumi.getter(name="ipamArn")

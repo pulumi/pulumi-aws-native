@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.Dsql
         public Output<Outputs.EncryptionDetailsProperties> EncryptionDetails { get; private set; } = null!;
 
         /// <summary>
+        /// The DSQL cluster endpoint.
+        /// </summary>
+        [Output("endpoint")]
+        public Output<string> Endpoint { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the created cluster.
         /// </summary>
         [Output("identifier")]
@@ -50,6 +56,18 @@ namespace Pulumi.AwsNative.Dsql
         /// </summary>
         [Output("multiRegionProperties")]
         public Output<Outputs.MultiRegionPropertiesProperties?> MultiRegionProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// The IAM policy applied to the cluster resource.
+        /// </summary>
+        [Output("policyDocument")]
+        public Output<string?> PolicyDocument { get; private set; } = null!;
+
+        /// <summary>
+        /// The version number of the cluster's resource based policy
+        /// </summary>
+        [Output("policyVersion")]
+        public Output<string> PolicyVersion { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) for the cluster.
@@ -137,6 +155,12 @@ namespace Pulumi.AwsNative.Dsql
         /// </summary>
         [Input("multiRegionProperties")]
         public Input<Inputs.MultiRegionPropertiesPropertiesArgs>? MultiRegionProperties { get; set; }
+
+        /// <summary>
+        /// The IAM policy applied to the cluster resource.
+        /// </summary>
+        [Input("policyDocument")]
+        public Input<string>? PolicyDocument { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

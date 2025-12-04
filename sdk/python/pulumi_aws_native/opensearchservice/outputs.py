@@ -20,6 +20,7 @@ __all__ = [
     'ApplicationAppConfig',
     'ApplicationDataSource',
     'DomainAdvancedSecurityOptionsInput',
+    'DomainAimlOptions',
     'DomainClusterConfig',
     'DomainCognitoOptions',
     'DomainColdStorageOptions',
@@ -37,6 +38,7 @@ __all__ = [
     'DomainNodeToNodeEncryptionOptions',
     'DomainOffPeakWindow',
     'DomainOffPeakWindowOptions',
+    'DomainS3VectorsEngine',
     'DomainSamlOptions',
     'DomainServiceSoftwareOptions',
     'DomainSnapshotOptions',
@@ -263,6 +265,36 @@ class DomainAdvancedSecurityOptionsInput(dict):
         Container for information about the SAML configuration for OpenSearch Dashboards.
         """
         return pulumi.get(self, "saml_options")
+
+
+@pulumi.output_type
+class DomainAimlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3VectorsEngine":
+            suggest = "s3_vectors_engine"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainAimlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainAimlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainAimlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_vectors_engine: Optional['outputs.DomainS3VectorsEngine'] = None):
+        if s3_vectors_engine is not None:
+            pulumi.set(__self__, "s3_vectors_engine", s3_vectors_engine)
+
+    @_builtins.property
+    @pulumi.getter(name="s3VectorsEngine")
+    def s3_vectors_engine(self) -> Optional['outputs.DomainS3VectorsEngine']:
+        return pulumi.get(self, "s3_vectors_engine")
 
 
 @pulumi.output_type
@@ -1392,6 +1424,24 @@ class DomainOffPeakWindowOptions(dict):
         Off-peak window settings for the domain.
         """
         return pulumi.get(self, "off_peak_window")
+
+
+@pulumi.output_type
+class DomainS3VectorsEngine(dict):
+    def __init__(__self__, *,
+                 enabled: _builtins.bool):
+        """
+        :param _builtins.bool enabled: Whether to enable S3 vectors engine.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether to enable S3 vectors engine.
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type

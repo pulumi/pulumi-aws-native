@@ -54,6 +54,10 @@ export class DomainNameV2 extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly domainNameId: pulumi.Output<string>;
     /**
+     * The endpoint access mode for your DomainName.
+     */
+    declare public readonly endpointAccessMode: pulumi.Output<string | undefined>;
+    /**
      * The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
      */
     declare public readonly endpointConfiguration: pulumi.Output<outputs.apigateway.DomainNameV2EndpointConfiguration | undefined>;
@@ -68,7 +72,7 @@ export class DomainNameV2 extends pulumi.CustomResource {
      */
     declare public readonly routingMode: pulumi.Output<enums.apigateway.DomainNameV2RoutingMode | undefined>;
     /**
-     * The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
+     * The Transport Layer Security (TLS) version + cipher suite for this DomainName.
      */
     declare public readonly securityPolicy: pulumi.Output<string | undefined>;
     /**
@@ -89,6 +93,7 @@ export class DomainNameV2 extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["certificateArn"] = args?.certificateArn;
             resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["endpointAccessMode"] = args?.endpointAccessMode;
             resourceInputs["endpointConfiguration"] = args?.endpointConfiguration;
             resourceInputs["policy"] = args?.policy;
             resourceInputs["routingMode"] = args?.routingMode;
@@ -101,6 +106,7 @@ export class DomainNameV2 extends pulumi.CustomResource {
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["domainNameArn"] = undefined /*out*/;
             resourceInputs["domainNameId"] = undefined /*out*/;
+            resourceInputs["endpointAccessMode"] = undefined /*out*/;
             resourceInputs["endpointConfiguration"] = undefined /*out*/;
             resourceInputs["policy"] = undefined /*out*/;
             resourceInputs["routingMode"] = undefined /*out*/;
@@ -127,6 +133,10 @@ export interface DomainNameV2Args {
      */
     domainName?: pulumi.Input<string>;
     /**
+     * The endpoint access mode for your DomainName.
+     */
+    endpointAccessMode?: pulumi.Input<string>;
+    /**
      * The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
      */
     endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameV2EndpointConfigurationArgs>;
@@ -141,7 +151,7 @@ export interface DomainNameV2Args {
      */
     routingMode?: pulumi.Input<enums.apigateway.DomainNameV2RoutingMode>;
     /**
-     * The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
+     * The Transport Layer Security (TLS) version + cipher suite for this DomainName.
      */
     securityPolicy?: pulumi.Input<string>;
     /**

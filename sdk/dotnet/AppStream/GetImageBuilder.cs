@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.AppStream
         /// </summary>
         public readonly ImmutableArray<Outputs.ImageBuilderAccessEndpoint> AccessEndpoints;
         /// <summary>
-        /// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+        /// The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
         /// </summary>
         public readonly string? AppstreamAgentVersion;
         /// <summary>

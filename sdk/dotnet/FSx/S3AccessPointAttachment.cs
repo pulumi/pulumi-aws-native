@@ -16,16 +16,22 @@ namespace Pulumi.AwsNative.FSx
     public partial class S3AccessPointAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Name of the S3AccessPointAttachment
+        /// The name of the S3 access point attachment; also used for the name of the S3 access point.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The OntapConfiguration of the S3 access point attachment.
+        /// </summary>
+        [Output("ontapConfiguration")]
+        public Output<Outputs.S3AccessPointAttachmentS3AccessPointOntapConfiguration?> OntapConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The OpenZFSConfiguration of the S3 access point attachment.
         /// </summary>
         [Output("openZfsConfiguration")]
-        public Output<Outputs.S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration> OpenZfsConfiguration { get; private set; } = null!;
+        public Output<Outputs.S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration?> OpenZfsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The S3 access point configuration of the S3 access point attachment.
@@ -65,6 +71,7 @@ namespace Pulumi.AwsNative.FSx
                 ReplaceOnChanges =
                 {
                     "name",
+                    "ontapConfiguration",
                     "openZfsConfiguration",
                     "s3AccessPoint",
                     "type",
@@ -92,16 +99,22 @@ namespace Pulumi.AwsNative.FSx
     public sealed class S3AccessPointAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Name of the S3AccessPointAttachment
+        /// The name of the S3 access point attachment; also used for the name of the S3 access point.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The OntapConfiguration of the S3 access point attachment.
+        /// </summary>
+        [Input("ontapConfiguration")]
+        public Input<Inputs.S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs>? OntapConfiguration { get; set; }
+
+        /// <summary>
         /// The OpenZFSConfiguration of the S3 access point attachment.
         /// </summary>
-        [Input("openZfsConfiguration", required: true)]
-        public Input<Inputs.S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs> OpenZfsConfiguration { get; set; } = null!;
+        [Input("openZfsConfiguration")]
+        public Input<Inputs.S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs>? OpenZfsConfiguration { get; set; }
 
         /// <summary>
         /// The S3 access point configuration of the S3 access point attachment.

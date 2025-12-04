@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTableResult:
-    def __init__(__self__, billing_mode=None, cdc_specification=None, default_time_to_live=None, encryption_specification=None, point_in_time_recovery_enabled=None, regular_columns=None, tags=None):
+    def __init__(__self__, billing_mode=None, cdc_specification=None, default_time_to_live=None, encryption_specification=None, point_in_time_recovery_enabled=None, regular_columns=None, tags=None, warm_throughput=None):
         if billing_mode and not isinstance(billing_mode, dict):
             raise TypeError("Expected argument 'billing_mode' to be a dict")
         pulumi.set(__self__, "billing_mode", billing_mode)
@@ -48,6 +48,9 @@ class GetTableResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if warm_throughput and not isinstance(warm_throughput, dict):
+            raise TypeError("Expected argument 'warm_throughput' to be a dict")
+        pulumi.set(__self__, "warm_throughput", warm_throughput)
 
     @_builtins.property
     @pulumi.getter(name="billingMode")
@@ -117,6 +120,11 @@ class GetTableResult:
         """
         return pulumi.get(self, "tags")
 
+    @_builtins.property
+    @pulumi.getter(name="warmThroughput")
+    def warm_throughput(self) -> Optional['outputs.TableWarmThroughput']:
+        return pulumi.get(self, "warm_throughput")
+
 
 class AwaitableGetTableResult(GetTableResult):
     # pylint: disable=using-constant-test
@@ -130,7 +138,8 @@ class AwaitableGetTableResult(GetTableResult):
             encryption_specification=self.encryption_specification,
             point_in_time_recovery_enabled=self.point_in_time_recovery_enabled,
             regular_columns=self.regular_columns,
-            tags=self.tags)
+            tags=self.tags,
+            warm_throughput=self.warm_throughput)
 
 
 def get_table(keyspace_name: Optional[_builtins.str] = None,
@@ -156,7 +165,8 @@ def get_table(keyspace_name: Optional[_builtins.str] = None,
         encryption_specification=pulumi.get(__ret__, 'encryption_specification'),
         point_in_time_recovery_enabled=pulumi.get(__ret__, 'point_in_time_recovery_enabled'),
         regular_columns=pulumi.get(__ret__, 'regular_columns'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        warm_throughput=pulumi.get(__ret__, 'warm_throughput'))
 def get_table_output(keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                      table_name: Optional[pulumi.Input[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
@@ -179,4 +189,5 @@ def get_table_output(keyspace_name: Optional[pulumi.Input[_builtins.str]] = None
         encryption_specification=pulumi.get(__response__, 'encryption_specification'),
         point_in_time_recovery_enabled=pulumi.get(__response__, 'point_in_time_recovery_enabled'),
         regular_columns=pulumi.get(__response__, 'regular_columns'),
-        tags=pulumi.get(__response__, 'tags')))
+        tags=pulumi.get(__response__, 'tags'),
+        warm_throughput=pulumi.get(__response__, 'warm_throughput')))

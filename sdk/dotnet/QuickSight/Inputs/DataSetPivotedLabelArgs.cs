@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetPivotedLabelArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The label value from the source data to be pivoted.
+        /// </summary>
         [Input("labelName", required: true)]
         public Input<string> LabelName { get; set; } = null!;
 
+        /// <summary>
+        /// A unique identifier for the new column created from this pivoted label.
+        /// </summary>
         [Input("newColumnId", required: true)]
         public Input<string> NewColumnId { get; set; } = null!;
 
+        /// <summary>
+        /// The name for the new column created from this pivoted label.
+        /// </summary>
         [Input("newColumnName", required: true)]
         public Input<string> NewColumnName { get; set; } = null!;
 

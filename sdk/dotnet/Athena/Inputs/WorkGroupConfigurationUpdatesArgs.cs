@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Athena.Inputs
         [Input("enforceWorkGroupConfiguration")]
         public Input<bool>? EnforceWorkGroupConfiguration { get; set; }
 
+        [Input("engineConfiguration")]
+        public Input<Inputs.WorkGroupEngineConfigurationArgs>? EngineConfiguration { get; set; }
+
         [Input("engineVersion")]
         public Input<Inputs.WorkGroupEngineVersionArgs>? EngineVersion { get; set; }
 
@@ -35,6 +38,9 @@ namespace Pulumi.AwsNative.Athena.Inputs
 
         [Input("managedQueryResultsConfiguration")]
         public Input<Inputs.WorkGroupManagedQueryResultsConfigurationArgs>? ManagedQueryResultsConfiguration { get; set; }
+
+        [Input("monitoringConfiguration")]
+        public Input<Inputs.WorkGroupMonitoringConfigurationArgs>? MonitoringConfiguration { get; set; }
 
         [Input("publishCloudWatchMetricsEnabled")]
         public Input<bool>? PublishCloudWatchMetricsEnabled { get; set; }

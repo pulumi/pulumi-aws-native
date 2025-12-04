@@ -29,7 +29,13 @@ class AnomalyMonitorArgs:
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a AnomalyMonitor resource.
-        :param pulumi.Input['AnomalyMonitorMonitorType'] monitor_type: The possible type values.
+        :param pulumi.Input['AnomalyMonitorMonitorType'] monitor_type: The type of the monitor.
+               
+               Set this to `DIMENSIONAL` for an AWS managed monitor. AWS managed monitors automatically track up to the top 5,000 values by cost within a dimension of your choosing. Each dimension value is evaluated independently. If you start incurring cost in a new value of your chosen dimension, it will automatically be analyzed by an AWS managed monitor.
+               
+               Set this to `CUSTOM` for a customer managed monitor. Customer managed monitors let you select specific dimension values that get monitored in aggregate.
+               
+               For more information about monitor types, see [Monitor types](https://docs.aws.amazon.com/cost-management/latest/userguide/getting-started-ad.html#monitor-type-def) in the *Billing and Cost Management User Guide* .
         :param pulumi.Input['AnomalyMonitorMonitorDimension'] monitor_dimension: The dimensions to evaluate
         :param pulumi.Input[_builtins.str] monitor_name: The name of the monitor.
         :param pulumi.Input[_builtins.str] monitor_specification: The array of `MonitorSpecification` in JSON array format. For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
@@ -49,7 +55,13 @@ class AnomalyMonitorArgs:
     @pulumi.getter(name="monitorType")
     def monitor_type(self) -> pulumi.Input['AnomalyMonitorMonitorType']:
         """
-        The possible type values.
+        The type of the monitor.
+
+        Set this to `DIMENSIONAL` for an AWS managed monitor. AWS managed monitors automatically track up to the top 5,000 values by cost within a dimension of your choosing. Each dimension value is evaluated independently. If you start incurring cost in a new value of your chosen dimension, it will automatically be analyzed by an AWS managed monitor.
+
+        Set this to `CUSTOM` for a customer managed monitor. Customer managed monitors let you select specific dimension values that get monitored in aggregate.
+
+        For more information about monitor types, see [Monitor types](https://docs.aws.amazon.com/cost-management/latest/userguide/getting-started-ad.html#monitor-type-def) in the *Billing and Cost Management User Guide* .
         """
         return pulumi.get(self, "monitor_type")
 
@@ -336,7 +348,13 @@ class AnomalyMonitor(pulumi.CustomResource):
         :param pulumi.Input['AnomalyMonitorMonitorDimension'] monitor_dimension: The dimensions to evaluate
         :param pulumi.Input[_builtins.str] monitor_name: The name of the monitor.
         :param pulumi.Input[_builtins.str] monitor_specification: The array of `MonitorSpecification` in JSON array format. For instance, you can use `MonitorSpecification` to specify a tag, Cost Category, or linked account for your custom anomaly monitor. For further information, see the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html#aws-resource-ce-anomalymonitor--examples) section of this page.
-        :param pulumi.Input['AnomalyMonitorMonitorType'] monitor_type: The possible type values.
+        :param pulumi.Input['AnomalyMonitorMonitorType'] monitor_type: The type of the monitor.
+               
+               Set this to `DIMENSIONAL` for an AWS managed monitor. AWS managed monitors automatically track up to the top 5,000 values by cost within a dimension of your choosing. Each dimension value is evaluated independently. If you start incurring cost in a new value of your chosen dimension, it will automatically be analyzed by an AWS managed monitor.
+               
+               Set this to `CUSTOM` for a customer managed monitor. Customer managed monitors let you select specific dimension values that get monitored in aggregate.
+               
+               For more information about monitor types, see [Monitor types](https://docs.aws.amazon.com/cost-management/latest/userguide/getting-started-ad.html#monitor-type-def) in the *Billing and Cost Management User Guide* .
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] resource_tags: Tags to assign to monitor.
         """
         ...
@@ -703,7 +721,13 @@ class AnomalyMonitor(pulumi.CustomResource):
     @pulumi.getter(name="monitorType")
     def monitor_type(self) -> pulumi.Output['AnomalyMonitorMonitorType']:
         """
-        The possible type values.
+        The type of the monitor.
+
+        Set this to `DIMENSIONAL` for an AWS managed monitor. AWS managed monitors automatically track up to the top 5,000 values by cost within a dimension of your choosing. Each dimension value is evaluated independently. If you start incurring cost in a new value of your chosen dimension, it will automatically be analyzed by an AWS managed monitor.
+
+        Set this to `CUSTOM` for a customer managed monitor. Customer managed monitors let you select specific dimension values that get monitored in aggregate.
+
+        For more information about monitor types, see [Monitor types](https://docs.aws.amazon.com/cost-management/latest/userguide/getting-started-ad.html#monitor-type-def) in the *Billing and Cost Management User Guide* .
         """
         return pulumi.get(self, "monitor_type")
 

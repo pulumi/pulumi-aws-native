@@ -79,6 +79,8 @@ type LookupEventSourceMappingResult struct {
 	Id *string `pulumi:"id"`
 	// The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The function's Amazon CloudWatch Logs configuration settings.
+	LoggingConfig *EventSourceMappingLoggingConfig `pulumi:"loggingConfig"`
 	// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
 	//  *Default (, , event sources)*: 0
 	//  *Default (, Kafka, , event sources)*: 500 ms
@@ -93,11 +95,11 @@ type LookupEventSourceMappingResult struct {
 	MetricsConfig *EventSourceMappingMetricsConfig `pulumi:"metricsConfig"`
 	// (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
 	ParallelizationFactor *int `pulumi:"parallelizationFactor"`
-	// (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
+	// (Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
 	ProvisionedPollerConfig *EventSourceMappingProvisionedPollerConfig `pulumi:"provisionedPollerConfig"`
 	// (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
 	Queues []string `pulumi:"queues"`
-	// (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+	// This property is for Amazon SQS event sources only. You cannot use ``ProvisionedPollerConfig`` while using ``ScalingConfig``. These options are mutually exclusive. To remove the scaling configuration, pass an empty value.
 	ScalingConfig *EventSourceMappingScalingConfig `pulumi:"scalingConfig"`
 	// Specific configuration settings for a self-managed Apache Kafka event source.
 	SelfManagedKafkaEventSourceConfig *EventSourceMappingSelfManagedKafkaEventSourceConfig `pulumi:"selfManagedKafkaEventSourceConfig"`
@@ -233,6 +235,11 @@ func (o LookupEventSourceMappingResultOutput) KmsKeyArn() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
+// The function's Amazon CloudWatch Logs configuration settings.
+func (o LookupEventSourceMappingResultOutput) LoggingConfig() EventSourceMappingLoggingConfigPtrOutput {
+	return o.ApplyT(func(v LookupEventSourceMappingResult) *EventSourceMappingLoggingConfig { return v.LoggingConfig }).(EventSourceMappingLoggingConfigPtrOutput)
+}
+
 // The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
 //
 //	*Default (, , event sources)*: 0
@@ -264,7 +271,7 @@ func (o LookupEventSourceMappingResultOutput) ParallelizationFactor() pulumi.Int
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *int { return v.ParallelizationFactor }).(pulumi.IntPtrOutput)
 }
 
-// (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
+// (Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
 func (o LookupEventSourceMappingResultOutput) ProvisionedPollerConfig() EventSourceMappingProvisionedPollerConfigPtrOutput {
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *EventSourceMappingProvisionedPollerConfig {
 		return v.ProvisionedPollerConfig
@@ -276,7 +283,7 @@ func (o LookupEventSourceMappingResultOutput) Queues() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v LookupEventSourceMappingResult) []string { return v.Queues }).(pulumi.StringArrayOutput)
 }
 
-// (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+// This property is for Amazon SQS event sources only. You cannot use “ProvisionedPollerConfig“ while using “ScalingConfig“. These options are mutually exclusive. To remove the scaling configuration, pass an empty value.
 func (o LookupEventSourceMappingResultOutput) ScalingConfig() EventSourceMappingScalingConfigPtrOutput {
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *EventSourceMappingScalingConfig { return v.ScalingConfig }).(EventSourceMappingScalingConfigPtrOutput)
 }

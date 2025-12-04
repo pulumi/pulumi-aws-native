@@ -13,12 +13,33 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetUnpivotOperation
     {
+        /// <summary>
+        /// Alias for this operation.
+        /// </summary>
         public readonly string Alias;
+        /// <summary>
+        /// The list of columns to unpivot from the source data.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSetColumnToUnpivot> ColumnsToUnpivot;
+        /// <summary>
+        /// The source transform operation that provides input data for unpivoting.
+        /// </summary>
         public readonly Outputs.DataSetTransformOperationSource Source;
+        /// <summary>
+        /// A unique identifier for the new column that will contain the unpivoted column names.
+        /// </summary>
         public readonly string UnpivotedLabelColumnId;
+        /// <summary>
+        /// The name for the new column that will contain the unpivoted column names.
+        /// </summary>
         public readonly string UnpivotedLabelColumnName;
+        /// <summary>
+        /// A unique identifier for the new column that will contain the unpivoted values.
+        /// </summary>
         public readonly string UnpivotedValueColumnId;
+        /// <summary>
+        /// The name for the new column that will contain the unpivoted values.
+        /// </summary>
         public readonly string UnpivotedValueColumnName;
 
         [OutputConstructor]

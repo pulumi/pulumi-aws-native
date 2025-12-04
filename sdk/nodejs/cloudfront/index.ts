@@ -15,6 +15,11 @@ export type CloudFrontOriginAccessIdentity = import("./cloudFrontOriginAccessIde
 export const CloudFrontOriginAccessIdentity: typeof import("./cloudFrontOriginAccessIdentity").CloudFrontOriginAccessIdentity = null as any;
 utilities.lazyLoad(exports, ["CloudFrontOriginAccessIdentity"], () => require("./cloudFrontOriginAccessIdentity"));
 
+export { ConnectionFunctionArgs } from "./connectionFunction";
+export type ConnectionFunction = import("./connectionFunction").ConnectionFunction;
+export const ConnectionFunction: typeof import("./connectionFunction").ConnectionFunction = null as any;
+utilities.lazyLoad(exports, ["ConnectionFunction"], () => require("./connectionFunction"));
+
 export { ConnectionGroupArgs } from "./connectionGroup";
 export type ConnectionGroup = import("./connectionGroup").ConnectionGroup;
 export const ConnectionGroup: typeof import("./connectionGroup").ConnectionGroup = null as any;
@@ -49,6 +54,11 @@ export { GetCloudFrontOriginAccessIdentityArgs, GetCloudFrontOriginAccessIdentit
 export const getCloudFrontOriginAccessIdentity: typeof import("./getCloudFrontOriginAccessIdentity").getCloudFrontOriginAccessIdentity = null as any;
 export const getCloudFrontOriginAccessIdentityOutput: typeof import("./getCloudFrontOriginAccessIdentity").getCloudFrontOriginAccessIdentityOutput = null as any;
 utilities.lazyLoad(exports, ["getCloudFrontOriginAccessIdentity","getCloudFrontOriginAccessIdentityOutput"], () => require("./getCloudFrontOriginAccessIdentity"));
+
+export { GetConnectionFunctionArgs, GetConnectionFunctionResult, GetConnectionFunctionOutputArgs } from "./getConnectionFunction";
+export const getConnectionFunction: typeof import("./getConnectionFunction").getConnectionFunction = null as any;
+export const getConnectionFunctionOutput: typeof import("./getConnectionFunction").getConnectionFunctionOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectionFunction","getConnectionFunctionOutput"], () => require("./getConnectionFunction"));
 
 export { GetConnectionGroupArgs, GetConnectionGroupResult, GetConnectionGroupOutputArgs } from "./getConnectionGroup";
 export const getConnectionGroup: typeof import("./getConnectionGroup").getConnectionGroup = null as any;
@@ -115,6 +125,11 @@ export const getResponseHeadersPolicy: typeof import("./getResponseHeadersPolicy
 export const getResponseHeadersPolicyOutput: typeof import("./getResponseHeadersPolicy").getResponseHeadersPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getResponseHeadersPolicy","getResponseHeadersPolicyOutput"], () => require("./getResponseHeadersPolicy"));
 
+export { GetTrustStoreArgs, GetTrustStoreResult, GetTrustStoreOutputArgs } from "./getTrustStore";
+export const getTrustStore: typeof import("./getTrustStore").getTrustStore = null as any;
+export const getTrustStoreOutput: typeof import("./getTrustStore").getTrustStoreOutput = null as any;
+utilities.lazyLoad(exports, ["getTrustStore","getTrustStoreOutput"], () => require("./getTrustStore"));
+
 export { GetVpcOriginArgs, GetVpcOriginResult, GetVpcOriginOutputArgs } from "./getVpcOrigin";
 export const getVpcOrigin: typeof import("./getVpcOrigin").getVpcOrigin = null as any;
 export const getVpcOriginOutput: typeof import("./getVpcOrigin").getVpcOriginOutput = null as any;
@@ -160,6 +175,11 @@ export type ResponseHeadersPolicy = import("./responseHeadersPolicy").ResponseHe
 export const ResponseHeadersPolicy: typeof import("./responseHeadersPolicy").ResponseHeadersPolicy = null as any;
 utilities.lazyLoad(exports, ["ResponseHeadersPolicy"], () => require("./responseHeadersPolicy"));
 
+export { TrustStoreArgs } from "./trustStore";
+export type TrustStore = import("./trustStore").TrustStore;
+export const TrustStore: typeof import("./trustStore").TrustStore = null as any;
+utilities.lazyLoad(exports, ["TrustStore"], () => require("./trustStore"));
+
 export { VpcOriginArgs } from "./vpcOrigin";
 export type VpcOrigin = import("./vpcOrigin").VpcOrigin;
 export const VpcOrigin: typeof import("./vpcOrigin").VpcOrigin = null as any;
@@ -177,6 +197,8 @@ const _module = {
                 return new CachePolicy(name, <any>undefined, { urn })
             case "aws-native:cloudfront:CloudFrontOriginAccessIdentity":
                 return new CloudFrontOriginAccessIdentity(name, <any>undefined, { urn })
+            case "aws-native:cloudfront:ConnectionFunction":
+                return new ConnectionFunction(name, <any>undefined, { urn })
             case "aws-native:cloudfront:ConnectionGroup":
                 return new ConnectionGroup(name, <any>undefined, { urn })
             case "aws-native:cloudfront:ContinuousDeploymentPolicy":
@@ -203,6 +225,8 @@ const _module = {
                 return new RealtimeLogConfig(name, <any>undefined, { urn })
             case "aws-native:cloudfront:ResponseHeadersPolicy":
                 return new ResponseHeadersPolicy(name, <any>undefined, { urn })
+            case "aws-native:cloudfront:TrustStore":
+                return new TrustStore(name, <any>undefined, { urn })
             case "aws-native:cloudfront:VpcOrigin":
                 return new VpcOrigin(name, <any>undefined, { urn })
             default:

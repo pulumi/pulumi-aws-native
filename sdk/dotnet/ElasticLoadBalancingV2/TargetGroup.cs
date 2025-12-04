@@ -106,6 +106,12 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
+        /// </summary>
+        [Output("targetControlPort")]
+        public Output<int?> TargetControlPort { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the Target Group
         /// </summary>
         [Output("targetGroupArn")]
@@ -297,6 +303,12 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
+        /// </summary>
+        [Input("targetControlPort")]
+        public Input<int>? TargetControlPort { get; set; }
 
         [Input("targetGroupAttributes")]
         private InputList<Inputs.TargetGroupAttributeArgs>? _targetGroupAttributes;

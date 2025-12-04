@@ -70,7 +70,7 @@ export class Application extends pulumi.CustomResource {
      */
     declare public readonly displayName: pulumi.Output<string>;
     /**
-     * Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+     * Provides the identifier of the AWS  key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
      */
     declare public readonly encryptionConfiguration: pulumi.Output<outputs.qbusiness.ApplicationEncryptionConfiguration | undefined>;
     /**
@@ -208,7 +208,7 @@ export interface ApplicationArgs {
      */
     displayName: pulumi.Input<string>;
     /**
-     * Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+     * Provides the identifier of the AWS  key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
      */
     encryptionConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationEncryptionConfigurationArgs>;
     /**

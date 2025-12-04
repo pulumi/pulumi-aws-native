@@ -53,7 +53,7 @@ type CapacityReservation struct {
 	EphemeralStorage pulumi.BoolPtrOutput `pulumi:"ephemeralStorage"`
 	// The number of instances for which to reserve capacity.
 	//
-	// > You can request future-dated Capacity Reservations for an instance count with a minimum of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *16 * m5.xlarge = 64 vCPUs* ).
+	// > You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ).
 	//
 	// Valid range: 1 - 1000
 	InstanceCount pulumi.IntOutput `pulumi:"instanceCount"`
@@ -202,7 +202,7 @@ type capacityReservationArgs struct {
 	EphemeralStorage *bool `pulumi:"ephemeralStorage"`
 	// The number of instances for which to reserve capacity.
 	//
-	// > You can request future-dated Capacity Reservations for an instance count with a minimum of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *16 * m5.xlarge = 64 vCPUs* ).
+	// > You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ).
 	//
 	// Valid range: 1 - 1000
 	InstanceCount int `pulumi:"instanceCount"`
@@ -269,7 +269,7 @@ type CapacityReservationArgs struct {
 	EphemeralStorage pulumi.BoolPtrInput
 	// The number of instances for which to reserve capacity.
 	//
-	// > You can request future-dated Capacity Reservations for an instance count with a minimum of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *16 * m5.xlarge = 64 vCPUs* ).
+	// > You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ).
 	//
 	// Valid range: 1 - 1000
 	InstanceCount pulumi.IntInput
@@ -429,7 +429,7 @@ func (o CapacityReservationOutput) EphemeralStorage() pulumi.BoolPtrOutput {
 
 // The number of instances for which to reserve capacity.
 //
-// > You can request future-dated Capacity Reservations for an instance count with a minimum of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *16 * m5.xlarge = 64 vCPUs* ).
+// > You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ).
 //
 // Valid range: 1 - 1000
 func (o CapacityReservationOutput) InstanceCount() pulumi.IntOutput {

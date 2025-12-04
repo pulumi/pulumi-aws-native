@@ -22,6 +22,8 @@ __all__ = [
     'ApplicationDataSourceArgsDict',
     'DomainAdvancedSecurityOptionsInputArgs',
     'DomainAdvancedSecurityOptionsInputArgsDict',
+    'DomainAimlOptionsArgs',
+    'DomainAimlOptionsArgsDict',
     'DomainClusterConfigArgs',
     'DomainClusterConfigArgsDict',
     'DomainCognitoOptionsArgs',
@@ -56,6 +58,8 @@ __all__ = [
     'DomainOffPeakWindowOptionsArgsDict',
     'DomainOffPeakWindowArgs',
     'DomainOffPeakWindowArgsDict',
+    'DomainS3VectorsEngineArgs',
+    'DomainS3VectorsEngineArgsDict',
     'DomainSamlOptionsArgs',
     'DomainSamlOptionsArgsDict',
     'DomainSnapshotOptionsArgs',
@@ -353,6 +357,29 @@ class DomainAdvancedSecurityOptionsInputArgs:
     @saml_options.setter
     def saml_options(self, value: Optional[pulumi.Input['DomainSamlOptionsArgs']]):
         pulumi.set(self, "saml_options", value)
+
+
+if not MYPY:
+    class DomainAimlOptionsArgsDict(TypedDict):
+        s3_vectors_engine: NotRequired[pulumi.Input['DomainS3VectorsEngineArgsDict']]
+elif False:
+    DomainAimlOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainAimlOptionsArgs:
+    def __init__(__self__, *,
+                 s3_vectors_engine: Optional[pulumi.Input['DomainS3VectorsEngineArgs']] = None):
+        if s3_vectors_engine is not None:
+            pulumi.set(__self__, "s3_vectors_engine", s3_vectors_engine)
+
+    @_builtins.property
+    @pulumi.getter(name="s3VectorsEngine")
+    def s3_vectors_engine(self) -> Optional[pulumi.Input['DomainS3VectorsEngineArgs']]:
+        return pulumi.get(self, "s3_vectors_engine")
+
+    @s3_vectors_engine.setter
+    def s3_vectors_engine(self, value: Optional[pulumi.Input['DomainS3VectorsEngineArgs']]):
+        pulumi.set(self, "s3_vectors_engine", value)
 
 
 if not MYPY:
@@ -1730,6 +1757,37 @@ class DomainOffPeakWindowArgs:
     @window_start_time.setter
     def window_start_time(self, value: Optional[pulumi.Input['DomainWindowStartTimeArgs']]):
         pulumi.set(self, "window_start_time", value)
+
+
+if not MYPY:
+    class DomainS3VectorsEngineArgsDict(TypedDict):
+        enabled: pulumi.Input[_builtins.bool]
+        """
+        Whether to enable S3 vectors engine.
+        """
+elif False:
+    DomainS3VectorsEngineArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainS3VectorsEngineArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable S3 vectors engine.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether to enable S3 vectors engine.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
 
 
 if not MYPY:

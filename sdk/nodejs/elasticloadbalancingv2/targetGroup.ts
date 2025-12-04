@@ -98,6 +98,10 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
+     * The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
+     */
+    declare public readonly targetControlPort: pulumi.Output<number | undefined>;
+    /**
      * The ARN of the Target Group
      */
     declare public /*out*/ readonly targetGroupArn: pulumi.Output<string>;
@@ -155,6 +159,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["protocol"] = args?.protocol;
             resourceInputs["protocolVersion"] = args?.protocolVersion;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetControlPort"] = args?.targetControlPort;
             resourceInputs["targetGroupAttributes"] = args?.targetGroupAttributes;
             resourceInputs["targetType"] = args?.targetType;
             resourceInputs["targets"] = args?.targets;
@@ -180,6 +185,7 @@ export class TargetGroup extends pulumi.CustomResource {
             resourceInputs["protocol"] = undefined /*out*/;
             resourceInputs["protocolVersion"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetControlPort"] = undefined /*out*/;
             resourceInputs["targetGroupArn"] = undefined /*out*/;
             resourceInputs["targetGroupAttributes"] = undefined /*out*/;
             resourceInputs["targetGroupFullName"] = undefined /*out*/;
@@ -256,6 +262,10 @@ export interface TargetGroupArgs {
      * The tags.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
+     */
+    targetControlPort?: pulumi.Input<number>;
     /**
      * The attributes.
      */

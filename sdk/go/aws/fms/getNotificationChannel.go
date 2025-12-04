@@ -28,7 +28,7 @@ type LookupNotificationChannelArgs struct {
 }
 
 type LookupNotificationChannelResult struct {
-	// The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
+	// The Amazon Resource Name (ARN) of the IAM role that allows Amazon  to record AWS Firewall Manager activity.
 	SnsRoleName *string `pulumi:"snsRoleName"`
 	// The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
@@ -66,7 +66,7 @@ func (o LookupNotificationChannelResultOutput) ToLookupNotificationChannelResult
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
+// The Amazon Resource Name (ARN) of the IAM role that allows Amazon  to record AWS Firewall Manager activity.
 func (o LookupNotificationChannelResultOutput) SnsRoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNotificationChannelResult) *string { return v.SnsRoleName }).(pulumi.StringPtrOutput)
 }

@@ -36,6 +36,8 @@ __all__ = [
     'TrailAdvancedEventSelectorArgsDict',
     'TrailAdvancedFieldSelectorArgs',
     'TrailAdvancedFieldSelectorArgsDict',
+    'TrailAggregationConfigurationArgs',
+    'TrailAggregationConfigurationArgsDict',
     'TrailDataResourceArgs',
     'TrailDataResourceArgsDict',
     'TrailEventSelectorArgs',
@@ -608,7 +610,7 @@ class EventDataStoreInsightSelectorArgs:
 if not MYPY:
     class TrailAdvancedEventSelectorArgsDict(TypedDict):
         """
-        Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds. They help you control costs by logging only those events that are important to you.
+        Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record fields. They help you control costs by logging only those events that are important to you.
         """
         field_selectors: pulumi.Input[Sequence[pulumi.Input['TrailAdvancedFieldSelectorArgsDict']]]
         """
@@ -627,7 +629,7 @@ class TrailAdvancedEventSelectorArgs:
                  field_selectors: pulumi.Input[Sequence[pulumi.Input['TrailAdvancedFieldSelectorArgs']]],
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds. They help you control costs by logging only those events that are important to you.
+        Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record fields. They help you control costs by logging only those events that are important to you.
         :param pulumi.Input[Sequence[pulumi.Input['TrailAdvancedFieldSelectorArgs']]] field_selectors: Contains all selector statements in an advanced event selector.
         :param pulumi.Input[_builtins.str] name: An optional, descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets".
         """
@@ -816,6 +818,60 @@ class TrailAdvancedFieldSelectorArgs:
 
 
 if not MYPY:
+    class TrailAggregationConfigurationArgsDict(TypedDict):
+        """
+        Configure to add aggregation rules to aggregate CloudTrail Events.
+        """
+        event_category: pulumi.Input['TrailAggregationConfigurationEventCategory']
+        """
+        The category of events to be aggregated.
+        """
+        templates: pulumi.Input[Sequence[pulumi.Input['TrailTemplate']]]
+        """
+        Contains all templates in an aggregation configuration.
+        """
+elif False:
+    TrailAggregationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TrailAggregationConfigurationArgs:
+    def __init__(__self__, *,
+                 event_category: pulumi.Input['TrailAggregationConfigurationEventCategory'],
+                 templates: pulumi.Input[Sequence[pulumi.Input['TrailTemplate']]]):
+        """
+        Configure to add aggregation rules to aggregate CloudTrail Events.
+        :param pulumi.Input['TrailAggregationConfigurationEventCategory'] event_category: The category of events to be aggregated.
+        :param pulumi.Input[Sequence[pulumi.Input['TrailTemplate']]] templates: Contains all templates in an aggregation configuration.
+        """
+        pulumi.set(__self__, "event_category", event_category)
+        pulumi.set(__self__, "templates", templates)
+
+    @_builtins.property
+    @pulumi.getter(name="eventCategory")
+    def event_category(self) -> pulumi.Input['TrailAggregationConfigurationEventCategory']:
+        """
+        The category of events to be aggregated.
+        """
+        return pulumi.get(self, "event_category")
+
+    @event_category.setter
+    def event_category(self, value: pulumi.Input['TrailAggregationConfigurationEventCategory']):
+        pulumi.set(self, "event_category", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def templates(self) -> pulumi.Input[Sequence[pulumi.Input['TrailTemplate']]]:
+        """
+        Contains all templates in an aggregation configuration.
+        """
+        return pulumi.get(self, "templates")
+
+    @templates.setter
+    def templates(self, value: pulumi.Input[Sequence[pulumi.Input['TrailTemplate']]]):
+        pulumi.set(self, "templates", value)
+
+
+if not MYPY:
     class TrailDataResourceArgsDict(TypedDict):
         """
         CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
@@ -983,6 +1039,10 @@ if not MYPY:
         """
         A string that contains insight types that are logged on a trail.
         """
+        event_categories: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrailSourceEventCategory']]]]
+        """
+        The categories of events for which to log insights. By default, insights are logged for management events only.
+        """
         insight_type: NotRequired[pulumi.Input[_builtins.str]]
         """
         The type of insight to log on a trail.
@@ -993,13 +1053,29 @@ elif False:
 @pulumi.input_type
 class TrailInsightSelectorArgs:
     def __init__(__self__, *,
+                 event_categories: Optional[pulumi.Input[Sequence[pulumi.Input['TrailSourceEventCategory']]]] = None,
                  insight_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A string that contains insight types that are logged on a trail.
+        :param pulumi.Input[Sequence[pulumi.Input['TrailSourceEventCategory']]] event_categories: The categories of events for which to log insights. By default, insights are logged for management events only.
         :param pulumi.Input[_builtins.str] insight_type: The type of insight to log on a trail.
         """
+        if event_categories is not None:
+            pulumi.set(__self__, "event_categories", event_categories)
         if insight_type is not None:
             pulumi.set(__self__, "insight_type", insight_type)
+
+    @_builtins.property
+    @pulumi.getter(name="eventCategories")
+    def event_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrailSourceEventCategory']]]]:
+        """
+        The categories of events for which to log insights. By default, insights are logged for management events only.
+        """
+        return pulumi.get(self, "event_categories")
+
+    @event_categories.setter
+    def event_categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrailSourceEventCategory']]]]):
+        pulumi.set(self, "event_categories", value)
 
     @_builtins.property
     @pulumi.getter(name="insightType")

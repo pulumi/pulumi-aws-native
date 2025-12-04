@@ -33,9 +33,15 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetTermsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the terms documents.
+        /// </summary>
         [Input("termsId", required: true)]
         public string TermsId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the user pool that contains the terms documents.
+        /// </summary>
         [Input("userPoolId", required: true)]
         public string UserPoolId { get; set; } = null!;
 
@@ -47,9 +53,15 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetTermsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the terms documents.
+        /// </summary>
         [Input("termsId", required: true)]
         public Input<string> TermsId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the user pool that contains the terms documents.
+        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 
@@ -63,10 +75,27 @@ namespace Pulumi.AwsNative.Cognito
     [OutputType]
     public sealed class GetTermsResult
     {
+        /// <summary>
+        /// This parameter is reserved for future use and currently accepts one value.
+        /// </summary>
         public readonly Pulumi.AwsNative.Cognito.TermsEnforcementType? Enforcement;
+        /// <summary>
+        /// A map of URLs to languages. For each localized language that will view the requested `TermsName` , assign a URL. A selection of `cognito:default` displays for all languages that don't have a language-specific URL.
+        /// 
+        /// For example, `"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"` .
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Links;
+        /// <summary>
+        /// The ID of the terms documents.
+        /// </summary>
         public readonly string? TermsId;
+        /// <summary>
+        /// The type and friendly name of the terms documents.
+        /// </summary>
         public readonly string? TermsName;
+        /// <summary>
+        /// This parameter is reserved for future use and currently accepts one value.
+        /// </summary>
         public readonly Pulumi.AwsNative.Cognito.TermsSourceType? TermsSource;
 
         [OutputConstructor]

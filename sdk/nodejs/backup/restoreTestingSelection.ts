@@ -67,6 +67,8 @@ export class RestoreTestingSelection extends pulumi.CustomResource {
     declare public readonly restoreTestingPlanName: pulumi.Output<string>;
     /**
      * The unique name of the restore testing selection that belongs to the related restore testing plan.
+     *
+     * The name consists of only alphanumeric characters and underscores. Maximum length is 50.
      */
     declare public readonly restoreTestingSelectionName: pulumi.Output<string>;
     /**
@@ -153,6 +155,8 @@ export interface RestoreTestingSelectionArgs {
     restoreTestingPlanName: pulumi.Input<string>;
     /**
      * The unique name of the restore testing selection that belongs to the related restore testing plan.
+     *
+     * The name consists of only alphanumeric characters and underscores. Maximum length is 50.
      */
     restoreTestingSelectionName?: pulumi.Input<string>;
     /**

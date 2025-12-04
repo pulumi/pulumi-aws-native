@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.KinesisVideo
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration for the storage tier of the Kinesis Video Stream.
+        /// </summary>
+        [Output("streamStorageConfiguration")]
+        public Output<Outputs.StreamStorageConfiguration?> StreamStorageConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// An array of key-value pairs associated with the Kinesis Video Stream.
         /// </summary>
         [Output("tags")]
@@ -135,6 +141,12 @@ namespace Pulumi.AwsNative.KinesisVideo
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Configuration for the storage tier of the Kinesis Video Stream.
+        /// </summary>
+        [Input("streamStorageConfiguration")]
+        public Input<Inputs.StreamStorageConfigurationArgs>? StreamStorageConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

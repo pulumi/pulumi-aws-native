@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, arn=None, broker_node_group_info=None, client_authentication=None, configuration_info=None, current_version=None, encryption_info=None, enhanced_monitoring=None, kafka_version=None, logging_info=None, number_of_broker_nodes=None, open_monitoring=None, storage_mode=None, tags=None):
+    def __init__(__self__, arn=None, broker_node_group_info=None, client_authentication=None, configuration_info=None, current_version=None, encryption_info=None, enhanced_monitoring=None, kafka_version=None, logging_info=None, number_of_broker_nodes=None, open_monitoring=None, rebalancing=None, storage_mode=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -59,6 +59,9 @@ class GetClusterResult:
         if open_monitoring and not isinstance(open_monitoring, dict):
             raise TypeError("Expected argument 'open_monitoring' to be a dict")
         pulumi.set(__self__, "open_monitoring", open_monitoring)
+        if rebalancing and not isinstance(rebalancing, dict):
+            raise TypeError("Expected argument 'rebalancing' to be a dict")
+        pulumi.set(__self__, "rebalancing", rebalancing)
         if storage_mode and not isinstance(storage_mode, str):
             raise TypeError("Expected argument 'storage_mode' to be a str")
         pulumi.set(__self__, "storage_mode", storage_mode)
@@ -155,6 +158,11 @@ class GetClusterResult:
         return pulumi.get(self, "open_monitoring")
 
     @_builtins.property
+    @pulumi.getter
+    def rebalancing(self) -> Optional['outputs.ClusterRebalancing']:
+        return pulumi.get(self, "rebalancing")
+
+    @_builtins.property
     @pulumi.getter(name="storageMode")
     def storage_mode(self) -> Optional['ClusterStorageMode']:
         """
@@ -188,6 +196,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             logging_info=self.logging_info,
             number_of_broker_nodes=self.number_of_broker_nodes,
             open_monitoring=self.open_monitoring,
+            rebalancing=self.rebalancing,
             storage_mode=self.storage_mode,
             tags=self.tags)
 
@@ -217,6 +226,7 @@ def get_cluster(arn: Optional[_builtins.str] = None,
         logging_info=pulumi.get(__ret__, 'logging_info'),
         number_of_broker_nodes=pulumi.get(__ret__, 'number_of_broker_nodes'),
         open_monitoring=pulumi.get(__ret__, 'open_monitoring'),
+        rebalancing=pulumi.get(__ret__, 'rebalancing'),
         storage_mode=pulumi.get(__ret__, 'storage_mode'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_cluster_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -243,5 +253,6 @@ def get_cluster_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
         logging_info=pulumi.get(__response__, 'logging_info'),
         number_of_broker_nodes=pulumi.get(__response__, 'number_of_broker_nodes'),
         open_monitoring=pulumi.get(__response__, 'open_monitoring'),
+        rebalancing=pulumi.get(__response__, 'rebalancing'),
         storage_mode=pulumi.get(__response__, 'storage_mode'),
         tags=pulumi.get(__response__, 'tags')))

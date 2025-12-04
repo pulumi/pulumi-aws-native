@@ -25,6 +25,7 @@ __all__ = [
     'CapacityProviderInstanceRequirementsRequest',
     'CapacityProviderManagedInstancesNetworkConfiguration',
     'CapacityProviderManagedInstancesProvider',
+    'CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties',
     'CapacityProviderManagedInstancesStorageConfiguration',
     'CapacityProviderManagedScaling',
     'CapacityProviderMemoryGiBPerVCpuRequest',
@@ -41,6 +42,16 @@ __all__ = [
     'ClusterManagedStorageConfiguration',
     'ClusterServiceConnectDefaults',
     'ClusterSettings',
+    'ExpressGatewayServiceAwsLogsConfiguration',
+    'ExpressGatewayServiceConfiguration',
+    'ExpressGatewayServiceExpressGatewayContainer',
+    'ExpressGatewayServiceExpressGatewayRepositoryCredentials',
+    'ExpressGatewayServiceExpressGatewayScalingTarget',
+    'ExpressGatewayServiceIngressPathSummary',
+    'ExpressGatewayServiceKeyValuePair',
+    'ExpressGatewayServiceNetworkConfiguration',
+    'ExpressGatewayServiceSecret',
+    'ExpressGatewayServiceStatus',
     'ServiceAdvancedConfiguration',
     'ServiceAwsVpcConfiguration',
     'ServiceCanaryConfiguration',
@@ -811,6 +822,8 @@ class CapacityProviderManagedInstancesProvider(dict):
             suggest = "infrastructure_role_arn"
         elif key == "instanceLaunchTemplate":
             suggest = "instance_launch_template"
+        elif key == "infrastructureOptimization":
+            suggest = "infrastructure_optimization"
         elif key == "propagateTags":
             suggest = "propagate_tags"
 
@@ -828,6 +841,7 @@ class CapacityProviderManagedInstancesProvider(dict):
     def __init__(__self__, *,
                  infrastructure_role_arn: _builtins.str,
                  instance_launch_template: 'outputs.CapacityProviderInstanceLaunchTemplate',
+                 infrastructure_optimization: Optional['outputs.CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties'] = None,
                  propagate_tags: Optional['CapacityProviderManagedInstancesProviderPropagateTags'] = None):
         """
         :param _builtins.str infrastructure_role_arn: The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS assumes to manage instances. This role must include permissions for Amazon EC2 instance lifecycle management, networking, and any additional AWS services required for your workloads.
@@ -836,10 +850,13 @@ class CapacityProviderManagedInstancesProvider(dict):
         :param 'CapacityProviderInstanceLaunchTemplate' instance_launch_template: The launch template that defines how Amazon ECS launches Amazon ECS Managed Instances. This includes the instance profile for your tasks, network and storage configuration, and instance requirements that determine which Amazon EC2 instance types can be used.
                
                For more information, see [Store instance launch parameters in Amazon EC2 launch templates](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide* .
+        :param 'CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties' infrastructure_optimization: Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
         :param 'CapacityProviderManagedInstancesProviderPropagateTags' propagate_tags: Determines whether tags from the capacity provider are automatically applied to Amazon ECS Managed Instances. This helps with cost allocation and resource management by ensuring consistent tagging across your infrastructure.
         """
         pulumi.set(__self__, "infrastructure_role_arn", infrastructure_role_arn)
         pulumi.set(__self__, "instance_launch_template", instance_launch_template)
+        if infrastructure_optimization is not None:
+            pulumi.set(__self__, "infrastructure_optimization", infrastructure_optimization)
         if propagate_tags is not None:
             pulumi.set(__self__, "propagate_tags", propagate_tags)
 
@@ -864,12 +881,60 @@ class CapacityProviderManagedInstancesProvider(dict):
         return pulumi.get(self, "instance_launch_template")
 
     @_builtins.property
+    @pulumi.getter(name="infrastructureOptimization")
+    def infrastructure_optimization(self) -> Optional['outputs.CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties']:
+        """
+        Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+        """
+        return pulumi.get(self, "infrastructure_optimization")
+
+    @_builtins.property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional['CapacityProviderManagedInstancesProviderPropagateTags']:
         """
         Determines whether tags from the capacity provider are automatically applied to Amazon ECS Managed Instances. This helps with cost allocation and resource management by ensuring consistent tagging across your infrastructure.
         """
         return pulumi.get(self, "propagate_tags")
+
+
+@pulumi.output_type
+class CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties(dict):
+    """
+    Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scaleInAfter":
+            suggest = "scale_in_after"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityProviderManagedInstancesProviderInfrastructureOptimizationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scale_in_after: Optional[_builtins.int] = None):
+        """
+        Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+        :param _builtins.int scale_in_after: This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are: Not set (null) - Uses the default optimization behavior, `-1` - Disables automatic infrastructure optimization, `0` to `3600` (inclusive) - Specifies the number of seconds to wait before optimizing instances.
+        """
+        if scale_in_after is not None:
+            pulumi.set(__self__, "scale_in_after", scale_in_after)
+
+    @_builtins.property
+    @pulumi.getter(name="scaleInAfter")
+    def scale_in_after(self) -> Optional[_builtins.int]:
+        """
+        This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are: Not set (null) - Uses the default optimization behavior, `-1` - Disables automatic infrastructure optimization, `0` to `3600` (inclusive) - Specifies the number of seconds to wait before optimizing instances.
+        """
+        return pulumi.get(self, "scale_in_after")
 
 
 @pulumi.output_type
@@ -1265,16 +1330,16 @@ class ClusterCapacityProviderStrategyItem(dict):
         :param _builtins.int base: The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider for each service. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of ``0`` is used.
                 Base value characteristics:
                  +  Only one capacity provider in a strategy can have a base defined
-                 +  Default value is ``0`` if not specified
-                 +  Valid range: 0 to 100,000
+                 +  The default value is ``0`` if not specified
+                 +  The valid range is 0 to 100,000
                  +  Base requirements are satisfied first before weight distribution
-        :param _builtins.str capacity_provider: The short name of the capacity provider.
+        :param _builtins.str capacity_provider: The short name of the capacity provider. This can be either an AWS managed capacity provider (``FARGATE`` or ``FARGATE_SPOT``) or the name of a custom capacity provider that you created.
         :param _builtins.int weight: The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The ``weight`` value is taken into consideration after the ``base`` value, if defined, is satisfied.
                 If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail.
                 Weight value characteristics:
                  +  Weight is considered after the base value is satisfied
-                 +  Default value is ``0`` if not specified
-                 +  Valid range: 0 to 1,000
+                 +  The default value is ``0`` if not specified
+                 +  The valid range is 0 to 1,000
                  +  At least one capacity provider must have a weight greater than zero
                  +  Capacity providers with weight of ``0`` cannot place tasks
                  
@@ -1300,8 +1365,8 @@ class ClusterCapacityProviderStrategyItem(dict):
         The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider for each service. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of ``0`` is used.
          Base value characteristics:
           +  Only one capacity provider in a strategy can have a base defined
-          +  Default value is ``0`` if not specified
-          +  Valid range: 0 to 100,000
+          +  The default value is ``0`` if not specified
+          +  The valid range is 0 to 100,000
           +  Base requirements are satisfied first before weight distribution
         """
         return pulumi.get(self, "base")
@@ -1310,7 +1375,7 @@ class ClusterCapacityProviderStrategyItem(dict):
     @pulumi.getter(name="capacityProvider")
     def capacity_provider(self) -> Optional[_builtins.str]:
         """
-        The short name of the capacity provider.
+        The short name of the capacity provider. This can be either an AWS managed capacity provider (``FARGATE`` or ``FARGATE_SPOT``) or the name of a custom capacity provider that you created.
         """
         return pulumi.get(self, "capacity_provider")
 
@@ -1322,8 +1387,8 @@ class ClusterCapacityProviderStrategyItem(dict):
          If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail.
          Weight value characteristics:
           +  Weight is considered after the base value is satisfied
-          +  Default value is ``0`` if not specified
-          +  Valid range: 0 to 1,000
+          +  The default value is ``0`` if not specified
+          +  The valid range is 0 to 1,000
           +  At least one capacity provider must have a weight greater than zero
           +  Capacity providers with weight of ``0`` cannot place tasks
           
@@ -1705,6 +1770,669 @@ class ClusterSettings(dict):
 
 
 @pulumi.output_type
+class ExpressGatewayServiceAwsLogsConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroup":
+            suggest = "log_group"
+        elif key == "logStreamPrefix":
+            suggest = "log_stream_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressGatewayServiceAwsLogsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressGatewayServiceAwsLogsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressGatewayServiceAwsLogsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group: _builtins.str,
+                 log_stream_prefix: _builtins.str):
+        """
+        :param _builtins.str log_group: The name of the CloudWatch Logs log group to send container logs to.
+        :param _builtins.str log_stream_prefix: The prefix for the CloudWatch Logs log stream names. The default for an Express service is `ecs` .
+        """
+        pulumi.set(__self__, "log_group", log_group)
+        pulumi.set(__self__, "log_stream_prefix", log_stream_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> _builtins.str:
+        """
+        The name of the CloudWatch Logs log group to send container logs to.
+        """
+        return pulumi.get(self, "log_group")
+
+    @_builtins.property
+    @pulumi.getter(name="logStreamPrefix")
+    def log_stream_prefix(self) -> _builtins.str:
+        """
+        The prefix for the CloudWatch Logs log stream names. The default for an Express service is `ecs` .
+        """
+        return pulumi.get(self, "log_stream_prefix")
+
+
+@pulumi.output_type
+class ExpressGatewayServiceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "executionRoleArn":
+            suggest = "execution_role_arn"
+        elif key == "healthCheckPath":
+            suggest = "health_check_path"
+        elif key == "ingressPaths":
+            suggest = "ingress_paths"
+        elif key == "networkConfiguration":
+            suggest = "network_configuration"
+        elif key == "primaryContainer":
+            suggest = "primary_container"
+        elif key == "scalingTarget":
+            suggest = "scaling_target"
+        elif key == "serviceRevisionArn":
+            suggest = "service_revision_arn"
+        elif key == "taskRoleArn":
+            suggest = "task_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressGatewayServiceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressGatewayServiceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressGatewayServiceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cpu: Optional[_builtins.str] = None,
+                 created_at: Optional[_builtins.str] = None,
+                 execution_role_arn: Optional[_builtins.str] = None,
+                 health_check_path: Optional[_builtins.str] = None,
+                 ingress_paths: Optional[Sequence['outputs.ExpressGatewayServiceIngressPathSummary']] = None,
+                 memory: Optional[_builtins.str] = None,
+                 network_configuration: Optional['outputs.ExpressGatewayServiceNetworkConfiguration'] = None,
+                 primary_container: Optional['outputs.ExpressGatewayServiceExpressGatewayContainer'] = None,
+                 scaling_target: Optional['outputs.ExpressGatewayServiceExpressGatewayScalingTarget'] = None,
+                 service_revision_arn: Optional[_builtins.str] = None,
+                 task_role_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str cpu: The CPU allocation for tasks in this service revision.
+        :param _builtins.str created_at: The Unix timestamp for when this service revision was created.
+        :param _builtins.str execution_role_arn: The ARN of the task execution role for the service revision.
+        :param _builtins.str health_check_path: The health check path for this service revision.
+        :param Sequence['ExpressGatewayServiceIngressPathSummary'] ingress_paths: The entry point into this service revision.
+        :param _builtins.str memory: The memory allocation for tasks in this service revision.
+        :param 'ExpressGatewayServiceNetworkConfiguration' network_configuration: The network configuration for tasks in this service revision.
+        :param 'ExpressGatewayServiceExpressGatewayContainer' primary_container: The primary container configuration for this service revision.
+        :param 'ExpressGatewayServiceExpressGatewayScalingTarget' scaling_target: The auto-scaling configuration for this service revision.
+        :param _builtins.str service_revision_arn: The ARN of the service revision.
+        :param _builtins.str task_role_arn: The ARN of the task role for the service revision.
+        """
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if execution_role_arn is not None:
+            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+        if health_check_path is not None:
+            pulumi.set(__self__, "health_check_path", health_check_path)
+        if ingress_paths is not None:
+            pulumi.set(__self__, "ingress_paths", ingress_paths)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+        if network_configuration is not None:
+            pulumi.set(__self__, "network_configuration", network_configuration)
+        if primary_container is not None:
+            pulumi.set(__self__, "primary_container", primary_container)
+        if scaling_target is not None:
+            pulumi.set(__self__, "scaling_target", scaling_target)
+        if service_revision_arn is not None:
+            pulumi.set(__self__, "service_revision_arn", service_revision_arn)
+        if task_role_arn is not None:
+            pulumi.set(__self__, "task_role_arn", task_role_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def cpu(self) -> Optional[_builtins.str]:
+        """
+        The CPU allocation for tasks in this service revision.
+        """
+        return pulumi.get(self, "cpu")
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[_builtins.str]:
+        """
+        The Unix timestamp for when this service revision was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="executionRoleArn")
+    def execution_role_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the task execution role for the service revision.
+        """
+        return pulumi.get(self, "execution_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="healthCheckPath")
+    def health_check_path(self) -> Optional[_builtins.str]:
+        """
+        The health check path for this service revision.
+        """
+        return pulumi.get(self, "health_check_path")
+
+    @_builtins.property
+    @pulumi.getter(name="ingressPaths")
+    def ingress_paths(self) -> Optional[Sequence['outputs.ExpressGatewayServiceIngressPathSummary']]:
+        """
+        The entry point into this service revision.
+        """
+        return pulumi.get(self, "ingress_paths")
+
+    @_builtins.property
+    @pulumi.getter
+    def memory(self) -> Optional[_builtins.str]:
+        """
+        The memory allocation for tasks in this service revision.
+        """
+        return pulumi.get(self, "memory")
+
+    @_builtins.property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> Optional['outputs.ExpressGatewayServiceNetworkConfiguration']:
+        """
+        The network configuration for tasks in this service revision.
+        """
+        return pulumi.get(self, "network_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="primaryContainer")
+    def primary_container(self) -> Optional['outputs.ExpressGatewayServiceExpressGatewayContainer']:
+        """
+        The primary container configuration for this service revision.
+        """
+        return pulumi.get(self, "primary_container")
+
+    @_builtins.property
+    @pulumi.getter(name="scalingTarget")
+    def scaling_target(self) -> Optional['outputs.ExpressGatewayServiceExpressGatewayScalingTarget']:
+        """
+        The auto-scaling configuration for this service revision.
+        """
+        return pulumi.get(self, "scaling_target")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceRevisionArn")
+    def service_revision_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the service revision.
+        """
+        return pulumi.get(self, "service_revision_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="taskRoleArn")
+    def task_role_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the task role for the service revision.
+        """
+        return pulumi.get(self, "task_role_arn")
+
+
+@pulumi.output_type
+class ExpressGatewayServiceExpressGatewayContainer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsLogsConfiguration":
+            suggest = "aws_logs_configuration"
+        elif key == "containerPort":
+            suggest = "container_port"
+        elif key == "repositoryCredentials":
+            suggest = "repository_credentials"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressGatewayServiceExpressGatewayContainer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressGatewayServiceExpressGatewayContainer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressGatewayServiceExpressGatewayContainer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image: _builtins.str,
+                 aws_logs_configuration: Optional['outputs.ExpressGatewayServiceAwsLogsConfiguration'] = None,
+                 command: Optional[Sequence[_builtins.str]] = None,
+                 container_port: Optional[_builtins.int] = None,
+                 environment: Optional[Sequence['outputs.ExpressGatewayServiceKeyValuePair']] = None,
+                 repository_credentials: Optional['outputs.ExpressGatewayServiceExpressGatewayRepositoryCredentials'] = None,
+                 secrets: Optional[Sequence['outputs.ExpressGatewayServiceSecret']] = None):
+        """
+        :param _builtins.str image: The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with either `repository-url/image:tag` or `repository-url/image@digest` .
+               
+               For Express services, the image typically contains a web application that listens on the specified container port. The image can be stored in Amazon ECR, Docker Hub, or any other container registry accessible to your execution role.
+        :param 'ExpressGatewayServiceAwsLogsConfiguration' aws_logs_configuration: The log configuration for the container.
+        :param Sequence[_builtins.str] command: The command that is passed to the container.
+        :param _builtins.int container_port: The port number on the container that receives traffic from the load balancer. Default is 80.
+        :param Sequence['ExpressGatewayServiceKeyValuePair'] environment: The environment variables to pass to the container.
+        :param 'ExpressGatewayServiceExpressGatewayRepositoryCredentials' repository_credentials: The configuration for repository credentials for private registry authentication.
+        :param Sequence['ExpressGatewayServiceSecret'] secrets: The secrets to pass to the container.
+        """
+        pulumi.set(__self__, "image", image)
+        if aws_logs_configuration is not None:
+            pulumi.set(__self__, "aws_logs_configuration", aws_logs_configuration)
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if container_port is not None:
+            pulumi.set(__self__, "container_port", container_port)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if repository_credentials is not None:
+            pulumi.set(__self__, "repository_credentials", repository_credentials)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+
+    @_builtins.property
+    @pulumi.getter
+    def image(self) -> _builtins.str:
+        """
+        The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with either `repository-url/image:tag` or `repository-url/image@digest` .
+
+        For Express services, the image typically contains a web application that listens on the specified container port. The image can be stored in Amazon ECR, Docker Hub, or any other container registry accessible to your execution role.
+        """
+        return pulumi.get(self, "image")
+
+    @_builtins.property
+    @pulumi.getter(name="awsLogsConfiguration")
+    def aws_logs_configuration(self) -> Optional['outputs.ExpressGatewayServiceAwsLogsConfiguration']:
+        """
+        The log configuration for the container.
+        """
+        return pulumi.get(self, "aws_logs_configuration")
+
+    @_builtins.property
+    @pulumi.getter
+    def command(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The command that is passed to the container.
+        """
+        return pulumi.get(self, "command")
+
+    @_builtins.property
+    @pulumi.getter(name="containerPort")
+    def container_port(self) -> Optional[_builtins.int]:
+        """
+        The port number on the container that receives traffic from the load balancer. Default is 80.
+        """
+        return pulumi.get(self, "container_port")
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> Optional[Sequence['outputs.ExpressGatewayServiceKeyValuePair']]:
+        """
+        The environment variables to pass to the container.
+        """
+        return pulumi.get(self, "environment")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryCredentials")
+    def repository_credentials(self) -> Optional['outputs.ExpressGatewayServiceExpressGatewayRepositoryCredentials']:
+        """
+        The configuration for repository credentials for private registry authentication.
+        """
+        return pulumi.get(self, "repository_credentials")
+
+    @_builtins.property
+    @pulumi.getter
+    def secrets(self) -> Optional[Sequence['outputs.ExpressGatewayServiceSecret']]:
+        """
+        The secrets to pass to the container.
+        """
+        return pulumi.get(self, "secrets")
+
+
+@pulumi.output_type
+class ExpressGatewayServiceExpressGatewayRepositoryCredentials(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "credentialsParameter":
+            suggest = "credentials_parameter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressGatewayServiceExpressGatewayRepositoryCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressGatewayServiceExpressGatewayRepositoryCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressGatewayServiceExpressGatewayRepositoryCredentials.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 credentials_parameter: _builtins.str):
+        """
+        :param _builtins.str credentials_parameter: The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
+        """
+        pulumi.set(__self__, "credentials_parameter", credentials_parameter)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialsParameter")
+    def credentials_parameter(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
+        """
+        return pulumi.get(self, "credentials_parameter")
+
+
+@pulumi.output_type
+class ExpressGatewayServiceExpressGatewayScalingTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoScalingMetric":
+            suggest = "auto_scaling_metric"
+        elif key == "autoScalingTargetValue":
+            suggest = "auto_scaling_target_value"
+        elif key == "maxTaskCount":
+            suggest = "max_task_count"
+        elif key == "minTaskCount":
+            suggest = "min_task_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressGatewayServiceExpressGatewayScalingTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressGatewayServiceExpressGatewayScalingTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressGatewayServiceExpressGatewayScalingTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_scaling_metric: Optional['ExpressGatewayServiceScalingMetric'] = None,
+                 auto_scaling_target_value: Optional[_builtins.int] = None,
+                 max_task_count: Optional[_builtins.int] = None,
+                 min_task_count: Optional[_builtins.int] = None):
+        """
+        :param 'ExpressGatewayServiceScalingMetric' auto_scaling_metric: The metric used for auto-scaling decisions. The default metric used for an Express service is `CPUUtilization` .
+        :param _builtins.int auto_scaling_target_value: The target value for the auto-scaling metric. The default value for an Express service is 60.
+        :param _builtins.int max_task_count: The maximum number of tasks to run in the Express service.
+        :param _builtins.int min_task_count: The minimum number of tasks to run in the Express service.
+        """
+        if auto_scaling_metric is not None:
+            pulumi.set(__self__, "auto_scaling_metric", auto_scaling_metric)
+        if auto_scaling_target_value is not None:
+            pulumi.set(__self__, "auto_scaling_target_value", auto_scaling_target_value)
+        if max_task_count is not None:
+            pulumi.set(__self__, "max_task_count", max_task_count)
+        if min_task_count is not None:
+            pulumi.set(__self__, "min_task_count", min_task_count)
+
+    @_builtins.property
+    @pulumi.getter(name="autoScalingMetric")
+    def auto_scaling_metric(self) -> Optional['ExpressGatewayServiceScalingMetric']:
+        """
+        The metric used for auto-scaling decisions. The default metric used for an Express service is `CPUUtilization` .
+        """
+        return pulumi.get(self, "auto_scaling_metric")
+
+    @_builtins.property
+    @pulumi.getter(name="autoScalingTargetValue")
+    def auto_scaling_target_value(self) -> Optional[_builtins.int]:
+        """
+        The target value for the auto-scaling metric. The default value for an Express service is 60.
+        """
+        return pulumi.get(self, "auto_scaling_target_value")
+
+    @_builtins.property
+    @pulumi.getter(name="maxTaskCount")
+    def max_task_count(self) -> Optional[_builtins.int]:
+        """
+        The maximum number of tasks to run in the Express service.
+        """
+        return pulumi.get(self, "max_task_count")
+
+    @_builtins.property
+    @pulumi.getter(name="minTaskCount")
+    def min_task_count(self) -> Optional[_builtins.int]:
+        """
+        The minimum number of tasks to run in the Express service.
+        """
+        return pulumi.get(self, "min_task_count")
+
+
+@pulumi.output_type
+class ExpressGatewayServiceIngressPathSummary(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessType":
+            suggest = "access_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressGatewayServiceIngressPathSummary. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressGatewayServiceIngressPathSummary.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressGatewayServiceIngressPathSummary.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_type: Optional['ExpressGatewayServiceAccessType'] = None,
+                 endpoint: Optional[_builtins.str] = None):
+        """
+        :param 'ExpressGatewayServiceAccessType' access_type: The type of access to the endpoint for the Express service.
+        :param _builtins.str endpoint: The endpoint for access to the service.
+        """
+        if access_type is not None:
+            pulumi.set(__self__, "access_type", access_type)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="accessType")
+    def access_type(self) -> Optional['ExpressGatewayServiceAccessType']:
+        """
+        The type of access to the endpoint for the Express service.
+        """
+        return pulumi.get(self, "access_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> Optional[_builtins.str]:
+        """
+        The endpoint for access to the service.
+        """
+        return pulumi.get(self, "endpoint")
+
+
+@pulumi.output_type
+class ExpressGatewayServiceKeyValuePair(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str name: The name of the key-value pair. For environment variables, this is the name of the environment variable.
+        :param _builtins.str value: The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the key-value pair. For environment variables, this is the name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The value of the key-value pair. For environment variables, this is the value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ExpressGatewayServiceNetworkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroups":
+            suggest = "security_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressGatewayServiceNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressGatewayServiceNetworkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressGatewayServiceNetworkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_groups: Optional[Sequence[_builtins.str]] = None,
+                 subnets: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] security_groups: The IDs of the security groups associated with the Express service.
+        :param Sequence[_builtins.str] subnets: The IDs of the subnets associated with the Express service.
+        """
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The IDs of the security groups associated with the Express service.
+        """
+        return pulumi.get(self, "security_groups")
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The IDs of the subnets associated with the Express service.
+        """
+        return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class ExpressGatewayServiceSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueFrom":
+            suggest = "value_from"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressGatewayServiceSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressGatewayServiceSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressGatewayServiceSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value_from: _builtins.str):
+        """
+        :param _builtins.str name: The name of the secret.
+        :param _builtins.str value_from: The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+               
+               For information about the require AWS Identity and Access Management permissions, see [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam) (for Secrets Manager) or [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html) (for Systems Manager Parameter store) in the *Amazon Elastic Container Service Developer Guide* .
+               
+               > If the SSM Parameter Store parameter exists in the same Region as the task you're launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_from", value_from)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the secret.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="valueFrom")
+    def value_from(self) -> _builtins.str:
+        """
+        The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+
+        For information about the require AWS Identity and Access Management permissions, see [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam) (for Secrets Manager) or [Required IAM permissions for Amazon ECS secrets](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html) (for Systems Manager Parameter store) in the *Amazon Elastic Container Service Developer Guide* .
+
+        > If the SSM Parameter Store parameter exists in the same Region as the task you're launching, then you can use either the full ARN or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.
+        """
+        return pulumi.get(self, "value_from")
+
+
+@pulumi.output_type
+class ExpressGatewayServiceStatus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressGatewayServiceStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressGatewayServiceStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressGatewayServiceStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status_code: Optional['ExpressGatewayServiceStatusCode'] = None):
+        """
+        :param 'ExpressGatewayServiceStatusCode' status_code: The status of the Express service.
+        """
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
+
+    @_builtins.property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> Optional['ExpressGatewayServiceStatusCode']:
+        """
+        The status of the Express service.
+        """
+        return pulumi.get(self, "status_code")
+
+
+@pulumi.output_type
 class ServiceAdvancedConfiguration(dict):
     """
     The advanced settings for a load balancer used in blue/green deployments. Specify the alternate target group, listener rules, and IAM role required for traffic shifting during blue/green deployments. For more information, see [Required resources for Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-deployment-implementation.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -1863,6 +2591,12 @@ class ServiceAwsVpcConfiguration(dict):
 
 @pulumi.output_type
 class ServiceCanaryConfiguration(dict):
+    """
+    Configuration for a canary deployment strategy that shifts a fixed percentage of traffic to the new service revision, waits for a specified bake time, then shifts the remaining traffic. 
+     The following validation applies only to Canary deployments created through CFN. CFN operations time out after 36 hours. Canary deployments can approach this limit because of their extended duration. This can cause CFN to roll back the deployment. To prevent timeout-related rollbacks, CFN rejects deployments when the calculated deployment time exceeds 33 hours based on your template configuration: 
+      ``BakeTimeInMinutes + CanaryBakeTimeInMinutes`` 
+     Additional backend processes (such as task scaling and running lifecycle hooks) can extend deployment time beyond these calculations. Even deployments under the 33-hour threshold might still time out if these processes cause the total duration to exceed 36 hours.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1886,6 +2620,10 @@ class ServiceCanaryConfiguration(dict):
                  canary_bake_time_in_minutes: Optional[_builtins.int] = None,
                  canary_percent: Optional[_builtins.float] = None):
         """
+        Configuration for a canary deployment strategy that shifts a fixed percentage of traffic to the new service revision, waits for a specified bake time, then shifts the remaining traffic. 
+         The following validation applies only to Canary deployments created through CFN. CFN operations time out after 36 hours. Canary deployments can approach this limit because of their extended duration. This can cause CFN to roll back the deployment. To prevent timeout-related rollbacks, CFN rejects deployments when the calculated deployment time exceeds 33 hours based on your template configuration: 
+          ``BakeTimeInMinutes + CanaryBakeTimeInMinutes`` 
+         Additional backend processes (such as task scaling and running lifecycle hooks) can extend deployment time beyond these calculations. Even deployments under the 33-hour threshold might still time out if these processes cause the total duration to exceed 36 hours.
         :param _builtins.int canary_bake_time_in_minutes: The amount of time in minutes to wait during the canary phase before shifting the remaining production traffic to the new service revision. Valid values are 0 to 1440 minutes (24 hours). The default value is 10.
         :param _builtins.float canary_percent: The percentage of production traffic to shift to the new service revision during the canary phase. Valid values are multiples of 0.1 from 0.1 to 100.0. The default value is 5.0.
         """
@@ -1948,16 +2686,16 @@ class ServiceCapacityProviderStrategyItem(dict):
         :param _builtins.int base: The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider for each service. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of ``0`` is used.
                 Base value characteristics:
                  +  Only one capacity provider in a strategy can have a base defined
-                 +  Default value is ``0`` if not specified
-                 +  Valid range: 0 to 100,000
+                 +  The default value is ``0`` if not specified
+                 +  The valid range is 0 to 100,000
                  +  Base requirements are satisfied first before weight distribution
-        :param _builtins.str capacity_provider: The short name of the capacity provider.
+        :param _builtins.str capacity_provider: The short name of the capacity provider. This can be either an AWS managed capacity provider (``FARGATE`` or ``FARGATE_SPOT``) or the name of a custom capacity provider that you created.
         :param _builtins.int weight: The *weight* value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The ``weight`` value is taken into consideration after the ``base`` value, if defined, is satisfied.
                 If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail.
                 Weight value characteristics:
                  +  Weight is considered after the base value is satisfied
-                 +  Default value is ``0`` if not specified
-                 +  Valid range: 0 to 1,000
+                 +  The default value is ``0`` if not specified
+                 +  The valid range is 0 to 1,000
                  +  At least one capacity provider must have a weight greater than zero
                  +  Capacity providers with weight of ``0`` cannot place tasks
                  
@@ -1983,8 +2721,8 @@ class ServiceCapacityProviderStrategyItem(dict):
         The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider for each service. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of ``0`` is used.
          Base value characteristics:
           +  Only one capacity provider in a strategy can have a base defined
-          +  Default value is ``0`` if not specified
-          +  Valid range: 0 to 100,000
+          +  The default value is ``0`` if not specified
+          +  The valid range is 0 to 100,000
           +  Base requirements are satisfied first before weight distribution
         """
         return pulumi.get(self, "base")
@@ -1993,7 +2731,7 @@ class ServiceCapacityProviderStrategyItem(dict):
     @pulumi.getter(name="capacityProvider")
     def capacity_provider(self) -> Optional[_builtins.str]:
         """
-        The short name of the capacity provider.
+        The short name of the capacity provider. This can be either an AWS managed capacity provider (``FARGATE`` or ``FARGATE_SPOT``) or the name of a custom capacity provider that you created.
         """
         return pulumi.get(self, "capacity_provider")
 
@@ -2005,8 +2743,8 @@ class ServiceCapacityProviderStrategyItem(dict):
          If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail.
          Weight value characteristics:
           +  Weight is considered after the base value is satisfied
-          +  Default value is ``0`` if not specified
-          +  Valid range: 0 to 1,000
+          +  The default value is ``0`` if not specified
+          +  The valid range is 0 to 1,000
           +  At least one capacity provider must have a weight greater than zero
           +  Capacity providers with weight of ``0`` cannot place tasks
           
@@ -2023,6 +2761,10 @@ class ServiceCapacityProviderStrategyItem(dict):
 
 @pulumi.output_type
 class ServiceConnectAccessLogConfiguration(dict):
+    """
+    Configuration for Service Connect access logging. Access logs provide detailed information about requests made to your service, including request patterns, response codes, and timing data for debugging and monitoring purposes.
+      To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2044,10 +2786,11 @@ class ServiceConnectAccessLogConfiguration(dict):
                  format: 'ServiceConnectAccessLogConfigurationFormat',
                  include_query_parameters: Optional['ServiceConnectAccessLogConfigurationIncludeQueryParameters'] = None):
         """
+        Configuration for Service Connect access logging. Access logs provide detailed information about requests made to your service, including request patterns, response codes, and timing data for debugging and monitoring purposes.
+          To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
         :param 'ServiceConnectAccessLogConfigurationFormat' format: The format for Service Connect access log output. Choose TEXT for human-readable logs or JSON for structured data that integrates well with log analysis tools.
         :param 'ServiceConnectAccessLogConfigurationIncludeQueryParameters' include_query_parameters: Specifies whether to include query parameters in Service Connect access logs.
-               
-               When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is `DISABLED` .
+                When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is ``DISABLED``.
         """
         pulumi.set(__self__, "format", format)
         if include_query_parameters is not None:
@@ -2066,8 +2809,7 @@ class ServiceConnectAccessLogConfiguration(dict):
     def include_query_parameters(self) -> Optional['ServiceConnectAccessLogConfigurationIncludeQueryParameters']:
         """
         Specifies whether to include query parameters in Service Connect access logs.
-
-        When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is `DISABLED` .
+         When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is ``DISABLED``.
         """
         return pulumi.get(self, "include_query_parameters")
 
@@ -2183,8 +2925,7 @@ class ServiceConnectConfiguration(dict):
          Tasks that run in a namespace can use short names to connect to services in the namespace. Tasks can connect to services across all of the clusters in the namespace. Tasks connect through a managed proxy container that collects logs and metrics for increased visibility. Only the tasks that Amazon ECS services create are supported with Service Connect. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param _builtins.bool enabled: Specifies whether to use Service Connect with this service.
         :param 'ServiceConnectAccessLogConfiguration' access_log_configuration: The configuration for Service Connect access logging. Access logs capture detailed information about requests made to your service, including request patterns, response codes, and timing data. They can be useful for debugging connectivity issues, monitoring service performance, and auditing service-to-service communication for security and compliance purposes.
-               
-               > To enable access logs, you must also specify a `logConfiguration` in the `serviceConnectConfiguration` .
+                 To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
         :param 'ServiceLogConfiguration' log_configuration: The log configuration for the container. This parameter maps to ``LogConfig`` in the docker container create command and the ``--log-driver`` option to docker run.
                 By default, containers use the same logging driver that the Docker daemon uses. However, the container might use a different logging driver than the Docker daemon by specifying a log driver configuration in the container definition.
                 Understand the following when specifying a log configuration for your containers.
@@ -2222,8 +2963,7 @@ class ServiceConnectConfiguration(dict):
     def access_log_configuration(self) -> Optional['outputs.ServiceConnectAccessLogConfiguration']:
         """
         The configuration for Service Connect access logging. Access logs capture detailed information about requests made to your service, including request patterns, response codes, and timing data. They can be useful for debugging connectivity issues, monitoring service performance, and auditing service-to-service communication for security and compliance purposes.
-
-        > To enable access logs, you must also specify a `logConfiguration` in the `serviceConnectConfiguration` .
+          To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
         """
         return pulumi.get(self, "access_log_configuration")
 
@@ -2698,11 +3438,11 @@ class ServiceDeploymentConfiguration(dict):
                  +  For rolling deployments, the value is set to 3 hours (180 minutes).
                  +  When you use an external deployment controller (``EXTERNAL``), or the ACD blue/green deployment controller (``CODE_DEPLOY``), the value is set to 3 hours (180 minutes).
                  +  For all other cases, the value is set to 36 hours (2160 minutes).
-        :param 'ServiceCanaryConfiguration' canary_configuration: Configuration for canary deployment strategy. Only valid when the deployment strategy is `CANARY` . This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
+        :param 'ServiceCanaryConfiguration' canary_configuration: Configuration for canary deployment strategy. Only valid when the deployment strategy is ``CANARY``. This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
         :param 'ServiceDeploymentCircuitBreaker' deployment_circuit_breaker: The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
                  The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
         :param Sequence['ServiceDeploymentLifecycleHook'] lifecycle_hooks: An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
-        :param 'ServiceLinearConfiguration' linear_configuration: Configuration for linear deployment strategy. Only valid when the deployment strategy is `LINEAR` . This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
+        :param 'ServiceLinearConfiguration' linear_configuration: Configuration for linear deployment strategy. Only valid when the deployment strategy is ``LINEAR``. This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
         :param _builtins.int maximum_percent: If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
                 The Amazon ECS scheduler uses this parameter to replace unhealthy tasks by starting replacement tasks first and then stopping the unhealthy tasks, as long as cluster resources for starting replacement tasks are available. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
                 If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types, and tasks in the service use the EC2 launch type, the *maximum percent* value is set to the default value. The *maximum percent* value is used to define the upper limit on the number of the tasks in the service that remain in the ``RUNNING`` state while the container instances are in the ``DRAINING`` state.
@@ -2771,7 +3511,7 @@ class ServiceDeploymentConfiguration(dict):
     @pulumi.getter(name="canaryConfiguration")
     def canary_configuration(self) -> Optional['outputs.ServiceCanaryConfiguration']:
         """
-        Configuration for canary deployment strategy. Only valid when the deployment strategy is `CANARY` . This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
+        Configuration for canary deployment strategy. Only valid when the deployment strategy is ``CANARY``. This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
         """
         return pulumi.get(self, "canary_configuration")
 
@@ -2796,7 +3536,7 @@ class ServiceDeploymentConfiguration(dict):
     @pulumi.getter(name="linearConfiguration")
     def linear_configuration(self) -> Optional['outputs.ServiceLinearConfiguration']:
         """
-        Configuration for linear deployment strategy. Only valid when the deployment strategy is `LINEAR` . This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
+        Configuration for linear deployment strategy. Only valid when the deployment strategy is ``LINEAR``. This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
         """
         return pulumi.get(self, "linear_configuration")
 
@@ -3194,6 +3934,17 @@ class ServiceForceNewDeployment(dict):
 
 @pulumi.output_type
 class ServiceLinearConfiguration(dict):
+    """
+    Configuration for a linear deployment strategy that shifts production traffic in equal percentage increments with configurable wait times between each step until 100 percent of traffic is shifted to the new service revision. 
+     The following validation applies only to Linear deployments created through CFN. CFN operations time out after 36 hours. Linear deployments can approach this limit because of their extended duration. This can cause CFN to roll back the deployment. To prevent timeout-related rollbacks, CFN rejects deployments when the calculated deployment time exceeds 33 hours based on your template configuration: 
+      ``BakeTimeInMinutes + (StepBakeTimeInMinutes × Number of deployment steps)`` 
+     Where the number of deployment steps is calculated as follows:
+      +  *If StepPercent evenly divides by 100*: The number of deployment steps equals ``(100 ÷ StepPercent) - 1``
+      +  *Otherwise*: The number of deployment steps equals the floor of ``100 ÷ StepPercent``. For example, if ``StepPercent`` is 11, the number of deployment steps is 9 (not 9.1).
+      
+     This calculation reflects that CFN doesn't apply the step bake time after the final traffic shift reaches 100%. For example, with a ``StepPercent`` of 50%, there are actually two traffic shifts, but only one deployment step is counted for validation purposes because the bake time is applied only after the first 50% shift, not after reaching 100%.
+     Additional backend processes (such as task scaling and running lifecycle hooks) can extend deployment time beyond these calculations. Even deployments under the 33-hour threshold might still time out if these processes cause the total duration to exceed 36 hours.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3217,6 +3968,15 @@ class ServiceLinearConfiguration(dict):
                  step_bake_time_in_minutes: Optional[_builtins.int] = None,
                  step_percent: Optional[_builtins.float] = None):
         """
+        Configuration for a linear deployment strategy that shifts production traffic in equal percentage increments with configurable wait times between each step until 100 percent of traffic is shifted to the new service revision. 
+         The following validation applies only to Linear deployments created through CFN. CFN operations time out after 36 hours. Linear deployments can approach this limit because of their extended duration. This can cause CFN to roll back the deployment. To prevent timeout-related rollbacks, CFN rejects deployments when the calculated deployment time exceeds 33 hours based on your template configuration: 
+          ``BakeTimeInMinutes + (StepBakeTimeInMinutes × Number of deployment steps)`` 
+         Where the number of deployment steps is calculated as follows:
+          +  *If StepPercent evenly divides by 100*: The number of deployment steps equals ``(100 ÷ StepPercent) - 1``
+          +  *Otherwise*: The number of deployment steps equals the floor of ``100 ÷ StepPercent``. For example, if ``StepPercent`` is 11, the number of deployment steps is 9 (not 9.1).
+          
+         This calculation reflects that CFN doesn't apply the step bake time after the final traffic shift reaches 100%. For example, with a ``StepPercent`` of 50%, there are actually two traffic shifts, but only one deployment step is counted for validation purposes because the bake time is applied only after the first 50% shift, not after reaching 100%.
+         Additional backend processes (such as task scaling and running lifecycle hooks) can extend deployment time beyond these calculations. Even deployments under the 33-hour threshold might still time out if these processes cause the total duration to exceed 36 hours.
         :param _builtins.int step_bake_time_in_minutes: The amount of time in minutes to wait between each traffic shifting step during a linear deployment. Valid values are 0 to 1440 minutes (24 hours). The default value is 6. This bake time is not applied after reaching 100 percent traffic.
         :param _builtins.float step_percent: The percentage of production traffic to shift in each step during a linear deployment. Valid values are multiples of 0.1 from 3.0 to 100.0. The default value is 10.0.
         """

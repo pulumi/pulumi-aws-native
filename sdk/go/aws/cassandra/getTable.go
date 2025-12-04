@@ -56,7 +56,8 @@ type LookupTableResult struct {
 	// Non-key columns of the table
 	RegularColumns []TableColumn `pulumi:"regularColumns"`
 	// An array of key-value pairs to apply to this resource
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags           []aws.Tag            `pulumi:"tags"`
+	WarmThroughput *TableWarmThroughput `pulumi:"warmThroughput"`
 }
 
 func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...pulumi.InvokeOption) LookupTableResultOutput {
@@ -138,6 +139,10 @@ func (o LookupTableResultOutput) RegularColumns() TableColumnArrayOutput {
 // An array of key-value pairs to apply to this resource
 func (o LookupTableResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTableResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o LookupTableResultOutput) WarmThroughput() TableWarmThroughputPtrOutput {
+	return o.ApplyT(func(v LookupTableResult) *TableWarmThroughput { return v.WarmThroughput }).(TableWarmThroughputPtrOutput)
 }
 
 func init() {

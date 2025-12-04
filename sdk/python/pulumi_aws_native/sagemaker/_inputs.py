@@ -36,6 +36,8 @@ __all__ = [
     'ClusterAlarmDetailsArgsDict',
     'ClusterAutoScalingConfigArgs',
     'ClusterAutoScalingConfigArgsDict',
+    'ClusterCapacityRequirementsArgs',
+    'ClusterCapacityRequirementsArgsDict',
     'ClusterCapacitySizeConfigArgs',
     'ClusterCapacitySizeConfigArgsDict',
     'ClusterDeploymentConfigArgs',
@@ -48,8 +50,14 @@ __all__ = [
     'ClusterInstanceGroupArgsDict',
     'ClusterInstanceStorageConfigArgs',
     'ClusterInstanceStorageConfigArgsDict',
+    'ClusterKubernetesConfigArgs',
+    'ClusterKubernetesConfigArgsDict',
+    'ClusterKubernetesTaintArgs',
+    'ClusterKubernetesTaintArgsDict',
     'ClusterLifeCycleConfigArgs',
     'ClusterLifeCycleConfigArgsDict',
+    'ClusterOnDemandOptionsArgs',
+    'ClusterOnDemandOptionsArgsDict',
     'ClusterOrchestratorEksConfigArgs',
     'ClusterOrchestratorEksConfigArgsDict',
     'ClusterOrchestratorArgs',
@@ -60,6 +68,8 @@ __all__ = [
     'ClusterRollingUpdatePolicyArgsDict',
     'ClusterScheduledUpdateConfigArgs',
     'ClusterScheduledUpdateConfigArgsDict',
+    'ClusterSpotOptionsArgs',
+    'ClusterSpotOptionsArgsDict',
     'ClusterTieredStorageConfigArgs',
     'ClusterTieredStorageConfigArgsDict',
     'ClusterVpcConfigArgs',
@@ -1205,6 +1215,48 @@ class ClusterAutoScalingConfigArgs:
 
 
 if not MYPY:
+    class ClusterCapacityRequirementsArgsDict(TypedDict):
+        """
+        Specifies the capacity requirements configuration for an instance group
+        """
+        on_demand: NotRequired[pulumi.Input['ClusterOnDemandOptionsArgsDict']]
+        spot: NotRequired[pulumi.Input['ClusterSpotOptionsArgsDict']]
+elif False:
+    ClusterCapacityRequirementsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterCapacityRequirementsArgs:
+    def __init__(__self__, *,
+                 on_demand: Optional[pulumi.Input['ClusterOnDemandOptionsArgs']] = None,
+                 spot: Optional[pulumi.Input['ClusterSpotOptionsArgs']] = None):
+        """
+        Specifies the capacity requirements configuration for an instance group
+        """
+        if on_demand is not None:
+            pulumi.set(__self__, "on_demand", on_demand)
+        if spot is not None:
+            pulumi.set(__self__, "spot", spot)
+
+    @_builtins.property
+    @pulumi.getter(name="onDemand")
+    def on_demand(self) -> Optional[pulumi.Input['ClusterOnDemandOptionsArgs']]:
+        return pulumi.get(self, "on_demand")
+
+    @on_demand.setter
+    def on_demand(self, value: Optional[pulumi.Input['ClusterOnDemandOptionsArgs']]):
+        pulumi.set(self, "on_demand", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def spot(self) -> Optional[pulumi.Input['ClusterSpotOptionsArgs']]:
+        return pulumi.get(self, "spot")
+
+    @spot.setter
+    def spot(self, value: Optional[pulumi.Input['ClusterSpotOptionsArgs']]):
+        pulumi.set(self, "spot", value)
+
+
+if not MYPY:
     class ClusterCapacitySizeConfigArgsDict(TypedDict):
         """
         The configuration of the size measurements of the AMI update. Using this configuration, you can specify whether SageMaker should update your instance group by an amount or percentage of instances.
@@ -1416,12 +1468,14 @@ if not MYPY:
         instance_group_name: pulumi.Input[_builtins.str]
         instance_type: pulumi.Input[_builtins.str]
         life_cycle_config: pulumi.Input['ClusterLifeCycleConfigArgsDict']
+        capacity_requirements: NotRequired[pulumi.Input['ClusterCapacityRequirementsArgsDict']]
         current_count: NotRequired[pulumi.Input[_builtins.int]]
         """
         The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
         """
         image_id: NotRequired[pulumi.Input[_builtins.str]]
         instance_storage_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgsDict']]]]
+        kubernetes_config: NotRequired[pulumi.Input['ClusterKubernetesConfigArgsDict']]
         on_start_deep_health_checks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]]
         override_vpc_config: NotRequired[pulumi.Input['ClusterVpcConfigArgsDict']]
         scheduled_update_config: NotRequired[pulumi.Input['ClusterScheduledUpdateConfigArgsDict']]
@@ -1444,9 +1498,11 @@ class ClusterInstanceGroupArgs:
                  instance_group_name: pulumi.Input[_builtins.str],
                  instance_type: pulumi.Input[_builtins.str],
                  life_cycle_config: pulumi.Input['ClusterLifeCycleConfigArgs'],
+                 capacity_requirements: Optional[pulumi.Input['ClusterCapacityRequirementsArgs']] = None,
                  current_count: Optional[pulumi.Input[_builtins.int]] = None,
                  image_id: Optional[pulumi.Input[_builtins.str]] = None,
                  instance_storage_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgs']]]] = None,
+                 kubernetes_config: Optional[pulumi.Input['ClusterKubernetesConfigArgs']] = None,
                  on_start_deep_health_checks: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]] = None,
                  override_vpc_config: Optional[pulumi.Input['ClusterVpcConfigArgs']] = None,
                  scheduled_update_config: Optional[pulumi.Input['ClusterScheduledUpdateConfigArgs']] = None,
@@ -1464,12 +1520,16 @@ class ClusterInstanceGroupArgs:
         pulumi.set(__self__, "instance_group_name", instance_group_name)
         pulumi.set(__self__, "instance_type", instance_type)
         pulumi.set(__self__, "life_cycle_config", life_cycle_config)
+        if capacity_requirements is not None:
+            pulumi.set(__self__, "capacity_requirements", capacity_requirements)
         if current_count is not None:
             pulumi.set(__self__, "current_count", current_count)
         if image_id is not None:
             pulumi.set(__self__, "image_id", image_id)
         if instance_storage_configs is not None:
             pulumi.set(__self__, "instance_storage_configs", instance_storage_configs)
+        if kubernetes_config is not None:
+            pulumi.set(__self__, "kubernetes_config", kubernetes_config)
         if on_start_deep_health_checks is not None:
             pulumi.set(__self__, "on_start_deep_health_checks", on_start_deep_health_checks)
         if override_vpc_config is not None:
@@ -1530,6 +1590,15 @@ class ClusterInstanceGroupArgs:
         pulumi.set(self, "life_cycle_config", value)
 
     @_builtins.property
+    @pulumi.getter(name="capacityRequirements")
+    def capacity_requirements(self) -> Optional[pulumi.Input['ClusterCapacityRequirementsArgs']]:
+        return pulumi.get(self, "capacity_requirements")
+
+    @capacity_requirements.setter
+    def capacity_requirements(self, value: Optional[pulumi.Input['ClusterCapacityRequirementsArgs']]):
+        pulumi.set(self, "capacity_requirements", value)
+
+    @_builtins.property
     @pulumi.getter(name="currentCount")
     def current_count(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -1558,6 +1627,15 @@ class ClusterInstanceGroupArgs:
     @instance_storage_configs.setter
     def instance_storage_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgs']]]]):
         pulumi.set(self, "instance_storage_configs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kubernetesConfig")
+    def kubernetes_config(self) -> Optional[pulumi.Input['ClusterKubernetesConfigArgs']]:
+        return pulumi.get(self, "kubernetes_config")
+
+    @kubernetes_config.setter
+    def kubernetes_config(self, value: Optional[pulumi.Input['ClusterKubernetesConfigArgs']]):
+        pulumi.set(self, "kubernetes_config", value)
 
     @_builtins.property
     @pulumi.getter(name="onStartDeepHealthChecks")
@@ -1630,6 +1708,122 @@ class ClusterInstanceStorageConfigArgs:
 
 
 if not MYPY:
+    class ClusterKubernetesConfigArgsDict(TypedDict):
+        """
+        Kubernetes configuration for cluster nodes including labels and taints.
+        """
+        labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+        taints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterKubernetesTaintArgsDict']]]]
+elif False:
+    ClusterKubernetesConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterKubernetesConfigArgs:
+    def __init__(__self__, *,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 taints: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterKubernetesTaintArgs']]]] = None):
+        """
+        Kubernetes configuration for cluster nodes including labels and taints.
+        """
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if taints is not None:
+            pulumi.set(__self__, "taints", taints)
+
+    @_builtins.property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "labels", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterKubernetesTaintArgs']]]]:
+        return pulumi.get(self, "taints")
+
+    @taints.setter
+    def taints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterKubernetesTaintArgs']]]]):
+        pulumi.set(self, "taints", value)
+
+
+if not MYPY:
+    class ClusterKubernetesTaintArgsDict(TypedDict):
+        """
+        A Kubernetes taint to apply to cluster nodes.
+        """
+        effect: pulumi.Input['ClusterKubernetesTaintEffect']
+        """
+        The effect of the taint.
+        """
+        key: pulumi.Input[_builtins.str]
+        """
+        The key of the taint.
+        """
+        value: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The value of the taint.
+        """
+elif False:
+    ClusterKubernetesTaintArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterKubernetesTaintArgs:
+    def __init__(__self__, *,
+                 effect: pulumi.Input['ClusterKubernetesTaintEffect'],
+                 key: pulumi.Input[_builtins.str],
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        A Kubernetes taint to apply to cluster nodes.
+        :param pulumi.Input['ClusterKubernetesTaintEffect'] effect: The effect of the taint.
+        :param pulumi.Input[_builtins.str] key: The key of the taint.
+        :param pulumi.Input[_builtins.str] value: The value of the taint.
+        """
+        pulumi.set(__self__, "effect", effect)
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def effect(self) -> pulumi.Input['ClusterKubernetesTaintEffect']:
+        """
+        The effect of the taint.
+        """
+        return pulumi.get(self, "effect")
+
+    @effect.setter
+    def effect(self, value: pulumi.Input['ClusterKubernetesTaintEffect']):
+        pulumi.set(self, "effect", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The key of the taint.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The value of the taint.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
     class ClusterLifeCycleConfigArgsDict(TypedDict):
         """
         The lifecycle configuration for a SageMaker HyperPod cluster.
@@ -1681,6 +1875,24 @@ class ClusterLifeCycleConfigArgs:
     @source_s3_uri.setter
     def source_s3_uri(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "source_s3_uri", value)
+
+
+if not MYPY:
+    class ClusterOnDemandOptionsArgsDict(TypedDict):
+        """
+        Options for OnDemand capacity
+        """
+        pass
+elif False:
+    ClusterOnDemandOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterOnDemandOptionsArgs:
+    def __init__(__self__):
+        """
+        Options for OnDemand capacity
+        """
+        pass
 
 
 if not MYPY:
@@ -2022,6 +2234,24 @@ class ClusterScheduledUpdateConfigArgs:
     @deployment_config.setter
     def deployment_config(self, value: Optional[pulumi.Input['ClusterDeploymentConfigArgs']]):
         pulumi.set(self, "deployment_config", value)
+
+
+if not MYPY:
+    class ClusterSpotOptionsArgsDict(TypedDict):
+        """
+        Options for Spot capacity
+        """
+        pass
+elif False:
+    ClusterSpotOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterSpotOptionsArgs:
+    def __init__(__self__):
+        """
+        Options for Spot capacity
+        """
+        pass
 
 
 if not MYPY:

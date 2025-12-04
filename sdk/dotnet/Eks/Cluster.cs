@@ -58,6 +58,12 @@ namespace Pulumi.AwsNative.Eks
         public Output<Outputs.ClusterComputeConfig?> ComputeConfig { get; private set; } = null!;
 
         /// <summary>
+        /// The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.
+        /// </summary>
+        [Output("controlPlaneScalingConfig")]
+        public Output<Outputs.ClusterControlPlaneScalingConfig?> ControlPlaneScalingConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Set this value to true to enable deletion protection for the cluster.
         /// </summary>
         [Output("deletionProtection")]
@@ -240,6 +246,12 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         [Input("computeConfig")]
         public Input<Inputs.ClusterComputeConfigArgs>? ComputeConfig { get; set; }
+
+        /// <summary>
+        /// The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.
+        /// </summary>
+        [Input("controlPlaneScalingConfig")]
+        public Input<Inputs.ClusterControlPlaneScalingConfigArgs>? ControlPlaneScalingConfig { get; set; }
 
         /// <summary>
         /// Set this value to true to enable deletion protection for the cluster.

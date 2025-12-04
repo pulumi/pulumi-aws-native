@@ -2,6 +2,40 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const InboundExternalLinkLinkStatus = {
+    PendingCreation: "PENDING_CREATION",
+    PendingRequest: "PENDING_REQUEST",
+    Requested: "REQUESTED",
+    Accepted: "ACCEPTED",
+    Active: "ACTIVE",
+    Rejected: "REJECTED",
+    Failed: "FAILED",
+    PendingDeletion: "PENDING_DELETION",
+    Deleted: "DELETED",
+    PendingUpdate: "PENDING_UPDATE",
+    PendingIsolation: "PENDING_ISOLATION",
+    Isolated: "ISOLATED",
+    PendingRestoration: "PENDING_RESTORATION",
+    UnknownToSdkVersion: "UNKNOWN_TO_SDK_VERSION",
+} as const;
+
+export type InboundExternalLinkLinkStatus = (typeof InboundExternalLinkLinkStatus)[keyof typeof InboundExternalLinkLinkStatus];
+
+export const InboundExternalLinkResponderErrorMaskingForHttpCodeAction = {
+    NoBid: "NO_BID",
+    Passthrough: "PASSTHROUGH",
+} as const;
+
+export type InboundExternalLinkResponderErrorMaskingForHttpCodeAction = (typeof InboundExternalLinkResponderErrorMaskingForHttpCodeAction)[keyof typeof InboundExternalLinkResponderErrorMaskingForHttpCodeAction];
+
+export const InboundExternalLinkResponderErrorMaskingLoggingType = {
+    None: "NONE",
+    Metric: "METRIC",
+    Response: "RESPONSE",
+} as const;
+
+export type InboundExternalLinkResponderErrorMaskingLoggingType = (typeof InboundExternalLinkResponderErrorMaskingLoggingType)[keyof typeof InboundExternalLinkResponderErrorMaskingLoggingType];
+
 export const LinkDirection = {
     Request: "REQUEST",
     Response: "RESPONSE",
@@ -33,7 +67,7 @@ export const LinkStatus = {
     Requested: "REQUESTED",
     Accepted: "ACCEPTED",
     Active: "ACTIVE",
-    Declined: "DECLINED",
+    Rejected: "REJECTED",
     Failed: "FAILED",
     PendingDeletion: "PENDING_DELETION",
     Deleted: "DELETED",
@@ -45,6 +79,40 @@ export const LinkStatus = {
 } as const;
 
 export type LinkStatus = (typeof LinkStatus)[keyof typeof LinkStatus];
+
+export const OutboundExternalLinkLinkStatus = {
+    PendingCreation: "PENDING_CREATION",
+    PendingRequest: "PENDING_REQUEST",
+    Requested: "REQUESTED",
+    Accepted: "ACCEPTED",
+    Active: "ACTIVE",
+    Rejected: "REJECTED",
+    Failed: "FAILED",
+    PendingDeletion: "PENDING_DELETION",
+    Deleted: "DELETED",
+    PendingUpdate: "PENDING_UPDATE",
+    PendingIsolation: "PENDING_ISOLATION",
+    Isolated: "ISOLATED",
+    PendingRestoration: "PENDING_RESTORATION",
+    UnknownToSdkVersion: "UNKNOWN_TO_SDK_VERSION",
+} as const;
+
+export type OutboundExternalLinkLinkStatus = (typeof OutboundExternalLinkLinkStatus)[keyof typeof OutboundExternalLinkLinkStatus];
+
+export const OutboundExternalLinkResponderErrorMaskingForHttpCodeAction = {
+    NoBid: "NO_BID",
+    Passthrough: "PASSTHROUGH",
+} as const;
+
+export type OutboundExternalLinkResponderErrorMaskingForHttpCodeAction = (typeof OutboundExternalLinkResponderErrorMaskingForHttpCodeAction)[keyof typeof OutboundExternalLinkResponderErrorMaskingForHttpCodeAction];
+
+export const OutboundExternalLinkResponderErrorMaskingLoggingType = {
+    None: "NONE",
+    Metric: "METRIC",
+    Response: "RESPONSE",
+} as const;
+
+export type OutboundExternalLinkResponderErrorMaskingLoggingType = (typeof OutboundExternalLinkResponderErrorMaskingLoggingType)[keyof typeof OutboundExternalLinkResponderErrorMaskingLoggingType];
 
 export const RequesterGatewayStatus = {
     PendingCreation: "PENDING_CREATION",

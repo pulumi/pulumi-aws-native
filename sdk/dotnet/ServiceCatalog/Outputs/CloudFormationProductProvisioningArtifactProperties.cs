@@ -22,21 +22,28 @@ namespace Pulumi.AwsNative.ServiceCatalog.Outputs
         /// </summary>
         public readonly bool? DisableTemplateValidation;
         /// <summary>
-        /// Specify the template source with one of the following options, but not both. Keys accepted: [ LoadTemplateFromURL, ImportFromPhysicalId ] The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
+        /// Specify the template source with one of the following options, but not both. Keys accepted: [ `LoadTemplateFromURL` , `ImportFromPhysicalId` ]
         /// 
-        /// "LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."
+        /// The URL of the AWS CloudFormation template in Amazon S3 in JSON format. Specify the URL in JSON format as follows:
         /// 
-        /// ImportFromPhysicalId: The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]
+        /// `"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."`
+        /// 
+        /// `ImportFromPhysicalId` : The physical id of the resource that contains the template. Currently only supports AWS CloudFormation stack arn. Specify the physical id in JSON format as follows: `ImportFromPhysicalId: "arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]`
         /// </summary>
-        public readonly Outputs.CloudFormationProductProvisioningArtifactPropertiesInfoProperties Info;
+        public readonly object Info;
         /// <summary>
         /// The name of the provisioning artifact (for example, v1 v2beta). No spaces are allowed.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The type of provisioning artifact. Valid values are CLOUD_FORMATION_TEMPLATE, TERRAFORM_OPEN_SOURCE, TERRAFORM_CLOUD, EXTERNAL
+        /// The type of provisioning artifact.
+        /// 
+        /// - `CLOUD_FORMATION_TEMPLATE` - AWS CloudFormation template
+        /// - `TERRAFORM_OPEN_SOURCE` - Terraform Open Source configuration file
+        /// - `TERRAFORM_CLOUD` - Terraform Cloud configuration file
+        /// - `EXTERNAL` - External configuration file
         /// </summary>
-        public readonly Pulumi.AwsNative.ServiceCatalog.CloudFormationProductProvisioningArtifactPropertiesType? Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private CloudFormationProductProvisioningArtifactProperties(
@@ -44,11 +51,11 @@ namespace Pulumi.AwsNative.ServiceCatalog.Outputs
 
             bool? disableTemplateValidation,
 
-            Outputs.CloudFormationProductProvisioningArtifactPropertiesInfoProperties info,
+            object info,
 
             string? name,
 
-            Pulumi.AwsNative.ServiceCatalog.CloudFormationProductProvisioningArtifactPropertiesType? type)
+            string? type)
         {
             Description = description;
             DisableTemplateValidation = disableTemplateValidation;

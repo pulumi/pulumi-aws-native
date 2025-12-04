@@ -28,6 +28,8 @@ type Stream struct {
 	MediaType pulumi.StringPtrOutput `pulumi:"mediaType"`
 	// The name of the Kinesis Video stream.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Configuration for the storage tier of the Kinesis Video Stream.
+	StreamStorageConfiguration StreamStorageConfigurationPtrOutput `pulumi:"streamStorageConfiguration"`
 	// An array of key-value pairs associated with the Kinesis Video Stream.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -86,6 +88,8 @@ type streamArgs struct {
 	MediaType *string `pulumi:"mediaType"`
 	// The name of the Kinesis Video stream.
 	Name *string `pulumi:"name"`
+	// Configuration for the storage tier of the Kinesis Video Stream.
+	StreamStorageConfiguration *StreamStorageConfiguration `pulumi:"streamStorageConfiguration"`
 	// An array of key-value pairs associated with the Kinesis Video Stream.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -102,6 +106,8 @@ type StreamArgs struct {
 	MediaType pulumi.StringPtrInput
 	// The name of the Kinesis Video stream.
 	Name pulumi.StringPtrInput
+	// Configuration for the storage tier of the Kinesis Video Stream.
+	StreamStorageConfiguration StreamStorageConfigurationPtrInput
 	// An array of key-value pairs associated with the Kinesis Video Stream.
 	Tags aws.TagArrayInput
 }
@@ -171,6 +177,11 @@ func (o StreamOutput) MediaType() pulumi.StringPtrOutput {
 // The name of the Kinesis Video stream.
 func (o StreamOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Configuration for the storage tier of the Kinesis Video Stream.
+func (o StreamOutput) StreamStorageConfiguration() StreamStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v *Stream) StreamStorageConfigurationPtrOutput { return v.StreamStorageConfiguration }).(StreamStorageConfigurationPtrOutput)
 }
 
 // An array of key-value pairs associated with the Kinesis Video Stream.

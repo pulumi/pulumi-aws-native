@@ -26,26 +26,31 @@ class SegmentDefinitionArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[_builtins.str],
                  domain_name: pulumi.Input[_builtins.str],
-                 segment_groups: pulumi.Input['SegmentDefinitionSegmentGroupArgs'],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  segment_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 segment_groups: Optional[pulumi.Input['SegmentDefinitionSegmentGroupArgs']] = None,
+                 segment_sql_query: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SegmentDefinition resource.
         :param pulumi.Input[_builtins.str] display_name: The display name of the segment definition.
         :param pulumi.Input[_builtins.str] domain_name: The unique name of the domain.
-        :param pulumi.Input['SegmentDefinitionSegmentGroupArgs'] segment_groups: An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
         :param pulumi.Input[_builtins.str] description: The description of the segment definition.
         :param pulumi.Input[_builtins.str] segment_definition_name: The unique name of the segment definition.
+        :param pulumi.Input['SegmentDefinitionSegmentGroupArgs'] segment_groups: An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
+        :param pulumi.Input[_builtins.str] segment_sql_query: The SQL query that defines the segment criteria.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "segment_groups", segment_groups)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if segment_definition_name is not None:
             pulumi.set(__self__, "segment_definition_name", segment_definition_name)
+        if segment_groups is not None:
+            pulumi.set(__self__, "segment_groups", segment_groups)
+        if segment_sql_query is not None:
+            pulumi.set(__self__, "segment_sql_query", segment_sql_query)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -74,18 +79,6 @@ class SegmentDefinitionArgs:
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="segmentGroups")
-    def segment_groups(self) -> pulumi.Input['SegmentDefinitionSegmentGroupArgs']:
-        """
-        An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
-        """
-        return pulumi.get(self, "segment_groups")
-
-    @segment_groups.setter
-    def segment_groups(self, value: pulumi.Input['SegmentDefinitionSegmentGroupArgs']):
-        pulumi.set(self, "segment_groups", value)
-
-    @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -108,6 +101,30 @@ class SegmentDefinitionArgs:
     @segment_definition_name.setter
     def segment_definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "segment_definition_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentGroups")
+    def segment_groups(self) -> Optional[pulumi.Input['SegmentDefinitionSegmentGroupArgs']]:
+        """
+        An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
+        """
+        return pulumi.get(self, "segment_groups")
+
+    @segment_groups.setter
+    def segment_groups(self, value: Optional[pulumi.Input['SegmentDefinitionSegmentGroupArgs']]):
+        pulumi.set(self, "segment_groups", value)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentSqlQuery")
+    def segment_sql_query(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The SQL query that defines the segment criteria.
+        """
+        return pulumi.get(self, "segment_sql_query")
+
+    @segment_sql_query.setter
+    def segment_sql_query(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "segment_sql_query", value)
 
     @_builtins.property
     @pulumi.getter
@@ -133,6 +150,7 @@ class SegmentDefinition(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  segment_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
                  segment_groups: Optional[pulumi.Input[Union['SegmentDefinitionSegmentGroupArgs', 'SegmentDefinitionSegmentGroupArgsDict']]] = None,
+                 segment_sql_query: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -145,6 +163,7 @@ class SegmentDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_name: The unique name of the domain.
         :param pulumi.Input[_builtins.str] segment_definition_name: The unique name of the segment definition.
         :param pulumi.Input[Union['SegmentDefinitionSegmentGroupArgs', 'SegmentDefinitionSegmentGroupArgsDict']] segment_groups: An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
+        :param pulumi.Input[_builtins.str] segment_sql_query: The SQL query that defines the segment criteria.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
@@ -176,6 +195,7 @@ class SegmentDefinition(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  segment_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
                  segment_groups: Optional[pulumi.Input[Union['SegmentDefinitionSegmentGroupArgs', 'SegmentDefinitionSegmentGroupArgsDict']]] = None,
+                 segment_sql_query: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -194,13 +214,13 @@ class SegmentDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["segment_definition_name"] = segment_definition_name
-            if segment_groups is None and not opts.urn:
-                raise TypeError("Missing required property 'segment_groups'")
             __props__.__dict__["segment_groups"] = segment_groups
+            __props__.__dict__["segment_sql_query"] = segment_sql_query
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None
             __props__.__dict__["segment_definition_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["displayName", "domainName", "segmentDefinitionName", "segmentGroups"])
+            __props__.__dict__["segment_type"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["displayName", "domainName", "segmentDefinitionName", "segmentGroups", "segmentSqlQuery"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SegmentDefinition, __self__).__init__(
             'aws-native:customerprofiles:SegmentDefinition',
@@ -231,6 +251,8 @@ class SegmentDefinition(pulumi.CustomResource):
         __props__.__dict__["segment_definition_arn"] = None
         __props__.__dict__["segment_definition_name"] = None
         __props__.__dict__["segment_groups"] = None
+        __props__.__dict__["segment_sql_query"] = None
+        __props__.__dict__["segment_type"] = None
         __props__.__dict__["tags"] = None
         return SegmentDefinition(resource_name, opts=opts, __props__=__props__)
 
@@ -284,11 +306,27 @@ class SegmentDefinition(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="segmentGroups")
-    def segment_groups(self) -> pulumi.Output['outputs.SegmentDefinitionSegmentGroup']:
+    def segment_groups(self) -> pulumi.Output[Optional['outputs.SegmentDefinitionSegmentGroup']]:
         """
         An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
         """
         return pulumi.get(self, "segment_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="segmentSqlQuery")
+    def segment_sql_query(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The SQL query that defines the segment criteria.
+        """
+        return pulumi.get(self, "segment_sql_query")
+
+    @_builtins.property
+    @pulumi.getter(name="segmentType")
+    def segment_type(self) -> pulumi.Output['SegmentDefinitionSegmentType']:
+        """
+        The SQL query that defines the segment criteria.
+        """
+        return pulumi.get(self, "segment_type")
 
     @_builtins.property
     @pulumi.getter

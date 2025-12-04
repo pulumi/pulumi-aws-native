@@ -467,6 +467,10 @@ export class RestApi extends pulumi.CustomResource {
      */
     declare public readonly disableExecuteApiEndpoint: pulumi.Output<boolean | undefined>;
     /**
+     * The endpoint access mode for your RestApi.
+     */
+    declare public readonly endpointAccessMode: pulumi.Output<string | undefined>;
+    /**
      * A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
      */
     declare public readonly endpointConfiguration: pulumi.Output<outputs.apigateway.RestApiEndpointConfiguration | undefined>;
@@ -509,6 +513,9 @@ export class RestApi extends pulumi.CustomResource {
      * The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
      */
     declare public /*out*/ readonly rootResourceId: pulumi.Output<string>;
+    /**
+     * The Transport Layer Security (TLS) version + cipher suite for this RestApi.
+     */
     declare public readonly securityPolicy: pulumi.Output<string | undefined>;
     /**
      * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
@@ -533,6 +540,7 @@ export class RestApi extends pulumi.CustomResource {
             resourceInputs["cloneFrom"] = args?.cloneFrom;
             resourceInputs["description"] = args?.description;
             resourceInputs["disableExecuteApiEndpoint"] = args?.disableExecuteApiEndpoint;
+            resourceInputs["endpointAccessMode"] = args?.endpointAccessMode;
             resourceInputs["endpointConfiguration"] = args?.endpointConfiguration;
             resourceInputs["failOnWarnings"] = args?.failOnWarnings;
             resourceInputs["minimumCompressionSize"] = args?.minimumCompressionSize;
@@ -552,6 +560,7 @@ export class RestApi extends pulumi.CustomResource {
             resourceInputs["cloneFrom"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["disableExecuteApiEndpoint"] = undefined /*out*/;
+            resourceInputs["endpointAccessMode"] = undefined /*out*/;
             resourceInputs["endpointConfiguration"] = undefined /*out*/;
             resourceInputs["failOnWarnings"] = undefined /*out*/;
             resourceInputs["minimumCompressionSize"] = undefined /*out*/;
@@ -604,6 +613,10 @@ export interface RestApiArgs {
      */
     disableExecuteApiEndpoint?: pulumi.Input<boolean>;
     /**
+     * The endpoint access mode for your RestApi.
+     */
+    endpointAccessMode?: pulumi.Input<string>;
+    /**
      * A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
      */
     endpointConfiguration?: pulumi.Input<inputs.apigateway.RestApiEndpointConfigurationArgs>;
@@ -638,6 +651,9 @@ export interface RestApiArgs {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
      */
     policy?: any;
+    /**
+     * The Transport Layer Security (TLS) version + cipher suite for this RestApi.
+     */
     securityPolicy?: pulumi.Input<string>;
     /**
      * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.

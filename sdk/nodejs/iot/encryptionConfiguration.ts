@@ -47,7 +47,7 @@ export class EncryptionConfiguration extends pulumi.CustomResource {
      */
     declare public readonly encryptionType: pulumi.Output<enums.iot.EncryptionConfigurationEncryptionType>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+     * The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS  on behalf of the customer.
      */
     declare public readonly kmsAccessRoleArn: pulumi.Output<string | undefined>;
     /**
@@ -101,7 +101,7 @@ export interface EncryptionConfigurationArgs {
      */
     encryptionType: pulumi.Input<enums.iot.EncryptionConfigurationEncryptionType>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+     * The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS  on behalf of the customer.
      */
     kmsAccessRoleArn?: pulumi.Input<string>;
     /**

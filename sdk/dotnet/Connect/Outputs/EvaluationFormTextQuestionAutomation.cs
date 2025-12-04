@@ -10,11 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Outputs
 {
 
+    /// <summary>
+    /// Information about the automation configuration in text questions.
+    /// </summary>
     [OutputType]
     public sealed class EvaluationFormTextQuestionAutomation
     {
         /// <summary>
-        /// The source of automation answer of the question.
+        /// Automation answer source.
         /// </summary>
         public readonly Outputs.EvaluationFormQuestionAutomationAnswerSource? AnswerSource;
 

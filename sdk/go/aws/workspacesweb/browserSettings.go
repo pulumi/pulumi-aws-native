@@ -30,6 +30,8 @@ type BrowserSettings struct {
 	CustomerManagedKey pulumi.StringPtrOutput `pulumi:"customerManagedKey"`
 	// The tags to add to the browser settings resource. A tag is a key-value pair.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.
+	WebContentFilteringPolicy BrowserSettingsWebContentFilteringPolicyPtrOutput `pulumi:"webContentFilteringPolicy"`
 }
 
 // NewBrowserSettings registers a new resource with the given unique name, arguments, and options.
@@ -87,6 +89,8 @@ type browserSettingsArgs struct {
 	CustomerManagedKey *string `pulumi:"customerManagedKey"`
 	// The tags to add to the browser settings resource. A tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.
+	WebContentFilteringPolicy *BrowserSettingsWebContentFilteringPolicy `pulumi:"webContentFilteringPolicy"`
 }
 
 // The set of arguments for constructing a BrowserSettings resource.
@@ -101,6 +105,8 @@ type BrowserSettingsArgs struct {
 	CustomerManagedKey pulumi.StringPtrInput
 	// The tags to add to the browser settings resource. A tag is a key-value pair.
 	Tags aws.TagArrayInput
+	// The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.
+	WebContentFilteringPolicy BrowserSettingsWebContentFilteringPolicyPtrInput
 }
 
 func (BrowserSettingsArgs) ElementType() reflect.Type {
@@ -170,6 +176,13 @@ func (o BrowserSettingsOutput) CustomerManagedKey() pulumi.StringPtrOutput {
 // The tags to add to the browser settings resource. A tag is a key-value pair.
 func (o BrowserSettingsOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *BrowserSettings) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.
+func (o BrowserSettingsOutput) WebContentFilteringPolicy() BrowserSettingsWebContentFilteringPolicyPtrOutput {
+	return o.ApplyT(func(v *BrowserSettings) BrowserSettingsWebContentFilteringPolicyPtrOutput {
+		return v.WebContentFilteringPolicy
+	}).(BrowserSettingsWebContentFilteringPolicyPtrOutput)
 }
 
 func init() {

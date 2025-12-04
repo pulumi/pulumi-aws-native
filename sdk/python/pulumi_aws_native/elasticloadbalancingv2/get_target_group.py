@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTargetGroupResult:
-    def __init__(__self__, health_check_enabled=None, health_check_interval_seconds=None, health_check_path=None, health_check_port=None, health_check_protocol=None, health_check_timeout_seconds=None, healthy_threshold_count=None, load_balancer_arns=None, matcher=None, tags=None, target_group_arn=None, target_group_attributes=None, target_group_full_name=None, target_group_name=None, targets=None, unhealthy_threshold_count=None):
+    def __init__(__self__, health_check_enabled=None, health_check_interval_seconds=None, health_check_path=None, health_check_port=None, health_check_protocol=None, health_check_timeout_seconds=None, healthy_threshold_count=None, load_balancer_arns=None, matcher=None, tags=None, target_control_port=None, target_group_arn=None, target_group_attributes=None, target_group_full_name=None, target_group_name=None, targets=None, unhealthy_threshold_count=None):
         if health_check_enabled and not isinstance(health_check_enabled, bool):
             raise TypeError("Expected argument 'health_check_enabled' to be a bool")
         pulumi.set(__self__, "health_check_enabled", health_check_enabled)
@@ -56,6 +56,9 @@ class GetTargetGroupResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if target_control_port and not isinstance(target_control_port, int):
+            raise TypeError("Expected argument 'target_control_port' to be a int")
+        pulumi.set(__self__, "target_control_port", target_control_port)
         if target_group_arn and not isinstance(target_group_arn, str):
             raise TypeError("Expected argument 'target_group_arn' to be a str")
         pulumi.set(__self__, "target_group_arn", target_group_arn)
@@ -156,6 +159,14 @@ class GetTargetGroupResult:
         return pulumi.get(self, "tags")
 
     @_builtins.property
+    @pulumi.getter(name="targetControlPort")
+    def target_control_port(self) -> Optional[_builtins.int]:
+        """
+        The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
+        """
+        return pulumi.get(self, "target_control_port")
+
+    @_builtins.property
     @pulumi.getter(name="targetGroupArn")
     def target_group_arn(self) -> Optional[_builtins.str]:
         """
@@ -220,6 +231,7 @@ class AwaitableGetTargetGroupResult(GetTargetGroupResult):
             load_balancer_arns=self.load_balancer_arns,
             matcher=self.matcher,
             tags=self.tags,
+            target_control_port=self.target_control_port,
             target_group_arn=self.target_group_arn,
             target_group_attributes=self.target_group_attributes,
             target_group_full_name=self.target_group_full_name,
@@ -252,6 +264,7 @@ def get_target_group(target_group_arn: Optional[_builtins.str] = None,
         load_balancer_arns=pulumi.get(__ret__, 'load_balancer_arns'),
         matcher=pulumi.get(__ret__, 'matcher'),
         tags=pulumi.get(__ret__, 'tags'),
+        target_control_port=pulumi.get(__ret__, 'target_control_port'),
         target_group_arn=pulumi.get(__ret__, 'target_group_arn'),
         target_group_attributes=pulumi.get(__ret__, 'target_group_attributes'),
         target_group_full_name=pulumi.get(__ret__, 'target_group_full_name'),
@@ -281,6 +294,7 @@ def get_target_group_output(target_group_arn: Optional[pulumi.Input[_builtins.st
         load_balancer_arns=pulumi.get(__response__, 'load_balancer_arns'),
         matcher=pulumi.get(__response__, 'matcher'),
         tags=pulumi.get(__response__, 'tags'),
+        target_control_port=pulumi.get(__response__, 'target_control_port'),
         target_group_arn=pulumi.get(__response__, 'target_group_arn'),
         target_group_attributes=pulumi.get(__response__, 'target_group_attributes'),
         target_group_full_name=pulumi.get(__response__, 'target_group_full_name'),

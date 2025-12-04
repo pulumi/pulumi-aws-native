@@ -122,6 +122,12 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string> DomainNameArn { get; private set; } = null!;
 
         /// <summary>
+        /// The endpoint access mode for your DomainName.
+        /// </summary>
+        [Output("endpointAccessMode")]
+        public Output<string?> EndpointAccessMode { get; private set; } = null!;
+
+        /// <summary>
         /// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
         /// </summary>
         [Output("endpointConfiguration")]
@@ -164,7 +170,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<Pulumi.AwsNative.ApiGateway.DomainNameRoutingMode?> RoutingMode { get; private set; } = null!;
 
         /// <summary>
-        /// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+        /// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
         /// </summary>
         [Output("securityPolicy")]
         public Output<string?> SecurityPolicy { get; private set; } = null!;
@@ -237,6 +243,12 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<string>? DomainNameValue { get; set; }
 
         /// <summary>
+        /// The endpoint access mode for your DomainName.
+        /// </summary>
+        [Input("endpointAccessMode")]
+        public Input<string>? EndpointAccessMode { get; set; }
+
+        /// <summary>
         /// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
         /// </summary>
         [Input("endpointConfiguration")]
@@ -267,7 +279,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<Pulumi.AwsNative.ApiGateway.DomainNameRoutingMode>? RoutingMode { get; set; }
 
         /// <summary>
-        /// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+        /// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
         /// </summary>
         [Input("securityPolicy")]
         public Input<string>? SecurityPolicy { get; set; }

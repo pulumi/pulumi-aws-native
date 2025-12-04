@@ -197,6 +197,7 @@ if not MYPY:
 
         If this value is included, it must be at least 60 minutes to avoid errors.
         """
+        target_logically_air_gapped_backup_vault_arn: NotRequired[pulumi.Input[_builtins.str]]
 elif False:
     BackupPlanBackupRuleResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -213,7 +214,8 @@ class BackupPlanBackupRuleResourceTypeArgs:
                  recovery_point_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  schedule_expression: Optional[pulumi.Input[_builtins.str]] = None,
                  schedule_expression_timezone: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_window_minutes: Optional[pulumi.Input[_builtins.float]] = None):
+                 start_window_minutes: Optional[pulumi.Input[_builtins.float]] = None,
+                 target_logically_air_gapped_backup_vault_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] rule_name: A display name for a backup rule.
         :param pulumi.Input[_builtins.str] target_backup_vault: The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of letters, numbers, and hyphens.
@@ -254,6 +256,8 @@ class BackupPlanBackupRuleResourceTypeArgs:
             pulumi.set(__self__, "schedule_expression_timezone", schedule_expression_timezone)
         if start_window_minutes is not None:
             pulumi.set(__self__, "start_window_minutes", start_window_minutes)
+        if target_logically_air_gapped_backup_vault_arn is not None:
+            pulumi.set(__self__, "target_logically_air_gapped_backup_vault_arn", target_logically_air_gapped_backup_vault_arn)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
@@ -393,6 +397,15 @@ class BackupPlanBackupRuleResourceTypeArgs:
     @start_window_minutes.setter
     def start_window_minutes(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "start_window_minutes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetLogicallyAirGappedBackupVaultArn")
+    def target_logically_air_gapped_backup_vault_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "target_logically_air_gapped_backup_vault_arn")
+
+    @target_logically_air_gapped_backup_vault_arn.setter
+    def target_logically_air_gapped_backup_vault_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "target_logically_air_gapped_backup_vault_arn", value)
 
 
 if not MYPY:

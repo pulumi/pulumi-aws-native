@@ -54,6 +54,7 @@ export class GatewayTarget extends pulumi.CustomResource {
      * The gateway ID for the gateway target.
      */
     declare public readonly gatewayIdentifier: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly lastSynchronizedAt: pulumi.Output<string>;
     /**
      * The name for the gateway target.
      */
@@ -103,6 +104,7 @@ export class GatewayTarget extends pulumi.CustomResource {
             resourceInputs["targetConfiguration"] = args?.targetConfiguration;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["gatewayArn"] = undefined /*out*/;
+            resourceInputs["lastSynchronizedAt"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusReasons"] = undefined /*out*/;
             resourceInputs["targetId"] = undefined /*out*/;
@@ -113,6 +115,7 @@ export class GatewayTarget extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["gatewayArn"] = undefined /*out*/;
             resourceInputs["gatewayIdentifier"] = undefined /*out*/;
+            resourceInputs["lastSynchronizedAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusReasons"] = undefined /*out*/;

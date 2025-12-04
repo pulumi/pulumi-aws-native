@@ -33,7 +33,8 @@ type AppMonitor struct {
 	// The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
 	DomainList pulumi.StringArrayOutput `pulumi:"domainList"`
 	// A name for the app monitor
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name     pulumi.StringOutput         `pulumi:"name"`
+	Platform AppMonitorPlatformPtrOutput `pulumi:"platform"`
 	// Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
 	ResourcePolicy AppMonitorResourcePolicyPtrOutput `pulumi:"resourcePolicy"`
 	// Assigns one or more tags (key-value pairs) to the app monitor.
@@ -57,6 +58,7 @@ func NewAppMonitor(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"name",
+		"platform",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -107,7 +109,8 @@ type appMonitorArgs struct {
 	// The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
 	DomainList []string `pulumi:"domainList"`
 	// A name for the app monitor
-	Name *string `pulumi:"name"`
+	Name     *string             `pulumi:"name"`
+	Platform *AppMonitorPlatform `pulumi:"platform"`
 	// Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
 	ResourcePolicy *AppMonitorResourcePolicy `pulumi:"resourcePolicy"`
 	// Assigns one or more tags (key-value pairs) to the app monitor.
@@ -139,7 +142,8 @@ type AppMonitorArgs struct {
 	// The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
 	DomainList pulumi.StringArrayInput
 	// A name for the app monitor
-	Name pulumi.StringPtrInput
+	Name     pulumi.StringPtrInput
+	Platform AppMonitorPlatformPtrInput
 	// Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .
 	ResourcePolicy AppMonitorResourcePolicyPtrInput
 	// Assigns one or more tags (key-value pairs) to the app monitor.
@@ -231,6 +235,10 @@ func (o AppMonitorOutput) DomainList() pulumi.StringArrayOutput {
 // A name for the app monitor
 func (o AppMonitorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppMonitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AppMonitorOutput) Platform() AppMonitorPlatformPtrOutput {
+	return o.ApplyT(func(v *AppMonitor) AppMonitorPlatformPtrOutput { return v.Platform }).(AppMonitorPlatformPtrOutput)
 }
 
 // Use this structure to assign a resource-based policy to a CloudWatch RUM app monitor to control access to it. Each app monitor can have one resource-based policy. The maximum size of the policy is 4 KB. To learn more about using resource policies with RUM, see [Using resource-based policies with CloudWatch RUM](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-resource-policies.html) .

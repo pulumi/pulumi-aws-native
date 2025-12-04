@@ -17,6 +17,8 @@ import (
 type PartnerApp struct {
 	pulumi.CustomResourceState
 
+	// The version of the PartnerApp.
+	AppVersion pulumi.StringPtrOutput `pulumi:"appVersion"`
 	// A collection of settings that specify the maintenance schedule for the PartnerApp.
 	ApplicationConfig PartnerAppConfigPtrOutput `pulumi:"applicationConfig"`
 	// The Amazon Resource Name (ARN) of the created PartnerApp.
@@ -27,6 +29,10 @@ type PartnerApp struct {
 	BaseUrl pulumi.StringOutput `pulumi:"baseUrl"`
 	// The client token for the PartnerApp.
 	ClientToken pulumi.StringPtrOutput `pulumi:"clientToken"`
+	// The end-of-life date for the current version of the PartnerApp.
+	CurrentVersionEolDate pulumi.StringOutput `pulumi:"currentVersionEolDate"`
+	// Enables automatic minor version upgrades for the PartnerApp.
+	EnableAutoMinorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"enableAutoMinorVersionUpgrade"`
 	// Enables IAM Session based Identity for PartnerApp.
 	EnableIamSessionBasedIdentity pulumi.BoolPtrOutput `pulumi:"enableIamSessionBasedIdentity"`
 	// The execution role for the user.
@@ -105,12 +111,16 @@ func (PartnerAppState) ElementType() reflect.Type {
 }
 
 type partnerAppArgs struct {
+	// The version of the PartnerApp.
+	AppVersion *string `pulumi:"appVersion"`
 	// A collection of settings that specify the maintenance schedule for the PartnerApp.
 	ApplicationConfig *PartnerAppConfig `pulumi:"applicationConfig"`
 	// The Auth type of PartnerApp.
 	AuthType PartnerAppAuthType `pulumi:"authType"`
 	// The client token for the PartnerApp.
 	ClientToken *string `pulumi:"clientToken"`
+	// Enables automatic minor version upgrades for the PartnerApp.
+	EnableAutoMinorVersionUpgrade *bool `pulumi:"enableAutoMinorVersionUpgrade"`
 	// Enables IAM Session based Identity for PartnerApp.
 	EnableIamSessionBasedIdentity *bool `pulumi:"enableIamSessionBasedIdentity"`
 	// The execution role for the user.
@@ -131,12 +141,16 @@ type partnerAppArgs struct {
 
 // The set of arguments for constructing a PartnerApp resource.
 type PartnerAppArgs struct {
+	// The version of the PartnerApp.
+	AppVersion pulumi.StringPtrInput
 	// A collection of settings that specify the maintenance schedule for the PartnerApp.
 	ApplicationConfig PartnerAppConfigPtrInput
 	// The Auth type of PartnerApp.
 	AuthType PartnerAppAuthTypeInput
 	// The client token for the PartnerApp.
 	ClientToken pulumi.StringPtrInput
+	// Enables automatic minor version upgrades for the PartnerApp.
+	EnableAutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// Enables IAM Session based Identity for PartnerApp.
 	EnableIamSessionBasedIdentity pulumi.BoolPtrInput
 	// The execution role for the user.
@@ -192,6 +206,11 @@ func (o PartnerAppOutput) ToPartnerAppOutputWithContext(ctx context.Context) Par
 	return o
 }
 
+// The version of the PartnerApp.
+func (o PartnerAppOutput) AppVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerApp) pulumi.StringPtrOutput { return v.AppVersion }).(pulumi.StringPtrOutput)
+}
+
 // A collection of settings that specify the maintenance schedule for the PartnerApp.
 func (o PartnerAppOutput) ApplicationConfig() PartnerAppConfigPtrOutput {
 	return o.ApplyT(func(v *PartnerApp) PartnerAppConfigPtrOutput { return v.ApplicationConfig }).(PartnerAppConfigPtrOutput)
@@ -215,6 +234,16 @@ func (o PartnerAppOutput) BaseUrl() pulumi.StringOutput {
 // The client token for the PartnerApp.
 func (o PartnerAppOutput) ClientToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PartnerApp) pulumi.StringPtrOutput { return v.ClientToken }).(pulumi.StringPtrOutput)
+}
+
+// The end-of-life date for the current version of the PartnerApp.
+func (o PartnerAppOutput) CurrentVersionEolDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerApp) pulumi.StringOutput { return v.CurrentVersionEolDate }).(pulumi.StringOutput)
+}
+
+// Enables automatic minor version upgrades for the PartnerApp.
+func (o PartnerAppOutput) EnableAutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PartnerApp) pulumi.BoolPtrOutput { return v.EnableAutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
 }
 
 // Enables IAM Session based Identity for PartnerApp.

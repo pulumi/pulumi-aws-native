@@ -29,7 +29,9 @@ class RuntimeArgs:
                  authorizer_configuration: Optional[pulumi.Input['RuntimeAuthorizerConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 lifecycle_configuration: Optional[pulumi.Input['RuntimeLifecycleConfigurationArgs']] = None,
                  protocol_configuration: Optional[pulumi.Input['RuntimeProtocolConfiguration']] = None,
+                 request_header_configuration: Optional[pulumi.Input['RuntimeRequestHeaderConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Runtime resource.
@@ -40,7 +42,9 @@ class RuntimeArgs:
         :param pulumi.Input['RuntimeAuthorizerConfigurationArgs'] authorizer_configuration: Authorizer configuration for the agent runtime
         :param pulumi.Input[_builtins.str] description: Description of the resource
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Environment variables for the agent runtime
+        :param pulumi.Input['RuntimeLifecycleConfigurationArgs'] lifecycle_configuration: Lifecycle configuration for managing runtime sessions
         :param pulumi.Input['RuntimeProtocolConfiguration'] protocol_configuration: Protocol configuration for the agent runtime
+        :param pulumi.Input['RuntimeRequestHeaderConfigurationArgs'] request_header_configuration: Configuration for HTTP request headers
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags for the agent.
         """
         pulumi.set(__self__, "agent_runtime_artifact", agent_runtime_artifact)
@@ -53,8 +57,12 @@ class RuntimeArgs:
             pulumi.set(__self__, "description", description)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if lifecycle_configuration is not None:
+            pulumi.set(__self__, "lifecycle_configuration", lifecycle_configuration)
         if protocol_configuration is not None:
             pulumi.set(__self__, "protocol_configuration", protocol_configuration)
+        if request_header_configuration is not None:
+            pulumi.set(__self__, "request_header_configuration", request_header_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -143,6 +151,18 @@ class RuntimeArgs:
         pulumi.set(self, "environment_variables", value)
 
     @_builtins.property
+    @pulumi.getter(name="lifecycleConfiguration")
+    def lifecycle_configuration(self) -> Optional[pulumi.Input['RuntimeLifecycleConfigurationArgs']]:
+        """
+        Lifecycle configuration for managing runtime sessions
+        """
+        return pulumi.get(self, "lifecycle_configuration")
+
+    @lifecycle_configuration.setter
+    def lifecycle_configuration(self, value: Optional[pulumi.Input['RuntimeLifecycleConfigurationArgs']]):
+        pulumi.set(self, "lifecycle_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="protocolConfiguration")
     def protocol_configuration(self) -> Optional[pulumi.Input['RuntimeProtocolConfiguration']]:
         """
@@ -153,6 +173,18 @@ class RuntimeArgs:
     @protocol_configuration.setter
     def protocol_configuration(self, value: Optional[pulumi.Input['RuntimeProtocolConfiguration']]):
         pulumi.set(self, "protocol_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestHeaderConfiguration")
+    def request_header_configuration(self) -> Optional[pulumi.Input['RuntimeRequestHeaderConfigurationArgs']]:
+        """
+        Configuration for HTTP request headers
+        """
+        return pulumi.get(self, "request_header_configuration")
+
+    @request_header_configuration.setter
+    def request_header_configuration(self, value: Optional[pulumi.Input['RuntimeRequestHeaderConfigurationArgs']]):
+        pulumi.set(self, "request_header_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -178,8 +210,10 @@ class Runtime(pulumi.CustomResource):
                  authorizer_configuration: Optional[pulumi.Input[Union['RuntimeAuthorizerConfigurationArgs', 'RuntimeAuthorizerConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 lifecycle_configuration: Optional[pulumi.Input[Union['RuntimeLifecycleConfigurationArgs', 'RuntimeLifecycleConfigurationArgsDict']]] = None,
                  network_configuration: Optional[pulumi.Input[Union['RuntimeNetworkConfigurationArgs', 'RuntimeNetworkConfigurationArgsDict']]] = None,
                  protocol_configuration: Optional[pulumi.Input['RuntimeProtocolConfiguration']] = None,
+                 request_header_configuration: Optional[pulumi.Input[Union['RuntimeRequestHeaderConfigurationArgs', 'RuntimeRequestHeaderConfigurationArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -193,8 +227,10 @@ class Runtime(pulumi.CustomResource):
         :param pulumi.Input[Union['RuntimeAuthorizerConfigurationArgs', 'RuntimeAuthorizerConfigurationArgsDict']] authorizer_configuration: Authorizer configuration for the agent runtime
         :param pulumi.Input[_builtins.str] description: Description of the resource
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Environment variables for the agent runtime
+        :param pulumi.Input[Union['RuntimeLifecycleConfigurationArgs', 'RuntimeLifecycleConfigurationArgsDict']] lifecycle_configuration: Lifecycle configuration for managing runtime sessions
         :param pulumi.Input[Union['RuntimeNetworkConfigurationArgs', 'RuntimeNetworkConfigurationArgsDict']] network_configuration: Network access configuration for the Agent
         :param pulumi.Input['RuntimeProtocolConfiguration'] protocol_configuration: Protocol configuration for the agent runtime
+        :param pulumi.Input[Union['RuntimeRequestHeaderConfigurationArgs', 'RuntimeRequestHeaderConfigurationArgsDict']] request_header_configuration: Configuration for HTTP request headers
         :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of an IAM role
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags for the agent.
         """
@@ -227,8 +263,10 @@ class Runtime(pulumi.CustomResource):
                  authorizer_configuration: Optional[pulumi.Input[Union['RuntimeAuthorizerConfigurationArgs', 'RuntimeAuthorizerConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 lifecycle_configuration: Optional[pulumi.Input[Union['RuntimeLifecycleConfigurationArgs', 'RuntimeLifecycleConfigurationArgsDict']]] = None,
                  network_configuration: Optional[pulumi.Input[Union['RuntimeNetworkConfigurationArgs', 'RuntimeNetworkConfigurationArgsDict']]] = None,
                  protocol_configuration: Optional[pulumi.Input['RuntimeProtocolConfiguration']] = None,
+                 request_header_configuration: Optional[pulumi.Input[Union['RuntimeRequestHeaderConfigurationArgs', 'RuntimeRequestHeaderConfigurationArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -249,10 +287,12 @@ class Runtime(pulumi.CustomResource):
             __props__.__dict__["authorizer_configuration"] = authorizer_configuration
             __props__.__dict__["description"] = description
             __props__.__dict__["environment_variables"] = environment_variables
+            __props__.__dict__["lifecycle_configuration"] = lifecycle_configuration
             if network_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'network_configuration'")
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["protocol_configuration"] = protocol_configuration
+            __props__.__dict__["request_header_configuration"] = request_header_configuration
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -298,8 +338,10 @@ class Runtime(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["environment_variables"] = None
         __props__.__dict__["last_updated_at"] = None
+        __props__.__dict__["lifecycle_configuration"] = None
         __props__.__dict__["network_configuration"] = None
         __props__.__dict__["protocol_configuration"] = None
+        __props__.__dict__["request_header_configuration"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
@@ -387,6 +429,14 @@ class Runtime(pulumi.CustomResource):
         return pulumi.get(self, "last_updated_at")
 
     @_builtins.property
+    @pulumi.getter(name="lifecycleConfiguration")
+    def lifecycle_configuration(self) -> pulumi.Output[Optional['outputs.RuntimeLifecycleConfiguration']]:
+        """
+        Lifecycle configuration for managing runtime sessions
+        """
+        return pulumi.get(self, "lifecycle_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Output['outputs.RuntimeNetworkConfiguration']:
         """
@@ -401,6 +451,14 @@ class Runtime(pulumi.CustomResource):
         Protocol configuration for the agent runtime
         """
         return pulumi.get(self, "protocol_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="requestHeaderConfiguration")
+    def request_header_configuration(self) -> pulumi.Output[Optional['outputs.RuntimeRequestHeaderConfiguration']]:
+        """
+        Configuration for HTTP request headers
+        """
+        return pulumi.get(self, "request_header_configuration")
 
     @_builtins.property
     @pulumi.getter(name="roleArn")

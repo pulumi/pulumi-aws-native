@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource type definition for AWS::ServiceCatalog::CloudFormationProduct
+// Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
 func LookupCloudFormationProduct(ctx *pulumi.Context, args *LookupCloudFormationProductArgs, opts ...pulumi.InvokeOption) (*LookupCloudFormationProductResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCloudFormationProductResult
@@ -24,17 +24,20 @@ func LookupCloudFormationProduct(ctx *pulumi.Context, args *LookupCloudFormation
 }
 
 type LookupCloudFormationProductArgs struct {
-	// The ID of the product, such as prod-tsjbmal34qvek
 	Id string `pulumi:"id"`
 }
 
 type LookupCloudFormationProductResult struct {
+	// The language code.
+	//
+	// - `jp` - Japanese
+	// - `zh` - Chinese
+	AcceptLanguage *string `pulumi:"acceptLanguage"`
 	// The description of the product.
 	Description *string `pulumi:"description"`
 	// The distributor of the product.
 	Distributor *string `pulumi:"distributor"`
-	// The ID of the product, such as prod-tsjbmal34qvek
-	Id *string `pulumi:"id"`
+	Id          *string `pulumi:"id"`
 	// The name of the product.
 	Name *string `pulumi:"name"`
 	// The owner of the product.
@@ -42,20 +45,26 @@ type LookupCloudFormationProductResult struct {
 	// The name of the product.
 	ProductName *string `pulumi:"productName"`
 	// The type of product.
-	ProductType *CloudFormationProductProductType `pulumi:"productType"`
-	// The IDs of the provisioning artifacts
+	ProductType *string `pulumi:"productType"`
+	// The IDs of the provisioning artifacts.
 	ProvisioningArtifactIds *string `pulumi:"provisioningArtifactIds"`
-	// The names of the provisioning artifacts
+	// The names of the provisioning artifacts.
 	ProvisioningArtifactNames *string `pulumi:"provisioningArtifactNames"`
 	// The configuration of the provisioning artifact (also known as a version).
 	ProvisioningArtifactParameters []CloudFormationProductProvisioningArtifactProperties `pulumi:"provisioningArtifactParameters"`
-	// A top level ProductViewDetail response containing details about the product's connection. AWS Service Catalog returns this field for the CreateProduct, UpdateProduct, DescribeProductAsAdmin, and SearchProductAsAdmin APIs. This response contains the same fields as the ConnectionParameters request, with the addition of the LastSync response.
+	// This property is turned off by default. If turned off, you can update provisioning artifacts or product attributes (such as description, distributor, name, owner, and more) and the associated provisioning artifacts will retain the same unique identifier. Provisioning artifacts are matched within the CloudFormationProduct resource, and only those that have been updated will be changed. Provisioning artifacts are matched by a combinaton of provisioning artifact template URL and name.
+	//
+	// If turned on, provisioning artifacts will be given a new unique identifier when you update the product or provisioning artifacts.
+	ReplaceProvisioningArtifacts *bool `pulumi:"replaceProvisioningArtifacts"`
+	// A top level `ProductViewDetail` response containing details about the product’s connection. AWS Service Catalog returns this field for the `CreateProduct` , `UpdateProduct` , `DescribeProductAsAdmin` , and `SearchProductAsAdmin` APIs. This response contains the same fields as the `ConnectionParameters` request, with the addition of the `LastSync` response.
 	SourceConnection *CloudFormationProductSourceConnection `pulumi:"sourceConnection"`
 	// The support information about the product.
 	SupportDescription *string `pulumi:"supportDescription"`
 	// The contact email for product support.
 	SupportEmail *string `pulumi:"supportEmail"`
 	// The contact URL for product support.
+	//
+	// `^https?:\/\//` / is the pattern used to validate SupportUrl.
 	SupportUrl *string `pulumi:"supportUrl"`
 	// One or more tags.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -71,7 +80,6 @@ func LookupCloudFormationProductOutput(ctx *pulumi.Context, args LookupCloudForm
 }
 
 type LookupCloudFormationProductOutputArgs struct {
-	// The ID of the product, such as prod-tsjbmal34qvek
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -93,6 +101,14 @@ func (o LookupCloudFormationProductResultOutput) ToLookupCloudFormationProductRe
 	return o
 }
 
+// The language code.
+//
+// - `jp` - Japanese
+// - `zh` - Chinese
+func (o LookupCloudFormationProductResultOutput) AcceptLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudFormationProductResult) *string { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
 // The description of the product.
 func (o LookupCloudFormationProductResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCloudFormationProductResult) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -103,7 +119,6 @@ func (o LookupCloudFormationProductResultOutput) Distributor() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupCloudFormationProductResult) *string { return v.Distributor }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the product, such as prod-tsjbmal34qvek
 func (o LookupCloudFormationProductResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCloudFormationProductResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -124,16 +139,16 @@ func (o LookupCloudFormationProductResultOutput) ProductName() pulumi.StringPtrO
 }
 
 // The type of product.
-func (o LookupCloudFormationProductResultOutput) ProductType() CloudFormationProductProductTypePtrOutput {
-	return o.ApplyT(func(v LookupCloudFormationProductResult) *CloudFormationProductProductType { return v.ProductType }).(CloudFormationProductProductTypePtrOutput)
+func (o LookupCloudFormationProductResultOutput) ProductType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCloudFormationProductResult) *string { return v.ProductType }).(pulumi.StringPtrOutput)
 }
 
-// The IDs of the provisioning artifacts
+// The IDs of the provisioning artifacts.
 func (o LookupCloudFormationProductResultOutput) ProvisioningArtifactIds() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCloudFormationProductResult) *string { return v.ProvisioningArtifactIds }).(pulumi.StringPtrOutput)
 }
 
-// The names of the provisioning artifacts
+// The names of the provisioning artifacts.
 func (o LookupCloudFormationProductResultOutput) ProvisioningArtifactNames() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCloudFormationProductResult) *string { return v.ProvisioningArtifactNames }).(pulumi.StringPtrOutput)
 }
@@ -145,7 +160,14 @@ func (o LookupCloudFormationProductResultOutput) ProvisioningArtifactParameters(
 	}).(CloudFormationProductProvisioningArtifactPropertiesArrayOutput)
 }
 
-// A top level ProductViewDetail response containing details about the product's connection. AWS Service Catalog returns this field for the CreateProduct, UpdateProduct, DescribeProductAsAdmin, and SearchProductAsAdmin APIs. This response contains the same fields as the ConnectionParameters request, with the addition of the LastSync response.
+// This property is turned off by default. If turned off, you can update provisioning artifacts or product attributes (such as description, distributor, name, owner, and more) and the associated provisioning artifacts will retain the same unique identifier. Provisioning artifacts are matched within the CloudFormationProduct resource, and only those that have been updated will be changed. Provisioning artifacts are matched by a combinaton of provisioning artifact template URL and name.
+//
+// If turned on, provisioning artifacts will be given a new unique identifier when you update the product or provisioning artifacts.
+func (o LookupCloudFormationProductResultOutput) ReplaceProvisioningArtifacts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupCloudFormationProductResult) *bool { return v.ReplaceProvisioningArtifacts }).(pulumi.BoolPtrOutput)
+}
+
+// A top level `ProductViewDetail` response containing details about the product’s connection. AWS Service Catalog returns this field for the `CreateProduct` , `UpdateProduct` , `DescribeProductAsAdmin` , and `SearchProductAsAdmin` APIs. This response contains the same fields as the `ConnectionParameters` request, with the addition of the `LastSync` response.
 func (o LookupCloudFormationProductResultOutput) SourceConnection() CloudFormationProductSourceConnectionPtrOutput {
 	return o.ApplyT(func(v LookupCloudFormationProductResult) *CloudFormationProductSourceConnection {
 		return v.SourceConnection
@@ -163,6 +185,8 @@ func (o LookupCloudFormationProductResultOutput) SupportEmail() pulumi.StringPtr
 }
 
 // The contact URL for product support.
+//
+// `^https?:\/\//` / is the pattern used to validate SupportUrl.
 func (o LookupCloudFormationProductResultOutput) SupportUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCloudFormationProductResult) *string { return v.SupportUrl }).(pulumi.StringPtrOutput)
 }

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Forecast.Inputs
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.
+        /// The ARN of the IAM role that Amazon Forecast can assume to access the AWS  key.
         /// 
         /// Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `InvalidInputException` error.
         /// </summary>

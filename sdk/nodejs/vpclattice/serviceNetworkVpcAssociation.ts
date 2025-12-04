@@ -50,6 +50,14 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
+     * The DNS options for the service network VPC association.
+     */
+    declare public readonly dnsOptions: pulumi.Output<outputs.vpclattice.ServiceNetworkVpcAssociationDnsOptions | undefined>;
+    /**
+     * Indicates if private DNS is enabled for the service network VPC association.
+     */
+    declare public readonly privateDnsEnabled: pulumi.Output<boolean | undefined>;
+    /**
      * The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
      */
     declare public readonly securityGroupIds: pulumi.Output<string[] | undefined>;
@@ -97,6 +105,8 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["dnsOptions"] = args?.dnsOptions;
+            resourceInputs["privateDnsEnabled"] = args?.privateDnsEnabled;
             resourceInputs["securityGroupIds"] = args?.securityGroupIds;
             resourceInputs["serviceNetworkIdentifier"] = args?.serviceNetworkIdentifier;
             resourceInputs["tags"] = args?.tags;
@@ -113,6 +123,8 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["dnsOptions"] = undefined /*out*/;
+            resourceInputs["privateDnsEnabled"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["serviceNetworkArn"] = undefined /*out*/;
             resourceInputs["serviceNetworkId"] = undefined /*out*/;
@@ -124,7 +136,7 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
             resourceInputs["vpcIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["serviceNetworkIdentifier", "vpcIdentifier"] };
+        const replaceOnChanges = { replaceOnChanges: ["dnsOptions", "privateDnsEnabled", "serviceNetworkIdentifier", "vpcIdentifier"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ServiceNetworkVpcAssociation.__pulumiType, name, resourceInputs, opts);
     }
@@ -134,6 +146,14 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a ServiceNetworkVpcAssociation resource.
  */
 export interface ServiceNetworkVpcAssociationArgs {
+    /**
+     * The DNS options for the service network VPC association.
+     */
+    dnsOptions?: pulumi.Input<inputs.vpclattice.ServiceNetworkVpcAssociationDnsOptionsArgs>;
+    /**
+     * Indicates if private DNS is enabled for the service network VPC association.
+     */
+    privateDnsEnabled?: pulumi.Input<boolean>;
     /**
      * The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
      */

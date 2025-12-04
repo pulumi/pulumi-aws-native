@@ -28,6 +28,8 @@ type LookupRestoreTestingSelectionArgs struct {
 	// The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
 	RestoreTestingPlanName string `pulumi:"restoreTestingPlanName"`
 	// The unique name of the restore testing selection that belongs to the related restore testing plan.
+	//
+	// The name consists of only alphanumeric characters and underscores. Maximum length is 50.
 	RestoreTestingSelectionName string `pulumi:"restoreTestingSelectionName"`
 }
 
@@ -61,6 +63,8 @@ type LookupRestoreTestingSelectionOutputArgs struct {
 	// The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
 	RestoreTestingPlanName pulumi.StringInput `pulumi:"restoreTestingPlanName"`
 	// The unique name of the restore testing selection that belongs to the related restore testing plan.
+	//
+	// The name consists of only alphanumeric characters and underscores. Maximum length is 50.
 	RestoreTestingSelectionName pulumi.StringInput `pulumi:"restoreTestingSelectionName"`
 }
 

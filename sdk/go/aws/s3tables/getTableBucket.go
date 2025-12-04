@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -30,8 +31,11 @@ type LookupTableBucketArgs struct {
 type LookupTableBucketResult struct {
 	// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
 	EncryptionConfiguration *TableBucketEncryptionConfiguration `pulumi:"encryptionConfiguration"`
+	MetricsConfiguration    *TableBucketMetricsConfiguration    `pulumi:"metricsConfiguration"`
 	// The Amazon Resource Name (ARN) of the table bucket.
 	TableBucketArn *string `pulumi:"tableBucketArn"`
+	// User tags (key-value pairs) to associate with the table bucket.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
 	UnreferencedFileRemoval *TableBucketUnreferencedFileRemoval `pulumi:"unreferencedFileRemoval"`
 }
@@ -73,9 +77,18 @@ func (o LookupTableBucketResultOutput) EncryptionConfiguration() TableBucketEncr
 	return o.ApplyT(func(v LookupTableBucketResult) *TableBucketEncryptionConfiguration { return v.EncryptionConfiguration }).(TableBucketEncryptionConfigurationPtrOutput)
 }
 
+func (o LookupTableBucketResultOutput) MetricsConfiguration() TableBucketMetricsConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupTableBucketResult) *TableBucketMetricsConfiguration { return v.MetricsConfiguration }).(TableBucketMetricsConfigurationPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the table bucket.
 func (o LookupTableBucketResultOutput) TableBucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTableBucketResult) *string { return v.TableBucketArn }).(pulumi.StringPtrOutput)
+}
+
+// User tags (key-value pairs) to associate with the table bucket.
+func (o LookupTableBucketResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTableBucketResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .

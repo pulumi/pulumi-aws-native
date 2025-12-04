@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
         /// </summary>
         public readonly bool? AutomaticFail;
+        /// <summary>
+        /// A configuration for automatic fail.
+        /// </summary>
         public readonly Outputs.EvaluationFormAutomaticFailConfiguration? AutomaticFailConfiguration;
         /// <summary>
         /// The maximum answer value of the range option.

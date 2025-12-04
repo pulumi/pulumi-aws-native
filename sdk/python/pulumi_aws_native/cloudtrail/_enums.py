@@ -14,7 +14,10 @@ __all__ = [
     'DashboardType',
     'EventDataStoreContextKeySelectorType',
     'EventDataStoreMaxEventSize',
+    'TrailAggregationConfigurationEventCategory',
     'TrailEventSelectorReadWriteType',
+    'TrailSourceEventCategory',
+    'TrailTemplate',
 ]
 
 
@@ -83,6 +86,14 @@ class EventDataStoreMaxEventSize(_builtins.str, Enum):
     LARGE = "Large"
 
 
+@pulumi.type_token("aws-native:cloudtrail:TrailAggregationConfigurationEventCategory")
+class TrailAggregationConfigurationEventCategory(_builtins.str, Enum):
+    """
+    The category of events to be aggregated.
+    """
+    DATA = "Data"
+
+
 @pulumi.type_token("aws-native:cloudtrail:TrailEventSelectorReadWriteType")
 class TrailEventSelectorReadWriteType(_builtins.str, Enum):
     """
@@ -91,3 +102,22 @@ class TrailEventSelectorReadWriteType(_builtins.str, Enum):
     ALL = "All"
     READ_ONLY = "ReadOnly"
     WRITE_ONLY = "WriteOnly"
+
+
+@pulumi.type_token("aws-native:cloudtrail:TrailSourceEventCategory")
+class TrailSourceEventCategory(_builtins.str, Enum):
+    """
+    Event category for an insight selector.
+    """
+    MANAGEMENT = "Management"
+    DATA = "Data"
+
+
+@pulumi.type_token("aws-native:cloudtrail:TrailTemplate")
+class TrailTemplate(_builtins.str, Enum):
+    """
+    A template used to configure aggregation rules.
+    """
+    API_ACTIVITY = "API_ACTIVITY"
+    RESOURCE_ACCESS = "RESOURCE_ACCESS"
+    USER_ACTIONS = "USER_ACTIONS"

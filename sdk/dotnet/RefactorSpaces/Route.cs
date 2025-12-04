@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public Output<string> EnvironmentIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of Amazon API Gateway path resources to resource IDs.
+        /// A mapping of ABPlong path resources to resource IDs.
         /// </summary>
         [Output("pathResourceToId")]
         public Output<string> PathResourceToId { get; private set; } = null!;

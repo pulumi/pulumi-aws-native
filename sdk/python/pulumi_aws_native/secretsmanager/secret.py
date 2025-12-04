@@ -29,7 +29,8 @@ class SecretArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  replica_regions: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaRegionArgs']]]] = None,
                  secret_string: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Secret resource.
         :param pulumi.Input[_builtins.str] description: The description of the secret.
@@ -57,6 +58,7 @@ class SecretArgs:
                  +  Tag keys and values are case sensitive.
                  +  Do not use the ``aws:`` prefix in your tag names or values because AWS reserves it for AWS use. You can't edit or delete tag names or values with this prefix. Tags with this prefix do not count against your tags per secret limit.
                  +  If you use your tagging schema across multiple services and resources, other services might have restrictions on allowed characters. Generally allowed characters: letters, spaces, and numbers representable in UTF-8, plus the following special characters: + - = . _ : / @.
+        :param pulumi.Input[_builtins.str] type: The exact string that identifies the third-party partner that holds the external secret. For more information, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) .
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -72,6 +74,8 @@ class SecretArgs:
             pulumi.set(__self__, "secret_string", secret_string)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
@@ -175,6 +179,18 @@ class SecretArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The exact string that identifies the third-party partner that holds the external secret. For more information, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) .
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
 
 @pulumi.type_token("aws-native:secretsmanager:Secret")
 class Secret(pulumi.CustomResource):
@@ -189,6 +205,7 @@ class Secret(pulumi.CustomResource):
                  replica_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecretReplicaRegionArgs', 'SecretReplicaRegionArgsDict']]]]] = None,
                  secret_string: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Creates a new secret. A *secret* can be a password, a set of credentials such as a user name and password, an OAuth token, or other secret information that you store in an encrypted form in Secrets Manager.
@@ -279,6 +296,7 @@ class Secret(pulumi.CustomResource):
                  +  Tag keys and values are case sensitive.
                  +  Do not use the ``aws:`` prefix in your tag names or values because AWS reserves it for AWS use. You can't edit or delete tag names or values with this prefix. Tags with this prefix do not count against your tags per secret limit.
                  +  If you use your tagging schema across multiple services and resources, other services might have restrictions on allowed characters. Generally allowed characters: letters, spaces, and numbers representable in UTF-8, plus the following special characters: + - = . _ : / @.
+        :param pulumi.Input[_builtins.str] type: The exact string that identifies the third-party partner that holds the external secret. For more information, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) .
         """
         ...
     @overload
@@ -370,6 +388,7 @@ class Secret(pulumi.CustomResource):
                  replica_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecretReplicaRegionArgs', 'SecretReplicaRegionArgsDict']]]]] = None,
                  secret_string: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -386,6 +405,7 @@ class Secret(pulumi.CustomResource):
             __props__.__dict__["replica_regions"] = replica_regions
             __props__.__dict__["secret_string"] = secret_string
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["type"] = type
             __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -419,6 +439,7 @@ class Secret(pulumi.CustomResource):
         __props__.__dict__["replica_regions"] = None
         __props__.__dict__["secret_string"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return Secret(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -502,4 +523,12 @@ class Secret(pulumi.CustomResource):
           +  If you use your tagging schema across multiple services and resources, other services might have restrictions on allowed characters. Generally allowed characters: letters, spaces, and numbers representable in UTF-8, plus the following special characters: + - = . _ : / @.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The exact string that identifies the third-party partner that holds the external secret. For more information, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) .
+        """
+        return pulumi.get(self, "type")
 

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetDataPrepConfiguration
     {
+        /// <summary>
+        /// A map of destination tables that receive the final prepared data.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.DataSetDestinationTable> DestinationTableMap;
+        /// <summary>
+        /// A map of source tables that provide information about underlying sources.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.DataSetSourceTable> SourceTableMap;
+        /// <summary>
+        /// A map of transformation steps that process the data.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.DataSetTransformStep> TransformStepMap;
 
         [OutputConstructor]

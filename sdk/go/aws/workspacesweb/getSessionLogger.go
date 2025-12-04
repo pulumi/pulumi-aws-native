@@ -40,8 +40,9 @@ type LookupSessionLoggerResult struct {
 	// The configuration that specifies where logs are fowarded.
 	LogConfiguration *SessionLoggerLogConfiguration `pulumi:"logConfiguration"`
 	// The ARN of the session logger resource.
-	SessionLoggerArn *string   `pulumi:"sessionLoggerArn"`
-	Tags             []aws.Tag `pulumi:"tags"`
+	SessionLoggerArn *string `pulumi:"sessionLoggerArn"`
+	// The tags of the session logger.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSessionLoggerOutput(ctx *pulumi.Context, args LookupSessionLoggerOutputArgs, opts ...pulumi.InvokeOption) LookupSessionLoggerResultOutput {
@@ -106,6 +107,7 @@ func (o LookupSessionLoggerResultOutput) SessionLoggerArn() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupSessionLoggerResult) *string { return v.SessionLoggerArn }).(pulumi.StringPtrOutput)
 }
 
+// The tags of the session logger.
 func (o LookupSessionLoggerResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupSessionLoggerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

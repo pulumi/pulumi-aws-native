@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, creation_time=None, deletion_protection_enabled=None, encryption_details=None, identifier=None, multi_region_properties=None, resource_arn=None, status=None, tags=None, vpc_endpoint_service_name=None):
+    def __init__(__self__, creation_time=None, deletion_protection_enabled=None, encryption_details=None, endpoint=None, identifier=None, multi_region_properties=None, policy_document=None, policy_version=None, resource_arn=None, status=None, tags=None, vpc_endpoint_service_name=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -35,12 +35,21 @@ class GetClusterResult:
         if encryption_details and not isinstance(encryption_details, dict):
             raise TypeError("Expected argument 'encryption_details' to be a dict")
         pulumi.set(__self__, "encryption_details", encryption_details)
+        if endpoint and not isinstance(endpoint, str):
+            raise TypeError("Expected argument 'endpoint' to be a str")
+        pulumi.set(__self__, "endpoint", endpoint)
         if identifier and not isinstance(identifier, str):
             raise TypeError("Expected argument 'identifier' to be a str")
         pulumi.set(__self__, "identifier", identifier)
         if multi_region_properties and not isinstance(multi_region_properties, dict):
             raise TypeError("Expected argument 'multi_region_properties' to be a dict")
         pulumi.set(__self__, "multi_region_properties", multi_region_properties)
+        if policy_document and not isinstance(policy_document, str):
+            raise TypeError("Expected argument 'policy_document' to be a str")
+        pulumi.set(__self__, "policy_document", policy_document)
+        if policy_version and not isinstance(policy_version, str):
+            raise TypeError("Expected argument 'policy_version' to be a str")
+        pulumi.set(__self__, "policy_version", policy_version)
         if resource_arn and not isinstance(resource_arn, str):
             raise TypeError("Expected argument 'resource_arn' to be a str")
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -80,6 +89,14 @@ class GetClusterResult:
 
     @_builtins.property
     @pulumi.getter
+    def endpoint(self) -> Optional[_builtins.str]:
+        """
+        The DSQL cluster endpoint.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter
     def identifier(self) -> Optional[_builtins.str]:
         """
         The ID of the created cluster.
@@ -93,6 +110,22 @@ class GetClusterResult:
         The Multi-region properties associated to this cluster.
         """
         return pulumi.get(self, "multi_region_properties")
+
+    @_builtins.property
+    @pulumi.getter(name="policyDocument")
+    def policy_document(self) -> Optional[_builtins.str]:
+        """
+        The IAM policy applied to the cluster resource.
+        """
+        return pulumi.get(self, "policy_document")
+
+    @_builtins.property
+    @pulumi.getter(name="policyVersion")
+    def policy_version(self) -> Optional[_builtins.str]:
+        """
+        The version number of the cluster's resource based policy
+        """
+        return pulumi.get(self, "policy_version")
 
     @_builtins.property
     @pulumi.getter(name="resourceArn")
@@ -136,8 +169,11 @@ class AwaitableGetClusterResult(GetClusterResult):
             creation_time=self.creation_time,
             deletion_protection_enabled=self.deletion_protection_enabled,
             encryption_details=self.encryption_details,
+            endpoint=self.endpoint,
             identifier=self.identifier,
             multi_region_properties=self.multi_region_properties,
+            policy_document=self.policy_document,
+            policy_version=self.policy_version,
             resource_arn=self.resource_arn,
             status=self.status,
             tags=self.tags,
@@ -161,8 +197,11 @@ def get_cluster(identifier: Optional[_builtins.str] = None,
         creation_time=pulumi.get(__ret__, 'creation_time'),
         deletion_protection_enabled=pulumi.get(__ret__, 'deletion_protection_enabled'),
         encryption_details=pulumi.get(__ret__, 'encryption_details'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
         identifier=pulumi.get(__ret__, 'identifier'),
         multi_region_properties=pulumi.get(__ret__, 'multi_region_properties'),
+        policy_document=pulumi.get(__ret__, 'policy_document'),
+        policy_version=pulumi.get(__ret__, 'policy_version'),
         resource_arn=pulumi.get(__ret__, 'resource_arn'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -183,8 +222,11 @@ def get_cluster_output(identifier: Optional[pulumi.Input[_builtins.str]] = None,
         creation_time=pulumi.get(__response__, 'creation_time'),
         deletion_protection_enabled=pulumi.get(__response__, 'deletion_protection_enabled'),
         encryption_details=pulumi.get(__response__, 'encryption_details'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
         identifier=pulumi.get(__response__, 'identifier'),
         multi_region_properties=pulumi.get(__response__, 'multi_region_properties'),
+        policy_document=pulumi.get(__response__, 'policy_document'),
+        policy_version=pulumi.get(__response__, 'policy_version'),
         resource_arn=pulumi.get(__response__, 'resource_arn'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),

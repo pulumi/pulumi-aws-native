@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetVersionResult',
@@ -23,10 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetVersionResult:
-    def __init__(__self__, function_arn=None, version=None):
+    def __init__(__self__, function_arn=None, function_scaling_config=None, version=None):
         if function_arn and not isinstance(function_arn, str):
             raise TypeError("Expected argument 'function_arn' to be a str")
         pulumi.set(__self__, "function_arn", function_arn)
+        if function_scaling_config and not isinstance(function_scaling_config, dict):
+            raise TypeError("Expected argument 'function_scaling_config' to be a dict")
+        pulumi.set(__self__, "function_scaling_config", function_scaling_config)
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
@@ -38,6 +42,14 @@ class GetVersionResult:
         The ARN of the version.
         """
         return pulumi.get(self, "function_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="functionScalingConfig")
+    def function_scaling_config(self) -> Optional['outputs.VersionFunctionScalingConfig']:
+        """
+        The scaling configuration to apply to the function, including minimum and maximum execution environment limits.
+        """
+        return pulumi.get(self, "function_scaling_config")
 
     @_builtins.property
     @pulumi.getter
@@ -55,6 +67,7 @@ class AwaitableGetVersionResult(GetVersionResult):
             yield self
         return GetVersionResult(
             function_arn=self.function_arn,
+            function_scaling_config=self.function_scaling_config,
             version=self.version)
 
 
@@ -73,6 +86,7 @@ def get_version(function_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetVersionResult(
         function_arn=pulumi.get(__ret__, 'function_arn'),
+        function_scaling_config=pulumi.get(__ret__, 'function_scaling_config'),
         version=pulumi.get(__ret__, 'version'))
 def get_version_output(function_arn: Optional[pulumi.Input[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVersionResult]:
@@ -88,4 +102,5 @@ def get_version_output(function_arn: Optional[pulumi.Input[_builtins.str]] = Non
     __ret__ = pulumi.runtime.invoke_output('aws-native:lambda:getVersion', __args__, opts=opts, typ=GetVersionResult)
     return __ret__.apply(lambda __response__: GetVersionResult(
         function_arn=pulumi.get(__response__, 'function_arn'),
+        function_scaling_config=pulumi.get(__response__, 'function_scaling_config'),
         version=pulumi.get(__response__, 'version')))

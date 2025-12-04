@@ -47,6 +47,9 @@ namespace Pulumi.AwsNative.Wisdom
         public static AiAgentAiAgentType ManualSearch { get; } = new AiAgentAiAgentType("MANUAL_SEARCH");
         public static AiAgentAiAgentType AnswerRecommendation { get; } = new AiAgentAiAgentType("ANSWER_RECOMMENDATION");
         public static AiAgentAiAgentType SelfService { get; } = new AiAgentAiAgentType("SELF_SERVICE");
+        public static AiAgentAiAgentType EmailResponse { get; } = new AiAgentAiAgentType("EMAIL_RESPONSE");
+        public static AiAgentAiAgentType EmailOverview { get; } = new AiAgentAiAgentType("EMAIL_OVERVIEW");
+        public static AiAgentAiAgentType EmailGenerativeAnswer { get; } = new AiAgentAiAgentType("EMAIL_GENERATIVE_ANSWER");
 
         public static bool operator ==(AiAgentAiAgentType left, AiAgentAiAgentType right) => left.Equals(right);
         public static bool operator !=(AiAgentAiAgentType left, AiAgentAiAgentType right) => !left.Equals(right);

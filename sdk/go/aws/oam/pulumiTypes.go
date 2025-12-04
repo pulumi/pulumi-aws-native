@@ -187,7 +187,7 @@ type LinkFilter struct {
 	// Examples:
 	//
 	// - `Namespace NOT LIKE 'AWS/%'` includes only namespaces that don't start with `AWS/` , such as custom namespaces.
-	// - `Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')` includes only the metrics in the EC2, Elastic Load Balancing , and Amazon S3 namespaces.
+	// - `Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')` includes only the metrics in the EC2, ELB , and Amazon S3 namespaces.
 	// - `Namespace = 'AWS/EC2' OR Namespace NOT LIKE 'AWS/%'` includes only the EC2 namespace and your custom namespaces.
 	// - `LogGroupName IN ('This-Log-Group', 'Other-Log-Group')` includes only the log groups with names `This-Log-Group` and `Other-Log-Group` .
 	// - `LogGroupName NOT IN ('Private-Log-Group', 'Private-Log-Group-2')` includes all log groups except the log groups with names `Private-Log-Group` and `Private-Log-Group-2` .
@@ -226,7 +226,7 @@ type LinkFilterArgs struct {
 	// Examples:
 	//
 	// - `Namespace NOT LIKE 'AWS/%'` includes only namespaces that don't start with `AWS/` , such as custom namespaces.
-	// - `Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')` includes only the metrics in the EC2, Elastic Load Balancing , and Amazon S3 namespaces.
+	// - `Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')` includes only the metrics in the EC2, ELB , and Amazon S3 namespaces.
 	// - `Namespace = 'AWS/EC2' OR Namespace NOT LIKE 'AWS/%'` includes only the EC2 namespace and your custom namespaces.
 	// - `LogGroupName IN ('This-Log-Group', 'Other-Log-Group')` includes only the log groups with names `This-Log-Group` and `Other-Log-Group` .
 	// - `LogGroupName NOT IN ('Private-Log-Group', 'Private-Log-Group-2')` includes all log groups except the log groups with names `Private-Log-Group` and `Private-Log-Group-2` .
@@ -330,7 +330,7 @@ func (o LinkFilterOutput) ToLinkFilterPtrOutputWithContext(ctx context.Context) 
 // Examples:
 //
 // - `Namespace NOT LIKE 'AWS/%'` includes only namespaces that don't start with `AWS/` , such as custom namespaces.
-// - `Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')` includes only the metrics in the EC2, Elastic Load Balancing , and Amazon S3 namespaces.
+// - `Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')` includes only the metrics in the EC2, ELB , and Amazon S3 namespaces.
 // - `Namespace = 'AWS/EC2' OR Namespace NOT LIKE 'AWS/%'` includes only the EC2 namespace and your custom namespaces.
 // - `LogGroupName IN ('This-Log-Group', 'Other-Log-Group')` includes only the log groups with names `This-Log-Group` and `Other-Log-Group` .
 // - `LogGroupName NOT IN ('Private-Log-Group', 'Private-Log-Group-2')` includes all log groups except the log groups with names `Private-Log-Group` and `Private-Log-Group-2` .
@@ -382,7 +382,7 @@ func (o LinkFilterPtrOutput) Elem() LinkFilterOutput {
 // Examples:
 //
 // - `Namespace NOT LIKE 'AWS/%'` includes only namespaces that don't start with `AWS/` , such as custom namespaces.
-// - `Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')` includes only the metrics in the EC2, Elastic Load Balancing , and Amazon S3 namespaces.
+// - `Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')` includes only the metrics in the EC2, ELB , and Amazon S3 namespaces.
 // - `Namespace = 'AWS/EC2' OR Namespace NOT LIKE 'AWS/%'` includes only the EC2 namespace and your custom namespaces.
 // - `LogGroupName IN ('This-Log-Group', 'Other-Log-Group')` includes only the log groups with names `This-Log-Group` and `Other-Log-Group` .
 // - `LogGroupName NOT IN ('Private-Log-Group', 'Private-Log-Group-2')` includes all log groups except the log groups with names `Private-Log-Group` and `Private-Log-Group-2` .

@@ -7,6 +7,9 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'ConnectionFunctionConfigRuntime',
+    'ConnectionFunctionStage',
+    'ConnectionFunctionStatus',
     'ContinuousDeploymentPolicyConfigType',
     'ContinuousDeploymentPolicyTrafficConfigType',
     'DistributionConnectionMode',
@@ -17,8 +20,39 @@ __all__ = [
     'DistributionTenantManagedCertificateRequestCertificateTransparencyLoggingPreference',
     'DistributionTenantManagedCertificateRequestValidationTokenHost',
     'DistributionTenantWebAclCustomizationAction',
+    'DistributionViewerMtlsMode',
     'MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus',
+    'TrustStoreStatus',
 ]
+
+
+@pulumi.type_token("aws-native:cloudfront:ConnectionFunctionConfigRuntime")
+class ConnectionFunctionConfigRuntime(_builtins.str, Enum):
+    """
+    The function's runtime environment version.
+    """
+    CLOUDFRONT_JS20 = "cloudfront-js-2.0"
+
+
+@pulumi.type_token("aws-native:cloudfront:ConnectionFunctionStage")
+class ConnectionFunctionStage(_builtins.str, Enum):
+    """
+    The connection function stage.
+    """
+    DEVELOPMENT = "DEVELOPMENT"
+    LIVE = "LIVE"
+
+
+@pulumi.type_token("aws-native:cloudfront:ConnectionFunctionStatus")
+class ConnectionFunctionStatus(_builtins.str, Enum):
+    """
+    The connection function status.
+    """
+    UNPUBLISHED = "UNPUBLISHED"
+    DEPLOYED = "DEPLOYED"
+    UNASSOCIATED = "UNASSOCIATED"
+    PUBLISHING = "PUBLISHING"
+    IN_PROGRESS = "IN_PROGRESS"
 
 
 @pulumi.type_token("aws-native:cloudfront:ContinuousDeploymentPolicyConfigType")
@@ -112,6 +146,12 @@ class DistributionTenantWebAclCustomizationAction(_builtins.str, Enum):
     DISABLE = "disable"
 
 
+@pulumi.type_token("aws-native:cloudfront:DistributionViewerMtlsMode")
+class DistributionViewerMtlsMode(_builtins.str, Enum):
+    REQUIRED = "required"
+    OPTIONAL = "optional"
+
+
 @pulumi.type_token("aws-native:cloudfront:MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus")
 class MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus(_builtins.str, Enum):
     """
@@ -119,3 +159,13 @@ class MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubs
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+@pulumi.type_token("aws-native:cloudfront:TrustStoreStatus")
+class TrustStoreStatus(_builtins.str, Enum):
+    """
+    Current status of the trust store
+    """
+    PENDING = "PENDING"
+    ACTIVE = "ACTIVE"
+    FAILED = "FAILED"

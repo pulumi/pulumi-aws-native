@@ -326,6 +326,38 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The effect of the taint.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterKubernetesTaintEffect : IEquatable<ClusterKubernetesTaintEffect>
+    {
+        private readonly string _value;
+
+        private ClusterKubernetesTaintEffect(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterKubernetesTaintEffect NoSchedule { get; } = new ClusterKubernetesTaintEffect("NoSchedule");
+        public static ClusterKubernetesTaintEffect PreferNoSchedule { get; } = new ClusterKubernetesTaintEffect("PreferNoSchedule");
+        public static ClusterKubernetesTaintEffect NoExecute { get; } = new ClusterKubernetesTaintEffect("NoExecute");
+
+        public static bool operator ==(ClusterKubernetesTaintEffect left, ClusterKubernetesTaintEffect right) => left.Equals(right);
+        public static bool operator !=(ClusterKubernetesTaintEffect left, ClusterKubernetesTaintEffect right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterKubernetesTaintEffect value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterKubernetesTaintEffect other && Equals(other);
+        public bool Equals(ClusterKubernetesTaintEffect other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
     /// </summary>
     [EnumType]

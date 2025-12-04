@@ -27,6 +27,8 @@ export interface GetRestoreTestingSelectionArgs {
     restoreTestingPlanName: string;
     /**
      * The unique name of the restore testing selection that belongs to the related restore testing plan.
+     *
+     * The name consists of only alphanumeric characters and underscores. Maximum length is 50.
      */
     restoreTestingSelectionName: string;
 }
@@ -75,6 +77,8 @@ export interface GetRestoreTestingSelectionOutputArgs {
     restoreTestingPlanName: pulumi.Input<string>;
     /**
      * The unique name of the restore testing selection that belongs to the related restore testing plan.
+     *
+     * The name consists of only alphanumeric characters and underscores. Maximum length is 50.
      */
     restoreTestingSelectionName: pulumi.Input<string>;
 }

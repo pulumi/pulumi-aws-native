@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -26,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetServiceResult:
-    def __init__(__self__, health_check_configuration=None, instance_configuration=None, network_configuration=None, observability_configuration=None, service_arn=None, service_id=None, service_url=None, source_configuration=None, status=None, tags=None):
+    def __init__(__self__, health_check_configuration=None, instance_configuration=None, network_configuration=None, observability_configuration=None, service_arn=None, service_id=None, service_url=None, source_configuration=None, status=None):
         if health_check_configuration and not isinstance(health_check_configuration, dict):
             raise TypeError("Expected argument 'health_check_configuration' to be a dict")
         pulumi.set(__self__, "health_check_configuration", health_check_configuration)
@@ -54,9 +53,6 @@ class GetServiceResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
-        if tags and not isinstance(tags, list):
-            raise TypeError("Expected argument 'tags' to be a list")
-        pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="healthCheckConfiguration")
@@ -130,14 +126,6 @@ class GetServiceResult:
         """
         return pulumi.get(self, "status")
 
-    @_builtins.property
-    @pulumi.getter
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.
-        """
-        return pulumi.get(self, "tags")
-
 
 class AwaitableGetServiceResult(GetServiceResult):
     # pylint: disable=using-constant-test
@@ -153,8 +141,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             service_id=self.service_id,
             service_url=self.service_url,
             source_configuration=self.source_configuration,
-            status=self.status,
-            tags=self.tags)
+            status=self.status)
 
 
 def get_service(service_arn: Optional[_builtins.str] = None,
@@ -179,8 +166,7 @@ def get_service(service_arn: Optional[_builtins.str] = None,
         service_id=pulumi.get(__ret__, 'service_id'),
         service_url=pulumi.get(__ret__, 'service_url'),
         source_configuration=pulumi.get(__ret__, 'source_configuration'),
-        status=pulumi.get(__ret__, 'status'),
-        tags=pulumi.get(__ret__, 'tags'))
+        status=pulumi.get(__ret__, 'status'))
 def get_service_output(service_arn: Optional[pulumi.Input[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
@@ -202,5 +188,4 @@ def get_service_output(service_arn: Optional[pulumi.Input[_builtins.str]] = None
         service_id=pulumi.get(__response__, 'service_id'),
         service_url=pulumi.get(__response__, 'service_url'),
         source_configuration=pulumi.get(__response__, 'source_configuration'),
-        status=pulumi.get(__response__, 'status'),
-        tags=pulumi.get(__response__, 'tags')))
+        status=pulumi.get(__response__, 'status')))

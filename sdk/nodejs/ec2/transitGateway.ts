@@ -70,6 +70,14 @@ export class TransitGateway extends pulumi.CustomResource {
      */
     declare public readonly dnsSupport: pulumi.Output<string | undefined>;
     /**
+     * Enable or disable encryption support. Disabled by default.
+     */
+    declare public readonly encryptionSupport: pulumi.Output<enums.ec2.TransitGatewayEncryptionSupport | undefined>;
+    /**
+     * The encryption support state of the transit gateway.
+     */
+    declare public /*out*/ readonly encryptionSupportState: pulumi.Output<string>;
+    /**
      * Indicates whether multicast is enabled on the transit gateway
      */
     declare public readonly multicastSupport: pulumi.Output<string | undefined>;
@@ -115,6 +123,7 @@ export class TransitGateway extends pulumi.CustomResource {
             resourceInputs["defaultRouteTablePropagation"] = args?.defaultRouteTablePropagation;
             resourceInputs["description"] = args?.description;
             resourceInputs["dnsSupport"] = args?.dnsSupport;
+            resourceInputs["encryptionSupport"] = args?.encryptionSupport;
             resourceInputs["multicastSupport"] = args?.multicastSupport;
             resourceInputs["propagationDefaultRouteTableId"] = args?.propagationDefaultRouteTableId;
             resourceInputs["securityGroupReferencingSupport"] = args?.securityGroupReferencingSupport;
@@ -122,6 +131,7 @@ export class TransitGateway extends pulumi.CustomResource {
             resourceInputs["transitGatewayCidrBlocks"] = args?.transitGatewayCidrBlocks;
             resourceInputs["vpnEcmpSupport"] = args?.vpnEcmpSupport;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["encryptionSupportState"] = undefined /*out*/;
             resourceInputs["transitGatewayArn"] = undefined /*out*/;
         } else {
             resourceInputs["amazonSideAsn"] = undefined /*out*/;
@@ -132,6 +142,8 @@ export class TransitGateway extends pulumi.CustomResource {
             resourceInputs["defaultRouteTablePropagation"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["dnsSupport"] = undefined /*out*/;
+            resourceInputs["encryptionSupport"] = undefined /*out*/;
+            resourceInputs["encryptionSupportState"] = undefined /*out*/;
             resourceInputs["multicastSupport"] = undefined /*out*/;
             resourceInputs["propagationDefaultRouteTableId"] = undefined /*out*/;
             resourceInputs["securityGroupReferencingSupport"] = undefined /*out*/;
@@ -179,6 +191,10 @@ export interface TransitGatewayArgs {
      * Enable or disable DNS support. Enabled by default.
      */
     dnsSupport?: pulumi.Input<string>;
+    /**
+     * Enable or disable encryption support. Disabled by default.
+     */
+    encryptionSupport?: pulumi.Input<enums.ec2.TransitGatewayEncryptionSupport>;
     /**
      * Indicates whether multicast is enabled on the transit gateway
      */

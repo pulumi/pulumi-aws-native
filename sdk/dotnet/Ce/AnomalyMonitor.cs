@@ -414,7 +414,13 @@ namespace Pulumi.AwsNative.Ce
         public Output<string?> MonitorSpecification { get; private set; } = null!;
 
         /// <summary>
-        /// The possible type values.
+        /// The type of the monitor.
+        /// 
+        /// Set this to `DIMENSIONAL` for an AWS managed monitor. AWS managed monitors automatically track up to the top 5,000 values by cost within a dimension of your choosing. Each dimension value is evaluated independently. If you start incurring cost in a new value of your chosen dimension, it will automatically be analyzed by an AWS managed monitor.
+        /// 
+        /// Set this to `CUSTOM` for a customer managed monitor. Customer managed monitors let you select specific dimension values that get monitored in aggregate.
+        /// 
+        /// For more information about monitor types, see [Monitor types](https://docs.aws.amazon.com/cost-management/latest/userguide/getting-started-ad.html#monitor-type-def) in the *Billing and Cost Management User Guide* .
         /// </summary>
         [Output("monitorType")]
         public Output<Pulumi.AwsNative.Ce.AnomalyMonitorMonitorType> MonitorType { get; private set; } = null!;
@@ -496,7 +502,13 @@ namespace Pulumi.AwsNative.Ce
         public Input<string>? MonitorSpecification { get; set; }
 
         /// <summary>
-        /// The possible type values.
+        /// The type of the monitor.
+        /// 
+        /// Set this to `DIMENSIONAL` for an AWS managed monitor. AWS managed monitors automatically track up to the top 5,000 values by cost within a dimension of your choosing. Each dimension value is evaluated independently. If you start incurring cost in a new value of your chosen dimension, it will automatically be analyzed by an AWS managed monitor.
+        /// 
+        /// Set this to `CUSTOM` for a customer managed monitor. Customer managed monitors let you select specific dimension values that get monitored in aggregate.
+        /// 
+        /// For more information about monitor types, see [Monitor types](https://docs.aws.amazon.com/cost-management/latest/userguide/getting-started-ad.html#monitor-type-def) in the *Billing and Cost Management User Guide* .
         /// </summary>
         [Input("monitorType", required: true)]
         public Input<Pulumi.AwsNative.Ce.AnomalyMonitorMonitorType> MonitorType { get; set; } = null!;

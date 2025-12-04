@@ -54,6 +54,8 @@ __all__ = [
     'ClusterProvisionedThroughputArgsDict',
     'ClusterPublicAccessArgs',
     'ClusterPublicAccessArgsDict',
+    'ClusterRebalancingArgs',
+    'ClusterRebalancingArgsDict',
     'ClusterS3Args',
     'ClusterS3ArgsDict',
     'ClusterSaslArgs',
@@ -1133,6 +1135,28 @@ class ClusterPublicAccessArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class ClusterRebalancingArgsDict(TypedDict):
+        status: pulumi.Input['ClusterRebalancingStatus']
+elif False:
+    ClusterRebalancingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterRebalancingArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input['ClusterRebalancingStatus']):
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input['ClusterRebalancingStatus']:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input['ClusterRebalancingStatus']):
+        pulumi.set(self, "status", value)
 
 
 if not MYPY:

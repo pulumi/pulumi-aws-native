@@ -2006,7 +2006,7 @@ if not MYPY:
         """
         secrets_role_arn: pulumi.Input[_builtins.str]
         """
-        The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+        The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS  for CDN authorization.
         """
 elif False:
     OriginEndpointPolicyCdnAuthConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -2018,7 +2018,7 @@ class OriginEndpointPolicyCdnAuthConfigurationArgs:
                  secrets_role_arn: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_identifier_secret_arns: The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
-        :param pulumi.Input[_builtins.str] secrets_role_arn: The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+        :param pulumi.Input[_builtins.str] secrets_role_arn: The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS  for CDN authorization.
         """
         pulumi.set(__self__, "cdn_identifier_secret_arns", cdn_identifier_secret_arns)
         pulumi.set(__self__, "secrets_role_arn", secrets_role_arn)
@@ -2039,7 +2039,7 @@ class OriginEndpointPolicyCdnAuthConfigurationArgs:
     @pulumi.getter(name="secretsRoleArn")
     def secrets_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+        The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS  for CDN authorization.
         """
         return pulumi.get(self, "secrets_role_arn")
 

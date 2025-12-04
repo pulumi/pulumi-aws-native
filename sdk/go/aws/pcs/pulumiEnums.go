@@ -22,8 +22,9 @@ const (
 type ClusterEndpointType string
 
 const (
-	ClusterEndpointTypeSlurmctld = ClusterEndpointType("SLURMCTLD")
-	ClusterEndpointTypeSlurmdbd  = ClusterEndpointType("SLURMDBD")
+	ClusterEndpointTypeSlurmctld  = ClusterEndpointType("SLURMCTLD")
+	ClusterEndpointTypeSlurmdbd   = ClusterEndpointType("SLURMDBD")
+	ClusterEndpointTypeSlurmrestd = ClusterEndpointType("SLURMRESTD")
 )
 
 type ClusterEndpointTypeOutput struct{ *pulumi.OutputState }
@@ -606,6 +607,14 @@ func (in *clusterSizePtr) ToClusterSizePtrOutput() ClusterSizePtrOutput {
 func (in *clusterSizePtr) ToClusterSizePtrOutputWithContext(ctx context.Context) ClusterSizePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterSizePtrOutput)
 }
+
+// The default value is `STANDARD`. A value of `STANDARD` means that Slurm Rest is enabled.
+type ClusterSlurmRestMode string
+
+const (
+	ClusterSlurmRestModeStandard = ClusterSlurmRestMode("STANDARD")
+	ClusterSlurmRestModeNone     = ClusterSlurmRestMode("NONE")
+)
 
 // The provisioning status of the cluster. The provisioning status doesn't indicate the overall health of the cluster.
 type ClusterStatus string

@@ -133,7 +133,7 @@ type DatasetGroupTag struct {
 type EncryptionConfigProperties struct {
 	// The Amazon Resource Name (ARN) of the KMS key.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.
+	// The ARN of the IAM role that Amazon Forecast can assume to access the AWS  key.
 	//
 	// Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `InvalidInputException` error.
 	RoleArn *string `pulumi:"roleArn"`
@@ -154,7 +154,7 @@ type EncryptionConfigPropertiesInput interface {
 type EncryptionConfigPropertiesArgs struct {
 	// The Amazon Resource Name (ARN) of the KMS key.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	// The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.
+	// The ARN of the IAM role that Amazon Forecast can assume to access the AWS  key.
 	//
 	// Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `InvalidInputException` error.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
@@ -243,7 +243,7 @@ func (o EncryptionConfigPropertiesOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionConfigProperties) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.
+// The ARN of the IAM role that Amazon Forecast can assume to access the AWS  key.
 //
 // Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `InvalidInputException` error.
 func (o EncryptionConfigPropertiesOutput) RoleArn() pulumi.StringPtrOutput {
@@ -284,7 +284,7 @@ func (o EncryptionConfigPropertiesPtrOutput) KmsKeyArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.
+// The ARN of the IAM role that Amazon Forecast can assume to access the AWS  key.
 //
 // Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your account, you get an `InvalidInputException` error.
 func (o EncryptionConfigPropertiesPtrOutput) RoleArn() pulumi.StringPtrOutput {

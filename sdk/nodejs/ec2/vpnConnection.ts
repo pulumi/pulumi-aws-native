@@ -98,6 +98,7 @@ export class VpnConnection extends pulumi.CustomResource {
      *  Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``.
      */
     declare public readonly transportTransitGatewayAttachmentId: pulumi.Output<string | undefined>;
+    declare public readonly tunnelBandwidth: pulumi.Output<enums.ec2.VpnConnectionTunnelBandwidth | undefined>;
     /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
      *  Default: ``ipv4``
@@ -107,6 +108,7 @@ export class VpnConnection extends pulumi.CustomResource {
      * The type of VPN connection.
      */
     declare public readonly type: pulumi.Output<string>;
+    declare public readonly vpnConcentratorId: pulumi.Output<string | undefined>;
     /**
      * The ID of the VPN connection.
      */
@@ -150,8 +152,10 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["transitGatewayId"] = args?.transitGatewayId;
             resourceInputs["transportTransitGatewayAttachmentId"] = args?.transportTransitGatewayAttachmentId;
+            resourceInputs["tunnelBandwidth"] = args?.tunnelBandwidth;
             resourceInputs["tunnelInsideIpVersion"] = args?.tunnelInsideIpVersion;
             resourceInputs["type"] = args?.type;
+            resourceInputs["vpnConcentratorId"] = args?.vpnConcentratorId;
             resourceInputs["vpnGatewayId"] = args?.vpnGatewayId;
             resourceInputs["vpnTunnelOptionsSpecifications"] = args?.vpnTunnelOptionsSpecifications;
             resourceInputs["vpnConnectionId"] = undefined /*out*/;
@@ -168,14 +172,16 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["transitGatewayId"] = undefined /*out*/;
             resourceInputs["transportTransitGatewayAttachmentId"] = undefined /*out*/;
+            resourceInputs["tunnelBandwidth"] = undefined /*out*/;
             resourceInputs["tunnelInsideIpVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vpnConcentratorId"] = undefined /*out*/;
             resourceInputs["vpnConnectionId"] = undefined /*out*/;
             resourceInputs["vpnGatewayId"] = undefined /*out*/;
             resourceInputs["vpnTunnelOptionsSpecifications"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["customerGatewayId", "enableAcceleration", "localIpv4NetworkCidr", "localIpv6NetworkCidr", "outsideIpAddressType", "preSharedKeyStorage", "remoteIpv4NetworkCidr", "remoteIpv6NetworkCidr", "staticRoutesOnly", "transitGatewayId", "transportTransitGatewayAttachmentId", "tunnelInsideIpVersion", "type", "vpnGatewayId", "vpnTunnelOptionsSpecifications[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["customerGatewayId", "enableAcceleration", "localIpv4NetworkCidr", "localIpv6NetworkCidr", "outsideIpAddressType", "preSharedKeyStorage", "remoteIpv4NetworkCidr", "remoteIpv6NetworkCidr", "staticRoutesOnly", "transitGatewayId", "transportTransitGatewayAttachmentId", "tunnelBandwidth", "tunnelInsideIpVersion", "type", "vpnConcentratorId", "vpnGatewayId", "vpnTunnelOptionsSpecifications[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpnConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -243,6 +249,7 @@ export interface VpnConnectionArgs {
      *  Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``.
      */
     transportTransitGatewayAttachmentId?: pulumi.Input<string>;
+    tunnelBandwidth?: pulumi.Input<enums.ec2.VpnConnectionTunnelBandwidth>;
     /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
      *  Default: ``ipv4``
@@ -252,6 +259,7 @@ export interface VpnConnectionArgs {
      * The type of VPN connection.
      */
     type: pulumi.Input<string>;
+    vpnConcentratorId?: pulumi.Input<string>;
     /**
      * The ID of the virtual private gateway at the AWS side of the VPN connection.
      *  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.

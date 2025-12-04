@@ -168,6 +168,8 @@ namespace Pulumi.AwsNative.Ec2
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "dnsOptions.privateDnsPreference",
+                    "dnsOptions.privateDnsSpecifiedDomains[*]",
                     "resourceConfigurationArn",
                     "serviceName",
                     "serviceNetworkArn",

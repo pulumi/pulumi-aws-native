@@ -15,7 +15,6 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
-from ._enums import *
 
 __all__ = [
     'GetCloudFormationProductResult',
@@ -26,7 +25,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetCloudFormationProductResult:
-    def __init__(__self__, description=None, distributor=None, id=None, name=None, owner=None, product_name=None, product_type=None, provisioning_artifact_ids=None, provisioning_artifact_names=None, provisioning_artifact_parameters=None, source_connection=None, support_description=None, support_email=None, support_url=None, tags=None):
+    def __init__(__self__, accept_language=None, description=None, distributor=None, id=None, name=None, owner=None, product_name=None, product_type=None, provisioning_artifact_ids=None, provisioning_artifact_names=None, provisioning_artifact_parameters=None, replace_provisioning_artifacts=None, source_connection=None, support_description=None, support_email=None, support_url=None, tags=None):
+        if accept_language and not isinstance(accept_language, str):
+            raise TypeError("Expected argument 'accept_language' to be a str")
+        pulumi.set(__self__, "accept_language", accept_language)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -57,6 +59,9 @@ class GetCloudFormationProductResult:
         if provisioning_artifact_parameters and not isinstance(provisioning_artifact_parameters, list):
             raise TypeError("Expected argument 'provisioning_artifact_parameters' to be a list")
         pulumi.set(__self__, "provisioning_artifact_parameters", provisioning_artifact_parameters)
+        if replace_provisioning_artifacts and not isinstance(replace_provisioning_artifacts, bool):
+            raise TypeError("Expected argument 'replace_provisioning_artifacts' to be a bool")
+        pulumi.set(__self__, "replace_provisioning_artifacts", replace_provisioning_artifacts)
         if source_connection and not isinstance(source_connection, dict):
             raise TypeError("Expected argument 'source_connection' to be a dict")
         pulumi.set(__self__, "source_connection", source_connection)
@@ -72,6 +77,17 @@ class GetCloudFormationProductResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="acceptLanguage")
+    def accept_language(self) -> Optional[_builtins.str]:
+        """
+        The language code.
+
+        - `jp` - Japanese
+        - `zh` - Chinese
+        """
+        return pulumi.get(self, "accept_language")
 
     @_builtins.property
     @pulumi.getter
@@ -92,9 +108,6 @@ class GetCloudFormationProductResult:
     @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
-        """
-        The ID of the product, such as prod-tsjbmal34qvek
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
@@ -123,7 +136,7 @@ class GetCloudFormationProductResult:
 
     @_builtins.property
     @pulumi.getter(name="productType")
-    def product_type(self) -> Optional['CloudFormationProductProductType']:
+    def product_type(self) -> Optional[_builtins.str]:
         """
         The type of product.
         """
@@ -133,7 +146,7 @@ class GetCloudFormationProductResult:
     @pulumi.getter(name="provisioningArtifactIds")
     def provisioning_artifact_ids(self) -> Optional[_builtins.str]:
         """
-        The IDs of the provisioning artifacts
+        The IDs of the provisioning artifacts.
         """
         return pulumi.get(self, "provisioning_artifact_ids")
 
@@ -141,7 +154,7 @@ class GetCloudFormationProductResult:
     @pulumi.getter(name="provisioningArtifactNames")
     def provisioning_artifact_names(self) -> Optional[_builtins.str]:
         """
-        The names of the provisioning artifacts
+        The names of the provisioning artifacts.
         """
         return pulumi.get(self, "provisioning_artifact_names")
 
@@ -154,10 +167,20 @@ class GetCloudFormationProductResult:
         return pulumi.get(self, "provisioning_artifact_parameters")
 
     @_builtins.property
+    @pulumi.getter(name="replaceProvisioningArtifacts")
+    def replace_provisioning_artifacts(self) -> Optional[_builtins.bool]:
+        """
+        This property is turned off by default. If turned off, you can update provisioning artifacts or product attributes (such as description, distributor, name, owner, and more) and the associated provisioning artifacts will retain the same unique identifier. Provisioning artifacts are matched within the CloudFormationProduct resource, and only those that have been updated will be changed. Provisioning artifacts are matched by a combinaton of provisioning artifact template URL and name.
+
+        If turned on, provisioning artifacts will be given a new unique identifier when you update the product or provisioning artifacts.
+        """
+        return pulumi.get(self, "replace_provisioning_artifacts")
+
+    @_builtins.property
     @pulumi.getter(name="sourceConnection")
     def source_connection(self) -> Optional['outputs.CloudFormationProductSourceConnection']:
         """
-        A top level ProductViewDetail response containing details about the product's connection. AWS Service Catalog returns this field for the CreateProduct, UpdateProduct, DescribeProductAsAdmin, and SearchProductAsAdmin APIs. This response contains the same fields as the ConnectionParameters request, with the addition of the LastSync response.
+        A top level `ProductViewDetail` response containing details about the product’s connection. AWS Service Catalog returns this field for the `CreateProduct` , `UpdateProduct` , `DescribeProductAsAdmin` , and `SearchProductAsAdmin` APIs. This response contains the same fields as the `ConnectionParameters` request, with the addition of the `LastSync` response.
         """
         return pulumi.get(self, "source_connection")
 
@@ -182,6 +205,8 @@ class GetCloudFormationProductResult:
     def support_url(self) -> Optional[_builtins.str]:
         """
         The contact URL for product support.
+
+        `^https?:\\/\\//` / is the pattern used to validate SupportUrl.
         """
         return pulumi.get(self, "support_url")
 
@@ -200,6 +225,7 @@ class AwaitableGetCloudFormationProductResult(GetCloudFormationProductResult):
         if False:
             yield self
         return GetCloudFormationProductResult(
+            accept_language=self.accept_language,
             description=self.description,
             distributor=self.distributor,
             id=self.id,
@@ -210,6 +236,7 @@ class AwaitableGetCloudFormationProductResult(GetCloudFormationProductResult):
             provisioning_artifact_ids=self.provisioning_artifact_ids,
             provisioning_artifact_names=self.provisioning_artifact_names,
             provisioning_artifact_parameters=self.provisioning_artifact_parameters,
+            replace_provisioning_artifacts=self.replace_provisioning_artifacts,
             source_connection=self.source_connection,
             support_description=self.support_description,
             support_email=self.support_email,
@@ -220,10 +247,7 @@ class AwaitableGetCloudFormationProductResult(GetCloudFormationProductResult):
 def get_cloud_formation_product(id: Optional[_builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudFormationProductResult:
     """
-    Resource type definition for AWS::ServiceCatalog::CloudFormationProduct
-
-
-    :param _builtins.str id: The ID of the product, such as prod-tsjbmal34qvek
+    Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
     """
     __args__ = dict()
     __args__['id'] = id
@@ -231,6 +255,7 @@ def get_cloud_formation_product(id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalog:getCloudFormationProduct', __args__, opts=opts, typ=GetCloudFormationProductResult).value
 
     return AwaitableGetCloudFormationProductResult(
+        accept_language=pulumi.get(__ret__, 'accept_language'),
         description=pulumi.get(__ret__, 'description'),
         distributor=pulumi.get(__ret__, 'distributor'),
         id=pulumi.get(__ret__, 'id'),
@@ -241,6 +266,7 @@ def get_cloud_formation_product(id: Optional[_builtins.str] = None,
         provisioning_artifact_ids=pulumi.get(__ret__, 'provisioning_artifact_ids'),
         provisioning_artifact_names=pulumi.get(__ret__, 'provisioning_artifact_names'),
         provisioning_artifact_parameters=pulumi.get(__ret__, 'provisioning_artifact_parameters'),
+        replace_provisioning_artifacts=pulumi.get(__ret__, 'replace_provisioning_artifacts'),
         source_connection=pulumi.get(__ret__, 'source_connection'),
         support_description=pulumi.get(__ret__, 'support_description'),
         support_email=pulumi.get(__ret__, 'support_email'),
@@ -249,16 +275,14 @@ def get_cloud_formation_product(id: Optional[_builtins.str] = None,
 def get_cloud_formation_product_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudFormationProductResult]:
     """
-    Resource type definition for AWS::ServiceCatalog::CloudFormationProduct
-
-
-    :param _builtins.str id: The ID of the product, such as prod-tsjbmal34qvek
+    Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
     """
     __args__ = dict()
     __args__['id'] = id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:servicecatalog:getCloudFormationProduct', __args__, opts=opts, typ=GetCloudFormationProductResult)
     return __ret__.apply(lambda __response__: GetCloudFormationProductResult(
+        accept_language=pulumi.get(__response__, 'accept_language'),
         description=pulumi.get(__response__, 'description'),
         distributor=pulumi.get(__response__, 'distributor'),
         id=pulumi.get(__response__, 'id'),
@@ -269,6 +293,7 @@ def get_cloud_formation_product_output(id: Optional[pulumi.Input[_builtins.str]]
         provisioning_artifact_ids=pulumi.get(__response__, 'provisioning_artifact_ids'),
         provisioning_artifact_names=pulumi.get(__response__, 'provisioning_artifact_names'),
         provisioning_artifact_parameters=pulumi.get(__response__, 'provisioning_artifact_parameters'),
+        replace_provisioning_artifacts=pulumi.get(__response__, 'replace_provisioning_artifacts'),
         source_connection=pulumi.get(__response__, 'source_connection'),
         support_description=pulumi.get(__response__, 'support_description'),
         support_email=pulumi.get(__response__, 'support_email'),

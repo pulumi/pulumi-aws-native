@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class EvaluationFormNumericQuestionAutomationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A source of automation answer for numeric question.
+        /// </summary>
         [Input("answerSource")]
         public Input<Inputs.EvaluationFormQuestionAutomationAnswerSourceArgs>? AnswerSource { get; set; }
 

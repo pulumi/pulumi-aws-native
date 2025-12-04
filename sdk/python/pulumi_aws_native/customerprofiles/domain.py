@@ -25,6 +25,7 @@ __all__ = ['DomainArgs', 'Domain']
 class DomainArgs:
     def __init__(__self__, *,
                  default_expiration_days: pulumi.Input[_builtins.int],
+                 data_store: Optional[pulumi.Input['DomainDataStoreArgs']] = None,
                  dead_letter_queue_url: Optional[pulumi.Input[_builtins.str]] = None,
                  default_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -42,6 +43,8 @@ class DomainArgs:
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the domain
         """
         pulumi.set(__self__, "default_expiration_days", default_expiration_days)
+        if data_store is not None:
+            pulumi.set(__self__, "data_store", data_store)
         if dead_letter_queue_url is not None:
             pulumi.set(__self__, "dead_letter_queue_url", dead_letter_queue_url)
         if default_encryption_key is not None:
@@ -66,6 +69,15 @@ class DomainArgs:
     @default_expiration_days.setter
     def default_expiration_days(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "default_expiration_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataStore")
+    def data_store(self) -> Optional[pulumi.Input['DomainDataStoreArgs']]:
+        return pulumi.get(self, "data_store")
+
+    @data_store.setter
+    def data_store(self, value: Optional[pulumi.Input['DomainDataStoreArgs']]):
+        pulumi.set(self, "data_store", value)
 
     @_builtins.property
     @pulumi.getter(name="deadLetterQueueUrl")
@@ -146,6 +158,7 @@ class Domain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_store: Optional[pulumi.Input[Union['DomainDataStoreArgs', 'DomainDataStoreArgsDict']]] = None,
                  dead_letter_queue_url: Optional[pulumi.Input[_builtins.str]] = None,
                  default_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
                  default_expiration_days: Optional[pulumi.Input[_builtins.int]] = None,
@@ -191,6 +204,7 @@ class Domain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_store: Optional[pulumi.Input[Union['DomainDataStoreArgs', 'DomainDataStoreArgsDict']]] = None,
                  dead_letter_queue_url: Optional[pulumi.Input[_builtins.str]] = None,
                  default_encryption_key: Optional[pulumi.Input[_builtins.str]] = None,
                  default_expiration_days: Optional[pulumi.Input[_builtins.int]] = None,
@@ -207,6 +221,7 @@ class Domain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DomainArgs.__new__(DomainArgs)
 
+            __props__.__dict__["data_store"] = data_store
             __props__.__dict__["dead_letter_queue_url"] = dead_letter_queue_url
             __props__.__dict__["default_encryption_key"] = default_encryption_key
             if default_expiration_days is None and not opts.urn:
@@ -244,6 +259,7 @@ class Domain(pulumi.CustomResource):
         __props__ = DomainArgs.__new__(DomainArgs)
 
         __props__.__dict__["created_at"] = None
+        __props__.__dict__["data_store"] = None
         __props__.__dict__["dead_letter_queue_url"] = None
         __props__.__dict__["default_encryption_key"] = None
         __props__.__dict__["default_expiration_days"] = None
@@ -262,6 +278,11 @@ class Domain(pulumi.CustomResource):
         The time of this integration got created
         """
         return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="dataStore")
+    def data_store(self) -> pulumi.Output[Optional['outputs.DomainDataStore']]:
+        return pulumi.get(self, "data_store")
 
     @_builtins.property
     @pulumi.getter(name="deadLetterQueueUrl")

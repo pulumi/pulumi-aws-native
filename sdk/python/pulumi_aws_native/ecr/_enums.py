@@ -18,6 +18,7 @@ __all__ = [
     'RepositoryEncryptionType',
     'RepositoryImageTagMutability',
     'RepositoryImageTagMutabilityExclusionFilterType',
+    'SigningConfigurationFilterType',
 ]
 
 
@@ -117,3 +118,11 @@ class RepositoryImageTagMutabilityExclusionFilterType(_builtins.str, Enum):
     Specifies the type of filter to use for excluding image tags from the repository's mutability setting.
     """
     WILDCARD = "WILDCARD"
+
+
+@pulumi.type_token("aws-native:ecr:SigningConfigurationFilterType")
+class SigningConfigurationFilterType(_builtins.str, Enum):
+    """
+    Type of repository filter
+    """
+    WILDCARD_MATCH = "WILDCARD_MATCH"

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetJoinOperandProperties
     {
+        /// <summary>
+        /// A list of column name overrides to apply to the join operand's output columns.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSetOutputColumnNameOverride> OutputColumnNameOverrides;
 
         [OutputConstructor]

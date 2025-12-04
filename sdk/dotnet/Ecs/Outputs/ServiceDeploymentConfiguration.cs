@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// </summary>
         public readonly int? BakeTimeInMinutes;
         /// <summary>
-        /// Configuration for canary deployment strategy. Only valid when the deployment strategy is `CANARY` . This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
+        /// Configuration for canary deployment strategy. Only valid when the deployment strategy is ``CANARY``. This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
         /// </summary>
         public readonly Outputs.ServiceCanaryConfiguration? CanaryConfiguration;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceDeploymentLifecycleHook> LifecycleHooks;
         /// <summary>
-        /// Configuration for linear deployment strategy. Only valid when the deployment strategy is `LINEAR` . This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
+        /// Configuration for linear deployment strategy. Only valid when the deployment strategy is ``LINEAR``. This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
         /// </summary>
         public readonly Outputs.ServiceLinearConfiguration? LinearConfiguration;
         /// <summary>

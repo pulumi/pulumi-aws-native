@@ -46,7 +46,7 @@ class InvestigationGroupChatbotNotificationChannel(dict):
                  sns_topic_arn: Optional[_builtins.str] = None):
         """
         :param Sequence[_builtins.str] chat_configuration_arns: Returns the Amazon Resource Name (ARN) of any third-party chat integrations configured for the account.
-        :param _builtins.str sns_topic_arn: Returns the ARN of an Amazon SNS topic used for third-party chat integrations.
+        :param _builtins.str sns_topic_arn: Returns the ARN of an Amazon  topic used for third-party chat integrations.
         """
         if chat_configuration_arns is not None:
             pulumi.set(__self__, "chat_configuration_arns", chat_configuration_arns)
@@ -65,7 +65,7 @@ class InvestigationGroupChatbotNotificationChannel(dict):
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> Optional[_builtins.str]:
         """
-        Returns the ARN of an Amazon SNS topic used for third-party chat integrations.
+        Returns the ARN of an Amazon  topic used for third-party chat integrations.
         """
         return pulumi.get(self, "sns_topic_arn")
 

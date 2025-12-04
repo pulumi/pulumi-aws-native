@@ -133,6 +133,37 @@ namespace Pulumi.AwsNative.S3
     }
 
     /// <summary>
+    /// The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see [Using tags with S3 general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html) .
+    /// </summary>
+    [EnumType]
+    public readonly struct BucketAbacStatus : IEquatable<BucketAbacStatus>
+    {
+        private readonly string _value;
+
+        private BucketAbacStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BucketAbacStatus Enabled { get; } = new BucketAbacStatus("Enabled");
+        public static BucketAbacStatus Disabled { get; } = new BucketAbacStatus("Disabled");
+
+        public static bool operator ==(BucketAbacStatus left, BucketAbacStatus right) => left.Equals(right);
+        public static bool operator !=(BucketAbacStatus left, BucketAbacStatus right) => !left.Equals(right);
+
+        public static explicit operator string(BucketAbacStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BucketAbacStatus other && Equals(other);
+        public bool Equals(BucketAbacStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the transfer acceleration status of the bucket.
     /// </summary>
     [EnumType]
@@ -196,6 +227,34 @@ namespace Pulumi.AwsNative.S3
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is BucketAccessControl other && Equals(other);
         public bool Equals(BucketAccessControl other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct BucketBlockedEncryptionTypeListItem : IEquatable<BucketBlockedEncryptionTypeListItem>
+    {
+        private readonly string _value;
+
+        private BucketBlockedEncryptionTypeListItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BucketBlockedEncryptionTypeListItem None { get; } = new BucketBlockedEncryptionTypeListItem("NONE");
+        public static BucketBlockedEncryptionTypeListItem SseC { get; } = new BucketBlockedEncryptionTypeListItem("SSE-C");
+
+        public static bool operator ==(BucketBlockedEncryptionTypeListItem left, BucketBlockedEncryptionTypeListItem right) => left.Equals(right);
+        public static bool operator !=(BucketBlockedEncryptionTypeListItem left, BucketBlockedEncryptionTypeListItem right) => !left.Equals(right);
+
+        public static explicit operator string(BucketBlockedEncryptionTypeListItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BucketBlockedEncryptionTypeListItem other && Equals(other);
+        public bool Equals(BucketBlockedEncryptionTypeListItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

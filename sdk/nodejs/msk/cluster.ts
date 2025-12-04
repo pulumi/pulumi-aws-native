@@ -60,7 +60,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The current version of the MSK cluster
      */
-    declare public readonly currentVersion: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly currentVersion: pulumi.Output<string>;
     /**
      * Includes all encryption-related information.
      */
@@ -85,6 +85,7 @@ export class Cluster extends pulumi.CustomResource {
      * The settings for open monitoring.
      */
     declare public readonly openMonitoring: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
+    declare public readonly rebalancing: pulumi.Output<outputs.msk.ClusterRebalancing | undefined>;
     /**
      * This controls storage mode for supported storage tiers.
      */
@@ -118,16 +119,17 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clientAuthentication"] = args?.clientAuthentication;
             resourceInputs["clusterName"] = args?.clusterName;
             resourceInputs["configurationInfo"] = args?.configurationInfo;
-            resourceInputs["currentVersion"] = args?.currentVersion;
             resourceInputs["encryptionInfo"] = args?.encryptionInfo;
             resourceInputs["enhancedMonitoring"] = args?.enhancedMonitoring;
             resourceInputs["kafkaVersion"] = args?.kafkaVersion;
             resourceInputs["loggingInfo"] = args?.loggingInfo;
             resourceInputs["numberOfBrokerNodes"] = args?.numberOfBrokerNodes;
             resourceInputs["openMonitoring"] = args?.openMonitoring;
+            resourceInputs["rebalancing"] = args?.rebalancing;
             resourceInputs["storageMode"] = args?.storageMode;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["currentVersion"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["brokerNodeGroupInfo"] = undefined /*out*/;
@@ -141,6 +143,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["loggingInfo"] = undefined /*out*/;
             resourceInputs["numberOfBrokerNodes"] = undefined /*out*/;
             resourceInputs["openMonitoring"] = undefined /*out*/;
+            resourceInputs["rebalancing"] = undefined /*out*/;
             resourceInputs["storageMode"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -172,10 +175,6 @@ export interface ClusterArgs {
      */
     configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfoArgs>;
     /**
-     * The current version of the MSK cluster
-     */
-    currentVersion?: pulumi.Input<string>;
-    /**
      * Includes all encryption-related information.
      */
     encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfoArgs>;
@@ -199,6 +198,7 @@ export interface ClusterArgs {
      * The settings for open monitoring.
      */
     openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoringArgs>;
+    rebalancing?: pulumi.Input<inputs.msk.ClusterRebalancingArgs>;
     /**
      * This controls storage mode for supported storage tiers.
      */

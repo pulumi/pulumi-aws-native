@@ -5,6 +5,7 @@
 export const RuleResourceType = {
     EbsSnapshot: "EBS_SNAPSHOT",
     Ec2Image: "EC2_IMAGE",
+    EbsVolume: "EBS_VOLUME",
 } as const;
 
 /**

@@ -26,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetFunctionResult:
-    def __init__(__self__, architectures=None, arn=None, code=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storage=None, file_system_configs=None, handler=None, image_config=None, kms_key_arn=None, layers=None, logging_config=None, memory_size=None, recursive_loop=None, reserved_concurrent_executions=None, role=None, runtime=None, runtime_management_config=None, snap_start_response=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
+    def __init__(__self__, architectures=None, arn=None, capacity_provider_config=None, code=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storage=None, file_system_configs=None, function_scaling_config=None, handler=None, image_config=None, kms_key_arn=None, layers=None, logging_config=None, memory_size=None, recursive_loop=None, reserved_concurrent_executions=None, role=None, runtime=None, runtime_management_config=None, snap_start_response=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
         if architectures and not isinstance(architectures, list):
             raise TypeError("Expected argument 'architectures' to be a list")
         pulumi.set(__self__, "architectures", architectures)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if capacity_provider_config and not isinstance(capacity_provider_config, dict):
+            raise TypeError("Expected argument 'capacity_provider_config' to be a dict")
+        pulumi.set(__self__, "capacity_provider_config", capacity_provider_config)
         if code and not isinstance(code, dict):
             raise TypeError("Expected argument 'code' to be a dict")
         pulumi.set(__self__, "code", code)
@@ -54,6 +57,9 @@ class GetFunctionResult:
         if file_system_configs and not isinstance(file_system_configs, list):
             raise TypeError("Expected argument 'file_system_configs' to be a list")
         pulumi.set(__self__, "file_system_configs", file_system_configs)
+        if function_scaling_config and not isinstance(function_scaling_config, dict):
+            raise TypeError("Expected argument 'function_scaling_config' to be a dict")
+        pulumi.set(__self__, "function_scaling_config", function_scaling_config)
         if handler and not isinstance(handler, str):
             raise TypeError("Expected argument 'handler' to be a str")
         pulumi.set(__self__, "handler", handler)
@@ -120,6 +126,11 @@ class GetFunctionResult:
         return pulumi.get(self, "arn")
 
     @_builtins.property
+    @pulumi.getter(name="capacityProviderConfig")
+    def capacity_provider_config(self) -> Optional['outputs.FunctionCapacityProviderConfig']:
+        return pulumi.get(self, "capacity_provider_config")
+
+    @_builtins.property
     @pulumi.getter
     def code(self) -> Optional['outputs.FunctionCode']:
         """
@@ -178,6 +189,11 @@ class GetFunctionResult:
          For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).
         """
         return pulumi.get(self, "file_system_configs")
+
+    @_builtins.property
+    @pulumi.getter(name="functionScalingConfig")
+    def function_scaling_config(self) -> Optional['outputs.FunctionScalingConfig']:
+        return pulumi.get(self, "function_scaling_config")
 
     @_builtins.property
     @pulumi.getter
@@ -324,6 +340,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
         return GetFunctionResult(
             architectures=self.architectures,
             arn=self.arn,
+            capacity_provider_config=self.capacity_provider_config,
             code=self.code,
             code_signing_config_arn=self.code_signing_config_arn,
             dead_letter_config=self.dead_letter_config,
@@ -331,6 +348,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             environment=self.environment,
             ephemeral_storage=self.ephemeral_storage,
             file_system_configs=self.file_system_configs,
+            function_scaling_config=self.function_scaling_config,
             handler=self.handler,
             image_config=self.image_config,
             kms_key_arn=self.kms_key_arn,
@@ -372,6 +390,7 @@ def get_function(function_name: Optional[_builtins.str] = None,
     return AwaitableGetFunctionResult(
         architectures=pulumi.get(__ret__, 'architectures'),
         arn=pulumi.get(__ret__, 'arn'),
+        capacity_provider_config=pulumi.get(__ret__, 'capacity_provider_config'),
         code=pulumi.get(__ret__, 'code'),
         code_signing_config_arn=pulumi.get(__ret__, 'code_signing_config_arn'),
         dead_letter_config=pulumi.get(__ret__, 'dead_letter_config'),
@@ -379,6 +398,7 @@ def get_function(function_name: Optional[_builtins.str] = None,
         environment=pulumi.get(__ret__, 'environment'),
         ephemeral_storage=pulumi.get(__ret__, 'ephemeral_storage'),
         file_system_configs=pulumi.get(__ret__, 'file_system_configs'),
+        function_scaling_config=pulumi.get(__ret__, 'function_scaling_config'),
         handler=pulumi.get(__ret__, 'handler'),
         image_config=pulumi.get(__ret__, 'image_config'),
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
@@ -417,6 +437,7 @@ def get_function_output(function_name: Optional[pulumi.Input[_builtins.str]] = N
     return __ret__.apply(lambda __response__: GetFunctionResult(
         architectures=pulumi.get(__response__, 'architectures'),
         arn=pulumi.get(__response__, 'arn'),
+        capacity_provider_config=pulumi.get(__response__, 'capacity_provider_config'),
         code=pulumi.get(__response__, 'code'),
         code_signing_config_arn=pulumi.get(__response__, 'code_signing_config_arn'),
         dead_letter_config=pulumi.get(__response__, 'dead_letter_config'),
@@ -424,6 +445,7 @@ def get_function_output(function_name: Optional[pulumi.Input[_builtins.str]] = N
         environment=pulumi.get(__response__, 'environment'),
         ephemeral_storage=pulumi.get(__response__, 'ephemeral_storage'),
         file_system_configs=pulumi.get(__response__, 'file_system_configs'),
+        function_scaling_config=pulumi.get(__response__, 'function_scaling_config'),
         handler=pulumi.get(__response__, 'handler'),
         image_config=pulumi.get(__response__, 'image_config'),
         kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),

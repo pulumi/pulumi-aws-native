@@ -84,6 +84,10 @@ namespace Pulumi.AwsNative.S3Tables
         /// </summary>
         public readonly string? TableName;
         /// <summary>
+        /// User tags (key-value pairs) to associate with the table.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// The version token of the table.
         /// </summary>
         public readonly string? VersionToken;
@@ -104,6 +108,8 @@ namespace Pulumi.AwsNative.S3Tables
 
             string? tableName,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             string? versionToken,
 
             string? warehouseLocation)
@@ -113,6 +119,7 @@ namespace Pulumi.AwsNative.S3Tables
             SnapshotManagement = snapshotManagement;
             TableArn = tableArn;
             TableName = tableName;
+            Tags = tags;
             VersionToken = versionToken;
             WarehouseLocation = warehouseLocation;
         }

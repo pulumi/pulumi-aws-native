@@ -55,7 +55,19 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
         /// </summary>
         [Output("segmentGroups")]
-        public Output<Outputs.SegmentDefinitionSegmentGroup> SegmentGroups { get; private set; } = null!;
+        public Output<Outputs.SegmentDefinitionSegmentGroup?> SegmentGroups { get; private set; } = null!;
+
+        /// <summary>
+        /// The SQL query that defines the segment criteria.
+        /// </summary>
+        [Output("segmentSqlQuery")]
+        public Output<string?> SegmentSqlQuery { get; private set; } = null!;
+
+        /// <summary>
+        /// The SQL query that defines the segment criteria.
+        /// </summary>
+        [Output("segmentType")]
+        public Output<Pulumi.AwsNative.CustomerProfiles.SegmentDefinitionSegmentType> SegmentType { get; private set; } = null!;
 
         /// <summary>
         /// The tags used to organize, track, or control access for this resource.
@@ -92,6 +104,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
                     "domainName",
                     "segmentDefinitionName",
                     "segmentGroups",
+                    "segmentSqlQuery",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -142,8 +155,14 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// <summary>
         /// An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
         /// </summary>
-        [Input("segmentGroups", required: true)]
-        public Input<Inputs.SegmentDefinitionSegmentGroupArgs> SegmentGroups { get; set; } = null!;
+        [Input("segmentGroups")]
+        public Input<Inputs.SegmentDefinitionSegmentGroupArgs>? SegmentGroups { get; set; }
+
+        /// <summary>
+        /// The SQL query that defines the segment criteria.
+        /// </summary>
+        [Input("segmentSqlQuery")]
+        public Input<string>? SegmentSqlQuery { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

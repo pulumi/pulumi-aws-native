@@ -110,6 +110,7 @@ class FirewallRuleGroupFirewallRuleDnsThreatProtection(_builtins.str, Enum):
     """
     DGA = "DGA"
     DNS_TUNNELING = "DNS_TUNNELING"
+    DICTIONARY_DGA = "DICTIONARY_DGA"
 
 
 @pulumi.type_token("aws-native:route53resolver:FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction")

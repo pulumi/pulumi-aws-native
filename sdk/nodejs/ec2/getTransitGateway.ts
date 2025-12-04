@@ -50,6 +50,10 @@ export interface GetTransitGatewayResult {
      */
     readonly dnsSupport?: string;
     /**
+     * The encryption support state of the transit gateway.
+     */
+    readonly encryptionSupportState?: string;
+    /**
      * The ID of the transit gateway.
      */
     readonly id?: string;

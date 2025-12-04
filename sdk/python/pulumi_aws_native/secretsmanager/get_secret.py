@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetSecretResult:
-    def __init__(__self__, description=None, id=None, kms_key_id=None, replica_regions=None, tags=None):
+    def __init__(__self__, description=None, id=None, kms_key_id=None, replica_regions=None, tags=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -41,6 +41,9 @@ class GetSecretResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
@@ -97,6 +100,14 @@ class GetSecretResult:
         """
         return pulumi.get(self, "tags")
 
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        The exact string that identifies the third-party partner that holds the external secret. For more information, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) .
+        """
+        return pulumi.get(self, "type")
+
 
 class AwaitableGetSecretResult(GetSecretResult):
     # pylint: disable=using-constant-test
@@ -108,7 +119,8 @@ class AwaitableGetSecretResult(GetSecretResult):
             id=self.id,
             kms_key_id=self.kms_key_id,
             replica_regions=self.replica_regions,
-            tags=self.tags)
+            tags=self.tags,
+            type=self.type)
 
 
 def get_secret(id: Optional[_builtins.str] = None,
@@ -134,7 +146,8 @@ def get_secret(id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         replica_regions=pulumi.get(__ret__, 'replica_regions'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 def get_secret_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretResult]:
     """
@@ -157,4 +170,5 @@ def get_secret_output(id: Optional[pulumi.Input[_builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
         replica_regions=pulumi.get(__response__, 'replica_regions'),
-        tags=pulumi.get(__response__, 'tags')))
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

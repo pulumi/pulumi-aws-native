@@ -354,6 +354,171 @@ func (in *clusterEnhancedMonitoringPtr) ToClusterEnhancedMonitoringPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterEnhancedMonitoringPtrOutput)
 }
 
+type ClusterRebalancingStatus string
+
+const (
+	ClusterRebalancingStatusPaused = ClusterRebalancingStatus("PAUSED")
+	ClusterRebalancingStatusActive = ClusterRebalancingStatus("ACTIVE")
+)
+
+func (ClusterRebalancingStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRebalancingStatus)(nil)).Elem()
+}
+
+func (e ClusterRebalancingStatus) ToClusterRebalancingStatusOutput() ClusterRebalancingStatusOutput {
+	return pulumi.ToOutput(e).(ClusterRebalancingStatusOutput)
+}
+
+func (e ClusterRebalancingStatus) ToClusterRebalancingStatusOutputWithContext(ctx context.Context) ClusterRebalancingStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterRebalancingStatusOutput)
+}
+
+func (e ClusterRebalancingStatus) ToClusterRebalancingStatusPtrOutput() ClusterRebalancingStatusPtrOutput {
+	return e.ToClusterRebalancingStatusPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterRebalancingStatus) ToClusterRebalancingStatusPtrOutputWithContext(ctx context.Context) ClusterRebalancingStatusPtrOutput {
+	return ClusterRebalancingStatus(e).ToClusterRebalancingStatusOutputWithContext(ctx).ToClusterRebalancingStatusPtrOutputWithContext(ctx)
+}
+
+func (e ClusterRebalancingStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterRebalancingStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterRebalancingStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterRebalancingStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterRebalancingStatusOutput struct{ *pulumi.OutputState }
+
+func (ClusterRebalancingStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRebalancingStatus)(nil)).Elem()
+}
+
+func (o ClusterRebalancingStatusOutput) ToClusterRebalancingStatusOutput() ClusterRebalancingStatusOutput {
+	return o
+}
+
+func (o ClusterRebalancingStatusOutput) ToClusterRebalancingStatusOutputWithContext(ctx context.Context) ClusterRebalancingStatusOutput {
+	return o
+}
+
+func (o ClusterRebalancingStatusOutput) ToClusterRebalancingStatusPtrOutput() ClusterRebalancingStatusPtrOutput {
+	return o.ToClusterRebalancingStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterRebalancingStatusOutput) ToClusterRebalancingStatusPtrOutputWithContext(ctx context.Context) ClusterRebalancingStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterRebalancingStatus) *ClusterRebalancingStatus {
+		return &v
+	}).(ClusterRebalancingStatusPtrOutput)
+}
+
+func (o ClusterRebalancingStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterRebalancingStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterRebalancingStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterRebalancingStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterRebalancingStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterRebalancingStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterRebalancingStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterRebalancingStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRebalancingStatus)(nil)).Elem()
+}
+
+func (o ClusterRebalancingStatusPtrOutput) ToClusterRebalancingStatusPtrOutput() ClusterRebalancingStatusPtrOutput {
+	return o
+}
+
+func (o ClusterRebalancingStatusPtrOutput) ToClusterRebalancingStatusPtrOutputWithContext(ctx context.Context) ClusterRebalancingStatusPtrOutput {
+	return o
+}
+
+func (o ClusterRebalancingStatusPtrOutput) Elem() ClusterRebalancingStatusOutput {
+	return o.ApplyT(func(v *ClusterRebalancingStatus) ClusterRebalancingStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterRebalancingStatus
+		return ret
+	}).(ClusterRebalancingStatusOutput)
+}
+
+func (o ClusterRebalancingStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterRebalancingStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterRebalancingStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterRebalancingStatusInput is an input type that accepts values of the ClusterRebalancingStatus enum
+// A concrete instance of `ClusterRebalancingStatusInput` can be one of the following:
+//
+//	ClusterRebalancingStatusPaused
+//	ClusterRebalancingStatusActive
+type ClusterRebalancingStatusInput interface {
+	pulumi.Input
+
+	ToClusterRebalancingStatusOutput() ClusterRebalancingStatusOutput
+	ToClusterRebalancingStatusOutputWithContext(context.Context) ClusterRebalancingStatusOutput
+}
+
+var clusterRebalancingStatusPtrType = reflect.TypeOf((**ClusterRebalancingStatus)(nil)).Elem()
+
+type ClusterRebalancingStatusPtrInput interface {
+	pulumi.Input
+
+	ToClusterRebalancingStatusPtrOutput() ClusterRebalancingStatusPtrOutput
+	ToClusterRebalancingStatusPtrOutputWithContext(context.Context) ClusterRebalancingStatusPtrOutput
+}
+
+type clusterRebalancingStatusPtr string
+
+func ClusterRebalancingStatusPtr(v string) ClusterRebalancingStatusPtrInput {
+	return (*clusterRebalancingStatusPtr)(&v)
+}
+
+func (*clusterRebalancingStatusPtr) ElementType() reflect.Type {
+	return clusterRebalancingStatusPtrType
+}
+
+func (in *clusterRebalancingStatusPtr) ToClusterRebalancingStatusPtrOutput() ClusterRebalancingStatusPtrOutput {
+	return pulumi.ToOutput(in).(ClusterRebalancingStatusPtrOutput)
+}
+
+func (in *clusterRebalancingStatusPtr) ToClusterRebalancingStatusPtrOutputWithContext(ctx context.Context) ClusterRebalancingStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterRebalancingStatusPtrOutput)
+}
+
 // This controls storage mode for supported storage tiers.
 type ClusterStorageMode string
 
@@ -1197,6 +1362,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionInTransitClientBrokerPtrInput)(nil)).Elem(), ClusterEncryptionInTransitClientBroker("TLS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEnhancedMonitoringInput)(nil)).Elem(), ClusterEnhancedMonitoring("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEnhancedMonitoringPtrInput)(nil)).Elem(), ClusterEnhancedMonitoring("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRebalancingStatusInput)(nil)).Elem(), ClusterRebalancingStatus("PAUSED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRebalancingStatusPtrInput)(nil)).Elem(), ClusterRebalancingStatus("PAUSED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageModeInput)(nil)).Elem(), ClusterStorageMode("LOCAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageModePtrInput)(nil)).Elem(), ClusterStorageMode("LOCAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoTargetCompressionTypeInput)(nil)).Elem(), ReplicatorReplicationInfoTargetCompressionType("NONE"))
@@ -1211,6 +1378,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterEncryptionInTransitClientBrokerPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEnhancedMonitoringOutput{})
 	pulumi.RegisterOutputType(ClusterEnhancedMonitoringPtrOutput{})
+	pulumi.RegisterOutputType(ClusterRebalancingStatusOutput{})
+	pulumi.RegisterOutputType(ClusterRebalancingStatusPtrOutput{})
 	pulumi.RegisterOutputType(ClusterStorageModeOutput{})
 	pulumi.RegisterOutputType(ClusterStorageModePtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoTargetCompressionTypeOutput{})

@@ -71,7 +71,7 @@ type LookupPortalResult struct {
 	RendererType *PortalRendererType `pulumi:"rendererType"`
 	// The SAML metadata of the service provider.
 	ServiceProviderSamlMetadata *string `pulumi:"serviceProviderSamlMetadata"`
-	// The ARN of the session logger that is assocaited with the portal.
+	// The ARN of the session logger that is associated with the portal.
 	SessionLoggerArn *string `pulumi:"sessionLoggerArn"`
 	// A message that explains why the web portal is in its current status.
 	StatusReason *string `pulumi:"statusReason"`
@@ -204,7 +204,7 @@ func (o LookupPortalResultOutput) ServiceProviderSamlMetadata() pulumi.StringPtr
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.ServiceProviderSamlMetadata }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the session logger that is assocaited with the portal.
+// The ARN of the session logger that is associated with the portal.
 func (o LookupPortalResultOutput) SessionLoggerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.SessionLoggerArn }).(pulumi.StringPtrOutput)
 }

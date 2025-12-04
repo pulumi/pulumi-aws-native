@@ -39,10 +39,6 @@ export interface GetLogicallyAirGappedBackupVaultResult {
      * The tags to assign to the vault.
      */
     readonly backupVaultTags?: {[key: string]: string};
-    /**
-     * The ARN of the server-side encryption key.
-     */
-    readonly encryptionKeyArn?: string;
     readonly mpaApprovalTeamArn?: string;
     /**
      * Returns event notifications for the specified backup vault.

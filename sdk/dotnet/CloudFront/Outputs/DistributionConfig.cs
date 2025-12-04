@@ -40,6 +40,10 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly string? Comment;
         /// <summary>
+        /// The distribution's connection function association.
+        /// </summary>
+        public readonly Outputs.DistributionConnectionFunctionAssociation? ConnectionFunctionAssociation;
+        /// <summary>
         /// This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants (tenant-only).
         /// </summary>
         public readonly Pulumi.AwsNative.CloudFront.DistributionConnectionMode? ConnectionMode;
@@ -142,6 +146,10 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly Outputs.DistributionViewerCertificate? ViewerCertificate;
         /// <summary>
+        /// The distribution's viewer mTLS configuration.
+        /// </summary>
+        public readonly Outputs.DistributionViewerMtlsConfig? ViewerMtlsConfig;
+        /// <summary>
         /// Multi-tenant distributions only support WAF V2 web ACLs.
         ///   A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
         ///  WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
@@ -159,6 +167,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             ImmutableArray<string> cnames,
 
             string? comment,
+
+            Outputs.DistributionConnectionFunctionAssociation? connectionFunctionAssociation,
 
             Pulumi.AwsNative.CloudFront.DistributionConnectionMode? connectionMode,
 
@@ -196,6 +206,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             Outputs.DistributionViewerCertificate? viewerCertificate,
 
+            Outputs.DistributionViewerMtlsConfig? viewerMtlsConfig,
+
             string? webAclId)
         {
             Aliases = aliases;
@@ -203,6 +215,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             CacheBehaviors = cacheBehaviors;
             Cnames = cnames;
             Comment = comment;
+            ConnectionFunctionAssociation = connectionFunctionAssociation;
             ConnectionMode = connectionMode;
             ContinuousDeploymentPolicyId = continuousDeploymentPolicyId;
             CustomErrorResponses = customErrorResponses;
@@ -221,6 +234,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             Staging = staging;
             TenantConfig = tenantConfig;
             ViewerCertificate = viewerCertificate;
+            ViewerMtlsConfig = viewerMtlsConfig;
             WebAclId = webAclId;
         }
     }

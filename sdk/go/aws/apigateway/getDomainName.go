@@ -42,6 +42,8 @@ type LookupDomainNameResult struct {
 	DistributionHostedZoneId *string `pulumi:"distributionHostedZoneId"`
 	// The ARN of the domain name.
 	DomainNameArn *string `pulumi:"domainNameArn"`
+	// The endpoint access mode for your DomainName.
+	EndpointAccessMode *string `pulumi:"endpointAccessMode"`
 	// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
 	EndpointConfiguration *DomainNameEndpointConfiguration `pulumi:"endpointConfiguration"`
 	// The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
@@ -56,7 +58,7 @@ type LookupDomainNameResult struct {
 	RegionalHostedZoneId *string `pulumi:"regionalHostedZoneId"`
 	// The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
 	RoutingMode *DomainNameRoutingMode `pulumi:"routingMode"`
-	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+	// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
 	SecurityPolicy *string `pulumi:"securityPolicy"`
 	// The collection of tags. Each tag element is associated with a given resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -116,6 +118,11 @@ func (o LookupDomainNameResultOutput) DomainNameArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.DomainNameArn }).(pulumi.StringPtrOutput)
 }
 
+// The endpoint access mode for your DomainName.
+func (o LookupDomainNameResultOutput) EndpointAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.EndpointAccessMode }).(pulumi.StringPtrOutput)
+}
+
 // The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
 func (o LookupDomainNameResultOutput) EndpointConfiguration() DomainNameEndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *DomainNameEndpointConfiguration { return v.EndpointConfiguration }).(DomainNameEndpointConfigurationPtrOutput)
@@ -151,7 +158,7 @@ func (o LookupDomainNameResultOutput) RoutingMode() DomainNameRoutingModePtrOutp
 	return o.ApplyT(func(v LookupDomainNameResult) *DomainNameRoutingMode { return v.RoutingMode }).(DomainNameRoutingModePtrOutput)
 }
 
-// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
 func (o LookupDomainNameResultOutput) SecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
 }

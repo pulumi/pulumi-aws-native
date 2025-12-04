@@ -267,6 +267,7 @@ export class Function extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the function.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public readonly capacityProviderConfig: pulumi.Output<outputs.lambda.FunctionCapacityProviderConfig | undefined>;
     /**
      * The code for the function. You can define your function code in multiple ways:
      *   +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
@@ -304,6 +305,7 @@ export class Function extends pulumi.CustomResource {
      *  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
     declare public readonly functionName: pulumi.Output<string | undefined>;
+    declare public readonly functionScalingConfig: pulumi.Output<outputs.lambda.FunctionScalingConfig | undefined>;
     /**
      * The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
      */
@@ -338,6 +340,7 @@ export class Function extends pulumi.CustomResource {
      * The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
      */
     declare public readonly packageType: pulumi.Output<enums.lambda.FunctionPackageType | undefined>;
+    declare public readonly publishToLatestPublished: pulumi.Output<boolean | undefined>;
     /**
      * The status of your function's recursive loop detection configuration.
      *  When this value is set to ``Allow``and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
@@ -373,6 +376,10 @@ export class Function extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
+     * The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.
+     */
+    declare public readonly tenancyConfig: pulumi.Output<outputs.lambda.FunctionTenancyConfig | undefined>;
+    /**
      * The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
      */
     declare public readonly timeout: pulumi.Output<number | undefined>;
@@ -403,6 +410,7 @@ export class Function extends pulumi.CustomResource {
                 throw new Error("Missing required property 'role'");
             }
             resourceInputs["architectures"] = args?.architectures;
+            resourceInputs["capacityProviderConfig"] = args?.capacityProviderConfig;
             resourceInputs["code"] = args?.code;
             resourceInputs["codeSigningConfigArn"] = args?.codeSigningConfigArn;
             resourceInputs["deadLetterConfig"] = args?.deadLetterConfig;
@@ -411,6 +419,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["ephemeralStorage"] = args?.ephemeralStorage;
             resourceInputs["fileSystemConfigs"] = args?.fileSystemConfigs;
             resourceInputs["functionName"] = args?.functionName;
+            resourceInputs["functionScalingConfig"] = args?.functionScalingConfig;
             resourceInputs["handler"] = args?.handler;
             resourceInputs["imageConfig"] = args?.imageConfig;
             resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
@@ -418,6 +427,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["loggingConfig"] = args?.loggingConfig;
             resourceInputs["memorySize"] = args?.memorySize;
             resourceInputs["packageType"] = args?.packageType;
+            resourceInputs["publishToLatestPublished"] = args?.publishToLatestPublished;
             resourceInputs["recursiveLoop"] = args?.recursiveLoop;
             resourceInputs["reservedConcurrentExecutions"] = args?.reservedConcurrentExecutions;
             resourceInputs["role"] = args?.role;
@@ -425,6 +435,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["runtimeManagementConfig"] = args?.runtimeManagementConfig;
             resourceInputs["snapStart"] = args?.snapStart;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["tenancyConfig"] = args?.tenancyConfig;
             resourceInputs["timeout"] = args?.timeout;
             resourceInputs["tracingConfig"] = args?.tracingConfig;
             resourceInputs["vpcConfig"] = args?.vpcConfig;
@@ -433,6 +444,7 @@ export class Function extends pulumi.CustomResource {
         } else {
             resourceInputs["architectures"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["capacityProviderConfig"] = undefined /*out*/;
             resourceInputs["code"] = undefined /*out*/;
             resourceInputs["codeSigningConfigArn"] = undefined /*out*/;
             resourceInputs["deadLetterConfig"] = undefined /*out*/;
@@ -441,6 +453,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["ephemeralStorage"] = undefined /*out*/;
             resourceInputs["fileSystemConfigs"] = undefined /*out*/;
             resourceInputs["functionName"] = undefined /*out*/;
+            resourceInputs["functionScalingConfig"] = undefined /*out*/;
             resourceInputs["handler"] = undefined /*out*/;
             resourceInputs["imageConfig"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
@@ -448,6 +461,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["loggingConfig"] = undefined /*out*/;
             resourceInputs["memorySize"] = undefined /*out*/;
             resourceInputs["packageType"] = undefined /*out*/;
+            resourceInputs["publishToLatestPublished"] = undefined /*out*/;
             resourceInputs["recursiveLoop"] = undefined /*out*/;
             resourceInputs["reservedConcurrentExecutions"] = undefined /*out*/;
             resourceInputs["role"] = undefined /*out*/;
@@ -456,12 +470,13 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["snapStart"] = undefined /*out*/;
             resourceInputs["snapStartResponse"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tenancyConfig"] = undefined /*out*/;
             resourceInputs["timeout"] = undefined /*out*/;
             resourceInputs["tracingConfig"] = undefined /*out*/;
             resourceInputs["vpcConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["functionName", "packageType"] };
+        const replaceOnChanges = { replaceOnChanges: ["functionName", "packageType", "tenancyConfig"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Function.__pulumiType, name, resourceInputs, opts);
     }
@@ -475,6 +490,7 @@ export interface FunctionArgs {
      * The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
      */
     architectures?: pulumi.Input<pulumi.Input<enums.lambda.FunctionArchitecturesItem>[]>;
+    capacityProviderConfig?: pulumi.Input<inputs.lambda.FunctionCapacityProviderConfigArgs>;
     /**
      * The code for the function. You can define your function code in multiple ways:
      *   +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
@@ -512,6 +528,7 @@ export interface FunctionArgs {
      *  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
     functionName?: pulumi.Input<string>;
+    functionScalingConfig?: pulumi.Input<inputs.lambda.FunctionScalingConfigArgs>;
     /**
      * The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
      */
@@ -546,6 +563,7 @@ export interface FunctionArgs {
      * The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
      */
     packageType?: pulumi.Input<enums.lambda.FunctionPackageType>;
+    publishToLatestPublished?: pulumi.Input<boolean>;
     /**
      * The status of your function's recursive loop detection configuration.
      *  When this value is set to ``Allow``and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
@@ -579,6 +597,10 @@ export interface FunctionArgs {
      *   You must have the ``lambda:TagResource``, ``lambda:UntagResource``, and ``lambda:ListTags`` permissions for your [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the CFN stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.
+     */
+    tenancyConfig?: pulumi.Input<inputs.lambda.FunctionTenancyConfigArgs>;
     /**
      * The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
      */

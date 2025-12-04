@@ -76,6 +76,12 @@ namespace Pulumi.AwsNative.Bedrock
         public Output<Pulumi.AwsNative.Bedrock.DataAutomationProjectStage> ProjectStage { get; private set; } = null!;
 
         /// <summary>
+        /// Type of the DataAutomationProject - Sync or Async
+        /// </summary>
+        [Output("projectType")]
+        public Output<Pulumi.AwsNative.Bedrock.DataAutomationProjectProjectType?> ProjectType { get; private set; } = null!;
+
+        /// <summary>
         /// The project's standard output configuration.
         /// </summary>
         [Output("standardOutputConfiguration")]
@@ -119,6 +125,7 @@ namespace Pulumi.AwsNative.Bedrock
                 ReplaceOnChanges =
                 {
                     "projectName",
+                    "projectType",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -183,6 +190,12 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
+
+        /// <summary>
+        /// Type of the DataAutomationProject - Sync or Async
+        /// </summary>
+        [Input("projectType")]
+        public Input<Pulumi.AwsNative.Bedrock.DataAutomationProjectProjectType>? ProjectType { get; set; }
 
         /// <summary>
         /// The project's standard output configuration.

@@ -35,6 +35,8 @@ type LookupDomainNameV2Result struct {
 	DomainNameArn *string `pulumi:"domainNameArn"`
 	// The domain name ID.
 	DomainNameId *string `pulumi:"domainNameId"`
+	// The endpoint access mode for your DomainName.
+	EndpointAccessMode *string `pulumi:"endpointAccessMode"`
 	// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
@@ -90,6 +92,11 @@ func (o LookupDomainNameV2ResultOutput) DomainNameArn() pulumi.StringPtrOutput {
 // The domain name ID.
 func (o LookupDomainNameV2ResultOutput) DomainNameId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameV2Result) *string { return v.DomainNameId }).(pulumi.StringPtrOutput)
+}
+
+// The endpoint access mode for your DomainName.
+func (o LookupDomainNameV2ResultOutput) EndpointAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainNameV2Result) *string { return v.EndpointAccessMode }).(pulumi.StringPtrOutput)
 }
 
 // A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .

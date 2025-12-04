@@ -115,7 +115,7 @@ type ConfigurationManagerConfigurationDefinition struct {
 	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
 	// - **DevOps Guru (Type: AWS QuickSetupType-DevOpsGuru)** - - `AnalyseAllResources`
 	//
-	// - Description: (Optional) A boolean value that determines whether DevOps Guru analyzes all AWS CloudFormation stacks in the account. The default value is " `false` ".
+	// - Description: (Optional) A boolean value that determines whether DevOps Guru analyzes all CloudFormation stacks in the account. The default value is " `false` ".
 	// - `EnableSnsNotifications`
 	//
 	// - Description: (Optional) A boolean value that determines whether DevOps Guru sends notifications when an insight is created. The default value is " `true` ".
@@ -447,7 +447,7 @@ type ConfigurationManagerConfigurationDefinitionArgs struct {
 	// - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
 	// - **DevOps Guru (Type: AWS QuickSetupType-DevOpsGuru)** - - `AnalyseAllResources`
 	//
-	// - Description: (Optional) A boolean value that determines whether DevOps Guru analyzes all AWS CloudFormation stacks in the account. The default value is " `false` ".
+	// - Description: (Optional) A boolean value that determines whether DevOps Guru analyzes all CloudFormation stacks in the account. The default value is " `false` ".
 	// - `EnableSnsNotifications`
 	//
 	// - Description: (Optional) A boolean value that determines whether DevOps Guru sends notifications when an insight is created. The default value is " `true` ".
@@ -829,7 +829,7 @@ func (o ConfigurationManagerConfigurationDefinitionOutput) LocalDeploymentExecut
 // - Description: (Required) A comma separated list of AWS Regions you want to deploy the configuration to.
 // - **DevOps Guru (Type: AWS QuickSetupType-DevOpsGuru)** - - `AnalyseAllResources`
 //
-// - Description: (Optional) A boolean value that determines whether DevOps Guru analyzes all AWS CloudFormation stacks in the account. The default value is " `false` ".
+// - Description: (Optional) A boolean value that determines whether DevOps Guru analyzes all CloudFormation stacks in the account. The default value is " `false` ".
 // - `EnableSnsNotifications`
 //
 // - Description: (Optional) A boolean value that determines whether DevOps Guru sends notifications when an insight is created. The default value is " `true` ".

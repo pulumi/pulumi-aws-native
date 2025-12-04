@@ -869,6 +869,34 @@ namespace Pulumi.AwsNative.MediaConnect
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct FlowOutputFlowTransitEncryptionKeyType : IEquatable<FlowOutputFlowTransitEncryptionKeyType>
+    {
+        private readonly string _value;
+
+        private FlowOutputFlowTransitEncryptionKeyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowOutputFlowTransitEncryptionKeyType SecretsManager { get; } = new FlowOutputFlowTransitEncryptionKeyType("SECRETS_MANAGER");
+        public static FlowOutputFlowTransitEncryptionKeyType Automatic { get; } = new FlowOutputFlowTransitEncryptionKeyType("AUTOMATIC");
+
+        public static bool operator ==(FlowOutputFlowTransitEncryptionKeyType left, FlowOutputFlowTransitEncryptionKeyType right) => left.Equals(right);
+        public static bool operator !=(FlowOutputFlowTransitEncryptionKeyType left, FlowOutputFlowTransitEncryptionKeyType right) => !left.Equals(right);
+
+        public static explicit operator string(FlowOutputFlowTransitEncryptionKeyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowOutputFlowTransitEncryptionKeyType other && Equals(other);
+        public bool Equals(FlowOutputFlowTransitEncryptionKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video streams on sources or outputs that use the CDI protocol, set the encoding name to raw. For video streams on sources or outputs that use the ST 2110 JPEG XS protocol, set the encoding name to jxsv.
     /// </summary>
@@ -966,6 +994,34 @@ namespace Pulumi.AwsNative.MediaConnect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowOutputProtocol other && Equals(other);
         public bool Equals(FlowOutputProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FlowOutputRouterIntegrationState : IEquatable<FlowOutputRouterIntegrationState>
+    {
+        private readonly string _value;
+
+        private FlowOutputRouterIntegrationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowOutputRouterIntegrationState Enabled { get; } = new FlowOutputRouterIntegrationState("ENABLED");
+        public static FlowOutputRouterIntegrationState Disabled { get; } = new FlowOutputRouterIntegrationState("DISABLED");
+
+        public static bool operator ==(FlowOutputRouterIntegrationState left, FlowOutputRouterIntegrationState right) => left.Equals(right);
+        public static bool operator !=(FlowOutputRouterIntegrationState left, FlowOutputRouterIntegrationState right) => !left.Equals(right);
+
+        public static explicit operator string(FlowOutputRouterIntegrationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowOutputRouterIntegrationState other && Equals(other);
+        public bool Equals(FlowOutputRouterIntegrationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1200,6 +1256,65 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
     /// <summary>
+    /// Indicates if router integration is enabled or disabled on the flow source.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowSourceRouterIntegrationState : IEquatable<FlowSourceRouterIntegrationState>
+    {
+        private readonly string _value;
+
+        private FlowSourceRouterIntegrationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowSourceRouterIntegrationState Enabled { get; } = new FlowSourceRouterIntegrationState("ENABLED");
+        public static FlowSourceRouterIntegrationState Disabled { get; } = new FlowSourceRouterIntegrationState("DISABLED");
+
+        public static bool operator ==(FlowSourceRouterIntegrationState left, FlowSourceRouterIntegrationState right) => left.Equals(right);
+        public static bool operator !=(FlowSourceRouterIntegrationState left, FlowSourceRouterIntegrationState right) => !left.Equals(right);
+
+        public static explicit operator string(FlowSourceRouterIntegrationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowSourceRouterIntegrationState other && Equals(other);
+        public bool Equals(FlowSourceRouterIntegrationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FlowTransitEncryptionKeyType : IEquatable<FlowTransitEncryptionKeyType>
+    {
+        private readonly string _value;
+
+        private FlowTransitEncryptionKeyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowTransitEncryptionKeyType SecretsManager { get; } = new FlowTransitEncryptionKeyType("SECRETS_MANAGER");
+        public static FlowTransitEncryptionKeyType Automatic { get; } = new FlowTransitEncryptionKeyType("AUTOMATIC");
+
+        public static bool operator ==(FlowTransitEncryptionKeyType left, FlowTransitEncryptionKeyType right) => left.Equals(right);
+        public static bool operator !=(FlowTransitEncryptionKeyType left, FlowTransitEncryptionKeyType right) => !left.Equals(right);
+
+        public static explicit operator string(FlowTransitEncryptionKeyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowTransitEncryptionKeyType other && Equals(other);
+        public bool Equals(FlowTransitEncryptionKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
     /// </summary>
     [EnumType]
@@ -1258,6 +1373,746 @@ namespace Pulumi.AwsNative.MediaConnect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is GatewayState other && Equals(other);
         public bool Equals(GatewayState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterInputDay : IEquatable<RouterInputDay>
+    {
+        private readonly string _value;
+
+        private RouterInputDay(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterInputDay Monday { get; } = new RouterInputDay("MONDAY");
+        public static RouterInputDay Tuesday { get; } = new RouterInputDay("TUESDAY");
+        public static RouterInputDay Wednesday { get; } = new RouterInputDay("WEDNESDAY");
+        public static RouterInputDay Thursday { get; } = new RouterInputDay("THURSDAY");
+        public static RouterInputDay Friday { get; } = new RouterInputDay("FRIDAY");
+        public static RouterInputDay Saturday { get; } = new RouterInputDay("SATURDAY");
+        public static RouterInputDay Sunday { get; } = new RouterInputDay("SUNDAY");
+
+        public static bool operator ==(RouterInputDay left, RouterInputDay right) => left.Equals(right);
+        public static bool operator !=(RouterInputDay left, RouterInputDay right) => !left.Equals(right);
+
+        public static explicit operator string(RouterInputDay value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterInputDay other && Equals(other);
+        public bool Equals(RouterInputDay other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterInputFailoverInputSourcePriorityMode : IEquatable<RouterInputFailoverInputSourcePriorityMode>
+    {
+        private readonly string _value;
+
+        private RouterInputFailoverInputSourcePriorityMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterInputFailoverInputSourcePriorityMode NoPriority { get; } = new RouterInputFailoverInputSourcePriorityMode("NO_PRIORITY");
+        public static RouterInputFailoverInputSourcePriorityMode PrimarySecondary { get; } = new RouterInputFailoverInputSourcePriorityMode("PRIMARY_SECONDARY");
+
+        public static bool operator ==(RouterInputFailoverInputSourcePriorityMode left, RouterInputFailoverInputSourcePriorityMode right) => left.Equals(right);
+        public static bool operator !=(RouterInputFailoverInputSourcePriorityMode left, RouterInputFailoverInputSourcePriorityMode right) => !left.Equals(right);
+
+        public static explicit operator string(RouterInputFailoverInputSourcePriorityMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterInputFailoverInputSourcePriorityMode other && Equals(other);
+        public bool Equals(RouterInputFailoverInputSourcePriorityMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterInputFlowTransitEncryptionKeyType : IEquatable<RouterInputFlowTransitEncryptionKeyType>
+    {
+        private readonly string _value;
+
+        private RouterInputFlowTransitEncryptionKeyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterInputFlowTransitEncryptionKeyType SecretsManager { get; } = new RouterInputFlowTransitEncryptionKeyType("SECRETS_MANAGER");
+        public static RouterInputFlowTransitEncryptionKeyType Automatic { get; } = new RouterInputFlowTransitEncryptionKeyType("AUTOMATIC");
+
+        public static bool operator ==(RouterInputFlowTransitEncryptionKeyType left, RouterInputFlowTransitEncryptionKeyType right) => left.Equals(right);
+        public static bool operator !=(RouterInputFlowTransitEncryptionKeyType left, RouterInputFlowTransitEncryptionKeyType right) => !left.Equals(right);
+
+        public static explicit operator string(RouterInputFlowTransitEncryptionKeyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterInputFlowTransitEncryptionKeyType other && Equals(other);
+        public bool Equals(RouterInputFlowTransitEncryptionKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterInputForwardErrorCorrectionState : IEquatable<RouterInputForwardErrorCorrectionState>
+    {
+        private readonly string _value;
+
+        private RouterInputForwardErrorCorrectionState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterInputForwardErrorCorrectionState Enabled { get; } = new RouterInputForwardErrorCorrectionState("ENABLED");
+        public static RouterInputForwardErrorCorrectionState Disabled { get; } = new RouterInputForwardErrorCorrectionState("DISABLED");
+
+        public static bool operator ==(RouterInputForwardErrorCorrectionState left, RouterInputForwardErrorCorrectionState right) => left.Equals(right);
+        public static bool operator !=(RouterInputForwardErrorCorrectionState left, RouterInputForwardErrorCorrectionState right) => !left.Equals(right);
+
+        public static explicit operator string(RouterInputForwardErrorCorrectionState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterInputForwardErrorCorrectionState other && Equals(other);
+        public bool Equals(RouterInputForwardErrorCorrectionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterInputMaintenanceType : IEquatable<RouterInputMaintenanceType>
+    {
+        private readonly string _value;
+
+        private RouterInputMaintenanceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterInputMaintenanceType PreferredDayTime { get; } = new RouterInputMaintenanceType("PREFERRED_DAY_TIME");
+        public static RouterInputMaintenanceType Default { get; } = new RouterInputMaintenanceType("DEFAULT");
+
+        public static bool operator ==(RouterInputMaintenanceType left, RouterInputMaintenanceType right) => left.Equals(right);
+        public static bool operator !=(RouterInputMaintenanceType left, RouterInputMaintenanceType right) => !left.Equals(right);
+
+        public static explicit operator string(RouterInputMaintenanceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterInputMaintenanceType other && Equals(other);
+        public bool Equals(RouterInputMaintenanceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterInputProtocol : IEquatable<RouterInputProtocol>
+    {
+        private readonly string _value;
+
+        private RouterInputProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterInputProtocol Rtp { get; } = new RouterInputProtocol("RTP");
+        public static RouterInputProtocol Rist { get; } = new RouterInputProtocol("RIST");
+        public static RouterInputProtocol SrtCaller { get; } = new RouterInputProtocol("SRT_CALLER");
+        public static RouterInputProtocol SrtListener { get; } = new RouterInputProtocol("SRT_LISTENER");
+
+        public static bool operator ==(RouterInputProtocol left, RouterInputProtocol right) => left.Equals(right);
+        public static bool operator !=(RouterInputProtocol left, RouterInputProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(RouterInputProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterInputProtocol other && Equals(other);
+        public bool Equals(RouterInputProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterInputRoutingScope : IEquatable<RouterInputRoutingScope>
+    {
+        private readonly string _value;
+
+        private RouterInputRoutingScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterInputRoutingScope Regional { get; } = new RouterInputRoutingScope("REGIONAL");
+        public static RouterInputRoutingScope Global { get; } = new RouterInputRoutingScope("GLOBAL");
+
+        public static bool operator ==(RouterInputRoutingScope left, RouterInputRoutingScope right) => left.Equals(right);
+        public static bool operator !=(RouterInputRoutingScope left, RouterInputRoutingScope right) => !left.Equals(right);
+
+        public static explicit operator string(RouterInputRoutingScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterInputRoutingScope other && Equals(other);
+        public bool Equals(RouterInputRoutingScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterInputState : IEquatable<RouterInputState>
+    {
+        private readonly string _value;
+
+        private RouterInputState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterInputState Creating { get; } = new RouterInputState("CREATING");
+        public static RouterInputState Standby { get; } = new RouterInputState("STANDBY");
+        public static RouterInputState Starting { get; } = new RouterInputState("STARTING");
+        public static RouterInputState Active { get; } = new RouterInputState("ACTIVE");
+        public static RouterInputState Stopping { get; } = new RouterInputState("STOPPING");
+        public static RouterInputState Deleting { get; } = new RouterInputState("DELETING");
+        public static RouterInputState Updating { get; } = new RouterInputState("UPDATING");
+        public static RouterInputState Error { get; } = new RouterInputState("ERROR");
+        public static RouterInputState Recovering { get; } = new RouterInputState("RECOVERING");
+        public static RouterInputState Migrating { get; } = new RouterInputState("MIGRATING");
+
+        public static bool operator ==(RouterInputState left, RouterInputState right) => left.Equals(right);
+        public static bool operator !=(RouterInputState left, RouterInputState right) => !left.Equals(right);
+
+        public static explicit operator string(RouterInputState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterInputState other && Equals(other);
+        public bool Equals(RouterInputState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterInputTier : IEquatable<RouterInputTier>
+    {
+        private readonly string _value;
+
+        private RouterInputTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterInputTier Input100 { get; } = new RouterInputTier("INPUT_100");
+        public static RouterInputTier Input50 { get; } = new RouterInputTier("INPUT_50");
+        public static RouterInputTier Input20 { get; } = new RouterInputTier("INPUT_20");
+
+        public static bool operator ==(RouterInputTier left, RouterInputTier right) => left.Equals(right);
+        public static bool operator !=(RouterInputTier left, RouterInputTier right) => !left.Equals(right);
+
+        public static explicit operator string(RouterInputTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterInputTier other && Equals(other);
+        public bool Equals(RouterInputTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterInputTransitEncryptionKeyType : IEquatable<RouterInputTransitEncryptionKeyType>
+    {
+        private readonly string _value;
+
+        private RouterInputTransitEncryptionKeyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterInputTransitEncryptionKeyType SecretsManager { get; } = new RouterInputTransitEncryptionKeyType("SECRETS_MANAGER");
+        public static RouterInputTransitEncryptionKeyType Automatic { get; } = new RouterInputTransitEncryptionKeyType("AUTOMATIC");
+
+        public static bool operator ==(RouterInputTransitEncryptionKeyType left, RouterInputTransitEncryptionKeyType right) => left.Equals(right);
+        public static bool operator !=(RouterInputTransitEncryptionKeyType left, RouterInputTransitEncryptionKeyType right) => !left.Equals(right);
+
+        public static explicit operator string(RouterInputTransitEncryptionKeyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterInputTransitEncryptionKeyType other && Equals(other);
+        public bool Equals(RouterInputTransitEncryptionKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterInputType : IEquatable<RouterInputType>
+    {
+        private readonly string _value;
+
+        private RouterInputType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterInputType Standard { get; } = new RouterInputType("STANDARD");
+        public static RouterInputType Failover { get; } = new RouterInputType("FAILOVER");
+        public static RouterInputType Merge { get; } = new RouterInputType("MERGE");
+        public static RouterInputType MediaconnectFlow { get; } = new RouterInputType("MEDIACONNECT_FLOW");
+
+        public static bool operator ==(RouterInputType left, RouterInputType right) => left.Equals(right);
+        public static bool operator !=(RouterInputType left, RouterInputType right) => !left.Equals(right);
+
+        public static explicit operator string(RouterInputType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterInputType other && Equals(other);
+        public bool Equals(RouterInputType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterNetworkInterfaceState : IEquatable<RouterNetworkInterfaceState>
+    {
+        private readonly string _value;
+
+        private RouterNetworkInterfaceState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterNetworkInterfaceState Creating { get; } = new RouterNetworkInterfaceState("CREATING");
+        public static RouterNetworkInterfaceState Active { get; } = new RouterNetworkInterfaceState("ACTIVE");
+        public static RouterNetworkInterfaceState Updating { get; } = new RouterNetworkInterfaceState("UPDATING");
+        public static RouterNetworkInterfaceState Deleting { get; } = new RouterNetworkInterfaceState("DELETING");
+        public static RouterNetworkInterfaceState Error { get; } = new RouterNetworkInterfaceState("ERROR");
+        public static RouterNetworkInterfaceState Recovering { get; } = new RouterNetworkInterfaceState("RECOVERING");
+
+        public static bool operator ==(RouterNetworkInterfaceState left, RouterNetworkInterfaceState right) => left.Equals(right);
+        public static bool operator !=(RouterNetworkInterfaceState left, RouterNetworkInterfaceState right) => !left.Equals(right);
+
+        public static explicit operator string(RouterNetworkInterfaceState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterNetworkInterfaceState other && Equals(other);
+        public bool Equals(RouterNetworkInterfaceState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterNetworkInterfaceType : IEquatable<RouterNetworkInterfaceType>
+    {
+        private readonly string _value;
+
+        private RouterNetworkInterfaceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterNetworkInterfaceType Public { get; } = new RouterNetworkInterfaceType("PUBLIC");
+        public static RouterNetworkInterfaceType Vpc { get; } = new RouterNetworkInterfaceType("VPC");
+
+        public static bool operator ==(RouterNetworkInterfaceType left, RouterNetworkInterfaceType right) => left.Equals(right);
+        public static bool operator !=(RouterNetworkInterfaceType left, RouterNetworkInterfaceType right) => !left.Equals(right);
+
+        public static explicit operator string(RouterNetworkInterfaceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterNetworkInterfaceType other && Equals(other);
+        public bool Equals(RouterNetworkInterfaceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterOutputResourceDay : IEquatable<RouterOutputResourceDay>
+    {
+        private readonly string _value;
+
+        private RouterOutputResourceDay(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterOutputResourceDay Monday { get; } = new RouterOutputResourceDay("MONDAY");
+        public static RouterOutputResourceDay Tuesday { get; } = new RouterOutputResourceDay("TUESDAY");
+        public static RouterOutputResourceDay Wednesday { get; } = new RouterOutputResourceDay("WEDNESDAY");
+        public static RouterOutputResourceDay Thursday { get; } = new RouterOutputResourceDay("THURSDAY");
+        public static RouterOutputResourceDay Friday { get; } = new RouterOutputResourceDay("FRIDAY");
+        public static RouterOutputResourceDay Saturday { get; } = new RouterOutputResourceDay("SATURDAY");
+        public static RouterOutputResourceDay Sunday { get; } = new RouterOutputResourceDay("SUNDAY");
+
+        public static bool operator ==(RouterOutputResourceDay left, RouterOutputResourceDay right) => left.Equals(right);
+        public static bool operator !=(RouterOutputResourceDay left, RouterOutputResourceDay right) => !left.Equals(right);
+
+        public static explicit operator string(RouterOutputResourceDay value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterOutputResourceDay other && Equals(other);
+        public bool Equals(RouterOutputResourceDay other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterOutputResourceFlowTransitEncryptionKeyType : IEquatable<RouterOutputResourceFlowTransitEncryptionKeyType>
+    {
+        private readonly string _value;
+
+        private RouterOutputResourceFlowTransitEncryptionKeyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterOutputResourceFlowTransitEncryptionKeyType SecretsManager { get; } = new RouterOutputResourceFlowTransitEncryptionKeyType("SECRETS_MANAGER");
+        public static RouterOutputResourceFlowTransitEncryptionKeyType Automatic { get; } = new RouterOutputResourceFlowTransitEncryptionKeyType("AUTOMATIC");
+
+        public static bool operator ==(RouterOutputResourceFlowTransitEncryptionKeyType left, RouterOutputResourceFlowTransitEncryptionKeyType right) => left.Equals(right);
+        public static bool operator !=(RouterOutputResourceFlowTransitEncryptionKeyType left, RouterOutputResourceFlowTransitEncryptionKeyType right) => !left.Equals(right);
+
+        public static explicit operator string(RouterOutputResourceFlowTransitEncryptionKeyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterOutputResourceFlowTransitEncryptionKeyType other && Equals(other);
+        public bool Equals(RouterOutputResourceFlowTransitEncryptionKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterOutputResourceForwardErrorCorrectionState : IEquatable<RouterOutputResourceForwardErrorCorrectionState>
+    {
+        private readonly string _value;
+
+        private RouterOutputResourceForwardErrorCorrectionState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterOutputResourceForwardErrorCorrectionState Enabled { get; } = new RouterOutputResourceForwardErrorCorrectionState("ENABLED");
+        public static RouterOutputResourceForwardErrorCorrectionState Disabled { get; } = new RouterOutputResourceForwardErrorCorrectionState("DISABLED");
+
+        public static bool operator ==(RouterOutputResourceForwardErrorCorrectionState left, RouterOutputResourceForwardErrorCorrectionState right) => left.Equals(right);
+        public static bool operator !=(RouterOutputResourceForwardErrorCorrectionState left, RouterOutputResourceForwardErrorCorrectionState right) => !left.Equals(right);
+
+        public static explicit operator string(RouterOutputResourceForwardErrorCorrectionState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterOutputResourceForwardErrorCorrectionState other && Equals(other);
+        public bool Equals(RouterOutputResourceForwardErrorCorrectionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterOutputResourceMaintenanceType : IEquatable<RouterOutputResourceMaintenanceType>
+    {
+        private readonly string _value;
+
+        private RouterOutputResourceMaintenanceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterOutputResourceMaintenanceType PreferredDayTime { get; } = new RouterOutputResourceMaintenanceType("PREFERRED_DAY_TIME");
+        public static RouterOutputResourceMaintenanceType Default { get; } = new RouterOutputResourceMaintenanceType("DEFAULT");
+
+        public static bool operator ==(RouterOutputResourceMaintenanceType left, RouterOutputResourceMaintenanceType right) => left.Equals(right);
+        public static bool operator !=(RouterOutputResourceMaintenanceType left, RouterOutputResourceMaintenanceType right) => !left.Equals(right);
+
+        public static explicit operator string(RouterOutputResourceMaintenanceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterOutputResourceMaintenanceType other && Equals(other);
+        public bool Equals(RouterOutputResourceMaintenanceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterOutputResourceMediaLiveInputPipelineId : IEquatable<RouterOutputResourceMediaLiveInputPipelineId>
+    {
+        private readonly string _value;
+
+        private RouterOutputResourceMediaLiveInputPipelineId(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterOutputResourceMediaLiveInputPipelineId Pipeline0 { get; } = new RouterOutputResourceMediaLiveInputPipelineId("PIPELINE_0");
+        public static RouterOutputResourceMediaLiveInputPipelineId Pipeline1 { get; } = new RouterOutputResourceMediaLiveInputPipelineId("PIPELINE_1");
+
+        public static bool operator ==(RouterOutputResourceMediaLiveInputPipelineId left, RouterOutputResourceMediaLiveInputPipelineId right) => left.Equals(right);
+        public static bool operator !=(RouterOutputResourceMediaLiveInputPipelineId left, RouterOutputResourceMediaLiveInputPipelineId right) => !left.Equals(right);
+
+        public static explicit operator string(RouterOutputResourceMediaLiveInputPipelineId value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterOutputResourceMediaLiveInputPipelineId other && Equals(other);
+        public bool Equals(RouterOutputResourceMediaLiveInputPipelineId other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterOutputResourceMediaLiveTransitEncryptionKeyType : IEquatable<RouterOutputResourceMediaLiveTransitEncryptionKeyType>
+    {
+        private readonly string _value;
+
+        private RouterOutputResourceMediaLiveTransitEncryptionKeyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterOutputResourceMediaLiveTransitEncryptionKeyType SecretsManager { get; } = new RouterOutputResourceMediaLiveTransitEncryptionKeyType("SECRETS_MANAGER");
+        public static RouterOutputResourceMediaLiveTransitEncryptionKeyType Automatic { get; } = new RouterOutputResourceMediaLiveTransitEncryptionKeyType("AUTOMATIC");
+
+        public static bool operator ==(RouterOutputResourceMediaLiveTransitEncryptionKeyType left, RouterOutputResourceMediaLiveTransitEncryptionKeyType right) => left.Equals(right);
+        public static bool operator !=(RouterOutputResourceMediaLiveTransitEncryptionKeyType left, RouterOutputResourceMediaLiveTransitEncryptionKeyType right) => !left.Equals(right);
+
+        public static explicit operator string(RouterOutputResourceMediaLiveTransitEncryptionKeyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterOutputResourceMediaLiveTransitEncryptionKeyType other && Equals(other);
+        public bool Equals(RouterOutputResourceMediaLiveTransitEncryptionKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterOutputResourceRouterOutputProtocol : IEquatable<RouterOutputResourceRouterOutputProtocol>
+    {
+        private readonly string _value;
+
+        private RouterOutputResourceRouterOutputProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterOutputResourceRouterOutputProtocol Rtp { get; } = new RouterOutputResourceRouterOutputProtocol("RTP");
+        public static RouterOutputResourceRouterOutputProtocol Rist { get; } = new RouterOutputResourceRouterOutputProtocol("RIST");
+        public static RouterOutputResourceRouterOutputProtocol SrtCaller { get; } = new RouterOutputResourceRouterOutputProtocol("SRT_CALLER");
+        public static RouterOutputResourceRouterOutputProtocol SrtListener { get; } = new RouterOutputResourceRouterOutputProtocol("SRT_LISTENER");
+
+        public static bool operator ==(RouterOutputResourceRouterOutputProtocol left, RouterOutputResourceRouterOutputProtocol right) => left.Equals(right);
+        public static bool operator !=(RouterOutputResourceRouterOutputProtocol left, RouterOutputResourceRouterOutputProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(RouterOutputResourceRouterOutputProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterOutputResourceRouterOutputProtocol other && Equals(other);
+        public bool Equals(RouterOutputResourceRouterOutputProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterOutputResourceRouterOutputRoutedState : IEquatable<RouterOutputResourceRouterOutputRoutedState>
+    {
+        private readonly string _value;
+
+        private RouterOutputResourceRouterOutputRoutedState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterOutputResourceRouterOutputRoutedState Routed { get; } = new RouterOutputResourceRouterOutputRoutedState("ROUTED");
+        public static RouterOutputResourceRouterOutputRoutedState Routing { get; } = new RouterOutputResourceRouterOutputRoutedState("ROUTING");
+        public static RouterOutputResourceRouterOutputRoutedState Unrouted { get; } = new RouterOutputResourceRouterOutputRoutedState("UNROUTED");
+
+        public static bool operator ==(RouterOutputResourceRouterOutputRoutedState left, RouterOutputResourceRouterOutputRoutedState right) => left.Equals(right);
+        public static bool operator !=(RouterOutputResourceRouterOutputRoutedState left, RouterOutputResourceRouterOutputRoutedState right) => !left.Equals(right);
+
+        public static explicit operator string(RouterOutputResourceRouterOutputRoutedState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterOutputResourceRouterOutputRoutedState other && Equals(other);
+        public bool Equals(RouterOutputResourceRouterOutputRoutedState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterOutputResourceRouterOutputState : IEquatable<RouterOutputResourceRouterOutputState>
+    {
+        private readonly string _value;
+
+        private RouterOutputResourceRouterOutputState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterOutputResourceRouterOutputState Creating { get; } = new RouterOutputResourceRouterOutputState("CREATING");
+        public static RouterOutputResourceRouterOutputState Standby { get; } = new RouterOutputResourceRouterOutputState("STANDBY");
+        public static RouterOutputResourceRouterOutputState Starting { get; } = new RouterOutputResourceRouterOutputState("STARTING");
+        public static RouterOutputResourceRouterOutputState Active { get; } = new RouterOutputResourceRouterOutputState("ACTIVE");
+        public static RouterOutputResourceRouterOutputState Stopping { get; } = new RouterOutputResourceRouterOutputState("STOPPING");
+        public static RouterOutputResourceRouterOutputState Deleting { get; } = new RouterOutputResourceRouterOutputState("DELETING");
+        public static RouterOutputResourceRouterOutputState Updating { get; } = new RouterOutputResourceRouterOutputState("UPDATING");
+        public static RouterOutputResourceRouterOutputState Error { get; } = new RouterOutputResourceRouterOutputState("ERROR");
+        public static RouterOutputResourceRouterOutputState Recovering { get; } = new RouterOutputResourceRouterOutputState("RECOVERING");
+        public static RouterOutputResourceRouterOutputState Migrating { get; } = new RouterOutputResourceRouterOutputState("MIGRATING");
+
+        public static bool operator ==(RouterOutputResourceRouterOutputState left, RouterOutputResourceRouterOutputState right) => left.Equals(right);
+        public static bool operator !=(RouterOutputResourceRouterOutputState left, RouterOutputResourceRouterOutputState right) => !left.Equals(right);
+
+        public static explicit operator string(RouterOutputResourceRouterOutputState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterOutputResourceRouterOutputState other && Equals(other);
+        public bool Equals(RouterOutputResourceRouterOutputState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterOutputResourceRouterOutputTier : IEquatable<RouterOutputResourceRouterOutputTier>
+    {
+        private readonly string _value;
+
+        private RouterOutputResourceRouterOutputTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterOutputResourceRouterOutputTier Output100 { get; } = new RouterOutputResourceRouterOutputTier("OUTPUT_100");
+        public static RouterOutputResourceRouterOutputTier Output50 { get; } = new RouterOutputResourceRouterOutputTier("OUTPUT_50");
+        public static RouterOutputResourceRouterOutputTier Output20 { get; } = new RouterOutputResourceRouterOutputTier("OUTPUT_20");
+
+        public static bool operator ==(RouterOutputResourceRouterOutputTier left, RouterOutputResourceRouterOutputTier right) => left.Equals(right);
+        public static bool operator !=(RouterOutputResourceRouterOutputTier left, RouterOutputResourceRouterOutputTier right) => !left.Equals(right);
+
+        public static explicit operator string(RouterOutputResourceRouterOutputTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterOutputResourceRouterOutputTier other && Equals(other);
+        public bool Equals(RouterOutputResourceRouterOutputTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterOutputResourceRouterOutputType : IEquatable<RouterOutputResourceRouterOutputType>
+    {
+        private readonly string _value;
+
+        private RouterOutputResourceRouterOutputType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterOutputResourceRouterOutputType Standard { get; } = new RouterOutputResourceRouterOutputType("STANDARD");
+        public static RouterOutputResourceRouterOutputType MediaconnectFlow { get; } = new RouterOutputResourceRouterOutputType("MEDIACONNECT_FLOW");
+        public static RouterOutputResourceRouterOutputType MedialiveInput { get; } = new RouterOutputResourceRouterOutputType("MEDIALIVE_INPUT");
+
+        public static bool operator ==(RouterOutputResourceRouterOutputType left, RouterOutputResourceRouterOutputType right) => left.Equals(right);
+        public static bool operator !=(RouterOutputResourceRouterOutputType left, RouterOutputResourceRouterOutputType right) => !left.Equals(right);
+
+        public static explicit operator string(RouterOutputResourceRouterOutputType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterOutputResourceRouterOutputType other && Equals(other);
+        public bool Equals(RouterOutputResourceRouterOutputType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct RouterOutputResourceRoutingScope : IEquatable<RouterOutputResourceRoutingScope>
+    {
+        private readonly string _value;
+
+        private RouterOutputResourceRoutingScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterOutputResourceRoutingScope Regional { get; } = new RouterOutputResourceRoutingScope("REGIONAL");
+        public static RouterOutputResourceRoutingScope Global { get; } = new RouterOutputResourceRoutingScope("GLOBAL");
+
+        public static bool operator ==(RouterOutputResourceRoutingScope left, RouterOutputResourceRoutingScope right) => left.Equals(right);
+        public static bool operator !=(RouterOutputResourceRoutingScope left, RouterOutputResourceRoutingScope right) => !left.Equals(right);
+
+        public static explicit operator string(RouterOutputResourceRoutingScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterOutputResourceRoutingScope other && Equals(other);
+        public bool Equals(RouterOutputResourceRoutingScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -23,6 +23,8 @@ __all__ = [
     'CachePolicyParametersInCacheKeyAndForwardedToOrigin',
     'CachePolicyQueryStringsConfig',
     'CloudFrontOriginAccessIdentityConfig',
+    'ConnectionFunctionConfig',
+    'ConnectionFunctionKeyValueStoreAssociation',
     'ContinuousDeploymentPolicyConfig',
     'ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigProperties',
     'ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigProperties',
@@ -33,6 +35,7 @@ __all__ = [
     'DistributionCacheBehavior',
     'DistributionConfig',
     'DistributionConfigTenantConfigProperties',
+    'DistributionConnectionFunctionAssociation',
     'DistributionCookies',
     'DistributionCustomErrorResponse',
     'DistributionCustomOriginConfig',
@@ -66,7 +69,9 @@ __all__ = [
     'DistributionTenantManagedCertificateRequest',
     'DistributionTenantParameter',
     'DistributionTenantWebAclCustomization',
+    'DistributionTrustStoreConfig',
     'DistributionViewerCertificate',
+    'DistributionViewerMtlsConfig',
     'DistributionVpcOriginConfig',
     'FunctionConfig',
     'FunctionKeyValueStoreAssociation',
@@ -101,6 +106,8 @@ __all__ = [
     'ResponseHeadersPolicyServerTimingHeadersConfig',
     'ResponseHeadersPolicyStrictTransportSecurity',
     'ResponseHeadersPolicyXssProtection',
+    'TrustStoreCaCertificatesBundleS3Location',
+    'TrustStoreCaCertificatesBundleSource',
     'VpcOriginEndpointConfig',
 ]
 
@@ -542,6 +549,99 @@ class CloudFrontOriginAccessIdentityConfig(dict):
         A comment to describe the origin access identity. The comment cannot be longer than 128 characters.
         """
         return pulumi.get(self, "comment")
+
+
+@pulumi.output_type
+class ConnectionFunctionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyValueStoreAssociations":
+            suggest = "key_value_store_associations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionFunctionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionFunctionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionFunctionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: _builtins.str,
+                 runtime: 'ConnectionFunctionConfigRuntime',
+                 key_value_store_associations: Optional[Sequence['outputs.ConnectionFunctionKeyValueStoreAssociation']] = None):
+        """
+        :param _builtins.str comment: A comment to describe the function.
+        :param 'ConnectionFunctionConfigRuntime' runtime: The function's runtime environment version.
+        :param Sequence['ConnectionFunctionKeyValueStoreAssociation'] key_value_store_associations: The configuration for the key value store associations.
+        """
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "runtime", runtime)
+        if key_value_store_associations is not None:
+            pulumi.set(__self__, "key_value_store_associations", key_value_store_associations)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        """
+        A comment to describe the function.
+        """
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def runtime(self) -> 'ConnectionFunctionConfigRuntime':
+        """
+        The function's runtime environment version.
+        """
+        return pulumi.get(self, "runtime")
+
+    @_builtins.property
+    @pulumi.getter(name="keyValueStoreAssociations")
+    def key_value_store_associations(self) -> Optional[Sequence['outputs.ConnectionFunctionKeyValueStoreAssociation']]:
+        """
+        The configuration for the key value store associations.
+        """
+        return pulumi.get(self, "key_value_store_associations")
+
+
+@pulumi.output_type
+class ConnectionFunctionKeyValueStoreAssociation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyValueStoreArn":
+            suggest = "key_value_store_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionFunctionKeyValueStoreAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionFunctionKeyValueStoreAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionFunctionKeyValueStoreAssociation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_value_store_arn: _builtins.str):
+        """
+        :param _builtins.str key_value_store_arn: The Amazon Resource Name (ARN) of the key value store association.
+        """
+        pulumi.set(__self__, "key_value_store_arn", key_value_store_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="keyValueStoreArn")
+    def key_value_store_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the key value store association.
+        """
+        return pulumi.get(self, "key_value_store_arn")
 
 
 @pulumi.output_type
@@ -1330,6 +1430,8 @@ class DistributionConfig(dict):
             suggest = "anycast_ip_list_id"
         elif key == "cacheBehaviors":
             suggest = "cache_behaviors"
+        elif key == "connectionFunctionAssociation":
+            suggest = "connection_function_association"
         elif key == "connectionMode":
             suggest = "connection_mode"
         elif key == "continuousDeploymentPolicyId":
@@ -1354,6 +1456,8 @@ class DistributionConfig(dict):
             suggest = "tenant_config"
         elif key == "viewerCertificate":
             suggest = "viewer_certificate"
+        elif key == "viewerMtlsConfig":
+            suggest = "viewer_mtls_config"
         elif key == "webAclId":
             suggest = "web_acl_id"
 
@@ -1376,6 +1480,7 @@ class DistributionConfig(dict):
                  cache_behaviors: Optional[Sequence['outputs.DistributionCacheBehavior']] = None,
                  cnames: Optional[Sequence[_builtins.str]] = None,
                  comment: Optional[_builtins.str] = None,
+                 connection_function_association: Optional['outputs.DistributionConnectionFunctionAssociation'] = None,
                  connection_mode: Optional['DistributionConnectionMode'] = None,
                  continuous_deployment_policy_id: Optional[_builtins.str] = None,
                  custom_error_responses: Optional[Sequence['outputs.DistributionCustomErrorResponse']] = None,
@@ -1392,6 +1497,7 @@ class DistributionConfig(dict):
                  staging: Optional[_builtins.bool] = None,
                  tenant_config: Optional['outputs.DistributionConfigTenantConfigProperties'] = None,
                  viewer_certificate: Optional['outputs.DistributionViewerCertificate'] = None,
+                 viewer_mtls_config: Optional['outputs.DistributionViewerMtlsConfig'] = None,
                  web_acl_id: Optional[_builtins.str] = None):
         """
         A distribution configuration.
@@ -1405,6 +1511,7 @@ class DistributionConfig(dict):
         :param Sequence[_builtins.str] cnames: An alias for the CF distribution's domain name.
                  This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
         :param _builtins.str comment: A comment to describe the distribution. The comment cannot be longer than 128 characters.
+        :param 'DistributionConnectionFunctionAssociation' connection_function_association: The distribution's connection function association.
         :param 'DistributionConnectionMode' connection_mode: This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants (tenant-only).
         :param _builtins.str continuous_deployment_policy_id: This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
                  The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
@@ -1451,6 +1558,7 @@ class DistributionConfig(dict):
         :param 'DistributionConfigTenantConfigProperties' tenant_config: This field only supports multi-tenant distributions. You can't specify this field for standard distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
                  A distribution tenant configuration.
         :param 'DistributionViewerCertificate' viewer_certificate: A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
+        :param 'DistributionViewerMtlsConfig' viewer_mtls_config: The distribution's viewer mTLS configuration.
         :param _builtins.str web_acl_id: Multi-tenant distributions only support WAF V2 web ACLs.
                  A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
                 WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
@@ -1467,6 +1575,8 @@ class DistributionConfig(dict):
             pulumi.set(__self__, "cnames", cnames)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if connection_function_association is not None:
+            pulumi.set(__self__, "connection_function_association", connection_function_association)
         if connection_mode is not None:
             pulumi.set(__self__, "connection_mode", connection_mode)
         if continuous_deployment_policy_id is not None:
@@ -1499,6 +1609,8 @@ class DistributionConfig(dict):
             pulumi.set(__self__, "tenant_config", tenant_config)
         if viewer_certificate is not None:
             pulumi.set(__self__, "viewer_certificate", viewer_certificate)
+        if viewer_mtls_config is not None:
+            pulumi.set(__self__, "viewer_mtls_config", viewer_mtls_config)
         if web_acl_id is not None:
             pulumi.set(__self__, "web_acl_id", web_acl_id)
 
@@ -1560,6 +1672,14 @@ class DistributionConfig(dict):
         A comment to describe the distribution. The comment cannot be longer than 128 characters.
         """
         return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionFunctionAssociation")
+    def connection_function_association(self) -> Optional['outputs.DistributionConnectionFunctionAssociation']:
+        """
+        The distribution's connection function association.
+        """
+        return pulumi.get(self, "connection_function_association")
 
     @_builtins.property
     @pulumi.getter(name="connectionMode")
@@ -1720,6 +1840,14 @@ class DistributionConfig(dict):
         return pulumi.get(self, "viewer_certificate")
 
     @_builtins.property
+    @pulumi.getter(name="viewerMtlsConfig")
+    def viewer_mtls_config(self) -> Optional['outputs.DistributionViewerMtlsConfig']:
+        """
+        The distribution's viewer mTLS configuration.
+        """
+        return pulumi.get(self, "viewer_mtls_config")
+
+    @_builtins.property
     @pulumi.getter(name="webAclId")
     def web_acl_id(self) -> Optional[_builtins.str]:
         """
@@ -1766,6 +1894,24 @@ class DistributionConfigTenantConfigProperties(dict):
     @pulumi.getter(name="parameterDefinitions")
     def parameter_definitions(self) -> Optional[Sequence['outputs.DistributionParameterDefinition']]:
         return pulumi.get(self, "parameter_definitions")
+
+
+@pulumi.output_type
+class DistributionConnectionFunctionAssociation(dict):
+    def __init__(__self__, *,
+                 id: _builtins.str):
+        """
+        :param _builtins.str id: The association's ID.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The association's ID.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -4166,6 +4312,69 @@ class DistributionTenantWebAclCustomization(dict):
 
 
 @pulumi.output_type
+class DistributionTrustStoreConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trustStoreId":
+            suggest = "trust_store_id"
+        elif key == "advertiseTrustStoreCaNames":
+            suggest = "advertise_trust_store_ca_names"
+        elif key == "ignoreCertificateExpiry":
+            suggest = "ignore_certificate_expiry"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionTrustStoreConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionTrustStoreConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionTrustStoreConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 trust_store_id: _builtins.str,
+                 advertise_trust_store_ca_names: Optional[_builtins.bool] = None,
+                 ignore_certificate_expiry: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str trust_store_id: The trust store ID.
+        :param _builtins.bool advertise_trust_store_ca_names: The configuration to use to advertise trust store CA names.
+        :param _builtins.bool ignore_certificate_expiry: The configuration to use to ignore certificate expiration.
+        """
+        pulumi.set(__self__, "trust_store_id", trust_store_id)
+        if advertise_trust_store_ca_names is not None:
+            pulumi.set(__self__, "advertise_trust_store_ca_names", advertise_trust_store_ca_names)
+        if ignore_certificate_expiry is not None:
+            pulumi.set(__self__, "ignore_certificate_expiry", ignore_certificate_expiry)
+
+    @_builtins.property
+    @pulumi.getter(name="trustStoreId")
+    def trust_store_id(self) -> _builtins.str:
+        """
+        The trust store ID.
+        """
+        return pulumi.get(self, "trust_store_id")
+
+    @_builtins.property
+    @pulumi.getter(name="advertiseTrustStoreCaNames")
+    def advertise_trust_store_ca_names(self) -> Optional[_builtins.bool]:
+        """
+        The configuration to use to advertise trust store CA names.
+        """
+        return pulumi.get(self, "advertise_trust_store_ca_names")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreCertificateExpiry")
+    def ignore_certificate_expiry(self) -> Optional[_builtins.bool]:
+        """
+        The configuration to use to ignore certificate expiration.
+        """
+        return pulumi.get(self, "ignore_certificate_expiry")
+
+
+@pulumi.output_type
 class DistributionViewerCertificate(dict):
     """
     A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
@@ -4331,6 +4540,54 @@ class DistributionViewerCertificate(dict):
          If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``, don't set a value for this field.
         """
         return pulumi.get(self, "ssl_support_method")
+
+
+@pulumi.output_type
+class DistributionViewerMtlsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trustStoreConfig":
+            suggest = "trust_store_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionViewerMtlsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionViewerMtlsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionViewerMtlsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mode: Optional['DistributionViewerMtlsMode'] = None,
+                 trust_store_config: Optional['outputs.DistributionTrustStoreConfig'] = None):
+        """
+        :param 'DistributionViewerMtlsMode' mode: The viewer mTLS mode.
+        :param 'DistributionTrustStoreConfig' trust_store_config: The trust store configuration associated with the viewer mTLS configuration.
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if trust_store_config is not None:
+            pulumi.set(__self__, "trust_store_config", trust_store_config)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> Optional['DistributionViewerMtlsMode']:
+        """
+        The viewer mTLS mode.
+        """
+        return pulumi.get(self, "mode")
+
+    @_builtins.property
+    @pulumi.getter(name="trustStoreConfig")
+    def trust_store_config(self) -> Optional['outputs.DistributionTrustStoreConfig']:
+        """
+        The trust store configuration associated with the viewer mTLS configuration.
+        """
+        return pulumi.get(self, "trust_store_config")
 
 
 @pulumi.output_type
@@ -6306,6 +6563,93 @@ class ResponseHeadersPolicyXssProtection(dict):
          For more information about using a reporting URL, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
         """
         return pulumi.get(self, "report_uri")
+
+
+@pulumi.output_type
+class TrustStoreCaCertificatesBundleS3Location(dict):
+    def __init__(__self__, *,
+                 bucket: _builtins.str,
+                 key: _builtins.str,
+                 region: _builtins.str,
+                 version: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str bucket: The S3 bucket containing the CA certificates bundle PEM file
+        :param _builtins.str key: The S3 object key of the CA certificates bundle PEM file
+        :param _builtins.str region: The S3 bucket region
+        :param _builtins.str version: The S3 object version of the CA certificates bundle PEM file
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "region", region)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> _builtins.str:
+        """
+        The S3 bucket containing the CA certificates bundle PEM file
+        """
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The S3 object key of the CA certificates bundle PEM file
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        The S3 bucket region
+        """
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional[_builtins.str]:
+        """
+        The S3 object version of the CA certificates bundle PEM file
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class TrustStoreCaCertificatesBundleSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "caCertificatesBundleS3Location":
+            suggest = "ca_certificates_bundle_s3_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrustStoreCaCertificatesBundleSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrustStoreCaCertificatesBundleSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrustStoreCaCertificatesBundleSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ca_certificates_bundle_s3_location: 'outputs.TrustStoreCaCertificatesBundleS3Location'):
+        """
+        :param 'TrustStoreCaCertificatesBundleS3Location' ca_certificates_bundle_s3_location: The CA certificates bundle location in Amazon S3.
+        """
+        pulumi.set(__self__, "ca_certificates_bundle_s3_location", ca_certificates_bundle_s3_location)
+
+    @_builtins.property
+    @pulumi.getter(name="caCertificatesBundleS3Location")
+    def ca_certificates_bundle_s3_location(self) -> 'outputs.TrustStoreCaCertificatesBundleS3Location':
+        """
+        The CA certificates bundle location in Amazon S3.
+        """
+        return pulumi.get(self, "ca_certificates_bundle_s3_location")
 
 
 @pulumi.output_type

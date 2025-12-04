@@ -10,10 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
+    /// <summary>
+    /// Information about properties for a text question in an evaluation form.
+    /// </summary>
     public sealed class EvaluationFormTextQuestionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how the question can be automatically answered.
+        /// The automation properties of the text question.
         /// </summary>
         [Input("automation")]
         public Input<Inputs.EvaluationFormTextQuestionAutomationArgs>? Automation { get; set; }

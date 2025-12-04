@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.CodeStarNotifications
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// A list of Amazon Resource Names (ARNs) of Amazon SNS topics and  clients to associate with the notification rule.
+        /// A list of Amazon Resource Names (ARNs) of Amazon  topics and  clients to associate with the notification rule.
         /// </summary>
         public readonly ImmutableArray<Outputs.NotificationRuleTarget> Targets;
 

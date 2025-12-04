@@ -107,6 +107,7 @@ namespace Pulumi.AwsNative.Msk
         /// The settings for open monitoring.
         /// </summary>
         public readonly Outputs.ClusterOpenMonitoring? OpenMonitoring;
+        public readonly Outputs.ClusterRebalancing? Rebalancing;
         /// <summary>
         /// This controls storage mode for supported storage tiers.
         /// </summary>
@@ -140,6 +141,8 @@ namespace Pulumi.AwsNative.Msk
 
             Outputs.ClusterOpenMonitoring? openMonitoring,
 
+            Outputs.ClusterRebalancing? rebalancing,
+
             Pulumi.AwsNative.Msk.ClusterStorageMode? storageMode,
 
             ImmutableDictionary<string, string>? tags)
@@ -155,6 +158,7 @@ namespace Pulumi.AwsNative.Msk
             LoggingInfo = loggingInfo;
             NumberOfBrokerNodes = numberOfBrokerNodes;
             OpenMonitoring = openMonitoring;
+            Rebalancing = rebalancing;
             StorageMode = storageMode;
             Tags = tags;
         }

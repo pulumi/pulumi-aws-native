@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public readonly string? FunctionArn;
         /// <summary>
+        /// The scaling configuration to apply to the function, including minimum and maximum execution environment limits.
+        /// </summary>
+        public readonly Outputs.VersionFunctionScalingConfig? FunctionScalingConfig;
+        /// <summary>
         /// The version number.
         /// </summary>
         public readonly string? VersionValue;
@@ -76,9 +80,12 @@ namespace Pulumi.AwsNative.Lambda
         private GetVersionResult(
             string? functionArn,
 
+            Outputs.VersionFunctionScalingConfig? functionScalingConfig,
+
             string? version)
         {
             FunctionArn = functionArn;
+            FunctionScalingConfig = functionScalingConfig;
             VersionValue = version;
         }
     }

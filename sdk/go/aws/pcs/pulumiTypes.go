@@ -156,12 +156,32 @@ func (o ClusterErrorInfoArrayOutput) Index(i pulumi.IntInput) ClusterErrorInfoOu
 	}).(ClusterErrorInfoOutput)
 }
 
+// JWT authentication configuration for Slurm.
+type ClusterJwtAuth struct {
+	// The JWT key for Slurm REST API authentication.
+	JwtKey *ClusterJwtKey `pulumi:"jwtKey"`
+}
+
+// JWT key configuration.
+type ClusterJwtKey struct {
+	// The Amazon Resource Name (ARN) of the JWT key secret.
+	SecretArn string `pulumi:"secretArn"`
+	// The version of the JWT key secret.
+	SecretVersion string `pulumi:"secretVersion"`
+}
+
 // Additional settings that directly map to Slurm settings.
 type ClusterSlurmCustomSetting struct {
 	// AWS PCS supports configuration of the following Slurm parameters for clusters: Prolog, Epilog, and SelectTypeParameters.
 	ParameterName string `pulumi:"parameterName"`
 	// The value for the configured Slurm setting.
 	ParameterValue string `pulumi:"parameterValue"`
+}
+
+// The SlurmRest configuration includes configurable settings for Slurm Rest.
+type ClusterSlurmRest struct {
+	// The default value is `STANDARD`. A value of `STANDARD` means that Slurm Rest is enabled.
+	Mode ClusterSlurmRestMode `pulumi:"mode"`
 }
 
 // An error that occurred during resource provisioning.

@@ -70,7 +70,7 @@ class GetEncryptionConfigurationResult:
     @pulumi.getter(name="kmsAccessRoleArn")
     def kms_access_role_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+        The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS  on behalf of the customer.
         """
         return pulumi.get(self, "kms_access_role_arn")
 

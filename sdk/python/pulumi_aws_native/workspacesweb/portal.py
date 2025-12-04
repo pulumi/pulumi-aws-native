@@ -63,7 +63,7 @@ class PortalArgs:
         :param pulumi.Input[_builtins.str] ip_access_settings_arn: The ARN of the IP access settings that is associated with the web portal.
         :param pulumi.Input[_builtins.float] max_concurrent_sessions: The maximum number of concurrent sessions for the portal.
         :param pulumi.Input[_builtins.str] network_settings_arn: The ARN of the network settings that is associated with the web portal.
-        :param pulumi.Input[_builtins.str] session_logger_arn: The ARN of the session logger that is assocaited with the portal.
+        :param pulumi.Input[_builtins.str] session_logger_arn: The ARN of the session logger that is associated with the portal.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the web portal. A tag is a key-value pair.
         :param pulumi.Input[_builtins.str] trust_store_arn: The ARN of the trust store that is associated with the web portal.
         :param pulumi.Input[_builtins.str] user_access_logging_settings_arn: The ARN of the user access logging settings that is associated with the web portal.
@@ -238,7 +238,7 @@ class PortalArgs:
     @pulumi.getter(name="sessionLoggerArn")
     def session_logger_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARN of the session logger that is assocaited with the portal.
+        The ARN of the session logger that is associated with the portal.
         """
         return pulumi.get(self, "session_logger_arn")
 
@@ -346,7 +346,7 @@ class Portal(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] ip_access_settings_arn: The ARN of the IP access settings that is associated with the web portal.
         :param pulumi.Input[_builtins.float] max_concurrent_sessions: The maximum number of concurrent sessions for the portal.
         :param pulumi.Input[_builtins.str] network_settings_arn: The ARN of the network settings that is associated with the web portal.
-        :param pulumi.Input[_builtins.str] session_logger_arn: The ARN of the session logger that is assocaited with the portal.
+        :param pulumi.Input[_builtins.str] session_logger_arn: The ARN of the session logger that is associated with the portal.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the web portal. A tag is a key-value pair.
         :param pulumi.Input[_builtins.str] trust_store_arn: The ARN of the trust store that is associated with the web portal.
         :param pulumi.Input[_builtins.str] user_access_logging_settings_arn: The ARN of the user access logging settings that is associated with the web portal.
@@ -626,7 +626,7 @@ class Portal(pulumi.CustomResource):
     @pulumi.getter(name="sessionLoggerArn")
     def session_logger_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The ARN of the session logger that is assocaited with the portal.
+        The ARN of the session logger that is associated with the portal.
         """
         return pulumi.get(self, "session_logger_arn")
 

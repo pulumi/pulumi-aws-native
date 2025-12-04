@@ -12,12 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetDataPrepAggregationFunctionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A list aggregation function that concatenates values from multiple rows into a single delimited string.
+        /// </summary>
         [Input("listAggregation")]
         public Input<Inputs.DataSetDataPrepListAggregationFunctionArgs>? ListAggregation { get; set; }
 
         [Input("percentileAggregation")]
         public Input<Inputs.DataSetDataPrepPercentileAggregationFunctionArgs>? PercentileAggregation { get; set; }
 
+        /// <summary>
+        /// A simple aggregation function such as `SUM` , `COUNT` , `AVERAGE` , `MIN` , `MAX` , `MEDIAN` , `VARIANCE` , or `STANDARD_DEVIATION` .
+        /// </summary>
         [Input("simpleAggregation")]
         public Input<Inputs.DataSetDataPrepSimpleAggregationFunctionArgs>? SimpleAggregation { get; set; }
 

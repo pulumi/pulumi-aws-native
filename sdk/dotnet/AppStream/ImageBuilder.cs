@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.AppStream
         public Output<ImmutableArray<Outputs.ImageBuilderAccessEndpoint>> AccessEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+        /// The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
         /// </summary>
         [Output("appstreamAgentVersion")]
         public Output<string?> AppstreamAgentVersion { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.AwsNative.AppStream
         }
 
         /// <summary>
-        /// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+        /// The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
         /// </summary>
         [Input("appstreamAgentVersion")]
         public Input<string>? AppstreamAgentVersion { get; set; }

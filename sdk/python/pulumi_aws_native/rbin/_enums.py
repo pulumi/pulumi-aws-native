@@ -20,6 +20,7 @@ class RuleResourceType(_builtins.str, Enum):
     """
     EBS_SNAPSHOT = "EBS_SNAPSHOT"
     EC2_IMAGE = "EC2_IMAGE"
+    EBS_VOLUME = "EBS_VOLUME"
 
 
 @pulumi.type_token("aws-native:rbin:RuleRetentionPeriodRetentionPeriodUnit")

@@ -50,6 +50,18 @@ export class ResourceConfiguration extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
+     * The custom domain name.
+     */
+    declare public readonly customDomainName: pulumi.Output<string | undefined>;
+    /**
+     * The domain verification ID.
+     */
+    declare public readonly domainVerificationId: pulumi.Output<string | undefined>;
+    /**
+     * (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain.
+     */
+    declare public readonly groupDomain: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource configuration.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -110,6 +122,9 @@ export class ResourceConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceConfigurationType'");
             }
             resourceInputs["allowAssociationToSharableServiceNetwork"] = args?.allowAssociationToSharableServiceNetwork;
+            resourceInputs["customDomainName"] = args?.customDomainName;
+            resourceInputs["domainVerificationId"] = args?.domainVerificationId;
+            resourceInputs["groupDomain"] = args?.groupDomain;
             resourceInputs["name"] = args?.name;
             resourceInputs["portRanges"] = args?.portRanges;
             resourceInputs["protocolType"] = args?.protocolType;
@@ -125,6 +140,9 @@ export class ResourceConfiguration extends pulumi.CustomResource {
             resourceInputs["allowAssociationToSharableServiceNetwork"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["customDomainName"] = undefined /*out*/;
+            resourceInputs["domainVerificationId"] = undefined /*out*/;
+            resourceInputs["groupDomain"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["portRanges"] = undefined /*out*/;
             resourceInputs["protocolType"] = undefined /*out*/;
@@ -136,7 +154,7 @@ export class ResourceConfiguration extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["protocolType", "resourceConfigurationAuthType", "resourceConfigurationType", "resourceGatewayId"] };
+        const replaceOnChanges = { replaceOnChanges: ["customDomainName", "domainVerificationId", "groupDomain", "protocolType", "resourceConfigurationAuthType", "resourceConfigurationType", "resourceGatewayId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ResourceConfiguration.__pulumiType, name, resourceInputs, opts);
     }
@@ -150,6 +168,18 @@ export interface ResourceConfigurationArgs {
      * Specifies whether the resource configuration can be associated with a sharable service network.
      */
     allowAssociationToSharableServiceNetwork?: pulumi.Input<boolean>;
+    /**
+     * The custom domain name.
+     */
+    customDomainName?: pulumi.Input<string>;
+    /**
+     * The domain verification ID.
+     */
+    domainVerificationId?: pulumi.Input<string>;
+    /**
+     * (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain.
+     */
+    groupDomain?: pulumi.Input<string>;
     /**
      * The name of the resource configuration.
      */

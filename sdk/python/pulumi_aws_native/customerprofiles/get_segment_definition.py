@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetSegmentDefinitionResult',
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetSegmentDefinitionResult:
-    def __init__(__self__, created_at=None, description=None, segment_definition_arn=None, tags=None):
+    def __init__(__self__, created_at=None, description=None, segment_definition_arn=None, segment_type=None, tags=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -34,6 +35,9 @@ class GetSegmentDefinitionResult:
         if segment_definition_arn and not isinstance(segment_definition_arn, str):
             raise TypeError("Expected argument 'segment_definition_arn' to be a str")
         pulumi.set(__self__, "segment_definition_arn", segment_definition_arn)
+        if segment_type and not isinstance(segment_type, str):
+            raise TypeError("Expected argument 'segment_type' to be a str")
+        pulumi.set(__self__, "segment_type", segment_type)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -63,6 +67,14 @@ class GetSegmentDefinitionResult:
         return pulumi.get(self, "segment_definition_arn")
 
     @_builtins.property
+    @pulumi.getter(name="segmentType")
+    def segment_type(self) -> Optional['SegmentDefinitionSegmentType']:
+        """
+        The SQL query that defines the segment criteria.
+        """
+        return pulumi.get(self, "segment_type")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -80,6 +92,7 @@ class AwaitableGetSegmentDefinitionResult(GetSegmentDefinitionResult):
             created_at=self.created_at,
             description=self.description,
             segment_definition_arn=self.segment_definition_arn,
+            segment_type=self.segment_type,
             tags=self.tags)
 
 
@@ -103,6 +116,7 @@ def get_segment_definition(domain_name: Optional[_builtins.str] = None,
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
         segment_definition_arn=pulumi.get(__ret__, 'segment_definition_arn'),
+        segment_type=pulumi.get(__ret__, 'segment_type'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_segment_definition_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                                   segment_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -123,4 +137,5 @@ def get_segment_definition_output(domain_name: Optional[pulumi.Input[_builtins.s
         created_at=pulumi.get(__response__, 'created_at'),
         description=pulumi.get(__response__, 'description'),
         segment_definition_arn=pulumi.get(__response__, 'segment_definition_arn'),
+        segment_type=pulumi.get(__response__, 'segment_type'),
         tags=pulumi.get(__response__, 'tags')))

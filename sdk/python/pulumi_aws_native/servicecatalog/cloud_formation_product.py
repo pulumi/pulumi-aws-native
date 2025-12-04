@@ -16,7 +16,6 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['CloudFormationProductArgs', 'CloudFormationProduct']
@@ -29,7 +28,7 @@ class CloudFormationProductArgs:
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  distributor: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_type: Optional[pulumi.Input['CloudFormationProductProductType']] = None,
+                 product_type: Optional[pulumi.Input[_builtins.str]] = None,
                  provisioning_artifact_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesArgs']]]] = None,
                  replace_provisioning_artifacts: Optional[pulumi.Input[_builtins.bool]] = None,
                  source_connection: Optional[pulumi.Input['CloudFormationProductSourceConnectionArgs']] = None,
@@ -41,16 +40,23 @@ class CloudFormationProductArgs:
         The set of arguments for constructing a CloudFormationProduct resource.
         :param pulumi.Input[_builtins.str] owner: The owner of the product.
         :param pulumi.Input[_builtins.str] accept_language: The language code.
+               
+               - `jp` - Japanese
+               - `zh` - Chinese
         :param pulumi.Input[_builtins.str] description: The description of the product.
         :param pulumi.Input[_builtins.str] distributor: The distributor of the product.
         :param pulumi.Input[_builtins.str] name: The name of the product.
-        :param pulumi.Input['CloudFormationProductProductType'] product_type: The type of product.
+        :param pulumi.Input[_builtins.str] product_type: The type of product.
         :param pulumi.Input[Sequence[pulumi.Input['CloudFormationProductProvisioningArtifactPropertiesArgs']]] provisioning_artifact_parameters: The configuration of the provisioning artifact (also known as a version).
         :param pulumi.Input[_builtins.bool] replace_provisioning_artifacts: This property is turned off by default. If turned off, you can update provisioning artifacts or product attributes (such as description, distributor, name, owner, and more) and the associated provisioning artifacts will retain the same unique identifier. Provisioning artifacts are matched within the CloudFormationProduct resource, and only those that have been updated will be changed. Provisioning artifacts are matched by a combinaton of provisioning artifact template URL and name.
-        :param pulumi.Input['CloudFormationProductSourceConnectionArgs'] source_connection: A top level ProductViewDetail response containing details about the product's connection. AWS Service Catalog returns this field for the CreateProduct, UpdateProduct, DescribeProductAsAdmin, and SearchProductAsAdmin APIs. This response contains the same fields as the ConnectionParameters request, with the addition of the LastSync response.
+               
+               If turned on, provisioning artifacts will be given a new unique identifier when you update the product or provisioning artifacts.
+        :param pulumi.Input['CloudFormationProductSourceConnectionArgs'] source_connection: A top level `ProductViewDetail` response containing details about the product’s connection. AWS Service Catalog returns this field for the `CreateProduct` , `UpdateProduct` , `DescribeProductAsAdmin` , and `SearchProductAsAdmin` APIs. This response contains the same fields as the `ConnectionParameters` request, with the addition of the `LastSync` response.
         :param pulumi.Input[_builtins.str] support_description: The support information about the product.
         :param pulumi.Input[_builtins.str] support_email: The contact email for product support.
         :param pulumi.Input[_builtins.str] support_url: The contact URL for product support.
+               
+               `^https?:\\/\\//` / is the pattern used to validate SupportUrl.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
         """
         pulumi.set(__self__, "owner", owner)
@@ -96,6 +102,9 @@ class CloudFormationProductArgs:
     def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The language code.
+
+        - `jp` - Japanese
+        - `zh` - Chinese
         """
         return pulumi.get(self, "accept_language")
 
@@ -141,14 +150,14 @@ class CloudFormationProductArgs:
 
     @_builtins.property
     @pulumi.getter(name="productType")
-    def product_type(self) -> Optional[pulumi.Input['CloudFormationProductProductType']]:
+    def product_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The type of product.
         """
         return pulumi.get(self, "product_type")
 
     @product_type.setter
-    def product_type(self, value: Optional[pulumi.Input['CloudFormationProductProductType']]):
+    def product_type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "product_type", value)
 
     @_builtins.property
@@ -168,6 +177,8 @@ class CloudFormationProductArgs:
     def replace_provisioning_artifacts(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         This property is turned off by default. If turned off, you can update provisioning artifacts or product attributes (such as description, distributor, name, owner, and more) and the associated provisioning artifacts will retain the same unique identifier. Provisioning artifacts are matched within the CloudFormationProduct resource, and only those that have been updated will be changed. Provisioning artifacts are matched by a combinaton of provisioning artifact template URL and name.
+
+        If turned on, provisioning artifacts will be given a new unique identifier when you update the product or provisioning artifacts.
         """
         return pulumi.get(self, "replace_provisioning_artifacts")
 
@@ -179,7 +190,7 @@ class CloudFormationProductArgs:
     @pulumi.getter(name="sourceConnection")
     def source_connection(self) -> Optional[pulumi.Input['CloudFormationProductSourceConnectionArgs']]:
         """
-        A top level ProductViewDetail response containing details about the product's connection. AWS Service Catalog returns this field for the CreateProduct, UpdateProduct, DescribeProductAsAdmin, and SearchProductAsAdmin APIs. This response contains the same fields as the ConnectionParameters request, with the addition of the LastSync response.
+        A top level `ProductViewDetail` response containing details about the product’s connection. AWS Service Catalog returns this field for the `CreateProduct` , `UpdateProduct` , `DescribeProductAsAdmin` , and `SearchProductAsAdmin` APIs. This response contains the same fields as the `ConnectionParameters` request, with the addition of the `LastSync` response.
         """
         return pulumi.get(self, "source_connection")
 
@@ -216,6 +227,8 @@ class CloudFormationProductArgs:
     def support_url(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The contact URL for product support.
+
+        `^https?:\\/\\//` / is the pattern used to validate SupportUrl.
         """
         return pulumi.get(self, "support_url")
 
@@ -247,7 +260,7 @@ class CloudFormationProduct(pulumi.CustomResource):
                  distributor: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_type: Optional[pulumi.Input['CloudFormationProductProductType']] = None,
+                 product_type: Optional[pulumi.Input[_builtins.str]] = None,
                  provisioning_artifact_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudFormationProductProvisioningArtifactPropertiesArgs', 'CloudFormationProductProvisioningArtifactPropertiesArgsDict']]]]] = None,
                  replace_provisioning_artifacts: Optional[pulumi.Input[_builtins.bool]] = None,
                  source_connection: Optional[pulumi.Input[Union['CloudFormationProductSourceConnectionArgs', 'CloudFormationProductSourceConnectionArgsDict']]] = None,
@@ -257,22 +270,29 @@ class CloudFormationProduct(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource type definition for AWS::ServiceCatalog::CloudFormationProduct
+        Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accept_language: The language code.
+               
+               - `jp` - Japanese
+               - `zh` - Chinese
         :param pulumi.Input[_builtins.str] description: The description of the product.
         :param pulumi.Input[_builtins.str] distributor: The distributor of the product.
         :param pulumi.Input[_builtins.str] name: The name of the product.
         :param pulumi.Input[_builtins.str] owner: The owner of the product.
-        :param pulumi.Input['CloudFormationProductProductType'] product_type: The type of product.
+        :param pulumi.Input[_builtins.str] product_type: The type of product.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CloudFormationProductProvisioningArtifactPropertiesArgs', 'CloudFormationProductProvisioningArtifactPropertiesArgsDict']]]] provisioning_artifact_parameters: The configuration of the provisioning artifact (also known as a version).
         :param pulumi.Input[_builtins.bool] replace_provisioning_artifacts: This property is turned off by default. If turned off, you can update provisioning artifacts or product attributes (such as description, distributor, name, owner, and more) and the associated provisioning artifacts will retain the same unique identifier. Provisioning artifacts are matched within the CloudFormationProduct resource, and only those that have been updated will be changed. Provisioning artifacts are matched by a combinaton of provisioning artifact template URL and name.
-        :param pulumi.Input[Union['CloudFormationProductSourceConnectionArgs', 'CloudFormationProductSourceConnectionArgsDict']] source_connection: A top level ProductViewDetail response containing details about the product's connection. AWS Service Catalog returns this field for the CreateProduct, UpdateProduct, DescribeProductAsAdmin, and SearchProductAsAdmin APIs. This response contains the same fields as the ConnectionParameters request, with the addition of the LastSync response.
+               
+               If turned on, provisioning artifacts will be given a new unique identifier when you update the product or provisioning artifacts.
+        :param pulumi.Input[Union['CloudFormationProductSourceConnectionArgs', 'CloudFormationProductSourceConnectionArgsDict']] source_connection: A top level `ProductViewDetail` response containing details about the product’s connection. AWS Service Catalog returns this field for the `CreateProduct` , `UpdateProduct` , `DescribeProductAsAdmin` , and `SearchProductAsAdmin` APIs. This response contains the same fields as the `ConnectionParameters` request, with the addition of the `LastSync` response.
         :param pulumi.Input[_builtins.str] support_description: The support information about the product.
         :param pulumi.Input[_builtins.str] support_email: The contact email for product support.
         :param pulumi.Input[_builtins.str] support_url: The contact URL for product support.
+               
+               `^https?:\\/\\//` / is the pattern used to validate SupportUrl.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
         """
         ...
@@ -282,7 +302,7 @@ class CloudFormationProduct(pulumi.CustomResource):
                  args: CloudFormationProductArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource type definition for AWS::ServiceCatalog::CloudFormationProduct
+        Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
 
         :param str resource_name: The name of the resource.
         :param CloudFormationProductArgs args: The arguments to use to populate this resource's properties.
@@ -304,7 +324,7 @@ class CloudFormationProduct(pulumi.CustomResource):
                  distributor: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 product_type: Optional[pulumi.Input['CloudFormationProductProductType']] = None,
+                 product_type: Optional[pulumi.Input[_builtins.str]] = None,
                  provisioning_artifact_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CloudFormationProductProvisioningArtifactPropertiesArgs', 'CloudFormationProductProvisioningArtifactPropertiesArgsDict']]]]] = None,
                  replace_provisioning_artifacts: Optional[pulumi.Input[_builtins.bool]] = None,
                  source_connection: Optional[pulumi.Input[Union['CloudFormationProductSourceConnectionArgs', 'CloudFormationProductSourceConnectionArgsDict']]] = None,
@@ -386,15 +406,15 @@ class CloudFormationProduct(pulumi.CustomResource):
     def accept_language(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The language code.
+
+        - `jp` - Japanese
+        - `zh` - Chinese
         """
         return pulumi.get(self, "accept_language")
 
     @_builtins.property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        The ID of the product, such as prod-tsjbmal34qvek
-        """
         return pulumi.get(self, "aws_id")
 
     @_builtins.property
@@ -439,7 +459,7 @@ class CloudFormationProduct(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="productType")
-    def product_type(self) -> pulumi.Output[Optional['CloudFormationProductProductType']]:
+    def product_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The type of product.
         """
@@ -449,7 +469,7 @@ class CloudFormationProduct(pulumi.CustomResource):
     @pulumi.getter(name="provisioningArtifactIds")
     def provisioning_artifact_ids(self) -> pulumi.Output[_builtins.str]:
         """
-        The IDs of the provisioning artifacts
+        The IDs of the provisioning artifacts.
         """
         return pulumi.get(self, "provisioning_artifact_ids")
 
@@ -457,7 +477,7 @@ class CloudFormationProduct(pulumi.CustomResource):
     @pulumi.getter(name="provisioningArtifactNames")
     def provisioning_artifact_names(self) -> pulumi.Output[_builtins.str]:
         """
-        The names of the provisioning artifacts
+        The names of the provisioning artifacts.
         """
         return pulumi.get(self, "provisioning_artifact_names")
 
@@ -474,6 +494,8 @@ class CloudFormationProduct(pulumi.CustomResource):
     def replace_provisioning_artifacts(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         This property is turned off by default. If turned off, you can update provisioning artifacts or product attributes (such as description, distributor, name, owner, and more) and the associated provisioning artifacts will retain the same unique identifier. Provisioning artifacts are matched within the CloudFormationProduct resource, and only those that have been updated will be changed. Provisioning artifacts are matched by a combinaton of provisioning artifact template URL and name.
+
+        If turned on, provisioning artifacts will be given a new unique identifier when you update the product or provisioning artifacts.
         """
         return pulumi.get(self, "replace_provisioning_artifacts")
 
@@ -481,7 +503,7 @@ class CloudFormationProduct(pulumi.CustomResource):
     @pulumi.getter(name="sourceConnection")
     def source_connection(self) -> pulumi.Output[Optional['outputs.CloudFormationProductSourceConnection']]:
         """
-        A top level ProductViewDetail response containing details about the product's connection. AWS Service Catalog returns this field for the CreateProduct, UpdateProduct, DescribeProductAsAdmin, and SearchProductAsAdmin APIs. This response contains the same fields as the ConnectionParameters request, with the addition of the LastSync response.
+        A top level `ProductViewDetail` response containing details about the product’s connection. AWS Service Catalog returns this field for the `CreateProduct` , `UpdateProduct` , `DescribeProductAsAdmin` , and `SearchProductAsAdmin` APIs. This response contains the same fields as the `ConnectionParameters` request, with the addition of the `LastSync` response.
         """
         return pulumi.get(self, "source_connection")
 
@@ -506,6 +528,8 @@ class CloudFormationProduct(pulumi.CustomResource):
     def support_url(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The contact URL for product support.
+
+        `^https?:\\/\\//` / is the pattern used to validate SupportUrl.
         """
         return pulumi.get(self, "support_url")
 

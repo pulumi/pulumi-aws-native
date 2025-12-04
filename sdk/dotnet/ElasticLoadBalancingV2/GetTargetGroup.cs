@@ -104,6 +104,10 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
+        /// The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
+        /// </summary>
+        public readonly int? TargetControlPort;
+        /// <summary>
         /// The ARN of the Target Group
         /// </summary>
         public readonly string? TargetGroupArn;
@@ -150,6 +154,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
+            int? targetControlPort,
+
             string? targetGroupArn,
 
             ImmutableArray<Outputs.TargetGroupAttribute> targetGroupAttributes,
@@ -172,6 +178,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
             LoadBalancerArns = loadBalancerArns;
             Matcher = matcher;
             Tags = tags;
+            TargetControlPort = targetControlPort;
             TargetGroupArn = targetGroupArn;
             TargetGroupAttributes = targetGroupAttributes;
             TargetGroupFullName = targetGroupFullName;

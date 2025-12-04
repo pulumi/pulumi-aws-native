@@ -1107,6 +1107,37 @@ namespace Pulumi.AwsNative.CustomerProfiles
     }
 
     /// <summary>
+    /// The SQL query that defines the segment criteria.
+    /// </summary>
+    [EnumType]
+    public readonly struct SegmentDefinitionSegmentType : IEquatable<SegmentDefinitionSegmentType>
+    {
+        private readonly string _value;
+
+        private SegmentDefinitionSegmentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SegmentDefinitionSegmentType Classic { get; } = new SegmentDefinitionSegmentType("CLASSIC");
+        public static SegmentDefinitionSegmentType Enhanced { get; } = new SegmentDefinitionSegmentType("ENHANCED");
+
+        public static bool operator ==(SegmentDefinitionSegmentType left, SegmentDefinitionSegmentType right) => left.Equals(right);
+        public static bool operator !=(SegmentDefinitionSegmentType left, SegmentDefinitionSegmentType right) => !left.Equals(right);
+
+        public static explicit operator string(SegmentDefinitionSegmentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SegmentDefinitionSegmentType other && Equals(other);
+        public bool Equals(SegmentDefinitionSegmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of segment dimension to use for a string dimension.
     /// </summary>
     [EnumType]

@@ -41,6 +41,7 @@ export class Domain extends pulumi.CustomResource {
      * The time of this integration got created
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    declare public readonly dataStore: pulumi.Output<outputs.customerprofiles.DomainDataStore | undefined>;
     /**
      * The URL of the SQS dead letter queue
      */
@@ -89,6 +90,7 @@ export class Domain extends pulumi.CustomResource {
             if (args?.defaultExpirationDays === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultExpirationDays'");
             }
+            resourceInputs["dataStore"] = args?.dataStore;
             resourceInputs["deadLetterQueueUrl"] = args?.deadLetterQueueUrl;
             resourceInputs["defaultEncryptionKey"] = args?.defaultEncryptionKey;
             resourceInputs["defaultExpirationDays"] = args?.defaultExpirationDays;
@@ -101,6 +103,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["stats"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["dataStore"] = undefined /*out*/;
             resourceInputs["deadLetterQueueUrl"] = undefined /*out*/;
             resourceInputs["defaultEncryptionKey"] = undefined /*out*/;
             resourceInputs["defaultExpirationDays"] = undefined /*out*/;
@@ -122,6 +125,7 @@ export class Domain extends pulumi.CustomResource {
  * The set of arguments for constructing a Domain resource.
  */
 export interface DomainArgs {
+    dataStore?: pulumi.Input<inputs.customerprofiles.DomainDataStoreArgs>;
     /**
      * The URL of the SQS dead letter queue
      */

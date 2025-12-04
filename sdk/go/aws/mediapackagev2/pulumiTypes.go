@@ -3368,7 +3368,7 @@ func (o OriginEndpointMssManifestConfigurationArrayOutput) Index(i pulumi.IntInp
 type OriginEndpointPolicyCdnAuthConfiguration struct {
 	// The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
 	CdnIdentifierSecretArns []string `pulumi:"cdnIdentifierSecretArns"`
-	// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+	// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS  for CDN authorization.
 	SecretsRoleArn string `pulumi:"secretsRoleArn"`
 }
 
@@ -3386,7 +3386,7 @@ type OriginEndpointPolicyCdnAuthConfigurationInput interface {
 type OriginEndpointPolicyCdnAuthConfigurationArgs struct {
 	// The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.
 	CdnIdentifierSecretArns pulumi.StringArrayInput `pulumi:"cdnIdentifierSecretArns"`
-	// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+	// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS  for CDN authorization.
 	SecretsRoleArn pulumi.StringInput `pulumi:"secretsRoleArn"`
 }
 
@@ -3472,7 +3472,7 @@ func (o OriginEndpointPolicyCdnAuthConfigurationOutput) CdnIdentifierSecretArns(
 	return o.ApplyT(func(v OriginEndpointPolicyCdnAuthConfiguration) []string { return v.CdnIdentifierSecretArns }).(pulumi.StringArrayOutput)
 }
 
-// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS  for CDN authorization.
 func (o OriginEndpointPolicyCdnAuthConfigurationOutput) SecretsRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginEndpointPolicyCdnAuthConfiguration) string { return v.SecretsRoleArn }).(pulumi.StringOutput)
 }
@@ -3511,7 +3511,7 @@ func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) CdnIdentifierSecretAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS  for CDN authorization.
 func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) SecretsRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointPolicyCdnAuthConfiguration) *string {
 		if v == nil {

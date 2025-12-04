@@ -46,6 +46,10 @@ export interface GetTableResult {
      */
     readonly tableName?: string;
     /**
+     * User tags (key-value pairs) to associate with the table.
+     */
+    readonly tags?: outputs.Tag[];
+    /**
      * The version token of the table.
      */
     readonly versionToken?: string;

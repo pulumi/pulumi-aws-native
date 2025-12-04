@@ -78,6 +78,12 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
         }
 
         /// <summary>
+        /// The ALB or NLB listener to send the request to. Only supported for private integrations that use VPC links V2.
+        /// </summary>
+        [Input("integrationTarget")]
+        public Input<string>? IntegrationTarget { get; set; }
+
+        /// <summary>
         /// Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in `requestTemplates` . The valid value is one of the following: `WHEN_NO_MATCH` : passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. `WHEN_NO_TEMPLATES` : passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. `NEVER` : rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
         /// </summary>
         [Input("passthroughBehavior")]
@@ -107,6 +113,9 @@ namespace Pulumi.AwsNative.ApiGateway.Inputs
             set => _requestTemplates = value;
         }
 
+        /// <summary>
+        /// The response transfer mode of the integration. Use `STREAM` to have API Gateway stream response your back to you or use `BUFFERED` to have API Gateway wait to receive the complete response before beginning transmission.
+        /// </summary>
         [Input("responseTransferMode")]
         public Input<Pulumi.AwsNative.ApiGateway.MethodIntegrationResponseTransferMode>? ResponseTransferMode { get; set; }
 

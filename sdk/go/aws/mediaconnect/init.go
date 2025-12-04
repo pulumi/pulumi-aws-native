@@ -39,6 +39,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FlowVpcInterface{}
 	case "aws-native:mediaconnect:Gateway":
 		r = &Gateway{}
+	case "aws-native:mediaconnect:RouterInput":
+		r = &RouterInput{}
+	case "aws-native:mediaconnect:RouterNetworkInterface":
+		r = &RouterNetworkInterface{}
+	case "aws-native:mediaconnect:RouterOutputResource":
+		r = &RouterOutputResource{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

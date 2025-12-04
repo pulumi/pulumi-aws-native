@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
         /// Contains predictive outbound mode configuration.
         /// </summary>
         public readonly Outputs.CampaignPredictiveConfig? PredictiveConfig;
+        /// <summary>
+        /// Contains preview outbound mode configuration.
+        /// </summary>
         public readonly Outputs.CampaignPreviewConfig? PreviewConfig;
         /// <summary>
         /// Contains progressive telephony outbound mode configuration.

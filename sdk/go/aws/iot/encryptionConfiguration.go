@@ -21,7 +21,7 @@ type EncryptionConfiguration struct {
 	ConfigurationDetails ConfigurationDetailsPropertiesOutput `pulumi:"configurationDetails"`
 	// The type of the KMS key.
 	EncryptionType EncryptionConfigurationEncryptionTypeOutput `pulumi:"encryptionType"`
-	// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+	// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS  on behalf of the customer.
 	KmsAccessRoleArn pulumi.StringPtrOutput `pulumi:"kmsAccessRoleArn"`
 	// The ARN of the customer managed KMS key.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
@@ -74,7 +74,7 @@ func (EncryptionConfigurationState) ElementType() reflect.Type {
 type encryptionConfigurationArgs struct {
 	// The type of the KMS key.
 	EncryptionType EncryptionConfigurationEncryptionType `pulumi:"encryptionType"`
-	// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+	// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS  on behalf of the customer.
 	KmsAccessRoleArn *string `pulumi:"kmsAccessRoleArn"`
 	// The ARN of the customer managed KMS key.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
@@ -84,7 +84,7 @@ type encryptionConfigurationArgs struct {
 type EncryptionConfigurationArgs struct {
 	// The type of the KMS key.
 	EncryptionType EncryptionConfigurationEncryptionTypeInput
-	// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+	// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS  on behalf of the customer.
 	KmsAccessRoleArn pulumi.StringPtrInput
 	// The ARN of the customer managed KMS key.
 	KmsKeyArn pulumi.StringPtrInput
@@ -141,7 +141,7 @@ func (o EncryptionConfigurationOutput) EncryptionType() EncryptionConfigurationE
 	return o.ApplyT(func(v *EncryptionConfiguration) EncryptionConfigurationEncryptionTypeOutput { return v.EncryptionType }).(EncryptionConfigurationEncryptionTypeOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS  on behalf of the customer.
 func (o EncryptionConfigurationOutput) KmsAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionConfiguration) pulumi.StringPtrOutput { return v.KmsAccessRoleArn }).(pulumi.StringPtrOutput)
 }

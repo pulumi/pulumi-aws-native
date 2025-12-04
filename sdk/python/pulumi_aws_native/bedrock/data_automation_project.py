@@ -30,6 +30,7 @@ class DataAutomationProjectArgs:
                  override_configuration: Optional[pulumi.Input['DataAutomationProjectOverrideConfigurationArgs']] = None,
                  project_description: Optional[pulumi.Input[_builtins.str]] = None,
                  project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_type: Optional[pulumi.Input['DataAutomationProjectProjectType']] = None,
                  standard_output_configuration: Optional[pulumi.Input['DataAutomationProjectStandardOutputConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -40,6 +41,7 @@ class DataAutomationProjectArgs:
         :param pulumi.Input['DataAutomationProjectOverrideConfigurationArgs'] override_configuration: Additional settings for the project.
         :param pulumi.Input[_builtins.str] project_description: Description of the DataAutomationProject
         :param pulumi.Input[_builtins.str] project_name: Name of the DataAutomationProject
+        :param pulumi.Input['DataAutomationProjectProjectType'] project_type: Type of the DataAutomationProject - Sync or Async
         :param pulumi.Input['DataAutomationProjectStandardOutputConfigurationArgs'] standard_output_configuration: The project's standard output configuration.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: List of Tags
         """
@@ -55,6 +57,8 @@ class DataAutomationProjectArgs:
             pulumi.set(__self__, "project_description", project_description)
         if project_name is not None:
             pulumi.set(__self__, "project_name", project_name)
+        if project_type is not None:
+            pulumi.set(__self__, "project_type", project_type)
         if standard_output_configuration is not None:
             pulumi.set(__self__, "standard_output_configuration", standard_output_configuration)
         if tags is not None:
@@ -133,6 +137,18 @@ class DataAutomationProjectArgs:
         pulumi.set(self, "project_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="projectType")
+    def project_type(self) -> Optional[pulumi.Input['DataAutomationProjectProjectType']]:
+        """
+        Type of the DataAutomationProject - Sync or Async
+        """
+        return pulumi.get(self, "project_type")
+
+    @project_type.setter
+    def project_type(self, value: Optional[pulumi.Input['DataAutomationProjectProjectType']]):
+        pulumi.set(self, "project_type", value)
+
+    @_builtins.property
     @pulumi.getter(name="standardOutputConfiguration")
     def standard_output_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectStandardOutputConfigurationArgs']]:
         """
@@ -169,6 +185,7 @@ class DataAutomationProject(pulumi.CustomResource):
                  override_configuration: Optional[pulumi.Input[Union['DataAutomationProjectOverrideConfigurationArgs', 'DataAutomationProjectOverrideConfigurationArgsDict']]] = None,
                  project_description: Optional[pulumi.Input[_builtins.str]] = None,
                  project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_type: Optional[pulumi.Input['DataAutomationProjectProjectType']] = None,
                  standard_output_configuration: Optional[pulumi.Input[Union['DataAutomationProjectStandardOutputConfigurationArgs', 'DataAutomationProjectStandardOutputConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -183,6 +200,7 @@ class DataAutomationProject(pulumi.CustomResource):
         :param pulumi.Input[Union['DataAutomationProjectOverrideConfigurationArgs', 'DataAutomationProjectOverrideConfigurationArgsDict']] override_configuration: Additional settings for the project.
         :param pulumi.Input[_builtins.str] project_description: Description of the DataAutomationProject
         :param pulumi.Input[_builtins.str] project_name: Name of the DataAutomationProject
+        :param pulumi.Input['DataAutomationProjectProjectType'] project_type: Type of the DataAutomationProject - Sync or Async
         :param pulumi.Input[Union['DataAutomationProjectStandardOutputConfigurationArgs', 'DataAutomationProjectStandardOutputConfigurationArgsDict']] standard_output_configuration: The project's standard output configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: List of Tags
         """
@@ -216,6 +234,7 @@ class DataAutomationProject(pulumi.CustomResource):
                  override_configuration: Optional[pulumi.Input[Union['DataAutomationProjectOverrideConfigurationArgs', 'DataAutomationProjectOverrideConfigurationArgsDict']]] = None,
                  project_description: Optional[pulumi.Input[_builtins.str]] = None,
                  project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_type: Optional[pulumi.Input['DataAutomationProjectProjectType']] = None,
                  standard_output_configuration: Optional[pulumi.Input[Union['DataAutomationProjectStandardOutputConfigurationArgs', 'DataAutomationProjectStandardOutputConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -233,6 +252,7 @@ class DataAutomationProject(pulumi.CustomResource):
             __props__.__dict__["override_configuration"] = override_configuration
             __props__.__dict__["project_description"] = project_description
             __props__.__dict__["project_name"] = project_name
+            __props__.__dict__["project_type"] = project_type
             __props__.__dict__["standard_output_configuration"] = standard_output_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["creation_time"] = None
@@ -240,7 +260,7 @@ class DataAutomationProject(pulumi.CustomResource):
             __props__.__dict__["project_arn"] = None
             __props__.__dict__["project_stage"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["projectName"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["projectName", "projectType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DataAutomationProject, __self__).__init__(
             'aws-native:bedrock:DataAutomationProject',
@@ -274,6 +294,7 @@ class DataAutomationProject(pulumi.CustomResource):
         __props__.__dict__["project_description"] = None
         __props__.__dict__["project_name"] = None
         __props__.__dict__["project_stage"] = None
+        __props__.__dict__["project_type"] = None
         __props__.__dict__["standard_output_configuration"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
@@ -358,6 +379,14 @@ class DataAutomationProject(pulumi.CustomResource):
         The project's stage.
         """
         return pulumi.get(self, "project_stage")
+
+    @_builtins.property
+    @pulumi.getter(name="projectType")
+    def project_type(self) -> pulumi.Output[Optional['DataAutomationProjectProjectType']]:
+        """
+        Type of the DataAutomationProject - Sync or Async
+        """
+        return pulumi.get(self, "project_type")
 
     @_builtins.property
     @pulumi.getter(name="standardOutputConfiguration")

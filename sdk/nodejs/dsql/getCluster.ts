@@ -38,6 +38,10 @@ export interface GetClusterResult {
      */
     readonly encryptionDetails?: outputs.dsql.EncryptionDetailsProperties;
     /**
+     * The DSQL cluster endpoint.
+     */
+    readonly endpoint?: string;
+    /**
      * The ID of the created cluster.
      */
     readonly identifier?: string;
@@ -45,6 +49,14 @@ export interface GetClusterResult {
      * The Multi-region properties associated to this cluster.
      */
     readonly multiRegionProperties?: outputs.dsql.MultiRegionPropertiesProperties;
+    /**
+     * The IAM policy applied to the cluster resource.
+     */
+    readonly policyDocument?: string;
+    /**
+     * The version number of the cluster's resource based policy
+     */
+    readonly policyVersion?: string;
     /**
      * The Amazon Resource Name (ARN) for the cluster.
      */

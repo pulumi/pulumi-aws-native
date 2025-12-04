@@ -42,6 +42,10 @@ __all__ = [
     'RepositoryImageTagMutabilityExclusionFilterArgsDict',
     'RepositoryLifecyclePolicyArgs',
     'RepositoryLifecyclePolicyArgsDict',
+    'SigningConfigurationRepositoryFilterArgs',
+    'SigningConfigurationRepositoryFilterArgsDict',
+    'SigningConfigurationRuleArgs',
+    'SigningConfigurationRuleArgsDict',
 ]
 
 MYPY = False
@@ -528,9 +532,9 @@ if not MYPY:
         """
         The encryption type to use.
 
-        If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created.
+        If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS  . When you use AWS  to encrypt your data, you can either use the default AWS managed AWS  key for Amazon ECR, or specify your own AWS  key, which you already created.
 
-        If you use the `KMS_DSSE` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the AWS KMS Management Service key stored in AWS KMS . Similar to the `KMS` encryption type, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you've already created.
+        If you use the `KMS_DSSE` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the AWS  Management Service key stored in AWS  . Similar to the `KMS` encryption type, you can either use the default AWS managed AWS  key for Amazon ECR, or specify your own AWS  key, which you've already created.
 
         If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES256 encryption algorithm.
 
@@ -554,9 +558,9 @@ class RepositoryEncryptionConfigurationArgs:
          For more control over the encryption of the contents of your repository, you can use server-side encryption with KMSlong key stored in KMSlong (KMS) to encrypt your images. For more information, see [Amazon ECR encryption at rest](https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html) in the *Amazon Elastic Container Registry User Guide*.
         :param pulumi.Input['RepositoryEncryptionType'] encryption_type: The encryption type to use.
                
-               If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created.
+               If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS  . When you use AWS  to encrypt your data, you can either use the default AWS managed AWS  key for Amazon ECR, or specify your own AWS  key, which you already created.
                
-               If you use the `KMS_DSSE` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the AWS KMS Management Service key stored in AWS KMS . Similar to the `KMS` encryption type, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you've already created.
+               If you use the `KMS_DSSE` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the AWS  Management Service key stored in AWS  . Similar to the `KMS` encryption type, you can either use the default AWS managed AWS  key for Amazon ECR, or specify your own AWS  key, which you've already created.
                
                If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES256 encryption algorithm.
                
@@ -573,9 +577,9 @@ class RepositoryEncryptionConfigurationArgs:
         """
         The encryption type to use.
 
-        If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created.
+        If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS  . When you use AWS  to encrypt your data, you can either use the default AWS managed AWS  key for Amazon ECR, or specify your own AWS  key, which you already created.
 
-        If you use the `KMS_DSSE` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the AWS KMS Management Service key stored in AWS KMS . Similar to the `KMS` encryption type, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you've already created.
+        If you use the `KMS_DSSE` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the AWS  Management Service key stored in AWS  . Similar to the `KMS` encryption type, you can either use the default AWS managed AWS  key for Amazon ECR, or specify your own AWS  key, which you've already created.
 
         If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES256 encryption algorithm.
 
@@ -733,5 +737,128 @@ class RepositoryLifecyclePolicyArgs:
     @registry_id.setter
     def registry_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "registry_id", value)
+
+
+if not MYPY:
+    class SigningConfigurationRepositoryFilterArgsDict(TypedDict):
+        """
+        An array of objects representing the details of a repository filter.
+        """
+        filter: pulumi.Input[_builtins.str]
+        """
+        The filter value used to match repository names. When using `WILDCARD_MATCH` , the `*` character matches any sequence of characters.
+
+        Examples:
+
+        - `myapp/*` - Matches all repositories starting with `myapp/`
+        - `*/production` - Matches all repositories ending with `/production`
+        - `*prod*` - Matches all repositories containing `prod`
+        """
+        filter_type: pulumi.Input['SigningConfigurationFilterType']
+        """
+        The type of filter to apply. Currently, only `WILDCARD_MATCH` is supported, which uses wildcard patterns to match repository names.
+        """
+elif False:
+    SigningConfigurationRepositoryFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SigningConfigurationRepositoryFilterArgs:
+    def __init__(__self__, *,
+                 filter: pulumi.Input[_builtins.str],
+                 filter_type: pulumi.Input['SigningConfigurationFilterType']):
+        """
+        An array of objects representing the details of a repository filter.
+        :param pulumi.Input[_builtins.str] filter: The filter value used to match repository names. When using `WILDCARD_MATCH` , the `*` character matches any sequence of characters.
+               
+               Examples:
+               
+               - `myapp/*` - Matches all repositories starting with `myapp/`
+               - `*/production` - Matches all repositories ending with `/production`
+               - `*prod*` - Matches all repositories containing `prod`
+        :param pulumi.Input['SigningConfigurationFilterType'] filter_type: The type of filter to apply. Currently, only `WILDCARD_MATCH` is supported, which uses wildcard patterns to match repository names.
+        """
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "filter_type", filter_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def filter(self) -> pulumi.Input[_builtins.str]:
+        """
+        The filter value used to match repository names. When using `WILDCARD_MATCH` , the `*` character matches any sequence of characters.
+
+        Examples:
+
+        - `myapp/*` - Matches all repositories starting with `myapp/`
+        - `*/production` - Matches all repositories ending with `/production`
+        - `*prod*` - Matches all repositories containing `prod`
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "filter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> pulumi.Input['SigningConfigurationFilterType']:
+        """
+        The type of filter to apply. Currently, only `WILDCARD_MATCH` is supported, which uses wildcard patterns to match repository names.
+        """
+        return pulumi.get(self, "filter_type")
+
+    @filter_type.setter
+    def filter_type(self, value: pulumi.Input['SigningConfigurationFilterType']):
+        pulumi.set(self, "filter_type", value)
+
+
+if not MYPY:
+    class SigningConfigurationRuleArgsDict(TypedDict):
+        signing_profile_arn: pulumi.Input[_builtins.str]
+        """
+        AWS Signer signing profile ARN to use for matched repositories.
+        """
+        repository_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['SigningConfigurationRepositoryFilterArgsDict']]]]
+        """
+        Optional array of repository filters. If omitted, the rule matches all repositories. If provided, must contain at least one filter. Empty arrays are not allowed.
+        """
+elif False:
+    SigningConfigurationRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SigningConfigurationRuleArgs:
+    def __init__(__self__, *,
+                 signing_profile_arn: pulumi.Input[_builtins.str],
+                 repository_filters: Optional[pulumi.Input[Sequence[pulumi.Input['SigningConfigurationRepositoryFilterArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] signing_profile_arn: AWS Signer signing profile ARN to use for matched repositories.
+        :param pulumi.Input[Sequence[pulumi.Input['SigningConfigurationRepositoryFilterArgs']]] repository_filters: Optional array of repository filters. If omitted, the rule matches all repositories. If provided, must contain at least one filter. Empty arrays are not allowed.
+        """
+        pulumi.set(__self__, "signing_profile_arn", signing_profile_arn)
+        if repository_filters is not None:
+            pulumi.set(__self__, "repository_filters", repository_filters)
+
+    @_builtins.property
+    @pulumi.getter(name="signingProfileArn")
+    def signing_profile_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        AWS Signer signing profile ARN to use for matched repositories.
+        """
+        return pulumi.get(self, "signing_profile_arn")
+
+    @signing_profile_arn.setter
+    def signing_profile_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "signing_profile_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryFilters")
+    def repository_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SigningConfigurationRepositoryFilterArgs']]]]:
+        """
+        Optional array of repository filters. If omitted, the rule matches all repositories. If provided, must contain at least one filter. Empty arrays are not allowed.
+        """
+        return pulumi.get(self, "repository_filters")
+
+    @repository_filters.setter
+    def repository_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SigningConfigurationRepositoryFilterArgs']]]]):
+        pulumi.set(self, "repository_filters", value)
 
 

@@ -26,6 +26,7 @@ class LogicallyAirGappedBackupVaultArgs:
                  access_policy: Optional[Any] = None,
                  backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
                  backup_vault_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  mpa_approval_team_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  notifications: Optional[pulumi.Input['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs']] = None):
         """
@@ -39,6 +40,7 @@ class LogicallyAirGappedBackupVaultArgs:
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
         :param pulumi.Input[_builtins.str] backup_vault_name: The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] backup_vault_tags: The tags to assign to the vault.
+        :param pulumi.Input[_builtins.str] encryption_key_arn: The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
         :param pulumi.Input['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs'] notifications: Returns event notifications for the specified backup vault.
         """
         pulumi.set(__self__, "max_retention_days", max_retention_days)
@@ -49,6 +51,8 @@ class LogicallyAirGappedBackupVaultArgs:
             pulumi.set(__self__, "backup_vault_name", backup_vault_name)
         if backup_vault_tags is not None:
             pulumi.set(__self__, "backup_vault_tags", backup_vault_tags)
+        if encryption_key_arn is not None:
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
         if mpa_approval_team_arn is not None:
             pulumi.set(__self__, "mpa_approval_team_arn", mpa_approval_team_arn)
         if notifications is not None:
@@ -119,6 +123,18 @@ class LogicallyAirGappedBackupVaultArgs:
         pulumi.set(self, "backup_vault_tags", value)
 
     @_builtins.property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @encryption_key_arn.setter
+    def encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "encryption_key_arn", value)
+
+    @_builtins.property
     @pulumi.getter(name="mpaApprovalTeamArn")
     def mpa_approval_team_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "mpa_approval_team_arn")
@@ -149,6 +165,7 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
                  access_policy: Optional[Any] = None,
                  backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
                  backup_vault_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  max_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
                  min_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
                  mpa_approval_team_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -164,6 +181,7 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
         :param pulumi.Input[_builtins.str] backup_vault_name: The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] backup_vault_tags: The tags to assign to the vault.
+        :param pulumi.Input[_builtins.str] encryption_key_arn: The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
         :param pulumi.Input[_builtins.int] max_retention_days: The maximum retention period that the vault retains its recovery points.
         :param pulumi.Input[_builtins.int] min_retention_days: This setting specifies the minimum retention period that the vault retains its recovery points.
                
@@ -197,6 +215,7 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
                  access_policy: Optional[Any] = None,
                  backup_vault_name: Optional[pulumi.Input[_builtins.str]] = None,
                  backup_vault_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  max_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
                  min_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
                  mpa_approval_team_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -213,6 +232,7 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
             __props__.__dict__["access_policy"] = access_policy
             __props__.__dict__["backup_vault_name"] = backup_vault_name
             __props__.__dict__["backup_vault_tags"] = backup_vault_tags
+            __props__.__dict__["encryption_key_arn"] = encryption_key_arn
             if max_retention_days is None and not opts.urn:
                 raise TypeError("Missing required property 'max_retention_days'")
             __props__.__dict__["max_retention_days"] = max_retention_days
@@ -222,10 +242,9 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
             __props__.__dict__["mpa_approval_team_arn"] = mpa_approval_team_arn
             __props__.__dict__["notifications"] = notifications
             __props__.__dict__["backup_vault_arn"] = None
-            __props__.__dict__["encryption_key_arn"] = None
             __props__.__dict__["vault_state"] = None
             __props__.__dict__["vault_type"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["backupVaultName", "maxRetentionDays", "minRetentionDays"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["backupVaultName", "encryptionKeyArn", "maxRetentionDays", "minRetentionDays"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LogicallyAirGappedBackupVault, __self__).__init__(
             'aws-native:backup:LogicallyAirGappedBackupVault',
@@ -298,9 +317,9 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyArn")
-    def encryption_key_arn(self) -> pulumi.Output[_builtins.str]:
+    def encryption_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The ARN of the server-side encryption key.
+        The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
         """
         return pulumi.get(self, "encryption_key_arn")
 

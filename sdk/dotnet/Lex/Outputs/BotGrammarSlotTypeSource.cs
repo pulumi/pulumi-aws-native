@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
     public sealed class BotGrammarSlotTypeSource
     {
         /// <summary>
-        /// The AWS KMS key required to decrypt the contents of the grammar, if any.
+        /// The AWS  key required to decrypt the contents of the grammar, if any.
         /// </summary>
         public readonly string? KmsKeyArn;
         /// <summary>

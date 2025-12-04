@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
         [Input("connectSourcePhoneNumber")]
         public Input<string>? ConnectSourcePhoneNumber { get; set; }
 
+        [Input("ringTimeout")]
+        public Input<int>? RingTimeout { get; set; }
+
         public CampaignTelephonyOutboundConfigArgs()
         {
         }

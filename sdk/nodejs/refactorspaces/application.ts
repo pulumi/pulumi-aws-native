@@ -38,7 +38,7 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
-     * The resource ID of the API Gateway for the proxy.
+     * The resource ID of the ABP for the proxy.
      */
     declare public /*out*/ readonly apiGatewayId: pulumi.Output<string>;
     /**
@@ -74,11 +74,11 @@ export class Application extends pulumi.CustomResource {
      */
     declare public readonly proxyType: pulumi.Output<enums.refactorspaces.ApplicationProxyType>;
     /**
-     * The endpoint URL of the Amazon API Gateway proxy.
+     * The endpoint URL of the ABPlong proxy.
      */
     declare public /*out*/ readonly proxyUrl: pulumi.Output<string>;
     /**
-     * The name of the API Gateway stage. The name defaults to `prod` .
+     * The name of the ABP stage. The name defaults to `prod` .
      */
     declare public /*out*/ readonly stageName: pulumi.Output<string>;
     /**
@@ -90,7 +90,7 @@ export class Application extends pulumi.CustomResource {
      */
     declare public readonly vpcId: pulumi.Output<string>;
     /**
-     * The `VpcLink` ID of the API Gateway proxy.
+     * The `VpcLink` ID of the ABP proxy.
      */
     declare public /*out*/ readonly vpcLinkId: pulumi.Output<string>;
 

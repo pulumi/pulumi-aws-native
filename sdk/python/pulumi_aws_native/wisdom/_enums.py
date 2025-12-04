@@ -42,6 +42,9 @@ class AiAgentAiAgentType(_builtins.str, Enum):
     MANUAL_SEARCH = "MANUAL_SEARCH"
     ANSWER_RECOMMENDATION = "ANSWER_RECOMMENDATION"
     SELF_SERVICE = "SELF_SERVICE"
+    EMAIL_RESPONSE = "EMAIL_RESPONSE"
+    EMAIL_OVERVIEW = "EMAIL_OVERVIEW"
+    EMAIL_GENERATIVE_ANSWER = "EMAIL_GENERATIVE_ANSWER"
 
 
 @pulumi.type_token("aws-native:wisdom:AiAgentKnowledgeBaseSearchType")

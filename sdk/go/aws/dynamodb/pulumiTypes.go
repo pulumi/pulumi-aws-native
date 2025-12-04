@@ -1987,7 +1987,7 @@ func (o GlobalTableReplicaSpecificationArrayOutput) Index(i pulumi.IntInput) Glo
 }
 
 type GlobalTableReplicaSseSpecification struct {
-	// The AWS KMS key that should be used for the AWS KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
+	// The AWS  key that should be used for the AWS  encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
 	KmsMasterKeyId string `pulumi:"kmsMasterKeyId"`
 }
 
@@ -2003,7 +2003,7 @@ type GlobalTableReplicaSseSpecificationInput interface {
 }
 
 type GlobalTableReplicaSseSpecificationArgs struct {
-	// The AWS KMS key that should be used for the AWS KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
+	// The AWS  key that should be used for the AWS  encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
 	KmsMasterKeyId pulumi.StringInput `pulumi:"kmsMasterKeyId"`
 }
 
@@ -2084,7 +2084,7 @@ func (o GlobalTableReplicaSseSpecificationOutput) ToGlobalTableReplicaSseSpecifi
 	}).(GlobalTableReplicaSseSpecificationPtrOutput)
 }
 
-// The AWS KMS key that should be used for the AWS KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
+// The AWS  key that should be used for the AWS  encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
 func (o GlobalTableReplicaSseSpecificationOutput) KmsMasterKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSseSpecification) string { return v.KmsMasterKeyId }).(pulumi.StringOutput)
 }
@@ -2113,7 +2113,7 @@ func (o GlobalTableReplicaSseSpecificationPtrOutput) Elem() GlobalTableReplicaSs
 	}).(GlobalTableReplicaSseSpecificationOutput)
 }
 
-// The AWS KMS key that should be used for the AWS KMS encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
+// The AWS  key that should be used for the AWS  encryption. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB key `alias/aws/dynamodb` .
 func (o GlobalTableReplicaSseSpecificationPtrOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalTableReplicaSseSpecification) *string {
 		if v == nil {
@@ -2129,7 +2129,7 @@ type GlobalTableReplicaStreamSpecification struct {
 	// In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
 	//
 	// You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
-	ResourcePolicy *GlobalTableResourcePolicy `pulumi:"resourcePolicy"`
+	ResourcePolicy GlobalTableResourcePolicy `pulumi:"resourcePolicy"`
 }
 
 // GlobalTableReplicaStreamSpecificationInput is an input type that accepts GlobalTableReplicaStreamSpecificationArgs and GlobalTableReplicaStreamSpecificationOutput values.
@@ -2149,7 +2149,7 @@ type GlobalTableReplicaStreamSpecificationArgs struct {
 	// In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
 	//
 	// You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
-	ResourcePolicy GlobalTableResourcePolicyPtrInput `pulumi:"resourcePolicy"`
+	ResourcePolicy GlobalTableResourcePolicyInput `pulumi:"resourcePolicy"`
 }
 
 func (GlobalTableReplicaStreamSpecificationArgs) ElementType() reflect.Type {
@@ -2234,8 +2234,8 @@ func (o GlobalTableReplicaStreamSpecificationOutput) ToGlobalTableReplicaStreamS
 // In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
 //
 // You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
-func (o GlobalTableReplicaStreamSpecificationOutput) ResourcePolicy() GlobalTableResourcePolicyPtrOutput {
-	return o.ApplyT(func(v GlobalTableReplicaStreamSpecification) *GlobalTableResourcePolicy { return v.ResourcePolicy }).(GlobalTableResourcePolicyPtrOutput)
+func (o GlobalTableReplicaStreamSpecificationOutput) ResourcePolicy() GlobalTableResourcePolicyOutput {
+	return o.ApplyT(func(v GlobalTableReplicaStreamSpecification) GlobalTableResourcePolicy { return v.ResourcePolicy }).(GlobalTableResourcePolicyOutput)
 }
 
 type GlobalTableReplicaStreamSpecificationPtrOutput struct{ *pulumi.OutputState }
@@ -2272,7 +2272,7 @@ func (o GlobalTableReplicaStreamSpecificationPtrOutput) ResourcePolicy() GlobalT
 		if v == nil {
 			return nil
 		}
-		return v.ResourcePolicy
+		return &v.ResourcePolicy
 	}).(GlobalTableResourcePolicyPtrOutput)
 }
 
@@ -2414,11 +2414,11 @@ func (o GlobalTableResourcePolicyPtrOutput) PolicyDocument() pulumi.AnyOutput {
 }
 
 type GlobalTableSseSpecification struct {
-	// Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS KMS charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
+	// Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS  charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
 	SseEnabled bool `pulumi:"sseEnabled"`
 	// Server-side encryption type. The only supported value is:
 	//
-	// - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS KMS ( AWS KMS charges apply).
+	// - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS  ( AWS  charges apply).
 	SseType *string `pulumi:"sseType"`
 }
 
@@ -2434,11 +2434,11 @@ type GlobalTableSseSpecificationInput interface {
 }
 
 type GlobalTableSseSpecificationArgs struct {
-	// Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS KMS charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
+	// Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS  charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
 	SseEnabled pulumi.BoolInput `pulumi:"sseEnabled"`
 	// Server-side encryption type. The only supported value is:
 	//
-	// - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS KMS ( AWS KMS charges apply).
+	// - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS  ( AWS  charges apply).
 	SseType pulumi.StringPtrInput `pulumi:"sseType"`
 }
 
@@ -2519,14 +2519,14 @@ func (o GlobalTableSseSpecificationOutput) ToGlobalTableSseSpecificationPtrOutpu
 	}).(GlobalTableSseSpecificationPtrOutput)
 }
 
-// Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS KMS charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
+// Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS  charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
 func (o GlobalTableSseSpecificationOutput) SseEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GlobalTableSseSpecification) bool { return v.SseEnabled }).(pulumi.BoolOutput)
 }
 
 // Server-side encryption type. The only supported value is:
 //
-// - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS KMS ( AWS KMS charges apply).
+// - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS  ( AWS  charges apply).
 func (o GlobalTableSseSpecificationOutput) SseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalTableSseSpecification) *string { return v.SseType }).(pulumi.StringPtrOutput)
 }
@@ -2555,7 +2555,7 @@ func (o GlobalTableSseSpecificationPtrOutput) Elem() GlobalTableSseSpecification
 	}).(GlobalTableSseSpecificationOutput)
 }
 
-// Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS KMS charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
+// Indicates whether server-side encryption is performed using an AWS managed key or an AWS owned key. If enabled (true), server-side encryption type is set to KMS and an AWS managed key is used ( AWS  charges apply). If disabled (false) or not specified,server-side encryption is set to an AWS owned key. If you choose to use KMS encryption, you can also use customer managed KMS keys by specifying them in the `ReplicaSpecification.SSESpecification` object. You cannot mix AWS managed and customer managed KMS keys.
 func (o GlobalTableSseSpecificationPtrOutput) SseEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GlobalTableSseSpecification) *bool {
 		if v == nil {
@@ -2567,7 +2567,7 @@ func (o GlobalTableSseSpecificationPtrOutput) SseEnabled() pulumi.BoolPtrOutput 
 
 // Server-side encryption type. The only supported value is:
 //
-// - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS KMS ( AWS KMS charges apply).
+// - `KMS` - Server-side encryption that uses AWS Key Management Service . The key is stored in your account and is managed by AWS  ( AWS  charges apply).
 func (o GlobalTableSseSpecificationPtrOutput) SseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalTableSseSpecification) *string {
 		if v == nil {

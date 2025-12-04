@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.SageMaker
     public sealed class GetPartnerAppResult
     {
         /// <summary>
+        /// The version of the PartnerApp.
+        /// </summary>
+        public readonly string? AppVersion;
+        /// <summary>
         /// A collection of settings that specify the maintenance schedule for the PartnerApp.
         /// </summary>
         public readonly Outputs.PartnerAppConfig? ApplicationConfig;
@@ -75,6 +79,14 @@ namespace Pulumi.AwsNative.SageMaker
         /// The AppServerUrl based on app and account-info.
         /// </summary>
         public readonly string? BaseUrl;
+        /// <summary>
+        /// The end-of-life date for the current version of the PartnerApp.
+        /// </summary>
+        public readonly string? CurrentVersionEolDate;
+        /// <summary>
+        /// Enables automatic minor version upgrades for the PartnerApp.
+        /// </summary>
+        public readonly bool? EnableAutoMinorVersionUpgrade;
         /// <summary>
         /// Enables IAM Session based Identity for PartnerApp.
         /// </summary>
@@ -94,11 +106,17 @@ namespace Pulumi.AwsNative.SageMaker
 
         [OutputConstructor]
         private GetPartnerAppResult(
+            string? appVersion,
+
             Outputs.PartnerAppConfig? applicationConfig,
 
             string? arn,
 
             string? baseUrl,
+
+            string? currentVersionEolDate,
+
+            bool? enableAutoMinorVersionUpgrade,
 
             bool? enableIamSessionBasedIdentity,
 
@@ -108,9 +126,12 @@ namespace Pulumi.AwsNative.SageMaker
 
             string? tier)
         {
+            AppVersion = appVersion;
             ApplicationConfig = applicationConfig;
             Arn = arn;
             BaseUrl = baseUrl;
+            CurrentVersionEolDate = currentVersionEolDate;
+            EnableAutoMinorVersionUpgrade = enableAutoMinorVersionUpgrade;
             EnableIamSessionBasedIdentity = enableIamSessionBasedIdentity;
             MaintenanceConfig = maintenanceConfig;
             Tags = tags;

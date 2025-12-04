@@ -10,16 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
+    /// <summary>
+    /// An expression that defines a basic building block of conditional enablement.
+    /// </summary>
     public sealed class EvaluationFormItemEnablementExpressionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the comparison method to determine if the source value matches any of the specified values.
+        /// A comparator to be used against list of values.
         /// </summary>
         [Input("comparator", required: true)]
         public Input<Pulumi.AwsNative.Connect.EvaluationFormItemEnablementExpressionComparator> Comparator { get; set; } = null!;
 
         /// <summary>
-        /// Identifies the form item whose value will be evaluated in the expression.
+        /// A source item of enablement expression.
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.EvaluationFormItemEnablementSourceArgs> Source { get; set; } = null!;
@@ -28,7 +31,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
         private InputList<Inputs.EvaluationFormItemEnablementSourceValueArgs>? _values;
 
         /// <summary>
-        /// The list of possible values to compare against the source form item's value.
+        /// A list of values from source item.
         /// </summary>
         public InputList<Inputs.EvaluationFormItemEnablementSourceValueArgs> Values
         {

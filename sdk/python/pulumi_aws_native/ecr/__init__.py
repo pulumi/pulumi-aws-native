@@ -12,11 +12,14 @@ from .get_registry_scanning_configuration import *
 from .get_replication_configuration import *
 from .get_repository import *
 from .get_repository_creation_template import *
+from .get_signing_configuration import *
 from .pull_through_cache_rule import *
+from .pull_time_update_exclusion import *
 from .registry_policy import *
 from .registry_scanning_configuration import *
 from .replication_configuration import *
 from .repository import *
 from .repository_creation_template import *
+from .signing_configuration import *
 from ._inputs import *
 from . import outputs

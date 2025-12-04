@@ -46,7 +46,7 @@ export interface GetInvestigationGroupResult {
      */
     readonly crossAccountConfigurations?: outputs.aiops.InvestigationGroupCrossAccountConfiguration[];
     /**
-     * Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+     * Specifies the customer managed AWS  key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
      */
     readonly encryptionConfig?: outputs.aiops.InvestigationGroupEncryptionConfigMap;
     /**

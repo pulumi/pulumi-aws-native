@@ -22,35 +22,28 @@ __all__ = ['S3AccessPointAttachmentArgs', 'S3AccessPointAttachment']
 @pulumi.input_type
 class S3AccessPointAttachmentArgs:
     def __init__(__self__, *,
-                 open_zfs_configuration: pulumi.Input['S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs'],
                  type: pulumi.Input['S3AccessPointAttachmentType'],
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 ontap_configuration: Optional[pulumi.Input['S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs']] = None,
+                 open_zfs_configuration: Optional[pulumi.Input['S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs']] = None,
                  s3_access_point: Optional[pulumi.Input['S3AccessPointAttachmentS3AccessPointArgs']] = None):
         """
         The set of arguments for constructing a S3AccessPointAttachment resource.
-        :param pulumi.Input['S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs'] open_zfs_configuration: The OpenZFSConfiguration of the S3 access point attachment.
         :param pulumi.Input['S3AccessPointAttachmentType'] type: The type of Amazon FSx volume that the S3 access point is attached to.
-        :param pulumi.Input[_builtins.str] name: The Name of the S3AccessPointAttachment
+        :param pulumi.Input[_builtins.str] name: The name of the S3 access point attachment; also used for the name of the S3 access point.
+        :param pulumi.Input['S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs'] ontap_configuration: The OntapConfiguration of the S3 access point attachment.
+        :param pulumi.Input['S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs'] open_zfs_configuration: The OpenZFSConfiguration of the S3 access point attachment.
         :param pulumi.Input['S3AccessPointAttachmentS3AccessPointArgs'] s3_access_point: The S3 access point configuration of the S3 access point attachment.
         """
-        pulumi.set(__self__, "open_zfs_configuration", open_zfs_configuration)
         pulumi.set(__self__, "type", type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if ontap_configuration is not None:
+            pulumi.set(__self__, "ontap_configuration", ontap_configuration)
+        if open_zfs_configuration is not None:
+            pulumi.set(__self__, "open_zfs_configuration", open_zfs_configuration)
         if s3_access_point is not None:
             pulumi.set(__self__, "s3_access_point", s3_access_point)
-
-    @_builtins.property
-    @pulumi.getter(name="openZfsConfiguration")
-    def open_zfs_configuration(self) -> pulumi.Input['S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs']:
-        """
-        The OpenZFSConfiguration of the S3 access point attachment.
-        """
-        return pulumi.get(self, "open_zfs_configuration")
-
-    @open_zfs_configuration.setter
-    def open_zfs_configuration(self, value: pulumi.Input['S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs']):
-        pulumi.set(self, "open_zfs_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -68,13 +61,37 @@ class S3AccessPointAttachmentArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Name of the S3AccessPointAttachment
+        The name of the S3 access point attachment; also used for the name of the S3 access point.
         """
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ontapConfiguration")
+    def ontap_configuration(self) -> Optional[pulumi.Input['S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs']]:
+        """
+        The OntapConfiguration of the S3 access point attachment.
+        """
+        return pulumi.get(self, "ontap_configuration")
+
+    @ontap_configuration.setter
+    def ontap_configuration(self, value: Optional[pulumi.Input['S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs']]):
+        pulumi.set(self, "ontap_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="openZfsConfiguration")
+    def open_zfs_configuration(self) -> Optional[pulumi.Input['S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs']]:
+        """
+        The OpenZFSConfiguration of the S3 access point attachment.
+        """
+        return pulumi.get(self, "open_zfs_configuration")
+
+    @open_zfs_configuration.setter
+    def open_zfs_configuration(self, value: Optional[pulumi.Input['S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs']]):
+        pulumi.set(self, "open_zfs_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="s3AccessPoint")
@@ -96,6 +113,7 @@ class S3AccessPointAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 ontap_configuration: Optional[pulumi.Input[Union['S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs', 'S3AccessPointAttachmentS3AccessPointOntapConfigurationArgsDict']]] = None,
                  open_zfs_configuration: Optional[pulumi.Input[Union['S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs', 'S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgsDict']]] = None,
                  s3_access_point: Optional[pulumi.Input[Union['S3AccessPointAttachmentS3AccessPointArgs', 'S3AccessPointAttachmentS3AccessPointArgsDict']]] = None,
                  type: Optional[pulumi.Input['S3AccessPointAttachmentType']] = None,
@@ -105,7 +123,8 @@ class S3AccessPointAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: The Name of the S3AccessPointAttachment
+        :param pulumi.Input[_builtins.str] name: The name of the S3 access point attachment; also used for the name of the S3 access point.
+        :param pulumi.Input[Union['S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs', 'S3AccessPointAttachmentS3AccessPointOntapConfigurationArgsDict']] ontap_configuration: The OntapConfiguration of the S3 access point attachment.
         :param pulumi.Input[Union['S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs', 'S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgsDict']] open_zfs_configuration: The OpenZFSConfiguration of the S3 access point attachment.
         :param pulumi.Input[Union['S3AccessPointAttachmentS3AccessPointArgs', 'S3AccessPointAttachmentS3AccessPointArgsDict']] s3_access_point: The S3 access point configuration of the S3 access point attachment.
         :param pulumi.Input['S3AccessPointAttachmentType'] type: The type of Amazon FSx volume that the S3 access point is attached to.
@@ -135,6 +154,7 @@ class S3AccessPointAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 ontap_configuration: Optional[pulumi.Input[Union['S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs', 'S3AccessPointAttachmentS3AccessPointOntapConfigurationArgsDict']]] = None,
                  open_zfs_configuration: Optional[pulumi.Input[Union['S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs', 'S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgsDict']]] = None,
                  s3_access_point: Optional[pulumi.Input[Union['S3AccessPointAttachmentS3AccessPointArgs', 'S3AccessPointAttachmentS3AccessPointArgsDict']]] = None,
                  type: Optional[pulumi.Input['S3AccessPointAttachmentType']] = None,
@@ -148,14 +168,13 @@ class S3AccessPointAttachment(pulumi.CustomResource):
             __props__ = S3AccessPointAttachmentArgs.__new__(S3AccessPointAttachmentArgs)
 
             __props__.__dict__["name"] = name
-            if open_zfs_configuration is None and not opts.urn:
-                raise TypeError("Missing required property 'open_zfs_configuration'")
+            __props__.__dict__["ontap_configuration"] = ontap_configuration
             __props__.__dict__["open_zfs_configuration"] = open_zfs_configuration
             __props__.__dict__["s3_access_point"] = s3_access_point
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "openZfsConfiguration", "s3AccessPoint", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "ontapConfiguration", "openZfsConfiguration", "s3AccessPoint", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(S3AccessPointAttachment, __self__).__init__(
             'aws-native:fsx:S3AccessPointAttachment',
@@ -180,6 +199,7 @@ class S3AccessPointAttachment(pulumi.CustomResource):
         __props__ = S3AccessPointAttachmentArgs.__new__(S3AccessPointAttachmentArgs)
 
         __props__.__dict__["name"] = None
+        __props__.__dict__["ontap_configuration"] = None
         __props__.__dict__["open_zfs_configuration"] = None
         __props__.__dict__["s3_access_point"] = None
         __props__.__dict__["type"] = None
@@ -189,13 +209,21 @@ class S3AccessPointAttachment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The Name of the S3AccessPointAttachment
+        The name of the S3 access point attachment; also used for the name of the S3 access point.
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="ontapConfiguration")
+    def ontap_configuration(self) -> pulumi.Output[Optional['outputs.S3AccessPointAttachmentS3AccessPointOntapConfiguration']]:
+        """
+        The OntapConfiguration of the S3 access point attachment.
+        """
+        return pulumi.get(self, "ontap_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="openZfsConfiguration")
-    def open_zfs_configuration(self) -> pulumi.Output['outputs.S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration']:
+    def open_zfs_configuration(self) -> pulumi.Output[Optional['outputs.S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration']]:
         """
         The OpenZFSConfiguration of the S3 access point attachment.
         """

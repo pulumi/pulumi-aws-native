@@ -24,6 +24,8 @@ type DomainNameV2 struct {
 	DomainNameArn pulumi.StringOutput `pulumi:"domainNameArn"`
 	// The domain name ID.
 	DomainNameId pulumi.StringOutput `pulumi:"domainNameId"`
+	// The endpoint access mode for your DomainName.
+	EndpointAccessMode pulumi.StringPtrOutput `pulumi:"endpointAccessMode"`
 	// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
 	EndpointConfiguration DomainNameV2EndpointConfigurationPtrOutput `pulumi:"endpointConfiguration"`
 	// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
@@ -32,7 +34,7 @@ type DomainNameV2 struct {
 	Policy pulumi.AnyOutput `pulumi:"policy"`
 	// The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
 	RoutingMode DomainNameV2RoutingModePtrOutput `pulumi:"routingMode"`
-	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
+	// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
 	SecurityPolicy pulumi.StringPtrOutput `pulumi:"securityPolicy"`
 	// The collection of tags. Each tag element is associated with a given resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -88,6 +90,8 @@ type domainNameV2Args struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// Represents a custom domain name as a user-friendly host name of an API (RestApi).
 	DomainName *string `pulumi:"domainName"`
+	// The endpoint access mode for your DomainName.
+	EndpointAccessMode *string `pulumi:"endpointAccessMode"`
 	// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
 	EndpointConfiguration *DomainNameV2EndpointConfiguration `pulumi:"endpointConfiguration"`
 	// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
@@ -96,7 +100,7 @@ type domainNameV2Args struct {
 	Policy interface{} `pulumi:"policy"`
 	// The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
 	RoutingMode *DomainNameV2RoutingMode `pulumi:"routingMode"`
-	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
+	// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
 	SecurityPolicy *string `pulumi:"securityPolicy"`
 	// The collection of tags. Each tag element is associated with a given resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -108,6 +112,8 @@ type DomainNameV2Args struct {
 	CertificateArn pulumi.StringPtrInput
 	// Represents a custom domain name as a user-friendly host name of an API (RestApi).
 	DomainName pulumi.StringPtrInput
+	// The endpoint access mode for your DomainName.
+	EndpointAccessMode pulumi.StringPtrInput
 	// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
 	EndpointConfiguration DomainNameV2EndpointConfigurationPtrInput
 	// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
@@ -116,7 +122,7 @@ type DomainNameV2Args struct {
 	Policy pulumi.Input
 	// The valid routing modes are [BASE_PATH_MAPPING_ONLY], [ROUTING_RULE_THEN_BASE_PATH_MAPPING] and [ROUTING_RULE_ONLY]. All other inputs are invalid.
 	RoutingMode DomainNameV2RoutingModePtrInput
-	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
+	// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
 	SecurityPolicy pulumi.StringPtrInput
 	// The collection of tags. Each tag element is associated with a given resource.
 	Tags aws.TagArrayInput
@@ -179,6 +185,11 @@ func (o DomainNameV2Output) DomainNameId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameV2) pulumi.StringOutput { return v.DomainNameId }).(pulumi.StringOutput)
 }
 
+// The endpoint access mode for your DomainName.
+func (o DomainNameV2Output) EndpointAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainNameV2) pulumi.StringPtrOutput { return v.EndpointAccessMode }).(pulumi.StringPtrOutput)
+}
+
 // The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
 func (o DomainNameV2Output) EndpointConfiguration() DomainNameV2EndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v *DomainNameV2) DomainNameV2EndpointConfigurationPtrOutput { return v.EndpointConfiguration }).(DomainNameV2EndpointConfigurationPtrOutput)
@@ -196,7 +207,7 @@ func (o DomainNameV2Output) RoutingMode() DomainNameV2RoutingModePtrOutput {
 	return o.ApplyT(func(v *DomainNameV2) DomainNameV2RoutingModePtrOutput { return v.RoutingMode }).(DomainNameV2RoutingModePtrOutput)
 }
 
-// The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
+// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
 func (o DomainNameV2Output) SecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameV2) pulumi.StringPtrOutput { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
 }

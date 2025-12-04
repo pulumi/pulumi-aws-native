@@ -33,7 +33,7 @@ type Application struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the Amazon Q Business application.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+	// Provides the identifier of the AWS  key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
 	EncryptionConfiguration ApplicationEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
 	IamIdentityProviderArn pulumi.StringPtrOutput `pulumi:"iamIdentityProviderArn"`
@@ -122,7 +122,7 @@ type applicationArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the Amazon Q Business application.
 	DisplayName string `pulumi:"displayName"`
-	// Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+	// Provides the identifier of the AWS  key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
 	EncryptionConfiguration *ApplicationEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
 	IamIdentityProviderArn *string `pulumi:"iamIdentityProviderArn"`
@@ -156,7 +156,7 @@ type ApplicationArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the Amazon Q Business application.
 	DisplayName pulumi.StringInput
-	// Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+	// Provides the identifier of the AWS  key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
 	EncryptionConfiguration ApplicationEncryptionConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
 	IamIdentityProviderArn pulumi.StringPtrInput
@@ -257,7 +257,7 @@ func (o ApplicationOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+// Provides the identifier of the AWS  key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
 func (o ApplicationOutput) EncryptionConfiguration() ApplicationEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(ApplicationEncryptionConfigurationPtrOutput)
 }

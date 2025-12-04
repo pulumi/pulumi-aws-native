@@ -13,16 +13,15 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// Describes a data repository association's automatic export policy. The “AutoExportPolicy“ defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
-//
-//	The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+// Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
 type DataRepositoryAssociationAutoExportPolicy struct {
-	// The ``AutoExportPolicy`` can have the following event values:
-	//   +   ``NEW`` - New files and directories are automatically exported to the data repository as they are added to the file system.
-	//   +   ``CHANGED`` - Changes to files and directories on the file system are automatically exported to the data repository.
-	//   +   ``DELETED`` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
+	// The `AutoExportPolicy` can have the following event values:
 	//
-	//  You can define any combination of event types for your ``AutoExportPolicy``.
+	// - `NEW` - New files and directories are automatically exported to the data repository as they are added to the file system.
+	// - `CHANGED` - Changes to files and directories on the file system are automatically exported to the data repository.
+	// - `DELETED` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
+	//
+	// You can define any combination of event types for your `AutoExportPolicy` .
 	Events []DataRepositoryAssociationEventType `pulumi:"events"`
 }
 
@@ -37,16 +36,15 @@ type DataRepositoryAssociationAutoExportPolicyInput interface {
 	ToDataRepositoryAssociationAutoExportPolicyOutputWithContext(context.Context) DataRepositoryAssociationAutoExportPolicyOutput
 }
 
-// Describes a data repository association's automatic export policy. The “AutoExportPolicy“ defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
-//
-//	The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+// Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
 type DataRepositoryAssociationAutoExportPolicyArgs struct {
-	// The ``AutoExportPolicy`` can have the following event values:
-	//   +   ``NEW`` - New files and directories are automatically exported to the data repository as they are added to the file system.
-	//   +   ``CHANGED`` - Changes to files and directories on the file system are automatically exported to the data repository.
-	//   +   ``DELETED`` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
+	// The `AutoExportPolicy` can have the following event values:
 	//
-	//  You can define any combination of event types for your ``AutoExportPolicy``.
+	// - `NEW` - New files and directories are automatically exported to the data repository as they are added to the file system.
+	// - `CHANGED` - Changes to files and directories on the file system are automatically exported to the data repository.
+	// - `DELETED` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
+	//
+	// You can define any combination of event types for your `AutoExportPolicy` .
 	Events DataRepositoryAssociationEventTypeArrayInput `pulumi:"events"`
 }
 
@@ -103,9 +101,7 @@ func (i *dataRepositoryAssociationAutoExportPolicyPtrType) ToDataRepositoryAssoc
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationAutoExportPolicyPtrOutput)
 }
 
-// Describes a data repository association's automatic export policy. The “AutoExportPolicy“ defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
-//
-//	The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+// Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
 type DataRepositoryAssociationAutoExportPolicyOutput struct{ *pulumi.OutputState }
 
 func (DataRepositoryAssociationAutoExportPolicyOutput) ElementType() reflect.Type {
@@ -130,15 +126,13 @@ func (o DataRepositoryAssociationAutoExportPolicyOutput) ToDataRepositoryAssocia
 	}).(DataRepositoryAssociationAutoExportPolicyPtrOutput)
 }
 
-// The “AutoExportPolicy“ can have the following event values:
+// The `AutoExportPolicy` can have the following event values:
 //
-//   - “NEW“ - New files and directories are automatically exported to the data repository as they are added to the file system.
+// - `NEW` - New files and directories are automatically exported to the data repository as they are added to the file system.
+// - `CHANGED` - Changes to files and directories on the file system are automatically exported to the data repository.
+// - `DELETED` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
 //
-//   - “CHANGED“ - Changes to files and directories on the file system are automatically exported to the data repository.
-//
-//   - “DELETED“ - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
-//
-//     You can define any combination of event types for your “AutoExportPolicy“.
+// You can define any combination of event types for your `AutoExportPolicy` .
 func (o DataRepositoryAssociationAutoExportPolicyOutput) Events() DataRepositoryAssociationEventTypeArrayOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationAutoExportPolicy) []DataRepositoryAssociationEventType {
 		return v.Events
@@ -169,15 +163,13 @@ func (o DataRepositoryAssociationAutoExportPolicyPtrOutput) Elem() DataRepositor
 	}).(DataRepositoryAssociationAutoExportPolicyOutput)
 }
 
-// The “AutoExportPolicy“ can have the following event values:
+// The `AutoExportPolicy` can have the following event values:
 //
-//   - “NEW“ - New files and directories are automatically exported to the data repository as they are added to the file system.
+// - `NEW` - New files and directories are automatically exported to the data repository as they are added to the file system.
+// - `CHANGED` - Changes to files and directories on the file system are automatically exported to the data repository.
+// - `DELETED` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
 //
-//   - “CHANGED“ - Changes to files and directories on the file system are automatically exported to the data repository.
-//
-//   - “DELETED“ - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
-//
-//     You can define any combination of event types for your “AutoExportPolicy“.
+// You can define any combination of event types for your `AutoExportPolicy` .
 func (o DataRepositoryAssociationAutoExportPolicyPtrOutput) Events() DataRepositoryAssociationEventTypeArrayOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociationAutoExportPolicy) []DataRepositoryAssociationEventType {
 		if v == nil {
@@ -187,16 +179,15 @@ func (o DataRepositoryAssociationAutoExportPolicyPtrOutput) Events() DataReposit
 	}).(DataRepositoryAssociationEventTypeArrayOutput)
 }
 
-// Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
-//
-//	The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+// Specifies the type of updated objects (new, changed, deleted) that will be automatically imported from the linked S3 bucket to your file system.
 type DataRepositoryAssociationAutoImportPolicy struct {
-	// The ``AutoImportPolicy`` can have the following event values:
-	//   +   ``NEW`` - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
-	//   +   ``CHANGED`` - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
-	//   +   ``DELETED`` - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
+	// The `AutoImportPolicy` can have the following event values:
 	//
-	//  You can define any combination of event types for your ``AutoImportPolicy``.
+	// - `NEW` - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
+	// - `CHANGED` - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
+	// - `DELETED` - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
+	//
+	// You can define any combination of event types for your `AutoImportPolicy` .
 	Events []DataRepositoryAssociationEventType `pulumi:"events"`
 }
 
@@ -211,16 +202,15 @@ type DataRepositoryAssociationAutoImportPolicyInput interface {
 	ToDataRepositoryAssociationAutoImportPolicyOutputWithContext(context.Context) DataRepositoryAssociationAutoImportPolicyOutput
 }
 
-// Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
-//
-//	The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+// Specifies the type of updated objects (new, changed, deleted) that will be automatically imported from the linked S3 bucket to your file system.
 type DataRepositoryAssociationAutoImportPolicyArgs struct {
-	// The ``AutoImportPolicy`` can have the following event values:
-	//   +   ``NEW`` - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
-	//   +   ``CHANGED`` - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
-	//   +   ``DELETED`` - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
+	// The `AutoImportPolicy` can have the following event values:
 	//
-	//  You can define any combination of event types for your ``AutoImportPolicy``.
+	// - `NEW` - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
+	// - `CHANGED` - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
+	// - `DELETED` - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
+	//
+	// You can define any combination of event types for your `AutoImportPolicy` .
 	Events DataRepositoryAssociationEventTypeArrayInput `pulumi:"events"`
 }
 
@@ -277,9 +267,7 @@ func (i *dataRepositoryAssociationAutoImportPolicyPtrType) ToDataRepositoryAssoc
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationAutoImportPolicyPtrOutput)
 }
 
-// Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
-//
-//	The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+// Specifies the type of updated objects (new, changed, deleted) that will be automatically imported from the linked S3 bucket to your file system.
 type DataRepositoryAssociationAutoImportPolicyOutput struct{ *pulumi.OutputState }
 
 func (DataRepositoryAssociationAutoImportPolicyOutput) ElementType() reflect.Type {
@@ -304,15 +292,13 @@ func (o DataRepositoryAssociationAutoImportPolicyOutput) ToDataRepositoryAssocia
 	}).(DataRepositoryAssociationAutoImportPolicyPtrOutput)
 }
 
-// The “AutoImportPolicy“ can have the following event values:
+// The `AutoImportPolicy` can have the following event values:
 //
-//   - “NEW“ - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
+// - `NEW` - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
+// - `CHANGED` - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
+// - `DELETED` - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
 //
-//   - “CHANGED“ - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
-//
-//   - “DELETED“ - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
-//
-//     You can define any combination of event types for your “AutoImportPolicy“.
+// You can define any combination of event types for your `AutoImportPolicy` .
 func (o DataRepositoryAssociationAutoImportPolicyOutput) Events() DataRepositoryAssociationEventTypeArrayOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationAutoImportPolicy) []DataRepositoryAssociationEventType {
 		return v.Events
@@ -343,15 +329,13 @@ func (o DataRepositoryAssociationAutoImportPolicyPtrOutput) Elem() DataRepositor
 	}).(DataRepositoryAssociationAutoImportPolicyOutput)
 }
 
-// The “AutoImportPolicy“ can have the following event values:
+// The `AutoImportPolicy` can have the following event values:
 //
-//   - “NEW“ - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
+// - `NEW` - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
+// - `CHANGED` - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
+// - `DELETED` - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
 //
-//   - “CHANGED“ - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
-//
-//   - “DELETED“ - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
-//
-//     You can define any combination of event types for your “AutoImportPolicy“.
+// You can define any combination of event types for your `AutoImportPolicy` .
 func (o DataRepositoryAssociationAutoImportPolicyPtrOutput) Events() DataRepositoryAssociationEventTypeArrayOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociationAutoImportPolicy) []DataRepositoryAssociationEventType {
 		if v == nil {
@@ -363,11 +347,13 @@ func (o DataRepositoryAssociationAutoImportPolicyPtrOutput) Events() DataReposit
 
 // The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 type DataRepositoryAssociationS3 struct {
-	// Describes a data repository association's automatic export policy. The ``AutoExportPolicy`` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
-	//  The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+	// Describes a data repository association's automatic export policy. The `AutoExportPolicy` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+	//
+	// The `AutoExportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 	AutoExportPolicy *DataRepositoryAssociationAutoExportPolicy `pulumi:"autoExportPolicy"`
 	// Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
-	//  The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+	//
+	// The `AutoImportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 	AutoImportPolicy *DataRepositoryAssociationAutoImportPolicy `pulumi:"autoImportPolicy"`
 }
 
@@ -384,11 +370,13 @@ type DataRepositoryAssociationS3Input interface {
 
 // The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 type DataRepositoryAssociationS3Args struct {
-	// Describes a data repository association's automatic export policy. The ``AutoExportPolicy`` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
-	//  The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+	// Describes a data repository association's automatic export policy. The `AutoExportPolicy` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+	//
+	// The `AutoExportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 	AutoExportPolicy DataRepositoryAssociationAutoExportPolicyPtrInput `pulumi:"autoExportPolicy"`
 	// Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
-	//  The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+	//
+	// The `AutoImportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 	AutoImportPolicy DataRepositoryAssociationAutoImportPolicyPtrInput `pulumi:"autoImportPolicy"`
 }
 
@@ -470,9 +458,9 @@ func (o DataRepositoryAssociationS3Output) ToDataRepositoryAssociationS3PtrOutpu
 	}).(DataRepositoryAssociationS3PtrOutput)
 }
 
-// Describes a data repository association's automatic export policy. The “AutoExportPolicy“ defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+// Describes a data repository association's automatic export policy. The `AutoExportPolicy` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
 //
-//	The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+// The `AutoExportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 func (o DataRepositoryAssociationS3Output) AutoExportPolicy() DataRepositoryAssociationAutoExportPolicyPtrOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationS3) *DataRepositoryAssociationAutoExportPolicy {
 		return v.AutoExportPolicy
@@ -481,7 +469,7 @@ func (o DataRepositoryAssociationS3Output) AutoExportPolicy() DataRepositoryAsso
 
 // Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
 //
-//	The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+// The `AutoImportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 func (o DataRepositoryAssociationS3Output) AutoImportPolicy() DataRepositoryAssociationAutoImportPolicyPtrOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationS3) *DataRepositoryAssociationAutoImportPolicy {
 		return v.AutoImportPolicy
@@ -512,9 +500,9 @@ func (o DataRepositoryAssociationS3PtrOutput) Elem() DataRepositoryAssociationS3
 	}).(DataRepositoryAssociationS3Output)
 }
 
-// Describes a data repository association's automatic export policy. The “AutoExportPolicy“ defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+// Describes a data repository association's automatic export policy. The `AutoExportPolicy` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
 //
-//	The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+// The `AutoExportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 func (o DataRepositoryAssociationS3PtrOutput) AutoExportPolicy() DataRepositoryAssociationAutoExportPolicyPtrOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociationS3) *DataRepositoryAssociationAutoExportPolicy {
 		if v == nil {
@@ -526,7 +514,7 @@ func (o DataRepositoryAssociationS3PtrOutput) AutoExportPolicy() DataRepositoryA
 
 // Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
 //
-//	The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+// The `AutoImportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 func (o DataRepositoryAssociationS3PtrOutput) AutoImportPolicy() DataRepositoryAssociationAutoImportPolicyPtrOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociationS3) *DataRepositoryAssociationAutoImportPolicy {
 		if v == nil {
@@ -536,11 +524,11 @@ func (o DataRepositoryAssociationS3PtrOutput) AutoImportPolicy() DataRepositoryA
 	}).(DataRepositoryAssociationAutoImportPolicyPtrOutput)
 }
 
-// Specifies a key-value pair for a resource tag.
+// A key-value pair to associate with a resource.
 type DataRepositoryAssociationTag struct {
-	// A value that specifies the ``TagKey``, the name of the tag. Tag keys must be unique for the resource to which they are attached.
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
-	// A value that specifies the ``TagValue``, the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of ``finances : April`` and also of ``payroll : April``.
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
 }
 
@@ -641,10 +629,465 @@ func (o S3AccessPointAttachmentFileSystemGidArrayOutput) Index(i pulumi.IntInput
 	}).(S3AccessPointAttachmentFileSystemGidOutput)
 }
 
+type S3AccessPointAttachmentOntapFileSystemIdentity struct {
+	// Specifies the FSx for ONTAP user identity type, accepts either UNIX or WINDOWS.
+	Type S3AccessPointAttachmentOntapFileSystemIdentityType `pulumi:"type"`
+	// Specifies the properties of the file system UNIX user.
+	UnixUser *S3AccessPointAttachmentOntapUnixFileSystemUser `pulumi:"unixUser"`
+	// Specifies the properties of the file system Windows user.
+	WindowsUser *S3AccessPointAttachmentOntapWindowsFileSystemUser `pulumi:"windowsUser"`
+}
+
+// S3AccessPointAttachmentOntapFileSystemIdentityInput is an input type that accepts S3AccessPointAttachmentOntapFileSystemIdentityArgs and S3AccessPointAttachmentOntapFileSystemIdentityOutput values.
+// You can construct a concrete instance of `S3AccessPointAttachmentOntapFileSystemIdentityInput` via:
+//
+//	S3AccessPointAttachmentOntapFileSystemIdentityArgs{...}
+type S3AccessPointAttachmentOntapFileSystemIdentityInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentOntapFileSystemIdentityOutput() S3AccessPointAttachmentOntapFileSystemIdentityOutput
+	ToS3AccessPointAttachmentOntapFileSystemIdentityOutputWithContext(context.Context) S3AccessPointAttachmentOntapFileSystemIdentityOutput
+}
+
+type S3AccessPointAttachmentOntapFileSystemIdentityArgs struct {
+	// Specifies the FSx for ONTAP user identity type, accepts either UNIX or WINDOWS.
+	Type S3AccessPointAttachmentOntapFileSystemIdentityTypeInput `pulumi:"type"`
+	// Specifies the properties of the file system UNIX user.
+	UnixUser S3AccessPointAttachmentOntapUnixFileSystemUserPtrInput `pulumi:"unixUser"`
+	// Specifies the properties of the file system Windows user.
+	WindowsUser S3AccessPointAttachmentOntapWindowsFileSystemUserPtrInput `pulumi:"windowsUser"`
+}
+
+func (S3AccessPointAttachmentOntapFileSystemIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentOntapFileSystemIdentity)(nil)).Elem()
+}
+
+func (i S3AccessPointAttachmentOntapFileSystemIdentityArgs) ToS3AccessPointAttachmentOntapFileSystemIdentityOutput() S3AccessPointAttachmentOntapFileSystemIdentityOutput {
+	return i.ToS3AccessPointAttachmentOntapFileSystemIdentityOutputWithContext(context.Background())
+}
+
+func (i S3AccessPointAttachmentOntapFileSystemIdentityArgs) ToS3AccessPointAttachmentOntapFileSystemIdentityOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapFileSystemIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentOntapFileSystemIdentityOutput)
+}
+
+func (i S3AccessPointAttachmentOntapFileSystemIdentityArgs) ToS3AccessPointAttachmentOntapFileSystemIdentityPtrOutput() S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput {
+	return i.ToS3AccessPointAttachmentOntapFileSystemIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i S3AccessPointAttachmentOntapFileSystemIdentityArgs) ToS3AccessPointAttachmentOntapFileSystemIdentityPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentOntapFileSystemIdentityOutput).ToS3AccessPointAttachmentOntapFileSystemIdentityPtrOutputWithContext(ctx)
+}
+
+// S3AccessPointAttachmentOntapFileSystemIdentityPtrInput is an input type that accepts S3AccessPointAttachmentOntapFileSystemIdentityArgs, S3AccessPointAttachmentOntapFileSystemIdentityPtr and S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput values.
+// You can construct a concrete instance of `S3AccessPointAttachmentOntapFileSystemIdentityPtrInput` via:
+//
+//	        S3AccessPointAttachmentOntapFileSystemIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type S3AccessPointAttachmentOntapFileSystemIdentityPtrInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentOntapFileSystemIdentityPtrOutput() S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput
+	ToS3AccessPointAttachmentOntapFileSystemIdentityPtrOutputWithContext(context.Context) S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput
+}
+
+type s3accessPointAttachmentOntapFileSystemIdentityPtrType S3AccessPointAttachmentOntapFileSystemIdentityArgs
+
+func S3AccessPointAttachmentOntapFileSystemIdentityPtr(v *S3AccessPointAttachmentOntapFileSystemIdentityArgs) S3AccessPointAttachmentOntapFileSystemIdentityPtrInput {
+	return (*s3accessPointAttachmentOntapFileSystemIdentityPtrType)(v)
+}
+
+func (*s3accessPointAttachmentOntapFileSystemIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3AccessPointAttachmentOntapFileSystemIdentity)(nil)).Elem()
+}
+
+func (i *s3accessPointAttachmentOntapFileSystemIdentityPtrType) ToS3AccessPointAttachmentOntapFileSystemIdentityPtrOutput() S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput {
+	return i.ToS3AccessPointAttachmentOntapFileSystemIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *s3accessPointAttachmentOntapFileSystemIdentityPtrType) ToS3AccessPointAttachmentOntapFileSystemIdentityPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput)
+}
+
+type S3AccessPointAttachmentOntapFileSystemIdentityOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentOntapFileSystemIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentOntapFileSystemIdentity)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentOntapFileSystemIdentityOutput) ToS3AccessPointAttachmentOntapFileSystemIdentityOutput() S3AccessPointAttachmentOntapFileSystemIdentityOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOntapFileSystemIdentityOutput) ToS3AccessPointAttachmentOntapFileSystemIdentityOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapFileSystemIdentityOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOntapFileSystemIdentityOutput) ToS3AccessPointAttachmentOntapFileSystemIdentityPtrOutput() S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput {
+	return o.ToS3AccessPointAttachmentOntapFileSystemIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o S3AccessPointAttachmentOntapFileSystemIdentityOutput) ToS3AccessPointAttachmentOntapFileSystemIdentityPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3AccessPointAttachmentOntapFileSystemIdentity) *S3AccessPointAttachmentOntapFileSystemIdentity {
+		return &v
+	}).(S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput)
+}
+
+// Specifies the FSx for ONTAP user identity type, accepts either UNIX or WINDOWS.
+func (o S3AccessPointAttachmentOntapFileSystemIdentityOutput) Type() S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput {
+	return o.ApplyT(func(v S3AccessPointAttachmentOntapFileSystemIdentity) S3AccessPointAttachmentOntapFileSystemIdentityType {
+		return v.Type
+	}).(S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput)
+}
+
+// Specifies the properties of the file system UNIX user.
+func (o S3AccessPointAttachmentOntapFileSystemIdentityOutput) UnixUser() S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput {
+	return o.ApplyT(func(v S3AccessPointAttachmentOntapFileSystemIdentity) *S3AccessPointAttachmentOntapUnixFileSystemUser {
+		return v.UnixUser
+	}).(S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput)
+}
+
+// Specifies the properties of the file system Windows user.
+func (o S3AccessPointAttachmentOntapFileSystemIdentityOutput) WindowsUser() S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput {
+	return o.ApplyT(func(v S3AccessPointAttachmentOntapFileSystemIdentity) *S3AccessPointAttachmentOntapWindowsFileSystemUser {
+		return v.WindowsUser
+	}).(S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput)
+}
+
+type S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3AccessPointAttachmentOntapFileSystemIdentity)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput) ToS3AccessPointAttachmentOntapFileSystemIdentityPtrOutput() S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput) ToS3AccessPointAttachmentOntapFileSystemIdentityPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput) Elem() S3AccessPointAttachmentOntapFileSystemIdentityOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentOntapFileSystemIdentity) S3AccessPointAttachmentOntapFileSystemIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret S3AccessPointAttachmentOntapFileSystemIdentity
+		return ret
+	}).(S3AccessPointAttachmentOntapFileSystemIdentityOutput)
+}
+
+// Specifies the FSx for ONTAP user identity type, accepts either UNIX or WINDOWS.
+func (o S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput) Type() S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentOntapFileSystemIdentity) *S3AccessPointAttachmentOntapFileSystemIdentityType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(S3AccessPointAttachmentOntapFileSystemIdentityTypePtrOutput)
+}
+
+// Specifies the properties of the file system UNIX user.
+func (o S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput) UnixUser() S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentOntapFileSystemIdentity) *S3AccessPointAttachmentOntapUnixFileSystemUser {
+		if v == nil {
+			return nil
+		}
+		return v.UnixUser
+	}).(S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput)
+}
+
+// Specifies the properties of the file system Windows user.
+func (o S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput) WindowsUser() S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentOntapFileSystemIdentity) *S3AccessPointAttachmentOntapWindowsFileSystemUser {
+		if v == nil {
+			return nil
+		}
+		return v.WindowsUser
+	}).(S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput)
+}
+
+type S3AccessPointAttachmentOntapUnixFileSystemUser struct {
+	// The name of the UNIX user.
+	Name string `pulumi:"name"`
+}
+
+// S3AccessPointAttachmentOntapUnixFileSystemUserInput is an input type that accepts S3AccessPointAttachmentOntapUnixFileSystemUserArgs and S3AccessPointAttachmentOntapUnixFileSystemUserOutput values.
+// You can construct a concrete instance of `S3AccessPointAttachmentOntapUnixFileSystemUserInput` via:
+//
+//	S3AccessPointAttachmentOntapUnixFileSystemUserArgs{...}
+type S3AccessPointAttachmentOntapUnixFileSystemUserInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentOntapUnixFileSystemUserOutput() S3AccessPointAttachmentOntapUnixFileSystemUserOutput
+	ToS3AccessPointAttachmentOntapUnixFileSystemUserOutputWithContext(context.Context) S3AccessPointAttachmentOntapUnixFileSystemUserOutput
+}
+
+type S3AccessPointAttachmentOntapUnixFileSystemUserArgs struct {
+	// The name of the UNIX user.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (S3AccessPointAttachmentOntapUnixFileSystemUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentOntapUnixFileSystemUser)(nil)).Elem()
+}
+
+func (i S3AccessPointAttachmentOntapUnixFileSystemUserArgs) ToS3AccessPointAttachmentOntapUnixFileSystemUserOutput() S3AccessPointAttachmentOntapUnixFileSystemUserOutput {
+	return i.ToS3AccessPointAttachmentOntapUnixFileSystemUserOutputWithContext(context.Background())
+}
+
+func (i S3AccessPointAttachmentOntapUnixFileSystemUserArgs) ToS3AccessPointAttachmentOntapUnixFileSystemUserOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapUnixFileSystemUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentOntapUnixFileSystemUserOutput)
+}
+
+func (i S3AccessPointAttachmentOntapUnixFileSystemUserArgs) ToS3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput() S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput {
+	return i.ToS3AccessPointAttachmentOntapUnixFileSystemUserPtrOutputWithContext(context.Background())
+}
+
+func (i S3AccessPointAttachmentOntapUnixFileSystemUserArgs) ToS3AccessPointAttachmentOntapUnixFileSystemUserPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentOntapUnixFileSystemUserOutput).ToS3AccessPointAttachmentOntapUnixFileSystemUserPtrOutputWithContext(ctx)
+}
+
+// S3AccessPointAttachmentOntapUnixFileSystemUserPtrInput is an input type that accepts S3AccessPointAttachmentOntapUnixFileSystemUserArgs, S3AccessPointAttachmentOntapUnixFileSystemUserPtr and S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput values.
+// You can construct a concrete instance of `S3AccessPointAttachmentOntapUnixFileSystemUserPtrInput` via:
+//
+//	        S3AccessPointAttachmentOntapUnixFileSystemUserArgs{...}
+//
+//	or:
+//
+//	        nil
+type S3AccessPointAttachmentOntapUnixFileSystemUserPtrInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput() S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput
+	ToS3AccessPointAttachmentOntapUnixFileSystemUserPtrOutputWithContext(context.Context) S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput
+}
+
+type s3accessPointAttachmentOntapUnixFileSystemUserPtrType S3AccessPointAttachmentOntapUnixFileSystemUserArgs
+
+func S3AccessPointAttachmentOntapUnixFileSystemUserPtr(v *S3AccessPointAttachmentOntapUnixFileSystemUserArgs) S3AccessPointAttachmentOntapUnixFileSystemUserPtrInput {
+	return (*s3accessPointAttachmentOntapUnixFileSystemUserPtrType)(v)
+}
+
+func (*s3accessPointAttachmentOntapUnixFileSystemUserPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3AccessPointAttachmentOntapUnixFileSystemUser)(nil)).Elem()
+}
+
+func (i *s3accessPointAttachmentOntapUnixFileSystemUserPtrType) ToS3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput() S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput {
+	return i.ToS3AccessPointAttachmentOntapUnixFileSystemUserPtrOutputWithContext(context.Background())
+}
+
+func (i *s3accessPointAttachmentOntapUnixFileSystemUserPtrType) ToS3AccessPointAttachmentOntapUnixFileSystemUserPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput)
+}
+
+type S3AccessPointAttachmentOntapUnixFileSystemUserOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentOntapUnixFileSystemUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentOntapUnixFileSystemUser)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentOntapUnixFileSystemUserOutput) ToS3AccessPointAttachmentOntapUnixFileSystemUserOutput() S3AccessPointAttachmentOntapUnixFileSystemUserOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOntapUnixFileSystemUserOutput) ToS3AccessPointAttachmentOntapUnixFileSystemUserOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapUnixFileSystemUserOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOntapUnixFileSystemUserOutput) ToS3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput() S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput {
+	return o.ToS3AccessPointAttachmentOntapUnixFileSystemUserPtrOutputWithContext(context.Background())
+}
+
+func (o S3AccessPointAttachmentOntapUnixFileSystemUserOutput) ToS3AccessPointAttachmentOntapUnixFileSystemUserPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3AccessPointAttachmentOntapUnixFileSystemUser) *S3AccessPointAttachmentOntapUnixFileSystemUser {
+		return &v
+	}).(S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput)
+}
+
+// The name of the UNIX user.
+func (o S3AccessPointAttachmentOntapUnixFileSystemUserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v S3AccessPointAttachmentOntapUnixFileSystemUser) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3AccessPointAttachmentOntapUnixFileSystemUser)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput) ToS3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput() S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput) ToS3AccessPointAttachmentOntapUnixFileSystemUserPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput) Elem() S3AccessPointAttachmentOntapUnixFileSystemUserOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentOntapUnixFileSystemUser) S3AccessPointAttachmentOntapUnixFileSystemUser {
+		if v != nil {
+			return *v
+		}
+		var ret S3AccessPointAttachmentOntapUnixFileSystemUser
+		return ret
+	}).(S3AccessPointAttachmentOntapUnixFileSystemUserOutput)
+}
+
+// The name of the UNIX user.
+func (o S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentOntapUnixFileSystemUser) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type S3AccessPointAttachmentOntapWindowsFileSystemUser struct {
+	// The name of the Windows user.
+	Name string `pulumi:"name"`
+}
+
+// S3AccessPointAttachmentOntapWindowsFileSystemUserInput is an input type that accepts S3AccessPointAttachmentOntapWindowsFileSystemUserArgs and S3AccessPointAttachmentOntapWindowsFileSystemUserOutput values.
+// You can construct a concrete instance of `S3AccessPointAttachmentOntapWindowsFileSystemUserInput` via:
+//
+//	S3AccessPointAttachmentOntapWindowsFileSystemUserArgs{...}
+type S3AccessPointAttachmentOntapWindowsFileSystemUserInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentOntapWindowsFileSystemUserOutput() S3AccessPointAttachmentOntapWindowsFileSystemUserOutput
+	ToS3AccessPointAttachmentOntapWindowsFileSystemUserOutputWithContext(context.Context) S3AccessPointAttachmentOntapWindowsFileSystemUserOutput
+}
+
+type S3AccessPointAttachmentOntapWindowsFileSystemUserArgs struct {
+	// The name of the Windows user.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (S3AccessPointAttachmentOntapWindowsFileSystemUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentOntapWindowsFileSystemUser)(nil)).Elem()
+}
+
+func (i S3AccessPointAttachmentOntapWindowsFileSystemUserArgs) ToS3AccessPointAttachmentOntapWindowsFileSystemUserOutput() S3AccessPointAttachmentOntapWindowsFileSystemUserOutput {
+	return i.ToS3AccessPointAttachmentOntapWindowsFileSystemUserOutputWithContext(context.Background())
+}
+
+func (i S3AccessPointAttachmentOntapWindowsFileSystemUserArgs) ToS3AccessPointAttachmentOntapWindowsFileSystemUserOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapWindowsFileSystemUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentOntapWindowsFileSystemUserOutput)
+}
+
+func (i S3AccessPointAttachmentOntapWindowsFileSystemUserArgs) ToS3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput() S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput {
+	return i.ToS3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutputWithContext(context.Background())
+}
+
+func (i S3AccessPointAttachmentOntapWindowsFileSystemUserArgs) ToS3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentOntapWindowsFileSystemUserOutput).ToS3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutputWithContext(ctx)
+}
+
+// S3AccessPointAttachmentOntapWindowsFileSystemUserPtrInput is an input type that accepts S3AccessPointAttachmentOntapWindowsFileSystemUserArgs, S3AccessPointAttachmentOntapWindowsFileSystemUserPtr and S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput values.
+// You can construct a concrete instance of `S3AccessPointAttachmentOntapWindowsFileSystemUserPtrInput` via:
+//
+//	        S3AccessPointAttachmentOntapWindowsFileSystemUserArgs{...}
+//
+//	or:
+//
+//	        nil
+type S3AccessPointAttachmentOntapWindowsFileSystemUserPtrInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput() S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput
+	ToS3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutputWithContext(context.Context) S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput
+}
+
+type s3accessPointAttachmentOntapWindowsFileSystemUserPtrType S3AccessPointAttachmentOntapWindowsFileSystemUserArgs
+
+func S3AccessPointAttachmentOntapWindowsFileSystemUserPtr(v *S3AccessPointAttachmentOntapWindowsFileSystemUserArgs) S3AccessPointAttachmentOntapWindowsFileSystemUserPtrInput {
+	return (*s3accessPointAttachmentOntapWindowsFileSystemUserPtrType)(v)
+}
+
+func (*s3accessPointAttachmentOntapWindowsFileSystemUserPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3AccessPointAttachmentOntapWindowsFileSystemUser)(nil)).Elem()
+}
+
+func (i *s3accessPointAttachmentOntapWindowsFileSystemUserPtrType) ToS3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput() S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput {
+	return i.ToS3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutputWithContext(context.Background())
+}
+
+func (i *s3accessPointAttachmentOntapWindowsFileSystemUserPtrType) ToS3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput)
+}
+
+type S3AccessPointAttachmentOntapWindowsFileSystemUserOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentOntapWindowsFileSystemUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentOntapWindowsFileSystemUser)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentOntapWindowsFileSystemUserOutput) ToS3AccessPointAttachmentOntapWindowsFileSystemUserOutput() S3AccessPointAttachmentOntapWindowsFileSystemUserOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOntapWindowsFileSystemUserOutput) ToS3AccessPointAttachmentOntapWindowsFileSystemUserOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapWindowsFileSystemUserOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOntapWindowsFileSystemUserOutput) ToS3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput() S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput {
+	return o.ToS3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutputWithContext(context.Background())
+}
+
+func (o S3AccessPointAttachmentOntapWindowsFileSystemUserOutput) ToS3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3AccessPointAttachmentOntapWindowsFileSystemUser) *S3AccessPointAttachmentOntapWindowsFileSystemUser {
+		return &v
+	}).(S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput)
+}
+
+// The name of the Windows user.
+func (o S3AccessPointAttachmentOntapWindowsFileSystemUserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v S3AccessPointAttachmentOntapWindowsFileSystemUser) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3AccessPointAttachmentOntapWindowsFileSystemUser)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput) ToS3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput() S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput) ToS3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput) Elem() S3AccessPointAttachmentOntapWindowsFileSystemUserOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentOntapWindowsFileSystemUser) S3AccessPointAttachmentOntapWindowsFileSystemUser {
+		if v != nil {
+			return *v
+		}
+		var ret S3AccessPointAttachmentOntapWindowsFileSystemUser
+		return ret
+	}).(S3AccessPointAttachmentOntapWindowsFileSystemUserOutput)
+}
+
+// The name of the Windows user.
+func (o S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentOntapWindowsFileSystemUser) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 type S3AccessPointAttachmentOpenZfsFileSystemIdentity struct {
 	// Specifies the UID and GIDs of the file system POSIX user.
 	PosixUser S3AccessPointAttachmentOpenZfsPosixFileSystemUser `pulumi:"posixUser"`
-	// Specifies the FSx for OpenZFS user identity type, accepts only `POSIX` .
+	// Specifies the FSx for OpenZFS user identity type, accepts only POSIX.
 	Type S3AccessPointAttachmentOpenZfsFileSystemIdentityType `pulumi:"type"`
 }
 
@@ -662,7 +1105,7 @@ type S3AccessPointAttachmentOpenZfsFileSystemIdentityInput interface {
 type S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs struct {
 	// Specifies the UID and GIDs of the file system POSIX user.
 	PosixUser S3AccessPointAttachmentOpenZfsPosixFileSystemUserInput `pulumi:"posixUser"`
-	// Specifies the FSx for OpenZFS user identity type, accepts only `POSIX` .
+	// Specifies the FSx for OpenZFS user identity type, accepts only POSIX.
 	Type S3AccessPointAttachmentOpenZfsFileSystemIdentityTypeInput `pulumi:"type"`
 }
 
@@ -676,6 +1119,47 @@ func (i S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs) ToS3AccessPointAtt
 
 func (i S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs) ToS3AccessPointAttachmentOpenZfsFileSystemIdentityOutputWithContext(ctx context.Context) S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput)
+}
+
+func (i S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs) ToS3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput() S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput {
+	return i.ToS3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs) ToS3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput).ToS3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutputWithContext(ctx)
+}
+
+// S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrInput is an input type that accepts S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs, S3AccessPointAttachmentOpenZfsFileSystemIdentityPtr and S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput values.
+// You can construct a concrete instance of `S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrInput` via:
+//
+//	        S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput() S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput
+	ToS3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutputWithContext(context.Context) S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput
+}
+
+type s3accessPointAttachmentOpenZfsFileSystemIdentityPtrType S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs
+
+func S3AccessPointAttachmentOpenZfsFileSystemIdentityPtr(v *S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs) S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrInput {
+	return (*s3accessPointAttachmentOpenZfsFileSystemIdentityPtrType)(v)
+}
+
+func (*s3accessPointAttachmentOpenZfsFileSystemIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3AccessPointAttachmentOpenZfsFileSystemIdentity)(nil)).Elem()
+}
+
+func (i *s3accessPointAttachmentOpenZfsFileSystemIdentityPtrType) ToS3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput() S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput {
+	return i.ToS3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *s3accessPointAttachmentOpenZfsFileSystemIdentityPtrType) ToS3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput)
 }
 
 type S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput struct{ *pulumi.OutputState }
@@ -692,6 +1176,16 @@ func (o S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput) ToS3AccessPointA
 	return o
 }
 
+func (o S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput) ToS3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput() S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput {
+	return o.ToS3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput) ToS3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3AccessPointAttachmentOpenZfsFileSystemIdentity) *S3AccessPointAttachmentOpenZfsFileSystemIdentity {
+		return &v
+	}).(S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput)
+}
+
 // Specifies the UID and GIDs of the file system POSIX user.
 func (o S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput) PosixUser() S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput {
 	return o.ApplyT(func(v S3AccessPointAttachmentOpenZfsFileSystemIdentity) S3AccessPointAttachmentOpenZfsPosixFileSystemUser {
@@ -699,11 +1193,55 @@ func (o S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput) PosixUser() S3Ac
 	}).(S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput)
 }
 
-// Specifies the FSx for OpenZFS user identity type, accepts only `POSIX` .
+// Specifies the FSx for OpenZFS user identity type, accepts only POSIX.
 func (o S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput) Type() S3AccessPointAttachmentOpenZfsFileSystemIdentityTypeOutput {
 	return o.ApplyT(func(v S3AccessPointAttachmentOpenZfsFileSystemIdentity) S3AccessPointAttachmentOpenZfsFileSystemIdentityType {
 		return v.Type
 	}).(S3AccessPointAttachmentOpenZfsFileSystemIdentityTypeOutput)
+}
+
+type S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3AccessPointAttachmentOpenZfsFileSystemIdentity)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput) ToS3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput() S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput) ToS3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput) Elem() S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentOpenZfsFileSystemIdentity) S3AccessPointAttachmentOpenZfsFileSystemIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret S3AccessPointAttachmentOpenZfsFileSystemIdentity
+		return ret
+	}).(S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput)
+}
+
+// Specifies the UID and GIDs of the file system POSIX user.
+func (o S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput) PosixUser() S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentOpenZfsFileSystemIdentity) *S3AccessPointAttachmentOpenZfsPosixFileSystemUser {
+		if v == nil {
+			return nil
+		}
+		return &v.PosixUser
+	}).(S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput)
+}
+
+// Specifies the FSx for OpenZFS user identity type, accepts only POSIX.
+func (o S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput) Type() S3AccessPointAttachmentOpenZfsFileSystemIdentityTypePtrOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentOpenZfsFileSystemIdentity) *S3AccessPointAttachmentOpenZfsFileSystemIdentityType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(S3AccessPointAttachmentOpenZfsFileSystemIdentityTypePtrOutput)
 }
 
 type S3AccessPointAttachmentOpenZfsPosixFileSystemUser struct {
@@ -747,6 +1285,47 @@ func (i S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs) ToS3AccessPointAt
 	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput)
 }
 
+func (i S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs) ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput() S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput {
+	return i.ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutputWithContext(context.Background())
+}
+
+func (i S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs) ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput).ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutputWithContext(ctx)
+}
+
+// S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrInput is an input type that accepts S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs, S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtr and S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput values.
+// You can construct a concrete instance of `S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrInput` via:
+//
+//	        S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs{...}
+//
+//	or:
+//
+//	        nil
+type S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput() S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput
+	ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutputWithContext(context.Context) S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput
+}
+
+type s3accessPointAttachmentOpenZfsPosixFileSystemUserPtrType S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs
+
+func S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtr(v *S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs) S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrInput {
+	return (*s3accessPointAttachmentOpenZfsPosixFileSystemUserPtrType)(v)
+}
+
+func (*s3accessPointAttachmentOpenZfsPosixFileSystemUserPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3AccessPointAttachmentOpenZfsPosixFileSystemUser)(nil)).Elem()
+}
+
+func (i *s3accessPointAttachmentOpenZfsPosixFileSystemUserPtrType) ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput() S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput {
+	return i.ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutputWithContext(context.Background())
+}
+
+func (i *s3accessPointAttachmentOpenZfsPosixFileSystemUserPtrType) ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput)
+}
+
 type S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput struct{ *pulumi.OutputState }
 
 func (S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput) ElementType() reflect.Type {
@@ -759,6 +1338,16 @@ func (o S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput) ToS3AccessPoint
 
 func (o S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput) ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserOutputWithContext(ctx context.Context) S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput {
 	return o
+}
+
+func (o S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput) ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput() S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput {
+	return o.ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutputWithContext(context.Background())
+}
+
+func (o S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput) ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3AccessPointAttachmentOpenZfsPosixFileSystemUser) *S3AccessPointAttachmentOpenZfsPosixFileSystemUser {
+		return &v
+	}).(S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput)
 }
 
 // The GID of the file system user.
@@ -776,6 +1365,60 @@ func (o S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput) SecondaryGids()
 // The UID of the file system user.
 func (o S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput) Uid() pulumi.Float64Output {
 	return o.ApplyT(func(v S3AccessPointAttachmentOpenZfsPosixFileSystemUser) float64 { return v.Uid }).(pulumi.Float64Output)
+}
+
+type S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3AccessPointAttachmentOpenZfsPosixFileSystemUser)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput) ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput() S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput) ToS3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput) Elem() S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentOpenZfsPosixFileSystemUser) S3AccessPointAttachmentOpenZfsPosixFileSystemUser {
+		if v != nil {
+			return *v
+		}
+		var ret S3AccessPointAttachmentOpenZfsPosixFileSystemUser
+		return ret
+	}).(S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput)
+}
+
+// The GID of the file system user.
+func (o S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput) Gid() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentOpenZfsPosixFileSystemUser) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Gid
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The list of secondary GIDs for the file system user.
+func (o S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput) SecondaryGids() S3AccessPointAttachmentFileSystemGidArrayOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentOpenZfsPosixFileSystemUser) []S3AccessPointAttachmentFileSystemGid {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryGids
+	}).(S3AccessPointAttachmentFileSystemGidArrayOutput)
+}
+
+// The UID of the file system user.
+func (o S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput) Uid() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentOpenZfsPosixFileSystemUser) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Uid
+	}).(pulumi.Float64PtrOutput)
 }
 
 type S3AccessPointAttachmentS3AccessPoint struct {
@@ -974,6 +1617,164 @@ func (o S3AccessPointAttachmentS3AccessPointPtrOutput) VpcConfiguration() S3Acce
 	}).(S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput)
 }
 
+type S3AccessPointAttachmentS3AccessPointOntapConfiguration struct {
+	// The file system identity used to authorize file access requests made using the S3 access point.
+	FileSystemIdentity S3AccessPointAttachmentOntapFileSystemIdentity `pulumi:"fileSystemIdentity"`
+	// The ID of the FSx for ONTAP volume that the S3 access point is attached to.
+	VolumeId string `pulumi:"volumeId"`
+}
+
+// S3AccessPointAttachmentS3AccessPointOntapConfigurationInput is an input type that accepts S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs and S3AccessPointAttachmentS3AccessPointOntapConfigurationOutput values.
+// You can construct a concrete instance of `S3AccessPointAttachmentS3AccessPointOntapConfigurationInput` via:
+//
+//	S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs{...}
+type S3AccessPointAttachmentS3AccessPointOntapConfigurationInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentS3AccessPointOntapConfigurationOutput() S3AccessPointAttachmentS3AccessPointOntapConfigurationOutput
+	ToS3AccessPointAttachmentS3AccessPointOntapConfigurationOutputWithContext(context.Context) S3AccessPointAttachmentS3AccessPointOntapConfigurationOutput
+}
+
+type S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs struct {
+	// The file system identity used to authorize file access requests made using the S3 access point.
+	FileSystemIdentity S3AccessPointAttachmentOntapFileSystemIdentityInput `pulumi:"fileSystemIdentity"`
+	// The ID of the FSx for ONTAP volume that the S3 access point is attached to.
+	VolumeId pulumi.StringInput `pulumi:"volumeId"`
+}
+
+func (S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointOntapConfiguration)(nil)).Elem()
+}
+
+func (i S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs) ToS3AccessPointAttachmentS3AccessPointOntapConfigurationOutput() S3AccessPointAttachmentS3AccessPointOntapConfigurationOutput {
+	return i.ToS3AccessPointAttachmentS3AccessPointOntapConfigurationOutputWithContext(context.Background())
+}
+
+func (i S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs) ToS3AccessPointAttachmentS3AccessPointOntapConfigurationOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointOntapConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentS3AccessPointOntapConfigurationOutput)
+}
+
+func (i S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs) ToS3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput() S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput {
+	return i.ToS3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs) ToS3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentS3AccessPointOntapConfigurationOutput).ToS3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutputWithContext(ctx)
+}
+
+// S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrInput is an input type that accepts S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs, S3AccessPointAttachmentS3AccessPointOntapConfigurationPtr and S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput values.
+// You can construct a concrete instance of `S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrInput` via:
+//
+//	        S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput() S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput
+	ToS3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutputWithContext(context.Context) S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput
+}
+
+type s3accessPointAttachmentS3AccessPointOntapConfigurationPtrType S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs
+
+func S3AccessPointAttachmentS3AccessPointOntapConfigurationPtr(v *S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs) S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrInput {
+	return (*s3accessPointAttachmentS3AccessPointOntapConfigurationPtrType)(v)
+}
+
+func (*s3accessPointAttachmentS3AccessPointOntapConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3AccessPointAttachmentS3AccessPointOntapConfiguration)(nil)).Elem()
+}
+
+func (i *s3accessPointAttachmentS3AccessPointOntapConfigurationPtrType) ToS3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput() S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput {
+	return i.ToS3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *s3accessPointAttachmentS3AccessPointOntapConfigurationPtrType) ToS3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput)
+}
+
+type S3AccessPointAttachmentS3AccessPointOntapConfigurationOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentS3AccessPointOntapConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointOntapConfiguration)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentS3AccessPointOntapConfigurationOutput) ToS3AccessPointAttachmentS3AccessPointOntapConfigurationOutput() S3AccessPointAttachmentS3AccessPointOntapConfigurationOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentS3AccessPointOntapConfigurationOutput) ToS3AccessPointAttachmentS3AccessPointOntapConfigurationOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointOntapConfigurationOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentS3AccessPointOntapConfigurationOutput) ToS3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput() S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput {
+	return o.ToS3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o S3AccessPointAttachmentS3AccessPointOntapConfigurationOutput) ToS3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3AccessPointAttachmentS3AccessPointOntapConfiguration) *S3AccessPointAttachmentS3AccessPointOntapConfiguration {
+		return &v
+	}).(S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput)
+}
+
+// The file system identity used to authorize file access requests made using the S3 access point.
+func (o S3AccessPointAttachmentS3AccessPointOntapConfigurationOutput) FileSystemIdentity() S3AccessPointAttachmentOntapFileSystemIdentityOutput {
+	return o.ApplyT(func(v S3AccessPointAttachmentS3AccessPointOntapConfiguration) S3AccessPointAttachmentOntapFileSystemIdentity {
+		return v.FileSystemIdentity
+	}).(S3AccessPointAttachmentOntapFileSystemIdentityOutput)
+}
+
+// The ID of the FSx for ONTAP volume that the S3 access point is attached to.
+func (o S3AccessPointAttachmentS3AccessPointOntapConfigurationOutput) VolumeId() pulumi.StringOutput {
+	return o.ApplyT(func(v S3AccessPointAttachmentS3AccessPointOntapConfiguration) string { return v.VolumeId }).(pulumi.StringOutput)
+}
+
+type S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3AccessPointAttachmentS3AccessPointOntapConfiguration)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput) ToS3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput() S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput) ToS3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput) Elem() S3AccessPointAttachmentS3AccessPointOntapConfigurationOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentS3AccessPointOntapConfiguration) S3AccessPointAttachmentS3AccessPointOntapConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret S3AccessPointAttachmentS3AccessPointOntapConfiguration
+		return ret
+	}).(S3AccessPointAttachmentS3AccessPointOntapConfigurationOutput)
+}
+
+// The file system identity used to authorize file access requests made using the S3 access point.
+func (o S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput) FileSystemIdentity() S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentS3AccessPointOntapConfiguration) *S3AccessPointAttachmentOntapFileSystemIdentity {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemIdentity
+	}).(S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput)
+}
+
+// The ID of the FSx for ONTAP volume that the S3 access point is attached to.
+func (o S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput) VolumeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentS3AccessPointOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VolumeId
+	}).(pulumi.StringPtrOutput)
+}
+
 type S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration struct {
 	// The file system identity used to authorize file access requests made using the S3 access point.
 	FileSystemIdentity S3AccessPointAttachmentOpenZfsFileSystemIdentity `pulumi:"fileSystemIdentity"`
@@ -1011,6 +1812,47 @@ func (i S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs) ToS3Access
 	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput)
 }
 
+func (i S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs) ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput() S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput {
+	return i.ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs) ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput).ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutputWithContext(ctx)
+}
+
+// S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrInput is an input type that accepts S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs, S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtr and S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput values.
+// You can construct a concrete instance of `S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrInput` via:
+//
+//	        S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput() S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput
+	ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutputWithContext(context.Context) S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput
+}
+
+type s3accessPointAttachmentS3AccessPointOpenZfsConfigurationPtrType S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs
+
+func S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtr(v *S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs) S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrInput {
+	return (*s3accessPointAttachmentS3AccessPointOpenZfsConfigurationPtrType)(v)
+}
+
+func (*s3accessPointAttachmentS3AccessPointOpenZfsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration)(nil)).Elem()
+}
+
+func (i *s3accessPointAttachmentS3AccessPointOpenZfsConfigurationPtrType) ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput() S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput {
+	return i.ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *s3accessPointAttachmentS3AccessPointOpenZfsConfigurationPtrType) ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput)
+}
+
 type S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput) ElementType() reflect.Type {
@@ -1025,6 +1867,16 @@ func (o S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput) ToS3Acce
 	return o
 }
 
+func (o S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput) ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput() S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput {
+	return o.ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput) ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration) *S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration {
+		return &v
+	}).(S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput)
+}
+
 // The file system identity used to authorize file access requests made using the S3 access point.
 func (o S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput) FileSystemIdentity() S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput {
 	return o.ApplyT(func(v S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration) S3AccessPointAttachmentOpenZfsFileSystemIdentity {
@@ -1035,6 +1887,50 @@ func (o S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput) FileSyst
 // The ID of the FSx for OpenZFS volume that the S3 access point is attached to.
 func (o S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration) string { return v.VolumeId }).(pulumi.StringOutput)
+}
+
+type S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration)(nil)).Elem()
+}
+
+func (o S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput) ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput() S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput) ToS3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutputWithContext(ctx context.Context) S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput {
+	return o
+}
+
+func (o S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput) Elem() S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration) S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration
+		return ret
+	}).(S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput)
+}
+
+// The file system identity used to authorize file access requests made using the S3 access point.
+func (o S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput) FileSystemIdentity() S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration) *S3AccessPointAttachmentOpenZfsFileSystemIdentity {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemIdentity
+	}).(S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput)
+}
+
+// The ID of the FSx for OpenZFS volume that the S3 access point is attached to.
+func (o S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput) VolumeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *S3AccessPointAttachmentS3AccessPointOpenZfsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VolumeId
+	}).(pulumi.StringPtrOutput)
 }
 
 type S3AccessPointAttachmentS3AccessPointVpcConfiguration struct {
@@ -1183,11 +2079,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3PtrInput)(nil)).Elem(), DataRepositoryAssociationS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentFileSystemGidInput)(nil)).Elem(), S3AccessPointAttachmentFileSystemGidArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentFileSystemGidArrayInput)(nil)).Elem(), S3AccessPointAttachmentFileSystemGidArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOntapFileSystemIdentityInput)(nil)).Elem(), S3AccessPointAttachmentOntapFileSystemIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOntapFileSystemIdentityPtrInput)(nil)).Elem(), S3AccessPointAttachmentOntapFileSystemIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOntapUnixFileSystemUserInput)(nil)).Elem(), S3AccessPointAttachmentOntapUnixFileSystemUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOntapUnixFileSystemUserPtrInput)(nil)).Elem(), S3AccessPointAttachmentOntapUnixFileSystemUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOntapWindowsFileSystemUserInput)(nil)).Elem(), S3AccessPointAttachmentOntapWindowsFileSystemUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOntapWindowsFileSystemUserPtrInput)(nil)).Elem(), S3AccessPointAttachmentOntapWindowsFileSystemUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOpenZfsFileSystemIdentityInput)(nil)).Elem(), S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrInput)(nil)).Elem(), S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOpenZfsPosixFileSystemUserInput)(nil)).Elem(), S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrInput)(nil)).Elem(), S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointPtrInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointOntapConfigurationInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointVpcConfigurationInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationAutoExportPolicyOutput{})
@@ -1198,11 +2105,22 @@ func init() {
 	pulumi.RegisterOutputType(DataRepositoryAssociationS3PtrOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentFileSystemGidOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentFileSystemGidArrayOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentOntapFileSystemIdentityOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentOntapFileSystemIdentityPtrOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentOntapUnixFileSystemUserOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentOntapUnixFileSystemUserPtrOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentOntapWindowsFileSystemUserOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentOntapWindowsFileSystemUserPtrOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentOpenZfsFileSystemIdentityOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentOpenZfsFileSystemIdentityPtrOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentOpenZfsPosixFileSystemUserOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentOpenZfsPosixFileSystemUserPtrOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointPtrOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointOntapConfigurationOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointOntapConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationOutput{})
+	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput{})
 }

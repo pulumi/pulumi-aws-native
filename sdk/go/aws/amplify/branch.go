@@ -21,7 +21,7 @@ type Branch struct {
 	AppId pulumi.StringOutput `pulumi:"appId"`
 	// ARN for a branch, part of an Amplify App.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
+	// The backend for a `Branch` of an Amplify app. Use for a backend created from an CloudFormation stack.
 	//
 	// This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
 	Backend BranchBackendPtrOutput `pulumi:"backend"`
@@ -119,7 +119,7 @@ func (BranchState) ElementType() reflect.Type {
 type branchArgs struct {
 	// The unique ID for an Amplify app.
 	AppId string `pulumi:"appId"`
-	// The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
+	// The backend for a `Branch` of an Amplify app. Use for a backend created from an CloudFormation stack.
 	//
 	// This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
 	Backend *BranchBackend `pulumi:"backend"`
@@ -171,7 +171,7 @@ type branchArgs struct {
 type BranchArgs struct {
 	// The unique ID for an Amplify app.
 	AppId pulumi.StringInput
-	// The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
+	// The backend for a `Branch` of an Amplify app. Use for a backend created from an CloudFormation stack.
 	//
 	// This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
 	Backend BranchBackendPtrInput
@@ -266,7 +266,7 @@ func (o BranchOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
+// The backend for a `Branch` of an Amplify app. Use for a backend created from an CloudFormation stack.
 //
 // This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
 func (o BranchOutput) Backend() BranchBackendPtrOutput {

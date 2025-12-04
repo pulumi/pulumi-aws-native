@@ -43,6 +43,7 @@ export interface GetGatewayTargetResult {
      */
     readonly description?: string;
     readonly gatewayArn?: string;
+    readonly lastSynchronizedAt?: string;
     /**
      * The name for the gateway target.
      */

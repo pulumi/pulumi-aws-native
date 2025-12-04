@@ -20,6 +20,8 @@ type ServiceNetworkResourceAssociation struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the association between the service network and resource configuration.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// Indicates if private DNS is enabled for the service network resource association.
+	PrivateDnsEnabled pulumi.BoolPtrOutput `pulumi:"privateDnsEnabled"`
 	// The ID of the resource configuration associated with the service network.
 	ResourceConfigurationId pulumi.StringPtrOutput `pulumi:"resourceConfigurationId"`
 	// The ID of the service network associated with the resource configuration.
@@ -36,6 +38,7 @@ func NewServiceNetworkResourceAssociation(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"privateDnsEnabled",
 		"resourceConfigurationId",
 		"serviceNetworkId",
 	})
@@ -73,6 +76,8 @@ func (ServiceNetworkResourceAssociationState) ElementType() reflect.Type {
 }
 
 type serviceNetworkResourceAssociationArgs struct {
+	// Indicates if private DNS is enabled for the service network resource association.
+	PrivateDnsEnabled *bool `pulumi:"privateDnsEnabled"`
 	// The ID of the resource configuration associated with the service network.
 	ResourceConfigurationId *string `pulumi:"resourceConfigurationId"`
 	// The ID of the service network associated with the resource configuration.
@@ -83,6 +88,8 @@ type serviceNetworkResourceAssociationArgs struct {
 
 // The set of arguments for constructing a ServiceNetworkResourceAssociation resource.
 type ServiceNetworkResourceAssociationArgs struct {
+	// Indicates if private DNS is enabled for the service network resource association.
+	PrivateDnsEnabled pulumi.BoolPtrInput
 	// The ID of the resource configuration associated with the service network.
 	ResourceConfigurationId pulumi.StringPtrInput
 	// The ID of the service network associated with the resource configuration.
@@ -136,6 +143,11 @@ func (o ServiceNetworkResourceAssociationOutput) Arn() pulumi.StringOutput {
 // The ID of the association between the service network and resource configuration.
 func (o ServiceNetworkResourceAssociationOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
+}
+
+// Indicates if private DNS is enabled for the service network resource association.
+func (o ServiceNetworkResourceAssociationOutput) PrivateDnsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) pulumi.BoolPtrOutput { return v.PrivateDnsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The ID of the resource configuration associated with the service network.

@@ -29,6 +29,14 @@ export const AppMonitorMetricDestinationDestination = {
  */
 export type AppMonitorMetricDestinationDestination = (typeof AppMonitorMetricDestinationDestination)[keyof typeof AppMonitorMetricDestinationDestination];
 
+export const AppMonitorPlatform = {
+    Web: "Web",
+    Android: "Android",
+    Ios: "iOS",
+} as const;
+
+export type AppMonitorPlatform = (typeof AppMonitorPlatform)[keyof typeof AppMonitorPlatform];
+
 export const AppMonitorTelemetry = {
     Errors: "errors",
     Performance: "performance",

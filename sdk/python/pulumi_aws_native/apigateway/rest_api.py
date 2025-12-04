@@ -30,6 +30,7 @@ class RestApiArgs:
                  clone_from: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
+                 endpoint_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  endpoint_configuration: Optional[pulumi.Input['RestApiEndpointConfigurationArgs']] = None,
                  fail_on_warnings: Optional[pulumi.Input[_builtins.bool]] = None,
                  minimum_compression_size: Optional[pulumi.Input[_builtins.int]] = None,
@@ -50,6 +51,7 @@ class RestApiArgs:
         :param pulumi.Input[_builtins.str] clone_from: The ID of the RestApi that you want to clone from.
         :param pulumi.Input[_builtins.str] description: The description of the RestApi.
         :param pulumi.Input[_builtins.bool] disable_execute_api_endpoint: Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+        :param pulumi.Input[_builtins.str] endpoint_access_mode: The endpoint access mode for your RestApi.
         :param pulumi.Input['RestApiEndpointConfigurationArgs'] endpoint_configuration: A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
         :param pulumi.Input[_builtins.bool] fail_on_warnings: A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
         :param pulumi.Input[_builtins.int] minimum_compression_size: A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
@@ -64,6 +66,7 @@ class RestApiArgs:
         :param Any policy: A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
+        :param pulumi.Input[_builtins.str] security_policy: The Transport Layer Security (TLS) version + cipher suite for this RestApi.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
         """
         if api_key_source_type is not None:
@@ -80,6 +83,8 @@ class RestApiArgs:
             pulumi.set(__self__, "description", description)
         if disable_execute_api_endpoint is not None:
             pulumi.set(__self__, "disable_execute_api_endpoint", disable_execute_api_endpoint)
+        if endpoint_access_mode is not None:
+            pulumi.set(__self__, "endpoint_access_mode", endpoint_access_mode)
         if endpoint_configuration is not None:
             pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
         if fail_on_warnings is not None:
@@ -186,6 +191,18 @@ class RestApiArgs:
         pulumi.set(self, "disable_execute_api_endpoint", value)
 
     @_builtins.property
+    @pulumi.getter(name="endpointAccessMode")
+    def endpoint_access_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The endpoint access mode for your RestApi.
+        """
+        return pulumi.get(self, "endpoint_access_mode")
+
+    @endpoint_access_mode.setter
+    def endpoint_access_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "endpoint_access_mode", value)
+
+    @_builtins.property
     @pulumi.getter(name="endpointConfiguration")
     def endpoint_configuration(self) -> Optional[pulumi.Input['RestApiEndpointConfigurationArgs']]:
         """
@@ -279,6 +296,9 @@ class RestApiArgs:
     @_builtins.property
     @pulumi.getter(name="securityPolicy")
     def security_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Transport Layer Security (TLS) version + cipher suite for this RestApi.
+        """
         return pulumi.get(self, "security_policy")
 
     @security_policy.setter
@@ -311,6 +331,7 @@ class RestApi(pulumi.CustomResource):
                  clone_from: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
+                 endpoint_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  endpoint_configuration: Optional[pulumi.Input[Union['RestApiEndpointConfigurationArgs', 'RestApiEndpointConfigurationArgsDict']]] = None,
                  fail_on_warnings: Optional[pulumi.Input[_builtins.bool]] = None,
                  minimum_compression_size: Optional[pulumi.Input[_builtins.int]] = None,
@@ -732,6 +753,7 @@ class RestApi(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] clone_from: The ID of the RestApi that you want to clone from.
         :param pulumi.Input[_builtins.str] description: The description of the RestApi.
         :param pulumi.Input[_builtins.bool] disable_execute_api_endpoint: Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
+        :param pulumi.Input[_builtins.str] endpoint_access_mode: The endpoint access mode for your RestApi.
         :param pulumi.Input[Union['RestApiEndpointConfigurationArgs', 'RestApiEndpointConfigurationArgsDict']] endpoint_configuration: A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
         :param pulumi.Input[_builtins.bool] fail_on_warnings: A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
         :param pulumi.Input[_builtins.int] minimum_compression_size: A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
@@ -746,6 +768,7 @@ class RestApi(pulumi.CustomResource):
         :param Any policy: A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
+        :param pulumi.Input[_builtins.str] security_policy: The Transport Layer Security (TLS) version + cipher suite for this RestApi.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
         """
         ...
@@ -1176,6 +1199,7 @@ class RestApi(pulumi.CustomResource):
                  clone_from: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
+                 endpoint_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  endpoint_configuration: Optional[pulumi.Input[Union['RestApiEndpointConfigurationArgs', 'RestApiEndpointConfigurationArgsDict']]] = None,
                  fail_on_warnings: Optional[pulumi.Input[_builtins.bool]] = None,
                  minimum_compression_size: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1201,6 +1225,7 @@ class RestApi(pulumi.CustomResource):
             __props__.__dict__["clone_from"] = clone_from
             __props__.__dict__["description"] = description
             __props__.__dict__["disable_execute_api_endpoint"] = disable_execute_api_endpoint
+            __props__.__dict__["endpoint_access_mode"] = endpoint_access_mode
             __props__.__dict__["endpoint_configuration"] = endpoint_configuration
             __props__.__dict__["fail_on_warnings"] = fail_on_warnings
             __props__.__dict__["minimum_compression_size"] = minimum_compression_size
@@ -1241,6 +1266,7 @@ class RestApi(pulumi.CustomResource):
         __props__.__dict__["clone_from"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["disable_execute_api_endpoint"] = None
+        __props__.__dict__["endpoint_access_mode"] = None
         __props__.__dict__["endpoint_configuration"] = None
         __props__.__dict__["fail_on_warnings"] = None
         __props__.__dict__["minimum_compression_size"] = None
@@ -1311,6 +1337,14 @@ class RestApi(pulumi.CustomResource):
         Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
         """
         return pulumi.get(self, "disable_execute_api_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="endpointAccessMode")
+    def endpoint_access_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The endpoint access mode for your RestApi.
+        """
+        return pulumi.get(self, "endpoint_access_mode")
 
     @_builtins.property
     @pulumi.getter(name="endpointConfiguration")
@@ -1394,6 +1428,9 @@ class RestApi(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="securityPolicy")
     def security_policy(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Transport Layer Security (TLS) version + cipher suite for this RestApi.
+        """
         return pulumi.get(self, "security_policy")
 
     @_builtins.property

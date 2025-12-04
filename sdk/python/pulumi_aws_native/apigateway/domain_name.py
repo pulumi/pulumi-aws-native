@@ -26,6 +26,7 @@ class DomainNameArgs:
     def __init__(__self__, *,
                  certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  endpoint_configuration: Optional[pulumi.Input['DomainNameEndpointConfigurationArgs']] = None,
                  mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
                  ownership_verification_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -37,18 +38,21 @@ class DomainNameArgs:
         The set of arguments for constructing a DomainName resource.
         :param pulumi.Input[_builtins.str] certificate_arn: The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.
         :param pulumi.Input[_builtins.str] domain_name: The custom domain name as an API host name, for example, `my-api.example.com` .
+        :param pulumi.Input[_builtins.str] endpoint_access_mode: The endpoint access mode for your DomainName.
         :param pulumi.Input['DomainNameEndpointConfigurationArgs'] endpoint_configuration: The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
         :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
         :param pulumi.Input[_builtins.str] ownership_verification_certificate_arn: The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
         :param pulumi.Input[_builtins.str] regional_certificate_arn: The reference to an AWS -managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source.
         :param pulumi.Input['DomainNameRoutingMode'] routing_mode: The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
-        :param pulumi.Input[_builtins.str] security_policy: The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+        :param pulumi.Input[_builtins.str] security_policy: The Transport Layer Security (TLS) version + cipher suite for this DomainName.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The collection of tags. Each tag element is associated with a given resource.
         """
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
+        if endpoint_access_mode is not None:
+            pulumi.set(__self__, "endpoint_access_mode", endpoint_access_mode)
         if endpoint_configuration is not None:
             pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
         if mutual_tls_authentication is not None:
@@ -87,6 +91,18 @@ class DomainNameArgs:
     @domain_name.setter
     def domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "domain_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointAccessMode")
+    def endpoint_access_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The endpoint access mode for your DomainName.
+        """
+        return pulumi.get(self, "endpoint_access_mode")
+
+    @endpoint_access_mode.setter
+    def endpoint_access_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "endpoint_access_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointConfiguration")
@@ -152,7 +168,7 @@ class DomainNameArgs:
     @pulumi.getter(name="securityPolicy")
     def security_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+        The Transport Layer Security (TLS) version + cipher suite for this DomainName.
         """
         return pulumi.get(self, "security_policy")
 
@@ -181,6 +197,7 @@ class DomainName(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  endpoint_configuration: Optional[pulumi.Input[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']]] = None,
                  mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
                  ownership_verification_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -240,12 +257,13 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_arn: The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.
         :param pulumi.Input[_builtins.str] domain_name: The custom domain name as an API host name, for example, `my-api.example.com` .
+        :param pulumi.Input[_builtins.str] endpoint_access_mode: The endpoint access mode for your DomainName.
         :param pulumi.Input[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']] endpoint_configuration: The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
         :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
         :param pulumi.Input[_builtins.str] ownership_verification_certificate_arn: The ARN of the public certificate issued by ACM to validate ownership of your custom domain. Only required when configuring mutual TLS and using an ACM imported or private CA certificate ARN as the RegionalCertificateArn.
         :param pulumi.Input[_builtins.str] regional_certificate_arn: The reference to an AWS -managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source.
         :param pulumi.Input['DomainNameRoutingMode'] routing_mode: The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your public APIs.
-        :param pulumi.Input[_builtins.str] security_policy: The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+        :param pulumi.Input[_builtins.str] security_policy: The Transport Layer Security (TLS) version + cipher suite for this DomainName.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The collection of tags. Each tag element is associated with a given resource.
         """
         ...
@@ -318,6 +336,7 @@ class DomainName(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_access_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  endpoint_configuration: Optional[pulumi.Input[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']]] = None,
                  mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
                  ownership_verification_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -336,6 +355,7 @@ class DomainName(pulumi.CustomResource):
 
             __props__.__dict__["certificate_arn"] = certificate_arn
             __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["endpoint_access_mode"] = endpoint_access_mode
             __props__.__dict__["endpoint_configuration"] = endpoint_configuration
             __props__.__dict__["mutual_tls_authentication"] = mutual_tls_authentication
             __props__.__dict__["ownership_verification_certificate_arn"] = ownership_verification_certificate_arn
@@ -377,6 +397,7 @@ class DomainName(pulumi.CustomResource):
         __props__.__dict__["distribution_hosted_zone_id"] = None
         __props__.__dict__["domain_name"] = None
         __props__.__dict__["domain_name_arn"] = None
+        __props__.__dict__["endpoint_access_mode"] = None
         __props__.__dict__["endpoint_configuration"] = None
         __props__.__dict__["mutual_tls_authentication"] = None
         __props__.__dict__["ownership_verification_certificate_arn"] = None
@@ -429,6 +450,14 @@ class DomainName(pulumi.CustomResource):
         The ARN of the domain name.
         """
         return pulumi.get(self, "domain_name_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="endpointAccessMode")
+    def endpoint_access_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The endpoint access mode for your DomainName.
+        """
+        return pulumi.get(self, "endpoint_access_mode")
 
     @_builtins.property
     @pulumi.getter(name="endpointConfiguration")
@@ -490,7 +519,7 @@ class DomainName(pulumi.CustomResource):
     @pulumi.getter(name="securityPolicy")
     def security_policy(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+        The Transport Layer Security (TLS) version + cipher suite for this DomainName.
         """
         return pulumi.get(self, "security_policy")
 

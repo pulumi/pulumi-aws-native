@@ -26,6 +26,14 @@ export interface GetRotationScheduleArgs {
 
 export interface GetRotationScheduleResult {
     /**
+     * The list of metadata needed to successfully rotate a managed external secret.
+     */
+    readonly externalSecretRotationMetadata?: outputs.secretsmanager.RotationScheduleExternalSecretRotationMetadataItem[];
+    /**
+     * The ARN of the IAM role that is used by Secrets Manager to rotate a managed external secret.
+     */
+    readonly externalSecretRotationRoleArn?: string;
+    /**
      * The ARN of the secret.
      */
     readonly id?: string;

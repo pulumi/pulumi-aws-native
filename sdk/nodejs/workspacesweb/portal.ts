@@ -120,7 +120,7 @@ export class Portal extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly serviceProviderSamlMetadata: pulumi.Output<string>;
     /**
-     * The ARN of the session logger that is assocaited with the portal.
+     * The ARN of the session logger that is associated with the portal.
      */
     declare public readonly sessionLoggerArn: pulumi.Output<string | undefined>;
     /**
@@ -269,7 +269,7 @@ export interface PortalArgs {
      */
     networkSettingsArn?: pulumi.Input<string>;
     /**
-     * The ARN of the session logger that is assocaited with the portal.
+     * The ARN of the session logger that is associated with the portal.
      */
     sessionLoggerArn?: pulumi.Input<string>;
     /**

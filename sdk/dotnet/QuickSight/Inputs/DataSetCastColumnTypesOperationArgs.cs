@@ -12,17 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetCastColumnTypesOperationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Alias for this operation.
+        /// </summary>
         [Input("alias", required: true)]
         public Input<string> Alias { get; set; } = null!;
 
         [Input("castColumnTypeOperations", required: true)]
         private InputList<Inputs.DataSetCastColumnTypeOperationArgs>? _castColumnTypeOperations;
+
+        /// <summary>
+        /// The list of column type casting operations to perform.
+        /// </summary>
         public InputList<Inputs.DataSetCastColumnTypeOperationArgs> CastColumnTypeOperations
         {
             get => _castColumnTypeOperations ?? (_castColumnTypeOperations = new InputList<Inputs.DataSetCastColumnTypeOperationArgs>());
             set => _castColumnTypeOperations = value;
         }
 
+        /// <summary>
+        /// The source transform operation that provides input data for the type casting.
+        /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.DataSetTransformOperationSourceArgs> Source { get; set; } = null!;
 

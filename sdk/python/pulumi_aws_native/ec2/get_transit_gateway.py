@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTransitGatewayResult:
-    def __init__(__self__, association_default_route_table_id=None, auto_accept_shared_attachments=None, default_route_table_association=None, default_route_table_propagation=None, description=None, dns_support=None, id=None, propagation_default_route_table_id=None, security_group_referencing_support=None, tags=None, transit_gateway_arn=None, transit_gateway_cidr_blocks=None, vpn_ecmp_support=None):
+    def __init__(__self__, association_default_route_table_id=None, auto_accept_shared_attachments=None, default_route_table_association=None, default_route_table_propagation=None, description=None, dns_support=None, encryption_support_state=None, id=None, propagation_default_route_table_id=None, security_group_referencing_support=None, tags=None, transit_gateway_arn=None, transit_gateway_cidr_blocks=None, vpn_ecmp_support=None):
         if association_default_route_table_id and not isinstance(association_default_route_table_id, str):
             raise TypeError("Expected argument 'association_default_route_table_id' to be a str")
         pulumi.set(__self__, "association_default_route_table_id", association_default_route_table_id)
@@ -43,6 +43,9 @@ class GetTransitGatewayResult:
         if dns_support and not isinstance(dns_support, str):
             raise TypeError("Expected argument 'dns_support' to be a str")
         pulumi.set(__self__, "dns_support", dns_support)
+        if encryption_support_state and not isinstance(encryption_support_state, str):
+            raise TypeError("Expected argument 'encryption_support_state' to be a str")
+        pulumi.set(__self__, "encryption_support_state", encryption_support_state)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -114,6 +117,14 @@ class GetTransitGatewayResult:
         return pulumi.get(self, "dns_support")
 
     @_builtins.property
+    @pulumi.getter(name="encryptionSupportState")
+    def encryption_support_state(self) -> Optional[_builtins.str]:
+        """
+        The encryption support state of the transit gateway.
+        """
+        return pulumi.get(self, "encryption_support_state")
+
+    @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
         """
@@ -181,6 +192,7 @@ class AwaitableGetTransitGatewayResult(GetTransitGatewayResult):
             default_route_table_propagation=self.default_route_table_propagation,
             description=self.description,
             dns_support=self.dns_support,
+            encryption_support_state=self.encryption_support_state,
             id=self.id,
             propagation_default_route_table_id=self.propagation_default_route_table_id,
             security_group_referencing_support=self.security_group_referencing_support,
@@ -210,6 +222,7 @@ def get_transit_gateway(id: Optional[_builtins.str] = None,
         default_route_table_propagation=pulumi.get(__ret__, 'default_route_table_propagation'),
         description=pulumi.get(__ret__, 'description'),
         dns_support=pulumi.get(__ret__, 'dns_support'),
+        encryption_support_state=pulumi.get(__ret__, 'encryption_support_state'),
         id=pulumi.get(__ret__, 'id'),
         propagation_default_route_table_id=pulumi.get(__ret__, 'propagation_default_route_table_id'),
         security_group_referencing_support=pulumi.get(__ret__, 'security_group_referencing_support'),
@@ -236,6 +249,7 @@ def get_transit_gateway_output(id: Optional[pulumi.Input[_builtins.str]] = None,
         default_route_table_propagation=pulumi.get(__response__, 'default_route_table_propagation'),
         description=pulumi.get(__response__, 'description'),
         dns_support=pulumi.get(__response__, 'dns_support'),
+        encryption_support_state=pulumi.get(__response__, 'encryption_support_state'),
         id=pulumi.get(__response__, 'id'),
         propagation_default_route_table_id=pulumi.get(__response__, 'propagation_default_route_table_id'),
         security_group_referencing_support=pulumi.get(__response__, 'security_group_referencing_support'),

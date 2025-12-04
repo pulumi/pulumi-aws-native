@@ -7,14 +7,51 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'InboundExternalLinkLinkStatus',
+    'InboundExternalLinkResponderErrorMaskingForHttpCodeAction',
+    'InboundExternalLinkResponderErrorMaskingLoggingType',
     'LinkDirection',
     'LinkResponderErrorMaskingForHttpCodeAction',
     'LinkResponderErrorMaskingLoggingType',
     'LinkStatus',
+    'OutboundExternalLinkLinkStatus',
+    'OutboundExternalLinkResponderErrorMaskingForHttpCodeAction',
+    'OutboundExternalLinkResponderErrorMaskingLoggingType',
     'RequesterGatewayStatus',
     'ResponderGatewayProtocol',
     'ResponderGatewayStatus',
 ]
+
+
+@pulumi.type_token("aws-native:rtbfabric:InboundExternalLinkLinkStatus")
+class InboundExternalLinkLinkStatus(_builtins.str, Enum):
+    PENDING_CREATION = "PENDING_CREATION"
+    PENDING_REQUEST = "PENDING_REQUEST"
+    REQUESTED = "REQUESTED"
+    ACCEPTED = "ACCEPTED"
+    ACTIVE = "ACTIVE"
+    REJECTED = "REJECTED"
+    FAILED = "FAILED"
+    PENDING_DELETION = "PENDING_DELETION"
+    DELETED = "DELETED"
+    PENDING_UPDATE = "PENDING_UPDATE"
+    PENDING_ISOLATION = "PENDING_ISOLATION"
+    ISOLATED = "ISOLATED"
+    PENDING_RESTORATION = "PENDING_RESTORATION"
+    UNKNOWN_TO_SDK_VERSION = "UNKNOWN_TO_SDK_VERSION"
+
+
+@pulumi.type_token("aws-native:rtbfabric:InboundExternalLinkResponderErrorMaskingForHttpCodeAction")
+class InboundExternalLinkResponderErrorMaskingForHttpCodeAction(_builtins.str, Enum):
+    NO_BID = "NO_BID"
+    PASSTHROUGH = "PASSTHROUGH"
+
+
+@pulumi.type_token("aws-native:rtbfabric:InboundExternalLinkResponderErrorMaskingLoggingType")
+class InboundExternalLinkResponderErrorMaskingLoggingType(_builtins.str, Enum):
+    NONE = "NONE"
+    METRIC = "METRIC"
+    RESPONSE = "RESPONSE"
 
 
 @pulumi.type_token("aws-native:rtbfabric:LinkDirection")
@@ -46,7 +83,7 @@ class LinkStatus(_builtins.str, Enum):
     REQUESTED = "REQUESTED"
     ACCEPTED = "ACCEPTED"
     ACTIVE = "ACTIVE"
-    DECLINED = "DECLINED"
+    REJECTED = "REJECTED"
     FAILED = "FAILED"
     PENDING_DELETION = "PENDING_DELETION"
     DELETED = "DELETED"
@@ -55,6 +92,37 @@ class LinkStatus(_builtins.str, Enum):
     ISOLATED = "ISOLATED"
     PENDING_RESTORATION = "PENDING_RESTORATION"
     UNKNOWN_TO_SDK_VERSION = "UNKNOWN_TO_SDK_VERSION"
+
+
+@pulumi.type_token("aws-native:rtbfabric:OutboundExternalLinkLinkStatus")
+class OutboundExternalLinkLinkStatus(_builtins.str, Enum):
+    PENDING_CREATION = "PENDING_CREATION"
+    PENDING_REQUEST = "PENDING_REQUEST"
+    REQUESTED = "REQUESTED"
+    ACCEPTED = "ACCEPTED"
+    ACTIVE = "ACTIVE"
+    REJECTED = "REJECTED"
+    FAILED = "FAILED"
+    PENDING_DELETION = "PENDING_DELETION"
+    DELETED = "DELETED"
+    PENDING_UPDATE = "PENDING_UPDATE"
+    PENDING_ISOLATION = "PENDING_ISOLATION"
+    ISOLATED = "ISOLATED"
+    PENDING_RESTORATION = "PENDING_RESTORATION"
+    UNKNOWN_TO_SDK_VERSION = "UNKNOWN_TO_SDK_VERSION"
+
+
+@pulumi.type_token("aws-native:rtbfabric:OutboundExternalLinkResponderErrorMaskingForHttpCodeAction")
+class OutboundExternalLinkResponderErrorMaskingForHttpCodeAction(_builtins.str, Enum):
+    NO_BID = "NO_BID"
+    PASSTHROUGH = "PASSTHROUGH"
+
+
+@pulumi.type_token("aws-native:rtbfabric:OutboundExternalLinkResponderErrorMaskingLoggingType")
+class OutboundExternalLinkResponderErrorMaskingLoggingType(_builtins.str, Enum):
+    NONE = "NONE"
+    METRIC = "METRIC"
+    RESPONSE = "RESPONSE"
 
 
 @pulumi.type_token("aws-native:rtbfabric:RequesterGatewayStatus")

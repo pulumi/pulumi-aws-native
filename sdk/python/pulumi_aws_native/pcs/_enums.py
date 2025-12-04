@@ -12,6 +12,7 @@ __all__ = [
     'ClusterNetworkingPropertiesNetworkType',
     'ClusterSchedulerPropertiesType',
     'ClusterSize',
+    'ClusterSlurmRestMode',
     'ClusterStatus',
     'ComputeNodeGroupPurchaseOption',
     'ComputeNodeGroupSpotOptionsPropertiesAllocationStrategy',
@@ -36,6 +37,7 @@ class ClusterEndpointType(_builtins.str, Enum):
     """
     SLURMCTLD = "SLURMCTLD"
     SLURMDBD = "SLURMDBD"
+    SLURMRESTD = "SLURMRESTD"
 
 
 @pulumi.type_token("aws-native:pcs:ClusterNetworkingPropertiesNetworkType")
@@ -63,6 +65,15 @@ class ClusterSize(_builtins.str, Enum):
     SMALL = "SMALL"
     MEDIUM = "MEDIUM"
     LARGE = "LARGE"
+
+
+@pulumi.type_token("aws-native:pcs:ClusterSlurmRestMode")
+class ClusterSlurmRestMode(_builtins.str, Enum):
+    """
+    The default value is `STANDARD`. A value of `STANDARD` means that Slurm Rest is enabled.
+    """
+    STANDARD = "STANDARD"
+    NONE = "NONE"
 
 
 @pulumi.type_token("aws-native:pcs:ClusterStatus")

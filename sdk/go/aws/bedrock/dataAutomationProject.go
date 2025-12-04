@@ -36,6 +36,8 @@ type DataAutomationProject struct {
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
 	// The project's stage.
 	ProjectStage DataAutomationProjectStageOutput `pulumi:"projectStage"`
+	// Type of the DataAutomationProject - Sync or Async
+	ProjectType DataAutomationProjectProjectTypePtrOutput `pulumi:"projectType"`
 	// The project's standard output configuration.
 	StandardOutputConfiguration DataAutomationProjectStandardOutputConfigurationPtrOutput `pulumi:"standardOutputConfiguration"`
 	// The project's status.
@@ -53,6 +55,7 @@ func NewDataAutomationProject(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"projectName",
+		"projectType",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -100,6 +103,8 @@ type dataAutomationProjectArgs struct {
 	ProjectDescription *string `pulumi:"projectDescription"`
 	// Name of the DataAutomationProject
 	ProjectName *string `pulumi:"projectName"`
+	// Type of the DataAutomationProject - Sync or Async
+	ProjectType *DataAutomationProjectProjectType `pulumi:"projectType"`
 	// The project's standard output configuration.
 	StandardOutputConfiguration *DataAutomationProjectStandardOutputConfiguration `pulumi:"standardOutputConfiguration"`
 	// List of Tags
@@ -120,6 +125,8 @@ type DataAutomationProjectArgs struct {
 	ProjectDescription pulumi.StringPtrInput
 	// Name of the DataAutomationProject
 	ProjectName pulumi.StringPtrInput
+	// Type of the DataAutomationProject - Sync or Async
+	ProjectType DataAutomationProjectProjectTypePtrInput
 	// The project's standard output configuration.
 	StandardOutputConfiguration DataAutomationProjectStandardOutputConfigurationPtrInput
 	// List of Tags
@@ -215,6 +222,11 @@ func (o DataAutomationProjectOutput) ProjectName() pulumi.StringOutput {
 // The project's stage.
 func (o DataAutomationProjectOutput) ProjectStage() DataAutomationProjectStageOutput {
 	return o.ApplyT(func(v *DataAutomationProject) DataAutomationProjectStageOutput { return v.ProjectStage }).(DataAutomationProjectStageOutput)
+}
+
+// Type of the DataAutomationProject - Sync or Async
+func (o DataAutomationProjectOutput) ProjectType() DataAutomationProjectProjectTypePtrOutput {
+	return o.ApplyT(func(v *DataAutomationProject) DataAutomationProjectProjectTypePtrOutput { return v.ProjectType }).(DataAutomationProjectProjectTypePtrOutput)
 }
 
 // The project's standard output configuration.

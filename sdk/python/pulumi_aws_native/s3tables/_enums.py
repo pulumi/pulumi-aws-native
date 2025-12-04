@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'TableBucketEncryptionConfigurationSseAlgorithm',
+    'TableBucketMetricsConfigurationStatus',
     'TableBucketUnreferencedFileRemovalStatus',
     'TableCompactionStatus',
     'TableOpenTableFormat',
@@ -23,6 +24,15 @@ class TableBucketEncryptionConfigurationSseAlgorithm(_builtins.str, Enum):
     """
     AES256 = "AES256"
     AWSKMS = "aws:kms"
+
+
+@pulumi.type_token("aws-native:s3tables:TableBucketMetricsConfigurationStatus")
+class TableBucketMetricsConfigurationStatus(_builtins.str, Enum):
+    """
+    Indicates whether Metrics are enabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 @pulumi.type_token("aws-native:s3tables:TableBucketUnreferencedFileRemovalStatus")

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetSaaSTable
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SaaS data source.
+        /// </summary>
         public readonly string DataSourceArn;
+        /// <summary>
+        /// The list of input columns available from the SaaS table.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSetInputColumn> InputColumns;
+        /// <summary>
+        /// The hierarchical path to the table within the SaaS data source.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSetTablePathElement> TablePath;
 
         [OutputConstructor]

@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("staticValues")]
         private InputList<string>? _staticValues;
+
+        /// <summary>
+        /// A list of static string values used for filtering.
+        /// </summary>
         public InputList<string> StaticValues
         {
             get => _staticValues ?? (_staticValues = new InputList<string>());

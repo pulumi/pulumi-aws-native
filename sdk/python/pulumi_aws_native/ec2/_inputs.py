@@ -136,6 +136,8 @@ __all__ = [
     'IpamResourceDiscoveryIpamOperatingRegionArgsDict',
     'IpamResourceDiscoveryOrganizationalUnitExclusionArgs',
     'IpamResourceDiscoveryOrganizationalUnitExclusionArgsDict',
+    'IpamScopeExternalAuthorityConfigurationArgs',
+    'IpamScopeExternalAuthorityConfigurationArgsDict',
     'LaunchTemplateAcceleratorCountArgs',
     'LaunchTemplateAcceleratorCountArgsDict',
     'LaunchTemplateAcceleratorTotalMemoryMiBArgs',
@@ -2090,12 +2092,19 @@ if not MYPY:
         - For instance types with NVIDIA A100 GPUs, specify `a100` .
         - For instance types with NVIDIA H100 GPUs, specify `h100` .
         - For instance types with AWS Inferentia chips, specify `inferentia` .
+        - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
+        - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
         - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
         - For instance types with NVIDIA K80 GPUs, specify `k80` .
+        - For instance types with NVIDIA L4 GPUs, specify `l4` .
+        - For instance types with NVIDIA L40S GPUs, specify `l40s` .
         - For instance types with NVIDIA M60 GPUs, specify `m60` .
         - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+        - For instance types with AWS Trainium chips, specify `trainium` .
+        - For instance types with AWS Trainium2 chips, specify `trainium2` .
         - For instance types with NVIDIA T4 GPUs, specify `t4` .
         - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+        - For instance types with Xilinx U30 cards, specify `u30` .
         - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
         - For instance types with NVIDIA V100 GPUs, specify `v100` .
 
@@ -2114,6 +2123,7 @@ if not MYPY:
         - For instance types with FPGA accelerators, specify `fpga` .
         - For instance types with GPU accelerators, specify `gpu` .
         - For instance types with Inference accelerators, specify `inference` .
+        - For instance types with Media accelerators, specify `media` .
 
         Default: Any accelerator type
         """
@@ -2343,12 +2353,19 @@ class Ec2FleetInstanceRequirementsRequestArgs:
                - For instance types with NVIDIA A100 GPUs, specify `a100` .
                - For instance types with NVIDIA H100 GPUs, specify `h100` .
                - For instance types with AWS Inferentia chips, specify `inferentia` .
+               - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
+               - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
                - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
                - For instance types with NVIDIA K80 GPUs, specify `k80` .
+               - For instance types with NVIDIA L4 GPUs, specify `l4` .
+               - For instance types with NVIDIA L40S GPUs, specify `l40s` .
                - For instance types with NVIDIA M60 GPUs, specify `m60` .
                - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+               - For instance types with AWS Trainium chips, specify `trainium` .
+               - For instance types with AWS Trainium2 chips, specify `trainium2` .
                - For instance types with NVIDIA T4 GPUs, specify `t4` .
                - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+               - For instance types with Xilinx U30 cards, specify `u30` .
                - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
                - For instance types with NVIDIA V100 GPUs, specify `v100` .
                
@@ -2361,6 +2378,7 @@ class Ec2FleetInstanceRequirementsRequestArgs:
                - For instance types with FPGA accelerators, specify `fpga` .
                - For instance types with GPU accelerators, specify `gpu` .
                - For instance types with Inference accelerators, specify `inference` .
+               - For instance types with Media accelerators, specify `media` .
                
                Default: Any accelerator type
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -2575,12 +2593,19 @@ class Ec2FleetInstanceRequirementsRequestArgs:
         - For instance types with NVIDIA A100 GPUs, specify `a100` .
         - For instance types with NVIDIA H100 GPUs, specify `h100` .
         - For instance types with AWS Inferentia chips, specify `inferentia` .
+        - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
+        - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
         - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
         - For instance types with NVIDIA K80 GPUs, specify `k80` .
+        - For instance types with NVIDIA L4 GPUs, specify `l4` .
+        - For instance types with NVIDIA L40S GPUs, specify `l40s` .
         - For instance types with NVIDIA M60 GPUs, specify `m60` .
         - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+        - For instance types with AWS Trainium chips, specify `trainium` .
+        - For instance types with AWS Trainium2 chips, specify `trainium2` .
         - For instance types with NVIDIA T4 GPUs, specify `t4` .
         - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+        - For instance types with Xilinx U30 cards, specify `u30` .
         - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
         - For instance types with NVIDIA V100 GPUs, specify `v100` .
 
@@ -2615,6 +2640,7 @@ class Ec2FleetInstanceRequirementsRequestArgs:
         - For instance types with FPGA accelerators, specify `fpga` .
         - For instance types with GPU accelerators, specify `gpu` .
         - For instance types with Inference accelerators, specify `inference` .
+        - For instance types with Media accelerators, specify `media` .
 
         Default: Any accelerator type
         """
@@ -5897,6 +5923,60 @@ class IpamResourceDiscoveryOrganizationalUnitExclusionArgs:
     @organizations_entity_path.setter
     def organizations_entity_path(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "organizations_entity_path", value)
+
+
+if not MYPY:
+    class IpamScopeExternalAuthorityConfigurationArgsDict(TypedDict):
+        """
+        External service configuration to connect your AWS IPAM scope.
+        """
+        external_resource_identifier: pulumi.Input[_builtins.str]
+        """
+        Resource identifier of the scope in the external service connecting to your AWS IPAM scope.
+        """
+        ipam_scope_external_authority_type: pulumi.Input['IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType']
+        """
+        An external service connecting to your AWS IPAM scope.
+        """
+elif False:
+    IpamScopeExternalAuthorityConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IpamScopeExternalAuthorityConfigurationArgs:
+    def __init__(__self__, *,
+                 external_resource_identifier: pulumi.Input[_builtins.str],
+                 ipam_scope_external_authority_type: pulumi.Input['IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType']):
+        """
+        External service configuration to connect your AWS IPAM scope.
+        :param pulumi.Input[_builtins.str] external_resource_identifier: Resource identifier of the scope in the external service connecting to your AWS IPAM scope.
+        :param pulumi.Input['IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType'] ipam_scope_external_authority_type: An external service connecting to your AWS IPAM scope.
+        """
+        pulumi.set(__self__, "external_resource_identifier", external_resource_identifier)
+        pulumi.set(__self__, "ipam_scope_external_authority_type", ipam_scope_external_authority_type)
+
+    @_builtins.property
+    @pulumi.getter(name="externalResourceIdentifier")
+    def external_resource_identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        Resource identifier of the scope in the external service connecting to your AWS IPAM scope.
+        """
+        return pulumi.get(self, "external_resource_identifier")
+
+    @external_resource_identifier.setter
+    def external_resource_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "external_resource_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipamScopeExternalAuthorityType")
+    def ipam_scope_external_authority_type(self) -> pulumi.Input['IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType']:
+        """
+        An external service connecting to your AWS IPAM scope.
+        """
+        return pulumi.get(self, "ipam_scope_external_authority_type")
+
+    @ipam_scope_external_authority_type.setter
+    def ipam_scope_external_authority_type(self, value: pulumi.Input['IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType']):
+        pulumi.set(self, "ipam_scope_external_authority_type", value)
 
 
 if not MYPY:
@@ -13130,12 +13210,19 @@ if not MYPY:
         - For instance types with NVIDIA A100 GPUs, specify `a100` .
         - For instance types with NVIDIA H100 GPUs, specify `h100` .
         - For instance types with AWS Inferentia chips, specify `inferentia` .
+        - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
+        - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
         - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
         - For instance types with NVIDIA K80 GPUs, specify `k80` .
+        - For instance types with NVIDIA L4 GPUs, specify `l4` .
+        - For instance types with NVIDIA L40S GPUs, specify `l40s` .
         - For instance types with NVIDIA M60 GPUs, specify `m60` .
         - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+        - For instance types with AWS Trainium chips, specify `trainium` .
+        - For instance types with AWS Trainium2 chips, specify `trainium2` .
         - For instance types with NVIDIA T4 GPUs, specify `t4` .
         - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+        - For instance types with Xilinx U30 cards, specify `u30` .
         - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
         - For instance types with NVIDIA V100 GPUs, specify `v100` .
 
@@ -13154,6 +13241,7 @@ if not MYPY:
         - For instance types with FPGA accelerators, specify `fpga` .
         - For instance types with GPU accelerators, specify `gpu` .
         - For instance types with Inference accelerators, specify `inference` .
+        - For instance types with Media accelerators, specify `media` .
 
         Default: Any accelerator type
         """
@@ -13383,12 +13471,19 @@ class SpotFleetInstanceRequirementsRequestArgs:
                - For instance types with NVIDIA A100 GPUs, specify `a100` .
                - For instance types with NVIDIA H100 GPUs, specify `h100` .
                - For instance types with AWS Inferentia chips, specify `inferentia` .
+               - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
+               - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
                - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
                - For instance types with NVIDIA K80 GPUs, specify `k80` .
+               - For instance types with NVIDIA L4 GPUs, specify `l4` .
+               - For instance types with NVIDIA L40S GPUs, specify `l40s` .
                - For instance types with NVIDIA M60 GPUs, specify `m60` .
                - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+               - For instance types with AWS Trainium chips, specify `trainium` .
+               - For instance types with AWS Trainium2 chips, specify `trainium2` .
                - For instance types with NVIDIA T4 GPUs, specify `t4` .
                - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+               - For instance types with Xilinx U30 cards, specify `u30` .
                - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
                - For instance types with NVIDIA V100 GPUs, specify `v100` .
                
@@ -13401,6 +13496,7 @@ class SpotFleetInstanceRequirementsRequestArgs:
                - For instance types with FPGA accelerators, specify `fpga` .
                - For instance types with GPU accelerators, specify `gpu` .
                - For instance types with Inference accelerators, specify `inference` .
+               - For instance types with Media accelerators, specify `media` .
                
                Default: Any accelerator type
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -13615,12 +13711,19 @@ class SpotFleetInstanceRequirementsRequestArgs:
         - For instance types with NVIDIA A100 GPUs, specify `a100` .
         - For instance types with NVIDIA H100 GPUs, specify `h100` .
         - For instance types with AWS Inferentia chips, specify `inferentia` .
+        - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
+        - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
         - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
         - For instance types with NVIDIA K80 GPUs, specify `k80` .
+        - For instance types with NVIDIA L4 GPUs, specify `l4` .
+        - For instance types with NVIDIA L40S GPUs, specify `l40s` .
         - For instance types with NVIDIA M60 GPUs, specify `m60` .
         - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+        - For instance types with AWS Trainium chips, specify `trainium` .
+        - For instance types with AWS Trainium2 chips, specify `trainium2` .
         - For instance types with NVIDIA T4 GPUs, specify `t4` .
         - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+        - For instance types with Xilinx U30 cards, specify `u30` .
         - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
         - For instance types with NVIDIA V100 GPUs, specify `v100` .
 
@@ -13655,6 +13758,7 @@ class SpotFleetInstanceRequirementsRequestArgs:
         - For instance types with FPGA accelerators, specify `fpga` .
         - For instance types with GPU accelerators, specify `gpu` .
         - For instance types with Inference accelerators, specify `inference` .
+        - For instance types with Media accelerators, specify `media` .
 
         Default: Any accelerator type
         """
@@ -17983,6 +18087,14 @@ if not MYPY:
         """
         Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.
         """
+        private_dns_preference: NotRequired[pulumi.Input['VpcEndpointDnsOptionsSpecificationPrivateDnsPreference']]
+        """
+        The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+        """
+        private_dns_specified_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
+        """
 elif False:
     VpcEndpointDnsOptionsSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -17990,16 +18102,24 @@ elif False:
 class VpcEndpointDnsOptionsSpecificationArgs:
     def __init__(__self__, *,
                  dns_record_ip_type: Optional[pulumi.Input['VpcEndpointDnsOptionsSpecificationDnsRecordIpType']] = None,
-                 private_dns_only_for_inbound_resolver_endpoint: Optional[pulumi.Input['VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint']] = None):
+                 private_dns_only_for_inbound_resolver_endpoint: Optional[pulumi.Input['VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint']] = None,
+                 private_dns_preference: Optional[pulumi.Input['VpcEndpointDnsOptionsSpecificationPrivateDnsPreference']] = None,
+                 private_dns_specified_domains: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Describes the DNS options for an endpoint.
         :param pulumi.Input['VpcEndpointDnsOptionsSpecificationDnsRecordIpType'] dns_record_ip_type: The DNS records created for the endpoint.
         :param pulumi.Input['VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint'] private_dns_only_for_inbound_resolver_endpoint: Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.
+        :param pulumi.Input['VpcEndpointDnsOptionsSpecificationPrivateDnsPreference'] private_dns_preference: The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] private_dns_specified_domains: Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
         """
         if dns_record_ip_type is not None:
             pulumi.set(__self__, "dns_record_ip_type", dns_record_ip_type)
         if private_dns_only_for_inbound_resolver_endpoint is not None:
             pulumi.set(__self__, "private_dns_only_for_inbound_resolver_endpoint", private_dns_only_for_inbound_resolver_endpoint)
+        if private_dns_preference is not None:
+            pulumi.set(__self__, "private_dns_preference", private_dns_preference)
+        if private_dns_specified_domains is not None:
+            pulumi.set(__self__, "private_dns_specified_domains", private_dns_specified_domains)
 
     @_builtins.property
     @pulumi.getter(name="dnsRecordIpType")
@@ -18025,11 +18145,51 @@ class VpcEndpointDnsOptionsSpecificationArgs:
     def private_dns_only_for_inbound_resolver_endpoint(self, value: Optional[pulumi.Input['VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint']]):
         pulumi.set(self, "private_dns_only_for_inbound_resolver_endpoint", value)
 
+    @_builtins.property
+    @pulumi.getter(name="privateDnsPreference")
+    def private_dns_preference(self) -> Optional[pulumi.Input['VpcEndpointDnsOptionsSpecificationPrivateDnsPreference']]:
+        """
+        The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+        """
+        return pulumi.get(self, "private_dns_preference")
+
+    @private_dns_preference.setter
+    def private_dns_preference(self, value: Optional[pulumi.Input['VpcEndpointDnsOptionsSpecificationPrivateDnsPreference']]):
+        pulumi.set(self, "private_dns_preference", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsSpecifiedDomains")
+    def private_dns_specified_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
+        """
+        return pulumi.get(self, "private_dns_specified_domains")
+
+    @private_dns_specified_domains.setter
+    def private_dns_specified_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "private_dns_specified_domains", value)
+
 
 if not MYPY:
     class VpnConnectionCloudwatchLogOptionsSpecificationArgsDict(TypedDict):
         """
         Options for sending VPN tunnel logs to CloudWatch.
+        """
+        bgp_log_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
+
+        Valid values: `True` | `False`
+        """
+        bgp_log_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.
+        """
+        bgp_log_output_format: NotRequired[pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat']]
+        """
+        The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
+
+        Valid values: `json` | `text`
         """
         log_enabled: NotRequired[pulumi.Input[_builtins.bool]]
         """
@@ -18051,23 +18211,79 @@ elif False:
 @pulumi.input_type
 class VpnConnectionCloudwatchLogOptionsSpecificationArgs:
     def __init__(__self__, *,
+                 bgp_log_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 bgp_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 bgp_log_output_format: Optional[pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat']] = None,
                  log_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  log_output_format: Optional[pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat']] = None):
         """
         Options for sending VPN tunnel logs to CloudWatch.
+        :param pulumi.Input[_builtins.bool] bgp_log_enabled: Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
+               
+               Valid values: `True` | `False`
+        :param pulumi.Input[_builtins.str] bgp_log_group_arn: The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.
+        :param pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat'] bgp_log_output_format: The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
+               
+               Valid values: `json` | `text`
         :param pulumi.Input[_builtins.bool] log_enabled: Enable or disable VPN tunnel logging feature. Default value is ``False``.
                 Valid values: ``True`` | ``False``
         :param pulumi.Input[_builtins.str] log_group_arn: The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
         :param pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat'] log_output_format: Set log format. Default format is ``json``.
                 Valid values: ``json`` | ``text``
         """
+        if bgp_log_enabled is not None:
+            pulumi.set(__self__, "bgp_log_enabled", bgp_log_enabled)
+        if bgp_log_group_arn is not None:
+            pulumi.set(__self__, "bgp_log_group_arn", bgp_log_group_arn)
+        if bgp_log_output_format is not None:
+            pulumi.set(__self__, "bgp_log_output_format", bgp_log_output_format)
         if log_enabled is not None:
             pulumi.set(__self__, "log_enabled", log_enabled)
         if log_group_arn is not None:
             pulumi.set(__self__, "log_group_arn", log_group_arn)
         if log_output_format is not None:
             pulumi.set(__self__, "log_output_format", log_output_format)
+
+    @_builtins.property
+    @pulumi.getter(name="bgpLogEnabled")
+    def bgp_log_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
+
+        Valid values: `True` | `False`
+        """
+        return pulumi.get(self, "bgp_log_enabled")
+
+    @bgp_log_enabled.setter
+    def bgp_log_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "bgp_log_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bgpLogGroupArn")
+    def bgp_log_group_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.
+        """
+        return pulumi.get(self, "bgp_log_group_arn")
+
+    @bgp_log_group_arn.setter
+    def bgp_log_group_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "bgp_log_group_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bgpLogOutputFormat")
+    def bgp_log_output_format(self) -> Optional[pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat']]:
+        """
+        The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
+
+        Valid values: `json` | `text`
+        """
+        return pulumi.get(self, "bgp_log_output_format")
+
+    @bgp_log_output_format.setter
+    def bgp_log_output_format(self, value: Optional[pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat']]):
+        pulumi.set(self, "bgp_log_output_format", value)
 
     @_builtins.property
     @pulumi.getter(name="logEnabled")

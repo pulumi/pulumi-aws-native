@@ -32,7 +32,7 @@ if not MYPY:
         """
         kms_key_arn: pulumi.Input[_builtins.str]
         """
-        The ARN of a AWS KMS key that is used to encrypt data while it is being processed by the service. This key must exist in the same AWS Region as the node you start an RDP connection to.
+        The ARN of a AWS  key that is used to encrypt data while it is being processed by the service. This key must exist in the same AWS Region as the node you start an RDP connection to.
         """
         recording_destinations: pulumi.Input['PreferencesRecordingDestinationsArgsDict']
         """
@@ -48,7 +48,7 @@ class ConnectionRecordingPreferencesPropertiesArgs:
                  recording_destinations: pulumi.Input['PreferencesRecordingDestinationsArgs']):
         """
         The set of preferences used for recording RDP connections in the requesting AWS account and AWS Region. This includes details such as which S3 bucket recordings are stored in.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of a AWS KMS key that is used to encrypt data while it is being processed by the service. This key must exist in the same AWS Region as the node you start an RDP connection to.
+        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of a AWS  key that is used to encrypt data while it is being processed by the service. This key must exist in the same AWS Region as the node you start an RDP connection to.
         :param pulumi.Input['PreferencesRecordingDestinationsArgs'] recording_destinations: Determines where recordings of RDP connections are stored.
         """
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
@@ -58,7 +58,7 @@ class ConnectionRecordingPreferencesPropertiesArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of a AWS KMS key that is used to encrypt data while it is being processed by the service. This key must exist in the same AWS Region as the node you start an RDP connection to.
+        The ARN of a AWS  key that is used to encrypt data while it is being processed by the service. This key must exist in the same AWS Region as the node you start an RDP connection to.
         """
         return pulumi.get(self, "kms_key_arn")
 

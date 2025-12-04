@@ -24,10 +24,18 @@ __all__ = [
     'DataRepositoryAssociationS3ArgsDict',
     'S3AccessPointAttachmentFileSystemGidArgs',
     'S3AccessPointAttachmentFileSystemGidArgsDict',
+    'S3AccessPointAttachmentOntapFileSystemIdentityArgs',
+    'S3AccessPointAttachmentOntapFileSystemIdentityArgsDict',
+    'S3AccessPointAttachmentOntapUnixFileSystemUserArgs',
+    'S3AccessPointAttachmentOntapUnixFileSystemUserArgsDict',
+    'S3AccessPointAttachmentOntapWindowsFileSystemUserArgs',
+    'S3AccessPointAttachmentOntapWindowsFileSystemUserArgsDict',
     'S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs',
     'S3AccessPointAttachmentOpenZfsFileSystemIdentityArgsDict',
     'S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs',
     'S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgsDict',
+    'S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs',
+    'S3AccessPointAttachmentS3AccessPointOntapConfigurationArgsDict',
     'S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs',
     'S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgsDict',
     'S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs',
@@ -41,17 +49,17 @@ MYPY = False
 if not MYPY:
     class DataRepositoryAssociationAutoExportPolicyArgsDict(TypedDict):
         """
-        Describes a data repository association's automatic export policy. The ``AutoExportPolicy`` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
-         The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+        Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
         """
         events: pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]
         """
-        The ``AutoExportPolicy`` can have the following event values:
-          +   ``NEW`` - New files and directories are automatically exported to the data repository as they are added to the file system.
-          +   ``CHANGED`` - Changes to files and directories on the file system are automatically exported to the data repository.
-          +   ``DELETED`` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
-          
-         You can define any combination of event types for your ``AutoExportPolicy``.
+        The `AutoExportPolicy` can have the following event values:
+
+        - `NEW` - New files and directories are automatically exported to the data repository as they are added to the file system.
+        - `CHANGED` - Changes to files and directories on the file system are automatically exported to the data repository.
+        - `DELETED` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
+
+        You can define any combination of event types for your `AutoExportPolicy` .
         """
 elif False:
     DataRepositoryAssociationAutoExportPolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -61,14 +69,14 @@ class DataRepositoryAssociationAutoExportPolicyArgs:
     def __init__(__self__, *,
                  events: pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]):
         """
-        Describes a data repository association's automatic export policy. The ``AutoExportPolicy`` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
-         The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
-        :param pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]] events: The ``AutoExportPolicy`` can have the following event values:
-                 +   ``NEW`` - New files and directories are automatically exported to the data repository as they are added to the file system.
-                 +   ``CHANGED`` - Changes to files and directories on the file system are automatically exported to the data repository.
-                 +   ``DELETED`` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
-                 
-                You can define any combination of event types for your ``AutoExportPolicy``.
+        Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]] events: The `AutoExportPolicy` can have the following event values:
+               
+               - `NEW` - New files and directories are automatically exported to the data repository as they are added to the file system.
+               - `CHANGED` - Changes to files and directories on the file system are automatically exported to the data repository.
+               - `DELETED` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
+               
+               You can define any combination of event types for your `AutoExportPolicy` .
         """
         pulumi.set(__self__, "events", events)
 
@@ -76,12 +84,13 @@ class DataRepositoryAssociationAutoExportPolicyArgs:
     @pulumi.getter
     def events(self) -> pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]:
         """
-        The ``AutoExportPolicy`` can have the following event values:
-          +   ``NEW`` - New files and directories are automatically exported to the data repository as they are added to the file system.
-          +   ``CHANGED`` - Changes to files and directories on the file system are automatically exported to the data repository.
-          +   ``DELETED`` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
-          
-         You can define any combination of event types for your ``AutoExportPolicy``.
+        The `AutoExportPolicy` can have the following event values:
+
+        - `NEW` - New files and directories are automatically exported to the data repository as they are added to the file system.
+        - `CHANGED` - Changes to files and directories on the file system are automatically exported to the data repository.
+        - `DELETED` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
+
+        You can define any combination of event types for your `AutoExportPolicy` .
         """
         return pulumi.get(self, "events")
 
@@ -93,17 +102,17 @@ class DataRepositoryAssociationAutoExportPolicyArgs:
 if not MYPY:
     class DataRepositoryAssociationAutoImportPolicyArgsDict(TypedDict):
         """
-        Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
-         The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+        Specifies the type of updated objects (new, changed, deleted) that will be automatically imported from the linked S3 bucket to your file system.
         """
         events: pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]
         """
-        The ``AutoImportPolicy`` can have the following event values:
-          +   ``NEW`` - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
-          +   ``CHANGED`` - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
-          +   ``DELETED`` - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
-          
-         You can define any combination of event types for your ``AutoImportPolicy``.
+        The `AutoImportPolicy` can have the following event values:
+
+        - `NEW` - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
+        - `CHANGED` - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
+        - `DELETED` - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
+
+        You can define any combination of event types for your `AutoImportPolicy` .
         """
 elif False:
     DataRepositoryAssociationAutoImportPolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -113,14 +122,14 @@ class DataRepositoryAssociationAutoImportPolicyArgs:
     def __init__(__self__, *,
                  events: pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]):
         """
-        Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
-         The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
-        :param pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]] events: The ``AutoImportPolicy`` can have the following event values:
-                 +   ``NEW`` - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
-                 +   ``CHANGED`` - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
-                 +   ``DELETED`` - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
-                 
-                You can define any combination of event types for your ``AutoImportPolicy``.
+        Specifies the type of updated objects (new, changed, deleted) that will be automatically imported from the linked S3 bucket to your file system.
+        :param pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]] events: The `AutoImportPolicy` can have the following event values:
+               
+               - `NEW` - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
+               - `CHANGED` - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
+               - `DELETED` - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
+               
+               You can define any combination of event types for your `AutoImportPolicy` .
         """
         pulumi.set(__self__, "events", events)
 
@@ -128,12 +137,13 @@ class DataRepositoryAssociationAutoImportPolicyArgs:
     @pulumi.getter
     def events(self) -> pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]:
         """
-        The ``AutoImportPolicy`` can have the following event values:
-          +   ``NEW`` - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
-          +   ``CHANGED`` - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
-          +   ``DELETED`` - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
-          
-         You can define any combination of event types for your ``AutoImportPolicy``.
+        The `AutoImportPolicy` can have the following event values:
+
+        - `NEW` - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
+        - `CHANGED` - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
+        - `DELETED` - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
+
+        You can define any combination of event types for your `AutoImportPolicy` .
         """
         return pulumi.get(self, "events")
 
@@ -149,13 +159,15 @@ if not MYPY:
         """
         auto_export_policy: NotRequired[pulumi.Input['DataRepositoryAssociationAutoExportPolicyArgsDict']]
         """
-        Describes a data repository association's automatic export policy. The ``AutoExportPolicy`` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
-         The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+        Describes a data repository association's automatic export policy. The `AutoExportPolicy` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+
+        The `AutoExportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
         """
         auto_import_policy: NotRequired[pulumi.Input['DataRepositoryAssociationAutoImportPolicyArgsDict']]
         """
         Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
-         The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+
+        The `AutoImportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
         """
 elif False:
     DataRepositoryAssociationS3ArgsDict: TypeAlias = Mapping[str, Any]
@@ -167,10 +179,12 @@ class DataRepositoryAssociationS3Args:
                  auto_import_policy: Optional[pulumi.Input['DataRepositoryAssociationAutoImportPolicyArgs']] = None):
         """
         The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
-        :param pulumi.Input['DataRepositoryAssociationAutoExportPolicyArgs'] auto_export_policy: Describes a data repository association's automatic export policy. The ``AutoExportPolicy`` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
-                The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+        :param pulumi.Input['DataRepositoryAssociationAutoExportPolicyArgs'] auto_export_policy: Describes a data repository association's automatic export policy. The `AutoExportPolicy` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+               
+               The `AutoExportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
         :param pulumi.Input['DataRepositoryAssociationAutoImportPolicyArgs'] auto_import_policy: Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
-                The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+               
+               The `AutoImportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
         """
         if auto_export_policy is not None:
             pulumi.set(__self__, "auto_export_policy", auto_export_policy)
@@ -181,8 +195,9 @@ class DataRepositoryAssociationS3Args:
     @pulumi.getter(name="autoExportPolicy")
     def auto_export_policy(self) -> Optional[pulumi.Input['DataRepositoryAssociationAutoExportPolicyArgs']]:
         """
-        Describes a data repository association's automatic export policy. The ``AutoExportPolicy`` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
-         The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+        Describes a data repository association's automatic export policy. The `AutoExportPolicy` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+
+        The `AutoExportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
         """
         return pulumi.get(self, "auto_export_policy")
 
@@ -195,7 +210,8 @@ class DataRepositoryAssociationS3Args:
     def auto_import_policy(self) -> Optional[pulumi.Input['DataRepositoryAssociationAutoImportPolicyArgs']]:
         """
         Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
-         The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+
+        The `AutoImportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
         """
         return pulumi.get(self, "auto_import_policy")
 
@@ -236,6 +252,139 @@ class S3AccessPointAttachmentFileSystemGidArgs:
 
 
 if not MYPY:
+    class S3AccessPointAttachmentOntapFileSystemIdentityArgsDict(TypedDict):
+        type: pulumi.Input['S3AccessPointAttachmentOntapFileSystemIdentityType']
+        """
+        Specifies the FSx for ONTAP user identity type, accepts either UNIX or WINDOWS.
+        """
+        unix_user: NotRequired[pulumi.Input['S3AccessPointAttachmentOntapUnixFileSystemUserArgsDict']]
+        """
+        Specifies the properties of the file system UNIX user.
+        """
+        windows_user: NotRequired[pulumi.Input['S3AccessPointAttachmentOntapWindowsFileSystemUserArgsDict']]
+        """
+        Specifies the properties of the file system Windows user.
+        """
+elif False:
+    S3AccessPointAttachmentOntapFileSystemIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class S3AccessPointAttachmentOntapFileSystemIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['S3AccessPointAttachmentOntapFileSystemIdentityType'],
+                 unix_user: Optional[pulumi.Input['S3AccessPointAttachmentOntapUnixFileSystemUserArgs']] = None,
+                 windows_user: Optional[pulumi.Input['S3AccessPointAttachmentOntapWindowsFileSystemUserArgs']] = None):
+        """
+        :param pulumi.Input['S3AccessPointAttachmentOntapFileSystemIdentityType'] type: Specifies the FSx for ONTAP user identity type, accepts either UNIX or WINDOWS.
+        :param pulumi.Input['S3AccessPointAttachmentOntapUnixFileSystemUserArgs'] unix_user: Specifies the properties of the file system UNIX user.
+        :param pulumi.Input['S3AccessPointAttachmentOntapWindowsFileSystemUserArgs'] windows_user: Specifies the properties of the file system Windows user.
+        """
+        pulumi.set(__self__, "type", type)
+        if unix_user is not None:
+            pulumi.set(__self__, "unix_user", unix_user)
+        if windows_user is not None:
+            pulumi.set(__self__, "windows_user", windows_user)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['S3AccessPointAttachmentOntapFileSystemIdentityType']:
+        """
+        Specifies the FSx for ONTAP user identity type, accepts either UNIX or WINDOWS.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['S3AccessPointAttachmentOntapFileSystemIdentityType']):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="unixUser")
+    def unix_user(self) -> Optional[pulumi.Input['S3AccessPointAttachmentOntapUnixFileSystemUserArgs']]:
+        """
+        Specifies the properties of the file system UNIX user.
+        """
+        return pulumi.get(self, "unix_user")
+
+    @unix_user.setter
+    def unix_user(self, value: Optional[pulumi.Input['S3AccessPointAttachmentOntapUnixFileSystemUserArgs']]):
+        pulumi.set(self, "unix_user", value)
+
+    @_builtins.property
+    @pulumi.getter(name="windowsUser")
+    def windows_user(self) -> Optional[pulumi.Input['S3AccessPointAttachmentOntapWindowsFileSystemUserArgs']]:
+        """
+        Specifies the properties of the file system Windows user.
+        """
+        return pulumi.get(self, "windows_user")
+
+    @windows_user.setter
+    def windows_user(self, value: Optional[pulumi.Input['S3AccessPointAttachmentOntapWindowsFileSystemUserArgs']]):
+        pulumi.set(self, "windows_user", value)
+
+
+if not MYPY:
+    class S3AccessPointAttachmentOntapUnixFileSystemUserArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        The name of the UNIX user.
+        """
+elif False:
+    S3AccessPointAttachmentOntapUnixFileSystemUserArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class S3AccessPointAttachmentOntapUnixFileSystemUserArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] name: The name of the UNIX user.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the UNIX user.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class S3AccessPointAttachmentOntapWindowsFileSystemUserArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        The name of the Windows user.
+        """
+elif False:
+    S3AccessPointAttachmentOntapWindowsFileSystemUserArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class S3AccessPointAttachmentOntapWindowsFileSystemUserArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] name: The name of the Windows user.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Windows user.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
     class S3AccessPointAttachmentOpenZfsFileSystemIdentityArgsDict(TypedDict):
         posix_user: pulumi.Input['S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgsDict']
         """
@@ -243,7 +392,7 @@ if not MYPY:
         """
         type: pulumi.Input['S3AccessPointAttachmentOpenZfsFileSystemIdentityType']
         """
-        Specifies the FSx for OpenZFS user identity type, accepts only `POSIX` .
+        Specifies the FSx for OpenZFS user identity type, accepts only POSIX.
         """
 elif False:
     S3AccessPointAttachmentOpenZfsFileSystemIdentityArgsDict: TypeAlias = Mapping[str, Any]
@@ -255,7 +404,7 @@ class S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs:
                  type: pulumi.Input['S3AccessPointAttachmentOpenZfsFileSystemIdentityType']):
         """
         :param pulumi.Input['S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs'] posix_user: Specifies the UID and GIDs of the file system POSIX user.
-        :param pulumi.Input['S3AccessPointAttachmentOpenZfsFileSystemIdentityType'] type: Specifies the FSx for OpenZFS user identity type, accepts only `POSIX` .
+        :param pulumi.Input['S3AccessPointAttachmentOpenZfsFileSystemIdentityType'] type: Specifies the FSx for OpenZFS user identity type, accepts only POSIX.
         """
         pulumi.set(__self__, "posix_user", posix_user)
         pulumi.set(__self__, "type", type)
@@ -276,7 +425,7 @@ class S3AccessPointAttachmentOpenZfsFileSystemIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input['S3AccessPointAttachmentOpenZfsFileSystemIdentityType']:
         """
-        Specifies the FSx for OpenZFS user identity type, accepts only `POSIX` .
+        Specifies the FSx for OpenZFS user identity type, accepts only POSIX.
         """
         return pulumi.get(self, "type")
 
@@ -353,6 +502,56 @@ class S3AccessPointAttachmentOpenZfsPosixFileSystemUserArgs:
     @secondary_gids.setter
     def secondary_gids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['S3AccessPointAttachmentFileSystemGidArgs']]]]):
         pulumi.set(self, "secondary_gids", value)
+
+
+if not MYPY:
+    class S3AccessPointAttachmentS3AccessPointOntapConfigurationArgsDict(TypedDict):
+        file_system_identity: pulumi.Input['S3AccessPointAttachmentOntapFileSystemIdentityArgsDict']
+        """
+        The file system identity used to authorize file access requests made using the S3 access point.
+        """
+        volume_id: pulumi.Input[_builtins.str]
+        """
+        The ID of the FSx for ONTAP volume that the S3 access point is attached to.
+        """
+elif False:
+    S3AccessPointAttachmentS3AccessPointOntapConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class S3AccessPointAttachmentS3AccessPointOntapConfigurationArgs:
+    def __init__(__self__, *,
+                 file_system_identity: pulumi.Input['S3AccessPointAttachmentOntapFileSystemIdentityArgs'],
+                 volume_id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input['S3AccessPointAttachmentOntapFileSystemIdentityArgs'] file_system_identity: The file system identity used to authorize file access requests made using the S3 access point.
+        :param pulumi.Input[_builtins.str] volume_id: The ID of the FSx for ONTAP volume that the S3 access point is attached to.
+        """
+        pulumi.set(__self__, "file_system_identity", file_system_identity)
+        pulumi.set(__self__, "volume_id", volume_id)
+
+    @_builtins.property
+    @pulumi.getter(name="fileSystemIdentity")
+    def file_system_identity(self) -> pulumi.Input['S3AccessPointAttachmentOntapFileSystemIdentityArgs']:
+        """
+        The file system identity used to authorize file access requests made using the S3 access point.
+        """
+        return pulumi.get(self, "file_system_identity")
+
+    @file_system_identity.setter
+    def file_system_identity(self, value: pulumi.Input['S3AccessPointAttachmentOntapFileSystemIdentityArgs']):
+        pulumi.set(self, "file_system_identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeId")
+    def volume_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the FSx for ONTAP volume that the S3 access point is attached to.
+        """
+        return pulumi.get(self, "volume_id")
+
+    @volume_id.setter
+    def volume_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "volume_id", value)
 
 
 if not MYPY:

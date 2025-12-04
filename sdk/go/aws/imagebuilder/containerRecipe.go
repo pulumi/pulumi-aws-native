@@ -33,6 +33,8 @@ type ContainerRecipe struct {
 	InstanceConfiguration ContainerRecipeInstanceConfigurationPtrOutput `pulumi:"instanceConfiguration"`
 	// Identifies which KMS key is used to encrypt the container image.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	// The latest version references of the container recipe.
+	LatestVersion ContainerRecipeLatestVersionOutput `pulumi:"latestVersion"`
 	// The name of the container recipe.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The source image for the container recipe.
@@ -252,6 +254,11 @@ func (o ContainerRecipeOutput) InstanceConfiguration() ContainerRecipeInstanceCo
 // Identifies which KMS key is used to encrypt the container image.
 func (o ContainerRecipeOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The latest version references of the container recipe.
+func (o ContainerRecipeOutput) LatestVersion() ContainerRecipeLatestVersionOutput {
+	return o.ApplyT(func(v *ContainerRecipe) ContainerRecipeLatestVersionOutput { return v.LatestVersion }).(ContainerRecipeLatestVersionOutput)
 }
 
 // The name of the container recipe.

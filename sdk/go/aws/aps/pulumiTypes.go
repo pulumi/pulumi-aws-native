@@ -1859,6 +1859,8 @@ func (o ScraperScrapeConfigurationPtrOutput) ConfigurationBlob() pulumi.StringPt
 type ScraperSource struct {
 	// Configuration for EKS metrics source
 	EksConfiguration *ScraperSourceEksConfigurationProperties `pulumi:"eksConfiguration"`
+	// Configuration for VPC metrics source
+	VpcConfiguration *ScraperSourceVpcConfigurationProperties `pulumi:"vpcConfiguration"`
 }
 
 // ScraperSourceInput is an input type that accepts ScraperSourceArgs and ScraperSourceOutput values.
@@ -1876,6 +1878,8 @@ type ScraperSourceInput interface {
 type ScraperSourceArgs struct {
 	// Configuration for EKS metrics source
 	EksConfiguration ScraperSourceEksConfigurationPropertiesPtrInput `pulumi:"eksConfiguration"`
+	// Configuration for VPC metrics source
+	VpcConfiguration ScraperSourceVpcConfigurationPropertiesPtrInput `pulumi:"vpcConfiguration"`
 }
 
 func (ScraperSourceArgs) ElementType() reflect.Type {
@@ -1908,6 +1912,11 @@ func (o ScraperSourceOutput) ToScraperSourceOutputWithContext(ctx context.Contex
 // Configuration for EKS metrics source
 func (o ScraperSourceOutput) EksConfiguration() ScraperSourceEksConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v ScraperSource) *ScraperSourceEksConfigurationProperties { return v.EksConfiguration }).(ScraperSourceEksConfigurationPropertiesPtrOutput)
+}
+
+// Configuration for VPC metrics source
+func (o ScraperSourceOutput) VpcConfiguration() ScraperSourceVpcConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v ScraperSource) *ScraperSourceVpcConfigurationProperties { return v.VpcConfiguration }).(ScraperSourceVpcConfigurationPropertiesPtrOutput)
 }
 
 // Configuration for EKS metrics source
@@ -2081,6 +2090,165 @@ func (o ScraperSourceEksConfigurationPropertiesPtrOutput) SecurityGroupIds() pul
 // List of subnet IDs
 func (o ScraperSourceEksConfigurationPropertiesPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScraperSourceEksConfigurationProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Configuration for VPC metrics source
+type ScraperSourceVpcConfigurationProperties struct {
+	// List of security group IDs
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// List of subnet IDs
+	SubnetIds []string `pulumi:"subnetIds"`
+}
+
+// ScraperSourceVpcConfigurationPropertiesInput is an input type that accepts ScraperSourceVpcConfigurationPropertiesArgs and ScraperSourceVpcConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `ScraperSourceVpcConfigurationPropertiesInput` via:
+//
+//	ScraperSourceVpcConfigurationPropertiesArgs{...}
+type ScraperSourceVpcConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToScraperSourceVpcConfigurationPropertiesOutput() ScraperSourceVpcConfigurationPropertiesOutput
+	ToScraperSourceVpcConfigurationPropertiesOutputWithContext(context.Context) ScraperSourceVpcConfigurationPropertiesOutput
+}
+
+// Configuration for VPC metrics source
+type ScraperSourceVpcConfigurationPropertiesArgs struct {
+	// List of security group IDs
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// List of subnet IDs
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (ScraperSourceVpcConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperSourceVpcConfigurationProperties)(nil)).Elem()
+}
+
+func (i ScraperSourceVpcConfigurationPropertiesArgs) ToScraperSourceVpcConfigurationPropertiesOutput() ScraperSourceVpcConfigurationPropertiesOutput {
+	return i.ToScraperSourceVpcConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i ScraperSourceVpcConfigurationPropertiesArgs) ToScraperSourceVpcConfigurationPropertiesOutputWithContext(ctx context.Context) ScraperSourceVpcConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperSourceVpcConfigurationPropertiesOutput)
+}
+
+func (i ScraperSourceVpcConfigurationPropertiesArgs) ToScraperSourceVpcConfigurationPropertiesPtrOutput() ScraperSourceVpcConfigurationPropertiesPtrOutput {
+	return i.ToScraperSourceVpcConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ScraperSourceVpcConfigurationPropertiesArgs) ToScraperSourceVpcConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ScraperSourceVpcConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperSourceVpcConfigurationPropertiesOutput).ToScraperSourceVpcConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// ScraperSourceVpcConfigurationPropertiesPtrInput is an input type that accepts ScraperSourceVpcConfigurationPropertiesArgs, ScraperSourceVpcConfigurationPropertiesPtr and ScraperSourceVpcConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `ScraperSourceVpcConfigurationPropertiesPtrInput` via:
+//
+//	        ScraperSourceVpcConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScraperSourceVpcConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToScraperSourceVpcConfigurationPropertiesPtrOutput() ScraperSourceVpcConfigurationPropertiesPtrOutput
+	ToScraperSourceVpcConfigurationPropertiesPtrOutputWithContext(context.Context) ScraperSourceVpcConfigurationPropertiesPtrOutput
+}
+
+type scraperSourceVpcConfigurationPropertiesPtrType ScraperSourceVpcConfigurationPropertiesArgs
+
+func ScraperSourceVpcConfigurationPropertiesPtr(v *ScraperSourceVpcConfigurationPropertiesArgs) ScraperSourceVpcConfigurationPropertiesPtrInput {
+	return (*scraperSourceVpcConfigurationPropertiesPtrType)(v)
+}
+
+func (*scraperSourceVpcConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperSourceVpcConfigurationProperties)(nil)).Elem()
+}
+
+func (i *scraperSourceVpcConfigurationPropertiesPtrType) ToScraperSourceVpcConfigurationPropertiesPtrOutput() ScraperSourceVpcConfigurationPropertiesPtrOutput {
+	return i.ToScraperSourceVpcConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *scraperSourceVpcConfigurationPropertiesPtrType) ToScraperSourceVpcConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ScraperSourceVpcConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScraperSourceVpcConfigurationPropertiesPtrOutput)
+}
+
+// Configuration for VPC metrics source
+type ScraperSourceVpcConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ScraperSourceVpcConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScraperSourceVpcConfigurationProperties)(nil)).Elem()
+}
+
+func (o ScraperSourceVpcConfigurationPropertiesOutput) ToScraperSourceVpcConfigurationPropertiesOutput() ScraperSourceVpcConfigurationPropertiesOutput {
+	return o
+}
+
+func (o ScraperSourceVpcConfigurationPropertiesOutput) ToScraperSourceVpcConfigurationPropertiesOutputWithContext(ctx context.Context) ScraperSourceVpcConfigurationPropertiesOutput {
+	return o
+}
+
+func (o ScraperSourceVpcConfigurationPropertiesOutput) ToScraperSourceVpcConfigurationPropertiesPtrOutput() ScraperSourceVpcConfigurationPropertiesPtrOutput {
+	return o.ToScraperSourceVpcConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ScraperSourceVpcConfigurationPropertiesOutput) ToScraperSourceVpcConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ScraperSourceVpcConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScraperSourceVpcConfigurationProperties) *ScraperSourceVpcConfigurationProperties {
+		return &v
+	}).(ScraperSourceVpcConfigurationPropertiesPtrOutput)
+}
+
+// List of security group IDs
+func (o ScraperSourceVpcConfigurationPropertiesOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScraperSourceVpcConfigurationProperties) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// List of subnet IDs
+func (o ScraperSourceVpcConfigurationPropertiesOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScraperSourceVpcConfigurationProperties) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type ScraperSourceVpcConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ScraperSourceVpcConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperSourceVpcConfigurationProperties)(nil)).Elem()
+}
+
+func (o ScraperSourceVpcConfigurationPropertiesPtrOutput) ToScraperSourceVpcConfigurationPropertiesPtrOutput() ScraperSourceVpcConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o ScraperSourceVpcConfigurationPropertiesPtrOutput) ToScraperSourceVpcConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ScraperSourceVpcConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o ScraperSourceVpcConfigurationPropertiesPtrOutput) Elem() ScraperSourceVpcConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *ScraperSourceVpcConfigurationProperties) ScraperSourceVpcConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ScraperSourceVpcConfigurationProperties
+		return ret
+	}).(ScraperSourceVpcConfigurationPropertiesOutput)
+}
+
+// List of security group IDs
+func (o ScraperSourceVpcConfigurationPropertiesPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScraperSourceVpcConfigurationProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of subnet IDs
+func (o ScraperSourceVpcConfigurationPropertiesPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScraperSourceVpcConfigurationProperties) []string {
 		if v == nil {
 			return nil
 		}
@@ -3063,6 +3231,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceInput)(nil)).Elem(), ScraperSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceEksConfigurationPropertiesInput)(nil)).Elem(), ScraperSourceEksConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceEksConfigurationPropertiesPtrInput)(nil)).Elem(), ScraperSourceEksConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceVpcConfigurationPropertiesInput)(nil)).Elem(), ScraperSourceVpcConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScraperSourceVpcConfigurationPropertiesPtrInput)(nil)).Elem(), ScraperSourceVpcConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceCloudWatchLogDestinationInput)(nil)).Elem(), WorkspaceCloudWatchLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationInput)(nil)).Elem(), WorkspaceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationPtrInput)(nil)).Elem(), WorkspaceConfigurationArgs{})
@@ -3109,6 +3279,8 @@ func init() {
 	pulumi.RegisterOutputType(ScraperSourceOutput{})
 	pulumi.RegisterOutputType(ScraperSourceEksConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(ScraperSourceEksConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ScraperSourceVpcConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(ScraperSourceVpcConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceCloudWatchLogDestinationOutput{})
 	pulumi.RegisterOutputType(WorkspaceConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkspaceConfigurationPtrOutput{})

@@ -819,11 +819,57 @@ type AppMonitorMetricDefinition struct {
 	//
 	// WebVitalsLargestContentfulPaint
 	//
+	// WebVitalsInteractionToNextPaint
+	//
 	// JsErrorCount
 	//
 	// HttpErrorCount
 	//
 	// SessionCount
+	//
+	// PageViewCount
+	//
+	// Http4xxCount
+	//
+	// Http5xxCount
+	//
+	// SessionDuration
+	//
+	// PageViewCountPerSession
+	//
+	// JsErrorCountPerSession
+	//
+	// Http4xxCountPerSession
+	//
+	// Http5xxCountPerSession
+	//
+	// JsErrorCountPerPageView
+	//
+	// Http4xxCountPerPageView
+	//
+	// Http5xxCountPerPageView
+	//
+	// TimeOnPage
+	//
+	// ColdLaunchTime
+	//
+	// WarmLaunchTime
+	//
+	// CrashCount
+	//
+	// ANRCount
+	//
+	// AppHangCount
+	//
+	// ScreenLoadCount
+	//
+	// ScreenLoadTime
+	//
+	// NetworkLatency
+	//
+	// SpanPayloadSize
+	//
+	// LogEventPayloadSize
 	Name string `pulumi:"name"`
 	// The namespace used by CloudWatch Metrics for the metric that is defined in this structure
 	Namespace *string `pulumi:"namespace"`
@@ -900,11 +946,57 @@ type AppMonitorMetricDefinitionArgs struct {
 	//
 	// WebVitalsLargestContentfulPaint
 	//
+	// WebVitalsInteractionToNextPaint
+	//
 	// JsErrorCount
 	//
 	// HttpErrorCount
 	//
 	// SessionCount
+	//
+	// PageViewCount
+	//
+	// Http4xxCount
+	//
+	// Http5xxCount
+	//
+	// SessionDuration
+	//
+	// PageViewCountPerSession
+	//
+	// JsErrorCountPerSession
+	//
+	// Http4xxCountPerSession
+	//
+	// Http5xxCountPerSession
+	//
+	// JsErrorCountPerPageView
+	//
+	// Http4xxCountPerPageView
+	//
+	// Http5xxCountPerPageView
+	//
+	// TimeOnPage
+	//
+	// ColdLaunchTime
+	//
+	// WarmLaunchTime
+	//
+	// CrashCount
+	//
+	// ANRCount
+	//
+	// AppHangCount
+	//
+	// ScreenLoadCount
+	//
+	// ScreenLoadTime
+	//
+	// NetworkLatency
+	//
+	// SpanPayloadSize
+	//
+	// LogEventPayloadSize
 	Name pulumi.StringInput `pulumi:"name"`
 	// The namespace used by CloudWatch Metrics for the metric that is defined in this structure
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
@@ -1026,11 +1118,57 @@ func (o AppMonitorMetricDefinitionOutput) EventPattern() pulumi.StringPtrOutput 
 //
 // # WebVitalsLargestContentfulPaint
 //
+// # WebVitalsInteractionToNextPaint
+//
 // # JsErrorCount
 //
 // # HttpErrorCount
 //
-// SessionCount
+// # SessionCount
+//
+// # PageViewCount
+//
+// # Http4xxCount
+//
+// # Http5xxCount
+//
+// # SessionDuration
+//
+// # PageViewCountPerSession
+//
+// # JsErrorCountPerSession
+//
+// # Http4xxCountPerSession
+//
+// # Http5xxCountPerSession
+//
+// # JsErrorCountPerPageView
+//
+// # Http4xxCountPerPageView
+//
+// # Http5xxCountPerPageView
+//
+// # TimeOnPage
+//
+// # ColdLaunchTime
+//
+// # WarmLaunchTime
+//
+// # CrashCount
+//
+// # ANRCount
+//
+// # AppHangCount
+//
+// # ScreenLoadCount
+//
+// # ScreenLoadTime
+//
+// # NetworkLatency
+//
+// # SpanPayloadSize
+//
+// LogEventPayloadSize
 func (o AppMonitorMetricDefinitionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AppMonitorMetricDefinition) string { return v.Name }).(pulumi.StringOutput)
 }

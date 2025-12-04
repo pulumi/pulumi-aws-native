@@ -83,6 +83,7 @@ export type FirewallRuleGroupFirewallRuleConfidenceThreshold = (typeof FirewallR
 export const FirewallRuleGroupFirewallRuleDnsThreatProtection = {
     Dga: "DGA",
     DnsTunneling: "DNS_TUNNELING",
+    DictionaryDga: "DICTIONARY_DGA",
 } as const;
 
 /**

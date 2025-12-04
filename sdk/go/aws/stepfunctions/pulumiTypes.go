@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type ActivityEncryptionConfiguration struct {
 	// Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
 	KmsDataKeyReusePeriodSeconds *int `pulumi:"kmsDataKeyReusePeriodSeconds"`
-	// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+	// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS  key to encrypt data. To specify a AWS  key in a different AWS account, you must use the key ARN or alias ARN.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Encryption option for an activity.
 	Type ActivityEncryptionConfigurationType `pulumi:"type"`
@@ -36,7 +36,7 @@ type ActivityEncryptionConfigurationInput interface {
 type ActivityEncryptionConfigurationArgs struct {
 	// Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
 	KmsDataKeyReusePeriodSeconds pulumi.IntPtrInput `pulumi:"kmsDataKeyReusePeriodSeconds"`
-	// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+	// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS  key to encrypt data. To specify a AWS  key in a different AWS account, you must use the key ARN or alias ARN.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Encryption option for an activity.
 	Type ActivityEncryptionConfigurationTypeInput `pulumi:"type"`
@@ -124,7 +124,7 @@ func (o ActivityEncryptionConfigurationOutput) KmsDataKeyReusePeriodSeconds() pu
 	return o.ApplyT(func(v ActivityEncryptionConfiguration) *int { return v.KmsDataKeyReusePeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
-// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS  key to encrypt data. To specify a AWS  key in a different AWS account, you must use the key ARN or alias ARN.
 func (o ActivityEncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActivityEncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -168,7 +168,7 @@ func (o ActivityEncryptionConfigurationPtrOutput) KmsDataKeyReusePeriodSeconds()
 	}).(pulumi.IntPtrOutput)
 }
 
-// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS  key to encrypt data. To specify a AWS  key in a different AWS account, you must use the key ARN or alias ARN.
 func (o ActivityEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ActivityEncryptionConfiguration) *string {
 		if v == nil {
@@ -783,7 +783,7 @@ func (o StateMachineDefinitionPtrOutput) Elem() StateMachineDefinitionOutput {
 type StateMachineEncryptionConfiguration struct {
 	// Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
 	KmsDataKeyReusePeriodSeconds *int `pulumi:"kmsDataKeyReusePeriodSeconds"`
-	// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+	// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS  key to encrypt data. To specify a AWS  key in a different AWS account, you must use the key ARN or alias ARN.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Encryption option for a state machine.
 	Type StateMachineEncryptionConfigurationType `pulumi:"type"`
@@ -803,7 +803,7 @@ type StateMachineEncryptionConfigurationInput interface {
 type StateMachineEncryptionConfigurationArgs struct {
 	// Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey` . Only applies to customer managed keys.
 	KmsDataKeyReusePeriodSeconds pulumi.IntPtrInput `pulumi:"kmsDataKeyReusePeriodSeconds"`
-	// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+	// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS  key to encrypt data. To specify a AWS  key in a different AWS account, you must use the key ARN or alias ARN.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Encryption option for a state machine.
 	Type StateMachineEncryptionConfigurationTypeInput `pulumi:"type"`
@@ -891,7 +891,7 @@ func (o StateMachineEncryptionConfigurationOutput) KmsDataKeyReusePeriodSeconds(
 	return o.ApplyT(func(v StateMachineEncryptionConfiguration) *int { return v.KmsDataKeyReusePeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
-// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS  key to encrypt data. To specify a AWS  key in a different AWS account, you must use the key ARN or alias ARN.
 func (o StateMachineEncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StateMachineEncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -935,7 +935,7 @@ func (o StateMachineEncryptionConfigurationPtrOutput) KmsDataKeyReusePeriodSecon
 	}).(pulumi.IntPtrOutput)
 }
 
-// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS  key to encrypt data. To specify a AWS  key in a different AWS account, you must use the key ARN or alias ARN.
 func (o StateMachineEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineEncryptionConfiguration) *string {
 		if v == nil {
@@ -956,7 +956,7 @@ func (o StateMachineEncryptionConfigurationPtrOutput) Type() StateMachineEncrypt
 }
 
 type StateMachineLogDestination struct {
-	// An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the AWS CloudFormation User Guide.
+	// An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the CloudFormation User Guide.
 	CloudWatchLogsLogGroup *StateMachineCloudWatchLogsLogGroup `pulumi:"cloudWatchLogsLogGroup"`
 }
 
@@ -972,7 +972,7 @@ type StateMachineLogDestinationInput interface {
 }
 
 type StateMachineLogDestinationArgs struct {
-	// An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the AWS CloudFormation User Guide.
+	// An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the CloudFormation User Guide.
 	CloudWatchLogsLogGroup StateMachineCloudWatchLogsLogGroupPtrInput `pulumi:"cloudWatchLogsLogGroup"`
 }
 
@@ -1027,7 +1027,7 @@ func (o StateMachineLogDestinationOutput) ToStateMachineLogDestinationOutputWith
 	return o
 }
 
-// An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the AWS CloudFormation User Guide.
+// An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the CloudFormation User Guide.
 func (o StateMachineLogDestinationOutput) CloudWatchLogsLogGroup() StateMachineCloudWatchLogsLogGroupPtrOutput {
 	return o.ApplyT(func(v StateMachineLogDestination) *StateMachineCloudWatchLogsLogGroup {
 		return v.CloudWatchLogsLogGroup

@@ -74,6 +74,15 @@ export const EventDataStoreMaxEventSize = {
  */
 export type EventDataStoreMaxEventSize = (typeof EventDataStoreMaxEventSize)[keyof typeof EventDataStoreMaxEventSize];
 
+export const TrailAggregationConfigurationEventCategory = {
+    Data: "Data",
+} as const;
+
+/**
+ * The category of events to be aggregated.
+ */
+export type TrailAggregationConfigurationEventCategory = (typeof TrailAggregationConfigurationEventCategory)[keyof typeof TrailAggregationConfigurationEventCategory];
+
 export const TrailEventSelectorReadWriteType = {
     All: "All",
     ReadOnly: "ReadOnly",
@@ -84,3 +93,24 @@ export const TrailEventSelectorReadWriteType = {
  * Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
  */
 export type TrailEventSelectorReadWriteType = (typeof TrailEventSelectorReadWriteType)[keyof typeof TrailEventSelectorReadWriteType];
+
+export const TrailSourceEventCategory = {
+    Management: "Management",
+    Data: "Data",
+} as const;
+
+/**
+ * Event category for an insight selector.
+ */
+export type TrailSourceEventCategory = (typeof TrailSourceEventCategory)[keyof typeof TrailSourceEventCategory];
+
+export const TrailTemplate = {
+    ApiActivity: "API_ACTIVITY",
+    ResourceAccess: "RESOURCE_ACCESS",
+    UserActions: "USER_ACTIONS",
+} as const;
+
+/**
+ * A template used to configure aggregation rules.
+ */
+export type TrailTemplate = (typeof TrailTemplate)[keyof typeof TrailTemplate];

@@ -335,6 +335,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("capacityProviderConfig")]
+        public Output<Outputs.FunctionCapacityProviderConfig?> CapacityProviderConfig { get; private set; } = null!;
+
         /// <summary>
         /// The code for the function. You can define your function code in multiple ways:
         ///   +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
@@ -388,6 +391,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("functionName")]
         public Output<string?> FunctionName { get; private set; } = null!;
 
+        [Output("functionScalingConfig")]
+        public Output<Outputs.FunctionScalingConfig?> FunctionScalingConfig { get; private set; } = null!;
+
         /// <summary>
         /// The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
         /// </summary>
@@ -435,6 +441,9 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         [Output("packageType")]
         public Output<Pulumi.AwsNative.Lambda.FunctionPackageType?> PackageType { get; private set; } = null!;
+
+        [Output("publishToLatestPublished")]
+        public Output<bool?> PublishToLatestPublished { get; private set; } = null!;
 
         /// <summary>
         /// The status of your function's recursive loop detection configuration.
@@ -487,6 +496,12 @@ namespace Pulumi.AwsNative.Lambda
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.
+        /// </summary>
+        [Output("tenancyConfig")]
+        public Output<Outputs.FunctionTenancyConfig?> TenancyConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
         /// </summary>
         [Output("timeout")]
@@ -531,6 +546,7 @@ namespace Pulumi.AwsNative.Lambda
                 {
                     "functionName",
                     "packageType",
+                    "tenancyConfig",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -565,6 +581,9 @@ namespace Pulumi.AwsNative.Lambda
             get => _architectures ?? (_architectures = new InputList<Pulumi.AwsNative.Lambda.FunctionArchitecturesItem>());
             set => _architectures = value;
         }
+
+        [Input("capacityProviderConfig")]
+        public Input<Inputs.FunctionCapacityProviderConfigArgs>? CapacityProviderConfig { get; set; }
 
         /// <summary>
         /// The code for the function. You can define your function code in multiple ways:
@@ -625,6 +644,9 @@ namespace Pulumi.AwsNative.Lambda
         [Input("functionName")]
         public Input<string>? FunctionName { get; set; }
 
+        [Input("functionScalingConfig")]
+        public Input<Inputs.FunctionScalingConfigArgs>? FunctionScalingConfig { get; set; }
+
         /// <summary>
         /// The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
         /// </summary>
@@ -679,6 +701,9 @@ namespace Pulumi.AwsNative.Lambda
         [Input("packageType")]
         public Input<Pulumi.AwsNative.Lambda.FunctionPackageType>? PackageType { get; set; }
 
+        [Input("publishToLatestPublished")]
+        public Input<bool>? PublishToLatestPublished { get; set; }
+
         /// <summary>
         /// The status of your function's recursive loop detection configuration.
         ///  When this value is set to ``Allow``and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
@@ -731,6 +756,12 @@ namespace Pulumi.AwsNative.Lambda
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.
+        /// </summary>
+        [Input("tenancyConfig")]
+        public Input<Inputs.FunctionTenancyConfigArgs>? TenancyConfig { get; set; }
 
         /// <summary>
         /// The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).

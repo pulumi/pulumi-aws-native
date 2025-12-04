@@ -96,7 +96,7 @@ type Activity struct {
 	//
 	// Activity configuration is immutable, and resource names must be unique. To set customer managed keys for encryption, you must create a *new Activity* . If you attempt to change the configuration in your CFN template for an existing activity, you will receive an `ActivityAlreadyExists` exception.
 	//
-	// To update your activity to include customer managed keys, set a new activity name within your AWS CloudFormation template.
+	// To update your activity to include customer managed keys, set a new activity name within your CloudFormation template.
 	EncryptionConfiguration ActivityEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// The name of the activity.
 	//
@@ -167,7 +167,7 @@ type activityArgs struct {
 	//
 	// Activity configuration is immutable, and resource names must be unique. To set customer managed keys for encryption, you must create a *new Activity* . If you attempt to change the configuration in your CFN template for an existing activity, you will receive an `ActivityAlreadyExists` exception.
 	//
-	// To update your activity to include customer managed keys, set a new activity name within your AWS CloudFormation template.
+	// To update your activity to include customer managed keys, set a new activity name within your CloudFormation template.
 	EncryptionConfiguration *ActivityEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The name of the activity.
 	//
@@ -195,7 +195,7 @@ type ActivityArgs struct {
 	//
 	// Activity configuration is immutable, and resource names must be unique. To set customer managed keys for encryption, you must create a *new Activity* . If you attempt to change the configuration in your CFN template for an existing activity, you will receive an `ActivityAlreadyExists` exception.
 	//
-	// To update your activity to include customer managed keys, set a new activity name within your AWS CloudFormation template.
+	// To update your activity to include customer managed keys, set a new activity name within your CloudFormation template.
 	EncryptionConfiguration ActivityEncryptionConfigurationPtrInput
 	// The name of the activity.
 	//
@@ -263,7 +263,7 @@ func (o ActivityOutput) Arn() pulumi.StringOutput {
 //
 // Activity configuration is immutable, and resource names must be unique. To set customer managed keys for encryption, you must create a *new Activity* . If you attempt to change the configuration in your CFN template for an existing activity, you will receive an `ActivityAlreadyExists` exception.
 //
-// To update your activity to include customer managed keys, set a new activity name within your AWS CloudFormation template.
+// To update your activity to include customer managed keys, set a new activity name within your CloudFormation template.
 func (o ActivityOutput) EncryptionConfiguration() ActivityEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *Activity) ActivityEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(ActivityEncryptionConfigurationPtrOutput)
 }

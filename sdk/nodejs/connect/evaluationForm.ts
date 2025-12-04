@@ -37,6 +37,9 @@ export class EvaluationForm extends pulumi.CustomResource {
         return obj['__pulumiType'] === EvaluationForm.__pulumiType;
     }
 
+    /**
+     * The automatic evaluation configuration of an evaluation form.
+     */
     declare public readonly autoEvaluationConfiguration: pulumi.Output<outputs.connect.EvaluationFormAutoEvaluationConfiguration | undefined>;
     /**
      * The description of the evaluation form.
@@ -57,6 +60,7 @@ export class EvaluationForm extends pulumi.CustomResource {
      *  *Maximum size*: 100
      */
     declare public readonly items: pulumi.Output<outputs.connect.EvaluationFormBaseItem[]>;
+    declare public readonly languageConfiguration: pulumi.Output<outputs.connect.EvaluationFormLanguageConfiguration | undefined>;
     /**
      * A scoring strategy of the evaluation form.
      */
@@ -70,6 +74,7 @@ export class EvaluationForm extends pulumi.CustomResource {
      * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly targetConfiguration: pulumi.Output<outputs.connect.EvaluationFormTargetConfiguration | undefined>;
     /**
      * A title of the evaluation form.
      */
@@ -102,9 +107,11 @@ export class EvaluationForm extends pulumi.CustomResource {
             resourceInputs["description"] = args?.description;
             resourceInputs["instanceArn"] = args?.instanceArn;
             resourceInputs["items"] = args?.items;
+            resourceInputs["languageConfiguration"] = args?.languageConfiguration;
             resourceInputs["scoringStrategy"] = args?.scoringStrategy;
             resourceInputs["status"] = args?.status;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetConfiguration"] = args?.targetConfiguration;
             resourceInputs["title"] = args?.title;
             resourceInputs["evaluationFormArn"] = undefined /*out*/;
         } else {
@@ -113,9 +120,11 @@ export class EvaluationForm extends pulumi.CustomResource {
             resourceInputs["evaluationFormArn"] = undefined /*out*/;
             resourceInputs["instanceArn"] = undefined /*out*/;
             resourceInputs["items"] = undefined /*out*/;
+            resourceInputs["languageConfiguration"] = undefined /*out*/;
             resourceInputs["scoringStrategy"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetConfiguration"] = undefined /*out*/;
             resourceInputs["title"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -127,6 +136,9 @@ export class EvaluationForm extends pulumi.CustomResource {
  * The set of arguments for constructing a EvaluationForm resource.
  */
 export interface EvaluationFormArgs {
+    /**
+     * The automatic evaluation configuration of an evaluation form.
+     */
     autoEvaluationConfiguration?: pulumi.Input<inputs.connect.EvaluationFormAutoEvaluationConfigurationArgs>;
     /**
      * The description of the evaluation form.
@@ -143,6 +155,7 @@ export interface EvaluationFormArgs {
      *  *Maximum size*: 100
      */
     items: pulumi.Input<pulumi.Input<inputs.connect.EvaluationFormBaseItemArgs>[]>;
+    languageConfiguration?: pulumi.Input<inputs.connect.EvaluationFormLanguageConfigurationArgs>;
     /**
      * A scoring strategy of the evaluation form.
      */
@@ -156,6 +169,7 @@ export interface EvaluationFormArgs {
      * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    targetConfiguration?: pulumi.Input<inputs.connect.EvaluationFormTargetConfigurationArgs>;
     /**
      * A title of the evaluation form.
      */

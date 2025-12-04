@@ -12,20 +12,33 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetAppendOperationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Alias for this operation.
+        /// </summary>
         [Input("alias", required: true)]
         public Input<string> Alias { get; set; } = null!;
 
         [Input("appendedColumns", required: true)]
         private InputList<Inputs.DataSetAppendedColumnArgs>? _appendedColumns;
+
+        /// <summary>
+        /// The list of columns to include in the appended result, mapping columns from both sources.
+        /// </summary>
         public InputList<Inputs.DataSetAppendedColumnArgs> AppendedColumns
         {
             get => _appendedColumns ?? (_appendedColumns = new InputList<Inputs.DataSetAppendedColumnArgs>());
             set => _appendedColumns = value;
         }
 
+        /// <summary>
+        /// The first data source to be included in the append operation.
+        /// </summary>
         [Input("firstSource")]
         public Input<Inputs.DataSetTransformOperationSourceArgs>? FirstSource { get; set; }
 
+        /// <summary>
+        /// The second data source to be appended to the first source.
+        /// </summary>
         [Input("secondSource")]
         public Input<Inputs.DataSetTransformOperationSourceArgs>? SecondSource { get; set; }
 

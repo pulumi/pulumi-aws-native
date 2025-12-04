@@ -166,6 +166,29 @@ export const ClusterCapacityProviderAssociationsCapacityProvider0 = {
  */
 export type ClusterCapacityProviderAssociationsCapacityProvider0 = (typeof ClusterCapacityProviderAssociationsCapacityProvider0)[keyof typeof ClusterCapacityProviderAssociationsCapacityProvider0];
 
+export const ExpressGatewayServiceAccessType = {
+    Public: "PUBLIC",
+    Private: "PRIVATE",
+} as const;
+
+export type ExpressGatewayServiceAccessType = (typeof ExpressGatewayServiceAccessType)[keyof typeof ExpressGatewayServiceAccessType];
+
+export const ExpressGatewayServiceScalingMetric = {
+    AverageCpu: "AVERAGE_CPU",
+    AverageMemory: "AVERAGE_MEMORY",
+    RequestCountPerTarget: "REQUEST_COUNT_PER_TARGET",
+} as const;
+
+export type ExpressGatewayServiceScalingMetric = (typeof ExpressGatewayServiceScalingMetric)[keyof typeof ExpressGatewayServiceScalingMetric];
+
+export const ExpressGatewayServiceStatusCode = {
+    Active: "ACTIVE",
+    Draining: "DRAINING",
+    Inactive: "INACTIVE",
+} as const;
+
+export type ExpressGatewayServiceStatusCode = (typeof ExpressGatewayServiceStatusCode)[keyof typeof ExpressGatewayServiceStatusCode];
+
 export const ServiceAvailabilityZoneRebalancing = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",
@@ -210,8 +233,7 @@ export const ServiceConnectAccessLogConfigurationIncludeQueryParameters = {
 
 /**
  * Specifies whether to include query parameters in Service Connect access logs.
- *
- * When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is `DISABLED` .
+ *  When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is ``DISABLED``.
  */
 export type ServiceConnectAccessLogConfigurationIncludeQueryParameters = (typeof ServiceConnectAccessLogConfigurationIncludeQueryParameters)[keyof typeof ServiceConnectAccessLogConfigurationIncludeQueryParameters];
 

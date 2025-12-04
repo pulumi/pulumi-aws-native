@@ -58,7 +58,7 @@ export class InvestigationGroup extends pulumi.CustomResource {
      */
     declare public readonly crossAccountConfigurations: pulumi.Output<outputs.aiops.InvestigationGroupCrossAccountConfiguration[] | undefined>;
     /**
-     * Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+     * Specifies the customer managed AWS  key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
      */
     declare public readonly encryptionConfig: pulumi.Output<outputs.aiops.InvestigationGroupEncryptionConfigMap | undefined>;
     /**
@@ -161,7 +161,7 @@ export interface InvestigationGroupArgs {
      */
     crossAccountConfigurations?: pulumi.Input<pulumi.Input<inputs.aiops.InvestigationGroupCrossAccountConfigurationArgs>[]>;
     /**
-     * Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+     * Specifies the customer managed AWS  key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
      */
     encryptionConfig?: pulumi.Input<inputs.aiops.InvestigationGroupEncryptionConfigMapArgs>;
     /**

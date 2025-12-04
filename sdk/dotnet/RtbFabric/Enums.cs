@@ -8,6 +8,103 @@ using Pulumi;
 namespace Pulumi.AwsNative.RtbFabric
 {
     [EnumType]
+    public readonly struct InboundExternalLinkLinkStatus : IEquatable<InboundExternalLinkLinkStatus>
+    {
+        private readonly string _value;
+
+        private InboundExternalLinkLinkStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InboundExternalLinkLinkStatus PendingCreation { get; } = new InboundExternalLinkLinkStatus("PENDING_CREATION");
+        public static InboundExternalLinkLinkStatus PendingRequest { get; } = new InboundExternalLinkLinkStatus("PENDING_REQUEST");
+        public static InboundExternalLinkLinkStatus Requested { get; } = new InboundExternalLinkLinkStatus("REQUESTED");
+        public static InboundExternalLinkLinkStatus Accepted { get; } = new InboundExternalLinkLinkStatus("ACCEPTED");
+        public static InboundExternalLinkLinkStatus Active { get; } = new InboundExternalLinkLinkStatus("ACTIVE");
+        public static InboundExternalLinkLinkStatus Rejected { get; } = new InboundExternalLinkLinkStatus("REJECTED");
+        public static InboundExternalLinkLinkStatus Failed { get; } = new InboundExternalLinkLinkStatus("FAILED");
+        public static InboundExternalLinkLinkStatus PendingDeletion { get; } = new InboundExternalLinkLinkStatus("PENDING_DELETION");
+        public static InboundExternalLinkLinkStatus Deleted { get; } = new InboundExternalLinkLinkStatus("DELETED");
+        public static InboundExternalLinkLinkStatus PendingUpdate { get; } = new InboundExternalLinkLinkStatus("PENDING_UPDATE");
+        public static InboundExternalLinkLinkStatus PendingIsolation { get; } = new InboundExternalLinkLinkStatus("PENDING_ISOLATION");
+        public static InboundExternalLinkLinkStatus Isolated { get; } = new InboundExternalLinkLinkStatus("ISOLATED");
+        public static InboundExternalLinkLinkStatus PendingRestoration { get; } = new InboundExternalLinkLinkStatus("PENDING_RESTORATION");
+        public static InboundExternalLinkLinkStatus UnknownToSdkVersion { get; } = new InboundExternalLinkLinkStatus("UNKNOWN_TO_SDK_VERSION");
+
+        public static bool operator ==(InboundExternalLinkLinkStatus left, InboundExternalLinkLinkStatus right) => left.Equals(right);
+        public static bool operator !=(InboundExternalLinkLinkStatus left, InboundExternalLinkLinkStatus right) => !left.Equals(right);
+
+        public static explicit operator string(InboundExternalLinkLinkStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InboundExternalLinkLinkStatus other && Equals(other);
+        public bool Equals(InboundExternalLinkLinkStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct InboundExternalLinkResponderErrorMaskingForHttpCodeAction : IEquatable<InboundExternalLinkResponderErrorMaskingForHttpCodeAction>
+    {
+        private readonly string _value;
+
+        private InboundExternalLinkResponderErrorMaskingForHttpCodeAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InboundExternalLinkResponderErrorMaskingForHttpCodeAction NoBid { get; } = new InboundExternalLinkResponderErrorMaskingForHttpCodeAction("NO_BID");
+        public static InboundExternalLinkResponderErrorMaskingForHttpCodeAction Passthrough { get; } = new InboundExternalLinkResponderErrorMaskingForHttpCodeAction("PASSTHROUGH");
+
+        public static bool operator ==(InboundExternalLinkResponderErrorMaskingForHttpCodeAction left, InboundExternalLinkResponderErrorMaskingForHttpCodeAction right) => left.Equals(right);
+        public static bool operator !=(InboundExternalLinkResponderErrorMaskingForHttpCodeAction left, InboundExternalLinkResponderErrorMaskingForHttpCodeAction right) => !left.Equals(right);
+
+        public static explicit operator string(InboundExternalLinkResponderErrorMaskingForHttpCodeAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InboundExternalLinkResponderErrorMaskingForHttpCodeAction other && Equals(other);
+        public bool Equals(InboundExternalLinkResponderErrorMaskingForHttpCodeAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct InboundExternalLinkResponderErrorMaskingLoggingType : IEquatable<InboundExternalLinkResponderErrorMaskingLoggingType>
+    {
+        private readonly string _value;
+
+        private InboundExternalLinkResponderErrorMaskingLoggingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InboundExternalLinkResponderErrorMaskingLoggingType None { get; } = new InboundExternalLinkResponderErrorMaskingLoggingType("NONE");
+        public static InboundExternalLinkResponderErrorMaskingLoggingType Metric { get; } = new InboundExternalLinkResponderErrorMaskingLoggingType("METRIC");
+        public static InboundExternalLinkResponderErrorMaskingLoggingType Response { get; } = new InboundExternalLinkResponderErrorMaskingLoggingType("RESPONSE");
+
+        public static bool operator ==(InboundExternalLinkResponderErrorMaskingLoggingType left, InboundExternalLinkResponderErrorMaskingLoggingType right) => left.Equals(right);
+        public static bool operator !=(InboundExternalLinkResponderErrorMaskingLoggingType left, InboundExternalLinkResponderErrorMaskingLoggingType right) => !left.Equals(right);
+
+        public static explicit operator string(InboundExternalLinkResponderErrorMaskingLoggingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InboundExternalLinkResponderErrorMaskingLoggingType other && Equals(other);
+        public bool Equals(InboundExternalLinkResponderErrorMaskingLoggingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct LinkDirection : IEquatable<LinkDirection>
     {
         private readonly string _value;
@@ -110,7 +207,7 @@ namespace Pulumi.AwsNative.RtbFabric
         public static LinkStatus Requested { get; } = new LinkStatus("REQUESTED");
         public static LinkStatus Accepted { get; } = new LinkStatus("ACCEPTED");
         public static LinkStatus Active { get; } = new LinkStatus("ACTIVE");
-        public static LinkStatus Declined { get; } = new LinkStatus("DECLINED");
+        public static LinkStatus Rejected { get; } = new LinkStatus("REJECTED");
         public static LinkStatus Failed { get; } = new LinkStatus("FAILED");
         public static LinkStatus PendingDeletion { get; } = new LinkStatus("PENDING_DELETION");
         public static LinkStatus Deleted { get; } = new LinkStatus("DELETED");
@@ -128,6 +225,103 @@ namespace Pulumi.AwsNative.RtbFabric
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is LinkStatus other && Equals(other);
         public bool Equals(LinkStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OutboundExternalLinkLinkStatus : IEquatable<OutboundExternalLinkLinkStatus>
+    {
+        private readonly string _value;
+
+        private OutboundExternalLinkLinkStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OutboundExternalLinkLinkStatus PendingCreation { get; } = new OutboundExternalLinkLinkStatus("PENDING_CREATION");
+        public static OutboundExternalLinkLinkStatus PendingRequest { get; } = new OutboundExternalLinkLinkStatus("PENDING_REQUEST");
+        public static OutboundExternalLinkLinkStatus Requested { get; } = new OutboundExternalLinkLinkStatus("REQUESTED");
+        public static OutboundExternalLinkLinkStatus Accepted { get; } = new OutboundExternalLinkLinkStatus("ACCEPTED");
+        public static OutboundExternalLinkLinkStatus Active { get; } = new OutboundExternalLinkLinkStatus("ACTIVE");
+        public static OutboundExternalLinkLinkStatus Rejected { get; } = new OutboundExternalLinkLinkStatus("REJECTED");
+        public static OutboundExternalLinkLinkStatus Failed { get; } = new OutboundExternalLinkLinkStatus("FAILED");
+        public static OutboundExternalLinkLinkStatus PendingDeletion { get; } = new OutboundExternalLinkLinkStatus("PENDING_DELETION");
+        public static OutboundExternalLinkLinkStatus Deleted { get; } = new OutboundExternalLinkLinkStatus("DELETED");
+        public static OutboundExternalLinkLinkStatus PendingUpdate { get; } = new OutboundExternalLinkLinkStatus("PENDING_UPDATE");
+        public static OutboundExternalLinkLinkStatus PendingIsolation { get; } = new OutboundExternalLinkLinkStatus("PENDING_ISOLATION");
+        public static OutboundExternalLinkLinkStatus Isolated { get; } = new OutboundExternalLinkLinkStatus("ISOLATED");
+        public static OutboundExternalLinkLinkStatus PendingRestoration { get; } = new OutboundExternalLinkLinkStatus("PENDING_RESTORATION");
+        public static OutboundExternalLinkLinkStatus UnknownToSdkVersion { get; } = new OutboundExternalLinkLinkStatus("UNKNOWN_TO_SDK_VERSION");
+
+        public static bool operator ==(OutboundExternalLinkLinkStatus left, OutboundExternalLinkLinkStatus right) => left.Equals(right);
+        public static bool operator !=(OutboundExternalLinkLinkStatus left, OutboundExternalLinkLinkStatus right) => !left.Equals(right);
+
+        public static explicit operator string(OutboundExternalLinkLinkStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OutboundExternalLinkLinkStatus other && Equals(other);
+        public bool Equals(OutboundExternalLinkLinkStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OutboundExternalLinkResponderErrorMaskingForHttpCodeAction : IEquatable<OutboundExternalLinkResponderErrorMaskingForHttpCodeAction>
+    {
+        private readonly string _value;
+
+        private OutboundExternalLinkResponderErrorMaskingForHttpCodeAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OutboundExternalLinkResponderErrorMaskingForHttpCodeAction NoBid { get; } = new OutboundExternalLinkResponderErrorMaskingForHttpCodeAction("NO_BID");
+        public static OutboundExternalLinkResponderErrorMaskingForHttpCodeAction Passthrough { get; } = new OutboundExternalLinkResponderErrorMaskingForHttpCodeAction("PASSTHROUGH");
+
+        public static bool operator ==(OutboundExternalLinkResponderErrorMaskingForHttpCodeAction left, OutboundExternalLinkResponderErrorMaskingForHttpCodeAction right) => left.Equals(right);
+        public static bool operator !=(OutboundExternalLinkResponderErrorMaskingForHttpCodeAction left, OutboundExternalLinkResponderErrorMaskingForHttpCodeAction right) => !left.Equals(right);
+
+        public static explicit operator string(OutboundExternalLinkResponderErrorMaskingForHttpCodeAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OutboundExternalLinkResponderErrorMaskingForHttpCodeAction other && Equals(other);
+        public bool Equals(OutboundExternalLinkResponderErrorMaskingForHttpCodeAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct OutboundExternalLinkResponderErrorMaskingLoggingType : IEquatable<OutboundExternalLinkResponderErrorMaskingLoggingType>
+    {
+        private readonly string _value;
+
+        private OutboundExternalLinkResponderErrorMaskingLoggingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OutboundExternalLinkResponderErrorMaskingLoggingType None { get; } = new OutboundExternalLinkResponderErrorMaskingLoggingType("NONE");
+        public static OutboundExternalLinkResponderErrorMaskingLoggingType Metric { get; } = new OutboundExternalLinkResponderErrorMaskingLoggingType("METRIC");
+        public static OutboundExternalLinkResponderErrorMaskingLoggingType Response { get; } = new OutboundExternalLinkResponderErrorMaskingLoggingType("RESPONSE");
+
+        public static bool operator ==(OutboundExternalLinkResponderErrorMaskingLoggingType left, OutboundExternalLinkResponderErrorMaskingLoggingType right) => left.Equals(right);
+        public static bool operator !=(OutboundExternalLinkResponderErrorMaskingLoggingType left, OutboundExternalLinkResponderErrorMaskingLoggingType right) => !left.Equals(right);
+
+        public static explicit operator string(OutboundExternalLinkResponderErrorMaskingLoggingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OutboundExternalLinkResponderErrorMaskingLoggingType other && Equals(other);
+        public bool Equals(OutboundExternalLinkResponderErrorMaskingLoggingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -1495,6 +1495,157 @@ func (o ClusterAutoScalingConfigPtrOutput) Mode() ClusterAutoScalingConfigModePt
 	}).(ClusterAutoScalingConfigModePtrOutput)
 }
 
+// Specifies the capacity requirements configuration for an instance group
+type ClusterCapacityRequirements struct {
+	OnDemand *ClusterOnDemandOptions `pulumi:"onDemand"`
+	Spot     *ClusterSpotOptions     `pulumi:"spot"`
+}
+
+// ClusterCapacityRequirementsInput is an input type that accepts ClusterCapacityRequirementsArgs and ClusterCapacityRequirementsOutput values.
+// You can construct a concrete instance of `ClusterCapacityRequirementsInput` via:
+//
+//	ClusterCapacityRequirementsArgs{...}
+type ClusterCapacityRequirementsInput interface {
+	pulumi.Input
+
+	ToClusterCapacityRequirementsOutput() ClusterCapacityRequirementsOutput
+	ToClusterCapacityRequirementsOutputWithContext(context.Context) ClusterCapacityRequirementsOutput
+}
+
+// Specifies the capacity requirements configuration for an instance group
+type ClusterCapacityRequirementsArgs struct {
+	OnDemand ClusterOnDemandOptionsPtrInput `pulumi:"onDemand"`
+	Spot     ClusterSpotOptionsPtrInput     `pulumi:"spot"`
+}
+
+func (ClusterCapacityRequirementsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCapacityRequirements)(nil)).Elem()
+}
+
+func (i ClusterCapacityRequirementsArgs) ToClusterCapacityRequirementsOutput() ClusterCapacityRequirementsOutput {
+	return i.ToClusterCapacityRequirementsOutputWithContext(context.Background())
+}
+
+func (i ClusterCapacityRequirementsArgs) ToClusterCapacityRequirementsOutputWithContext(ctx context.Context) ClusterCapacityRequirementsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCapacityRequirementsOutput)
+}
+
+func (i ClusterCapacityRequirementsArgs) ToClusterCapacityRequirementsPtrOutput() ClusterCapacityRequirementsPtrOutput {
+	return i.ToClusterCapacityRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterCapacityRequirementsArgs) ToClusterCapacityRequirementsPtrOutputWithContext(ctx context.Context) ClusterCapacityRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCapacityRequirementsOutput).ToClusterCapacityRequirementsPtrOutputWithContext(ctx)
+}
+
+// ClusterCapacityRequirementsPtrInput is an input type that accepts ClusterCapacityRequirementsArgs, ClusterCapacityRequirementsPtr and ClusterCapacityRequirementsPtrOutput values.
+// You can construct a concrete instance of `ClusterCapacityRequirementsPtrInput` via:
+//
+//	        ClusterCapacityRequirementsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterCapacityRequirementsPtrInput interface {
+	pulumi.Input
+
+	ToClusterCapacityRequirementsPtrOutput() ClusterCapacityRequirementsPtrOutput
+	ToClusterCapacityRequirementsPtrOutputWithContext(context.Context) ClusterCapacityRequirementsPtrOutput
+}
+
+type clusterCapacityRequirementsPtrType ClusterCapacityRequirementsArgs
+
+func ClusterCapacityRequirementsPtr(v *ClusterCapacityRequirementsArgs) ClusterCapacityRequirementsPtrInput {
+	return (*clusterCapacityRequirementsPtrType)(v)
+}
+
+func (*clusterCapacityRequirementsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterCapacityRequirements)(nil)).Elem()
+}
+
+func (i *clusterCapacityRequirementsPtrType) ToClusterCapacityRequirementsPtrOutput() ClusterCapacityRequirementsPtrOutput {
+	return i.ToClusterCapacityRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterCapacityRequirementsPtrType) ToClusterCapacityRequirementsPtrOutputWithContext(ctx context.Context) ClusterCapacityRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCapacityRequirementsPtrOutput)
+}
+
+// Specifies the capacity requirements configuration for an instance group
+type ClusterCapacityRequirementsOutput struct{ *pulumi.OutputState }
+
+func (ClusterCapacityRequirementsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCapacityRequirements)(nil)).Elem()
+}
+
+func (o ClusterCapacityRequirementsOutput) ToClusterCapacityRequirementsOutput() ClusterCapacityRequirementsOutput {
+	return o
+}
+
+func (o ClusterCapacityRequirementsOutput) ToClusterCapacityRequirementsOutputWithContext(ctx context.Context) ClusterCapacityRequirementsOutput {
+	return o
+}
+
+func (o ClusterCapacityRequirementsOutput) ToClusterCapacityRequirementsPtrOutput() ClusterCapacityRequirementsPtrOutput {
+	return o.ToClusterCapacityRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterCapacityRequirementsOutput) ToClusterCapacityRequirementsPtrOutputWithContext(ctx context.Context) ClusterCapacityRequirementsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCapacityRequirements) *ClusterCapacityRequirements {
+		return &v
+	}).(ClusterCapacityRequirementsPtrOutput)
+}
+
+func (o ClusterCapacityRequirementsOutput) OnDemand() ClusterOnDemandOptionsPtrOutput {
+	return o.ApplyT(func(v ClusterCapacityRequirements) *ClusterOnDemandOptions { return v.OnDemand }).(ClusterOnDemandOptionsPtrOutput)
+}
+
+func (o ClusterCapacityRequirementsOutput) Spot() ClusterSpotOptionsPtrOutput {
+	return o.ApplyT(func(v ClusterCapacityRequirements) *ClusterSpotOptions { return v.Spot }).(ClusterSpotOptionsPtrOutput)
+}
+
+type ClusterCapacityRequirementsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterCapacityRequirementsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterCapacityRequirements)(nil)).Elem()
+}
+
+func (o ClusterCapacityRequirementsPtrOutput) ToClusterCapacityRequirementsPtrOutput() ClusterCapacityRequirementsPtrOutput {
+	return o
+}
+
+func (o ClusterCapacityRequirementsPtrOutput) ToClusterCapacityRequirementsPtrOutputWithContext(ctx context.Context) ClusterCapacityRequirementsPtrOutput {
+	return o
+}
+
+func (o ClusterCapacityRequirementsPtrOutput) Elem() ClusterCapacityRequirementsOutput {
+	return o.ApplyT(func(v *ClusterCapacityRequirements) ClusterCapacityRequirements {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCapacityRequirements
+		return ret
+	}).(ClusterCapacityRequirementsOutput)
+}
+
+func (o ClusterCapacityRequirementsPtrOutput) OnDemand() ClusterOnDemandOptionsPtrOutput {
+	return o.ApplyT(func(v *ClusterCapacityRequirements) *ClusterOnDemandOptions {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemand
+	}).(ClusterOnDemandOptionsPtrOutput)
+}
+
+func (o ClusterCapacityRequirementsPtrOutput) Spot() ClusterSpotOptionsPtrOutput {
+	return o.ApplyT(func(v *ClusterCapacityRequirements) *ClusterSpotOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Spot
+	}).(ClusterSpotOptionsPtrOutput)
+}
+
 // The configuration of the size measurements of the AMI update. Using this configuration, you can specify whether SageMaker should update your instance group by an amount or percentage of instances.
 type ClusterCapacitySizeConfig struct {
 	// Specifies whether SageMaker should process the update by amount or percentage of instances.
@@ -2037,6 +2188,7 @@ func (o ClusterFSxLustreConfigPtrOutput) SizeInGiB() pulumi.IntPtrOutput {
 
 // Details of an instance group in a SageMaker HyperPod cluster.
 type ClusterInstanceGroup struct {
+	CapacityRequirements *ClusterCapacityRequirements `pulumi:"capacityRequirements"`
 	// The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
 	CurrentCount  *int    `pulumi:"currentCount"`
 	ExecutionRole string  `pulumi:"executionRole"`
@@ -2046,6 +2198,7 @@ type ClusterInstanceGroup struct {
 	InstanceGroupName       string                         `pulumi:"instanceGroupName"`
 	InstanceStorageConfigs  []ClusterInstanceStorageConfig `pulumi:"instanceStorageConfigs"`
 	InstanceType            string                         `pulumi:"instanceType"`
+	KubernetesConfig        *ClusterKubernetesConfig       `pulumi:"kubernetesConfig"`
 	LifeCycleConfig         ClusterLifeCycleConfig         `pulumi:"lifeCycleConfig"`
 	OnStartDeepHealthChecks []ClusterDeepHealthCheckType   `pulumi:"onStartDeepHealthChecks"`
 	OverrideVpcConfig       *ClusterVpcConfig              `pulumi:"overrideVpcConfig"`
@@ -2069,6 +2222,7 @@ type ClusterInstanceGroupInput interface {
 
 // Details of an instance group in a SageMaker HyperPod cluster.
 type ClusterInstanceGroupArgs struct {
+	CapacityRequirements ClusterCapacityRequirementsPtrInput `pulumi:"capacityRequirements"`
 	// The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
 	CurrentCount  pulumi.IntPtrInput    `pulumi:"currentCount"`
 	ExecutionRole pulumi.StringInput    `pulumi:"executionRole"`
@@ -2078,6 +2232,7 @@ type ClusterInstanceGroupArgs struct {
 	InstanceGroupName       pulumi.StringInput                     `pulumi:"instanceGroupName"`
 	InstanceStorageConfigs  ClusterInstanceStorageConfigArrayInput `pulumi:"instanceStorageConfigs"`
 	InstanceType            pulumi.StringInput                     `pulumi:"instanceType"`
+	KubernetesConfig        ClusterKubernetesConfigPtrInput        `pulumi:"kubernetesConfig"`
 	LifeCycleConfig         ClusterLifeCycleConfigInput            `pulumi:"lifeCycleConfig"`
 	OnStartDeepHealthChecks ClusterDeepHealthCheckTypeArrayInput   `pulumi:"onStartDeepHealthChecks"`
 	OverrideVpcConfig       ClusterVpcConfigPtrInput               `pulumi:"overrideVpcConfig"`
@@ -2140,6 +2295,10 @@ func (o ClusterInstanceGroupOutput) ToClusterInstanceGroupOutputWithContext(ctx 
 	return o
 }
 
+func (o ClusterInstanceGroupOutput) CapacityRequirements() ClusterCapacityRequirementsPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) *ClusterCapacityRequirements { return v.CapacityRequirements }).(ClusterCapacityRequirementsPtrOutput)
+}
+
 // The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
 func (o ClusterInstanceGroupOutput) CurrentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterInstanceGroup) *int { return v.CurrentCount }).(pulumi.IntPtrOutput)
@@ -2168,6 +2327,10 @@ func (o ClusterInstanceGroupOutput) InstanceStorageConfigs() ClusterInstanceStor
 
 func (o ClusterInstanceGroupOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterInstanceGroup) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+func (o ClusterInstanceGroupOutput) KubernetesConfig() ClusterKubernetesConfigPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) *ClusterKubernetesConfig { return v.KubernetesConfig }).(ClusterKubernetesConfigPtrOutput)
 }
 
 func (o ClusterInstanceGroupOutput) LifeCycleConfig() ClusterLifeCycleConfigOutput {
@@ -2307,6 +2470,275 @@ func (o ClusterInstanceStorageConfigArrayOutput) Index(i pulumi.IntInput) Cluste
 	}).(ClusterInstanceStorageConfigOutput)
 }
 
+// Kubernetes configuration for cluster nodes including labels and taints.
+type ClusterKubernetesConfig struct {
+	Labels map[string]string        `pulumi:"labels"`
+	Taints []ClusterKubernetesTaint `pulumi:"taints"`
+}
+
+// ClusterKubernetesConfigInput is an input type that accepts ClusterKubernetesConfigArgs and ClusterKubernetesConfigOutput values.
+// You can construct a concrete instance of `ClusterKubernetesConfigInput` via:
+//
+//	ClusterKubernetesConfigArgs{...}
+type ClusterKubernetesConfigInput interface {
+	pulumi.Input
+
+	ToClusterKubernetesConfigOutput() ClusterKubernetesConfigOutput
+	ToClusterKubernetesConfigOutputWithContext(context.Context) ClusterKubernetesConfigOutput
+}
+
+// Kubernetes configuration for cluster nodes including labels and taints.
+type ClusterKubernetesConfigArgs struct {
+	Labels pulumi.StringMapInput            `pulumi:"labels"`
+	Taints ClusterKubernetesTaintArrayInput `pulumi:"taints"`
+}
+
+func (ClusterKubernetesConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubernetesConfig)(nil)).Elem()
+}
+
+func (i ClusterKubernetesConfigArgs) ToClusterKubernetesConfigOutput() ClusterKubernetesConfigOutput {
+	return i.ToClusterKubernetesConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterKubernetesConfigArgs) ToClusterKubernetesConfigOutputWithContext(ctx context.Context) ClusterKubernetesConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubernetesConfigOutput)
+}
+
+func (i ClusterKubernetesConfigArgs) ToClusterKubernetesConfigPtrOutput() ClusterKubernetesConfigPtrOutput {
+	return i.ToClusterKubernetesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterKubernetesConfigArgs) ToClusterKubernetesConfigPtrOutputWithContext(ctx context.Context) ClusterKubernetesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubernetesConfigOutput).ToClusterKubernetesConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterKubernetesConfigPtrInput is an input type that accepts ClusterKubernetesConfigArgs, ClusterKubernetesConfigPtr and ClusterKubernetesConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterKubernetesConfigPtrInput` via:
+//
+//	        ClusterKubernetesConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterKubernetesConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterKubernetesConfigPtrOutput() ClusterKubernetesConfigPtrOutput
+	ToClusterKubernetesConfigPtrOutputWithContext(context.Context) ClusterKubernetesConfigPtrOutput
+}
+
+type clusterKubernetesConfigPtrType ClusterKubernetesConfigArgs
+
+func ClusterKubernetesConfigPtr(v *ClusterKubernetesConfigArgs) ClusterKubernetesConfigPtrInput {
+	return (*clusterKubernetesConfigPtrType)(v)
+}
+
+func (*clusterKubernetesConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubernetesConfig)(nil)).Elem()
+}
+
+func (i *clusterKubernetesConfigPtrType) ToClusterKubernetesConfigPtrOutput() ClusterKubernetesConfigPtrOutput {
+	return i.ToClusterKubernetesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterKubernetesConfigPtrType) ToClusterKubernetesConfigPtrOutputWithContext(ctx context.Context) ClusterKubernetesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubernetesConfigPtrOutput)
+}
+
+// Kubernetes configuration for cluster nodes including labels and taints.
+type ClusterKubernetesConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubernetesConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubernetesConfig)(nil)).Elem()
+}
+
+func (o ClusterKubernetesConfigOutput) ToClusterKubernetesConfigOutput() ClusterKubernetesConfigOutput {
+	return o
+}
+
+func (o ClusterKubernetesConfigOutput) ToClusterKubernetesConfigOutputWithContext(ctx context.Context) ClusterKubernetesConfigOutput {
+	return o
+}
+
+func (o ClusterKubernetesConfigOutput) ToClusterKubernetesConfigPtrOutput() ClusterKubernetesConfigPtrOutput {
+	return o.ToClusterKubernetesConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubernetesConfigOutput) ToClusterKubernetesConfigPtrOutputWithContext(ctx context.Context) ClusterKubernetesConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKubernetesConfig) *ClusterKubernetesConfig {
+		return &v
+	}).(ClusterKubernetesConfigPtrOutput)
+}
+
+func (o ClusterKubernetesConfigOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ClusterKubernetesConfig) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
+}
+
+func (o ClusterKubernetesConfigOutput) Taints() ClusterKubernetesTaintArrayOutput {
+	return o.ApplyT(func(v ClusterKubernetesConfig) []ClusterKubernetesTaint { return v.Taints }).(ClusterKubernetesTaintArrayOutput)
+}
+
+type ClusterKubernetesConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubernetesConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubernetesConfig)(nil)).Elem()
+}
+
+func (o ClusterKubernetesConfigPtrOutput) ToClusterKubernetesConfigPtrOutput() ClusterKubernetesConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubernetesConfigPtrOutput) ToClusterKubernetesConfigPtrOutputWithContext(ctx context.Context) ClusterKubernetesConfigPtrOutput {
+	return o
+}
+
+func (o ClusterKubernetesConfigPtrOutput) Elem() ClusterKubernetesConfigOutput {
+	return o.ApplyT(func(v *ClusterKubernetesConfig) ClusterKubernetesConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterKubernetesConfig
+		return ret
+	}).(ClusterKubernetesConfigOutput)
+}
+
+func (o ClusterKubernetesConfigPtrOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ClusterKubernetesConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Labels
+	}).(pulumi.StringMapOutput)
+}
+
+func (o ClusterKubernetesConfigPtrOutput) Taints() ClusterKubernetesTaintArrayOutput {
+	return o.ApplyT(func(v *ClusterKubernetesConfig) []ClusterKubernetesTaint {
+		if v == nil {
+			return nil
+		}
+		return v.Taints
+	}).(ClusterKubernetesTaintArrayOutput)
+}
+
+// A Kubernetes taint to apply to cluster nodes.
+type ClusterKubernetesTaint struct {
+	// The effect of the taint.
+	Effect ClusterKubernetesTaintEffect `pulumi:"effect"`
+	// The key of the taint.
+	Key string `pulumi:"key"`
+	// The value of the taint.
+	Value *string `pulumi:"value"`
+}
+
+// ClusterKubernetesTaintInput is an input type that accepts ClusterKubernetesTaintArgs and ClusterKubernetesTaintOutput values.
+// You can construct a concrete instance of `ClusterKubernetesTaintInput` via:
+//
+//	ClusterKubernetesTaintArgs{...}
+type ClusterKubernetesTaintInput interface {
+	pulumi.Input
+
+	ToClusterKubernetesTaintOutput() ClusterKubernetesTaintOutput
+	ToClusterKubernetesTaintOutputWithContext(context.Context) ClusterKubernetesTaintOutput
+}
+
+// A Kubernetes taint to apply to cluster nodes.
+type ClusterKubernetesTaintArgs struct {
+	// The effect of the taint.
+	Effect ClusterKubernetesTaintEffectInput `pulumi:"effect"`
+	// The key of the taint.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the taint.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ClusterKubernetesTaintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubernetesTaint)(nil)).Elem()
+}
+
+func (i ClusterKubernetesTaintArgs) ToClusterKubernetesTaintOutput() ClusterKubernetesTaintOutput {
+	return i.ToClusterKubernetesTaintOutputWithContext(context.Background())
+}
+
+func (i ClusterKubernetesTaintArgs) ToClusterKubernetesTaintOutputWithContext(ctx context.Context) ClusterKubernetesTaintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubernetesTaintOutput)
+}
+
+// ClusterKubernetesTaintArrayInput is an input type that accepts ClusterKubernetesTaintArray and ClusterKubernetesTaintArrayOutput values.
+// You can construct a concrete instance of `ClusterKubernetesTaintArrayInput` via:
+//
+//	ClusterKubernetesTaintArray{ ClusterKubernetesTaintArgs{...} }
+type ClusterKubernetesTaintArrayInput interface {
+	pulumi.Input
+
+	ToClusterKubernetesTaintArrayOutput() ClusterKubernetesTaintArrayOutput
+	ToClusterKubernetesTaintArrayOutputWithContext(context.Context) ClusterKubernetesTaintArrayOutput
+}
+
+type ClusterKubernetesTaintArray []ClusterKubernetesTaintInput
+
+func (ClusterKubernetesTaintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterKubernetesTaint)(nil)).Elem()
+}
+
+func (i ClusterKubernetesTaintArray) ToClusterKubernetesTaintArrayOutput() ClusterKubernetesTaintArrayOutput {
+	return i.ToClusterKubernetesTaintArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterKubernetesTaintArray) ToClusterKubernetesTaintArrayOutputWithContext(ctx context.Context) ClusterKubernetesTaintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKubernetesTaintArrayOutput)
+}
+
+// A Kubernetes taint to apply to cluster nodes.
+type ClusterKubernetesTaintOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubernetesTaintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubernetesTaint)(nil)).Elem()
+}
+
+func (o ClusterKubernetesTaintOutput) ToClusterKubernetesTaintOutput() ClusterKubernetesTaintOutput {
+	return o
+}
+
+func (o ClusterKubernetesTaintOutput) ToClusterKubernetesTaintOutputWithContext(ctx context.Context) ClusterKubernetesTaintOutput {
+	return o
+}
+
+// The effect of the taint.
+func (o ClusterKubernetesTaintOutput) Effect() ClusterKubernetesTaintEffectOutput {
+	return o.ApplyT(func(v ClusterKubernetesTaint) ClusterKubernetesTaintEffect { return v.Effect }).(ClusterKubernetesTaintEffectOutput)
+}
+
+// The key of the taint.
+func (o ClusterKubernetesTaintOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterKubernetesTaint) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the taint.
+func (o ClusterKubernetesTaintOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKubernetesTaint) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ClusterKubernetesTaintArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubernetesTaintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterKubernetesTaint)(nil)).Elem()
+}
+
+func (o ClusterKubernetesTaintArrayOutput) ToClusterKubernetesTaintArrayOutput() ClusterKubernetesTaintArrayOutput {
+	return o
+}
+
+func (o ClusterKubernetesTaintArrayOutput) ToClusterKubernetesTaintArrayOutputWithContext(ctx context.Context) ClusterKubernetesTaintArrayOutput {
+	return o
+}
+
+func (o ClusterKubernetesTaintArrayOutput) Index(i pulumi.IntInput) ClusterKubernetesTaintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterKubernetesTaint {
+		return vs[0].([]ClusterKubernetesTaint)[vs[1].(int)]
+	}).(ClusterKubernetesTaintOutput)
+}
+
 // The lifecycle configuration for a SageMaker HyperPod cluster.
 type ClusterLifeCycleConfig struct {
 	// The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation.
@@ -2369,6 +2801,127 @@ func (o ClusterLifeCycleConfigOutput) OnCreate() pulumi.StringOutput {
 // An Amazon S3 bucket path where your lifecycle scripts are stored.
 func (o ClusterLifeCycleConfigOutput) SourceS3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLifeCycleConfig) string { return v.SourceS3Uri }).(pulumi.StringOutput)
+}
+
+// Options for OnDemand capacity
+type ClusterOnDemandOptions struct {
+}
+
+// ClusterOnDemandOptionsInput is an input type that accepts ClusterOnDemandOptionsArgs and ClusterOnDemandOptionsOutput values.
+// You can construct a concrete instance of `ClusterOnDemandOptionsInput` via:
+//
+//	ClusterOnDemandOptionsArgs{...}
+type ClusterOnDemandOptionsInput interface {
+	pulumi.Input
+
+	ToClusterOnDemandOptionsOutput() ClusterOnDemandOptionsOutput
+	ToClusterOnDemandOptionsOutputWithContext(context.Context) ClusterOnDemandOptionsOutput
+}
+
+// Options for OnDemand capacity
+type ClusterOnDemandOptionsArgs struct {
+}
+
+func (ClusterOnDemandOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOnDemandOptions)(nil)).Elem()
+}
+
+func (i ClusterOnDemandOptionsArgs) ToClusterOnDemandOptionsOutput() ClusterOnDemandOptionsOutput {
+	return i.ToClusterOnDemandOptionsOutputWithContext(context.Background())
+}
+
+func (i ClusterOnDemandOptionsArgs) ToClusterOnDemandOptionsOutputWithContext(ctx context.Context) ClusterOnDemandOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOnDemandOptionsOutput)
+}
+
+func (i ClusterOnDemandOptionsArgs) ToClusterOnDemandOptionsPtrOutput() ClusterOnDemandOptionsPtrOutput {
+	return i.ToClusterOnDemandOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterOnDemandOptionsArgs) ToClusterOnDemandOptionsPtrOutputWithContext(ctx context.Context) ClusterOnDemandOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOnDemandOptionsOutput).ToClusterOnDemandOptionsPtrOutputWithContext(ctx)
+}
+
+// ClusterOnDemandOptionsPtrInput is an input type that accepts ClusterOnDemandOptionsArgs, ClusterOnDemandOptionsPtr and ClusterOnDemandOptionsPtrOutput values.
+// You can construct a concrete instance of `ClusterOnDemandOptionsPtrInput` via:
+//
+//	        ClusterOnDemandOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterOnDemandOptionsPtrInput interface {
+	pulumi.Input
+
+	ToClusterOnDemandOptionsPtrOutput() ClusterOnDemandOptionsPtrOutput
+	ToClusterOnDemandOptionsPtrOutputWithContext(context.Context) ClusterOnDemandOptionsPtrOutput
+}
+
+type clusterOnDemandOptionsPtrType ClusterOnDemandOptionsArgs
+
+func ClusterOnDemandOptionsPtr(v *ClusterOnDemandOptionsArgs) ClusterOnDemandOptionsPtrInput {
+	return (*clusterOnDemandOptionsPtrType)(v)
+}
+
+func (*clusterOnDemandOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOnDemandOptions)(nil)).Elem()
+}
+
+func (i *clusterOnDemandOptionsPtrType) ToClusterOnDemandOptionsPtrOutput() ClusterOnDemandOptionsPtrOutput {
+	return i.ToClusterOnDemandOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterOnDemandOptionsPtrType) ToClusterOnDemandOptionsPtrOutputWithContext(ctx context.Context) ClusterOnDemandOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOnDemandOptionsPtrOutput)
+}
+
+// Options for OnDemand capacity
+type ClusterOnDemandOptionsOutput struct{ *pulumi.OutputState }
+
+func (ClusterOnDemandOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOnDemandOptions)(nil)).Elem()
+}
+
+func (o ClusterOnDemandOptionsOutput) ToClusterOnDemandOptionsOutput() ClusterOnDemandOptionsOutput {
+	return o
+}
+
+func (o ClusterOnDemandOptionsOutput) ToClusterOnDemandOptionsOutputWithContext(ctx context.Context) ClusterOnDemandOptionsOutput {
+	return o
+}
+
+func (o ClusterOnDemandOptionsOutput) ToClusterOnDemandOptionsPtrOutput() ClusterOnDemandOptionsPtrOutput {
+	return o.ToClusterOnDemandOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterOnDemandOptionsOutput) ToClusterOnDemandOptionsPtrOutputWithContext(ctx context.Context) ClusterOnDemandOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterOnDemandOptions) *ClusterOnDemandOptions {
+		return &v
+	}).(ClusterOnDemandOptionsPtrOutput)
+}
+
+type ClusterOnDemandOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterOnDemandOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOnDemandOptions)(nil)).Elem()
+}
+
+func (o ClusterOnDemandOptionsPtrOutput) ToClusterOnDemandOptionsPtrOutput() ClusterOnDemandOptionsPtrOutput {
+	return o
+}
+
+func (o ClusterOnDemandOptionsPtrOutput) ToClusterOnDemandOptionsPtrOutputWithContext(ctx context.Context) ClusterOnDemandOptionsPtrOutput {
+	return o
+}
+
+func (o ClusterOnDemandOptionsPtrOutput) Elem() ClusterOnDemandOptionsOutput {
+	return o.ApplyT(func(v *ClusterOnDemandOptions) ClusterOnDemandOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterOnDemandOptions
+		return ret
+	}).(ClusterOnDemandOptionsOutput)
 }
 
 // Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
@@ -3124,6 +3677,127 @@ func (o ClusterScheduledUpdateConfigPtrOutput) ScheduleExpression() pulumi.Strin
 		}
 		return &v.ScheduleExpression
 	}).(pulumi.StringPtrOutput)
+}
+
+// Options for Spot capacity
+type ClusterSpotOptions struct {
+}
+
+// ClusterSpotOptionsInput is an input type that accepts ClusterSpotOptionsArgs and ClusterSpotOptionsOutput values.
+// You can construct a concrete instance of `ClusterSpotOptionsInput` via:
+//
+//	ClusterSpotOptionsArgs{...}
+type ClusterSpotOptionsInput interface {
+	pulumi.Input
+
+	ToClusterSpotOptionsOutput() ClusterSpotOptionsOutput
+	ToClusterSpotOptionsOutputWithContext(context.Context) ClusterSpotOptionsOutput
+}
+
+// Options for Spot capacity
+type ClusterSpotOptionsArgs struct {
+}
+
+func (ClusterSpotOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSpotOptions)(nil)).Elem()
+}
+
+func (i ClusterSpotOptionsArgs) ToClusterSpotOptionsOutput() ClusterSpotOptionsOutput {
+	return i.ToClusterSpotOptionsOutputWithContext(context.Background())
+}
+
+func (i ClusterSpotOptionsArgs) ToClusterSpotOptionsOutputWithContext(ctx context.Context) ClusterSpotOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSpotOptionsOutput)
+}
+
+func (i ClusterSpotOptionsArgs) ToClusterSpotOptionsPtrOutput() ClusterSpotOptionsPtrOutput {
+	return i.ToClusterSpotOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterSpotOptionsArgs) ToClusterSpotOptionsPtrOutputWithContext(ctx context.Context) ClusterSpotOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSpotOptionsOutput).ToClusterSpotOptionsPtrOutputWithContext(ctx)
+}
+
+// ClusterSpotOptionsPtrInput is an input type that accepts ClusterSpotOptionsArgs, ClusterSpotOptionsPtr and ClusterSpotOptionsPtrOutput values.
+// You can construct a concrete instance of `ClusterSpotOptionsPtrInput` via:
+//
+//	        ClusterSpotOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterSpotOptionsPtrInput interface {
+	pulumi.Input
+
+	ToClusterSpotOptionsPtrOutput() ClusterSpotOptionsPtrOutput
+	ToClusterSpotOptionsPtrOutputWithContext(context.Context) ClusterSpotOptionsPtrOutput
+}
+
+type clusterSpotOptionsPtrType ClusterSpotOptionsArgs
+
+func ClusterSpotOptionsPtr(v *ClusterSpotOptionsArgs) ClusterSpotOptionsPtrInput {
+	return (*clusterSpotOptionsPtrType)(v)
+}
+
+func (*clusterSpotOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSpotOptions)(nil)).Elem()
+}
+
+func (i *clusterSpotOptionsPtrType) ToClusterSpotOptionsPtrOutput() ClusterSpotOptionsPtrOutput {
+	return i.ToClusterSpotOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterSpotOptionsPtrType) ToClusterSpotOptionsPtrOutputWithContext(ctx context.Context) ClusterSpotOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterSpotOptionsPtrOutput)
+}
+
+// Options for Spot capacity
+type ClusterSpotOptionsOutput struct{ *pulumi.OutputState }
+
+func (ClusterSpotOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterSpotOptions)(nil)).Elem()
+}
+
+func (o ClusterSpotOptionsOutput) ToClusterSpotOptionsOutput() ClusterSpotOptionsOutput {
+	return o
+}
+
+func (o ClusterSpotOptionsOutput) ToClusterSpotOptionsOutputWithContext(ctx context.Context) ClusterSpotOptionsOutput {
+	return o
+}
+
+func (o ClusterSpotOptionsOutput) ToClusterSpotOptionsPtrOutput() ClusterSpotOptionsPtrOutput {
+	return o.ToClusterSpotOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterSpotOptionsOutput) ToClusterSpotOptionsPtrOutputWithContext(ctx context.Context) ClusterSpotOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSpotOptions) *ClusterSpotOptions {
+		return &v
+	}).(ClusterSpotOptionsPtrOutput)
+}
+
+type ClusterSpotOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterSpotOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterSpotOptions)(nil)).Elem()
+}
+
+func (o ClusterSpotOptionsPtrOutput) ToClusterSpotOptionsPtrOutput() ClusterSpotOptionsPtrOutput {
+	return o
+}
+
+func (o ClusterSpotOptionsPtrOutput) ToClusterSpotOptionsPtrOutputWithContext(ctx context.Context) ClusterSpotOptionsPtrOutput {
+	return o
+}
+
+func (o ClusterSpotOptionsPtrOutput) Elem() ClusterSpotOptionsOutput {
+	return o.ApplyT(func(v *ClusterSpotOptions) ClusterSpotOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSpotOptions
+		return ret
+	}).(ClusterSpotOptionsOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -47992,6 +48666,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAlarmDetailsArrayInput)(nil)).Elem(), ClusterAlarmDetailsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoScalingConfigInput)(nil)).Elem(), ClusterAutoScalingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoScalingConfigPtrInput)(nil)).Elem(), ClusterAutoScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityRequirementsInput)(nil)).Elem(), ClusterCapacityRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityRequirementsPtrInput)(nil)).Elem(), ClusterCapacityRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacitySizeConfigInput)(nil)).Elem(), ClusterCapacitySizeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacitySizeConfigPtrInput)(nil)).Elem(), ClusterCapacitySizeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDeploymentConfigInput)(nil)).Elem(), ClusterDeploymentConfigArgs{})
@@ -48003,7 +48679,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceGroupArrayInput)(nil)).Elem(), ClusterInstanceGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceStorageConfigInput)(nil)).Elem(), ClusterInstanceStorageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceStorageConfigArrayInput)(nil)).Elem(), ClusterInstanceStorageConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesConfigInput)(nil)).Elem(), ClusterKubernetesConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesConfigPtrInput)(nil)).Elem(), ClusterKubernetesConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesTaintInput)(nil)).Elem(), ClusterKubernetesTaintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesTaintArrayInput)(nil)).Elem(), ClusterKubernetesTaintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLifeCycleConfigInput)(nil)).Elem(), ClusterLifeCycleConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOnDemandOptionsInput)(nil)).Elem(), ClusterOnDemandOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOnDemandOptionsPtrInput)(nil)).Elem(), ClusterOnDemandOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorInput)(nil)).Elem(), ClusterOrchestratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorPtrInput)(nil)).Elem(), ClusterOrchestratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOrchestratorEksConfigInput)(nil)).Elem(), ClusterOrchestratorEksConfigArgs{})
@@ -48014,6 +48696,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRollingUpdatePolicyPtrInput)(nil)).Elem(), ClusterRollingUpdatePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScheduledUpdateConfigInput)(nil)).Elem(), ClusterScheduledUpdateConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScheduledUpdateConfigPtrInput)(nil)).Elem(), ClusterScheduledUpdateConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSpotOptionsInput)(nil)).Elem(), ClusterSpotOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSpotOptionsPtrInput)(nil)).Elem(), ClusterSpotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTieredStorageConfigInput)(nil)).Elem(), ClusterTieredStorageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTieredStorageConfigPtrInput)(nil)).Elem(), ClusterTieredStorageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigInput)(nil)).Elem(), ClusterVpcConfigArgs{})
@@ -48562,6 +49246,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterAlarmDetailsArrayOutput{})
 	pulumi.RegisterOutputType(ClusterAutoScalingConfigOutput{})
 	pulumi.RegisterOutputType(ClusterAutoScalingConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterCapacityRequirementsOutput{})
+	pulumi.RegisterOutputType(ClusterCapacityRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterCapacitySizeConfigOutput{})
 	pulumi.RegisterOutputType(ClusterCapacitySizeConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterDeploymentConfigOutput{})
@@ -48573,7 +49259,13 @@ func init() {
 	pulumi.RegisterOutputType(ClusterInstanceGroupArrayOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceStorageConfigOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceStorageConfigArrayOutput{})
+	pulumi.RegisterOutputType(ClusterKubernetesConfigOutput{})
+	pulumi.RegisterOutputType(ClusterKubernetesConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterKubernetesTaintOutput{})
+	pulumi.RegisterOutputType(ClusterKubernetesTaintArrayOutput{})
 	pulumi.RegisterOutputType(ClusterLifeCycleConfigOutput{})
+	pulumi.RegisterOutputType(ClusterOnDemandOptionsOutput{})
+	pulumi.RegisterOutputType(ClusterOnDemandOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOrchestratorOutput{})
 	pulumi.RegisterOutputType(ClusterOrchestratorPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOrchestratorEksConfigOutput{})
@@ -48584,6 +49276,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterRollingUpdatePolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterScheduledUpdateConfigOutput{})
 	pulumi.RegisterOutputType(ClusterScheduledUpdateConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterSpotOptionsOutput{})
+	pulumi.RegisterOutputType(ClusterSpotOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterTieredStorageConfigOutput{})
 	pulumi.RegisterOutputType(ClusterTieredStorageConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConfigOutput{})

@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'LandingZoneDriftStatus',
+    'LandingZoneRemediationTypesItem',
     'LandingZoneStatus',
 ]
 
@@ -16,6 +17,11 @@ __all__ = [
 class LandingZoneDriftStatus(_builtins.str, Enum):
     DRIFTED = "DRIFTED"
     IN_SYNC = "IN_SYNC"
+
+
+@pulumi.type_token("aws-native:controltower:LandingZoneRemediationTypesItem")
+class LandingZoneRemediationTypesItem(_builtins.str, Enum):
+    INHERITANCE_DRIFT = "INHERITANCE_DRIFT"
 
 
 @pulumi.type_token("aws-native:controltower:LandingZoneStatus")

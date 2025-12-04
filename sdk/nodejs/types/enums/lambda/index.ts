@@ -2,6 +2,47 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CapacityProviderArchitecture = {
+    X8664: "x86_64",
+    Arm64: "arm64",
+} as const;
+
+/**
+ * Specifications for the types of EC2 instances that the capacity provider can use.
+ */
+export type CapacityProviderArchitecture = (typeof CapacityProviderArchitecture)[keyof typeof CapacityProviderArchitecture];
+
+export const CapacityProviderPredefinedMetricType = {
+    LambdaCapacityProviderAverageCpuUtilization: "LambdaCapacityProviderAverageCPUUtilization",
+} as const;
+
+/**
+ * The predefined metric for target tracking.
+ */
+export type CapacityProviderPredefinedMetricType = (typeof CapacityProviderPredefinedMetricType)[keyof typeof CapacityProviderPredefinedMetricType];
+
+export const CapacityProviderScalingMode = {
+    Auto: "Auto",
+    Manual: "Manual",
+} as const;
+
+/**
+ * The scaling mode for the capacity provider.
+ */
+export type CapacityProviderScalingMode = (typeof CapacityProviderScalingMode)[keyof typeof CapacityProviderScalingMode];
+
+export const CapacityProviderState = {
+    Pending: "Pending",
+    Active: "Active",
+    Failed: "Failed",
+    Deleting: "Deleting",
+} as const;
+
+/**
+ * The current state of the capacity provider. Indicates whether the provider is being created, is active and ready for use, has failed, or is being deleted.
+ */
+export type CapacityProviderState = (typeof CapacityProviderState)[keyof typeof CapacityProviderState];
+
 export const CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment = {
     Warn: "Warn",
     Enforce: "Enforce",
@@ -28,8 +69,21 @@ export const EventSourceMappingFunctionResponseTypesItem = {
 
 export type EventSourceMappingFunctionResponseTypesItem = (typeof EventSourceMappingFunctionResponseTypesItem)[keyof typeof EventSourceMappingFunctionResponseTypesItem];
 
+export const EventSourceMappingLoggingConfigSystemLogLevel = {
+    Debug: "DEBUG",
+    Info: "INFO",
+    Warn: "WARN",
+} as const;
+
+/**
+ * Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
+ */
+export type EventSourceMappingLoggingConfigSystemLogLevel = (typeof EventSourceMappingLoggingConfigSystemLogLevel)[keyof typeof EventSourceMappingLoggingConfigSystemLogLevel];
+
 export const EventSourceMappingMetricsConfigMetricsItem = {
     EventCount: "EventCount",
+    ErrorCount: "ErrorCount",
+    KafkaMetrics: "KafkaMetrics",
 } as const;
 
 export type EventSourceMappingMetricsConfigMetricsItem = (typeof EventSourceMappingMetricsConfigMetricsItem)[keyof typeof EventSourceMappingMetricsConfigMetricsItem];
@@ -200,6 +254,15 @@ export const FunctionSnapStartResponseOptimizationStatus = {
  */
 export type FunctionSnapStartResponseOptimizationStatus = (typeof FunctionSnapStartResponseOptimizationStatus)[keyof typeof FunctionSnapStartResponseOptimizationStatus];
 
+export const FunctionTenancyConfigTenantIsolationMode = {
+    PerTenant: "PER_TENANT",
+} as const;
+
+/**
+ * Determines how your Lambda function isolates execution environments between tenants.
+ */
+export type FunctionTenancyConfigTenantIsolationMode = (typeof FunctionTenancyConfigTenantIsolationMode)[keyof typeof FunctionTenancyConfigTenantIsolationMode];
+
 export const FunctionTracingConfigMode = {
     Active: "Active",
     PassThrough: "PassThrough",
@@ -216,7 +279,7 @@ export const PermissionFunctionUrlAuthType = {
 } as const;
 
 /**
- * The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
+ * The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
  */
 export type PermissionFunctionUrlAuthType = (typeof PermissionFunctionUrlAuthType)[keyof typeof PermissionFunctionUrlAuthType];
 

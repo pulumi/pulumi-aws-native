@@ -19,15 +19,38 @@ export function getTerms(args: GetTermsArgs, opts?: pulumi.InvokeOptions): Promi
 }
 
 export interface GetTermsArgs {
+    /**
+     * The ID of the terms documents.
+     */
     termsId: string;
+    /**
+     * The ID of the user pool that contains the terms documents.
+     */
     userPoolId: string;
 }
 
 export interface GetTermsResult {
+    /**
+     * This parameter is reserved for future use and currently accepts one value.
+     */
     readonly enforcement?: enums.cognito.TermsEnforcementType;
+    /**
+     * A map of URLs to languages. For each localized language that will view the requested `TermsName` , assign a URL. A selection of `cognito:default` displays for all languages that don't have a language-specific URL.
+     *
+     * For example, `"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"` .
+     */
     readonly links?: {[key: string]: string};
+    /**
+     * The ID of the terms documents.
+     */
     readonly termsId?: string;
+    /**
+     * The type and friendly name of the terms documents.
+     */
     readonly termsName?: string;
+    /**
+     * This parameter is reserved for future use and currently accepts one value.
+     */
     readonly termsSource?: enums.cognito.TermsSourceType;
 }
 /**
@@ -42,6 +65,12 @@ export function getTermsOutput(args: GetTermsOutputArgs, opts?: pulumi.InvokeOut
 }
 
 export interface GetTermsOutputArgs {
+    /**
+     * The ID of the terms documents.
+     */
     termsId: pulumi.Input<string>;
+    /**
+     * The ID of the user pool that contains the terms documents.
+     */
     userPoolId: pulumi.Input<string>;
 }

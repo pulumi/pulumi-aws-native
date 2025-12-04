@@ -31,7 +31,8 @@ class StreamArgs:
                  shard_count: Optional[pulumi.Input[_builtins.int]] = None,
                  stream_encryption: Optional[pulumi.Input['StreamEncryptionArgs']] = None,
                  stream_mode_details: Optional[pulumi.Input['StreamModeDetailsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 warm_throughput_mi_bps: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a Stream resource.
         :param pulumi.Input[Sequence[pulumi.Input['StreamEnhancedMetric']]] desired_shard_level_metrics: The final list of shard-level metrics
@@ -41,7 +42,8 @@ class StreamArgs:
         :param pulumi.Input[_builtins.int] shard_count: The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
         :param pulumi.Input['StreamEncryptionArgs'] stream_encryption: When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
         :param pulumi.Input['StreamModeDetailsArgs'] stream_mode_details: The mode in which the stream is running.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
+        :param pulumi.Input[_builtins.int] warm_throughput_mi_bps: Target warm throughput in MiB/s for the stream. This property can ONLY be set when StreamMode is ON_DEMAND.
         """
         if desired_shard_level_metrics is not None:
             pulumi.set(__self__, "desired_shard_level_metrics", desired_shard_level_metrics)
@@ -59,6 +61,8 @@ class StreamArgs:
             pulumi.set(__self__, "stream_mode_details", stream_mode_details)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if warm_throughput_mi_bps is not None:
+            pulumi.set(__self__, "warm_throughput_mi_bps", warm_throughput_mi_bps)
 
     @_builtins.property
     @pulumi.getter(name="desiredShardLevelMetrics")
@@ -148,13 +152,25 @@ class StreamArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+        An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="warmThroughputMiBps")
+    def warm_throughput_mi_bps(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Target warm throughput in MiB/s for the stream. This property can ONLY be set when StreamMode is ON_DEMAND.
+        """
+        return pulumi.get(self, "warm_throughput_mi_bps")
+
+    @warm_throughput_mi_bps.setter
+    def warm_throughput_mi_bps(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "warm_throughput_mi_bps", value)
 
 
 @pulumi.type_token("aws-native:kinesis:Stream")
@@ -171,6 +187,7 @@ class Stream(pulumi.CustomResource):
                  stream_encryption: Optional[pulumi.Input[Union['StreamEncryptionArgs', 'StreamEncryptionArgsDict']]] = None,
                  stream_mode_details: Optional[pulumi.Input[Union['StreamModeDetailsArgs', 'StreamModeDetailsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 warm_throughput_mi_bps: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Kinesis::Stream
@@ -184,7 +201,8 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] shard_count: The number of shards that the stream uses. Required when StreamMode = PROVISIONED is passed.
         :param pulumi.Input[Union['StreamEncryptionArgs', 'StreamEncryptionArgsDict']] stream_encryption: When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
         :param pulumi.Input[Union['StreamModeDetailsArgs', 'StreamModeDetailsArgsDict']] stream_mode_details: The mode in which the stream is running.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
+        :param pulumi.Input[_builtins.int] warm_throughput_mi_bps: Target warm throughput in MiB/s for the stream. This property can ONLY be set when StreamMode is ON_DEMAND.
         """
         ...
     @overload
@@ -218,6 +236,7 @@ class Stream(pulumi.CustomResource):
                  stream_encryption: Optional[pulumi.Input[Union['StreamEncryptionArgs', 'StreamEncryptionArgsDict']]] = None,
                  stream_mode_details: Optional[pulumi.Input[Union['StreamModeDetailsArgs', 'StreamModeDetailsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 warm_throughput_mi_bps: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -235,7 +254,9 @@ class Stream(pulumi.CustomResource):
             __props__.__dict__["stream_encryption"] = stream_encryption
             __props__.__dict__["stream_mode_details"] = stream_mode_details
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["warm_throughput_mi_bps"] = warm_throughput_mi_bps
             __props__.__dict__["arn"] = None
+            __props__.__dict__["warm_throughput_object"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Stream, __self__).__init__(
@@ -269,6 +290,8 @@ class Stream(pulumi.CustomResource):
         __props__.__dict__["stream_encryption"] = None
         __props__.__dict__["stream_mode_details"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["warm_throughput_mi_bps"] = None
+        __props__.__dict__["warm_throughput_object"] = None
         return Stream(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -339,7 +362,23 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+        An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="warmThroughputMiBps")
+    def warm_throughput_mi_bps(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Target warm throughput in MiB/s for the stream. This property can ONLY be set when StreamMode is ON_DEMAND.
+        """
+        return pulumi.get(self, "warm_throughput_mi_bps")
+
+    @_builtins.property
+    @pulumi.getter(name="warmThroughputObject")
+    def warm_throughput_object(self) -> pulumi.Output['outputs.StreamWarmThroughputObject']:
+        """
+        Warm throughput configuration details for the stream. Only present for ON_DEMAND streams.
+        """
+        return pulumi.get(self, "warm_throughput_object")
 

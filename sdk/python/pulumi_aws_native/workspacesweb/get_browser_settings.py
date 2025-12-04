@@ -13,7 +13,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetBrowserSettingsResult',
@@ -24,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetBrowserSettingsResult:
-    def __init__(__self__, associated_portal_arns=None, browser_policy=None, browser_settings_arn=None, tags=None):
+    def __init__(__self__, associated_portal_arns=None, browser_policy=None, browser_settings_arn=None, tags=None, web_content_filtering_policy=None):
         if associated_portal_arns and not isinstance(associated_portal_arns, list):
             raise TypeError("Expected argument 'associated_portal_arns' to be a list")
         pulumi.set(__self__, "associated_portal_arns", associated_portal_arns)
@@ -37,6 +39,9 @@ class GetBrowserSettingsResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if web_content_filtering_policy and not isinstance(web_content_filtering_policy, dict):
+            raise TypeError("Expected argument 'web_content_filtering_policy' to be a dict")
+        pulumi.set(__self__, "web_content_filtering_policy", web_content_filtering_policy)
 
     @_builtins.property
     @pulumi.getter(name="associatedPortalArns")
@@ -70,6 +75,14 @@ class GetBrowserSettingsResult:
         """
         return pulumi.get(self, "tags")
 
+    @_builtins.property
+    @pulumi.getter(name="webContentFilteringPolicy")
+    def web_content_filtering_policy(self) -> Optional['outputs.BrowserSettingsWebContentFilteringPolicy']:
+        """
+        The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.
+        """
+        return pulumi.get(self, "web_content_filtering_policy")
+
 
 class AwaitableGetBrowserSettingsResult(GetBrowserSettingsResult):
     # pylint: disable=using-constant-test
@@ -80,7 +93,8 @@ class AwaitableGetBrowserSettingsResult(GetBrowserSettingsResult):
             associated_portal_arns=self.associated_portal_arns,
             browser_policy=self.browser_policy,
             browser_settings_arn=self.browser_settings_arn,
-            tags=self.tags)
+            tags=self.tags,
+            web_content_filtering_policy=self.web_content_filtering_policy)
 
 
 def get_browser_settings(browser_settings_arn: Optional[_builtins.str] = None,
@@ -100,7 +114,8 @@ def get_browser_settings(browser_settings_arn: Optional[_builtins.str] = None,
         associated_portal_arns=pulumi.get(__ret__, 'associated_portal_arns'),
         browser_policy=pulumi.get(__ret__, 'browser_policy'),
         browser_settings_arn=pulumi.get(__ret__, 'browser_settings_arn'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        web_content_filtering_policy=pulumi.get(__ret__, 'web_content_filtering_policy'))
 def get_browser_settings_output(browser_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrowserSettingsResult]:
     """
@@ -117,4 +132,5 @@ def get_browser_settings_output(browser_settings_arn: Optional[pulumi.Input[_bui
         associated_portal_arns=pulumi.get(__response__, 'associated_portal_arns'),
         browser_policy=pulumi.get(__response__, 'browser_policy'),
         browser_settings_arn=pulumi.get(__response__, 'browser_settings_arn'),
-        tags=pulumi.get(__response__, 'tags')))
+        tags=pulumi.get(__response__, 'tags'),
+        web_content_filtering_policy=pulumi.get(__response__, 'web_content_filtering_policy')))

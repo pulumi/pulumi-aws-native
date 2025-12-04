@@ -27,6 +27,7 @@ class DomainArgs:
                  access_policies: Optional[Any] = None,
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsInputArgs']] = None,
+                 aiml_options: Optional[pulumi.Input['DomainAimlOptionsArgs']] = None,
                  cluster_config: Optional[pulumi.Input['DomainClusterConfigArgs']] = None,
                  cognito_options: Optional[pulumi.Input['DomainCognitoOptionsArgs']] = None,
                  domain_endpoint_options: Optional[pulumi.Input['DomainEndpointOptionsArgs']] = None,
@@ -53,16 +54,17 @@ class DomainArgs:
         :param pulumi.Input['DomainAdvancedSecurityOptionsInputArgs'] advanced_security_options: Specifies options for fine-grained access control and SAML authentication.
                
                If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
+        :param pulumi.Input['DomainAimlOptionsArgs'] aiml_options: Container for parameters required to enable all machine learning features.
         :param pulumi.Input['DomainClusterConfigArgs'] cluster_config: Container for the cluster configuration of a domain.
         :param pulumi.Input['DomainCognitoOptionsArgs'] cognito_options: Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
         :param pulumi.Input['DomainEndpointOptionsArgs'] domain_endpoint_options: Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
-        :param pulumi.Input[_builtins.str] domain_name: A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+        :param pulumi.Input[_builtins.str] domain_name: A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
                
                Required when creating a new domain.
                
                > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         :param pulumi.Input['DomainEbsOptionsArgs'] ebs_options: The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
-        :param pulumi.Input['DomainEncryptionAtRestOptionsArgs'] encryption_at_rest_options: Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
+        :param pulumi.Input['DomainEncryptionAtRestOptionsArgs'] encryption_at_rest_options: Whether the domain should encrypt data at rest, and if so, the AWS  key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
                
                If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
         :param pulumi.Input[_builtins.str] engine_version: The version of OpenSearch to use. The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
@@ -86,6 +88,8 @@ class DomainArgs:
             pulumi.set(__self__, "advanced_options", advanced_options)
         if advanced_security_options is not None:
             pulumi.set(__self__, "advanced_security_options", advanced_security_options)
+        if aiml_options is not None:
+            pulumi.set(__self__, "aiml_options", aiml_options)
         if cluster_config is not None:
             pulumi.set(__self__, "cluster_config", cluster_config)
         if cognito_options is not None:
@@ -162,6 +166,18 @@ class DomainArgs:
         pulumi.set(self, "advanced_security_options", value)
 
     @_builtins.property
+    @pulumi.getter(name="aimlOptions")
+    def aiml_options(self) -> Optional[pulumi.Input['DomainAimlOptionsArgs']]:
+        """
+        Container for parameters required to enable all machine learning features.
+        """
+        return pulumi.get(self, "aiml_options")
+
+    @aiml_options.setter
+    def aiml_options(self, value: Optional[pulumi.Input['DomainAimlOptionsArgs']]):
+        pulumi.set(self, "aiml_options", value)
+
+    @_builtins.property
     @pulumi.getter(name="clusterConfig")
     def cluster_config(self) -> Optional[pulumi.Input['DomainClusterConfigArgs']]:
         """
@@ -201,7 +217,7 @@ class DomainArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+        A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 
         Required when creating a new domain.
 
@@ -229,7 +245,7 @@ class DomainArgs:
     @pulumi.getter(name="encryptionAtRestOptions")
     def encryption_at_rest_options(self) -> Optional[pulumi.Input['DomainEncryptionAtRestOptionsArgs']]:
         """
-        Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
+        Whether the domain should encrypt data at rest, and if so, the AWS  key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
 
         If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
         """
@@ -382,6 +398,7 @@ class Domain(pulumi.CustomResource):
                  access_policies: Optional[Any] = None,
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input[Union['DomainAdvancedSecurityOptionsInputArgs', 'DomainAdvancedSecurityOptionsInputArgsDict']]] = None,
+                 aiml_options: Optional[pulumi.Input[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict']]] = None,
                  cluster_config: Optional[pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']]] = None,
                  cognito_options: Optional[pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']]] = None,
                  domain_endpoint_options: Optional[pulumi.Input[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict']]] = None,
@@ -412,16 +429,17 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainAdvancedSecurityOptionsInputArgs', 'DomainAdvancedSecurityOptionsInputArgsDict']] advanced_security_options: Specifies options for fine-grained access control and SAML authentication.
                
                If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
+        :param pulumi.Input[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict']] aiml_options: Container for parameters required to enable all machine learning features.
         :param pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']] cluster_config: Container for the cluster configuration of a domain.
         :param pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']] cognito_options: Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
         :param pulumi.Input[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict']] domain_endpoint_options: Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
-        :param pulumi.Input[_builtins.str] domain_name: A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+        :param pulumi.Input[_builtins.str] domain_name: A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
                
                Required when creating a new domain.
                
                > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         :param pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']] ebs_options: The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
-        :param pulumi.Input[Union['DomainEncryptionAtRestOptionsArgs', 'DomainEncryptionAtRestOptionsArgsDict']] encryption_at_rest_options: Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
+        :param pulumi.Input[Union['DomainEncryptionAtRestOptionsArgs', 'DomainEncryptionAtRestOptionsArgsDict']] encryption_at_rest_options: Whether the domain should encrypt data at rest, and if so, the AWS  key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
                
                If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
         :param pulumi.Input[_builtins.str] engine_version: The version of OpenSearch to use. The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
@@ -466,6 +484,7 @@ class Domain(pulumi.CustomResource):
                  access_policies: Optional[Any] = None,
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input[Union['DomainAdvancedSecurityOptionsInputArgs', 'DomainAdvancedSecurityOptionsInputArgsDict']]] = None,
+                 aiml_options: Optional[pulumi.Input[Union['DomainAimlOptionsArgs', 'DomainAimlOptionsArgsDict']]] = None,
                  cluster_config: Optional[pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']]] = None,
                  cognito_options: Optional[pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']]] = None,
                  domain_endpoint_options: Optional[pulumi.Input[Union['DomainEndpointOptionsArgs', 'DomainEndpointOptionsArgsDict']]] = None,
@@ -495,6 +514,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["access_policies"] = access_policies
             __props__.__dict__["advanced_options"] = advanced_options
             __props__.__dict__["advanced_security_options"] = advanced_security_options
+            __props__.__dict__["aiml_options"] = aiml_options
             __props__.__dict__["cluster_config"] = cluster_config
             __props__.__dict__["cognito_options"] = cognito_options
             __props__.__dict__["domain_endpoint_options"] = domain_endpoint_options
@@ -546,6 +566,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["access_policies"] = None
         __props__.__dict__["advanced_options"] = None
         __props__.__dict__["advanced_security_options"] = None
+        __props__.__dict__["aiml_options"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["cluster_config"] = None
@@ -599,6 +620,14 @@ class Domain(pulumi.CustomResource):
         If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
         """
         return pulumi.get(self, "advanced_security_options")
+
+    @_builtins.property
+    @pulumi.getter(name="aimlOptions")
+    def aiml_options(self) -> pulumi.Output[Optional['outputs.DomainAimlOptions']]:
+        """
+        Container for parameters required to enable all machine learning features.
+        """
+        return pulumi.get(self, "aiml_options")
 
     @_builtins.property
     @pulumi.getter
@@ -673,7 +702,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+        A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 
         Required when creating a new domain.
 
@@ -693,7 +722,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="encryptionAtRestOptions")
     def encryption_at_rest_options(self) -> pulumi.Output[Optional['outputs.DomainEncryptionAtRestOptions']]:
         """
-        Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
+        Whether the domain should encrypt data at rest, and if so, the AWS  key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
 
         If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
         """

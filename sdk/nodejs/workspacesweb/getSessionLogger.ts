@@ -49,6 +49,9 @@ export interface GetSessionLoggerResult {
      * The ARN of the session logger resource.
      */
     readonly sessionLoggerArn?: string;
+    /**
+     * The tags of the session logger.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetAggregationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregation function to apply, such as `SUM` , `COUNT` , `AVERAGE` , `MIN` , `MAX`
+        /// </summary>
         [Input("aggregationFunction", required: true)]
         public Input<Inputs.DataSetDataPrepAggregationFunctionArgs> AggregationFunction { get; set; } = null!;
 
+        /// <summary>
+        /// A unique identifier for the new column that will contain the aggregated values.
+        /// </summary>
         [Input("newColumnId", required: true)]
         public Input<string> NewColumnId { get; set; } = null!;
 
+        /// <summary>
+        /// The name for the new column that will contain the aggregated values.
+        /// </summary>
         [Input("newColumnName", required: true)]
         public Input<string> NewColumnName { get; set; } = null!;
 

@@ -27,6 +27,7 @@ class TrailArgs:
                  is_logging: pulumi.Input[_builtins.bool],
                  s3_bucket_name: pulumi.Input[_builtins.str],
                  advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorArgs']]]] = None,
+                 aggregation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['TrailAggregationConfigurationArgs']]]] = None,
                  cloud_watch_logs_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  cloud_watch_logs_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_log_file_validation: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -45,6 +46,7 @@ class TrailArgs:
         :param pulumi.Input[_builtins.bool] is_logging: Whether the CloudTrail is currently logging AWS API calls.
         :param pulumi.Input[_builtins.str] s3_bucket_name: Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.
         :param pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorArgs']]] advanced_event_selectors: The advanced event selectors that were used to select events for the data store.
+        :param pulumi.Input[Sequence[pulumi.Input['TrailAggregationConfigurationArgs']]] aggregation_configurations: Specifies the aggregation configuration to aggregate CloudTrail Events. A maximum of 1 aggregation configuration is allowed.
         :param pulumi.Input[_builtins.str] cloud_watch_logs_log_group_arn: Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
         :param pulumi.Input[_builtins.str] cloud_watch_logs_role_arn: Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
         :param pulumi.Input[_builtins.bool] enable_log_file_validation: Specifies whether log file validation is enabled. The default is false.
@@ -69,6 +71,8 @@ class TrailArgs:
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if advanced_event_selectors is not None:
             pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
+        if aggregation_configurations is not None:
+            pulumi.set(__self__, "aggregation_configurations", aggregation_configurations)
         if cloud_watch_logs_log_group_arn is not None:
             pulumi.set(__self__, "cloud_watch_logs_log_group_arn", cloud_watch_logs_log_group_arn)
         if cloud_watch_logs_role_arn is not None:
@@ -131,6 +135,18 @@ class TrailArgs:
     @advanced_event_selectors.setter
     def advanced_event_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorArgs']]]]):
         pulumi.set(self, "advanced_event_selectors", value)
+
+    @_builtins.property
+    @pulumi.getter(name="aggregationConfigurations")
+    def aggregation_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrailAggregationConfigurationArgs']]]]:
+        """
+        Specifies the aggregation configuration to aggregate CloudTrail Events. A maximum of 1 aggregation configuration is allowed.
+        """
+        return pulumi.get(self, "aggregation_configurations")
+
+    @aggregation_configurations.setter
+    def aggregation_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrailAggregationConfigurationArgs']]]]):
+        pulumi.set(self, "aggregation_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchLogsLogGroupArn")
@@ -302,6 +318,7 @@ class Trail(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrailAdvancedEventSelectorArgs', 'TrailAdvancedEventSelectorArgsDict']]]]] = None,
+                 aggregation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrailAggregationConfigurationArgs', 'TrailAggregationConfigurationArgsDict']]]]] = None,
                  cloud_watch_logs_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  cloud_watch_logs_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_log_file_validation: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -324,6 +341,7 @@ class Trail(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TrailAdvancedEventSelectorArgs', 'TrailAdvancedEventSelectorArgsDict']]]] advanced_event_selectors: The advanced event selectors that were used to select events for the data store.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrailAggregationConfigurationArgs', 'TrailAggregationConfigurationArgsDict']]]] aggregation_configurations: Specifies the aggregation configuration to aggregate CloudTrail Events. A maximum of 1 aggregation configuration is allowed.
         :param pulumi.Input[_builtins.str] cloud_watch_logs_log_group_arn: Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
         :param pulumi.Input[_builtins.str] cloud_watch_logs_role_arn: Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
         :param pulumi.Input[_builtins.bool] enable_log_file_validation: Specifies whether log file validation is enabled. The default is false.
@@ -371,6 +389,7 @@ class Trail(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrailAdvancedEventSelectorArgs', 'TrailAdvancedEventSelectorArgsDict']]]]] = None,
+                 aggregation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrailAggregationConfigurationArgs', 'TrailAggregationConfigurationArgsDict']]]]] = None,
                  cloud_watch_logs_log_group_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  cloud_watch_logs_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  enable_log_file_validation: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -396,6 +415,7 @@ class Trail(pulumi.CustomResource):
             __props__ = TrailArgs.__new__(TrailArgs)
 
             __props__.__dict__["advanced_event_selectors"] = advanced_event_selectors
+            __props__.__dict__["aggregation_configurations"] = aggregation_configurations
             __props__.__dict__["cloud_watch_logs_log_group_arn"] = cloud_watch_logs_log_group_arn
             __props__.__dict__["cloud_watch_logs_role_arn"] = cloud_watch_logs_role_arn
             __props__.__dict__["enable_log_file_validation"] = enable_log_file_validation
@@ -442,6 +462,7 @@ class Trail(pulumi.CustomResource):
         __props__ = TrailArgs.__new__(TrailArgs)
 
         __props__.__dict__["advanced_event_selectors"] = None
+        __props__.__dict__["aggregation_configurations"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["cloud_watch_logs_log_group_arn"] = None
         __props__.__dict__["cloud_watch_logs_role_arn"] = None
@@ -468,6 +489,14 @@ class Trail(pulumi.CustomResource):
         The advanced event selectors that were used to select events for the data store.
         """
         return pulumi.get(self, "advanced_event_selectors")
+
+    @_builtins.property
+    @pulumi.getter(name="aggregationConfigurations")
+    def aggregation_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.TrailAggregationConfiguration']]]:
+        """
+        Specifies the aggregation configuration to aggregate CloudTrail Events. A maximum of 1 aggregation configuration is allowed.
+        """
+        return pulumi.get(self, "aggregation_configurations")
 
     @_builtins.property
     @pulumi.getter
@@ -577,7 +606,7 @@ class Trail(pulumi.CustomResource):
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
+        `Ref` returns the ARN of the Amazon  topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
         """
         return pulumi.get(self, "sns_topic_arn")
 

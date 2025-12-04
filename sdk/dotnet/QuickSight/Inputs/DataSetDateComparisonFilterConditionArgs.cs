@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetDateComparisonFilterConditionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The comparison operator to use, such as `BEFORE` , `BEFORE_OR_EQUALS_TO` , `AFTER` , or `AFTER_OR_EQUALS_TO` .
+        /// </summary>
         [Input("operator", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DataSetDateComparisonFilterOperator> Operator { get; set; } = null!;
 
+        /// <summary>
+        /// The date value to compare against.
+        /// </summary>
         [Input("value")]
         public Input<Inputs.DataSetDateFilterValueArgs>? Value { get; set; }
 

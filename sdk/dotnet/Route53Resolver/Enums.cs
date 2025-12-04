@@ -247,6 +247,7 @@ namespace Pulumi.AwsNative.Route53Resolver
 
         public static FirewallRuleGroupFirewallRuleDnsThreatProtection Dga { get; } = new FirewallRuleGroupFirewallRuleDnsThreatProtection("DGA");
         public static FirewallRuleGroupFirewallRuleDnsThreatProtection DnsTunneling { get; } = new FirewallRuleGroupFirewallRuleDnsThreatProtection("DNS_TUNNELING");
+        public static FirewallRuleGroupFirewallRuleDnsThreatProtection DictionaryDga { get; } = new FirewallRuleGroupFirewallRuleDnsThreatProtection("DICTIONARY_DGA");
 
         public static bool operator ==(FirewallRuleGroupFirewallRuleDnsThreatProtection left, FirewallRuleGroupFirewallRuleDnsThreatProtection right) => left.Equals(right);
         public static bool operator !=(FirewallRuleGroupFirewallRuleDnsThreatProtection left, FirewallRuleGroupFirewallRuleDnsThreatProtection right) => !left.Equals(right);

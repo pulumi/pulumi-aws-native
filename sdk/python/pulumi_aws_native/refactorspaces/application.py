@@ -250,7 +250,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="apiGatewayId")
     def api_gateway_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The resource ID of the API Gateway for the proxy.
+        The resource ID of the ABP for the proxy.
         """
         return pulumi.get(self, "api_gateway_id")
 
@@ -322,7 +322,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="proxyUrl")
     def proxy_url(self) -> pulumi.Output[_builtins.str]:
         """
-        The endpoint URL of the Amazon API Gateway proxy.
+        The endpoint URL of the ABPlong proxy.
         """
         return pulumi.get(self, "proxy_url")
 
@@ -330,7 +330,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="stageName")
     def stage_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the API Gateway stage. The name defaults to `prod` .
+        The name of the ABP stage. The name defaults to `prod` .
         """
         return pulumi.get(self, "stage_name")
 
@@ -354,7 +354,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="vpcLinkId")
     def vpc_link_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The `VpcLink` ID of the API Gateway proxy.
+        The `VpcLink` ID of the ABP proxy.
         """
         return pulumi.get(self, "vpc_link_id")
 

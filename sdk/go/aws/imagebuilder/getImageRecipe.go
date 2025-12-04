@@ -34,6 +34,8 @@ type LookupImageRecipeResult struct {
 	AmiTags map[string]string `pulumi:"amiTags"`
 	// The Amazon Resource Name (ARN) of the image recipe.
 	Arn *string `pulumi:"arn"`
+	// The latest version references of the image recipe.
+	LatestVersion *ImageRecipeLatestVersion `pulumi:"latestVersion"`
 	// The tags of the image recipe.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -85,6 +87,11 @@ func (o LookupImageRecipeResultOutput) AmiTags() pulumi.StringMapOutput {
 // The Amazon Resource Name (ARN) of the image recipe.
 func (o LookupImageRecipeResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImageRecipeResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The latest version references of the image recipe.
+func (o LookupImageRecipeResultOutput) LatestVersion() ImageRecipeLatestVersionPtrOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) *ImageRecipeLatestVersion { return v.LatestVersion }).(ImageRecipeLatestVersionPtrOutput)
 }
 
 // The tags of the image recipe.

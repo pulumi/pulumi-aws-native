@@ -46,10 +46,14 @@ type LookupRuntimeResult struct {
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// When resource was last updated
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
+	// Lifecycle configuration for managing runtime sessions
+	LifecycleConfiguration *RuntimeLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
 	// Network access configuration for the Agent
 	NetworkConfiguration *RuntimeNetworkConfiguration `pulumi:"networkConfiguration"`
 	// Protocol configuration for the agent runtime
 	ProtocolConfiguration *RuntimeProtocolConfiguration `pulumi:"protocolConfiguration"`
+	// Configuration for HTTP request headers
+	RequestHeaderConfiguration *RuntimeRequestHeaderConfiguration `pulumi:"requestHeaderConfiguration"`
 	// Amazon Resource Name (ARN) of an IAM role
 	RoleArn *string `pulumi:"roleArn"`
 	// Current status of the agent
@@ -137,6 +141,11 @@ func (o LookupRuntimeResultOutput) LastUpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuntimeResult) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
 }
 
+// Lifecycle configuration for managing runtime sessions
+func (o LookupRuntimeResultOutput) LifecycleConfiguration() RuntimeLifecycleConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupRuntimeResult) *RuntimeLifecycleConfiguration { return v.LifecycleConfiguration }).(RuntimeLifecycleConfigurationPtrOutput)
+}
+
 // Network access configuration for the Agent
 func (o LookupRuntimeResultOutput) NetworkConfiguration() RuntimeNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupRuntimeResult) *RuntimeNetworkConfiguration { return v.NetworkConfiguration }).(RuntimeNetworkConfigurationPtrOutput)
@@ -145,6 +154,11 @@ func (o LookupRuntimeResultOutput) NetworkConfiguration() RuntimeNetworkConfigur
 // Protocol configuration for the agent runtime
 func (o LookupRuntimeResultOutput) ProtocolConfiguration() RuntimeProtocolConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupRuntimeResult) *RuntimeProtocolConfiguration { return v.ProtocolConfiguration }).(RuntimeProtocolConfigurationPtrOutput)
+}
+
+// Configuration for HTTP request headers
+func (o LookupRuntimeResultOutput) RequestHeaderConfiguration() RuntimeRequestHeaderConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupRuntimeResult) *RuntimeRequestHeaderConfiguration { return v.RequestHeaderConfiguration }).(RuntimeRequestHeaderConfigurationPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of an IAM role

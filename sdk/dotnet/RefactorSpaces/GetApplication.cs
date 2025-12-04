@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
     public sealed class GetApplicationResult
     {
         /// <summary>
-        /// The resource ID of the API Gateway for the proxy.
+        /// The resource ID of the ABP for the proxy.
         /// </summary>
         public readonly string? ApiGatewayId;
         /// <summary>
@@ -96,11 +96,11 @@ namespace Pulumi.AwsNative.RefactorSpaces
         /// </summary>
         public readonly string? NlbName;
         /// <summary>
-        /// The endpoint URL of the Amazon API Gateway proxy.
+        /// The endpoint URL of the ABPlong proxy.
         /// </summary>
         public readonly string? ProxyUrl;
         /// <summary>
-        /// The name of the API Gateway stage. The name defaults to `prod` .
+        /// The name of the ABP stage. The name defaults to `prod` .
         /// </summary>
         public readonly string? StageName;
         /// <summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
-        /// The `VpcLink` ID of the API Gateway proxy.
+        /// The `VpcLink` ID of the ABP proxy.
         /// </summary>
         public readonly string? VpcLinkId;
 

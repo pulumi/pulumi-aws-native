@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
     public sealed class IdMappingWorkflowOutputSource
     {
         /// <summary>
-        /// Customer AWS KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
+        /// Customer AWS  ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
         /// </summary>
         public readonly string? KmsArn;
         /// <summary>

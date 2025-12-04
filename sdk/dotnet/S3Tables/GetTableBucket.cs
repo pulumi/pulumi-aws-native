@@ -67,10 +67,15 @@ namespace Pulumi.AwsNative.S3Tables
         /// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
         /// </summary>
         public readonly Outputs.TableBucketEncryptionConfiguration? EncryptionConfiguration;
+        public readonly Outputs.TableBucketMetricsConfiguration? MetricsConfiguration;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the table bucket.
         /// </summary>
         public readonly string? TableBucketArn;
+        /// <summary>
+        /// User tags (key-value pairs) to associate with the table bucket.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
         /// </summary>
@@ -80,12 +85,18 @@ namespace Pulumi.AwsNative.S3Tables
         private GetTableBucketResult(
             Outputs.TableBucketEncryptionConfiguration? encryptionConfiguration,
 
+            Outputs.TableBucketMetricsConfiguration? metricsConfiguration,
+
             string? tableBucketArn,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Outputs.TableBucketUnreferencedFileRemoval? unreferencedFileRemoval)
         {
             EncryptionConfiguration = encryptionConfiguration;
+            MetricsConfiguration = metricsConfiguration;
             TableBucketArn = tableBucketArn;
+            Tags = tags;
             UnreferencedFileRemoval = unreferencedFileRemoval;
         }
     }

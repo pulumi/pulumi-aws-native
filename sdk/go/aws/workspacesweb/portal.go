@@ -64,7 +64,7 @@ type Portal struct {
 	RendererType PortalRendererTypeOutput `pulumi:"rendererType"`
 	// The SAML metadata of the service provider.
 	ServiceProviderSamlMetadata pulumi.StringOutput `pulumi:"serviceProviderSamlMetadata"`
-	// The ARN of the session logger that is assocaited with the portal.
+	// The ARN of the session logger that is associated with the portal.
 	SessionLoggerArn pulumi.StringPtrOutput `pulumi:"sessionLoggerArn"`
 	// A message that explains why the web portal is in its current status.
 	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
@@ -157,7 +157,7 @@ type portalArgs struct {
 	MaxConcurrentSessions *float64 `pulumi:"maxConcurrentSessions"`
 	// The ARN of the network settings that is associated with the web portal.
 	NetworkSettingsArn *string `pulumi:"networkSettingsArn"`
-	// The ARN of the session logger that is assocaited with the portal.
+	// The ARN of the session logger that is associated with the portal.
 	SessionLoggerArn *string `pulumi:"sessionLoggerArn"`
 	// The tags to add to the web portal. A tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -205,7 +205,7 @@ type PortalArgs struct {
 	MaxConcurrentSessions pulumi.Float64PtrInput
 	// The ARN of the network settings that is associated with the web portal.
 	NetworkSettingsArn pulumi.StringPtrInput
-	// The ARN of the session logger that is assocaited with the portal.
+	// The ARN of the session logger that is associated with the portal.
 	SessionLoggerArn pulumi.StringPtrInput
 	// The tags to add to the web portal. A tag is a key-value pair.
 	Tags aws.TagArrayInput
@@ -353,7 +353,7 @@ func (o PortalOutput) ServiceProviderSamlMetadata() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.ServiceProviderSamlMetadata }).(pulumi.StringOutput)
 }
 
-// The ARN of the session logger that is assocaited with the portal.
+// The ARN of the session logger that is associated with the portal.
 func (o PortalOutput) SessionLoggerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringPtrOutput { return v.SessionLoggerArn }).(pulumi.StringPtrOutput)
 }

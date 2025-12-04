@@ -24,6 +24,7 @@ class LandingZoneArgs:
     def __init__(__self__, *,
                  manifest: Any,
                  version: pulumi.Input[_builtins.str],
+                 remediation_types: Optional[pulumi.Input[Sequence[pulumi.Input['LandingZoneRemediationTypesItem']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a LandingZone resource.
@@ -31,10 +32,13 @@ class LandingZoneArgs:
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
         :param pulumi.Input[_builtins.str] version: The landing zone's current deployed version.
+        :param pulumi.Input[Sequence[pulumi.Input['LandingZoneRemediationTypesItem']]] remediation_types: The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags to be applied to the landing zone.
         """
         pulumi.set(__self__, "manifest", manifest)
         pulumi.set(__self__, "version", version)
+        if remediation_types is not None:
+            pulumi.set(__self__, "remediation_types", remediation_types)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -65,6 +69,18 @@ class LandingZoneArgs:
         pulumi.set(self, "version", value)
 
     @_builtins.property
+    @pulumi.getter(name="remediationTypes")
+    def remediation_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LandingZoneRemediationTypesItem']]]]:
+        """
+        The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.
+        """
+        return pulumi.get(self, "remediation_types")
+
+    @remediation_types.setter
+    def remediation_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LandingZoneRemediationTypesItem']]]]):
+        pulumi.set(self, "remediation_types", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -84,6 +100,7 @@ class LandingZone(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  manifest: Optional[Any] = None,
+                 remediation_types: Optional[pulumi.Input[Sequence[pulumi.Input['LandingZoneRemediationTypesItem']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  version: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -95,6 +112,7 @@ class LandingZone(pulumi.CustomResource):
         :param Any manifest: The landing zone manifest JSON text file that specifies the landing zone configurations.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
+        :param pulumi.Input[Sequence[pulumi.Input['LandingZoneRemediationTypesItem']]] remediation_types: The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to be applied to the landing zone.
         :param pulumi.Input[_builtins.str] version: The landing zone's current deployed version.
         """
@@ -123,6 +141,7 @@ class LandingZone(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  manifest: Optional[Any] = None,
+                 remediation_types: Optional[pulumi.Input[Sequence[pulumi.Input['LandingZoneRemediationTypesItem']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  version: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -137,6 +156,7 @@ class LandingZone(pulumi.CustomResource):
             if manifest is None and not opts.urn:
                 raise TypeError("Missing required property 'manifest'")
             __props__.__dict__["manifest"] = manifest
+            __props__.__dict__["remediation_types"] = remediation_types
             __props__.__dict__["tags"] = tags
             if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
@@ -173,6 +193,7 @@ class LandingZone(pulumi.CustomResource):
         __props__.__dict__["landing_zone_identifier"] = None
         __props__.__dict__["latest_available_version"] = None
         __props__.__dict__["manifest"] = None
+        __props__.__dict__["remediation_types"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["version"] = None
@@ -219,6 +240,14 @@ class LandingZone(pulumi.CustomResource):
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "manifest")
+
+    @_builtins.property
+    @pulumi.getter(name="remediationTypes")
+    def remediation_types(self) -> pulumi.Output[Optional[Sequence['LandingZoneRemediationTypesItem']]]:
+        """
+        The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.
+        """
+        return pulumi.get(self, "remediation_types")
 
     @_builtins.property
     @pulumi.getter

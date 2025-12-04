@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// A physical table type for as S3 data source.
         /// </summary>
         public readonly Outputs.DataSetS3Source? S3Source;
+        /// <summary>
+        /// A physical table type for Software-as-a-Service (SaaS) sources.
+        /// </summary>
         public readonly Outputs.DataSetSaaSTable? SaaSTable;
 
         [OutputConstructor]

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,6 +33,8 @@ type Table struct {
 	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
 	// The name for the table.
 	TableName pulumi.StringOutput `pulumi:"tableName"`
+	// User tags (key-value pairs) to associate with the table.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The version token of the table.
 	VersionToken pulumi.StringOutput `pulumi:"versionToken"`
 	// The warehouse location of the table.
@@ -110,6 +113,8 @@ type tableArgs struct {
 	TableBucketArn string `pulumi:"tableBucketArn"`
 	// The name for the table.
 	TableName *string `pulumi:"tableName"`
+	// User tags (key-value pairs) to associate with the table.
+	Tags []aws.Tag `pulumi:"tags"`
 	// Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
 	WithoutMetadata *TableWithoutMetadata `pulumi:"withoutMetadata"`
 }
@@ -130,6 +135,8 @@ type TableArgs struct {
 	TableBucketArn pulumi.StringInput
 	// The name for the table.
 	TableName pulumi.StringPtrInput
+	// User tags (key-value pairs) to associate with the table.
+	Tags aws.TagArrayInput
 	// Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
 	WithoutMetadata TableWithoutMetadataPtrInput
 }
@@ -209,6 +216,11 @@ func (o TableOutput) TableBucketArn() pulumi.StringOutput {
 // The name for the table.
 func (o TableOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
+}
+
+// User tags (key-value pairs) to associate with the table.
+func (o TableOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Table) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The version token of the table.

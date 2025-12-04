@@ -132,7 +132,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         public Output<string> ServiceProviderSamlMetadata { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the session logger that is assocaited with the portal.
+        /// The ARN of the session logger that is associated with the portal.
         /// </summary>
         [Output("sessionLoggerArn")]
         public Output<string?> SessionLoggerArn { get; private set; } = null!;
@@ -298,7 +298,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         public Input<string>? NetworkSettingsArn { get; set; }
 
         /// <summary>
-        /// The ARN of the session logger that is assocaited with the portal.
+        /// The ARN of the session logger that is associated with the portal.
         /// </summary>
         [Input("sessionLoggerArn")]
         public Input<string>? SessionLoggerArn { get; set; }

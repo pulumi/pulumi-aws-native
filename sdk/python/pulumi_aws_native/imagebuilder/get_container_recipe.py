@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetContainerRecipeResult',
@@ -23,10 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetContainerRecipeResult:
-    def __init__(__self__, arn=None, tags=None):
+    def __init__(__self__, arn=None, latest_version=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if latest_version and not isinstance(latest_version, dict):
+            raise TypeError("Expected argument 'latest_version' to be a dict")
+        pulumi.set(__self__, "latest_version", latest_version)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -38,6 +42,14 @@ class GetContainerRecipeResult:
         The Amazon Resource Name (ARN) of the container recipe.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="latestVersion")
+    def latest_version(self) -> Optional['outputs.ContainerRecipeLatestVersion']:
+        """
+        The latest version references of the container recipe.
+        """
+        return pulumi.get(self, "latest_version")
 
     @_builtins.property
     @pulumi.getter
@@ -55,6 +67,7 @@ class AwaitableGetContainerRecipeResult(GetContainerRecipeResult):
             yield self
         return GetContainerRecipeResult(
             arn=self.arn,
+            latest_version=self.latest_version,
             tags=self.tags)
 
 
@@ -73,6 +86,7 @@ def get_container_recipe(arn: Optional[_builtins.str] = None,
 
     return AwaitableGetContainerRecipeResult(
         arn=pulumi.get(__ret__, 'arn'),
+        latest_version=pulumi.get(__ret__, 'latest_version'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_container_recipe_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerRecipeResult]:
@@ -88,4 +102,5 @@ def get_container_recipe_output(arn: Optional[pulumi.Input[_builtins.str]] = Non
     __ret__ = pulumi.runtime.invoke_output('aws-native:imagebuilder:getContainerRecipe', __args__, opts=opts, typ=GetContainerRecipeResult)
     return __ret__.apply(lambda __response__: GetContainerRecipeResult(
         arn=pulumi.get(__response__, 'arn'),
+        latest_version=pulumi.get(__response__, 'latest_version'),
         tags=pulumi.get(__response__, 'tags')))

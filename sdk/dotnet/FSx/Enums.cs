@@ -37,7 +37,38 @@ namespace Pulumi.AwsNative.FSx
     }
 
     /// <summary>
-    /// Specifies the FSx for OpenZFS user identity type, accepts only `POSIX` .
+    /// Specifies the FSx for ONTAP user identity type, accepts either UNIX or WINDOWS.
+    /// </summary>
+    [EnumType]
+    public readonly struct S3AccessPointAttachmentOntapFileSystemIdentityType : IEquatable<S3AccessPointAttachmentOntapFileSystemIdentityType>
+    {
+        private readonly string _value;
+
+        private S3AccessPointAttachmentOntapFileSystemIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static S3AccessPointAttachmentOntapFileSystemIdentityType Unix { get; } = new S3AccessPointAttachmentOntapFileSystemIdentityType("UNIX");
+        public static S3AccessPointAttachmentOntapFileSystemIdentityType Windows { get; } = new S3AccessPointAttachmentOntapFileSystemIdentityType("WINDOWS");
+
+        public static bool operator ==(S3AccessPointAttachmentOntapFileSystemIdentityType left, S3AccessPointAttachmentOntapFileSystemIdentityType right) => left.Equals(right);
+        public static bool operator !=(S3AccessPointAttachmentOntapFileSystemIdentityType left, S3AccessPointAttachmentOntapFileSystemIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(S3AccessPointAttachmentOntapFileSystemIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is S3AccessPointAttachmentOntapFileSystemIdentityType other && Equals(other);
+        public bool Equals(S3AccessPointAttachmentOntapFileSystemIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the FSx for OpenZFS user identity type, accepts only POSIX.
     /// </summary>
     [EnumType]
     public readonly struct S3AccessPointAttachmentOpenZfsFileSystemIdentityType : IEquatable<S3AccessPointAttachmentOpenZfsFileSystemIdentityType>
@@ -80,6 +111,7 @@ namespace Pulumi.AwsNative.FSx
         }
 
         public static S3AccessPointAttachmentType Openzfs { get; } = new S3AccessPointAttachmentType("OPENZFS");
+        public static S3AccessPointAttachmentType Ontap { get; } = new S3AccessPointAttachmentType("ONTAP");
 
         public static bool operator ==(S3AccessPointAttachmentType left, S3AccessPointAttachmentType right) => left.Equals(right);
         public static bool operator !=(S3AccessPointAttachmentType left, S3AccessPointAttachmentType right) => !left.Equals(right);

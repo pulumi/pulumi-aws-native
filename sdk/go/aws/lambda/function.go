@@ -368,7 +368,8 @@ type Function struct {
 	// The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
 	Architectures FunctionArchitecturesItemArrayOutput `pulumi:"architectures"`
 	// The Amazon Resource Name (ARN) of the function.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn                    pulumi.StringOutput                     `pulumi:"arn"`
+	CapacityProviderConfig FunctionCapacityProviderConfigPtrOutput `pulumi:"capacityProviderConfig"`
 	// The code for the function. You can define your function code in multiple ways:
 	//   +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
 	//   +  For .zip deployment packages, you can alternatively define the function code inline in the ``ZipFile`` property. This method works only for Node.js and Python functions.
@@ -389,7 +390,8 @@ type Function struct {
 	FileSystemConfigs FunctionFileSystemConfigArrayOutput `pulumi:"fileSystemConfigs"`
 	// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, CFN generates one.
 	//  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	FunctionName pulumi.StringPtrOutput `pulumi:"functionName"`
+	FunctionName          pulumi.StringPtrOutput         `pulumi:"functionName"`
+	FunctionScalingConfig FunctionScalingConfigPtrOutput `pulumi:"functionScalingConfig"`
 	// The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
 	Handler pulumi.StringPtrOutput `pulumi:"handler"`
 	// Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
@@ -409,7 +411,8 @@ type Function struct {
 	// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
 	MemorySize pulumi.IntPtrOutput `pulumi:"memorySize"`
 	// The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
-	PackageType FunctionPackageTypePtrOutput `pulumi:"packageType"`
+	PackageType              FunctionPackageTypePtrOutput `pulumi:"packageType"`
+	PublishToLatestPublished pulumi.BoolPtrOutput         `pulumi:"publishToLatestPublished"`
 	// The status of your function's recursive loop detection configuration.
 	//  When this value is set to ``Allow``and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
 	//  When this value is set to ``Terminate`` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.
@@ -430,6 +433,8 @@ type Function struct {
 	// A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
 	//   You must have the ``lambda:TagResource``, ``lambda:UntagResource``, and ``lambda:ListTags`` permissions for your [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the CFN stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.
+	TenancyConfig FunctionTenancyConfigPtrOutput `pulumi:"tenancyConfig"`
 	// The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// Set ``Mode`` to ``Active`` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html).
@@ -454,6 +459,7 @@ func NewFunction(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"functionName",
 		"packageType",
+		"tenancyConfig",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -490,7 +496,8 @@ func (FunctionState) ElementType() reflect.Type {
 
 type functionArgs struct {
 	// The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
-	Architectures []FunctionArchitecturesItem `pulumi:"architectures"`
+	Architectures          []FunctionArchitecturesItem     `pulumi:"architectures"`
+	CapacityProviderConfig *FunctionCapacityProviderConfig `pulumi:"capacityProviderConfig"`
 	// The code for the function. You can define your function code in multiple ways:
 	//   +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
 	//   +  For .zip deployment packages, you can alternatively define the function code inline in the ``ZipFile`` property. This method works only for Node.js and Python functions.
@@ -511,7 +518,8 @@ type functionArgs struct {
 	FileSystemConfigs []FunctionFileSystemConfig `pulumi:"fileSystemConfigs"`
 	// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, CFN generates one.
 	//  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	FunctionName *string `pulumi:"functionName"`
+	FunctionName          *string                `pulumi:"functionName"`
+	FunctionScalingConfig *FunctionScalingConfig `pulumi:"functionScalingConfig"`
 	// The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
 	Handler *string `pulumi:"handler"`
 	// Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
@@ -531,7 +539,8 @@ type functionArgs struct {
 	// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
 	MemorySize *int `pulumi:"memorySize"`
 	// The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
-	PackageType *FunctionPackageType `pulumi:"packageType"`
+	PackageType              *FunctionPackageType `pulumi:"packageType"`
+	PublishToLatestPublished *bool                `pulumi:"publishToLatestPublished"`
 	// The status of your function's recursive loop detection configuration.
 	//  When this value is set to ``Allow``and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
 	//  When this value is set to ``Terminate`` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.
@@ -551,6 +560,8 @@ type functionArgs struct {
 	// A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
 	//   You must have the ``lambda:TagResource``, ``lambda:UntagResource``, and ``lambda:ListTags`` permissions for your [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the CFN stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.
+	TenancyConfig *FunctionTenancyConfig `pulumi:"tenancyConfig"`
 	// The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
 	Timeout *int `pulumi:"timeout"`
 	// Set ``Mode`` to ``Active`` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html).
@@ -562,7 +573,8 @@ type functionArgs struct {
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
 	// The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
-	Architectures FunctionArchitecturesItemArrayInput
+	Architectures          FunctionArchitecturesItemArrayInput
+	CapacityProviderConfig FunctionCapacityProviderConfigPtrInput
 	// The code for the function. You can define your function code in multiple ways:
 	//   +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
 	//   +  For .zip deployment packages, you can alternatively define the function code inline in the ``ZipFile`` property. This method works only for Node.js and Python functions.
@@ -583,7 +595,8 @@ type FunctionArgs struct {
 	FileSystemConfigs FunctionFileSystemConfigArrayInput
 	// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, CFN generates one.
 	//  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	FunctionName pulumi.StringPtrInput
+	FunctionName          pulumi.StringPtrInput
+	FunctionScalingConfig FunctionScalingConfigPtrInput
 	// The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
 	Handler pulumi.StringPtrInput
 	// Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
@@ -603,7 +616,8 @@ type FunctionArgs struct {
 	// The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
 	MemorySize pulumi.IntPtrInput
 	// The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
-	PackageType FunctionPackageTypePtrInput
+	PackageType              FunctionPackageTypePtrInput
+	PublishToLatestPublished pulumi.BoolPtrInput
 	// The status of your function's recursive loop detection configuration.
 	//  When this value is set to ``Allow``and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
 	//  When this value is set to ``Terminate`` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you.
@@ -623,6 +637,8 @@ type FunctionArgs struct {
 	// A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
 	//   You must have the ``lambda:TagResource``, ``lambda:UntagResource``, and ``lambda:ListTags`` permissions for your [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the CFN stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
 	Tags aws.TagArrayInput
+	// The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.
+	TenancyConfig FunctionTenancyConfigPtrInput
 	// The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
 	Timeout pulumi.IntPtrInput
 	// Set ``Mode`` to ``Active`` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html).
@@ -678,6 +694,10 @@ func (o FunctionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+func (o FunctionOutput) CapacityProviderConfig() FunctionCapacityProviderConfigPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionCapacityProviderConfigPtrOutput { return v.CapacityProviderConfig }).(FunctionCapacityProviderConfigPtrOutput)
+}
+
 // The code for the function. You can define your function code in multiple ways:
 //   - For .zip deployment packages, you can specify the S3 location of the .zip file in the “S3Bucket“, “S3Key“, and “S3ObjectVersion“ properties.
 //   - For .zip deployment packages, you can alternatively define the function code inline in the “ZipFile“ property. This method works only for Node.js and Python functions.
@@ -725,6 +745,10 @@ func (o FunctionOutput) FunctionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.FunctionName }).(pulumi.StringPtrOutput)
 }
 
+func (o FunctionOutput) FunctionScalingConfig() FunctionScalingConfigPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionScalingConfigPtrOutput { return v.FunctionScalingConfig }).(FunctionScalingConfigPtrOutput)
+}
+
 // The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
 func (o FunctionOutput) Handler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Handler }).(pulumi.StringPtrOutput)
@@ -768,6 +792,10 @@ func (o FunctionOutput) MemorySize() pulumi.IntPtrOutput {
 // The type of deployment package. Set to “Image“ for container image and set “Zip“ for .zip file archive.
 func (o FunctionOutput) PackageType() FunctionPackageTypePtrOutput {
 	return o.ApplyT(func(v *Function) FunctionPackageTypePtrOutput { return v.PackageType }).(FunctionPackageTypePtrOutput)
+}
+
+func (o FunctionOutput) PublishToLatestPublished() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.BoolPtrOutput { return v.PublishToLatestPublished }).(pulumi.BoolPtrOutput)
 }
 
 // The status of your function's recursive loop detection configuration.
@@ -815,6 +843,11 @@ func (o FunctionOutput) SnapStartResponse() FunctionSnapStartResponseOutput {
 //	You must have the ``lambda:TagResource``, ``lambda:UntagResource``, and ``lambda:ListTags`` permissions for your [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the CFN stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
 func (o FunctionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Function) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.
+func (o FunctionOutput) TenancyConfig() FunctionTenancyConfigPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionTenancyConfigPtrOutput { return v.TenancyConfig }).(FunctionTenancyConfigPtrOutput)
 }
 
 // The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).

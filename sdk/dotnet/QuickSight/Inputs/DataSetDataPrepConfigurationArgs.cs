@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("destinationTableMap", required: true)]
         private InputMap<Inputs.DataSetDestinationTableArgs>? _destinationTableMap;
+
+        /// <summary>
+        /// A map of destination tables that receive the final prepared data.
+        /// </summary>
         public InputMap<Inputs.DataSetDestinationTableArgs> DestinationTableMap
         {
             get => _destinationTableMap ?? (_destinationTableMap = new InputMap<Inputs.DataSetDestinationTableArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("sourceTableMap", required: true)]
         private InputMap<Inputs.DataSetSourceTableArgs>? _sourceTableMap;
+
+        /// <summary>
+        /// A map of source tables that provide information about underlying sources.
+        /// </summary>
         public InputMap<Inputs.DataSetSourceTableArgs> SourceTableMap
         {
             get => _sourceTableMap ?? (_sourceTableMap = new InputMap<Inputs.DataSetSourceTableArgs>());
@@ -30,6 +38,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("transformStepMap", required: true)]
         private InputMap<Inputs.DataSetTransformStepArgs>? _transformStepMap;
+
+        /// <summary>
+        /// A map of transformation steps that process the data.
+        /// </summary>
         public InputMap<Inputs.DataSetTransformStepArgs> TransformStepMap
         {
             get => _transformStepMap ?? (_transformStepMap = new InputMap<Inputs.DataSetTransformStepArgs>());

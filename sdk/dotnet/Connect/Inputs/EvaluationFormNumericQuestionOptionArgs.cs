@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("automaticFail")]
         public Input<bool>? AutomaticFail { get; set; }
 
+        /// <summary>
+        /// A configuration for automatic fail.
+        /// </summary>
         [Input("automaticFailConfiguration")]
         public Input<Inputs.EvaluationFormAutomaticFailConfigurationArgs>? AutomaticFailConfiguration { get; set; }
 

@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, access_config=None, arn=None, certificate_authority_data=None, cluster_security_group_id=None, compute_config=None, deletion_protection=None, encryption_config_key_arn=None, endpoint=None, id=None, kubernetes_network_config=None, logging=None, open_id_connect_issuer_url=None, remote_network_config=None, resources_vpc_config=None, storage_config=None, tags=None, upgrade_policy=None, version=None, zonal_shift_config=None):
+    def __init__(__self__, access_config=None, arn=None, certificate_authority_data=None, cluster_security_group_id=None, compute_config=None, control_plane_scaling_config=None, deletion_protection=None, encryption_config_key_arn=None, endpoint=None, id=None, kubernetes_network_config=None, logging=None, open_id_connect_issuer_url=None, remote_network_config=None, resources_vpc_config=None, storage_config=None, tags=None, upgrade_policy=None, version=None, zonal_shift_config=None):
         if access_config and not isinstance(access_config, dict):
             raise TypeError("Expected argument 'access_config' to be a dict")
         pulumi.set(__self__, "access_config", access_config)
@@ -42,6 +42,9 @@ class GetClusterResult:
         if compute_config and not isinstance(compute_config, dict):
             raise TypeError("Expected argument 'compute_config' to be a dict")
         pulumi.set(__self__, "compute_config", compute_config)
+        if control_plane_scaling_config and not isinstance(control_plane_scaling_config, dict):
+            raise TypeError("Expected argument 'control_plane_scaling_config' to be a dict")
+        pulumi.set(__self__, "control_plane_scaling_config", control_plane_scaling_config)
         if deletion_protection and not isinstance(deletion_protection, bool):
             raise TypeError("Expected argument 'deletion_protection' to be a bool")
         pulumi.set(__self__, "deletion_protection", deletion_protection)
@@ -124,6 +127,14 @@ class GetClusterResult:
         Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
         """
         return pulumi.get(self, "compute_config")
+
+    @_builtins.property
+    @pulumi.getter(name="controlPlaneScalingConfig")
+    def control_plane_scaling_config(self) -> Optional['outputs.ClusterControlPlaneScalingConfig']:
+        """
+        The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.
+        """
+        return pulumi.get(self, "control_plane_scaling_config")
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
@@ -251,6 +262,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             certificate_authority_data=self.certificate_authority_data,
             cluster_security_group_id=self.cluster_security_group_id,
             compute_config=self.compute_config,
+            control_plane_scaling_config=self.control_plane_scaling_config,
             deletion_protection=self.deletion_protection,
             encryption_config_key_arn=self.encryption_config_key_arn,
             endpoint=self.endpoint,
@@ -286,6 +298,7 @@ def get_cluster(name: Optional[_builtins.str] = None,
         certificate_authority_data=pulumi.get(__ret__, 'certificate_authority_data'),
         cluster_security_group_id=pulumi.get(__ret__, 'cluster_security_group_id'),
         compute_config=pulumi.get(__ret__, 'compute_config'),
+        control_plane_scaling_config=pulumi.get(__ret__, 'control_plane_scaling_config'),
         deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         encryption_config_key_arn=pulumi.get(__ret__, 'encryption_config_key_arn'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
@@ -318,6 +331,7 @@ def get_cluster_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         certificate_authority_data=pulumi.get(__response__, 'certificate_authority_data'),
         cluster_security_group_id=pulumi.get(__response__, 'cluster_security_group_id'),
         compute_config=pulumi.get(__response__, 'compute_config'),
+        control_plane_scaling_config=pulumi.get(__response__, 'control_plane_scaling_config'),
         deletion_protection=pulumi.get(__response__, 'deletion_protection'),
         encryption_config_key_arn=pulumi.get(__response__, 'encryption_config_key_arn'),
         endpoint=pulumi.get(__response__, 'endpoint'),

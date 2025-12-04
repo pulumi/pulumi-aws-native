@@ -3805,6 +3805,7 @@ type CampaignTelephonyOutboundConfig struct {
 	ConnectContactFlowId string `pulumi:"connectContactFlowId"`
 	// The Amazon Connect source phone number.
 	ConnectSourcePhoneNumber *string `pulumi:"connectSourcePhoneNumber"`
+	RingTimeout              *int    `pulumi:"ringTimeout"`
 }
 
 // CampaignTelephonyOutboundConfigInput is an input type that accepts CampaignTelephonyOutboundConfigArgs and CampaignTelephonyOutboundConfigOutput values.
@@ -3826,6 +3827,7 @@ type CampaignTelephonyOutboundConfigArgs struct {
 	ConnectContactFlowId pulumi.StringInput `pulumi:"connectContactFlowId"`
 	// The Amazon Connect source phone number.
 	ConnectSourcePhoneNumber pulumi.StringPtrInput `pulumi:"connectSourcePhoneNumber"`
+	RingTimeout              pulumi.IntPtrInput    `pulumi:"ringTimeout"`
 }
 
 func (CampaignTelephonyOutboundConfigArgs) ElementType() reflect.Type {
@@ -3923,6 +3925,10 @@ func (o CampaignTelephonyOutboundConfigOutput) ConnectSourcePhoneNumber() pulumi
 	return o.ApplyT(func(v CampaignTelephonyOutboundConfig) *string { return v.ConnectSourcePhoneNumber }).(pulumi.StringPtrOutput)
 }
 
+func (o CampaignTelephonyOutboundConfigOutput) RingTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CampaignTelephonyOutboundConfig) *int { return v.RingTimeout }).(pulumi.IntPtrOutput)
+}
+
 type CampaignTelephonyOutboundConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (CampaignTelephonyOutboundConfigPtrOutput) ElementType() reflect.Type {
@@ -3977,13 +3983,23 @@ func (o CampaignTelephonyOutboundConfigPtrOutput) ConnectSourcePhoneNumber() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o CampaignTelephonyOutboundConfigPtrOutput) RingTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CampaignTelephonyOutboundConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RingTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
 // Telephony Outbound Mode
 type CampaignTelephonyOutboundMode struct {
 	// The agentless outbound mode configuration for telephony.
 	AgentlessConfig *CampaignAgentlessConfig `pulumi:"agentlessConfig"`
 	// Contains predictive outbound mode configuration.
 	PredictiveConfig *CampaignPredictiveConfig `pulumi:"predictiveConfig"`
-	PreviewConfig    *CampaignPreviewConfig    `pulumi:"previewConfig"`
+	// Contains preview outbound mode configuration.
+	PreviewConfig *CampaignPreviewConfig `pulumi:"previewConfig"`
 	// Contains progressive telephony outbound mode configuration.
 	ProgressiveConfig *CampaignProgressiveConfig `pulumi:"progressiveConfig"`
 }
@@ -4005,7 +4021,8 @@ type CampaignTelephonyOutboundModeArgs struct {
 	AgentlessConfig CampaignAgentlessConfigPtrInput `pulumi:"agentlessConfig"`
 	// Contains predictive outbound mode configuration.
 	PredictiveConfig CampaignPredictiveConfigPtrInput `pulumi:"predictiveConfig"`
-	PreviewConfig    CampaignPreviewConfigPtrInput    `pulumi:"previewConfig"`
+	// Contains preview outbound mode configuration.
+	PreviewConfig CampaignPreviewConfigPtrInput `pulumi:"previewConfig"`
 	// Contains progressive telephony outbound mode configuration.
 	ProgressiveConfig CampaignProgressiveConfigPtrInput `pulumi:"progressiveConfig"`
 }
@@ -4098,6 +4115,7 @@ func (o CampaignTelephonyOutboundModeOutput) PredictiveConfig() CampaignPredicti
 	return o.ApplyT(func(v CampaignTelephonyOutboundMode) *CampaignPredictiveConfig { return v.PredictiveConfig }).(CampaignPredictiveConfigPtrOutput)
 }
 
+// Contains preview outbound mode configuration.
 func (o CampaignTelephonyOutboundModeOutput) PreviewConfig() CampaignPreviewConfigPtrOutput {
 	return o.ApplyT(func(v CampaignTelephonyOutboundMode) *CampaignPreviewConfig { return v.PreviewConfig }).(CampaignPreviewConfigPtrOutput)
 }
@@ -4151,6 +4169,7 @@ func (o CampaignTelephonyOutboundModePtrOutput) PredictiveConfig() CampaignPredi
 	}).(CampaignPredictiveConfigPtrOutput)
 }
 
+// Contains preview outbound mode configuration.
 func (o CampaignTelephonyOutboundModePtrOutput) PreviewConfig() CampaignPreviewConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignTelephonyOutboundMode) *CampaignPreviewConfig {
 		if v == nil {

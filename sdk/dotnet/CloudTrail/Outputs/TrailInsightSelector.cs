@@ -17,13 +17,21 @@ namespace Pulumi.AwsNative.CloudTrail.Outputs
     public sealed class TrailInsightSelector
     {
         /// <summary>
+        /// The categories of events for which to log insights. By default, insights are logged for management events only.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.CloudTrail.TrailSourceEventCategory> EventCategories;
+        /// <summary>
         /// The type of insight to log on a trail.
         /// </summary>
         public readonly string? InsightType;
 
         [OutputConstructor]
-        private TrailInsightSelector(string? insightType)
+        private TrailInsightSelector(
+            ImmutableArray<Pulumi.AwsNative.CloudTrail.TrailSourceEventCategory> eventCategories,
+
+            string? insightType)
         {
+            EventCategories = eventCategories;
             InsightType = insightType;
         }
     }

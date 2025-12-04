@@ -30,6 +30,12 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// The Server ID used by targets when using QUIC or TCP_QUIC protocols.
+        /// </summary>
+        [Input("quicServerId")]
+        public Input<string>? QuicServerId { get; set; }
+
         public TargetGroupTargetDescriptionArgs()
         {
         }

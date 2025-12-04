@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'AccessLogSubscriptionServiceNetworkLogType',
     'AuthPolicyState',
+    'DomainVerificationStatus',
     'ListenerProtocol',
     'ResourceConfigurationAuthType',
     'ResourceConfigurationDnsResourceIpAddressType',
@@ -19,6 +20,7 @@ __all__ = [
     'ServiceAuthType',
     'ServiceNetworkAuthType',
     'ServiceNetworkServiceAssociationStatus',
+    'ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference',
     'ServiceNetworkVpcAssociationStatus',
     'ServiceStatus',
     'TargetGroupConfigIpAddressType',
@@ -48,6 +50,16 @@ class AuthPolicyState(_builtins.str, Enum):
     """
     ACTIVE = "ACTIVE"
     INACTIVE = "INACTIVE"
+
+
+@pulumi.type_token("aws-native:vpclattice:DomainVerificationStatus")
+class DomainVerificationStatus(_builtins.str, Enum):
+    """
+    The current status of the domain verification process.
+    """
+    VERIFIED = "VERIFIED"
+    PENDING = "PENDING"
+    VERIFICATION_TIMED_OUT = "VERIFICATION_TIMED_OUT"
 
 
 @pulumi.type_token("aws-native:vpclattice:ListenerProtocol")
@@ -159,6 +171,17 @@ class ServiceNetworkServiceAssociationStatus(_builtins.str, Enum):
     DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
     CREATE_FAILED = "CREATE_FAILED"
     DELETE_FAILED = "DELETE_FAILED"
+
+
+@pulumi.type_token("aws-native:vpclattice:ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference")
+class ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference(_builtins.str, Enum):
+    """
+    The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+    """
+    VERIFIED_DOMAINS_ONLY = "VERIFIED_DOMAINS_ONLY"
+    ALL_DOMAINS = "ALL_DOMAINS"
+    VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS = "VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS"
+    SPECIFIED_DOMAINS_ONLY = "SPECIFIED_DOMAINS_ONLY"
 
 
 @pulumi.type_token("aws-native:vpclattice:ServiceNetworkVpcAssociationStatus")

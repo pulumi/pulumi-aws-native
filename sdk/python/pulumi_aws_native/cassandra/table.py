@@ -37,7 +37,8 @@ class TableArgs:
                  regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
                  replica_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaSpecificationArgs']]]] = None,
                  table_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 warm_throughput: Optional[pulumi.Input['TableWarmThroughputArgs']] = None):
         """
         The set of arguments for constructing a Table resource.
         :param pulumi.Input[_builtins.str] keyspace_name: Name for Cassandra keyspace
@@ -99,6 +100,8 @@ class TableArgs:
             pulumi.set(__self__, "table_name", table_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if warm_throughput is not None:
+            pulumi.set(__self__, "warm_throughput", warm_throughput)
 
     @_builtins.property
     @pulumi.getter(name="keyspaceName")
@@ -286,6 +289,15 @@ class TableArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter(name="warmThroughput")
+    def warm_throughput(self) -> Optional[pulumi.Input['TableWarmThroughputArgs']]:
+        return pulumi.get(self, "warm_throughput")
+
+    @warm_throughput.setter
+    def warm_throughput(self, value: Optional[pulumi.Input['TableWarmThroughputArgs']]):
+        pulumi.set(self, "warm_throughput", value)
+
 
 @pulumi.type_token("aws-native:cassandra:Table")
 class Table(pulumi.CustomResource):
@@ -307,6 +319,7 @@ class Table(pulumi.CustomResource):
                  replica_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaSpecificationArgs', 'TableReplicaSpecificationArgsDict']]]]] = None,
                  table_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 warm_throughput: Optional[pulumi.Input[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Cassandra::Table
@@ -1316,6 +1329,7 @@ class Table(pulumi.CustomResource):
                  replica_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaSpecificationArgs', 'TableReplicaSpecificationArgsDict']]]]] = None,
                  table_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 warm_throughput: Optional[pulumi.Input[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1343,6 +1357,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["replica_specifications"] = replica_specifications
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["warm_throughput"] = warm_throughput
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clientSideTimestampsEnabled", "clusteringKeyColumns[*]", "keyspaceName", "partitionKeyColumns[*]", "tableName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Table, __self__).__init__(
@@ -1381,6 +1396,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["replica_specifications"] = None
         __props__.__dict__["table_name"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["warm_throughput"] = None
         return Table(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -1512,4 +1528,9 @@ class Table(pulumi.CustomResource):
         An array of key-value pairs to apply to this resource
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="warmThroughput")
+    def warm_throughput(self) -> pulumi.Output[Optional['outputs.TableWarmThroughput']]:
+        return pulumi.get(self, "warm_throughput")
 

@@ -20,6 +20,8 @@ type BrowserCustom struct {
 	BrowserArn pulumi.StringOutput `pulumi:"browserArn"`
 	// The id of the browser.
 	BrowserId pulumi.StringOutput `pulumi:"browserId"`
+	// Browser signing configuration.
+	BrowserSigning BrowserCustomBrowserSigningPtrOutput `pulumi:"browserSigning"`
 	// Timestamp when the browser was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The description of the browser.
@@ -53,6 +55,7 @@ func NewBrowserCustom(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'NetworkConfiguration'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"browserSigning",
 		"description",
 		"executionRoleArn",
 		"name",
@@ -93,6 +96,8 @@ func (BrowserCustomState) ElementType() reflect.Type {
 }
 
 type browserCustomArgs struct {
+	// Browser signing configuration.
+	BrowserSigning *BrowserCustomBrowserSigning `pulumi:"browserSigning"`
 	// The description of the browser.
 	Description *string `pulumi:"description"`
 	// The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
@@ -109,6 +114,8 @@ type browserCustomArgs struct {
 
 // The set of arguments for constructing a BrowserCustom resource.
 type BrowserCustomArgs struct {
+	// Browser signing configuration.
+	BrowserSigning BrowserCustomBrowserSigningPtrInput
 	// The description of the browser.
 	Description pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
@@ -168,6 +175,11 @@ func (o BrowserCustomOutput) BrowserArn() pulumi.StringOutput {
 // The id of the browser.
 func (o BrowserCustomOutput) BrowserId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BrowserCustom) pulumi.StringOutput { return v.BrowserId }).(pulumi.StringOutput)
+}
+
+// Browser signing configuration.
+func (o BrowserCustomOutput) BrowserSigning() BrowserCustomBrowserSigningPtrOutput {
+	return o.ApplyT(func(v *BrowserCustom) BrowserCustomBrowserSigningPtrOutput { return v.BrowserSigning }).(BrowserCustomBrowserSigningPtrOutput)
 }
 
 // Timestamp when the browser was created.

@@ -37,7 +37,7 @@ class InvestigationGroupArgs:
         The set of arguments for constructing a InvestigationGroup resource.
         :param pulumi.Input[Sequence[pulumi.Input['InvestigationGroupChatbotNotificationChannelArgs']]] chatbot_notification_channels: An array of key-value pairs of notification channels to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input['InvestigationGroupCrossAccountConfigurationArgs']]] cross_account_configurations: An array of cross account configurations.
-        :param pulumi.Input['InvestigationGroupEncryptionConfigMapArgs'] encryption_config: Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+        :param pulumi.Input['InvestigationGroupEncryptionConfigMapArgs'] encryption_config: Specifies the customer managed AWS  key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
         :param pulumi.Input[_builtins.str] investigation_group_policy: Investigation Group policy
         :param pulumi.Input[_builtins.bool] is_cloud_trail_event_history_enabled: Flag to enable cloud trail history
         :param pulumi.Input[_builtins.str] name: Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.
@@ -95,7 +95,7 @@ class InvestigationGroupArgs:
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> Optional[pulumi.Input['InvestigationGroupEncryptionConfigMapArgs']]:
         """
-        Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+        Specifies the customer managed AWS  key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
         """
         return pulumi.get(self, "encryption_config")
 
@@ -212,7 +212,7 @@ class InvestigationGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InvestigationGroupChatbotNotificationChannelArgs', 'InvestigationGroupChatbotNotificationChannelArgsDict']]]] chatbot_notification_channels: An array of key-value pairs of notification channels to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InvestigationGroupCrossAccountConfigurationArgs', 'InvestigationGroupCrossAccountConfigurationArgsDict']]]] cross_account_configurations: An array of cross account configurations.
-        :param pulumi.Input[Union['InvestigationGroupEncryptionConfigMapArgs', 'InvestigationGroupEncryptionConfigMapArgsDict']] encryption_config: Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+        :param pulumi.Input[Union['InvestigationGroupEncryptionConfigMapArgs', 'InvestigationGroupEncryptionConfigMapArgsDict']] encryption_config: Specifies the customer managed AWS  key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
         :param pulumi.Input[_builtins.str] investigation_group_policy: Investigation Group policy
         :param pulumi.Input[_builtins.bool] is_cloud_trail_event_history_enabled: Flag to enable cloud trail history
         :param pulumi.Input[_builtins.str] name: Specify either the name or the ARN of the investigation group that you want to view. This is used to set the name of the investigation group.
@@ -364,7 +364,7 @@ class InvestigationGroup(pulumi.CustomResource):
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> pulumi.Output[Optional['outputs.InvestigationGroupEncryptionConfigMap']]:
         """
-        Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+        Specifies the customer managed AWS  key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
         """
         return pulumi.get(self, "encryption_config")
 

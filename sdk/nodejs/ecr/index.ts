@@ -30,10 +30,20 @@ export const getRepositoryCreationTemplate: typeof import("./getRepositoryCreati
 export const getRepositoryCreationTemplateOutput: typeof import("./getRepositoryCreationTemplate").getRepositoryCreationTemplateOutput = null as any;
 utilities.lazyLoad(exports, ["getRepositoryCreationTemplate","getRepositoryCreationTemplateOutput"], () => require("./getRepositoryCreationTemplate"));
 
+export { GetSigningConfigurationArgs, GetSigningConfigurationResult, GetSigningConfigurationOutputArgs } from "./getSigningConfiguration";
+export const getSigningConfiguration: typeof import("./getSigningConfiguration").getSigningConfiguration = null as any;
+export const getSigningConfigurationOutput: typeof import("./getSigningConfiguration").getSigningConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getSigningConfiguration","getSigningConfigurationOutput"], () => require("./getSigningConfiguration"));
+
 export { PullThroughCacheRuleArgs } from "./pullThroughCacheRule";
 export type PullThroughCacheRule = import("./pullThroughCacheRule").PullThroughCacheRule;
 export const PullThroughCacheRule: typeof import("./pullThroughCacheRule").PullThroughCacheRule = null as any;
 utilities.lazyLoad(exports, ["PullThroughCacheRule"], () => require("./pullThroughCacheRule"));
+
+export { PullTimeUpdateExclusionArgs } from "./pullTimeUpdateExclusion";
+export type PullTimeUpdateExclusion = import("./pullTimeUpdateExclusion").PullTimeUpdateExclusion;
+export const PullTimeUpdateExclusion: typeof import("./pullTimeUpdateExclusion").PullTimeUpdateExclusion = null as any;
+utilities.lazyLoad(exports, ["PullTimeUpdateExclusion"], () => require("./pullTimeUpdateExclusion"));
 
 export { RegistryPolicyArgs } from "./registryPolicy";
 export type RegistryPolicy = import("./registryPolicy").RegistryPolicy;
@@ -60,6 +70,11 @@ export type RepositoryCreationTemplate = import("./repositoryCreationTemplate").
 export const RepositoryCreationTemplate: typeof import("./repositoryCreationTemplate").RepositoryCreationTemplate = null as any;
 utilities.lazyLoad(exports, ["RepositoryCreationTemplate"], () => require("./repositoryCreationTemplate"));
 
+export { SigningConfigurationArgs } from "./signingConfiguration";
+export type SigningConfiguration = import("./signingConfiguration").SigningConfiguration;
+export const SigningConfiguration: typeof import("./signingConfiguration").SigningConfiguration = null as any;
+utilities.lazyLoad(exports, ["SigningConfiguration"], () => require("./signingConfiguration"));
+
 
 // Export enums:
 export * from "../types/enums/ecr";
@@ -70,6 +85,8 @@ const _module = {
         switch (type) {
             case "aws-native:ecr:PullThroughCacheRule":
                 return new PullThroughCacheRule(name, <any>undefined, { urn })
+            case "aws-native:ecr:PullTimeUpdateExclusion":
+                return new PullTimeUpdateExclusion(name, <any>undefined, { urn })
             case "aws-native:ecr:RegistryPolicy":
                 return new RegistryPolicy(name, <any>undefined, { urn })
             case "aws-native:ecr:RegistryScanningConfiguration":
@@ -80,6 +97,8 @@ const _module = {
                 return new Repository(name, <any>undefined, { urn })
             case "aws-native:ecr:RepositoryCreationTemplate":
                 return new RepositoryCreationTemplate(name, <any>undefined, { urn })
+            case "aws-native:ecr:SigningConfiguration":
+                return new SigningConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type InvestigationGroupChatbotNotificationChannel struct {
 	// Returns the Amazon Resource Name (ARN) of any third-party chat integrations configured for the account.
 	ChatConfigurationArns []string `pulumi:"chatConfigurationArns"`
-	// Returns the ARN of an Amazon SNS topic used for third-party chat integrations.
+	// Returns the ARN of an Amazon  topic used for third-party chat integrations.
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
 }
 
@@ -34,7 +34,7 @@ type InvestigationGroupChatbotNotificationChannelInput interface {
 type InvestigationGroupChatbotNotificationChannelArgs struct {
 	// Returns the Amazon Resource Name (ARN) of any third-party chat integrations configured for the account.
 	ChatConfigurationArns pulumi.StringArrayInput `pulumi:"chatConfigurationArns"`
-	// Returns the ARN of an Amazon SNS topic used for third-party chat integrations.
+	// Returns the ARN of an Amazon  topic used for third-party chat integrations.
 	SnsTopicArn pulumi.StringPtrInput `pulumi:"snsTopicArn"`
 }
 
@@ -94,7 +94,7 @@ func (o InvestigationGroupChatbotNotificationChannelOutput) ChatConfigurationArn
 	return o.ApplyT(func(v InvestigationGroupChatbotNotificationChannel) []string { return v.ChatConfigurationArns }).(pulumi.StringArrayOutput)
 }
 
-// Returns the ARN of an Amazon SNS topic used for third-party chat integrations.
+// Returns the ARN of an Amazon  topic used for third-party chat integrations.
 func (o InvestigationGroupChatbotNotificationChannelOutput) SnsTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InvestigationGroupChatbotNotificationChannel) *string { return v.SnsTopicArn }).(pulumi.StringPtrOutput)
 }

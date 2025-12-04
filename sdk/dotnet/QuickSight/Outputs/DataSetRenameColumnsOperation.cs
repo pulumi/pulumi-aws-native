@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetRenameColumnsOperation
     {
+        /// <summary>
+        /// Alias for this operation.
+        /// </summary>
         public readonly string Alias;
+        /// <summary>
+        /// The list of column rename operations to perform, specifying old and new column names.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSetRenameColumnOperation> RenameColumnOperations;
+        /// <summary>
+        /// The source transform operation that provides input data for column renaming.
+        /// </summary>
         public readonly Outputs.DataSetTransformOperationSource Source;
 
         [OutputConstructor]

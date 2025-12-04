@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
         [Input("predictiveConfig")]
         public Input<Inputs.CampaignPredictiveConfigArgs>? PredictiveConfig { get; set; }
 
+        /// <summary>
+        /// Contains preview outbound mode configuration.
+        /// </summary>
         [Input("previewConfig")]
         public Input<Inputs.CampaignPreviewConfigArgs>? PreviewConfig { get; set; }
 

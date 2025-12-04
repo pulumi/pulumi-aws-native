@@ -8,6 +8,131 @@ using Pulumi;
 namespace Pulumi.AwsNative.Lambda
 {
     /// <summary>
+    /// Specifications for the types of EC2 instances that the capacity provider can use.
+    /// </summary>
+    [EnumType]
+    public readonly struct CapacityProviderArchitecture : IEquatable<CapacityProviderArchitecture>
+    {
+        private readonly string _value;
+
+        private CapacityProviderArchitecture(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderArchitecture X8664 { get; } = new CapacityProviderArchitecture("x86_64");
+        public static CapacityProviderArchitecture Arm64 { get; } = new CapacityProviderArchitecture("arm64");
+
+        public static bool operator ==(CapacityProviderArchitecture left, CapacityProviderArchitecture right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderArchitecture left, CapacityProviderArchitecture right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderArchitecture value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderArchitecture other && Equals(other);
+        public bool Equals(CapacityProviderArchitecture other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The predefined metric for target tracking.
+    /// </summary>
+    [EnumType]
+    public readonly struct CapacityProviderPredefinedMetricType : IEquatable<CapacityProviderPredefinedMetricType>
+    {
+        private readonly string _value;
+
+        private CapacityProviderPredefinedMetricType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderPredefinedMetricType LambdaCapacityProviderAverageCpuUtilization { get; } = new CapacityProviderPredefinedMetricType("LambdaCapacityProviderAverageCPUUtilization");
+
+        public static bool operator ==(CapacityProviderPredefinedMetricType left, CapacityProviderPredefinedMetricType right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderPredefinedMetricType left, CapacityProviderPredefinedMetricType right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderPredefinedMetricType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderPredefinedMetricType other && Equals(other);
+        public bool Equals(CapacityProviderPredefinedMetricType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The scaling mode for the capacity provider.
+    /// </summary>
+    [EnumType]
+    public readonly struct CapacityProviderScalingMode : IEquatable<CapacityProviderScalingMode>
+    {
+        private readonly string _value;
+
+        private CapacityProviderScalingMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderScalingMode Auto { get; } = new CapacityProviderScalingMode("Auto");
+        public static CapacityProviderScalingMode Manual { get; } = new CapacityProviderScalingMode("Manual");
+
+        public static bool operator ==(CapacityProviderScalingMode left, CapacityProviderScalingMode right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderScalingMode left, CapacityProviderScalingMode right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderScalingMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderScalingMode other && Equals(other);
+        public bool Equals(CapacityProviderScalingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current state of the capacity provider. Indicates whether the provider is being created, is active and ready for use, has failed, or is being deleted.
+    /// </summary>
+    [EnumType]
+    public readonly struct CapacityProviderState : IEquatable<CapacityProviderState>
+    {
+        private readonly string _value;
+
+        private CapacityProviderState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderState Pending { get; } = new CapacityProviderState("Pending");
+        public static CapacityProviderState Active { get; } = new CapacityProviderState("Active");
+        public static CapacityProviderState Failed { get; } = new CapacityProviderState("Failed");
+        public static CapacityProviderState Deleting { get; } = new CapacityProviderState("Deleting");
+
+        public static bool operator ==(CapacityProviderState left, CapacityProviderState right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderState left, CapacityProviderState right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderState other && Equals(other);
+        public bool Equals(CapacityProviderState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
     /// </summary>
     [EnumType]
@@ -96,6 +221,38 @@ namespace Pulumi.AwsNative.Lambda
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventSourceMappingLoggingConfigSystemLogLevel : IEquatable<EventSourceMappingLoggingConfigSystemLogLevel>
+    {
+        private readonly string _value;
+
+        private EventSourceMappingLoggingConfigSystemLogLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventSourceMappingLoggingConfigSystemLogLevel Debug { get; } = new EventSourceMappingLoggingConfigSystemLogLevel("DEBUG");
+        public static EventSourceMappingLoggingConfigSystemLogLevel Info { get; } = new EventSourceMappingLoggingConfigSystemLogLevel("INFO");
+        public static EventSourceMappingLoggingConfigSystemLogLevel Warn { get; } = new EventSourceMappingLoggingConfigSystemLogLevel("WARN");
+
+        public static bool operator ==(EventSourceMappingLoggingConfigSystemLogLevel left, EventSourceMappingLoggingConfigSystemLogLevel right) => left.Equals(right);
+        public static bool operator !=(EventSourceMappingLoggingConfigSystemLogLevel left, EventSourceMappingLoggingConfigSystemLogLevel right) => !left.Equals(right);
+
+        public static explicit operator string(EventSourceMappingLoggingConfigSystemLogLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventSourceMappingLoggingConfigSystemLogLevel other && Equals(other);
+        public bool Equals(EventSourceMappingLoggingConfigSystemLogLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct EventSourceMappingMetricsConfigMetricsItem : IEquatable<EventSourceMappingMetricsConfigMetricsItem>
     {
@@ -107,6 +264,8 @@ namespace Pulumi.AwsNative.Lambda
         }
 
         public static EventSourceMappingMetricsConfigMetricsItem EventCount { get; } = new EventSourceMappingMetricsConfigMetricsItem("EventCount");
+        public static EventSourceMappingMetricsConfigMetricsItem ErrorCount { get; } = new EventSourceMappingMetricsConfigMetricsItem("ErrorCount");
+        public static EventSourceMappingMetricsConfigMetricsItem KafkaMetrics { get; } = new EventSourceMappingMetricsConfigMetricsItem("KafkaMetrics");
 
         public static bool operator ==(EventSourceMappingMetricsConfigMetricsItem left, EventSourceMappingMetricsConfigMetricsItem right) => left.Equals(right);
         public static bool operator !=(EventSourceMappingMetricsConfigMetricsItem left, EventSourceMappingMetricsConfigMetricsItem right) => !left.Equals(right);
@@ -584,6 +743,36 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
+    /// Determines how your Lambda function isolates execution environments between tenants.
+    /// </summary>
+    [EnumType]
+    public readonly struct FunctionTenancyConfigTenantIsolationMode : IEquatable<FunctionTenancyConfigTenantIsolationMode>
+    {
+        private readonly string _value;
+
+        private FunctionTenancyConfigTenantIsolationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FunctionTenancyConfigTenantIsolationMode PerTenant { get; } = new FunctionTenancyConfigTenantIsolationMode("PER_TENANT");
+
+        public static bool operator ==(FunctionTenancyConfigTenantIsolationMode left, FunctionTenancyConfigTenantIsolationMode right) => left.Equals(right);
+        public static bool operator !=(FunctionTenancyConfigTenantIsolationMode left, FunctionTenancyConfigTenantIsolationMode right) => !left.Equals(right);
+
+        public static explicit operator string(FunctionTenancyConfigTenantIsolationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FunctionTenancyConfigTenantIsolationMode other && Equals(other);
+        public bool Equals(FunctionTenancyConfigTenantIsolationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The tracing mode.
     /// </summary>
     [EnumType]
@@ -615,7 +804,7 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
-    /// The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
+    /// The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
     /// </summary>
     [EnumType]
     public readonly struct PermissionFunctionUrlAuthType : IEquatable<PermissionFunctionUrlAuthType>

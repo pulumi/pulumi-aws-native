@@ -31,6 +31,7 @@ namespace Pulumi.AwsNative.Athena.Outputs
         /// If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see [Override client-side settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
         /// </summary>
         public readonly bool? EnforceWorkGroupConfiguration;
+        public readonly Outputs.WorkGroupEngineConfiguration? EngineConfiguration;
         /// <summary>
         /// The engine version that all queries running on the workgroup use.
         /// </summary>
@@ -43,6 +44,10 @@ namespace Pulumi.AwsNative.Athena.Outputs
         /// The configuration for storing results in Athena owned storage, which includes whether this feature is enabled; whether encryption configuration, if any, is used for encrypting query results.
         /// </summary>
         public readonly Outputs.WorkGroupManagedQueryResultsConfiguration? ManagedQueryResultsConfiguration;
+        /// <summary>
+        /// Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc.
+        /// </summary>
+        public readonly Outputs.WorkGroupMonitoringConfiguration? MonitoringConfiguration;
         /// <summary>
         /// Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
         /// </summary>
@@ -66,11 +71,15 @@ namespace Pulumi.AwsNative.Athena.Outputs
 
             bool? enforceWorkGroupConfiguration,
 
+            Outputs.WorkGroupEngineConfiguration? engineConfiguration,
+
             Outputs.WorkGroupEngineVersion? engineVersion,
 
             string? executionRole,
 
             Outputs.WorkGroupManagedQueryResultsConfiguration? managedQueryResultsConfiguration,
+
+            Outputs.WorkGroupMonitoringConfiguration? monitoringConfiguration,
 
             bool? publishCloudWatchMetricsEnabled,
 
@@ -82,9 +91,11 @@ namespace Pulumi.AwsNative.Athena.Outputs
             BytesScannedCutoffPerQuery = bytesScannedCutoffPerQuery;
             CustomerContentEncryptionConfiguration = customerContentEncryptionConfiguration;
             EnforceWorkGroupConfiguration = enforceWorkGroupConfiguration;
+            EngineConfiguration = engineConfiguration;
             EngineVersion = engineVersion;
             ExecutionRole = executionRole;
             ManagedQueryResultsConfiguration = managedQueryResultsConfiguration;
+            MonitoringConfiguration = monitoringConfiguration;
             PublishCloudWatchMetricsEnabled = publishCloudWatchMetricsEnabled;
             RequesterPaysEnabled = requesterPaysEnabled;
             ResultConfiguration = resultConfiguration;

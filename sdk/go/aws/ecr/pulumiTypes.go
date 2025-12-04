@@ -1070,9 +1070,9 @@ func (o RepositoryCreationTemplateTagArrayOutput) Index(i pulumi.IntInput) Repos
 type RepositoryEncryptionConfiguration struct {
 	// The encryption type to use.
 	//
-	// If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created.
+	// If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS  . When you use AWS  to encrypt your data, you can either use the default AWS managed AWS  key for Amazon ECR, or specify your own AWS  key, which you already created.
 	//
-	// If you use the `KMS_DSSE` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the AWS KMS Management Service key stored in AWS KMS . Similar to the `KMS` encryption type, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you've already created.
+	// If you use the `KMS_DSSE` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the AWS  Management Service key stored in AWS  . Similar to the `KMS` encryption type, you can either use the default AWS managed AWS  key for Amazon ECR, or specify your own AWS  key, which you've already created.
 	//
 	// If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES256 encryption algorithm.
 	//
@@ -1100,9 +1100,9 @@ type RepositoryEncryptionConfigurationInput interface {
 type RepositoryEncryptionConfigurationArgs struct {
 	// The encryption type to use.
 	//
-	// If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created.
+	// If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS  . When you use AWS  to encrypt your data, you can either use the default AWS managed AWS  key for Amazon ECR, or specify your own AWS  key, which you already created.
 	//
-	// If you use the `KMS_DSSE` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the AWS KMS Management Service key stored in AWS KMS . Similar to the `KMS` encryption type, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you've already created.
+	// If you use the `KMS_DSSE` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the AWS  Management Service key stored in AWS  . Similar to the `KMS` encryption type, you can either use the default AWS managed AWS  key for Amazon ECR, or specify your own AWS  key, which you've already created.
 	//
 	// If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES256 encryption algorithm.
 	//
@@ -1195,9 +1195,9 @@ func (o RepositoryEncryptionConfigurationOutput) ToRepositoryEncryptionConfigura
 
 // The encryption type to use.
 //
-// If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created.
+// If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS  . When you use AWS  to encrypt your data, you can either use the default AWS managed AWS  key for Amazon ECR, or specify your own AWS  key, which you already created.
 //
-// If you use the `KMS_DSSE` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the AWS KMS Management Service key stored in AWS KMS . Similar to the `KMS` encryption type, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you've already created.
+// If you use the `KMS_DSSE` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the AWS  Management Service key stored in AWS  . Similar to the `KMS` encryption type, you can either use the default AWS managed AWS  key for Amazon ECR, or specify your own AWS  key, which you've already created.
 //
 // If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES256 encryption algorithm.
 //
@@ -1237,9 +1237,9 @@ func (o RepositoryEncryptionConfigurationPtrOutput) Elem() RepositoryEncryptionC
 
 // The encryption type to use.
 //
-// If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS KMS . When you use AWS KMS to encrypt your data, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you already created.
+// If you use the `KMS` encryption type, the contents of the repository will be encrypted using server-side encryption with AWS Key Management Service key stored in AWS  . When you use AWS  to encrypt your data, you can either use the default AWS managed AWS  key for Amazon ECR, or specify your own AWS  key, which you already created.
 //
-// If you use the `KMS_DSSE` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the AWS KMS Management Service key stored in AWS KMS . Similar to the `KMS` encryption type, you can either use the default AWS managed AWS KMS key for Amazon ECR, or specify your own AWS KMS key, which you've already created.
+// If you use the `KMS_DSSE` encryption type, the contents of the repository will be encrypted with two layers of encryption using server-side encryption with the AWS  Management Service key stored in AWS  . Similar to the `KMS` encryption type, you can either use the default AWS managed AWS  key for Amazon ECR, or specify your own AWS  key, which you've already created.
 //
 // If you use the `AES256` encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES256 encryption algorithm.
 //
@@ -1683,6 +1683,239 @@ type RepositoryTag struct {
 	Value string `pulumi:"value"`
 }
 
+// An array of objects representing the details of a repository filter.
+type SigningConfigurationRepositoryFilter struct {
+	// The filter value used to match repository names. When using `WILDCARD_MATCH` , the `*` character matches any sequence of characters.
+	//
+	// Examples:
+	//
+	// - `myapp/*` - Matches all repositories starting with `myapp/`
+	// - `*/production` - Matches all repositories ending with `/production`
+	// - `*prod*` - Matches all repositories containing `prod`
+	Filter string `pulumi:"filter"`
+	// The type of filter to apply. Currently, only `WILDCARD_MATCH` is supported, which uses wildcard patterns to match repository names.
+	FilterType SigningConfigurationFilterType `pulumi:"filterType"`
+}
+
+// SigningConfigurationRepositoryFilterInput is an input type that accepts SigningConfigurationRepositoryFilterArgs and SigningConfigurationRepositoryFilterOutput values.
+// You can construct a concrete instance of `SigningConfigurationRepositoryFilterInput` via:
+//
+//	SigningConfigurationRepositoryFilterArgs{...}
+type SigningConfigurationRepositoryFilterInput interface {
+	pulumi.Input
+
+	ToSigningConfigurationRepositoryFilterOutput() SigningConfigurationRepositoryFilterOutput
+	ToSigningConfigurationRepositoryFilterOutputWithContext(context.Context) SigningConfigurationRepositoryFilterOutput
+}
+
+// An array of objects representing the details of a repository filter.
+type SigningConfigurationRepositoryFilterArgs struct {
+	// The filter value used to match repository names. When using `WILDCARD_MATCH` , the `*` character matches any sequence of characters.
+	//
+	// Examples:
+	//
+	// - `myapp/*` - Matches all repositories starting with `myapp/`
+	// - `*/production` - Matches all repositories ending with `/production`
+	// - `*prod*` - Matches all repositories containing `prod`
+	Filter pulumi.StringInput `pulumi:"filter"`
+	// The type of filter to apply. Currently, only `WILDCARD_MATCH` is supported, which uses wildcard patterns to match repository names.
+	FilterType SigningConfigurationFilterTypeInput `pulumi:"filterType"`
+}
+
+func (SigningConfigurationRepositoryFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SigningConfigurationRepositoryFilter)(nil)).Elem()
+}
+
+func (i SigningConfigurationRepositoryFilterArgs) ToSigningConfigurationRepositoryFilterOutput() SigningConfigurationRepositoryFilterOutput {
+	return i.ToSigningConfigurationRepositoryFilterOutputWithContext(context.Background())
+}
+
+func (i SigningConfigurationRepositoryFilterArgs) ToSigningConfigurationRepositoryFilterOutputWithContext(ctx context.Context) SigningConfigurationRepositoryFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SigningConfigurationRepositoryFilterOutput)
+}
+
+// SigningConfigurationRepositoryFilterArrayInput is an input type that accepts SigningConfigurationRepositoryFilterArray and SigningConfigurationRepositoryFilterArrayOutput values.
+// You can construct a concrete instance of `SigningConfigurationRepositoryFilterArrayInput` via:
+//
+//	SigningConfigurationRepositoryFilterArray{ SigningConfigurationRepositoryFilterArgs{...} }
+type SigningConfigurationRepositoryFilterArrayInput interface {
+	pulumi.Input
+
+	ToSigningConfigurationRepositoryFilterArrayOutput() SigningConfigurationRepositoryFilterArrayOutput
+	ToSigningConfigurationRepositoryFilterArrayOutputWithContext(context.Context) SigningConfigurationRepositoryFilterArrayOutput
+}
+
+type SigningConfigurationRepositoryFilterArray []SigningConfigurationRepositoryFilterInput
+
+func (SigningConfigurationRepositoryFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SigningConfigurationRepositoryFilter)(nil)).Elem()
+}
+
+func (i SigningConfigurationRepositoryFilterArray) ToSigningConfigurationRepositoryFilterArrayOutput() SigningConfigurationRepositoryFilterArrayOutput {
+	return i.ToSigningConfigurationRepositoryFilterArrayOutputWithContext(context.Background())
+}
+
+func (i SigningConfigurationRepositoryFilterArray) ToSigningConfigurationRepositoryFilterArrayOutputWithContext(ctx context.Context) SigningConfigurationRepositoryFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SigningConfigurationRepositoryFilterArrayOutput)
+}
+
+// An array of objects representing the details of a repository filter.
+type SigningConfigurationRepositoryFilterOutput struct{ *pulumi.OutputState }
+
+func (SigningConfigurationRepositoryFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SigningConfigurationRepositoryFilter)(nil)).Elem()
+}
+
+func (o SigningConfigurationRepositoryFilterOutput) ToSigningConfigurationRepositoryFilterOutput() SigningConfigurationRepositoryFilterOutput {
+	return o
+}
+
+func (o SigningConfigurationRepositoryFilterOutput) ToSigningConfigurationRepositoryFilterOutputWithContext(ctx context.Context) SigningConfigurationRepositoryFilterOutput {
+	return o
+}
+
+// The filter value used to match repository names. When using `WILDCARD_MATCH` , the `*` character matches any sequence of characters.
+//
+// Examples:
+//
+// - `myapp/*` - Matches all repositories starting with `myapp/`
+// - `*/production` - Matches all repositories ending with `/production`
+// - `*prod*` - Matches all repositories containing `prod`
+func (o SigningConfigurationRepositoryFilterOutput) Filter() pulumi.StringOutput {
+	return o.ApplyT(func(v SigningConfigurationRepositoryFilter) string { return v.Filter }).(pulumi.StringOutput)
+}
+
+// The type of filter to apply. Currently, only `WILDCARD_MATCH` is supported, which uses wildcard patterns to match repository names.
+func (o SigningConfigurationRepositoryFilterOutput) FilterType() SigningConfigurationFilterTypeOutput {
+	return o.ApplyT(func(v SigningConfigurationRepositoryFilter) SigningConfigurationFilterType { return v.FilterType }).(SigningConfigurationFilterTypeOutput)
+}
+
+type SigningConfigurationRepositoryFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (SigningConfigurationRepositoryFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SigningConfigurationRepositoryFilter)(nil)).Elem()
+}
+
+func (o SigningConfigurationRepositoryFilterArrayOutput) ToSigningConfigurationRepositoryFilterArrayOutput() SigningConfigurationRepositoryFilterArrayOutput {
+	return o
+}
+
+func (o SigningConfigurationRepositoryFilterArrayOutput) ToSigningConfigurationRepositoryFilterArrayOutputWithContext(ctx context.Context) SigningConfigurationRepositoryFilterArrayOutput {
+	return o
+}
+
+func (o SigningConfigurationRepositoryFilterArrayOutput) Index(i pulumi.IntInput) SigningConfigurationRepositoryFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SigningConfigurationRepositoryFilter {
+		return vs[0].([]SigningConfigurationRepositoryFilter)[vs[1].(int)]
+	}).(SigningConfigurationRepositoryFilterOutput)
+}
+
+type SigningConfigurationRule struct {
+	// Optional array of repository filters. If omitted, the rule matches all repositories. If provided, must contain at least one filter. Empty arrays are not allowed.
+	RepositoryFilters []SigningConfigurationRepositoryFilter `pulumi:"repositoryFilters"`
+	// AWS Signer signing profile ARN to use for matched repositories.
+	SigningProfileArn string `pulumi:"signingProfileArn"`
+}
+
+// SigningConfigurationRuleInput is an input type that accepts SigningConfigurationRuleArgs and SigningConfigurationRuleOutput values.
+// You can construct a concrete instance of `SigningConfigurationRuleInput` via:
+//
+//	SigningConfigurationRuleArgs{...}
+type SigningConfigurationRuleInput interface {
+	pulumi.Input
+
+	ToSigningConfigurationRuleOutput() SigningConfigurationRuleOutput
+	ToSigningConfigurationRuleOutputWithContext(context.Context) SigningConfigurationRuleOutput
+}
+
+type SigningConfigurationRuleArgs struct {
+	// Optional array of repository filters. If omitted, the rule matches all repositories. If provided, must contain at least one filter. Empty arrays are not allowed.
+	RepositoryFilters SigningConfigurationRepositoryFilterArrayInput `pulumi:"repositoryFilters"`
+	// AWS Signer signing profile ARN to use for matched repositories.
+	SigningProfileArn pulumi.StringInput `pulumi:"signingProfileArn"`
+}
+
+func (SigningConfigurationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SigningConfigurationRule)(nil)).Elem()
+}
+
+func (i SigningConfigurationRuleArgs) ToSigningConfigurationRuleOutput() SigningConfigurationRuleOutput {
+	return i.ToSigningConfigurationRuleOutputWithContext(context.Background())
+}
+
+func (i SigningConfigurationRuleArgs) ToSigningConfigurationRuleOutputWithContext(ctx context.Context) SigningConfigurationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SigningConfigurationRuleOutput)
+}
+
+// SigningConfigurationRuleArrayInput is an input type that accepts SigningConfigurationRuleArray and SigningConfigurationRuleArrayOutput values.
+// You can construct a concrete instance of `SigningConfigurationRuleArrayInput` via:
+//
+//	SigningConfigurationRuleArray{ SigningConfigurationRuleArgs{...} }
+type SigningConfigurationRuleArrayInput interface {
+	pulumi.Input
+
+	ToSigningConfigurationRuleArrayOutput() SigningConfigurationRuleArrayOutput
+	ToSigningConfigurationRuleArrayOutputWithContext(context.Context) SigningConfigurationRuleArrayOutput
+}
+
+type SigningConfigurationRuleArray []SigningConfigurationRuleInput
+
+func (SigningConfigurationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SigningConfigurationRule)(nil)).Elem()
+}
+
+func (i SigningConfigurationRuleArray) ToSigningConfigurationRuleArrayOutput() SigningConfigurationRuleArrayOutput {
+	return i.ToSigningConfigurationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i SigningConfigurationRuleArray) ToSigningConfigurationRuleArrayOutputWithContext(ctx context.Context) SigningConfigurationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SigningConfigurationRuleArrayOutput)
+}
+
+type SigningConfigurationRuleOutput struct{ *pulumi.OutputState }
+
+func (SigningConfigurationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SigningConfigurationRule)(nil)).Elem()
+}
+
+func (o SigningConfigurationRuleOutput) ToSigningConfigurationRuleOutput() SigningConfigurationRuleOutput {
+	return o
+}
+
+func (o SigningConfigurationRuleOutput) ToSigningConfigurationRuleOutputWithContext(ctx context.Context) SigningConfigurationRuleOutput {
+	return o
+}
+
+// Optional array of repository filters. If omitted, the rule matches all repositories. If provided, must contain at least one filter. Empty arrays are not allowed.
+func (o SigningConfigurationRuleOutput) RepositoryFilters() SigningConfigurationRepositoryFilterArrayOutput {
+	return o.ApplyT(func(v SigningConfigurationRule) []SigningConfigurationRepositoryFilter { return v.RepositoryFilters }).(SigningConfigurationRepositoryFilterArrayOutput)
+}
+
+// AWS Signer signing profile ARN to use for matched repositories.
+func (o SigningConfigurationRuleOutput) SigningProfileArn() pulumi.StringOutput {
+	return o.ApplyT(func(v SigningConfigurationRule) string { return v.SigningProfileArn }).(pulumi.StringOutput)
+}
+
+type SigningConfigurationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (SigningConfigurationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SigningConfigurationRule)(nil)).Elem()
+}
+
+func (o SigningConfigurationRuleArrayOutput) ToSigningConfigurationRuleArrayOutput() SigningConfigurationRuleArrayOutput {
+	return o
+}
+
+func (o SigningConfigurationRuleArrayOutput) ToSigningConfigurationRuleArrayOutputWithContext(ctx context.Context) SigningConfigurationRuleArrayOutput {
+	return o
+}
+
+func (o SigningConfigurationRuleArrayOutput) Index(i pulumi.IntInput) SigningConfigurationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SigningConfigurationRule {
+		return vs[0].([]SigningConfigurationRule)[vs[1].(int)]
+	}).(SigningConfigurationRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationRepositoryFilterInput)(nil)).Elem(), RegistryScanningConfigurationRepositoryFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationRepositoryFilterArrayInput)(nil)).Elem(), RegistryScanningConfigurationRepositoryFilterArray{})
@@ -1709,6 +1942,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageTagMutabilityExclusionFilterArrayInput)(nil)).Elem(), RepositoryImageTagMutabilityExclusionFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryLifecyclePolicyInput)(nil)).Elem(), RepositoryLifecyclePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryLifecyclePolicyPtrInput)(nil)).Elem(), RepositoryLifecyclePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningConfigurationRepositoryFilterInput)(nil)).Elem(), SigningConfigurationRepositoryFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningConfigurationRepositoryFilterArrayInput)(nil)).Elem(), SigningConfigurationRepositoryFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningConfigurationRuleInput)(nil)).Elem(), SigningConfigurationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningConfigurationRuleArrayInput)(nil)).Elem(), SigningConfigurationRuleArray{})
 	pulumi.RegisterOutputType(RegistryScanningConfigurationRepositoryFilterOutput{})
 	pulumi.RegisterOutputType(RegistryScanningConfigurationRepositoryFilterArrayOutput{})
 	pulumi.RegisterOutputType(RegistryScanningConfigurationScanningRuleOutput{})
@@ -1735,4 +1972,8 @@ func init() {
 	pulumi.RegisterOutputType(RepositoryImageTagMutabilityExclusionFilterArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryLifecyclePolicyOutput{})
 	pulumi.RegisterOutputType(RepositoryLifecyclePolicyPtrOutput{})
+	pulumi.RegisterOutputType(SigningConfigurationRepositoryFilterOutput{})
+	pulumi.RegisterOutputType(SigningConfigurationRepositoryFilterArrayOutput{})
+	pulumi.RegisterOutputType(SigningConfigurationRuleOutput{})
+	pulumi.RegisterOutputType(SigningConfigurationRuleArrayOutput{})
 }

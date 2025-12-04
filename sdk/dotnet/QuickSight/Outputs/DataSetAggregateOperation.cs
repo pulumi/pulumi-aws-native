@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetAggregateOperation
     {
+        /// <summary>
+        /// The list of aggregation functions to apply to the grouped data, such as `SUM` , `COUNT` , or `AVERAGE` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSetAggregation> Aggregations;
+        /// <summary>
+        /// Alias for this operation.
+        /// </summary>
         public readonly string Alias;
+        /// <summary>
+        /// The list of column names to group by when performing the aggregation. Rows with the same values in these columns will be grouped together.
+        /// </summary>
         public readonly ImmutableArray<string> GroupByColumnNames;
+        /// <summary>
+        /// The source transform operation that provides input data for the aggregation.
+        /// </summary>
         public readonly Outputs.DataSetTransformOperationSource Source;
 
         [OutputConstructor]

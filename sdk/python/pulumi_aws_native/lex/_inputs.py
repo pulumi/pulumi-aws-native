@@ -2693,7 +2693,7 @@ if not MYPY:
         """
         kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The AWS KMS key required to decrypt the contents of the grammar, if any.
+        The AWS  key required to decrypt the contents of the grammar, if any.
         """
 elif False:
     BotGrammarSlotTypeSourceArgsDict: TypeAlias = Mapping[str, Any]
@@ -2707,7 +2707,7 @@ class BotGrammarSlotTypeSourceArgs:
         """
         :param pulumi.Input[_builtins.str] s3_bucket_name: The name of the Amazon S3 bucket that contains the grammar source.
         :param pulumi.Input[_builtins.str] s3_object_key: The path to the grammar in the Amazon S3 bucket.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The AWS KMS key required to decrypt the contents of the grammar, if any.
+        :param pulumi.Input[_builtins.str] kms_key_arn: The AWS  key required to decrypt the contents of the grammar, if any.
         """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         pulumi.set(__self__, "s3_object_key", s3_object_key)
@@ -2742,7 +2742,7 @@ class BotGrammarSlotTypeSourceArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The AWS KMS key required to decrypt the contents of the grammar, if any.
+        The AWS  key required to decrypt the contents of the grammar, if any.
         """
         return pulumi.get(self, "kms_key_arn")
 

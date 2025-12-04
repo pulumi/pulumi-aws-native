@@ -368,7 +368,7 @@ func (o ResponsePlanActionArrayOutput) Index(i pulumi.IntInput) ResponsePlanActi
 
 // The chat channel configuration.
 type ResponsePlanChatChannel struct {
-	// The Amazon SNS targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
+	// The Amazon  targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon  topics
 	ChatbotSns []string `pulumi:"chatbotSns"`
 }
 
@@ -385,7 +385,7 @@ type ResponsePlanChatChannelInput interface {
 
 // The chat channel configuration.
 type ResponsePlanChatChannelArgs struct {
-	// The Amazon SNS targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
+	// The Amazon  targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon  topics
 	ChatbotSns pulumi.StringArrayInput `pulumi:"chatbotSns"`
 }
 
@@ -467,7 +467,7 @@ func (o ResponsePlanChatChannelOutput) ToResponsePlanChatChannelPtrOutputWithCon
 	}).(ResponsePlanChatChannelPtrOutput)
 }
 
-// The Amazon SNS targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
+// The Amazon  targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon  topics
 func (o ResponsePlanChatChannelOutput) ChatbotSns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResponsePlanChatChannel) []string { return v.ChatbotSns }).(pulumi.StringArrayOutput)
 }
@@ -496,7 +496,7 @@ func (o ResponsePlanChatChannelPtrOutput) Elem() ResponsePlanChatChannelOutput {
 	}).(ResponsePlanChatChannelOutput)
 }
 
-// The Amazon SNS targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
+// The Amazon  targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon  topics
 func (o ResponsePlanChatChannelPtrOutput) ChatbotSns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResponsePlanChatChannel) []string {
 		if v == nil {
@@ -955,7 +955,7 @@ func (o ResponsePlanIntegrationArrayOutput) Index(i pulumi.IntInput) ResponsePla
 
 // A notification target.
 type ResponsePlanNotificationTargetItem struct {
-	// The Amazon Resource Name (ARN) of the Amazon SNS topic.
+	// The Amazon Resource Name (ARN) of the Amazon  topic.
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
 }
 
@@ -972,7 +972,7 @@ type ResponsePlanNotificationTargetItemInput interface {
 
 // A notification target.
 type ResponsePlanNotificationTargetItemArgs struct {
-	// The Amazon Resource Name (ARN) of the Amazon SNS topic.
+	// The Amazon Resource Name (ARN) of the Amazon  topic.
 	SnsTopicArn pulumi.StringPtrInput `pulumi:"snsTopicArn"`
 }
 
@@ -1028,7 +1028,7 @@ func (o ResponsePlanNotificationTargetItemOutput) ToResponsePlanNotificationTarg
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Amazon SNS topic.
+// The Amazon Resource Name (ARN) of the Amazon  topic.
 func (o ResponsePlanNotificationTargetItemOutput) SnsTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponsePlanNotificationTargetItem) *string { return v.SnsTopicArn }).(pulumi.StringPtrOutput)
 }

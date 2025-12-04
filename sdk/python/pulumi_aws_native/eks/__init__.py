@@ -9,10 +9,12 @@ import typing
 from ._enums import *
 from .access_entry import *
 from .addon import *
+from .capability import *
 from .cluster import *
 from .fargate_profile import *
 from .get_access_entry import *
 from .get_addon import *
+from .get_capability import *
 from .get_cluster import *
 from .get_fargate_profile import *
 from .get_identity_provider_config import *

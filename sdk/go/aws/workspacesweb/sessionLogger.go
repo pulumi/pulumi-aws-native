@@ -33,7 +33,8 @@ type SessionLogger struct {
 	LogConfiguration SessionLoggerLogConfigurationOutput `pulumi:"logConfiguration"`
 	// The ARN of the session logger resource.
 	SessionLoggerArn pulumi.StringOutput `pulumi:"sessionLoggerArn"`
-	Tags             aws.TagArrayOutput  `pulumi:"tags"`
+	// The tags of the session logger.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewSessionLogger registers a new resource with the given unique name, arguments, and options.
@@ -97,7 +98,8 @@ type sessionLoggerArgs struct {
 	EventFilter interface{} `pulumi:"eventFilter"`
 	// The configuration that specifies where logs are fowarded.
 	LogConfiguration SessionLoggerLogConfiguration `pulumi:"logConfiguration"`
-	Tags             []aws.Tag                     `pulumi:"tags"`
+	// The tags of the session logger.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SessionLogger resource.
@@ -112,7 +114,8 @@ type SessionLoggerArgs struct {
 	EventFilter pulumi.Input
 	// The configuration that specifies where logs are fowarded.
 	LogConfiguration SessionLoggerLogConfigurationInput
-	Tags             aws.TagArrayInput
+	// The tags of the session logger.
+	Tags aws.TagArrayInput
 }
 
 func (SessionLoggerArgs) ElementType() reflect.Type {
@@ -192,6 +195,7 @@ func (o SessionLoggerOutput) SessionLoggerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SessionLogger) pulumi.StringOutput { return v.SessionLoggerArn }).(pulumi.StringOutput)
 }
 
+// The tags of the session logger.
 func (o SessionLoggerOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *SessionLogger) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.OpenSearchService
     public sealed class GetDomainArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+        /// A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
         /// 
         /// Required when creating a new domain.
         /// 
@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.OpenSearchService
     public sealed class GetDomainInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+        /// A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
         /// 
         /// Required when creating a new domain.
         /// 
@@ -88,6 +88,10 @@ namespace Pulumi.AwsNative.OpenSearchService
         /// </summary>
         public readonly Outputs.DomainAdvancedSecurityOptionsInput? AdvancedSecurityOptions;
         /// <summary>
+        /// Container for parameters required to enable all machine learning features.
+        /// </summary>
+        public readonly Outputs.DomainAimlOptions? AimlOptions;
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the CloudFormation stack.
         /// </summary>
         public readonly string? Arn;
@@ -121,7 +125,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         /// </summary>
         public readonly Outputs.DomainEbsOptions? EbsOptions;
         /// <summary>
-        /// Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
+        /// Whether the domain should encrypt data at rest, and if so, the AWS  key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
         /// 
         /// If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
         /// </summary>
@@ -185,6 +189,8 @@ namespace Pulumi.AwsNative.OpenSearchService
 
             Outputs.DomainAdvancedSecurityOptionsInput? advancedSecurityOptions,
 
+            Outputs.DomainAimlOptions? aimlOptions,
+
             string? arn,
 
             Outputs.DomainClusterConfig? clusterConfig,
@@ -234,6 +240,7 @@ namespace Pulumi.AwsNative.OpenSearchService
             AccessPolicies = accessPolicies;
             AdvancedOptions = advancedOptions;
             AdvancedSecurityOptions = advancedSecurityOptions;
+            AimlOptions = aimlOptions;
             Arn = arn;
             ClusterConfig = clusterConfig;
             CognitoOptions = cognitoOptions;

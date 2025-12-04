@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class EvaluationFormSingleSelectQuestionAutomation
     {
+        /// <summary>
+        /// Automation answer source.
+        /// </summary>
         public readonly Outputs.EvaluationFormQuestionAutomationAnswerSource? AnswerSource;
         /// <summary>
         /// The identifier of the default answer option, when none of the automation options match the criteria.

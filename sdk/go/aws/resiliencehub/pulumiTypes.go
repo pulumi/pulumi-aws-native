@@ -481,7 +481,7 @@ type AppResourceMapping struct {
 	//
 	// > This parameter accepts values in "eks-cluster/namespace" format.
 	EksSourceName *string `pulumi:"eksSourceName"`
-	// Name of the AWS CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
+	// Name of the CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
 	LogicalStackName *string `pulumi:"logicalStackName"`
 	// Specifies the type of resource mapping.
 	MappingType string `pulumi:"mappingType"`
@@ -510,7 +510,7 @@ type AppResourceMappingArgs struct {
 	//
 	// > This parameter accepts values in "eks-cluster/namespace" format.
 	EksSourceName pulumi.StringPtrInput `pulumi:"eksSourceName"`
-	// Name of the AWS CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
+	// Name of the CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
 	LogicalStackName pulumi.StringPtrInput `pulumi:"logicalStackName"`
 	// Specifies the type of resource mapping.
 	MappingType pulumi.StringInput `pulumi:"mappingType"`
@@ -581,7 +581,7 @@ func (o AppResourceMappingOutput) EksSourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceMapping) *string { return v.EksSourceName }).(pulumi.StringPtrOutput)
 }
 
-// Name of the AWS CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
+// Name of the CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
 func (o AppResourceMappingOutput) LogicalStackName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceMapping) *string { return v.LogicalStackName }).(pulumi.StringPtrOutput)
 }

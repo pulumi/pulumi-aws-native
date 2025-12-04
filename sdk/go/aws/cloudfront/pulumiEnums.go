@@ -10,6 +10,355 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The function's runtime environment version.
+type ConnectionFunctionConfigRuntime string
+
+const (
+	ConnectionFunctionConfigRuntimeCloudfrontJs20 = ConnectionFunctionConfigRuntime("cloudfront-js-2.0")
+)
+
+func (ConnectionFunctionConfigRuntime) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionFunctionConfigRuntime)(nil)).Elem()
+}
+
+func (e ConnectionFunctionConfigRuntime) ToConnectionFunctionConfigRuntimeOutput() ConnectionFunctionConfigRuntimeOutput {
+	return pulumi.ToOutput(e).(ConnectionFunctionConfigRuntimeOutput)
+}
+
+func (e ConnectionFunctionConfigRuntime) ToConnectionFunctionConfigRuntimeOutputWithContext(ctx context.Context) ConnectionFunctionConfigRuntimeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionFunctionConfigRuntimeOutput)
+}
+
+func (e ConnectionFunctionConfigRuntime) ToConnectionFunctionConfigRuntimePtrOutput() ConnectionFunctionConfigRuntimePtrOutput {
+	return e.ToConnectionFunctionConfigRuntimePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionFunctionConfigRuntime) ToConnectionFunctionConfigRuntimePtrOutputWithContext(ctx context.Context) ConnectionFunctionConfigRuntimePtrOutput {
+	return ConnectionFunctionConfigRuntime(e).ToConnectionFunctionConfigRuntimeOutputWithContext(ctx).ToConnectionFunctionConfigRuntimePtrOutputWithContext(ctx)
+}
+
+func (e ConnectionFunctionConfigRuntime) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionFunctionConfigRuntime) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionFunctionConfigRuntime) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionFunctionConfigRuntime) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionFunctionConfigRuntimeOutput struct{ *pulumi.OutputState }
+
+func (ConnectionFunctionConfigRuntimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionFunctionConfigRuntime)(nil)).Elem()
+}
+
+func (o ConnectionFunctionConfigRuntimeOutput) ToConnectionFunctionConfigRuntimeOutput() ConnectionFunctionConfigRuntimeOutput {
+	return o
+}
+
+func (o ConnectionFunctionConfigRuntimeOutput) ToConnectionFunctionConfigRuntimeOutputWithContext(ctx context.Context) ConnectionFunctionConfigRuntimeOutput {
+	return o
+}
+
+func (o ConnectionFunctionConfigRuntimeOutput) ToConnectionFunctionConfigRuntimePtrOutput() ConnectionFunctionConfigRuntimePtrOutput {
+	return o.ToConnectionFunctionConfigRuntimePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionFunctionConfigRuntimeOutput) ToConnectionFunctionConfigRuntimePtrOutputWithContext(ctx context.Context) ConnectionFunctionConfigRuntimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionFunctionConfigRuntime) *ConnectionFunctionConfigRuntime {
+		return &v
+	}).(ConnectionFunctionConfigRuntimePtrOutput)
+}
+
+func (o ConnectionFunctionConfigRuntimeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionFunctionConfigRuntimeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionFunctionConfigRuntime) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionFunctionConfigRuntimeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionFunctionConfigRuntimeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionFunctionConfigRuntime) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionFunctionConfigRuntimePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionFunctionConfigRuntimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionFunctionConfigRuntime)(nil)).Elem()
+}
+
+func (o ConnectionFunctionConfigRuntimePtrOutput) ToConnectionFunctionConfigRuntimePtrOutput() ConnectionFunctionConfigRuntimePtrOutput {
+	return o
+}
+
+func (o ConnectionFunctionConfigRuntimePtrOutput) ToConnectionFunctionConfigRuntimePtrOutputWithContext(ctx context.Context) ConnectionFunctionConfigRuntimePtrOutput {
+	return o
+}
+
+func (o ConnectionFunctionConfigRuntimePtrOutput) Elem() ConnectionFunctionConfigRuntimeOutput {
+	return o.ApplyT(func(v *ConnectionFunctionConfigRuntime) ConnectionFunctionConfigRuntime {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionFunctionConfigRuntime
+		return ret
+	}).(ConnectionFunctionConfigRuntimeOutput)
+}
+
+func (o ConnectionFunctionConfigRuntimePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionFunctionConfigRuntimePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionFunctionConfigRuntime) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionFunctionConfigRuntimeInput is an input type that accepts values of the ConnectionFunctionConfigRuntime enum
+// A concrete instance of `ConnectionFunctionConfigRuntimeInput` can be one of the following:
+//
+//	ConnectionFunctionConfigRuntimeCloudfrontJs20
+type ConnectionFunctionConfigRuntimeInput interface {
+	pulumi.Input
+
+	ToConnectionFunctionConfigRuntimeOutput() ConnectionFunctionConfigRuntimeOutput
+	ToConnectionFunctionConfigRuntimeOutputWithContext(context.Context) ConnectionFunctionConfigRuntimeOutput
+}
+
+var connectionFunctionConfigRuntimePtrType = reflect.TypeOf((**ConnectionFunctionConfigRuntime)(nil)).Elem()
+
+type ConnectionFunctionConfigRuntimePtrInput interface {
+	pulumi.Input
+
+	ToConnectionFunctionConfigRuntimePtrOutput() ConnectionFunctionConfigRuntimePtrOutput
+	ToConnectionFunctionConfigRuntimePtrOutputWithContext(context.Context) ConnectionFunctionConfigRuntimePtrOutput
+}
+
+type connectionFunctionConfigRuntimePtr string
+
+func ConnectionFunctionConfigRuntimePtr(v string) ConnectionFunctionConfigRuntimePtrInput {
+	return (*connectionFunctionConfigRuntimePtr)(&v)
+}
+
+func (*connectionFunctionConfigRuntimePtr) ElementType() reflect.Type {
+	return connectionFunctionConfigRuntimePtrType
+}
+
+func (in *connectionFunctionConfigRuntimePtr) ToConnectionFunctionConfigRuntimePtrOutput() ConnectionFunctionConfigRuntimePtrOutput {
+	return pulumi.ToOutput(in).(ConnectionFunctionConfigRuntimePtrOutput)
+}
+
+func (in *connectionFunctionConfigRuntimePtr) ToConnectionFunctionConfigRuntimePtrOutputWithContext(ctx context.Context) ConnectionFunctionConfigRuntimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionFunctionConfigRuntimePtrOutput)
+}
+
+// The connection function stage.
+type ConnectionFunctionStage string
+
+const (
+	ConnectionFunctionStageDevelopment = ConnectionFunctionStage("DEVELOPMENT")
+	ConnectionFunctionStageLive        = ConnectionFunctionStage("LIVE")
+)
+
+type ConnectionFunctionStageOutput struct{ *pulumi.OutputState }
+
+func (ConnectionFunctionStageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionFunctionStage)(nil)).Elem()
+}
+
+func (o ConnectionFunctionStageOutput) ToConnectionFunctionStageOutput() ConnectionFunctionStageOutput {
+	return o
+}
+
+func (o ConnectionFunctionStageOutput) ToConnectionFunctionStageOutputWithContext(ctx context.Context) ConnectionFunctionStageOutput {
+	return o
+}
+
+func (o ConnectionFunctionStageOutput) ToConnectionFunctionStagePtrOutput() ConnectionFunctionStagePtrOutput {
+	return o.ToConnectionFunctionStagePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionFunctionStageOutput) ToConnectionFunctionStagePtrOutputWithContext(ctx context.Context) ConnectionFunctionStagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionFunctionStage) *ConnectionFunctionStage {
+		return &v
+	}).(ConnectionFunctionStagePtrOutput)
+}
+
+func (o ConnectionFunctionStageOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionFunctionStageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionFunctionStage) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionFunctionStageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionFunctionStageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionFunctionStage) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionFunctionStagePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionFunctionStagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionFunctionStage)(nil)).Elem()
+}
+
+func (o ConnectionFunctionStagePtrOutput) ToConnectionFunctionStagePtrOutput() ConnectionFunctionStagePtrOutput {
+	return o
+}
+
+func (o ConnectionFunctionStagePtrOutput) ToConnectionFunctionStagePtrOutputWithContext(ctx context.Context) ConnectionFunctionStagePtrOutput {
+	return o
+}
+
+func (o ConnectionFunctionStagePtrOutput) Elem() ConnectionFunctionStageOutput {
+	return o.ApplyT(func(v *ConnectionFunctionStage) ConnectionFunctionStage {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionFunctionStage
+		return ret
+	}).(ConnectionFunctionStageOutput)
+}
+
+func (o ConnectionFunctionStagePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionFunctionStagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionFunctionStage) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The connection function status.
+type ConnectionFunctionStatus string
+
+const (
+	ConnectionFunctionStatusUnpublished  = ConnectionFunctionStatus("UNPUBLISHED")
+	ConnectionFunctionStatusDeployed     = ConnectionFunctionStatus("DEPLOYED")
+	ConnectionFunctionStatusUnassociated = ConnectionFunctionStatus("UNASSOCIATED")
+	ConnectionFunctionStatusPublishing   = ConnectionFunctionStatus("PUBLISHING")
+	ConnectionFunctionStatusInProgress   = ConnectionFunctionStatus("IN_PROGRESS")
+)
+
+type ConnectionFunctionStatusOutput struct{ *pulumi.OutputState }
+
+func (ConnectionFunctionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionFunctionStatus)(nil)).Elem()
+}
+
+func (o ConnectionFunctionStatusOutput) ToConnectionFunctionStatusOutput() ConnectionFunctionStatusOutput {
+	return o
+}
+
+func (o ConnectionFunctionStatusOutput) ToConnectionFunctionStatusOutputWithContext(ctx context.Context) ConnectionFunctionStatusOutput {
+	return o
+}
+
+func (o ConnectionFunctionStatusOutput) ToConnectionFunctionStatusPtrOutput() ConnectionFunctionStatusPtrOutput {
+	return o.ToConnectionFunctionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionFunctionStatusOutput) ToConnectionFunctionStatusPtrOutputWithContext(ctx context.Context) ConnectionFunctionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionFunctionStatus) *ConnectionFunctionStatus {
+		return &v
+	}).(ConnectionFunctionStatusPtrOutput)
+}
+
+func (o ConnectionFunctionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionFunctionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionFunctionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionFunctionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionFunctionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionFunctionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionFunctionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionFunctionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionFunctionStatus)(nil)).Elem()
+}
+
+func (o ConnectionFunctionStatusPtrOutput) ToConnectionFunctionStatusPtrOutput() ConnectionFunctionStatusPtrOutput {
+	return o
+}
+
+func (o ConnectionFunctionStatusPtrOutput) ToConnectionFunctionStatusPtrOutputWithContext(ctx context.Context) ConnectionFunctionStatusPtrOutput {
+	return o
+}
+
+func (o ConnectionFunctionStatusPtrOutput) Elem() ConnectionFunctionStatusOutput {
+	return o.ApplyT(func(v *ConnectionFunctionStatus) ConnectionFunctionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionFunctionStatus
+		return ret
+	}).(ConnectionFunctionStatusOutput)
+}
+
+func (o ConnectionFunctionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionFunctionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionFunctionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The type of traffic configuration.
 type ContinuousDeploymentPolicyConfigType string
 
@@ -1602,6 +1951,171 @@ func (in *distributionTenantWebAclCustomizationActionPtr) ToDistributionTenantWe
 	return pulumi.ToOutputWithContext(ctx, in).(DistributionTenantWebAclCustomizationActionPtrOutput)
 }
 
+type DistributionViewerMtlsMode string
+
+const (
+	DistributionViewerMtlsModeRequired = DistributionViewerMtlsMode("required")
+	DistributionViewerMtlsModeOptional = DistributionViewerMtlsMode("optional")
+)
+
+func (DistributionViewerMtlsMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionViewerMtlsMode)(nil)).Elem()
+}
+
+func (e DistributionViewerMtlsMode) ToDistributionViewerMtlsModeOutput() DistributionViewerMtlsModeOutput {
+	return pulumi.ToOutput(e).(DistributionViewerMtlsModeOutput)
+}
+
+func (e DistributionViewerMtlsMode) ToDistributionViewerMtlsModeOutputWithContext(ctx context.Context) DistributionViewerMtlsModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DistributionViewerMtlsModeOutput)
+}
+
+func (e DistributionViewerMtlsMode) ToDistributionViewerMtlsModePtrOutput() DistributionViewerMtlsModePtrOutput {
+	return e.ToDistributionViewerMtlsModePtrOutputWithContext(context.Background())
+}
+
+func (e DistributionViewerMtlsMode) ToDistributionViewerMtlsModePtrOutputWithContext(ctx context.Context) DistributionViewerMtlsModePtrOutput {
+	return DistributionViewerMtlsMode(e).ToDistributionViewerMtlsModeOutputWithContext(ctx).ToDistributionViewerMtlsModePtrOutputWithContext(ctx)
+}
+
+func (e DistributionViewerMtlsMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionViewerMtlsMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionViewerMtlsMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionViewerMtlsMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DistributionViewerMtlsModeOutput struct{ *pulumi.OutputState }
+
+func (DistributionViewerMtlsModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionViewerMtlsMode)(nil)).Elem()
+}
+
+func (o DistributionViewerMtlsModeOutput) ToDistributionViewerMtlsModeOutput() DistributionViewerMtlsModeOutput {
+	return o
+}
+
+func (o DistributionViewerMtlsModeOutput) ToDistributionViewerMtlsModeOutputWithContext(ctx context.Context) DistributionViewerMtlsModeOutput {
+	return o
+}
+
+func (o DistributionViewerMtlsModeOutput) ToDistributionViewerMtlsModePtrOutput() DistributionViewerMtlsModePtrOutput {
+	return o.ToDistributionViewerMtlsModePtrOutputWithContext(context.Background())
+}
+
+func (o DistributionViewerMtlsModeOutput) ToDistributionViewerMtlsModePtrOutputWithContext(ctx context.Context) DistributionViewerMtlsModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionViewerMtlsMode) *DistributionViewerMtlsMode {
+		return &v
+	}).(DistributionViewerMtlsModePtrOutput)
+}
+
+func (o DistributionViewerMtlsModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DistributionViewerMtlsModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionViewerMtlsMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DistributionViewerMtlsModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionViewerMtlsModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionViewerMtlsMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionViewerMtlsModePtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionViewerMtlsModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionViewerMtlsMode)(nil)).Elem()
+}
+
+func (o DistributionViewerMtlsModePtrOutput) ToDistributionViewerMtlsModePtrOutput() DistributionViewerMtlsModePtrOutput {
+	return o
+}
+
+func (o DistributionViewerMtlsModePtrOutput) ToDistributionViewerMtlsModePtrOutputWithContext(ctx context.Context) DistributionViewerMtlsModePtrOutput {
+	return o
+}
+
+func (o DistributionViewerMtlsModePtrOutput) Elem() DistributionViewerMtlsModeOutput {
+	return o.ApplyT(func(v *DistributionViewerMtlsMode) DistributionViewerMtlsMode {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionViewerMtlsMode
+		return ret
+	}).(DistributionViewerMtlsModeOutput)
+}
+
+func (o DistributionViewerMtlsModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionViewerMtlsModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DistributionViewerMtlsMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DistributionViewerMtlsModeInput is an input type that accepts values of the DistributionViewerMtlsMode enum
+// A concrete instance of `DistributionViewerMtlsModeInput` can be one of the following:
+//
+//	DistributionViewerMtlsModeRequired
+//	DistributionViewerMtlsModeOptional
+type DistributionViewerMtlsModeInput interface {
+	pulumi.Input
+
+	ToDistributionViewerMtlsModeOutput() DistributionViewerMtlsModeOutput
+	ToDistributionViewerMtlsModeOutputWithContext(context.Context) DistributionViewerMtlsModeOutput
+}
+
+var distributionViewerMtlsModePtrType = reflect.TypeOf((**DistributionViewerMtlsMode)(nil)).Elem()
+
+type DistributionViewerMtlsModePtrInput interface {
+	pulumi.Input
+
+	ToDistributionViewerMtlsModePtrOutput() DistributionViewerMtlsModePtrOutput
+	ToDistributionViewerMtlsModePtrOutputWithContext(context.Context) DistributionViewerMtlsModePtrOutput
+}
+
+type distributionViewerMtlsModePtr string
+
+func DistributionViewerMtlsModePtr(v string) DistributionViewerMtlsModePtrInput {
+	return (*distributionViewerMtlsModePtr)(&v)
+}
+
+func (*distributionViewerMtlsModePtr) ElementType() reflect.Type {
+	return distributionViewerMtlsModePtrType
+}
+
+func (in *distributionViewerMtlsModePtr) ToDistributionViewerMtlsModePtrOutput() DistributionViewerMtlsModePtrOutput {
+	return pulumi.ToOutput(in).(DistributionViewerMtlsModePtrOutput)
+}
+
+func (in *distributionViewerMtlsModePtr) ToDistributionViewerMtlsModePtrOutputWithContext(ctx context.Context) DistributionViewerMtlsModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DistributionViewerMtlsModePtrOutput)
+}
+
 // A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 type MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus string
 
@@ -1768,7 +2282,101 @@ func (in *monitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetrics
 	return pulumi.ToOutputWithContext(ctx, in).(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput)
 }
 
+// Current status of the trust store
+type TrustStoreStatus string
+
+const (
+	TrustStoreStatusPending = TrustStoreStatus("PENDING")
+	TrustStoreStatusActive  = TrustStoreStatus("ACTIVE")
+	TrustStoreStatusFailed  = TrustStoreStatus("FAILED")
+)
+
+type TrustStoreStatusOutput struct{ *pulumi.OutputState }
+
+func (TrustStoreStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustStoreStatus)(nil)).Elem()
+}
+
+func (o TrustStoreStatusOutput) ToTrustStoreStatusOutput() TrustStoreStatusOutput {
+	return o
+}
+
+func (o TrustStoreStatusOutput) ToTrustStoreStatusOutputWithContext(ctx context.Context) TrustStoreStatusOutput {
+	return o
+}
+
+func (o TrustStoreStatusOutput) ToTrustStoreStatusPtrOutput() TrustStoreStatusPtrOutput {
+	return o.ToTrustStoreStatusPtrOutputWithContext(context.Background())
+}
+
+func (o TrustStoreStatusOutput) ToTrustStoreStatusPtrOutputWithContext(ctx context.Context) TrustStoreStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrustStoreStatus) *TrustStoreStatus {
+		return &v
+	}).(TrustStoreStatusPtrOutput)
+}
+
+func (o TrustStoreStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TrustStoreStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrustStoreStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TrustStoreStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrustStoreStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrustStoreStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrustStoreStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (TrustStoreStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrustStoreStatus)(nil)).Elem()
+}
+
+func (o TrustStoreStatusPtrOutput) ToTrustStoreStatusPtrOutput() TrustStoreStatusPtrOutput {
+	return o
+}
+
+func (o TrustStoreStatusPtrOutput) ToTrustStoreStatusPtrOutputWithContext(ctx context.Context) TrustStoreStatusPtrOutput {
+	return o
+}
+
+func (o TrustStoreStatusPtrOutput) Elem() TrustStoreStatusOutput {
+	return o.ApplyT(func(v *TrustStoreStatus) TrustStoreStatus {
+		if v != nil {
+			return *v
+		}
+		var ret TrustStoreStatus
+		return ret
+	}).(TrustStoreStatusOutput)
+}
+
+func (o TrustStoreStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrustStoreStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TrustStoreStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionFunctionConfigRuntimeInput)(nil)).Elem(), ConnectionFunctionConfigRuntime("cloudfront-js-2.0"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionFunctionConfigRuntimePtrInput)(nil)).Elem(), ConnectionFunctionConfigRuntime("cloudfront-js-2.0"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyConfigTypeInput)(nil)).Elem(), ContinuousDeploymentPolicyConfigType("SingleWeight"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyConfigTypePtrInput)(nil)).Elem(), ContinuousDeploymentPolicyConfigType("SingleWeight"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigTypeInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigType("SingleWeight"))
@@ -1787,8 +2395,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantManagedCertificateRequestValidationTokenHostPtrInput)(nil)).Elem(), DistributionTenantManagedCertificateRequestValidationTokenHost("cloudfront"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantWebAclCustomizationActionInput)(nil)).Elem(), DistributionTenantWebAclCustomizationAction("override"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTenantWebAclCustomizationActionPtrInput)(nil)).Elem(), DistributionTenantWebAclCustomizationAction("override"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerMtlsModeInput)(nil)).Elem(), DistributionViewerMtlsMode("required"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerMtlsModePtrInput)(nil)).Elem(), DistributionViewerMtlsMode("required"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusInput)(nil)).Elem(), MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrInput)(nil)).Elem(), MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus("Enabled"))
+	pulumi.RegisterOutputType(ConnectionFunctionConfigRuntimeOutput{})
+	pulumi.RegisterOutputType(ConnectionFunctionConfigRuntimePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionFunctionStageOutput{})
+	pulumi.RegisterOutputType(ConnectionFunctionStagePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionFunctionStatusOutput{})
+	pulumi.RegisterOutputType(ConnectionFunctionStatusPtrOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyConfigTypeOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyConfigTypePtrOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigTypeOutput{})
@@ -1809,6 +2425,10 @@ func init() {
 	pulumi.RegisterOutputType(DistributionTenantManagedCertificateRequestValidationTokenHostPtrOutput{})
 	pulumi.RegisterOutputType(DistributionTenantWebAclCustomizationActionOutput{})
 	pulumi.RegisterOutputType(DistributionTenantWebAclCustomizationActionPtrOutput{})
+	pulumi.RegisterOutputType(DistributionViewerMtlsModeOutput{})
+	pulumi.RegisterOutputType(DistributionViewerMtlsModePtrOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput{})
+	pulumi.RegisterOutputType(TrustStoreStatusOutput{})
+	pulumi.RegisterOutputType(TrustStoreStatusPtrOutput{})
 }

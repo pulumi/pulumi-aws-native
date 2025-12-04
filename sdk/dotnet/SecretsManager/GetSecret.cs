@@ -113,6 +113,10 @@ namespace Pulumi.AwsNative.SecretsManager
         ///   +  If you use your tagging schema across multiple services and resources, other services might have restrictions on allowed characters. Generally allowed characters: letters, spaces, and numbers representable in UTF-8, plus the following special characters: + - = . _ : / @.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The exact string that identifies the third-party partner that holds the external secret. For more information, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) .
+        /// </summary>
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetSecretResult(
@@ -124,13 +128,16 @@ namespace Pulumi.AwsNative.SecretsManager
 
             ImmutableArray<Outputs.SecretReplicaRegion> replicaRegions,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            string? type)
         {
             Description = description;
             Id = id;
             KmsKeyId = kmsKeyId;
             ReplicaRegions = replicaRegions;
             Tags = tags;
+            Type = type;
         }
     }
 }

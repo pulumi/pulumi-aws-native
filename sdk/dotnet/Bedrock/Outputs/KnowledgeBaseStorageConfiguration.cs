@@ -41,6 +41,10 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.KnowledgeBaseRdsConfiguration? RdsConfiguration;
         /// <summary>
+        /// The configuration settings for storing knowledge base data using S3 vectors. This includes vector index information and S3 bucket details for vector storage.
+        /// </summary>
+        public readonly Outputs.KnowledgeBaseS3VectorsConfiguration? S3VectorsConfiguration;
+        /// <summary>
         /// The vector store service in which the knowledge base is stored.
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.KnowledgeBaseStorageType Type;
@@ -59,6 +63,8 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
             Outputs.KnowledgeBaseRdsConfiguration? rdsConfiguration,
 
+            Outputs.KnowledgeBaseS3VectorsConfiguration? s3VectorsConfiguration,
+
             Pulumi.AwsNative.Bedrock.KnowledgeBaseStorageType type)
         {
             MongoDbAtlasConfiguration = mongoDbAtlasConfiguration;
@@ -67,6 +73,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
             OpensearchServerlessConfiguration = opensearchServerlessConfiguration;
             PineconeConfiguration = pineconeConfiguration;
             RdsConfiguration = rdsConfiguration;
+            S3VectorsConfiguration = s3VectorsConfiguration;
             Type = type;
         }
     }

@@ -726,7 +726,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Returns the ARN of an Amazon SNS topic.
+        Returns the ARN of an Amazon  topic.
         """
         return pulumi.get(self, "topic_arn")
 

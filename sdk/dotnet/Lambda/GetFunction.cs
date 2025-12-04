@@ -91,6 +91,7 @@ namespace Pulumi.AwsNative.Lambda
         /// The Amazon Resource Name (ARN) of the function.
         /// </summary>
         public readonly string? Arn;
+        public readonly Outputs.FunctionCapacityProviderConfig? CapacityProviderConfig;
         /// <summary>
         /// The code for the function. You can define your function code in multiple ways:
         ///   +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
@@ -123,6 +124,7 @@ namespace Pulumi.AwsNative.Lambda
         ///  For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).
         /// </summary>
         public readonly ImmutableArray<Outputs.FunctionFileSystemConfig> FileSystemConfigs;
+        public readonly Outputs.FunctionScalingConfig? FunctionScalingConfig;
         /// <summary>
         /// The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
         /// </summary>
@@ -202,6 +204,8 @@ namespace Pulumi.AwsNative.Lambda
 
             string? arn,
 
+            Outputs.FunctionCapacityProviderConfig? capacityProviderConfig,
+
             Outputs.FunctionCode? code,
 
             string? codeSigningConfigArn,
@@ -215,6 +219,8 @@ namespace Pulumi.AwsNative.Lambda
             Outputs.FunctionEphemeralStorage? ephemeralStorage,
 
             ImmutableArray<Outputs.FunctionFileSystemConfig> fileSystemConfigs,
+
+            Outputs.FunctionScalingConfig? functionScalingConfig,
 
             string? handler,
 
@@ -250,6 +256,7 @@ namespace Pulumi.AwsNative.Lambda
         {
             Architectures = architectures;
             Arn = arn;
+            CapacityProviderConfig = capacityProviderConfig;
             Code = code;
             CodeSigningConfigArn = codeSigningConfigArn;
             DeadLetterConfig = deadLetterConfig;
@@ -257,6 +264,7 @@ namespace Pulumi.AwsNative.Lambda
             Environment = environment;
             EphemeralStorage = ephemeralStorage;
             FileSystemConfigs = fileSystemConfigs;
+            FunctionScalingConfig = functionScalingConfig;
             Handler = handler;
             ImageConfig = imageConfig;
             KmsKeyArn = kmsKeyArn;

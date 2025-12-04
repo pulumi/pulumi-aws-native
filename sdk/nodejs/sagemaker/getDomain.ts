@@ -81,6 +81,10 @@ export interface GetDomainResult {
      * The URL to the created domain.
      */
     readonly url?: string;
+    /**
+     * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+     */
+    readonly vpcId?: string;
 }
 /**
  * Resource Type definition for AWS::SageMaker::Domain

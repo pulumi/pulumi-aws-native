@@ -24,5 +24,11 @@ from .get_flow_entitlement import *
 from .get_flow_source import *
 from .get_flow_vpc_interface import *
 from .get_gateway import *
+from .get_router_input import *
+from .get_router_network_interface import *
+from .get_router_output_resource import *
+from .router_input import *
+from .router_network_interface import *
+from .router_output_resource import *
 from ._inputs import *
 from . import outputs

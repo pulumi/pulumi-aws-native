@@ -19,7 +19,7 @@ type ImageBuilder struct {
 
 	// The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
 	AccessEndpoints ImageBuilderAccessEndpointArrayOutput `pulumi:"accessEndpoints"`
-	// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+	// The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
 	AppstreamAgentVersion pulumi.StringPtrOutput `pulumi:"appstreamAgentVersion"`
 	// The description to display.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -145,7 +145,7 @@ func (ImageBuilderState) ElementType() reflect.Type {
 type imageBuilderArgs struct {
 	// The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
 	AccessEndpoints []ImageBuilderAccessEndpoint `pulumi:"accessEndpoints"`
-	// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+	// The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
 	AppstreamAgentVersion *string `pulumi:"appstreamAgentVersion"`
 	// The description to display.
 	Description *string `pulumi:"description"`
@@ -228,7 +228,7 @@ type imageBuilderArgs struct {
 type ImageBuilderArgs struct {
 	// The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
 	AccessEndpoints ImageBuilderAccessEndpointArrayInput
-	// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+	// The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
 	AppstreamAgentVersion pulumi.StringPtrInput
 	// The description to display.
 	Description pulumi.StringPtrInput
@@ -349,7 +349,7 @@ func (o ImageBuilderOutput) AccessEndpoints() ImageBuilderAccessEndpointArrayOut
 	return o.ApplyT(func(v *ImageBuilder) ImageBuilderAccessEndpointArrayOutput { return v.AccessEndpoints }).(ImageBuilderAccessEndpointArrayOutput)
 }
 
-// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+// The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
 func (o ImageBuilderOutput) AppstreamAgentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.AppstreamAgentVersion }).(pulumi.StringPtrOutput)
 }

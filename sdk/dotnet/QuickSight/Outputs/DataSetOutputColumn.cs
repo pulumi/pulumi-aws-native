@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;A description for a column.&lt;/p&gt;
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// A unique identifier for the output column.
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// &lt;p&gt;The display name of the column..&lt;/p&gt;

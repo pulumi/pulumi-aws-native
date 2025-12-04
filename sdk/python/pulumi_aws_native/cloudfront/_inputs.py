@@ -28,6 +28,10 @@ __all__ = [
     'CachePolicyQueryStringsConfigArgsDict',
     'CloudFrontOriginAccessIdentityConfigArgs',
     'CloudFrontOriginAccessIdentityConfigArgsDict',
+    'ConnectionFunctionConfigArgs',
+    'ConnectionFunctionConfigArgsDict',
+    'ConnectionFunctionKeyValueStoreAssociationArgs',
+    'ConnectionFunctionKeyValueStoreAssociationArgsDict',
     'ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesArgs',
     'ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesArgsDict',
     'ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesArgs',
@@ -48,6 +52,8 @@ __all__ = [
     'DistributionConfigTenantConfigPropertiesArgsDict',
     'DistributionConfigArgs',
     'DistributionConfigArgsDict',
+    'DistributionConnectionFunctionAssociationArgs',
+    'DistributionConnectionFunctionAssociationArgsDict',
     'DistributionCookiesArgs',
     'DistributionCookiesArgsDict',
     'DistributionCustomErrorResponseArgs',
@@ -112,8 +118,12 @@ __all__ = [
     'DistributionTenantParameterArgsDict',
     'DistributionTenantWebAclCustomizationArgs',
     'DistributionTenantWebAclCustomizationArgsDict',
+    'DistributionTrustStoreConfigArgs',
+    'DistributionTrustStoreConfigArgsDict',
     'DistributionViewerCertificateArgs',
     'DistributionViewerCertificateArgsDict',
+    'DistributionViewerMtlsConfigArgs',
+    'DistributionViewerMtlsConfigArgsDict',
     'DistributionVpcOriginConfigArgs',
     'DistributionVpcOriginConfigArgsDict',
     'FunctionConfigArgs',
@@ -182,6 +192,10 @@ __all__ = [
     'ResponseHeadersPolicyStrictTransportSecurityArgsDict',
     'ResponseHeadersPolicyXssProtectionArgs',
     'ResponseHeadersPolicyXssProtectionArgsDict',
+    'TrustStoreCaCertificatesBundleS3LocationArgs',
+    'TrustStoreCaCertificatesBundleS3LocationArgsDict',
+    'TrustStoreCaCertificatesBundleSourceArgs',
+    'TrustStoreCaCertificatesBundleSourceArgsDict',
     'VpcOriginEndpointConfigArgs',
     'VpcOriginEndpointConfigArgsDict',
 ]
@@ -727,6 +741,107 @@ class CloudFrontOriginAccessIdentityConfigArgs:
     @comment.setter
     def comment(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "comment", value)
+
+
+if not MYPY:
+    class ConnectionFunctionConfigArgsDict(TypedDict):
+        comment: pulumi.Input[_builtins.str]
+        """
+        A comment to describe the function.
+        """
+        runtime: pulumi.Input['ConnectionFunctionConfigRuntime']
+        """
+        The function's runtime environment version.
+        """
+        key_value_store_associations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectionFunctionKeyValueStoreAssociationArgsDict']]]]
+        """
+        The configuration for the key value store associations.
+        """
+elif False:
+    ConnectionFunctionConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectionFunctionConfigArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[_builtins.str],
+                 runtime: pulumi.Input['ConnectionFunctionConfigRuntime'],
+                 key_value_store_associations: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionFunctionKeyValueStoreAssociationArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] comment: A comment to describe the function.
+        :param pulumi.Input['ConnectionFunctionConfigRuntime'] runtime: The function's runtime environment version.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectionFunctionKeyValueStoreAssociationArgs']]] key_value_store_associations: The configuration for the key value store associations.
+        """
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "runtime", runtime)
+        if key_value_store_associations is not None:
+            pulumi.set(__self__, "key_value_store_associations", key_value_store_associations)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[_builtins.str]:
+        """
+        A comment to describe the function.
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def runtime(self) -> pulumi.Input['ConnectionFunctionConfigRuntime']:
+        """
+        The function's runtime environment version.
+        """
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: pulumi.Input['ConnectionFunctionConfigRuntime']):
+        pulumi.set(self, "runtime", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyValueStoreAssociations")
+    def key_value_store_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionFunctionKeyValueStoreAssociationArgs']]]]:
+        """
+        The configuration for the key value store associations.
+        """
+        return pulumi.get(self, "key_value_store_associations")
+
+    @key_value_store_associations.setter
+    def key_value_store_associations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionFunctionKeyValueStoreAssociationArgs']]]]):
+        pulumi.set(self, "key_value_store_associations", value)
+
+
+if not MYPY:
+    class ConnectionFunctionKeyValueStoreAssociationArgsDict(TypedDict):
+        key_value_store_arn: pulumi.Input[_builtins.str]
+        """
+        The Amazon Resource Name (ARN) of the key value store association.
+        """
+elif False:
+    ConnectionFunctionKeyValueStoreAssociationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectionFunctionKeyValueStoreAssociationArgs:
+    def __init__(__self__, *,
+                 key_value_store_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] key_value_store_arn: The Amazon Resource Name (ARN) of the key value store association.
+        """
+        pulumi.set(__self__, "key_value_store_arn", key_value_store_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="keyValueStoreArn")
+    def key_value_store_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the key value store association.
+        """
+        return pulumi.get(self, "key_value_store_arn")
+
+    @key_value_store_arn.setter
+    def key_value_store_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_value_store_arn", value)
 
 
 if not MYPY:
@@ -1801,6 +1916,10 @@ if not MYPY:
         """
         A comment to describe the distribution. The comment cannot be longer than 128 characters.
         """
+        connection_function_association: NotRequired[pulumi.Input['DistributionConnectionFunctionAssociationArgsDict']]
+        """
+        The distribution's connection function association.
+        """
         connection_mode: NotRequired[pulumi.Input['DistributionConnectionMode']]
         """
         This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants (tenant-only).
@@ -1895,6 +2014,10 @@ if not MYPY:
         """
         A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
         """
+        viewer_mtls_config: NotRequired[pulumi.Input['DistributionViewerMtlsConfigArgsDict']]
+        """
+        The distribution's viewer mTLS configuration.
+        """
         web_acl_id: NotRequired[pulumi.Input[_builtins.str]]
         """
         Multi-tenant distributions only support WAF V2 web ACLs.
@@ -1914,6 +2037,7 @@ class DistributionConfigArgs:
                  cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]] = None,
                  cnames: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  comment: Optional[pulumi.Input[_builtins.str]] = None,
+                 connection_function_association: Optional[pulumi.Input['DistributionConnectionFunctionAssociationArgs']] = None,
                  connection_mode: Optional[pulumi.Input['DistributionConnectionMode']] = None,
                  continuous_deployment_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCustomErrorResponseArgs']]]] = None,
@@ -1930,6 +2054,7 @@ class DistributionConfigArgs:
                  staging: Optional[pulumi.Input[_builtins.bool]] = None,
                  tenant_config: Optional[pulumi.Input['DistributionConfigTenantConfigPropertiesArgs']] = None,
                  viewer_certificate: Optional[pulumi.Input['DistributionViewerCertificateArgs']] = None,
+                 viewer_mtls_config: Optional[pulumi.Input['DistributionViewerMtlsConfigArgs']] = None,
                  web_acl_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         A distribution configuration.
@@ -1943,6 +2068,7 @@ class DistributionConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cnames: An alias for the CF distribution's domain name.
                  This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
         :param pulumi.Input[_builtins.str] comment: A comment to describe the distribution. The comment cannot be longer than 128 characters.
+        :param pulumi.Input['DistributionConnectionFunctionAssociationArgs'] connection_function_association: The distribution's connection function association.
         :param pulumi.Input['DistributionConnectionMode'] connection_mode: This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants (tenant-only).
         :param pulumi.Input[_builtins.str] continuous_deployment_policy_id: This field only supports standard distributions. You can't specify this field for multi-tenant distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
                  The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
@@ -1989,6 +2115,7 @@ class DistributionConfigArgs:
         :param pulumi.Input['DistributionConfigTenantConfigPropertiesArgs'] tenant_config: This field only supports multi-tenant distributions. You can't specify this field for standard distributions. For more information, see [Unsupported features for SaaS Manager for Amazon CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-config-options.html#unsupported-saas) in the *Amazon CloudFront Developer Guide*.
                  A distribution tenant configuration.
         :param pulumi.Input['DistributionViewerCertificateArgs'] viewer_certificate: A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
+        :param pulumi.Input['DistributionViewerMtlsConfigArgs'] viewer_mtls_config: The distribution's viewer mTLS configuration.
         :param pulumi.Input[_builtins.str] web_acl_id: Multi-tenant distributions only support WAF V2 web ACLs.
                  A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
                 WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
@@ -2005,6 +2132,8 @@ class DistributionConfigArgs:
             pulumi.set(__self__, "cnames", cnames)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if connection_function_association is not None:
+            pulumi.set(__self__, "connection_function_association", connection_function_association)
         if connection_mode is not None:
             pulumi.set(__self__, "connection_mode", connection_mode)
         if continuous_deployment_policy_id is not None:
@@ -2037,6 +2166,8 @@ class DistributionConfigArgs:
             pulumi.set(__self__, "tenant_config", tenant_config)
         if viewer_certificate is not None:
             pulumi.set(__self__, "viewer_certificate", viewer_certificate)
+        if viewer_mtls_config is not None:
+            pulumi.set(__self__, "viewer_mtls_config", viewer_mtls_config)
         if web_acl_id is not None:
             pulumi.set(__self__, "web_acl_id", web_acl_id)
 
@@ -2126,6 +2257,18 @@ class DistributionConfigArgs:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionFunctionAssociation")
+    def connection_function_association(self) -> Optional[pulumi.Input['DistributionConnectionFunctionAssociationArgs']]:
+        """
+        The distribution's connection function association.
+        """
+        return pulumi.get(self, "connection_function_association")
+
+    @connection_function_association.setter
+    def connection_function_association(self, value: Optional[pulumi.Input['DistributionConnectionFunctionAssociationArgs']]):
+        pulumi.set(self, "connection_function_association", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionMode")
@@ -2350,6 +2493,18 @@ class DistributionConfigArgs:
         pulumi.set(self, "viewer_certificate", value)
 
     @_builtins.property
+    @pulumi.getter(name="viewerMtlsConfig")
+    def viewer_mtls_config(self) -> Optional[pulumi.Input['DistributionViewerMtlsConfigArgs']]:
+        """
+        The distribution's viewer mTLS configuration.
+        """
+        return pulumi.get(self, "viewer_mtls_config")
+
+    @viewer_mtls_config.setter
+    def viewer_mtls_config(self, value: Optional[pulumi.Input['DistributionViewerMtlsConfigArgs']]):
+        pulumi.set(self, "viewer_mtls_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="webAclId")
     def web_acl_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -2362,6 +2517,37 @@ class DistributionConfigArgs:
     @web_acl_id.setter
     def web_acl_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "web_acl_id", value)
+
+
+if not MYPY:
+    class DistributionConnectionFunctionAssociationArgsDict(TypedDict):
+        id: pulumi.Input[_builtins.str]
+        """
+        The association's ID.
+        """
+elif False:
+    DistributionConnectionFunctionAssociationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionConnectionFunctionAssociationArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] id: The association's ID.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The association's ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
 
 
 if not MYPY:
@@ -5317,6 +5503,77 @@ class DistributionTenantWebAclCustomizationArgs:
 
 
 if not MYPY:
+    class DistributionTrustStoreConfigArgsDict(TypedDict):
+        trust_store_id: pulumi.Input[_builtins.str]
+        """
+        The trust store ID.
+        """
+        advertise_trust_store_ca_names: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        The configuration to use to advertise trust store CA names.
+        """
+        ignore_certificate_expiry: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        The configuration to use to ignore certificate expiration.
+        """
+elif False:
+    DistributionTrustStoreConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionTrustStoreConfigArgs:
+    def __init__(__self__, *,
+                 trust_store_id: pulumi.Input[_builtins.str],
+                 advertise_trust_store_ca_names: Optional[pulumi.Input[_builtins.bool]] = None,
+                 ignore_certificate_expiry: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] trust_store_id: The trust store ID.
+        :param pulumi.Input[_builtins.bool] advertise_trust_store_ca_names: The configuration to use to advertise trust store CA names.
+        :param pulumi.Input[_builtins.bool] ignore_certificate_expiry: The configuration to use to ignore certificate expiration.
+        """
+        pulumi.set(__self__, "trust_store_id", trust_store_id)
+        if advertise_trust_store_ca_names is not None:
+            pulumi.set(__self__, "advertise_trust_store_ca_names", advertise_trust_store_ca_names)
+        if ignore_certificate_expiry is not None:
+            pulumi.set(__self__, "ignore_certificate_expiry", ignore_certificate_expiry)
+
+    @_builtins.property
+    @pulumi.getter(name="trustStoreId")
+    def trust_store_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The trust store ID.
+        """
+        return pulumi.get(self, "trust_store_id")
+
+    @trust_store_id.setter
+    def trust_store_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "trust_store_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="advertiseTrustStoreCaNames")
+    def advertise_trust_store_ca_names(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        The configuration to use to advertise trust store CA names.
+        """
+        return pulumi.get(self, "advertise_trust_store_ca_names")
+
+    @advertise_trust_store_ca_names.setter
+    def advertise_trust_store_ca_names(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "advertise_trust_store_ca_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreCertificateExpiry")
+    def ignore_certificate_expiry(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        The configuration to use to ignore certificate expiration.
+        """
+        return pulumi.get(self, "ignore_certificate_expiry")
+
+    @ignore_certificate_expiry.setter
+    def ignore_certificate_expiry(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "ignore_certificate_expiry", value)
+
+
+if not MYPY:
     class DistributionViewerCertificateArgsDict(TypedDict):
         """
         A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
@@ -5524,6 +5781,58 @@ class DistributionViewerCertificateArgs:
     @ssl_support_method.setter
     def ssl_support_method(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "ssl_support_method", value)
+
+
+if not MYPY:
+    class DistributionViewerMtlsConfigArgsDict(TypedDict):
+        mode: NotRequired[pulumi.Input['DistributionViewerMtlsMode']]
+        """
+        The viewer mTLS mode.
+        """
+        trust_store_config: NotRequired[pulumi.Input['DistributionTrustStoreConfigArgsDict']]
+        """
+        The trust store configuration associated with the viewer mTLS configuration.
+        """
+elif False:
+    DistributionViewerMtlsConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionViewerMtlsConfigArgs:
+    def __init__(__self__, *,
+                 mode: Optional[pulumi.Input['DistributionViewerMtlsMode']] = None,
+                 trust_store_config: Optional[pulumi.Input['DistributionTrustStoreConfigArgs']] = None):
+        """
+        :param pulumi.Input['DistributionViewerMtlsMode'] mode: The viewer mTLS mode.
+        :param pulumi.Input['DistributionTrustStoreConfigArgs'] trust_store_config: The trust store configuration associated with the viewer mTLS configuration.
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if trust_store_config is not None:
+            pulumi.set(__self__, "trust_store_config", trust_store_config)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input['DistributionViewerMtlsMode']]:
+        """
+        The viewer mTLS mode.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input['DistributionViewerMtlsMode']]):
+        pulumi.set(self, "mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trustStoreConfig")
+    def trust_store_config(self) -> Optional[pulumi.Input['DistributionTrustStoreConfigArgs']]:
+        """
+        The trust store configuration associated with the viewer mTLS configuration.
+        """
+        return pulumi.get(self, "trust_store_config")
+
+    @trust_store_config.setter
+    def trust_store_config(self, value: Optional[pulumi.Input['DistributionTrustStoreConfigArgs']]):
+        pulumi.set(self, "trust_store_config", value)
 
 
 if not MYPY:
@@ -7950,6 +8259,126 @@ class ResponseHeadersPolicyXssProtectionArgs:
     @report_uri.setter
     def report_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "report_uri", value)
+
+
+if not MYPY:
+    class TrustStoreCaCertificatesBundleS3LocationArgsDict(TypedDict):
+        bucket: pulumi.Input[_builtins.str]
+        """
+        The S3 bucket containing the CA certificates bundle PEM file
+        """
+        key: pulumi.Input[_builtins.str]
+        """
+        The S3 object key of the CA certificates bundle PEM file
+        """
+        region: pulumi.Input[_builtins.str]
+        """
+        The S3 bucket region
+        """
+        version: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The S3 object version of the CA certificates bundle PEM file
+        """
+elif False:
+    TrustStoreCaCertificatesBundleS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TrustStoreCaCertificatesBundleS3LocationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[_builtins.str],
+                 region: pulumi.Input[_builtins.str],
+                 version: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bucket: The S3 bucket containing the CA certificates bundle PEM file
+        :param pulumi.Input[_builtins.str] key: The S3 object key of the CA certificates bundle PEM file
+        :param pulumi.Input[_builtins.str] region: The S3 bucket region
+        :param pulumi.Input[_builtins.str] version: The S3 object version of the CA certificates bundle PEM file
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "region", region)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[_builtins.str]:
+        """
+        The S3 bucket containing the CA certificates bundle PEM file
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The S3 object key of the CA certificates bundle PEM file
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[_builtins.str]:
+        """
+        The S3 bucket region
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The S3 object version of the CA certificates bundle PEM file
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "version", value)
+
+
+if not MYPY:
+    class TrustStoreCaCertificatesBundleSourceArgsDict(TypedDict):
+        ca_certificates_bundle_s3_location: pulumi.Input['TrustStoreCaCertificatesBundleS3LocationArgsDict']
+        """
+        The CA certificates bundle location in Amazon S3.
+        """
+elif False:
+    TrustStoreCaCertificatesBundleSourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TrustStoreCaCertificatesBundleSourceArgs:
+    def __init__(__self__, *,
+                 ca_certificates_bundle_s3_location: pulumi.Input['TrustStoreCaCertificatesBundleS3LocationArgs']):
+        """
+        :param pulumi.Input['TrustStoreCaCertificatesBundleS3LocationArgs'] ca_certificates_bundle_s3_location: The CA certificates bundle location in Amazon S3.
+        """
+        pulumi.set(__self__, "ca_certificates_bundle_s3_location", ca_certificates_bundle_s3_location)
+
+    @_builtins.property
+    @pulumi.getter(name="caCertificatesBundleS3Location")
+    def ca_certificates_bundle_s3_location(self) -> pulumi.Input['TrustStoreCaCertificatesBundleS3LocationArgs']:
+        """
+        The CA certificates bundle location in Amazon S3.
+        """
+        return pulumi.get(self, "ca_certificates_bundle_s3_location")
+
+    @ca_certificates_bundle_s3_location.setter
+    def ca_certificates_bundle_s3_location(self, value: pulumi.Input['TrustStoreCaCertificatesBundleS3LocationArgs']):
+        pulumi.set(self, "ca_certificates_bundle_s3_location", value)
 
 
 if not MYPY:

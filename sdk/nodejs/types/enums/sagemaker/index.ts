@@ -215,6 +215,17 @@ export const ClusterDeepHealthCheckType = {
  */
 export type ClusterDeepHealthCheckType = (typeof ClusterDeepHealthCheckType)[keyof typeof ClusterDeepHealthCheckType];
 
+export const ClusterKubernetesTaintEffect = {
+    NoSchedule: "NoSchedule",
+    PreferNoSchedule: "PreferNoSchedule",
+    NoExecute: "NoExecute",
+} as const;
+
+/**
+ * The effect of the taint.
+ */
+export type ClusterKubernetesTaintEffect = (typeof ClusterKubernetesTaintEffect)[keyof typeof ClusterKubernetesTaintEffect];
+
 export const ClusterNodeProvisioningMode = {
     Continuous: "Continuous",
 } as const;

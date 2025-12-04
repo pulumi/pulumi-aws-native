@@ -10,20 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ServiceCatalog
 {
     /// <summary>
-    /// Resource type definition for AWS::ServiceCatalog::CloudFormationProduct
+    /// Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
     /// </summary>
     [AwsNativeResourceType("aws-native:servicecatalog:CloudFormationProduct")]
     public partial class CloudFormationProduct : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The language code.
+        /// 
+        /// - `jp` - Japanese
+        /// - `zh` - Chinese
         /// </summary>
         [Output("acceptLanguage")]
         public Output<string?> AcceptLanguage { get; private set; } = null!;
 
-        /// <summary>
-        /// The ID of the product, such as prod-tsjbmal34qvek
-        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
@@ -61,16 +61,16 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// The type of product.
         /// </summary>
         [Output("productType")]
-        public Output<Pulumi.AwsNative.ServiceCatalog.CloudFormationProductProductType?> ProductType { get; private set; } = null!;
+        public Output<string?> ProductType { get; private set; } = null!;
 
         /// <summary>
-        /// The IDs of the provisioning artifacts
+        /// The IDs of the provisioning artifacts.
         /// </summary>
         [Output("provisioningArtifactIds")]
         public Output<string> ProvisioningArtifactIds { get; private set; } = null!;
 
         /// <summary>
-        /// The names of the provisioning artifacts
+        /// The names of the provisioning artifacts.
         /// </summary>
         [Output("provisioningArtifactNames")]
         public Output<string> ProvisioningArtifactNames { get; private set; } = null!;
@@ -83,12 +83,14 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
         /// <summary>
         /// This property is turned off by default. If turned off, you can update provisioning artifacts or product attributes (such as description, distributor, name, owner, and more) and the associated provisioning artifacts will retain the same unique identifier. Provisioning artifacts are matched within the CloudFormationProduct resource, and only those that have been updated will be changed. Provisioning artifacts are matched by a combinaton of provisioning artifact template URL and name.
+        /// 
+        /// If turned on, provisioning artifacts will be given a new unique identifier when you update the product or provisioning artifacts.
         /// </summary>
         [Output("replaceProvisioningArtifacts")]
         public Output<bool?> ReplaceProvisioningArtifacts { get; private set; } = null!;
 
         /// <summary>
-        /// A top level ProductViewDetail response containing details about the product's connection. AWS Service Catalog returns this field for the CreateProduct, UpdateProduct, DescribeProductAsAdmin, and SearchProductAsAdmin APIs. This response contains the same fields as the ConnectionParameters request, with the addition of the LastSync response.
+        /// A top level `ProductViewDetail` response containing details about the product’s connection. AWS Service Catalog returns this field for the `CreateProduct` , `UpdateProduct` , `DescribeProductAsAdmin` , and `SearchProductAsAdmin` APIs. This response contains the same fields as the `ConnectionParameters` request, with the addition of the `LastSync` response.
         /// </summary>
         [Output("sourceConnection")]
         public Output<Outputs.CloudFormationProductSourceConnection?> SourceConnection { get; private set; } = null!;
@@ -107,6 +109,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
         /// <summary>
         /// The contact URL for product support.
+        /// 
+        /// `^https?:\/\//` / is the pattern used to validate SupportUrl.
         /// </summary>
         [Output("supportUrl")]
         public Output<string?> SupportUrl { get; private set; } = null!;
@@ -164,6 +168,9 @@ namespace Pulumi.AwsNative.ServiceCatalog
     {
         /// <summary>
         /// The language code.
+        /// 
+        /// - `jp` - Japanese
+        /// - `zh` - Chinese
         /// </summary>
         [Input("acceptLanguage")]
         public Input<string>? AcceptLanguage { get; set; }
@@ -196,7 +203,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// The type of product.
         /// </summary>
         [Input("productType")]
-        public Input<Pulumi.AwsNative.ServiceCatalog.CloudFormationProductProductType>? ProductType { get; set; }
+        public Input<string>? ProductType { get; set; }
 
         [Input("provisioningArtifactParameters")]
         private InputList<Inputs.CloudFormationProductProvisioningArtifactPropertiesArgs>? _provisioningArtifactParameters;
@@ -212,12 +219,14 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
         /// <summary>
         /// This property is turned off by default. If turned off, you can update provisioning artifacts or product attributes (such as description, distributor, name, owner, and more) and the associated provisioning artifacts will retain the same unique identifier. Provisioning artifacts are matched within the CloudFormationProduct resource, and only those that have been updated will be changed. Provisioning artifacts are matched by a combinaton of provisioning artifact template URL and name.
+        /// 
+        /// If turned on, provisioning artifacts will be given a new unique identifier when you update the product or provisioning artifacts.
         /// </summary>
         [Input("replaceProvisioningArtifacts")]
         public Input<bool>? ReplaceProvisioningArtifacts { get; set; }
 
         /// <summary>
-        /// A top level ProductViewDetail response containing details about the product's connection. AWS Service Catalog returns this field for the CreateProduct, UpdateProduct, DescribeProductAsAdmin, and SearchProductAsAdmin APIs. This response contains the same fields as the ConnectionParameters request, with the addition of the LastSync response.
+        /// A top level `ProductViewDetail` response containing details about the product’s connection. AWS Service Catalog returns this field for the `CreateProduct` , `UpdateProduct` , `DescribeProductAsAdmin` , and `SearchProductAsAdmin` APIs. This response contains the same fields as the `ConnectionParameters` request, with the addition of the `LastSync` response.
         /// </summary>
         [Input("sourceConnection")]
         public Input<Inputs.CloudFormationProductSourceConnectionArgs>? SourceConnection { get; set; }
@@ -236,6 +245,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
         /// <summary>
         /// The contact URL for product support.
+        /// 
+        /// `^https?:\/\//` / is the pattern used to validate SupportUrl.
         /// </summary>
         [Input("supportUrl")]
         public Input<string>? SupportUrl { get; set; }

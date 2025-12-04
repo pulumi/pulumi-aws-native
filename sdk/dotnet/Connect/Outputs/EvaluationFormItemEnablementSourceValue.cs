@@ -10,15 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Outputs
 {
 
+    /// <summary>
+    /// An enablement expression source value.
+    /// </summary>
     [OutputType]
     public sealed class EvaluationFormItemEnablementSourceValue
     {
         /// <summary>
-        /// The reference id of the source entity value.
+        /// A referenceId of the source value.
         /// </summary>
         public readonly string? RefId;
         /// <summary>
-        /// Type of the source entity value.
+        /// A type of source item value.
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.EvaluationFormItemEnablementSourceValueType? Type;
 

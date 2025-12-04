@@ -17,6 +17,9 @@ __all__ = [
     'EvaluationFormItemEnablementExpressionComparator',
     'EvaluationFormItemEnablementSourceType',
     'EvaluationFormItemEnablementSourceValueType',
+    'EvaluationFormLanguageConfigurationFormLanguage',
+    'EvaluationFormMultiSelectQuestionPropertiesDisplayAs',
+    'EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition',
     'EvaluationFormNumericQuestionPropertyValueAutomationLabel',
     'EvaluationFormQuestionAutomationAnswerSourceSourceType',
     'EvaluationFormQuestionQuestionType',
@@ -25,6 +28,7 @@ __all__ = [
     'EvaluationFormSingleSelectQuestionPropertiesDisplayAs',
     'EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition',
     'EvaluationFormStatus',
+    'EvaluationFormTargetConfigurationContactInteractionType',
     'HoursOfOperationConfigDay',
     'HoursOfOperationOverrideConfigDay',
     'InstanceIdentityManagementType',
@@ -100,7 +104,7 @@ class ContactFlowType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:connect:EvaluationFormItemEnablementConditionOperator")
 class EvaluationFormItemEnablementConditionOperator(_builtins.str, Enum):
     """
-    The logical operator used to combine multiple operands, determining how the condition is evaluated as a whole.
+    The operator to be used to be applied to operands if more than one provided.
     """
     OR_ = "OR"
     AND_ = "AND"
@@ -109,7 +113,7 @@ class EvaluationFormItemEnablementConditionOperator(_builtins.str, Enum):
 @pulumi.type_token("aws-native:connect:EvaluationFormItemEnablementConfigurationAction")
 class EvaluationFormItemEnablementConfigurationAction(_builtins.str, Enum):
     """
-    Defines the enablement status to be applied when the specified condition is met.
+    An enablement action that if condition is satisfied.
     """
     DISABLE = "DISABLE"
     ENABLE = "ENABLE"
@@ -118,7 +122,7 @@ class EvaluationFormItemEnablementConfigurationAction(_builtins.str, Enum):
 @pulumi.type_token("aws-native:connect:EvaluationFormItemEnablementConfigurationDefaultAction")
 class EvaluationFormItemEnablementConfigurationDefaultAction(_builtins.str, Enum):
     """
-    Specifies the default enablement status to be applied when the condition is not satisfied.
+    An enablement action that if condition is not satisfied.
     """
     DISABLE = "DISABLE"
     ENABLE = "ENABLE"
@@ -127,16 +131,18 @@ class EvaluationFormItemEnablementConfigurationDefaultAction(_builtins.str, Enum
 @pulumi.type_token("aws-native:connect:EvaluationFormItemEnablementExpressionComparator")
 class EvaluationFormItemEnablementExpressionComparator(_builtins.str, Enum):
     """
-    Specifies the comparison method to determine if the source value matches any of the specified values.
+    A comparator to be used against list of values.
     """
     IN_ = "IN"
     NOT_IN = "NOT_IN"
+    ALL_IN = "ALL_IN"
+    EXACT = "EXACT"
 
 
 @pulumi.type_token("aws-native:connect:EvaluationFormItemEnablementSourceType")
 class EvaluationFormItemEnablementSourceType(_builtins.str, Enum):
     """
-    The type of the source entity.
+    A type of source item.
     """
     QUESTION_REF_ID = "QUESTION_REF_ID"
 
@@ -144,9 +150,40 @@ class EvaluationFormItemEnablementSourceType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:connect:EvaluationFormItemEnablementSourceValueType")
 class EvaluationFormItemEnablementSourceValueType(_builtins.str, Enum):
     """
-    Type of the source entity value.
+    A type of source item value.
     """
     OPTION_REF_ID = "OPTION_REF_ID"
+
+
+@pulumi.type_token("aws-native:connect:EvaluationFormLanguageConfigurationFormLanguage")
+class EvaluationFormLanguageConfigurationFormLanguage(_builtins.str, Enum):
+    """
+    The language of the form
+    """
+    DE_DE = "de-DE"
+    EN_US = "en-US"
+    ES_ES = "es-ES"
+    FR_FR = "fr-FR"
+    IT_IT = "it-IT"
+    PT_BR = "pt-BR"
+
+
+@pulumi.type_token("aws-native:connect:EvaluationFormMultiSelectQuestionPropertiesDisplayAs")
+class EvaluationFormMultiSelectQuestionPropertiesDisplayAs(_builtins.str, Enum):
+    """
+    The display mode of the multi-select question.
+    """
+    DROPDOWN = "DROPDOWN"
+    CHECKBOX = "CHECKBOX"
+
+
+@pulumi.type_token("aws-native:connect:EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition")
+class EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition(_builtins.str, Enum):
+    """
+    The automation condition applied on contact categories.
+    """
+    PRESENT = "PRESENT"
+    NOT_PRESENT = "NOT_PRESENT"
 
 
 @pulumi.type_token("aws-native:connect:EvaluationFormNumericQuestionPropertyValueAutomationLabel")
@@ -165,12 +202,14 @@ class EvaluationFormNumericQuestionPropertyValueAutomationLabel(_builtins.str, E
     LONGEST_HOLD_DURATION = "LONGEST_HOLD_DURATION"
     NUMBER_OF_HOLDS = "NUMBER_OF_HOLDS"
     AGENT_INTERACTION_AND_HOLD_DURATION = "AGENT_INTERACTION_AND_HOLD_DURATION"
+    CUSTOMER_SENTIMENT_SCORE_WITHOUT_AGENT = "CUSTOMER_SENTIMENT_SCORE_WITHOUT_AGENT"
+    CUSTOMER_SENTIMENT_SCORE_WITH_AGENT = "CUSTOMER_SENTIMENT_SCORE_WITH_AGENT"
 
 
 @pulumi.type_token("aws-native:connect:EvaluationFormQuestionAutomationAnswerSourceSourceType")
 class EvaluationFormQuestionAutomationAnswerSourceSourceType(_builtins.str, Enum):
     """
-    The type of the answer sourcr
+    The automation answer source type.
     """
     CONTACT_LENS_DATA = "CONTACT_LENS_DATA"
     GEN_AI = "GEN_AI"
@@ -185,6 +224,8 @@ class EvaluationFormQuestionQuestionType(_builtins.str, Enum):
     NUMERIC = "NUMERIC"
     SINGLESELECT = "SINGLESELECT"
     TEXT = "TEXT"
+    MULTISELECT = "MULTISELECT"
+    DATETIME = "DATETIME"
 
 
 @pulumi.type_token("aws-native:connect:EvaluationFormScoringStrategyMode")
@@ -236,6 +277,15 @@ class EvaluationFormStatus(_builtins.str, Enum):
     """
     DRAFT = "DRAFT"
     ACTIVE = "ACTIVE"
+
+
+@pulumi.type_token("aws-native:connect:EvaluationFormTargetConfigurationContactInteractionType")
+class EvaluationFormTargetConfigurationContactInteractionType(_builtins.str, Enum):
+    """
+    The interaction type of a contact
+    """
+    AGENT = "AGENT"
+    AUTOMATED = "AUTOMATED"
 
 
 @pulumi.type_token("aws-native:connect:HoursOfOperationConfigDay")

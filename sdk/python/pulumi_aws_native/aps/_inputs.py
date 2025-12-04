@@ -46,6 +46,8 @@ __all__ = [
     'ScraperScrapeConfigurationArgsDict',
     'ScraperSourceEksConfigurationPropertiesArgs',
     'ScraperSourceEksConfigurationPropertiesArgsDict',
+    'ScraperSourceVpcConfigurationPropertiesArgs',
+    'ScraperSourceVpcConfigurationPropertiesArgsDict',
     'ScraperSourceArgs',
     'ScraperSourceArgsDict',
     'WorkspaceCloudWatchLogDestinationArgs',
@@ -783,6 +785,60 @@ class ScraperSourceEksConfigurationPropertiesArgs:
 
 
 if not MYPY:
+    class ScraperSourceVpcConfigurationPropertiesArgsDict(TypedDict):
+        """
+        Configuration for VPC metrics source
+        """
+        security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        List of security group IDs
+        """
+        subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        List of subnet IDs
+        """
+elif False:
+    ScraperSourceVpcConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScraperSourceVpcConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        Configuration for VPC metrics source
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of security group IDs
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of security group IDs
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of subnet IDs
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+
+if not MYPY:
     class ScraperSourceArgsDict(TypedDict):
         """
         Scraper metrics source
@@ -791,19 +847,27 @@ if not MYPY:
         """
         Configuration for EKS metrics source
         """
+        vpc_configuration: NotRequired[pulumi.Input['ScraperSourceVpcConfigurationPropertiesArgsDict']]
+        """
+        Configuration for VPC metrics source
+        """
 elif False:
     ScraperSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScraperSourceArgs:
     def __init__(__self__, *,
-                 eks_configuration: Optional[pulumi.Input['ScraperSourceEksConfigurationPropertiesArgs']] = None):
+                 eks_configuration: Optional[pulumi.Input['ScraperSourceEksConfigurationPropertiesArgs']] = None,
+                 vpc_configuration: Optional[pulumi.Input['ScraperSourceVpcConfigurationPropertiesArgs']] = None):
         """
         Scraper metrics source
         :param pulumi.Input['ScraperSourceEksConfigurationPropertiesArgs'] eks_configuration: Configuration for EKS metrics source
+        :param pulumi.Input['ScraperSourceVpcConfigurationPropertiesArgs'] vpc_configuration: Configuration for VPC metrics source
         """
         if eks_configuration is not None:
             pulumi.set(__self__, "eks_configuration", eks_configuration)
+        if vpc_configuration is not None:
+            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
     @_builtins.property
     @pulumi.getter(name="eksConfiguration")
@@ -816,6 +880,18 @@ class ScraperSourceArgs:
     @eks_configuration.setter
     def eks_configuration(self, value: Optional[pulumi.Input['ScraperSourceEksConfigurationPropertiesArgs']]):
         pulumi.set(self, "eks_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcConfiguration")
+    def vpc_configuration(self) -> Optional[pulumi.Input['ScraperSourceVpcConfigurationPropertiesArgs']]:
+        """
+        Configuration for VPC metrics source
+        """
+        return pulumi.get(self, "vpc_configuration")
+
+    @vpc_configuration.setter
+    def vpc_configuration(self, value: Optional[pulumi.Input['ScraperSourceVpcConfigurationPropertiesArgs']]):
+        pulumi.set(self, "vpc_configuration", value)
 
 
 if not MYPY:

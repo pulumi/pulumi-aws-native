@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTableResult:
-    def __init__(__self__, compaction=None, namespace=None, snapshot_management=None, table_arn=None, table_name=None, version_token=None, warehouse_location=None):
+    def __init__(__self__, compaction=None, namespace=None, snapshot_management=None, table_arn=None, table_name=None, tags=None, version_token=None, warehouse_location=None):
         if compaction and not isinstance(compaction, dict):
             raise TypeError("Expected argument 'compaction' to be a dict")
         pulumi.set(__self__, "compaction", compaction)
@@ -41,6 +42,9 @@ class GetTableResult:
         if table_name and not isinstance(table_name, str):
             raise TypeError("Expected argument 'table_name' to be a str")
         pulumi.set(__self__, "table_name", table_name)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if version_token and not isinstance(version_token, str):
             raise TypeError("Expected argument 'version_token' to be a str")
         pulumi.set(__self__, "version_token", version_token)
@@ -89,6 +93,14 @@ class GetTableResult:
         return pulumi.get(self, "table_name")
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        User tags (key-value pairs) to associate with the table.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
     @pulumi.getter(name="versionToken")
     def version_token(self) -> Optional[_builtins.str]:
         """
@@ -116,6 +128,7 @@ class AwaitableGetTableResult(GetTableResult):
             snapshot_management=self.snapshot_management,
             table_arn=self.table_arn,
             table_name=self.table_name,
+            tags=self.tags,
             version_token=self.version_token,
             warehouse_location=self.warehouse_location)
 
@@ -139,6 +152,7 @@ def get_table(table_arn: Optional[_builtins.str] = None,
         snapshot_management=pulumi.get(__ret__, 'snapshot_management'),
         table_arn=pulumi.get(__ret__, 'table_arn'),
         table_name=pulumi.get(__ret__, 'table_name'),
+        tags=pulumi.get(__ret__, 'tags'),
         version_token=pulumi.get(__ret__, 'version_token'),
         warehouse_location=pulumi.get(__ret__, 'warehouse_location'))
 def get_table_output(table_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -159,5 +173,6 @@ def get_table_output(table_arn: Optional[pulumi.Input[_builtins.str]] = None,
         snapshot_management=pulumi.get(__response__, 'snapshot_management'),
         table_arn=pulumi.get(__response__, 'table_arn'),
         table_name=pulumi.get(__response__, 'table_name'),
+        tags=pulumi.get(__response__, 'tags'),
         version_token=pulumi.get(__response__, 'version_token'),
         warehouse_location=pulumi.get(__response__, 'warehouse_location')))

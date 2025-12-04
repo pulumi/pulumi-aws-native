@@ -29,12 +29,18 @@ type LookupPartnerAppArgs struct {
 }
 
 type LookupPartnerAppResult struct {
+	// The version of the PartnerApp.
+	AppVersion *string `pulumi:"appVersion"`
 	// A collection of settings that specify the maintenance schedule for the PartnerApp.
 	ApplicationConfig *PartnerAppConfig `pulumi:"applicationConfig"`
 	// The Amazon Resource Name (ARN) of the created PartnerApp.
 	Arn *string `pulumi:"arn"`
 	// The AppServerUrl based on app and account-info.
 	BaseUrl *string `pulumi:"baseUrl"`
+	// The end-of-life date for the current version of the PartnerApp.
+	CurrentVersionEolDate *string `pulumi:"currentVersionEolDate"`
+	// Enables automatic minor version upgrades for the PartnerApp.
+	EnableAutoMinorVersionUpgrade *bool `pulumi:"enableAutoMinorVersionUpgrade"`
 	// Enables IAM Session based Identity for PartnerApp.
 	EnableIamSessionBasedIdentity *bool `pulumi:"enableIamSessionBasedIdentity"`
 	// A collection of settings that specify the maintenance schedule for the PartnerApp.
@@ -77,6 +83,11 @@ func (o LookupPartnerAppResultOutput) ToLookupPartnerAppResultOutputWithContext(
 	return o
 }
 
+// The version of the PartnerApp.
+func (o LookupPartnerAppResultOutput) AppVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPartnerAppResult) *string { return v.AppVersion }).(pulumi.StringPtrOutput)
+}
+
 // A collection of settings that specify the maintenance schedule for the PartnerApp.
 func (o LookupPartnerAppResultOutput) ApplicationConfig() PartnerAppConfigPtrOutput {
 	return o.ApplyT(func(v LookupPartnerAppResult) *PartnerAppConfig { return v.ApplicationConfig }).(PartnerAppConfigPtrOutput)
@@ -90,6 +101,16 @@ func (o LookupPartnerAppResultOutput) Arn() pulumi.StringPtrOutput {
 // The AppServerUrl based on app and account-info.
 func (o LookupPartnerAppResultOutput) BaseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPartnerAppResult) *string { return v.BaseUrl }).(pulumi.StringPtrOutput)
+}
+
+// The end-of-life date for the current version of the PartnerApp.
+func (o LookupPartnerAppResultOutput) CurrentVersionEolDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPartnerAppResult) *string { return v.CurrentVersionEolDate }).(pulumi.StringPtrOutput)
+}
+
+// Enables automatic minor version upgrades for the PartnerApp.
+func (o LookupPartnerAppResultOutput) EnableAutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupPartnerAppResult) *bool { return v.EnableAutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
 }
 
 // Enables IAM Session based Identity for PartnerApp.

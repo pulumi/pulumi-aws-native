@@ -49,6 +49,8 @@ type LookupTargetGroupResult struct {
 	Matcher *TargetGroupMatcher `pulumi:"matcher"`
 	// The tags.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
+	TargetControlPort *int `pulumi:"targetControlPort"`
 	// The ARN of the Target Group
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 	// The attributes.
@@ -143,6 +145,11 @@ func (o LookupTargetGroupResultOutput) Matcher() TargetGroupMatcherPtrOutput {
 // The tags.
 func (o LookupTargetGroupResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
+func (o LookupTargetGroupResultOutput) TargetControlPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) *int { return v.TargetControlPort }).(pulumi.IntPtrOutput)
 }
 
 // The ARN of the Target Group

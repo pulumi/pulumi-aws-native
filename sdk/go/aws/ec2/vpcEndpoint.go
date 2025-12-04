@@ -86,6 +86,8 @@ func NewVpcEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"dnsOptions.privateDnsPreference",
+		"dnsOptions.privateDnsSpecifiedDomains[*]",
 		"resourceConfigurationArn",
 		"serviceName",
 		"serviceNetworkArn",

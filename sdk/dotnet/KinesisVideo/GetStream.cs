@@ -84,6 +84,10 @@ namespace Pulumi.AwsNative.KinesisVideo
         /// </summary>
         public readonly string? MediaType;
         /// <summary>
+        /// Configuration for the storage tier of the Kinesis Video Stream.
+        /// </summary>
+        public readonly Outputs.StreamStorageConfiguration? StreamStorageConfiguration;
+        /// <summary>
         /// An array of key-value pairs associated with the Kinesis Video Stream.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -100,6 +104,8 @@ namespace Pulumi.AwsNative.KinesisVideo
 
             string? mediaType,
 
+            Outputs.StreamStorageConfiguration? streamStorageConfiguration,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
@@ -107,6 +113,7 @@ namespace Pulumi.AwsNative.KinesisVideo
             DeviceName = deviceName;
             KmsKeyId = kmsKeyId;
             MediaType = mediaType;
+            StreamStorageConfiguration = streamStorageConfiguration;
             Tags = tags;
         }
     }

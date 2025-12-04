@@ -2481,9 +2481,9 @@ type CommandTag struct {
 }
 
 type ConfigurationDetailsProperties struct {
-	// The health status of KMS key and AWS KMS access role. If either KMS key or AWS KMS access role is `UNHEALTHY` , the return value will be `UNHEALTHY` . To use a customer managed KMS key, the value of `configurationStatus` must be `HEALTHY` .
+	// The health status of KMS key and AWS  access role. If either KMS key or AWS  access role is `UNHEALTHY` , the return value will be `UNHEALTHY` . To use a customer managed KMS key, the value of `configurationStatus` must be `HEALTHY` .
 	ConfigurationStatus *EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus `pulumi:"configurationStatus"`
-	// The error code that indicates either the KMS key or the AWS KMS access role is `UNHEALTHY` . Valid values: `KMS_KEY_VALIDATION_ERROR` and `ROLE_VALIDATION_ERROR` .
+	// The error code that indicates either the KMS key or the AWS  access role is `UNHEALTHY` . Valid values: `KMS_KEY_VALIDATION_ERROR` and `ROLE_VALIDATION_ERROR` .
 	ErrorCode *string `pulumi:"errorCode"`
 	// The detailed error message that corresponds to the `errorCode` .
 	ErrorMessage *string `pulumi:"errorMessage"`
@@ -2503,14 +2503,14 @@ func (o ConfigurationDetailsPropertiesOutput) ToConfigurationDetailsPropertiesOu
 	return o
 }
 
-// The health status of KMS key and AWS KMS access role. If either KMS key or AWS KMS access role is `UNHEALTHY` , the return value will be `UNHEALTHY` . To use a customer managed KMS key, the value of `configurationStatus` must be `HEALTHY` .
+// The health status of KMS key and AWS  access role. If either KMS key or AWS  access role is `UNHEALTHY` , the return value will be `UNHEALTHY` . To use a customer managed KMS key, the value of `configurationStatus` must be `HEALTHY` .
 func (o ConfigurationDetailsPropertiesOutput) ConfigurationStatus() EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput {
 	return o.ApplyT(func(v ConfigurationDetailsProperties) *EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus {
 		return v.ConfigurationStatus
 	}).(EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput)
 }
 
-// The error code that indicates either the KMS key or the AWS KMS access role is `UNHEALTHY` . Valid values: `KMS_KEY_VALIDATION_ERROR` and `ROLE_VALIDATION_ERROR` .
+// The error code that indicates either the KMS key or the AWS  access role is `UNHEALTHY` . Valid values: `KMS_KEY_VALIDATION_ERROR` and `ROLE_VALIDATION_ERROR` .
 func (o ConfigurationDetailsPropertiesOutput) ErrorCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationDetailsProperties) *string { return v.ErrorCode }).(pulumi.StringPtrOutput)
 }
@@ -2544,7 +2544,7 @@ func (o ConfigurationDetailsPropertiesPtrOutput) Elem() ConfigurationDetailsProp
 	}).(ConfigurationDetailsPropertiesOutput)
 }
 
-// The health status of KMS key and AWS KMS access role. If either KMS key or AWS KMS access role is `UNHEALTHY` , the return value will be `UNHEALTHY` . To use a customer managed KMS key, the value of `configurationStatus` must be `HEALTHY` .
+// The health status of KMS key and AWS  access role. If either KMS key or AWS  access role is `UNHEALTHY` , the return value will be `UNHEALTHY` . To use a customer managed KMS key, the value of `configurationStatus` must be `HEALTHY` .
 func (o ConfigurationDetailsPropertiesPtrOutput) ConfigurationStatus() EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput {
 	return o.ApplyT(func(v *ConfigurationDetailsProperties) *EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus {
 		if v == nil {
@@ -2554,7 +2554,7 @@ func (o ConfigurationDetailsPropertiesPtrOutput) ConfigurationStatus() Encryptio
 	}).(EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatusPtrOutput)
 }
 
-// The error code that indicates either the KMS key or the AWS KMS access role is `UNHEALTHY` . Valid values: `KMS_KEY_VALIDATION_ERROR` and `ROLE_VALIDATION_ERROR` .
+// The error code that indicates either the KMS key or the AWS  access role is `UNHEALTHY` . Valid values: `KMS_KEY_VALIDATION_ERROR` and `ROLE_VALIDATION_ERROR` .
 func (o ConfigurationDetailsPropertiesPtrOutput) ErrorCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationDetailsProperties) *string {
 		if v == nil {

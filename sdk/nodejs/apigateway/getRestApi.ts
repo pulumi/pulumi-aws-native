@@ -43,6 +43,10 @@ export interface GetRestApiResult {
      */
     readonly disableExecuteApiEndpoint?: boolean;
     /**
+     * The endpoint access mode for your RestApi.
+     */
+    readonly endpointAccessMode?: string;
+    /**
      * A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
      */
     readonly endpointConfiguration?: outputs.apigateway.RestApiEndpointConfiguration;
@@ -68,6 +72,9 @@ export interface GetRestApiResult {
      * The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
      */
     readonly rootResourceId?: string;
+    /**
+     * The Transport Layer Security (TLS) version + cipher suite for this RestApi.
+     */
     readonly securityPolicy?: string;
     /**
      * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.

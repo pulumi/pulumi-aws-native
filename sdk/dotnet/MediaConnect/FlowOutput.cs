@@ -103,13 +103,22 @@ namespace Pulumi.AwsNative.MediaConnect
         /// The protocol that is used by the source or output.
         /// </summary>
         [Output("protocol")]
-        public Output<Pulumi.AwsNative.MediaConnect.FlowOutputProtocol> Protocol { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.MediaConnect.FlowOutputProtocol?> Protocol { get; private set; } = null!;
 
         /// <summary>
         /// The remote ID for the Zixi-pull stream.
         /// </summary>
         [Output("remoteId")]
         public Output<string?> RemoteId { get; private set; } = null!;
+
+        [Output("routerIntegrationState")]
+        public Output<Pulumi.AwsNative.MediaConnect.FlowOutputRouterIntegrationState?> RouterIntegrationState { get; private set; } = null!;
+
+        /// <summary>
+        /// Encryption information.
+        /// </summary>
+        [Output("routerIntegrationTransitEncryption")]
+        public Output<Outputs.FlowOutputFlowTransitEncryption?> RouterIntegrationTransitEncryption { get; private set; } = null!;
 
         /// <summary>
         /// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
@@ -271,14 +280,23 @@ namespace Pulumi.AwsNative.MediaConnect
         /// <summary>
         /// The protocol that is used by the source or output.
         /// </summary>
-        [Input("protocol", required: true)]
-        public Input<Pulumi.AwsNative.MediaConnect.FlowOutputProtocol> Protocol { get; set; } = null!;
+        [Input("protocol")]
+        public Input<Pulumi.AwsNative.MediaConnect.FlowOutputProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// The remote ID for the Zixi-pull stream.
         /// </summary>
         [Input("remoteId")]
         public Input<string>? RemoteId { get; set; }
+
+        [Input("routerIntegrationState")]
+        public Input<Pulumi.AwsNative.MediaConnect.FlowOutputRouterIntegrationState>? RouterIntegrationState { get; set; }
+
+        /// <summary>
+        /// Encryption information.
+        /// </summary>
+        [Input("routerIntegrationTransitEncryption")]
+        public Input<Inputs.FlowOutputFlowTransitEncryptionArgs>? RouterIntegrationTransitEncryption { get; set; }
 
         /// <summary>
         /// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.

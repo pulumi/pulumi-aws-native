@@ -36,7 +36,7 @@ export interface GetMonitorResult {
      */
     readonly displayName?: string;
     /**
-     * The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
+     * The Amazon Resource Name that the IAM Identity Center assigned to the monitor when it was created.
      */
     readonly identityCenterApplicationArn?: string;
     /**
@@ -44,7 +44,7 @@ export interface GetMonitorResult {
      */
     readonly monitorId?: string;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+     * The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
      */
     readonly roleArn?: string;
     /**

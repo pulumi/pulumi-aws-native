@@ -15,24 +15,47 @@ namespace Pulumi.AwsNative.Cognito
     [AwsNativeResourceType("aws-native:cognito:Terms")]
     public partial class Terms : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the app client that the terms documents are assigned to.
+        /// </summary>
         [Output("clientId")]
         public Output<string?> ClientId { get; private set; } = null!;
 
+        /// <summary>
+        /// This parameter is reserved for future use and currently accepts one value.
+        /// </summary>
         [Output("enforcement")]
         public Output<Pulumi.AwsNative.Cognito.TermsEnforcementType> Enforcement { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of URLs to languages. For each localized language that will view the requested `TermsName` , assign a URL. A selection of `cognito:default` displays for all languages that don't have a language-specific URL.
+        /// 
+        /// For example, `"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"` .
+        /// </summary>
         [Output("links")]
         public Output<ImmutableDictionary<string, string>> Links { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the terms documents.
+        /// </summary>
         [Output("termsId")]
         public Output<string> TermsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The type and friendly name of the terms documents.
+        /// </summary>
         [Output("termsName")]
         public Output<string> TermsName { get; private set; } = null!;
 
+        /// <summary>
+        /// This parameter is reserved for future use and currently accepts one value.
+        /// </summary>
         [Output("termsSource")]
         public Output<Pulumi.AwsNative.Cognito.TermsSourceType> TermsSource { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the user pool that contains the terms documents.
+        /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
@@ -86,26 +109,47 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class TermsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the app client that the terms documents are assigned to.
+        /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
+        /// <summary>
+        /// This parameter is reserved for future use and currently accepts one value.
+        /// </summary>
         [Input("enforcement", required: true)]
         public Input<Pulumi.AwsNative.Cognito.TermsEnforcementType> Enforcement { get; set; } = null!;
 
         [Input("links", required: true)]
         private InputMap<string>? _links;
+
+        /// <summary>
+        /// A map of URLs to languages. For each localized language that will view the requested `TermsName` , assign a URL. A selection of `cognito:default` displays for all languages that don't have a language-specific URL.
+        /// 
+        /// For example, `"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"` .
+        /// </summary>
         public InputMap<string> Links
         {
             get => _links ?? (_links = new InputMap<string>());
             set => _links = value;
         }
 
+        /// <summary>
+        /// The type and friendly name of the terms documents.
+        /// </summary>
         [Input("termsName")]
         public Input<string>? TermsName { get; set; }
 
+        /// <summary>
+        /// This parameter is reserved for future use and currently accepts one value.
+        /// </summary>
         [Input("termsSource", required: true)]
         public Input<Pulumi.AwsNative.Cognito.TermsSourceType> TermsSource { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the user pool that contains the terms documents.
+        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 

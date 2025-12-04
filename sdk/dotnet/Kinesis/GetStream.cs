@@ -92,9 +92,13 @@ namespace Pulumi.AwsNative.Kinesis
         /// </summary>
         public readonly Outputs.StreamModeDetails? StreamModeDetails;
         /// <summary>
-        /// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+        /// An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// Warm throughput configuration details for the stream. Only present for ON_DEMAND streams.
+        /// </summary>
+        public readonly Outputs.StreamWarmThroughputObject? WarmThroughputObject;
 
         [OutputConstructor]
         private GetStreamResult(
@@ -112,7 +116,9 @@ namespace Pulumi.AwsNative.Kinesis
 
             Outputs.StreamModeDetails? streamModeDetails,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            Outputs.StreamWarmThroughputObject? warmThroughputObject)
         {
             Arn = arn;
             DesiredShardLevelMetrics = desiredShardLevelMetrics;
@@ -122,6 +128,7 @@ namespace Pulumi.AwsNative.Kinesis
             StreamEncryption = streamEncryption;
             StreamModeDetails = streamModeDetails;
             Tags = tags;
+            WarmThroughputObject = warmThroughputObject;
         }
     }
 }

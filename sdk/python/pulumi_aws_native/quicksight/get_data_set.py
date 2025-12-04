@@ -140,6 +140,9 @@ class GetDataSetResult:
     @_builtins.property
     @pulumi.getter(name="dataPrepConfiguration")
     def data_prep_configuration(self) -> Optional['outputs.DataSetDataPrepConfiguration']:
+        """
+        The data preparation configuration associated with this dataset.
+        """
         return pulumi.get(self, "data_prep_configuration")
 
     @_builtins.property
@@ -241,6 +244,9 @@ class GetDataSetResult:
     @_builtins.property
     @pulumi.getter(name="semanticModelConfiguration")
     def semantic_model_configuration(self) -> Optional['outputs.DataSetSemanticModelConfiguration']:
+        """
+        The semantic model configuration associated with this dataset.
+        """
         return pulumi.get(self, "semantic_model_configuration")
 
     @_builtins.property

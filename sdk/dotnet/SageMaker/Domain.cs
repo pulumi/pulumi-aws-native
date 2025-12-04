@@ -159,7 +159,6 @@ namespace Pulumi.AwsNative.SageMaker
                     "domainSettings.rStudioServerProDomainSettings.defaultResourceSpec",
                     "kmsKeyId",
                     "tags[*]",
-                    "vpcId",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

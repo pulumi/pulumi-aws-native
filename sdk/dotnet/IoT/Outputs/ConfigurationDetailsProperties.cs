@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.IoT.Outputs
     public sealed class ConfigurationDetailsProperties
     {
         /// <summary>
-        /// The health status of KMS key and AWS KMS access role. If either KMS key or AWS KMS access role is `UNHEALTHY` , the return value will be `UNHEALTHY` . To use a customer managed KMS key, the value of `configurationStatus` must be `HEALTHY` .
+        /// The health status of KMS key and AWS  access role. If either KMS key or AWS  access role is `UNHEALTHY` , the return value will be `UNHEALTHY` . To use a customer managed KMS key, the value of `configurationStatus` must be `HEALTHY` .
         /// </summary>
         public readonly Pulumi.AwsNative.IoT.EncryptionConfigurationConfigurationDetailsPropertiesConfigurationStatus? ConfigurationStatus;
         /// <summary>
-        /// The error code that indicates either the KMS key or the AWS KMS access role is `UNHEALTHY` . Valid values: `KMS_KEY_VALIDATION_ERROR` and `ROLE_VALIDATION_ERROR` .
+        /// The error code that indicates either the KMS key or the AWS  access role is `UNHEALTHY` . Valid values: `KMS_KEY_VALIDATION_ERROR` and `ROLE_VALIDATION_ERROR` .
         /// </summary>
         public readonly string? ErrorCode;
         /// <summary>

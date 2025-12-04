@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetSemanticModelConfiguration
     {
+        /// <summary>
+        /// A map of semantic tables that define the analytical structure.
+        /// </summary>
         public readonly ImmutableDictionary<string, Outputs.DataSetSemanticTable>? TableMap;
 
         [OutputConstructor]

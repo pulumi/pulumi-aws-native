@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly string? DomainNameId;
         /// <summary>
+        /// The endpoint access mode for your DomainName.
+        /// </summary>
+        public readonly string? EndpointAccessMode;
+        /// <summary>
         /// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
@@ -98,6 +102,8 @@ namespace Pulumi.AwsNative.ApiGateway
 
             string? domainNameId,
 
+            string? endpointAccessMode,
+
             object? policy,
 
             Pulumi.AwsNative.ApiGateway.DomainNameV2RoutingMode? routingMode,
@@ -107,6 +113,7 @@ namespace Pulumi.AwsNative.ApiGateway
             CertificateArn = certificateArn;
             DomainNameArn = domainNameArn;
             DomainNameId = domainNameId;
+            EndpointAccessMode = endpointAccessMode;
             Policy = policy;
             RoutingMode = routingMode;
             Tags = tags;

@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.Pipes
         public Output<Outputs.PipeEnrichmentParameters?> EnrichmentParameters { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        /// The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
         /// 
         /// To update a pipe that is using the default AWS owned key to use a customer managed key instead, or update a pipe that is using a customer managed key to use a different customer managed key, specify a customer managed key identifier.
         /// 
@@ -265,7 +265,7 @@ namespace Pulumi.AwsNative.Pipes
         public Input<Inputs.PipeEnrichmentParametersArgs>? EnrichmentParameters { get; set; }
 
         /// <summary>
-        /// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        /// The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
         /// 
         /// To update a pipe that is using the default AWS owned key to use a customer managed key instead, or update a pipe that is using a customer managed key to use a different customer managed key, specify a customer managed key identifier.
         /// 

@@ -88,6 +88,10 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         public readonly string? SegmentDefinitionArn;
         /// <summary>
+        /// The SQL query that defines the segment criteria.
+        /// </summary>
+        public readonly Pulumi.AwsNative.CustomerProfiles.SegmentDefinitionSegmentType? SegmentType;
+        /// <summary>
         /// The tags used to organize, track, or control access for this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -100,11 +104,14 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
             string? segmentDefinitionArn,
 
+            Pulumi.AwsNative.CustomerProfiles.SegmentDefinitionSegmentType? segmentType,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CreatedAt = createdAt;
             Description = description;
             SegmentDefinitionArn = segmentDefinitionArn;
+            SegmentType = segmentType;
             Tags = tags;
         }
     }

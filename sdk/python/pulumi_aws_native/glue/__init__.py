@@ -11,6 +11,8 @@ from .crawler import *
 from .database import *
 from .get_crawler import *
 from .get_database import *
+from .get_identity_center_configuration import *
+from .get_integration import *
 from .get_integration_resource_property import *
 from .get_job import *
 from .get_registry import *
@@ -18,6 +20,8 @@ from .get_schema import *
 from .get_schema_version import *
 from .get_trigger import *
 from .get_usage_profile import *
+from .identity_center_configuration import *
+from .integration import *
 from .integration_resource_property import *
 from .job import *
 from .registry import *

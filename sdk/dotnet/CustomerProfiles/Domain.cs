@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.CustomerProfiles
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        [Output("dataStore")]
+        public Output<Outputs.DomainDataStore?> DataStore { get; private set; } = null!;
+
         /// <summary>
         /// The URL of the SQS dead letter queue
         /// </summary>
@@ -121,6 +124,9 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
     public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
+        [Input("dataStore")]
+        public Input<Inputs.DomainDataStoreArgs>? DataStore { get; set; }
+
         /// <summary>
         /// The URL of the SQS dead letter queue
         /// </summary>

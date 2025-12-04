@@ -546,6 +546,10 @@ export class Bucket extends pulumi.CustomResource {
     }
 
     /**
+     * The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see [Using tags with S3 general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html) .
+     */
+    declare public readonly abacStatus: pulumi.Output<enums.s3.BucketAbacStatus | undefined>;
+    /**
      * Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
      */
     declare public readonly accelerateConfiguration: pulumi.Output<outputs.s3.BucketAccelerateConfiguration | undefined>;
@@ -691,6 +695,7 @@ export class Bucket extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["abacStatus"] = args?.abacStatus;
             resourceInputs["accelerateConfiguration"] = args?.accelerateConfiguration;
             resourceInputs["accessControl"] = args?.accessControl;
             resourceInputs["analyticsConfigurations"] = args?.analyticsConfigurations;
@@ -719,6 +724,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["regionalDomainName"] = undefined /*out*/;
             resourceInputs["websiteUrl"] = undefined /*out*/;
         } else {
+            resourceInputs["abacStatus"] = undefined /*out*/;
             resourceInputs["accelerateConfiguration"] = undefined /*out*/;
             resourceInputs["accessControl"] = undefined /*out*/;
             resourceInputs["analyticsConfigurations"] = undefined /*out*/;
@@ -758,6 +764,10 @@ export class Bucket extends pulumi.CustomResource {
  * The set of arguments for constructing a Bucket resource.
  */
 export interface BucketArgs {
+    /**
+     * The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see [Using tags with S3 general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html) .
+     */
+    abacStatus?: pulumi.Input<enums.s3.BucketAbacStatus>;
     /**
      * Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
      */

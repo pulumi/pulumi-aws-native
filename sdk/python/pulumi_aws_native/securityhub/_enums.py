@@ -194,9 +194,8 @@ class AutomationRuleV2OcsfNumberFilterFieldName(_builtins.str, Enum):
     ACTIVITY_ID = "activity_id"
     COMPLIANCE_STATUS_ID = "compliance.status_id"
     CONFIDENCE_SCORE = "confidence_score"
-    SEVERITY_ID = "severity_id"
-    STATUS_ID = "status_id"
     FINDING_INFO_RELATED_EVENTS_COUNT = "finding_info.related_events_count"
+    VENDOR_ATTRIBUTES_SEVERITY_ID = "vendor_attributes.severity_id"
 
 
 @pulumi.type_token("aws-native:securityhub:AutomationRuleV2OcsfStringField")
@@ -204,7 +203,6 @@ class AutomationRuleV2OcsfStringField(_builtins.str, Enum):
     """
     The name of the field
     """
-    METADATA_UID = "metadata.uid"
     ACTIVITY_NAME = "activity_name"
     CLOUD_ACCOUNT_NAME = "cloud.account.name"
     CLOUD_ACCOUNT_UID = "cloud.account.uid"
@@ -234,11 +232,9 @@ class AutomationRuleV2OcsfStringField(_builtins.str, Enum):
     RESOURCES_REGION = "resources.region"
     RESOURCES_TYPE = "resources.type"
     RESOURCES_UID = "resources.uid"
-    SEVERITY = "severity"
-    STATUS = "status"
-    COMMENT = "comment"
     VULNERABILITIES_FIX_COVERAGE = "vulnerabilities.fix_coverage"
     CLASS_NAME = "class_name"
+    VENDOR_ATTRIBUTES_SEVERITY = "vendor_attributes.severity"
 
 
 @pulumi.type_token("aws-native:securityhub:AutomationRuleV2RuleStatus")
@@ -422,7 +418,7 @@ class PolicyAssociationTargetType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:securityhub:SecurityControlParameterConfigurationValueType")
 class SecurityControlParameterConfigurationValueType(_builtins.str, Enum):
     """
-    Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+    Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior.
 
     When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
 

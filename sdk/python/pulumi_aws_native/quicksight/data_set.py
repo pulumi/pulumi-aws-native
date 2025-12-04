@@ -53,6 +53,7 @@ class DataSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]] column_level_permission_rules: <p>A set of one or more definitions of a <code>
                               <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
                            </code>.</p>
+        :param pulumi.Input['DataSetDataPrepConfigurationArgs'] data_prep_configuration: The data preparation configuration associated with this dataset.
         :param pulumi.Input[_builtins.str] data_set_id: An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
         :param pulumi.Input['DataSetRefreshPropertiesArgs'] data_set_refresh_properties: The refresh properties of a dataset.
         :param pulumi.Input['DataSetUsageConfigurationArgs'] data_set_usage_configuration: The usage configuration to apply to child datasets that reference this dataset as a source.
@@ -65,6 +66,7 @@ class DataSetArgs:
         :param pulumi.Input['DataSetPerformanceConfigurationArgs'] performance_configuration: The performance optimization configuration of a dataset.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetResourcePermissionArgs']]] permissions: <p>A list of resource permissions on the dataset.</p>
         :param pulumi.Input[Mapping[str, pulumi.Input['DataSetPhysicalTableArgs']]] physical_table_map: Declares the physical tables that are available in the underlying data sources.
+        :param pulumi.Input['DataSetSemanticModelConfigurationArgs'] semantic_model_configuration: The semantic model configuration associated with this dataset.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         :param pulumi.Input['DataSetUseAs'] use_as: The usage of the dataset.
         """
@@ -154,6 +156,9 @@ class DataSetArgs:
     @_builtins.property
     @pulumi.getter(name="dataPrepConfiguration")
     def data_prep_configuration(self) -> Optional[pulumi.Input['DataSetDataPrepConfigurationArgs']]:
+        """
+        The data preparation configuration associated with this dataset.
+        """
         return pulumi.get(self, "data_prep_configuration")
 
     @data_prep_configuration.setter
@@ -334,6 +339,9 @@ class DataSetArgs:
     @_builtins.property
     @pulumi.getter(name="semanticModelConfiguration")
     def semantic_model_configuration(self) -> Optional[pulumi.Input['DataSetSemanticModelConfigurationArgs']]:
+        """
+        The semantic model configuration associated with this dataset.
+        """
         return pulumi.get(self, "semantic_model_configuration")
 
     @semantic_model_configuration.setter
@@ -404,6 +412,7 @@ class DataSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict']]]] column_level_permission_rules: <p>A set of one or more definitions of a <code>
                               <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
                            </code>.</p>
+        :param pulumi.Input[Union['DataSetDataPrepConfigurationArgs', 'DataSetDataPrepConfigurationArgsDict']] data_prep_configuration: The data preparation configuration associated with this dataset.
         :param pulumi.Input[_builtins.str] data_set_id: An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
         :param pulumi.Input[Union['DataSetRefreshPropertiesArgs', 'DataSetRefreshPropertiesArgsDict']] data_set_refresh_properties: The refresh properties of a dataset.
         :param pulumi.Input[Union['DataSetUsageConfigurationArgs', 'DataSetUsageConfigurationArgsDict']] data_set_usage_configuration: The usage configuration to apply to child datasets that reference this dataset as a source.
@@ -416,6 +425,7 @@ class DataSet(pulumi.CustomResource):
         :param pulumi.Input[Union['DataSetPerformanceConfigurationArgs', 'DataSetPerformanceConfigurationArgsDict']] performance_configuration: The performance optimization configuration of a dataset.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetResourcePermissionArgs', 'DataSetResourcePermissionArgsDict']]]] permissions: <p>A list of resource permissions on the dataset.</p>
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetPhysicalTableArgs', 'DataSetPhysicalTableArgsDict']]]] physical_table_map: Declares the physical tables that are available in the underlying data sources.
+        :param pulumi.Input[Union['DataSetSemanticModelConfigurationArgs', 'DataSetSemanticModelConfigurationArgsDict']] semantic_model_configuration: The semantic model configuration associated with this dataset.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
         :param pulumi.Input['DataSetUseAs'] use_as: The usage of the dataset.
         """
@@ -608,6 +618,9 @@ class DataSet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="dataPrepConfiguration")
     def data_prep_configuration(self) -> pulumi.Output[Optional['outputs.DataSetDataPrepConfiguration']]:
+        """
+        The data preparation configuration associated with this dataset.
+        """
         return pulumi.get(self, "data_prep_configuration")
 
     @_builtins.property
@@ -741,6 +754,9 @@ class DataSet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="semanticModelConfiguration")
     def semantic_model_configuration(self) -> pulumi.Output[Optional['outputs.DataSetSemanticModelConfiguration']]:
+        """
+        The semantic model configuration associated with this dataset.
+        """
         return pulumi.get(self, "semantic_model_configuration")
 
     @_builtins.property

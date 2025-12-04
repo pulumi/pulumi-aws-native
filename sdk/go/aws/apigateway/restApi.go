@@ -772,6 +772,8 @@ type RestApi struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
 	DisableExecuteApiEndpoint pulumi.BoolPtrOutput `pulumi:"disableExecuteApiEndpoint"`
+	// The endpoint access mode for your RestApi.
+	EndpointAccessMode pulumi.StringPtrOutput `pulumi:"endpointAccessMode"`
 	// A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
 	EndpointConfiguration RestApiEndpointConfigurationPtrOutput `pulumi:"endpointConfiguration"`
 	// A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
@@ -796,7 +798,8 @@ type RestApi struct {
 	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 	// The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
-	RootResourceId pulumi.StringOutput    `pulumi:"rootResourceId"`
+	RootResourceId pulumi.StringOutput `pulumi:"rootResourceId"`
+	// The Transport Layer Security (TLS) version + cipher suite for this RestApi.
 	SecurityPolicy pulumi.StringPtrOutput `pulumi:"securityPolicy"`
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -858,6 +861,8 @@ type restApiArgs struct {
 	Description *string `pulumi:"description"`
 	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
 	DisableExecuteApiEndpoint *bool `pulumi:"disableExecuteApiEndpoint"`
+	// The endpoint access mode for your RestApi.
+	EndpointAccessMode *string `pulumi:"endpointAccessMode"`
 	// A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
 	EndpointConfiguration *RestApiEndpointConfiguration `pulumi:"endpointConfiguration"`
 	// A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
@@ -878,8 +883,9 @@ type restApiArgs struct {
 	// A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
-	Policy         interface{} `pulumi:"policy"`
-	SecurityPolicy *string     `pulumi:"securityPolicy"`
+	Policy interface{} `pulumi:"policy"`
+	// The Transport Layer Security (TLS) version + cipher suite for this RestApi.
+	SecurityPolicy *string `pulumi:"securityPolicy"`
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -902,6 +908,8 @@ type RestApiArgs struct {
 	Description pulumi.StringPtrInput
 	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
 	DisableExecuteApiEndpoint pulumi.BoolPtrInput
+	// The endpoint access mode for your RestApi.
+	EndpointAccessMode pulumi.StringPtrInput
 	// A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
 	EndpointConfiguration RestApiEndpointConfigurationPtrInput
 	// A query parameter to indicate whether to rollback the API update ( `true` ) or not ( `false` ) when a warning is encountered. The default value is `false` .
@@ -922,7 +930,8 @@ type RestApiArgs struct {
 	// A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::RestApi` for more information about the expected schema for this property.
-	Policy         pulumi.Input
+	Policy pulumi.Input
+	// The Transport Layer Security (TLS) version + cipher suite for this RestApi.
 	SecurityPolicy pulumi.StringPtrInput
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
 	Tags aws.TagArrayInput
@@ -1002,6 +1011,11 @@ func (o RestApiOutput) DisableExecuteApiEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.BoolPtrOutput { return v.DisableExecuteApiEndpoint }).(pulumi.BoolPtrOutput)
 }
 
+// The endpoint access mode for your RestApi.
+func (o RestApiOutput) EndpointAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestApi) pulumi.StringPtrOutput { return v.EndpointAccessMode }).(pulumi.StringPtrOutput)
+}
+
 // A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the “Parameters“ property.
 func (o RestApiOutput) EndpointConfiguration() RestApiEndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v *RestApi) RestApiEndpointConfigurationPtrOutput { return v.EndpointConfiguration }).(RestApiEndpointConfigurationPtrOutput)
@@ -1055,6 +1069,7 @@ func (o RestApiOutput) RootResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.StringOutput { return v.RootResourceId }).(pulumi.StringOutput)
 }
 
+// The Transport Layer Security (TLS) version + cipher suite for this RestApi.
 func (o RestApiOutput) SecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RestApi) pulumi.StringPtrOutput { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
 }

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource type definition for AWS::ServiceCatalog::CloudFormationProduct
+ * Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
  */
 export class CloudFormationProduct extends pulumi.CustomResource {
     /**
@@ -39,11 +39,11 @@ export class CloudFormationProduct extends pulumi.CustomResource {
 
     /**
      * The language code.
+     *
+     * - `jp` - Japanese
+     * - `zh` - Chinese
      */
     declare public readonly acceptLanguage: pulumi.Output<string | undefined>;
-    /**
-     * The ID of the product, such as prod-tsjbmal34qvek
-     */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The description of the product.
@@ -68,13 +68,13 @@ export class CloudFormationProduct extends pulumi.CustomResource {
     /**
      * The type of product.
      */
-    declare public readonly productType: pulumi.Output<enums.servicecatalog.CloudFormationProductProductType | undefined>;
+    declare public readonly productType: pulumi.Output<string | undefined>;
     /**
-     * The IDs of the provisioning artifacts
+     * The IDs of the provisioning artifacts.
      */
     declare public /*out*/ readonly provisioningArtifactIds: pulumi.Output<string>;
     /**
-     * The names of the provisioning artifacts
+     * The names of the provisioning artifacts.
      */
     declare public /*out*/ readonly provisioningArtifactNames: pulumi.Output<string>;
     /**
@@ -83,10 +83,12 @@ export class CloudFormationProduct extends pulumi.CustomResource {
     declare public readonly provisioningArtifactParameters: pulumi.Output<outputs.servicecatalog.CloudFormationProductProvisioningArtifactProperties[] | undefined>;
     /**
      * This property is turned off by default. If turned off, you can update provisioning artifacts or product attributes (such as description, distributor, name, owner, and more) and the associated provisioning artifacts will retain the same unique identifier. Provisioning artifacts are matched within the CloudFormationProduct resource, and only those that have been updated will be changed. Provisioning artifacts are matched by a combinaton of provisioning artifact template URL and name.
+     *
+     * If turned on, provisioning artifacts will be given a new unique identifier when you update the product or provisioning artifacts.
      */
     declare public readonly replaceProvisioningArtifacts: pulumi.Output<boolean | undefined>;
     /**
-     * A top level ProductViewDetail response containing details about the product's connection. AWS Service Catalog returns this field for the CreateProduct, UpdateProduct, DescribeProductAsAdmin, and SearchProductAsAdmin APIs. This response contains the same fields as the ConnectionParameters request, with the addition of the LastSync response.
+     * A top level `ProductViewDetail` response containing details about the product’s connection. AWS Service Catalog returns this field for the `CreateProduct` , `UpdateProduct` , `DescribeProductAsAdmin` , and `SearchProductAsAdmin` APIs. This response contains the same fields as the `ConnectionParameters` request, with the addition of the `LastSync` response.
      */
     declare public readonly sourceConnection: pulumi.Output<outputs.servicecatalog.CloudFormationProductSourceConnection | undefined>;
     /**
@@ -99,6 +101,8 @@ export class CloudFormationProduct extends pulumi.CustomResource {
     declare public readonly supportEmail: pulumi.Output<string | undefined>;
     /**
      * The contact URL for product support.
+     *
+     * `^https?:\/\//` / is the pattern used to validate SupportUrl.
      */
     declare public readonly supportUrl: pulumi.Output<string | undefined>;
     /**
@@ -167,6 +171,9 @@ export class CloudFormationProduct extends pulumi.CustomResource {
 export interface CloudFormationProductArgs {
     /**
      * The language code.
+     *
+     * - `jp` - Japanese
+     * - `zh` - Chinese
      */
     acceptLanguage?: pulumi.Input<string>;
     /**
@@ -188,17 +195,19 @@ export interface CloudFormationProductArgs {
     /**
      * The type of product.
      */
-    productType?: pulumi.Input<enums.servicecatalog.CloudFormationProductProductType>;
+    productType?: pulumi.Input<string>;
     /**
      * The configuration of the provisioning artifact (also known as a version).
      */
     provisioningArtifactParameters?: pulumi.Input<pulumi.Input<inputs.servicecatalog.CloudFormationProductProvisioningArtifactPropertiesArgs>[]>;
     /**
      * This property is turned off by default. If turned off, you can update provisioning artifacts or product attributes (such as description, distributor, name, owner, and more) and the associated provisioning artifacts will retain the same unique identifier. Provisioning artifacts are matched within the CloudFormationProduct resource, and only those that have been updated will be changed. Provisioning artifacts are matched by a combinaton of provisioning artifact template URL and name.
+     *
+     * If turned on, provisioning artifacts will be given a new unique identifier when you update the product or provisioning artifacts.
      */
     replaceProvisioningArtifacts?: pulumi.Input<boolean>;
     /**
-     * A top level ProductViewDetail response containing details about the product's connection. AWS Service Catalog returns this field for the CreateProduct, UpdateProduct, DescribeProductAsAdmin, and SearchProductAsAdmin APIs. This response contains the same fields as the ConnectionParameters request, with the addition of the LastSync response.
+     * A top level `ProductViewDetail` response containing details about the product’s connection. AWS Service Catalog returns this field for the `CreateProduct` , `UpdateProduct` , `DescribeProductAsAdmin` , and `SearchProductAsAdmin` APIs. This response contains the same fields as the `ConnectionParameters` request, with the addition of the `LastSync` response.
      */
     sourceConnection?: pulumi.Input<inputs.servicecatalog.CloudFormationProductSourceConnectionArgs>;
     /**
@@ -211,6 +220,8 @@ export interface CloudFormationProductArgs {
     supportEmail?: pulumi.Input<string>;
     /**
      * The contact URL for product support.
+     *
+     * `^https?:\/\//` / is the pattern used to validate SupportUrl.
      */
     supportUrl?: pulumi.Input<string>;
     /**

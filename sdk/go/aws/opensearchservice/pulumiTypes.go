@@ -509,6 +509,139 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) SamlOptions() DomainSamlOpt
 	}).(DomainSamlOptionsPtrOutput)
 }
 
+type DomainAimlOptions struct {
+	S3VectorsEngine *DomainS3VectorsEngine `pulumi:"s3VectorsEngine"`
+}
+
+// DomainAimlOptionsInput is an input type that accepts DomainAimlOptionsArgs and DomainAimlOptionsOutput values.
+// You can construct a concrete instance of `DomainAimlOptionsInput` via:
+//
+//	DomainAimlOptionsArgs{...}
+type DomainAimlOptionsInput interface {
+	pulumi.Input
+
+	ToDomainAimlOptionsOutput() DomainAimlOptionsOutput
+	ToDomainAimlOptionsOutputWithContext(context.Context) DomainAimlOptionsOutput
+}
+
+type DomainAimlOptionsArgs struct {
+	S3VectorsEngine DomainS3VectorsEnginePtrInput `pulumi:"s3VectorsEngine"`
+}
+
+func (DomainAimlOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAimlOptions)(nil)).Elem()
+}
+
+func (i DomainAimlOptionsArgs) ToDomainAimlOptionsOutput() DomainAimlOptionsOutput {
+	return i.ToDomainAimlOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainAimlOptionsArgs) ToDomainAimlOptionsOutputWithContext(ctx context.Context) DomainAimlOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAimlOptionsOutput)
+}
+
+func (i DomainAimlOptionsArgs) ToDomainAimlOptionsPtrOutput() DomainAimlOptionsPtrOutput {
+	return i.ToDomainAimlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainAimlOptionsArgs) ToDomainAimlOptionsPtrOutputWithContext(ctx context.Context) DomainAimlOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAimlOptionsOutput).ToDomainAimlOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainAimlOptionsPtrInput is an input type that accepts DomainAimlOptionsArgs, DomainAimlOptionsPtr and DomainAimlOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainAimlOptionsPtrInput` via:
+//
+//	        DomainAimlOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainAimlOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainAimlOptionsPtrOutput() DomainAimlOptionsPtrOutput
+	ToDomainAimlOptionsPtrOutputWithContext(context.Context) DomainAimlOptionsPtrOutput
+}
+
+type domainAimlOptionsPtrType DomainAimlOptionsArgs
+
+func DomainAimlOptionsPtr(v *DomainAimlOptionsArgs) DomainAimlOptionsPtrInput {
+	return (*domainAimlOptionsPtrType)(v)
+}
+
+func (*domainAimlOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAimlOptions)(nil)).Elem()
+}
+
+func (i *domainAimlOptionsPtrType) ToDomainAimlOptionsPtrOutput() DomainAimlOptionsPtrOutput {
+	return i.ToDomainAimlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainAimlOptionsPtrType) ToDomainAimlOptionsPtrOutputWithContext(ctx context.Context) DomainAimlOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAimlOptionsPtrOutput)
+}
+
+type DomainAimlOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainAimlOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAimlOptions)(nil)).Elem()
+}
+
+func (o DomainAimlOptionsOutput) ToDomainAimlOptionsOutput() DomainAimlOptionsOutput {
+	return o
+}
+
+func (o DomainAimlOptionsOutput) ToDomainAimlOptionsOutputWithContext(ctx context.Context) DomainAimlOptionsOutput {
+	return o
+}
+
+func (o DomainAimlOptionsOutput) ToDomainAimlOptionsPtrOutput() DomainAimlOptionsPtrOutput {
+	return o.ToDomainAimlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAimlOptionsOutput) ToDomainAimlOptionsPtrOutputWithContext(ctx context.Context) DomainAimlOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAimlOptions) *DomainAimlOptions {
+		return &v
+	}).(DomainAimlOptionsPtrOutput)
+}
+
+func (o DomainAimlOptionsOutput) S3VectorsEngine() DomainS3VectorsEnginePtrOutput {
+	return o.ApplyT(func(v DomainAimlOptions) *DomainS3VectorsEngine { return v.S3VectorsEngine }).(DomainS3VectorsEnginePtrOutput)
+}
+
+type DomainAimlOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAimlOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAimlOptions)(nil)).Elem()
+}
+
+func (o DomainAimlOptionsPtrOutput) ToDomainAimlOptionsPtrOutput() DomainAimlOptionsPtrOutput {
+	return o
+}
+
+func (o DomainAimlOptionsPtrOutput) ToDomainAimlOptionsPtrOutputWithContext(ctx context.Context) DomainAimlOptionsPtrOutput {
+	return o
+}
+
+func (o DomainAimlOptionsPtrOutput) Elem() DomainAimlOptionsOutput {
+	return o.ApplyT(func(v *DomainAimlOptions) DomainAimlOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAimlOptions
+		return ret
+	}).(DomainAimlOptionsOutput)
+}
+
+func (o DomainAimlOptionsPtrOutput) S3VectorsEngine() DomainS3VectorsEnginePtrOutput {
+	return o.ApplyT(func(v *DomainAimlOptions) *DomainS3VectorsEngine {
+		if v == nil {
+			return nil
+		}
+		return v.S3VectorsEngine
+	}).(DomainS3VectorsEnginePtrOutput)
+}
+
 type DomainClusterConfig struct {
 	// Container for cold storage configuration options.
 	ColdStorageOptions *DomainColdStorageOptions `pulumi:"coldStorageOptions"`
@@ -3585,6 +3718,143 @@ func (o DomainOffPeakWindowOptionsPtrOutput) OffPeakWindow() DomainOffPeakWindow
 	}).(DomainOffPeakWindowPtrOutput)
 }
 
+type DomainS3VectorsEngine struct {
+	// Whether to enable S3 vectors engine.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// DomainS3VectorsEngineInput is an input type that accepts DomainS3VectorsEngineArgs and DomainS3VectorsEngineOutput values.
+// You can construct a concrete instance of `DomainS3VectorsEngineInput` via:
+//
+//	DomainS3VectorsEngineArgs{...}
+type DomainS3VectorsEngineInput interface {
+	pulumi.Input
+
+	ToDomainS3VectorsEngineOutput() DomainS3VectorsEngineOutput
+	ToDomainS3VectorsEngineOutputWithContext(context.Context) DomainS3VectorsEngineOutput
+}
+
+type DomainS3VectorsEngineArgs struct {
+	// Whether to enable S3 vectors engine.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (DomainS3VectorsEngineArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainS3VectorsEngine)(nil)).Elem()
+}
+
+func (i DomainS3VectorsEngineArgs) ToDomainS3VectorsEngineOutput() DomainS3VectorsEngineOutput {
+	return i.ToDomainS3VectorsEngineOutputWithContext(context.Background())
+}
+
+func (i DomainS3VectorsEngineArgs) ToDomainS3VectorsEngineOutputWithContext(ctx context.Context) DomainS3VectorsEngineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainS3VectorsEngineOutput)
+}
+
+func (i DomainS3VectorsEngineArgs) ToDomainS3VectorsEnginePtrOutput() DomainS3VectorsEnginePtrOutput {
+	return i.ToDomainS3VectorsEnginePtrOutputWithContext(context.Background())
+}
+
+func (i DomainS3VectorsEngineArgs) ToDomainS3VectorsEnginePtrOutputWithContext(ctx context.Context) DomainS3VectorsEnginePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainS3VectorsEngineOutput).ToDomainS3VectorsEnginePtrOutputWithContext(ctx)
+}
+
+// DomainS3VectorsEnginePtrInput is an input type that accepts DomainS3VectorsEngineArgs, DomainS3VectorsEnginePtr and DomainS3VectorsEnginePtrOutput values.
+// You can construct a concrete instance of `DomainS3VectorsEnginePtrInput` via:
+//
+//	        DomainS3VectorsEngineArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainS3VectorsEnginePtrInput interface {
+	pulumi.Input
+
+	ToDomainS3VectorsEnginePtrOutput() DomainS3VectorsEnginePtrOutput
+	ToDomainS3VectorsEnginePtrOutputWithContext(context.Context) DomainS3VectorsEnginePtrOutput
+}
+
+type domainS3VectorsEnginePtrType DomainS3VectorsEngineArgs
+
+func DomainS3VectorsEnginePtr(v *DomainS3VectorsEngineArgs) DomainS3VectorsEnginePtrInput {
+	return (*domainS3VectorsEnginePtrType)(v)
+}
+
+func (*domainS3VectorsEnginePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainS3VectorsEngine)(nil)).Elem()
+}
+
+func (i *domainS3VectorsEnginePtrType) ToDomainS3VectorsEnginePtrOutput() DomainS3VectorsEnginePtrOutput {
+	return i.ToDomainS3VectorsEnginePtrOutputWithContext(context.Background())
+}
+
+func (i *domainS3VectorsEnginePtrType) ToDomainS3VectorsEnginePtrOutputWithContext(ctx context.Context) DomainS3VectorsEnginePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainS3VectorsEnginePtrOutput)
+}
+
+type DomainS3VectorsEngineOutput struct{ *pulumi.OutputState }
+
+func (DomainS3VectorsEngineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainS3VectorsEngine)(nil)).Elem()
+}
+
+func (o DomainS3VectorsEngineOutput) ToDomainS3VectorsEngineOutput() DomainS3VectorsEngineOutput {
+	return o
+}
+
+func (o DomainS3VectorsEngineOutput) ToDomainS3VectorsEngineOutputWithContext(ctx context.Context) DomainS3VectorsEngineOutput {
+	return o
+}
+
+func (o DomainS3VectorsEngineOutput) ToDomainS3VectorsEnginePtrOutput() DomainS3VectorsEnginePtrOutput {
+	return o.ToDomainS3VectorsEnginePtrOutputWithContext(context.Background())
+}
+
+func (o DomainS3VectorsEngineOutput) ToDomainS3VectorsEnginePtrOutputWithContext(ctx context.Context) DomainS3VectorsEnginePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainS3VectorsEngine) *DomainS3VectorsEngine {
+		return &v
+	}).(DomainS3VectorsEnginePtrOutput)
+}
+
+// Whether to enable S3 vectors engine.
+func (o DomainS3VectorsEngineOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DomainS3VectorsEngine) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type DomainS3VectorsEnginePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainS3VectorsEnginePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainS3VectorsEngine)(nil)).Elem()
+}
+
+func (o DomainS3VectorsEnginePtrOutput) ToDomainS3VectorsEnginePtrOutput() DomainS3VectorsEnginePtrOutput {
+	return o
+}
+
+func (o DomainS3VectorsEnginePtrOutput) ToDomainS3VectorsEnginePtrOutputWithContext(ctx context.Context) DomainS3VectorsEnginePtrOutput {
+	return o
+}
+
+func (o DomainS3VectorsEnginePtrOutput) Elem() DomainS3VectorsEngineOutput {
+	return o.ApplyT(func(v *DomainS3VectorsEngine) DomainS3VectorsEngine {
+		if v != nil {
+			return *v
+		}
+		var ret DomainS3VectorsEngine
+		return ret
+	}).(DomainS3VectorsEngineOutput)
+}
+
+// Whether to enable S3 vectors engine.
+func (o DomainS3VectorsEnginePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainS3VectorsEngine) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type DomainSamlOptions struct {
 	// True to enable SAML authentication for a domain.
 	Enabled *bool `pulumi:"enabled"`
@@ -4944,6 +5214,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDataSourceArrayInput)(nil)).Elem(), ApplicationDataSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsInputInput)(nil)).Elem(), DomainAdvancedSecurityOptionsInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsInputPtrInput)(nil)).Elem(), DomainAdvancedSecurityOptionsInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAimlOptionsInput)(nil)).Elem(), DomainAimlOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAimlOptionsPtrInput)(nil)).Elem(), DomainAimlOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigInput)(nil)).Elem(), DomainClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigPtrInput)(nil)).Elem(), DomainClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainCognitoOptionsInput)(nil)).Elem(), DomainCognitoOptionsArgs{})
@@ -4978,6 +5250,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainOffPeakWindowPtrInput)(nil)).Elem(), DomainOffPeakWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainOffPeakWindowOptionsInput)(nil)).Elem(), DomainOffPeakWindowOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainOffPeakWindowOptionsPtrInput)(nil)).Elem(), DomainOffPeakWindowOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainS3VectorsEngineInput)(nil)).Elem(), DomainS3VectorsEngineArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainS3VectorsEnginePtrInput)(nil)).Elem(), DomainS3VectorsEngineArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSamlOptionsInput)(nil)).Elem(), DomainSamlOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSamlOptionsPtrInput)(nil)).Elem(), DomainSamlOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSnapshotOptionsInput)(nil)).Elem(), DomainSnapshotOptionsArgs{})
@@ -4998,6 +5272,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationDataSourceArrayOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsInputOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsInputPtrOutput{})
+	pulumi.RegisterOutputType(DomainAimlOptionsOutput{})
+	pulumi.RegisterOutputType(DomainAimlOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainCognitoOptionsOutput{})
@@ -5032,6 +5308,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainOffPeakWindowPtrOutput{})
 	pulumi.RegisterOutputType(DomainOffPeakWindowOptionsOutput{})
 	pulumi.RegisterOutputType(DomainOffPeakWindowOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainS3VectorsEngineOutput{})
+	pulumi.RegisterOutputType(DomainS3VectorsEnginePtrOutput{})
 	pulumi.RegisterOutputType(DomainSamlOptionsOutput{})
 	pulumi.RegisterOutputType(DomainSamlOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainServiceSoftwareOptionsOutput{})

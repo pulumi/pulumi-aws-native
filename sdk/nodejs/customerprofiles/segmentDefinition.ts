@@ -64,7 +64,15 @@ export class SegmentDefinition extends pulumi.CustomResource {
     /**
      * An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
      */
-    declare public readonly segmentGroups: pulumi.Output<outputs.customerprofiles.SegmentDefinitionSegmentGroup>;
+    declare public readonly segmentGroups: pulumi.Output<outputs.customerprofiles.SegmentDefinitionSegmentGroup | undefined>;
+    /**
+     * The SQL query that defines the segment criteria.
+     */
+    declare public readonly segmentSqlQuery: pulumi.Output<string | undefined>;
+    /**
+     * The SQL query that defines the segment criteria.
+     */
+    declare public /*out*/ readonly segmentType: pulumi.Output<enums.customerprofiles.SegmentDefinitionSegmentType>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
@@ -87,17 +95,16 @@ export class SegmentDefinition extends pulumi.CustomResource {
             if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if (args?.segmentGroups === undefined && !opts.urn) {
-                throw new Error("Missing required property 'segmentGroups'");
-            }
             resourceInputs["description"] = args?.description;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["domainName"] = args?.domainName;
             resourceInputs["segmentDefinitionName"] = args?.segmentDefinitionName;
             resourceInputs["segmentGroups"] = args?.segmentGroups;
+            resourceInputs["segmentSqlQuery"] = args?.segmentSqlQuery;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["segmentDefinitionArn"] = undefined /*out*/;
+            resourceInputs["segmentType"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -106,10 +113,12 @@ export class SegmentDefinition extends pulumi.CustomResource {
             resourceInputs["segmentDefinitionArn"] = undefined /*out*/;
             resourceInputs["segmentDefinitionName"] = undefined /*out*/;
             resourceInputs["segmentGroups"] = undefined /*out*/;
+            resourceInputs["segmentSqlQuery"] = undefined /*out*/;
+            resourceInputs["segmentType"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["displayName", "domainName", "segmentDefinitionName", "segmentGroups"] };
+        const replaceOnChanges = { replaceOnChanges: ["displayName", "domainName", "segmentDefinitionName", "segmentGroups", "segmentSqlQuery"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SegmentDefinition.__pulumiType, name, resourceInputs, opts);
     }
@@ -138,7 +147,11 @@ export interface SegmentDefinitionArgs {
     /**
      * An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
      */
-    segmentGroups: pulumi.Input<inputs.customerprofiles.SegmentDefinitionSegmentGroupArgs>;
+    segmentGroups?: pulumi.Input<inputs.customerprofiles.SegmentDefinitionSegmentGroupArgs>;
+    /**
+     * The SQL query that defines the segment criteria.
+     */
+    segmentSqlQuery?: pulumi.Input<string>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */

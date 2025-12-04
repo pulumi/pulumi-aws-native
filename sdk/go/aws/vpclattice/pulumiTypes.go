@@ -20,6 +20,13 @@ type AccessLogSubscriptionTag struct {
 	Value string `pulumi:"value"`
 }
 
+type DomainVerificationTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value *string `pulumi:"value"`
+}
+
 type ListenerDefaultAction struct {
 	// Describes an action that returns a custom HTTP response.
 	FixedResponse *ListenerFixedResponse `pulumi:"fixedResponse"`
@@ -2808,6 +2815,164 @@ type ServiceNetworkTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ServiceNetworkVpcAssociationDnsOptions struct {
+	// The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+	PrivateDnsPreference *ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference `pulumi:"privateDnsPreference"`
+	// Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
+	PrivateDnsSpecifiedDomains []string `pulumi:"privateDnsSpecifiedDomains"`
+}
+
+// ServiceNetworkVpcAssociationDnsOptionsInput is an input type that accepts ServiceNetworkVpcAssociationDnsOptionsArgs and ServiceNetworkVpcAssociationDnsOptionsOutput values.
+// You can construct a concrete instance of `ServiceNetworkVpcAssociationDnsOptionsInput` via:
+//
+//	ServiceNetworkVpcAssociationDnsOptionsArgs{...}
+type ServiceNetworkVpcAssociationDnsOptionsInput interface {
+	pulumi.Input
+
+	ToServiceNetworkVpcAssociationDnsOptionsOutput() ServiceNetworkVpcAssociationDnsOptionsOutput
+	ToServiceNetworkVpcAssociationDnsOptionsOutputWithContext(context.Context) ServiceNetworkVpcAssociationDnsOptionsOutput
+}
+
+type ServiceNetworkVpcAssociationDnsOptionsArgs struct {
+	// The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+	PrivateDnsPreference ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrInput `pulumi:"privateDnsPreference"`
+	// Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
+	PrivateDnsSpecifiedDomains pulumi.StringArrayInput `pulumi:"privateDnsSpecifiedDomains"`
+}
+
+func (ServiceNetworkVpcAssociationDnsOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkVpcAssociationDnsOptions)(nil)).Elem()
+}
+
+func (i ServiceNetworkVpcAssociationDnsOptionsArgs) ToServiceNetworkVpcAssociationDnsOptionsOutput() ServiceNetworkVpcAssociationDnsOptionsOutput {
+	return i.ToServiceNetworkVpcAssociationDnsOptionsOutputWithContext(context.Background())
+}
+
+func (i ServiceNetworkVpcAssociationDnsOptionsArgs) ToServiceNetworkVpcAssociationDnsOptionsOutputWithContext(ctx context.Context) ServiceNetworkVpcAssociationDnsOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkVpcAssociationDnsOptionsOutput)
+}
+
+func (i ServiceNetworkVpcAssociationDnsOptionsArgs) ToServiceNetworkVpcAssociationDnsOptionsPtrOutput() ServiceNetworkVpcAssociationDnsOptionsPtrOutput {
+	return i.ToServiceNetworkVpcAssociationDnsOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceNetworkVpcAssociationDnsOptionsArgs) ToServiceNetworkVpcAssociationDnsOptionsPtrOutputWithContext(ctx context.Context) ServiceNetworkVpcAssociationDnsOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkVpcAssociationDnsOptionsOutput).ToServiceNetworkVpcAssociationDnsOptionsPtrOutputWithContext(ctx)
+}
+
+// ServiceNetworkVpcAssociationDnsOptionsPtrInput is an input type that accepts ServiceNetworkVpcAssociationDnsOptionsArgs, ServiceNetworkVpcAssociationDnsOptionsPtr and ServiceNetworkVpcAssociationDnsOptionsPtrOutput values.
+// You can construct a concrete instance of `ServiceNetworkVpcAssociationDnsOptionsPtrInput` via:
+//
+//	        ServiceNetworkVpcAssociationDnsOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceNetworkVpcAssociationDnsOptionsPtrInput interface {
+	pulumi.Input
+
+	ToServiceNetworkVpcAssociationDnsOptionsPtrOutput() ServiceNetworkVpcAssociationDnsOptionsPtrOutput
+	ToServiceNetworkVpcAssociationDnsOptionsPtrOutputWithContext(context.Context) ServiceNetworkVpcAssociationDnsOptionsPtrOutput
+}
+
+type serviceNetworkVpcAssociationDnsOptionsPtrType ServiceNetworkVpcAssociationDnsOptionsArgs
+
+func ServiceNetworkVpcAssociationDnsOptionsPtr(v *ServiceNetworkVpcAssociationDnsOptionsArgs) ServiceNetworkVpcAssociationDnsOptionsPtrInput {
+	return (*serviceNetworkVpcAssociationDnsOptionsPtrType)(v)
+}
+
+func (*serviceNetworkVpcAssociationDnsOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNetworkVpcAssociationDnsOptions)(nil)).Elem()
+}
+
+func (i *serviceNetworkVpcAssociationDnsOptionsPtrType) ToServiceNetworkVpcAssociationDnsOptionsPtrOutput() ServiceNetworkVpcAssociationDnsOptionsPtrOutput {
+	return i.ToServiceNetworkVpcAssociationDnsOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceNetworkVpcAssociationDnsOptionsPtrType) ToServiceNetworkVpcAssociationDnsOptionsPtrOutputWithContext(ctx context.Context) ServiceNetworkVpcAssociationDnsOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkVpcAssociationDnsOptionsPtrOutput)
+}
+
+type ServiceNetworkVpcAssociationDnsOptionsOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkVpcAssociationDnsOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkVpcAssociationDnsOptions)(nil)).Elem()
+}
+
+func (o ServiceNetworkVpcAssociationDnsOptionsOutput) ToServiceNetworkVpcAssociationDnsOptionsOutput() ServiceNetworkVpcAssociationDnsOptionsOutput {
+	return o
+}
+
+func (o ServiceNetworkVpcAssociationDnsOptionsOutput) ToServiceNetworkVpcAssociationDnsOptionsOutputWithContext(ctx context.Context) ServiceNetworkVpcAssociationDnsOptionsOutput {
+	return o
+}
+
+func (o ServiceNetworkVpcAssociationDnsOptionsOutput) ToServiceNetworkVpcAssociationDnsOptionsPtrOutput() ServiceNetworkVpcAssociationDnsOptionsPtrOutput {
+	return o.ToServiceNetworkVpcAssociationDnsOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceNetworkVpcAssociationDnsOptionsOutput) ToServiceNetworkVpcAssociationDnsOptionsPtrOutputWithContext(ctx context.Context) ServiceNetworkVpcAssociationDnsOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceNetworkVpcAssociationDnsOptions) *ServiceNetworkVpcAssociationDnsOptions {
+		return &v
+	}).(ServiceNetworkVpcAssociationDnsOptionsPtrOutput)
+}
+
+// The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+func (o ServiceNetworkVpcAssociationDnsOptionsOutput) PrivateDnsPreference() ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput {
+	return o.ApplyT(func(v ServiceNetworkVpcAssociationDnsOptions) *ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference {
+		return v.PrivateDnsPreference
+	}).(ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput)
+}
+
+// Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
+func (o ServiceNetworkVpcAssociationDnsOptionsOutput) PrivateDnsSpecifiedDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceNetworkVpcAssociationDnsOptions) []string { return v.PrivateDnsSpecifiedDomains }).(pulumi.StringArrayOutput)
+}
+
+type ServiceNetworkVpcAssociationDnsOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkVpcAssociationDnsOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNetworkVpcAssociationDnsOptions)(nil)).Elem()
+}
+
+func (o ServiceNetworkVpcAssociationDnsOptionsPtrOutput) ToServiceNetworkVpcAssociationDnsOptionsPtrOutput() ServiceNetworkVpcAssociationDnsOptionsPtrOutput {
+	return o
+}
+
+func (o ServiceNetworkVpcAssociationDnsOptionsPtrOutput) ToServiceNetworkVpcAssociationDnsOptionsPtrOutputWithContext(ctx context.Context) ServiceNetworkVpcAssociationDnsOptionsPtrOutput {
+	return o
+}
+
+func (o ServiceNetworkVpcAssociationDnsOptionsPtrOutput) Elem() ServiceNetworkVpcAssociationDnsOptionsOutput {
+	return o.ApplyT(func(v *ServiceNetworkVpcAssociationDnsOptions) ServiceNetworkVpcAssociationDnsOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceNetworkVpcAssociationDnsOptions
+		return ret
+	}).(ServiceNetworkVpcAssociationDnsOptionsOutput)
+}
+
+// The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+func (o ServiceNetworkVpcAssociationDnsOptionsPtrOutput) PrivateDnsPreference() ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput {
+	return o.ApplyT(func(v *ServiceNetworkVpcAssociationDnsOptions) *ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateDnsPreference
+	}).(ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput)
+}
+
+// Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
+func (o ServiceNetworkVpcAssociationDnsOptionsPtrOutput) PrivateDnsSpecifiedDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceNetworkVpcAssociationDnsOptions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateDnsSpecifiedDomains
+	}).(pulumi.StringArrayOutput)
+}
+
 type ServiceNetworkVpcAssociationTag struct {
 	// The tag key.
 	Key string `pulumi:"key"`
@@ -3635,6 +3800,81 @@ func (o TargetGroupTargetArrayOutput) Index(i pulumi.IntInput) TargetGroupTarget
 	}).(TargetGroupTargetOutput)
 }
 
+type TxtMethodConfigProperties struct {
+	// The name of the TXT record that must be created for domain verification.
+	Name *string `pulumi:"name"`
+	// The value that must be added to the TXT record for domain verification.
+	Value *string `pulumi:"value"`
+}
+
+type TxtMethodConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (TxtMethodConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TxtMethodConfigProperties)(nil)).Elem()
+}
+
+func (o TxtMethodConfigPropertiesOutput) ToTxtMethodConfigPropertiesOutput() TxtMethodConfigPropertiesOutput {
+	return o
+}
+
+func (o TxtMethodConfigPropertiesOutput) ToTxtMethodConfigPropertiesOutputWithContext(ctx context.Context) TxtMethodConfigPropertiesOutput {
+	return o
+}
+
+// The name of the TXT record that must be created for domain verification.
+func (o TxtMethodConfigPropertiesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TxtMethodConfigProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The value that must be added to the TXT record for domain verification.
+func (o TxtMethodConfigPropertiesOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TxtMethodConfigProperties) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TxtMethodConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TxtMethodConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TxtMethodConfigProperties)(nil)).Elem()
+}
+
+func (o TxtMethodConfigPropertiesPtrOutput) ToTxtMethodConfigPropertiesPtrOutput() TxtMethodConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o TxtMethodConfigPropertiesPtrOutput) ToTxtMethodConfigPropertiesPtrOutputWithContext(ctx context.Context) TxtMethodConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o TxtMethodConfigPropertiesPtrOutput) Elem() TxtMethodConfigPropertiesOutput {
+	return o.ApplyT(func(v *TxtMethodConfigProperties) TxtMethodConfigProperties {
+		if v != nil {
+			return *v
+		}
+		var ret TxtMethodConfigProperties
+		return ret
+	}).(TxtMethodConfigPropertiesOutput)
+}
+
+// The name of the TXT record that must be created for domain verification.
+func (o TxtMethodConfigPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TxtMethodConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value that must be added to the TXT record for domain verification.
+func (o TxtMethodConfigPropertiesPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TxtMethodConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerDefaultActionInput)(nil)).Elem(), ListenerDefaultActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerFixedResponseInput)(nil)).Elem(), ListenerFixedResponseArgs{})
@@ -3673,6 +3913,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkServiceAssociationDnsEntryPtrInput)(nil)).Elem(), ServiceNetworkServiceAssociationDnsEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkSharingConfigInput)(nil)).Elem(), ServiceNetworkSharingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkSharingConfigPtrInput)(nil)).Elem(), ServiceNetworkSharingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkVpcAssociationDnsOptionsInput)(nil)).Elem(), ServiceNetworkVpcAssociationDnsOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkVpcAssociationDnsOptionsPtrInput)(nil)).Elem(), ServiceNetworkVpcAssociationDnsOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigInput)(nil)).Elem(), TargetGroupConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigPtrInput)(nil)).Elem(), TargetGroupConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupHealthCheckConfigInput)(nil)).Elem(), TargetGroupHealthCheckConfigArgs{})
@@ -3722,6 +3964,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceNetworkServiceAssociationDnsEntryPtrOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkSharingConfigOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkSharingConfigPtrOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkVpcAssociationDnsOptionsOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkVpcAssociationDnsOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupConfigOutput{})
 	pulumi.RegisterOutputType(TargetGroupConfigPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupHealthCheckConfigOutput{})
@@ -3730,4 +3974,6 @@ func init() {
 	pulumi.RegisterOutputType(TargetGroupMatcherPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupTargetOutput{})
 	pulumi.RegisterOutputType(TargetGroupTargetArrayOutput{})
+	pulumi.RegisterOutputType(TxtMethodConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(TxtMethodConfigPropertiesPtrOutput{})
 }

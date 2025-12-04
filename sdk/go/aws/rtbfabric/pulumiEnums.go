@@ -10,6 +10,485 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type InboundExternalLinkLinkStatus string
+
+const (
+	InboundExternalLinkLinkStatusPendingCreation     = InboundExternalLinkLinkStatus("PENDING_CREATION")
+	InboundExternalLinkLinkStatusPendingRequest      = InboundExternalLinkLinkStatus("PENDING_REQUEST")
+	InboundExternalLinkLinkStatusRequested           = InboundExternalLinkLinkStatus("REQUESTED")
+	InboundExternalLinkLinkStatusAccepted            = InboundExternalLinkLinkStatus("ACCEPTED")
+	InboundExternalLinkLinkStatusActive              = InboundExternalLinkLinkStatus("ACTIVE")
+	InboundExternalLinkLinkStatusRejected            = InboundExternalLinkLinkStatus("REJECTED")
+	InboundExternalLinkLinkStatusFailed              = InboundExternalLinkLinkStatus("FAILED")
+	InboundExternalLinkLinkStatusPendingDeletion     = InboundExternalLinkLinkStatus("PENDING_DELETION")
+	InboundExternalLinkLinkStatusDeleted             = InboundExternalLinkLinkStatus("DELETED")
+	InboundExternalLinkLinkStatusPendingUpdate       = InboundExternalLinkLinkStatus("PENDING_UPDATE")
+	InboundExternalLinkLinkStatusPendingIsolation    = InboundExternalLinkLinkStatus("PENDING_ISOLATION")
+	InboundExternalLinkLinkStatusIsolated            = InboundExternalLinkLinkStatus("ISOLATED")
+	InboundExternalLinkLinkStatusPendingRestoration  = InboundExternalLinkLinkStatus("PENDING_RESTORATION")
+	InboundExternalLinkLinkStatusUnknownToSdkVersion = InboundExternalLinkLinkStatus("UNKNOWN_TO_SDK_VERSION")
+)
+
+type InboundExternalLinkLinkStatusOutput struct{ *pulumi.OutputState }
+
+func (InboundExternalLinkLinkStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundExternalLinkLinkStatus)(nil)).Elem()
+}
+
+func (o InboundExternalLinkLinkStatusOutput) ToInboundExternalLinkLinkStatusOutput() InboundExternalLinkLinkStatusOutput {
+	return o
+}
+
+func (o InboundExternalLinkLinkStatusOutput) ToInboundExternalLinkLinkStatusOutputWithContext(ctx context.Context) InboundExternalLinkLinkStatusOutput {
+	return o
+}
+
+func (o InboundExternalLinkLinkStatusOutput) ToInboundExternalLinkLinkStatusPtrOutput() InboundExternalLinkLinkStatusPtrOutput {
+	return o.ToInboundExternalLinkLinkStatusPtrOutputWithContext(context.Background())
+}
+
+func (o InboundExternalLinkLinkStatusOutput) ToInboundExternalLinkLinkStatusPtrOutputWithContext(ctx context.Context) InboundExternalLinkLinkStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InboundExternalLinkLinkStatus) *InboundExternalLinkLinkStatus {
+		return &v
+	}).(InboundExternalLinkLinkStatusPtrOutput)
+}
+
+func (o InboundExternalLinkLinkStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InboundExternalLinkLinkStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InboundExternalLinkLinkStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InboundExternalLinkLinkStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InboundExternalLinkLinkStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InboundExternalLinkLinkStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InboundExternalLinkLinkStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (InboundExternalLinkLinkStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InboundExternalLinkLinkStatus)(nil)).Elem()
+}
+
+func (o InboundExternalLinkLinkStatusPtrOutput) ToInboundExternalLinkLinkStatusPtrOutput() InboundExternalLinkLinkStatusPtrOutput {
+	return o
+}
+
+func (o InboundExternalLinkLinkStatusPtrOutput) ToInboundExternalLinkLinkStatusPtrOutputWithContext(ctx context.Context) InboundExternalLinkLinkStatusPtrOutput {
+	return o
+}
+
+func (o InboundExternalLinkLinkStatusPtrOutput) Elem() InboundExternalLinkLinkStatusOutput {
+	return o.ApplyT(func(v *InboundExternalLinkLinkStatus) InboundExternalLinkLinkStatus {
+		if v != nil {
+			return *v
+		}
+		var ret InboundExternalLinkLinkStatus
+		return ret
+	}).(InboundExternalLinkLinkStatusOutput)
+}
+
+func (o InboundExternalLinkLinkStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InboundExternalLinkLinkStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InboundExternalLinkLinkStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InboundExternalLinkResponderErrorMaskingForHttpCodeAction string
+
+const (
+	InboundExternalLinkResponderErrorMaskingForHttpCodeActionNoBid       = InboundExternalLinkResponderErrorMaskingForHttpCodeAction("NO_BID")
+	InboundExternalLinkResponderErrorMaskingForHttpCodeActionPassthrough = InboundExternalLinkResponderErrorMaskingForHttpCodeAction("PASSTHROUGH")
+)
+
+func (InboundExternalLinkResponderErrorMaskingForHttpCodeAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundExternalLinkResponderErrorMaskingForHttpCodeAction)(nil)).Elem()
+}
+
+func (e InboundExternalLinkResponderErrorMaskingForHttpCodeAction) ToInboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput() InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput {
+	return pulumi.ToOutput(e).(InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput)
+}
+
+func (e InboundExternalLinkResponderErrorMaskingForHttpCodeAction) ToInboundExternalLinkResponderErrorMaskingForHttpCodeActionOutputWithContext(ctx context.Context) InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput)
+}
+
+func (e InboundExternalLinkResponderErrorMaskingForHttpCodeAction) ToInboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput() InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput {
+	return e.ToInboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutputWithContext(context.Background())
+}
+
+func (e InboundExternalLinkResponderErrorMaskingForHttpCodeAction) ToInboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutputWithContext(ctx context.Context) InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput {
+	return InboundExternalLinkResponderErrorMaskingForHttpCodeAction(e).ToInboundExternalLinkResponderErrorMaskingForHttpCodeActionOutputWithContext(ctx).ToInboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutputWithContext(ctx)
+}
+
+func (e InboundExternalLinkResponderErrorMaskingForHttpCodeAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InboundExternalLinkResponderErrorMaskingForHttpCodeAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InboundExternalLinkResponderErrorMaskingForHttpCodeAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InboundExternalLinkResponderErrorMaskingForHttpCodeAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput struct{ *pulumi.OutputState }
+
+func (InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundExternalLinkResponderErrorMaskingForHttpCodeAction)(nil)).Elem()
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput) ToInboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput() InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput {
+	return o
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput) ToInboundExternalLinkResponderErrorMaskingForHttpCodeActionOutputWithContext(ctx context.Context) InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput {
+	return o
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput) ToInboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput() InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput {
+	return o.ToInboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutputWithContext(context.Background())
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput) ToInboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutputWithContext(ctx context.Context) InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InboundExternalLinkResponderErrorMaskingForHttpCodeAction) *InboundExternalLinkResponderErrorMaskingForHttpCodeAction {
+		return &v
+	}).(InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput)
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InboundExternalLinkResponderErrorMaskingForHttpCodeAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InboundExternalLinkResponderErrorMaskingForHttpCodeAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput struct{ *pulumi.OutputState }
+
+func (InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InboundExternalLinkResponderErrorMaskingForHttpCodeAction)(nil)).Elem()
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput) ToInboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput() InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput {
+	return o
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput) ToInboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutputWithContext(ctx context.Context) InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput {
+	return o
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput) Elem() InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput {
+	return o.ApplyT(func(v *InboundExternalLinkResponderErrorMaskingForHttpCodeAction) InboundExternalLinkResponderErrorMaskingForHttpCodeAction {
+		if v != nil {
+			return *v
+		}
+		var ret InboundExternalLinkResponderErrorMaskingForHttpCodeAction
+		return ret
+	}).(InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput)
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InboundExternalLinkResponderErrorMaskingForHttpCodeAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InboundExternalLinkResponderErrorMaskingForHttpCodeActionInput is an input type that accepts values of the InboundExternalLinkResponderErrorMaskingForHttpCodeAction enum
+// A concrete instance of `InboundExternalLinkResponderErrorMaskingForHttpCodeActionInput` can be one of the following:
+//
+//	InboundExternalLinkResponderErrorMaskingForHttpCodeActionNoBid
+//	InboundExternalLinkResponderErrorMaskingForHttpCodeActionPassthrough
+type InboundExternalLinkResponderErrorMaskingForHttpCodeActionInput interface {
+	pulumi.Input
+
+	ToInboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput() InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput
+	ToInboundExternalLinkResponderErrorMaskingForHttpCodeActionOutputWithContext(context.Context) InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput
+}
+
+var inboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrType = reflect.TypeOf((**InboundExternalLinkResponderErrorMaskingForHttpCodeAction)(nil)).Elem()
+
+type InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrInput interface {
+	pulumi.Input
+
+	ToInboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput() InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput
+	ToInboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutputWithContext(context.Context) InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput
+}
+
+type inboundExternalLinkResponderErrorMaskingForHttpCodeActionPtr string
+
+func InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtr(v string) InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrInput {
+	return (*inboundExternalLinkResponderErrorMaskingForHttpCodeActionPtr)(&v)
+}
+
+func (*inboundExternalLinkResponderErrorMaskingForHttpCodeActionPtr) ElementType() reflect.Type {
+	return inboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrType
+}
+
+func (in *inboundExternalLinkResponderErrorMaskingForHttpCodeActionPtr) ToInboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput() InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput {
+	return pulumi.ToOutput(in).(InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput)
+}
+
+func (in *inboundExternalLinkResponderErrorMaskingForHttpCodeActionPtr) ToInboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutputWithContext(ctx context.Context) InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput)
+}
+
+type InboundExternalLinkResponderErrorMaskingLoggingType string
+
+const (
+	InboundExternalLinkResponderErrorMaskingLoggingTypeNone     = InboundExternalLinkResponderErrorMaskingLoggingType("NONE")
+	InboundExternalLinkResponderErrorMaskingLoggingTypeMetric   = InboundExternalLinkResponderErrorMaskingLoggingType("METRIC")
+	InboundExternalLinkResponderErrorMaskingLoggingTypeResponse = InboundExternalLinkResponderErrorMaskingLoggingType("RESPONSE")
+)
+
+func (InboundExternalLinkResponderErrorMaskingLoggingType) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundExternalLinkResponderErrorMaskingLoggingType)(nil)).Elem()
+}
+
+func (e InboundExternalLinkResponderErrorMaskingLoggingType) ToInboundExternalLinkResponderErrorMaskingLoggingTypeOutput() InboundExternalLinkResponderErrorMaskingLoggingTypeOutput {
+	return pulumi.ToOutput(e).(InboundExternalLinkResponderErrorMaskingLoggingTypeOutput)
+}
+
+func (e InboundExternalLinkResponderErrorMaskingLoggingType) ToInboundExternalLinkResponderErrorMaskingLoggingTypeOutputWithContext(ctx context.Context) InboundExternalLinkResponderErrorMaskingLoggingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InboundExternalLinkResponderErrorMaskingLoggingTypeOutput)
+}
+
+func (e InboundExternalLinkResponderErrorMaskingLoggingType) ToInboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput() InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput {
+	return e.ToInboundExternalLinkResponderErrorMaskingLoggingTypePtrOutputWithContext(context.Background())
+}
+
+func (e InboundExternalLinkResponderErrorMaskingLoggingType) ToInboundExternalLinkResponderErrorMaskingLoggingTypePtrOutputWithContext(ctx context.Context) InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput {
+	return InboundExternalLinkResponderErrorMaskingLoggingType(e).ToInboundExternalLinkResponderErrorMaskingLoggingTypeOutputWithContext(ctx).ToInboundExternalLinkResponderErrorMaskingLoggingTypePtrOutputWithContext(ctx)
+}
+
+func (e InboundExternalLinkResponderErrorMaskingLoggingType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InboundExternalLinkResponderErrorMaskingLoggingType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InboundExternalLinkResponderErrorMaskingLoggingType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InboundExternalLinkResponderErrorMaskingLoggingType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InboundExternalLinkResponderErrorMaskingLoggingTypeOutput struct{ *pulumi.OutputState }
+
+func (InboundExternalLinkResponderErrorMaskingLoggingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundExternalLinkResponderErrorMaskingLoggingType)(nil)).Elem()
+}
+
+func (o InboundExternalLinkResponderErrorMaskingLoggingTypeOutput) ToInboundExternalLinkResponderErrorMaskingLoggingTypeOutput() InboundExternalLinkResponderErrorMaskingLoggingTypeOutput {
+	return o
+}
+
+func (o InboundExternalLinkResponderErrorMaskingLoggingTypeOutput) ToInboundExternalLinkResponderErrorMaskingLoggingTypeOutputWithContext(ctx context.Context) InboundExternalLinkResponderErrorMaskingLoggingTypeOutput {
+	return o
+}
+
+func (o InboundExternalLinkResponderErrorMaskingLoggingTypeOutput) ToInboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput() InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput {
+	return o.ToInboundExternalLinkResponderErrorMaskingLoggingTypePtrOutputWithContext(context.Background())
+}
+
+func (o InboundExternalLinkResponderErrorMaskingLoggingTypeOutput) ToInboundExternalLinkResponderErrorMaskingLoggingTypePtrOutputWithContext(ctx context.Context) InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InboundExternalLinkResponderErrorMaskingLoggingType) *InboundExternalLinkResponderErrorMaskingLoggingType {
+		return &v
+	}).(InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput)
+}
+
+func (o InboundExternalLinkResponderErrorMaskingLoggingTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InboundExternalLinkResponderErrorMaskingLoggingTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InboundExternalLinkResponderErrorMaskingLoggingType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InboundExternalLinkResponderErrorMaskingLoggingTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InboundExternalLinkResponderErrorMaskingLoggingTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InboundExternalLinkResponderErrorMaskingLoggingType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InboundExternalLinkResponderErrorMaskingLoggingType)(nil)).Elem()
+}
+
+func (o InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput) ToInboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput() InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput {
+	return o
+}
+
+func (o InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput) ToInboundExternalLinkResponderErrorMaskingLoggingTypePtrOutputWithContext(ctx context.Context) InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput {
+	return o
+}
+
+func (o InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput) Elem() InboundExternalLinkResponderErrorMaskingLoggingTypeOutput {
+	return o.ApplyT(func(v *InboundExternalLinkResponderErrorMaskingLoggingType) InboundExternalLinkResponderErrorMaskingLoggingType {
+		if v != nil {
+			return *v
+		}
+		var ret InboundExternalLinkResponderErrorMaskingLoggingType
+		return ret
+	}).(InboundExternalLinkResponderErrorMaskingLoggingTypeOutput)
+}
+
+func (o InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InboundExternalLinkResponderErrorMaskingLoggingType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InboundExternalLinkResponderErrorMaskingLoggingTypeInput is an input type that accepts values of the InboundExternalLinkResponderErrorMaskingLoggingType enum
+// A concrete instance of `InboundExternalLinkResponderErrorMaskingLoggingTypeInput` can be one of the following:
+//
+//	InboundExternalLinkResponderErrorMaskingLoggingTypeNone
+//	InboundExternalLinkResponderErrorMaskingLoggingTypeMetric
+//	InboundExternalLinkResponderErrorMaskingLoggingTypeResponse
+type InboundExternalLinkResponderErrorMaskingLoggingTypeInput interface {
+	pulumi.Input
+
+	ToInboundExternalLinkResponderErrorMaskingLoggingTypeOutput() InboundExternalLinkResponderErrorMaskingLoggingTypeOutput
+	ToInboundExternalLinkResponderErrorMaskingLoggingTypeOutputWithContext(context.Context) InboundExternalLinkResponderErrorMaskingLoggingTypeOutput
+}
+
+var inboundExternalLinkResponderErrorMaskingLoggingTypePtrType = reflect.TypeOf((**InboundExternalLinkResponderErrorMaskingLoggingType)(nil)).Elem()
+
+type InboundExternalLinkResponderErrorMaskingLoggingTypePtrInput interface {
+	pulumi.Input
+
+	ToInboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput() InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput
+	ToInboundExternalLinkResponderErrorMaskingLoggingTypePtrOutputWithContext(context.Context) InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput
+}
+
+type inboundExternalLinkResponderErrorMaskingLoggingTypePtr string
+
+func InboundExternalLinkResponderErrorMaskingLoggingTypePtr(v string) InboundExternalLinkResponderErrorMaskingLoggingTypePtrInput {
+	return (*inboundExternalLinkResponderErrorMaskingLoggingTypePtr)(&v)
+}
+
+func (*inboundExternalLinkResponderErrorMaskingLoggingTypePtr) ElementType() reflect.Type {
+	return inboundExternalLinkResponderErrorMaskingLoggingTypePtrType
+}
+
+func (in *inboundExternalLinkResponderErrorMaskingLoggingTypePtr) ToInboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput() InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput {
+	return pulumi.ToOutput(in).(InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput)
+}
+
+func (in *inboundExternalLinkResponderErrorMaskingLoggingTypePtr) ToInboundExternalLinkResponderErrorMaskingLoggingTypePtrOutputWithContext(ctx context.Context) InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput)
+}
+
+// InboundExternalLinkResponderErrorMaskingLoggingTypeArrayInput is an input type that accepts InboundExternalLinkResponderErrorMaskingLoggingTypeArray and InboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput values.
+// You can construct a concrete instance of `InboundExternalLinkResponderErrorMaskingLoggingTypeArrayInput` via:
+//
+//	InboundExternalLinkResponderErrorMaskingLoggingTypeArray{ InboundExternalLinkResponderErrorMaskingLoggingTypeArgs{...} }
+type InboundExternalLinkResponderErrorMaskingLoggingTypeArrayInput interface {
+	pulumi.Input
+
+	ToInboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput() InboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput
+	ToInboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutputWithContext(context.Context) InboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput
+}
+
+type InboundExternalLinkResponderErrorMaskingLoggingTypeArray []InboundExternalLinkResponderErrorMaskingLoggingType
+
+func (InboundExternalLinkResponderErrorMaskingLoggingTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InboundExternalLinkResponderErrorMaskingLoggingType)(nil)).Elem()
+}
+
+func (i InboundExternalLinkResponderErrorMaskingLoggingTypeArray) ToInboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput() InboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput {
+	return i.ToInboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutputWithContext(context.Background())
+}
+
+func (i InboundExternalLinkResponderErrorMaskingLoggingTypeArray) ToInboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutputWithContext(ctx context.Context) InboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput)
+}
+
+type InboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (InboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InboundExternalLinkResponderErrorMaskingLoggingType)(nil)).Elem()
+}
+
+func (o InboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput) ToInboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput() InboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput {
+	return o
+}
+
+func (o InboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput) ToInboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutputWithContext(ctx context.Context) InboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput {
+	return o
+}
+
+func (o InboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput) Index(i pulumi.IntInput) InboundExternalLinkResponderErrorMaskingLoggingTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InboundExternalLinkResponderErrorMaskingLoggingType {
+		return vs[0].([]InboundExternalLinkResponderErrorMaskingLoggingType)[vs[1].(int)]
+	}).(InboundExternalLinkResponderErrorMaskingLoggingTypeOutput)
+}
+
 type LinkDirection string
 
 const (
@@ -486,7 +965,7 @@ const (
 	LinkStatusRequested           = LinkStatus("REQUESTED")
 	LinkStatusAccepted            = LinkStatus("ACCEPTED")
 	LinkStatusActive              = LinkStatus("ACTIVE")
-	LinkStatusDeclined            = LinkStatus("DECLINED")
+	LinkStatusRejected            = LinkStatus("REJECTED")
 	LinkStatusFailed              = LinkStatus("FAILED")
 	LinkStatusPendingDeletion     = LinkStatus("PENDING_DELETION")
 	LinkStatusDeleted             = LinkStatus("DELETED")
@@ -578,6 +1057,485 @@ func (o LinkStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+type OutboundExternalLinkLinkStatus string
+
+const (
+	OutboundExternalLinkLinkStatusPendingCreation     = OutboundExternalLinkLinkStatus("PENDING_CREATION")
+	OutboundExternalLinkLinkStatusPendingRequest      = OutboundExternalLinkLinkStatus("PENDING_REQUEST")
+	OutboundExternalLinkLinkStatusRequested           = OutboundExternalLinkLinkStatus("REQUESTED")
+	OutboundExternalLinkLinkStatusAccepted            = OutboundExternalLinkLinkStatus("ACCEPTED")
+	OutboundExternalLinkLinkStatusActive              = OutboundExternalLinkLinkStatus("ACTIVE")
+	OutboundExternalLinkLinkStatusRejected            = OutboundExternalLinkLinkStatus("REJECTED")
+	OutboundExternalLinkLinkStatusFailed              = OutboundExternalLinkLinkStatus("FAILED")
+	OutboundExternalLinkLinkStatusPendingDeletion     = OutboundExternalLinkLinkStatus("PENDING_DELETION")
+	OutboundExternalLinkLinkStatusDeleted             = OutboundExternalLinkLinkStatus("DELETED")
+	OutboundExternalLinkLinkStatusPendingUpdate       = OutboundExternalLinkLinkStatus("PENDING_UPDATE")
+	OutboundExternalLinkLinkStatusPendingIsolation    = OutboundExternalLinkLinkStatus("PENDING_ISOLATION")
+	OutboundExternalLinkLinkStatusIsolated            = OutboundExternalLinkLinkStatus("ISOLATED")
+	OutboundExternalLinkLinkStatusPendingRestoration  = OutboundExternalLinkLinkStatus("PENDING_RESTORATION")
+	OutboundExternalLinkLinkStatusUnknownToSdkVersion = OutboundExternalLinkLinkStatus("UNKNOWN_TO_SDK_VERSION")
+)
+
+type OutboundExternalLinkLinkStatusOutput struct{ *pulumi.OutputState }
+
+func (OutboundExternalLinkLinkStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundExternalLinkLinkStatus)(nil)).Elem()
+}
+
+func (o OutboundExternalLinkLinkStatusOutput) ToOutboundExternalLinkLinkStatusOutput() OutboundExternalLinkLinkStatusOutput {
+	return o
+}
+
+func (o OutboundExternalLinkLinkStatusOutput) ToOutboundExternalLinkLinkStatusOutputWithContext(ctx context.Context) OutboundExternalLinkLinkStatusOutput {
+	return o
+}
+
+func (o OutboundExternalLinkLinkStatusOutput) ToOutboundExternalLinkLinkStatusPtrOutput() OutboundExternalLinkLinkStatusPtrOutput {
+	return o.ToOutboundExternalLinkLinkStatusPtrOutputWithContext(context.Background())
+}
+
+func (o OutboundExternalLinkLinkStatusOutput) ToOutboundExternalLinkLinkStatusPtrOutputWithContext(ctx context.Context) OutboundExternalLinkLinkStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutboundExternalLinkLinkStatus) *OutboundExternalLinkLinkStatus {
+		return &v
+	}).(OutboundExternalLinkLinkStatusPtrOutput)
+}
+
+func (o OutboundExternalLinkLinkStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OutboundExternalLinkLinkStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OutboundExternalLinkLinkStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OutboundExternalLinkLinkStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OutboundExternalLinkLinkStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OutboundExternalLinkLinkStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OutboundExternalLinkLinkStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (OutboundExternalLinkLinkStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutboundExternalLinkLinkStatus)(nil)).Elem()
+}
+
+func (o OutboundExternalLinkLinkStatusPtrOutput) ToOutboundExternalLinkLinkStatusPtrOutput() OutboundExternalLinkLinkStatusPtrOutput {
+	return o
+}
+
+func (o OutboundExternalLinkLinkStatusPtrOutput) ToOutboundExternalLinkLinkStatusPtrOutputWithContext(ctx context.Context) OutboundExternalLinkLinkStatusPtrOutput {
+	return o
+}
+
+func (o OutboundExternalLinkLinkStatusPtrOutput) Elem() OutboundExternalLinkLinkStatusOutput {
+	return o.ApplyT(func(v *OutboundExternalLinkLinkStatus) OutboundExternalLinkLinkStatus {
+		if v != nil {
+			return *v
+		}
+		var ret OutboundExternalLinkLinkStatus
+		return ret
+	}).(OutboundExternalLinkLinkStatusOutput)
+}
+
+func (o OutboundExternalLinkLinkStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OutboundExternalLinkLinkStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OutboundExternalLinkLinkStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OutboundExternalLinkResponderErrorMaskingForHttpCodeAction string
+
+const (
+	OutboundExternalLinkResponderErrorMaskingForHttpCodeActionNoBid       = OutboundExternalLinkResponderErrorMaskingForHttpCodeAction("NO_BID")
+	OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPassthrough = OutboundExternalLinkResponderErrorMaskingForHttpCodeAction("PASSTHROUGH")
+)
+
+func (OutboundExternalLinkResponderErrorMaskingForHttpCodeAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundExternalLinkResponderErrorMaskingForHttpCodeAction)(nil)).Elem()
+}
+
+func (e OutboundExternalLinkResponderErrorMaskingForHttpCodeAction) ToOutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput() OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput {
+	return pulumi.ToOutput(e).(OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput)
+}
+
+func (e OutboundExternalLinkResponderErrorMaskingForHttpCodeAction) ToOutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutputWithContext(ctx context.Context) OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput)
+}
+
+func (e OutboundExternalLinkResponderErrorMaskingForHttpCodeAction) ToOutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput() OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput {
+	return e.ToOutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutputWithContext(context.Background())
+}
+
+func (e OutboundExternalLinkResponderErrorMaskingForHttpCodeAction) ToOutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutputWithContext(ctx context.Context) OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput {
+	return OutboundExternalLinkResponderErrorMaskingForHttpCodeAction(e).ToOutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutputWithContext(ctx).ToOutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutputWithContext(ctx)
+}
+
+func (e OutboundExternalLinkResponderErrorMaskingForHttpCodeAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OutboundExternalLinkResponderErrorMaskingForHttpCodeAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OutboundExternalLinkResponderErrorMaskingForHttpCodeAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OutboundExternalLinkResponderErrorMaskingForHttpCodeAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput struct{ *pulumi.OutputState }
+
+func (OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundExternalLinkResponderErrorMaskingForHttpCodeAction)(nil)).Elem()
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput) ToOutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput() OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput {
+	return o
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput) ToOutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutputWithContext(ctx context.Context) OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput {
+	return o
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput) ToOutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput() OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput {
+	return o.ToOutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutputWithContext(context.Background())
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput) ToOutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutputWithContext(ctx context.Context) OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutboundExternalLinkResponderErrorMaskingForHttpCodeAction) *OutboundExternalLinkResponderErrorMaskingForHttpCodeAction {
+		return &v
+	}).(OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput)
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OutboundExternalLinkResponderErrorMaskingForHttpCodeAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OutboundExternalLinkResponderErrorMaskingForHttpCodeAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput struct{ *pulumi.OutputState }
+
+func (OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutboundExternalLinkResponderErrorMaskingForHttpCodeAction)(nil)).Elem()
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput) ToOutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput() OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput {
+	return o
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput) ToOutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutputWithContext(ctx context.Context) OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput {
+	return o
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput) Elem() OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput {
+	return o.ApplyT(func(v *OutboundExternalLinkResponderErrorMaskingForHttpCodeAction) OutboundExternalLinkResponderErrorMaskingForHttpCodeAction {
+		if v != nil {
+			return *v
+		}
+		var ret OutboundExternalLinkResponderErrorMaskingForHttpCodeAction
+		return ret
+	}).(OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput)
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OutboundExternalLinkResponderErrorMaskingForHttpCodeAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OutboundExternalLinkResponderErrorMaskingForHttpCodeActionInput is an input type that accepts values of the OutboundExternalLinkResponderErrorMaskingForHttpCodeAction enum
+// A concrete instance of `OutboundExternalLinkResponderErrorMaskingForHttpCodeActionInput` can be one of the following:
+//
+//	OutboundExternalLinkResponderErrorMaskingForHttpCodeActionNoBid
+//	OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPassthrough
+type OutboundExternalLinkResponderErrorMaskingForHttpCodeActionInput interface {
+	pulumi.Input
+
+	ToOutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput() OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput
+	ToOutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutputWithContext(context.Context) OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput
+}
+
+var outboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrType = reflect.TypeOf((**OutboundExternalLinkResponderErrorMaskingForHttpCodeAction)(nil)).Elem()
+
+type OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrInput interface {
+	pulumi.Input
+
+	ToOutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput() OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput
+	ToOutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutputWithContext(context.Context) OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput
+}
+
+type outboundExternalLinkResponderErrorMaskingForHttpCodeActionPtr string
+
+func OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtr(v string) OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrInput {
+	return (*outboundExternalLinkResponderErrorMaskingForHttpCodeActionPtr)(&v)
+}
+
+func (*outboundExternalLinkResponderErrorMaskingForHttpCodeActionPtr) ElementType() reflect.Type {
+	return outboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrType
+}
+
+func (in *outboundExternalLinkResponderErrorMaskingForHttpCodeActionPtr) ToOutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput() OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput {
+	return pulumi.ToOutput(in).(OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput)
+}
+
+func (in *outboundExternalLinkResponderErrorMaskingForHttpCodeActionPtr) ToOutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutputWithContext(ctx context.Context) OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput)
+}
+
+type OutboundExternalLinkResponderErrorMaskingLoggingType string
+
+const (
+	OutboundExternalLinkResponderErrorMaskingLoggingTypeNone     = OutboundExternalLinkResponderErrorMaskingLoggingType("NONE")
+	OutboundExternalLinkResponderErrorMaskingLoggingTypeMetric   = OutboundExternalLinkResponderErrorMaskingLoggingType("METRIC")
+	OutboundExternalLinkResponderErrorMaskingLoggingTypeResponse = OutboundExternalLinkResponderErrorMaskingLoggingType("RESPONSE")
+)
+
+func (OutboundExternalLinkResponderErrorMaskingLoggingType) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundExternalLinkResponderErrorMaskingLoggingType)(nil)).Elem()
+}
+
+func (e OutboundExternalLinkResponderErrorMaskingLoggingType) ToOutboundExternalLinkResponderErrorMaskingLoggingTypeOutput() OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput {
+	return pulumi.ToOutput(e).(OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput)
+}
+
+func (e OutboundExternalLinkResponderErrorMaskingLoggingType) ToOutboundExternalLinkResponderErrorMaskingLoggingTypeOutputWithContext(ctx context.Context) OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput)
+}
+
+func (e OutboundExternalLinkResponderErrorMaskingLoggingType) ToOutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput() OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput {
+	return e.ToOutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutputWithContext(context.Background())
+}
+
+func (e OutboundExternalLinkResponderErrorMaskingLoggingType) ToOutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutputWithContext(ctx context.Context) OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput {
+	return OutboundExternalLinkResponderErrorMaskingLoggingType(e).ToOutboundExternalLinkResponderErrorMaskingLoggingTypeOutputWithContext(ctx).ToOutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutputWithContext(ctx)
+}
+
+func (e OutboundExternalLinkResponderErrorMaskingLoggingType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OutboundExternalLinkResponderErrorMaskingLoggingType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OutboundExternalLinkResponderErrorMaskingLoggingType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OutboundExternalLinkResponderErrorMaskingLoggingType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput struct{ *pulumi.OutputState }
+
+func (OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundExternalLinkResponderErrorMaskingLoggingType)(nil)).Elem()
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput) ToOutboundExternalLinkResponderErrorMaskingLoggingTypeOutput() OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput {
+	return o
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput) ToOutboundExternalLinkResponderErrorMaskingLoggingTypeOutputWithContext(ctx context.Context) OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput {
+	return o
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput) ToOutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput() OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput {
+	return o.ToOutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutputWithContext(context.Background())
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput) ToOutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutputWithContext(ctx context.Context) OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutboundExternalLinkResponderErrorMaskingLoggingType) *OutboundExternalLinkResponderErrorMaskingLoggingType {
+		return &v
+	}).(OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput)
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OutboundExternalLinkResponderErrorMaskingLoggingType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OutboundExternalLinkResponderErrorMaskingLoggingType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput struct{ *pulumi.OutputState }
+
+func (OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutboundExternalLinkResponderErrorMaskingLoggingType)(nil)).Elem()
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput) ToOutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput() OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput {
+	return o
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput) ToOutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutputWithContext(ctx context.Context) OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput {
+	return o
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput) Elem() OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput {
+	return o.ApplyT(func(v *OutboundExternalLinkResponderErrorMaskingLoggingType) OutboundExternalLinkResponderErrorMaskingLoggingType {
+		if v != nil {
+			return *v
+		}
+		var ret OutboundExternalLinkResponderErrorMaskingLoggingType
+		return ret
+	}).(OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput)
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OutboundExternalLinkResponderErrorMaskingLoggingType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OutboundExternalLinkResponderErrorMaskingLoggingTypeInput is an input type that accepts values of the OutboundExternalLinkResponderErrorMaskingLoggingType enum
+// A concrete instance of `OutboundExternalLinkResponderErrorMaskingLoggingTypeInput` can be one of the following:
+//
+//	OutboundExternalLinkResponderErrorMaskingLoggingTypeNone
+//	OutboundExternalLinkResponderErrorMaskingLoggingTypeMetric
+//	OutboundExternalLinkResponderErrorMaskingLoggingTypeResponse
+type OutboundExternalLinkResponderErrorMaskingLoggingTypeInput interface {
+	pulumi.Input
+
+	ToOutboundExternalLinkResponderErrorMaskingLoggingTypeOutput() OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput
+	ToOutboundExternalLinkResponderErrorMaskingLoggingTypeOutputWithContext(context.Context) OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput
+}
+
+var outboundExternalLinkResponderErrorMaskingLoggingTypePtrType = reflect.TypeOf((**OutboundExternalLinkResponderErrorMaskingLoggingType)(nil)).Elem()
+
+type OutboundExternalLinkResponderErrorMaskingLoggingTypePtrInput interface {
+	pulumi.Input
+
+	ToOutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput() OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput
+	ToOutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutputWithContext(context.Context) OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput
+}
+
+type outboundExternalLinkResponderErrorMaskingLoggingTypePtr string
+
+func OutboundExternalLinkResponderErrorMaskingLoggingTypePtr(v string) OutboundExternalLinkResponderErrorMaskingLoggingTypePtrInput {
+	return (*outboundExternalLinkResponderErrorMaskingLoggingTypePtr)(&v)
+}
+
+func (*outboundExternalLinkResponderErrorMaskingLoggingTypePtr) ElementType() reflect.Type {
+	return outboundExternalLinkResponderErrorMaskingLoggingTypePtrType
+}
+
+func (in *outboundExternalLinkResponderErrorMaskingLoggingTypePtr) ToOutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput() OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput {
+	return pulumi.ToOutput(in).(OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput)
+}
+
+func (in *outboundExternalLinkResponderErrorMaskingLoggingTypePtr) ToOutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutputWithContext(ctx context.Context) OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput)
+}
+
+// OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayInput is an input type that accepts OutboundExternalLinkResponderErrorMaskingLoggingTypeArray and OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput values.
+// You can construct a concrete instance of `OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayInput` via:
+//
+//	OutboundExternalLinkResponderErrorMaskingLoggingTypeArray{ OutboundExternalLinkResponderErrorMaskingLoggingTypeArgs{...} }
+type OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayInput interface {
+	pulumi.Input
+
+	ToOutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput() OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput
+	ToOutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutputWithContext(context.Context) OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput
+}
+
+type OutboundExternalLinkResponderErrorMaskingLoggingTypeArray []OutboundExternalLinkResponderErrorMaskingLoggingType
+
+func (OutboundExternalLinkResponderErrorMaskingLoggingTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OutboundExternalLinkResponderErrorMaskingLoggingType)(nil)).Elem()
+}
+
+func (i OutboundExternalLinkResponderErrorMaskingLoggingTypeArray) ToOutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput() OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput {
+	return i.ToOutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutputWithContext(context.Background())
+}
+
+func (i OutboundExternalLinkResponderErrorMaskingLoggingTypeArray) ToOutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutputWithContext(ctx context.Context) OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput)
+}
+
+type OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OutboundExternalLinkResponderErrorMaskingLoggingType)(nil)).Elem()
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput) ToOutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput() OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput {
+	return o
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput) ToOutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutputWithContext(ctx context.Context) OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput {
+	return o
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput) Index(i pulumi.IntInput) OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OutboundExternalLinkResponderErrorMaskingLoggingType {
+		return vs[0].([]OutboundExternalLinkResponderErrorMaskingLoggingType)[vs[1].(int)]
+	}).(OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput)
 }
 
 type RequesterGatewayStatus string
@@ -940,13 +1898,30 @@ func (o ResponderGatewayStatusPtrOutput) ToStringPtrOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InboundExternalLinkResponderErrorMaskingForHttpCodeActionInput)(nil)).Elem(), InboundExternalLinkResponderErrorMaskingForHttpCodeAction("NO_BID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrInput)(nil)).Elem(), InboundExternalLinkResponderErrorMaskingForHttpCodeAction("NO_BID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InboundExternalLinkResponderErrorMaskingLoggingTypeInput)(nil)).Elem(), InboundExternalLinkResponderErrorMaskingLoggingType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InboundExternalLinkResponderErrorMaskingLoggingTypePtrInput)(nil)).Elem(), InboundExternalLinkResponderErrorMaskingLoggingType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InboundExternalLinkResponderErrorMaskingLoggingTypeArrayInput)(nil)).Elem(), InboundExternalLinkResponderErrorMaskingLoggingTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkResponderErrorMaskingForHttpCodeActionInput)(nil)).Elem(), LinkResponderErrorMaskingForHttpCodeAction("NO_BID"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkResponderErrorMaskingForHttpCodeActionPtrInput)(nil)).Elem(), LinkResponderErrorMaskingForHttpCodeAction("NO_BID"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkResponderErrorMaskingLoggingTypeInput)(nil)).Elem(), LinkResponderErrorMaskingLoggingType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkResponderErrorMaskingLoggingTypePtrInput)(nil)).Elem(), LinkResponderErrorMaskingLoggingType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkResponderErrorMaskingLoggingTypeArrayInput)(nil)).Elem(), LinkResponderErrorMaskingLoggingTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkResponderErrorMaskingForHttpCodeActionInput)(nil)).Elem(), OutboundExternalLinkResponderErrorMaskingForHttpCodeAction("NO_BID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrInput)(nil)).Elem(), OutboundExternalLinkResponderErrorMaskingForHttpCodeAction("NO_BID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkResponderErrorMaskingLoggingTypeInput)(nil)).Elem(), OutboundExternalLinkResponderErrorMaskingLoggingType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkResponderErrorMaskingLoggingTypePtrInput)(nil)).Elem(), OutboundExternalLinkResponderErrorMaskingLoggingType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayInput)(nil)).Elem(), OutboundExternalLinkResponderErrorMaskingLoggingTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayProtocolInput)(nil)).Elem(), ResponderGatewayProtocol("HTTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayProtocolPtrInput)(nil)).Elem(), ResponderGatewayProtocol("HTTP"))
+	pulumi.RegisterOutputType(InboundExternalLinkLinkStatusOutput{})
+	pulumi.RegisterOutputType(InboundExternalLinkLinkStatusPtrOutput{})
+	pulumi.RegisterOutputType(InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput{})
+	pulumi.RegisterOutputType(InboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput{})
+	pulumi.RegisterOutputType(InboundExternalLinkResponderErrorMaskingLoggingTypeOutput{})
+	pulumi.RegisterOutputType(InboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput{})
+	pulumi.RegisterOutputType(InboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput{})
 	pulumi.RegisterOutputType(LinkDirectionOutput{})
 	pulumi.RegisterOutputType(LinkDirectionPtrOutput{})
 	pulumi.RegisterOutputType(LinkResponderErrorMaskingForHttpCodeActionOutput{})
@@ -956,6 +1931,13 @@ func init() {
 	pulumi.RegisterOutputType(LinkResponderErrorMaskingLoggingTypeArrayOutput{})
 	pulumi.RegisterOutputType(LinkStatusOutput{})
 	pulumi.RegisterOutputType(LinkStatusPtrOutput{})
+	pulumi.RegisterOutputType(OutboundExternalLinkLinkStatusOutput{})
+	pulumi.RegisterOutputType(OutboundExternalLinkLinkStatusPtrOutput{})
+	pulumi.RegisterOutputType(OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput{})
+	pulumi.RegisterOutputType(OutboundExternalLinkResponderErrorMaskingForHttpCodeActionPtrOutput{})
+	pulumi.RegisterOutputType(OutboundExternalLinkResponderErrorMaskingLoggingTypeOutput{})
+	pulumi.RegisterOutputType(OutboundExternalLinkResponderErrorMaskingLoggingTypePtrOutput{})
+	pulumi.RegisterOutputType(OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput{})
 	pulumi.RegisterOutputType(RequesterGatewayStatusOutput{})
 	pulumi.RegisterOutputType(RequesterGatewayStatusPtrOutput{})
 	pulumi.RegisterOutputType(ResponderGatewayProtocolOutput{})

@@ -87,6 +87,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// The ARN of the session logger resource.
         /// </summary>
         public readonly string? SessionLoggerArn;
+        /// <summary>
+        /// The tags of the session logger.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

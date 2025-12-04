@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:lambda:Alias":
 		r = &Alias{}
+	case "aws-native:lambda:CapacityProvider":
+		r = &CapacityProvider{}
 	case "aws-native:lambda:CodeSigningConfig":
 		r = &CodeSigningConfig{}
 	case "aws-native:lambda:EventInvokeConfig":

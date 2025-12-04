@@ -98,6 +98,9 @@ namespace Pulumi.AwsNative.QuickSight
         /// &lt;p&gt;The time that this dataset was created.&lt;/p&gt;
         /// </summary>
         public readonly string? CreatedTime;
+        /// <summary>
+        /// The data preparation configuration associated with this dataset.
+        /// </summary>
         public readonly Outputs.DataSetDataPrepConfiguration? DataPrepConfiguration;
         /// <summary>
         /// The refresh properties of a dataset.
@@ -143,6 +146,9 @@ namespace Pulumi.AwsNative.QuickSight
         public readonly ImmutableDictionary<string, Outputs.DataSetPhysicalTable>? PhysicalTableMap;
         public readonly Outputs.DataSetRowLevelPermissionDataSet? RowLevelPermissionDataSet;
         public readonly Outputs.DataSetRowLevelPermissionTagConfiguration? RowLevelPermissionTagConfiguration;
+        /// <summary>
+        /// The semantic model configuration associated with this dataset.
+        /// </summary>
         public readonly Outputs.DataSetSemanticModelConfiguration? SemanticModelConfiguration;
         /// <summary>
         /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.&lt;/p&gt;

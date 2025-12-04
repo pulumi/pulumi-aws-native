@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetDestinationTableSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the transform operation that provides data to the destination table.
+        /// </summary>
         [Input("transformOperationId", required: true)]
         public Input<string> TransformOperationId { get; set; } = null!;
 

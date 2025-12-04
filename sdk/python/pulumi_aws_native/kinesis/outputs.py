@@ -18,6 +18,7 @@ from ._enums import *
 __all__ = [
     'StreamEncryption',
     'StreamModeDetails',
+    'StreamWarmThroughputObject',
 ]
 
 @pulumi.output_type
@@ -109,5 +110,59 @@ class StreamModeDetails(dict):
         The mode of the stream
         """
         return pulumi.get(self, "stream_mode")
+
+
+@pulumi.output_type
+class StreamWarmThroughputObject(dict):
+    """
+    Warm throughput configuration details for the stream. Only present for ON_DEMAND streams.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "currentMiBps":
+            suggest = "current_mi_bps"
+        elif key == "targetMiBps":
+            suggest = "target_mi_bps"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamWarmThroughputObject. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamWarmThroughputObject.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamWarmThroughputObject.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 current_mi_bps: Optional[_builtins.int] = None,
+                 target_mi_bps: Optional[_builtins.int] = None):
+        """
+        Warm throughput configuration details for the stream. Only present for ON_DEMAND streams.
+        :param _builtins.int current_mi_bps: Current warm throughput in MiB/s
+        :param _builtins.int target_mi_bps: Target warm throughput in MiB/s that a customer can write to a stream at any given time
+        """
+        if current_mi_bps is not None:
+            pulumi.set(__self__, "current_mi_bps", current_mi_bps)
+        if target_mi_bps is not None:
+            pulumi.set(__self__, "target_mi_bps", target_mi_bps)
+
+    @_builtins.property
+    @pulumi.getter(name="currentMiBps")
+    def current_mi_bps(self) -> Optional[_builtins.int]:
+        """
+        Current warm throughput in MiB/s
+        """
+        return pulumi.get(self, "current_mi_bps")
+
+    @_builtins.property
+    @pulumi.getter(name="targetMiBps")
+    def target_mi_bps(self) -> Optional[_builtins.int]:
+        """
+        Target warm throughput in MiB/s that a customer can write to a stream at any given time
+        """
+        return pulumi.get(self, "target_mi_bps")
 
 

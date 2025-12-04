@@ -30,7 +30,7 @@
     "KnowledgeBaseStorageType" : {
       "type" : "string",
       "description" : "The storage type of a knowledge base.",
-      "enum" : [ "OPENSEARCH_SERVERLESS", "PINECONE", "RDS", "MONGO_DB_ATLAS", "NEPTUNE_ANALYTICS", "OPENSEARCH_MANAGED_CLUSTER" ]
+      "enum" : [ "OPENSEARCH_SERVERLESS", "PINECONE", "RDS", "MONGO_DB_ATLAS", "NEPTUNE_ANALYTICS", "S3_VECTORS", "OPENSEARCH_MANAGED_CLUSTER" ]
     },
     "KnowledgeBaseType" : {
       "type" : "string",
@@ -431,6 +431,32 @@
       "required" : [ "GraphArn", "FieldMapping" ],
       "additionalProperties" : false
     },
+    "S3VectorsConfiguration" : {
+      "type" : "object",
+      "description" : "Contains the storage configuration of the knowledge base for S3 vectors.",
+      "properties" : {
+        "VectorBucketArn" : {
+          "type" : "string",
+          "description" : "The Amazon Resource Name (ARN) of the S3 bucket where vector embeddings are stored. This bucket contains the vector data used by the knowledge base."
+        },
+        "IndexArn" : {
+          "type" : "string",
+          "description" : "The Amazon Resource Name (ARN) of the vector index used for the knowledge base. This ARN identifies the specific vector index resource within Amazon Bedrock."
+        },
+        "IndexName" : {
+          "type" : "string",
+          "maxLength" : 63,
+          "minLength" : 3,
+          "description" : "The name of the vector index used for the knowledge base. This name identifies the vector index within the Amazon Bedrock service."
+        }
+      },
+      "oneOf" : [ {
+        "required" : [ "IndexArn" ]
+      }, {
+        "required" : [ "VectorBucketArn", "IndexName" ]
+      } ],
+      "additionalProperties" : false
+    },
     "StorageConfiguration" : {
       "type" : "object",
       "description" : "The vector store service in which the knowledge base is stored.",
@@ -453,6 +479,9 @@
         "NeptuneAnalyticsConfiguration" : {
           "$ref" : "#/definitions/NeptuneAnalyticsConfiguration"
         },
+        "S3VectorsConfiguration" : {
+          "$ref" : "#/definitions/S3VectorsConfiguration"
+        },
         "OpensearchManagedClusterConfiguration" : {
           "$ref" : "#/definitions/OpenSearchManagedClusterConfiguration"
         }
@@ -466,6 +495,8 @@
         "required" : [ "RdsConfiguration" ]
       }, {
         "required" : [ "NeptuneAnalyticsConfiguration" ]
+      }, {
+        "required" : [ "S3VectorsConfiguration" ]
       }, {
         "required" : [ "MongoDbAtlasConfiguration" ]
       }, {

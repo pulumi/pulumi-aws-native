@@ -25,7 +25,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetPartnerAppResult:
-    def __init__(__self__, application_config=None, arn=None, base_url=None, enable_iam_session_based_identity=None, maintenance_config=None, tags=None, tier=None):
+    def __init__(__self__, app_version=None, application_config=None, arn=None, base_url=None, current_version_eol_date=None, enable_auto_minor_version_upgrade=None, enable_iam_session_based_identity=None, maintenance_config=None, tags=None, tier=None):
+        if app_version and not isinstance(app_version, str):
+            raise TypeError("Expected argument 'app_version' to be a str")
+        pulumi.set(__self__, "app_version", app_version)
         if application_config and not isinstance(application_config, dict):
             raise TypeError("Expected argument 'application_config' to be a dict")
         pulumi.set(__self__, "application_config", application_config)
@@ -35,6 +38,12 @@ class GetPartnerAppResult:
         if base_url and not isinstance(base_url, str):
             raise TypeError("Expected argument 'base_url' to be a str")
         pulumi.set(__self__, "base_url", base_url)
+        if current_version_eol_date and not isinstance(current_version_eol_date, str):
+            raise TypeError("Expected argument 'current_version_eol_date' to be a str")
+        pulumi.set(__self__, "current_version_eol_date", current_version_eol_date)
+        if enable_auto_minor_version_upgrade and not isinstance(enable_auto_minor_version_upgrade, bool):
+            raise TypeError("Expected argument 'enable_auto_minor_version_upgrade' to be a bool")
+        pulumi.set(__self__, "enable_auto_minor_version_upgrade", enable_auto_minor_version_upgrade)
         if enable_iam_session_based_identity and not isinstance(enable_iam_session_based_identity, bool):
             raise TypeError("Expected argument 'enable_iam_session_based_identity' to be a bool")
         pulumi.set(__self__, "enable_iam_session_based_identity", enable_iam_session_based_identity)
@@ -47,6 +56,14 @@ class GetPartnerAppResult:
         if tier and not isinstance(tier, str):
             raise TypeError("Expected argument 'tier' to be a str")
         pulumi.set(__self__, "tier", tier)
+
+    @_builtins.property
+    @pulumi.getter(name="appVersion")
+    def app_version(self) -> Optional[_builtins.str]:
+        """
+        The version of the PartnerApp.
+        """
+        return pulumi.get(self, "app_version")
 
     @_builtins.property
     @pulumi.getter(name="applicationConfig")
@@ -71,6 +88,22 @@ class GetPartnerAppResult:
         The AppServerUrl based on app and account-info.
         """
         return pulumi.get(self, "base_url")
+
+    @_builtins.property
+    @pulumi.getter(name="currentVersionEolDate")
+    def current_version_eol_date(self) -> Optional[_builtins.str]:
+        """
+        The end-of-life date for the current version of the PartnerApp.
+        """
+        return pulumi.get(self, "current_version_eol_date")
+
+    @_builtins.property
+    @pulumi.getter(name="enableAutoMinorVersionUpgrade")
+    def enable_auto_minor_version_upgrade(self) -> Optional[_builtins.bool]:
+        """
+        Enables automatic minor version upgrades for the PartnerApp.
+        """
+        return pulumi.get(self, "enable_auto_minor_version_upgrade")
 
     @_builtins.property
     @pulumi.getter(name="enableIamSessionBasedIdentity")
@@ -111,9 +144,12 @@ class AwaitableGetPartnerAppResult(GetPartnerAppResult):
         if False:
             yield self
         return GetPartnerAppResult(
+            app_version=self.app_version,
             application_config=self.application_config,
             arn=self.arn,
             base_url=self.base_url,
+            current_version_eol_date=self.current_version_eol_date,
+            enable_auto_minor_version_upgrade=self.enable_auto_minor_version_upgrade,
             enable_iam_session_based_identity=self.enable_iam_session_based_identity,
             maintenance_config=self.maintenance_config,
             tags=self.tags,
@@ -134,9 +170,12 @@ def get_partner_app(arn: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getPartnerApp', __args__, opts=opts, typ=GetPartnerAppResult).value
 
     return AwaitableGetPartnerAppResult(
+        app_version=pulumi.get(__ret__, 'app_version'),
         application_config=pulumi.get(__ret__, 'application_config'),
         arn=pulumi.get(__ret__, 'arn'),
         base_url=pulumi.get(__ret__, 'base_url'),
+        current_version_eol_date=pulumi.get(__ret__, 'current_version_eol_date'),
+        enable_auto_minor_version_upgrade=pulumi.get(__ret__, 'enable_auto_minor_version_upgrade'),
         enable_iam_session_based_identity=pulumi.get(__ret__, 'enable_iam_session_based_identity'),
         maintenance_config=pulumi.get(__ret__, 'maintenance_config'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -154,9 +193,12 @@ def get_partner_app_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getPartnerApp', __args__, opts=opts, typ=GetPartnerAppResult)
     return __ret__.apply(lambda __response__: GetPartnerAppResult(
+        app_version=pulumi.get(__response__, 'app_version'),
         application_config=pulumi.get(__response__, 'application_config'),
         arn=pulumi.get(__response__, 'arn'),
         base_url=pulumi.get(__response__, 'base_url'),
+        current_version_eol_date=pulumi.get(__response__, 'current_version_eol_date'),
+        enable_auto_minor_version_upgrade=pulumi.get(__response__, 'enable_auto_minor_version_upgrade'),
         enable_iam_session_based_identity=pulumi.get(__response__, 'enable_iam_session_based_identity'),
         maintenance_config=pulumi.get(__response__, 'maintenance_config'),
         tags=pulumi.get(__response__, 'tags'),

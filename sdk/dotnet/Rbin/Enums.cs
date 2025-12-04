@@ -22,6 +22,7 @@ namespace Pulumi.AwsNative.Rbin
 
         public static RuleResourceType EbsSnapshot { get; } = new RuleResourceType("EBS_SNAPSHOT");
         public static RuleResourceType Ec2Image { get; } = new RuleResourceType("EC2_IMAGE");
+        public static RuleResourceType EbsVolume { get; } = new RuleResourceType("EBS_VOLUME");
 
         public static bool operator ==(RuleResourceType left, RuleResourceType right) => left.Equals(right);
         public static bool operator !=(RuleResourceType left, RuleResourceType right) => !left.Equals(right);

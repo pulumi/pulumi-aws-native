@@ -799,6 +799,9 @@ namespace Pulumi.AwsNative.Cassandra
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        [Output("warmThroughput")]
+        public Output<Outputs.TableWarmThroughput?> WarmThroughput { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Table resource with the given unique name, arguments, and options.
@@ -983,6 +986,9 @@ namespace Pulumi.AwsNative.Cassandra
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        [Input("warmThroughput")]
+        public Input<Inputs.TableWarmThroughputArgs>? WarmThroughput { get; set; }
 
         public TableArgs()
         {

@@ -13,7 +13,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetStreamResult',
@@ -24,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetStreamResult:
-    def __init__(__self__, arn=None, data_retention_in_hours=None, device_name=None, kms_key_id=None, media_type=None, tags=None):
+    def __init__(__self__, arn=None, data_retention_in_hours=None, device_name=None, kms_key_id=None, media_type=None, stream_storage_configuration=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +42,9 @@ class GetStreamResult:
         if media_type and not isinstance(media_type, str):
             raise TypeError("Expected argument 'media_type' to be a str")
         pulumi.set(__self__, "media_type", media_type)
+        if stream_storage_configuration and not isinstance(stream_storage_configuration, dict):
+            raise TypeError("Expected argument 'stream_storage_configuration' to be a dict")
+        pulumi.set(__self__, "stream_storage_configuration", stream_storage_configuration)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -85,6 +90,14 @@ class GetStreamResult:
         return pulumi.get(self, "media_type")
 
     @_builtins.property
+    @pulumi.getter(name="streamStorageConfiguration")
+    def stream_storage_configuration(self) -> Optional['outputs.StreamStorageConfiguration']:
+        """
+        Configuration for the storage tier of the Kinesis Video Stream.
+        """
+        return pulumi.get(self, "stream_storage_configuration")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -104,6 +117,7 @@ class AwaitableGetStreamResult(GetStreamResult):
             device_name=self.device_name,
             kms_key_id=self.kms_key_id,
             media_type=self.media_type,
+            stream_storage_configuration=self.stream_storage_configuration,
             tags=self.tags)
 
 
@@ -126,6 +140,7 @@ def get_stream(name: Optional[_builtins.str] = None,
         device_name=pulumi.get(__ret__, 'device_name'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         media_type=pulumi.get(__ret__, 'media_type'),
+        stream_storage_configuration=pulumi.get(__ret__, 'stream_storage_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_stream_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamResult]:
@@ -145,4 +160,5 @@ def get_stream_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         device_name=pulumi.get(__response__, 'device_name'),
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
         media_type=pulumi.get(__response__, 'media_type'),
+        stream_storage_configuration=pulumi.get(__response__, 'stream_storage_configuration'),
         tags=pulumi.get(__response__, 'tags')))

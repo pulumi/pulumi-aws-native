@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Msk
         /// The current version of the MSK cluster
         /// </summary>
         [Output("currentVersion")]
-        public Output<string?> CurrentVersion { get; private set; } = null!;
+        public Output<string> CurrentVersion { get; private set; } = null!;
 
         /// <summary>
         /// Includes all encryption-related information.
@@ -86,6 +86,9 @@ namespace Pulumi.AwsNative.Msk
         /// </summary>
         [Output("openMonitoring")]
         public Output<Outputs.ClusterOpenMonitoring?> OpenMonitoring { get; private set; } = null!;
+
+        [Output("rebalancing")]
+        public Output<Outputs.ClusterRebalancing?> Rebalancing { get; private set; } = null!;
 
         /// <summary>
         /// This controls storage mode for supported storage tiers.
@@ -178,12 +181,6 @@ namespace Pulumi.AwsNative.Msk
         public Input<Inputs.ClusterConfigurationInfoArgs>? ConfigurationInfo { get; set; }
 
         /// <summary>
-        /// The current version of the MSK cluster
-        /// </summary>
-        [Input("currentVersion")]
-        public Input<string>? CurrentVersion { get; set; }
-
-        /// <summary>
         /// Includes all encryption-related information.
         /// </summary>
         [Input("encryptionInfo")]
@@ -218,6 +215,9 @@ namespace Pulumi.AwsNative.Msk
         /// </summary>
         [Input("openMonitoring")]
         public Input<Inputs.ClusterOpenMonitoringArgs>? OpenMonitoring { get; set; }
+
+        [Input("rebalancing")]
+        public Input<Inputs.ClusterRebalancingArgs>? Rebalancing { get; set; }
 
         /// <summary>
         /// This controls storage mode for supported storage tiers.

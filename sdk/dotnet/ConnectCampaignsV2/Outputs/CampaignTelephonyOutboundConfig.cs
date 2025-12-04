@@ -28,6 +28,7 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
         /// The Amazon Connect source phone number.
         /// </summary>
         public readonly string? ConnectSourcePhoneNumber;
+        public readonly int? RingTimeout;
 
         [OutputConstructor]
         private CampaignTelephonyOutboundConfig(
@@ -35,11 +36,14 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
 
             string connectContactFlowId,
 
-            string? connectSourcePhoneNumber)
+            string? connectSourcePhoneNumber,
+
+            int? ringTimeout)
         {
             AnswerMachineDetectionConfig = answerMachineDetectionConfig;
             ConnectContactFlowId = connectContactFlowId;
             ConnectSourcePhoneNumber = connectSourcePhoneNumber;
+            RingTimeout = ringTimeout;
         }
     }
 }

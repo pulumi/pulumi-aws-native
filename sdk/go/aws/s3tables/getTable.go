@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,6 +39,8 @@ type LookupTableResult struct {
 	TableArn *string `pulumi:"tableArn"`
 	// The name for the table.
 	TableName *string `pulumi:"tableName"`
+	// User tags (key-value pairs) to associate with the table.
+	Tags []aws.Tag `pulumi:"tags"`
 	// The version token of the table.
 	VersionToken *string `pulumi:"versionToken"`
 	// The warehouse location of the table.
@@ -99,6 +102,11 @@ func (o LookupTableResultOutput) TableArn() pulumi.StringPtrOutput {
 // The name for the table.
 func (o LookupTableResultOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *string { return v.TableName }).(pulumi.StringPtrOutput)
+}
+
+// User tags (key-value pairs) to associate with the table.
+func (o LookupTableResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupTableResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The version token of the table.

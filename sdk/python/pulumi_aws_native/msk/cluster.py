@@ -28,11 +28,11 @@ class ClusterArgs:
                  client_authentication: Optional[pulumi.Input['ClusterClientAuthenticationArgs']] = None,
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
                  configuration_info: Optional[pulumi.Input['ClusterConfigurationInfoArgs']] = None,
-                 current_version: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption_info: Optional[pulumi.Input['ClusterEncryptionInfoArgs']] = None,
                  enhanced_monitoring: Optional[pulumi.Input['ClusterEnhancedMonitoring']] = None,
                  logging_info: Optional[pulumi.Input['ClusterLoggingInfoArgs']] = None,
                  open_monitoring: Optional[pulumi.Input['ClusterOpenMonitoringArgs']] = None,
+                 rebalancing: Optional[pulumi.Input['ClusterRebalancingArgs']] = None,
                  storage_mode: Optional[pulumi.Input['ClusterStorageMode']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -43,7 +43,6 @@ class ClusterArgs:
         :param pulumi.Input['ClusterClientAuthenticationArgs'] client_authentication: Includes all client authentication related information.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input['ClusterConfigurationInfoArgs'] configuration_info: Represents the configuration that you want MSK to use for the cluster.
-        :param pulumi.Input[_builtins.str] current_version: The current version of the MSK cluster
         :param pulumi.Input['ClusterEncryptionInfoArgs'] encryption_info: Includes all encryption-related information.
         :param pulumi.Input['ClusterEnhancedMonitoring'] enhanced_monitoring: Specifies the level of monitoring for the MSK cluster.
         :param pulumi.Input['ClusterLoggingInfoArgs'] logging_info: Logging info details for the cluster.
@@ -60,8 +59,6 @@ class ClusterArgs:
             pulumi.set(__self__, "cluster_name", cluster_name)
         if configuration_info is not None:
             pulumi.set(__self__, "configuration_info", configuration_info)
-        if current_version is not None:
-            pulumi.set(__self__, "current_version", current_version)
         if encryption_info is not None:
             pulumi.set(__self__, "encryption_info", encryption_info)
         if enhanced_monitoring is not None:
@@ -70,6 +67,8 @@ class ClusterArgs:
             pulumi.set(__self__, "logging_info", logging_info)
         if open_monitoring is not None:
             pulumi.set(__self__, "open_monitoring", open_monitoring)
+        if rebalancing is not None:
+            pulumi.set(__self__, "rebalancing", rebalancing)
         if storage_mode is not None:
             pulumi.set(__self__, "storage_mode", storage_mode)
         if tags is not None:
@@ -148,18 +147,6 @@ class ClusterArgs:
         pulumi.set(self, "configuration_info", value)
 
     @_builtins.property
-    @pulumi.getter(name="currentVersion")
-    def current_version(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The current version of the MSK cluster
-        """
-        return pulumi.get(self, "current_version")
-
-    @current_version.setter
-    def current_version(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "current_version", value)
-
-    @_builtins.property
     @pulumi.getter(name="encryptionInfo")
     def encryption_info(self) -> Optional[pulumi.Input['ClusterEncryptionInfoArgs']]:
         """
@@ -208,6 +195,15 @@ class ClusterArgs:
         pulumi.set(self, "open_monitoring", value)
 
     @_builtins.property
+    @pulumi.getter
+    def rebalancing(self) -> Optional[pulumi.Input['ClusterRebalancingArgs']]:
+        return pulumi.get(self, "rebalancing")
+
+    @rebalancing.setter
+    def rebalancing(self, value: Optional[pulumi.Input['ClusterRebalancingArgs']]):
+        pulumi.set(self, "rebalancing", value)
+
+    @_builtins.property
     @pulumi.getter(name="storageMode")
     def storage_mode(self) -> Optional[pulumi.Input['ClusterStorageMode']]:
         """
@@ -242,13 +238,13 @@ class Cluster(pulumi.CustomResource):
                  client_authentication: Optional[pulumi.Input[Union['ClusterClientAuthenticationArgs', 'ClusterClientAuthenticationArgsDict']]] = None,
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
                  configuration_info: Optional[pulumi.Input[Union['ClusterConfigurationInfoArgs', 'ClusterConfigurationInfoArgsDict']]] = None,
-                 current_version: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption_info: Optional[pulumi.Input[Union['ClusterEncryptionInfoArgs', 'ClusterEncryptionInfoArgsDict']]] = None,
                  enhanced_monitoring: Optional[pulumi.Input['ClusterEnhancedMonitoring']] = None,
                  kafka_version: Optional[pulumi.Input[_builtins.str]] = None,
                  logging_info: Optional[pulumi.Input[Union['ClusterLoggingInfoArgs', 'ClusterLoggingInfoArgsDict']]] = None,
                  number_of_broker_nodes: Optional[pulumi.Input[_builtins.int]] = None,
                  open_monitoring: Optional[pulumi.Input[Union['ClusterOpenMonitoringArgs', 'ClusterOpenMonitoringArgsDict']]] = None,
+                 rebalancing: Optional[pulumi.Input[Union['ClusterRebalancingArgs', 'ClusterRebalancingArgsDict']]] = None,
                  storage_mode: Optional[pulumi.Input['ClusterStorageMode']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -261,7 +257,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterClientAuthenticationArgs', 'ClusterClientAuthenticationArgsDict']] client_authentication: Includes all client authentication related information.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input[Union['ClusterConfigurationInfoArgs', 'ClusterConfigurationInfoArgsDict']] configuration_info: Represents the configuration that you want MSK to use for the cluster.
-        :param pulumi.Input[_builtins.str] current_version: The current version of the MSK cluster
         :param pulumi.Input[Union['ClusterEncryptionInfoArgs', 'ClusterEncryptionInfoArgsDict']] encryption_info: Includes all encryption-related information.
         :param pulumi.Input['ClusterEnhancedMonitoring'] enhanced_monitoring: Specifies the level of monitoring for the MSK cluster.
         :param pulumi.Input[_builtins.str] kafka_version: The version of Apache Kafka. You can use Amazon MSK to create clusters that use [supported Apache Kafka versions](https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html) .
@@ -299,13 +294,13 @@ class Cluster(pulumi.CustomResource):
                  client_authentication: Optional[pulumi.Input[Union['ClusterClientAuthenticationArgs', 'ClusterClientAuthenticationArgsDict']]] = None,
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
                  configuration_info: Optional[pulumi.Input[Union['ClusterConfigurationInfoArgs', 'ClusterConfigurationInfoArgsDict']]] = None,
-                 current_version: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption_info: Optional[pulumi.Input[Union['ClusterEncryptionInfoArgs', 'ClusterEncryptionInfoArgsDict']]] = None,
                  enhanced_monitoring: Optional[pulumi.Input['ClusterEnhancedMonitoring']] = None,
                  kafka_version: Optional[pulumi.Input[_builtins.str]] = None,
                  logging_info: Optional[pulumi.Input[Union['ClusterLoggingInfoArgs', 'ClusterLoggingInfoArgsDict']]] = None,
                  number_of_broker_nodes: Optional[pulumi.Input[_builtins.int]] = None,
                  open_monitoring: Optional[pulumi.Input[Union['ClusterOpenMonitoringArgs', 'ClusterOpenMonitoringArgsDict']]] = None,
+                 rebalancing: Optional[pulumi.Input[Union['ClusterRebalancingArgs', 'ClusterRebalancingArgsDict']]] = None,
                  storage_mode: Optional[pulumi.Input['ClusterStorageMode']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -323,7 +318,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["client_authentication"] = client_authentication
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["configuration_info"] = configuration_info
-            __props__.__dict__["current_version"] = current_version
             __props__.__dict__["encryption_info"] = encryption_info
             __props__.__dict__["enhanced_monitoring"] = enhanced_monitoring
             if kafka_version is None and not opts.urn:
@@ -334,9 +328,11 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'number_of_broker_nodes'")
             __props__.__dict__["number_of_broker_nodes"] = number_of_broker_nodes
             __props__.__dict__["open_monitoring"] = open_monitoring
+            __props__.__dict__["rebalancing"] = rebalancing
             __props__.__dict__["storage_mode"] = storage_mode
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["current_version"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["brokerNodeGroupInfo.brokerAzDistribution", "brokerNodeGroupInfo.clientSubnets[*]", "brokerNodeGroupInfo.securityGroups[*]", "clusterName", "encryptionInfo.encryptionAtRest", "encryptionInfo.encryptionInTransit.inCluster"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cluster, __self__).__init__(
@@ -373,6 +369,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["logging_info"] = None
         __props__.__dict__["number_of_broker_nodes"] = None
         __props__.__dict__["open_monitoring"] = None
+        __props__.__dict__["rebalancing"] = None
         __props__.__dict__["storage_mode"] = None
         __props__.__dict__["tags"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
@@ -419,7 +416,7 @@ class Cluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="currentVersion")
-    def current_version(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def current_version(self) -> pulumi.Output[_builtins.str]:
         """
         The current version of the MSK cluster
         """
@@ -472,6 +469,11 @@ class Cluster(pulumi.CustomResource):
         The settings for open monitoring.
         """
         return pulumi.get(self, "open_monitoring")
+
+    @_builtins.property
+    @pulumi.getter
+    def rebalancing(self) -> pulumi.Output[Optional['outputs.ClusterRebalancing']]:
+        return pulumi.get(self, "rebalancing")
 
     @_builtins.property
     @pulumi.getter(name="storageMode")

@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<string> BrowserId { get; private set; } = null!;
 
         /// <summary>
+        /// Browser signing configuration.
+        /// </summary>
+        [Output("browserSigning")]
+        public Output<Outputs.BrowserCustomBrowserSigning?> BrowserSigning { get; private set; } = null!;
+
+        /// <summary>
         /// Timestamp when the browser was created.
         /// </summary>
         [Output("createdAt")]
@@ -112,6 +118,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "browserSigning",
                     "description",
                     "executionRoleArn",
                     "name",
@@ -140,6 +147,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
     public sealed class BrowserCustomArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Browser signing configuration.
+        /// </summary>
+        [Input("browserSigning")]
+        public Input<Inputs.BrowserCustomBrowserSigningArgs>? BrowserSigning { get; set; }
+
         /// <summary>
         /// The description of the browser.
         /// </summary>

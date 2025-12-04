@@ -38,6 +38,12 @@ namespace Pulumi.AwsNative.OpenSearchService
         public Output<Outputs.DomainAdvancedSecurityOptionsInput?> AdvancedSecurityOptions { get; private set; } = null!;
 
         /// <summary>
+        /// Container for parameters required to enable all machine learning features.
+        /// </summary>
+        [Output("aimlOptions")]
+        public Output<Outputs.DomainAimlOptions?> AimlOptions { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the CloudFormation stack.
         /// </summary>
         [Output("arn")]
@@ -89,7 +95,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         public Output<ImmutableDictionary<string, string>> DomainEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+        /// A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
         /// 
         /// Required when creating a new domain.
         /// 
@@ -105,7 +111,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         public Output<Outputs.DomainEbsOptions?> EbsOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
+        /// Whether the domain should encrypt data at rest, and if so, the AWS  key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
         /// 
         /// If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
         /// </summary>
@@ -260,6 +266,12 @@ namespace Pulumi.AwsNative.OpenSearchService
         public Input<Inputs.DomainAdvancedSecurityOptionsInputArgs>? AdvancedSecurityOptions { get; set; }
 
         /// <summary>
+        /// Container for parameters required to enable all machine learning features.
+        /// </summary>
+        [Input("aimlOptions")]
+        public Input<Inputs.DomainAimlOptionsArgs>? AimlOptions { get; set; }
+
+        /// <summary>
         /// Container for the cluster configuration of a domain.
         /// </summary>
         [Input("clusterConfig")]
@@ -278,7 +290,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         public Input<Inputs.DomainEndpointOptionsArgs>? DomainEndpointOptions { get; set; }
 
         /// <summary>
-        /// A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+        /// A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
         /// 
         /// Required when creating a new domain.
         /// 
@@ -294,7 +306,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         public Input<Inputs.DomainEbsOptionsArgs>? EbsOptions { get; set; }
 
         /// <summary>
-        /// Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
+        /// Whether the domain should encrypt data at rest, and if so, the AWS  key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
         /// 
         /// If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
         /// </summary>

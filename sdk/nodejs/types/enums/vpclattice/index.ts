@@ -22,6 +22,17 @@ export const AuthPolicyState = {
  */
 export type AuthPolicyState = (typeof AuthPolicyState)[keyof typeof AuthPolicyState];
 
+export const DomainVerificationStatus = {
+    Verified: "VERIFIED",
+    Pending: "PENDING",
+    VerificationTimedOut: "VERIFICATION_TIMED_OUT",
+} as const;
+
+/**
+ * The current status of the domain verification process.
+ */
+export type DomainVerificationStatus = (typeof DomainVerificationStatus)[keyof typeof DomainVerificationStatus];
+
 export const ListenerProtocol = {
     Http: "HTTP",
     Https: "HTTPS",
@@ -142,6 +153,18 @@ export const ServiceNetworkServiceAssociationStatus = {
  * The status of the association between the service network and the service.
  */
 export type ServiceNetworkServiceAssociationStatus = (typeof ServiceNetworkServiceAssociationStatus)[keyof typeof ServiceNetworkServiceAssociationStatus];
+
+export const ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference = {
+    VerifiedDomainsOnly: "VERIFIED_DOMAINS_ONLY",
+    AllDomains: "ALL_DOMAINS",
+    VerifiedDomainsAndSpecifiedDomains: "VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS",
+    SpecifiedDomainsOnly: "SPECIFIED_DOMAINS_ONLY",
+} as const;
+
+/**
+ * The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+ */
+export type ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference = (typeof ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference)[keyof typeof ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference];
 
 export const ServiceNetworkVpcAssociationStatus = {
     CreateInProgress: "CREATE_IN_PROGRESS",

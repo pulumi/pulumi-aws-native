@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetStringListFilterCondition
     {
+        /// <summary>
+        /// The list operator to use, either `INCLUDE` to match values in the list or `EXCLUDE` to filter out values in the list.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetStringListFilterOperator Operator;
+        /// <summary>
+        /// The list of string values to include or exclude in the filter.
+        /// </summary>
         public readonly Outputs.DataSetStringListFilterValue? Values;
 
         [OutputConstructor]

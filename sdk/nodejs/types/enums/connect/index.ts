@@ -57,7 +57,7 @@ export const EvaluationFormItemEnablementConditionOperator = {
 } as const;
 
 /**
- * The logical operator used to combine multiple operands, determining how the condition is evaluated as a whole.
+ * The operator to be used to be applied to operands if more than one provided.
  */
 export type EvaluationFormItemEnablementConditionOperator = (typeof EvaluationFormItemEnablementConditionOperator)[keyof typeof EvaluationFormItemEnablementConditionOperator];
 
@@ -67,7 +67,7 @@ export const EvaluationFormItemEnablementConfigurationAction = {
 } as const;
 
 /**
- * Defines the enablement status to be applied when the specified condition is met.
+ * An enablement action that if condition is satisfied.
  */
 export type EvaluationFormItemEnablementConfigurationAction = (typeof EvaluationFormItemEnablementConfigurationAction)[keyof typeof EvaluationFormItemEnablementConfigurationAction];
 
@@ -77,17 +77,19 @@ export const EvaluationFormItemEnablementConfigurationDefaultAction = {
 } as const;
 
 /**
- * Specifies the default enablement status to be applied when the condition is not satisfied.
+ * An enablement action that if condition is not satisfied.
  */
 export type EvaluationFormItemEnablementConfigurationDefaultAction = (typeof EvaluationFormItemEnablementConfigurationDefaultAction)[keyof typeof EvaluationFormItemEnablementConfigurationDefaultAction];
 
 export const EvaluationFormItemEnablementExpressionComparator = {
     In: "IN",
     NotIn: "NOT_IN",
+    AllIn: "ALL_IN",
+    Exact: "EXACT",
 } as const;
 
 /**
- * Specifies the comparison method to determine if the source value matches any of the specified values.
+ * A comparator to be used against list of values.
  */
 export type EvaluationFormItemEnablementExpressionComparator = (typeof EvaluationFormItemEnablementExpressionComparator)[keyof typeof EvaluationFormItemEnablementExpressionComparator];
 
@@ -96,7 +98,7 @@ export const EvaluationFormItemEnablementSourceType = {
 } as const;
 
 /**
- * The type of the source entity.
+ * A type of source item.
  */
 export type EvaluationFormItemEnablementSourceType = (typeof EvaluationFormItemEnablementSourceType)[keyof typeof EvaluationFormItemEnablementSourceType];
 
@@ -105,9 +107,43 @@ export const EvaluationFormItemEnablementSourceValueType = {
 } as const;
 
 /**
- * Type of the source entity value.
+ * A type of source item value.
  */
 export type EvaluationFormItemEnablementSourceValueType = (typeof EvaluationFormItemEnablementSourceValueType)[keyof typeof EvaluationFormItemEnablementSourceValueType];
+
+export const EvaluationFormLanguageConfigurationFormLanguage = {
+    DeDe: "de-DE",
+    EnUs: "en-US",
+    EsEs: "es-ES",
+    FrFr: "fr-FR",
+    ItIt: "it-IT",
+    PtBr: "pt-BR",
+} as const;
+
+/**
+ * The language of the form
+ */
+export type EvaluationFormLanguageConfigurationFormLanguage = (typeof EvaluationFormLanguageConfigurationFormLanguage)[keyof typeof EvaluationFormLanguageConfigurationFormLanguage];
+
+export const EvaluationFormMultiSelectQuestionPropertiesDisplayAs = {
+    Dropdown: "DROPDOWN",
+    Checkbox: "CHECKBOX",
+} as const;
+
+/**
+ * The display mode of the multi-select question.
+ */
+export type EvaluationFormMultiSelectQuestionPropertiesDisplayAs = (typeof EvaluationFormMultiSelectQuestionPropertiesDisplayAs)[keyof typeof EvaluationFormMultiSelectQuestionPropertiesDisplayAs];
+
+export const EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition = {
+    Present: "PRESENT",
+    NotPresent: "NOT_PRESENT",
+} as const;
+
+/**
+ * The automation condition applied on contact categories.
+ */
+export type EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition = (typeof EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition)[keyof typeof EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition];
 
 export const EvaluationFormNumericQuestionPropertyValueAutomationLabel = {
     OverallCustomerSentimentScore: "OVERALL_CUSTOMER_SENTIMENT_SCORE",
@@ -121,6 +157,8 @@ export const EvaluationFormNumericQuestionPropertyValueAutomationLabel = {
     LongestHoldDuration: "LONGEST_HOLD_DURATION",
     NumberOfHolds: "NUMBER_OF_HOLDS",
     AgentInteractionAndHoldDuration: "AGENT_INTERACTION_AND_HOLD_DURATION",
+    CustomerSentimentScoreWithoutAgent: "CUSTOMER_SENTIMENT_SCORE_WITHOUT_AGENT",
+    CustomerSentimentScoreWithAgent: "CUSTOMER_SENTIMENT_SCORE_WITH_AGENT",
 } as const;
 
 /**
@@ -134,7 +172,7 @@ export const EvaluationFormQuestionAutomationAnswerSourceSourceType = {
 } as const;
 
 /**
- * The type of the answer sourcr
+ * The automation answer source type.
  */
 export type EvaluationFormQuestionAutomationAnswerSourceSourceType = (typeof EvaluationFormQuestionAutomationAnswerSourceSourceType)[keyof typeof EvaluationFormQuestionAutomationAnswerSourceSourceType];
 
@@ -142,6 +180,8 @@ export const EvaluationFormQuestionQuestionType = {
     Numeric: "NUMERIC",
     Singleselect: "SINGLESELECT",
     Text: "TEXT",
+    Multiselect: "MULTISELECT",
+    Datetime: "DATETIME",
 } as const;
 
 /**
@@ -205,6 +245,16 @@ export const EvaluationFormStatus = {
  *  *Allowed values*: ``DRAFT`` | ``ACTIVE``
  */
 export type EvaluationFormStatus = (typeof EvaluationFormStatus)[keyof typeof EvaluationFormStatus];
+
+export const EvaluationFormTargetConfigurationContactInteractionType = {
+    Agent: "AGENT",
+    Automated: "AUTOMATED",
+} as const;
+
+/**
+ * The interaction type of a contact
+ */
+export type EvaluationFormTargetConfigurationContactInteractionType = (typeof EvaluationFormTargetConfigurationContactInteractionType)[keyof typeof EvaluationFormTargetConfigurationContactInteractionType];
 
 export const HoursOfOperationConfigDay = {
     Sunday: "SUNDAY",

@@ -17,6 +17,11 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'InboundExternalLinkLinkAttributes',
+    'InboundExternalLinkLinkLogSettings',
+    'InboundExternalLinkLinkLogSettingsApplicationLogsProperties',
+    'InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties',
+    'InboundExternalLinkResponderErrorMaskingForHttpCode',
     'LinkAttributes',
     'LinkLogSettings',
     'LinkLogSettingsApplicationLogsProperties',
@@ -24,9 +29,205 @@ __all__ = [
     'LinkModuleConfiguration',
     'LinkModuleParameters',
     'LinkResponderErrorMaskingForHttpCode',
+    'OutboundExternalLinkLinkAttributes',
+    'OutboundExternalLinkLinkLogSettings',
+    'OutboundExternalLinkLinkLogSettingsApplicationLogsProperties',
+    'OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties',
+    'OutboundExternalLinkResponderErrorMaskingForHttpCode',
     'ResponderGatewayManagedEndpointConfiguration',
     'ResponderGatewayTrustStoreConfiguration',
 ]
+
+@pulumi.output_type
+class InboundExternalLinkLinkAttributes(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customerProvidedId":
+            suggest = "customer_provided_id"
+        elif key == "responderErrorMasking":
+            suggest = "responder_error_masking"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InboundExternalLinkLinkAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InboundExternalLinkLinkAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InboundExternalLinkLinkAttributes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 customer_provided_id: Optional[_builtins.str] = None,
+                 responder_error_masking: Optional[Sequence['outputs.InboundExternalLinkResponderErrorMaskingForHttpCode']] = None):
+        if customer_provided_id is not None:
+            pulumi.set(__self__, "customer_provided_id", customer_provided_id)
+        if responder_error_masking is not None:
+            pulumi.set(__self__, "responder_error_masking", responder_error_masking)
+
+    @_builtins.property
+    @pulumi.getter(name="customerProvidedId")
+    def customer_provided_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "customer_provided_id")
+
+    @_builtins.property
+    @pulumi.getter(name="responderErrorMasking")
+    def responder_error_masking(self) -> Optional[Sequence['outputs.InboundExternalLinkResponderErrorMaskingForHttpCode']]:
+        return pulumi.get(self, "responder_error_masking")
+
+
+@pulumi.output_type
+class InboundExternalLinkLinkLogSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationLogs":
+            suggest = "application_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InboundExternalLinkLinkLogSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InboundExternalLinkLinkLogSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InboundExternalLinkLinkLogSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_logs: 'outputs.InboundExternalLinkLinkLogSettingsApplicationLogsProperties'):
+        pulumi.set(__self__, "application_logs", application_logs)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationLogs")
+    def application_logs(self) -> 'outputs.InboundExternalLinkLinkLogSettingsApplicationLogsProperties':
+        return pulumi.get(self, "application_logs")
+
+
+@pulumi.output_type
+class InboundExternalLinkLinkLogSettingsApplicationLogsProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkApplicationLogSampling":
+            suggest = "link_application_log_sampling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InboundExternalLinkLinkLogSettingsApplicationLogsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InboundExternalLinkLinkLogSettingsApplicationLogsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InboundExternalLinkLinkLogSettingsApplicationLogsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 link_application_log_sampling: 'outputs.InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties'):
+        pulumi.set(__self__, "link_application_log_sampling", link_application_log_sampling)
+
+    @_builtins.property
+    @pulumi.getter(name="linkApplicationLogSampling")
+    def link_application_log_sampling(self) -> 'outputs.InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties':
+        return pulumi.get(self, "link_application_log_sampling")
+
+
+@pulumi.output_type
+class InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorLog":
+            suggest = "error_log"
+        elif key == "filterLog":
+            suggest = "filter_log"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_log: _builtins.float,
+                 filter_log: _builtins.float):
+        pulumi.set(__self__, "error_log", error_log)
+        pulumi.set(__self__, "filter_log", filter_log)
+
+    @_builtins.property
+    @pulumi.getter(name="errorLog")
+    def error_log(self) -> _builtins.float:
+        return pulumi.get(self, "error_log")
+
+    @_builtins.property
+    @pulumi.getter(name="filterLog")
+    def filter_log(self) -> _builtins.float:
+        return pulumi.get(self, "filter_log")
+
+
+@pulumi.output_type
+class InboundExternalLinkResponderErrorMaskingForHttpCode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpCode":
+            suggest = "http_code"
+        elif key == "loggingTypes":
+            suggest = "logging_types"
+        elif key == "responseLoggingPercentage":
+            suggest = "response_logging_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InboundExternalLinkResponderErrorMaskingForHttpCode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InboundExternalLinkResponderErrorMaskingForHttpCode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InboundExternalLinkResponderErrorMaskingForHttpCode.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: 'InboundExternalLinkResponderErrorMaskingForHttpCodeAction',
+                 http_code: _builtins.str,
+                 logging_types: Sequence['InboundExternalLinkResponderErrorMaskingLoggingType'],
+                 response_logging_percentage: Optional[_builtins.float] = None):
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "http_code", http_code)
+        pulumi.set(__self__, "logging_types", logging_types)
+        if response_logging_percentage is not None:
+            pulumi.set(__self__, "response_logging_percentage", response_logging_percentage)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> 'InboundExternalLinkResponderErrorMaskingForHttpCodeAction':
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter(name="httpCode")
+    def http_code(self) -> _builtins.str:
+        return pulumi.get(self, "http_code")
+
+    @_builtins.property
+    @pulumi.getter(name="loggingTypes")
+    def logging_types(self) -> Sequence['InboundExternalLinkResponderErrorMaskingLoggingType']:
+        return pulumi.get(self, "logging_types")
+
+    @_builtins.property
+    @pulumi.getter(name="responseLoggingPercentage")
+    def response_logging_percentage(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "response_logging_percentage")
+
 
 @pulumi.output_type
 class LinkAttributes(dict):
@@ -317,6 +518,197 @@ class LinkResponderErrorMaskingForHttpCode(dict):
         """
         The percentage of response logging.
         """
+        return pulumi.get(self, "response_logging_percentage")
+
+
+@pulumi.output_type
+class OutboundExternalLinkLinkAttributes(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customerProvidedId":
+            suggest = "customer_provided_id"
+        elif key == "responderErrorMasking":
+            suggest = "responder_error_masking"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OutboundExternalLinkLinkAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OutboundExternalLinkLinkAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OutboundExternalLinkLinkAttributes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 customer_provided_id: Optional[_builtins.str] = None,
+                 responder_error_masking: Optional[Sequence['outputs.OutboundExternalLinkResponderErrorMaskingForHttpCode']] = None):
+        if customer_provided_id is not None:
+            pulumi.set(__self__, "customer_provided_id", customer_provided_id)
+        if responder_error_masking is not None:
+            pulumi.set(__self__, "responder_error_masking", responder_error_masking)
+
+    @_builtins.property
+    @pulumi.getter(name="customerProvidedId")
+    def customer_provided_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "customer_provided_id")
+
+    @_builtins.property
+    @pulumi.getter(name="responderErrorMasking")
+    def responder_error_masking(self) -> Optional[Sequence['outputs.OutboundExternalLinkResponderErrorMaskingForHttpCode']]:
+        return pulumi.get(self, "responder_error_masking")
+
+
+@pulumi.output_type
+class OutboundExternalLinkLinkLogSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationLogs":
+            suggest = "application_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OutboundExternalLinkLinkLogSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OutboundExternalLinkLinkLogSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OutboundExternalLinkLinkLogSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_logs: 'outputs.OutboundExternalLinkLinkLogSettingsApplicationLogsProperties'):
+        pulumi.set(__self__, "application_logs", application_logs)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationLogs")
+    def application_logs(self) -> 'outputs.OutboundExternalLinkLinkLogSettingsApplicationLogsProperties':
+        return pulumi.get(self, "application_logs")
+
+
+@pulumi.output_type
+class OutboundExternalLinkLinkLogSettingsApplicationLogsProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkApplicationLogSampling":
+            suggest = "link_application_log_sampling"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OutboundExternalLinkLinkLogSettingsApplicationLogsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OutboundExternalLinkLinkLogSettingsApplicationLogsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OutboundExternalLinkLinkLogSettingsApplicationLogsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 link_application_log_sampling: 'outputs.OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties'):
+        pulumi.set(__self__, "link_application_log_sampling", link_application_log_sampling)
+
+    @_builtins.property
+    @pulumi.getter(name="linkApplicationLogSampling")
+    def link_application_log_sampling(self) -> 'outputs.OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties':
+        return pulumi.get(self, "link_application_log_sampling")
+
+
+@pulumi.output_type
+class OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorLog":
+            suggest = "error_log"
+        elif key == "filterLog":
+            suggest = "filter_log"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_log: _builtins.float,
+                 filter_log: _builtins.float):
+        pulumi.set(__self__, "error_log", error_log)
+        pulumi.set(__self__, "filter_log", filter_log)
+
+    @_builtins.property
+    @pulumi.getter(name="errorLog")
+    def error_log(self) -> _builtins.float:
+        return pulumi.get(self, "error_log")
+
+    @_builtins.property
+    @pulumi.getter(name="filterLog")
+    def filter_log(self) -> _builtins.float:
+        return pulumi.get(self, "filter_log")
+
+
+@pulumi.output_type
+class OutboundExternalLinkResponderErrorMaskingForHttpCode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpCode":
+            suggest = "http_code"
+        elif key == "loggingTypes":
+            suggest = "logging_types"
+        elif key == "responseLoggingPercentage":
+            suggest = "response_logging_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OutboundExternalLinkResponderErrorMaskingForHttpCode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OutboundExternalLinkResponderErrorMaskingForHttpCode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OutboundExternalLinkResponderErrorMaskingForHttpCode.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: 'OutboundExternalLinkResponderErrorMaskingForHttpCodeAction',
+                 http_code: _builtins.str,
+                 logging_types: Sequence['OutboundExternalLinkResponderErrorMaskingLoggingType'],
+                 response_logging_percentage: Optional[_builtins.float] = None):
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "http_code", http_code)
+        pulumi.set(__self__, "logging_types", logging_types)
+        if response_logging_percentage is not None:
+            pulumi.set(__self__, "response_logging_percentage", response_logging_percentage)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> 'OutboundExternalLinkResponderErrorMaskingForHttpCodeAction':
+        return pulumi.get(self, "action")
+
+    @_builtins.property
+    @pulumi.getter(name="httpCode")
+    def http_code(self) -> _builtins.str:
+        return pulumi.get(self, "http_code")
+
+    @_builtins.property
+    @pulumi.getter(name="loggingTypes")
+    def logging_types(self) -> Sequence['OutboundExternalLinkResponderErrorMaskingLoggingType']:
+        return pulumi.get(self, "logging_types")
+
+    @_builtins.property
+    @pulumi.getter(name="responseLoggingPercentage")
+    def response_logging_percentage(self) -> Optional[_builtins.float]:
         return pulumi.get(self, "response_logging_percentage")
 
 

@@ -70,6 +70,10 @@ export class Table extends pulumi.CustomResource {
      */
     declare public readonly tableName: pulumi.Output<string>;
     /**
+     * User tags (key-value pairs) to associate with the table.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
      * The version token of the table.
      */
     declare public /*out*/ readonly versionToken: pulumi.Output<string>;
@@ -109,6 +113,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["snapshotManagement"] = args?.snapshotManagement;
             resourceInputs["tableBucketArn"] = args?.tableBucketArn;
             resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["withoutMetadata"] = args?.withoutMetadata;
             resourceInputs["tableArn"] = undefined /*out*/;
             resourceInputs["versionToken"] = undefined /*out*/;
@@ -122,6 +127,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["tableArn"] = undefined /*out*/;
             resourceInputs["tableBucketArn"] = undefined /*out*/;
             resourceInputs["tableName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["versionToken"] = undefined /*out*/;
             resourceInputs["warehouseLocation"] = undefined /*out*/;
             resourceInputs["withoutMetadata"] = undefined /*out*/;
@@ -165,6 +171,10 @@ export interface TableArgs {
      * The name for the table.
      */
     tableName?: pulumi.Input<string>;
+    /**
+     * User tags (key-value pairs) to associate with the table.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
      */

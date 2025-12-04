@@ -41,6 +41,12 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         public Input<Inputs.ListenerRuleForwardConfigArgs>? ForwardConfig { get; set; }
 
         /// <summary>
+        /// [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when `Type` is `jwt-validation` .
+        /// </summary>
+        [Input("jwtValidationConfig")]
+        public Input<Inputs.ListenerRuleJwtValidationConfigArgs>? JwtValidationConfig { get; set; }
+
+        /// <summary>
         /// The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
         /// </summary>
         [Input("order")]

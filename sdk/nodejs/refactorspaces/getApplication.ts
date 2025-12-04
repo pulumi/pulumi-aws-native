@@ -31,7 +31,7 @@ export interface GetApplicationArgs {
 
 export interface GetApplicationResult {
     /**
-     * The resource ID of the API Gateway for the proxy.
+     * The resource ID of the ABP for the proxy.
      */
     readonly apiGatewayId?: string;
     /**
@@ -51,11 +51,11 @@ export interface GetApplicationResult {
      */
     readonly nlbName?: string;
     /**
-     * The endpoint URL of the Amazon API Gateway proxy.
+     * The endpoint URL of the ABPlong proxy.
      */
     readonly proxyUrl?: string;
     /**
-     * The name of the API Gateway stage. The name defaults to `prod` .
+     * The name of the ABP stage. The name defaults to `prod` .
      */
     readonly stageName?: string;
     /**
@@ -63,7 +63,7 @@ export interface GetApplicationResult {
      */
     readonly tags?: outputs.Tag[];
     /**
-     * The `VpcLink` ID of the API Gateway proxy.
+     * The `VpcLink` ID of the ABP proxy.
      */
     readonly vpcLinkId?: string;
 }

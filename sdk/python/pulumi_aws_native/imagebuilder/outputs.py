@@ -23,6 +23,7 @@ __all__ = [
     'ContainerRecipeEbsInstanceBlockDeviceSpecification',
     'ContainerRecipeInstanceBlockDeviceMapping',
     'ContainerRecipeInstanceConfiguration',
+    'ContainerRecipeLatestVersion',
     'ContainerRecipeTargetContainerRepository',
     'DistributionConfigurationAmiDistributionConfiguration',
     'DistributionConfigurationContainerDistributionConfiguration',
@@ -52,6 +53,7 @@ __all__ = [
     'ImageRecipeComponentParameter',
     'ImageRecipeEbsInstanceBlockDeviceSpecification',
     'ImageRecipeInstanceBlockDeviceMapping',
+    'ImageRecipeLatestVersion',
     'ImageRecipeSystemsManagerAgent',
     'ImageScanningConfiguration',
     'ImageTestsConfiguration',
@@ -479,6 +481,65 @@ class ContainerRecipeInstanceConfiguration(dict):
         The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
         """
         return pulumi.get(self, "image")
+
+
+@pulumi.output_type
+class ContainerRecipeLatestVersion(dict):
+    """
+    The latest version references of the container recipe.
+    """
+    def __init__(__self__, *,
+                 arn: Optional[_builtins.str] = None,
+                 major: Optional[_builtins.str] = None,
+                 minor: Optional[_builtins.str] = None,
+                 patch: Optional[_builtins.str] = None):
+        """
+        The latest version references of the container recipe.
+        :param _builtins.str arn: The latest version ARN of the created container recipe.
+        :param _builtins.str major: The latest version ARN of the created container recipe, with the same major version.
+        :param _builtins.str minor: The latest version ARN of the created container recipe, with the same minor version.
+        :param _builtins.str patch: The latest version ARN of the created container recipe, with the same patch version.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if major is not None:
+            pulumi.set(__self__, "major", major)
+        if minor is not None:
+            pulumi.set(__self__, "minor", minor)
+        if patch is not None:
+            pulumi.set(__self__, "patch", patch)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> Optional[_builtins.str]:
+        """
+        The latest version ARN of the created container recipe.
+        """
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def major(self) -> Optional[_builtins.str]:
+        """
+        The latest version ARN of the created container recipe, with the same major version.
+        """
+        return pulumi.get(self, "major")
+
+    @_builtins.property
+    @pulumi.getter
+    def minor(self) -> Optional[_builtins.str]:
+        """
+        The latest version ARN of the created container recipe, with the same minor version.
+        """
+        return pulumi.get(self, "minor")
+
+    @_builtins.property
+    @pulumi.getter
+    def patch(self) -> Optional[_builtins.str]:
+        """
+        The latest version ARN of the created container recipe, with the same patch version.
+        """
+        return pulumi.get(self, "patch")
 
 
 @pulumi.output_type
@@ -2330,6 +2391,65 @@ class ImageRecipeInstanceBlockDeviceMapping(dict):
         Use to manage instance ephemeral devices.
         """
         return pulumi.get(self, "virtual_name")
+
+
+@pulumi.output_type
+class ImageRecipeLatestVersion(dict):
+    """
+    The latest version references of the image recipe.
+    """
+    def __init__(__self__, *,
+                 arn: Optional[_builtins.str] = None,
+                 major: Optional[_builtins.str] = None,
+                 minor: Optional[_builtins.str] = None,
+                 patch: Optional[_builtins.str] = None):
+        """
+        The latest version references of the image recipe.
+        :param _builtins.str arn: The latest version ARN of the created image recipe.
+        :param _builtins.str major: The latest version ARN of the created image recipe, with the same major version.
+        :param _builtins.str minor: The latest version ARN of the created image recipe, with the same minor version.
+        :param _builtins.str patch: The latest version ARN of the created image recipe, with the same patch version.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if major is not None:
+            pulumi.set(__self__, "major", major)
+        if minor is not None:
+            pulumi.set(__self__, "minor", minor)
+        if patch is not None:
+            pulumi.set(__self__, "patch", patch)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> Optional[_builtins.str]:
+        """
+        The latest version ARN of the created image recipe.
+        """
+        return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def major(self) -> Optional[_builtins.str]:
+        """
+        The latest version ARN of the created image recipe, with the same major version.
+        """
+        return pulumi.get(self, "major")
+
+    @_builtins.property
+    @pulumi.getter
+    def minor(self) -> Optional[_builtins.str]:
+        """
+        The latest version ARN of the created image recipe, with the same minor version.
+        """
+        return pulumi.get(self, "minor")
+
+    @_builtins.property
+    @pulumi.getter
+    def patch(self) -> Optional[_builtins.str]:
+        """
+        The latest version ARN of the created image recipe, with the same patch version.
+        """
+        return pulumi.get(self, "patch")
 
 
 @pulumi.output_type

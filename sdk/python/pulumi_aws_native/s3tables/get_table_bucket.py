@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,13 +26,19 @@ __all__ = [
 
 @pulumi.output_type
 class GetTableBucketResult:
-    def __init__(__self__, encryption_configuration=None, table_bucket_arn=None, unreferenced_file_removal=None):
+    def __init__(__self__, encryption_configuration=None, metrics_configuration=None, table_bucket_arn=None, tags=None, unreferenced_file_removal=None):
         if encryption_configuration and not isinstance(encryption_configuration, dict):
             raise TypeError("Expected argument 'encryption_configuration' to be a dict")
         pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+        if metrics_configuration and not isinstance(metrics_configuration, dict):
+            raise TypeError("Expected argument 'metrics_configuration' to be a dict")
+        pulumi.set(__self__, "metrics_configuration", metrics_configuration)
         if table_bucket_arn and not isinstance(table_bucket_arn, str):
             raise TypeError("Expected argument 'table_bucket_arn' to be a str")
         pulumi.set(__self__, "table_bucket_arn", table_bucket_arn)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if unreferenced_file_removal and not isinstance(unreferenced_file_removal, dict):
             raise TypeError("Expected argument 'unreferenced_file_removal' to be a dict")
         pulumi.set(__self__, "unreferenced_file_removal", unreferenced_file_removal)
@@ -45,12 +52,25 @@ class GetTableBucketResult:
         return pulumi.get(self, "encryption_configuration")
 
     @_builtins.property
+    @pulumi.getter(name="metricsConfiguration")
+    def metrics_configuration(self) -> Optional['outputs.TableBucketMetricsConfiguration']:
+        return pulumi.get(self, "metrics_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> Optional[_builtins.str]:
         """
         The Amazon Resource Name (ARN) of the table bucket.
         """
         return pulumi.get(self, "table_bucket_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        User tags (key-value pairs) to associate with the table bucket.
+        """
+        return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="unreferencedFileRemoval")
@@ -68,7 +88,9 @@ class AwaitableGetTableBucketResult(GetTableBucketResult):
             yield self
         return GetTableBucketResult(
             encryption_configuration=self.encryption_configuration,
+            metrics_configuration=self.metrics_configuration,
             table_bucket_arn=self.table_bucket_arn,
+            tags=self.tags,
             unreferenced_file_removal=self.unreferenced_file_removal)
 
 
@@ -87,7 +109,9 @@ def get_table_bucket(table_bucket_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetTableBucketResult(
         encryption_configuration=pulumi.get(__ret__, 'encryption_configuration'),
+        metrics_configuration=pulumi.get(__ret__, 'metrics_configuration'),
         table_bucket_arn=pulumi.get(__ret__, 'table_bucket_arn'),
+        tags=pulumi.get(__ret__, 'tags'),
         unreferenced_file_removal=pulumi.get(__ret__, 'unreferenced_file_removal'))
 def get_table_bucket_output(table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableBucketResult]:
@@ -103,5 +127,7 @@ def get_table_bucket_output(table_bucket_arn: Optional[pulumi.Input[_builtins.st
     __ret__ = pulumi.runtime.invoke_output('aws-native:s3tables:getTableBucket', __args__, opts=opts, typ=GetTableBucketResult)
     return __ret__.apply(lambda __response__: GetTableBucketResult(
         encryption_configuration=pulumi.get(__response__, 'encryption_configuration'),
+        metrics_configuration=pulumi.get(__response__, 'metrics_configuration'),
         table_bucket_arn=pulumi.get(__response__, 'table_bucket_arn'),
+        tags=pulumi.get(__response__, 'tags'),
         unreferenced_file_removal=pulumi.get(__response__, 'unreferenced_file_removal')))

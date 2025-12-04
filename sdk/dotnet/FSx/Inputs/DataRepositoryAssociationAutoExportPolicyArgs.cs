@@ -11,8 +11,7 @@ namespace Pulumi.AwsNative.FSx.Inputs
 {
 
     /// <summary>
-    /// Describes a data repository association's automatic export policy. The ``AutoExportPolicy`` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
-    ///  The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+    /// Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
     /// </summary>
     public sealed class DataRepositoryAssociationAutoExportPolicyArgs : global::Pulumi.ResourceArgs
     {
@@ -20,12 +19,13 @@ namespace Pulumi.AwsNative.FSx.Inputs
         private InputList<Pulumi.AwsNative.FSx.DataRepositoryAssociationEventType>? _events;
 
         /// <summary>
-        /// The ``AutoExportPolicy`` can have the following event values:
-        ///   +   ``NEW`` - New files and directories are automatically exported to the data repository as they are added to the file system.
-        ///   +   ``CHANGED`` - Changes to files and directories on the file system are automatically exported to the data repository.
-        ///   +   ``DELETED`` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
-        ///   
-        ///  You can define any combination of event types for your ``AutoExportPolicy``.
+        /// The `AutoExportPolicy` can have the following event values:
+        /// 
+        /// - `NEW` - New files and directories are automatically exported to the data repository as they are added to the file system.
+        /// - `CHANGED` - Changes to files and directories on the file system are automatically exported to the data repository.
+        /// - `DELETED` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
+        /// 
+        /// You can define any combination of event types for your `AutoExportPolicy` .
         /// </summary>
         public InputList<Pulumi.AwsNative.FSx.DataRepositoryAssociationEventType> Events
         {

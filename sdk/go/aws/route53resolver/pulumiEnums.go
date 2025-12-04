@@ -1036,8 +1036,9 @@ func (in *firewallRuleGroupFirewallRuleConfidenceThresholdPtr) ToFirewallRuleGro
 type FirewallRuleGroupFirewallRuleDnsThreatProtection string
 
 const (
-	FirewallRuleGroupFirewallRuleDnsThreatProtectionDga          = FirewallRuleGroupFirewallRuleDnsThreatProtection("DGA")
-	FirewallRuleGroupFirewallRuleDnsThreatProtectionDnsTunneling = FirewallRuleGroupFirewallRuleDnsThreatProtection("DNS_TUNNELING")
+	FirewallRuleGroupFirewallRuleDnsThreatProtectionDga           = FirewallRuleGroupFirewallRuleDnsThreatProtection("DGA")
+	FirewallRuleGroupFirewallRuleDnsThreatProtectionDnsTunneling  = FirewallRuleGroupFirewallRuleDnsThreatProtection("DNS_TUNNELING")
+	FirewallRuleGroupFirewallRuleDnsThreatProtectionDictionaryDga = FirewallRuleGroupFirewallRuleDnsThreatProtection("DICTIONARY_DGA")
 )
 
 func (FirewallRuleGroupFirewallRuleDnsThreatProtection) ElementType() reflect.Type {
@@ -1164,6 +1165,7 @@ func (o FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput) ToStringPtrOu
 //
 //	FirewallRuleGroupFirewallRuleDnsThreatProtectionDga
 //	FirewallRuleGroupFirewallRuleDnsThreatProtectionDnsTunneling
+//	FirewallRuleGroupFirewallRuleDnsThreatProtectionDictionaryDga
 type FirewallRuleGroupFirewallRuleDnsThreatProtectionInput interface {
 	pulumi.Input
 

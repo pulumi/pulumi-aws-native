@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetDataPrepSimpleAggregationFunction
     {
+        /// <summary>
+        /// The type of aggregation function to perform, such as `COUNT` , `SUM` , `AVERAGE` , `MIN` , `MAX` , `MEDIAN` , `VARIANCE` , or `STANDARD_DEVIATION` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetDataPrepSimpleAggregationFunctionType FunctionType;
+        /// <summary>
+        /// The name of the column on which to perform the aggregation function.
+        /// </summary>
         public readonly string? InputColumnName;
 
         [OutputConstructor]

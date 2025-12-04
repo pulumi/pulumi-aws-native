@@ -39,6 +39,37 @@ namespace Pulumi.AwsNative.S3Tables
     }
 
     /// <summary>
+    /// Indicates whether Metrics are enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct TableBucketMetricsConfigurationStatus : IEquatable<TableBucketMetricsConfigurationStatus>
+    {
+        private readonly string _value;
+
+        private TableBucketMetricsConfigurationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TableBucketMetricsConfigurationStatus Enabled { get; } = new TableBucketMetricsConfigurationStatus("Enabled");
+        public static TableBucketMetricsConfigurationStatus Disabled { get; } = new TableBucketMetricsConfigurationStatus("Disabled");
+
+        public static bool operator ==(TableBucketMetricsConfigurationStatus left, TableBucketMetricsConfigurationStatus right) => left.Equals(right);
+        public static bool operator !=(TableBucketMetricsConfigurationStatus left, TableBucketMetricsConfigurationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(TableBucketMetricsConfigurationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TableBucketMetricsConfigurationStatus other && Equals(other);
+        public bool Equals(TableBucketMetricsConfigurationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether the Unreferenced File Removal maintenance action is enabled.
     /// </summary>
     [EnumType]

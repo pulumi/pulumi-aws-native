@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetTablePathElementArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The unique identifier of the path element.
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The name of the path element.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

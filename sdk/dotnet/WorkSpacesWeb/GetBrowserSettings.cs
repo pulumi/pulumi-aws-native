@@ -79,6 +79,10 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// The tags to add to the browser settings resource. A tag is a key-value pair.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.
+        /// </summary>
+        public readonly Outputs.BrowserSettingsWebContentFilteringPolicy? WebContentFilteringPolicy;
 
         [OutputConstructor]
         private GetBrowserSettingsResult(
@@ -88,12 +92,15 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
             string? browserSettingsArn,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            Outputs.BrowserSettingsWebContentFilteringPolicy? webContentFilteringPolicy)
         {
             AssociatedPortalArns = associatedPortalArns;
             BrowserPolicy = browserPolicy;
             BrowserSettingsArn = browserSettingsArn;
             Tags = tags;
+            WebContentFilteringPolicy = webContentFilteringPolicy;
         }
     }
 }

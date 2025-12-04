@@ -532,7 +532,9 @@ class StackSetAutoDeployment(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "retainStacksOnAccountRemoval":
+        if key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "retainStacksOnAccountRemoval":
             suggest = "retain_stacks_on_account_removal"
 
         if suggest:
@@ -547,16 +549,28 @@ class StackSetAutoDeployment(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 depends_on: Optional[Sequence[_builtins.str]] = None,
                  enabled: Optional[_builtins.bool] = None,
                  retain_stacks_on_account_removal: Optional[_builtins.bool] = None):
         """
+        :param Sequence[_builtins.str] depends_on: A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet's operation begins.
         :param _builtins.bool enabled: If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
         :param _builtins.bool retain_stacks_on_account_removal: If set to true, stack resources are retained when an account is removed from a target organization or OU. If set to false, stack resources are deleted. Specify only if Enabled is set to True.
         """
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if retain_stacks_on_account_removal is not None:
             pulumi.set(__self__, "retain_stacks_on_account_removal", retain_stacks_on_account_removal)
+
+    @_builtins.property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet's operation begins.
+        """
+        return pulumi.get(self, "depends_on")
 
     @_builtins.property
     @pulumi.getter

@@ -70,6 +70,7 @@ export interface GetTableResult {
      * An array of key-value pairs to apply to this resource
      */
     readonly tags?: outputs.Tag[];
+    readonly warmThroughput?: outputs.cassandra.TableWarmThroughput;
 }
 /**
  * Resource schema for AWS::Cassandra::Table

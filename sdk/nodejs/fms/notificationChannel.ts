@@ -35,7 +35,7 @@ export class NotificationChannel extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
+     * The Amazon Resource Name (ARN) of the IAM role that allows Amazon  to record AWS Firewall Manager activity.
      */
     declare public readonly snsRoleName: pulumi.Output<string>;
     /**
@@ -76,7 +76,7 @@ export class NotificationChannel extends pulumi.CustomResource {
  */
 export interface NotificationChannelArgs {
     /**
-     * The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
+     * The Amazon Resource Name (ARN) of the IAM role that allows Amazon  to record AWS Firewall Manager activity.
      */
     snsRoleName: pulumi.Input<string>;
     /**

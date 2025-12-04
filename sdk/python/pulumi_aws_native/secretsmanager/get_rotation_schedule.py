@@ -24,7 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetRotationScheduleResult:
-    def __init__(__self__, id=None, rotation_lambda_arn=None, rotation_rules=None):
+    def __init__(__self__, external_secret_rotation_metadata=None, external_secret_rotation_role_arn=None, id=None, rotation_lambda_arn=None, rotation_rules=None):
+        if external_secret_rotation_metadata and not isinstance(external_secret_rotation_metadata, list):
+            raise TypeError("Expected argument 'external_secret_rotation_metadata' to be a list")
+        pulumi.set(__self__, "external_secret_rotation_metadata", external_secret_rotation_metadata)
+        if external_secret_rotation_role_arn and not isinstance(external_secret_rotation_role_arn, str):
+            raise TypeError("Expected argument 'external_secret_rotation_role_arn' to be a str")
+        pulumi.set(__self__, "external_secret_rotation_role_arn", external_secret_rotation_role_arn)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -34,6 +40,22 @@ class GetRotationScheduleResult:
         if rotation_rules and not isinstance(rotation_rules, dict):
             raise TypeError("Expected argument 'rotation_rules' to be a dict")
         pulumi.set(__self__, "rotation_rules", rotation_rules)
+
+    @_builtins.property
+    @pulumi.getter(name="externalSecretRotationMetadata")
+    def external_secret_rotation_metadata(self) -> Optional[Sequence['outputs.RotationScheduleExternalSecretRotationMetadataItem']]:
+        """
+        The list of metadata needed to successfully rotate a managed external secret.
+        """
+        return pulumi.get(self, "external_secret_rotation_metadata")
+
+    @_builtins.property
+    @pulumi.getter(name="externalSecretRotationRoleArn")
+    def external_secret_rotation_role_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the IAM role that is used by Secrets Manager to rotate a managed external secret.
+        """
+        return pulumi.get(self, "external_secret_rotation_role_arn")
 
     @_builtins.property
     @pulumi.getter
@@ -66,6 +88,8 @@ class AwaitableGetRotationScheduleResult(GetRotationScheduleResult):
         if False:
             yield self
         return GetRotationScheduleResult(
+            external_secret_rotation_metadata=self.external_secret_rotation_metadata,
+            external_secret_rotation_role_arn=self.external_secret_rotation_role_arn,
             id=self.id,
             rotation_lambda_arn=self.rotation_lambda_arn,
             rotation_rules=self.rotation_rules)
@@ -85,6 +109,8 @@ def get_rotation_schedule(id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:secretsmanager:getRotationSchedule', __args__, opts=opts, typ=GetRotationScheduleResult).value
 
     return AwaitableGetRotationScheduleResult(
+        external_secret_rotation_metadata=pulumi.get(__ret__, 'external_secret_rotation_metadata'),
+        external_secret_rotation_role_arn=pulumi.get(__ret__, 'external_secret_rotation_role_arn'),
         id=pulumi.get(__ret__, 'id'),
         rotation_lambda_arn=pulumi.get(__ret__, 'rotation_lambda_arn'),
         rotation_rules=pulumi.get(__ret__, 'rotation_rules'))
@@ -101,6 +127,8 @@ def get_rotation_schedule_output(id: Optional[pulumi.Input[_builtins.str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:secretsmanager:getRotationSchedule', __args__, opts=opts, typ=GetRotationScheduleResult)
     return __ret__.apply(lambda __response__: GetRotationScheduleResult(
+        external_secret_rotation_metadata=pulumi.get(__response__, 'external_secret_rotation_metadata'),
+        external_secret_rotation_role_arn=pulumi.get(__response__, 'external_secret_rotation_role_arn'),
         id=pulumi.get(__response__, 'id'),
         rotation_lambda_arn=pulumi.get(__response__, 'rotation_lambda_arn'),
         rotation_rules=pulumi.get(__response__, 'rotation_rules')))

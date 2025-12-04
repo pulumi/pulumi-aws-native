@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<Pulumi.AwsNative.IoT.EncryptionConfigurationEncryptionType> EncryptionType { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+        /// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS  on behalf of the customer.
         /// </summary>
         [Output("kmsAccessRoleArn")]
         public Output<string?> KmsAccessRoleArn { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.IoT
         public Input<Pulumi.AwsNative.IoT.EncryptionConfigurationEncryptionType> EncryptionType { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+        /// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS  on behalf of the customer.
         /// </summary>
         [Input("kmsAccessRoleArn")]
         public Input<string>? KmsAccessRoleArn { get; set; }

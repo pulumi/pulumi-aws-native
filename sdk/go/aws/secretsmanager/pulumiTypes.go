@@ -13,6 +13,115 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// The metadata needed to successfully rotate a managed external secret. Each metadata item is a key and value pair of strings in a JSON text string.
+type RotationScheduleExternalSecretRotationMetadataItem struct {
+	// The key name of the metadata item. You can specify a value that's 1 to 256 characters in length.
+	Key string `pulumi:"key"`
+	// The value for the metadata item. You can specify a value that's 1 to 2048 characters in length.
+	Value string `pulumi:"value"`
+}
+
+// RotationScheduleExternalSecretRotationMetadataItemInput is an input type that accepts RotationScheduleExternalSecretRotationMetadataItemArgs and RotationScheduleExternalSecretRotationMetadataItemOutput values.
+// You can construct a concrete instance of `RotationScheduleExternalSecretRotationMetadataItemInput` via:
+//
+//	RotationScheduleExternalSecretRotationMetadataItemArgs{...}
+type RotationScheduleExternalSecretRotationMetadataItemInput interface {
+	pulumi.Input
+
+	ToRotationScheduleExternalSecretRotationMetadataItemOutput() RotationScheduleExternalSecretRotationMetadataItemOutput
+	ToRotationScheduleExternalSecretRotationMetadataItemOutputWithContext(context.Context) RotationScheduleExternalSecretRotationMetadataItemOutput
+}
+
+// The metadata needed to successfully rotate a managed external secret. Each metadata item is a key and value pair of strings in a JSON text string.
+type RotationScheduleExternalSecretRotationMetadataItemArgs struct {
+	// The key name of the metadata item. You can specify a value that's 1 to 256 characters in length.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the metadata item. You can specify a value that's 1 to 2048 characters in length.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RotationScheduleExternalSecretRotationMetadataItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RotationScheduleExternalSecretRotationMetadataItem)(nil)).Elem()
+}
+
+func (i RotationScheduleExternalSecretRotationMetadataItemArgs) ToRotationScheduleExternalSecretRotationMetadataItemOutput() RotationScheduleExternalSecretRotationMetadataItemOutput {
+	return i.ToRotationScheduleExternalSecretRotationMetadataItemOutputWithContext(context.Background())
+}
+
+func (i RotationScheduleExternalSecretRotationMetadataItemArgs) ToRotationScheduleExternalSecretRotationMetadataItemOutputWithContext(ctx context.Context) RotationScheduleExternalSecretRotationMetadataItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RotationScheduleExternalSecretRotationMetadataItemOutput)
+}
+
+// RotationScheduleExternalSecretRotationMetadataItemArrayInput is an input type that accepts RotationScheduleExternalSecretRotationMetadataItemArray and RotationScheduleExternalSecretRotationMetadataItemArrayOutput values.
+// You can construct a concrete instance of `RotationScheduleExternalSecretRotationMetadataItemArrayInput` via:
+//
+//	RotationScheduleExternalSecretRotationMetadataItemArray{ RotationScheduleExternalSecretRotationMetadataItemArgs{...} }
+type RotationScheduleExternalSecretRotationMetadataItemArrayInput interface {
+	pulumi.Input
+
+	ToRotationScheduleExternalSecretRotationMetadataItemArrayOutput() RotationScheduleExternalSecretRotationMetadataItemArrayOutput
+	ToRotationScheduleExternalSecretRotationMetadataItemArrayOutputWithContext(context.Context) RotationScheduleExternalSecretRotationMetadataItemArrayOutput
+}
+
+type RotationScheduleExternalSecretRotationMetadataItemArray []RotationScheduleExternalSecretRotationMetadataItemInput
+
+func (RotationScheduleExternalSecretRotationMetadataItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RotationScheduleExternalSecretRotationMetadataItem)(nil)).Elem()
+}
+
+func (i RotationScheduleExternalSecretRotationMetadataItemArray) ToRotationScheduleExternalSecretRotationMetadataItemArrayOutput() RotationScheduleExternalSecretRotationMetadataItemArrayOutput {
+	return i.ToRotationScheduleExternalSecretRotationMetadataItemArrayOutputWithContext(context.Background())
+}
+
+func (i RotationScheduleExternalSecretRotationMetadataItemArray) ToRotationScheduleExternalSecretRotationMetadataItemArrayOutputWithContext(ctx context.Context) RotationScheduleExternalSecretRotationMetadataItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RotationScheduleExternalSecretRotationMetadataItemArrayOutput)
+}
+
+// The metadata needed to successfully rotate a managed external secret. Each metadata item is a key and value pair of strings in a JSON text string.
+type RotationScheduleExternalSecretRotationMetadataItemOutput struct{ *pulumi.OutputState }
+
+func (RotationScheduleExternalSecretRotationMetadataItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RotationScheduleExternalSecretRotationMetadataItem)(nil)).Elem()
+}
+
+func (o RotationScheduleExternalSecretRotationMetadataItemOutput) ToRotationScheduleExternalSecretRotationMetadataItemOutput() RotationScheduleExternalSecretRotationMetadataItemOutput {
+	return o
+}
+
+func (o RotationScheduleExternalSecretRotationMetadataItemOutput) ToRotationScheduleExternalSecretRotationMetadataItemOutputWithContext(ctx context.Context) RotationScheduleExternalSecretRotationMetadataItemOutput {
+	return o
+}
+
+// The key name of the metadata item. You can specify a value that's 1 to 256 characters in length.
+func (o RotationScheduleExternalSecretRotationMetadataItemOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RotationScheduleExternalSecretRotationMetadataItem) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the metadata item. You can specify a value that's 1 to 2048 characters in length.
+func (o RotationScheduleExternalSecretRotationMetadataItemOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RotationScheduleExternalSecretRotationMetadataItem) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RotationScheduleExternalSecretRotationMetadataItemArrayOutput struct{ *pulumi.OutputState }
+
+func (RotationScheduleExternalSecretRotationMetadataItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RotationScheduleExternalSecretRotationMetadataItem)(nil)).Elem()
+}
+
+func (o RotationScheduleExternalSecretRotationMetadataItemArrayOutput) ToRotationScheduleExternalSecretRotationMetadataItemArrayOutput() RotationScheduleExternalSecretRotationMetadataItemArrayOutput {
+	return o
+}
+
+func (o RotationScheduleExternalSecretRotationMetadataItemArrayOutput) ToRotationScheduleExternalSecretRotationMetadataItemArrayOutputWithContext(ctx context.Context) RotationScheduleExternalSecretRotationMetadataItemArrayOutput {
+	return o
+}
+
+func (o RotationScheduleExternalSecretRotationMetadataItemArrayOutput) Index(i pulumi.IntInput) RotationScheduleExternalSecretRotationMetadataItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RotationScheduleExternalSecretRotationMetadataItem {
+		return vs[0].([]RotationScheduleExternalSecretRotationMetadataItem)[vs[1].(int)]
+	}).(RotationScheduleExternalSecretRotationMetadataItemOutput)
+}
+
 type RotationScheduleHostedRotationLambda struct {
 	// A string of the characters that you don't want in the password.
 	ExcludeCharacters *string `pulumi:"excludeCharacters"`
@@ -950,6 +1059,8 @@ type SecretTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RotationScheduleExternalSecretRotationMetadataItemInput)(nil)).Elem(), RotationScheduleExternalSecretRotationMetadataItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RotationScheduleExternalSecretRotationMetadataItemArrayInput)(nil)).Elem(), RotationScheduleExternalSecretRotationMetadataItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RotationScheduleHostedRotationLambdaInput)(nil)).Elem(), RotationScheduleHostedRotationLambdaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RotationScheduleHostedRotationLambdaPtrInput)(nil)).Elem(), RotationScheduleHostedRotationLambdaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RotationScheduleRotationRulesInput)(nil)).Elem(), RotationScheduleRotationRulesArgs{})
@@ -958,6 +1069,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretGenerateSecretStringPtrInput)(nil)).Elem(), SecretGenerateSecretStringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretReplicaRegionInput)(nil)).Elem(), SecretReplicaRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretReplicaRegionArrayInput)(nil)).Elem(), SecretReplicaRegionArray{})
+	pulumi.RegisterOutputType(RotationScheduleExternalSecretRotationMetadataItemOutput{})
+	pulumi.RegisterOutputType(RotationScheduleExternalSecretRotationMetadataItemArrayOutput{})
 	pulumi.RegisterOutputType(RotationScheduleHostedRotationLambdaOutput{})
 	pulumi.RegisterOutputType(RotationScheduleHostedRotationLambdaPtrOutput{})
 	pulumi.RegisterOutputType(RotationScheduleRotationRulesOutput{})

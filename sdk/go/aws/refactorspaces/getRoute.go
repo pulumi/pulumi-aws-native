@@ -35,7 +35,7 @@ type LookupRouteArgs struct {
 type LookupRouteResult struct {
 	// The Amazon Resource Name (ARN) of the route.
 	Arn *string `pulumi:"arn"`
-	// A mapping of Amazon API Gateway path resources to resource IDs.
+	// A mapping of ABPlong path resources to resource IDs.
 	PathResourceToId *string `pulumi:"pathResourceToId"`
 	// The unique identifier of the route.
 	RouteIdentifier *string `pulumi:"routeIdentifier"`
@@ -84,7 +84,7 @@ func (o LookupRouteResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// A mapping of Amazon API Gateway path resources to resource IDs.
+// A mapping of ABPlong path resources to resource IDs.
 func (o LookupRouteResultOutput) PathResourceToId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteResult) *string { return v.PathResourceToId }).(pulumi.StringPtrOutput)
 }

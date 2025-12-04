@@ -46,6 +46,8 @@ type TargetGroup struct {
 	ProtocolVersion pulumi.StringPtrOutput `pulumi:"protocolVersion"`
 	// The tags.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
+	TargetControlPort pulumi.IntPtrOutput `pulumi:"targetControlPort"`
 	// The ARN of the Target Group
 	TargetGroupArn pulumi.StringOutput `pulumi:"targetGroupArn"`
 	// The attributes.
@@ -142,6 +144,8 @@ type targetGroupArgs struct {
 	ProtocolVersion *string `pulumi:"protocolVersion"`
 	// The tags.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
+	TargetControlPort *int `pulumi:"targetControlPort"`
 	// The attributes.
 	TargetGroupAttributes []TargetGroupAttribute `pulumi:"targetGroupAttributes"`
 	// The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.
@@ -184,6 +188,8 @@ type TargetGroupArgs struct {
 	ProtocolVersion pulumi.StringPtrInput
 	// The tags.
 	Tags aws.TagArrayInput
+	// The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
+	TargetControlPort pulumi.IntPtrInput
 	// The attributes.
 	TargetGroupAttributes TargetGroupAttributeArrayInput
 	// The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.
@@ -306,6 +312,11 @@ func (o TargetGroupOutput) ProtocolVersion() pulumi.StringPtrOutput {
 // The tags.
 func (o TargetGroupOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TargetGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
+func (o TargetGroupOutput) TargetControlPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TargetGroup) pulumi.IntPtrOutput { return v.TargetControlPort }).(pulumi.IntPtrOutput)
 }
 
 // The ARN of the Target Group

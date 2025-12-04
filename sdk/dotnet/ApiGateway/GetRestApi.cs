@@ -83,6 +83,10 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly bool? DisableExecuteApiEndpoint;
         /// <summary>
+        /// The endpoint access mode for your RestApi.
+        /// </summary>
+        public readonly string? EndpointAccessMode;
+        /// <summary>
         /// A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
         /// </summary>
         public readonly Outputs.RestApiEndpointConfiguration? EndpointConfiguration;
@@ -108,6 +112,9 @@ namespace Pulumi.AwsNative.ApiGateway
         /// The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
         /// </summary>
         public readonly string? RootResourceId;
+        /// <summary>
+        /// The Transport Layer Security (TLS) version + cipher suite for this RestApi.
+        /// </summary>
         public readonly string? SecurityPolicy;
         /// <summary>
         /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
@@ -123,6 +130,8 @@ namespace Pulumi.AwsNative.ApiGateway
             string? description,
 
             bool? disableExecuteApiEndpoint,
+
+            string? endpointAccessMode,
 
             Outputs.RestApiEndpointConfiguration? endpointConfiguration,
 
@@ -144,6 +153,7 @@ namespace Pulumi.AwsNative.ApiGateway
             BinaryMediaTypes = binaryMediaTypes;
             Description = description;
             DisableExecuteApiEndpoint = disableExecuteApiEndpoint;
+            EndpointAccessMode = endpointAccessMode;
             EndpointConfiguration = endpointConfiguration;
             MinimumCompressionSize = minimumCompressionSize;
             Name = name;

@@ -1190,6 +1190,151 @@ func (o BucketAnalyticsConfigurationArrayOutput) Index(i pulumi.IntInput) Bucket
 	}).(BucketAnalyticsConfigurationOutput)
 }
 
+type BucketBlockedEncryptionTypes struct {
+	// The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.
+	//
+	// > Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+	EncryptionType []BucketBlockedEncryptionTypeListItem `pulumi:"encryptionType"`
+}
+
+// BucketBlockedEncryptionTypesInput is an input type that accepts BucketBlockedEncryptionTypesArgs and BucketBlockedEncryptionTypesOutput values.
+// You can construct a concrete instance of `BucketBlockedEncryptionTypesInput` via:
+//
+//	BucketBlockedEncryptionTypesArgs{...}
+type BucketBlockedEncryptionTypesInput interface {
+	pulumi.Input
+
+	ToBucketBlockedEncryptionTypesOutput() BucketBlockedEncryptionTypesOutput
+	ToBucketBlockedEncryptionTypesOutputWithContext(context.Context) BucketBlockedEncryptionTypesOutput
+}
+
+type BucketBlockedEncryptionTypesArgs struct {
+	// The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.
+	//
+	// > Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+	EncryptionType BucketBlockedEncryptionTypeListItemArrayInput `pulumi:"encryptionType"`
+}
+
+func (BucketBlockedEncryptionTypesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketBlockedEncryptionTypes)(nil)).Elem()
+}
+
+func (i BucketBlockedEncryptionTypesArgs) ToBucketBlockedEncryptionTypesOutput() BucketBlockedEncryptionTypesOutput {
+	return i.ToBucketBlockedEncryptionTypesOutputWithContext(context.Background())
+}
+
+func (i BucketBlockedEncryptionTypesArgs) ToBucketBlockedEncryptionTypesOutputWithContext(ctx context.Context) BucketBlockedEncryptionTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketBlockedEncryptionTypesOutput)
+}
+
+func (i BucketBlockedEncryptionTypesArgs) ToBucketBlockedEncryptionTypesPtrOutput() BucketBlockedEncryptionTypesPtrOutput {
+	return i.ToBucketBlockedEncryptionTypesPtrOutputWithContext(context.Background())
+}
+
+func (i BucketBlockedEncryptionTypesArgs) ToBucketBlockedEncryptionTypesPtrOutputWithContext(ctx context.Context) BucketBlockedEncryptionTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketBlockedEncryptionTypesOutput).ToBucketBlockedEncryptionTypesPtrOutputWithContext(ctx)
+}
+
+// BucketBlockedEncryptionTypesPtrInput is an input type that accepts BucketBlockedEncryptionTypesArgs, BucketBlockedEncryptionTypesPtr and BucketBlockedEncryptionTypesPtrOutput values.
+// You can construct a concrete instance of `BucketBlockedEncryptionTypesPtrInput` via:
+//
+//	        BucketBlockedEncryptionTypesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketBlockedEncryptionTypesPtrInput interface {
+	pulumi.Input
+
+	ToBucketBlockedEncryptionTypesPtrOutput() BucketBlockedEncryptionTypesPtrOutput
+	ToBucketBlockedEncryptionTypesPtrOutputWithContext(context.Context) BucketBlockedEncryptionTypesPtrOutput
+}
+
+type bucketBlockedEncryptionTypesPtrType BucketBlockedEncryptionTypesArgs
+
+func BucketBlockedEncryptionTypesPtr(v *BucketBlockedEncryptionTypesArgs) BucketBlockedEncryptionTypesPtrInput {
+	return (*bucketBlockedEncryptionTypesPtrType)(v)
+}
+
+func (*bucketBlockedEncryptionTypesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketBlockedEncryptionTypes)(nil)).Elem()
+}
+
+func (i *bucketBlockedEncryptionTypesPtrType) ToBucketBlockedEncryptionTypesPtrOutput() BucketBlockedEncryptionTypesPtrOutput {
+	return i.ToBucketBlockedEncryptionTypesPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketBlockedEncryptionTypesPtrType) ToBucketBlockedEncryptionTypesPtrOutputWithContext(ctx context.Context) BucketBlockedEncryptionTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketBlockedEncryptionTypesPtrOutput)
+}
+
+type BucketBlockedEncryptionTypesOutput struct{ *pulumi.OutputState }
+
+func (BucketBlockedEncryptionTypesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketBlockedEncryptionTypes)(nil)).Elem()
+}
+
+func (o BucketBlockedEncryptionTypesOutput) ToBucketBlockedEncryptionTypesOutput() BucketBlockedEncryptionTypesOutput {
+	return o
+}
+
+func (o BucketBlockedEncryptionTypesOutput) ToBucketBlockedEncryptionTypesOutputWithContext(ctx context.Context) BucketBlockedEncryptionTypesOutput {
+	return o
+}
+
+func (o BucketBlockedEncryptionTypesOutput) ToBucketBlockedEncryptionTypesPtrOutput() BucketBlockedEncryptionTypesPtrOutput {
+	return o.ToBucketBlockedEncryptionTypesPtrOutputWithContext(context.Background())
+}
+
+func (o BucketBlockedEncryptionTypesOutput) ToBucketBlockedEncryptionTypesPtrOutputWithContext(ctx context.Context) BucketBlockedEncryptionTypesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketBlockedEncryptionTypes) *BucketBlockedEncryptionTypes {
+		return &v
+	}).(BucketBlockedEncryptionTypesPtrOutput)
+}
+
+// The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.
+//
+// > Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+func (o BucketBlockedEncryptionTypesOutput) EncryptionType() BucketBlockedEncryptionTypeListItemArrayOutput {
+	return o.ApplyT(func(v BucketBlockedEncryptionTypes) []BucketBlockedEncryptionTypeListItem { return v.EncryptionType }).(BucketBlockedEncryptionTypeListItemArrayOutput)
+}
+
+type BucketBlockedEncryptionTypesPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketBlockedEncryptionTypesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketBlockedEncryptionTypes)(nil)).Elem()
+}
+
+func (o BucketBlockedEncryptionTypesPtrOutput) ToBucketBlockedEncryptionTypesPtrOutput() BucketBlockedEncryptionTypesPtrOutput {
+	return o
+}
+
+func (o BucketBlockedEncryptionTypesPtrOutput) ToBucketBlockedEncryptionTypesPtrOutputWithContext(ctx context.Context) BucketBlockedEncryptionTypesPtrOutput {
+	return o
+}
+
+func (o BucketBlockedEncryptionTypesPtrOutput) Elem() BucketBlockedEncryptionTypesOutput {
+	return o.ApplyT(func(v *BucketBlockedEncryptionTypes) BucketBlockedEncryptionTypes {
+		if v != nil {
+			return *v
+		}
+		var ret BucketBlockedEncryptionTypes
+		return ret
+	}).(BucketBlockedEncryptionTypesOutput)
+}
+
+// The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.
+//
+// > Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+func (o BucketBlockedEncryptionTypesPtrOutput) EncryptionType() BucketBlockedEncryptionTypeListItemArrayOutput {
+	return o.ApplyT(func(v *BucketBlockedEncryptionTypes) []BucketBlockedEncryptionTypeListItem {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionType
+	}).(BucketBlockedEncryptionTypeListItemArrayOutput)
+}
+
 // Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
 type BucketCorsConfiguration struct {
 	// A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
@@ -9334,6 +9479,10 @@ func (o BucketServerSideEncryptionByDefaultPtrOutput) SseAlgorithm() BucketServe
 //   - *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
 //   - *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
 type BucketServerSideEncryptionRule struct {
+	// A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block `PutObject` , `CopyObject` , `PostObject` , multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html) .
+	//
+	// > Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+	BlockedEncryptionTypes *BucketBlockedEncryptionTypes `pulumi:"blockedEncryptionTypes"`
 	// Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the ``BucketKeyEnabled`` element to ``true`` causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
 	//  For more information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the *Amazon S3 User Guide*.
 	BucketKeyEnabled *bool `pulumi:"bucketKeyEnabled"`
@@ -9356,6 +9505,10 @@ type BucketServerSideEncryptionRuleInput interface {
 //   - *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
 //   - *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
 type BucketServerSideEncryptionRuleArgs struct {
+	// A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block `PutObject` , `CopyObject` , `PostObject` , multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html) .
+	//
+	// > Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+	BlockedEncryptionTypes BucketBlockedEncryptionTypesPtrInput `pulumi:"blockedEncryptionTypes"`
 	// Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the ``BucketKeyEnabled`` element to ``true`` causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
 	//  For more information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the *Amazon S3 User Guide*.
 	BucketKeyEnabled pulumi.BoolPtrInput `pulumi:"bucketKeyEnabled"`
@@ -9415,6 +9568,13 @@ func (o BucketServerSideEncryptionRuleOutput) ToBucketServerSideEncryptionRuleOu
 
 func (o BucketServerSideEncryptionRuleOutput) ToBucketServerSideEncryptionRuleOutputWithContext(ctx context.Context) BucketServerSideEncryptionRuleOutput {
 	return o
+}
+
+// A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block `PutObject` , `CopyObject` , `PostObject` , multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html) .
+//
+// > Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+func (o BucketServerSideEncryptionRuleOutput) BlockedEncryptionTypes() BucketBlockedEncryptionTypesPtrOutput {
+	return o.ApplyT(func(v BucketServerSideEncryptionRule) *BucketBlockedEncryptionTypes { return v.BlockedEncryptionTypes }).(BucketBlockedEncryptionTypesPtrOutput)
 }
 
 // Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the “BucketKeyEnabled“ element to “true“ causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
@@ -11336,6 +11496,7 @@ type StorageLensAccountLevel struct {
 	AdvancedCostOptimizationMetrics *StorageLensAdvancedCostOptimizationMetrics `pulumi:"advancedCostOptimizationMetrics"`
 	// This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
 	AdvancedDataProtectionMetrics *StorageLensAdvancedDataProtectionMetrics `pulumi:"advancedDataProtectionMetrics"`
+	AdvancedPerformanceMetrics    *StorageLensAdvancedPerformanceMetrics    `pulumi:"advancedPerformanceMetrics"`
 	// This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens. To enable bucket-level configurations, make sure to also set the same metrics at the account level.
 	BucketLevel StorageLensBucketLevel `pulumi:"bucketLevel"`
 	// This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
@@ -11363,6 +11524,7 @@ type StorageLensAccountLevelArgs struct {
 	AdvancedCostOptimizationMetrics StorageLensAdvancedCostOptimizationMetricsPtrInput `pulumi:"advancedCostOptimizationMetrics"`
 	// This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
 	AdvancedDataProtectionMetrics StorageLensAdvancedDataProtectionMetricsPtrInput `pulumi:"advancedDataProtectionMetrics"`
+	AdvancedPerformanceMetrics    StorageLensAdvancedPerformanceMetricsPtrInput    `pulumi:"advancedPerformanceMetrics"`
 	// This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens. To enable bucket-level configurations, make sure to also set the same metrics at the account level.
 	BucketLevel StorageLensBucketLevelInput `pulumi:"bucketLevel"`
 	// This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
@@ -11415,6 +11577,12 @@ func (o StorageLensAccountLevelOutput) AdvancedDataProtectionMetrics() StorageLe
 	return o.ApplyT(func(v StorageLensAccountLevel) *StorageLensAdvancedDataProtectionMetrics {
 		return v.AdvancedDataProtectionMetrics
 	}).(StorageLensAdvancedDataProtectionMetricsPtrOutput)
+}
+
+func (o StorageLensAccountLevelOutput) AdvancedPerformanceMetrics() StorageLensAdvancedPerformanceMetricsPtrOutput {
+	return o.ApplyT(func(v StorageLensAccountLevel) *StorageLensAdvancedPerformanceMetrics {
+		return v.AdvancedPerformanceMetrics
+	}).(StorageLensAdvancedPerformanceMetricsPtrOutput)
 }
 
 // This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens. To enable bucket-level configurations, make sure to also set the same metrics at the account level.
@@ -11854,6 +12022,146 @@ func (o StorageLensAdvancedDataProtectionMetricsPtrOutput) IsEnabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Advanced Performance Metrics.
+type StorageLensAdvancedPerformanceMetrics struct {
+	// Specifies whether the Advanced Performance Metrics is enabled or disabled.
+	IsEnabled *bool `pulumi:"isEnabled"`
+}
+
+// StorageLensAdvancedPerformanceMetricsInput is an input type that accepts StorageLensAdvancedPerformanceMetricsArgs and StorageLensAdvancedPerformanceMetricsOutput values.
+// You can construct a concrete instance of `StorageLensAdvancedPerformanceMetricsInput` via:
+//
+//	StorageLensAdvancedPerformanceMetricsArgs{...}
+type StorageLensAdvancedPerformanceMetricsInput interface {
+	pulumi.Input
+
+	ToStorageLensAdvancedPerformanceMetricsOutput() StorageLensAdvancedPerformanceMetricsOutput
+	ToStorageLensAdvancedPerformanceMetricsOutputWithContext(context.Context) StorageLensAdvancedPerformanceMetricsOutput
+}
+
+// Advanced Performance Metrics.
+type StorageLensAdvancedPerformanceMetricsArgs struct {
+	// Specifies whether the Advanced Performance Metrics is enabled or disabled.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+}
+
+func (StorageLensAdvancedPerformanceMetricsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensAdvancedPerformanceMetrics)(nil)).Elem()
+}
+
+func (i StorageLensAdvancedPerformanceMetricsArgs) ToStorageLensAdvancedPerformanceMetricsOutput() StorageLensAdvancedPerformanceMetricsOutput {
+	return i.ToStorageLensAdvancedPerformanceMetricsOutputWithContext(context.Background())
+}
+
+func (i StorageLensAdvancedPerformanceMetricsArgs) ToStorageLensAdvancedPerformanceMetricsOutputWithContext(ctx context.Context) StorageLensAdvancedPerformanceMetricsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAdvancedPerformanceMetricsOutput)
+}
+
+func (i StorageLensAdvancedPerformanceMetricsArgs) ToStorageLensAdvancedPerformanceMetricsPtrOutput() StorageLensAdvancedPerformanceMetricsPtrOutput {
+	return i.ToStorageLensAdvancedPerformanceMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensAdvancedPerformanceMetricsArgs) ToStorageLensAdvancedPerformanceMetricsPtrOutputWithContext(ctx context.Context) StorageLensAdvancedPerformanceMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAdvancedPerformanceMetricsOutput).ToStorageLensAdvancedPerformanceMetricsPtrOutputWithContext(ctx)
+}
+
+// StorageLensAdvancedPerformanceMetricsPtrInput is an input type that accepts StorageLensAdvancedPerformanceMetricsArgs, StorageLensAdvancedPerformanceMetricsPtr and StorageLensAdvancedPerformanceMetricsPtrOutput values.
+// You can construct a concrete instance of `StorageLensAdvancedPerformanceMetricsPtrInput` via:
+//
+//	        StorageLensAdvancedPerformanceMetricsArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensAdvancedPerformanceMetricsPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensAdvancedPerformanceMetricsPtrOutput() StorageLensAdvancedPerformanceMetricsPtrOutput
+	ToStorageLensAdvancedPerformanceMetricsPtrOutputWithContext(context.Context) StorageLensAdvancedPerformanceMetricsPtrOutput
+}
+
+type storageLensAdvancedPerformanceMetricsPtrType StorageLensAdvancedPerformanceMetricsArgs
+
+func StorageLensAdvancedPerformanceMetricsPtr(v *StorageLensAdvancedPerformanceMetricsArgs) StorageLensAdvancedPerformanceMetricsPtrInput {
+	return (*storageLensAdvancedPerformanceMetricsPtrType)(v)
+}
+
+func (*storageLensAdvancedPerformanceMetricsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensAdvancedPerformanceMetrics)(nil)).Elem()
+}
+
+func (i *storageLensAdvancedPerformanceMetricsPtrType) ToStorageLensAdvancedPerformanceMetricsPtrOutput() StorageLensAdvancedPerformanceMetricsPtrOutput {
+	return i.ToStorageLensAdvancedPerformanceMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensAdvancedPerformanceMetricsPtrType) ToStorageLensAdvancedPerformanceMetricsPtrOutputWithContext(ctx context.Context) StorageLensAdvancedPerformanceMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAdvancedPerformanceMetricsPtrOutput)
+}
+
+// Advanced Performance Metrics.
+type StorageLensAdvancedPerformanceMetricsOutput struct{ *pulumi.OutputState }
+
+func (StorageLensAdvancedPerformanceMetricsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensAdvancedPerformanceMetrics)(nil)).Elem()
+}
+
+func (o StorageLensAdvancedPerformanceMetricsOutput) ToStorageLensAdvancedPerformanceMetricsOutput() StorageLensAdvancedPerformanceMetricsOutput {
+	return o
+}
+
+func (o StorageLensAdvancedPerformanceMetricsOutput) ToStorageLensAdvancedPerformanceMetricsOutputWithContext(ctx context.Context) StorageLensAdvancedPerformanceMetricsOutput {
+	return o
+}
+
+func (o StorageLensAdvancedPerformanceMetricsOutput) ToStorageLensAdvancedPerformanceMetricsPtrOutput() StorageLensAdvancedPerformanceMetricsPtrOutput {
+	return o.ToStorageLensAdvancedPerformanceMetricsPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensAdvancedPerformanceMetricsOutput) ToStorageLensAdvancedPerformanceMetricsPtrOutputWithContext(ctx context.Context) StorageLensAdvancedPerformanceMetricsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensAdvancedPerformanceMetrics) *StorageLensAdvancedPerformanceMetrics {
+		return &v
+	}).(StorageLensAdvancedPerformanceMetricsPtrOutput)
+}
+
+// Specifies whether the Advanced Performance Metrics is enabled or disabled.
+func (o StorageLensAdvancedPerformanceMetricsOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StorageLensAdvancedPerformanceMetrics) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type StorageLensAdvancedPerformanceMetricsPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensAdvancedPerformanceMetricsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensAdvancedPerformanceMetrics)(nil)).Elem()
+}
+
+func (o StorageLensAdvancedPerformanceMetricsPtrOutput) ToStorageLensAdvancedPerformanceMetricsPtrOutput() StorageLensAdvancedPerformanceMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensAdvancedPerformanceMetricsPtrOutput) ToStorageLensAdvancedPerformanceMetricsPtrOutputWithContext(ctx context.Context) StorageLensAdvancedPerformanceMetricsPtrOutput {
+	return o
+}
+
+func (o StorageLensAdvancedPerformanceMetricsPtrOutput) Elem() StorageLensAdvancedPerformanceMetricsOutput {
+	return o.ApplyT(func(v *StorageLensAdvancedPerformanceMetrics) StorageLensAdvancedPerformanceMetrics {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensAdvancedPerformanceMetrics
+		return ret
+	}).(StorageLensAdvancedPerformanceMetricsOutput)
+}
+
+// Specifies whether the Advanced Performance Metrics is enabled or disabled.
+func (o StorageLensAdvancedPerformanceMetricsPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageLensAdvancedPerformanceMetrics) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The AWS Organizations ARN to use in the Amazon S3 Storage Lens configuration.
 type StorageLensAwsOrg struct {
 	// This resource contains the ARN of the AWS Organization.
@@ -12002,6 +12310,7 @@ type StorageLensBucketLevel struct {
 	AdvancedCostOptimizationMetrics *StorageLensAdvancedCostOptimizationMetrics `pulumi:"advancedCostOptimizationMetrics"`
 	// A property for bucket-level advanced data protection metrics for S3 Storage Lens.
 	AdvancedDataProtectionMetrics *StorageLensAdvancedDataProtectionMetrics `pulumi:"advancedDataProtectionMetrics"`
+	AdvancedPerformanceMetrics    *StorageLensAdvancedPerformanceMetrics    `pulumi:"advancedPerformanceMetrics"`
 	// A property for bucket-level detailed status code metrics for S3 Storage Lens.
 	DetailedStatusCodesMetrics *StorageLensDetailedStatusCodesMetrics `pulumi:"detailedStatusCodesMetrics"`
 	// A property for bucket-level prefix-level storage metrics for S3 Storage Lens.
@@ -12027,6 +12336,7 @@ type StorageLensBucketLevelArgs struct {
 	AdvancedCostOptimizationMetrics StorageLensAdvancedCostOptimizationMetricsPtrInput `pulumi:"advancedCostOptimizationMetrics"`
 	// A property for bucket-level advanced data protection metrics for S3 Storage Lens.
 	AdvancedDataProtectionMetrics StorageLensAdvancedDataProtectionMetricsPtrInput `pulumi:"advancedDataProtectionMetrics"`
+	AdvancedPerformanceMetrics    StorageLensAdvancedPerformanceMetricsPtrInput    `pulumi:"advancedPerformanceMetrics"`
 	// A property for bucket-level detailed status code metrics for S3 Storage Lens.
 	DetailedStatusCodesMetrics StorageLensDetailedStatusCodesMetricsPtrInput `pulumi:"detailedStatusCodesMetrics"`
 	// A property for bucket-level prefix-level storage metrics for S3 Storage Lens.
@@ -12077,6 +12387,12 @@ func (o StorageLensBucketLevelOutput) AdvancedDataProtectionMetrics() StorageLen
 	return o.ApplyT(func(v StorageLensBucketLevel) *StorageLensAdvancedDataProtectionMetrics {
 		return v.AdvancedDataProtectionMetrics
 	}).(StorageLensAdvancedDataProtectionMetricsPtrOutput)
+}
+
+func (o StorageLensBucketLevelOutput) AdvancedPerformanceMetrics() StorageLensAdvancedPerformanceMetricsPtrOutput {
+	return o.ApplyT(func(v StorageLensBucketLevel) *StorageLensAdvancedPerformanceMetrics {
+		return v.AdvancedPerformanceMetrics
+	}).(StorageLensAdvancedPerformanceMetricsPtrOutput)
 }
 
 // A property for bucket-level detailed status code metrics for S3 Storage Lens.
@@ -12399,13 +12715,16 @@ type StorageLensConfiguration struct {
 	// This property contains the details of this S3 Storage Lens configuration's metrics export.
 	DataExport *StorageLensDataExport `pulumi:"dataExport"`
 	// This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
-	Exclude *StorageLensBucketsAndRegions `pulumi:"exclude"`
+	Exclude                    *StorageLensBucketsAndRegions          `pulumi:"exclude"`
+	ExpandedPrefixesDataExport *StorageLensExpandedPrefixesDataExport `pulumi:"expandedPrefixesDataExport"`
 	// This property contains the details of the ID of the S3 Storage Lens configuration.
 	Id string `pulumi:"id"`
 	// This property contains the details of the bucket and or Regions included for Amazon S3 Storage Lens configuration.
 	Include *StorageLensBucketsAndRegions `pulumi:"include"`
 	// Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
 	IsEnabled bool `pulumi:"isEnabled"`
+	// The delimiter to divide S3 key into hierarchy of prefixes.
+	PrefixDelimiter *string `pulumi:"prefixDelimiter"`
 	// The ARN for the Amazon S3 Storage Lens configuration.
 	StorageLensArn *string `pulumi:"storageLensArn"`
 }
@@ -12430,13 +12749,16 @@ type StorageLensConfigurationArgs struct {
 	// This property contains the details of this S3 Storage Lens configuration's metrics export.
 	DataExport StorageLensDataExportPtrInput `pulumi:"dataExport"`
 	// This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
-	Exclude StorageLensBucketsAndRegionsPtrInput `pulumi:"exclude"`
+	Exclude                    StorageLensBucketsAndRegionsPtrInput          `pulumi:"exclude"`
+	ExpandedPrefixesDataExport StorageLensExpandedPrefixesDataExportPtrInput `pulumi:"expandedPrefixesDataExport"`
 	// This property contains the details of the ID of the S3 Storage Lens configuration.
 	Id pulumi.StringInput `pulumi:"id"`
 	// This property contains the details of the bucket and or Regions included for Amazon S3 Storage Lens configuration.
 	Include StorageLensBucketsAndRegionsPtrInput `pulumi:"include"`
 	// Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// The delimiter to divide S3 key into hierarchy of prefixes.
+	PrefixDelimiter pulumi.StringPtrInput `pulumi:"prefixDelimiter"`
 	// The ARN for the Amazon S3 Storage Lens configuration.
 	StorageLensArn pulumi.StringPtrInput `pulumi:"storageLensArn"`
 }
@@ -12488,6 +12810,12 @@ func (o StorageLensConfigurationOutput) Exclude() StorageLensBucketsAndRegionsPt
 	return o.ApplyT(func(v StorageLensConfiguration) *StorageLensBucketsAndRegions { return v.Exclude }).(StorageLensBucketsAndRegionsPtrOutput)
 }
 
+func (o StorageLensConfigurationOutput) ExpandedPrefixesDataExport() StorageLensExpandedPrefixesDataExportPtrOutput {
+	return o.ApplyT(func(v StorageLensConfiguration) *StorageLensExpandedPrefixesDataExport {
+		return v.ExpandedPrefixesDataExport
+	}).(StorageLensExpandedPrefixesDataExportPtrOutput)
+}
+
 // This property contains the details of the ID of the S3 Storage Lens configuration.
 func (o StorageLensConfigurationOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensConfiguration) string { return v.Id }).(pulumi.StringOutput)
@@ -12501,6 +12829,11 @@ func (o StorageLensConfigurationOutput) Include() StorageLensBucketsAndRegionsPt
 // Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
 func (o StorageLensConfigurationOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v StorageLensConfiguration) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The delimiter to divide S3 key into hierarchy of prefixes.
+func (o StorageLensConfigurationOutput) PrefixDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageLensConfiguration) *string { return v.PrefixDelimiter }).(pulumi.StringPtrOutput)
 }
 
 // The ARN for the Amazon S3 Storage Lens configuration.
@@ -12926,6 +13259,144 @@ func (o StorageLensEncryptionPtrOutput) Elem() StorageLensEncryptionOutput {
 		var ret StorageLensEncryption
 		return ret
 	}).(StorageLensEncryptionOutput)
+}
+
+// Expanded Prefixes Data Export.
+type StorageLensExpandedPrefixesDataExport struct {
+	S3BucketDestination *StorageLensS3BucketDestination `pulumi:"s3BucketDestination"`
+}
+
+// StorageLensExpandedPrefixesDataExportInput is an input type that accepts StorageLensExpandedPrefixesDataExportArgs and StorageLensExpandedPrefixesDataExportOutput values.
+// You can construct a concrete instance of `StorageLensExpandedPrefixesDataExportInput` via:
+//
+//	StorageLensExpandedPrefixesDataExportArgs{...}
+type StorageLensExpandedPrefixesDataExportInput interface {
+	pulumi.Input
+
+	ToStorageLensExpandedPrefixesDataExportOutput() StorageLensExpandedPrefixesDataExportOutput
+	ToStorageLensExpandedPrefixesDataExportOutputWithContext(context.Context) StorageLensExpandedPrefixesDataExportOutput
+}
+
+// Expanded Prefixes Data Export.
+type StorageLensExpandedPrefixesDataExportArgs struct {
+	S3BucketDestination StorageLensS3BucketDestinationPtrInput `pulumi:"s3BucketDestination"`
+}
+
+func (StorageLensExpandedPrefixesDataExportArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensExpandedPrefixesDataExport)(nil)).Elem()
+}
+
+func (i StorageLensExpandedPrefixesDataExportArgs) ToStorageLensExpandedPrefixesDataExportOutput() StorageLensExpandedPrefixesDataExportOutput {
+	return i.ToStorageLensExpandedPrefixesDataExportOutputWithContext(context.Background())
+}
+
+func (i StorageLensExpandedPrefixesDataExportArgs) ToStorageLensExpandedPrefixesDataExportOutputWithContext(ctx context.Context) StorageLensExpandedPrefixesDataExportOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensExpandedPrefixesDataExportOutput)
+}
+
+func (i StorageLensExpandedPrefixesDataExportArgs) ToStorageLensExpandedPrefixesDataExportPtrOutput() StorageLensExpandedPrefixesDataExportPtrOutput {
+	return i.ToStorageLensExpandedPrefixesDataExportPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensExpandedPrefixesDataExportArgs) ToStorageLensExpandedPrefixesDataExportPtrOutputWithContext(ctx context.Context) StorageLensExpandedPrefixesDataExportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensExpandedPrefixesDataExportOutput).ToStorageLensExpandedPrefixesDataExportPtrOutputWithContext(ctx)
+}
+
+// StorageLensExpandedPrefixesDataExportPtrInput is an input type that accepts StorageLensExpandedPrefixesDataExportArgs, StorageLensExpandedPrefixesDataExportPtr and StorageLensExpandedPrefixesDataExportPtrOutput values.
+// You can construct a concrete instance of `StorageLensExpandedPrefixesDataExportPtrInput` via:
+//
+//	        StorageLensExpandedPrefixesDataExportArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensExpandedPrefixesDataExportPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensExpandedPrefixesDataExportPtrOutput() StorageLensExpandedPrefixesDataExportPtrOutput
+	ToStorageLensExpandedPrefixesDataExportPtrOutputWithContext(context.Context) StorageLensExpandedPrefixesDataExportPtrOutput
+}
+
+type storageLensExpandedPrefixesDataExportPtrType StorageLensExpandedPrefixesDataExportArgs
+
+func StorageLensExpandedPrefixesDataExportPtr(v *StorageLensExpandedPrefixesDataExportArgs) StorageLensExpandedPrefixesDataExportPtrInput {
+	return (*storageLensExpandedPrefixesDataExportPtrType)(v)
+}
+
+func (*storageLensExpandedPrefixesDataExportPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensExpandedPrefixesDataExport)(nil)).Elem()
+}
+
+func (i *storageLensExpandedPrefixesDataExportPtrType) ToStorageLensExpandedPrefixesDataExportPtrOutput() StorageLensExpandedPrefixesDataExportPtrOutput {
+	return i.ToStorageLensExpandedPrefixesDataExportPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensExpandedPrefixesDataExportPtrType) ToStorageLensExpandedPrefixesDataExportPtrOutputWithContext(ctx context.Context) StorageLensExpandedPrefixesDataExportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensExpandedPrefixesDataExportPtrOutput)
+}
+
+// Expanded Prefixes Data Export.
+type StorageLensExpandedPrefixesDataExportOutput struct{ *pulumi.OutputState }
+
+func (StorageLensExpandedPrefixesDataExportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensExpandedPrefixesDataExport)(nil)).Elem()
+}
+
+func (o StorageLensExpandedPrefixesDataExportOutput) ToStorageLensExpandedPrefixesDataExportOutput() StorageLensExpandedPrefixesDataExportOutput {
+	return o
+}
+
+func (o StorageLensExpandedPrefixesDataExportOutput) ToStorageLensExpandedPrefixesDataExportOutputWithContext(ctx context.Context) StorageLensExpandedPrefixesDataExportOutput {
+	return o
+}
+
+func (o StorageLensExpandedPrefixesDataExportOutput) ToStorageLensExpandedPrefixesDataExportPtrOutput() StorageLensExpandedPrefixesDataExportPtrOutput {
+	return o.ToStorageLensExpandedPrefixesDataExportPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensExpandedPrefixesDataExportOutput) ToStorageLensExpandedPrefixesDataExportPtrOutputWithContext(ctx context.Context) StorageLensExpandedPrefixesDataExportPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensExpandedPrefixesDataExport) *StorageLensExpandedPrefixesDataExport {
+		return &v
+	}).(StorageLensExpandedPrefixesDataExportPtrOutput)
+}
+
+func (o StorageLensExpandedPrefixesDataExportOutput) S3BucketDestination() StorageLensS3BucketDestinationPtrOutput {
+	return o.ApplyT(func(v StorageLensExpandedPrefixesDataExport) *StorageLensS3BucketDestination {
+		return v.S3BucketDestination
+	}).(StorageLensS3BucketDestinationPtrOutput)
+}
+
+type StorageLensExpandedPrefixesDataExportPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensExpandedPrefixesDataExportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensExpandedPrefixesDataExport)(nil)).Elem()
+}
+
+func (o StorageLensExpandedPrefixesDataExportPtrOutput) ToStorageLensExpandedPrefixesDataExportPtrOutput() StorageLensExpandedPrefixesDataExportPtrOutput {
+	return o
+}
+
+func (o StorageLensExpandedPrefixesDataExportPtrOutput) ToStorageLensExpandedPrefixesDataExportPtrOutputWithContext(ctx context.Context) StorageLensExpandedPrefixesDataExportPtrOutput {
+	return o
+}
+
+func (o StorageLensExpandedPrefixesDataExportPtrOutput) Elem() StorageLensExpandedPrefixesDataExportOutput {
+	return o.ApplyT(func(v *StorageLensExpandedPrefixesDataExport) StorageLensExpandedPrefixesDataExport {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensExpandedPrefixesDataExport
+		return ret
+	}).(StorageLensExpandedPrefixesDataExportOutput)
+}
+
+func (o StorageLensExpandedPrefixesDataExportPtrOutput) S3BucketDestination() StorageLensS3BucketDestinationPtrOutput {
+	return o.ApplyT(func(v *StorageLensExpandedPrefixesDataExport) *StorageLensS3BucketDestination {
+		if v == nil {
+			return nil
+		}
+		return v.S3BucketDestination
+	}).(StorageLensS3BucketDestinationPtrOutput)
 }
 
 // The Storage Lens group will include objects that match all of the specified filter values.
@@ -15016,6 +15487,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAccessControlTranslationPtrInput)(nil)).Elem(), BucketAccessControlTranslationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAnalyticsConfigurationInput)(nil)).Elem(), BucketAnalyticsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAnalyticsConfigurationArrayInput)(nil)).Elem(), BucketAnalyticsConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketBlockedEncryptionTypesInput)(nil)).Elem(), BucketBlockedEncryptionTypesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketBlockedEncryptionTypesPtrInput)(nil)).Elem(), BucketBlockedEncryptionTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketCorsConfigurationInput)(nil)).Elem(), BucketCorsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketCorsConfigurationPtrInput)(nil)).Elem(), BucketCorsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketCorsRuleInput)(nil)).Elem(), BucketCorsRuleArgs{})
@@ -15149,6 +15622,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensAdvancedCostOptimizationMetricsPtrInput)(nil)).Elem(), StorageLensAdvancedCostOptimizationMetricsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensAdvancedDataProtectionMetricsInput)(nil)).Elem(), StorageLensAdvancedDataProtectionMetricsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensAdvancedDataProtectionMetricsPtrInput)(nil)).Elem(), StorageLensAdvancedDataProtectionMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensAdvancedPerformanceMetricsInput)(nil)).Elem(), StorageLensAdvancedPerformanceMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensAdvancedPerformanceMetricsPtrInput)(nil)).Elem(), StorageLensAdvancedPerformanceMetricsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensAwsOrgInput)(nil)).Elem(), StorageLensAwsOrgArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensAwsOrgPtrInput)(nil)).Elem(), StorageLensAwsOrgArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensBucketLevelInput)(nil)).Elem(), StorageLensBucketLevelArgs{})
@@ -15163,6 +15638,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensDetailedStatusCodesMetricsPtrInput)(nil)).Elem(), StorageLensDetailedStatusCodesMetricsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensEncryptionInput)(nil)).Elem(), StorageLensEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensEncryptionPtrInput)(nil)).Elem(), StorageLensEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensExpandedPrefixesDataExportInput)(nil)).Elem(), StorageLensExpandedPrefixesDataExportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensExpandedPrefixesDataExportPtrInput)(nil)).Elem(), StorageLensExpandedPrefixesDataExportArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupAndInput)(nil)).Elem(), StorageLensGroupAndArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupAndPtrInput)(nil)).Elem(), StorageLensGroupAndArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupFilterInput)(nil)).Elem(), StorageLensGroupFilterArgs{})
@@ -15202,6 +15679,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketAccessControlTranslationPtrOutput{})
 	pulumi.RegisterOutputType(BucketAnalyticsConfigurationOutput{})
 	pulumi.RegisterOutputType(BucketAnalyticsConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(BucketBlockedEncryptionTypesOutput{})
+	pulumi.RegisterOutputType(BucketBlockedEncryptionTypesPtrOutput{})
 	pulumi.RegisterOutputType(BucketCorsConfigurationOutput{})
 	pulumi.RegisterOutputType(BucketCorsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BucketCorsRuleOutput{})
@@ -15337,6 +15816,8 @@ func init() {
 	pulumi.RegisterOutputType(StorageLensAdvancedCostOptimizationMetricsPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensAdvancedDataProtectionMetricsOutput{})
 	pulumi.RegisterOutputType(StorageLensAdvancedDataProtectionMetricsPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensAdvancedPerformanceMetricsOutput{})
+	pulumi.RegisterOutputType(StorageLensAdvancedPerformanceMetricsPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensAwsOrgOutput{})
 	pulumi.RegisterOutputType(StorageLensAwsOrgPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensBucketLevelOutput{})
@@ -15351,6 +15832,8 @@ func init() {
 	pulumi.RegisterOutputType(StorageLensDetailedStatusCodesMetricsPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensEncryptionOutput{})
 	pulumi.RegisterOutputType(StorageLensEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensExpandedPrefixesDataExportOutput{})
+	pulumi.RegisterOutputType(StorageLensExpandedPrefixesDataExportPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensGroupAndOutput{})
 	pulumi.RegisterOutputType(StorageLensGroupAndPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensGroupFilterOutput{})

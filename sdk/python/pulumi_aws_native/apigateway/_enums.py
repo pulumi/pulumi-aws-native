@@ -111,6 +111,9 @@ class MethodIntegrationResponseContentHandling(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:apigateway:MethodIntegrationResponseTransferMode")
 class MethodIntegrationResponseTransferMode(_builtins.str, Enum):
+    """
+    The response transfer mode of the integration. Use `STREAM` to have API Gateway stream response your back to you or use `BUFFERED` to have API Gateway wait to receive the complete response before beginning transmission.
+    """
     BUFFERED = "BUFFERED"
     STREAM = "STREAM"
 

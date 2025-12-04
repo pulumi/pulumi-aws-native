@@ -507,6 +507,92 @@ namespace Pulumi.AwsNative.Ecs
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ExpressGatewayServiceAccessType : IEquatable<ExpressGatewayServiceAccessType>
+    {
+        private readonly string _value;
+
+        private ExpressGatewayServiceAccessType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExpressGatewayServiceAccessType Public { get; } = new ExpressGatewayServiceAccessType("PUBLIC");
+        public static ExpressGatewayServiceAccessType Private { get; } = new ExpressGatewayServiceAccessType("PRIVATE");
+
+        public static bool operator ==(ExpressGatewayServiceAccessType left, ExpressGatewayServiceAccessType right) => left.Equals(right);
+        public static bool operator !=(ExpressGatewayServiceAccessType left, ExpressGatewayServiceAccessType right) => !left.Equals(right);
+
+        public static explicit operator string(ExpressGatewayServiceAccessType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExpressGatewayServiceAccessType other && Equals(other);
+        public bool Equals(ExpressGatewayServiceAccessType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ExpressGatewayServiceScalingMetric : IEquatable<ExpressGatewayServiceScalingMetric>
+    {
+        private readonly string _value;
+
+        private ExpressGatewayServiceScalingMetric(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExpressGatewayServiceScalingMetric AverageCpu { get; } = new ExpressGatewayServiceScalingMetric("AVERAGE_CPU");
+        public static ExpressGatewayServiceScalingMetric AverageMemory { get; } = new ExpressGatewayServiceScalingMetric("AVERAGE_MEMORY");
+        public static ExpressGatewayServiceScalingMetric RequestCountPerTarget { get; } = new ExpressGatewayServiceScalingMetric("REQUEST_COUNT_PER_TARGET");
+
+        public static bool operator ==(ExpressGatewayServiceScalingMetric left, ExpressGatewayServiceScalingMetric right) => left.Equals(right);
+        public static bool operator !=(ExpressGatewayServiceScalingMetric left, ExpressGatewayServiceScalingMetric right) => !left.Equals(right);
+
+        public static explicit operator string(ExpressGatewayServiceScalingMetric value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExpressGatewayServiceScalingMetric other && Equals(other);
+        public bool Equals(ExpressGatewayServiceScalingMetric other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ExpressGatewayServiceStatusCode : IEquatable<ExpressGatewayServiceStatusCode>
+    {
+        private readonly string _value;
+
+        private ExpressGatewayServiceStatusCode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExpressGatewayServiceStatusCode Active { get; } = new ExpressGatewayServiceStatusCode("ACTIVE");
+        public static ExpressGatewayServiceStatusCode Draining { get; } = new ExpressGatewayServiceStatusCode("DRAINING");
+        public static ExpressGatewayServiceStatusCode Inactive { get; } = new ExpressGatewayServiceStatusCode("INACTIVE");
+
+        public static bool operator ==(ExpressGatewayServiceStatusCode left, ExpressGatewayServiceStatusCode right) => left.Equals(right);
+        public static bool operator !=(ExpressGatewayServiceStatusCode left, ExpressGatewayServiceStatusCode right) => !left.Equals(right);
+
+        public static explicit operator string(ExpressGatewayServiceStatusCode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExpressGatewayServiceStatusCode other && Equals(other);
+        public bool Equals(ExpressGatewayServiceStatusCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Indicates whether to use Availability Zone rebalancing for the service.
     ///  For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -609,8 +695,7 @@ namespace Pulumi.AwsNative.Ecs
 
     /// <summary>
     /// Specifies whether to include query parameters in Service Connect access logs.
-    /// 
-    /// When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is `DISABLED` .
+    ///  When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is ``DISABLED``.
     /// </summary>
     [EnumType]
     public readonly struct ServiceConnectAccessLogConfigurationIncludeQueryParameters : IEquatable<ServiceConnectAccessLogConfigurationIncludeQueryParameters>

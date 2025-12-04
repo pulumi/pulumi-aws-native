@@ -103,6 +103,9 @@ namespace Pulumi.AwsNative.Backup.Inputs
         [Input("targetBackupVault", required: true)]
         public Input<string> TargetBackupVault { get; set; } = null!;
 
+        [Input("targetLogicallyAirGappedBackupVaultArn")]
+        public Input<string>? TargetLogicallyAirGappedBackupVaultArn { get; set; }
+
         public BackupPlanBackupRuleResourceTypeArgs()
         {
         }

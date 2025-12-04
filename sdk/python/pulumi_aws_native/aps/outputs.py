@@ -33,6 +33,7 @@ __all__ = [
     'ScraperScrapeConfiguration',
     'ScraperSource',
     'ScraperSourceEksConfigurationProperties',
+    'ScraperSourceVpcConfigurationProperties',
     'WorkspaceCloudWatchLogDestination',
     'WorkspaceConfiguration',
     'WorkspaceLabel',
@@ -624,6 +625,8 @@ class ScraperSource(dict):
         suggest = None
         if key == "eksConfiguration":
             suggest = "eks_configuration"
+        elif key == "vpcConfiguration":
+            suggest = "vpc_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ScraperSource. Access the value via the '{suggest}' property getter instead.")
@@ -637,13 +640,17 @@ class ScraperSource(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 eks_configuration: Optional['outputs.ScraperSourceEksConfigurationProperties'] = None):
+                 eks_configuration: Optional['outputs.ScraperSourceEksConfigurationProperties'] = None,
+                 vpc_configuration: Optional['outputs.ScraperSourceVpcConfigurationProperties'] = None):
         """
         Scraper metrics source
         :param 'ScraperSourceEksConfigurationProperties' eks_configuration: Configuration for EKS metrics source
+        :param 'ScraperSourceVpcConfigurationProperties' vpc_configuration: Configuration for VPC metrics source
         """
         if eks_configuration is not None:
             pulumi.set(__self__, "eks_configuration", eks_configuration)
+        if vpc_configuration is not None:
+            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
     @_builtins.property
     @pulumi.getter(name="eksConfiguration")
@@ -652,6 +659,14 @@ class ScraperSource(dict):
         Configuration for EKS metrics source
         """
         return pulumi.get(self, "eks_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcConfiguration")
+    def vpc_configuration(self) -> Optional['outputs.ScraperSourceVpcConfigurationProperties']:
+        """
+        Configuration for VPC metrics source
+        """
+        return pulumi.get(self, "vpc_configuration")
 
 
 @pulumi.output_type
@@ -718,6 +733,58 @@ class ScraperSourceEksConfigurationProperties(dict):
         List of security group IDs
         """
         return pulumi.get(self, "security_group_ids")
+
+
+@pulumi.output_type
+class ScraperSourceVpcConfigurationProperties(dict):
+    """
+    Configuration for VPC metrics source
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScraperSourceVpcConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScraperSourceVpcConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScraperSourceVpcConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[_builtins.str],
+                 subnet_ids: Sequence[_builtins.str]):
+        """
+        Configuration for VPC metrics source
+        :param Sequence[_builtins.str] security_group_ids: List of security group IDs
+        :param Sequence[_builtins.str] subnet_ids: List of subnet IDs
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[_builtins.str]:
+        """
+        List of security group IDs
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        List of subnet IDs
+        """
+        return pulumi.get(self, "subnet_ids")
 
 
 @pulumi.output_type

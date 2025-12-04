@@ -28,6 +28,14 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.
+        /// 
+        /// For more information, see [Integrate VPC IPAM with Infoblox infrastructure](https://docs.aws.amazon.com/vpc/latest/ipam/integrate-infoblox-ipam.html) in the *Amazon VPC IPAM User Guide* .
+        /// </summary>
+        [Output("externalAuthorityConfiguration")]
+        public Output<Outputs.IpamScopeExternalAuthorityConfiguration?> ExternalAuthorityConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the IPAM this scope is a part of.
         /// </summary>
         [Output("ipamArn")]
@@ -123,6 +131,14 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.
+        /// 
+        /// For more information, see [Integrate VPC IPAM with Infoblox infrastructure](https://docs.aws.amazon.com/vpc/latest/ipam/integrate-infoblox-ipam.html) in the *Amazon VPC IPAM User Guide* .
+        /// </summary>
+        [Input("externalAuthorityConfiguration")]
+        public Input<Inputs.IpamScopeExternalAuthorityConfigurationArgs>? ExternalAuthorityConfiguration { get; set; }
 
         /// <summary>
         /// The Id of the IPAM this scope is a part of.

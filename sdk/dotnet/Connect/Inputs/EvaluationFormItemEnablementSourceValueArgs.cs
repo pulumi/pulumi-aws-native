@@ -10,16 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
+    /// <summary>
+    /// An enablement expression source value.
+    /// </summary>
     public sealed class EvaluationFormItemEnablementSourceValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The reference id of the source entity value.
+        /// A referenceId of the source value.
         /// </summary>
         [Input("refId")]
         public Input<string>? RefId { get; set; }
 
         /// <summary>
-        /// Type of the source entity value.
+        /// A type of source item value.
         /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.Connect.EvaluationFormItemEnablementSourceValueType>? Type { get; set; }

@@ -67,11 +67,19 @@ namespace Pulumi.AwsNative.Rekognition
         /// Returns the Amazon Resource Name of the project.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
-        private GetProjectResult(string? arn)
+        private GetProjectResult(
+            string? arn,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
+            Tags = tags;
         }
     }
 }

@@ -103,6 +103,9 @@ export const MethodIntegrationResponseTransferMode = {
     Stream: "STREAM",
 } as const;
 
+/**
+ * The response transfer mode of the integration. Use `STREAM` to have API Gateway stream response your back to you or use `BUFFERED` to have API Gateway wait to receive the complete response before beginning transmission.
+ */
 export type MethodIntegrationResponseTransferMode = (typeof MethodIntegrationResponseTransferMode)[keyof typeof MethodIntegrationResponseTransferMode];
 
 export const MethodIntegrationType = {

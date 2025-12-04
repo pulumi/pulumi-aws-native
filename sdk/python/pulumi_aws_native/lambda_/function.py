@@ -27,6 +27,7 @@ class FunctionArgs:
                  code: pulumi.Input['FunctionCodeArgs'],
                  role: pulumi.Input[_builtins.str],
                  architectures: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]]] = None,
+                 capacity_provider_config: Optional[pulumi.Input['FunctionCapacityProviderConfigArgs']] = None,
                  code_signing_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  dead_letter_config: Optional[pulumi.Input['FunctionDeadLetterConfigArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -34,6 +35,7 @@ class FunctionArgs:
                  ephemeral_storage: Optional[pulumi.Input['FunctionEphemeralStorageArgs']] = None,
                  file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionFileSystemConfigArgs']]]] = None,
                  function_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 function_scaling_config: Optional[pulumi.Input['FunctionScalingConfigArgs']] = None,
                  handler: Optional[pulumi.Input[_builtins.str]] = None,
                  image_config: Optional[pulumi.Input['FunctionImageConfigArgs']] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -41,12 +43,14 @@ class FunctionArgs:
                  logging_config: Optional[pulumi.Input['FunctionLoggingConfigArgs']] = None,
                  memory_size: Optional[pulumi.Input[_builtins.int]] = None,
                  package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
+                 publish_to_latest_published: Optional[pulumi.Input[_builtins.bool]] = None,
                  recursive_loop: Optional[pulumi.Input['FunctionRecursiveLoop']] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[_builtins.int]] = None,
                  runtime: Optional[pulumi.Input[_builtins.str]] = None,
                  runtime_management_config: Optional[pulumi.Input['FunctionRuntimeManagementConfigArgs']] = None,
                  snap_start: Optional[pulumi.Input['FunctionSnapStartArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tenancy_config: Optional[pulumi.Input['FunctionTenancyConfigArgs']] = None,
                  timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  tracing_config: Optional[pulumi.Input['FunctionTracingConfigArgs']] = None,
                  vpc_config: Optional[pulumi.Input['FunctionVpcConfigArgs']] = None):
@@ -91,6 +95,7 @@ class FunctionArgs:
         :param pulumi.Input['FunctionSnapStartArgs'] snap_start: The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
                  You must have the ``lambda:TagResource``, ``lambda:UntagResource``, and ``lambda:ListTags`` permissions for your [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the CFN stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
+        :param pulumi.Input['FunctionTenancyConfigArgs'] tenancy_config: The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.
         :param pulumi.Input[_builtins.int] timeout: The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
         :param pulumi.Input['FunctionTracingConfigArgs'] tracing_config: Set ``Mode`` to ``Active`` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html).
         :param pulumi.Input['FunctionVpcConfigArgs'] vpc_config: For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
@@ -99,6 +104,8 @@ class FunctionArgs:
         pulumi.set(__self__, "role", role)
         if architectures is not None:
             pulumi.set(__self__, "architectures", architectures)
+        if capacity_provider_config is not None:
+            pulumi.set(__self__, "capacity_provider_config", capacity_provider_config)
         if code_signing_config_arn is not None:
             pulumi.set(__self__, "code_signing_config_arn", code_signing_config_arn)
         if dead_letter_config is not None:
@@ -113,6 +120,8 @@ class FunctionArgs:
             pulumi.set(__self__, "file_system_configs", file_system_configs)
         if function_name is not None:
             pulumi.set(__self__, "function_name", function_name)
+        if function_scaling_config is not None:
+            pulumi.set(__self__, "function_scaling_config", function_scaling_config)
         if handler is not None:
             pulumi.set(__self__, "handler", handler)
         if image_config is not None:
@@ -127,6 +136,8 @@ class FunctionArgs:
             pulumi.set(__self__, "memory_size", memory_size)
         if package_type is not None:
             pulumi.set(__self__, "package_type", package_type)
+        if publish_to_latest_published is not None:
+            pulumi.set(__self__, "publish_to_latest_published", publish_to_latest_published)
         if recursive_loop is not None:
             pulumi.set(__self__, "recursive_loop", recursive_loop)
         if reserved_concurrent_executions is not None:
@@ -139,6 +150,8 @@ class FunctionArgs:
             pulumi.set(__self__, "snap_start", snap_start)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tenancy_config is not None:
+            pulumi.set(__self__, "tenancy_config", tenancy_config)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
         if tracing_config is not None:
@@ -184,6 +197,15 @@ class FunctionArgs:
     @architectures.setter
     def architectures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]]]):
         pulumi.set(self, "architectures", value)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityProviderConfig")
+    def capacity_provider_config(self) -> Optional[pulumi.Input['FunctionCapacityProviderConfigArgs']]:
+        return pulumi.get(self, "capacity_provider_config")
+
+    @capacity_provider_config.setter
+    def capacity_provider_config(self, value: Optional[pulumi.Input['FunctionCapacityProviderConfigArgs']]):
+        pulumi.set(self, "capacity_provider_config", value)
 
     @_builtins.property
     @pulumi.getter(name="codeSigningConfigArn")
@@ -270,6 +292,15 @@ class FunctionArgs:
     @function_name.setter
     def function_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "function_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="functionScalingConfig")
+    def function_scaling_config(self) -> Optional[pulumi.Input['FunctionScalingConfigArgs']]:
+        return pulumi.get(self, "function_scaling_config")
+
+    @function_scaling_config.setter
+    def function_scaling_config(self, value: Optional[pulumi.Input['FunctionScalingConfigArgs']]):
+        pulumi.set(self, "function_scaling_config", value)
 
     @_builtins.property
     @pulumi.getter
@@ -362,6 +393,15 @@ class FunctionArgs:
         pulumi.set(self, "package_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="publishToLatestPublished")
+    def publish_to_latest_published(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "publish_to_latest_published")
+
+    @publish_to_latest_published.setter
+    def publish_to_latest_published(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "publish_to_latest_published", value)
+
+    @_builtins.property
     @pulumi.getter(name="recursiveLoop")
     def recursive_loop(self) -> Optional[pulumi.Input['FunctionRecursiveLoop']]:
         """
@@ -439,6 +479,18 @@ class FunctionArgs:
         pulumi.set(self, "tags", value)
 
     @_builtins.property
+    @pulumi.getter(name="tenancyConfig")
+    def tenancy_config(self) -> Optional[pulumi.Input['FunctionTenancyConfigArgs']]:
+        """
+        The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.
+        """
+        return pulumi.get(self, "tenancy_config")
+
+    @tenancy_config.setter
+    def tenancy_config(self, value: Optional[pulumi.Input['FunctionTenancyConfigArgs']]):
+        pulumi.set(self, "tenancy_config", value)
+
+    @_builtins.property
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -482,6 +534,7 @@ class Function(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  architectures: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]]] = None,
+                 capacity_provider_config: Optional[pulumi.Input[Union['FunctionCapacityProviderConfigArgs', 'FunctionCapacityProviderConfigArgsDict']]] = None,
                  code: Optional[pulumi.Input[Union['FunctionCodeArgs', 'FunctionCodeArgsDict']]] = None,
                  code_signing_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  dead_letter_config: Optional[pulumi.Input[Union['FunctionDeadLetterConfigArgs', 'FunctionDeadLetterConfigArgsDict']]] = None,
@@ -490,6 +543,7 @@ class Function(pulumi.CustomResource):
                  ephemeral_storage: Optional[pulumi.Input[Union['FunctionEphemeralStorageArgs', 'FunctionEphemeralStorageArgsDict']]] = None,
                  file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionFileSystemConfigArgs', 'FunctionFileSystemConfigArgsDict']]]]] = None,
                  function_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 function_scaling_config: Optional[pulumi.Input[Union['FunctionScalingConfigArgs', 'FunctionScalingConfigArgsDict']]] = None,
                  handler: Optional[pulumi.Input[_builtins.str]] = None,
                  image_config: Optional[pulumi.Input[Union['FunctionImageConfigArgs', 'FunctionImageConfigArgsDict']]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -497,6 +551,7 @@ class Function(pulumi.CustomResource):
                  logging_config: Optional[pulumi.Input[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict']]] = None,
                  memory_size: Optional[pulumi.Input[_builtins.int]] = None,
                  package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
+                 publish_to_latest_published: Optional[pulumi.Input[_builtins.bool]] = None,
                  recursive_loop: Optional[pulumi.Input['FunctionRecursiveLoop']] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[_builtins.int]] = None,
                  role: Optional[pulumi.Input[_builtins.str]] = None,
@@ -504,6 +559,7 @@ class Function(pulumi.CustomResource):
                  runtime_management_config: Optional[pulumi.Input[Union['FunctionRuntimeManagementConfigArgs', 'FunctionRuntimeManagementConfigArgsDict']]] = None,
                  snap_start: Optional[pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tenancy_config: Optional[pulumi.Input[Union['FunctionTenancyConfigArgs', 'FunctionTenancyConfigArgsDict']]] = None,
                  timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  tracing_config: Optional[pulumi.Input[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']]] = None,
                  vpc_config: Optional[pulumi.Input[Union['FunctionVpcConfigArgs', 'FunctionVpcConfigArgsDict']]] = None,
@@ -761,6 +817,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']] snap_start: The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
                  You must have the ``lambda:TagResource``, ``lambda:UntagResource``, and ``lambda:ListTags`` permissions for your [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the CFN stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
+        :param pulumi.Input[Union['FunctionTenancyConfigArgs', 'FunctionTenancyConfigArgsDict']] tenancy_config: The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.
         :param pulumi.Input[_builtins.int] timeout: The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
         :param pulumi.Input[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']] tracing_config: Set ``Mode`` to ``Active`` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html).
         :param pulumi.Input[Union['FunctionVpcConfigArgs', 'FunctionVpcConfigArgsDict']] vpc_config: For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
@@ -999,6 +1056,7 @@ class Function(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  architectures: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]]] = None,
+                 capacity_provider_config: Optional[pulumi.Input[Union['FunctionCapacityProviderConfigArgs', 'FunctionCapacityProviderConfigArgsDict']]] = None,
                  code: Optional[pulumi.Input[Union['FunctionCodeArgs', 'FunctionCodeArgsDict']]] = None,
                  code_signing_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  dead_letter_config: Optional[pulumi.Input[Union['FunctionDeadLetterConfigArgs', 'FunctionDeadLetterConfigArgsDict']]] = None,
@@ -1007,6 +1065,7 @@ class Function(pulumi.CustomResource):
                  ephemeral_storage: Optional[pulumi.Input[Union['FunctionEphemeralStorageArgs', 'FunctionEphemeralStorageArgsDict']]] = None,
                  file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionFileSystemConfigArgs', 'FunctionFileSystemConfigArgsDict']]]]] = None,
                  function_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 function_scaling_config: Optional[pulumi.Input[Union['FunctionScalingConfigArgs', 'FunctionScalingConfigArgsDict']]] = None,
                  handler: Optional[pulumi.Input[_builtins.str]] = None,
                  image_config: Optional[pulumi.Input[Union['FunctionImageConfigArgs', 'FunctionImageConfigArgsDict']]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1014,6 +1073,7 @@ class Function(pulumi.CustomResource):
                  logging_config: Optional[pulumi.Input[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict']]] = None,
                  memory_size: Optional[pulumi.Input[_builtins.int]] = None,
                  package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
+                 publish_to_latest_published: Optional[pulumi.Input[_builtins.bool]] = None,
                  recursive_loop: Optional[pulumi.Input['FunctionRecursiveLoop']] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[_builtins.int]] = None,
                  role: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1021,6 +1081,7 @@ class Function(pulumi.CustomResource):
                  runtime_management_config: Optional[pulumi.Input[Union['FunctionRuntimeManagementConfigArgs', 'FunctionRuntimeManagementConfigArgsDict']]] = None,
                  snap_start: Optional[pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tenancy_config: Optional[pulumi.Input[Union['FunctionTenancyConfigArgs', 'FunctionTenancyConfigArgsDict']]] = None,
                  timeout: Optional[pulumi.Input[_builtins.int]] = None,
                  tracing_config: Optional[pulumi.Input[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']]] = None,
                  vpc_config: Optional[pulumi.Input[Union['FunctionVpcConfigArgs', 'FunctionVpcConfigArgsDict']]] = None,
@@ -1034,6 +1095,7 @@ class Function(pulumi.CustomResource):
             __props__ = FunctionArgs.__new__(FunctionArgs)
 
             __props__.__dict__["architectures"] = architectures
+            __props__.__dict__["capacity_provider_config"] = capacity_provider_config
             if code is None and not opts.urn:
                 raise TypeError("Missing required property 'code'")
             __props__.__dict__["code"] = code
@@ -1044,6 +1106,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["ephemeral_storage"] = ephemeral_storage
             __props__.__dict__["file_system_configs"] = file_system_configs
             __props__.__dict__["function_name"] = function_name
+            __props__.__dict__["function_scaling_config"] = function_scaling_config
             __props__.__dict__["handler"] = handler
             __props__.__dict__["image_config"] = image_config
             __props__.__dict__["kms_key_arn"] = kms_key_arn
@@ -1051,6 +1114,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["logging_config"] = logging_config
             __props__.__dict__["memory_size"] = memory_size
             __props__.__dict__["package_type"] = package_type
+            __props__.__dict__["publish_to_latest_published"] = publish_to_latest_published
             __props__.__dict__["recursive_loop"] = recursive_loop
             __props__.__dict__["reserved_concurrent_executions"] = reserved_concurrent_executions
             if role is None and not opts.urn:
@@ -1060,12 +1124,13 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["runtime_management_config"] = runtime_management_config
             __props__.__dict__["snap_start"] = snap_start
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tenancy_config"] = tenancy_config
             __props__.__dict__["timeout"] = timeout
             __props__.__dict__["tracing_config"] = tracing_config
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["snap_start_response"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["functionName", "packageType"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["functionName", "packageType", "tenancyConfig"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Function, __self__).__init__(
             'aws-native:lambda:Function',
@@ -1091,6 +1156,7 @@ class Function(pulumi.CustomResource):
 
         __props__.__dict__["architectures"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["capacity_provider_config"] = None
         __props__.__dict__["code"] = None
         __props__.__dict__["code_signing_config_arn"] = None
         __props__.__dict__["dead_letter_config"] = None
@@ -1099,6 +1165,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["ephemeral_storage"] = None
         __props__.__dict__["file_system_configs"] = None
         __props__.__dict__["function_name"] = None
+        __props__.__dict__["function_scaling_config"] = None
         __props__.__dict__["handler"] = None
         __props__.__dict__["image_config"] = None
         __props__.__dict__["kms_key_arn"] = None
@@ -1106,6 +1173,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["logging_config"] = None
         __props__.__dict__["memory_size"] = None
         __props__.__dict__["package_type"] = None
+        __props__.__dict__["publish_to_latest_published"] = None
         __props__.__dict__["recursive_loop"] = None
         __props__.__dict__["reserved_concurrent_executions"] = None
         __props__.__dict__["role"] = None
@@ -1114,6 +1182,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["snap_start"] = None
         __props__.__dict__["snap_start_response"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["tenancy_config"] = None
         __props__.__dict__["timeout"] = None
         __props__.__dict__["tracing_config"] = None
         __props__.__dict__["vpc_config"] = None
@@ -1134,6 +1203,11 @@ class Function(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the function.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="capacityProviderConfig")
+    def capacity_provider_config(self) -> pulumi.Output[Optional['outputs.FunctionCapacityProviderConfig']]:
+        return pulumi.get(self, "capacity_provider_config")
 
     @_builtins.property
     @pulumi.getter
@@ -1205,6 +1279,11 @@ class Function(pulumi.CustomResource):
         return pulumi.get(self, "function_name")
 
     @_builtins.property
+    @pulumi.getter(name="functionScalingConfig")
+    def function_scaling_config(self) -> pulumi.Output[Optional['outputs.FunctionScalingConfig']]:
+        return pulumi.get(self, "function_scaling_config")
+
+    @_builtins.property
     @pulumi.getter
     def handler(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -1265,6 +1344,11 @@ class Function(pulumi.CustomResource):
         The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
         """
         return pulumi.get(self, "package_type")
+
+    @_builtins.property
+    @pulumi.getter(name="publishToLatestPublished")
+    def publish_to_latest_published(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        return pulumi.get(self, "publish_to_latest_published")
 
     @_builtins.property
     @pulumi.getter(name="recursiveLoop")
@@ -1331,6 +1415,14 @@ class Function(pulumi.CustomResource):
           You must have the ``lambda:TagResource``, ``lambda:UntagResource``, and ``lambda:ListTags`` permissions for your [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the CFN stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="tenancyConfig")
+    def tenancy_config(self) -> pulumi.Output[Optional['outputs.FunctionTenancyConfig']]:
+        """
+        The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.
+        """
+        return pulumi.get(self, "tenancy_config")
 
     @_builtins.property
     @pulumi.getter

@@ -15,6 +15,8 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'RotationScheduleExternalSecretRotationMetadataItemArgs',
+    'RotationScheduleExternalSecretRotationMetadataItemArgsDict',
     'RotationScheduleHostedRotationLambdaArgs',
     'RotationScheduleHostedRotationLambdaArgsDict',
     'RotationScheduleRotationRulesArgs',
@@ -26,6 +28,60 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class RotationScheduleExternalSecretRotationMetadataItemArgsDict(TypedDict):
+        """
+        The metadata needed to successfully rotate a managed external secret. Each metadata item is a key and value pair of strings in a JSON text string.
+        """
+        key: pulumi.Input[_builtins.str]
+        """
+        The key name of the metadata item. You can specify a value that's 1 to 256 characters in length.
+        """
+        value: pulumi.Input[_builtins.str]
+        """
+        The value for the metadata item. You can specify a value that's 1 to 2048 characters in length.
+        """
+elif False:
+    RotationScheduleExternalSecretRotationMetadataItemArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RotationScheduleExternalSecretRotationMetadataItemArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        The metadata needed to successfully rotate a managed external secret. Each metadata item is a key and value pair of strings in a JSON text string.
+        :param pulumi.Input[_builtins.str] key: The key name of the metadata item. You can specify a value that's 1 to 256 characters in length.
+        :param pulumi.Input[_builtins.str] value: The value for the metadata item. You can specify a value that's 1 to 2048 characters in length.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The key name of the metadata item. You can specify a value that's 1 to 256 characters in length.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        The value for the metadata item. You can specify a value that's 1 to 2048 characters in length.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
 
 if not MYPY:
     class RotationScheduleHostedRotationLambdaArgsDict(TypedDict):

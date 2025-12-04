@@ -311,6 +311,894 @@ type AddonTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Configuration settings for an Argo CD capability. This includes the Kubernetes namespace, IAM Identity Center integration, RBAC role mappings, and network access configuration.
+type CapabilityArgoCd struct {
+	AwsIdc CapabilityAwsIdc `pulumi:"awsIdc"`
+	// The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
+	Namespace     *string                  `pulumi:"namespace"`
+	NetworkAccess *CapabilityNetworkAccess `pulumi:"networkAccess"`
+	// A list of role mappings that define which IAM Identity Center users or groups have which Argo CD roles. Each mapping associates an Argo CD role (ADMIN, EDITOR, or VIEWER) with one or more IAM Identity Center identities.
+	RbacRoleMappings []CapabilityArgoCdRoleMapping `pulumi:"rbacRoleMappings"`
+	// The URL of the Argo CD server. Use this URL to access the Argo CD web interface and API.
+	ServerUrl *string `pulumi:"serverUrl"`
+}
+
+// CapabilityArgoCdInput is an input type that accepts CapabilityArgoCdArgs and CapabilityArgoCdOutput values.
+// You can construct a concrete instance of `CapabilityArgoCdInput` via:
+//
+//	CapabilityArgoCdArgs{...}
+type CapabilityArgoCdInput interface {
+	pulumi.Input
+
+	ToCapabilityArgoCdOutput() CapabilityArgoCdOutput
+	ToCapabilityArgoCdOutputWithContext(context.Context) CapabilityArgoCdOutput
+}
+
+// Configuration settings for an Argo CD capability. This includes the Kubernetes namespace, IAM Identity Center integration, RBAC role mappings, and network access configuration.
+type CapabilityArgoCdArgs struct {
+	AwsIdc CapabilityAwsIdcInput `pulumi:"awsIdc"`
+	// The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
+	Namespace     pulumi.StringPtrInput           `pulumi:"namespace"`
+	NetworkAccess CapabilityNetworkAccessPtrInput `pulumi:"networkAccess"`
+	// A list of role mappings that define which IAM Identity Center users or groups have which Argo CD roles. Each mapping associates an Argo CD role (ADMIN, EDITOR, or VIEWER) with one or more IAM Identity Center identities.
+	RbacRoleMappings CapabilityArgoCdRoleMappingArrayInput `pulumi:"rbacRoleMappings"`
+	// The URL of the Argo CD server. Use this URL to access the Argo CD web interface and API.
+	ServerUrl pulumi.StringPtrInput `pulumi:"serverUrl"`
+}
+
+func (CapabilityArgoCdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityArgoCd)(nil)).Elem()
+}
+
+func (i CapabilityArgoCdArgs) ToCapabilityArgoCdOutput() CapabilityArgoCdOutput {
+	return i.ToCapabilityArgoCdOutputWithContext(context.Background())
+}
+
+func (i CapabilityArgoCdArgs) ToCapabilityArgoCdOutputWithContext(ctx context.Context) CapabilityArgoCdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityArgoCdOutput)
+}
+
+func (i CapabilityArgoCdArgs) ToCapabilityArgoCdPtrOutput() CapabilityArgoCdPtrOutput {
+	return i.ToCapabilityArgoCdPtrOutputWithContext(context.Background())
+}
+
+func (i CapabilityArgoCdArgs) ToCapabilityArgoCdPtrOutputWithContext(ctx context.Context) CapabilityArgoCdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityArgoCdOutput).ToCapabilityArgoCdPtrOutputWithContext(ctx)
+}
+
+// CapabilityArgoCdPtrInput is an input type that accepts CapabilityArgoCdArgs, CapabilityArgoCdPtr and CapabilityArgoCdPtrOutput values.
+// You can construct a concrete instance of `CapabilityArgoCdPtrInput` via:
+//
+//	        CapabilityArgoCdArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapabilityArgoCdPtrInput interface {
+	pulumi.Input
+
+	ToCapabilityArgoCdPtrOutput() CapabilityArgoCdPtrOutput
+	ToCapabilityArgoCdPtrOutputWithContext(context.Context) CapabilityArgoCdPtrOutput
+}
+
+type capabilityArgoCdPtrType CapabilityArgoCdArgs
+
+func CapabilityArgoCdPtr(v *CapabilityArgoCdArgs) CapabilityArgoCdPtrInput {
+	return (*capabilityArgoCdPtrType)(v)
+}
+
+func (*capabilityArgoCdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityArgoCd)(nil)).Elem()
+}
+
+func (i *capabilityArgoCdPtrType) ToCapabilityArgoCdPtrOutput() CapabilityArgoCdPtrOutput {
+	return i.ToCapabilityArgoCdPtrOutputWithContext(context.Background())
+}
+
+func (i *capabilityArgoCdPtrType) ToCapabilityArgoCdPtrOutputWithContext(ctx context.Context) CapabilityArgoCdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityArgoCdPtrOutput)
+}
+
+// Configuration settings for an Argo CD capability. This includes the Kubernetes namespace, IAM Identity Center integration, RBAC role mappings, and network access configuration.
+type CapabilityArgoCdOutput struct{ *pulumi.OutputState }
+
+func (CapabilityArgoCdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityArgoCd)(nil)).Elem()
+}
+
+func (o CapabilityArgoCdOutput) ToCapabilityArgoCdOutput() CapabilityArgoCdOutput {
+	return o
+}
+
+func (o CapabilityArgoCdOutput) ToCapabilityArgoCdOutputWithContext(ctx context.Context) CapabilityArgoCdOutput {
+	return o
+}
+
+func (o CapabilityArgoCdOutput) ToCapabilityArgoCdPtrOutput() CapabilityArgoCdPtrOutput {
+	return o.ToCapabilityArgoCdPtrOutputWithContext(context.Background())
+}
+
+func (o CapabilityArgoCdOutput) ToCapabilityArgoCdPtrOutputWithContext(ctx context.Context) CapabilityArgoCdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapabilityArgoCd) *CapabilityArgoCd {
+		return &v
+	}).(CapabilityArgoCdPtrOutput)
+}
+
+func (o CapabilityArgoCdOutput) AwsIdc() CapabilityAwsIdcOutput {
+	return o.ApplyT(func(v CapabilityArgoCd) CapabilityAwsIdc { return v.AwsIdc }).(CapabilityAwsIdcOutput)
+}
+
+// The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
+func (o CapabilityArgoCdOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapabilityArgoCd) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+func (o CapabilityArgoCdOutput) NetworkAccess() CapabilityNetworkAccessPtrOutput {
+	return o.ApplyT(func(v CapabilityArgoCd) *CapabilityNetworkAccess { return v.NetworkAccess }).(CapabilityNetworkAccessPtrOutput)
+}
+
+// A list of role mappings that define which IAM Identity Center users or groups have which Argo CD roles. Each mapping associates an Argo CD role (ADMIN, EDITOR, or VIEWER) with one or more IAM Identity Center identities.
+func (o CapabilityArgoCdOutput) RbacRoleMappings() CapabilityArgoCdRoleMappingArrayOutput {
+	return o.ApplyT(func(v CapabilityArgoCd) []CapabilityArgoCdRoleMapping { return v.RbacRoleMappings }).(CapabilityArgoCdRoleMappingArrayOutput)
+}
+
+// The URL of the Argo CD server. Use this URL to access the Argo CD web interface and API.
+func (o CapabilityArgoCdOutput) ServerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapabilityArgoCd) *string { return v.ServerUrl }).(pulumi.StringPtrOutput)
+}
+
+type CapabilityArgoCdPtrOutput struct{ *pulumi.OutputState }
+
+func (CapabilityArgoCdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityArgoCd)(nil)).Elem()
+}
+
+func (o CapabilityArgoCdPtrOutput) ToCapabilityArgoCdPtrOutput() CapabilityArgoCdPtrOutput {
+	return o
+}
+
+func (o CapabilityArgoCdPtrOutput) ToCapabilityArgoCdPtrOutputWithContext(ctx context.Context) CapabilityArgoCdPtrOutput {
+	return o
+}
+
+func (o CapabilityArgoCdPtrOutput) Elem() CapabilityArgoCdOutput {
+	return o.ApplyT(func(v *CapabilityArgoCd) CapabilityArgoCd {
+		if v != nil {
+			return *v
+		}
+		var ret CapabilityArgoCd
+		return ret
+	}).(CapabilityArgoCdOutput)
+}
+
+func (o CapabilityArgoCdPtrOutput) AwsIdc() CapabilityAwsIdcPtrOutput {
+	return o.ApplyT(func(v *CapabilityArgoCd) *CapabilityAwsIdc {
+		if v == nil {
+			return nil
+		}
+		return &v.AwsIdc
+	}).(CapabilityAwsIdcPtrOutput)
+}
+
+// The Kubernetes namespace where Argo CD resources will be created. If not specified, the default namespace is used.
+func (o CapabilityArgoCdPtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapabilityArgoCd) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CapabilityArgoCdPtrOutput) NetworkAccess() CapabilityNetworkAccessPtrOutput {
+	return o.ApplyT(func(v *CapabilityArgoCd) *CapabilityNetworkAccess {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkAccess
+	}).(CapabilityNetworkAccessPtrOutput)
+}
+
+// A list of role mappings that define which IAM Identity Center users or groups have which Argo CD roles. Each mapping associates an Argo CD role (ADMIN, EDITOR, or VIEWER) with one or more IAM Identity Center identities.
+func (o CapabilityArgoCdPtrOutput) RbacRoleMappings() CapabilityArgoCdRoleMappingArrayOutput {
+	return o.ApplyT(func(v *CapabilityArgoCd) []CapabilityArgoCdRoleMapping {
+		if v == nil {
+			return nil
+		}
+		return v.RbacRoleMappings
+	}).(CapabilityArgoCdRoleMappingArrayOutput)
+}
+
+// The URL of the Argo CD server. Use this URL to access the Argo CD web interface and API.
+func (o CapabilityArgoCdPtrOutput) ServerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapabilityArgoCd) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// A mapping between an Argo CD role and IAM Identity Center identities. This defines which users or groups have specific permissions in Argo CD.
+type CapabilityArgoCdRoleMapping struct {
+	// A list of IAM Identity Center identities (users or groups) that should be assigned this Argo CD role.
+	Identities []CapabilitySsoIdentity `pulumi:"identities"`
+	// The Argo CD role to assign. Valid values are: ADMIN (full administrative access to Argo CD), EDITOR (edit access to Argo CD resources), or VIEWER (read-only access to Argo CD resources).
+	Role CapabilityArgoCdRoleMappingRole `pulumi:"role"`
+}
+
+// CapabilityArgoCdRoleMappingInput is an input type that accepts CapabilityArgoCdRoleMappingArgs and CapabilityArgoCdRoleMappingOutput values.
+// You can construct a concrete instance of `CapabilityArgoCdRoleMappingInput` via:
+//
+//	CapabilityArgoCdRoleMappingArgs{...}
+type CapabilityArgoCdRoleMappingInput interface {
+	pulumi.Input
+
+	ToCapabilityArgoCdRoleMappingOutput() CapabilityArgoCdRoleMappingOutput
+	ToCapabilityArgoCdRoleMappingOutputWithContext(context.Context) CapabilityArgoCdRoleMappingOutput
+}
+
+// A mapping between an Argo CD role and IAM Identity Center identities. This defines which users or groups have specific permissions in Argo CD.
+type CapabilityArgoCdRoleMappingArgs struct {
+	// A list of IAM Identity Center identities (users or groups) that should be assigned this Argo CD role.
+	Identities CapabilitySsoIdentityArrayInput `pulumi:"identities"`
+	// The Argo CD role to assign. Valid values are: ADMIN (full administrative access to Argo CD), EDITOR (edit access to Argo CD resources), or VIEWER (read-only access to Argo CD resources).
+	Role CapabilityArgoCdRoleMappingRoleInput `pulumi:"role"`
+}
+
+func (CapabilityArgoCdRoleMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityArgoCdRoleMapping)(nil)).Elem()
+}
+
+func (i CapabilityArgoCdRoleMappingArgs) ToCapabilityArgoCdRoleMappingOutput() CapabilityArgoCdRoleMappingOutput {
+	return i.ToCapabilityArgoCdRoleMappingOutputWithContext(context.Background())
+}
+
+func (i CapabilityArgoCdRoleMappingArgs) ToCapabilityArgoCdRoleMappingOutputWithContext(ctx context.Context) CapabilityArgoCdRoleMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityArgoCdRoleMappingOutput)
+}
+
+// CapabilityArgoCdRoleMappingArrayInput is an input type that accepts CapabilityArgoCdRoleMappingArray and CapabilityArgoCdRoleMappingArrayOutput values.
+// You can construct a concrete instance of `CapabilityArgoCdRoleMappingArrayInput` via:
+//
+//	CapabilityArgoCdRoleMappingArray{ CapabilityArgoCdRoleMappingArgs{...} }
+type CapabilityArgoCdRoleMappingArrayInput interface {
+	pulumi.Input
+
+	ToCapabilityArgoCdRoleMappingArrayOutput() CapabilityArgoCdRoleMappingArrayOutput
+	ToCapabilityArgoCdRoleMappingArrayOutputWithContext(context.Context) CapabilityArgoCdRoleMappingArrayOutput
+}
+
+type CapabilityArgoCdRoleMappingArray []CapabilityArgoCdRoleMappingInput
+
+func (CapabilityArgoCdRoleMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapabilityArgoCdRoleMapping)(nil)).Elem()
+}
+
+func (i CapabilityArgoCdRoleMappingArray) ToCapabilityArgoCdRoleMappingArrayOutput() CapabilityArgoCdRoleMappingArrayOutput {
+	return i.ToCapabilityArgoCdRoleMappingArrayOutputWithContext(context.Background())
+}
+
+func (i CapabilityArgoCdRoleMappingArray) ToCapabilityArgoCdRoleMappingArrayOutputWithContext(ctx context.Context) CapabilityArgoCdRoleMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityArgoCdRoleMappingArrayOutput)
+}
+
+// A mapping between an Argo CD role and IAM Identity Center identities. This defines which users or groups have specific permissions in Argo CD.
+type CapabilityArgoCdRoleMappingOutput struct{ *pulumi.OutputState }
+
+func (CapabilityArgoCdRoleMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityArgoCdRoleMapping)(nil)).Elem()
+}
+
+func (o CapabilityArgoCdRoleMappingOutput) ToCapabilityArgoCdRoleMappingOutput() CapabilityArgoCdRoleMappingOutput {
+	return o
+}
+
+func (o CapabilityArgoCdRoleMappingOutput) ToCapabilityArgoCdRoleMappingOutputWithContext(ctx context.Context) CapabilityArgoCdRoleMappingOutput {
+	return o
+}
+
+// A list of IAM Identity Center identities (users or groups) that should be assigned this Argo CD role.
+func (o CapabilityArgoCdRoleMappingOutput) Identities() CapabilitySsoIdentityArrayOutput {
+	return o.ApplyT(func(v CapabilityArgoCdRoleMapping) []CapabilitySsoIdentity { return v.Identities }).(CapabilitySsoIdentityArrayOutput)
+}
+
+// The Argo CD role to assign. Valid values are: ADMIN (full administrative access to Argo CD), EDITOR (edit access to Argo CD resources), or VIEWER (read-only access to Argo CD resources).
+func (o CapabilityArgoCdRoleMappingOutput) Role() CapabilityArgoCdRoleMappingRoleOutput {
+	return o.ApplyT(func(v CapabilityArgoCdRoleMapping) CapabilityArgoCdRoleMappingRole { return v.Role }).(CapabilityArgoCdRoleMappingRoleOutput)
+}
+
+type CapabilityArgoCdRoleMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (CapabilityArgoCdRoleMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapabilityArgoCdRoleMapping)(nil)).Elem()
+}
+
+func (o CapabilityArgoCdRoleMappingArrayOutput) ToCapabilityArgoCdRoleMappingArrayOutput() CapabilityArgoCdRoleMappingArrayOutput {
+	return o
+}
+
+func (o CapabilityArgoCdRoleMappingArrayOutput) ToCapabilityArgoCdRoleMappingArrayOutputWithContext(ctx context.Context) CapabilityArgoCdRoleMappingArrayOutput {
+	return o
+}
+
+func (o CapabilityArgoCdRoleMappingArrayOutput) Index(i pulumi.IntInput) CapabilityArgoCdRoleMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapabilityArgoCdRoleMapping {
+		return vs[0].([]CapabilityArgoCdRoleMapping)[vs[1].(int)]
+	}).(CapabilityArgoCdRoleMappingOutput)
+}
+
+// Configuration for integrating Argo CD with IAM Identity Center. This allows you to use your organization's identity provider for authentication to Argo CD.
+type CapabilityAwsIdc struct {
+	// The ARN of the IAM Identity Center instance to use for authentication.
+	IdcInstanceArn string `pulumi:"idcInstanceArn"`
+	// The ARN of the managed application created in IAM Identity Center for this Argo CD capability. This application is automatically created and managed by EKS.
+	IdcManagedApplicationArn *string `pulumi:"idcManagedApplicationArn"`
+	// The Region where your IAM Identity Center instance is located.
+	IdcRegion *string `pulumi:"idcRegion"`
+}
+
+// CapabilityAwsIdcInput is an input type that accepts CapabilityAwsIdcArgs and CapabilityAwsIdcOutput values.
+// You can construct a concrete instance of `CapabilityAwsIdcInput` via:
+//
+//	CapabilityAwsIdcArgs{...}
+type CapabilityAwsIdcInput interface {
+	pulumi.Input
+
+	ToCapabilityAwsIdcOutput() CapabilityAwsIdcOutput
+	ToCapabilityAwsIdcOutputWithContext(context.Context) CapabilityAwsIdcOutput
+}
+
+// Configuration for integrating Argo CD with IAM Identity Center. This allows you to use your organization's identity provider for authentication to Argo CD.
+type CapabilityAwsIdcArgs struct {
+	// The ARN of the IAM Identity Center instance to use for authentication.
+	IdcInstanceArn pulumi.StringInput `pulumi:"idcInstanceArn"`
+	// The ARN of the managed application created in IAM Identity Center for this Argo CD capability. This application is automatically created and managed by EKS.
+	IdcManagedApplicationArn pulumi.StringPtrInput `pulumi:"idcManagedApplicationArn"`
+	// The Region where your IAM Identity Center instance is located.
+	IdcRegion pulumi.StringPtrInput `pulumi:"idcRegion"`
+}
+
+func (CapabilityAwsIdcArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityAwsIdc)(nil)).Elem()
+}
+
+func (i CapabilityAwsIdcArgs) ToCapabilityAwsIdcOutput() CapabilityAwsIdcOutput {
+	return i.ToCapabilityAwsIdcOutputWithContext(context.Background())
+}
+
+func (i CapabilityAwsIdcArgs) ToCapabilityAwsIdcOutputWithContext(ctx context.Context) CapabilityAwsIdcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityAwsIdcOutput)
+}
+
+func (i CapabilityAwsIdcArgs) ToCapabilityAwsIdcPtrOutput() CapabilityAwsIdcPtrOutput {
+	return i.ToCapabilityAwsIdcPtrOutputWithContext(context.Background())
+}
+
+func (i CapabilityAwsIdcArgs) ToCapabilityAwsIdcPtrOutputWithContext(ctx context.Context) CapabilityAwsIdcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityAwsIdcOutput).ToCapabilityAwsIdcPtrOutputWithContext(ctx)
+}
+
+// CapabilityAwsIdcPtrInput is an input type that accepts CapabilityAwsIdcArgs, CapabilityAwsIdcPtr and CapabilityAwsIdcPtrOutput values.
+// You can construct a concrete instance of `CapabilityAwsIdcPtrInput` via:
+//
+//	        CapabilityAwsIdcArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapabilityAwsIdcPtrInput interface {
+	pulumi.Input
+
+	ToCapabilityAwsIdcPtrOutput() CapabilityAwsIdcPtrOutput
+	ToCapabilityAwsIdcPtrOutputWithContext(context.Context) CapabilityAwsIdcPtrOutput
+}
+
+type capabilityAwsIdcPtrType CapabilityAwsIdcArgs
+
+func CapabilityAwsIdcPtr(v *CapabilityAwsIdcArgs) CapabilityAwsIdcPtrInput {
+	return (*capabilityAwsIdcPtrType)(v)
+}
+
+func (*capabilityAwsIdcPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityAwsIdc)(nil)).Elem()
+}
+
+func (i *capabilityAwsIdcPtrType) ToCapabilityAwsIdcPtrOutput() CapabilityAwsIdcPtrOutput {
+	return i.ToCapabilityAwsIdcPtrOutputWithContext(context.Background())
+}
+
+func (i *capabilityAwsIdcPtrType) ToCapabilityAwsIdcPtrOutputWithContext(ctx context.Context) CapabilityAwsIdcPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityAwsIdcPtrOutput)
+}
+
+// Configuration for integrating Argo CD with IAM Identity Center. This allows you to use your organization's identity provider for authentication to Argo CD.
+type CapabilityAwsIdcOutput struct{ *pulumi.OutputState }
+
+func (CapabilityAwsIdcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityAwsIdc)(nil)).Elem()
+}
+
+func (o CapabilityAwsIdcOutput) ToCapabilityAwsIdcOutput() CapabilityAwsIdcOutput {
+	return o
+}
+
+func (o CapabilityAwsIdcOutput) ToCapabilityAwsIdcOutputWithContext(ctx context.Context) CapabilityAwsIdcOutput {
+	return o
+}
+
+func (o CapabilityAwsIdcOutput) ToCapabilityAwsIdcPtrOutput() CapabilityAwsIdcPtrOutput {
+	return o.ToCapabilityAwsIdcPtrOutputWithContext(context.Background())
+}
+
+func (o CapabilityAwsIdcOutput) ToCapabilityAwsIdcPtrOutputWithContext(ctx context.Context) CapabilityAwsIdcPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapabilityAwsIdc) *CapabilityAwsIdc {
+		return &v
+	}).(CapabilityAwsIdcPtrOutput)
+}
+
+// The ARN of the IAM Identity Center instance to use for authentication.
+func (o CapabilityAwsIdcOutput) IdcInstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CapabilityAwsIdc) string { return v.IdcInstanceArn }).(pulumi.StringOutput)
+}
+
+// The ARN of the managed application created in IAM Identity Center for this Argo CD capability. This application is automatically created and managed by EKS.
+func (o CapabilityAwsIdcOutput) IdcManagedApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapabilityAwsIdc) *string { return v.IdcManagedApplicationArn }).(pulumi.StringPtrOutput)
+}
+
+// The Region where your IAM Identity Center instance is located.
+func (o CapabilityAwsIdcOutput) IdcRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapabilityAwsIdc) *string { return v.IdcRegion }).(pulumi.StringPtrOutput)
+}
+
+type CapabilityAwsIdcPtrOutput struct{ *pulumi.OutputState }
+
+func (CapabilityAwsIdcPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityAwsIdc)(nil)).Elem()
+}
+
+func (o CapabilityAwsIdcPtrOutput) ToCapabilityAwsIdcPtrOutput() CapabilityAwsIdcPtrOutput {
+	return o
+}
+
+func (o CapabilityAwsIdcPtrOutput) ToCapabilityAwsIdcPtrOutputWithContext(ctx context.Context) CapabilityAwsIdcPtrOutput {
+	return o
+}
+
+func (o CapabilityAwsIdcPtrOutput) Elem() CapabilityAwsIdcOutput {
+	return o.ApplyT(func(v *CapabilityAwsIdc) CapabilityAwsIdc {
+		if v != nil {
+			return *v
+		}
+		var ret CapabilityAwsIdc
+		return ret
+	}).(CapabilityAwsIdcOutput)
+}
+
+// The ARN of the IAM Identity Center instance to use for authentication.
+func (o CapabilityAwsIdcPtrOutput) IdcInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapabilityAwsIdc) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IdcInstanceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the managed application created in IAM Identity Center for this Argo CD capability. This application is automatically created and managed by EKS.
+func (o CapabilityAwsIdcPtrOutput) IdcManagedApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapabilityAwsIdc) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdcManagedApplicationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Region where your IAM Identity Center instance is located.
+func (o CapabilityAwsIdcPtrOutput) IdcRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapabilityAwsIdc) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdcRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration settings for a capability. The structure of this object varies depending on the capability type.
+type CapabilityConfiguration struct {
+	ArgoCd *CapabilityArgoCd `pulumi:"argoCd"`
+}
+
+// CapabilityConfigurationInput is an input type that accepts CapabilityConfigurationArgs and CapabilityConfigurationOutput values.
+// You can construct a concrete instance of `CapabilityConfigurationInput` via:
+//
+//	CapabilityConfigurationArgs{...}
+type CapabilityConfigurationInput interface {
+	pulumi.Input
+
+	ToCapabilityConfigurationOutput() CapabilityConfigurationOutput
+	ToCapabilityConfigurationOutputWithContext(context.Context) CapabilityConfigurationOutput
+}
+
+// Configuration settings for a capability. The structure of this object varies depending on the capability type.
+type CapabilityConfigurationArgs struct {
+	ArgoCd CapabilityArgoCdPtrInput `pulumi:"argoCd"`
+}
+
+func (CapabilityConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityConfiguration)(nil)).Elem()
+}
+
+func (i CapabilityConfigurationArgs) ToCapabilityConfigurationOutput() CapabilityConfigurationOutput {
+	return i.ToCapabilityConfigurationOutputWithContext(context.Background())
+}
+
+func (i CapabilityConfigurationArgs) ToCapabilityConfigurationOutputWithContext(ctx context.Context) CapabilityConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityConfigurationOutput)
+}
+
+func (i CapabilityConfigurationArgs) ToCapabilityConfigurationPtrOutput() CapabilityConfigurationPtrOutput {
+	return i.ToCapabilityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CapabilityConfigurationArgs) ToCapabilityConfigurationPtrOutputWithContext(ctx context.Context) CapabilityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityConfigurationOutput).ToCapabilityConfigurationPtrOutputWithContext(ctx)
+}
+
+// CapabilityConfigurationPtrInput is an input type that accepts CapabilityConfigurationArgs, CapabilityConfigurationPtr and CapabilityConfigurationPtrOutput values.
+// You can construct a concrete instance of `CapabilityConfigurationPtrInput` via:
+//
+//	        CapabilityConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapabilityConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCapabilityConfigurationPtrOutput() CapabilityConfigurationPtrOutput
+	ToCapabilityConfigurationPtrOutputWithContext(context.Context) CapabilityConfigurationPtrOutput
+}
+
+type capabilityConfigurationPtrType CapabilityConfigurationArgs
+
+func CapabilityConfigurationPtr(v *CapabilityConfigurationArgs) CapabilityConfigurationPtrInput {
+	return (*capabilityConfigurationPtrType)(v)
+}
+
+func (*capabilityConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityConfiguration)(nil)).Elem()
+}
+
+func (i *capabilityConfigurationPtrType) ToCapabilityConfigurationPtrOutput() CapabilityConfigurationPtrOutput {
+	return i.ToCapabilityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *capabilityConfigurationPtrType) ToCapabilityConfigurationPtrOutputWithContext(ctx context.Context) CapabilityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityConfigurationPtrOutput)
+}
+
+// Configuration settings for a capability. The structure of this object varies depending on the capability type.
+type CapabilityConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CapabilityConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityConfiguration)(nil)).Elem()
+}
+
+func (o CapabilityConfigurationOutput) ToCapabilityConfigurationOutput() CapabilityConfigurationOutput {
+	return o
+}
+
+func (o CapabilityConfigurationOutput) ToCapabilityConfigurationOutputWithContext(ctx context.Context) CapabilityConfigurationOutput {
+	return o
+}
+
+func (o CapabilityConfigurationOutput) ToCapabilityConfigurationPtrOutput() CapabilityConfigurationPtrOutput {
+	return o.ToCapabilityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CapabilityConfigurationOutput) ToCapabilityConfigurationPtrOutputWithContext(ctx context.Context) CapabilityConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapabilityConfiguration) *CapabilityConfiguration {
+		return &v
+	}).(CapabilityConfigurationPtrOutput)
+}
+
+func (o CapabilityConfigurationOutput) ArgoCd() CapabilityArgoCdPtrOutput {
+	return o.ApplyT(func(v CapabilityConfiguration) *CapabilityArgoCd { return v.ArgoCd }).(CapabilityArgoCdPtrOutput)
+}
+
+type CapabilityConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CapabilityConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityConfiguration)(nil)).Elem()
+}
+
+func (o CapabilityConfigurationPtrOutput) ToCapabilityConfigurationPtrOutput() CapabilityConfigurationPtrOutput {
+	return o
+}
+
+func (o CapabilityConfigurationPtrOutput) ToCapabilityConfigurationPtrOutputWithContext(ctx context.Context) CapabilityConfigurationPtrOutput {
+	return o
+}
+
+func (o CapabilityConfigurationPtrOutput) Elem() CapabilityConfigurationOutput {
+	return o.ApplyT(func(v *CapabilityConfiguration) CapabilityConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CapabilityConfiguration
+		return ret
+	}).(CapabilityConfigurationOutput)
+}
+
+func (o CapabilityConfigurationPtrOutput) ArgoCd() CapabilityArgoCdPtrOutput {
+	return o.ApplyT(func(v *CapabilityConfiguration) *CapabilityArgoCd {
+		if v == nil {
+			return nil
+		}
+		return v.ArgoCd
+	}).(CapabilityArgoCdPtrOutput)
+}
+
+// Configuration for network access to the Argo CD capability's managed API server endpoint. By default, the Argo CD server is accessible via a public endpoint. You can optionally specify one or more VPC endpoint IDs to enable private connectivity from your VPCs.
+type CapabilityNetworkAccess struct {
+	// A list of VPC endpoint IDs to associate with the managed Argo CD API server endpoint. Each VPC endpoint provides private connectivity from a specific VPC to the Argo CD server. You can specify multiple VPC endpoint IDs to enable access from multiple VPCs.
+	VpceIds []string `pulumi:"vpceIds"`
+}
+
+// CapabilityNetworkAccessInput is an input type that accepts CapabilityNetworkAccessArgs and CapabilityNetworkAccessOutput values.
+// You can construct a concrete instance of `CapabilityNetworkAccessInput` via:
+//
+//	CapabilityNetworkAccessArgs{...}
+type CapabilityNetworkAccessInput interface {
+	pulumi.Input
+
+	ToCapabilityNetworkAccessOutput() CapabilityNetworkAccessOutput
+	ToCapabilityNetworkAccessOutputWithContext(context.Context) CapabilityNetworkAccessOutput
+}
+
+// Configuration for network access to the Argo CD capability's managed API server endpoint. By default, the Argo CD server is accessible via a public endpoint. You can optionally specify one or more VPC endpoint IDs to enable private connectivity from your VPCs.
+type CapabilityNetworkAccessArgs struct {
+	// A list of VPC endpoint IDs to associate with the managed Argo CD API server endpoint. Each VPC endpoint provides private connectivity from a specific VPC to the Argo CD server. You can specify multiple VPC endpoint IDs to enable access from multiple VPCs.
+	VpceIds pulumi.StringArrayInput `pulumi:"vpceIds"`
+}
+
+func (CapabilityNetworkAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityNetworkAccess)(nil)).Elem()
+}
+
+func (i CapabilityNetworkAccessArgs) ToCapabilityNetworkAccessOutput() CapabilityNetworkAccessOutput {
+	return i.ToCapabilityNetworkAccessOutputWithContext(context.Background())
+}
+
+func (i CapabilityNetworkAccessArgs) ToCapabilityNetworkAccessOutputWithContext(ctx context.Context) CapabilityNetworkAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityNetworkAccessOutput)
+}
+
+func (i CapabilityNetworkAccessArgs) ToCapabilityNetworkAccessPtrOutput() CapabilityNetworkAccessPtrOutput {
+	return i.ToCapabilityNetworkAccessPtrOutputWithContext(context.Background())
+}
+
+func (i CapabilityNetworkAccessArgs) ToCapabilityNetworkAccessPtrOutputWithContext(ctx context.Context) CapabilityNetworkAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityNetworkAccessOutput).ToCapabilityNetworkAccessPtrOutputWithContext(ctx)
+}
+
+// CapabilityNetworkAccessPtrInput is an input type that accepts CapabilityNetworkAccessArgs, CapabilityNetworkAccessPtr and CapabilityNetworkAccessPtrOutput values.
+// You can construct a concrete instance of `CapabilityNetworkAccessPtrInput` via:
+//
+//	        CapabilityNetworkAccessArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapabilityNetworkAccessPtrInput interface {
+	pulumi.Input
+
+	ToCapabilityNetworkAccessPtrOutput() CapabilityNetworkAccessPtrOutput
+	ToCapabilityNetworkAccessPtrOutputWithContext(context.Context) CapabilityNetworkAccessPtrOutput
+}
+
+type capabilityNetworkAccessPtrType CapabilityNetworkAccessArgs
+
+func CapabilityNetworkAccessPtr(v *CapabilityNetworkAccessArgs) CapabilityNetworkAccessPtrInput {
+	return (*capabilityNetworkAccessPtrType)(v)
+}
+
+func (*capabilityNetworkAccessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityNetworkAccess)(nil)).Elem()
+}
+
+func (i *capabilityNetworkAccessPtrType) ToCapabilityNetworkAccessPtrOutput() CapabilityNetworkAccessPtrOutput {
+	return i.ToCapabilityNetworkAccessPtrOutputWithContext(context.Background())
+}
+
+func (i *capabilityNetworkAccessPtrType) ToCapabilityNetworkAccessPtrOutputWithContext(ctx context.Context) CapabilityNetworkAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityNetworkAccessPtrOutput)
+}
+
+// Configuration for network access to the Argo CD capability's managed API server endpoint. By default, the Argo CD server is accessible via a public endpoint. You can optionally specify one or more VPC endpoint IDs to enable private connectivity from your VPCs.
+type CapabilityNetworkAccessOutput struct{ *pulumi.OutputState }
+
+func (CapabilityNetworkAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityNetworkAccess)(nil)).Elem()
+}
+
+func (o CapabilityNetworkAccessOutput) ToCapabilityNetworkAccessOutput() CapabilityNetworkAccessOutput {
+	return o
+}
+
+func (o CapabilityNetworkAccessOutput) ToCapabilityNetworkAccessOutputWithContext(ctx context.Context) CapabilityNetworkAccessOutput {
+	return o
+}
+
+func (o CapabilityNetworkAccessOutput) ToCapabilityNetworkAccessPtrOutput() CapabilityNetworkAccessPtrOutput {
+	return o.ToCapabilityNetworkAccessPtrOutputWithContext(context.Background())
+}
+
+func (o CapabilityNetworkAccessOutput) ToCapabilityNetworkAccessPtrOutputWithContext(ctx context.Context) CapabilityNetworkAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapabilityNetworkAccess) *CapabilityNetworkAccess {
+		return &v
+	}).(CapabilityNetworkAccessPtrOutput)
+}
+
+// A list of VPC endpoint IDs to associate with the managed Argo CD API server endpoint. Each VPC endpoint provides private connectivity from a specific VPC to the Argo CD server. You can specify multiple VPC endpoint IDs to enable access from multiple VPCs.
+func (o CapabilityNetworkAccessOutput) VpceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapabilityNetworkAccess) []string { return v.VpceIds }).(pulumi.StringArrayOutput)
+}
+
+type CapabilityNetworkAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (CapabilityNetworkAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityNetworkAccess)(nil)).Elem()
+}
+
+func (o CapabilityNetworkAccessPtrOutput) ToCapabilityNetworkAccessPtrOutput() CapabilityNetworkAccessPtrOutput {
+	return o
+}
+
+func (o CapabilityNetworkAccessPtrOutput) ToCapabilityNetworkAccessPtrOutputWithContext(ctx context.Context) CapabilityNetworkAccessPtrOutput {
+	return o
+}
+
+func (o CapabilityNetworkAccessPtrOutput) Elem() CapabilityNetworkAccessOutput {
+	return o.ApplyT(func(v *CapabilityNetworkAccess) CapabilityNetworkAccess {
+		if v != nil {
+			return *v
+		}
+		var ret CapabilityNetworkAccess
+		return ret
+	}).(CapabilityNetworkAccessOutput)
+}
+
+// A list of VPC endpoint IDs to associate with the managed Argo CD API server endpoint. Each VPC endpoint provides private connectivity from a specific VPC to the Argo CD server. You can specify multiple VPC endpoint IDs to enable access from multiple VPCs.
+func (o CapabilityNetworkAccessPtrOutput) VpceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapabilityNetworkAccess) []string {
+		if v == nil {
+			return nil
+		}
+		return v.VpceIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// An IAM Identity Center identity (user or group) that can be assigned permissions in a capability.
+type CapabilitySsoIdentity struct {
+	// The unique identifier of the IAM Identity Center user or group.
+	Id string `pulumi:"id"`
+	// The type of identity. Valid values are SSO_USER or SSO_GROUP.
+	Type CapabilitySsoIdentityType `pulumi:"type"`
+}
+
+// CapabilitySsoIdentityInput is an input type that accepts CapabilitySsoIdentityArgs and CapabilitySsoIdentityOutput values.
+// You can construct a concrete instance of `CapabilitySsoIdentityInput` via:
+//
+//	CapabilitySsoIdentityArgs{...}
+type CapabilitySsoIdentityInput interface {
+	pulumi.Input
+
+	ToCapabilitySsoIdentityOutput() CapabilitySsoIdentityOutput
+	ToCapabilitySsoIdentityOutputWithContext(context.Context) CapabilitySsoIdentityOutput
+}
+
+// An IAM Identity Center identity (user or group) that can be assigned permissions in a capability.
+type CapabilitySsoIdentityArgs struct {
+	// The unique identifier of the IAM Identity Center user or group.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The type of identity. Valid values are SSO_USER or SSO_GROUP.
+	Type CapabilitySsoIdentityTypeInput `pulumi:"type"`
+}
+
+func (CapabilitySsoIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilitySsoIdentity)(nil)).Elem()
+}
+
+func (i CapabilitySsoIdentityArgs) ToCapabilitySsoIdentityOutput() CapabilitySsoIdentityOutput {
+	return i.ToCapabilitySsoIdentityOutputWithContext(context.Background())
+}
+
+func (i CapabilitySsoIdentityArgs) ToCapabilitySsoIdentityOutputWithContext(ctx context.Context) CapabilitySsoIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilitySsoIdentityOutput)
+}
+
+// CapabilitySsoIdentityArrayInput is an input type that accepts CapabilitySsoIdentityArray and CapabilitySsoIdentityArrayOutput values.
+// You can construct a concrete instance of `CapabilitySsoIdentityArrayInput` via:
+//
+//	CapabilitySsoIdentityArray{ CapabilitySsoIdentityArgs{...} }
+type CapabilitySsoIdentityArrayInput interface {
+	pulumi.Input
+
+	ToCapabilitySsoIdentityArrayOutput() CapabilitySsoIdentityArrayOutput
+	ToCapabilitySsoIdentityArrayOutputWithContext(context.Context) CapabilitySsoIdentityArrayOutput
+}
+
+type CapabilitySsoIdentityArray []CapabilitySsoIdentityInput
+
+func (CapabilitySsoIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapabilitySsoIdentity)(nil)).Elem()
+}
+
+func (i CapabilitySsoIdentityArray) ToCapabilitySsoIdentityArrayOutput() CapabilitySsoIdentityArrayOutput {
+	return i.ToCapabilitySsoIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i CapabilitySsoIdentityArray) ToCapabilitySsoIdentityArrayOutputWithContext(ctx context.Context) CapabilitySsoIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilitySsoIdentityArrayOutput)
+}
+
+// An IAM Identity Center identity (user or group) that can be assigned permissions in a capability.
+type CapabilitySsoIdentityOutput struct{ *pulumi.OutputState }
+
+func (CapabilitySsoIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilitySsoIdentity)(nil)).Elem()
+}
+
+func (o CapabilitySsoIdentityOutput) ToCapabilitySsoIdentityOutput() CapabilitySsoIdentityOutput {
+	return o
+}
+
+func (o CapabilitySsoIdentityOutput) ToCapabilitySsoIdentityOutputWithContext(ctx context.Context) CapabilitySsoIdentityOutput {
+	return o
+}
+
+// The unique identifier of the IAM Identity Center user or group.
+func (o CapabilitySsoIdentityOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CapabilitySsoIdentity) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The type of identity. Valid values are SSO_USER or SSO_GROUP.
+func (o CapabilitySsoIdentityOutput) Type() CapabilitySsoIdentityTypeOutput {
+	return o.ApplyT(func(v CapabilitySsoIdentity) CapabilitySsoIdentityType { return v.Type }).(CapabilitySsoIdentityTypeOutput)
+}
+
+type CapabilitySsoIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (CapabilitySsoIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapabilitySsoIdentity)(nil)).Elem()
+}
+
+func (o CapabilitySsoIdentityArrayOutput) ToCapabilitySsoIdentityArrayOutput() CapabilitySsoIdentityArrayOutput {
+	return o
+}
+
+func (o CapabilitySsoIdentityArrayOutput) ToCapabilitySsoIdentityArrayOutputWithContext(ctx context.Context) CapabilitySsoIdentityArrayOutput {
+	return o
+}
+
+func (o CapabilitySsoIdentityArrayOutput) Index(i pulumi.IntInput) CapabilitySsoIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapabilitySsoIdentity {
+		return vs[0].([]CapabilitySsoIdentity)[vs[1].(int)]
+	}).(CapabilitySsoIdentityOutput)
+}
+
+// A key-value pair to associate with a resource.
+type CapabilityTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 // An object representing the Access Config to use for the cluster.
 type ClusterAccessConfig struct {
 	// Specify the authentication mode that should be used to create your cluster.
@@ -926,6 +1814,146 @@ func (o ClusterControlPlanePlacementPtrOutput) GroupName() pulumi.StringPtrOutpu
 		}
 		return v.GroupName
 	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for provisioned control plane scaling.
+type ClusterControlPlaneScalingConfig struct {
+	// The scaling tier for the provisioned control plane.
+	Tier *ClusterControlPlaneScalingConfigTier `pulumi:"tier"`
+}
+
+// ClusterControlPlaneScalingConfigInput is an input type that accepts ClusterControlPlaneScalingConfigArgs and ClusterControlPlaneScalingConfigOutput values.
+// You can construct a concrete instance of `ClusterControlPlaneScalingConfigInput` via:
+//
+//	ClusterControlPlaneScalingConfigArgs{...}
+type ClusterControlPlaneScalingConfigInput interface {
+	pulumi.Input
+
+	ToClusterControlPlaneScalingConfigOutput() ClusterControlPlaneScalingConfigOutput
+	ToClusterControlPlaneScalingConfigOutputWithContext(context.Context) ClusterControlPlaneScalingConfigOutput
+}
+
+// Configuration for provisioned control plane scaling.
+type ClusterControlPlaneScalingConfigArgs struct {
+	// The scaling tier for the provisioned control plane.
+	Tier ClusterControlPlaneScalingConfigTierPtrInput `pulumi:"tier"`
+}
+
+func (ClusterControlPlaneScalingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterControlPlaneScalingConfig)(nil)).Elem()
+}
+
+func (i ClusterControlPlaneScalingConfigArgs) ToClusterControlPlaneScalingConfigOutput() ClusterControlPlaneScalingConfigOutput {
+	return i.ToClusterControlPlaneScalingConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterControlPlaneScalingConfigArgs) ToClusterControlPlaneScalingConfigOutputWithContext(ctx context.Context) ClusterControlPlaneScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterControlPlaneScalingConfigOutput)
+}
+
+func (i ClusterControlPlaneScalingConfigArgs) ToClusterControlPlaneScalingConfigPtrOutput() ClusterControlPlaneScalingConfigPtrOutput {
+	return i.ToClusterControlPlaneScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterControlPlaneScalingConfigArgs) ToClusterControlPlaneScalingConfigPtrOutputWithContext(ctx context.Context) ClusterControlPlaneScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterControlPlaneScalingConfigOutput).ToClusterControlPlaneScalingConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterControlPlaneScalingConfigPtrInput is an input type that accepts ClusterControlPlaneScalingConfigArgs, ClusterControlPlaneScalingConfigPtr and ClusterControlPlaneScalingConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterControlPlaneScalingConfigPtrInput` via:
+//
+//	        ClusterControlPlaneScalingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterControlPlaneScalingConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterControlPlaneScalingConfigPtrOutput() ClusterControlPlaneScalingConfigPtrOutput
+	ToClusterControlPlaneScalingConfigPtrOutputWithContext(context.Context) ClusterControlPlaneScalingConfigPtrOutput
+}
+
+type clusterControlPlaneScalingConfigPtrType ClusterControlPlaneScalingConfigArgs
+
+func ClusterControlPlaneScalingConfigPtr(v *ClusterControlPlaneScalingConfigArgs) ClusterControlPlaneScalingConfigPtrInput {
+	return (*clusterControlPlaneScalingConfigPtrType)(v)
+}
+
+func (*clusterControlPlaneScalingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterControlPlaneScalingConfig)(nil)).Elem()
+}
+
+func (i *clusterControlPlaneScalingConfigPtrType) ToClusterControlPlaneScalingConfigPtrOutput() ClusterControlPlaneScalingConfigPtrOutput {
+	return i.ToClusterControlPlaneScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterControlPlaneScalingConfigPtrType) ToClusterControlPlaneScalingConfigPtrOutputWithContext(ctx context.Context) ClusterControlPlaneScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterControlPlaneScalingConfigPtrOutput)
+}
+
+// Configuration for provisioned control plane scaling.
+type ClusterControlPlaneScalingConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterControlPlaneScalingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterControlPlaneScalingConfig)(nil)).Elem()
+}
+
+func (o ClusterControlPlaneScalingConfigOutput) ToClusterControlPlaneScalingConfigOutput() ClusterControlPlaneScalingConfigOutput {
+	return o
+}
+
+func (o ClusterControlPlaneScalingConfigOutput) ToClusterControlPlaneScalingConfigOutputWithContext(ctx context.Context) ClusterControlPlaneScalingConfigOutput {
+	return o
+}
+
+func (o ClusterControlPlaneScalingConfigOutput) ToClusterControlPlaneScalingConfigPtrOutput() ClusterControlPlaneScalingConfigPtrOutput {
+	return o.ToClusterControlPlaneScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterControlPlaneScalingConfigOutput) ToClusterControlPlaneScalingConfigPtrOutputWithContext(ctx context.Context) ClusterControlPlaneScalingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterControlPlaneScalingConfig) *ClusterControlPlaneScalingConfig {
+		return &v
+	}).(ClusterControlPlaneScalingConfigPtrOutput)
+}
+
+// The scaling tier for the provisioned control plane.
+func (o ClusterControlPlaneScalingConfigOutput) Tier() ClusterControlPlaneScalingConfigTierPtrOutput {
+	return o.ApplyT(func(v ClusterControlPlaneScalingConfig) *ClusterControlPlaneScalingConfigTier { return v.Tier }).(ClusterControlPlaneScalingConfigTierPtrOutput)
+}
+
+type ClusterControlPlaneScalingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterControlPlaneScalingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterControlPlaneScalingConfig)(nil)).Elem()
+}
+
+func (o ClusterControlPlaneScalingConfigPtrOutput) ToClusterControlPlaneScalingConfigPtrOutput() ClusterControlPlaneScalingConfigPtrOutput {
+	return o
+}
+
+func (o ClusterControlPlaneScalingConfigPtrOutput) ToClusterControlPlaneScalingConfigPtrOutputWithContext(ctx context.Context) ClusterControlPlaneScalingConfigPtrOutput {
+	return o
+}
+
+func (o ClusterControlPlaneScalingConfigPtrOutput) Elem() ClusterControlPlaneScalingConfigOutput {
+	return o.ApplyT(func(v *ClusterControlPlaneScalingConfig) ClusterControlPlaneScalingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterControlPlaneScalingConfig
+		return ret
+	}).(ClusterControlPlaneScalingConfigOutput)
+}
+
+// The scaling tier for the provisioned control plane.
+func (o ClusterControlPlaneScalingConfigPtrOutput) Tier() ClusterControlPlaneScalingConfigTierPtrOutput {
+	return o.ApplyT(func(v *ClusterControlPlaneScalingConfig) *ClusterControlPlaneScalingConfigTier {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(ClusterControlPlaneScalingConfigTierPtrOutput)
 }
 
 // Todo: add description
@@ -4996,6 +6024,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessEntryAccessScopeInput)(nil)).Elem(), AccessEntryAccessScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonPodIdentityAssociationInput)(nil)).Elem(), AddonPodIdentityAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonPodIdentityAssociationArrayInput)(nil)).Elem(), AddonPodIdentityAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityArgoCdInput)(nil)).Elem(), CapabilityArgoCdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityArgoCdPtrInput)(nil)).Elem(), CapabilityArgoCdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityArgoCdRoleMappingInput)(nil)).Elem(), CapabilityArgoCdRoleMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityArgoCdRoleMappingArrayInput)(nil)).Elem(), CapabilityArgoCdRoleMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityAwsIdcInput)(nil)).Elem(), CapabilityAwsIdcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityAwsIdcPtrInput)(nil)).Elem(), CapabilityAwsIdcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityConfigurationInput)(nil)).Elem(), CapabilityConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityConfigurationPtrInput)(nil)).Elem(), CapabilityConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityNetworkAccessInput)(nil)).Elem(), CapabilityNetworkAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityNetworkAccessPtrInput)(nil)).Elem(), CapabilityNetworkAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilitySsoIdentityInput)(nil)).Elem(), CapabilitySsoIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilitySsoIdentityArrayInput)(nil)).Elem(), CapabilitySsoIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAccessConfigInput)(nil)).Elem(), ClusterAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAccessConfigPtrInput)(nil)).Elem(), ClusterAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBlockStorageInput)(nil)).Elem(), ClusterBlockStorageArgs{})
@@ -5004,6 +6044,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterComputeConfigPtrInput)(nil)).Elem(), ClusterComputeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterControlPlanePlacementInput)(nil)).Elem(), ClusterControlPlanePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterControlPlanePlacementPtrInput)(nil)).Elem(), ClusterControlPlanePlacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterControlPlaneScalingConfigInput)(nil)).Elem(), ClusterControlPlaneScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterControlPlaneScalingConfigPtrInput)(nil)).Elem(), ClusterControlPlaneScalingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterElasticLoadBalancingInput)(nil)).Elem(), ClusterElasticLoadBalancingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterElasticLoadBalancingPtrInput)(nil)).Elem(), ClusterElasticLoadBalancingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigInput)(nil)).Elem(), ClusterEncryptionConfigArgs{})
@@ -5062,6 +6104,18 @@ func init() {
 	pulumi.RegisterOutputType(AccessEntryAccessScopeOutput{})
 	pulumi.RegisterOutputType(AddonPodIdentityAssociationOutput{})
 	pulumi.RegisterOutputType(AddonPodIdentityAssociationArrayOutput{})
+	pulumi.RegisterOutputType(CapabilityArgoCdOutput{})
+	pulumi.RegisterOutputType(CapabilityArgoCdPtrOutput{})
+	pulumi.RegisterOutputType(CapabilityArgoCdRoleMappingOutput{})
+	pulumi.RegisterOutputType(CapabilityArgoCdRoleMappingArrayOutput{})
+	pulumi.RegisterOutputType(CapabilityAwsIdcOutput{})
+	pulumi.RegisterOutputType(CapabilityAwsIdcPtrOutput{})
+	pulumi.RegisterOutputType(CapabilityConfigurationOutput{})
+	pulumi.RegisterOutputType(CapabilityConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CapabilityNetworkAccessOutput{})
+	pulumi.RegisterOutputType(CapabilityNetworkAccessPtrOutput{})
+	pulumi.RegisterOutputType(CapabilitySsoIdentityOutput{})
+	pulumi.RegisterOutputType(CapabilitySsoIdentityArrayOutput{})
 	pulumi.RegisterOutputType(ClusterAccessConfigOutput{})
 	pulumi.RegisterOutputType(ClusterAccessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterBlockStorageOutput{})
@@ -5070,6 +6124,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterComputeConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterControlPlanePlacementOutput{})
 	pulumi.RegisterOutputType(ClusterControlPlanePlacementPtrOutput{})
+	pulumi.RegisterOutputType(ClusterControlPlaneScalingConfigOutput{})
+	pulumi.RegisterOutputType(ClusterControlPlaneScalingConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterElasticLoadBalancingOutput{})
 	pulumi.RegisterOutputType(ClusterElasticLoadBalancingPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigOutput{})

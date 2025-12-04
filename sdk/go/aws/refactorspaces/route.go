@@ -25,7 +25,7 @@ type Route struct {
 	DefaultRoute RouteDefaultRouteInputPtrOutput `pulumi:"defaultRoute"`
 	// The unique identifier of the environment.
 	EnvironmentIdentifier pulumi.StringOutput `pulumi:"environmentIdentifier"`
-	// A mapping of Amazon API Gateway path resources to resource IDs.
+	// A mapping of ABPlong path resources to resource IDs.
 	PathResourceToId pulumi.StringOutput `pulumi:"pathResourceToId"`
 	// The unique identifier of the route.
 	RouteIdentifier pulumi.StringOutput `pulumi:"routeIdentifier"`
@@ -193,7 +193,7 @@ func (o RouteOutput) EnvironmentIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.EnvironmentIdentifier }).(pulumi.StringOutput)
 }
 
-// A mapping of Amazon API Gateway path resources to resource IDs.
+// A mapping of ABPlong path resources to resource IDs.
 func (o RouteOutput) PathResourceToId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.PathResourceToId }).(pulumi.StringOutput)
 }

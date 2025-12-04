@@ -32,8 +32,12 @@ type Stream struct {
 	StreamEncryption StreamEncryptionPtrOutput `pulumi:"streamEncryption"`
 	// The mode in which the stream is running.
 	StreamModeDetails StreamModeDetailsPtrOutput `pulumi:"streamModeDetails"`
-	// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+	// An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Target warm throughput in MiB/s for the stream. This property can ONLY be set when StreamMode is ON_DEMAND.
+	WarmThroughputMiBps pulumi.IntPtrOutput `pulumi:"warmThroughputMiBps"`
+	// Warm throughput configuration details for the stream. Only present for ON_DEMAND streams.
+	WarmThroughputObject StreamWarmThroughputObjectOutput `pulumi:"warmThroughputObject"`
 }
 
 // NewStream registers a new resource with the given unique name, arguments, and options.
@@ -94,8 +98,10 @@ type streamArgs struct {
 	StreamEncryption *StreamEncryption `pulumi:"streamEncryption"`
 	// The mode in which the stream is running.
 	StreamModeDetails *StreamModeDetails `pulumi:"streamModeDetails"`
-	// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+	// An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
 	Tags []aws.Tag `pulumi:"tags"`
+	// Target warm throughput in MiB/s for the stream. This property can ONLY be set when StreamMode is ON_DEMAND.
+	WarmThroughputMiBps *int `pulumi:"warmThroughputMiBps"`
 }
 
 // The set of arguments for constructing a Stream resource.
@@ -114,8 +120,10 @@ type StreamArgs struct {
 	StreamEncryption StreamEncryptionPtrInput
 	// The mode in which the stream is running.
 	StreamModeDetails StreamModeDetailsPtrInput
-	// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+	// An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
 	Tags aws.TagArrayInput
+	// Target warm throughput in MiB/s for the stream. This property can ONLY be set when StreamMode is ON_DEMAND.
+	WarmThroughputMiBps pulumi.IntPtrInput
 }
 
 func (StreamArgs) ElementType() reflect.Type {
@@ -195,9 +203,19 @@ func (o StreamOutput) StreamModeDetails() StreamModeDetailsPtrOutput {
 	return o.ApplyT(func(v *Stream) StreamModeDetailsPtrOutput { return v.StreamModeDetails }).(StreamModeDetailsPtrOutput)
 }
 
-// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+// An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
 func (o StreamOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Stream) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// Target warm throughput in MiB/s for the stream. This property can ONLY be set when StreamMode is ON_DEMAND.
+func (o StreamOutput) WarmThroughputMiBps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Stream) pulumi.IntPtrOutput { return v.WarmThroughputMiBps }).(pulumi.IntPtrOutput)
+}
+
+// Warm throughput configuration details for the stream. Only present for ON_DEMAND streams.
+func (o StreamOutput) WarmThroughputObject() StreamWarmThroughputObjectOutput {
+	return o.ApplyT(func(v *Stream) StreamWarmThroughputObjectOutput { return v.WarmThroughputObject }).(StreamWarmThroughputObjectOutput)
 }
 
 func init() {

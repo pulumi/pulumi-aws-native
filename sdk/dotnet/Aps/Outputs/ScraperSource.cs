@@ -20,11 +20,19 @@ namespace Pulumi.AwsNative.Aps.Outputs
         /// Configuration for EKS metrics source
         /// </summary>
         public readonly Outputs.ScraperSourceEksConfigurationProperties? EksConfiguration;
+        /// <summary>
+        /// Configuration for VPC metrics source
+        /// </summary>
+        public readonly Outputs.ScraperSourceVpcConfigurationProperties? VpcConfiguration;
 
         [OutputConstructor]
-        private ScraperSource(Outputs.ScraperSourceEksConfigurationProperties? eksConfiguration)
+        private ScraperSource(
+            Outputs.ScraperSourceEksConfigurationProperties? eksConfiguration,
+
+            Outputs.ScraperSourceVpcConfigurationProperties? vpcConfiguration)
         {
             EksConfiguration = eksConfiguration;
+            VpcConfiguration = vpcConfiguration;
         }
     }
 }

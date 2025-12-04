@@ -62,7 +62,7 @@ export class DocumentClassifier extends pulumi.CustomResource {
      */
     declare public readonly mode: pulumi.Output<enums.comprehend.DocumentClassifierMode | undefined>;
     /**
-     * ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+     * ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
      *
      * - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
      * - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
@@ -184,7 +184,7 @@ export interface DocumentClassifierArgs {
      */
     mode?: pulumi.Input<enums.comprehend.DocumentClassifierMode>;
     /**
-     * ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+     * ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
      *
      * - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
      * - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`

@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetLandingZoneResult:
-    def __init__(__self__, arn=None, drift_status=None, landing_zone_identifier=None, latest_available_version=None, manifest=None, status=None, tags=None, version=None):
+    def __init__(__self__, arn=None, drift_status=None, landing_zone_identifier=None, latest_available_version=None, manifest=None, remediation_types=None, status=None, tags=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -41,6 +41,9 @@ class GetLandingZoneResult:
         if manifest and not isinstance(manifest, dict):
             raise TypeError("Expected argument 'manifest' to be a dict")
         pulumi.set(__self__, "manifest", manifest)
+        if remediation_types and not isinstance(remediation_types, list):
+            raise TypeError("Expected argument 'remediation_types' to be a list")
+        pulumi.set(__self__, "remediation_types", remediation_types)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -94,6 +97,14 @@ class GetLandingZoneResult:
         return pulumi.get(self, "manifest")
 
     @_builtins.property
+    @pulumi.getter(name="remediationTypes")
+    def remediation_types(self) -> Optional[Sequence['LandingZoneRemediationTypesItem']]:
+        """
+        The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.
+        """
+        return pulumi.get(self, "remediation_types")
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> Optional['LandingZoneStatus']:
         """
@@ -129,6 +140,7 @@ class AwaitableGetLandingZoneResult(GetLandingZoneResult):
             landing_zone_identifier=self.landing_zone_identifier,
             latest_available_version=self.latest_available_version,
             manifest=self.manifest,
+            remediation_types=self.remediation_types,
             status=self.status,
             tags=self.tags,
             version=self.version)
@@ -153,6 +165,7 @@ def get_landing_zone(landing_zone_identifier: Optional[_builtins.str] = None,
         landing_zone_identifier=pulumi.get(__ret__, 'landing_zone_identifier'),
         latest_available_version=pulumi.get(__ret__, 'latest_available_version'),
         manifest=pulumi.get(__ret__, 'manifest'),
+        remediation_types=pulumi.get(__ret__, 'remediation_types'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
@@ -174,6 +187,7 @@ def get_landing_zone_output(landing_zone_identifier: Optional[pulumi.Input[_buil
         landing_zone_identifier=pulumi.get(__response__, 'landing_zone_identifier'),
         latest_available_version=pulumi.get(__response__, 'latest_available_version'),
         manifest=pulumi.get(__response__, 'manifest'),
+        remediation_types=pulumi.get(__response__, 'remediation_types'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),
         version=pulumi.get(__response__, 'version')))

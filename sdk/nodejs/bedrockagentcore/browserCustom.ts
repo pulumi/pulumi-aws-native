@@ -46,6 +46,10 @@ export class BrowserCustom extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly browserId: pulumi.Output<string>;
     /**
+     * Browser signing configuration.
+     */
+    declare public readonly browserSigning: pulumi.Output<outputs.bedrockagentcore.BrowserCustomBrowserSigning | undefined>;
+    /**
      * Timestamp when the browser was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
@@ -100,6 +104,7 @@ export class BrowserCustom extends pulumi.CustomResource {
             if (args?.networkConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkConfiguration'");
             }
+            resourceInputs["browserSigning"] = args?.browserSigning;
             resourceInputs["description"] = args?.description;
             resourceInputs["executionRoleArn"] = args?.executionRoleArn;
             resourceInputs["name"] = args?.name;
@@ -115,6 +120,7 @@ export class BrowserCustom extends pulumi.CustomResource {
         } else {
             resourceInputs["browserArn"] = undefined /*out*/;
             resourceInputs["browserId"] = undefined /*out*/;
+            resourceInputs["browserSigning"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["executionRoleArn"] = undefined /*out*/;
@@ -127,7 +133,7 @@ export class BrowserCustom extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["description", "executionRoleArn", "name", "networkConfiguration", "recordingConfig"] };
+        const replaceOnChanges = { replaceOnChanges: ["browserSigning", "description", "executionRoleArn", "name", "networkConfiguration", "recordingConfig"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(BrowserCustom.__pulumiType, name, resourceInputs, opts);
     }
@@ -137,6 +143,10 @@ export class BrowserCustom extends pulumi.CustomResource {
  * The set of arguments for constructing a BrowserCustom resource.
  */
 export interface BrowserCustomArgs {
+    /**
+     * Browser signing configuration.
+     */
+    browserSigning?: pulumi.Input<inputs.bedrockagentcore.BrowserCustomBrowserSigningArgs>;
     /**
      * The description of the browser.
      */

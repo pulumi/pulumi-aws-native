@@ -91,7 +91,7 @@ class ImageBuilderArgs:
                - stream.graphics.g6f.4xlarge
                - stream.graphics.gr6f.4xlarge
         :param pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]] access_endpoints: The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
-        :param pulumi.Input[_builtins.str] appstream_agent_version: The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+        :param pulumi.Input[_builtins.str] appstream_agent_version: The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
         :param pulumi.Input[_builtins.str] description: The description to display.
         :param pulumi.Input[_builtins.str] display_name: The image builder name to display.
         :param pulumi.Input['ImageBuilderDomainJoinInfoArgs'] domain_join_info: The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
@@ -210,7 +210,7 @@ class ImageBuilderArgs:
     @pulumi.getter(name="appstreamAgentVersion")
     def appstream_agent_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+        The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
         """
         return pulumi.get(self, "appstream_agent_version")
 
@@ -367,7 +367,7 @@ class ImageBuilder(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict']]]] access_endpoints: The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
-        :param pulumi.Input[_builtins.str] appstream_agent_version: The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+        :param pulumi.Input[_builtins.str] appstream_agent_version: The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
         :param pulumi.Input[_builtins.str] description: The description to display.
         :param pulumi.Input[_builtins.str] display_name: The image builder name to display.
         :param pulumi.Input[Union['ImageBuilderDomainJoinInfoArgs', 'ImageBuilderDomainJoinInfoArgsDict']] domain_join_info: The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
@@ -545,7 +545,7 @@ class ImageBuilder(pulumi.CustomResource):
     @pulumi.getter(name="appstreamAgentVersion")
     def appstream_agent_version(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+        The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
         """
         return pulumi.get(self, "appstream_agent_version")
 

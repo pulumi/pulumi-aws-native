@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("modalityProcessing")]
         public Input<Inputs.DataAutomationProjectModalityProcessingConfigurationArgs>? ModalityProcessing { get; set; }
 
+        [Input("sensitiveDataConfiguration")]
+        public Input<Inputs.DataAutomationProjectSensitiveDataConfigurationArgs>? SensitiveDataConfiguration { get; set; }
+
         public DataAutomationProjectVideoOverrideConfigurationArgs()
         {
         }

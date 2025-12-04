@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, cluster_config=None, cognito_options=None, domain_arn=None, domain_endpoint=None, domain_endpoint_options=None, domain_endpoint_v2=None, domain_endpoints=None, ebs_options=None, encryption_at_rest_options=None, engine_version=None, id=None, identity_center_options=None, ip_address_type=None, log_publishing_options=None, node_to_node_encryption_options=None, off_peak_window_options=None, service_software_options=None, skip_shard_migration_wait=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, aiml_options=None, arn=None, cluster_config=None, cognito_options=None, domain_arn=None, domain_endpoint=None, domain_endpoint_options=None, domain_endpoint_v2=None, domain_endpoints=None, ebs_options=None, encryption_at_rest_options=None, engine_version=None, id=None, identity_center_options=None, ip_address_type=None, log_publishing_options=None, node_to_node_encryption_options=None, off_peak_window_options=None, service_software_options=None, skip_shard_migration_wait=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
         if access_policies and not isinstance(access_policies, dict):
             raise TypeError("Expected argument 'access_policies' to be a dict")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -36,6 +36,9 @@ class GetDomainResult:
         if advanced_security_options and not isinstance(advanced_security_options, dict):
             raise TypeError("Expected argument 'advanced_security_options' to be a dict")
         pulumi.set(__self__, "advanced_security_options", advanced_security_options)
+        if aiml_options and not isinstance(aiml_options, dict):
+            raise TypeError("Expected argument 'aiml_options' to be a dict")
+        pulumi.set(__self__, "aiml_options", aiml_options)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -135,6 +138,14 @@ class GetDomainResult:
         return pulumi.get(self, "advanced_security_options")
 
     @_builtins.property
+    @pulumi.getter(name="aimlOptions")
+    def aiml_options(self) -> Optional['outputs.DomainAimlOptions']:
+        """
+        Container for parameters required to enable all machine learning features.
+        """
+        return pulumi.get(self, "aiml_options")
+
+    @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
         """
@@ -207,7 +218,7 @@ class GetDomainResult:
     @pulumi.getter(name="encryptionAtRestOptions")
     def encryption_at_rest_options(self) -> Optional['outputs.DomainEncryptionAtRestOptions']:
         """
-        Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
+        Whether the domain should encrypt data at rest, and if so, the AWS  key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
 
         If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
         """
@@ -325,6 +336,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             access_policies=self.access_policies,
             advanced_options=self.advanced_options,
             advanced_security_options=self.advanced_security_options,
+            aiml_options=self.aiml_options,
             arn=self.arn,
             cluster_config=self.cluster_config,
             cognito_options=self.cognito_options,
@@ -356,7 +368,7 @@ def get_domain(domain_name: Optional[_builtins.str] = None,
     An example resource schema demonstrating some basic constructs and validation rules.
 
 
-    :param _builtins.str domain_name: A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+    :param _builtins.str domain_name: A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
            
            Required when creating a new domain.
            
@@ -371,6 +383,7 @@ def get_domain(domain_name: Optional[_builtins.str] = None,
         access_policies=pulumi.get(__ret__, 'access_policies'),
         advanced_options=pulumi.get(__ret__, 'advanced_options'),
         advanced_security_options=pulumi.get(__ret__, 'advanced_security_options'),
+        aiml_options=pulumi.get(__ret__, 'aiml_options'),
         arn=pulumi.get(__ret__, 'arn'),
         cluster_config=pulumi.get(__ret__, 'cluster_config'),
         cognito_options=pulumi.get(__ret__, 'cognito_options'),
@@ -400,7 +413,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
     An example resource schema demonstrating some basic constructs and validation rules.
 
 
-    :param _builtins.str domain_name: A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+    :param _builtins.str domain_name: A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
            
            Required when creating a new domain.
            
@@ -414,6 +427,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
         access_policies=pulumi.get(__response__, 'access_policies'),
         advanced_options=pulumi.get(__response__, 'advanced_options'),
         advanced_security_options=pulumi.get(__response__, 'advanced_security_options'),
+        aiml_options=pulumi.get(__response__, 'aiml_options'),
         arn=pulumi.get(__response__, 'arn'),
         cluster_config=pulumi.get(__response__, 'cluster_config'),
         cognito_options=pulumi.get(__response__, 'cognito_options'),

@@ -297,6 +297,13 @@ export const FlowOutputEncryptionKeyType = {
  */
 export type FlowOutputEncryptionKeyType = (typeof FlowOutputEncryptionKeyType)[keyof typeof FlowOutputEncryptionKeyType];
 
+export const FlowOutputFlowTransitEncryptionKeyType = {
+    SecretsManager: "SECRETS_MANAGER",
+    Automatic: "AUTOMATIC",
+} as const;
+
+export type FlowOutputFlowTransitEncryptionKeyType = (typeof FlowOutputFlowTransitEncryptionKeyType)[keyof typeof FlowOutputFlowTransitEncryptionKeyType];
+
 export const FlowOutputMediaStreamOutputConfigurationEncodingName = {
     Jxsv: "jxsv",
     Raw: "raw",
@@ -337,6 +344,13 @@ export const FlowOutputProtocol = {
  * The protocol that is used by the source or output.
  */
 export type FlowOutputProtocol = (typeof FlowOutputProtocol)[keyof typeof FlowOutputProtocol];
+
+export const FlowOutputRouterIntegrationState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type FlowOutputRouterIntegrationState = (typeof FlowOutputRouterIntegrationState)[keyof typeof FlowOutputRouterIntegrationState];
 
 export const FlowSilentAudioState = {
     Enabled: "ENABLED",
@@ -417,6 +431,23 @@ export const FlowSourceProtocol = {
  */
 export type FlowSourceProtocol = (typeof FlowSourceProtocol)[keyof typeof FlowSourceProtocol];
 
+export const FlowSourceRouterIntegrationState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Indicates if router integration is enabled or disabled on the flow source.
+ */
+export type FlowSourceRouterIntegrationState = (typeof FlowSourceRouterIntegrationState)[keyof typeof FlowSourceRouterIntegrationState];
+
+export const FlowTransitEncryptionKeyType = {
+    SecretsManager: "SECRETS_MANAGER",
+    Automatic: "AUTOMATIC",
+} as const;
+
+export type FlowTransitEncryptionKeyType = (typeof FlowTransitEncryptionKeyType)[keyof typeof FlowTransitEncryptionKeyType];
+
 export const FlowVpcInterfaceNetworkInterfaceType = {
     Ena: "ena",
     Efa: "efa",
@@ -440,3 +471,218 @@ export const GatewayState = {
  * The current status of the gateway.
  */
 export type GatewayState = (typeof GatewayState)[keyof typeof GatewayState];
+
+export const RouterInputDay = {
+    Monday: "MONDAY",
+    Tuesday: "TUESDAY",
+    Wednesday: "WEDNESDAY",
+    Thursday: "THURSDAY",
+    Friday: "FRIDAY",
+    Saturday: "SATURDAY",
+    Sunday: "SUNDAY",
+} as const;
+
+export type RouterInputDay = (typeof RouterInputDay)[keyof typeof RouterInputDay];
+
+export const RouterInputFailoverInputSourcePriorityMode = {
+    NoPriority: "NO_PRIORITY",
+    PrimarySecondary: "PRIMARY_SECONDARY",
+} as const;
+
+export type RouterInputFailoverInputSourcePriorityMode = (typeof RouterInputFailoverInputSourcePriorityMode)[keyof typeof RouterInputFailoverInputSourcePriorityMode];
+
+export const RouterInputFlowTransitEncryptionKeyType = {
+    SecretsManager: "SECRETS_MANAGER",
+    Automatic: "AUTOMATIC",
+} as const;
+
+export type RouterInputFlowTransitEncryptionKeyType = (typeof RouterInputFlowTransitEncryptionKeyType)[keyof typeof RouterInputFlowTransitEncryptionKeyType];
+
+export const RouterInputForwardErrorCorrectionState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type RouterInputForwardErrorCorrectionState = (typeof RouterInputForwardErrorCorrectionState)[keyof typeof RouterInputForwardErrorCorrectionState];
+
+export const RouterInputMaintenanceType = {
+    PreferredDayTime: "PREFERRED_DAY_TIME",
+    Default: "DEFAULT",
+} as const;
+
+export type RouterInputMaintenanceType = (typeof RouterInputMaintenanceType)[keyof typeof RouterInputMaintenanceType];
+
+export const RouterInputProtocol = {
+    Rtp: "RTP",
+    Rist: "RIST",
+    SrtCaller: "SRT_CALLER",
+    SrtListener: "SRT_LISTENER",
+} as const;
+
+export type RouterInputProtocol = (typeof RouterInputProtocol)[keyof typeof RouterInputProtocol];
+
+export const RouterInputRoutingScope = {
+    Regional: "REGIONAL",
+    Global: "GLOBAL",
+} as const;
+
+export type RouterInputRoutingScope = (typeof RouterInputRoutingScope)[keyof typeof RouterInputRoutingScope];
+
+export const RouterInputState = {
+    Creating: "CREATING",
+    Standby: "STANDBY",
+    Starting: "STARTING",
+    Active: "ACTIVE",
+    Stopping: "STOPPING",
+    Deleting: "DELETING",
+    Updating: "UPDATING",
+    Error: "ERROR",
+    Recovering: "RECOVERING",
+    Migrating: "MIGRATING",
+} as const;
+
+export type RouterInputState = (typeof RouterInputState)[keyof typeof RouterInputState];
+
+export const RouterInputTier = {
+    Input100: "INPUT_100",
+    Input50: "INPUT_50",
+    Input20: "INPUT_20",
+} as const;
+
+export type RouterInputTier = (typeof RouterInputTier)[keyof typeof RouterInputTier];
+
+export const RouterInputTransitEncryptionKeyType = {
+    SecretsManager: "SECRETS_MANAGER",
+    Automatic: "AUTOMATIC",
+} as const;
+
+export type RouterInputTransitEncryptionKeyType = (typeof RouterInputTransitEncryptionKeyType)[keyof typeof RouterInputTransitEncryptionKeyType];
+
+export const RouterInputType = {
+    Standard: "STANDARD",
+    Failover: "FAILOVER",
+    Merge: "MERGE",
+    MediaconnectFlow: "MEDIACONNECT_FLOW",
+} as const;
+
+export type RouterInputType = (typeof RouterInputType)[keyof typeof RouterInputType];
+
+export const RouterNetworkInterfaceState = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Updating: "UPDATING",
+    Deleting: "DELETING",
+    Error: "ERROR",
+    Recovering: "RECOVERING",
+} as const;
+
+export type RouterNetworkInterfaceState = (typeof RouterNetworkInterfaceState)[keyof typeof RouterNetworkInterfaceState];
+
+export const RouterNetworkInterfaceType = {
+    Public: "PUBLIC",
+    Vpc: "VPC",
+} as const;
+
+export type RouterNetworkInterfaceType = (typeof RouterNetworkInterfaceType)[keyof typeof RouterNetworkInterfaceType];
+
+export const RouterOutputResourceDay = {
+    Monday: "MONDAY",
+    Tuesday: "TUESDAY",
+    Wednesday: "WEDNESDAY",
+    Thursday: "THURSDAY",
+    Friday: "FRIDAY",
+    Saturday: "SATURDAY",
+    Sunday: "SUNDAY",
+} as const;
+
+export type RouterOutputResourceDay = (typeof RouterOutputResourceDay)[keyof typeof RouterOutputResourceDay];
+
+export const RouterOutputResourceFlowTransitEncryptionKeyType = {
+    SecretsManager: "SECRETS_MANAGER",
+    Automatic: "AUTOMATIC",
+} as const;
+
+export type RouterOutputResourceFlowTransitEncryptionKeyType = (typeof RouterOutputResourceFlowTransitEncryptionKeyType)[keyof typeof RouterOutputResourceFlowTransitEncryptionKeyType];
+
+export const RouterOutputResourceForwardErrorCorrectionState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type RouterOutputResourceForwardErrorCorrectionState = (typeof RouterOutputResourceForwardErrorCorrectionState)[keyof typeof RouterOutputResourceForwardErrorCorrectionState];
+
+export const RouterOutputResourceMaintenanceType = {
+    PreferredDayTime: "PREFERRED_DAY_TIME",
+    Default: "DEFAULT",
+} as const;
+
+export type RouterOutputResourceMaintenanceType = (typeof RouterOutputResourceMaintenanceType)[keyof typeof RouterOutputResourceMaintenanceType];
+
+export const RouterOutputResourceMediaLiveInputPipelineId = {
+    Pipeline0: "PIPELINE_0",
+    Pipeline1: "PIPELINE_1",
+} as const;
+
+export type RouterOutputResourceMediaLiveInputPipelineId = (typeof RouterOutputResourceMediaLiveInputPipelineId)[keyof typeof RouterOutputResourceMediaLiveInputPipelineId];
+
+export const RouterOutputResourceMediaLiveTransitEncryptionKeyType = {
+    SecretsManager: "SECRETS_MANAGER",
+    Automatic: "AUTOMATIC",
+} as const;
+
+export type RouterOutputResourceMediaLiveTransitEncryptionKeyType = (typeof RouterOutputResourceMediaLiveTransitEncryptionKeyType)[keyof typeof RouterOutputResourceMediaLiveTransitEncryptionKeyType];
+
+export const RouterOutputResourceRouterOutputProtocol = {
+    Rtp: "RTP",
+    Rist: "RIST",
+    SrtCaller: "SRT_CALLER",
+    SrtListener: "SRT_LISTENER",
+} as const;
+
+export type RouterOutputResourceRouterOutputProtocol = (typeof RouterOutputResourceRouterOutputProtocol)[keyof typeof RouterOutputResourceRouterOutputProtocol];
+
+export const RouterOutputResourceRouterOutputRoutedState = {
+    Routed: "ROUTED",
+    Routing: "ROUTING",
+    Unrouted: "UNROUTED",
+} as const;
+
+export type RouterOutputResourceRouterOutputRoutedState = (typeof RouterOutputResourceRouterOutputRoutedState)[keyof typeof RouterOutputResourceRouterOutputRoutedState];
+
+export const RouterOutputResourceRouterOutputState = {
+    Creating: "CREATING",
+    Standby: "STANDBY",
+    Starting: "STARTING",
+    Active: "ACTIVE",
+    Stopping: "STOPPING",
+    Deleting: "DELETING",
+    Updating: "UPDATING",
+    Error: "ERROR",
+    Recovering: "RECOVERING",
+    Migrating: "MIGRATING",
+} as const;
+
+export type RouterOutputResourceRouterOutputState = (typeof RouterOutputResourceRouterOutputState)[keyof typeof RouterOutputResourceRouterOutputState];
+
+export const RouterOutputResourceRouterOutputTier = {
+    Output100: "OUTPUT_100",
+    Output50: "OUTPUT_50",
+    Output20: "OUTPUT_20",
+} as const;
+
+export type RouterOutputResourceRouterOutputTier = (typeof RouterOutputResourceRouterOutputTier)[keyof typeof RouterOutputResourceRouterOutputTier];
+
+export const RouterOutputResourceRouterOutputType = {
+    Standard: "STANDARD",
+    MediaconnectFlow: "MEDIACONNECT_FLOW",
+    MedialiveInput: "MEDIALIVE_INPUT",
+} as const;
+
+export type RouterOutputResourceRouterOutputType = (typeof RouterOutputResourceRouterOutputType)[keyof typeof RouterOutputResourceRouterOutputType];
+
+export const RouterOutputResourceRoutingScope = {
+    Regional: "REGIONAL",
+    Global: "GLOBAL",
+} as const;
+
+export type RouterOutputResourceRoutingScope = (typeof RouterOutputResourceRoutingScope)[keyof typeof RouterOutputResourceRoutingScope];

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetAppendedColumn
     {
+        /// <summary>
+        /// The name of the column to include in the appended result.
+        /// </summary>
         public readonly string ColumnName;
+        /// <summary>
+        /// A unique identifier for the column in the appended result.
+        /// </summary>
         public readonly string NewColumnId;
 
         [OutputConstructor]

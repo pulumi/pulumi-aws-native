@@ -100,6 +100,9 @@ class GetSessionLoggerResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags of the session logger.
+        """
         return pulumi.get(self, "tags")
 
 

@@ -64,6 +64,18 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> DnsSupport { get; private set; } = null!;
 
         /// <summary>
+        /// Enable or disable encryption support. Disabled by default.
+        /// </summary>
+        [Output("encryptionSupport")]
+        public Output<Pulumi.AwsNative.Ec2.TransitGatewayEncryptionSupport?> EncryptionSupport { get; private set; } = null!;
+
+        /// <summary>
+        /// The encryption support state of the transit gateway.
+        /// </summary>
+        [Output("encryptionSupportState")]
+        public Output<string> EncryptionSupportState { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether multicast is enabled on the transit gateway
         /// </summary>
         [Output("multicastSupport")]
@@ -195,6 +207,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("dnsSupport")]
         public Input<string>? DnsSupport { get; set; }
+
+        /// <summary>
+        /// Enable or disable encryption support. Disabled by default.
+        /// </summary>
+        [Input("encryptionSupport")]
+        public Input<Pulumi.AwsNative.Ec2.TransitGatewayEncryptionSupport>? EncryptionSupport { get; set; }
 
         /// <summary>
         /// Indicates whether multicast is enabled on the transit gateway

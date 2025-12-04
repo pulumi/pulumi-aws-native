@@ -10,6 +10,7 @@ __all__ = [
     'AppMonitorCustomEventsStatus',
     'AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus',
     'AppMonitorMetricDestinationDestination',
+    'AppMonitorPlatform',
     'AppMonitorTelemetry',
 ]
 
@@ -36,6 +37,13 @@ class AppMonitorMetricDestinationDestination(_builtins.str, Enum):
     """
     CLOUD_WATCH = "CloudWatch"
     EVIDENTLY = "Evidently"
+
+
+@pulumi.type_token("aws-native:rum:AppMonitorPlatform")
+class AppMonitorPlatform(_builtins.str, Enum):
+    WEB = "Web"
+    ANDROID = "Android"
+    IOS = "iOS"
 
 
 @pulumi.type_token("aws-native:rum:AppMonitorTelemetry")

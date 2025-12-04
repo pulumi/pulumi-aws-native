@@ -184,7 +184,7 @@ class ResponsePlanChatChannel(dict):
                  chatbot_sns: Optional[Sequence[_builtins.str]] = None):
         """
         The chat channel configuration.
-        :param Sequence[_builtins.str] chatbot_sns: The Amazon SNS targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
+        :param Sequence[_builtins.str] chatbot_sns: The Amazon  targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon  topics
         """
         if chatbot_sns is not None:
             pulumi.set(__self__, "chatbot_sns", chatbot_sns)
@@ -193,7 +193,7 @@ class ResponsePlanChatChannel(dict):
     @pulumi.getter(name="chatbotSns")
     def chatbot_sns(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The Amazon SNS targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon SNS topics
+        The Amazon  targets that  uses to notify the chat channel of updates to an incident. You can also make updates to the incident through the chat channel by using the Amazon  topics
         """
         return pulumi.get(self, "chatbot_sns")
 
@@ -418,7 +418,7 @@ class ResponsePlanNotificationTargetItem(dict):
                  sns_topic_arn: Optional[_builtins.str] = None):
         """
         A notification target.
-        :param _builtins.str sns_topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic.
+        :param _builtins.str sns_topic_arn: The Amazon Resource Name (ARN) of the Amazon  topic.
         """
         if sns_topic_arn is not None:
             pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
@@ -427,7 +427,7 @@ class ResponsePlanNotificationTargetItem(dict):
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Amazon SNS topic.
+        The Amazon Resource Name (ARN) of the Amazon  topic.
         """
         return pulumi.get(self, "sns_topic_arn")
 

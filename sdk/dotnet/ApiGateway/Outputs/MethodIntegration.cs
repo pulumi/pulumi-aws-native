@@ -51,6 +51,10 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.MethodIntegrationResponse> IntegrationResponses;
         /// <summary>
+        /// The ALB or NLB listener to send the request to. Only supported for private integrations that use VPC links V2.
+        /// </summary>
+        public readonly string? IntegrationTarget;
+        /// <summary>
         /// Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in `requestTemplates` . The valid value is one of the following: `WHEN_NO_MATCH` : passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. `WHEN_NO_TEMPLATES` : passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. `NEVER` : rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
         /// </summary>
         public readonly Pulumi.AwsNative.ApiGateway.MethodIntegrationPassthroughBehavior? PassthroughBehavior;
@@ -62,6 +66,9 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
         /// Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? RequestTemplates;
+        /// <summary>
+        /// The response transfer mode of the integration. Use `STREAM` to have API Gateway stream response your back to you or use `BUFFERED` to have API Gateway wait to receive the complete response before beginning transmission.
+        /// </summary>
         public readonly Pulumi.AwsNative.ApiGateway.MethodIntegrationResponseTransferMode? ResponseTransferMode;
         /// <summary>
         /// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.
@@ -98,6 +105,8 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
 
             ImmutableArray<Outputs.MethodIntegrationResponse> integrationResponses,
 
+            string? integrationTarget,
+
             Pulumi.AwsNative.ApiGateway.MethodIntegrationPassthroughBehavior? passthroughBehavior,
 
             ImmutableDictionary<string, string>? requestParameters,
@@ -120,6 +129,7 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
             Credentials = credentials;
             IntegrationHttpMethod = integrationHttpMethod;
             IntegrationResponses = integrationResponses;
+            IntegrationTarget = integrationTarget;
             PassthroughBehavior = passthroughBehavior;
             RequestParameters = requestParameters;
             RequestTemplates = requestTemplates;

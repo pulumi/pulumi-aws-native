@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SsmGuiConnect.Inputs
     public sealed class ConnectionRecordingPreferencesPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of a AWS KMS key that is used to encrypt data while it is being processed by the service. This key must exist in the same AWS Region as the node you start an RDP connection to.
+        /// The ARN of a AWS  key that is used to encrypt data while it is being processed by the service. This key must exist in the same AWS Region as the node you start an RDP connection to.
         /// </summary>
         [Input("kmsKeyArn", required: true)]
         public Input<string> KmsKeyArn { get; set; } = null!;

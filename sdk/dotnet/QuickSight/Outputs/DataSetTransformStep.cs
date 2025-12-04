@@ -13,16 +13,43 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetTransformStep
     {
+        /// <summary>
+        /// A transform step that groups data and applies aggregation functions to calculate summary values.
+        /// </summary>
         public readonly Outputs.DataSetAggregateOperation? AggregateStep;
+        /// <summary>
+        /// A transform step that combines rows from multiple sources by stacking them vertically.
+        /// </summary>
         public readonly Outputs.DataSetAppendOperation? AppendStep;
+        /// <summary>
+        /// A transform step that changes the data types of one or more columns.
+        /// </summary>
         public readonly Outputs.DataSetCastColumnTypesOperation? CastColumnTypesStep;
         public readonly Outputs.DataSetCreateColumnsOperation? CreateColumnsStep;
+        /// <summary>
+        /// A transform step that applies filter conditions.
+        /// </summary>
         public readonly Outputs.DataSetFiltersOperation? FiltersStep;
+        /// <summary>
+        /// A transform step that brings data from a source table.
+        /// </summary>
         public readonly Outputs.DataSetImportTableOperation? ImportTableStep;
+        /// <summary>
+        /// A transform step that combines data from two sources based on specified join conditions.
+        /// </summary>
         public readonly Outputs.DataSetJoinOperation? JoinStep;
+        /// <summary>
+        /// A transform step that converts row values into columns to reshape the data structure.
+        /// </summary>
         public readonly Outputs.DataSetPivotOperation? PivotStep;
         public readonly Outputs.DataSetProjectOperation? ProjectStep;
+        /// <summary>
+        /// A transform step that changes the names of one or more columns.
+        /// </summary>
         public readonly Outputs.DataSetRenameColumnsOperation? RenameColumnsStep;
+        /// <summary>
+        /// A transform step that converts columns into rows to normalize the data structure.
+        /// </summary>
         public readonly Outputs.DataSetUnpivotOperation? UnpivotStep;
 
         [OutputConstructor]

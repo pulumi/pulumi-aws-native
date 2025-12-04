@@ -13,10 +13,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetPivotOperation
     {
+        /// <summary>
+        /// Alias for this operation.
+        /// </summary>
         public readonly string Alias;
+        /// <summary>
+        /// The list of column names to group by when performing the pivot operation.
+        /// </summary>
         public readonly ImmutableArray<string> GroupByColumnNames;
+        /// <summary>
+        /// Configuration that specifies which labels to pivot and how to structure the resulting columns.
+        /// </summary>
         public readonly Outputs.DataSetPivotConfiguration PivotConfiguration;
+        /// <summary>
+        /// The source transform operation that provides input data for pivoting.
+        /// </summary>
         public readonly Outputs.DataSetTransformOperationSource Source;
+        /// <summary>
+        /// Configuration for how to aggregate values when multiple rows map to the same pivoted column.
+        /// </summary>
         public readonly Outputs.DataSetValueColumnConfiguration ValueColumnConfiguration;
 
         [OutputConstructor]

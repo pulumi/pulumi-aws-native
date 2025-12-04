@@ -178,7 +178,8 @@ type BackupPlanBackupRuleResourceType struct {
 	// If this value is included, it must be at least 60 minutes to avoid errors.
 	StartWindowMinutes *float64 `pulumi:"startWindowMinutes"`
 	// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of letters, numbers, and hyphens.
-	TargetBackupVault string `pulumi:"targetBackupVault"`
+	TargetBackupVault                      string  `pulumi:"targetBackupVault"`
+	TargetLogicallyAirGappedBackupVaultArn *string `pulumi:"targetLogicallyAirGappedBackupVaultArn"`
 }
 
 // BackupPlanBackupRuleResourceTypeInput is an input type that accepts BackupPlanBackupRuleResourceTypeArgs and BackupPlanBackupRuleResourceTypeOutput values.
@@ -221,7 +222,8 @@ type BackupPlanBackupRuleResourceTypeArgs struct {
 	// If this value is included, it must be at least 60 minutes to avoid errors.
 	StartWindowMinutes pulumi.Float64PtrInput `pulumi:"startWindowMinutes"`
 	// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of letters, numbers, and hyphens.
-	TargetBackupVault pulumi.StringInput `pulumi:"targetBackupVault"`
+	TargetBackupVault                      pulumi.StringInput    `pulumi:"targetBackupVault"`
+	TargetLogicallyAirGappedBackupVaultArn pulumi.StringPtrInput `pulumi:"targetLogicallyAirGappedBackupVaultArn"`
 }
 
 func (BackupPlanBackupRuleResourceTypeArgs) ElementType() reflect.Type {
@@ -335,6 +337,10 @@ func (o BackupPlanBackupRuleResourceTypeOutput) StartWindowMinutes() pulumi.Floa
 // The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of letters, numbers, and hyphens.
 func (o BackupPlanBackupRuleResourceTypeOutput) TargetBackupVault() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) string { return v.TargetBackupVault }).(pulumi.StringOutput)
+}
+
+func (o BackupPlanBackupRuleResourceTypeOutput) TargetLogicallyAirGappedBackupVaultArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) *string { return v.TargetLogicallyAirGappedBackupVaultArn }).(pulumi.StringPtrOutput)
 }
 
 type BackupPlanBackupRuleResourceTypeArrayOutput struct{ *pulumi.OutputState }

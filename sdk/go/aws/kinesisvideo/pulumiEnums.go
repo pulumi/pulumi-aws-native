@@ -174,9 +174,179 @@ func (in *signalingChannelTypePtr) ToSignalingChannelTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(SignalingChannelTypePtrOutput)
 }
 
+// The storage tier for the Kinesis Video Stream. Determines the storage class used for stream data.
+type StreamStorageConfigurationDefaultStorageTier string
+
+const (
+	StreamStorageConfigurationDefaultStorageTierHot  = StreamStorageConfigurationDefaultStorageTier("HOT")
+	StreamStorageConfigurationDefaultStorageTierWarm = StreamStorageConfigurationDefaultStorageTier("WARM")
+)
+
+func (StreamStorageConfigurationDefaultStorageTier) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamStorageConfigurationDefaultStorageTier)(nil)).Elem()
+}
+
+func (e StreamStorageConfigurationDefaultStorageTier) ToStreamStorageConfigurationDefaultStorageTierOutput() StreamStorageConfigurationDefaultStorageTierOutput {
+	return pulumi.ToOutput(e).(StreamStorageConfigurationDefaultStorageTierOutput)
+}
+
+func (e StreamStorageConfigurationDefaultStorageTier) ToStreamStorageConfigurationDefaultStorageTierOutputWithContext(ctx context.Context) StreamStorageConfigurationDefaultStorageTierOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StreamStorageConfigurationDefaultStorageTierOutput)
+}
+
+func (e StreamStorageConfigurationDefaultStorageTier) ToStreamStorageConfigurationDefaultStorageTierPtrOutput() StreamStorageConfigurationDefaultStorageTierPtrOutput {
+	return e.ToStreamStorageConfigurationDefaultStorageTierPtrOutputWithContext(context.Background())
+}
+
+func (e StreamStorageConfigurationDefaultStorageTier) ToStreamStorageConfigurationDefaultStorageTierPtrOutputWithContext(ctx context.Context) StreamStorageConfigurationDefaultStorageTierPtrOutput {
+	return StreamStorageConfigurationDefaultStorageTier(e).ToStreamStorageConfigurationDefaultStorageTierOutputWithContext(ctx).ToStreamStorageConfigurationDefaultStorageTierPtrOutputWithContext(ctx)
+}
+
+func (e StreamStorageConfigurationDefaultStorageTier) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StreamStorageConfigurationDefaultStorageTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StreamStorageConfigurationDefaultStorageTier) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e StreamStorageConfigurationDefaultStorageTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type StreamStorageConfigurationDefaultStorageTierOutput struct{ *pulumi.OutputState }
+
+func (StreamStorageConfigurationDefaultStorageTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamStorageConfigurationDefaultStorageTier)(nil)).Elem()
+}
+
+func (o StreamStorageConfigurationDefaultStorageTierOutput) ToStreamStorageConfigurationDefaultStorageTierOutput() StreamStorageConfigurationDefaultStorageTierOutput {
+	return o
+}
+
+func (o StreamStorageConfigurationDefaultStorageTierOutput) ToStreamStorageConfigurationDefaultStorageTierOutputWithContext(ctx context.Context) StreamStorageConfigurationDefaultStorageTierOutput {
+	return o
+}
+
+func (o StreamStorageConfigurationDefaultStorageTierOutput) ToStreamStorageConfigurationDefaultStorageTierPtrOutput() StreamStorageConfigurationDefaultStorageTierPtrOutput {
+	return o.ToStreamStorageConfigurationDefaultStorageTierPtrOutputWithContext(context.Background())
+}
+
+func (o StreamStorageConfigurationDefaultStorageTierOutput) ToStreamStorageConfigurationDefaultStorageTierPtrOutputWithContext(ctx context.Context) StreamStorageConfigurationDefaultStorageTierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamStorageConfigurationDefaultStorageTier) *StreamStorageConfigurationDefaultStorageTier {
+		return &v
+	}).(StreamStorageConfigurationDefaultStorageTierPtrOutput)
+}
+
+func (o StreamStorageConfigurationDefaultStorageTierOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StreamStorageConfigurationDefaultStorageTierOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StreamStorageConfigurationDefaultStorageTier) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StreamStorageConfigurationDefaultStorageTierOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StreamStorageConfigurationDefaultStorageTierOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StreamStorageConfigurationDefaultStorageTier) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StreamStorageConfigurationDefaultStorageTierPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamStorageConfigurationDefaultStorageTierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamStorageConfigurationDefaultStorageTier)(nil)).Elem()
+}
+
+func (o StreamStorageConfigurationDefaultStorageTierPtrOutput) ToStreamStorageConfigurationDefaultStorageTierPtrOutput() StreamStorageConfigurationDefaultStorageTierPtrOutput {
+	return o
+}
+
+func (o StreamStorageConfigurationDefaultStorageTierPtrOutput) ToStreamStorageConfigurationDefaultStorageTierPtrOutputWithContext(ctx context.Context) StreamStorageConfigurationDefaultStorageTierPtrOutput {
+	return o
+}
+
+func (o StreamStorageConfigurationDefaultStorageTierPtrOutput) Elem() StreamStorageConfigurationDefaultStorageTierOutput {
+	return o.ApplyT(func(v *StreamStorageConfigurationDefaultStorageTier) StreamStorageConfigurationDefaultStorageTier {
+		if v != nil {
+			return *v
+		}
+		var ret StreamStorageConfigurationDefaultStorageTier
+		return ret
+	}).(StreamStorageConfigurationDefaultStorageTierOutput)
+}
+
+func (o StreamStorageConfigurationDefaultStorageTierPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StreamStorageConfigurationDefaultStorageTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StreamStorageConfigurationDefaultStorageTier) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// StreamStorageConfigurationDefaultStorageTierInput is an input type that accepts values of the StreamStorageConfigurationDefaultStorageTier enum
+// A concrete instance of `StreamStorageConfigurationDefaultStorageTierInput` can be one of the following:
+//
+//	StreamStorageConfigurationDefaultStorageTierHot
+//	StreamStorageConfigurationDefaultStorageTierWarm
+type StreamStorageConfigurationDefaultStorageTierInput interface {
+	pulumi.Input
+
+	ToStreamStorageConfigurationDefaultStorageTierOutput() StreamStorageConfigurationDefaultStorageTierOutput
+	ToStreamStorageConfigurationDefaultStorageTierOutputWithContext(context.Context) StreamStorageConfigurationDefaultStorageTierOutput
+}
+
+var streamStorageConfigurationDefaultStorageTierPtrType = reflect.TypeOf((**StreamStorageConfigurationDefaultStorageTier)(nil)).Elem()
+
+type StreamStorageConfigurationDefaultStorageTierPtrInput interface {
+	pulumi.Input
+
+	ToStreamStorageConfigurationDefaultStorageTierPtrOutput() StreamStorageConfigurationDefaultStorageTierPtrOutput
+	ToStreamStorageConfigurationDefaultStorageTierPtrOutputWithContext(context.Context) StreamStorageConfigurationDefaultStorageTierPtrOutput
+}
+
+type streamStorageConfigurationDefaultStorageTierPtr string
+
+func StreamStorageConfigurationDefaultStorageTierPtr(v string) StreamStorageConfigurationDefaultStorageTierPtrInput {
+	return (*streamStorageConfigurationDefaultStorageTierPtr)(&v)
+}
+
+func (*streamStorageConfigurationDefaultStorageTierPtr) ElementType() reflect.Type {
+	return streamStorageConfigurationDefaultStorageTierPtrType
+}
+
+func (in *streamStorageConfigurationDefaultStorageTierPtr) ToStreamStorageConfigurationDefaultStorageTierPtrOutput() StreamStorageConfigurationDefaultStorageTierPtrOutput {
+	return pulumi.ToOutput(in).(StreamStorageConfigurationDefaultStorageTierPtrOutput)
+}
+
+func (in *streamStorageConfigurationDefaultStorageTierPtr) ToStreamStorageConfigurationDefaultStorageTierPtrOutputWithContext(ctx context.Context) StreamStorageConfigurationDefaultStorageTierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StreamStorageConfigurationDefaultStorageTierPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SignalingChannelTypeInput)(nil)).Elem(), SignalingChannelType("SINGLE_MASTER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SignalingChannelTypePtrInput)(nil)).Elem(), SignalingChannelType("SINGLE_MASTER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamStorageConfigurationDefaultStorageTierInput)(nil)).Elem(), StreamStorageConfigurationDefaultStorageTier("HOT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamStorageConfigurationDefaultStorageTierPtrInput)(nil)).Elem(), StreamStorageConfigurationDefaultStorageTier("HOT"))
 	pulumi.RegisterOutputType(SignalingChannelTypeOutput{})
 	pulumi.RegisterOutputType(SignalingChannelTypePtrOutput{})
+	pulumi.RegisterOutputType(StreamStorageConfigurationDefaultStorageTierOutput{})
+	pulumi.RegisterOutputType(StreamStorageConfigurationDefaultStorageTierPtrOutput{})
 }

@@ -42,6 +42,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Output("gatewayIdentifier")]
         public Output<string?> GatewayIdentifier { get; private set; } = null!;
 
+        [Output("lastSynchronizedAt")]
+        public Output<string> LastSynchronizedAt { get; private set; } = null!;
+
         /// <summary>
         /// The name for the gateway target.
         /// </summary>

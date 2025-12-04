@@ -70,6 +70,38 @@ namespace Pulumi.AwsNative.VpcLattice
     }
 
     /// <summary>
+    /// The current status of the domain verification process.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainVerificationStatus : IEquatable<DomainVerificationStatus>
+    {
+        private readonly string _value;
+
+        private DomainVerificationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainVerificationStatus Verified { get; } = new DomainVerificationStatus("VERIFIED");
+        public static DomainVerificationStatus Pending { get; } = new DomainVerificationStatus("PENDING");
+        public static DomainVerificationStatus VerificationTimedOut { get; } = new DomainVerificationStatus("VERIFICATION_TIMED_OUT");
+
+        public static bool operator ==(DomainVerificationStatus left, DomainVerificationStatus right) => left.Equals(right);
+        public static bool operator !=(DomainVerificationStatus left, DomainVerificationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DomainVerificationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainVerificationStatus other && Equals(other);
+        public bool Equals(DomainVerificationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The listener protocol.
     /// </summary>
     [EnumType]
@@ -393,6 +425,39 @@ namespace Pulumi.AwsNative.VpcLattice
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ServiceNetworkServiceAssociationStatus other && Equals(other);
         public bool Equals(ServiceNetworkServiceAssociationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference : IEquatable<ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference>
+    {
+        private readonly string _value;
+
+        private ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference VerifiedDomainsOnly { get; } = new ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference("VERIFIED_DOMAINS_ONLY");
+        public static ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference AllDomains { get; } = new ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference("ALL_DOMAINS");
+        public static ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference VerifiedDomainsAndSpecifiedDomains { get; } = new ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference("VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS");
+        public static ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference SpecifiedDomainsOnly { get; } = new ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference("SPECIFIED_DOMAINS_ONLY");
+
+        public static bool operator ==(ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference left, ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference right) => left.Equals(right);
+        public static bool operator !=(ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference left, ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference other && Equals(other);
+        public bool Equals(ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -183,7 +183,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["resourceConfigurationArn", "serviceName", "serviceNetworkArn", "serviceRegion", "vpcEndpointType", "vpcId"] };
+        const replaceOnChanges = { replaceOnChanges: ["dnsOptions.privateDnsPreference", "dnsOptions.privateDnsSpecifiedDomains[*]", "resourceConfigurationArn", "serviceName", "serviceNetworkArn", "serviceRegion", "vpcEndpointType", "vpcId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpcEndpoint.__pulumiType, name, resourceInputs, opts);
     }

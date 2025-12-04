@@ -62,6 +62,10 @@ export class Stream extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string | undefined>;
     /**
+     * Configuration for the storage tier of the Kinesis Video Stream.
+     */
+    declare public readonly streamStorageConfiguration: pulumi.Output<outputs.kinesisvideo.StreamStorageConfiguration | undefined>;
+    /**
      * An array of key-value pairs associated with the Kinesis Video Stream.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -82,6 +86,7 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
             resourceInputs["mediaType"] = args?.mediaType;
             resourceInputs["name"] = args?.name;
+            resourceInputs["streamStorageConfiguration"] = args?.streamStorageConfiguration;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
@@ -91,6 +96,7 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["mediaType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["streamStorageConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -124,6 +130,10 @@ export interface StreamArgs {
      * The name of the Kinesis Video stream.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Configuration for the storage tier of the Kinesis Video Stream.
+     */
+    streamStorageConfiguration?: pulumi.Input<inputs.kinesisvideo.StreamStorageConfigurationArgs>;
     /**
      * An array of key-value pairs associated with the Kinesis Video Stream.
      */

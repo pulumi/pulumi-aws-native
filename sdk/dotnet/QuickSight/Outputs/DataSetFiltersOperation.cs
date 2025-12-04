@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetFiltersOperation
     {
+        /// <summary>
+        /// Alias for this operation.
+        /// </summary>
         public readonly string Alias;
+        /// <summary>
+        /// The list of filter operations to apply.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSetFilterOperation> FilterOperations;
+        /// <summary>
+        /// The source transform operation that provides input data for filtering.
+        /// </summary>
         public readonly Outputs.DataSetTransformOperationSource Source;
 
         [OutputConstructor]

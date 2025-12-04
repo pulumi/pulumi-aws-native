@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetCastColumnTypesOperation
     {
+        /// <summary>
+        /// Alias for this operation.
+        /// </summary>
         public readonly string Alias;
+        /// <summary>
+        /// The list of column type casting operations to perform.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSetCastColumnTypeOperation> CastColumnTypeOperations;
+        /// <summary>
+        /// The source transform operation that provides input data for the type casting.
+        /// </summary>
         public readonly Outputs.DataSetTransformOperationSource Source;
 
         [OutputConstructor]

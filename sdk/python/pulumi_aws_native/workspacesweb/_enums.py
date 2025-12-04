@@ -7,6 +7,7 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'BrowserSettingsCategory',
     'DataProtectionSettingsRedactionPlaceHolderType',
     'IdentityProviderType',
     'PortalAuthenticationType',
@@ -23,6 +24,37 @@ __all__ = [
     'UserSettingsToolbarType',
     'UserSettingsVisualMode',
 ]
+
+
+@pulumi.type_token("aws-native:workspacesweb:BrowserSettingsCategory")
+class BrowserSettingsCategory(_builtins.str, Enum):
+    CULTS = "Cults"
+    GAMBLING = "Gambling"
+    NUDITY = "Nudity"
+    PORNOGRAPHY = "Pornography"
+    SEX_EDUCATION = "SexEducation"
+    TASTELESS = "Tasteless"
+    VIOLENCE = "Violence"
+    DOWNLOAD_SITES = "DownloadSites"
+    IMAGE_SHARING = "ImageSharing"
+    PEER_TO_PEER = "PeerToPeer"
+    STREAMING_MEDIA_AND_DOWNLOADS = "StreamingMediaAndDownloads"
+    GENERATIVE_AI = "GenerativeAI"
+    CRIMINAL_ACTIVITY = "CriminalActivity"
+    HACKING = "Hacking"
+    HATE_AND_INTOLERANCE = "HateAndIntolerance"
+    ILLEGAL_DRUG = "IllegalDrug"
+    ILLEGAL_SOFTWARE = "IllegalSoftware"
+    SCHOOL_CHEATING = "SchoolCheating"
+    SELF_HARM = "SelfHarm"
+    WEAPONS = "Weapons"
+    CHAT = "Chat"
+    GAMES = "Games"
+    INSTANT_MESSAGING = "InstantMessaging"
+    PROFESSIONAL_NETWORK = "ProfessionalNetwork"
+    SOCIAL_NETWORKING = "SocialNetworking"
+    WEB_BASED_EMAIL = "WebBasedEmail"
+    PARKED_DOMAINS = "ParkedDomains"
 
 
 @pulumi.type_token("aws-native:workspacesweb:DataProtectionSettingsRedactionPlaceHolderType")

@@ -7,9 +7,14 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'CapacityProviderArchitecture',
+    'CapacityProviderPredefinedMetricType',
+    'CapacityProviderScalingMode',
+    'CapacityProviderState',
     'CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment',
     'EventSourceMappingDocumentDbEventSourceConfigFullDocument',
     'EventSourceMappingFunctionResponseTypesItem',
+    'EventSourceMappingLoggingConfigSystemLogLevel',
     'EventSourceMappingMetricsConfigMetricsItem',
     'EventSourceMappingSchemaRegistryAccessConfigType',
     'EventSourceMappingSchemaRegistryConfigEventRecordFormat',
@@ -25,12 +30,50 @@ __all__ = [
     'FunctionSnapStartApplyOn',
     'FunctionSnapStartResponseApplyOn',
     'FunctionSnapStartResponseOptimizationStatus',
+    'FunctionTenancyConfigTenantIsolationMode',
     'FunctionTracingConfigMode',
     'PermissionFunctionUrlAuthType',
     'UrlAllowMethodsItem',
     'UrlAuthType',
     'UrlInvokeMode',
 ]
+
+
+@pulumi.type_token("aws-native:lambda:CapacityProviderArchitecture")
+class CapacityProviderArchitecture(_builtins.str, Enum):
+    """
+    Specifications for the types of EC2 instances that the capacity provider can use.
+    """
+    X8664 = "x86_64"
+    ARM64 = "arm64"
+
+
+@pulumi.type_token("aws-native:lambda:CapacityProviderPredefinedMetricType")
+class CapacityProviderPredefinedMetricType(_builtins.str, Enum):
+    """
+    The predefined metric for target tracking.
+    """
+    LAMBDA_CAPACITY_PROVIDER_AVERAGE_CPU_UTILIZATION = "LambdaCapacityProviderAverageCPUUtilization"
+
+
+@pulumi.type_token("aws-native:lambda:CapacityProviderScalingMode")
+class CapacityProviderScalingMode(_builtins.str, Enum):
+    """
+    The scaling mode for the capacity provider.
+    """
+    AUTO = "Auto"
+    MANUAL = "Manual"
+
+
+@pulumi.type_token("aws-native:lambda:CapacityProviderState")
+class CapacityProviderState(_builtins.str, Enum):
+    """
+    The current state of the capacity provider. Indicates whether the provider is being created, is active and ready for use, has failed, or is being deleted.
+    """
+    PENDING = "Pending"
+    ACTIVE = "Active"
+    FAILED = "Failed"
+    DELETING = "Deleting"
 
 
 @pulumi.type_token("aws-native:lambda:CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment")
@@ -56,9 +99,21 @@ class EventSourceMappingFunctionResponseTypesItem(_builtins.str, Enum):
     REPORT_BATCH_ITEM_FAILURES = "ReportBatchItemFailures"
 
 
+@pulumi.type_token("aws-native:lambda:EventSourceMappingLoggingConfigSystemLogLevel")
+class EventSourceMappingLoggingConfigSystemLogLevel(_builtins.str, Enum):
+    """
+    Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
+    """
+    DEBUG = "DEBUG"
+    INFO = "INFO"
+    WARN = "WARN"
+
+
 @pulumi.type_token("aws-native:lambda:EventSourceMappingMetricsConfigMetricsItem")
 class EventSourceMappingMetricsConfigMetricsItem(_builtins.str, Enum):
     EVENT_COUNT = "EventCount"
+    ERROR_COUNT = "ErrorCount"
+    KAFKA_METRICS = "KafkaMetrics"
 
 
 @pulumi.type_token("aws-native:lambda:EventSourceMappingSchemaRegistryAccessConfigType")
@@ -213,6 +268,14 @@ class FunctionSnapStartResponseOptimizationStatus(_builtins.str, Enum):
     OFF = "Off"
 
 
+@pulumi.type_token("aws-native:lambda:FunctionTenancyConfigTenantIsolationMode")
+class FunctionTenancyConfigTenantIsolationMode(_builtins.str, Enum):
+    """
+    Determines how your Lambda function isolates execution environments between tenants.
+    """
+    PER_TENANT = "PER_TENANT"
+
+
 @pulumi.type_token("aws-native:lambda:FunctionTracingConfigMode")
 class FunctionTracingConfigMode(_builtins.str, Enum):
     """
@@ -225,7 +288,7 @@ class FunctionTracingConfigMode(_builtins.str, Enum):
 @pulumi.type_token("aws-native:lambda:PermissionFunctionUrlAuthType")
 class PermissionFunctionUrlAuthType(_builtins.str, Enum):
     """
-    The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
+    The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
     """
     AWS_IAM = "AWS_IAM"
     NONE = "NONE"

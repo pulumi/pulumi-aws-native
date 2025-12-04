@@ -234,7 +234,7 @@ namespace Pulumi.AwsNative.Sns
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Returns the ARN of an Amazon SNS topic.
+        /// Returns the ARN of an Amazon  topic.
         /// </summary>
         [Output("topicArn")]
         public Output<string> TopicArn { get; private set; } = null!;

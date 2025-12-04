@@ -31,7 +31,7 @@ type LookupImageBuilderArgs struct {
 type LookupImageBuilderResult struct {
 	// The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
 	AccessEndpoints []ImageBuilderAccessEndpoint `pulumi:"accessEndpoints"`
-	// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+	// The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
 	AppstreamAgentVersion *string `pulumi:"appstreamAgentVersion"`
 	// The description to display.
 	Description *string `pulumi:"description"`
@@ -149,7 +149,7 @@ func (o LookupImageBuilderResultOutput) AccessEndpoints() ImageBuilderAccessEndp
 	return o.ApplyT(func(v LookupImageBuilderResult) []ImageBuilderAccessEndpoint { return v.AccessEndpoints }).(ImageBuilderAccessEndpointArrayOutput)
 }
 
-// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
+// The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
 func (o LookupImageBuilderResultOutput) AppstreamAgentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImageBuilderResult) *string { return v.AppstreamAgentVersion }).(pulumi.StringPtrOutput)
 }

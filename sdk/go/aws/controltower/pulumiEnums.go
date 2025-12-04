@@ -100,6 +100,214 @@ func (o LandingZoneDriftStatusPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
+type LandingZoneRemediationTypesItem string
+
+const (
+	LandingZoneRemediationTypesItemInheritanceDrift = LandingZoneRemediationTypesItem("INHERITANCE_DRIFT")
+)
+
+func (LandingZoneRemediationTypesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*LandingZoneRemediationTypesItem)(nil)).Elem()
+}
+
+func (e LandingZoneRemediationTypesItem) ToLandingZoneRemediationTypesItemOutput() LandingZoneRemediationTypesItemOutput {
+	return pulumi.ToOutput(e).(LandingZoneRemediationTypesItemOutput)
+}
+
+func (e LandingZoneRemediationTypesItem) ToLandingZoneRemediationTypesItemOutputWithContext(ctx context.Context) LandingZoneRemediationTypesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LandingZoneRemediationTypesItemOutput)
+}
+
+func (e LandingZoneRemediationTypesItem) ToLandingZoneRemediationTypesItemPtrOutput() LandingZoneRemediationTypesItemPtrOutput {
+	return e.ToLandingZoneRemediationTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (e LandingZoneRemediationTypesItem) ToLandingZoneRemediationTypesItemPtrOutputWithContext(ctx context.Context) LandingZoneRemediationTypesItemPtrOutput {
+	return LandingZoneRemediationTypesItem(e).ToLandingZoneRemediationTypesItemOutputWithContext(ctx).ToLandingZoneRemediationTypesItemPtrOutputWithContext(ctx)
+}
+
+func (e LandingZoneRemediationTypesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LandingZoneRemediationTypesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LandingZoneRemediationTypesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LandingZoneRemediationTypesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LandingZoneRemediationTypesItemOutput struct{ *pulumi.OutputState }
+
+func (LandingZoneRemediationTypesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LandingZoneRemediationTypesItem)(nil)).Elem()
+}
+
+func (o LandingZoneRemediationTypesItemOutput) ToLandingZoneRemediationTypesItemOutput() LandingZoneRemediationTypesItemOutput {
+	return o
+}
+
+func (o LandingZoneRemediationTypesItemOutput) ToLandingZoneRemediationTypesItemOutputWithContext(ctx context.Context) LandingZoneRemediationTypesItemOutput {
+	return o
+}
+
+func (o LandingZoneRemediationTypesItemOutput) ToLandingZoneRemediationTypesItemPtrOutput() LandingZoneRemediationTypesItemPtrOutput {
+	return o.ToLandingZoneRemediationTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (o LandingZoneRemediationTypesItemOutput) ToLandingZoneRemediationTypesItemPtrOutputWithContext(ctx context.Context) LandingZoneRemediationTypesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LandingZoneRemediationTypesItem) *LandingZoneRemediationTypesItem {
+		return &v
+	}).(LandingZoneRemediationTypesItemPtrOutput)
+}
+
+func (o LandingZoneRemediationTypesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LandingZoneRemediationTypesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LandingZoneRemediationTypesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LandingZoneRemediationTypesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LandingZoneRemediationTypesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LandingZoneRemediationTypesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LandingZoneRemediationTypesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (LandingZoneRemediationTypesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LandingZoneRemediationTypesItem)(nil)).Elem()
+}
+
+func (o LandingZoneRemediationTypesItemPtrOutput) ToLandingZoneRemediationTypesItemPtrOutput() LandingZoneRemediationTypesItemPtrOutput {
+	return o
+}
+
+func (o LandingZoneRemediationTypesItemPtrOutput) ToLandingZoneRemediationTypesItemPtrOutputWithContext(ctx context.Context) LandingZoneRemediationTypesItemPtrOutput {
+	return o
+}
+
+func (o LandingZoneRemediationTypesItemPtrOutput) Elem() LandingZoneRemediationTypesItemOutput {
+	return o.ApplyT(func(v *LandingZoneRemediationTypesItem) LandingZoneRemediationTypesItem {
+		if v != nil {
+			return *v
+		}
+		var ret LandingZoneRemediationTypesItem
+		return ret
+	}).(LandingZoneRemediationTypesItemOutput)
+}
+
+func (o LandingZoneRemediationTypesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LandingZoneRemediationTypesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LandingZoneRemediationTypesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LandingZoneRemediationTypesItemInput is an input type that accepts values of the LandingZoneRemediationTypesItem enum
+// A concrete instance of `LandingZoneRemediationTypesItemInput` can be one of the following:
+//
+//	LandingZoneRemediationTypesItemInheritanceDrift
+type LandingZoneRemediationTypesItemInput interface {
+	pulumi.Input
+
+	ToLandingZoneRemediationTypesItemOutput() LandingZoneRemediationTypesItemOutput
+	ToLandingZoneRemediationTypesItemOutputWithContext(context.Context) LandingZoneRemediationTypesItemOutput
+}
+
+var landingZoneRemediationTypesItemPtrType = reflect.TypeOf((**LandingZoneRemediationTypesItem)(nil)).Elem()
+
+type LandingZoneRemediationTypesItemPtrInput interface {
+	pulumi.Input
+
+	ToLandingZoneRemediationTypesItemPtrOutput() LandingZoneRemediationTypesItemPtrOutput
+	ToLandingZoneRemediationTypesItemPtrOutputWithContext(context.Context) LandingZoneRemediationTypesItemPtrOutput
+}
+
+type landingZoneRemediationTypesItemPtr string
+
+func LandingZoneRemediationTypesItemPtr(v string) LandingZoneRemediationTypesItemPtrInput {
+	return (*landingZoneRemediationTypesItemPtr)(&v)
+}
+
+func (*landingZoneRemediationTypesItemPtr) ElementType() reflect.Type {
+	return landingZoneRemediationTypesItemPtrType
+}
+
+func (in *landingZoneRemediationTypesItemPtr) ToLandingZoneRemediationTypesItemPtrOutput() LandingZoneRemediationTypesItemPtrOutput {
+	return pulumi.ToOutput(in).(LandingZoneRemediationTypesItemPtrOutput)
+}
+
+func (in *landingZoneRemediationTypesItemPtr) ToLandingZoneRemediationTypesItemPtrOutputWithContext(ctx context.Context) LandingZoneRemediationTypesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LandingZoneRemediationTypesItemPtrOutput)
+}
+
+// LandingZoneRemediationTypesItemArrayInput is an input type that accepts LandingZoneRemediationTypesItemArray and LandingZoneRemediationTypesItemArrayOutput values.
+// You can construct a concrete instance of `LandingZoneRemediationTypesItemArrayInput` via:
+//
+//	LandingZoneRemediationTypesItemArray{ LandingZoneRemediationTypesItemArgs{...} }
+type LandingZoneRemediationTypesItemArrayInput interface {
+	pulumi.Input
+
+	ToLandingZoneRemediationTypesItemArrayOutput() LandingZoneRemediationTypesItemArrayOutput
+	ToLandingZoneRemediationTypesItemArrayOutputWithContext(context.Context) LandingZoneRemediationTypesItemArrayOutput
+}
+
+type LandingZoneRemediationTypesItemArray []LandingZoneRemediationTypesItem
+
+func (LandingZoneRemediationTypesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LandingZoneRemediationTypesItem)(nil)).Elem()
+}
+
+func (i LandingZoneRemediationTypesItemArray) ToLandingZoneRemediationTypesItemArrayOutput() LandingZoneRemediationTypesItemArrayOutput {
+	return i.ToLandingZoneRemediationTypesItemArrayOutputWithContext(context.Background())
+}
+
+func (i LandingZoneRemediationTypesItemArray) ToLandingZoneRemediationTypesItemArrayOutputWithContext(ctx context.Context) LandingZoneRemediationTypesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LandingZoneRemediationTypesItemArrayOutput)
+}
+
+type LandingZoneRemediationTypesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (LandingZoneRemediationTypesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LandingZoneRemediationTypesItem)(nil)).Elem()
+}
+
+func (o LandingZoneRemediationTypesItemArrayOutput) ToLandingZoneRemediationTypesItemArrayOutput() LandingZoneRemediationTypesItemArrayOutput {
+	return o
+}
+
+func (o LandingZoneRemediationTypesItemArrayOutput) ToLandingZoneRemediationTypesItemArrayOutputWithContext(ctx context.Context) LandingZoneRemediationTypesItemArrayOutput {
+	return o
+}
+
+func (o LandingZoneRemediationTypesItemArrayOutput) Index(i pulumi.IntInput) LandingZoneRemediationTypesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LandingZoneRemediationTypesItem {
+		return vs[0].([]LandingZoneRemediationTypesItem)[vs[1].(int)]
+	}).(LandingZoneRemediationTypesItemOutput)
+}
+
 type LandingZoneStatus string
 
 const (
@@ -192,8 +400,14 @@ func (o LandingZoneStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LandingZoneRemediationTypesItemInput)(nil)).Elem(), LandingZoneRemediationTypesItem("INHERITANCE_DRIFT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LandingZoneRemediationTypesItemPtrInput)(nil)).Elem(), LandingZoneRemediationTypesItem("INHERITANCE_DRIFT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LandingZoneRemediationTypesItemArrayInput)(nil)).Elem(), LandingZoneRemediationTypesItemArray{})
 	pulumi.RegisterOutputType(LandingZoneDriftStatusOutput{})
 	pulumi.RegisterOutputType(LandingZoneDriftStatusPtrOutput{})
+	pulumi.RegisterOutputType(LandingZoneRemediationTypesItemOutput{})
+	pulumi.RegisterOutputType(LandingZoneRemediationTypesItemPtrOutput{})
+	pulumi.RegisterOutputType(LandingZoneRemediationTypesItemArrayOutput{})
 	pulumi.RegisterOutputType(LandingZoneStatusOutput{})
 	pulumi.RegisterOutputType(LandingZoneStatusPtrOutput{})
 }

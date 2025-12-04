@@ -153,6 +153,10 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public readonly string? KmsKeyArn;
         /// <summary>
+        /// The function's Amazon CloudWatch Logs configuration settings.
+        /// </summary>
+        public readonly Outputs.EventSourceMappingLoggingConfig? LoggingConfig;
+        /// <summary>
         /// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
         ///  *Default (, , event sources)*: 0
         ///  *Default (, Kafka, , event sources)*: 500 ms
@@ -177,7 +181,7 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public readonly int? ParallelizationFactor;
         /// <summary>
-        /// (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
+        /// (Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
         /// </summary>
         public readonly Outputs.EventSourceMappingProvisionedPollerConfig? ProvisionedPollerConfig;
         /// <summary>
@@ -185,7 +189,7 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public readonly ImmutableArray<string> Queues;
         /// <summary>
-        /// (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+        /// This property is for Amazon SQS event sources only. You cannot use ``ProvisionedPollerConfig`` while using ``ScalingConfig``. These options are mutually exclusive. To remove the scaling configuration, pass an empty value.
         /// </summary>
         public readonly Outputs.EventSourceMappingScalingConfig? ScalingConfig;
         /// <summary>
@@ -236,6 +240,8 @@ namespace Pulumi.AwsNative.Lambda
 
             string? kmsKeyArn,
 
+            Outputs.EventSourceMappingLoggingConfig? loggingConfig,
+
             int? maximumBatchingWindowInSeconds,
 
             int? maximumRecordAgeInSeconds,
@@ -274,6 +280,7 @@ namespace Pulumi.AwsNative.Lambda
             FunctionResponseTypes = functionResponseTypes;
             Id = id;
             KmsKeyArn = kmsKeyArn;
+            LoggingConfig = loggingConfig;
             MaximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
             MaximumRecordAgeInSeconds = maximumRecordAgeInSeconds;
             MaximumRetryAttempts = maximumRetryAttempts;

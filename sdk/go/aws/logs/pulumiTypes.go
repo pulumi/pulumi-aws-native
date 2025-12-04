@@ -210,7 +210,7 @@ type IntegrationOpenSearchResourceConfig struct {
 	DashboardViewerPrincipals []string `pulumi:"dashboardViewerPrincipals"`
 	// Specify the ARN of an IAM role that CloudWatch Logs will use to create the integration. This role must have the permissions necessary to access the OpenSearch Service collection to be able to create the dashboards. For more information about the permissions needed, see [Permissions that the integration needs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-CreateRole.html) in the CloudWatch Logs User Guide.
 	DataSourceRoleArn string `pulumi:"dataSourceRoleArn"`
-	// To have the vended dashboard data encrypted with AWS KMS instead of the CloudWatch Logs default encryption method, specify the ARN of the AWS KMS key that you want to use.
+	// To have the vended dashboard data encrypted with AWS  instead of the CloudWatch Logs default encryption method, specify the ARN of the AWS  key that you want to use.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Specify how many days that you want the data derived by OpenSearch Service to be retained in the index that the dashboard refers to. This also sets the maximum time period that you can choose when viewing data in the dashboard. Choosing a longer time frame will incur additional costs.
 	RetentionDays *int `pulumi:"retentionDays"`
@@ -236,7 +236,7 @@ type IntegrationOpenSearchResourceConfigArgs struct {
 	DashboardViewerPrincipals pulumi.StringArrayInput `pulumi:"dashboardViewerPrincipals"`
 	// Specify the ARN of an IAM role that CloudWatch Logs will use to create the integration. This role must have the permissions necessary to access the OpenSearch Service collection to be able to create the dashboards. For more information about the permissions needed, see [Permissions that the integration needs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-CreateRole.html) in the CloudWatch Logs User Guide.
 	DataSourceRoleArn pulumi.StringInput `pulumi:"dataSourceRoleArn"`
-	// To have the vended dashboard data encrypted with AWS KMS instead of the CloudWatch Logs default encryption method, specify the ARN of the AWS KMS key that you want to use.
+	// To have the vended dashboard data encrypted with AWS  instead of the CloudWatch Logs default encryption method, specify the ARN of the AWS  key that you want to use.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// Specify how many days that you want the data derived by OpenSearch Service to be retained in the index that the dashboard refers to. This also sets the maximum time period that you can choose when viewing data in the dashboard. Choosing a longer time frame will incur additional costs.
 	RetentionDays pulumi.IntPtrInput `pulumi:"retentionDays"`
@@ -336,7 +336,7 @@ func (o IntegrationOpenSearchResourceConfigOutput) DataSourceRoleArn() pulumi.St
 	return o.ApplyT(func(v IntegrationOpenSearchResourceConfig) string { return v.DataSourceRoleArn }).(pulumi.StringOutput)
 }
 
-// To have the vended dashboard data encrypted with AWS KMS instead of the CloudWatch Logs default encryption method, specify the ARN of the AWS KMS key that you want to use.
+// To have the vended dashboard data encrypted with AWS  instead of the CloudWatch Logs default encryption method, specify the ARN of the AWS  key that you want to use.
 func (o IntegrationOpenSearchResourceConfigOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationOpenSearchResourceConfig) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -402,7 +402,7 @@ func (o IntegrationOpenSearchResourceConfigPtrOutput) DataSourceRoleArn() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// To have the vended dashboard data encrypted with AWS KMS instead of the CloudWatch Logs default encryption method, specify the ARN of the AWS KMS key that you want to use.
+// To have the vended dashboard data encrypted with AWS  instead of the CloudWatch Logs default encryption method, specify the ARN of the AWS  key that you want to use.
 func (o IntegrationOpenSearchResourceConfigPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationOpenSearchResourceConfig) *string {
 		if v == nil {

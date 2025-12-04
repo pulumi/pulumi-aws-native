@@ -54,6 +54,10 @@ export class Version extends pulumi.CustomResource {
      */
     declare public readonly functionName: pulumi.Output<string>;
     /**
+     * The scaling configuration to apply to the function, including minimum and maximum execution environment limits.
+     */
+    declare public readonly functionScalingConfig: pulumi.Output<outputs.lambda.VersionFunctionScalingConfig | undefined>;
+    /**
      * Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
      */
     declare public readonly provisionedConcurrencyConfig: pulumi.Output<outputs.lambda.VersionProvisionedConcurrencyConfiguration | undefined>;
@@ -83,6 +87,7 @@ export class Version extends pulumi.CustomResource {
             resourceInputs["codeSha256"] = args?.codeSha256;
             resourceInputs["description"] = args?.description;
             resourceInputs["functionName"] = args?.functionName;
+            resourceInputs["functionScalingConfig"] = args?.functionScalingConfig;
             resourceInputs["provisionedConcurrencyConfig"] = args?.provisionedConcurrencyConfig;
             resourceInputs["runtimePolicy"] = args?.runtimePolicy;
             resourceInputs["functionArn"] = undefined /*out*/;
@@ -92,6 +97,7 @@ export class Version extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["functionName"] = undefined /*out*/;
+            resourceInputs["functionScalingConfig"] = undefined /*out*/;
             resourceInputs["provisionedConcurrencyConfig"] = undefined /*out*/;
             resourceInputs["runtimePolicy"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
@@ -119,6 +125,10 @@ export interface VersionArgs {
      * The name of the Lambda function.
      */
     functionName: pulumi.Input<string>;
+    /**
+     * The scaling configuration to apply to the function, including minimum and maximum execution environment limits.
+     */
+    functionScalingConfig?: pulumi.Input<inputs.lambda.VersionFunctionScalingConfigArgs>;
     /**
      * Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
      */

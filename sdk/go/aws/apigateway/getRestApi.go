@@ -39,6 +39,8 @@ type LookupRestApiResult struct {
 	Description *string `pulumi:"description"`
 	// Specifies whether clients can invoke your API by using the default `execute-api` endpoint. By default, clients can invoke your API with the default `https://{api_id}.execute-api.{region}.amazonaws.com` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
 	DisableExecuteApiEndpoint *bool `pulumi:"disableExecuteApiEndpoint"`
+	// The endpoint access mode for your RestApi.
+	EndpointAccessMode *string `pulumi:"endpointAccessMode"`
 	// A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
 	EndpointConfiguration *RestApiEndpointConfiguration `pulumi:"endpointConfiguration"`
 	// A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
@@ -53,6 +55,7 @@ type LookupRestApiResult struct {
 	RestApiId *string `pulumi:"restApiId"`
 	// The root resource ID for a `RestApi` resource, such as `a0bc123d4e` .
 	RootResourceId *string `pulumi:"rootResourceId"`
+	// The Transport Layer Security (TLS) version + cipher suite for this RestApi.
 	SecurityPolicy *string `pulumi:"securityPolicy"`
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -110,6 +113,11 @@ func (o LookupRestApiResultOutput) DisableExecuteApiEndpoint() pulumi.BoolPtrOut
 	return o.ApplyT(func(v LookupRestApiResult) *bool { return v.DisableExecuteApiEndpoint }).(pulumi.BoolPtrOutput)
 }
 
+// The endpoint access mode for your RestApi.
+func (o LookupRestApiResultOutput) EndpointAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRestApiResult) *string { return v.EndpointAccessMode }).(pulumi.StringPtrOutput)
+}
+
 // A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the “Parameters“ property.
 func (o LookupRestApiResultOutput) EndpointConfiguration() RestApiEndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupRestApiResult) *RestApiEndpointConfiguration { return v.EndpointConfiguration }).(RestApiEndpointConfigurationPtrOutput)
@@ -142,6 +150,7 @@ func (o LookupRestApiResultOutput) RootResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRestApiResult) *string { return v.RootResourceId }).(pulumi.StringPtrOutput)
 }
 
+// The Transport Layer Security (TLS) version + cipher suite for this RestApi.
 func (o LookupRestApiResultOutput) SecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRestApiResult) *string { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
 }

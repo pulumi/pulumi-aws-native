@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -42,6 +45,10 @@ export class Project extends pulumi.CustomResource {
      * The name of the project to create.
      */
     declare public readonly projectName: pulumi.Output<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -55,10 +62,12 @@ export class Project extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["projectName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["projectName"] };
@@ -75,4 +84,8 @@ export interface ProjectArgs {
      * The name of the project to create.
      */
     projectName?: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

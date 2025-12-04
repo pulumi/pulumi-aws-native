@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetOutputColumnNameOverrideArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The new name to assign to the column in the output.
+        /// </summary>
         [Input("outputColumnName", required: true)]
         public Input<string> OutputColumnName { get; set; } = null!;
 
+        /// <summary>
+        /// The original name of the column from the source transform operation.
+        /// </summary>
         [Input("sourceColumnName")]
         public Input<string>? SourceColumnName { get; set; }
 

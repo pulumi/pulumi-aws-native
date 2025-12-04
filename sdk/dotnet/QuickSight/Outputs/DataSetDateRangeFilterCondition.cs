@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetDateRangeFilterCondition
     {
+        /// <summary>
+        /// Whether to include the maximum value in the filter range.
+        /// </summary>
         public readonly bool? IncludeMaximum;
+        /// <summary>
+        /// Whether to include the minimum value in the filter range.
+        /// </summary>
         public readonly bool? IncludeMinimum;
+        /// <summary>
+        /// The maximum date value for the range filter.
+        /// </summary>
         public readonly Outputs.DataSetDateFilterValue? RangeMaximum;
+        /// <summary>
+        /// The minimum date value for the range filter.
+        /// </summary>
         public readonly Outputs.DataSetDateFilterValue? RangeMinimum;
 
         [OutputConstructor]

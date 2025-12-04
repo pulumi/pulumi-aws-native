@@ -413,7 +413,7 @@ if not MYPY:
         """
         kms_arn: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Customer AWS KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
+        Customer AWS  ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
         """
 elif False:
     IdMappingWorkflowOutputSourceArgsDict: TypeAlias = Mapping[str, Any]
@@ -425,7 +425,7 @@ class IdMappingWorkflowOutputSourceArgs:
                  kms_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] output_s3_path: The S3 path to which Entity Resolution will write the output table
-        :param pulumi.Input[_builtins.str] kms_arn: Customer AWS KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
+        :param pulumi.Input[_builtins.str] kms_arn: Customer AWS  ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
         """
         pulumi.set(__self__, "output_s3_path", output_s3_path)
         if kms_arn is not None:
@@ -447,7 +447,7 @@ class IdMappingWorkflowOutputSourceArgs:
     @pulumi.getter(name="kmsArn")
     def kms_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Customer AWS KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
+        Customer AWS  ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
         """
         return pulumi.get(self, "kms_arn")
 

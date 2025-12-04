@@ -86,6 +86,8 @@ from .get_transit_gateway import *
 from .get_transit_gateway_attachment import *
 from .get_transit_gateway_connect import *
 from .get_transit_gateway_connect_peer import *
+from .get_transit_gateway_metering_policy import *
+from .get_transit_gateway_metering_policy_entry import *
 from .get_transit_gateway_multicast_domain import *
 from .get_transit_gateway_multicast_domain_association import *
 from .get_transit_gateway_multicast_group_member import *
@@ -102,12 +104,14 @@ from .get_vpc import *
 from .get_vpc_block_public_access_exclusion import *
 from .get_vpc_block_public_access_options import *
 from .get_vpc_cidr_block import *
+from .get_vpc_encryption_control import *
 from .get_vpc_endpoint import *
 from .get_vpc_endpoint_connection_notification import *
 from .get_vpc_endpoint_service import *
 from .get_vpc_endpoint_service_permissions import *
 from .get_vpc_gateway_attachment import *
 from .get_vpc_peering_connection import *
+from .get_vpn_concentrator import *
 from .get_vpn_connection import *
 from .get_vpn_gateway import *
 from .host import *
@@ -166,6 +170,8 @@ from .transit_gateway import *
 from .transit_gateway_attachment import *
 from .transit_gateway_connect import *
 from .transit_gateway_connect_peer import *
+from .transit_gateway_metering_policy import *
+from .transit_gateway_metering_policy_entry import *
 from .transit_gateway_multicast_domain import *
 from .transit_gateway_multicast_domain_association import *
 from .transit_gateway_multicast_group_member import *
@@ -186,6 +192,7 @@ from .vpc import *
 from .vpc_block_public_access_exclusion import *
 from .vpc_block_public_access_options import *
 from .vpc_cidr_block import *
+from .vpc_encryption_control import *
 from .vpc_endpoint import *
 from .vpc_endpoint_connection_notification import *
 from .vpc_endpoint_service import *
@@ -193,6 +200,7 @@ from .vpc_endpoint_service_permissions import *
 from .vpc_gateway_attachment import *
 from .vpc_peering_connection import *
 from .vpcdhcp_options_association import *
+from .vpn_concentrator import *
 from .vpn_connection import *
 from .vpn_connection_route import *
 from .vpn_gateway import *

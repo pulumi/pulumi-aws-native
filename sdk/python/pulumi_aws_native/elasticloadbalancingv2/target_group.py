@@ -37,6 +37,7 @@ class TargetGroupArgs:
                  protocol: Optional[pulumi.Input[_builtins.str]] = None,
                  protocol_version: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 target_control_port: Optional[pulumi.Input[_builtins.int]] = None,
                  target_group_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupAttributeArgs']]]] = None,
                  target_type: Optional[pulumi.Input[_builtins.str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetDescriptionArgs']]]] = None,
@@ -58,6 +59,7 @@ class TargetGroupArgs:
         :param pulumi.Input[_builtins.str] protocol: The protocol to use for routing traffic to the targets.
         :param pulumi.Input[_builtins.str] protocol_version: [HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags.
+        :param pulumi.Input[_builtins.int] target_control_port: The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
         :param pulumi.Input[Sequence[pulumi.Input['TargetGroupAttributeArgs']]] target_group_attributes: The attributes.
         :param pulumi.Input[_builtins.str] target_type: The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.
         :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetDescriptionArgs']]] targets: The targets.
@@ -92,6 +94,8 @@ class TargetGroupArgs:
             pulumi.set(__self__, "protocol_version", protocol_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if target_control_port is not None:
+            pulumi.set(__self__, "target_control_port", target_control_port)
         if target_group_attributes is not None:
             pulumi.set(__self__, "target_group_attributes", target_group_attributes)
         if target_type is not None:
@@ -272,6 +276,18 @@ class TargetGroupArgs:
         pulumi.set(self, "tags", value)
 
     @_builtins.property
+    @pulumi.getter(name="targetControlPort")
+    def target_control_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
+        """
+        return pulumi.get(self, "target_control_port")
+
+    @target_control_port.setter
+    def target_control_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "target_control_port", value)
+
+    @_builtins.property
     @pulumi.getter(name="targetGroupAttributes")
     def target_group_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupAttributeArgs']]]]:
         """
@@ -352,6 +368,7 @@ class TargetGroup(pulumi.CustomResource):
                  protocol: Optional[pulumi.Input[_builtins.str]] = None,
                  protocol_version: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_control_port: Optional[pulumi.Input[_builtins.int]] = None,
                  target_group_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupAttributeArgs', 'TargetGroupAttributeArgsDict']]]]] = None,
                  target_type: Optional[pulumi.Input[_builtins.str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetDescriptionArgs', 'TargetGroupTargetDescriptionArgsDict']]]]] = None,
@@ -377,6 +394,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] protocol: The protocol to use for routing traffic to the targets.
         :param pulumi.Input[_builtins.str] protocol_version: [HTTP/HTTPS protocol] The protocol version. The possible values are GRPC, HTTP1, and HTTP2.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags.
+        :param pulumi.Input[_builtins.int] target_control_port: The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupAttributeArgs', 'TargetGroupAttributeArgsDict']]]] target_group_attributes: The attributes.
         :param pulumi.Input[_builtins.str] target_type: The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetDescriptionArgs', 'TargetGroupTargetDescriptionArgsDict']]]] targets: The targets.
@@ -421,6 +439,7 @@ class TargetGroup(pulumi.CustomResource):
                  protocol: Optional[pulumi.Input[_builtins.str]] = None,
                  protocol_version: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_control_port: Optional[pulumi.Input[_builtins.int]] = None,
                  target_group_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupAttributeArgs', 'TargetGroupAttributeArgsDict']]]]] = None,
                  target_type: Optional[pulumi.Input[_builtins.str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetDescriptionArgs', 'TargetGroupTargetDescriptionArgsDict']]]]] = None,
@@ -449,6 +468,7 @@ class TargetGroup(pulumi.CustomResource):
             __props__.__dict__["protocol"] = protocol
             __props__.__dict__["protocol_version"] = protocol_version
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["target_control_port"] = target_control_port
             __props__.__dict__["target_group_attributes"] = target_group_attributes
             __props__.__dict__["target_type"] = target_type
             __props__.__dict__["targets"] = targets
@@ -497,6 +517,7 @@ class TargetGroup(pulumi.CustomResource):
         __props__.__dict__["protocol"] = None
         __props__.__dict__["protocol_version"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["target_control_port"] = None
         __props__.__dict__["target_group_arn"] = None
         __props__.__dict__["target_group_attributes"] = None
         __props__.__dict__["target_group_full_name"] = None
@@ -626,6 +647,14 @@ class TargetGroup(pulumi.CustomResource):
         The tags.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="targetControlPort")
+    def target_control_port(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
+        """
+        return pulumi.get(self, "target_control_port")
 
     @_builtins.property
     @pulumi.getter(name="targetGroupArn")

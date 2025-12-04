@@ -15,6 +15,7 @@ export type ClusterAccountingMode = (typeof ClusterAccountingMode)[keyof typeof 
 export const ClusterEndpointType = {
     Slurmctld: "SLURMCTLD",
     Slurmdbd: "SLURMDBD",
+    Slurmrestd: "SLURMRESTD",
 } as const;
 
 /**
@@ -51,6 +52,16 @@ export const ClusterSize = {
  * The size of the cluster.
  */
 export type ClusterSize = (typeof ClusterSize)[keyof typeof ClusterSize];
+
+export const ClusterSlurmRestMode = {
+    Standard: "STANDARD",
+    None: "NONE",
+} as const;
+
+/**
+ * The default value is `STANDARD`. A value of `STANDARD` means that Slurm Rest is enabled.
+ */
+export type ClusterSlurmRestMode = (typeof ClusterSlurmRestMode)[keyof typeof ClusterSlurmRestMode];
 
 export const ClusterStatus = {
     Creating: "CREATING",

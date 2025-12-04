@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         public Input<Inputs.KnowledgeBaseRdsConfigurationArgs>? RdsConfiguration { get; set; }
 
         /// <summary>
+        /// The configuration settings for storing knowledge base data using S3 vectors. This includes vector index information and S3 bucket details for vector storage.
+        /// </summary>
+        [Input("s3VectorsConfiguration")]
+        public Input<Inputs.KnowledgeBaseS3VectorsConfigurationArgs>? S3VectorsConfiguration { get; set; }
+
+        /// <summary>
         /// The vector store service in which the knowledge base is stored.
         /// </summary>
         [Input("type", required: true)]

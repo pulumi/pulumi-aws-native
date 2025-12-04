@@ -16,13 +16,22 @@ import (
 type Terms struct {
 	pulumi.CustomResourceState
 
-	ClientId    pulumi.StringPtrOutput     `pulumi:"clientId"`
+	// The ID of the app client that the terms documents are assigned to.
+	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
+	// This parameter is reserved for future use and currently accepts one value.
 	Enforcement TermsEnforcementTypeOutput `pulumi:"enforcement"`
-	Links       pulumi.StringMapOutput     `pulumi:"links"`
-	TermsId     pulumi.StringOutput        `pulumi:"termsId"`
-	TermsName   pulumi.StringOutput        `pulumi:"termsName"`
-	TermsSource TermsSourceTypeOutput      `pulumi:"termsSource"`
-	UserPoolId  pulumi.StringOutput        `pulumi:"userPoolId"`
+	// A map of URLs to languages. For each localized language that will view the requested `TermsName` , assign a URL. A selection of `cognito:default` displays for all languages that don't have a language-specific URL.
+	//
+	// For example, `"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"` .
+	Links pulumi.StringMapOutput `pulumi:"links"`
+	// The ID of the terms documents.
+	TermsId pulumi.StringOutput `pulumi:"termsId"`
+	// The type and friendly name of the terms documents.
+	TermsName pulumi.StringOutput `pulumi:"termsName"`
+	// This parameter is reserved for future use and currently accepts one value.
+	TermsSource TermsSourceTypeOutput `pulumi:"termsSource"`
+	// The ID of the user pool that contains the terms documents.
+	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
 
 // NewTerms registers a new resource with the given unique name, arguments, and options.
@@ -82,22 +91,38 @@ func (TermsState) ElementType() reflect.Type {
 }
 
 type termsArgs struct {
-	ClientId    *string              `pulumi:"clientId"`
+	// The ID of the app client that the terms documents are assigned to.
+	ClientId *string `pulumi:"clientId"`
+	// This parameter is reserved for future use and currently accepts one value.
 	Enforcement TermsEnforcementType `pulumi:"enforcement"`
-	Links       map[string]string    `pulumi:"links"`
-	TermsName   *string              `pulumi:"termsName"`
-	TermsSource TermsSourceType      `pulumi:"termsSource"`
-	UserPoolId  string               `pulumi:"userPoolId"`
+	// A map of URLs to languages. For each localized language that will view the requested `TermsName` , assign a URL. A selection of `cognito:default` displays for all languages that don't have a language-specific URL.
+	//
+	// For example, `"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"` .
+	Links map[string]string `pulumi:"links"`
+	// The type and friendly name of the terms documents.
+	TermsName *string `pulumi:"termsName"`
+	// This parameter is reserved for future use and currently accepts one value.
+	TermsSource TermsSourceType `pulumi:"termsSource"`
+	// The ID of the user pool that contains the terms documents.
+	UserPoolId string `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a Terms resource.
 type TermsArgs struct {
-	ClientId    pulumi.StringPtrInput
+	// The ID of the app client that the terms documents are assigned to.
+	ClientId pulumi.StringPtrInput
+	// This parameter is reserved for future use and currently accepts one value.
 	Enforcement TermsEnforcementTypeInput
-	Links       pulumi.StringMapInput
-	TermsName   pulumi.StringPtrInput
+	// A map of URLs to languages. For each localized language that will view the requested `TermsName` , assign a URL. A selection of `cognito:default` displays for all languages that don't have a language-specific URL.
+	//
+	// For example, `"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"` .
+	Links pulumi.StringMapInput
+	// The type and friendly name of the terms documents.
+	TermsName pulumi.StringPtrInput
+	// This parameter is reserved for future use and currently accepts one value.
 	TermsSource TermsSourceTypeInput
-	UserPoolId  pulumi.StringInput
+	// The ID of the user pool that contains the terms documents.
+	UserPoolId pulumi.StringInput
 }
 
 func (TermsArgs) ElementType() reflect.Type {
@@ -137,30 +162,39 @@ func (o TermsOutput) ToTermsOutputWithContext(ctx context.Context) TermsOutput {
 	return o
 }
 
+// The ID of the app client that the terms documents are assigned to.
 func (o TermsOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Terms) pulumi.StringPtrOutput { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
+// This parameter is reserved for future use and currently accepts one value.
 func (o TermsOutput) Enforcement() TermsEnforcementTypeOutput {
 	return o.ApplyT(func(v *Terms) TermsEnforcementTypeOutput { return v.Enforcement }).(TermsEnforcementTypeOutput)
 }
 
+// A map of URLs to languages. For each localized language that will view the requested `TermsName` , assign a URL. A selection of `cognito:default` displays for all languages that don't have a language-specific URL.
+//
+// For example, `"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"` .
 func (o TermsOutput) Links() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Terms) pulumi.StringMapOutput { return v.Links }).(pulumi.StringMapOutput)
 }
 
+// The ID of the terms documents.
 func (o TermsOutput) TermsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Terms) pulumi.StringOutput { return v.TermsId }).(pulumi.StringOutput)
 }
 
+// The type and friendly name of the terms documents.
 func (o TermsOutput) TermsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Terms) pulumi.StringOutput { return v.TermsName }).(pulumi.StringOutput)
 }
 
+// This parameter is reserved for future use and currently accepts one value.
 func (o TermsOutput) TermsSource() TermsSourceTypeOutput {
 	return o.ApplyT(func(v *Terms) TermsSourceTypeOutput { return v.TermsSource }).(TermsSourceTypeOutput)
 }
 
+// The ID of the user pool that contains the terms documents.
 func (o TermsOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Terms) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

@@ -96,11 +96,16 @@ export class FlowOutput extends pulumi.CustomResource {
     /**
      * The protocol that is used by the source or output.
      */
-    declare public readonly protocol: pulumi.Output<enums.mediaconnect.FlowOutputProtocol>;
+    declare public readonly protocol: pulumi.Output<enums.mediaconnect.FlowOutputProtocol | undefined>;
     /**
      * The remote ID for the Zixi-pull stream.
      */
     declare public readonly remoteId: pulumi.Output<string | undefined>;
+    declare public readonly routerIntegrationState: pulumi.Output<enums.mediaconnect.FlowOutputRouterIntegrationState | undefined>;
+    /**
+     * Encryption information.
+     */
+    declare public readonly routerIntegrationTransitEncryption: pulumi.Output<outputs.mediaconnect.FlowOutputFlowTransitEncryption | undefined>;
     /**
      * The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
      */
@@ -128,9 +133,6 @@ export class FlowOutput extends pulumi.CustomResource {
             if (args?.flowArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'flowArn'");
             }
-            if (args?.protocol === undefined && !opts.urn) {
-                throw new Error("Missing required property 'protocol'");
-            }
             resourceInputs["cidrAllowList"] = args?.cidrAllowList;
             resourceInputs["description"] = args?.description;
             resourceInputs["destination"] = args?.destination;
@@ -146,6 +148,8 @@ export class FlowOutput extends pulumi.CustomResource {
             resourceInputs["port"] = args?.port;
             resourceInputs["protocol"] = args?.protocol;
             resourceInputs["remoteId"] = args?.remoteId;
+            resourceInputs["routerIntegrationState"] = args?.routerIntegrationState;
+            resourceInputs["routerIntegrationTransitEncryption"] = args?.routerIntegrationTransitEncryption;
             resourceInputs["smoothingLatency"] = args?.smoothingLatency;
             resourceInputs["streamId"] = args?.streamId;
             resourceInputs["vpcInterfaceAttachment"] = args?.vpcInterfaceAttachment;
@@ -167,6 +171,8 @@ export class FlowOutput extends pulumi.CustomResource {
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["protocol"] = undefined /*out*/;
             resourceInputs["remoteId"] = undefined /*out*/;
+            resourceInputs["routerIntegrationState"] = undefined /*out*/;
+            resourceInputs["routerIntegrationTransitEncryption"] = undefined /*out*/;
             resourceInputs["smoothingLatency"] = undefined /*out*/;
             resourceInputs["streamId"] = undefined /*out*/;
             resourceInputs["vpcInterfaceAttachment"] = undefined /*out*/;
@@ -237,11 +243,16 @@ export interface FlowOutputArgs {
     /**
      * The protocol that is used by the source or output.
      */
-    protocol: pulumi.Input<enums.mediaconnect.FlowOutputProtocol>;
+    protocol?: pulumi.Input<enums.mediaconnect.FlowOutputProtocol>;
     /**
      * The remote ID for the Zixi-pull stream.
      */
     remoteId?: pulumi.Input<string>;
+    routerIntegrationState?: pulumi.Input<enums.mediaconnect.FlowOutputRouterIntegrationState>;
+    /**
+     * Encryption information.
+     */
+    routerIntegrationTransitEncryption?: pulumi.Input<inputs.mediaconnect.FlowOutputFlowTransitEncryptionArgs>;
     /**
      * The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
      */

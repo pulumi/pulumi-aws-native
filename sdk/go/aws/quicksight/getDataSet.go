@@ -43,7 +43,8 @@ type LookupDataSetResult struct {
 	//             imported into SPICE.</p>
 	ConsumedSpiceCapacityInBytes *float64 `pulumi:"consumedSpiceCapacityInBytes"`
 	// <p>The time that this dataset was created.</p>
-	CreatedTime           *string                       `pulumi:"createdTime"`
+	CreatedTime *string `pulumi:"createdTime"`
+	// The data preparation configuration associated with this dataset.
 	DataPrepConfiguration *DataSetDataPrepConfiguration `pulumi:"dataPrepConfiguration"`
 	// The refresh properties of a dataset.
 	DataSetRefreshProperties *DataSetRefreshProperties `pulumi:"dataSetRefreshProperties"`
@@ -69,7 +70,8 @@ type LookupDataSetResult struct {
 	PhysicalTableMap                   map[string]DataSetPhysicalTable            `pulumi:"physicalTableMap"`
 	RowLevelPermissionDataSet          *DataSetRowLevelPermissionDataSet          `pulumi:"rowLevelPermissionDataSet"`
 	RowLevelPermissionTagConfiguration *DataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfiguration"`
-	SemanticModelConfiguration         *DataSetSemanticModelConfiguration         `pulumi:"semanticModelConfiguration"`
+	// The semantic model configuration associated with this dataset.
+	SemanticModelConfiguration *DataSetSemanticModelConfiguration `pulumi:"semanticModelConfiguration"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 	Tags []aws.Tag `pulumi:"tags"`
 	// The usage of the dataset.
@@ -140,6 +142,7 @@ func (o LookupDataSetResultOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
+// The data preparation configuration associated with this dataset.
 func (o LookupDataSetResultOutput) DataPrepConfiguration() DataSetDataPrepConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *DataSetDataPrepConfiguration { return v.DataPrepConfiguration }).(DataSetDataPrepConfigurationPtrOutput)
 }
@@ -210,6 +213,7 @@ func (o LookupDataSetResultOutput) RowLevelPermissionTagConfiguration() DataSetR
 	}).(DataSetRowLevelPermissionTagConfigurationPtrOutput)
 }
 
+// The semantic model configuration associated with this dataset.
 func (o LookupDataSetResultOutput) SemanticModelConfiguration() DataSetSemanticModelConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataSetResult) *DataSetSemanticModelConfiguration { return v.SemanticModelConfiguration }).(DataSetSemanticModelConfigurationPtrOutput)
 }

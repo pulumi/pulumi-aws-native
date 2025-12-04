@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetParentDataSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the parent dataset.
+        /// </summary>
         [Input("dataSetArn", required: true)]
         public Input<string> DataSetArn { get; set; } = null!;
 
         [Input("inputColumns", required: true)]
         private InputList<Inputs.DataSetInputColumnArgs>? _inputColumns;
+
+        /// <summary>
+        /// The list of input columns available from the parent dataset.
+        /// </summary>
         public InputList<Inputs.DataSetInputColumnArgs> InputColumns
         {
             get => _inputColumns ?? (_inputColumns = new InputList<Inputs.DataSetInputColumnArgs>());

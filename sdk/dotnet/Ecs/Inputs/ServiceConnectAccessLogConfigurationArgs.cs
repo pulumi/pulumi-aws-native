@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
+    /// <summary>
+    /// Configuration for Service Connect access logging. Access logs provide detailed information about requests made to your service, including request patterns, response codes, and timing data for debugging and monitoring purposes.
+    ///   To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
+    /// </summary>
     public sealed class ServiceConnectAccessLogConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -20,8 +24,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 
         /// <summary>
         /// Specifies whether to include query parameters in Service Connect access logs.
-        /// 
-        /// When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is `DISABLED` .
+        ///  When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is ``DISABLED``.
         /// </summary>
         [Input("includeQueryParameters")]
         public Input<Pulumi.AwsNative.Ecs.ServiceConnectAccessLogConfigurationIncludeQueryParameters>? IncludeQueryParameters { get; set; }

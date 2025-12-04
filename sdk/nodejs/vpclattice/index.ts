@@ -15,6 +15,11 @@ export type AuthPolicy = import("./authPolicy").AuthPolicy;
 export const AuthPolicy: typeof import("./authPolicy").AuthPolicy = null as any;
 utilities.lazyLoad(exports, ["AuthPolicy"], () => require("./authPolicy"));
 
+export { DomainVerificationArgs } from "./domainVerification";
+export type DomainVerification = import("./domainVerification").DomainVerification;
+export const DomainVerification: typeof import("./domainVerification").DomainVerification = null as any;
+utilities.lazyLoad(exports, ["DomainVerification"], () => require("./domainVerification"));
+
 export { GetAccessLogSubscriptionArgs, GetAccessLogSubscriptionResult, GetAccessLogSubscriptionOutputArgs } from "./getAccessLogSubscription";
 export const getAccessLogSubscription: typeof import("./getAccessLogSubscription").getAccessLogSubscription = null as any;
 export const getAccessLogSubscriptionOutput: typeof import("./getAccessLogSubscription").getAccessLogSubscriptionOutput = null as any;
@@ -24,6 +29,11 @@ export { GetAuthPolicyArgs, GetAuthPolicyResult, GetAuthPolicyOutputArgs } from 
 export const getAuthPolicy: typeof import("./getAuthPolicy").getAuthPolicy = null as any;
 export const getAuthPolicyOutput: typeof import("./getAuthPolicy").getAuthPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getAuthPolicy","getAuthPolicyOutput"], () => require("./getAuthPolicy"));
+
+export { GetDomainVerificationArgs, GetDomainVerificationResult, GetDomainVerificationOutputArgs } from "./getDomainVerification";
+export const getDomainVerification: typeof import("./getDomainVerification").getDomainVerification = null as any;
+export const getDomainVerificationOutput: typeof import("./getDomainVerification").getDomainVerificationOutput = null as any;
+utilities.lazyLoad(exports, ["getDomainVerification","getDomainVerificationOutput"], () => require("./getDomainVerification"));
 
 export { GetListenerArgs, GetListenerResult, GetListenerOutputArgs } from "./getListener";
 export const getListener: typeof import("./getListener").getListener = null as any;
@@ -147,6 +157,8 @@ const _module = {
                 return new AccessLogSubscription(name, <any>undefined, { urn })
             case "aws-native:vpclattice:AuthPolicy":
                 return new AuthPolicy(name, <any>undefined, { urn })
+            case "aws-native:vpclattice:DomainVerification":
+                return new DomainVerification(name, <any>undefined, { urn })
             case "aws-native:vpclattice:Listener":
                 return new Listener(name, <any>undefined, { urn })
             case "aws-native:vpclattice:ResourceConfiguration":

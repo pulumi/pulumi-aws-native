@@ -34,6 +34,10 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         /// </summary>
         public readonly Outputs.ListenerForwardConfig? ForwardConfig;
         /// <summary>
+        /// [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when `Type` is `jwt-validation` .
+        /// </summary>
+        public readonly Outputs.ListenerJwtValidationConfig? JwtValidationConfig;
+        /// <summary>
         /// The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
         /// </summary>
         public readonly int? Order;
@@ -60,6 +64,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
             Outputs.ListenerForwardConfig? forwardConfig,
 
+            Outputs.ListenerJwtValidationConfig? jwtValidationConfig,
+
             int? order,
 
             Outputs.ListenerRedirectConfig? redirectConfig,
@@ -72,6 +78,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
             AuthenticateOidcConfig = authenticateOidcConfig;
             FixedResponseConfig = fixedResponseConfig;
             ForwardConfig = forwardConfig;
+            JwtValidationConfig = jwtValidationConfig;
             Order = order;
             RedirectConfig = redirectConfig;
             TargetGroupArn = targetGroupArn;

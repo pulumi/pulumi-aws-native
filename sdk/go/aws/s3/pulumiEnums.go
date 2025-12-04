@@ -601,6 +601,172 @@ func (o AccessPointNetworkOriginPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see [Using tags with S3 general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html) .
+type BucketAbacStatus string
+
+const (
+	BucketAbacStatusEnabled  = BucketAbacStatus("Enabled")
+	BucketAbacStatusDisabled = BucketAbacStatus("Disabled")
+)
+
+func (BucketAbacStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAbacStatus)(nil)).Elem()
+}
+
+func (e BucketAbacStatus) ToBucketAbacStatusOutput() BucketAbacStatusOutput {
+	return pulumi.ToOutput(e).(BucketAbacStatusOutput)
+}
+
+func (e BucketAbacStatus) ToBucketAbacStatusOutputWithContext(ctx context.Context) BucketAbacStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BucketAbacStatusOutput)
+}
+
+func (e BucketAbacStatus) ToBucketAbacStatusPtrOutput() BucketAbacStatusPtrOutput {
+	return e.ToBucketAbacStatusPtrOutputWithContext(context.Background())
+}
+
+func (e BucketAbacStatus) ToBucketAbacStatusPtrOutputWithContext(ctx context.Context) BucketAbacStatusPtrOutput {
+	return BucketAbacStatus(e).ToBucketAbacStatusOutputWithContext(ctx).ToBucketAbacStatusPtrOutputWithContext(ctx)
+}
+
+func (e BucketAbacStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BucketAbacStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BucketAbacStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BucketAbacStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BucketAbacStatusOutput struct{ *pulumi.OutputState }
+
+func (BucketAbacStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketAbacStatus)(nil)).Elem()
+}
+
+func (o BucketAbacStatusOutput) ToBucketAbacStatusOutput() BucketAbacStatusOutput {
+	return o
+}
+
+func (o BucketAbacStatusOutput) ToBucketAbacStatusOutputWithContext(ctx context.Context) BucketAbacStatusOutput {
+	return o
+}
+
+func (o BucketAbacStatusOutput) ToBucketAbacStatusPtrOutput() BucketAbacStatusPtrOutput {
+	return o.ToBucketAbacStatusPtrOutputWithContext(context.Background())
+}
+
+func (o BucketAbacStatusOutput) ToBucketAbacStatusPtrOutputWithContext(ctx context.Context) BucketAbacStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketAbacStatus) *BucketAbacStatus {
+		return &v
+	}).(BucketAbacStatusPtrOutput)
+}
+
+func (o BucketAbacStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BucketAbacStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketAbacStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BucketAbacStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BucketAbacStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketAbacStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketAbacStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketAbacStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketAbacStatus)(nil)).Elem()
+}
+
+func (o BucketAbacStatusPtrOutput) ToBucketAbacStatusPtrOutput() BucketAbacStatusPtrOutput {
+	return o
+}
+
+func (o BucketAbacStatusPtrOutput) ToBucketAbacStatusPtrOutputWithContext(ctx context.Context) BucketAbacStatusPtrOutput {
+	return o
+}
+
+func (o BucketAbacStatusPtrOutput) Elem() BucketAbacStatusOutput {
+	return o.ApplyT(func(v *BucketAbacStatus) BucketAbacStatus {
+		if v != nil {
+			return *v
+		}
+		var ret BucketAbacStatus
+		return ret
+	}).(BucketAbacStatusOutput)
+}
+
+func (o BucketAbacStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BucketAbacStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BucketAbacStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BucketAbacStatusInput is an input type that accepts values of the BucketAbacStatus enum
+// A concrete instance of `BucketAbacStatusInput` can be one of the following:
+//
+//	BucketAbacStatusEnabled
+//	BucketAbacStatusDisabled
+type BucketAbacStatusInput interface {
+	pulumi.Input
+
+	ToBucketAbacStatusOutput() BucketAbacStatusOutput
+	ToBucketAbacStatusOutputWithContext(context.Context) BucketAbacStatusOutput
+}
+
+var bucketAbacStatusPtrType = reflect.TypeOf((**BucketAbacStatus)(nil)).Elem()
+
+type BucketAbacStatusPtrInput interface {
+	pulumi.Input
+
+	ToBucketAbacStatusPtrOutput() BucketAbacStatusPtrOutput
+	ToBucketAbacStatusPtrOutputWithContext(context.Context) BucketAbacStatusPtrOutput
+}
+
+type bucketAbacStatusPtr string
+
+func BucketAbacStatusPtr(v string) BucketAbacStatusPtrInput {
+	return (*bucketAbacStatusPtr)(&v)
+}
+
+func (*bucketAbacStatusPtr) ElementType() reflect.Type {
+	return bucketAbacStatusPtrType
+}
+
+func (in *bucketAbacStatusPtr) ToBucketAbacStatusPtrOutput() BucketAbacStatusPtrOutput {
+	return pulumi.ToOutput(in).(BucketAbacStatusPtrOutput)
+}
+
+func (in *bucketAbacStatusPtr) ToBucketAbacStatusPtrOutputWithContext(ctx context.Context) BucketAbacStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BucketAbacStatusPtrOutput)
+}
+
 // Specifies the transfer acceleration status of the bucket.
 type BucketAccelerateConfigurationAccelerationStatus string
 
@@ -947,6 +1113,216 @@ func (in *bucketAccessControlPtr) ToBucketAccessControlPtrOutput() BucketAccessC
 
 func (in *bucketAccessControlPtr) ToBucketAccessControlPtrOutputWithContext(ctx context.Context) BucketAccessControlPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BucketAccessControlPtrOutput)
+}
+
+type BucketBlockedEncryptionTypeListItem string
+
+const (
+	BucketBlockedEncryptionTypeListItemNone = BucketBlockedEncryptionTypeListItem("NONE")
+	BucketBlockedEncryptionTypeListItemSseC = BucketBlockedEncryptionTypeListItem("SSE-C")
+)
+
+func (BucketBlockedEncryptionTypeListItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketBlockedEncryptionTypeListItem)(nil)).Elem()
+}
+
+func (e BucketBlockedEncryptionTypeListItem) ToBucketBlockedEncryptionTypeListItemOutput() BucketBlockedEncryptionTypeListItemOutput {
+	return pulumi.ToOutput(e).(BucketBlockedEncryptionTypeListItemOutput)
+}
+
+func (e BucketBlockedEncryptionTypeListItem) ToBucketBlockedEncryptionTypeListItemOutputWithContext(ctx context.Context) BucketBlockedEncryptionTypeListItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BucketBlockedEncryptionTypeListItemOutput)
+}
+
+func (e BucketBlockedEncryptionTypeListItem) ToBucketBlockedEncryptionTypeListItemPtrOutput() BucketBlockedEncryptionTypeListItemPtrOutput {
+	return e.ToBucketBlockedEncryptionTypeListItemPtrOutputWithContext(context.Background())
+}
+
+func (e BucketBlockedEncryptionTypeListItem) ToBucketBlockedEncryptionTypeListItemPtrOutputWithContext(ctx context.Context) BucketBlockedEncryptionTypeListItemPtrOutput {
+	return BucketBlockedEncryptionTypeListItem(e).ToBucketBlockedEncryptionTypeListItemOutputWithContext(ctx).ToBucketBlockedEncryptionTypeListItemPtrOutputWithContext(ctx)
+}
+
+func (e BucketBlockedEncryptionTypeListItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BucketBlockedEncryptionTypeListItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BucketBlockedEncryptionTypeListItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BucketBlockedEncryptionTypeListItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BucketBlockedEncryptionTypeListItemOutput struct{ *pulumi.OutputState }
+
+func (BucketBlockedEncryptionTypeListItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketBlockedEncryptionTypeListItem)(nil)).Elem()
+}
+
+func (o BucketBlockedEncryptionTypeListItemOutput) ToBucketBlockedEncryptionTypeListItemOutput() BucketBlockedEncryptionTypeListItemOutput {
+	return o
+}
+
+func (o BucketBlockedEncryptionTypeListItemOutput) ToBucketBlockedEncryptionTypeListItemOutputWithContext(ctx context.Context) BucketBlockedEncryptionTypeListItemOutput {
+	return o
+}
+
+func (o BucketBlockedEncryptionTypeListItemOutput) ToBucketBlockedEncryptionTypeListItemPtrOutput() BucketBlockedEncryptionTypeListItemPtrOutput {
+	return o.ToBucketBlockedEncryptionTypeListItemPtrOutputWithContext(context.Background())
+}
+
+func (o BucketBlockedEncryptionTypeListItemOutput) ToBucketBlockedEncryptionTypeListItemPtrOutputWithContext(ctx context.Context) BucketBlockedEncryptionTypeListItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketBlockedEncryptionTypeListItem) *BucketBlockedEncryptionTypeListItem {
+		return &v
+	}).(BucketBlockedEncryptionTypeListItemPtrOutput)
+}
+
+func (o BucketBlockedEncryptionTypeListItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BucketBlockedEncryptionTypeListItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketBlockedEncryptionTypeListItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BucketBlockedEncryptionTypeListItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BucketBlockedEncryptionTypeListItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BucketBlockedEncryptionTypeListItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketBlockedEncryptionTypeListItemPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketBlockedEncryptionTypeListItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketBlockedEncryptionTypeListItem)(nil)).Elem()
+}
+
+func (o BucketBlockedEncryptionTypeListItemPtrOutput) ToBucketBlockedEncryptionTypeListItemPtrOutput() BucketBlockedEncryptionTypeListItemPtrOutput {
+	return o
+}
+
+func (o BucketBlockedEncryptionTypeListItemPtrOutput) ToBucketBlockedEncryptionTypeListItemPtrOutputWithContext(ctx context.Context) BucketBlockedEncryptionTypeListItemPtrOutput {
+	return o
+}
+
+func (o BucketBlockedEncryptionTypeListItemPtrOutput) Elem() BucketBlockedEncryptionTypeListItemOutput {
+	return o.ApplyT(func(v *BucketBlockedEncryptionTypeListItem) BucketBlockedEncryptionTypeListItem {
+		if v != nil {
+			return *v
+		}
+		var ret BucketBlockedEncryptionTypeListItem
+		return ret
+	}).(BucketBlockedEncryptionTypeListItemOutput)
+}
+
+func (o BucketBlockedEncryptionTypeListItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BucketBlockedEncryptionTypeListItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BucketBlockedEncryptionTypeListItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BucketBlockedEncryptionTypeListItemInput is an input type that accepts values of the BucketBlockedEncryptionTypeListItem enum
+// A concrete instance of `BucketBlockedEncryptionTypeListItemInput` can be one of the following:
+//
+//	BucketBlockedEncryptionTypeListItemNone
+//	BucketBlockedEncryptionTypeListItemSseC
+type BucketBlockedEncryptionTypeListItemInput interface {
+	pulumi.Input
+
+	ToBucketBlockedEncryptionTypeListItemOutput() BucketBlockedEncryptionTypeListItemOutput
+	ToBucketBlockedEncryptionTypeListItemOutputWithContext(context.Context) BucketBlockedEncryptionTypeListItemOutput
+}
+
+var bucketBlockedEncryptionTypeListItemPtrType = reflect.TypeOf((**BucketBlockedEncryptionTypeListItem)(nil)).Elem()
+
+type BucketBlockedEncryptionTypeListItemPtrInput interface {
+	pulumi.Input
+
+	ToBucketBlockedEncryptionTypeListItemPtrOutput() BucketBlockedEncryptionTypeListItemPtrOutput
+	ToBucketBlockedEncryptionTypeListItemPtrOutputWithContext(context.Context) BucketBlockedEncryptionTypeListItemPtrOutput
+}
+
+type bucketBlockedEncryptionTypeListItemPtr string
+
+func BucketBlockedEncryptionTypeListItemPtr(v string) BucketBlockedEncryptionTypeListItemPtrInput {
+	return (*bucketBlockedEncryptionTypeListItemPtr)(&v)
+}
+
+func (*bucketBlockedEncryptionTypeListItemPtr) ElementType() reflect.Type {
+	return bucketBlockedEncryptionTypeListItemPtrType
+}
+
+func (in *bucketBlockedEncryptionTypeListItemPtr) ToBucketBlockedEncryptionTypeListItemPtrOutput() BucketBlockedEncryptionTypeListItemPtrOutput {
+	return pulumi.ToOutput(in).(BucketBlockedEncryptionTypeListItemPtrOutput)
+}
+
+func (in *bucketBlockedEncryptionTypeListItemPtr) ToBucketBlockedEncryptionTypeListItemPtrOutputWithContext(ctx context.Context) BucketBlockedEncryptionTypeListItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BucketBlockedEncryptionTypeListItemPtrOutput)
+}
+
+// BucketBlockedEncryptionTypeListItemArrayInput is an input type that accepts BucketBlockedEncryptionTypeListItemArray and BucketBlockedEncryptionTypeListItemArrayOutput values.
+// You can construct a concrete instance of `BucketBlockedEncryptionTypeListItemArrayInput` via:
+//
+//	BucketBlockedEncryptionTypeListItemArray{ BucketBlockedEncryptionTypeListItemArgs{...} }
+type BucketBlockedEncryptionTypeListItemArrayInput interface {
+	pulumi.Input
+
+	ToBucketBlockedEncryptionTypeListItemArrayOutput() BucketBlockedEncryptionTypeListItemArrayOutput
+	ToBucketBlockedEncryptionTypeListItemArrayOutputWithContext(context.Context) BucketBlockedEncryptionTypeListItemArrayOutput
+}
+
+type BucketBlockedEncryptionTypeListItemArray []BucketBlockedEncryptionTypeListItem
+
+func (BucketBlockedEncryptionTypeListItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketBlockedEncryptionTypeListItem)(nil)).Elem()
+}
+
+func (i BucketBlockedEncryptionTypeListItemArray) ToBucketBlockedEncryptionTypeListItemArrayOutput() BucketBlockedEncryptionTypeListItemArrayOutput {
+	return i.ToBucketBlockedEncryptionTypeListItemArrayOutputWithContext(context.Background())
+}
+
+func (i BucketBlockedEncryptionTypeListItemArray) ToBucketBlockedEncryptionTypeListItemArrayOutputWithContext(ctx context.Context) BucketBlockedEncryptionTypeListItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketBlockedEncryptionTypeListItemArrayOutput)
+}
+
+type BucketBlockedEncryptionTypeListItemArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketBlockedEncryptionTypeListItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketBlockedEncryptionTypeListItem)(nil)).Elem()
+}
+
+func (o BucketBlockedEncryptionTypeListItemArrayOutput) ToBucketBlockedEncryptionTypeListItemArrayOutput() BucketBlockedEncryptionTypeListItemArrayOutput {
+	return o
+}
+
+func (o BucketBlockedEncryptionTypeListItemArrayOutput) ToBucketBlockedEncryptionTypeListItemArrayOutputWithContext(ctx context.Context) BucketBlockedEncryptionTypeListItemArrayOutput {
+	return o
+}
+
+func (o BucketBlockedEncryptionTypeListItemArrayOutput) Index(i pulumi.IntInput) BucketBlockedEncryptionTypeListItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketBlockedEncryptionTypeListItem {
+		return vs[0].([]BucketBlockedEncryptionTypeListItem)[vs[1].(int)]
+	}).(BucketBlockedEncryptionTypeListItemOutput)
 }
 
 type BucketCorsRuleAllowedMethodsItem string
@@ -6194,10 +6570,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantPermissionPtrInput)(nil)).Elem(), AccessGrantPermission("READ"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantS3PrefixTypeInput)(nil)).Elem(), AccessGrantS3PrefixType("Object"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantS3PrefixTypePtrInput)(nil)).Elem(), AccessGrantS3PrefixType("Object"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketAbacStatusInput)(nil)).Elem(), BucketAbacStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketAbacStatusPtrInput)(nil)).Elem(), BucketAbacStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAccelerateConfigurationAccelerationStatusInput)(nil)).Elem(), BucketAccelerateConfigurationAccelerationStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAccelerateConfigurationAccelerationStatusPtrInput)(nil)).Elem(), BucketAccelerateConfigurationAccelerationStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAccessControlInput)(nil)).Elem(), BucketAccessControl("AuthenticatedRead"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAccessControlPtrInput)(nil)).Elem(), BucketAccessControl("AuthenticatedRead"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketBlockedEncryptionTypeListItemInput)(nil)).Elem(), BucketBlockedEncryptionTypeListItem("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketBlockedEncryptionTypeListItemPtrInput)(nil)).Elem(), BucketBlockedEncryptionTypeListItem("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketBlockedEncryptionTypeListItemArrayInput)(nil)).Elem(), BucketBlockedEncryptionTypeListItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketCorsRuleAllowedMethodsItemInput)(nil)).Elem(), BucketCorsRuleAllowedMethodsItem("GET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketCorsRuleAllowedMethodsItemPtrInput)(nil)).Elem(), BucketCorsRuleAllowedMethodsItem("GET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketCorsRuleAllowedMethodsItemArrayInput)(nil)).Elem(), BucketCorsRuleAllowedMethodsItemArray{})
@@ -6268,10 +6649,15 @@ func init() {
 	pulumi.RegisterOutputType(AccessGrantS3PrefixTypePtrOutput{})
 	pulumi.RegisterOutputType(AccessPointNetworkOriginOutput{})
 	pulumi.RegisterOutputType(AccessPointNetworkOriginPtrOutput{})
+	pulumi.RegisterOutputType(BucketAbacStatusOutput{})
+	pulumi.RegisterOutputType(BucketAbacStatusPtrOutput{})
 	pulumi.RegisterOutputType(BucketAccelerateConfigurationAccelerationStatusOutput{})
 	pulumi.RegisterOutputType(BucketAccelerateConfigurationAccelerationStatusPtrOutput{})
 	pulumi.RegisterOutputType(BucketAccessControlOutput{})
 	pulumi.RegisterOutputType(BucketAccessControlPtrOutput{})
+	pulumi.RegisterOutputType(BucketBlockedEncryptionTypeListItemOutput{})
+	pulumi.RegisterOutputType(BucketBlockedEncryptionTypeListItemPtrOutput{})
+	pulumi.RegisterOutputType(BucketBlockedEncryptionTypeListItemArrayOutput{})
 	pulumi.RegisterOutputType(BucketCorsRuleAllowedMethodsItemOutput{})
 	pulumi.RegisterOutputType(BucketCorsRuleAllowedMethodsItemPtrOutput{})
 	pulumi.RegisterOutputType(BucketCorsRuleAllowedMethodsItemArrayOutput{})

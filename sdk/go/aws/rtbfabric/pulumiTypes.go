@@ -13,6 +13,551 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type InboundExternalLinkLinkAttributes struct {
+	CustomerProvidedId    *string                                               `pulumi:"customerProvidedId"`
+	ResponderErrorMasking []InboundExternalLinkResponderErrorMaskingForHttpCode `pulumi:"responderErrorMasking"`
+}
+
+// InboundExternalLinkLinkAttributesInput is an input type that accepts InboundExternalLinkLinkAttributesArgs and InboundExternalLinkLinkAttributesOutput values.
+// You can construct a concrete instance of `InboundExternalLinkLinkAttributesInput` via:
+//
+//	InboundExternalLinkLinkAttributesArgs{...}
+type InboundExternalLinkLinkAttributesInput interface {
+	pulumi.Input
+
+	ToInboundExternalLinkLinkAttributesOutput() InboundExternalLinkLinkAttributesOutput
+	ToInboundExternalLinkLinkAttributesOutputWithContext(context.Context) InboundExternalLinkLinkAttributesOutput
+}
+
+type InboundExternalLinkLinkAttributesArgs struct {
+	CustomerProvidedId    pulumi.StringPtrInput                                         `pulumi:"customerProvidedId"`
+	ResponderErrorMasking InboundExternalLinkResponderErrorMaskingForHttpCodeArrayInput `pulumi:"responderErrorMasking"`
+}
+
+func (InboundExternalLinkLinkAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundExternalLinkLinkAttributes)(nil)).Elem()
+}
+
+func (i InboundExternalLinkLinkAttributesArgs) ToInboundExternalLinkLinkAttributesOutput() InboundExternalLinkLinkAttributesOutput {
+	return i.ToInboundExternalLinkLinkAttributesOutputWithContext(context.Background())
+}
+
+func (i InboundExternalLinkLinkAttributesArgs) ToInboundExternalLinkLinkAttributesOutputWithContext(ctx context.Context) InboundExternalLinkLinkAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InboundExternalLinkLinkAttributesOutput)
+}
+
+func (i InboundExternalLinkLinkAttributesArgs) ToInboundExternalLinkLinkAttributesPtrOutput() InboundExternalLinkLinkAttributesPtrOutput {
+	return i.ToInboundExternalLinkLinkAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i InboundExternalLinkLinkAttributesArgs) ToInboundExternalLinkLinkAttributesPtrOutputWithContext(ctx context.Context) InboundExternalLinkLinkAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InboundExternalLinkLinkAttributesOutput).ToInboundExternalLinkLinkAttributesPtrOutputWithContext(ctx)
+}
+
+// InboundExternalLinkLinkAttributesPtrInput is an input type that accepts InboundExternalLinkLinkAttributesArgs, InboundExternalLinkLinkAttributesPtr and InboundExternalLinkLinkAttributesPtrOutput values.
+// You can construct a concrete instance of `InboundExternalLinkLinkAttributesPtrInput` via:
+//
+//	        InboundExternalLinkLinkAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type InboundExternalLinkLinkAttributesPtrInput interface {
+	pulumi.Input
+
+	ToInboundExternalLinkLinkAttributesPtrOutput() InboundExternalLinkLinkAttributesPtrOutput
+	ToInboundExternalLinkLinkAttributesPtrOutputWithContext(context.Context) InboundExternalLinkLinkAttributesPtrOutput
+}
+
+type inboundExternalLinkLinkAttributesPtrType InboundExternalLinkLinkAttributesArgs
+
+func InboundExternalLinkLinkAttributesPtr(v *InboundExternalLinkLinkAttributesArgs) InboundExternalLinkLinkAttributesPtrInput {
+	return (*inboundExternalLinkLinkAttributesPtrType)(v)
+}
+
+func (*inboundExternalLinkLinkAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InboundExternalLinkLinkAttributes)(nil)).Elem()
+}
+
+func (i *inboundExternalLinkLinkAttributesPtrType) ToInboundExternalLinkLinkAttributesPtrOutput() InboundExternalLinkLinkAttributesPtrOutput {
+	return i.ToInboundExternalLinkLinkAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *inboundExternalLinkLinkAttributesPtrType) ToInboundExternalLinkLinkAttributesPtrOutputWithContext(ctx context.Context) InboundExternalLinkLinkAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InboundExternalLinkLinkAttributesPtrOutput)
+}
+
+type InboundExternalLinkLinkAttributesOutput struct{ *pulumi.OutputState }
+
+func (InboundExternalLinkLinkAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundExternalLinkLinkAttributes)(nil)).Elem()
+}
+
+func (o InboundExternalLinkLinkAttributesOutput) ToInboundExternalLinkLinkAttributesOutput() InboundExternalLinkLinkAttributesOutput {
+	return o
+}
+
+func (o InboundExternalLinkLinkAttributesOutput) ToInboundExternalLinkLinkAttributesOutputWithContext(ctx context.Context) InboundExternalLinkLinkAttributesOutput {
+	return o
+}
+
+func (o InboundExternalLinkLinkAttributesOutput) ToInboundExternalLinkLinkAttributesPtrOutput() InboundExternalLinkLinkAttributesPtrOutput {
+	return o.ToInboundExternalLinkLinkAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o InboundExternalLinkLinkAttributesOutput) ToInboundExternalLinkLinkAttributesPtrOutputWithContext(ctx context.Context) InboundExternalLinkLinkAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InboundExternalLinkLinkAttributes) *InboundExternalLinkLinkAttributes {
+		return &v
+	}).(InboundExternalLinkLinkAttributesPtrOutput)
+}
+
+func (o InboundExternalLinkLinkAttributesOutput) CustomerProvidedId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InboundExternalLinkLinkAttributes) *string { return v.CustomerProvidedId }).(pulumi.StringPtrOutput)
+}
+
+func (o InboundExternalLinkLinkAttributesOutput) ResponderErrorMasking() InboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput {
+	return o.ApplyT(func(v InboundExternalLinkLinkAttributes) []InboundExternalLinkResponderErrorMaskingForHttpCode {
+		return v.ResponderErrorMasking
+	}).(InboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput)
+}
+
+type InboundExternalLinkLinkAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (InboundExternalLinkLinkAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InboundExternalLinkLinkAttributes)(nil)).Elem()
+}
+
+func (o InboundExternalLinkLinkAttributesPtrOutput) ToInboundExternalLinkLinkAttributesPtrOutput() InboundExternalLinkLinkAttributesPtrOutput {
+	return o
+}
+
+func (o InboundExternalLinkLinkAttributesPtrOutput) ToInboundExternalLinkLinkAttributesPtrOutputWithContext(ctx context.Context) InboundExternalLinkLinkAttributesPtrOutput {
+	return o
+}
+
+func (o InboundExternalLinkLinkAttributesPtrOutput) Elem() InboundExternalLinkLinkAttributesOutput {
+	return o.ApplyT(func(v *InboundExternalLinkLinkAttributes) InboundExternalLinkLinkAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret InboundExternalLinkLinkAttributes
+		return ret
+	}).(InboundExternalLinkLinkAttributesOutput)
+}
+
+func (o InboundExternalLinkLinkAttributesPtrOutput) CustomerProvidedId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InboundExternalLinkLinkAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerProvidedId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InboundExternalLinkLinkAttributesPtrOutput) ResponderErrorMasking() InboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput {
+	return o.ApplyT(func(v *InboundExternalLinkLinkAttributes) []InboundExternalLinkResponderErrorMaskingForHttpCode {
+		if v == nil {
+			return nil
+		}
+		return v.ResponderErrorMasking
+	}).(InboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput)
+}
+
+type InboundExternalLinkLinkLogSettings struct {
+	ApplicationLogs InboundExternalLinkLinkLogSettingsApplicationLogsProperties `pulumi:"applicationLogs"`
+}
+
+// InboundExternalLinkLinkLogSettingsInput is an input type that accepts InboundExternalLinkLinkLogSettingsArgs and InboundExternalLinkLinkLogSettingsOutput values.
+// You can construct a concrete instance of `InboundExternalLinkLinkLogSettingsInput` via:
+//
+//	InboundExternalLinkLinkLogSettingsArgs{...}
+type InboundExternalLinkLinkLogSettingsInput interface {
+	pulumi.Input
+
+	ToInboundExternalLinkLinkLogSettingsOutput() InboundExternalLinkLinkLogSettingsOutput
+	ToInboundExternalLinkLinkLogSettingsOutputWithContext(context.Context) InboundExternalLinkLinkLogSettingsOutput
+}
+
+type InboundExternalLinkLinkLogSettingsArgs struct {
+	ApplicationLogs InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesInput `pulumi:"applicationLogs"`
+}
+
+func (InboundExternalLinkLinkLogSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundExternalLinkLinkLogSettings)(nil)).Elem()
+}
+
+func (i InboundExternalLinkLinkLogSettingsArgs) ToInboundExternalLinkLinkLogSettingsOutput() InboundExternalLinkLinkLogSettingsOutput {
+	return i.ToInboundExternalLinkLinkLogSettingsOutputWithContext(context.Background())
+}
+
+func (i InboundExternalLinkLinkLogSettingsArgs) ToInboundExternalLinkLinkLogSettingsOutputWithContext(ctx context.Context) InboundExternalLinkLinkLogSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InboundExternalLinkLinkLogSettingsOutput)
+}
+
+type InboundExternalLinkLinkLogSettingsOutput struct{ *pulumi.OutputState }
+
+func (InboundExternalLinkLinkLogSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundExternalLinkLinkLogSettings)(nil)).Elem()
+}
+
+func (o InboundExternalLinkLinkLogSettingsOutput) ToInboundExternalLinkLinkLogSettingsOutput() InboundExternalLinkLinkLogSettingsOutput {
+	return o
+}
+
+func (o InboundExternalLinkLinkLogSettingsOutput) ToInboundExternalLinkLinkLogSettingsOutputWithContext(ctx context.Context) InboundExternalLinkLinkLogSettingsOutput {
+	return o
+}
+
+func (o InboundExternalLinkLinkLogSettingsOutput) ApplicationLogs() InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput {
+	return o.ApplyT(func(v InboundExternalLinkLinkLogSettings) InboundExternalLinkLinkLogSettingsApplicationLogsProperties {
+		return v.ApplicationLogs
+	}).(InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput)
+}
+
+type InboundExternalLinkLinkLogSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (InboundExternalLinkLinkLogSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InboundExternalLinkLinkLogSettings)(nil)).Elem()
+}
+
+func (o InboundExternalLinkLinkLogSettingsPtrOutput) ToInboundExternalLinkLinkLogSettingsPtrOutput() InboundExternalLinkLinkLogSettingsPtrOutput {
+	return o
+}
+
+func (o InboundExternalLinkLinkLogSettingsPtrOutput) ToInboundExternalLinkLinkLogSettingsPtrOutputWithContext(ctx context.Context) InboundExternalLinkLinkLogSettingsPtrOutput {
+	return o
+}
+
+func (o InboundExternalLinkLinkLogSettingsPtrOutput) Elem() InboundExternalLinkLinkLogSettingsOutput {
+	return o.ApplyT(func(v *InboundExternalLinkLinkLogSettings) InboundExternalLinkLinkLogSettings {
+		if v != nil {
+			return *v
+		}
+		var ret InboundExternalLinkLinkLogSettings
+		return ret
+	}).(InboundExternalLinkLinkLogSettingsOutput)
+}
+
+func (o InboundExternalLinkLinkLogSettingsPtrOutput) ApplicationLogs() InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput {
+	return o.ApplyT(func(v *InboundExternalLinkLinkLogSettings) *InboundExternalLinkLinkLogSettingsApplicationLogsProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationLogs
+	}).(InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput)
+}
+
+type InboundExternalLinkLinkLogSettingsApplicationLogsProperties struct {
+	LinkApplicationLogSampling InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties `pulumi:"linkApplicationLogSampling"`
+}
+
+// InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesInput is an input type that accepts InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs and InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput values.
+// You can construct a concrete instance of `InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesInput` via:
+//
+//	InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs{...}
+type InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesInput interface {
+	pulumi.Input
+
+	ToInboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput() InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput
+	ToInboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutputWithContext(context.Context) InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput
+}
+
+type InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs struct {
+	LinkApplicationLogSampling InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesInput `pulumi:"linkApplicationLogSampling"`
+}
+
+func (InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundExternalLinkLinkLogSettingsApplicationLogsProperties)(nil)).Elem()
+}
+
+func (i InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs) ToInboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput() InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput {
+	return i.ToInboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutputWithContext(context.Background())
+}
+
+func (i InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs) ToInboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutputWithContext(ctx context.Context) InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput)
+}
+
+type InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundExternalLinkLinkLogSettingsApplicationLogsProperties)(nil)).Elem()
+}
+
+func (o InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput) ToInboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput() InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput {
+	return o
+}
+
+func (o InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput) ToInboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutputWithContext(ctx context.Context) InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput {
+	return o
+}
+
+func (o InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput) LinkApplicationLogSampling() InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput {
+	return o.ApplyT(func(v InboundExternalLinkLinkLogSettingsApplicationLogsProperties) InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties {
+		return v.LinkApplicationLogSampling
+	}).(InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput)
+}
+
+type InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InboundExternalLinkLinkLogSettingsApplicationLogsProperties)(nil)).Elem()
+}
+
+func (o InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput) ToInboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput() InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput {
+	return o
+}
+
+func (o InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput) ToInboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutputWithContext(ctx context.Context) InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput {
+	return o
+}
+
+func (o InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput) Elem() InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput {
+	return o.ApplyT(func(v *InboundExternalLinkLinkLogSettingsApplicationLogsProperties) InboundExternalLinkLinkLogSettingsApplicationLogsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret InboundExternalLinkLinkLogSettingsApplicationLogsProperties
+		return ret
+	}).(InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput)
+}
+
+func (o InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput) LinkApplicationLogSampling() InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput {
+	return o.ApplyT(func(v *InboundExternalLinkLinkLogSettingsApplicationLogsProperties) *InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.LinkApplicationLogSampling
+	}).(InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput)
+}
+
+type InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties struct {
+	ErrorLog  float64 `pulumi:"errorLog"`
+	FilterLog float64 `pulumi:"filterLog"`
+}
+
+// InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesInput is an input type that accepts InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs and InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput values.
+// You can construct a concrete instance of `InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesInput` via:
+//
+//	InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs{...}
+type InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesInput interface {
+	pulumi.Input
+
+	ToInboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput() InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput
+	ToInboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutputWithContext(context.Context) InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput
+}
+
+type InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs struct {
+	ErrorLog  pulumi.Float64Input `pulumi:"errorLog"`
+	FilterLog pulumi.Float64Input `pulumi:"filterLog"`
+}
+
+func (InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties)(nil)).Elem()
+}
+
+func (i InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs) ToInboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput() InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput {
+	return i.ToInboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutputWithContext(context.Background())
+}
+
+func (i InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs) ToInboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutputWithContext(ctx context.Context) InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput)
+}
+
+type InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput struct{ *pulumi.OutputState }
+
+func (InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties)(nil)).Elem()
+}
+
+func (o InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput) ToInboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput() InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput {
+	return o
+}
+
+func (o InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput) ToInboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutputWithContext(ctx context.Context) InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput {
+	return o
+}
+
+func (o InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput) ErrorLog() pulumi.Float64Output {
+	return o.ApplyT(func(v InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties) float64 {
+		return v.ErrorLog
+	}).(pulumi.Float64Output)
+}
+
+func (o InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput) FilterLog() pulumi.Float64Output {
+	return o.ApplyT(func(v InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties) float64 {
+		return v.FilterLog
+	}).(pulumi.Float64Output)
+}
+
+type InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties)(nil)).Elem()
+}
+
+func (o InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput) ToInboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput() InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput {
+	return o
+}
+
+func (o InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput) ToInboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutputWithContext(ctx context.Context) InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput {
+	return o
+}
+
+func (o InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput) Elem() InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput {
+	return o.ApplyT(func(v *InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties) InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties {
+		if v != nil {
+			return *v
+		}
+		var ret InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties
+		return ret
+	}).(InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput)
+}
+
+func (o InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput) ErrorLog() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.ErrorLog
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput) FilterLog() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.FilterLog
+	}).(pulumi.Float64PtrOutput)
+}
+
+type InboundExternalLinkResponderErrorMaskingForHttpCode struct {
+	Action                    InboundExternalLinkResponderErrorMaskingForHttpCodeAction `pulumi:"action"`
+	HttpCode                  string                                                    `pulumi:"httpCode"`
+	LoggingTypes              []InboundExternalLinkResponderErrorMaskingLoggingType     `pulumi:"loggingTypes"`
+	ResponseLoggingPercentage *float64                                                  `pulumi:"responseLoggingPercentage"`
+}
+
+// InboundExternalLinkResponderErrorMaskingForHttpCodeInput is an input type that accepts InboundExternalLinkResponderErrorMaskingForHttpCodeArgs and InboundExternalLinkResponderErrorMaskingForHttpCodeOutput values.
+// You can construct a concrete instance of `InboundExternalLinkResponderErrorMaskingForHttpCodeInput` via:
+//
+//	InboundExternalLinkResponderErrorMaskingForHttpCodeArgs{...}
+type InboundExternalLinkResponderErrorMaskingForHttpCodeInput interface {
+	pulumi.Input
+
+	ToInboundExternalLinkResponderErrorMaskingForHttpCodeOutput() InboundExternalLinkResponderErrorMaskingForHttpCodeOutput
+	ToInboundExternalLinkResponderErrorMaskingForHttpCodeOutputWithContext(context.Context) InboundExternalLinkResponderErrorMaskingForHttpCodeOutput
+}
+
+type InboundExternalLinkResponderErrorMaskingForHttpCodeArgs struct {
+	Action                    InboundExternalLinkResponderErrorMaskingForHttpCodeActionInput `pulumi:"action"`
+	HttpCode                  pulumi.StringInput                                             `pulumi:"httpCode"`
+	LoggingTypes              InboundExternalLinkResponderErrorMaskingLoggingTypeArrayInput  `pulumi:"loggingTypes"`
+	ResponseLoggingPercentage pulumi.Float64PtrInput                                         `pulumi:"responseLoggingPercentage"`
+}
+
+func (InboundExternalLinkResponderErrorMaskingForHttpCodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundExternalLinkResponderErrorMaskingForHttpCode)(nil)).Elem()
+}
+
+func (i InboundExternalLinkResponderErrorMaskingForHttpCodeArgs) ToInboundExternalLinkResponderErrorMaskingForHttpCodeOutput() InboundExternalLinkResponderErrorMaskingForHttpCodeOutput {
+	return i.ToInboundExternalLinkResponderErrorMaskingForHttpCodeOutputWithContext(context.Background())
+}
+
+func (i InboundExternalLinkResponderErrorMaskingForHttpCodeArgs) ToInboundExternalLinkResponderErrorMaskingForHttpCodeOutputWithContext(ctx context.Context) InboundExternalLinkResponderErrorMaskingForHttpCodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InboundExternalLinkResponderErrorMaskingForHttpCodeOutput)
+}
+
+// InboundExternalLinkResponderErrorMaskingForHttpCodeArrayInput is an input type that accepts InboundExternalLinkResponderErrorMaskingForHttpCodeArray and InboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput values.
+// You can construct a concrete instance of `InboundExternalLinkResponderErrorMaskingForHttpCodeArrayInput` via:
+//
+//	InboundExternalLinkResponderErrorMaskingForHttpCodeArray{ InboundExternalLinkResponderErrorMaskingForHttpCodeArgs{...} }
+type InboundExternalLinkResponderErrorMaskingForHttpCodeArrayInput interface {
+	pulumi.Input
+
+	ToInboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput() InboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput
+	ToInboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutputWithContext(context.Context) InboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput
+}
+
+type InboundExternalLinkResponderErrorMaskingForHttpCodeArray []InboundExternalLinkResponderErrorMaskingForHttpCodeInput
+
+func (InboundExternalLinkResponderErrorMaskingForHttpCodeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InboundExternalLinkResponderErrorMaskingForHttpCode)(nil)).Elem()
+}
+
+func (i InboundExternalLinkResponderErrorMaskingForHttpCodeArray) ToInboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput() InboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput {
+	return i.ToInboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutputWithContext(context.Background())
+}
+
+func (i InboundExternalLinkResponderErrorMaskingForHttpCodeArray) ToInboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutputWithContext(ctx context.Context) InboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput)
+}
+
+type InboundExternalLinkResponderErrorMaskingForHttpCodeOutput struct{ *pulumi.OutputState }
+
+func (InboundExternalLinkResponderErrorMaskingForHttpCodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundExternalLinkResponderErrorMaskingForHttpCode)(nil)).Elem()
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeOutput) ToInboundExternalLinkResponderErrorMaskingForHttpCodeOutput() InboundExternalLinkResponderErrorMaskingForHttpCodeOutput {
+	return o
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeOutput) ToInboundExternalLinkResponderErrorMaskingForHttpCodeOutputWithContext(ctx context.Context) InboundExternalLinkResponderErrorMaskingForHttpCodeOutput {
+	return o
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeOutput) Action() InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput {
+	return o.ApplyT(func(v InboundExternalLinkResponderErrorMaskingForHttpCode) InboundExternalLinkResponderErrorMaskingForHttpCodeAction {
+		return v.Action
+	}).(InboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput)
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeOutput) HttpCode() pulumi.StringOutput {
+	return o.ApplyT(func(v InboundExternalLinkResponderErrorMaskingForHttpCode) string { return v.HttpCode }).(pulumi.StringOutput)
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeOutput) LoggingTypes() InboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput {
+	return o.ApplyT(func(v InboundExternalLinkResponderErrorMaskingForHttpCode) []InboundExternalLinkResponderErrorMaskingLoggingType {
+		return v.LoggingTypes
+	}).(InboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput)
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeOutput) ResponseLoggingPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v InboundExternalLinkResponderErrorMaskingForHttpCode) *float64 {
+		return v.ResponseLoggingPercentage
+	}).(pulumi.Float64PtrOutput)
+}
+
+type InboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput struct{ *pulumi.OutputState }
+
+func (InboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InboundExternalLinkResponderErrorMaskingForHttpCode)(nil)).Elem()
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput) ToInboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput() InboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput {
+	return o
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput) ToInboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutputWithContext(ctx context.Context) InboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput {
+	return o
+}
+
+func (o InboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput) Index(i pulumi.IntInput) InboundExternalLinkResponderErrorMaskingForHttpCodeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InboundExternalLinkResponderErrorMaskingForHttpCode {
+		return vs[0].([]InboundExternalLinkResponderErrorMaskingForHttpCode)[vs[1].(int)]
+	}).(InboundExternalLinkResponderErrorMaskingForHttpCodeOutput)
+}
+
+// A key-value pair to associate with a resource.
+type InboundExternalLinkTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
 type LinkAttributes struct {
 	// The customer-provided unique identifier of the link.
 	CustomerProvidedId *string `pulumi:"customerProvidedId"`
@@ -809,6 +1354,551 @@ type LinkTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type OutboundExternalLinkLinkAttributes struct {
+	CustomerProvidedId    *string                                                `pulumi:"customerProvidedId"`
+	ResponderErrorMasking []OutboundExternalLinkResponderErrorMaskingForHttpCode `pulumi:"responderErrorMasking"`
+}
+
+// OutboundExternalLinkLinkAttributesInput is an input type that accepts OutboundExternalLinkLinkAttributesArgs and OutboundExternalLinkLinkAttributesOutput values.
+// You can construct a concrete instance of `OutboundExternalLinkLinkAttributesInput` via:
+//
+//	OutboundExternalLinkLinkAttributesArgs{...}
+type OutboundExternalLinkLinkAttributesInput interface {
+	pulumi.Input
+
+	ToOutboundExternalLinkLinkAttributesOutput() OutboundExternalLinkLinkAttributesOutput
+	ToOutboundExternalLinkLinkAttributesOutputWithContext(context.Context) OutboundExternalLinkLinkAttributesOutput
+}
+
+type OutboundExternalLinkLinkAttributesArgs struct {
+	CustomerProvidedId    pulumi.StringPtrInput                                          `pulumi:"customerProvidedId"`
+	ResponderErrorMasking OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayInput `pulumi:"responderErrorMasking"`
+}
+
+func (OutboundExternalLinkLinkAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundExternalLinkLinkAttributes)(nil)).Elem()
+}
+
+func (i OutboundExternalLinkLinkAttributesArgs) ToOutboundExternalLinkLinkAttributesOutput() OutboundExternalLinkLinkAttributesOutput {
+	return i.ToOutboundExternalLinkLinkAttributesOutputWithContext(context.Background())
+}
+
+func (i OutboundExternalLinkLinkAttributesArgs) ToOutboundExternalLinkLinkAttributesOutputWithContext(ctx context.Context) OutboundExternalLinkLinkAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundExternalLinkLinkAttributesOutput)
+}
+
+func (i OutboundExternalLinkLinkAttributesArgs) ToOutboundExternalLinkLinkAttributesPtrOutput() OutboundExternalLinkLinkAttributesPtrOutput {
+	return i.ToOutboundExternalLinkLinkAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i OutboundExternalLinkLinkAttributesArgs) ToOutboundExternalLinkLinkAttributesPtrOutputWithContext(ctx context.Context) OutboundExternalLinkLinkAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundExternalLinkLinkAttributesOutput).ToOutboundExternalLinkLinkAttributesPtrOutputWithContext(ctx)
+}
+
+// OutboundExternalLinkLinkAttributesPtrInput is an input type that accepts OutboundExternalLinkLinkAttributesArgs, OutboundExternalLinkLinkAttributesPtr and OutboundExternalLinkLinkAttributesPtrOutput values.
+// You can construct a concrete instance of `OutboundExternalLinkLinkAttributesPtrInput` via:
+//
+//	        OutboundExternalLinkLinkAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OutboundExternalLinkLinkAttributesPtrInput interface {
+	pulumi.Input
+
+	ToOutboundExternalLinkLinkAttributesPtrOutput() OutboundExternalLinkLinkAttributesPtrOutput
+	ToOutboundExternalLinkLinkAttributesPtrOutputWithContext(context.Context) OutboundExternalLinkLinkAttributesPtrOutput
+}
+
+type outboundExternalLinkLinkAttributesPtrType OutboundExternalLinkLinkAttributesArgs
+
+func OutboundExternalLinkLinkAttributesPtr(v *OutboundExternalLinkLinkAttributesArgs) OutboundExternalLinkLinkAttributesPtrInput {
+	return (*outboundExternalLinkLinkAttributesPtrType)(v)
+}
+
+func (*outboundExternalLinkLinkAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutboundExternalLinkLinkAttributes)(nil)).Elem()
+}
+
+func (i *outboundExternalLinkLinkAttributesPtrType) ToOutboundExternalLinkLinkAttributesPtrOutput() OutboundExternalLinkLinkAttributesPtrOutput {
+	return i.ToOutboundExternalLinkLinkAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *outboundExternalLinkLinkAttributesPtrType) ToOutboundExternalLinkLinkAttributesPtrOutputWithContext(ctx context.Context) OutboundExternalLinkLinkAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundExternalLinkLinkAttributesPtrOutput)
+}
+
+type OutboundExternalLinkLinkAttributesOutput struct{ *pulumi.OutputState }
+
+func (OutboundExternalLinkLinkAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundExternalLinkLinkAttributes)(nil)).Elem()
+}
+
+func (o OutboundExternalLinkLinkAttributesOutput) ToOutboundExternalLinkLinkAttributesOutput() OutboundExternalLinkLinkAttributesOutput {
+	return o
+}
+
+func (o OutboundExternalLinkLinkAttributesOutput) ToOutboundExternalLinkLinkAttributesOutputWithContext(ctx context.Context) OutboundExternalLinkLinkAttributesOutput {
+	return o
+}
+
+func (o OutboundExternalLinkLinkAttributesOutput) ToOutboundExternalLinkLinkAttributesPtrOutput() OutboundExternalLinkLinkAttributesPtrOutput {
+	return o.ToOutboundExternalLinkLinkAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o OutboundExternalLinkLinkAttributesOutput) ToOutboundExternalLinkLinkAttributesPtrOutputWithContext(ctx context.Context) OutboundExternalLinkLinkAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutboundExternalLinkLinkAttributes) *OutboundExternalLinkLinkAttributes {
+		return &v
+	}).(OutboundExternalLinkLinkAttributesPtrOutput)
+}
+
+func (o OutboundExternalLinkLinkAttributesOutput) CustomerProvidedId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OutboundExternalLinkLinkAttributes) *string { return v.CustomerProvidedId }).(pulumi.StringPtrOutput)
+}
+
+func (o OutboundExternalLinkLinkAttributesOutput) ResponderErrorMasking() OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput {
+	return o.ApplyT(func(v OutboundExternalLinkLinkAttributes) []OutboundExternalLinkResponderErrorMaskingForHttpCode {
+		return v.ResponderErrorMasking
+	}).(OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput)
+}
+
+type OutboundExternalLinkLinkAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (OutboundExternalLinkLinkAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutboundExternalLinkLinkAttributes)(nil)).Elem()
+}
+
+func (o OutboundExternalLinkLinkAttributesPtrOutput) ToOutboundExternalLinkLinkAttributesPtrOutput() OutboundExternalLinkLinkAttributesPtrOutput {
+	return o
+}
+
+func (o OutboundExternalLinkLinkAttributesPtrOutput) ToOutboundExternalLinkLinkAttributesPtrOutputWithContext(ctx context.Context) OutboundExternalLinkLinkAttributesPtrOutput {
+	return o
+}
+
+func (o OutboundExternalLinkLinkAttributesPtrOutput) Elem() OutboundExternalLinkLinkAttributesOutput {
+	return o.ApplyT(func(v *OutboundExternalLinkLinkAttributes) OutboundExternalLinkLinkAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret OutboundExternalLinkLinkAttributes
+		return ret
+	}).(OutboundExternalLinkLinkAttributesOutput)
+}
+
+func (o OutboundExternalLinkLinkAttributesPtrOutput) CustomerProvidedId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutboundExternalLinkLinkAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerProvidedId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OutboundExternalLinkLinkAttributesPtrOutput) ResponderErrorMasking() OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput {
+	return o.ApplyT(func(v *OutboundExternalLinkLinkAttributes) []OutboundExternalLinkResponderErrorMaskingForHttpCode {
+		if v == nil {
+			return nil
+		}
+		return v.ResponderErrorMasking
+	}).(OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput)
+}
+
+type OutboundExternalLinkLinkLogSettings struct {
+	ApplicationLogs OutboundExternalLinkLinkLogSettingsApplicationLogsProperties `pulumi:"applicationLogs"`
+}
+
+// OutboundExternalLinkLinkLogSettingsInput is an input type that accepts OutboundExternalLinkLinkLogSettingsArgs and OutboundExternalLinkLinkLogSettingsOutput values.
+// You can construct a concrete instance of `OutboundExternalLinkLinkLogSettingsInput` via:
+//
+//	OutboundExternalLinkLinkLogSettingsArgs{...}
+type OutboundExternalLinkLinkLogSettingsInput interface {
+	pulumi.Input
+
+	ToOutboundExternalLinkLinkLogSettingsOutput() OutboundExternalLinkLinkLogSettingsOutput
+	ToOutboundExternalLinkLinkLogSettingsOutputWithContext(context.Context) OutboundExternalLinkLinkLogSettingsOutput
+}
+
+type OutboundExternalLinkLinkLogSettingsArgs struct {
+	ApplicationLogs OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesInput `pulumi:"applicationLogs"`
+}
+
+func (OutboundExternalLinkLinkLogSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundExternalLinkLinkLogSettings)(nil)).Elem()
+}
+
+func (i OutboundExternalLinkLinkLogSettingsArgs) ToOutboundExternalLinkLinkLogSettingsOutput() OutboundExternalLinkLinkLogSettingsOutput {
+	return i.ToOutboundExternalLinkLinkLogSettingsOutputWithContext(context.Background())
+}
+
+func (i OutboundExternalLinkLinkLogSettingsArgs) ToOutboundExternalLinkLinkLogSettingsOutputWithContext(ctx context.Context) OutboundExternalLinkLinkLogSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundExternalLinkLinkLogSettingsOutput)
+}
+
+type OutboundExternalLinkLinkLogSettingsOutput struct{ *pulumi.OutputState }
+
+func (OutboundExternalLinkLinkLogSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundExternalLinkLinkLogSettings)(nil)).Elem()
+}
+
+func (o OutboundExternalLinkLinkLogSettingsOutput) ToOutboundExternalLinkLinkLogSettingsOutput() OutboundExternalLinkLinkLogSettingsOutput {
+	return o
+}
+
+func (o OutboundExternalLinkLinkLogSettingsOutput) ToOutboundExternalLinkLinkLogSettingsOutputWithContext(ctx context.Context) OutboundExternalLinkLinkLogSettingsOutput {
+	return o
+}
+
+func (o OutboundExternalLinkLinkLogSettingsOutput) ApplicationLogs() OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput {
+	return o.ApplyT(func(v OutboundExternalLinkLinkLogSettings) OutboundExternalLinkLinkLogSettingsApplicationLogsProperties {
+		return v.ApplicationLogs
+	}).(OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput)
+}
+
+type OutboundExternalLinkLinkLogSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (OutboundExternalLinkLinkLogSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutboundExternalLinkLinkLogSettings)(nil)).Elem()
+}
+
+func (o OutboundExternalLinkLinkLogSettingsPtrOutput) ToOutboundExternalLinkLinkLogSettingsPtrOutput() OutboundExternalLinkLinkLogSettingsPtrOutput {
+	return o
+}
+
+func (o OutboundExternalLinkLinkLogSettingsPtrOutput) ToOutboundExternalLinkLinkLogSettingsPtrOutputWithContext(ctx context.Context) OutboundExternalLinkLinkLogSettingsPtrOutput {
+	return o
+}
+
+func (o OutboundExternalLinkLinkLogSettingsPtrOutput) Elem() OutboundExternalLinkLinkLogSettingsOutput {
+	return o.ApplyT(func(v *OutboundExternalLinkLinkLogSettings) OutboundExternalLinkLinkLogSettings {
+		if v != nil {
+			return *v
+		}
+		var ret OutboundExternalLinkLinkLogSettings
+		return ret
+	}).(OutboundExternalLinkLinkLogSettingsOutput)
+}
+
+func (o OutboundExternalLinkLinkLogSettingsPtrOutput) ApplicationLogs() OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput {
+	return o.ApplyT(func(v *OutboundExternalLinkLinkLogSettings) *OutboundExternalLinkLinkLogSettingsApplicationLogsProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.ApplicationLogs
+	}).(OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput)
+}
+
+type OutboundExternalLinkLinkLogSettingsApplicationLogsProperties struct {
+	LinkApplicationLogSampling OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties `pulumi:"linkApplicationLogSampling"`
+}
+
+// OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesInput is an input type that accepts OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs and OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput values.
+// You can construct a concrete instance of `OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesInput` via:
+//
+//	OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs{...}
+type OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesInput interface {
+	pulumi.Input
+
+	ToOutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput() OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput
+	ToOutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutputWithContext(context.Context) OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput
+}
+
+type OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs struct {
+	LinkApplicationLogSampling OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesInput `pulumi:"linkApplicationLogSampling"`
+}
+
+func (OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundExternalLinkLinkLogSettingsApplicationLogsProperties)(nil)).Elem()
+}
+
+func (i OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs) ToOutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput() OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput {
+	return i.ToOutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutputWithContext(context.Background())
+}
+
+func (i OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs) ToOutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutputWithContext(ctx context.Context) OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput)
+}
+
+type OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundExternalLinkLinkLogSettingsApplicationLogsProperties)(nil)).Elem()
+}
+
+func (o OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput) ToOutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput() OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput {
+	return o
+}
+
+func (o OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput) ToOutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutputWithContext(ctx context.Context) OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput {
+	return o
+}
+
+func (o OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput) LinkApplicationLogSampling() OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput {
+	return o.ApplyT(func(v OutboundExternalLinkLinkLogSettingsApplicationLogsProperties) OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties {
+		return v.LinkApplicationLogSampling
+	}).(OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput)
+}
+
+type OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutboundExternalLinkLinkLogSettingsApplicationLogsProperties)(nil)).Elem()
+}
+
+func (o OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput) ToOutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput() OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput {
+	return o
+}
+
+func (o OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput) ToOutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutputWithContext(ctx context.Context) OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput {
+	return o
+}
+
+func (o OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput) Elem() OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput {
+	return o.ApplyT(func(v *OutboundExternalLinkLinkLogSettingsApplicationLogsProperties) OutboundExternalLinkLinkLogSettingsApplicationLogsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret OutboundExternalLinkLinkLogSettingsApplicationLogsProperties
+		return ret
+	}).(OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput)
+}
+
+func (o OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput) LinkApplicationLogSampling() OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput {
+	return o.ApplyT(func(v *OutboundExternalLinkLinkLogSettingsApplicationLogsProperties) *OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.LinkApplicationLogSampling
+	}).(OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput)
+}
+
+type OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties struct {
+	ErrorLog  float64 `pulumi:"errorLog"`
+	FilterLog float64 `pulumi:"filterLog"`
+}
+
+// OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesInput is an input type that accepts OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs and OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput values.
+// You can construct a concrete instance of `OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesInput` via:
+//
+//	OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs{...}
+type OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesInput interface {
+	pulumi.Input
+
+	ToOutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput() OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput
+	ToOutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutputWithContext(context.Context) OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput
+}
+
+type OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs struct {
+	ErrorLog  pulumi.Float64Input `pulumi:"errorLog"`
+	FilterLog pulumi.Float64Input `pulumi:"filterLog"`
+}
+
+func (OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties)(nil)).Elem()
+}
+
+func (i OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs) ToOutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput() OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput {
+	return i.ToOutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutputWithContext(context.Background())
+}
+
+func (i OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs) ToOutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutputWithContext(ctx context.Context) OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput)
+}
+
+type OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput struct{ *pulumi.OutputState }
+
+func (OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties)(nil)).Elem()
+}
+
+func (o OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput) ToOutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput() OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput {
+	return o
+}
+
+func (o OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput) ToOutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutputWithContext(ctx context.Context) OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput {
+	return o
+}
+
+func (o OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput) ErrorLog() pulumi.Float64Output {
+	return o.ApplyT(func(v OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties) float64 {
+		return v.ErrorLog
+	}).(pulumi.Float64Output)
+}
+
+func (o OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput) FilterLog() pulumi.Float64Output {
+	return o.ApplyT(func(v OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties) float64 {
+		return v.FilterLog
+	}).(pulumi.Float64Output)
+}
+
+type OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties)(nil)).Elem()
+}
+
+func (o OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput) ToOutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput() OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput {
+	return o
+}
+
+func (o OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput) ToOutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutputWithContext(ctx context.Context) OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput {
+	return o
+}
+
+func (o OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput) Elem() OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput {
+	return o.ApplyT(func(v *OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties) OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties {
+		if v != nil {
+			return *v
+		}
+		var ret OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties
+		return ret
+	}).(OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput)
+}
+
+func (o OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput) ErrorLog() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.ErrorLog
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput) FilterLog() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.FilterLog
+	}).(pulumi.Float64PtrOutput)
+}
+
+type OutboundExternalLinkResponderErrorMaskingForHttpCode struct {
+	Action                    OutboundExternalLinkResponderErrorMaskingForHttpCodeAction `pulumi:"action"`
+	HttpCode                  string                                                     `pulumi:"httpCode"`
+	LoggingTypes              []OutboundExternalLinkResponderErrorMaskingLoggingType     `pulumi:"loggingTypes"`
+	ResponseLoggingPercentage *float64                                                   `pulumi:"responseLoggingPercentage"`
+}
+
+// OutboundExternalLinkResponderErrorMaskingForHttpCodeInput is an input type that accepts OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs and OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput values.
+// You can construct a concrete instance of `OutboundExternalLinkResponderErrorMaskingForHttpCodeInput` via:
+//
+//	OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs{...}
+type OutboundExternalLinkResponderErrorMaskingForHttpCodeInput interface {
+	pulumi.Input
+
+	ToOutboundExternalLinkResponderErrorMaskingForHttpCodeOutput() OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput
+	ToOutboundExternalLinkResponderErrorMaskingForHttpCodeOutputWithContext(context.Context) OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput
+}
+
+type OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs struct {
+	Action                    OutboundExternalLinkResponderErrorMaskingForHttpCodeActionInput `pulumi:"action"`
+	HttpCode                  pulumi.StringInput                                              `pulumi:"httpCode"`
+	LoggingTypes              OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayInput  `pulumi:"loggingTypes"`
+	ResponseLoggingPercentage pulumi.Float64PtrInput                                          `pulumi:"responseLoggingPercentage"`
+}
+
+func (OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundExternalLinkResponderErrorMaskingForHttpCode)(nil)).Elem()
+}
+
+func (i OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs) ToOutboundExternalLinkResponderErrorMaskingForHttpCodeOutput() OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput {
+	return i.ToOutboundExternalLinkResponderErrorMaskingForHttpCodeOutputWithContext(context.Background())
+}
+
+func (i OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs) ToOutboundExternalLinkResponderErrorMaskingForHttpCodeOutputWithContext(ctx context.Context) OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput)
+}
+
+// OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayInput is an input type that accepts OutboundExternalLinkResponderErrorMaskingForHttpCodeArray and OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput values.
+// You can construct a concrete instance of `OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayInput` via:
+//
+//	OutboundExternalLinkResponderErrorMaskingForHttpCodeArray{ OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs{...} }
+type OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayInput interface {
+	pulumi.Input
+
+	ToOutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput() OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput
+	ToOutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutputWithContext(context.Context) OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput
+}
+
+type OutboundExternalLinkResponderErrorMaskingForHttpCodeArray []OutboundExternalLinkResponderErrorMaskingForHttpCodeInput
+
+func (OutboundExternalLinkResponderErrorMaskingForHttpCodeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OutboundExternalLinkResponderErrorMaskingForHttpCode)(nil)).Elem()
+}
+
+func (i OutboundExternalLinkResponderErrorMaskingForHttpCodeArray) ToOutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput() OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput {
+	return i.ToOutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutputWithContext(context.Background())
+}
+
+func (i OutboundExternalLinkResponderErrorMaskingForHttpCodeArray) ToOutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutputWithContext(ctx context.Context) OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput)
+}
+
+type OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput struct{ *pulumi.OutputState }
+
+func (OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutboundExternalLinkResponderErrorMaskingForHttpCode)(nil)).Elem()
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput) ToOutboundExternalLinkResponderErrorMaskingForHttpCodeOutput() OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput {
+	return o
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput) ToOutboundExternalLinkResponderErrorMaskingForHttpCodeOutputWithContext(ctx context.Context) OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput {
+	return o
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput) Action() OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput {
+	return o.ApplyT(func(v OutboundExternalLinkResponderErrorMaskingForHttpCode) OutboundExternalLinkResponderErrorMaskingForHttpCodeAction {
+		return v.Action
+	}).(OutboundExternalLinkResponderErrorMaskingForHttpCodeActionOutput)
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput) HttpCode() pulumi.StringOutput {
+	return o.ApplyT(func(v OutboundExternalLinkResponderErrorMaskingForHttpCode) string { return v.HttpCode }).(pulumi.StringOutput)
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput) LoggingTypes() OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput {
+	return o.ApplyT(func(v OutboundExternalLinkResponderErrorMaskingForHttpCode) []OutboundExternalLinkResponderErrorMaskingLoggingType {
+		return v.LoggingTypes
+	}).(OutboundExternalLinkResponderErrorMaskingLoggingTypeArrayOutput)
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput) ResponseLoggingPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v OutboundExternalLinkResponderErrorMaskingForHttpCode) *float64 {
+		return v.ResponseLoggingPercentage
+	}).(pulumi.Float64PtrOutput)
+}
+
+type OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput struct{ *pulumi.OutputState }
+
+func (OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OutboundExternalLinkResponderErrorMaskingForHttpCode)(nil)).Elem()
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput) ToOutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput() OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput {
+	return o
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput) ToOutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutputWithContext(ctx context.Context) OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput {
+	return o
+}
+
+func (o OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput) Index(i pulumi.IntInput) OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OutboundExternalLinkResponderErrorMaskingForHttpCode {
+		return vs[0].([]OutboundExternalLinkResponderErrorMaskingForHttpCode)[vs[1].(int)]
+	}).(OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput)
+}
+
+// A key-value pair to associate with a resource.
+type OutboundExternalLinkTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
 // A key-value pair to associate with a resource.
 type RequesterGatewayTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1081,6 +2171,13 @@ func (o ResponderGatewayTrustStoreConfigurationPtrOutput) CertificateAuthorityCe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InboundExternalLinkLinkAttributesInput)(nil)).Elem(), InboundExternalLinkLinkAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InboundExternalLinkLinkAttributesPtrInput)(nil)).Elem(), InboundExternalLinkLinkAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InboundExternalLinkLinkLogSettingsInput)(nil)).Elem(), InboundExternalLinkLinkLogSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesInput)(nil)).Elem(), InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesInput)(nil)).Elem(), InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InboundExternalLinkResponderErrorMaskingForHttpCodeInput)(nil)).Elem(), InboundExternalLinkResponderErrorMaskingForHttpCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InboundExternalLinkResponderErrorMaskingForHttpCodeArrayInput)(nil)).Elem(), InboundExternalLinkResponderErrorMaskingForHttpCodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkAttributesInput)(nil)).Elem(), LinkAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkAttributesPtrInput)(nil)).Elem(), LinkAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkLogSettingsInput)(nil)).Elem(), LinkLogSettingsArgs{})
@@ -1092,10 +2189,27 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkModuleParametersPtrInput)(nil)).Elem(), LinkModuleParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkResponderErrorMaskingForHttpCodeInput)(nil)).Elem(), LinkResponderErrorMaskingForHttpCodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkResponderErrorMaskingForHttpCodeArrayInput)(nil)).Elem(), LinkResponderErrorMaskingForHttpCodeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkLinkAttributesInput)(nil)).Elem(), OutboundExternalLinkLinkAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkLinkAttributesPtrInput)(nil)).Elem(), OutboundExternalLinkLinkAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkLinkLogSettingsInput)(nil)).Elem(), OutboundExternalLinkLinkLogSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesInput)(nil)).Elem(), OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesInput)(nil)).Elem(), OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkResponderErrorMaskingForHttpCodeInput)(nil)).Elem(), OutboundExternalLinkResponderErrorMaskingForHttpCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayInput)(nil)).Elem(), OutboundExternalLinkResponderErrorMaskingForHttpCodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayManagedEndpointConfigurationInput)(nil)).Elem(), ResponderGatewayManagedEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayManagedEndpointConfigurationPtrInput)(nil)).Elem(), ResponderGatewayManagedEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayTrustStoreConfigurationInput)(nil)).Elem(), ResponderGatewayTrustStoreConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponderGatewayTrustStoreConfigurationPtrInput)(nil)).Elem(), ResponderGatewayTrustStoreConfigurationArgs{})
+	pulumi.RegisterOutputType(InboundExternalLinkLinkAttributesOutput{})
+	pulumi.RegisterOutputType(InboundExternalLinkLinkAttributesPtrOutput{})
+	pulumi.RegisterOutputType(InboundExternalLinkLinkLogSettingsOutput{})
+	pulumi.RegisterOutputType(InboundExternalLinkLinkLogSettingsPtrOutput{})
+	pulumi.RegisterOutputType(InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput{})
+	pulumi.RegisterOutputType(InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput{})
+	pulumi.RegisterOutputType(InboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(InboundExternalLinkResponderErrorMaskingForHttpCodeOutput{})
+	pulumi.RegisterOutputType(InboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput{})
 	pulumi.RegisterOutputType(LinkAttributesOutput{})
 	pulumi.RegisterOutputType(LinkAttributesPtrOutput{})
 	pulumi.RegisterOutputType(LinkLogSettingsOutput{})
@@ -1110,6 +2224,16 @@ func init() {
 	pulumi.RegisterOutputType(LinkModuleParametersPtrOutput{})
 	pulumi.RegisterOutputType(LinkResponderErrorMaskingForHttpCodeOutput{})
 	pulumi.RegisterOutputType(LinkResponderErrorMaskingForHttpCodeArrayOutput{})
+	pulumi.RegisterOutputType(OutboundExternalLinkLinkAttributesOutput{})
+	pulumi.RegisterOutputType(OutboundExternalLinkLinkAttributesPtrOutput{})
+	pulumi.RegisterOutputType(OutboundExternalLinkLinkLogSettingsOutput{})
+	pulumi.RegisterOutputType(OutboundExternalLinkLinkLogSettingsPtrOutput{})
+	pulumi.RegisterOutputType(OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesOutput{})
+	pulumi.RegisterOutputType(OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesOutput{})
+	pulumi.RegisterOutputType(OutboundExternalLinkLinkLogSettingsApplicationLogsPropertiesLinkApplicationLogSamplingPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(OutboundExternalLinkResponderErrorMaskingForHttpCodeOutput{})
+	pulumi.RegisterOutputType(OutboundExternalLinkResponderErrorMaskingForHttpCodeArrayOutput{})
 	pulumi.RegisterOutputType(ResponderGatewayManagedEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(ResponderGatewayManagedEndpointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ResponderGatewayTrustStoreConfigurationOutput{})

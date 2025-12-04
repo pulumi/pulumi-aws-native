@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.AiOps.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ChatConfigurationArns;
         /// <summary>
-        /// Returns the ARN of an Amazon SNS topic used for third-party chat integrations.
+        /// Returns the ARN of an Amazon  topic used for third-party chat integrations.
         /// </summary>
         public readonly string? SnsTopicArn;
 

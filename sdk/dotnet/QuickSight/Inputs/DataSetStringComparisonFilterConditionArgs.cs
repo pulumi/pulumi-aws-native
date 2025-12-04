@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetStringComparisonFilterConditionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The comparison operator to use, such as `EQUALS` , `CONTAINS` , `STARTS_WITH` , `ENDS_WITH` , or their negations.
+        /// </summary>
         [Input("operator", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DataSetStringComparisonFilterOperator> Operator { get; set; } = null!;
 
+        /// <summary>
+        /// The string value to compare against.
+        /// </summary>
         [Input("value")]
         public Input<Inputs.DataSetStringFilterValueArgs>? Value { get; set; }
 

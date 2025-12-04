@@ -10,6 +10,640 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Specifications for the types of EC2 instances that the capacity provider can use.
+type CapacityProviderArchitecture string
+
+const (
+	CapacityProviderArchitectureX8664 = CapacityProviderArchitecture("x86_64")
+	CapacityProviderArchitectureArm64 = CapacityProviderArchitecture("arm64")
+)
+
+func (CapacityProviderArchitecture) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderArchitecture)(nil)).Elem()
+}
+
+func (e CapacityProviderArchitecture) ToCapacityProviderArchitectureOutput() CapacityProviderArchitectureOutput {
+	return pulumi.ToOutput(e).(CapacityProviderArchitectureOutput)
+}
+
+func (e CapacityProviderArchitecture) ToCapacityProviderArchitectureOutputWithContext(ctx context.Context) CapacityProviderArchitectureOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapacityProviderArchitectureOutput)
+}
+
+func (e CapacityProviderArchitecture) ToCapacityProviderArchitecturePtrOutput() CapacityProviderArchitecturePtrOutput {
+	return e.ToCapacityProviderArchitecturePtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderArchitecture) ToCapacityProviderArchitecturePtrOutputWithContext(ctx context.Context) CapacityProviderArchitecturePtrOutput {
+	return CapacityProviderArchitecture(e).ToCapacityProviderArchitectureOutputWithContext(ctx).ToCapacityProviderArchitecturePtrOutputWithContext(ctx)
+}
+
+func (e CapacityProviderArchitecture) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderArchitecture) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderArchitecture) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderArchitecture) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapacityProviderArchitectureOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderArchitectureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderArchitecture)(nil)).Elem()
+}
+
+func (o CapacityProviderArchitectureOutput) ToCapacityProviderArchitectureOutput() CapacityProviderArchitectureOutput {
+	return o
+}
+
+func (o CapacityProviderArchitectureOutput) ToCapacityProviderArchitectureOutputWithContext(ctx context.Context) CapacityProviderArchitectureOutput {
+	return o
+}
+
+func (o CapacityProviderArchitectureOutput) ToCapacityProviderArchitecturePtrOutput() CapacityProviderArchitecturePtrOutput {
+	return o.ToCapacityProviderArchitecturePtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderArchitectureOutput) ToCapacityProviderArchitecturePtrOutputWithContext(ctx context.Context) CapacityProviderArchitecturePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderArchitecture) *CapacityProviderArchitecture {
+		return &v
+	}).(CapacityProviderArchitecturePtrOutput)
+}
+
+func (o CapacityProviderArchitectureOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderArchitectureOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderArchitecture) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderArchitectureOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderArchitectureOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderArchitecture) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderArchitecturePtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderArchitecturePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderArchitecture)(nil)).Elem()
+}
+
+func (o CapacityProviderArchitecturePtrOutput) ToCapacityProviderArchitecturePtrOutput() CapacityProviderArchitecturePtrOutput {
+	return o
+}
+
+func (o CapacityProviderArchitecturePtrOutput) ToCapacityProviderArchitecturePtrOutputWithContext(ctx context.Context) CapacityProviderArchitecturePtrOutput {
+	return o
+}
+
+func (o CapacityProviderArchitecturePtrOutput) Elem() CapacityProviderArchitectureOutput {
+	return o.ApplyT(func(v *CapacityProviderArchitecture) CapacityProviderArchitecture {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderArchitecture
+		return ret
+	}).(CapacityProviderArchitectureOutput)
+}
+
+func (o CapacityProviderArchitecturePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderArchitecturePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityProviderArchitecture) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapacityProviderArchitectureInput is an input type that accepts values of the CapacityProviderArchitecture enum
+// A concrete instance of `CapacityProviderArchitectureInput` can be one of the following:
+//
+//	CapacityProviderArchitectureX8664
+//	CapacityProviderArchitectureArm64
+type CapacityProviderArchitectureInput interface {
+	pulumi.Input
+
+	ToCapacityProviderArchitectureOutput() CapacityProviderArchitectureOutput
+	ToCapacityProviderArchitectureOutputWithContext(context.Context) CapacityProviderArchitectureOutput
+}
+
+var capacityProviderArchitecturePtrType = reflect.TypeOf((**CapacityProviderArchitecture)(nil)).Elem()
+
+type CapacityProviderArchitecturePtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderArchitecturePtrOutput() CapacityProviderArchitecturePtrOutput
+	ToCapacityProviderArchitecturePtrOutputWithContext(context.Context) CapacityProviderArchitecturePtrOutput
+}
+
+type capacityProviderArchitecturePtr string
+
+func CapacityProviderArchitecturePtr(v string) CapacityProviderArchitecturePtrInput {
+	return (*capacityProviderArchitecturePtr)(&v)
+}
+
+func (*capacityProviderArchitecturePtr) ElementType() reflect.Type {
+	return capacityProviderArchitecturePtrType
+}
+
+func (in *capacityProviderArchitecturePtr) ToCapacityProviderArchitecturePtrOutput() CapacityProviderArchitecturePtrOutput {
+	return pulumi.ToOutput(in).(CapacityProviderArchitecturePtrOutput)
+}
+
+func (in *capacityProviderArchitecturePtr) ToCapacityProviderArchitecturePtrOutputWithContext(ctx context.Context) CapacityProviderArchitecturePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderArchitecturePtrOutput)
+}
+
+// CapacityProviderArchitectureArrayInput is an input type that accepts CapacityProviderArchitectureArray and CapacityProviderArchitectureArrayOutput values.
+// You can construct a concrete instance of `CapacityProviderArchitectureArrayInput` via:
+//
+//	CapacityProviderArchitectureArray{ CapacityProviderArchitectureArgs{...} }
+type CapacityProviderArchitectureArrayInput interface {
+	pulumi.Input
+
+	ToCapacityProviderArchitectureArrayOutput() CapacityProviderArchitectureArrayOutput
+	ToCapacityProviderArchitectureArrayOutputWithContext(context.Context) CapacityProviderArchitectureArrayOutput
+}
+
+type CapacityProviderArchitectureArray []CapacityProviderArchitecture
+
+func (CapacityProviderArchitectureArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityProviderArchitecture)(nil)).Elem()
+}
+
+func (i CapacityProviderArchitectureArray) ToCapacityProviderArchitectureArrayOutput() CapacityProviderArchitectureArrayOutput {
+	return i.ToCapacityProviderArchitectureArrayOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderArchitectureArray) ToCapacityProviderArchitectureArrayOutputWithContext(ctx context.Context) CapacityProviderArchitectureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderArchitectureArrayOutput)
+}
+
+type CapacityProviderArchitectureArrayOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderArchitectureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityProviderArchitecture)(nil)).Elem()
+}
+
+func (o CapacityProviderArchitectureArrayOutput) ToCapacityProviderArchitectureArrayOutput() CapacityProviderArchitectureArrayOutput {
+	return o
+}
+
+func (o CapacityProviderArchitectureArrayOutput) ToCapacityProviderArchitectureArrayOutputWithContext(ctx context.Context) CapacityProviderArchitectureArrayOutput {
+	return o
+}
+
+func (o CapacityProviderArchitectureArrayOutput) Index(i pulumi.IntInput) CapacityProviderArchitectureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityProviderArchitecture {
+		return vs[0].([]CapacityProviderArchitecture)[vs[1].(int)]
+	}).(CapacityProviderArchitectureOutput)
+}
+
+// The predefined metric for target tracking.
+type CapacityProviderPredefinedMetricType string
+
+const (
+	CapacityProviderPredefinedMetricTypeLambdaCapacityProviderAverageCpuUtilization = CapacityProviderPredefinedMetricType("LambdaCapacityProviderAverageCPUUtilization")
+)
+
+func (CapacityProviderPredefinedMetricType) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderPredefinedMetricType)(nil)).Elem()
+}
+
+func (e CapacityProviderPredefinedMetricType) ToCapacityProviderPredefinedMetricTypeOutput() CapacityProviderPredefinedMetricTypeOutput {
+	return pulumi.ToOutput(e).(CapacityProviderPredefinedMetricTypeOutput)
+}
+
+func (e CapacityProviderPredefinedMetricType) ToCapacityProviderPredefinedMetricTypeOutputWithContext(ctx context.Context) CapacityProviderPredefinedMetricTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapacityProviderPredefinedMetricTypeOutput)
+}
+
+func (e CapacityProviderPredefinedMetricType) ToCapacityProviderPredefinedMetricTypePtrOutput() CapacityProviderPredefinedMetricTypePtrOutput {
+	return e.ToCapacityProviderPredefinedMetricTypePtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderPredefinedMetricType) ToCapacityProviderPredefinedMetricTypePtrOutputWithContext(ctx context.Context) CapacityProviderPredefinedMetricTypePtrOutput {
+	return CapacityProviderPredefinedMetricType(e).ToCapacityProviderPredefinedMetricTypeOutputWithContext(ctx).ToCapacityProviderPredefinedMetricTypePtrOutputWithContext(ctx)
+}
+
+func (e CapacityProviderPredefinedMetricType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderPredefinedMetricType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderPredefinedMetricType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderPredefinedMetricType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapacityProviderPredefinedMetricTypeOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderPredefinedMetricTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderPredefinedMetricType)(nil)).Elem()
+}
+
+func (o CapacityProviderPredefinedMetricTypeOutput) ToCapacityProviderPredefinedMetricTypeOutput() CapacityProviderPredefinedMetricTypeOutput {
+	return o
+}
+
+func (o CapacityProviderPredefinedMetricTypeOutput) ToCapacityProviderPredefinedMetricTypeOutputWithContext(ctx context.Context) CapacityProviderPredefinedMetricTypeOutput {
+	return o
+}
+
+func (o CapacityProviderPredefinedMetricTypeOutput) ToCapacityProviderPredefinedMetricTypePtrOutput() CapacityProviderPredefinedMetricTypePtrOutput {
+	return o.ToCapacityProviderPredefinedMetricTypePtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderPredefinedMetricTypeOutput) ToCapacityProviderPredefinedMetricTypePtrOutputWithContext(ctx context.Context) CapacityProviderPredefinedMetricTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderPredefinedMetricType) *CapacityProviderPredefinedMetricType {
+		return &v
+	}).(CapacityProviderPredefinedMetricTypePtrOutput)
+}
+
+func (o CapacityProviderPredefinedMetricTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderPredefinedMetricTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderPredefinedMetricType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderPredefinedMetricTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderPredefinedMetricTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderPredefinedMetricType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderPredefinedMetricTypePtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderPredefinedMetricTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderPredefinedMetricType)(nil)).Elem()
+}
+
+func (o CapacityProviderPredefinedMetricTypePtrOutput) ToCapacityProviderPredefinedMetricTypePtrOutput() CapacityProviderPredefinedMetricTypePtrOutput {
+	return o
+}
+
+func (o CapacityProviderPredefinedMetricTypePtrOutput) ToCapacityProviderPredefinedMetricTypePtrOutputWithContext(ctx context.Context) CapacityProviderPredefinedMetricTypePtrOutput {
+	return o
+}
+
+func (o CapacityProviderPredefinedMetricTypePtrOutput) Elem() CapacityProviderPredefinedMetricTypeOutput {
+	return o.ApplyT(func(v *CapacityProviderPredefinedMetricType) CapacityProviderPredefinedMetricType {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderPredefinedMetricType
+		return ret
+	}).(CapacityProviderPredefinedMetricTypeOutput)
+}
+
+func (o CapacityProviderPredefinedMetricTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderPredefinedMetricTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityProviderPredefinedMetricType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapacityProviderPredefinedMetricTypeInput is an input type that accepts values of the CapacityProviderPredefinedMetricType enum
+// A concrete instance of `CapacityProviderPredefinedMetricTypeInput` can be one of the following:
+//
+//	CapacityProviderPredefinedMetricTypeLambdaCapacityProviderAverageCpuUtilization
+type CapacityProviderPredefinedMetricTypeInput interface {
+	pulumi.Input
+
+	ToCapacityProviderPredefinedMetricTypeOutput() CapacityProviderPredefinedMetricTypeOutput
+	ToCapacityProviderPredefinedMetricTypeOutputWithContext(context.Context) CapacityProviderPredefinedMetricTypeOutput
+}
+
+var capacityProviderPredefinedMetricTypePtrType = reflect.TypeOf((**CapacityProviderPredefinedMetricType)(nil)).Elem()
+
+type CapacityProviderPredefinedMetricTypePtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderPredefinedMetricTypePtrOutput() CapacityProviderPredefinedMetricTypePtrOutput
+	ToCapacityProviderPredefinedMetricTypePtrOutputWithContext(context.Context) CapacityProviderPredefinedMetricTypePtrOutput
+}
+
+type capacityProviderPredefinedMetricTypePtr string
+
+func CapacityProviderPredefinedMetricTypePtr(v string) CapacityProviderPredefinedMetricTypePtrInput {
+	return (*capacityProviderPredefinedMetricTypePtr)(&v)
+}
+
+func (*capacityProviderPredefinedMetricTypePtr) ElementType() reflect.Type {
+	return capacityProviderPredefinedMetricTypePtrType
+}
+
+func (in *capacityProviderPredefinedMetricTypePtr) ToCapacityProviderPredefinedMetricTypePtrOutput() CapacityProviderPredefinedMetricTypePtrOutput {
+	return pulumi.ToOutput(in).(CapacityProviderPredefinedMetricTypePtrOutput)
+}
+
+func (in *capacityProviderPredefinedMetricTypePtr) ToCapacityProviderPredefinedMetricTypePtrOutputWithContext(ctx context.Context) CapacityProviderPredefinedMetricTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderPredefinedMetricTypePtrOutput)
+}
+
+// The scaling mode for the capacity provider.
+type CapacityProviderScalingMode string
+
+const (
+	CapacityProviderScalingModeAuto   = CapacityProviderScalingMode("Auto")
+	CapacityProviderScalingModeManual = CapacityProviderScalingMode("Manual")
+)
+
+func (CapacityProviderScalingMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderScalingMode)(nil)).Elem()
+}
+
+func (e CapacityProviderScalingMode) ToCapacityProviderScalingModeOutput() CapacityProviderScalingModeOutput {
+	return pulumi.ToOutput(e).(CapacityProviderScalingModeOutput)
+}
+
+func (e CapacityProviderScalingMode) ToCapacityProviderScalingModeOutputWithContext(ctx context.Context) CapacityProviderScalingModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapacityProviderScalingModeOutput)
+}
+
+func (e CapacityProviderScalingMode) ToCapacityProviderScalingModePtrOutput() CapacityProviderScalingModePtrOutput {
+	return e.ToCapacityProviderScalingModePtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderScalingMode) ToCapacityProviderScalingModePtrOutputWithContext(ctx context.Context) CapacityProviderScalingModePtrOutput {
+	return CapacityProviderScalingMode(e).ToCapacityProviderScalingModeOutputWithContext(ctx).ToCapacityProviderScalingModePtrOutputWithContext(ctx)
+}
+
+func (e CapacityProviderScalingMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderScalingMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderScalingMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderScalingMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapacityProviderScalingModeOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderScalingModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderScalingMode)(nil)).Elem()
+}
+
+func (o CapacityProviderScalingModeOutput) ToCapacityProviderScalingModeOutput() CapacityProviderScalingModeOutput {
+	return o
+}
+
+func (o CapacityProviderScalingModeOutput) ToCapacityProviderScalingModeOutputWithContext(ctx context.Context) CapacityProviderScalingModeOutput {
+	return o
+}
+
+func (o CapacityProviderScalingModeOutput) ToCapacityProviderScalingModePtrOutput() CapacityProviderScalingModePtrOutput {
+	return o.ToCapacityProviderScalingModePtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderScalingModeOutput) ToCapacityProviderScalingModePtrOutputWithContext(ctx context.Context) CapacityProviderScalingModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderScalingMode) *CapacityProviderScalingMode {
+		return &v
+	}).(CapacityProviderScalingModePtrOutput)
+}
+
+func (o CapacityProviderScalingModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderScalingModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderScalingMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderScalingModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderScalingModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderScalingMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderScalingModePtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderScalingModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderScalingMode)(nil)).Elem()
+}
+
+func (o CapacityProviderScalingModePtrOutput) ToCapacityProviderScalingModePtrOutput() CapacityProviderScalingModePtrOutput {
+	return o
+}
+
+func (o CapacityProviderScalingModePtrOutput) ToCapacityProviderScalingModePtrOutputWithContext(ctx context.Context) CapacityProviderScalingModePtrOutput {
+	return o
+}
+
+func (o CapacityProviderScalingModePtrOutput) Elem() CapacityProviderScalingModeOutput {
+	return o.ApplyT(func(v *CapacityProviderScalingMode) CapacityProviderScalingMode {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderScalingMode
+		return ret
+	}).(CapacityProviderScalingModeOutput)
+}
+
+func (o CapacityProviderScalingModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderScalingModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityProviderScalingMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapacityProviderScalingModeInput is an input type that accepts values of the CapacityProviderScalingMode enum
+// A concrete instance of `CapacityProviderScalingModeInput` can be one of the following:
+//
+//	CapacityProviderScalingModeAuto
+//	CapacityProviderScalingModeManual
+type CapacityProviderScalingModeInput interface {
+	pulumi.Input
+
+	ToCapacityProviderScalingModeOutput() CapacityProviderScalingModeOutput
+	ToCapacityProviderScalingModeOutputWithContext(context.Context) CapacityProviderScalingModeOutput
+}
+
+var capacityProviderScalingModePtrType = reflect.TypeOf((**CapacityProviderScalingMode)(nil)).Elem()
+
+type CapacityProviderScalingModePtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderScalingModePtrOutput() CapacityProviderScalingModePtrOutput
+	ToCapacityProviderScalingModePtrOutputWithContext(context.Context) CapacityProviderScalingModePtrOutput
+}
+
+type capacityProviderScalingModePtr string
+
+func CapacityProviderScalingModePtr(v string) CapacityProviderScalingModePtrInput {
+	return (*capacityProviderScalingModePtr)(&v)
+}
+
+func (*capacityProviderScalingModePtr) ElementType() reflect.Type {
+	return capacityProviderScalingModePtrType
+}
+
+func (in *capacityProviderScalingModePtr) ToCapacityProviderScalingModePtrOutput() CapacityProviderScalingModePtrOutput {
+	return pulumi.ToOutput(in).(CapacityProviderScalingModePtrOutput)
+}
+
+func (in *capacityProviderScalingModePtr) ToCapacityProviderScalingModePtrOutputWithContext(ctx context.Context) CapacityProviderScalingModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderScalingModePtrOutput)
+}
+
+// The current state of the capacity provider. Indicates whether the provider is being created, is active and ready for use, has failed, or is being deleted.
+type CapacityProviderStateEnum string
+
+const (
+	CapacityProviderStateEnumPending  = CapacityProviderStateEnum("Pending")
+	CapacityProviderStateEnumActive   = CapacityProviderStateEnum("Active")
+	CapacityProviderStateEnumFailed   = CapacityProviderStateEnum("Failed")
+	CapacityProviderStateEnumDeleting = CapacityProviderStateEnum("Deleting")
+)
+
+type CapacityProviderStateEnumOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderStateEnum)(nil)).Elem()
+}
+
+func (o CapacityProviderStateEnumOutput) ToCapacityProviderStateEnumOutput() CapacityProviderStateEnumOutput {
+	return o
+}
+
+func (o CapacityProviderStateEnumOutput) ToCapacityProviderStateEnumOutputWithContext(ctx context.Context) CapacityProviderStateEnumOutput {
+	return o
+}
+
+func (o CapacityProviderStateEnumOutput) ToCapacityProviderStateEnumPtrOutput() CapacityProviderStateEnumPtrOutput {
+	return o.ToCapacityProviderStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderStateEnumOutput) ToCapacityProviderStateEnumPtrOutputWithContext(ctx context.Context) CapacityProviderStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderStateEnum) *CapacityProviderStateEnum {
+		return &v
+	}).(CapacityProviderStateEnumPtrOutput)
+}
+
+func (o CapacityProviderStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderStateEnum)(nil)).Elem()
+}
+
+func (o CapacityProviderStateEnumPtrOutput) ToCapacityProviderStateEnumPtrOutput() CapacityProviderStateEnumPtrOutput {
+	return o
+}
+
+func (o CapacityProviderStateEnumPtrOutput) ToCapacityProviderStateEnumPtrOutputWithContext(ctx context.Context) CapacityProviderStateEnumPtrOutput {
+	return o
+}
+
+func (o CapacityProviderStateEnumPtrOutput) Elem() CapacityProviderStateEnumOutput {
+	return o.ApplyT(func(v *CapacityProviderStateEnum) CapacityProviderStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderStateEnum
+		return ret
+	}).(CapacityProviderStateEnumOutput)
+}
+
+func (o CapacityProviderStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityProviderStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
 type CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment string
 
@@ -550,10 +1184,180 @@ func (o EventSourceMappingFunctionResponseTypesItemArrayOutput) Index(i pulumi.I
 	}).(EventSourceMappingFunctionResponseTypesItemOutput)
 }
 
+// Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where “DEBUG“ is the highest level and “WARN“ is the lowest.
+type EventSourceMappingLoggingConfigSystemLogLevel string
+
+const (
+	EventSourceMappingLoggingConfigSystemLogLevelDebug = EventSourceMappingLoggingConfigSystemLogLevel("DEBUG")
+	EventSourceMappingLoggingConfigSystemLogLevelInfo  = EventSourceMappingLoggingConfigSystemLogLevel("INFO")
+	EventSourceMappingLoggingConfigSystemLogLevelWarn  = EventSourceMappingLoggingConfigSystemLogLevel("WARN")
+)
+
+func (EventSourceMappingLoggingConfigSystemLogLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingLoggingConfigSystemLogLevel)(nil)).Elem()
+}
+
+func (e EventSourceMappingLoggingConfigSystemLogLevel) ToEventSourceMappingLoggingConfigSystemLogLevelOutput() EventSourceMappingLoggingConfigSystemLogLevelOutput {
+	return pulumi.ToOutput(e).(EventSourceMappingLoggingConfigSystemLogLevelOutput)
+}
+
+func (e EventSourceMappingLoggingConfigSystemLogLevel) ToEventSourceMappingLoggingConfigSystemLogLevelOutputWithContext(ctx context.Context) EventSourceMappingLoggingConfigSystemLogLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventSourceMappingLoggingConfigSystemLogLevelOutput)
+}
+
+func (e EventSourceMappingLoggingConfigSystemLogLevel) ToEventSourceMappingLoggingConfigSystemLogLevelPtrOutput() EventSourceMappingLoggingConfigSystemLogLevelPtrOutput {
+	return e.ToEventSourceMappingLoggingConfigSystemLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceMappingLoggingConfigSystemLogLevel) ToEventSourceMappingLoggingConfigSystemLogLevelPtrOutputWithContext(ctx context.Context) EventSourceMappingLoggingConfigSystemLogLevelPtrOutput {
+	return EventSourceMappingLoggingConfigSystemLogLevel(e).ToEventSourceMappingLoggingConfigSystemLogLevelOutputWithContext(ctx).ToEventSourceMappingLoggingConfigSystemLogLevelPtrOutputWithContext(ctx)
+}
+
+func (e EventSourceMappingLoggingConfigSystemLogLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceMappingLoggingConfigSystemLogLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceMappingLoggingConfigSystemLogLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceMappingLoggingConfigSystemLogLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventSourceMappingLoggingConfigSystemLogLevelOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingLoggingConfigSystemLogLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingLoggingConfigSystemLogLevel)(nil)).Elem()
+}
+
+func (o EventSourceMappingLoggingConfigSystemLogLevelOutput) ToEventSourceMappingLoggingConfigSystemLogLevelOutput() EventSourceMappingLoggingConfigSystemLogLevelOutput {
+	return o
+}
+
+func (o EventSourceMappingLoggingConfigSystemLogLevelOutput) ToEventSourceMappingLoggingConfigSystemLogLevelOutputWithContext(ctx context.Context) EventSourceMappingLoggingConfigSystemLogLevelOutput {
+	return o
+}
+
+func (o EventSourceMappingLoggingConfigSystemLogLevelOutput) ToEventSourceMappingLoggingConfigSystemLogLevelPtrOutput() EventSourceMappingLoggingConfigSystemLogLevelPtrOutput {
+	return o.ToEventSourceMappingLoggingConfigSystemLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingLoggingConfigSystemLogLevelOutput) ToEventSourceMappingLoggingConfigSystemLogLevelPtrOutputWithContext(ctx context.Context) EventSourceMappingLoggingConfigSystemLogLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingLoggingConfigSystemLogLevel) *EventSourceMappingLoggingConfigSystemLogLevel {
+		return &v
+	}).(EventSourceMappingLoggingConfigSystemLogLevelPtrOutput)
+}
+
+func (o EventSourceMappingLoggingConfigSystemLogLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingLoggingConfigSystemLogLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceMappingLoggingConfigSystemLogLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventSourceMappingLoggingConfigSystemLogLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingLoggingConfigSystemLogLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceMappingLoggingConfigSystemLogLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSourceMappingLoggingConfigSystemLogLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingLoggingConfigSystemLogLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingLoggingConfigSystemLogLevel)(nil)).Elem()
+}
+
+func (o EventSourceMappingLoggingConfigSystemLogLevelPtrOutput) ToEventSourceMappingLoggingConfigSystemLogLevelPtrOutput() EventSourceMappingLoggingConfigSystemLogLevelPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingLoggingConfigSystemLogLevelPtrOutput) ToEventSourceMappingLoggingConfigSystemLogLevelPtrOutputWithContext(ctx context.Context) EventSourceMappingLoggingConfigSystemLogLevelPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingLoggingConfigSystemLogLevelPtrOutput) Elem() EventSourceMappingLoggingConfigSystemLogLevelOutput {
+	return o.ApplyT(func(v *EventSourceMappingLoggingConfigSystemLogLevel) EventSourceMappingLoggingConfigSystemLogLevel {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingLoggingConfigSystemLogLevel
+		return ret
+	}).(EventSourceMappingLoggingConfigSystemLogLevelOutput)
+}
+
+func (o EventSourceMappingLoggingConfigSystemLogLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingLoggingConfigSystemLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventSourceMappingLoggingConfigSystemLogLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventSourceMappingLoggingConfigSystemLogLevelInput is an input type that accepts values of the EventSourceMappingLoggingConfigSystemLogLevel enum
+// A concrete instance of `EventSourceMappingLoggingConfigSystemLogLevelInput` can be one of the following:
+//
+//	EventSourceMappingLoggingConfigSystemLogLevelDebug
+//	EventSourceMappingLoggingConfigSystemLogLevelInfo
+//	EventSourceMappingLoggingConfigSystemLogLevelWarn
+type EventSourceMappingLoggingConfigSystemLogLevelInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingLoggingConfigSystemLogLevelOutput() EventSourceMappingLoggingConfigSystemLogLevelOutput
+	ToEventSourceMappingLoggingConfigSystemLogLevelOutputWithContext(context.Context) EventSourceMappingLoggingConfigSystemLogLevelOutput
+}
+
+var eventSourceMappingLoggingConfigSystemLogLevelPtrType = reflect.TypeOf((**EventSourceMappingLoggingConfigSystemLogLevel)(nil)).Elem()
+
+type EventSourceMappingLoggingConfigSystemLogLevelPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingLoggingConfigSystemLogLevelPtrOutput() EventSourceMappingLoggingConfigSystemLogLevelPtrOutput
+	ToEventSourceMappingLoggingConfigSystemLogLevelPtrOutputWithContext(context.Context) EventSourceMappingLoggingConfigSystemLogLevelPtrOutput
+}
+
+type eventSourceMappingLoggingConfigSystemLogLevelPtr string
+
+func EventSourceMappingLoggingConfigSystemLogLevelPtr(v string) EventSourceMappingLoggingConfigSystemLogLevelPtrInput {
+	return (*eventSourceMappingLoggingConfigSystemLogLevelPtr)(&v)
+}
+
+func (*eventSourceMappingLoggingConfigSystemLogLevelPtr) ElementType() reflect.Type {
+	return eventSourceMappingLoggingConfigSystemLogLevelPtrType
+}
+
+func (in *eventSourceMappingLoggingConfigSystemLogLevelPtr) ToEventSourceMappingLoggingConfigSystemLogLevelPtrOutput() EventSourceMappingLoggingConfigSystemLogLevelPtrOutput {
+	return pulumi.ToOutput(in).(EventSourceMappingLoggingConfigSystemLogLevelPtrOutput)
+}
+
+func (in *eventSourceMappingLoggingConfigSystemLogLevelPtr) ToEventSourceMappingLoggingConfigSystemLogLevelPtrOutputWithContext(ctx context.Context) EventSourceMappingLoggingConfigSystemLogLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventSourceMappingLoggingConfigSystemLogLevelPtrOutput)
+}
+
 type EventSourceMappingMetricsConfigMetricsItem string
 
 const (
-	EventSourceMappingMetricsConfigMetricsItemEventCount = EventSourceMappingMetricsConfigMetricsItem("EventCount")
+	EventSourceMappingMetricsConfigMetricsItemEventCount   = EventSourceMappingMetricsConfigMetricsItem("EventCount")
+	EventSourceMappingMetricsConfigMetricsItemErrorCount   = EventSourceMappingMetricsConfigMetricsItem("ErrorCount")
+	EventSourceMappingMetricsConfigMetricsItemKafkaMetrics = EventSourceMappingMetricsConfigMetricsItem("KafkaMetrics")
 )
 
 func (EventSourceMappingMetricsConfigMetricsItem) ElementType() reflect.Type {
@@ -679,6 +1483,8 @@ func (o EventSourceMappingMetricsConfigMetricsItemPtrOutput) ToStringPtrOutputWi
 // A concrete instance of `EventSourceMappingMetricsConfigMetricsItemInput` can be one of the following:
 //
 //	EventSourceMappingMetricsConfigMetricsItemEventCount
+//	EventSourceMappingMetricsConfigMetricsItemErrorCount
+//	EventSourceMappingMetricsConfigMetricsItemKafkaMetrics
 type EventSourceMappingMetricsConfigMetricsItemInput interface {
 	pulumi.Input
 
@@ -3021,6 +3827,170 @@ func (o FunctionSnapStartResponseOptimizationStatusPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
+// Determines how your Lambda function isolates execution environments between tenants.
+type FunctionTenancyConfigTenantIsolationMode string
+
+const (
+	FunctionTenancyConfigTenantIsolationModePerTenant = FunctionTenancyConfigTenantIsolationMode("PER_TENANT")
+)
+
+func (FunctionTenancyConfigTenantIsolationMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionTenancyConfigTenantIsolationMode)(nil)).Elem()
+}
+
+func (e FunctionTenancyConfigTenantIsolationMode) ToFunctionTenancyConfigTenantIsolationModeOutput() FunctionTenancyConfigTenantIsolationModeOutput {
+	return pulumi.ToOutput(e).(FunctionTenancyConfigTenantIsolationModeOutput)
+}
+
+func (e FunctionTenancyConfigTenantIsolationMode) ToFunctionTenancyConfigTenantIsolationModeOutputWithContext(ctx context.Context) FunctionTenancyConfigTenantIsolationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FunctionTenancyConfigTenantIsolationModeOutput)
+}
+
+func (e FunctionTenancyConfigTenantIsolationMode) ToFunctionTenancyConfigTenantIsolationModePtrOutput() FunctionTenancyConfigTenantIsolationModePtrOutput {
+	return e.ToFunctionTenancyConfigTenantIsolationModePtrOutputWithContext(context.Background())
+}
+
+func (e FunctionTenancyConfigTenantIsolationMode) ToFunctionTenancyConfigTenantIsolationModePtrOutputWithContext(ctx context.Context) FunctionTenancyConfigTenantIsolationModePtrOutput {
+	return FunctionTenancyConfigTenantIsolationMode(e).ToFunctionTenancyConfigTenantIsolationModeOutputWithContext(ctx).ToFunctionTenancyConfigTenantIsolationModePtrOutputWithContext(ctx)
+}
+
+func (e FunctionTenancyConfigTenantIsolationMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionTenancyConfigTenantIsolationMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionTenancyConfigTenantIsolationMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FunctionTenancyConfigTenantIsolationMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FunctionTenancyConfigTenantIsolationModeOutput struct{ *pulumi.OutputState }
+
+func (FunctionTenancyConfigTenantIsolationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionTenancyConfigTenantIsolationMode)(nil)).Elem()
+}
+
+func (o FunctionTenancyConfigTenantIsolationModeOutput) ToFunctionTenancyConfigTenantIsolationModeOutput() FunctionTenancyConfigTenantIsolationModeOutput {
+	return o
+}
+
+func (o FunctionTenancyConfigTenantIsolationModeOutput) ToFunctionTenancyConfigTenantIsolationModeOutputWithContext(ctx context.Context) FunctionTenancyConfigTenantIsolationModeOutput {
+	return o
+}
+
+func (o FunctionTenancyConfigTenantIsolationModeOutput) ToFunctionTenancyConfigTenantIsolationModePtrOutput() FunctionTenancyConfigTenantIsolationModePtrOutput {
+	return o.ToFunctionTenancyConfigTenantIsolationModePtrOutputWithContext(context.Background())
+}
+
+func (o FunctionTenancyConfigTenantIsolationModeOutput) ToFunctionTenancyConfigTenantIsolationModePtrOutputWithContext(ctx context.Context) FunctionTenancyConfigTenantIsolationModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionTenancyConfigTenantIsolationMode) *FunctionTenancyConfigTenantIsolationMode {
+		return &v
+	}).(FunctionTenancyConfigTenantIsolationModePtrOutput)
+}
+
+func (o FunctionTenancyConfigTenantIsolationModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FunctionTenancyConfigTenantIsolationModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionTenancyConfigTenantIsolationMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionTenancyConfigTenantIsolationModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionTenancyConfigTenantIsolationModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionTenancyConfigTenantIsolationMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FunctionTenancyConfigTenantIsolationModePtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionTenancyConfigTenantIsolationModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionTenancyConfigTenantIsolationMode)(nil)).Elem()
+}
+
+func (o FunctionTenancyConfigTenantIsolationModePtrOutput) ToFunctionTenancyConfigTenantIsolationModePtrOutput() FunctionTenancyConfigTenantIsolationModePtrOutput {
+	return o
+}
+
+func (o FunctionTenancyConfigTenantIsolationModePtrOutput) ToFunctionTenancyConfigTenantIsolationModePtrOutputWithContext(ctx context.Context) FunctionTenancyConfigTenantIsolationModePtrOutput {
+	return o
+}
+
+func (o FunctionTenancyConfigTenantIsolationModePtrOutput) Elem() FunctionTenancyConfigTenantIsolationModeOutput {
+	return o.ApplyT(func(v *FunctionTenancyConfigTenantIsolationMode) FunctionTenancyConfigTenantIsolationMode {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionTenancyConfigTenantIsolationMode
+		return ret
+	}).(FunctionTenancyConfigTenantIsolationModeOutput)
+}
+
+func (o FunctionTenancyConfigTenantIsolationModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionTenancyConfigTenantIsolationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FunctionTenancyConfigTenantIsolationMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FunctionTenancyConfigTenantIsolationModeInput is an input type that accepts values of the FunctionTenancyConfigTenantIsolationMode enum
+// A concrete instance of `FunctionTenancyConfigTenantIsolationModeInput` can be one of the following:
+//
+//	FunctionTenancyConfigTenantIsolationModePerTenant
+type FunctionTenancyConfigTenantIsolationModeInput interface {
+	pulumi.Input
+
+	ToFunctionTenancyConfigTenantIsolationModeOutput() FunctionTenancyConfigTenantIsolationModeOutput
+	ToFunctionTenancyConfigTenantIsolationModeOutputWithContext(context.Context) FunctionTenancyConfigTenantIsolationModeOutput
+}
+
+var functionTenancyConfigTenantIsolationModePtrType = reflect.TypeOf((**FunctionTenancyConfigTenantIsolationMode)(nil)).Elem()
+
+type FunctionTenancyConfigTenantIsolationModePtrInput interface {
+	pulumi.Input
+
+	ToFunctionTenancyConfigTenantIsolationModePtrOutput() FunctionTenancyConfigTenantIsolationModePtrOutput
+	ToFunctionTenancyConfigTenantIsolationModePtrOutputWithContext(context.Context) FunctionTenancyConfigTenantIsolationModePtrOutput
+}
+
+type functionTenancyConfigTenantIsolationModePtr string
+
+func FunctionTenancyConfigTenantIsolationModePtr(v string) FunctionTenancyConfigTenantIsolationModePtrInput {
+	return (*functionTenancyConfigTenantIsolationModePtr)(&v)
+}
+
+func (*functionTenancyConfigTenantIsolationModePtr) ElementType() reflect.Type {
+	return functionTenancyConfigTenantIsolationModePtrType
+}
+
+func (in *functionTenancyConfigTenantIsolationModePtr) ToFunctionTenancyConfigTenantIsolationModePtrOutput() FunctionTenancyConfigTenantIsolationModePtrOutput {
+	return pulumi.ToOutput(in).(FunctionTenancyConfigTenantIsolationModePtrOutput)
+}
+
+func (in *functionTenancyConfigTenantIsolationModePtr) ToFunctionTenancyConfigTenantIsolationModePtrOutputWithContext(ctx context.Context) FunctionTenancyConfigTenantIsolationModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FunctionTenancyConfigTenantIsolationModePtrOutput)
+}
+
 // The tracing mode.
 type FunctionTracingConfigMode string
 
@@ -3187,7 +4157,7 @@ func (in *functionTracingConfigModePtr) ToFunctionTracingConfigModePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(FunctionTracingConfigModePtrOutput)
 }
 
-// The type of authentication that your function URL uses. Set to “AWS_IAM“ if you want to restrict access to authenticated users only. Set to “NONE“ if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
+// The type of authentication that your function URL uses. Set to “AWS_IAM“ if you want to restrict access to authenticated users only. Set to “NONE“ if you want to bypass IAM authentication to create a public endpoint. For more information, see [Control access to Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
 type PermissionFunctionUrlAuthType string
 
 const (
@@ -3906,6 +4876,13 @@ func (in *urlInvokeModePtr) ToUrlInvokeModePtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderArchitectureInput)(nil)).Elem(), CapacityProviderArchitecture("x86_64"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderArchitecturePtrInput)(nil)).Elem(), CapacityProviderArchitecture("x86_64"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderArchitectureArrayInput)(nil)).Elem(), CapacityProviderArchitectureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderPredefinedMetricTypeInput)(nil)).Elem(), CapacityProviderPredefinedMetricType("LambdaCapacityProviderAverageCPUUtilization"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderPredefinedMetricTypePtrInput)(nil)).Elem(), CapacityProviderPredefinedMetricType("LambdaCapacityProviderAverageCPUUtilization"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderScalingModeInput)(nil)).Elem(), CapacityProviderScalingMode("Auto"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderScalingModePtrInput)(nil)).Elem(), CapacityProviderScalingMode("Auto"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentInput)(nil)).Elem(), CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment("Warn"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrInput)(nil)).Elem(), CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment("Warn"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingDocumentDbEventSourceConfigFullDocumentInput)(nil)).Elem(), EventSourceMappingDocumentDbEventSourceConfigFullDocument("UpdateLookup"))
@@ -3913,6 +4890,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFunctionResponseTypesItemInput)(nil)).Elem(), EventSourceMappingFunctionResponseTypesItem("ReportBatchItemFailures"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFunctionResponseTypesItemPtrInput)(nil)).Elem(), EventSourceMappingFunctionResponseTypesItem("ReportBatchItemFailures"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFunctionResponseTypesItemArrayInput)(nil)).Elem(), EventSourceMappingFunctionResponseTypesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingLoggingConfigSystemLogLevelInput)(nil)).Elem(), EventSourceMappingLoggingConfigSystemLogLevel("DEBUG"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingLoggingConfigSystemLogLevelPtrInput)(nil)).Elem(), EventSourceMappingLoggingConfigSystemLogLevel("DEBUG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingMetricsConfigMetricsItemInput)(nil)).Elem(), EventSourceMappingMetricsConfigMetricsItem("EventCount"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingMetricsConfigMetricsItemPtrInput)(nil)).Elem(), EventSourceMappingMetricsConfigMetricsItem("EventCount"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingMetricsConfigMetricsItemArrayInput)(nil)).Elem(), EventSourceMappingMetricsConfigMetricsItemArray{})
@@ -3941,6 +4920,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeManagementConfigUpdateRuntimeOnPtrInput)(nil)).Elem(), FunctionRuntimeManagementConfigUpdateRuntimeOn("Auto"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartApplyOnInput)(nil)).Elem(), FunctionSnapStartApplyOn("PublishedVersions"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartApplyOnPtrInput)(nil)).Elem(), FunctionSnapStartApplyOn("PublishedVersions"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTenancyConfigTenantIsolationModeInput)(nil)).Elem(), FunctionTenancyConfigTenantIsolationMode("PER_TENANT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTenancyConfigTenantIsolationModePtrInput)(nil)).Elem(), FunctionTenancyConfigTenantIsolationMode("PER_TENANT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigModeInput)(nil)).Elem(), FunctionTracingConfigMode("Active"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigModePtrInput)(nil)).Elem(), FunctionTracingConfigMode("Active"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionFunctionUrlAuthTypeInput)(nil)).Elem(), PermissionFunctionUrlAuthType("AWS_IAM"))
@@ -3952,6 +4933,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlAuthTypePtrInput)(nil)).Elem(), UrlAuthType("AWS_IAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlInvokeModeInput)(nil)).Elem(), UrlInvokeMode("BUFFERED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UrlInvokeModePtrInput)(nil)).Elem(), UrlInvokeMode("BUFFERED"))
+	pulumi.RegisterOutputType(CapacityProviderArchitectureOutput{})
+	pulumi.RegisterOutputType(CapacityProviderArchitecturePtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderArchitectureArrayOutput{})
+	pulumi.RegisterOutputType(CapacityProviderPredefinedMetricTypeOutput{})
+	pulumi.RegisterOutputType(CapacityProviderPredefinedMetricTypePtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderScalingModeOutput{})
+	pulumi.RegisterOutputType(CapacityProviderScalingModePtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderStateEnumOutput{})
+	pulumi.RegisterOutputType(CapacityProviderStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDocumentDbEventSourceConfigFullDocumentOutput{})
@@ -3959,6 +4949,8 @@ func init() {
 	pulumi.RegisterOutputType(EventSourceMappingFunctionResponseTypesItemOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFunctionResponseTypesItemPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFunctionResponseTypesItemArrayOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingLoggingConfigSystemLogLevelOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingLoggingConfigSystemLogLevelPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingMetricsConfigMetricsItemOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingMetricsConfigMetricsItemPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingMetricsConfigMetricsItemArrayOutput{})
@@ -3991,6 +4983,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionSnapStartResponseApplyOnPtrOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartResponseOptimizationStatusOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartResponseOptimizationStatusPtrOutput{})
+	pulumi.RegisterOutputType(FunctionTenancyConfigTenantIsolationModeOutput{})
+	pulumi.RegisterOutputType(FunctionTenancyConfigTenantIsolationModePtrOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigModeOutput{})
 	pulumi.RegisterOutputType(FunctionTracingConfigModePtrOutput{})
 	pulumi.RegisterOutputType(PermissionFunctionUrlAuthTypeOutput{})

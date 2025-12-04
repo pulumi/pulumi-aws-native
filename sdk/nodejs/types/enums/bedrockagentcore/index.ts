@@ -120,6 +120,8 @@ export const GatewayTargetTargetStatus = {
     Deleting: "DELETING",
     Ready: "READY",
     Failed: "FAILED",
+    Synchronizing: "SYNCHRONIZING",
+    SynchronizeUnsuccessful: "SYNCHRONIZE_UNSUCCESSFUL",
 } as const;
 
 export type GatewayTargetTargetStatus = (typeof GatewayTargetTargetStatus)[keyof typeof GatewayTargetTargetStatus];
@@ -231,6 +233,18 @@ export const MemoryUserPreferenceMemoryStrategyType = {
  * Type of memory strategy
  */
 export type MemoryUserPreferenceMemoryStrategyType = (typeof MemoryUserPreferenceMemoryStrategyType)[keyof typeof MemoryUserPreferenceMemoryStrategyType];
+
+export const RuntimeAgentManagedRuntimeType = {
+    Python310: "PYTHON_3_10",
+    Python311: "PYTHON_3_11",
+    Python312: "PYTHON_3_12",
+    Python313: "PYTHON_3_13",
+} as const;
+
+/**
+ * Managed runtime types
+ */
+export type RuntimeAgentManagedRuntimeType = (typeof RuntimeAgentManagedRuntimeType)[keyof typeof RuntimeAgentManagedRuntimeType];
 
 export const RuntimeAgentStatus = {
     Creating: "CREATING",

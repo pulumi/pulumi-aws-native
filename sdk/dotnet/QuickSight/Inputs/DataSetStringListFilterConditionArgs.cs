@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetStringListFilterConditionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The list operator to use, either `INCLUDE` to match values in the list or `EXCLUDE` to filter out values in the list.
+        /// </summary>
         [Input("operator", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DataSetStringListFilterOperator> Operator { get; set; } = null!;
 
+        /// <summary>
+        /// The list of string values to include or exclude in the filter.
+        /// </summary>
         [Input("values")]
         public Input<Inputs.DataSetStringListFilterValueArgs>? Values { get; set; }
 

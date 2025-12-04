@@ -177,6 +177,7 @@ class GatewayTarget(pulumi.CustomResource):
             __props__.__dict__["target_configuration"] = target_configuration
             __props__.__dict__["created_at"] = None
             __props__.__dict__["gateway_arn"] = None
+            __props__.__dict__["last_synchronized_at"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["status_reasons"] = None
             __props__.__dict__["target_id"] = None
@@ -210,6 +211,7 @@ class GatewayTarget(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["gateway_arn"] = None
         __props__.__dict__["gateway_identifier"] = None
+        __props__.__dict__["last_synchronized_at"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["status_reasons"] = None
@@ -254,6 +256,11 @@ class GatewayTarget(pulumi.CustomResource):
         The gateway ID for the gateway target.
         """
         return pulumi.get(self, "gateway_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="lastSynchronizedAt")
+    def last_synchronized_at(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "last_synchronized_at")
 
     @_builtins.property
     @pulumi.getter

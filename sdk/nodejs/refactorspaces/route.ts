@@ -54,7 +54,7 @@ export class Route extends pulumi.CustomResource {
      */
     declare public readonly environmentIdentifier: pulumi.Output<string>;
     /**
-     * A mapping of Amazon API Gateway path resources to resource IDs.
+     * A mapping of ABPlong path resources to resource IDs.
      */
     declare public /*out*/ readonly pathResourceToId: pulumi.Output<string>;
     /**

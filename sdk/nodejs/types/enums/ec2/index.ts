@@ -121,6 +121,13 @@ export const Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem = {
     T4g: "t4g",
     Vu9p: "vu9p",
     V100: "v100",
+    L40s: "l40s",
+    L4: "l4",
+    GaudiHl205: "gaudi-hl-205",
+    Inferentia2: "inferentia2",
+    Trainium: "trainium",
+    Trainium2: "trainium2",
+    U30: "u30",
 } as const;
 
 export type Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem = (typeof Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem)[keyof typeof Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem];
@@ -129,6 +136,7 @@ export const Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem = {
     Gpu: "gpu",
     Fpga: "fpga",
     Inference: "inference",
+    Media: "media",
 } as const;
 
 export type Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem = (typeof Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem)[keyof typeof Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem];
@@ -363,6 +371,7 @@ export const FlowLogResourceType = {
     Vpc: "VPC",
     TransitGateway: "TransitGateway",
     TransitGatewayAttachment: "TransitGatewayAttachment",
+    RegionalNatGateway: "RegionalNatGateway",
 } as const;
 
 /**
@@ -493,6 +502,15 @@ export const IpamPoolState = {
  * The state of this pool. This can be one of the following values: "create-in-progress", "create-complete", "modify-in-progress", "modify-complete", "delete-in-progress", or "delete-complete"
  */
 export type IpamPoolState = (typeof IpamPoolState)[keyof typeof IpamPoolState];
+
+export const IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType = {
+    Infoblox: "infoblox",
+} as const;
+
+/**
+ * An external service connecting to your AWS IPAM scope.
+ */
+export type IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType = (typeof IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType)[keyof typeof IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType];
 
 export const IpamScopeType = {
     Public: "public",
@@ -683,6 +701,13 @@ export const SpotFleetInstanceRequirementsRequestAcceleratorNamesItem = {
     T4g: "t4g",
     Vu9p: "vu9p",
     V100: "v100",
+    L40s: "l40s",
+    L4: "l4",
+    GaudiHl205: "gaudi-hl-205",
+    Inferentia2: "inferentia2",
+    Trainium: "trainium",
+    Trainium2: "trainium2",
+    U30: "u30",
 } as const;
 
 export type SpotFleetInstanceRequirementsRequestAcceleratorNamesItem = (typeof SpotFleetInstanceRequirementsRequestAcceleratorNamesItem)[keyof typeof SpotFleetInstanceRequirementsRequestAcceleratorNamesItem];
@@ -691,6 +716,7 @@ export const SpotFleetInstanceRequirementsRequestAcceleratorTypesItem = {
     Gpu: "gpu",
     Fpga: "fpga",
     Inference: "inference",
+    Media: "media",
 } as const;
 
 export type SpotFleetInstanceRequirementsRequestAcceleratorTypesItem = (typeof SpotFleetInstanceRequirementsRequestAcceleratorTypesItem)[keyof typeof SpotFleetInstanceRequirementsRequestAcceleratorTypesItem];
@@ -926,6 +952,35 @@ export const TrafficMirrorFilterTrafficMirrorNetworkService = {
  */
 export type TrafficMirrorFilterTrafficMirrorNetworkService = (typeof TrafficMirrorFilterTrafficMirrorNetworkService)[keyof typeof TrafficMirrorFilterTrafficMirrorNetworkService];
 
+export const TransitGatewayEncryptionSupport = {
+    Disable: "disable",
+    Enable: "enable",
+} as const;
+
+/**
+ * Enable or disable encryption support. Disabled by default.
+ */
+export type TransitGatewayEncryptionSupport = (typeof TransitGatewayEncryptionSupport)[keyof typeof TransitGatewayEncryptionSupport];
+
+export const TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType = {
+    Vpc: "vpc",
+    Vpn: "vpn",
+    DirectConnectGateway: "direct-connect-gateway",
+    Peering: "peering",
+    NetworkFunction: "network-function",
+    VpnConcentrator: "vpn-concentrator",
+} as const;
+
+export type TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType = (typeof TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType)[keyof typeof TransitGatewayMeteringPolicyEntryTransitGatewayAttachmentResourceType];
+
+export const TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType = {
+    SourceAttachmentOwner: "source-attachment-owner",
+    DestinationAttachmentOwner: "destination-attachment-owner",
+    TransitGatewayOwner: "transit-gateway-owner",
+} as const;
+
+export type TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType = (typeof TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType)[keyof typeof TransitGatewayMeteringPolicyEntryTransitGatewayMeteringPayerType];
+
 export const VpcBlockPublicAccessExclusionInternetGatewayExclusionMode = {
     AllowBidirectional: "allow-bidirectional",
     AllowEgress: "allow-egress",
@@ -945,6 +1000,113 @@ export const VpcBlockPublicAccessOptionsInternetGatewayBlockMode = {
  * The desired Block Public Access mode for Internet Gateways in your account. We do not allow to create in a off mode as this is the default value
  */
 export type VpcBlockPublicAccessOptionsInternetGatewayBlockMode = (typeof VpcBlockPublicAccessOptionsInternetGatewayBlockMode)[keyof typeof VpcBlockPublicAccessOptionsInternetGatewayBlockMode];
+
+export const VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput = {
+    Enable: "enable",
+    Disable: "disable",
+} as const;
+
+/**
+ * Used to enable or disable EIGW exclusion
+ */
+export type VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput = (typeof VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput)[keyof typeof VpcEncryptionControlEgressOnlyInternetGatewayExclusionInput];
+
+export const VpcEncryptionControlElasticFileSystemExclusionInput = {
+    Enable: "enable",
+    Disable: "disable",
+} as const;
+
+/**
+ * Used to enable or disable EFS exclusion
+ */
+export type VpcEncryptionControlElasticFileSystemExclusionInput = (typeof VpcEncryptionControlElasticFileSystemExclusionInput)[keyof typeof VpcEncryptionControlElasticFileSystemExclusionInput];
+
+export const VpcEncryptionControlInternetGatewayExclusionInput = {
+    Enable: "enable",
+    Disable: "disable",
+} as const;
+
+/**
+ * Used to enable or disable IGW exclusion
+ */
+export type VpcEncryptionControlInternetGatewayExclusionInput = (typeof VpcEncryptionControlInternetGatewayExclusionInput)[keyof typeof VpcEncryptionControlInternetGatewayExclusionInput];
+
+export const VpcEncryptionControlLambdaExclusionInput = {
+    Enable: "enable",
+    Disable: "disable",
+} as const;
+
+/**
+ * Used to enable or disable Lambda exclusion
+ */
+export type VpcEncryptionControlLambdaExclusionInput = (typeof VpcEncryptionControlLambdaExclusionInput)[keyof typeof VpcEncryptionControlLambdaExclusionInput];
+
+export const VpcEncryptionControlMode = {
+    Monitor: "monitor",
+    Enforce: "enforce",
+} as const;
+
+/**
+ * The VPC encryption control mode, either monitor or enforce.
+ */
+export type VpcEncryptionControlMode = (typeof VpcEncryptionControlMode)[keyof typeof VpcEncryptionControlMode];
+
+export const VpcEncryptionControlNatGatewayExclusionInput = {
+    Enable: "enable",
+    Disable: "disable",
+} as const;
+
+/**
+ * Used to enable or disable Nat gateway exclusion
+ */
+export type VpcEncryptionControlNatGatewayExclusionInput = (typeof VpcEncryptionControlNatGatewayExclusionInput)[keyof typeof VpcEncryptionControlNatGatewayExclusionInput];
+
+export const VpcEncryptionControlState = {
+    Creating: "creating",
+    Available: "available",
+    MonitorInProgress: "monitor-in-progress",
+    EnforceInProgress: "enforce-in-progress",
+    MonitorFailed: "monitor-failed",
+    EnforceFailed: "enforce-failed",
+    Deleting: "deleting",
+    Deleted: "deleted",
+    DeleteFailed: "delete-failed",
+} as const;
+
+/**
+ * The current state of the VPC encryption control.
+ */
+export type VpcEncryptionControlState = (typeof VpcEncryptionControlState)[keyof typeof VpcEncryptionControlState];
+
+export const VpcEncryptionControlVirtualPrivateGatewayExclusionInput = {
+    Enable: "enable",
+    Disable: "disable",
+} as const;
+
+/**
+ * Used to enable or disable VGW exclusion
+ */
+export type VpcEncryptionControlVirtualPrivateGatewayExclusionInput = (typeof VpcEncryptionControlVirtualPrivateGatewayExclusionInput)[keyof typeof VpcEncryptionControlVirtualPrivateGatewayExclusionInput];
+
+export const VpcEncryptionControlVpcLatticeExclusionInput = {
+    Enable: "enable",
+    Disable: "disable",
+} as const;
+
+/**
+ * Used to enable or disable Vpc Lattice exclusion
+ */
+export type VpcEncryptionControlVpcLatticeExclusionInput = (typeof VpcEncryptionControlVpcLatticeExclusionInput)[keyof typeof VpcEncryptionControlVpcLatticeExclusionInput];
+
+export const VpcEncryptionControlVpcPeeringExclusionInput = {
+    Enable: "enable",
+    Disable: "disable",
+} as const;
+
+/**
+ * Used to enable or disable VPC peering exclusion
+ */
+export type VpcEncryptionControlVpcPeeringExclusionInput = (typeof VpcEncryptionControlVpcPeeringExclusionInput)[keyof typeof VpcEncryptionControlVpcPeeringExclusionInput];
 
 export const VpcEndpointDnsOptionsSpecificationDnsRecordIpType = {
     Ipv4: "ipv4",
@@ -969,6 +1131,18 @@ export const VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverE
  * Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.
  */
 export type VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint = (typeof VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint)[keyof typeof VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint];
+
+export const VpcEndpointDnsOptionsSpecificationPrivateDnsPreference = {
+    VerifiedDomainsOnly: "VERIFIED_DOMAINS_ONLY",
+    AllDomains: "ALL_DOMAINS",
+    VerifiedDomainsAndSpecifiedDomains: "VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS",
+    SpecifiedDomainsOnly: "SPECIFIED_DOMAINS_ONLY",
+} as const;
+
+/**
+ * The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+ */
+export type VpcEndpointDnsOptionsSpecificationPrivateDnsPreference = (typeof VpcEndpointDnsOptionsSpecificationPrivateDnsPreference)[keyof typeof VpcEndpointDnsOptionsSpecificationPrivateDnsPreference];
 
 export const VpcEndpointIpAddressType = {
     Ipv4: "ipv4",
@@ -1002,6 +1176,18 @@ export const VpcEndpointType = {
  *  Default: Gateway
  */
 export type VpcEndpointType = (typeof VpcEndpointType)[keyof typeof VpcEndpointType];
+
+export const VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat = {
+    Json: "json",
+    Text: "text",
+} as const;
+
+/**
+ * The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
+ *
+ * Valid values: `json` | `text`
+ */
+export type VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat = (typeof VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat)[keyof typeof VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat];
 
 export const VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat = {
     Json: "json",
@@ -1081,6 +1267,13 @@ export const VpnConnectionPreSharedKeyStorage = {
  * Describes the storage location for an instance store-backed AMI.
  */
 export type VpnConnectionPreSharedKeyStorage = (typeof VpnConnectionPreSharedKeyStorage)[keyof typeof VpnConnectionPreSharedKeyStorage];
+
+export const VpnConnectionTunnelBandwidth = {
+    Standard: "standard",
+    Large: "large",
+} as const;
+
+export type VpnConnectionTunnelBandwidth = (typeof VpnConnectionTunnelBandwidth)[keyof typeof VpnConnectionTunnelBandwidth];
 
 export const VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction = {
     Clear: "clear",

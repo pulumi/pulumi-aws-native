@@ -1317,6 +1317,8 @@ class CampaignTelephonyOutboundConfig(dict):
             suggest = "answer_machine_detection_config"
         elif key == "connectSourcePhoneNumber":
             suggest = "connect_source_phone_number"
+        elif key == "ringTimeout":
+            suggest = "ring_timeout"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CampaignTelephonyOutboundConfig. Access the value via the '{suggest}' property getter instead.")
@@ -1332,7 +1334,8 @@ class CampaignTelephonyOutboundConfig(dict):
     def __init__(__self__, *,
                  connect_contact_flow_id: _builtins.str,
                  answer_machine_detection_config: Optional['outputs.CampaignAnswerMachineDetectionConfig'] = None,
-                 connect_source_phone_number: Optional[_builtins.str] = None):
+                 connect_source_phone_number: Optional[_builtins.str] = None,
+                 ring_timeout: Optional[_builtins.int] = None):
         """
         Default Telephone Outbound config
         :param _builtins.str connect_contact_flow_id: The identifier of the published Amazon Connect contact flow.
@@ -1344,6 +1347,8 @@ class CampaignTelephonyOutboundConfig(dict):
             pulumi.set(__self__, "answer_machine_detection_config", answer_machine_detection_config)
         if connect_source_phone_number is not None:
             pulumi.set(__self__, "connect_source_phone_number", connect_source_phone_number)
+        if ring_timeout is not None:
+            pulumi.set(__self__, "ring_timeout", ring_timeout)
 
     @_builtins.property
     @pulumi.getter(name="connectContactFlowId")
@@ -1368,6 +1373,11 @@ class CampaignTelephonyOutboundConfig(dict):
         The Amazon Connect source phone number.
         """
         return pulumi.get(self, "connect_source_phone_number")
+
+    @_builtins.property
+    @pulumi.getter(name="ringTimeout")
+    def ring_timeout(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "ring_timeout")
 
 
 @pulumi.output_type
@@ -1407,6 +1417,7 @@ class CampaignTelephonyOutboundMode(dict):
         Telephony Outbound Mode
         :param 'CampaignAgentlessConfig' agentless_config: The agentless outbound mode configuration for telephony.
         :param 'CampaignPredictiveConfig' predictive_config: Contains predictive outbound mode configuration.
+        :param 'CampaignPreviewConfig' preview_config: Contains preview outbound mode configuration.
         :param 'CampaignProgressiveConfig' progressive_config: Contains progressive telephony outbound mode configuration.
         """
         if agentless_config is not None:
@@ -1437,6 +1448,9 @@ class CampaignTelephonyOutboundMode(dict):
     @_builtins.property
     @pulumi.getter(name="previewConfig")
     def preview_config(self) -> Optional['outputs.CampaignPreviewConfig']:
+        """
+        Contains preview outbound mode configuration.
+        """
         return pulumi.get(self, "preview_config")
 
     @_builtins.property

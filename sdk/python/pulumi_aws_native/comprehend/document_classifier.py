@@ -43,7 +43,7 @@ class DocumentClassifierArgs:
         :param pulumi.Input['DocumentClassifierLanguageCode'] language_code: The language of the input documents. You can specify any of the languages supported by Amazon Comprehend. All documents must be in the same language.
         :param pulumi.Input[_builtins.str] document_classifier_name: The name of the document classifier.
         :param pulumi.Input['DocumentClassifierMode'] mode: Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class (single-label) mode or multi-label mode. Multi-class mode identifies a single class label for each document and multi-label mode identifies one or more class labels for each document. Multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
-        :param pulumi.Input[_builtins.str] model_kms_key_id: ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+        :param pulumi.Input[_builtins.str] model_kms_key_id: ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
                
                - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
                - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
@@ -151,7 +151,7 @@ class DocumentClassifierArgs:
     @pulumi.getter(name="modelKmsKeyId")
     def model_kms_key_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+        ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
 
         - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
         - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
@@ -275,7 +275,7 @@ class DocumentClassifier(pulumi.CustomResource):
         :param pulumi.Input[Union['DocumentClassifierInputDataConfigArgs', 'DocumentClassifierInputDataConfigArgsDict']] input_data_config: Specifies the format and location of the input data for the job.
         :param pulumi.Input['DocumentClassifierLanguageCode'] language_code: The language of the input documents. You can specify any of the languages supported by Amazon Comprehend. All documents must be in the same language.
         :param pulumi.Input['DocumentClassifierMode'] mode: Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class (single-label) mode or multi-label mode. Multi-class mode identifies a single class label for each document and multi-label mode identifies one or more class labels for each document. Multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
-        :param pulumi.Input[_builtins.str] model_kms_key_id: ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+        :param pulumi.Input[_builtins.str] model_kms_key_id: ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
                
                - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
                - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
@@ -452,7 +452,7 @@ class DocumentClassifier(pulumi.CustomResource):
     @pulumi.getter(name="modelKmsKeyId")
     def model_kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+        ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
 
         - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
         - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`

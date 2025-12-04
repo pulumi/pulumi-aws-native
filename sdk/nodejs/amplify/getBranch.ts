@@ -30,7 +30,7 @@ export interface GetBranchResult {
      */
     readonly arn?: string;
     /**
-     * The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
+     * The backend for a `Branch` of an Amplify app. Use for a backend created from an CloudFormation stack.
      *
      * This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
      */

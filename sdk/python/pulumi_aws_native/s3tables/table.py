@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -29,6 +31,7 @@ class TableArgs:
                  iceberg_metadata: Optional[pulumi.Input['TableIcebergMetadataArgs']] = None,
                  snapshot_management: Optional[pulumi.Input['TableSnapshotManagementArgs']] = None,
                  table_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  without_metadata: Optional[pulumi.Input['TableWithoutMetadata']] = None):
         """
         The set of arguments for constructing a Table resource.
@@ -39,6 +42,7 @@ class TableArgs:
         :param pulumi.Input['TableIcebergMetadataArgs'] iceberg_metadata: Contains details about the metadata for an Iceberg table.
         :param pulumi.Input['TableSnapshotManagementArgs'] snapshot_management: Contains details about the Iceberg snapshot management settings for the table.
         :param pulumi.Input[_builtins.str] table_name: The name for the table.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: User tags (key-value pairs) to associate with the table.
         :param pulumi.Input['TableWithoutMetadata'] without_metadata: Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
         """
         pulumi.set(__self__, "namespace", namespace)
@@ -52,6 +56,8 @@ class TableArgs:
             pulumi.set(__self__, "snapshot_management", snapshot_management)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if without_metadata is not None:
             pulumi.set(__self__, "without_metadata", without_metadata)
 
@@ -140,6 +146,18 @@ class TableArgs:
         pulumi.set(self, "table_name", value)
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        User tags (key-value pairs) to associate with the table.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
     @pulumi.getter(name="withoutMetadata")
     def without_metadata(self) -> Optional[pulumi.Input['TableWithoutMetadata']]:
         """
@@ -165,6 +183,7 @@ class Table(pulumi.CustomResource):
                  snapshot_management: Optional[pulumi.Input[Union['TableSnapshotManagementArgs', 'TableSnapshotManagementArgsDict']]] = None,
                  table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  table_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  without_metadata: Optional[pulumi.Input['TableWithoutMetadata']] = None,
                  __props__=None):
         """
@@ -179,6 +198,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Union['TableSnapshotManagementArgs', 'TableSnapshotManagementArgsDict']] snapshot_management: Contains details about the Iceberg snapshot management settings for the table.
         :param pulumi.Input[_builtins.str] table_bucket_arn: The Amazon Resource Name (ARN) of the table bucket to create the table in.
         :param pulumi.Input[_builtins.str] table_name: The name for the table.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: User tags (key-value pairs) to associate with the table.
         :param pulumi.Input['TableWithoutMetadata'] without_metadata: Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
         """
         ...
@@ -212,6 +232,7 @@ class Table(pulumi.CustomResource):
                  snapshot_management: Optional[pulumi.Input[Union['TableSnapshotManagementArgs', 'TableSnapshotManagementArgsDict']]] = None,
                  table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  table_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  without_metadata: Optional[pulumi.Input['TableWithoutMetadata']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -235,6 +256,7 @@ class Table(pulumi.CustomResource):
                 raise TypeError("Missing required property 'table_bucket_arn'")
             __props__.__dict__["table_bucket_arn"] = table_bucket_arn
             __props__.__dict__["table_name"] = table_name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["without_metadata"] = without_metadata
             __props__.__dict__["table_arn"] = None
             __props__.__dict__["version_token"] = None
@@ -271,6 +293,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["table_arn"] = None
         __props__.__dict__["table_bucket_arn"] = None
         __props__.__dict__["table_name"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["version_token"] = None
         __props__.__dict__["warehouse_location"] = None
         __props__.__dict__["without_metadata"] = None
@@ -339,6 +362,14 @@ class Table(pulumi.CustomResource):
         The name for the table.
         """
         return pulumi.get(self, "table_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        User tags (key-value pairs) to associate with the table.
+        """
+        return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="versionToken")

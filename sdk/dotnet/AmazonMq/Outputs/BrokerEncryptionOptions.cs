@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.AmazonMq.Outputs
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>
-        /// Enables the use of an AWS owned CMK using AWS KMS (KMS). Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
+        /// Enables the use of an AWS owned CMK using AWS  (KMS). Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
         /// </summary>
         public readonly bool UseAwsOwnedKey;
 

@@ -38,6 +38,10 @@ export interface GetImageRecipeResult {
      */
     readonly arn?: string;
     /**
+     * The latest version references of the image recipe.
+     */
+    readonly latestVersion?: outputs.imagebuilder.ImageRecipeLatestVersion;
+    /**
      * The tags of the image recipe.
      */
     readonly tags?: {[key: string]: string};

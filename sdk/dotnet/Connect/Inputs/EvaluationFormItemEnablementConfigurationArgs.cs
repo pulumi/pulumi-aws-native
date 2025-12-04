@@ -10,22 +10,25 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
+    /// <summary>
+    /// An item enablement configuration.
+    /// </summary>
     public sealed class EvaluationFormItemEnablementConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines the enablement status to be applied when the specified condition is met.
+        /// An enablement action that if condition is satisfied.
         /// </summary>
         [Input("action", required: true)]
         public Input<Pulumi.AwsNative.Connect.EvaluationFormItemEnablementConfigurationAction> Action { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the logical condition that determines when to apply the enablement rules.
+        /// A condition for item enablement configuration.
         /// </summary>
         [Input("condition", required: true)]
         public Input<Inputs.EvaluationFormItemEnablementConditionArgs> Condition { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the default enablement status to be applied when the condition is not satisfied.
+        /// An enablement action that if condition is not satisfied.
         /// </summary>
         [Input("defaultAction")]
         public Input<Pulumi.AwsNative.Connect.EvaluationFormItemEnablementConfigurationDefaultAction>? DefaultAction { get; set; }

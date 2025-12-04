@@ -20,9 +20,11 @@ namespace Pulumi.AwsNative.Athena.Outputs
         public readonly int? BytesScannedCutoffPerQuery;
         public readonly Outputs.WorkGroupCustomerContentEncryptionConfiguration? CustomerContentEncryptionConfiguration;
         public readonly bool? EnforceWorkGroupConfiguration;
+        public readonly Outputs.WorkGroupEngineConfiguration? EngineConfiguration;
         public readonly Outputs.WorkGroupEngineVersion? EngineVersion;
         public readonly string? ExecutionRole;
         public readonly Outputs.WorkGroupManagedQueryResultsConfiguration? ManagedQueryResultsConfiguration;
+        public readonly Outputs.WorkGroupMonitoringConfiguration? MonitoringConfiguration;
         public readonly bool? PublishCloudWatchMetricsEnabled;
         public readonly bool? RemoveBytesScannedCutoffPerQuery;
         public readonly bool? RemoveCustomerContentEncryptionConfiguration;
@@ -39,11 +41,15 @@ namespace Pulumi.AwsNative.Athena.Outputs
 
             bool? enforceWorkGroupConfiguration,
 
+            Outputs.WorkGroupEngineConfiguration? engineConfiguration,
+
             Outputs.WorkGroupEngineVersion? engineVersion,
 
             string? executionRole,
 
             Outputs.WorkGroupManagedQueryResultsConfiguration? managedQueryResultsConfiguration,
+
+            Outputs.WorkGroupMonitoringConfiguration? monitoringConfiguration,
 
             bool? publishCloudWatchMetricsEnabled,
 
@@ -59,9 +65,11 @@ namespace Pulumi.AwsNative.Athena.Outputs
             BytesScannedCutoffPerQuery = bytesScannedCutoffPerQuery;
             CustomerContentEncryptionConfiguration = customerContentEncryptionConfiguration;
             EnforceWorkGroupConfiguration = enforceWorkGroupConfiguration;
+            EngineConfiguration = engineConfiguration;
             EngineVersion = engineVersion;
             ExecutionRole = executionRole;
             ManagedQueryResultsConfiguration = managedQueryResultsConfiguration;
+            MonitoringConfiguration = monitoringConfiguration;
             PublishCloudWatchMetricsEnabled = publishCloudWatchMetricsEnabled;
             RemoveBytesScannedCutoffPerQuery = removeBytesScannedCutoffPerQuery;
             RemoveCustomerContentEncryptionConfiguration = removeCustomerContentEncryptionConfiguration;

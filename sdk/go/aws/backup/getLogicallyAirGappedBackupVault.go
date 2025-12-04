@@ -35,10 +35,8 @@ type LookupLogicallyAirGappedBackupVaultResult struct {
 	// The ARN of the backup vault.
 	BackupVaultArn *string `pulumi:"backupVaultArn"`
 	// The tags to assign to the vault.
-	BackupVaultTags map[string]string `pulumi:"backupVaultTags"`
-	// The ARN of the server-side encryption key.
-	EncryptionKeyArn   *string `pulumi:"encryptionKeyArn"`
-	MpaApprovalTeamArn *string `pulumi:"mpaApprovalTeamArn"`
+	BackupVaultTags    map[string]string `pulumi:"backupVaultTags"`
+	MpaApprovalTeamArn *string           `pulumi:"mpaApprovalTeamArn"`
 	// Returns event notifications for the specified backup vault.
 	Notifications *LogicallyAirGappedBackupVaultNotificationObjectType `pulumi:"notifications"`
 	// The vault state. The possible values are `CREATING` , `AVAILABLE` , and `FAILED` .
@@ -94,11 +92,6 @@ func (o LookupLogicallyAirGappedBackupVaultResultOutput) BackupVaultArn() pulumi
 // The tags to assign to the vault.
 func (o LookupLogicallyAirGappedBackupVaultResultOutput) BackupVaultTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupLogicallyAirGappedBackupVaultResult) map[string]string { return v.BackupVaultTags }).(pulumi.StringMapOutput)
-}
-
-// The ARN of the server-side encryption key.
-func (o LookupLogicallyAirGappedBackupVaultResultOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupLogicallyAirGappedBackupVaultResult) *string { return v.EncryptionKeyArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupLogicallyAirGappedBackupVaultResultOutput) MpaApprovalTeamArn() pulumi.StringPtrOutput {

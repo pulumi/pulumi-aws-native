@@ -54,9 +54,13 @@ export interface GetStreamResult {
      */
     readonly streamModeDetails?: outputs.kinesis.StreamModeDetails;
     /**
-     * An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+     * An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * Warm throughput configuration details for the stream. Only present for ON_DEMAND streams.
+     */
+    readonly warmThroughputObject?: outputs.kinesis.StreamWarmThroughputObject;
 }
 /**
  * Resource Type definition for AWS::Kinesis::Stream

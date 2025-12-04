@@ -1157,7 +1157,7 @@ type AppTag struct {
 }
 
 type BranchBackend struct {
-	// The Amazon Resource Name (ARN) for the AWS CloudFormation stack.
+	// The Amazon Resource Name (ARN) for the CloudFormation stack.
 	StackArn *string `pulumi:"stackArn"`
 }
 
@@ -1173,7 +1173,7 @@ type BranchBackendInput interface {
 }
 
 type BranchBackendArgs struct {
-	// The Amazon Resource Name (ARN) for the AWS CloudFormation stack.
+	// The Amazon Resource Name (ARN) for the CloudFormation stack.
 	StackArn pulumi.StringPtrInput `pulumi:"stackArn"`
 }
 
@@ -1254,7 +1254,7 @@ func (o BranchBackendOutput) ToBranchBackendPtrOutputWithContext(ctx context.Con
 	}).(BranchBackendPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the AWS CloudFormation stack.
+// The Amazon Resource Name (ARN) for the CloudFormation stack.
 func (o BranchBackendOutput) StackArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BranchBackend) *string { return v.StackArn }).(pulumi.StringPtrOutput)
 }
@@ -1283,7 +1283,7 @@ func (o BranchBackendPtrOutput) Elem() BranchBackendOutput {
 	}).(BranchBackendOutput)
 }
 
-// The Amazon Resource Name (ARN) for the AWS CloudFormation stack.
+// The Amazon Resource Name (ARN) for the CloudFormation stack.
 func (o BranchBackendPtrOutput) StackArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BranchBackend) *string {
 		if v == nil {

@@ -23,6 +23,9 @@ __all__ = [
     'CapacityProviderManagedScalingStatus',
     'ClusterCapacityProviderAssociationsCapacityProvider',
     'ClusterCapacityProviderAssociationsCapacityProvider0',
+    'ExpressGatewayServiceAccessType',
+    'ExpressGatewayServiceScalingMetric',
+    'ExpressGatewayServiceStatusCode',
     'ServiceAvailabilityZoneRebalancing',
     'ServiceAwsVpcConfigurationAssignPublicIp',
     'ServiceConnectAccessLogConfigurationFormat',
@@ -194,6 +197,26 @@ class ClusterCapacityProviderAssociationsCapacityProvider0(_builtins.str, Enum):
     FARGATE_SPOT = "FARGATE_SPOT"
 
 
+@pulumi.type_token("aws-native:ecs:ExpressGatewayServiceAccessType")
+class ExpressGatewayServiceAccessType(_builtins.str, Enum):
+    PUBLIC = "PUBLIC"
+    PRIVATE = "PRIVATE"
+
+
+@pulumi.type_token("aws-native:ecs:ExpressGatewayServiceScalingMetric")
+class ExpressGatewayServiceScalingMetric(_builtins.str, Enum):
+    AVERAGE_CPU = "AVERAGE_CPU"
+    AVERAGE_MEMORY = "AVERAGE_MEMORY"
+    REQUEST_COUNT_PER_TARGET = "REQUEST_COUNT_PER_TARGET"
+
+
+@pulumi.type_token("aws-native:ecs:ExpressGatewayServiceStatusCode")
+class ExpressGatewayServiceStatusCode(_builtins.str, Enum):
+    ACTIVE = "ACTIVE"
+    DRAINING = "DRAINING"
+    INACTIVE = "INACTIVE"
+
+
 @pulumi.type_token("aws-native:ecs:ServiceAvailabilityZoneRebalancing")
 class ServiceAvailabilityZoneRebalancing(_builtins.str, Enum):
     """
@@ -232,8 +255,7 @@ class ServiceConnectAccessLogConfigurationFormat(_builtins.str, Enum):
 class ServiceConnectAccessLogConfigurationIncludeQueryParameters(_builtins.str, Enum):
     """
     Specifies whether to include query parameters in Service Connect access logs.
-
-    When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is `DISABLED` .
+     When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is ``DISABLED``.
     """
     DISABLED = "DISABLED"
     ENABLED = "ENABLED"

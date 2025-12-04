@@ -159,6 +159,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TransitGatewayConnect{}
 	case "aws-native:ec2:TransitGatewayConnectPeer":
 		r = &TransitGatewayConnectPeer{}
+	case "aws-native:ec2:TransitGatewayMeteringPolicy":
+		r = &TransitGatewayMeteringPolicy{}
+	case "aws-native:ec2:TransitGatewayMeteringPolicyEntry":
+		r = &TransitGatewayMeteringPolicyEntry{}
 	case "aws-native:ec2:TransitGatewayMulticastDomain":
 		r = &TransitGatewayMulticastDomain{}
 	case "aws-native:ec2:TransitGatewayMulticastDomainAssociation":
@@ -199,6 +203,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VpcBlockPublicAccessOptions{}
 	case "aws-native:ec2:VpcCidrBlock":
 		r = &VpcCidrBlock{}
+	case "aws-native:ec2:VpcEncryptionControl":
+		r = &VpcEncryptionControl{}
 	case "aws-native:ec2:VpcEndpoint":
 		r = &VpcEndpoint{}
 	case "aws-native:ec2:VpcEndpointConnectionNotification":
@@ -213,6 +219,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VpcPeeringConnection{}
 	case "aws-native:ec2:VpcdhcpOptionsAssociation":
 		r = &VpcdhcpOptionsAssociation{}
+	case "aws-native:ec2:VpnConcentrator":
+		r = &VpnConcentrator{}
 	case "aws-native:ec2:VpnConnection":
 		r = &VpnConnection{}
 	case "aws-native:ec2:VpnConnectionRoute":

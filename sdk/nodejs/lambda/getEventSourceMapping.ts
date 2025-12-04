@@ -99,6 +99,10 @@ export interface GetEventSourceMappingResult {
      */
     readonly kmsKeyArn?: string;
     /**
+     * The function's Amazon CloudWatch Logs configuration settings.
+     */
+    readonly loggingConfig?: outputs.lambda.EventSourceMappingLoggingConfig;
+    /**
      * The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
      *  *Default (, , event sources)*: 0
      *  *Default (, Kafka, , event sources)*: 500 ms
@@ -123,7 +127,7 @@ export interface GetEventSourceMappingResult {
      */
     readonly parallelizationFactor?: number;
     /**
-     * (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
+     * (Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
      */
     readonly provisionedPollerConfig?: outputs.lambda.EventSourceMappingProvisionedPollerConfig;
     /**
@@ -131,7 +135,7 @@ export interface GetEventSourceMappingResult {
      */
     readonly queues?: string[];
     /**
-     * (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+     * This property is for Amazon SQS event sources only. You cannot use ``ProvisionedPollerConfig`` while using ``ScalingConfig``. These options are mutually exclusive. To remove the scaling configuration, pass an empty value.
      */
     readonly scalingConfig?: outputs.lambda.EventSourceMappingScalingConfig;
     /**

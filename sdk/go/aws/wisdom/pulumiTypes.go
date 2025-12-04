@@ -265,6 +265,258 @@ func (o AiAgentAiAgentConfiguration2PropertiesPtrOutput) SelfServiceAiAgentConfi
 	}).(AiAgentSelfServiceAiAgentConfigurationPtrOutput)
 }
 
+type AiAgentAiAgentConfiguration3Properties struct {
+	EmailResponseAiAgentConfiguration AiAgentEmailResponseAiAgentConfiguration `pulumi:"emailResponseAiAgentConfiguration"`
+}
+
+// AiAgentAiAgentConfiguration3PropertiesInput is an input type that accepts AiAgentAiAgentConfiguration3PropertiesArgs and AiAgentAiAgentConfiguration3PropertiesOutput values.
+// You can construct a concrete instance of `AiAgentAiAgentConfiguration3PropertiesInput` via:
+//
+//	AiAgentAiAgentConfiguration3PropertiesArgs{...}
+type AiAgentAiAgentConfiguration3PropertiesInput interface {
+	pulumi.Input
+
+	ToAiAgentAiAgentConfiguration3PropertiesOutput() AiAgentAiAgentConfiguration3PropertiesOutput
+	ToAiAgentAiAgentConfiguration3PropertiesOutputWithContext(context.Context) AiAgentAiAgentConfiguration3PropertiesOutput
+}
+
+type AiAgentAiAgentConfiguration3PropertiesArgs struct {
+	EmailResponseAiAgentConfiguration AiAgentEmailResponseAiAgentConfigurationInput `pulumi:"emailResponseAiAgentConfiguration"`
+}
+
+func (AiAgentAiAgentConfiguration3PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentAiAgentConfiguration3Properties)(nil)).Elem()
+}
+
+func (i AiAgentAiAgentConfiguration3PropertiesArgs) ToAiAgentAiAgentConfiguration3PropertiesOutput() AiAgentAiAgentConfiguration3PropertiesOutput {
+	return i.ToAiAgentAiAgentConfiguration3PropertiesOutputWithContext(context.Background())
+}
+
+func (i AiAgentAiAgentConfiguration3PropertiesArgs) ToAiAgentAiAgentConfiguration3PropertiesOutputWithContext(ctx context.Context) AiAgentAiAgentConfiguration3PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiAgentAiAgentConfiguration3PropertiesOutput)
+}
+
+type AiAgentAiAgentConfiguration3PropertiesOutput struct{ *pulumi.OutputState }
+
+func (AiAgentAiAgentConfiguration3PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentAiAgentConfiguration3Properties)(nil)).Elem()
+}
+
+func (o AiAgentAiAgentConfiguration3PropertiesOutput) ToAiAgentAiAgentConfiguration3PropertiesOutput() AiAgentAiAgentConfiguration3PropertiesOutput {
+	return o
+}
+
+func (o AiAgentAiAgentConfiguration3PropertiesOutput) ToAiAgentAiAgentConfiguration3PropertiesOutputWithContext(ctx context.Context) AiAgentAiAgentConfiguration3PropertiesOutput {
+	return o
+}
+
+func (o AiAgentAiAgentConfiguration3PropertiesOutput) EmailResponseAiAgentConfiguration() AiAgentEmailResponseAiAgentConfigurationOutput {
+	return o.ApplyT(func(v AiAgentAiAgentConfiguration3Properties) AiAgentEmailResponseAiAgentConfiguration {
+		return v.EmailResponseAiAgentConfiguration
+	}).(AiAgentEmailResponseAiAgentConfigurationOutput)
+}
+
+type AiAgentAiAgentConfiguration3PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AiAgentAiAgentConfiguration3PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiAgentAiAgentConfiguration3Properties)(nil)).Elem()
+}
+
+func (o AiAgentAiAgentConfiguration3PropertiesPtrOutput) ToAiAgentAiAgentConfiguration3PropertiesPtrOutput() AiAgentAiAgentConfiguration3PropertiesPtrOutput {
+	return o
+}
+
+func (o AiAgentAiAgentConfiguration3PropertiesPtrOutput) ToAiAgentAiAgentConfiguration3PropertiesPtrOutputWithContext(ctx context.Context) AiAgentAiAgentConfiguration3PropertiesPtrOutput {
+	return o
+}
+
+func (o AiAgentAiAgentConfiguration3PropertiesPtrOutput) Elem() AiAgentAiAgentConfiguration3PropertiesOutput {
+	return o.ApplyT(func(v *AiAgentAiAgentConfiguration3Properties) AiAgentAiAgentConfiguration3Properties {
+		if v != nil {
+			return *v
+		}
+		var ret AiAgentAiAgentConfiguration3Properties
+		return ret
+	}).(AiAgentAiAgentConfiguration3PropertiesOutput)
+}
+
+func (o AiAgentAiAgentConfiguration3PropertiesPtrOutput) EmailResponseAiAgentConfiguration() AiAgentEmailResponseAiAgentConfigurationPtrOutput {
+	return o.ApplyT(func(v *AiAgentAiAgentConfiguration3Properties) *AiAgentEmailResponseAiAgentConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.EmailResponseAiAgentConfiguration
+	}).(AiAgentEmailResponseAiAgentConfigurationPtrOutput)
+}
+
+type AiAgentAiAgentConfiguration4Properties struct {
+	EmailOverviewAiAgentConfiguration AiAgentEmailOverviewAiAgentConfiguration `pulumi:"emailOverviewAiAgentConfiguration"`
+}
+
+// AiAgentAiAgentConfiguration4PropertiesInput is an input type that accepts AiAgentAiAgentConfiguration4PropertiesArgs and AiAgentAiAgentConfiguration4PropertiesOutput values.
+// You can construct a concrete instance of `AiAgentAiAgentConfiguration4PropertiesInput` via:
+//
+//	AiAgentAiAgentConfiguration4PropertiesArgs{...}
+type AiAgentAiAgentConfiguration4PropertiesInput interface {
+	pulumi.Input
+
+	ToAiAgentAiAgentConfiguration4PropertiesOutput() AiAgentAiAgentConfiguration4PropertiesOutput
+	ToAiAgentAiAgentConfiguration4PropertiesOutputWithContext(context.Context) AiAgentAiAgentConfiguration4PropertiesOutput
+}
+
+type AiAgentAiAgentConfiguration4PropertiesArgs struct {
+	EmailOverviewAiAgentConfiguration AiAgentEmailOverviewAiAgentConfigurationInput `pulumi:"emailOverviewAiAgentConfiguration"`
+}
+
+func (AiAgentAiAgentConfiguration4PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentAiAgentConfiguration4Properties)(nil)).Elem()
+}
+
+func (i AiAgentAiAgentConfiguration4PropertiesArgs) ToAiAgentAiAgentConfiguration4PropertiesOutput() AiAgentAiAgentConfiguration4PropertiesOutput {
+	return i.ToAiAgentAiAgentConfiguration4PropertiesOutputWithContext(context.Background())
+}
+
+func (i AiAgentAiAgentConfiguration4PropertiesArgs) ToAiAgentAiAgentConfiguration4PropertiesOutputWithContext(ctx context.Context) AiAgentAiAgentConfiguration4PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiAgentAiAgentConfiguration4PropertiesOutput)
+}
+
+type AiAgentAiAgentConfiguration4PropertiesOutput struct{ *pulumi.OutputState }
+
+func (AiAgentAiAgentConfiguration4PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentAiAgentConfiguration4Properties)(nil)).Elem()
+}
+
+func (o AiAgentAiAgentConfiguration4PropertiesOutput) ToAiAgentAiAgentConfiguration4PropertiesOutput() AiAgentAiAgentConfiguration4PropertiesOutput {
+	return o
+}
+
+func (o AiAgentAiAgentConfiguration4PropertiesOutput) ToAiAgentAiAgentConfiguration4PropertiesOutputWithContext(ctx context.Context) AiAgentAiAgentConfiguration4PropertiesOutput {
+	return o
+}
+
+func (o AiAgentAiAgentConfiguration4PropertiesOutput) EmailOverviewAiAgentConfiguration() AiAgentEmailOverviewAiAgentConfigurationOutput {
+	return o.ApplyT(func(v AiAgentAiAgentConfiguration4Properties) AiAgentEmailOverviewAiAgentConfiguration {
+		return v.EmailOverviewAiAgentConfiguration
+	}).(AiAgentEmailOverviewAiAgentConfigurationOutput)
+}
+
+type AiAgentAiAgentConfiguration4PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AiAgentAiAgentConfiguration4PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiAgentAiAgentConfiguration4Properties)(nil)).Elem()
+}
+
+func (o AiAgentAiAgentConfiguration4PropertiesPtrOutput) ToAiAgentAiAgentConfiguration4PropertiesPtrOutput() AiAgentAiAgentConfiguration4PropertiesPtrOutput {
+	return o
+}
+
+func (o AiAgentAiAgentConfiguration4PropertiesPtrOutput) ToAiAgentAiAgentConfiguration4PropertiesPtrOutputWithContext(ctx context.Context) AiAgentAiAgentConfiguration4PropertiesPtrOutput {
+	return o
+}
+
+func (o AiAgentAiAgentConfiguration4PropertiesPtrOutput) Elem() AiAgentAiAgentConfiguration4PropertiesOutput {
+	return o.ApplyT(func(v *AiAgentAiAgentConfiguration4Properties) AiAgentAiAgentConfiguration4Properties {
+		if v != nil {
+			return *v
+		}
+		var ret AiAgentAiAgentConfiguration4Properties
+		return ret
+	}).(AiAgentAiAgentConfiguration4PropertiesOutput)
+}
+
+func (o AiAgentAiAgentConfiguration4PropertiesPtrOutput) EmailOverviewAiAgentConfiguration() AiAgentEmailOverviewAiAgentConfigurationPtrOutput {
+	return o.ApplyT(func(v *AiAgentAiAgentConfiguration4Properties) *AiAgentEmailOverviewAiAgentConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.EmailOverviewAiAgentConfiguration
+	}).(AiAgentEmailOverviewAiAgentConfigurationPtrOutput)
+}
+
+type AiAgentAiAgentConfiguration5Properties struct {
+	EmailGenerativeAnswerAiAgentConfiguration AiAgentEmailGenerativeAnswerAiAgentConfiguration `pulumi:"emailGenerativeAnswerAiAgentConfiguration"`
+}
+
+// AiAgentAiAgentConfiguration5PropertiesInput is an input type that accepts AiAgentAiAgentConfiguration5PropertiesArgs and AiAgentAiAgentConfiguration5PropertiesOutput values.
+// You can construct a concrete instance of `AiAgentAiAgentConfiguration5PropertiesInput` via:
+//
+//	AiAgentAiAgentConfiguration5PropertiesArgs{...}
+type AiAgentAiAgentConfiguration5PropertiesInput interface {
+	pulumi.Input
+
+	ToAiAgentAiAgentConfiguration5PropertiesOutput() AiAgentAiAgentConfiguration5PropertiesOutput
+	ToAiAgentAiAgentConfiguration5PropertiesOutputWithContext(context.Context) AiAgentAiAgentConfiguration5PropertiesOutput
+}
+
+type AiAgentAiAgentConfiguration5PropertiesArgs struct {
+	EmailGenerativeAnswerAiAgentConfiguration AiAgentEmailGenerativeAnswerAiAgentConfigurationInput `pulumi:"emailGenerativeAnswerAiAgentConfiguration"`
+}
+
+func (AiAgentAiAgentConfiguration5PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentAiAgentConfiguration5Properties)(nil)).Elem()
+}
+
+func (i AiAgentAiAgentConfiguration5PropertiesArgs) ToAiAgentAiAgentConfiguration5PropertiesOutput() AiAgentAiAgentConfiguration5PropertiesOutput {
+	return i.ToAiAgentAiAgentConfiguration5PropertiesOutputWithContext(context.Background())
+}
+
+func (i AiAgentAiAgentConfiguration5PropertiesArgs) ToAiAgentAiAgentConfiguration5PropertiesOutputWithContext(ctx context.Context) AiAgentAiAgentConfiguration5PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiAgentAiAgentConfiguration5PropertiesOutput)
+}
+
+type AiAgentAiAgentConfiguration5PropertiesOutput struct{ *pulumi.OutputState }
+
+func (AiAgentAiAgentConfiguration5PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentAiAgentConfiguration5Properties)(nil)).Elem()
+}
+
+func (o AiAgentAiAgentConfiguration5PropertiesOutput) ToAiAgentAiAgentConfiguration5PropertiesOutput() AiAgentAiAgentConfiguration5PropertiesOutput {
+	return o
+}
+
+func (o AiAgentAiAgentConfiguration5PropertiesOutput) ToAiAgentAiAgentConfiguration5PropertiesOutputWithContext(ctx context.Context) AiAgentAiAgentConfiguration5PropertiesOutput {
+	return o
+}
+
+func (o AiAgentAiAgentConfiguration5PropertiesOutput) EmailGenerativeAnswerAiAgentConfiguration() AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput {
+	return o.ApplyT(func(v AiAgentAiAgentConfiguration5Properties) AiAgentEmailGenerativeAnswerAiAgentConfiguration {
+		return v.EmailGenerativeAnswerAiAgentConfiguration
+	}).(AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput)
+}
+
+type AiAgentAiAgentConfiguration5PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AiAgentAiAgentConfiguration5PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiAgentAiAgentConfiguration5Properties)(nil)).Elem()
+}
+
+func (o AiAgentAiAgentConfiguration5PropertiesPtrOutput) ToAiAgentAiAgentConfiguration5PropertiesPtrOutput() AiAgentAiAgentConfiguration5PropertiesPtrOutput {
+	return o
+}
+
+func (o AiAgentAiAgentConfiguration5PropertiesPtrOutput) ToAiAgentAiAgentConfiguration5PropertiesPtrOutputWithContext(ctx context.Context) AiAgentAiAgentConfiguration5PropertiesPtrOutput {
+	return o
+}
+
+func (o AiAgentAiAgentConfiguration5PropertiesPtrOutput) Elem() AiAgentAiAgentConfiguration5PropertiesOutput {
+	return o.ApplyT(func(v *AiAgentAiAgentConfiguration5Properties) AiAgentAiAgentConfiguration5Properties {
+		if v != nil {
+			return *v
+		}
+		var ret AiAgentAiAgentConfiguration5Properties
+		return ret
+	}).(AiAgentAiAgentConfiguration5PropertiesOutput)
+}
+
+func (o AiAgentAiAgentConfiguration5PropertiesPtrOutput) EmailGenerativeAnswerAiAgentConfiguration() AiAgentEmailGenerativeAnswerAiAgentConfigurationPtrOutput {
+	return o.ApplyT(func(v *AiAgentAiAgentConfiguration5Properties) *AiAgentEmailGenerativeAnswerAiAgentConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.EmailGenerativeAnswerAiAgentConfiguration
+	}).(AiAgentEmailGenerativeAnswerAiAgentConfigurationPtrOutput)
+}
+
 type AiAgentAnswerRecommendationAiAgentConfiguration struct {
 	AnswerGenerationAiGuardrailId      *string                           `pulumi:"answerGenerationAiGuardrailId"`
 	AnswerGenerationAiPromptId         *string                           `pulumi:"answerGenerationAiPromptId"`
@@ -675,6 +927,365 @@ func (o AiAgentAssociationConfigurationDataPropertiesPtrOutput) KnowledgeBaseAss
 		}
 		return &v.KnowledgeBaseAssociationConfigurationData
 	}).(AiAgentKnowledgeBaseAssociationConfigurationDataPtrOutput)
+}
+
+type AiAgentEmailGenerativeAnswerAiAgentConfiguration struct {
+	AssociationConfigurations         []AiAgentAssociationConfiguration `pulumi:"associationConfigurations"`
+	EmailGenerativeAnswerAiPromptId   *string                           `pulumi:"emailGenerativeAnswerAiPromptId"`
+	EmailQueryReformulationAiPromptId *string                           `pulumi:"emailQueryReformulationAiPromptId"`
+	Locale                            *string                           `pulumi:"locale"`
+}
+
+// AiAgentEmailGenerativeAnswerAiAgentConfigurationInput is an input type that accepts AiAgentEmailGenerativeAnswerAiAgentConfigurationArgs and AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput values.
+// You can construct a concrete instance of `AiAgentEmailGenerativeAnswerAiAgentConfigurationInput` via:
+//
+//	AiAgentEmailGenerativeAnswerAiAgentConfigurationArgs{...}
+type AiAgentEmailGenerativeAnswerAiAgentConfigurationInput interface {
+	pulumi.Input
+
+	ToAiAgentEmailGenerativeAnswerAiAgentConfigurationOutput() AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput
+	ToAiAgentEmailGenerativeAnswerAiAgentConfigurationOutputWithContext(context.Context) AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput
+}
+
+type AiAgentEmailGenerativeAnswerAiAgentConfigurationArgs struct {
+	AssociationConfigurations         AiAgentAssociationConfigurationArrayInput `pulumi:"associationConfigurations"`
+	EmailGenerativeAnswerAiPromptId   pulumi.StringPtrInput                     `pulumi:"emailGenerativeAnswerAiPromptId"`
+	EmailQueryReformulationAiPromptId pulumi.StringPtrInput                     `pulumi:"emailQueryReformulationAiPromptId"`
+	Locale                            pulumi.StringPtrInput                     `pulumi:"locale"`
+}
+
+func (AiAgentEmailGenerativeAnswerAiAgentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentEmailGenerativeAnswerAiAgentConfiguration)(nil)).Elem()
+}
+
+func (i AiAgentEmailGenerativeAnswerAiAgentConfigurationArgs) ToAiAgentEmailGenerativeAnswerAiAgentConfigurationOutput() AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput {
+	return i.ToAiAgentEmailGenerativeAnswerAiAgentConfigurationOutputWithContext(context.Background())
+}
+
+func (i AiAgentEmailGenerativeAnswerAiAgentConfigurationArgs) ToAiAgentEmailGenerativeAnswerAiAgentConfigurationOutputWithContext(ctx context.Context) AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput)
+}
+
+type AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentEmailGenerativeAnswerAiAgentConfiguration)(nil)).Elem()
+}
+
+func (o AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput) ToAiAgentEmailGenerativeAnswerAiAgentConfigurationOutput() AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput {
+	return o
+}
+
+func (o AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput) ToAiAgentEmailGenerativeAnswerAiAgentConfigurationOutputWithContext(ctx context.Context) AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput {
+	return o
+}
+
+func (o AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput) AssociationConfigurations() AiAgentAssociationConfigurationArrayOutput {
+	return o.ApplyT(func(v AiAgentEmailGenerativeAnswerAiAgentConfiguration) []AiAgentAssociationConfiguration {
+		return v.AssociationConfigurations
+	}).(AiAgentAssociationConfigurationArrayOutput)
+}
+
+func (o AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput) EmailGenerativeAnswerAiPromptId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentEmailGenerativeAnswerAiAgentConfiguration) *string {
+		return v.EmailGenerativeAnswerAiPromptId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput) EmailQueryReformulationAiPromptId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentEmailGenerativeAnswerAiAgentConfiguration) *string {
+		return v.EmailQueryReformulationAiPromptId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentEmailGenerativeAnswerAiAgentConfiguration) *string { return v.Locale }).(pulumi.StringPtrOutput)
+}
+
+type AiAgentEmailGenerativeAnswerAiAgentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AiAgentEmailGenerativeAnswerAiAgentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiAgentEmailGenerativeAnswerAiAgentConfiguration)(nil)).Elem()
+}
+
+func (o AiAgentEmailGenerativeAnswerAiAgentConfigurationPtrOutput) ToAiAgentEmailGenerativeAnswerAiAgentConfigurationPtrOutput() AiAgentEmailGenerativeAnswerAiAgentConfigurationPtrOutput {
+	return o
+}
+
+func (o AiAgentEmailGenerativeAnswerAiAgentConfigurationPtrOutput) ToAiAgentEmailGenerativeAnswerAiAgentConfigurationPtrOutputWithContext(ctx context.Context) AiAgentEmailGenerativeAnswerAiAgentConfigurationPtrOutput {
+	return o
+}
+
+func (o AiAgentEmailGenerativeAnswerAiAgentConfigurationPtrOutput) Elem() AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput {
+	return o.ApplyT(func(v *AiAgentEmailGenerativeAnswerAiAgentConfiguration) AiAgentEmailGenerativeAnswerAiAgentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AiAgentEmailGenerativeAnswerAiAgentConfiguration
+		return ret
+	}).(AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput)
+}
+
+func (o AiAgentEmailGenerativeAnswerAiAgentConfigurationPtrOutput) AssociationConfigurations() AiAgentAssociationConfigurationArrayOutput {
+	return o.ApplyT(func(v *AiAgentEmailGenerativeAnswerAiAgentConfiguration) []AiAgentAssociationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AssociationConfigurations
+	}).(AiAgentAssociationConfigurationArrayOutput)
+}
+
+func (o AiAgentEmailGenerativeAnswerAiAgentConfigurationPtrOutput) EmailGenerativeAnswerAiPromptId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiAgentEmailGenerativeAnswerAiAgentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailGenerativeAnswerAiPromptId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentEmailGenerativeAnswerAiAgentConfigurationPtrOutput) EmailQueryReformulationAiPromptId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiAgentEmailGenerativeAnswerAiAgentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailQueryReformulationAiPromptId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentEmailGenerativeAnswerAiAgentConfigurationPtrOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiAgentEmailGenerativeAnswerAiAgentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Locale
+	}).(pulumi.StringPtrOutput)
+}
+
+type AiAgentEmailOverviewAiAgentConfiguration struct {
+	EmailOverviewAiPromptId *string `pulumi:"emailOverviewAiPromptId"`
+	Locale                  *string `pulumi:"locale"`
+}
+
+// AiAgentEmailOverviewAiAgentConfigurationInput is an input type that accepts AiAgentEmailOverviewAiAgentConfigurationArgs and AiAgentEmailOverviewAiAgentConfigurationOutput values.
+// You can construct a concrete instance of `AiAgentEmailOverviewAiAgentConfigurationInput` via:
+//
+//	AiAgentEmailOverviewAiAgentConfigurationArgs{...}
+type AiAgentEmailOverviewAiAgentConfigurationInput interface {
+	pulumi.Input
+
+	ToAiAgentEmailOverviewAiAgentConfigurationOutput() AiAgentEmailOverviewAiAgentConfigurationOutput
+	ToAiAgentEmailOverviewAiAgentConfigurationOutputWithContext(context.Context) AiAgentEmailOverviewAiAgentConfigurationOutput
+}
+
+type AiAgentEmailOverviewAiAgentConfigurationArgs struct {
+	EmailOverviewAiPromptId pulumi.StringPtrInput `pulumi:"emailOverviewAiPromptId"`
+	Locale                  pulumi.StringPtrInput `pulumi:"locale"`
+}
+
+func (AiAgentEmailOverviewAiAgentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentEmailOverviewAiAgentConfiguration)(nil)).Elem()
+}
+
+func (i AiAgentEmailOverviewAiAgentConfigurationArgs) ToAiAgentEmailOverviewAiAgentConfigurationOutput() AiAgentEmailOverviewAiAgentConfigurationOutput {
+	return i.ToAiAgentEmailOverviewAiAgentConfigurationOutputWithContext(context.Background())
+}
+
+func (i AiAgentEmailOverviewAiAgentConfigurationArgs) ToAiAgentEmailOverviewAiAgentConfigurationOutputWithContext(ctx context.Context) AiAgentEmailOverviewAiAgentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiAgentEmailOverviewAiAgentConfigurationOutput)
+}
+
+type AiAgentEmailOverviewAiAgentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AiAgentEmailOverviewAiAgentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentEmailOverviewAiAgentConfiguration)(nil)).Elem()
+}
+
+func (o AiAgentEmailOverviewAiAgentConfigurationOutput) ToAiAgentEmailOverviewAiAgentConfigurationOutput() AiAgentEmailOverviewAiAgentConfigurationOutput {
+	return o
+}
+
+func (o AiAgentEmailOverviewAiAgentConfigurationOutput) ToAiAgentEmailOverviewAiAgentConfigurationOutputWithContext(ctx context.Context) AiAgentEmailOverviewAiAgentConfigurationOutput {
+	return o
+}
+
+func (o AiAgentEmailOverviewAiAgentConfigurationOutput) EmailOverviewAiPromptId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentEmailOverviewAiAgentConfiguration) *string { return v.EmailOverviewAiPromptId }).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentEmailOverviewAiAgentConfigurationOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentEmailOverviewAiAgentConfiguration) *string { return v.Locale }).(pulumi.StringPtrOutput)
+}
+
+type AiAgentEmailOverviewAiAgentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AiAgentEmailOverviewAiAgentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiAgentEmailOverviewAiAgentConfiguration)(nil)).Elem()
+}
+
+func (o AiAgentEmailOverviewAiAgentConfigurationPtrOutput) ToAiAgentEmailOverviewAiAgentConfigurationPtrOutput() AiAgentEmailOverviewAiAgentConfigurationPtrOutput {
+	return o
+}
+
+func (o AiAgentEmailOverviewAiAgentConfigurationPtrOutput) ToAiAgentEmailOverviewAiAgentConfigurationPtrOutputWithContext(ctx context.Context) AiAgentEmailOverviewAiAgentConfigurationPtrOutput {
+	return o
+}
+
+func (o AiAgentEmailOverviewAiAgentConfigurationPtrOutput) Elem() AiAgentEmailOverviewAiAgentConfigurationOutput {
+	return o.ApplyT(func(v *AiAgentEmailOverviewAiAgentConfiguration) AiAgentEmailOverviewAiAgentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AiAgentEmailOverviewAiAgentConfiguration
+		return ret
+	}).(AiAgentEmailOverviewAiAgentConfigurationOutput)
+}
+
+func (o AiAgentEmailOverviewAiAgentConfigurationPtrOutput) EmailOverviewAiPromptId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiAgentEmailOverviewAiAgentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailOverviewAiPromptId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentEmailOverviewAiAgentConfigurationPtrOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiAgentEmailOverviewAiAgentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Locale
+	}).(pulumi.StringPtrOutput)
+}
+
+type AiAgentEmailResponseAiAgentConfiguration struct {
+	AssociationConfigurations         []AiAgentAssociationConfiguration `pulumi:"associationConfigurations"`
+	EmailQueryReformulationAiPromptId *string                           `pulumi:"emailQueryReformulationAiPromptId"`
+	EmailResponseAiPromptId           *string                           `pulumi:"emailResponseAiPromptId"`
+	Locale                            *string                           `pulumi:"locale"`
+}
+
+// AiAgentEmailResponseAiAgentConfigurationInput is an input type that accepts AiAgentEmailResponseAiAgentConfigurationArgs and AiAgentEmailResponseAiAgentConfigurationOutput values.
+// You can construct a concrete instance of `AiAgentEmailResponseAiAgentConfigurationInput` via:
+//
+//	AiAgentEmailResponseAiAgentConfigurationArgs{...}
+type AiAgentEmailResponseAiAgentConfigurationInput interface {
+	pulumi.Input
+
+	ToAiAgentEmailResponseAiAgentConfigurationOutput() AiAgentEmailResponseAiAgentConfigurationOutput
+	ToAiAgentEmailResponseAiAgentConfigurationOutputWithContext(context.Context) AiAgentEmailResponseAiAgentConfigurationOutput
+}
+
+type AiAgentEmailResponseAiAgentConfigurationArgs struct {
+	AssociationConfigurations         AiAgentAssociationConfigurationArrayInput `pulumi:"associationConfigurations"`
+	EmailQueryReformulationAiPromptId pulumi.StringPtrInput                     `pulumi:"emailQueryReformulationAiPromptId"`
+	EmailResponseAiPromptId           pulumi.StringPtrInput                     `pulumi:"emailResponseAiPromptId"`
+	Locale                            pulumi.StringPtrInput                     `pulumi:"locale"`
+}
+
+func (AiAgentEmailResponseAiAgentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentEmailResponseAiAgentConfiguration)(nil)).Elem()
+}
+
+func (i AiAgentEmailResponseAiAgentConfigurationArgs) ToAiAgentEmailResponseAiAgentConfigurationOutput() AiAgentEmailResponseAiAgentConfigurationOutput {
+	return i.ToAiAgentEmailResponseAiAgentConfigurationOutputWithContext(context.Background())
+}
+
+func (i AiAgentEmailResponseAiAgentConfigurationArgs) ToAiAgentEmailResponseAiAgentConfigurationOutputWithContext(ctx context.Context) AiAgentEmailResponseAiAgentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiAgentEmailResponseAiAgentConfigurationOutput)
+}
+
+type AiAgentEmailResponseAiAgentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AiAgentEmailResponseAiAgentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentEmailResponseAiAgentConfiguration)(nil)).Elem()
+}
+
+func (o AiAgentEmailResponseAiAgentConfigurationOutput) ToAiAgentEmailResponseAiAgentConfigurationOutput() AiAgentEmailResponseAiAgentConfigurationOutput {
+	return o
+}
+
+func (o AiAgentEmailResponseAiAgentConfigurationOutput) ToAiAgentEmailResponseAiAgentConfigurationOutputWithContext(ctx context.Context) AiAgentEmailResponseAiAgentConfigurationOutput {
+	return o
+}
+
+func (o AiAgentEmailResponseAiAgentConfigurationOutput) AssociationConfigurations() AiAgentAssociationConfigurationArrayOutput {
+	return o.ApplyT(func(v AiAgentEmailResponseAiAgentConfiguration) []AiAgentAssociationConfiguration {
+		return v.AssociationConfigurations
+	}).(AiAgentAssociationConfigurationArrayOutput)
+}
+
+func (o AiAgentEmailResponseAiAgentConfigurationOutput) EmailQueryReformulationAiPromptId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentEmailResponseAiAgentConfiguration) *string { return v.EmailQueryReformulationAiPromptId }).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentEmailResponseAiAgentConfigurationOutput) EmailResponseAiPromptId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentEmailResponseAiAgentConfiguration) *string { return v.EmailResponseAiPromptId }).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentEmailResponseAiAgentConfigurationOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentEmailResponseAiAgentConfiguration) *string { return v.Locale }).(pulumi.StringPtrOutput)
+}
+
+type AiAgentEmailResponseAiAgentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AiAgentEmailResponseAiAgentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiAgentEmailResponseAiAgentConfiguration)(nil)).Elem()
+}
+
+func (o AiAgentEmailResponseAiAgentConfigurationPtrOutput) ToAiAgentEmailResponseAiAgentConfigurationPtrOutput() AiAgentEmailResponseAiAgentConfigurationPtrOutput {
+	return o
+}
+
+func (o AiAgentEmailResponseAiAgentConfigurationPtrOutput) ToAiAgentEmailResponseAiAgentConfigurationPtrOutputWithContext(ctx context.Context) AiAgentEmailResponseAiAgentConfigurationPtrOutput {
+	return o
+}
+
+func (o AiAgentEmailResponseAiAgentConfigurationPtrOutput) Elem() AiAgentEmailResponseAiAgentConfigurationOutput {
+	return o.ApplyT(func(v *AiAgentEmailResponseAiAgentConfiguration) AiAgentEmailResponseAiAgentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AiAgentEmailResponseAiAgentConfiguration
+		return ret
+	}).(AiAgentEmailResponseAiAgentConfigurationOutput)
+}
+
+func (o AiAgentEmailResponseAiAgentConfigurationPtrOutput) AssociationConfigurations() AiAgentAssociationConfigurationArrayOutput {
+	return o.ApplyT(func(v *AiAgentEmailResponseAiAgentConfiguration) []AiAgentAssociationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AssociationConfigurations
+	}).(AiAgentAssociationConfigurationArrayOutput)
+}
+
+func (o AiAgentEmailResponseAiAgentConfigurationPtrOutput) EmailQueryReformulationAiPromptId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiAgentEmailResponseAiAgentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailQueryReformulationAiPromptId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentEmailResponseAiAgentConfigurationPtrOutput) EmailResponseAiPromptId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiAgentEmailResponseAiAgentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailResponseAiPromptId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentEmailResponseAiAgentConfigurationPtrOutput) Locale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiAgentEmailResponseAiAgentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Locale
+	}).(pulumi.StringPtrOutput)
 }
 
 type AiAgentKnowledgeBaseAssociationConfigurationData struct {
@@ -9944,11 +10555,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentConfiguration0PropertiesInput)(nil)).Elem(), AiAgentAiAgentConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentConfiguration1PropertiesInput)(nil)).Elem(), AiAgentAiAgentConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentConfiguration2PropertiesInput)(nil)).Elem(), AiAgentAiAgentConfiguration2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentConfiguration3PropertiesInput)(nil)).Elem(), AiAgentAiAgentConfiguration3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentConfiguration4PropertiesInput)(nil)).Elem(), AiAgentAiAgentConfiguration4PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentConfiguration5PropertiesInput)(nil)).Elem(), AiAgentAiAgentConfiguration5PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAnswerRecommendationAiAgentConfigurationInput)(nil)).Elem(), AiAgentAnswerRecommendationAiAgentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAssociationConfigurationInput)(nil)).Elem(), AiAgentAssociationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAssociationConfigurationArrayInput)(nil)).Elem(), AiAgentAssociationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAssociationConfigurationDataPropertiesInput)(nil)).Elem(), AiAgentAssociationConfigurationDataPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAssociationConfigurationDataPropertiesPtrInput)(nil)).Elem(), AiAgentAssociationConfigurationDataPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentEmailGenerativeAnswerAiAgentConfigurationInput)(nil)).Elem(), AiAgentEmailGenerativeAnswerAiAgentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentEmailOverviewAiAgentConfigurationInput)(nil)).Elem(), AiAgentEmailOverviewAiAgentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentEmailResponseAiAgentConfigurationInput)(nil)).Elem(), AiAgentEmailResponseAiAgentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentKnowledgeBaseAssociationConfigurationDataInput)(nil)).Elem(), AiAgentKnowledgeBaseAssociationConfigurationDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentKnowledgeBaseAssociationConfigurationDataPtrInput)(nil)).Elem(), AiAgentKnowledgeBaseAssociationConfigurationDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentManualSearchAiAgentConfigurationInput)(nil)).Elem(), AiAgentManualSearchAiAgentConfigurationArgs{})
@@ -10066,12 +10683,24 @@ func init() {
 	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration2PropertiesOutput{})
 	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration2PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration3PropertiesOutput{})
+	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration3PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration4PropertiesOutput{})
+	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration4PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration5PropertiesOutput{})
+	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration5PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentAnswerRecommendationAiAgentConfigurationOutput{})
 	pulumi.RegisterOutputType(AiAgentAnswerRecommendationAiAgentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentAssociationConfigurationOutput{})
 	pulumi.RegisterOutputType(AiAgentAssociationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AiAgentAssociationConfigurationDataPropertiesOutput{})
 	pulumi.RegisterOutputType(AiAgentAssociationConfigurationDataPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AiAgentEmailGenerativeAnswerAiAgentConfigurationOutput{})
+	pulumi.RegisterOutputType(AiAgentEmailGenerativeAnswerAiAgentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AiAgentEmailOverviewAiAgentConfigurationOutput{})
+	pulumi.RegisterOutputType(AiAgentEmailOverviewAiAgentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AiAgentEmailResponseAiAgentConfigurationOutput{})
+	pulumi.RegisterOutputType(AiAgentEmailResponseAiAgentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentKnowledgeBaseAssociationConfigurationDataOutput{})
 	pulumi.RegisterOutputType(AiAgentKnowledgeBaseAssociationConfigurationDataPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentManualSearchAiAgentConfigurationOutput{})

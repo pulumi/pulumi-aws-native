@@ -41,6 +41,11 @@ class VolumeArgs:
         :param pulumi.Input[_builtins.bool] auto_enable_io: Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
         :param pulumi.Input[_builtins.str] availability_zone: The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
                 Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
+        :param pulumi.Input[_builtins.str] availability_zone_id: The ID of the Availability Zone in which to create the volume. For example, `use1-az1` .
+               
+               Either `AvailabilityZone` or `AvailabilityZoneId` must be specified, but not both.
+               
+               If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
         :param pulumi.Input[_builtins.bool] encrypted: Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.
                 Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances).
         :param pulumi.Input[_builtins.int] iops: The number of I/O operations per second (IOPS) to provision for the volume. Required for ``io1`` and ``io2`` volumes. Optional for ``gp3`` volumes. Omit for all other volume types. 
@@ -69,6 +74,7 @@ class VolumeArgs:
                  +  st1 and sc1: ``125 - 16,384`` GiB
                  +  standard: ``1 - 1024`` GiB
         :param pulumi.Input[_builtins.str] snapshot_id: The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
+        :param pulumi.Input[_builtins.str] source_volume_id: The ID of the source EBS volume to copy. When specified, the volume is created as an exact copy of the specified volume. Only specify to create a volume copy. To create a new empty volume or to create a volume from a snapshot, omit this parameter,
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to apply to the volume during creation.
         :param pulumi.Input[_builtins.int] throughput: The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
                 This parameter is valid only for ``gp3`` volumes. The default value is 125.
@@ -150,6 +156,13 @@ class VolumeArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the Availability Zone in which to create the volume. For example, `use1-az1` .
+
+        Either `AvailabilityZone` or `AvailabilityZoneId` must be specified, but not both.
+
+        If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
+        """
         return pulumi.get(self, "availability_zone_id")
 
     @availability_zone_id.setter
@@ -264,6 +277,9 @@ class VolumeArgs:
     @_builtins.property
     @pulumi.getter(name="sourceVolumeId")
     def source_volume_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the source EBS volume to copy. When specified, the volume is created as an exact copy of the specified volume. Only specify to create a volume copy. To create a new empty volume or to create a volume from a snapshot, omit this parameter,
+        """
         return pulumi.get(self, "source_volume_id")
 
     @source_volume_id.setter
@@ -359,18 +375,15 @@ class Volume(pulumi.CustomResource):
                  volume_type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Specifies an Amazon Elastic Block Store (Amazon EBS) volume.
+        Specifies an Amazon Elastic Block Store (Amazon EBS) volume. You can create an empty volume, a volume from a snapshot, or a volume copy from an existing source volume.
 
-        When you use AWS CloudFormation to update an Amazon EBS volume that modifies `Iops` , `Size` , or `VolumeType` , there is a cooldown period before another operation can occur. This can cause your stack to report being in `UPDATE_IN_PROGRESS` or `UPDATE_ROLLBACK_IN_PROGRESS` for long periods of time.
-
-        Amazon EBS does not support sizing down an Amazon EBS volume. AWS CloudFormation does not attempt to modify an Amazon EBS volume to a smaller size on rollback.
-
-        Some common scenarios when you might encounter a cooldown period for Amazon EBS include:
-
-        - You successfully update an Amazon EBS volume and the update succeeds. When you attempt another update within the cooldown window, that update will be subject to a cooldown period.
-        - You successfully update an Amazon EBS volume and the update succeeds but another change in your `update-stack` call fails. The rollback will be subject to a cooldown period.
-
-        For more information, see [Requirements for EBS volume modifications](https://docs.aws.amazon.com/ebs/latest/userguide/modify-volume-requirements.html) .
+        > - When you use AWS CloudFormation to update an Amazon EBS volume that modifies `Iops` , `Size` , or `VolumeType` , there is a cooldown period before another operation can occur. This can cause your stack to report being in `UPDATE_IN_PROGRESS` or `UPDATE_ROLLBACK_IN_PROGRESS` for long periods of time. Some common scenarios when you might encounter a cooldown period for Amazon EBS include:
+        > 
+        > - You successfully update an Amazon EBS volume and the update succeeds. When you attempt another update within the cooldown window, that update will be subject to a cooldown period.
+        > - You successfully update an Amazon EBS volume and the update succeeds but another change in your `update-stack` call fails. The rollback will be subject to a cooldown period.
+        > 
+        > For more information, see [Requirements for EBS volume modifications](https://docs.aws.amazon.com/ebs/latest/userguide/modify-volume-requirements.html) .
+        > - Amazon EBS does not support sizing down an Amazon EBS volume. AWS CloudFormation does not attempt to modify an Amazon EBS volume to a smaller size on rollback.
 
         *DeletionPolicy attribute*
 
@@ -383,6 +396,11 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] auto_enable_io: Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
         :param pulumi.Input[_builtins.str] availability_zone: The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
                 Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
+        :param pulumi.Input[_builtins.str] availability_zone_id: The ID of the Availability Zone in which to create the volume. For example, `use1-az1` .
+               
+               Either `AvailabilityZone` or `AvailabilityZoneId` must be specified, but not both.
+               
+               If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
         :param pulumi.Input[_builtins.bool] encrypted: Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.
                 Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances).
         :param pulumi.Input[_builtins.int] iops: The number of I/O operations per second (IOPS) to provision for the volume. Required for ``io1`` and ``io2`` volumes. Optional for ``gp3`` volumes. Omit for all other volume types. 
@@ -411,6 +429,7 @@ class Volume(pulumi.CustomResource):
                  +  st1 and sc1: ``125 - 16,384`` GiB
                  +  standard: ``1 - 1024`` GiB
         :param pulumi.Input[_builtins.str] snapshot_id: The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
+        :param pulumi.Input[_builtins.str] source_volume_id: The ID of the source EBS volume to copy. When specified, the volume is created as an exact copy of the specified volume. Only specify to create a volume copy. To create a new empty volume or to create a volume from a snapshot, omit this parameter,
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to apply to the volume during creation.
         :param pulumi.Input[_builtins.int] throughput: The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
                 This parameter is valid only for ``gp3`` volumes. The default value is 125.
@@ -440,18 +459,15 @@ class Volume(pulumi.CustomResource):
                  args: Optional[VolumeArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Specifies an Amazon Elastic Block Store (Amazon EBS) volume.
+        Specifies an Amazon Elastic Block Store (Amazon EBS) volume. You can create an empty volume, a volume from a snapshot, or a volume copy from an existing source volume.
 
-        When you use AWS CloudFormation to update an Amazon EBS volume that modifies `Iops` , `Size` , or `VolumeType` , there is a cooldown period before another operation can occur. This can cause your stack to report being in `UPDATE_IN_PROGRESS` or `UPDATE_ROLLBACK_IN_PROGRESS` for long periods of time.
-
-        Amazon EBS does not support sizing down an Amazon EBS volume. AWS CloudFormation does not attempt to modify an Amazon EBS volume to a smaller size on rollback.
-
-        Some common scenarios when you might encounter a cooldown period for Amazon EBS include:
-
-        - You successfully update an Amazon EBS volume and the update succeeds. When you attempt another update within the cooldown window, that update will be subject to a cooldown period.
-        - You successfully update an Amazon EBS volume and the update succeeds but another change in your `update-stack` call fails. The rollback will be subject to a cooldown period.
-
-        For more information, see [Requirements for EBS volume modifications](https://docs.aws.amazon.com/ebs/latest/userguide/modify-volume-requirements.html) .
+        > - When you use AWS CloudFormation to update an Amazon EBS volume that modifies `Iops` , `Size` , or `VolumeType` , there is a cooldown period before another operation can occur. This can cause your stack to report being in `UPDATE_IN_PROGRESS` or `UPDATE_ROLLBACK_IN_PROGRESS` for long periods of time. Some common scenarios when you might encounter a cooldown period for Amazon EBS include:
+        > 
+        > - You successfully update an Amazon EBS volume and the update succeeds. When you attempt another update within the cooldown window, that update will be subject to a cooldown period.
+        > - You successfully update an Amazon EBS volume and the update succeeds but another change in your `update-stack` call fails. The rollback will be subject to a cooldown period.
+        > 
+        > For more information, see [Requirements for EBS volume modifications](https://docs.aws.amazon.com/ebs/latest/userguide/modify-volume-requirements.html) .
+        > - Amazon EBS does not support sizing down an Amazon EBS volume. AWS CloudFormation does not attempt to modify an Amazon EBS volume to a smaller size on rollback.
 
         *DeletionPolicy attribute*
 
@@ -574,6 +590,13 @@ class Volume(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The ID of the Availability Zone in which to create the volume. For example, `use1-az1` .
+
+        Either `AvailabilityZone` or `AvailabilityZoneId` must be specified, but not both.
+
+        If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
+        """
         return pulumi.get(self, "availability_zone_id")
 
     @_builtins.property
@@ -656,6 +679,9 @@ class Volume(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="sourceVolumeId")
     def source_volume_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The ID of the source EBS volume to copy. When specified, the volume is created as an exact copy of the specified volume. Only specify to create a volume copy. To create a new empty volume or to create a volume from a snapshot, omit this parameter,
+        """
         return pulumi.get(self, "source_volume_id")
 
     @_builtins.property

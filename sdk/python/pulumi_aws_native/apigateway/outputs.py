@@ -1042,6 +1042,8 @@ class MethodIntegration(dict):
             suggest = "integration_http_method"
         elif key == "integrationResponses":
             suggest = "integration_responses"
+        elif key == "integrationTarget":
+            suggest = "integration_target"
         elif key == "passthroughBehavior":
             suggest = "passthrough_behavior"
         elif key == "requestParameters":
@@ -1074,6 +1076,7 @@ class MethodIntegration(dict):
                  credentials: Optional[_builtins.str] = None,
                  integration_http_method: Optional[_builtins.str] = None,
                  integration_responses: Optional[Sequence['outputs.MethodIntegrationResponse']] = None,
+                 integration_target: Optional[_builtins.str] = None,
                  passthrough_behavior: Optional['MethodIntegrationPassthroughBehavior'] = None,
                  request_parameters: Optional[Mapping[str, _builtins.str]] = None,
                  request_templates: Optional[Mapping[str, _builtins.str]] = None,
@@ -1095,9 +1098,11 @@ class MethodIntegration(dict):
         :param _builtins.str credentials: Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string `arn:aws:iam::\\*:user/\\*` . To use resource-based permissions on supported AWS services, specify null.
         :param _builtins.str integration_http_method: Specifies the integration's HTTP method type. For the Type property, if you specify `MOCK` , this property is optional. For Lambda integrations, you must set the integration method to `POST` . For all other types, you must specify this property.
         :param Sequence['MethodIntegrationResponse'] integration_responses: Specifies the integration's responses.
+        :param _builtins.str integration_target: The ALB or NLB listener to send the request to. Only supported for private integrations that use VPC links V2.
         :param 'MethodIntegrationPassthroughBehavior' passthrough_behavior: Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in `requestTemplates` . The valid value is one of the following: `WHEN_NO_MATCH` : passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. `WHEN_NO_TEMPLATES` : passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. `NEVER` : rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
         :param Mapping[str, _builtins.str] request_parameters: A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` must be a valid and unique method request parameter name.
         :param Mapping[str, _builtins.str] request_templates: Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
+        :param 'MethodIntegrationResponseTransferMode' response_transfer_mode: The response transfer mode of the integration. Use `STREAM` to have API Gateway stream response your back to you or use `BUFFERED` to have API Gateway wait to receive the complete response before beginning transmission.
         :param _builtins.int timeout_in_millis: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.
         :param _builtins.str uri: Specifies Uniform Resource Identifier (URI) of the integration endpoint.
                
@@ -1120,6 +1125,8 @@ class MethodIntegration(dict):
             pulumi.set(__self__, "integration_http_method", integration_http_method)
         if integration_responses is not None:
             pulumi.set(__self__, "integration_responses", integration_responses)
+        if integration_target is not None:
+            pulumi.set(__self__, "integration_target", integration_target)
         if passthrough_behavior is not None:
             pulumi.set(__self__, "passthrough_behavior", passthrough_behavior)
         if request_parameters is not None:
@@ -1210,6 +1217,14 @@ class MethodIntegration(dict):
         return pulumi.get(self, "integration_responses")
 
     @_builtins.property
+    @pulumi.getter(name="integrationTarget")
+    def integration_target(self) -> Optional[_builtins.str]:
+        """
+        The ALB or NLB listener to send the request to. Only supported for private integrations that use VPC links V2.
+        """
+        return pulumi.get(self, "integration_target")
+
+    @_builtins.property
     @pulumi.getter(name="passthroughBehavior")
     def passthrough_behavior(self) -> Optional['MethodIntegrationPassthroughBehavior']:
         """
@@ -1236,6 +1251,9 @@ class MethodIntegration(dict):
     @_builtins.property
     @pulumi.getter(name="responseTransferMode")
     def response_transfer_mode(self) -> Optional['MethodIntegrationResponseTransferMode']:
+        """
+        The response transfer mode of the integration. Use `STREAM` to have API Gateway stream response your back to you or use `BUFFERED` to have API Gateway wait to receive the complete response before beginning transmission.
+        """
         return pulumi.get(self, "response_transfer_mode")
 
     @_builtins.property

@@ -10,10 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
+    /// <summary>
+    /// A question automation answer.
+    /// </summary>
     public sealed class EvaluationFormQuestionAutomationAnswerSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of the answer sourcr
+        /// The automation answer source type.
         /// </summary>
         [Input("sourceType", required: true)]
         public Input<Pulumi.AwsNative.Connect.EvaluationFormQuestionAutomationAnswerSourceSourceType> SourceType { get; set; } = null!;

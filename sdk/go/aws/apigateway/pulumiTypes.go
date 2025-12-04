@@ -2077,12 +2077,15 @@ type MethodIntegration struct {
 	IntegrationHttpMethod *string `pulumi:"integrationHttpMethod"`
 	// Specifies the integration's responses.
 	IntegrationResponses []MethodIntegrationResponse `pulumi:"integrationResponses"`
+	// The ALB or NLB listener to send the request to. Only supported for private integrations that use VPC links V2.
+	IntegrationTarget *string `pulumi:"integrationTarget"`
 	// Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in `requestTemplates` . The valid value is one of the following: `WHEN_NO_MATCH` : passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. `WHEN_NO_TEMPLATES` : passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. `NEVER` : rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
 	PassthroughBehavior *MethodIntegrationPassthroughBehavior `pulumi:"passthroughBehavior"`
 	// A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` must be a valid and unique method request parameter name.
 	RequestParameters map[string]string `pulumi:"requestParameters"`
 	// Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
-	RequestTemplates     map[string]string                      `pulumi:"requestTemplates"`
+	RequestTemplates map[string]string `pulumi:"requestTemplates"`
+	// The response transfer mode of the integration. Use `STREAM` to have API Gateway stream response your back to you or use `BUFFERED` to have API Gateway wait to receive the complete response before beginning transmission.
 	ResponseTransferMode *MethodIntegrationResponseTransferMode `pulumi:"responseTransferMode"`
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.
 	TimeoutInMillis *int `pulumi:"timeoutInMillis"`
@@ -2127,12 +2130,15 @@ type MethodIntegrationArgs struct {
 	IntegrationHttpMethod pulumi.StringPtrInput `pulumi:"integrationHttpMethod"`
 	// Specifies the integration's responses.
 	IntegrationResponses MethodIntegrationResponseArrayInput `pulumi:"integrationResponses"`
+	// The ALB or NLB listener to send the request to. Only supported for private integrations that use VPC links V2.
+	IntegrationTarget pulumi.StringPtrInput `pulumi:"integrationTarget"`
 	// Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in `requestTemplates` . The valid value is one of the following: `WHEN_NO_MATCH` : passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. `WHEN_NO_TEMPLATES` : passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. `NEVER` : rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
 	PassthroughBehavior MethodIntegrationPassthroughBehaviorPtrInput `pulumi:"passthroughBehavior"`
 	// A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of `method.request.{location}.{name}` , where `location` is `querystring` , `path` , or `header` and `name` must be a valid and unique method request parameter name.
 	RequestParameters pulumi.StringMapInput `pulumi:"requestParameters"`
 	// Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.
-	RequestTemplates     pulumi.StringMapInput                         `pulumi:"requestTemplates"`
+	RequestTemplates pulumi.StringMapInput `pulumi:"requestTemplates"`
+	// The response transfer mode of the integration. Use `STREAM` to have API Gateway stream response your back to you or use `BUFFERED` to have API Gateway wait to receive the complete response before beginning transmission.
 	ResponseTransferMode MethodIntegrationResponseTransferModePtrInput `pulumi:"responseTransferMode"`
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.
 	TimeoutInMillis pulumi.IntPtrInput `pulumi:"timeoutInMillis"`
@@ -2266,6 +2272,11 @@ func (o MethodIntegrationOutput) IntegrationResponses() MethodIntegrationRespons
 	return o.ApplyT(func(v MethodIntegration) []MethodIntegrationResponse { return v.IntegrationResponses }).(MethodIntegrationResponseArrayOutput)
 }
 
+// The ALB or NLB listener to send the request to. Only supported for private integrations that use VPC links V2.
+func (o MethodIntegrationOutput) IntegrationTarget() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MethodIntegration) *string { return v.IntegrationTarget }).(pulumi.StringPtrOutput)
+}
+
 // Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in `requestTemplates` . The valid value is one of the following: `WHEN_NO_MATCH` : passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. `WHEN_NO_TEMPLATES` : passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. `NEVER` : rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
 func (o MethodIntegrationOutput) PassthroughBehavior() MethodIntegrationPassthroughBehaviorPtrOutput {
 	return o.ApplyT(func(v MethodIntegration) *MethodIntegrationPassthroughBehavior { return v.PassthroughBehavior }).(MethodIntegrationPassthroughBehaviorPtrOutput)
@@ -2281,6 +2292,7 @@ func (o MethodIntegrationOutput) RequestTemplates() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MethodIntegration) map[string]string { return v.RequestTemplates }).(pulumi.StringMapOutput)
 }
 
+// The response transfer mode of the integration. Use `STREAM` to have API Gateway stream response your back to you or use `BUFFERED` to have API Gateway wait to receive the complete response before beginning transmission.
 func (o MethodIntegrationOutput) ResponseTransferMode() MethodIntegrationResponseTransferModePtrOutput {
 	return o.ApplyT(func(v MethodIntegration) *MethodIntegrationResponseTransferMode { return v.ResponseTransferMode }).(MethodIntegrationResponseTransferModePtrOutput)
 }
@@ -2410,6 +2422,16 @@ func (o MethodIntegrationPtrOutput) IntegrationResponses() MethodIntegrationResp
 	}).(MethodIntegrationResponseArrayOutput)
 }
 
+// The ALB or NLB listener to send the request to. Only supported for private integrations that use VPC links V2.
+func (o MethodIntegrationPtrOutput) IntegrationTarget() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MethodIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IntegrationTarget
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies how the method request body of an unmapped content type will be passed through the integration request to the back end without transformation. A content type is unmapped if no mapping template is defined in the integration or the content type does not match any of the mapped content types, as specified in `requestTemplates` . The valid value is one of the following: `WHEN_NO_MATCH` : passes the method request body through the integration request to the back end without transformation when the method request content type does not match any content type associated with the mapping templates defined in the integration request. `WHEN_NO_TEMPLATES` : passes the method request body through the integration request to the back end without transformation when no mapping template is defined in the integration request. If a template is defined when this option is selected, the method request of an unmapped content-type will be rejected with an HTTP 415 Unsupported Media Type response. `NEVER` : rejects the method request with an HTTP 415 Unsupported Media Type response when either the method request content type does not match any content type associated with the mapping templates defined in the integration request or no mapping template is defined in the integration request.
 func (o MethodIntegrationPtrOutput) PassthroughBehavior() MethodIntegrationPassthroughBehaviorPtrOutput {
 	return o.ApplyT(func(v *MethodIntegration) *MethodIntegrationPassthroughBehavior {
@@ -2440,6 +2462,7 @@ func (o MethodIntegrationPtrOutput) RequestTemplates() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
+// The response transfer mode of the integration. Use `STREAM` to have API Gateway stream response your back to you or use `BUFFERED` to have API Gateway wait to receive the complete response before beginning transmission.
 func (o MethodIntegrationPtrOutput) ResponseTransferMode() MethodIntegrationResponseTransferModePtrOutput {
 	return o.ApplyT(func(v *MethodIntegration) *MethodIntegrationResponseTransferMode {
 		if v == nil {

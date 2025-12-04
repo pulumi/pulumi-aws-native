@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         [Output("sessionLoggerArn")]
         public Output<string> SessionLoggerArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags of the session logger.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -154,6 +157,10 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags of the session logger.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

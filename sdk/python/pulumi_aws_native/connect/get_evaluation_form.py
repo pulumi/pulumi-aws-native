@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEvaluationFormResult:
-    def __init__(__self__, auto_evaluation_configuration=None, description=None, evaluation_form_arn=None, instance_arn=None, items=None, scoring_strategy=None, status=None, tags=None, title=None):
+    def __init__(__self__, auto_evaluation_configuration=None, description=None, evaluation_form_arn=None, instance_arn=None, items=None, language_configuration=None, scoring_strategy=None, status=None, tags=None, target_configuration=None, title=None):
         if auto_evaluation_configuration and not isinstance(auto_evaluation_configuration, dict):
             raise TypeError("Expected argument 'auto_evaluation_configuration' to be a dict")
         pulumi.set(__self__, "auto_evaluation_configuration", auto_evaluation_configuration)
@@ -42,6 +42,9 @@ class GetEvaluationFormResult:
         if items and not isinstance(items, list):
             raise TypeError("Expected argument 'items' to be a list")
         pulumi.set(__self__, "items", items)
+        if language_configuration and not isinstance(language_configuration, dict):
+            raise TypeError("Expected argument 'language_configuration' to be a dict")
+        pulumi.set(__self__, "language_configuration", language_configuration)
         if scoring_strategy and not isinstance(scoring_strategy, dict):
             raise TypeError("Expected argument 'scoring_strategy' to be a dict")
         pulumi.set(__self__, "scoring_strategy", scoring_strategy)
@@ -51,6 +54,9 @@ class GetEvaluationFormResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if target_configuration and not isinstance(target_configuration, dict):
+            raise TypeError("Expected argument 'target_configuration' to be a dict")
+        pulumi.set(__self__, "target_configuration", target_configuration)
         if title and not isinstance(title, str):
             raise TypeError("Expected argument 'title' to be a str")
         pulumi.set(__self__, "title", title)
@@ -58,6 +64,9 @@ class GetEvaluationFormResult:
     @_builtins.property
     @pulumi.getter(name="autoEvaluationConfiguration")
     def auto_evaluation_configuration(self) -> Optional['outputs.EvaluationFormAutoEvaluationConfiguration']:
+        """
+        The automatic evaluation configuration of an evaluation form.
+        """
         return pulumi.get(self, "auto_evaluation_configuration")
 
     @_builtins.property
@@ -96,6 +105,11 @@ class GetEvaluationFormResult:
         return pulumi.get(self, "items")
 
     @_builtins.property
+    @pulumi.getter(name="languageConfiguration")
+    def language_configuration(self) -> Optional['outputs.EvaluationFormLanguageConfiguration']:
+        return pulumi.get(self, "language_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="scoringStrategy")
     def scoring_strategy(self) -> Optional['outputs.EvaluationFormScoringStrategy']:
         """
@@ -121,6 +135,11 @@ class GetEvaluationFormResult:
         return pulumi.get(self, "tags")
 
     @_builtins.property
+    @pulumi.getter(name="targetConfiguration")
+    def target_configuration(self) -> Optional['outputs.EvaluationFormTargetConfiguration']:
+        return pulumi.get(self, "target_configuration")
+
+    @_builtins.property
     @pulumi.getter
     def title(self) -> Optional[_builtins.str]:
         """
@@ -140,9 +159,11 @@ class AwaitableGetEvaluationFormResult(GetEvaluationFormResult):
             evaluation_form_arn=self.evaluation_form_arn,
             instance_arn=self.instance_arn,
             items=self.items,
+            language_configuration=self.language_configuration,
             scoring_strategy=self.scoring_strategy,
             status=self.status,
             tags=self.tags,
+            target_configuration=self.target_configuration,
             title=self.title)
 
 
@@ -165,9 +186,11 @@ def get_evaluation_form(evaluation_form_arn: Optional[_builtins.str] = None,
         evaluation_form_arn=pulumi.get(__ret__, 'evaluation_form_arn'),
         instance_arn=pulumi.get(__ret__, 'instance_arn'),
         items=pulumi.get(__ret__, 'items'),
+        language_configuration=pulumi.get(__ret__, 'language_configuration'),
         scoring_strategy=pulumi.get(__ret__, 'scoring_strategy'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
+        target_configuration=pulumi.get(__ret__, 'target_configuration'),
         title=pulumi.get(__ret__, 'title'))
 def get_evaluation_form_output(evaluation_form_arn: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEvaluationFormResult]:
@@ -187,7 +210,9 @@ def get_evaluation_form_output(evaluation_form_arn: Optional[pulumi.Input[_built
         evaluation_form_arn=pulumi.get(__response__, 'evaluation_form_arn'),
         instance_arn=pulumi.get(__response__, 'instance_arn'),
         items=pulumi.get(__response__, 'items'),
+        language_configuration=pulumi.get(__response__, 'language_configuration'),
         scoring_strategy=pulumi.get(__response__, 'scoring_strategy'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),
+        target_configuration=pulumi.get(__response__, 'target_configuration'),
         title=pulumi.get(__response__, 'title')))

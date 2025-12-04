@@ -38,6 +38,9 @@ namespace Pulumi.AwsNative.Athena.Inputs
         [Input("enforceWorkGroupConfiguration")]
         public Input<bool>? EnforceWorkGroupConfiguration { get; set; }
 
+        [Input("engineConfiguration")]
+        public Input<Inputs.WorkGroupEngineConfigurationArgs>? EngineConfiguration { get; set; }
+
         /// <summary>
         /// The engine version that all queries running on the workgroup use.
         /// </summary>
@@ -55,6 +58,12 @@ namespace Pulumi.AwsNative.Athena.Inputs
         /// </summary>
         [Input("managedQueryResultsConfiguration")]
         public Input<Inputs.WorkGroupManagedQueryResultsConfigurationArgs>? ManagedQueryResultsConfiguration { get; set; }
+
+        /// <summary>
+        /// Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc.
+        /// </summary>
+        [Input("monitoringConfiguration")]
+        public Input<Inputs.WorkGroupMonitoringConfigurationArgs>? MonitoringConfiguration { get; set; }
 
         /// <summary>
         /// Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.

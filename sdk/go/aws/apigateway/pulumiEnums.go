@@ -1366,6 +1366,7 @@ func (in *methodIntegrationResponseContentHandlingPtr) ToMethodIntegrationRespon
 	return pulumi.ToOutputWithContext(ctx, in).(MethodIntegrationResponseContentHandlingPtrOutput)
 }
 
+// The response transfer mode of the integration. Use `STREAM` to have API Gateway stream response your back to you or use `BUFFERED` to have API Gateway wait to receive the complete response before beginning transmission.
 type MethodIntegrationResponseTransferMode string
 
 const (

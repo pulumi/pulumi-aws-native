@@ -56,6 +56,8 @@ type LookupDomainResult struct {
 	TagPropagation *DomainTagPropagation `pulumi:"tagPropagation"`
 	// The URL to the created domain.
 	Url *string `pulumi:"url"`
+	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts ...pulumi.InvokeOption) LookupDomainResultOutput {
@@ -158,6 +160,11 @@ func (o LookupDomainResultOutput) TagPropagation() DomainTagPropagationPtrOutput
 // The URL to the created domain.
 func (o LookupDomainResultOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+func (o LookupDomainResultOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
 
 func init() {

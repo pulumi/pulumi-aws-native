@@ -10,6 +10,11 @@ export type Alias = import("./alias").Alias;
 export const Alias: typeof import("./alias").Alias = null as any;
 utilities.lazyLoad(exports, ["Alias"], () => require("./alias"));
 
+export { CapacityProviderArgs } from "./capacityProvider";
+export type CapacityProvider = import("./capacityProvider").CapacityProvider;
+export const CapacityProvider: typeof import("./capacityProvider").CapacityProvider = null as any;
+utilities.lazyLoad(exports, ["CapacityProvider"], () => require("./capacityProvider"));
+
 export { CodeSigningConfigArgs } from "./codeSigningConfig";
 export type CodeSigningConfig = import("./codeSigningConfig").CodeSigningConfig;
 export const CodeSigningConfig: typeof import("./codeSigningConfig").CodeSigningConfig = null as any;
@@ -34,6 +39,11 @@ export { GetAliasArgs, GetAliasResult, GetAliasOutputArgs } from "./getAlias";
 export const getAlias: typeof import("./getAlias").getAlias = null as any;
 export const getAliasOutput: typeof import("./getAlias").getAliasOutput = null as any;
 utilities.lazyLoad(exports, ["getAlias","getAliasOutput"], () => require("./getAlias"));
+
+export { GetCapacityProviderArgs, GetCapacityProviderResult, GetCapacityProviderOutputArgs } from "./getCapacityProvider";
+export const getCapacityProvider: typeof import("./getCapacityProvider").getCapacityProvider = null as any;
+export const getCapacityProviderOutput: typeof import("./getCapacityProvider").getCapacityProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityProvider","getCapacityProviderOutput"], () => require("./getCapacityProvider"));
 
 export { GetCodeSigningConfigArgs, GetCodeSigningConfigResult, GetCodeSigningConfigOutputArgs } from "./getCodeSigningConfig";
 export const getCodeSigningConfig: typeof import("./getCodeSigningConfig").getCodeSigningConfig = null as any;
@@ -115,6 +125,8 @@ const _module = {
         switch (type) {
             case "aws-native:lambda:Alias":
                 return new Alias(name, <any>undefined, { urn })
+            case "aws-native:lambda:CapacityProvider":
+                return new CapacityProvider(name, <any>undefined, { urn })
             case "aws-native:lambda:CodeSigningConfig":
                 return new CodeSigningConfig(name, <any>undefined, { urn })
             case "aws-native:lambda:EventInvokeConfig":

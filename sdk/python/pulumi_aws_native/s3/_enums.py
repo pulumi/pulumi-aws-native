@@ -11,8 +11,10 @@ __all__ = [
     'AccessGrantPermission',
     'AccessGrantS3PrefixType',
     'AccessPointNetworkOrigin',
+    'BucketAbacStatus',
     'BucketAccelerateConfigurationAccelerationStatus',
     'BucketAccessControl',
+    'BucketBlockedEncryptionTypeListItem',
     'BucketCorsRuleAllowedMethodsItem',
     'BucketDefaultRetentionMode',
     'BucketDeleteMarkerReplicationStatus',
@@ -84,6 +86,15 @@ class AccessPointNetworkOrigin(_builtins.str, Enum):
     VPC = "VPC"
 
 
+@pulumi.type_token("aws-native:s3:BucketAbacStatus")
+class BucketAbacStatus(_builtins.str, Enum):
+    """
+    The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see [Using tags with S3 general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html) .
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
 @pulumi.type_token("aws-native:s3:BucketAccelerateConfigurationAccelerationStatus")
 class BucketAccelerateConfigurationAccelerationStatus(_builtins.str, Enum):
     """
@@ -109,6 +120,12 @@ class BucketAccessControl(_builtins.str, Enum):
     PRIVATE = "Private"
     PUBLIC_READ = "PublicRead"
     PUBLIC_READ_WRITE = "PublicReadWrite"
+
+
+@pulumi.type_token("aws-native:s3:BucketBlockedEncryptionTypeListItem")
+class BucketBlockedEncryptionTypeListItem(_builtins.str, Enum):
+    NONE = "NONE"
+    SSE_C = "SSE-C"
 
 
 @pulumi.type_token("aws-native:s3:BucketCorsRuleAllowedMethodsItem")

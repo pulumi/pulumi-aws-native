@@ -267,6 +267,98 @@ func (o AuthPolicyStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
+// The current status of the domain verification process.
+type DomainVerificationStatus string
+
+const (
+	DomainVerificationStatusVerified             = DomainVerificationStatus("VERIFIED")
+	DomainVerificationStatusPending              = DomainVerificationStatus("PENDING")
+	DomainVerificationStatusVerificationTimedOut = DomainVerificationStatus("VERIFICATION_TIMED_OUT")
+)
+
+type DomainVerificationStatusOutput struct{ *pulumi.OutputState }
+
+func (DomainVerificationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainVerificationStatus)(nil)).Elem()
+}
+
+func (o DomainVerificationStatusOutput) ToDomainVerificationStatusOutput() DomainVerificationStatusOutput {
+	return o
+}
+
+func (o DomainVerificationStatusOutput) ToDomainVerificationStatusOutputWithContext(ctx context.Context) DomainVerificationStatusOutput {
+	return o
+}
+
+func (o DomainVerificationStatusOutput) ToDomainVerificationStatusPtrOutput() DomainVerificationStatusPtrOutput {
+	return o.ToDomainVerificationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DomainVerificationStatusOutput) ToDomainVerificationStatusPtrOutputWithContext(ctx context.Context) DomainVerificationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainVerificationStatus) *DomainVerificationStatus {
+		return &v
+	}).(DomainVerificationStatusPtrOutput)
+}
+
+func (o DomainVerificationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainVerificationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainVerificationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainVerificationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainVerificationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainVerificationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainVerificationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainVerificationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainVerificationStatus)(nil)).Elem()
+}
+
+func (o DomainVerificationStatusPtrOutput) ToDomainVerificationStatusPtrOutput() DomainVerificationStatusPtrOutput {
+	return o
+}
+
+func (o DomainVerificationStatusPtrOutput) ToDomainVerificationStatusPtrOutputWithContext(ctx context.Context) DomainVerificationStatusPtrOutput {
+	return o
+}
+
+func (o DomainVerificationStatusPtrOutput) Elem() DomainVerificationStatusOutput {
+	return o.ApplyT(func(v *DomainVerificationStatus) DomainVerificationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DomainVerificationStatus
+		return ret
+	}).(DomainVerificationStatusOutput)
+}
+
+func (o DomainVerificationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainVerificationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainVerificationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The listener protocol.
 type ListenerProtocol string
 
@@ -1885,6 +1977,176 @@ func (o ServiceNetworkServiceAssociationStatusPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
+// The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+type ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference string
+
+const (
+	ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceVerifiedDomainsOnly                = ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference("VERIFIED_DOMAINS_ONLY")
+	ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceAllDomains                         = ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference("ALL_DOMAINS")
+	ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceVerifiedDomainsAndSpecifiedDomains = ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference("VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS")
+	ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceSpecifiedDomainsOnly               = ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference("SPECIFIED_DOMAINS_ONLY")
+)
+
+func (ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference)(nil)).Elem()
+}
+
+func (e ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference) ToServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput() ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput {
+	return pulumi.ToOutput(e).(ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput)
+}
+
+func (e ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference) ToServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutputWithContext(ctx context.Context) ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput)
+}
+
+func (e ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference) ToServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput() ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput {
+	return e.ToServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutputWithContext(context.Background())
+}
+
+func (e ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference) ToServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutputWithContext(ctx context.Context) ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput {
+	return ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference(e).ToServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutputWithContext(ctx).ToServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutputWithContext(ctx)
+}
+
+func (e ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference)(nil)).Elem()
+}
+
+func (o ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput) ToServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput() ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput {
+	return o
+}
+
+func (o ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput) ToServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutputWithContext(ctx context.Context) ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput {
+	return o
+}
+
+func (o ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput) ToServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput() ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput {
+	return o.ToServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput) ToServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutputWithContext(ctx context.Context) ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference) *ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference {
+		return &v
+	}).(ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput)
+}
+
+func (o ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference)(nil)).Elem()
+}
+
+func (o ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput) ToServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput() ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput {
+	return o
+}
+
+func (o ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput) ToServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutputWithContext(ctx context.Context) ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput {
+	return o
+}
+
+func (o ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput) Elem() ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput {
+	return o.ApplyT(func(v *ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference) ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference
+		return ret
+	}).(ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput)
+}
+
+func (o ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceInput is an input type that accepts values of the ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference enum
+// A concrete instance of `ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceInput` can be one of the following:
+//
+//	ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceVerifiedDomainsOnly
+//	ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceAllDomains
+//	ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceVerifiedDomainsAndSpecifiedDomains
+//	ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceSpecifiedDomainsOnly
+type ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceInput interface {
+	pulumi.Input
+
+	ToServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput() ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput
+	ToServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutputWithContext(context.Context) ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput
+}
+
+var serviceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrType = reflect.TypeOf((**ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference)(nil)).Elem()
+
+type ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrInput interface {
+	pulumi.Input
+
+	ToServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput() ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput
+	ToServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutputWithContext(context.Context) ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput
+}
+
+type serviceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtr string
+
+func ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtr(v string) ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrInput {
+	return (*serviceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtr)(&v)
+}
+
+func (*serviceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtr) ElementType() reflect.Type {
+	return serviceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrType
+}
+
+func (in *serviceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtr) ToServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput() ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput {
+	return pulumi.ToOutput(in).(ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput)
+}
+
+func (in *serviceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtr) ToServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutputWithContext(ctx context.Context) ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput)
+}
+
 // The status of the association.
 type ServiceNetworkVpcAssociationStatus string
 
@@ -3359,6 +3621,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAuthTypePtrInput)(nil)).Elem(), ServiceAuthType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAuthTypeInput)(nil)).Elem(), ServiceNetworkAuthType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkAuthTypePtrInput)(nil)).Elem(), ServiceNetworkAuthType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceInput)(nil)).Elem(), ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference("VERIFIED_DOMAINS_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrInput)(nil)).Elem(), ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference("VERIFIED_DOMAINS_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigIpAddressTypeInput)(nil)).Elem(), TargetGroupConfigIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigIpAddressTypePtrInput)(nil)).Elem(), TargetGroupConfigIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigLambdaEventStructureVersionInput)(nil)).Elem(), TargetGroupConfigLambdaEventStructureVersion("V1"))
@@ -3377,6 +3641,8 @@ func init() {
 	pulumi.RegisterOutputType(AccessLogSubscriptionServiceNetworkLogTypePtrOutput{})
 	pulumi.RegisterOutputType(AuthPolicyStateEnumOutput{})
 	pulumi.RegisterOutputType(AuthPolicyStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(DomainVerificationStatusOutput{})
+	pulumi.RegisterOutputType(DomainVerificationStatusPtrOutput{})
 	pulumi.RegisterOutputType(ListenerProtocolOutput{})
 	pulumi.RegisterOutputType(ListenerProtocolPtrOutput{})
 	pulumi.RegisterOutputType(ResourceConfigurationAuthTypeOutput{})
@@ -3397,6 +3663,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceNetworkAuthTypePtrOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkServiceAssociationStatusOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkServiceAssociationStatusPtrOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferenceOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreferencePtrOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkVpcAssociationStatusOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkVpcAssociationStatusPtrOutput{})
 	pulumi.RegisterOutputType(ServiceStatusOutput{})

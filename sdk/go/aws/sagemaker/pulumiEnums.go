@@ -1211,6 +1211,174 @@ func (o ClusterDeepHealthCheckTypeArrayOutput) Index(i pulumi.IntInput) ClusterD
 	}).(ClusterDeepHealthCheckTypeOutput)
 }
 
+// The effect of the taint.
+type ClusterKubernetesTaintEffect string
+
+const (
+	ClusterKubernetesTaintEffectNoSchedule       = ClusterKubernetesTaintEffect("NoSchedule")
+	ClusterKubernetesTaintEffectPreferNoSchedule = ClusterKubernetesTaintEffect("PreferNoSchedule")
+	ClusterKubernetesTaintEffectNoExecute        = ClusterKubernetesTaintEffect("NoExecute")
+)
+
+func (ClusterKubernetesTaintEffect) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubernetesTaintEffect)(nil)).Elem()
+}
+
+func (e ClusterKubernetesTaintEffect) ToClusterKubernetesTaintEffectOutput() ClusterKubernetesTaintEffectOutput {
+	return pulumi.ToOutput(e).(ClusterKubernetesTaintEffectOutput)
+}
+
+func (e ClusterKubernetesTaintEffect) ToClusterKubernetesTaintEffectOutputWithContext(ctx context.Context) ClusterKubernetesTaintEffectOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterKubernetesTaintEffectOutput)
+}
+
+func (e ClusterKubernetesTaintEffect) ToClusterKubernetesTaintEffectPtrOutput() ClusterKubernetesTaintEffectPtrOutput {
+	return e.ToClusterKubernetesTaintEffectPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterKubernetesTaintEffect) ToClusterKubernetesTaintEffectPtrOutputWithContext(ctx context.Context) ClusterKubernetesTaintEffectPtrOutput {
+	return ClusterKubernetesTaintEffect(e).ToClusterKubernetesTaintEffectOutputWithContext(ctx).ToClusterKubernetesTaintEffectPtrOutputWithContext(ctx)
+}
+
+func (e ClusterKubernetesTaintEffect) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterKubernetesTaintEffect) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterKubernetesTaintEffect) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterKubernetesTaintEffect) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterKubernetesTaintEffectOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubernetesTaintEffectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKubernetesTaintEffect)(nil)).Elem()
+}
+
+func (o ClusterKubernetesTaintEffectOutput) ToClusterKubernetesTaintEffectOutput() ClusterKubernetesTaintEffectOutput {
+	return o
+}
+
+func (o ClusterKubernetesTaintEffectOutput) ToClusterKubernetesTaintEffectOutputWithContext(ctx context.Context) ClusterKubernetesTaintEffectOutput {
+	return o
+}
+
+func (o ClusterKubernetesTaintEffectOutput) ToClusterKubernetesTaintEffectPtrOutput() ClusterKubernetesTaintEffectPtrOutput {
+	return o.ToClusterKubernetesTaintEffectPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubernetesTaintEffectOutput) ToClusterKubernetesTaintEffectPtrOutputWithContext(ctx context.Context) ClusterKubernetesTaintEffectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKubernetesTaintEffect) *ClusterKubernetesTaintEffect {
+		return &v
+	}).(ClusterKubernetesTaintEffectPtrOutput)
+}
+
+func (o ClusterKubernetesTaintEffectOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterKubernetesTaintEffectOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterKubernetesTaintEffect) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterKubernetesTaintEffectOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubernetesTaintEffectOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterKubernetesTaintEffect) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterKubernetesTaintEffectPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterKubernetesTaintEffectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterKubernetesTaintEffect)(nil)).Elem()
+}
+
+func (o ClusterKubernetesTaintEffectPtrOutput) ToClusterKubernetesTaintEffectPtrOutput() ClusterKubernetesTaintEffectPtrOutput {
+	return o
+}
+
+func (o ClusterKubernetesTaintEffectPtrOutput) ToClusterKubernetesTaintEffectPtrOutputWithContext(ctx context.Context) ClusterKubernetesTaintEffectPtrOutput {
+	return o
+}
+
+func (o ClusterKubernetesTaintEffectPtrOutput) Elem() ClusterKubernetesTaintEffectOutput {
+	return o.ApplyT(func(v *ClusterKubernetesTaintEffect) ClusterKubernetesTaintEffect {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterKubernetesTaintEffect
+		return ret
+	}).(ClusterKubernetesTaintEffectOutput)
+}
+
+func (o ClusterKubernetesTaintEffectPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterKubernetesTaintEffectPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterKubernetesTaintEffect) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterKubernetesTaintEffectInput is an input type that accepts values of the ClusterKubernetesTaintEffect enum
+// A concrete instance of `ClusterKubernetesTaintEffectInput` can be one of the following:
+//
+//	ClusterKubernetesTaintEffectNoSchedule
+//	ClusterKubernetesTaintEffectPreferNoSchedule
+//	ClusterKubernetesTaintEffectNoExecute
+type ClusterKubernetesTaintEffectInput interface {
+	pulumi.Input
+
+	ToClusterKubernetesTaintEffectOutput() ClusterKubernetesTaintEffectOutput
+	ToClusterKubernetesTaintEffectOutputWithContext(context.Context) ClusterKubernetesTaintEffectOutput
+}
+
+var clusterKubernetesTaintEffectPtrType = reflect.TypeOf((**ClusterKubernetesTaintEffect)(nil)).Elem()
+
+type ClusterKubernetesTaintEffectPtrInput interface {
+	pulumi.Input
+
+	ToClusterKubernetesTaintEffectPtrOutput() ClusterKubernetesTaintEffectPtrOutput
+	ToClusterKubernetesTaintEffectPtrOutputWithContext(context.Context) ClusterKubernetesTaintEffectPtrOutput
+}
+
+type clusterKubernetesTaintEffectPtr string
+
+func ClusterKubernetesTaintEffectPtr(v string) ClusterKubernetesTaintEffectPtrInput {
+	return (*clusterKubernetesTaintEffectPtr)(&v)
+}
+
+func (*clusterKubernetesTaintEffectPtr) ElementType() reflect.Type {
+	return clusterKubernetesTaintEffectPtrType
+}
+
+func (in *clusterKubernetesTaintEffectPtr) ToClusterKubernetesTaintEffectPtrOutput() ClusterKubernetesTaintEffectPtrOutput {
+	return pulumi.ToOutput(in).(ClusterKubernetesTaintEffectPtrOutput)
+}
+
+func (in *clusterKubernetesTaintEffectPtr) ToClusterKubernetesTaintEffectPtrOutputWithContext(ctx context.Context) ClusterKubernetesTaintEffectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterKubernetesTaintEffectPtrOutput)
+}
+
 // Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
 type ClusterNodeProvisioningMode string
 
@@ -22474,6 +22642,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDeepHealthCheckTypeInput)(nil)).Elem(), ClusterDeepHealthCheckType("InstanceStress"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDeepHealthCheckTypePtrInput)(nil)).Elem(), ClusterDeepHealthCheckType("InstanceStress"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDeepHealthCheckTypeArrayInput)(nil)).Elem(), ClusterDeepHealthCheckTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesTaintEffectInput)(nil)).Elem(), ClusterKubernetesTaintEffect("NoSchedule"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesTaintEffectPtrInput)(nil)).Elem(), ClusterKubernetesTaintEffect("NoSchedule"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeProvisioningModeInput)(nil)).Elem(), ClusterNodeProvisioningMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeProvisioningModePtrInput)(nil)).Elem(), ClusterNodeProvisioningMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeRecoveryInput)(nil)).Elem(), ClusterNodeRecovery("Automatic"))
@@ -22717,6 +22887,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterDeepHealthCheckTypeOutput{})
 	pulumi.RegisterOutputType(ClusterDeepHealthCheckTypePtrOutput{})
 	pulumi.RegisterOutputType(ClusterDeepHealthCheckTypeArrayOutput{})
+	pulumi.RegisterOutputType(ClusterKubernetesTaintEffectOutput{})
+	pulumi.RegisterOutputType(ClusterKubernetesTaintEffectPtrOutput{})
 	pulumi.RegisterOutputType(ClusterNodeProvisioningModeOutput{})
 	pulumi.RegisterOutputType(ClusterNodeProvisioningModePtrOutput{})
 	pulumi.RegisterOutputType(ClusterNodeRecoveryOutput{})

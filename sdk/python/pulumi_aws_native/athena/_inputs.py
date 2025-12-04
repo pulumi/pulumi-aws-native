@@ -22,6 +22,10 @@ __all__ = [
     'CapacityReservationCapacityAssignmentArgsDict',
     'WorkGroupAclConfigurationArgs',
     'WorkGroupAclConfigurationArgsDict',
+    'WorkGroupClassificationArgs',
+    'WorkGroupClassificationArgsDict',
+    'WorkGroupCloudWatchLoggingConfigurationArgs',
+    'WorkGroupCloudWatchLoggingConfigurationArgsDict',
     'WorkGroupConfigurationUpdatesArgs',
     'WorkGroupConfigurationUpdatesArgsDict',
     'WorkGroupConfigurationArgs',
@@ -30,16 +34,24 @@ __all__ = [
     'WorkGroupCustomerContentEncryptionConfigurationArgsDict',
     'WorkGroupEncryptionConfigurationArgs',
     'WorkGroupEncryptionConfigurationArgsDict',
+    'WorkGroupEngineConfigurationArgs',
+    'WorkGroupEngineConfigurationArgsDict',
     'WorkGroupEngineVersionArgs',
     'WorkGroupEngineVersionArgsDict',
+    'WorkGroupManagedLoggingConfigurationArgs',
+    'WorkGroupManagedLoggingConfigurationArgsDict',
     'WorkGroupManagedQueryResultsConfigurationArgs',
     'WorkGroupManagedQueryResultsConfigurationArgsDict',
     'WorkGroupManagedStorageEncryptionConfigurationArgs',
     'WorkGroupManagedStorageEncryptionConfigurationArgsDict',
+    'WorkGroupMonitoringConfigurationArgs',
+    'WorkGroupMonitoringConfigurationArgsDict',
     'WorkGroupResultConfigurationUpdatesArgs',
     'WorkGroupResultConfigurationUpdatesArgsDict',
     'WorkGroupResultConfigurationArgs',
     'WorkGroupResultConfigurationArgsDict',
+    'WorkGroupS3LoggingConfigurationArgs',
+    'WorkGroupS3LoggingConfigurationArgsDict',
 ]
 
 MYPY = False
@@ -137,6 +149,158 @@ class WorkGroupAclConfigurationArgs:
 
 
 if not MYPY:
+    class WorkGroupClassificationArgsDict(TypedDict):
+        """
+        A classification refers to a set of specific configurations.
+        """
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The name of the configuration classification.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+        """
+        A set of properties specified within a configuration classification.
+        """
+elif False:
+    WorkGroupClassificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkGroupClassificationArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        A classification refers to a set of specific configurations.
+        :param pulumi.Input[_builtins.str] name: The name of the configuration classification.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: A set of properties specified within a configuration classification.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the configuration classification.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A set of properties specified within a configuration classification.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "properties", value)
+
+
+if not MYPY:
+    class WorkGroupCloudWatchLoggingConfigurationArgsDict(TypedDict):
+        """
+        Configuration settings for delivering logs to Amazon CloudWatch log groups.
+        """
+        enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Enables CloudWatch logging.
+        """
+        log_group: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
+        """
+        log_stream_name_prefix: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Prefix for the CloudWatch log stream name.
+        """
+        log_types: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
+        """
+        The types of logs that you want to publish to CloudWatch.
+        """
+elif False:
+    WorkGroupCloudWatchLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkGroupCloudWatchLoggingConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 log_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_stream_name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_types: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None):
+        """
+        Configuration settings for delivering logs to Amazon CloudWatch log groups.
+        :param pulumi.Input[_builtins.bool] enabled: Enables CloudWatch logging.
+        :param pulumi.Input[_builtins.str] log_group: The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
+        :param pulumi.Input[_builtins.str] log_stream_name_prefix: Prefix for the CloudWatch log stream name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]] log_types: The types of logs that you want to publish to CloudWatch.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+        if log_stream_name_prefix is not None:
+            pulumi.set(__self__, "log_stream_name_prefix", log_stream_name_prefix)
+        if log_types is not None:
+            pulumi.set(__self__, "log_types", log_types)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables CloudWatch logging.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
+        """
+        return pulumi.get(self, "log_group")
+
+    @log_group.setter
+    def log_group(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "log_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logStreamNamePrefix")
+    def log_stream_name_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Prefix for the CloudWatch log stream name.
+        """
+        return pulumi.get(self, "log_stream_name_prefix")
+
+    @log_stream_name_prefix.setter
+    def log_stream_name_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "log_stream_name_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logTypes")
+    def log_types(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]:
+        """
+        The types of logs that you want to publish to CloudWatch.
+        """
+        return pulumi.get(self, "log_types")
+
+    @log_types.setter
+    def log_types(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]):
+        pulumi.set(self, "log_types", value)
+
+
+if not MYPY:
     class WorkGroupConfigurationUpdatesArgsDict(TypedDict):
         """
         The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified. 
@@ -145,9 +309,11 @@ if not MYPY:
         bytes_scanned_cutoff_per_query: NotRequired[pulumi.Input[_builtins.int]]
         customer_content_encryption_configuration: NotRequired[pulumi.Input['WorkGroupCustomerContentEncryptionConfigurationArgsDict']]
         enforce_work_group_configuration: NotRequired[pulumi.Input[_builtins.bool]]
+        engine_configuration: NotRequired[pulumi.Input['WorkGroupEngineConfigurationArgsDict']]
         engine_version: NotRequired[pulumi.Input['WorkGroupEngineVersionArgsDict']]
         execution_role: NotRequired[pulumi.Input[_builtins.str]]
         managed_query_results_configuration: NotRequired[pulumi.Input['WorkGroupManagedQueryResultsConfigurationArgsDict']]
+        monitoring_configuration: NotRequired[pulumi.Input['WorkGroupMonitoringConfigurationArgsDict']]
         publish_cloud_watch_metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
         remove_bytes_scanned_cutoff_per_query: NotRequired[pulumi.Input[_builtins.bool]]
         remove_customer_content_encryption_configuration: NotRequired[pulumi.Input[_builtins.bool]]
@@ -163,9 +329,11 @@ class WorkGroupConfigurationUpdatesArgs:
                  bytes_scanned_cutoff_per_query: Optional[pulumi.Input[_builtins.int]] = None,
                  customer_content_encryption_configuration: Optional[pulumi.Input['WorkGroupCustomerContentEncryptionConfigurationArgs']] = None,
                  enforce_work_group_configuration: Optional[pulumi.Input[_builtins.bool]] = None,
+                 engine_configuration: Optional[pulumi.Input['WorkGroupEngineConfigurationArgs']] = None,
                  engine_version: Optional[pulumi.Input['WorkGroupEngineVersionArgs']] = None,
                  execution_role: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_query_results_configuration: Optional[pulumi.Input['WorkGroupManagedQueryResultsConfigurationArgs']] = None,
+                 monitoring_configuration: Optional[pulumi.Input['WorkGroupMonitoringConfigurationArgs']] = None,
                  publish_cloud_watch_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  remove_bytes_scanned_cutoff_per_query: Optional[pulumi.Input[_builtins.bool]] = None,
                  remove_customer_content_encryption_configuration: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -182,12 +350,16 @@ class WorkGroupConfigurationUpdatesArgs:
             pulumi.set(__self__, "customer_content_encryption_configuration", customer_content_encryption_configuration)
         if enforce_work_group_configuration is not None:
             pulumi.set(__self__, "enforce_work_group_configuration", enforce_work_group_configuration)
+        if engine_configuration is not None:
+            pulumi.set(__self__, "engine_configuration", engine_configuration)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
         if execution_role is not None:
             pulumi.set(__self__, "execution_role", execution_role)
         if managed_query_results_configuration is not None:
             pulumi.set(__self__, "managed_query_results_configuration", managed_query_results_configuration)
+        if monitoring_configuration is not None:
+            pulumi.set(__self__, "monitoring_configuration", monitoring_configuration)
         if publish_cloud_watch_metrics_enabled is not None:
             pulumi.set(__self__, "publish_cloud_watch_metrics_enabled", publish_cloud_watch_metrics_enabled)
         if remove_bytes_scanned_cutoff_per_query is not None:
@@ -236,6 +408,15 @@ class WorkGroupConfigurationUpdatesArgs:
         pulumi.set(self, "enforce_work_group_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="engineConfiguration")
+    def engine_configuration(self) -> Optional[pulumi.Input['WorkGroupEngineConfigurationArgs']]:
+        return pulumi.get(self, "engine_configuration")
+
+    @engine_configuration.setter
+    def engine_configuration(self, value: Optional[pulumi.Input['WorkGroupEngineConfigurationArgs']]):
+        pulumi.set(self, "engine_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input['WorkGroupEngineVersionArgs']]:
         return pulumi.get(self, "engine_version")
@@ -261,6 +442,15 @@ class WorkGroupConfigurationUpdatesArgs:
     @managed_query_results_configuration.setter
     def managed_query_results_configuration(self, value: Optional[pulumi.Input['WorkGroupManagedQueryResultsConfigurationArgs']]):
         pulumi.set(self, "managed_query_results_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="monitoringConfiguration")
+    def monitoring_configuration(self) -> Optional[pulumi.Input['WorkGroupMonitoringConfigurationArgs']]:
+        return pulumi.get(self, "monitoring_configuration")
+
+    @monitoring_configuration.setter
+    def monitoring_configuration(self, value: Optional[pulumi.Input['WorkGroupMonitoringConfigurationArgs']]):
+        pulumi.set(self, "monitoring_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="publishCloudWatchMetricsEnabled")
@@ -328,6 +518,7 @@ if not MYPY:
         """
         If set to "true", the settings for the workgroup override client-side settings. If set to "false", client-side settings are used. For more information, see [Override client-side settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html) .
         """
+        engine_configuration: NotRequired[pulumi.Input['WorkGroupEngineConfigurationArgsDict']]
         engine_version: NotRequired[pulumi.Input['WorkGroupEngineVersionArgsDict']]
         """
         The engine version that all queries running on the workgroup use.
@@ -339,6 +530,10 @@ if not MYPY:
         managed_query_results_configuration: NotRequired[pulumi.Input['WorkGroupManagedQueryResultsConfigurationArgsDict']]
         """
         The configuration for storing results in Athena owned storage, which includes whether this feature is enabled; whether encryption configuration, if any, is used for encrypting query results.
+        """
+        monitoring_configuration: NotRequired[pulumi.Input['WorkGroupMonitoringConfigurationArgsDict']]
+        """
+        Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc.
         """
         publish_cloud_watch_metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
         """
@@ -362,9 +557,11 @@ class WorkGroupConfigurationArgs:
                  bytes_scanned_cutoff_per_query: Optional[pulumi.Input[_builtins.int]] = None,
                  customer_content_encryption_configuration: Optional[pulumi.Input['WorkGroupCustomerContentEncryptionConfigurationArgs']] = None,
                  enforce_work_group_configuration: Optional[pulumi.Input[_builtins.bool]] = None,
+                 engine_configuration: Optional[pulumi.Input['WorkGroupEngineConfigurationArgs']] = None,
                  engine_version: Optional[pulumi.Input['WorkGroupEngineVersionArgs']] = None,
                  execution_role: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_query_results_configuration: Optional[pulumi.Input['WorkGroupManagedQueryResultsConfigurationArgs']] = None,
+                 monitoring_configuration: Optional[pulumi.Input['WorkGroupMonitoringConfigurationArgs']] = None,
                  publish_cloud_watch_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  requester_pays_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  result_configuration: Optional[pulumi.Input['WorkGroupResultConfigurationArgs']] = None):
@@ -378,6 +575,7 @@ class WorkGroupConfigurationArgs:
         :param pulumi.Input['WorkGroupEngineVersionArgs'] engine_version: The engine version that all queries running on the workgroup use.
         :param pulumi.Input[_builtins.str] execution_role: Role used to access user resources in an Athena for Apache Spark session. This property applies only to Spark-enabled workgroups in Athena.
         :param pulumi.Input['WorkGroupManagedQueryResultsConfigurationArgs'] managed_query_results_configuration: The configuration for storing results in Athena owned storage, which includes whether this feature is enabled; whether encryption configuration, if any, is used for encrypting query results.
+        :param pulumi.Input['WorkGroupMonitoringConfigurationArgs'] monitoring_configuration: Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc.
         :param pulumi.Input[_builtins.bool] publish_cloud_watch_metrics_enabled: Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
         :param pulumi.Input[_builtins.bool] requester_pays_enabled: If set to `true` , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to `false` , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is `false` . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the *Amazon Simple Storage Service Developer Guide* .
         :param pulumi.Input['WorkGroupResultConfigurationArgs'] result_configuration: Specifies the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. For more information, see [Work with query results and recent queries](https://docs.aws.amazon.com/athena/latest/ug/querying.html) .
@@ -390,12 +588,16 @@ class WorkGroupConfigurationArgs:
             pulumi.set(__self__, "customer_content_encryption_configuration", customer_content_encryption_configuration)
         if enforce_work_group_configuration is not None:
             pulumi.set(__self__, "enforce_work_group_configuration", enforce_work_group_configuration)
+        if engine_configuration is not None:
+            pulumi.set(__self__, "engine_configuration", engine_configuration)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
         if execution_role is not None:
             pulumi.set(__self__, "execution_role", execution_role)
         if managed_query_results_configuration is not None:
             pulumi.set(__self__, "managed_query_results_configuration", managed_query_results_configuration)
+        if monitoring_configuration is not None:
+            pulumi.set(__self__, "monitoring_configuration", monitoring_configuration)
         if publish_cloud_watch_metrics_enabled is not None:
             pulumi.set(__self__, "publish_cloud_watch_metrics_enabled", publish_cloud_watch_metrics_enabled)
         if requester_pays_enabled is not None:
@@ -454,6 +656,15 @@ class WorkGroupConfigurationArgs:
         pulumi.set(self, "enforce_work_group_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="engineConfiguration")
+    def engine_configuration(self) -> Optional[pulumi.Input['WorkGroupEngineConfigurationArgs']]:
+        return pulumi.get(self, "engine_configuration")
+
+    @engine_configuration.setter
+    def engine_configuration(self, value: Optional[pulumi.Input['WorkGroupEngineConfigurationArgs']]):
+        pulumi.set(self, "engine_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input['WorkGroupEngineVersionArgs']]:
         """
@@ -488,6 +699,18 @@ class WorkGroupConfigurationArgs:
     @managed_query_results_configuration.setter
     def managed_query_results_configuration(self, value: Optional[pulumi.Input['WorkGroupManagedQueryResultsConfigurationArgs']]):
         pulumi.set(self, "managed_query_results_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="monitoringConfiguration")
+    def monitoring_configuration(self) -> Optional[pulumi.Input['WorkGroupMonitoringConfigurationArgs']]:
+        """
+        Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc.
+        """
+        return pulumi.get(self, "monitoring_configuration")
+
+    @monitoring_configuration.setter
+    def monitoring_configuration(self, value: Optional[pulumi.Input['WorkGroupMonitoringConfigurationArgs']]):
+        pulumi.set(self, "monitoring_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="publishCloudWatchMetricsEnabled")
@@ -623,6 +846,142 @@ class WorkGroupEncryptionConfigurationArgs:
 
 
 if not MYPY:
+    class WorkGroupEngineConfigurationArgsDict(TypedDict):
+        """
+        The engine configuration for running queries.
+        """
+        additional_configs: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+        """
+        Contains additional notebook engine MAP<string, string> parameter mappings in the form of key-value pairs. To specify an Athena notebook that the Jupyter server will download and serve, specify a value for the StartSessionRequest$NotebookVersion field, and then add a key named NotebookId to AdditionalConfigs that has the value of the Athena notebook ID.
+        """
+        classifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkGroupClassificationArgsDict']]]]
+        """
+        The configuration classifications that can be specified for the engine.
+        """
+        coordinator_dpu_size: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The number of DPUs to use for the coordinator. A coordinator is a special executor that orchestrates processing work and manages other executors in a notebook session. The default is 1.
+        """
+        default_executor_dpu_size: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The default number of DPUs to use for executors. An executor is the smallest unit of compute that a notebook session can request from Athena. The default is 1.
+        """
+        max_concurrent_dpus: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The maximum number of DPUs that can run concurrently.
+        """
+        spark_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+        """
+        Specifies custom jar files and Spark properties for use cases like cluster encryption, table formats, and general Spark tuning.
+        """
+elif False:
+    WorkGroupEngineConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkGroupEngineConfigurationArgs:
+    def __init__(__self__, *,
+                 additional_configs: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 classifications: Optional[pulumi.Input[Sequence[pulumi.Input['WorkGroupClassificationArgs']]]] = None,
+                 coordinator_dpu_size: Optional[pulumi.Input[_builtins.int]] = None,
+                 default_executor_dpu_size: Optional[pulumi.Input[_builtins.int]] = None,
+                 max_concurrent_dpus: Optional[pulumi.Input[_builtins.int]] = None,
+                 spark_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        The engine configuration for running queries.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_configs: Contains additional notebook engine MAP<string, string> parameter mappings in the form of key-value pairs. To specify an Athena notebook that the Jupyter server will download and serve, specify a value for the StartSessionRequest$NotebookVersion field, and then add a key named NotebookId to AdditionalConfigs that has the value of the Athena notebook ID.
+        :param pulumi.Input[Sequence[pulumi.Input['WorkGroupClassificationArgs']]] classifications: The configuration classifications that can be specified for the engine.
+        :param pulumi.Input[_builtins.int] coordinator_dpu_size: The number of DPUs to use for the coordinator. A coordinator is a special executor that orchestrates processing work and manages other executors in a notebook session. The default is 1.
+        :param pulumi.Input[_builtins.int] default_executor_dpu_size: The default number of DPUs to use for executors. An executor is the smallest unit of compute that a notebook session can request from Athena. The default is 1.
+        :param pulumi.Input[_builtins.int] max_concurrent_dpus: The maximum number of DPUs that can run concurrently.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] spark_properties: Specifies custom jar files and Spark properties for use cases like cluster encryption, table formats, and general Spark tuning.
+        """
+        if additional_configs is not None:
+            pulumi.set(__self__, "additional_configs", additional_configs)
+        if classifications is not None:
+            pulumi.set(__self__, "classifications", classifications)
+        if coordinator_dpu_size is not None:
+            pulumi.set(__self__, "coordinator_dpu_size", coordinator_dpu_size)
+        if default_executor_dpu_size is not None:
+            pulumi.set(__self__, "default_executor_dpu_size", default_executor_dpu_size)
+        if max_concurrent_dpus is not None:
+            pulumi.set(__self__, "max_concurrent_dpus", max_concurrent_dpus)
+        if spark_properties is not None:
+            pulumi.set(__self__, "spark_properties", spark_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalConfigs")
+    def additional_configs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Contains additional notebook engine MAP<string, string> parameter mappings in the form of key-value pairs. To specify an Athena notebook that the Jupyter server will download and serve, specify a value for the StartSessionRequest$NotebookVersion field, and then add a key named NotebookId to AdditionalConfigs that has the value of the Athena notebook ID.
+        """
+        return pulumi.get(self, "additional_configs")
+
+    @additional_configs.setter
+    def additional_configs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "additional_configs", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def classifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkGroupClassificationArgs']]]]:
+        """
+        The configuration classifications that can be specified for the engine.
+        """
+        return pulumi.get(self, "classifications")
+
+    @classifications.setter
+    def classifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkGroupClassificationArgs']]]]):
+        pulumi.set(self, "classifications", value)
+
+    @_builtins.property
+    @pulumi.getter(name="coordinatorDpuSize")
+    def coordinator_dpu_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The number of DPUs to use for the coordinator. A coordinator is a special executor that orchestrates processing work and manages other executors in a notebook session. The default is 1.
+        """
+        return pulumi.get(self, "coordinator_dpu_size")
+
+    @coordinator_dpu_size.setter
+    def coordinator_dpu_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "coordinator_dpu_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultExecutorDpuSize")
+    def default_executor_dpu_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The default number of DPUs to use for executors. An executor is the smallest unit of compute that a notebook session can request from Athena. The default is 1.
+        """
+        return pulumi.get(self, "default_executor_dpu_size")
+
+    @default_executor_dpu_size.setter
+    def default_executor_dpu_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "default_executor_dpu_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxConcurrentDpus")
+    def max_concurrent_dpus(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The maximum number of DPUs that can run concurrently.
+        """
+        return pulumi.get(self, "max_concurrent_dpus")
+
+    @max_concurrent_dpus.setter
+    def max_concurrent_dpus(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_concurrent_dpus", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sparkProperties")
+    def spark_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies custom jar files and Spark properties for use cases like cluster encryption, table formats, and general Spark tuning.
+        """
+        return pulumi.get(self, "spark_properties")
+
+    @spark_properties.setter
+    def spark_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "spark_properties", value)
+
+
+if not MYPY:
     class WorkGroupEngineVersionArgsDict(TypedDict):
         """
         The Athena engine version for running queries.
@@ -676,6 +1035,62 @@ class WorkGroupEngineVersionArgs:
     @selected_engine_version.setter
     def selected_engine_version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "selected_engine_version", value)
+
+
+if not MYPY:
+    class WorkGroupManagedLoggingConfigurationArgsDict(TypedDict):
+        """
+        Configuration settings for managed log persistence.
+        """
+        enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Enables managed log persistence.
+        """
+        kms_key: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The KMS key ARN to encrypt the logs stored in managed log persistence.
+        """
+elif False:
+    WorkGroupManagedLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkGroupManagedLoggingConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 kms_key: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Configuration settings for managed log persistence.
+        :param pulumi.Input[_builtins.bool] enabled: Enables managed log persistence.
+        :param pulumi.Input[_builtins.str] kms_key: The KMS key ARN to encrypt the logs stored in managed log persistence.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables managed log persistence.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The KMS key ARN to encrypt the logs stored in managed log persistence.
+        """
+        return pulumi.get(self, "kms_key")
+
+    @kms_key.setter
+    def kms_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_key", value)
 
 
 if not MYPY:
@@ -761,6 +1176,82 @@ class WorkGroupManagedStorageEncryptionConfigurationArgs:
     @kms_key.setter
     def kms_key(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "kms_key", value)
+
+
+if not MYPY:
+    class WorkGroupMonitoringConfigurationArgsDict(TypedDict):
+        """
+        Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc.
+        """
+        cloud_watch_logging_configuration: NotRequired[pulumi.Input['WorkGroupCloudWatchLoggingConfigurationArgsDict']]
+        """
+        Configuration settings for delivering logs to Amazon CloudWatch log groups.
+        """
+        managed_logging_configuration: NotRequired[pulumi.Input['WorkGroupManagedLoggingConfigurationArgsDict']]
+        """
+        Configuration settings for managed log persistence.
+        """
+        s3_logging_configuration: NotRequired[pulumi.Input['WorkGroupS3LoggingConfigurationArgsDict']]
+        """
+        Configuration settings for delivering logs to Amazon S3 buckets.
+        """
+elif False:
+    WorkGroupMonitoringConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkGroupMonitoringConfigurationArgs:
+    def __init__(__self__, *,
+                 cloud_watch_logging_configuration: Optional[pulumi.Input['WorkGroupCloudWatchLoggingConfigurationArgs']] = None,
+                 managed_logging_configuration: Optional[pulumi.Input['WorkGroupManagedLoggingConfigurationArgs']] = None,
+                 s3_logging_configuration: Optional[pulumi.Input['WorkGroupS3LoggingConfigurationArgs']] = None):
+        """
+        Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc.
+        :param pulumi.Input['WorkGroupCloudWatchLoggingConfigurationArgs'] cloud_watch_logging_configuration: Configuration settings for delivering logs to Amazon CloudWatch log groups.
+        :param pulumi.Input['WorkGroupManagedLoggingConfigurationArgs'] managed_logging_configuration: Configuration settings for managed log persistence.
+        :param pulumi.Input['WorkGroupS3LoggingConfigurationArgs'] s3_logging_configuration: Configuration settings for delivering logs to Amazon S3 buckets.
+        """
+        if cloud_watch_logging_configuration is not None:
+            pulumi.set(__self__, "cloud_watch_logging_configuration", cloud_watch_logging_configuration)
+        if managed_logging_configuration is not None:
+            pulumi.set(__self__, "managed_logging_configuration", managed_logging_configuration)
+        if s3_logging_configuration is not None:
+            pulumi.set(__self__, "s3_logging_configuration", s3_logging_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLoggingConfiguration")
+    def cloud_watch_logging_configuration(self) -> Optional[pulumi.Input['WorkGroupCloudWatchLoggingConfigurationArgs']]:
+        """
+        Configuration settings for delivering logs to Amazon CloudWatch log groups.
+        """
+        return pulumi.get(self, "cloud_watch_logging_configuration")
+
+    @cloud_watch_logging_configuration.setter
+    def cloud_watch_logging_configuration(self, value: Optional[pulumi.Input['WorkGroupCloudWatchLoggingConfigurationArgs']]):
+        pulumi.set(self, "cloud_watch_logging_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedLoggingConfiguration")
+    def managed_logging_configuration(self) -> Optional[pulumi.Input['WorkGroupManagedLoggingConfigurationArgs']]:
+        """
+        Configuration settings for managed log persistence.
+        """
+        return pulumi.get(self, "managed_logging_configuration")
+
+    @managed_logging_configuration.setter
+    def managed_logging_configuration(self, value: Optional[pulumi.Input['WorkGroupManagedLoggingConfigurationArgs']]):
+        pulumi.set(self, "managed_logging_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3LoggingConfiguration")
+    def s3_logging_configuration(self) -> Optional[pulumi.Input['WorkGroupS3LoggingConfigurationArgs']]:
+        """
+        Configuration settings for delivering logs to Amazon S3 buckets.
+        """
+        return pulumi.get(self, "s3_logging_configuration")
+
+    @s3_logging_configuration.setter
+    def s3_logging_configuration(self, value: Optional[pulumi.Input['WorkGroupS3LoggingConfigurationArgs']]):
+        pulumi.set(self, "s3_logging_configuration", value)
 
 
 if not MYPY:
@@ -1046,5 +1537,81 @@ class WorkGroupResultConfigurationArgs:
     @output_location.setter
     def output_location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "output_location", value)
+
+
+if not MYPY:
+    class WorkGroupS3LoggingConfigurationArgsDict(TypedDict):
+        """
+        Configuration settings for delivering logs to Amazon S3 buckets.
+        """
+        enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Enables S3 log delivery.
+        """
+        kms_key: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+        """
+        log_location: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Amazon S3 destination URI for log publishing.
+        """
+elif False:
+    WorkGroupS3LoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkGroupS3LoggingConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 kms_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_location: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Configuration settings for delivering logs to Amazon S3 buckets.
+        :param pulumi.Input[_builtins.bool] enabled: Enables S3 log delivery.
+        :param pulumi.Input[_builtins.str] kms_key: The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+        :param pulumi.Input[_builtins.str] log_location: The Amazon S3 destination URI for log publishing.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if kms_key is not None:
+            pulumi.set(__self__, "kms_key", kms_key)
+        if log_location is not None:
+            pulumi.set(__self__, "log_location", log_location)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables S3 log delivery.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+        """
+        return pulumi.get(self, "kms_key")
+
+    @kms_key.setter
+    def kms_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logLocation")
+    def log_location(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon S3 destination URI for log publishing.
+        """
+        return pulumi.get(self, "log_location")
+
+    @log_location.setter
+    def log_location(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "log_location", value)
 
 

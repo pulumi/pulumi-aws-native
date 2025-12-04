@@ -15,6 +15,11 @@ export type Addon = import("./addon").Addon;
 export const Addon: typeof import("./addon").Addon = null as any;
 utilities.lazyLoad(exports, ["Addon"], () => require("./addon"));
 
+export { CapabilityArgs } from "./capability";
+export type Capability = import("./capability").Capability;
+export const Capability: typeof import("./capability").Capability = null as any;
+utilities.lazyLoad(exports, ["Capability"], () => require("./capability"));
+
 export { ClusterArgs } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
@@ -34,6 +39,11 @@ export { GetAddonArgs, GetAddonResult, GetAddonOutputArgs } from "./getAddon";
 export const getAddon: typeof import("./getAddon").getAddon = null as any;
 export const getAddonOutput: typeof import("./getAddon").getAddonOutput = null as any;
 utilities.lazyLoad(exports, ["getAddon","getAddonOutput"], () => require("./getAddon"));
+
+export { GetCapabilityArgs, GetCapabilityResult, GetCapabilityOutputArgs } from "./getCapability";
+export const getCapability: typeof import("./getCapability").getCapability = null as any;
+export const getCapabilityOutput: typeof import("./getCapability").getCapabilityOutput = null as any;
+utilities.lazyLoad(exports, ["getCapability","getCapabilityOutput"], () => require("./getCapability"));
 
 export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
@@ -87,6 +97,8 @@ const _module = {
                 return new AccessEntry(name, <any>undefined, { urn })
             case "aws-native:eks:Addon":
                 return new Addon(name, <any>undefined, { urn })
+            case "aws-native:eks:Capability":
+                return new Capability(name, <any>undefined, { urn })
             case "aws-native:eks:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
             case "aws-native:eks:FargateProfile":

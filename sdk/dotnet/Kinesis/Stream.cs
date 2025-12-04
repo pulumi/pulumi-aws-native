@@ -64,10 +64,22 @@ namespace Pulumi.AwsNative.Kinesis
         public Output<Outputs.StreamModeDetails?> StreamModeDetails { get; private set; } = null!;
 
         /// <summary>
-        /// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+        /// An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Target warm throughput in MiB/s for the stream. This property can ONLY be set when StreamMode is ON_DEMAND.
+        /// </summary>
+        [Output("warmThroughputMiBps")]
+        public Output<int?> WarmThroughputMiBps { get; private set; } = null!;
+
+        /// <summary>
+        /// Warm throughput configuration details for the stream. Only present for ON_DEMAND streams.
+        /// </summary>
+        [Output("warmThroughputObject")]
+        public Output<Outputs.StreamWarmThroughputObject> WarmThroughputObject { get; private set; } = null!;
 
 
         /// <summary>
@@ -170,13 +182,19 @@ namespace Pulumi.AwsNative.Kinesis
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+        /// An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Target warm throughput in MiB/s for the stream. This property can ONLY be set when StreamMode is ON_DEMAND.
+        /// </summary>
+        [Input("warmThroughputMiBps")]
+        public Input<int>? WarmThroughputMiBps { get; set; }
 
         public StreamArgs()
         {

@@ -37,6 +37,8 @@ type LookupTrailArgs struct {
 type LookupTrailResult struct {
 	// The advanced event selectors that were used to select events for the data store.
 	AdvancedEventSelectors []TrailAdvancedEventSelector `pulumi:"advancedEventSelectors"`
+	// Specifies the aggregation configuration to aggregate CloudTrail Events. A maximum of 1 aggregation configuration is allowed.
+	AggregationConfigurations []TrailAggregationConfiguration `pulumi:"aggregationConfigurations"`
 	// `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
 	Arn *string `pulumi:"arn"`
 	// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
@@ -63,7 +65,7 @@ type LookupTrailResult struct {
 	S3BucketName *string `pulumi:"s3BucketName"`
 	// Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
-	// `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
+	// `Ref` returns the ARN of the Amazon  topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
 	// Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
 	SnsTopicName *string `pulumi:"snsTopicName"`
@@ -112,6 +114,11 @@ func (o LookupTrailResultOutput) ToLookupTrailResultOutputWithContext(ctx contex
 // The advanced event selectors that were used to select events for the data store.
 func (o LookupTrailResultOutput) AdvancedEventSelectors() TrailAdvancedEventSelectorArrayOutput {
 	return o.ApplyT(func(v LookupTrailResult) []TrailAdvancedEventSelector { return v.AdvancedEventSelectors }).(TrailAdvancedEventSelectorArrayOutput)
+}
+
+// Specifies the aggregation configuration to aggregate CloudTrail Events. A maximum of 1 aggregation configuration is allowed.
+func (o LookupTrailResultOutput) AggregationConfigurations() TrailAggregationConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupTrailResult) []TrailAggregationConfiguration { return v.AggregationConfigurations }).(TrailAggregationConfigurationArrayOutput)
 }
 
 // `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
@@ -179,7 +186,7 @@ func (o LookupTrailResultOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrailResult) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
-// `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
+// `Ref` returns the ARN of the Amazon  topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
 func (o LookupTrailResultOutput) SnsTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrailResult) *string { return v.SnsTopicArn }).(pulumi.StringPtrOutput)
 }

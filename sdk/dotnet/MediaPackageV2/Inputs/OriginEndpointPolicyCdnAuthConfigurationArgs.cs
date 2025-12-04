@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         }
 
         /// <summary>
-        /// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS KMS for CDN authorization.
+        /// The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and AWS  for CDN authorization.
         /// </summary>
         [Input("secretsRoleArn", required: true)]
         public Input<string> SecretsRoleArn { get; set; } = null!;

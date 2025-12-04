@@ -23,16 +23,25 @@ func LookupTerms(ctx *pulumi.Context, args *LookupTermsArgs, opts ...pulumi.Invo
 }
 
 type LookupTermsArgs struct {
-	TermsId    string `pulumi:"termsId"`
+	// The ID of the terms documents.
+	TermsId string `pulumi:"termsId"`
+	// The ID of the user pool that contains the terms documents.
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
 type LookupTermsResult struct {
+	// This parameter is reserved for future use and currently accepts one value.
 	Enforcement *TermsEnforcementType `pulumi:"enforcement"`
-	Links       map[string]string     `pulumi:"links"`
-	TermsId     *string               `pulumi:"termsId"`
-	TermsName   *string               `pulumi:"termsName"`
-	TermsSource *TermsSourceType      `pulumi:"termsSource"`
+	// A map of URLs to languages. For each localized language that will view the requested `TermsName` , assign a URL. A selection of `cognito:default` displays for all languages that don't have a language-specific URL.
+	//
+	// For example, `"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"` .
+	Links map[string]string `pulumi:"links"`
+	// The ID of the terms documents.
+	TermsId *string `pulumi:"termsId"`
+	// The type and friendly name of the terms documents.
+	TermsName *string `pulumi:"termsName"`
+	// This parameter is reserved for future use and currently accepts one value.
+	TermsSource *TermsSourceType `pulumi:"termsSource"`
 }
 
 func LookupTermsOutput(ctx *pulumi.Context, args LookupTermsOutputArgs, opts ...pulumi.InvokeOption) LookupTermsResultOutput {
@@ -45,7 +54,9 @@ func LookupTermsOutput(ctx *pulumi.Context, args LookupTermsOutputArgs, opts ...
 }
 
 type LookupTermsOutputArgs struct {
-	TermsId    pulumi.StringInput `pulumi:"termsId"`
+	// The ID of the terms documents.
+	TermsId pulumi.StringInput `pulumi:"termsId"`
+	// The ID of the user pool that contains the terms documents.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
@@ -67,22 +78,29 @@ func (o LookupTermsResultOutput) ToLookupTermsResultOutputWithContext(ctx contex
 	return o
 }
 
+// This parameter is reserved for future use and currently accepts one value.
 func (o LookupTermsResultOutput) Enforcement() TermsEnforcementTypePtrOutput {
 	return o.ApplyT(func(v LookupTermsResult) *TermsEnforcementType { return v.Enforcement }).(TermsEnforcementTypePtrOutput)
 }
 
+// A map of URLs to languages. For each localized language that will view the requested `TermsName` , assign a URL. A selection of `cognito:default` displays for all languages that don't have a language-specific URL.
+//
+// For example, `"cognito:default": "https://terms.example.com", "cognito:spanish": "https://terms.example.com/es"` .
 func (o LookupTermsResultOutput) Links() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupTermsResult) map[string]string { return v.Links }).(pulumi.StringMapOutput)
 }
 
+// The ID of the terms documents.
 func (o LookupTermsResultOutput) TermsId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTermsResult) *string { return v.TermsId }).(pulumi.StringPtrOutput)
 }
 
+// The type and friendly name of the terms documents.
 func (o LookupTermsResultOutput) TermsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTermsResult) *string { return v.TermsName }).(pulumi.StringPtrOutput)
 }
 
+// This parameter is reserved for future use and currently accepts one value.
 func (o LookupTermsResultOutput) TermsSource() TermsSourceTypePtrOutput {
 	return o.ApplyT(func(v LookupTermsResult) *TermsSourceType { return v.TermsSource }).(TermsSourceTypePtrOutput)
 }

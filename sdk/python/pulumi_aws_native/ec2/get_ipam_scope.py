@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 from ._enums import *
 
@@ -25,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetIpamScopeResult:
-    def __init__(__self__, arn=None, description=None, ipam_arn=None, ipam_scope_id=None, ipam_scope_type=None, is_default=None, pool_count=None, tags=None):
+    def __init__(__self__, arn=None, description=None, external_authority_configuration=None, ipam_arn=None, ipam_scope_id=None, ipam_scope_type=None, is_default=None, pool_count=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if external_authority_configuration and not isinstance(external_authority_configuration, dict):
+            raise TypeError("Expected argument 'external_authority_configuration' to be a dict")
+        pulumi.set(__self__, "external_authority_configuration", external_authority_configuration)
         if ipam_arn and not isinstance(ipam_arn, str):
             raise TypeError("Expected argument 'ipam_arn' to be a str")
         pulumi.set(__self__, "ipam_arn", ipam_arn)
@@ -66,6 +70,16 @@ class GetIpamScopeResult:
         The description of the scope.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="externalAuthorityConfiguration")
+    def external_authority_configuration(self) -> Optional['outputs.IpamScopeExternalAuthorityConfiguration']:
+        """
+        The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.
+
+        For more information, see [Integrate VPC IPAM with Infoblox infrastructure](https://docs.aws.amazon.com/vpc/latest/ipam/integrate-infoblox-ipam.html) in the *Amazon VPC IPAM User Guide* .
+        """
+        return pulumi.get(self, "external_authority_configuration")
 
     @_builtins.property
     @pulumi.getter(name="ipamArn")
@@ -124,6 +138,7 @@ class AwaitableGetIpamScopeResult(GetIpamScopeResult):
         return GetIpamScopeResult(
             arn=self.arn,
             description=self.description,
+            external_authority_configuration=self.external_authority_configuration,
             ipam_arn=self.ipam_arn,
             ipam_scope_id=self.ipam_scope_id,
             ipam_scope_type=self.ipam_scope_type,
@@ -148,6 +163,7 @@ def get_ipam_scope(ipam_scope_id: Optional[_builtins.str] = None,
     return AwaitableGetIpamScopeResult(
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
+        external_authority_configuration=pulumi.get(__ret__, 'external_authority_configuration'),
         ipam_arn=pulumi.get(__ret__, 'ipam_arn'),
         ipam_scope_id=pulumi.get(__ret__, 'ipam_scope_id'),
         ipam_scope_type=pulumi.get(__ret__, 'ipam_scope_type'),
@@ -169,6 +185,7 @@ def get_ipam_scope_output(ipam_scope_id: Optional[pulumi.Input[_builtins.str]] =
     return __ret__.apply(lambda __response__: GetIpamScopeResult(
         arn=pulumi.get(__response__, 'arn'),
         description=pulumi.get(__response__, 'description'),
+        external_authority_configuration=pulumi.get(__response__, 'external_authority_configuration'),
         ipam_arn=pulumi.get(__response__, 'ipam_arn'),
         ipam_scope_id=pulumi.get(__response__, 'ipam_scope_id'),
         ipam_scope_type=pulumi.get(__response__, 'ipam_scope_type'),

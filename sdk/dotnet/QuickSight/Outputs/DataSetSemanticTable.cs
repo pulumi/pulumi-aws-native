@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetSemanticTable
     {
+        /// <summary>
+        /// Alias for the semantic table.
+        /// </summary>
         public readonly string Alias;
+        /// <summary>
+        /// The identifier of the destination table from data preparation that provides data to this semantic table.
+        /// </summary>
         public readonly string DestinationTableId;
+        /// <summary>
+        /// Configuration for row level security that control data access for this semantic table.
+        /// </summary>
         public readonly Outputs.DataSetRowLevelPermissionConfiguration? RowLevelPermissionConfiguration;
 
         [OutputConstructor]

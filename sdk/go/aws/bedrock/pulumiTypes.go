@@ -4379,9 +4379,191 @@ func (o DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput) 
 	}).(DataAutomationProjectTranscriptConfigurationPtrOutput)
 }
 
+type DataAutomationProjectAudioLanguageConfiguration struct {
+	// The output language of your processing results. This can either be set to `EN` (English) or `DEFAULT` which will output the results in the dominant language of the audio. The dominant language is determined as the language in the audio, spoken the longest in the input audio.
+	GenerativeOutputLanguage *DataAutomationProjectAudioGenerativeOutputLanguage `pulumi:"generativeOutputLanguage"`
+	// The toggle determining if you want to detect multiple languages from your audio.
+	IdentifyMultipleLanguages *bool `pulumi:"identifyMultipleLanguages"`
+	// The input language of your audio. This can be set to any of the currently supported languages via the language codes.
+	InputLanguages []DataAutomationProjectLanguage `pulumi:"inputLanguages"`
+}
+
+// DataAutomationProjectAudioLanguageConfigurationInput is an input type that accepts DataAutomationProjectAudioLanguageConfigurationArgs and DataAutomationProjectAudioLanguageConfigurationOutput values.
+// You can construct a concrete instance of `DataAutomationProjectAudioLanguageConfigurationInput` via:
+//
+//	DataAutomationProjectAudioLanguageConfigurationArgs{...}
+type DataAutomationProjectAudioLanguageConfigurationInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectAudioLanguageConfigurationOutput() DataAutomationProjectAudioLanguageConfigurationOutput
+	ToDataAutomationProjectAudioLanguageConfigurationOutputWithContext(context.Context) DataAutomationProjectAudioLanguageConfigurationOutput
+}
+
+type DataAutomationProjectAudioLanguageConfigurationArgs struct {
+	// The output language of your processing results. This can either be set to `EN` (English) or `DEFAULT` which will output the results in the dominant language of the audio. The dominant language is determined as the language in the audio, spoken the longest in the input audio.
+	GenerativeOutputLanguage DataAutomationProjectAudioGenerativeOutputLanguagePtrInput `pulumi:"generativeOutputLanguage"`
+	// The toggle determining if you want to detect multiple languages from your audio.
+	IdentifyMultipleLanguages pulumi.BoolPtrInput `pulumi:"identifyMultipleLanguages"`
+	// The input language of your audio. This can be set to any of the currently supported languages via the language codes.
+	InputLanguages DataAutomationProjectLanguageArrayInput `pulumi:"inputLanguages"`
+}
+
+func (DataAutomationProjectAudioLanguageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectAudioLanguageConfiguration)(nil)).Elem()
+}
+
+func (i DataAutomationProjectAudioLanguageConfigurationArgs) ToDataAutomationProjectAudioLanguageConfigurationOutput() DataAutomationProjectAudioLanguageConfigurationOutput {
+	return i.ToDataAutomationProjectAudioLanguageConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectAudioLanguageConfigurationArgs) ToDataAutomationProjectAudioLanguageConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectAudioLanguageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectAudioLanguageConfigurationOutput)
+}
+
+func (i DataAutomationProjectAudioLanguageConfigurationArgs) ToDataAutomationProjectAudioLanguageConfigurationPtrOutput() DataAutomationProjectAudioLanguageConfigurationPtrOutput {
+	return i.ToDataAutomationProjectAudioLanguageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectAudioLanguageConfigurationArgs) ToDataAutomationProjectAudioLanguageConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioLanguageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectAudioLanguageConfigurationOutput).ToDataAutomationProjectAudioLanguageConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataAutomationProjectAudioLanguageConfigurationPtrInput is an input type that accepts DataAutomationProjectAudioLanguageConfigurationArgs, DataAutomationProjectAudioLanguageConfigurationPtr and DataAutomationProjectAudioLanguageConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataAutomationProjectAudioLanguageConfigurationPtrInput` via:
+//
+//	        DataAutomationProjectAudioLanguageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAutomationProjectAudioLanguageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectAudioLanguageConfigurationPtrOutput() DataAutomationProjectAudioLanguageConfigurationPtrOutput
+	ToDataAutomationProjectAudioLanguageConfigurationPtrOutputWithContext(context.Context) DataAutomationProjectAudioLanguageConfigurationPtrOutput
+}
+
+type dataAutomationProjectAudioLanguageConfigurationPtrType DataAutomationProjectAudioLanguageConfigurationArgs
+
+func DataAutomationProjectAudioLanguageConfigurationPtr(v *DataAutomationProjectAudioLanguageConfigurationArgs) DataAutomationProjectAudioLanguageConfigurationPtrInput {
+	return (*dataAutomationProjectAudioLanguageConfigurationPtrType)(v)
+}
+
+func (*dataAutomationProjectAudioLanguageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectAudioLanguageConfiguration)(nil)).Elem()
+}
+
+func (i *dataAutomationProjectAudioLanguageConfigurationPtrType) ToDataAutomationProjectAudioLanguageConfigurationPtrOutput() DataAutomationProjectAudioLanguageConfigurationPtrOutput {
+	return i.ToDataAutomationProjectAudioLanguageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAutomationProjectAudioLanguageConfigurationPtrType) ToDataAutomationProjectAudioLanguageConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioLanguageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectAudioLanguageConfigurationPtrOutput)
+}
+
+type DataAutomationProjectAudioLanguageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectAudioLanguageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectAudioLanguageConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectAudioLanguageConfigurationOutput) ToDataAutomationProjectAudioLanguageConfigurationOutput() DataAutomationProjectAudioLanguageConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioLanguageConfigurationOutput) ToDataAutomationProjectAudioLanguageConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectAudioLanguageConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioLanguageConfigurationOutput) ToDataAutomationProjectAudioLanguageConfigurationPtrOutput() DataAutomationProjectAudioLanguageConfigurationPtrOutput {
+	return o.ToDataAutomationProjectAudioLanguageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectAudioLanguageConfigurationOutput) ToDataAutomationProjectAudioLanguageConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioLanguageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectAudioLanguageConfiguration) *DataAutomationProjectAudioLanguageConfiguration {
+		return &v
+	}).(DataAutomationProjectAudioLanguageConfigurationPtrOutput)
+}
+
+// The output language of your processing results. This can either be set to `EN` (English) or `DEFAULT` which will output the results in the dominant language of the audio. The dominant language is determined as the language in the audio, spoken the longest in the input audio.
+func (o DataAutomationProjectAudioLanguageConfigurationOutput) GenerativeOutputLanguage() DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectAudioLanguageConfiguration) *DataAutomationProjectAudioGenerativeOutputLanguage {
+		return v.GenerativeOutputLanguage
+	}).(DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput)
+}
+
+// The toggle determining if you want to detect multiple languages from your audio.
+func (o DataAutomationProjectAudioLanguageConfigurationOutput) IdentifyMultipleLanguages() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectAudioLanguageConfiguration) *bool { return v.IdentifyMultipleLanguages }).(pulumi.BoolPtrOutput)
+}
+
+// The input language of your audio. This can be set to any of the currently supported languages via the language codes.
+func (o DataAutomationProjectAudioLanguageConfigurationOutput) InputLanguages() DataAutomationProjectLanguageArrayOutput {
+	return o.ApplyT(func(v DataAutomationProjectAudioLanguageConfiguration) []DataAutomationProjectLanguage {
+		return v.InputLanguages
+	}).(DataAutomationProjectLanguageArrayOutput)
+}
+
+type DataAutomationProjectAudioLanguageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectAudioLanguageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectAudioLanguageConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectAudioLanguageConfigurationPtrOutput) ToDataAutomationProjectAudioLanguageConfigurationPtrOutput() DataAutomationProjectAudioLanguageConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioLanguageConfigurationPtrOutput) ToDataAutomationProjectAudioLanguageConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioLanguageConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioLanguageConfigurationPtrOutput) Elem() DataAutomationProjectAudioLanguageConfigurationOutput {
+	return o.ApplyT(func(v *DataAutomationProjectAudioLanguageConfiguration) DataAutomationProjectAudioLanguageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectAudioLanguageConfiguration
+		return ret
+	}).(DataAutomationProjectAudioLanguageConfigurationOutput)
+}
+
+// The output language of your processing results. This can either be set to `EN` (English) or `DEFAULT` which will output the results in the dominant language of the audio. The dominant language is determined as the language in the audio, spoken the longest in the input audio.
+func (o DataAutomationProjectAudioLanguageConfigurationPtrOutput) GenerativeOutputLanguage() DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectAudioLanguageConfiguration) *DataAutomationProjectAudioGenerativeOutputLanguage {
+		if v == nil {
+			return nil
+		}
+		return v.GenerativeOutputLanguage
+	}).(DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput)
+}
+
+// The toggle determining if you want to detect multiple languages from your audio.
+func (o DataAutomationProjectAudioLanguageConfigurationPtrOutput) IdentifyMultipleLanguages() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectAudioLanguageConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IdentifyMultipleLanguages
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The input language of your audio. This can be set to any of the currently supported languages via the language codes.
+func (o DataAutomationProjectAudioLanguageConfigurationPtrOutput) InputLanguages() DataAutomationProjectLanguageArrayOutput {
+	return o.ApplyT(func(v *DataAutomationProjectAudioLanguageConfiguration) []DataAutomationProjectLanguage {
+		if v == nil {
+			return nil
+		}
+		return v.InputLanguages
+	}).(DataAutomationProjectLanguageArrayOutput)
+}
+
 type DataAutomationProjectAudioOverrideConfiguration struct {
+	// The output and input language configuration for your audio.
+	LanguageConfiguration *DataAutomationProjectAudioLanguageConfiguration `pulumi:"languageConfiguration"`
 	// Sets modality processing for audio files. All modalities are enabled by default.
-	ModalityProcessing *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
+	ModalityProcessing         *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
+	SensitiveDataConfiguration *DataAutomationProjectSensitiveDataConfiguration      `pulumi:"sensitiveDataConfiguration"`
 }
 
 // DataAutomationProjectAudioOverrideConfigurationInput is an input type that accepts DataAutomationProjectAudioOverrideConfigurationArgs and DataAutomationProjectAudioOverrideConfigurationOutput values.
@@ -4396,8 +4578,11 @@ type DataAutomationProjectAudioOverrideConfigurationInput interface {
 }
 
 type DataAutomationProjectAudioOverrideConfigurationArgs struct {
+	// The output and input language configuration for your audio.
+	LanguageConfiguration DataAutomationProjectAudioLanguageConfigurationPtrInput `pulumi:"languageConfiguration"`
 	// Sets modality processing for audio files. All modalities are enabled by default.
-	ModalityProcessing DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
+	ModalityProcessing         DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
+	SensitiveDataConfiguration DataAutomationProjectSensitiveDataConfigurationPtrInput      `pulumi:"sensitiveDataConfiguration"`
 }
 
 func (DataAutomationProjectAudioOverrideConfigurationArgs) ElementType() reflect.Type {
@@ -4477,11 +4662,24 @@ func (o DataAutomationProjectAudioOverrideConfigurationOutput) ToDataAutomationP
 	}).(DataAutomationProjectAudioOverrideConfigurationPtrOutput)
 }
 
+// The output and input language configuration for your audio.
+func (o DataAutomationProjectAudioOverrideConfigurationOutput) LanguageConfiguration() DataAutomationProjectAudioLanguageConfigurationPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectAudioOverrideConfiguration) *DataAutomationProjectAudioLanguageConfiguration {
+		return v.LanguageConfiguration
+	}).(DataAutomationProjectAudioLanguageConfigurationPtrOutput)
+}
+
 // Sets modality processing for audio files. All modalities are enabled by default.
 func (o DataAutomationProjectAudioOverrideConfigurationOutput) ModalityProcessing() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectAudioOverrideConfiguration) *DataAutomationProjectModalityProcessingConfiguration {
 		return v.ModalityProcessing
 	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectAudioOverrideConfigurationOutput) SensitiveDataConfiguration() DataAutomationProjectSensitiveDataConfigurationPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectAudioOverrideConfiguration) *DataAutomationProjectSensitiveDataConfiguration {
+		return v.SensitiveDataConfiguration
+	}).(DataAutomationProjectSensitiveDataConfigurationPtrOutput)
 }
 
 type DataAutomationProjectAudioOverrideConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -4508,6 +4706,16 @@ func (o DataAutomationProjectAudioOverrideConfigurationPtrOutput) Elem() DataAut
 	}).(DataAutomationProjectAudioOverrideConfigurationOutput)
 }
 
+// The output and input language configuration for your audio.
+func (o DataAutomationProjectAudioOverrideConfigurationPtrOutput) LanguageConfiguration() DataAutomationProjectAudioLanguageConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectAudioOverrideConfiguration) *DataAutomationProjectAudioLanguageConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LanguageConfiguration
+	}).(DataAutomationProjectAudioLanguageConfigurationPtrOutput)
+}
+
 // Sets modality processing for audio files. All modalities are enabled by default.
 func (o DataAutomationProjectAudioOverrideConfigurationPtrOutput) ModalityProcessing() DataAutomationProjectModalityProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectAudioOverrideConfiguration) *DataAutomationProjectModalityProcessingConfiguration {
@@ -4516,6 +4724,15 @@ func (o DataAutomationProjectAudioOverrideConfigurationPtrOutput) ModalityProces
 		}
 		return v.ModalityProcessing
 	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectAudioOverrideConfigurationPtrOutput) SensitiveDataConfiguration() DataAutomationProjectSensitiveDataConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectAudioOverrideConfiguration) *DataAutomationProjectSensitiveDataConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SensitiveDataConfiguration
+	}).(DataAutomationProjectSensitiveDataConfigurationPtrOutput)
 }
 
 type DataAutomationProjectAudioStandardExtraction struct {
@@ -6091,7 +6308,8 @@ func (o DataAutomationProjectDocumentOutputTextFormatPtrOutput) Types() DataAuto
 
 type DataAutomationProjectDocumentOverrideConfiguration struct {
 	// Sets modality processing for document files. All modalities are enabled by default.
-	ModalityProcessing *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
+	ModalityProcessing         *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
+	SensitiveDataConfiguration *DataAutomationProjectSensitiveDataConfiguration      `pulumi:"sensitiveDataConfiguration"`
 	// Whether document splitter is enabled for a project.
 	Splitter *DataAutomationProjectSplitterConfiguration `pulumi:"splitter"`
 }
@@ -6109,7 +6327,8 @@ type DataAutomationProjectDocumentOverrideConfigurationInput interface {
 
 type DataAutomationProjectDocumentOverrideConfigurationArgs struct {
 	// Sets modality processing for document files. All modalities are enabled by default.
-	ModalityProcessing DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
+	ModalityProcessing         DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
+	SensitiveDataConfiguration DataAutomationProjectSensitiveDataConfigurationPtrInput      `pulumi:"sensitiveDataConfiguration"`
 	// Whether document splitter is enabled for a project.
 	Splitter DataAutomationProjectSplitterConfigurationPtrInput `pulumi:"splitter"`
 }
@@ -6198,6 +6417,12 @@ func (o DataAutomationProjectDocumentOverrideConfigurationOutput) ModalityProces
 	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
 }
 
+func (o DataAutomationProjectDocumentOverrideConfigurationOutput) SensitiveDataConfiguration() DataAutomationProjectSensitiveDataConfigurationPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectDocumentOverrideConfiguration) *DataAutomationProjectSensitiveDataConfiguration {
+		return v.SensitiveDataConfiguration
+	}).(DataAutomationProjectSensitiveDataConfigurationPtrOutput)
+}
+
 // Whether document splitter is enabled for a project.
 func (o DataAutomationProjectDocumentOverrideConfigurationOutput) Splitter() DataAutomationProjectSplitterConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectDocumentOverrideConfiguration) *DataAutomationProjectSplitterConfiguration {
@@ -6237,6 +6462,15 @@ func (o DataAutomationProjectDocumentOverrideConfigurationPtrOutput) ModalityPro
 		}
 		return v.ModalityProcessing
 	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectDocumentOverrideConfigurationPtrOutput) SensitiveDataConfiguration() DataAutomationProjectSensitiveDataConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectDocumentOverrideConfiguration) *DataAutomationProjectSensitiveDataConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SensitiveDataConfiguration
+	}).(DataAutomationProjectSensitiveDataConfigurationPtrOutput)
 }
 
 // Whether document splitter is enabled for a project.
@@ -7026,7 +7260,8 @@ func (o DataAutomationProjectImageExtractionCategoryPtrOutput) Types() DataAutom
 
 type DataAutomationProjectImageOverrideConfiguration struct {
 	// Sets modality processing for image files. All modalities are enabled by default.
-	ModalityProcessing *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
+	ModalityProcessing         *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
+	SensitiveDataConfiguration *DataAutomationProjectSensitiveDataConfiguration      `pulumi:"sensitiveDataConfiguration"`
 }
 
 // DataAutomationProjectImageOverrideConfigurationInput is an input type that accepts DataAutomationProjectImageOverrideConfigurationArgs and DataAutomationProjectImageOverrideConfigurationOutput values.
@@ -7042,7 +7277,8 @@ type DataAutomationProjectImageOverrideConfigurationInput interface {
 
 type DataAutomationProjectImageOverrideConfigurationArgs struct {
 	// Sets modality processing for image files. All modalities are enabled by default.
-	ModalityProcessing DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
+	ModalityProcessing         DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
+	SensitiveDataConfiguration DataAutomationProjectSensitiveDataConfigurationPtrInput      `pulumi:"sensitiveDataConfiguration"`
 }
 
 func (DataAutomationProjectImageOverrideConfigurationArgs) ElementType() reflect.Type {
@@ -7129,6 +7365,12 @@ func (o DataAutomationProjectImageOverrideConfigurationOutput) ModalityProcessin
 	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
 }
 
+func (o DataAutomationProjectImageOverrideConfigurationOutput) SensitiveDataConfiguration() DataAutomationProjectSensitiveDataConfigurationPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectImageOverrideConfiguration) *DataAutomationProjectSensitiveDataConfiguration {
+		return v.SensitiveDataConfiguration
+	}).(DataAutomationProjectSensitiveDataConfigurationPtrOutput)
+}
+
 type DataAutomationProjectImageOverrideConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (DataAutomationProjectImageOverrideConfigurationPtrOutput) ElementType() reflect.Type {
@@ -7161,6 +7403,15 @@ func (o DataAutomationProjectImageOverrideConfigurationPtrOutput) ModalityProces
 		}
 		return v.ModalityProcessing
 	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectImageOverrideConfigurationPtrOutput) SensitiveDataConfiguration() DataAutomationProjectSensitiveDataConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectImageOverrideConfiguration) *DataAutomationProjectSensitiveDataConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SensitiveDataConfiguration
+	}).(DataAutomationProjectSensitiveDataConfigurationPtrOutput)
 }
 
 type DataAutomationProjectImageStandardExtraction struct {
@@ -8213,6 +8464,327 @@ func (o DataAutomationProjectOverrideConfigurationPtrOutput) Video() DataAutomat
 	}).(DataAutomationProjectVideoOverrideConfigurationPtrOutput)
 }
 
+type DataAutomationProjectPiiEntitiesConfiguration struct {
+	PiiEntityTypes    []DataAutomationProjectPiiEntityTypes      `pulumi:"piiEntityTypes"`
+	RedactionMaskMode *DataAutomationProjectPiiRedactionMaskMode `pulumi:"redactionMaskMode"`
+}
+
+// DataAutomationProjectPiiEntitiesConfigurationInput is an input type that accepts DataAutomationProjectPiiEntitiesConfigurationArgs and DataAutomationProjectPiiEntitiesConfigurationOutput values.
+// You can construct a concrete instance of `DataAutomationProjectPiiEntitiesConfigurationInput` via:
+//
+//	DataAutomationProjectPiiEntitiesConfigurationArgs{...}
+type DataAutomationProjectPiiEntitiesConfigurationInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectPiiEntitiesConfigurationOutput() DataAutomationProjectPiiEntitiesConfigurationOutput
+	ToDataAutomationProjectPiiEntitiesConfigurationOutputWithContext(context.Context) DataAutomationProjectPiiEntitiesConfigurationOutput
+}
+
+type DataAutomationProjectPiiEntitiesConfigurationArgs struct {
+	PiiEntityTypes    DataAutomationProjectPiiEntityTypesArrayInput     `pulumi:"piiEntityTypes"`
+	RedactionMaskMode DataAutomationProjectPiiRedactionMaskModePtrInput `pulumi:"redactionMaskMode"`
+}
+
+func (DataAutomationProjectPiiEntitiesConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectPiiEntitiesConfiguration)(nil)).Elem()
+}
+
+func (i DataAutomationProjectPiiEntitiesConfigurationArgs) ToDataAutomationProjectPiiEntitiesConfigurationOutput() DataAutomationProjectPiiEntitiesConfigurationOutput {
+	return i.ToDataAutomationProjectPiiEntitiesConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectPiiEntitiesConfigurationArgs) ToDataAutomationProjectPiiEntitiesConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectPiiEntitiesConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectPiiEntitiesConfigurationOutput)
+}
+
+func (i DataAutomationProjectPiiEntitiesConfigurationArgs) ToDataAutomationProjectPiiEntitiesConfigurationPtrOutput() DataAutomationProjectPiiEntitiesConfigurationPtrOutput {
+	return i.ToDataAutomationProjectPiiEntitiesConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectPiiEntitiesConfigurationArgs) ToDataAutomationProjectPiiEntitiesConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectPiiEntitiesConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectPiiEntitiesConfigurationOutput).ToDataAutomationProjectPiiEntitiesConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataAutomationProjectPiiEntitiesConfigurationPtrInput is an input type that accepts DataAutomationProjectPiiEntitiesConfigurationArgs, DataAutomationProjectPiiEntitiesConfigurationPtr and DataAutomationProjectPiiEntitiesConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataAutomationProjectPiiEntitiesConfigurationPtrInput` via:
+//
+//	        DataAutomationProjectPiiEntitiesConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAutomationProjectPiiEntitiesConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectPiiEntitiesConfigurationPtrOutput() DataAutomationProjectPiiEntitiesConfigurationPtrOutput
+	ToDataAutomationProjectPiiEntitiesConfigurationPtrOutputWithContext(context.Context) DataAutomationProjectPiiEntitiesConfigurationPtrOutput
+}
+
+type dataAutomationProjectPiiEntitiesConfigurationPtrType DataAutomationProjectPiiEntitiesConfigurationArgs
+
+func DataAutomationProjectPiiEntitiesConfigurationPtr(v *DataAutomationProjectPiiEntitiesConfigurationArgs) DataAutomationProjectPiiEntitiesConfigurationPtrInput {
+	return (*dataAutomationProjectPiiEntitiesConfigurationPtrType)(v)
+}
+
+func (*dataAutomationProjectPiiEntitiesConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectPiiEntitiesConfiguration)(nil)).Elem()
+}
+
+func (i *dataAutomationProjectPiiEntitiesConfigurationPtrType) ToDataAutomationProjectPiiEntitiesConfigurationPtrOutput() DataAutomationProjectPiiEntitiesConfigurationPtrOutput {
+	return i.ToDataAutomationProjectPiiEntitiesConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAutomationProjectPiiEntitiesConfigurationPtrType) ToDataAutomationProjectPiiEntitiesConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectPiiEntitiesConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectPiiEntitiesConfigurationPtrOutput)
+}
+
+type DataAutomationProjectPiiEntitiesConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectPiiEntitiesConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectPiiEntitiesConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectPiiEntitiesConfigurationOutput) ToDataAutomationProjectPiiEntitiesConfigurationOutput() DataAutomationProjectPiiEntitiesConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectPiiEntitiesConfigurationOutput) ToDataAutomationProjectPiiEntitiesConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectPiiEntitiesConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectPiiEntitiesConfigurationOutput) ToDataAutomationProjectPiiEntitiesConfigurationPtrOutput() DataAutomationProjectPiiEntitiesConfigurationPtrOutput {
+	return o.ToDataAutomationProjectPiiEntitiesConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectPiiEntitiesConfigurationOutput) ToDataAutomationProjectPiiEntitiesConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectPiiEntitiesConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectPiiEntitiesConfiguration) *DataAutomationProjectPiiEntitiesConfiguration {
+		return &v
+	}).(DataAutomationProjectPiiEntitiesConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectPiiEntitiesConfigurationOutput) PiiEntityTypes() DataAutomationProjectPiiEntityTypesArrayOutput {
+	return o.ApplyT(func(v DataAutomationProjectPiiEntitiesConfiguration) []DataAutomationProjectPiiEntityTypes {
+		return v.PiiEntityTypes
+	}).(DataAutomationProjectPiiEntityTypesArrayOutput)
+}
+
+func (o DataAutomationProjectPiiEntitiesConfigurationOutput) RedactionMaskMode() DataAutomationProjectPiiRedactionMaskModePtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectPiiEntitiesConfiguration) *DataAutomationProjectPiiRedactionMaskMode {
+		return v.RedactionMaskMode
+	}).(DataAutomationProjectPiiRedactionMaskModePtrOutput)
+}
+
+type DataAutomationProjectPiiEntitiesConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectPiiEntitiesConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectPiiEntitiesConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectPiiEntitiesConfigurationPtrOutput) ToDataAutomationProjectPiiEntitiesConfigurationPtrOutput() DataAutomationProjectPiiEntitiesConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectPiiEntitiesConfigurationPtrOutput) ToDataAutomationProjectPiiEntitiesConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectPiiEntitiesConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectPiiEntitiesConfigurationPtrOutput) Elem() DataAutomationProjectPiiEntitiesConfigurationOutput {
+	return o.ApplyT(func(v *DataAutomationProjectPiiEntitiesConfiguration) DataAutomationProjectPiiEntitiesConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectPiiEntitiesConfiguration
+		return ret
+	}).(DataAutomationProjectPiiEntitiesConfigurationOutput)
+}
+
+func (o DataAutomationProjectPiiEntitiesConfigurationPtrOutput) PiiEntityTypes() DataAutomationProjectPiiEntityTypesArrayOutput {
+	return o.ApplyT(func(v *DataAutomationProjectPiiEntitiesConfiguration) []DataAutomationProjectPiiEntityTypes {
+		if v == nil {
+			return nil
+		}
+		return v.PiiEntityTypes
+	}).(DataAutomationProjectPiiEntityTypesArrayOutput)
+}
+
+func (o DataAutomationProjectPiiEntitiesConfigurationPtrOutput) RedactionMaskMode() DataAutomationProjectPiiRedactionMaskModePtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectPiiEntitiesConfiguration) *DataAutomationProjectPiiRedactionMaskMode {
+		if v == nil {
+			return nil
+		}
+		return v.RedactionMaskMode
+	}).(DataAutomationProjectPiiRedactionMaskModePtrOutput)
+}
+
+type DataAutomationProjectSensitiveDataConfiguration struct {
+	DetectionMode            *DataAutomationProjectSensitiveDataDetectionMode   `pulumi:"detectionMode"`
+	DetectionScope           []DataAutomationProjectSensitiveDataDetectionScope `pulumi:"detectionScope"`
+	PiiEntitiesConfiguration *DataAutomationProjectPiiEntitiesConfiguration     `pulumi:"piiEntitiesConfiguration"`
+}
+
+// DataAutomationProjectSensitiveDataConfigurationInput is an input type that accepts DataAutomationProjectSensitiveDataConfigurationArgs and DataAutomationProjectSensitiveDataConfigurationOutput values.
+// You can construct a concrete instance of `DataAutomationProjectSensitiveDataConfigurationInput` via:
+//
+//	DataAutomationProjectSensitiveDataConfigurationArgs{...}
+type DataAutomationProjectSensitiveDataConfigurationInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectSensitiveDataConfigurationOutput() DataAutomationProjectSensitiveDataConfigurationOutput
+	ToDataAutomationProjectSensitiveDataConfigurationOutputWithContext(context.Context) DataAutomationProjectSensitiveDataConfigurationOutput
+}
+
+type DataAutomationProjectSensitiveDataConfigurationArgs struct {
+	DetectionMode            DataAutomationProjectSensitiveDataDetectionModePtrInput    `pulumi:"detectionMode"`
+	DetectionScope           DataAutomationProjectSensitiveDataDetectionScopeArrayInput `pulumi:"detectionScope"`
+	PiiEntitiesConfiguration DataAutomationProjectPiiEntitiesConfigurationPtrInput      `pulumi:"piiEntitiesConfiguration"`
+}
+
+func (DataAutomationProjectSensitiveDataConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectSensitiveDataConfiguration)(nil)).Elem()
+}
+
+func (i DataAutomationProjectSensitiveDataConfigurationArgs) ToDataAutomationProjectSensitiveDataConfigurationOutput() DataAutomationProjectSensitiveDataConfigurationOutput {
+	return i.ToDataAutomationProjectSensitiveDataConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectSensitiveDataConfigurationArgs) ToDataAutomationProjectSensitiveDataConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectSensitiveDataConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectSensitiveDataConfigurationOutput)
+}
+
+func (i DataAutomationProjectSensitiveDataConfigurationArgs) ToDataAutomationProjectSensitiveDataConfigurationPtrOutput() DataAutomationProjectSensitiveDataConfigurationPtrOutput {
+	return i.ToDataAutomationProjectSensitiveDataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectSensitiveDataConfigurationArgs) ToDataAutomationProjectSensitiveDataConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectSensitiveDataConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectSensitiveDataConfigurationOutput).ToDataAutomationProjectSensitiveDataConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataAutomationProjectSensitiveDataConfigurationPtrInput is an input type that accepts DataAutomationProjectSensitiveDataConfigurationArgs, DataAutomationProjectSensitiveDataConfigurationPtr and DataAutomationProjectSensitiveDataConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataAutomationProjectSensitiveDataConfigurationPtrInput` via:
+//
+//	        DataAutomationProjectSensitiveDataConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAutomationProjectSensitiveDataConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectSensitiveDataConfigurationPtrOutput() DataAutomationProjectSensitiveDataConfigurationPtrOutput
+	ToDataAutomationProjectSensitiveDataConfigurationPtrOutputWithContext(context.Context) DataAutomationProjectSensitiveDataConfigurationPtrOutput
+}
+
+type dataAutomationProjectSensitiveDataConfigurationPtrType DataAutomationProjectSensitiveDataConfigurationArgs
+
+func DataAutomationProjectSensitiveDataConfigurationPtr(v *DataAutomationProjectSensitiveDataConfigurationArgs) DataAutomationProjectSensitiveDataConfigurationPtrInput {
+	return (*dataAutomationProjectSensitiveDataConfigurationPtrType)(v)
+}
+
+func (*dataAutomationProjectSensitiveDataConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectSensitiveDataConfiguration)(nil)).Elem()
+}
+
+func (i *dataAutomationProjectSensitiveDataConfigurationPtrType) ToDataAutomationProjectSensitiveDataConfigurationPtrOutput() DataAutomationProjectSensitiveDataConfigurationPtrOutput {
+	return i.ToDataAutomationProjectSensitiveDataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAutomationProjectSensitiveDataConfigurationPtrType) ToDataAutomationProjectSensitiveDataConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectSensitiveDataConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectSensitiveDataConfigurationPtrOutput)
+}
+
+type DataAutomationProjectSensitiveDataConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectSensitiveDataConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectSensitiveDataConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectSensitiveDataConfigurationOutput) ToDataAutomationProjectSensitiveDataConfigurationOutput() DataAutomationProjectSensitiveDataConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectSensitiveDataConfigurationOutput) ToDataAutomationProjectSensitiveDataConfigurationOutputWithContext(ctx context.Context) DataAutomationProjectSensitiveDataConfigurationOutput {
+	return o
+}
+
+func (o DataAutomationProjectSensitiveDataConfigurationOutput) ToDataAutomationProjectSensitiveDataConfigurationPtrOutput() DataAutomationProjectSensitiveDataConfigurationPtrOutput {
+	return o.ToDataAutomationProjectSensitiveDataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectSensitiveDataConfigurationOutput) ToDataAutomationProjectSensitiveDataConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectSensitiveDataConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectSensitiveDataConfiguration) *DataAutomationProjectSensitiveDataConfiguration {
+		return &v
+	}).(DataAutomationProjectSensitiveDataConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectSensitiveDataConfigurationOutput) DetectionMode() DataAutomationProjectSensitiveDataDetectionModePtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectSensitiveDataConfiguration) *DataAutomationProjectSensitiveDataDetectionMode {
+		return v.DetectionMode
+	}).(DataAutomationProjectSensitiveDataDetectionModePtrOutput)
+}
+
+func (o DataAutomationProjectSensitiveDataConfigurationOutput) DetectionScope() DataAutomationProjectSensitiveDataDetectionScopeArrayOutput {
+	return o.ApplyT(func(v DataAutomationProjectSensitiveDataConfiguration) []DataAutomationProjectSensitiveDataDetectionScope {
+		return v.DetectionScope
+	}).(DataAutomationProjectSensitiveDataDetectionScopeArrayOutput)
+}
+
+func (o DataAutomationProjectSensitiveDataConfigurationOutput) PiiEntitiesConfiguration() DataAutomationProjectPiiEntitiesConfigurationPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectSensitiveDataConfiguration) *DataAutomationProjectPiiEntitiesConfiguration {
+		return v.PiiEntitiesConfiguration
+	}).(DataAutomationProjectPiiEntitiesConfigurationPtrOutput)
+}
+
+type DataAutomationProjectSensitiveDataConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectSensitiveDataConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectSensitiveDataConfiguration)(nil)).Elem()
+}
+
+func (o DataAutomationProjectSensitiveDataConfigurationPtrOutput) ToDataAutomationProjectSensitiveDataConfigurationPtrOutput() DataAutomationProjectSensitiveDataConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectSensitiveDataConfigurationPtrOutput) ToDataAutomationProjectSensitiveDataConfigurationPtrOutputWithContext(ctx context.Context) DataAutomationProjectSensitiveDataConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectSensitiveDataConfigurationPtrOutput) Elem() DataAutomationProjectSensitiveDataConfigurationOutput {
+	return o.ApplyT(func(v *DataAutomationProjectSensitiveDataConfiguration) DataAutomationProjectSensitiveDataConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectSensitiveDataConfiguration
+		return ret
+	}).(DataAutomationProjectSensitiveDataConfigurationOutput)
+}
+
+func (o DataAutomationProjectSensitiveDataConfigurationPtrOutput) DetectionMode() DataAutomationProjectSensitiveDataDetectionModePtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectSensitiveDataConfiguration) *DataAutomationProjectSensitiveDataDetectionMode {
+		if v == nil {
+			return nil
+		}
+		return v.DetectionMode
+	}).(DataAutomationProjectSensitiveDataDetectionModePtrOutput)
+}
+
+func (o DataAutomationProjectSensitiveDataConfigurationPtrOutput) DetectionScope() DataAutomationProjectSensitiveDataDetectionScopeArrayOutput {
+	return o.ApplyT(func(v *DataAutomationProjectSensitiveDataConfiguration) []DataAutomationProjectSensitiveDataDetectionScope {
+		if v == nil {
+			return nil
+		}
+		return v.DetectionScope
+	}).(DataAutomationProjectSensitiveDataDetectionScopeArrayOutput)
+}
+
+func (o DataAutomationProjectSensitiveDataConfigurationPtrOutput) PiiEntitiesConfiguration() DataAutomationProjectPiiEntitiesConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectSensitiveDataConfiguration) *DataAutomationProjectPiiEntitiesConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PiiEntitiesConfiguration
+	}).(DataAutomationProjectPiiEntitiesConfigurationPtrOutput)
+}
+
 type DataAutomationProjectSpeakerLabelingConfiguration struct {
 	// State of speaker labeling, either enabled or disabled.
 	State DataAutomationProjectStateEnum `pulumi:"state"`
@@ -9159,7 +9731,8 @@ func (o DataAutomationProjectVideoExtractionCategoryPtrOutput) Types() DataAutom
 
 type DataAutomationProjectVideoOverrideConfiguration struct {
 	// Sets modality processing for video files. All modalities are enabled by default.
-	ModalityProcessing *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
+	ModalityProcessing         *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
+	SensitiveDataConfiguration *DataAutomationProjectSensitiveDataConfiguration      `pulumi:"sensitiveDataConfiguration"`
 }
 
 // DataAutomationProjectVideoOverrideConfigurationInput is an input type that accepts DataAutomationProjectVideoOverrideConfigurationArgs and DataAutomationProjectVideoOverrideConfigurationOutput values.
@@ -9175,7 +9748,8 @@ type DataAutomationProjectVideoOverrideConfigurationInput interface {
 
 type DataAutomationProjectVideoOverrideConfigurationArgs struct {
 	// Sets modality processing for video files. All modalities are enabled by default.
-	ModalityProcessing DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
+	ModalityProcessing         DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
+	SensitiveDataConfiguration DataAutomationProjectSensitiveDataConfigurationPtrInput      `pulumi:"sensitiveDataConfiguration"`
 }
 
 func (DataAutomationProjectVideoOverrideConfigurationArgs) ElementType() reflect.Type {
@@ -9262,6 +9836,12 @@ func (o DataAutomationProjectVideoOverrideConfigurationOutput) ModalityProcessin
 	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
 }
 
+func (o DataAutomationProjectVideoOverrideConfigurationOutput) SensitiveDataConfiguration() DataAutomationProjectSensitiveDataConfigurationPtrOutput {
+	return o.ApplyT(func(v DataAutomationProjectVideoOverrideConfiguration) *DataAutomationProjectSensitiveDataConfiguration {
+		return v.SensitiveDataConfiguration
+	}).(DataAutomationProjectSensitiveDataConfigurationPtrOutput)
+}
+
 type DataAutomationProjectVideoOverrideConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (DataAutomationProjectVideoOverrideConfigurationPtrOutput) ElementType() reflect.Type {
@@ -9294,6 +9874,15 @@ func (o DataAutomationProjectVideoOverrideConfigurationPtrOutput) ModalityProces
 		}
 		return v.ModalityProcessing
 	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
+}
+
+func (o DataAutomationProjectVideoOverrideConfigurationPtrOutput) SensitiveDataConfiguration() DataAutomationProjectSensitiveDataConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataAutomationProjectVideoOverrideConfiguration) *DataAutomationProjectSensitiveDataConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SensitiveDataConfiguration
+	}).(DataAutomationProjectSensitiveDataConfigurationPtrOutput)
 }
 
 type DataAutomationProjectVideoStandardExtraction struct {
@@ -38633,6 +39222,184 @@ func (o KnowledgeBaseS3LocationPtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Contains the storage configuration of the knowledge base for S3 vectors.
+type KnowledgeBaseS3VectorsConfiguration struct {
+	// The Amazon Resource Name (ARN) of the vector index used for the knowledge base. This ARN identifies the specific vector index resource within Amazon Bedrock.
+	IndexArn *string `pulumi:"indexArn"`
+	// The name of the vector index used for the knowledge base. This name identifies the vector index within the Amazon Bedrock service.
+	IndexName *string `pulumi:"indexName"`
+	// The Amazon Resource Name (ARN) of the S3 bucket where vector embeddings are stored. This bucket contains the vector data used by the knowledge base.
+	VectorBucketArn *string `pulumi:"vectorBucketArn"`
+}
+
+// KnowledgeBaseS3VectorsConfigurationInput is an input type that accepts KnowledgeBaseS3VectorsConfigurationArgs and KnowledgeBaseS3VectorsConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseS3VectorsConfigurationInput` via:
+//
+//	KnowledgeBaseS3VectorsConfigurationArgs{...}
+type KnowledgeBaseS3VectorsConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseS3VectorsConfigurationOutput() KnowledgeBaseS3VectorsConfigurationOutput
+	ToKnowledgeBaseS3VectorsConfigurationOutputWithContext(context.Context) KnowledgeBaseS3VectorsConfigurationOutput
+}
+
+// Contains the storage configuration of the knowledge base for S3 vectors.
+type KnowledgeBaseS3VectorsConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) of the vector index used for the knowledge base. This ARN identifies the specific vector index resource within Amazon Bedrock.
+	IndexArn pulumi.StringPtrInput `pulumi:"indexArn"`
+	// The name of the vector index used for the knowledge base. This name identifies the vector index within the Amazon Bedrock service.
+	IndexName pulumi.StringPtrInput `pulumi:"indexName"`
+	// The Amazon Resource Name (ARN) of the S3 bucket where vector embeddings are stored. This bucket contains the vector data used by the knowledge base.
+	VectorBucketArn pulumi.StringPtrInput `pulumi:"vectorBucketArn"`
+}
+
+func (KnowledgeBaseS3VectorsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseS3VectorsConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseS3VectorsConfigurationArgs) ToKnowledgeBaseS3VectorsConfigurationOutput() KnowledgeBaseS3VectorsConfigurationOutput {
+	return i.ToKnowledgeBaseS3VectorsConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseS3VectorsConfigurationArgs) ToKnowledgeBaseS3VectorsConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseS3VectorsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseS3VectorsConfigurationOutput)
+}
+
+func (i KnowledgeBaseS3VectorsConfigurationArgs) ToKnowledgeBaseS3VectorsConfigurationPtrOutput() KnowledgeBaseS3VectorsConfigurationPtrOutput {
+	return i.ToKnowledgeBaseS3VectorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseS3VectorsConfigurationArgs) ToKnowledgeBaseS3VectorsConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseS3VectorsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseS3VectorsConfigurationOutput).ToKnowledgeBaseS3VectorsConfigurationPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseS3VectorsConfigurationPtrInput is an input type that accepts KnowledgeBaseS3VectorsConfigurationArgs, KnowledgeBaseS3VectorsConfigurationPtr and KnowledgeBaseS3VectorsConfigurationPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseS3VectorsConfigurationPtrInput` via:
+//
+//	        KnowledgeBaseS3VectorsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseS3VectorsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseS3VectorsConfigurationPtrOutput() KnowledgeBaseS3VectorsConfigurationPtrOutput
+	ToKnowledgeBaseS3VectorsConfigurationPtrOutputWithContext(context.Context) KnowledgeBaseS3VectorsConfigurationPtrOutput
+}
+
+type knowledgeBaseS3VectorsConfigurationPtrType KnowledgeBaseS3VectorsConfigurationArgs
+
+func KnowledgeBaseS3VectorsConfigurationPtr(v *KnowledgeBaseS3VectorsConfigurationArgs) KnowledgeBaseS3VectorsConfigurationPtrInput {
+	return (*knowledgeBaseS3VectorsConfigurationPtrType)(v)
+}
+
+func (*knowledgeBaseS3VectorsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseS3VectorsConfiguration)(nil)).Elem()
+}
+
+func (i *knowledgeBaseS3VectorsConfigurationPtrType) ToKnowledgeBaseS3VectorsConfigurationPtrOutput() KnowledgeBaseS3VectorsConfigurationPtrOutput {
+	return i.ToKnowledgeBaseS3VectorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseS3VectorsConfigurationPtrType) ToKnowledgeBaseS3VectorsConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseS3VectorsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseS3VectorsConfigurationPtrOutput)
+}
+
+// Contains the storage configuration of the knowledge base for S3 vectors.
+type KnowledgeBaseS3VectorsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseS3VectorsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseS3VectorsConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseS3VectorsConfigurationOutput) ToKnowledgeBaseS3VectorsConfigurationOutput() KnowledgeBaseS3VectorsConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseS3VectorsConfigurationOutput) ToKnowledgeBaseS3VectorsConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseS3VectorsConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseS3VectorsConfigurationOutput) ToKnowledgeBaseS3VectorsConfigurationPtrOutput() KnowledgeBaseS3VectorsConfigurationPtrOutput {
+	return o.ToKnowledgeBaseS3VectorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseS3VectorsConfigurationOutput) ToKnowledgeBaseS3VectorsConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseS3VectorsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseS3VectorsConfiguration) *KnowledgeBaseS3VectorsConfiguration {
+		return &v
+	}).(KnowledgeBaseS3VectorsConfigurationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the vector index used for the knowledge base. This ARN identifies the specific vector index resource within Amazon Bedrock.
+func (o KnowledgeBaseS3VectorsConfigurationOutput) IndexArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseS3VectorsConfiguration) *string { return v.IndexArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the vector index used for the knowledge base. This name identifies the vector index within the Amazon Bedrock service.
+func (o KnowledgeBaseS3VectorsConfigurationOutput) IndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseS3VectorsConfiguration) *string { return v.IndexName }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the S3 bucket where vector embeddings are stored. This bucket contains the vector data used by the knowledge base.
+func (o KnowledgeBaseS3VectorsConfigurationOutput) VectorBucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseS3VectorsConfiguration) *string { return v.VectorBucketArn }).(pulumi.StringPtrOutput)
+}
+
+type KnowledgeBaseS3VectorsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseS3VectorsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseS3VectorsConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseS3VectorsConfigurationPtrOutput) ToKnowledgeBaseS3VectorsConfigurationPtrOutput() KnowledgeBaseS3VectorsConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseS3VectorsConfigurationPtrOutput) ToKnowledgeBaseS3VectorsConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseS3VectorsConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseS3VectorsConfigurationPtrOutput) Elem() KnowledgeBaseS3VectorsConfigurationOutput {
+	return o.ApplyT(func(v *KnowledgeBaseS3VectorsConfiguration) KnowledgeBaseS3VectorsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseS3VectorsConfiguration
+		return ret
+	}).(KnowledgeBaseS3VectorsConfigurationOutput)
+}
+
+// The Amazon Resource Name (ARN) of the vector index used for the knowledge base. This ARN identifies the specific vector index resource within Amazon Bedrock.
+func (o KnowledgeBaseS3VectorsConfigurationPtrOutput) IndexArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseS3VectorsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IndexArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the vector index used for the knowledge base. This name identifies the vector index within the Amazon Bedrock service.
+func (o KnowledgeBaseS3VectorsConfigurationPtrOutput) IndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseS3VectorsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IndexName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the S3 bucket where vector embeddings are stored. This bucket contains the vector data used by the knowledge base.
+func (o KnowledgeBaseS3VectorsConfigurationPtrOutput) VectorBucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseS3VectorsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VectorBucketArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // Configurations for a SQL knowledge base
 type KnowledgeBaseSqlKnowledgeBaseConfiguration struct {
 	// Specifies configurations for a knowledge base connected to an Amazon Redshift database.
@@ -38808,6 +39575,8 @@ type KnowledgeBaseStorageConfiguration struct {
 	PineconeConfiguration *KnowledgeBasePineconeConfiguration `pulumi:"pineconeConfiguration"`
 	// Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html) .
 	RdsConfiguration *KnowledgeBaseRdsConfiguration `pulumi:"rdsConfiguration"`
+	// The configuration settings for storing knowledge base data using S3 vectors. This includes vector index information and S3 bucket details for vector storage.
+	S3VectorsConfiguration *KnowledgeBaseS3VectorsConfiguration `pulumi:"s3VectorsConfiguration"`
 	// The vector store service in which the knowledge base is stored.
 	Type KnowledgeBaseStorageType `pulumi:"type"`
 }
@@ -38837,6 +39606,8 @@ type KnowledgeBaseStorageConfigurationArgs struct {
 	PineconeConfiguration KnowledgeBasePineconeConfigurationPtrInput `pulumi:"pineconeConfiguration"`
 	// Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html) .
 	RdsConfiguration KnowledgeBaseRdsConfigurationPtrInput `pulumi:"rdsConfiguration"`
+	// The configuration settings for storing knowledge base data using S3 vectors. This includes vector index information and S3 bucket details for vector storage.
+	S3VectorsConfiguration KnowledgeBaseS3VectorsConfigurationPtrInput `pulumi:"s3VectorsConfiguration"`
 	// The vector store service in which the knowledge base is stored.
 	Type KnowledgeBaseStorageTypeInput `pulumi:"type"`
 }
@@ -38959,6 +39730,13 @@ func (o KnowledgeBaseStorageConfigurationOutput) RdsConfiguration() KnowledgeBas
 	return o.ApplyT(func(v KnowledgeBaseStorageConfiguration) *KnowledgeBaseRdsConfiguration { return v.RdsConfiguration }).(KnowledgeBaseRdsConfigurationPtrOutput)
 }
 
+// The configuration settings for storing knowledge base data using S3 vectors. This includes vector index information and S3 bucket details for vector storage.
+func (o KnowledgeBaseStorageConfigurationOutput) S3VectorsConfiguration() KnowledgeBaseS3VectorsConfigurationPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseStorageConfiguration) *KnowledgeBaseS3VectorsConfiguration {
+		return v.S3VectorsConfiguration
+	}).(KnowledgeBaseS3VectorsConfigurationPtrOutput)
+}
+
 // The vector store service in which the knowledge base is stored.
 func (o KnowledgeBaseStorageConfigurationOutput) Type() KnowledgeBaseStorageTypeOutput {
 	return o.ApplyT(func(v KnowledgeBaseStorageConfiguration) KnowledgeBaseStorageType { return v.Type }).(KnowledgeBaseStorageTypeOutput)
@@ -39046,6 +39824,16 @@ func (o KnowledgeBaseStorageConfigurationPtrOutput) RdsConfiguration() Knowledge
 		}
 		return v.RdsConfiguration
 	}).(KnowledgeBaseRdsConfigurationPtrOutput)
+}
+
+// The configuration settings for storing knowledge base data using S3 vectors. This includes vector index information and S3 bucket details for vector storage.
+func (o KnowledgeBaseStorageConfigurationPtrOutput) S3VectorsConfiguration() KnowledgeBaseS3VectorsConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseStorageConfiguration) *KnowledgeBaseS3VectorsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.S3VectorsConfiguration
+	}).(KnowledgeBaseS3VectorsConfigurationPtrOutput)
 }
 
 // The vector store service in which the knowledge base is stored.
@@ -44104,6 +44892,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryPtrInput)(nil)).Elem(), DataAutomationProjectAudioExtractionCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryTypeConfigurationInput)(nil)).Elem(), DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioLanguageConfigurationInput)(nil)).Elem(), DataAutomationProjectAudioLanguageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioLanguageConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectAudioLanguageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioOverrideConfigurationInput)(nil)).Elem(), DataAutomationProjectAudioOverrideConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioOverrideConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectAudioOverrideConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioStandardExtractionInput)(nil)).Elem(), DataAutomationProjectAudioStandardExtractionArgs{})
@@ -44154,6 +44944,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectModalityRoutingConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectModalityRoutingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectOverrideConfigurationInput)(nil)).Elem(), DataAutomationProjectOverrideConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectOverrideConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectOverrideConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectPiiEntitiesConfigurationInput)(nil)).Elem(), DataAutomationProjectPiiEntitiesConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectPiiEntitiesConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectPiiEntitiesConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectSensitiveDataConfigurationInput)(nil)).Elem(), DataAutomationProjectSensitiveDataConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectSensitiveDataConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectSensitiveDataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectSpeakerLabelingConfigurationInput)(nil)).Elem(), DataAutomationProjectSpeakerLabelingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectSpeakerLabelingConfigurationPtrInput)(nil)).Elem(), DataAutomationProjectSpeakerLabelingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectSplitterConfigurationInput)(nil)).Elem(), DataAutomationProjectSplitterConfigurationArgs{})
@@ -44488,6 +45282,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseRedshiftServerlessConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseRedshiftServerlessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseS3LocationInput)(nil)).Elem(), KnowledgeBaseS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseS3LocationPtrInput)(nil)).Elem(), KnowledgeBaseS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseS3VectorsConfigurationInput)(nil)).Elem(), KnowledgeBaseS3VectorsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseS3VectorsConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseS3VectorsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSqlKnowledgeBaseConfigurationInput)(nil)).Elem(), KnowledgeBaseSqlKnowledgeBaseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSqlKnowledgeBaseConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseSqlKnowledgeBaseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseStorageConfigurationInput)(nil)).Elem(), KnowledgeBaseStorageConfigurationArgs{})
@@ -44609,6 +45405,8 @@ func init() {
 	pulumi.RegisterOutputType(DataAutomationProjectAudioExtractionCategoryPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioExtractionCategoryTypeConfigurationOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioExtractionCategoryTypeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectAudioLanguageConfigurationOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectAudioLanguageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioOverrideConfigurationOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioOverrideConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioStandardExtractionOutput{})
@@ -44659,6 +45457,10 @@ func init() {
 	pulumi.RegisterOutputType(DataAutomationProjectModalityRoutingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectOverrideConfigurationOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectOverrideConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectPiiEntitiesConfigurationOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectPiiEntitiesConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectSensitiveDataConfigurationOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectSensitiveDataConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectSpeakerLabelingConfigurationOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectSpeakerLabelingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectSplitterConfigurationOutput{})
@@ -45132,6 +45934,8 @@ func init() {
 	pulumi.RegisterOutputType(KnowledgeBaseRedshiftServerlessConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseS3LocationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseS3VectorsConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseS3VectorsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseSqlKnowledgeBaseConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseSqlKnowledgeBaseConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseStorageConfigurationOutput{})

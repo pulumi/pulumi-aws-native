@@ -22529,10 +22529,14 @@ func (o DashboardYAxisOptionsPtrOutput) YAxis() DashboardSingleYAxisOptionPtrOut
 }
 
 type DataSetAggregateOperation struct {
-	Aggregations       []DataSetAggregation            `pulumi:"aggregations"`
-	Alias              string                          `pulumi:"alias"`
-	GroupByColumnNames []string                        `pulumi:"groupByColumnNames"`
-	Source             DataSetTransformOperationSource `pulumi:"source"`
+	// The list of aggregation functions to apply to the grouped data, such as `SUM` , `COUNT` , or `AVERAGE` .
+	Aggregations []DataSetAggregation `pulumi:"aggregations"`
+	// Alias for this operation.
+	Alias string `pulumi:"alias"`
+	// The list of column names to group by when performing the aggregation. Rows with the same values in these columns will be grouped together.
+	GroupByColumnNames []string `pulumi:"groupByColumnNames"`
+	// The source transform operation that provides input data for the aggregation.
+	Source DataSetTransformOperationSource `pulumi:"source"`
 }
 
 // DataSetAggregateOperationInput is an input type that accepts DataSetAggregateOperationArgs and DataSetAggregateOperationOutput values.
@@ -22547,10 +22551,14 @@ type DataSetAggregateOperationInput interface {
 }
 
 type DataSetAggregateOperationArgs struct {
-	Aggregations       DataSetAggregationArrayInput         `pulumi:"aggregations"`
-	Alias              pulumi.StringInput                   `pulumi:"alias"`
-	GroupByColumnNames pulumi.StringArrayInput              `pulumi:"groupByColumnNames"`
-	Source             DataSetTransformOperationSourceInput `pulumi:"source"`
+	// The list of aggregation functions to apply to the grouped data, such as `SUM` , `COUNT` , or `AVERAGE` .
+	Aggregations DataSetAggregationArrayInput `pulumi:"aggregations"`
+	// Alias for this operation.
+	Alias pulumi.StringInput `pulumi:"alias"`
+	// The list of column names to group by when performing the aggregation. Rows with the same values in these columns will be grouped together.
+	GroupByColumnNames pulumi.StringArrayInput `pulumi:"groupByColumnNames"`
+	// The source transform operation that provides input data for the aggregation.
+	Source DataSetTransformOperationSourceInput `pulumi:"source"`
 }
 
 func (DataSetAggregateOperationArgs) ElementType() reflect.Type {
@@ -22630,18 +22638,22 @@ func (o DataSetAggregateOperationOutput) ToDataSetAggregateOperationPtrOutputWit
 	}).(DataSetAggregateOperationPtrOutput)
 }
 
+// The list of aggregation functions to apply to the grouped data, such as `SUM` , `COUNT` , or `AVERAGE` .
 func (o DataSetAggregateOperationOutput) Aggregations() DataSetAggregationArrayOutput {
 	return o.ApplyT(func(v DataSetAggregateOperation) []DataSetAggregation { return v.Aggregations }).(DataSetAggregationArrayOutput)
 }
 
+// Alias for this operation.
 func (o DataSetAggregateOperationOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetAggregateOperation) string { return v.Alias }).(pulumi.StringOutput)
 }
 
+// The list of column names to group by when performing the aggregation. Rows with the same values in these columns will be grouped together.
 func (o DataSetAggregateOperationOutput) GroupByColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSetAggregateOperation) []string { return v.GroupByColumnNames }).(pulumi.StringArrayOutput)
 }
 
+// The source transform operation that provides input data for the aggregation.
 func (o DataSetAggregateOperationOutput) Source() DataSetTransformOperationSourceOutput {
 	return o.ApplyT(func(v DataSetAggregateOperation) DataSetTransformOperationSource { return v.Source }).(DataSetTransformOperationSourceOutput)
 }
@@ -22670,6 +22682,7 @@ func (o DataSetAggregateOperationPtrOutput) Elem() DataSetAggregateOperationOutp
 	}).(DataSetAggregateOperationOutput)
 }
 
+// The list of aggregation functions to apply to the grouped data, such as `SUM` , `COUNT` , or `AVERAGE` .
 func (o DataSetAggregateOperationPtrOutput) Aggregations() DataSetAggregationArrayOutput {
 	return o.ApplyT(func(v *DataSetAggregateOperation) []DataSetAggregation {
 		if v == nil {
@@ -22679,6 +22692,7 @@ func (o DataSetAggregateOperationPtrOutput) Aggregations() DataSetAggregationArr
 	}).(DataSetAggregationArrayOutput)
 }
 
+// Alias for this operation.
 func (o DataSetAggregateOperationPtrOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetAggregateOperation) *string {
 		if v == nil {
@@ -22688,6 +22702,7 @@ func (o DataSetAggregateOperationPtrOutput) Alias() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of column names to group by when performing the aggregation. Rows with the same values in these columns will be grouped together.
 func (o DataSetAggregateOperationPtrOutput) GroupByColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSetAggregateOperation) []string {
 		if v == nil {
@@ -22697,6 +22712,7 @@ func (o DataSetAggregateOperationPtrOutput) GroupByColumnNames() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
+// The source transform operation that provides input data for the aggregation.
 func (o DataSetAggregateOperationPtrOutput) Source() DataSetTransformOperationSourcePtrOutput {
 	return o.ApplyT(func(v *DataSetAggregateOperation) *DataSetTransformOperationSource {
 		if v == nil {
@@ -22707,9 +22723,12 @@ func (o DataSetAggregateOperationPtrOutput) Source() DataSetTransformOperationSo
 }
 
 type DataSetAggregation struct {
+	// The aggregation function to apply, such as `SUM` , `COUNT` , `AVERAGE` , `MIN` , `MAX`
 	AggregationFunction DataSetDataPrepAggregationFunction `pulumi:"aggregationFunction"`
-	NewColumnId         string                             `pulumi:"newColumnId"`
-	NewColumnName       string                             `pulumi:"newColumnName"`
+	// A unique identifier for the new column that will contain the aggregated values.
+	NewColumnId string `pulumi:"newColumnId"`
+	// The name for the new column that will contain the aggregated values.
+	NewColumnName string `pulumi:"newColumnName"`
 }
 
 // DataSetAggregationInput is an input type that accepts DataSetAggregationArgs and DataSetAggregationOutput values.
@@ -22724,9 +22743,12 @@ type DataSetAggregationInput interface {
 }
 
 type DataSetAggregationArgs struct {
+	// The aggregation function to apply, such as `SUM` , `COUNT` , `AVERAGE` , `MIN` , `MAX`
 	AggregationFunction DataSetDataPrepAggregationFunctionInput `pulumi:"aggregationFunction"`
-	NewColumnId         pulumi.StringInput                      `pulumi:"newColumnId"`
-	NewColumnName       pulumi.StringInput                      `pulumi:"newColumnName"`
+	// A unique identifier for the new column that will contain the aggregated values.
+	NewColumnId pulumi.StringInput `pulumi:"newColumnId"`
+	// The name for the new column that will contain the aggregated values.
+	NewColumnName pulumi.StringInput `pulumi:"newColumnName"`
 }
 
 func (DataSetAggregationArgs) ElementType() reflect.Type {
@@ -22780,14 +22802,17 @@ func (o DataSetAggregationOutput) ToDataSetAggregationOutputWithContext(ctx cont
 	return o
 }
 
+// The aggregation function to apply, such as `SUM` , `COUNT` , `AVERAGE` , `MIN` , `MAX`
 func (o DataSetAggregationOutput) AggregationFunction() DataSetDataPrepAggregationFunctionOutput {
 	return o.ApplyT(func(v DataSetAggregation) DataSetDataPrepAggregationFunction { return v.AggregationFunction }).(DataSetDataPrepAggregationFunctionOutput)
 }
 
+// A unique identifier for the new column that will contain the aggregated values.
 func (o DataSetAggregationOutput) NewColumnId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetAggregation) string { return v.NewColumnId }).(pulumi.StringOutput)
 }
 
+// The name for the new column that will contain the aggregated values.
 func (o DataSetAggregationOutput) NewColumnName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetAggregation) string { return v.NewColumnName }).(pulumi.StringOutput)
 }
@@ -22813,10 +22838,14 @@ func (o DataSetAggregationArrayOutput) Index(i pulumi.IntInput) DataSetAggregati
 }
 
 type DataSetAppendOperation struct {
-	Alias           string                           `pulumi:"alias"`
-	AppendedColumns []DataSetAppendedColumn          `pulumi:"appendedColumns"`
-	FirstSource     *DataSetTransformOperationSource `pulumi:"firstSource"`
-	SecondSource    *DataSetTransformOperationSource `pulumi:"secondSource"`
+	// Alias for this operation.
+	Alias string `pulumi:"alias"`
+	// The list of columns to include in the appended result, mapping columns from both sources.
+	AppendedColumns []DataSetAppendedColumn `pulumi:"appendedColumns"`
+	// The first data source to be included in the append operation.
+	FirstSource *DataSetTransformOperationSource `pulumi:"firstSource"`
+	// The second data source to be appended to the first source.
+	SecondSource *DataSetTransformOperationSource `pulumi:"secondSource"`
 }
 
 // DataSetAppendOperationInput is an input type that accepts DataSetAppendOperationArgs and DataSetAppendOperationOutput values.
@@ -22831,10 +22860,14 @@ type DataSetAppendOperationInput interface {
 }
 
 type DataSetAppendOperationArgs struct {
-	Alias           pulumi.StringInput                      `pulumi:"alias"`
-	AppendedColumns DataSetAppendedColumnArrayInput         `pulumi:"appendedColumns"`
-	FirstSource     DataSetTransformOperationSourcePtrInput `pulumi:"firstSource"`
-	SecondSource    DataSetTransformOperationSourcePtrInput `pulumi:"secondSource"`
+	// Alias for this operation.
+	Alias pulumi.StringInput `pulumi:"alias"`
+	// The list of columns to include in the appended result, mapping columns from both sources.
+	AppendedColumns DataSetAppendedColumnArrayInput `pulumi:"appendedColumns"`
+	// The first data source to be included in the append operation.
+	FirstSource DataSetTransformOperationSourcePtrInput `pulumi:"firstSource"`
+	// The second data source to be appended to the first source.
+	SecondSource DataSetTransformOperationSourcePtrInput `pulumi:"secondSource"`
 }
 
 func (DataSetAppendOperationArgs) ElementType() reflect.Type {
@@ -22914,18 +22947,22 @@ func (o DataSetAppendOperationOutput) ToDataSetAppendOperationPtrOutputWithConte
 	}).(DataSetAppendOperationPtrOutput)
 }
 
+// Alias for this operation.
 func (o DataSetAppendOperationOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetAppendOperation) string { return v.Alias }).(pulumi.StringOutput)
 }
 
+// The list of columns to include in the appended result, mapping columns from both sources.
 func (o DataSetAppendOperationOutput) AppendedColumns() DataSetAppendedColumnArrayOutput {
 	return o.ApplyT(func(v DataSetAppendOperation) []DataSetAppendedColumn { return v.AppendedColumns }).(DataSetAppendedColumnArrayOutput)
 }
 
+// The first data source to be included in the append operation.
 func (o DataSetAppendOperationOutput) FirstSource() DataSetTransformOperationSourcePtrOutput {
 	return o.ApplyT(func(v DataSetAppendOperation) *DataSetTransformOperationSource { return v.FirstSource }).(DataSetTransformOperationSourcePtrOutput)
 }
 
+// The second data source to be appended to the first source.
 func (o DataSetAppendOperationOutput) SecondSource() DataSetTransformOperationSourcePtrOutput {
 	return o.ApplyT(func(v DataSetAppendOperation) *DataSetTransformOperationSource { return v.SecondSource }).(DataSetTransformOperationSourcePtrOutput)
 }
@@ -22954,6 +22991,7 @@ func (o DataSetAppendOperationPtrOutput) Elem() DataSetAppendOperationOutput {
 	}).(DataSetAppendOperationOutput)
 }
 
+// Alias for this operation.
 func (o DataSetAppendOperationPtrOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetAppendOperation) *string {
 		if v == nil {
@@ -22963,6 +23001,7 @@ func (o DataSetAppendOperationPtrOutput) Alias() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of columns to include in the appended result, mapping columns from both sources.
 func (o DataSetAppendOperationPtrOutput) AppendedColumns() DataSetAppendedColumnArrayOutput {
 	return o.ApplyT(func(v *DataSetAppendOperation) []DataSetAppendedColumn {
 		if v == nil {
@@ -22972,6 +23011,7 @@ func (o DataSetAppendOperationPtrOutput) AppendedColumns() DataSetAppendedColumn
 	}).(DataSetAppendedColumnArrayOutput)
 }
 
+// The first data source to be included in the append operation.
 func (o DataSetAppendOperationPtrOutput) FirstSource() DataSetTransformOperationSourcePtrOutput {
 	return o.ApplyT(func(v *DataSetAppendOperation) *DataSetTransformOperationSource {
 		if v == nil {
@@ -22981,6 +23021,7 @@ func (o DataSetAppendOperationPtrOutput) FirstSource() DataSetTransformOperation
 	}).(DataSetTransformOperationSourcePtrOutput)
 }
 
+// The second data source to be appended to the first source.
 func (o DataSetAppendOperationPtrOutput) SecondSource() DataSetTransformOperationSourcePtrOutput {
 	return o.ApplyT(func(v *DataSetAppendOperation) *DataSetTransformOperationSource {
 		if v == nil {
@@ -22991,7 +23032,9 @@ func (o DataSetAppendOperationPtrOutput) SecondSource() DataSetTransformOperatio
 }
 
 type DataSetAppendedColumn struct {
-	ColumnName  string `pulumi:"columnName"`
+	// The name of the column to include in the appended result.
+	ColumnName string `pulumi:"columnName"`
+	// A unique identifier for the column in the appended result.
 	NewColumnId string `pulumi:"newColumnId"`
 }
 
@@ -23007,7 +23050,9 @@ type DataSetAppendedColumnInput interface {
 }
 
 type DataSetAppendedColumnArgs struct {
-	ColumnName  pulumi.StringInput `pulumi:"columnName"`
+	// The name of the column to include in the appended result.
+	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	// A unique identifier for the column in the appended result.
 	NewColumnId pulumi.StringInput `pulumi:"newColumnId"`
 }
 
@@ -23062,10 +23107,12 @@ func (o DataSetAppendedColumnOutput) ToDataSetAppendedColumnOutputWithContext(ct
 	return o
 }
 
+// The name of the column to include in the appended result.
 func (o DataSetAppendedColumnOutput) ColumnName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetAppendedColumn) string { return v.ColumnName }).(pulumi.StringOutput)
 }
 
+// A unique identifier for the column in the appended result.
 func (o DataSetAppendedColumnOutput) NewColumnId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetAppendedColumn) string { return v.NewColumnId }).(pulumi.StringOutput)
 }
@@ -23464,9 +23511,12 @@ func (o DataSetCastColumnTypeOperationArrayOutput) Index(i pulumi.IntInput) Data
 }
 
 type DataSetCastColumnTypesOperation struct {
-	Alias                    string                           `pulumi:"alias"`
+	// Alias for this operation.
+	Alias string `pulumi:"alias"`
+	// The list of column type casting operations to perform.
 	CastColumnTypeOperations []DataSetCastColumnTypeOperation `pulumi:"castColumnTypeOperations"`
-	Source                   DataSetTransformOperationSource  `pulumi:"source"`
+	// The source transform operation that provides input data for the type casting.
+	Source DataSetTransformOperationSource `pulumi:"source"`
 }
 
 // DataSetCastColumnTypesOperationInput is an input type that accepts DataSetCastColumnTypesOperationArgs and DataSetCastColumnTypesOperationOutput values.
@@ -23481,9 +23531,12 @@ type DataSetCastColumnTypesOperationInput interface {
 }
 
 type DataSetCastColumnTypesOperationArgs struct {
-	Alias                    pulumi.StringInput                       `pulumi:"alias"`
+	// Alias for this operation.
+	Alias pulumi.StringInput `pulumi:"alias"`
+	// The list of column type casting operations to perform.
 	CastColumnTypeOperations DataSetCastColumnTypeOperationArrayInput `pulumi:"castColumnTypeOperations"`
-	Source                   DataSetTransformOperationSourceInput     `pulumi:"source"`
+	// The source transform operation that provides input data for the type casting.
+	Source DataSetTransformOperationSourceInput `pulumi:"source"`
 }
 
 func (DataSetCastColumnTypesOperationArgs) ElementType() reflect.Type {
@@ -23563,16 +23616,19 @@ func (o DataSetCastColumnTypesOperationOutput) ToDataSetCastColumnTypesOperation
 	}).(DataSetCastColumnTypesOperationPtrOutput)
 }
 
+// Alias for this operation.
 func (o DataSetCastColumnTypesOperationOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetCastColumnTypesOperation) string { return v.Alias }).(pulumi.StringOutput)
 }
 
+// The list of column type casting operations to perform.
 func (o DataSetCastColumnTypesOperationOutput) CastColumnTypeOperations() DataSetCastColumnTypeOperationArrayOutput {
 	return o.ApplyT(func(v DataSetCastColumnTypesOperation) []DataSetCastColumnTypeOperation {
 		return v.CastColumnTypeOperations
 	}).(DataSetCastColumnTypeOperationArrayOutput)
 }
 
+// The source transform operation that provides input data for the type casting.
 func (o DataSetCastColumnTypesOperationOutput) Source() DataSetTransformOperationSourceOutput {
 	return o.ApplyT(func(v DataSetCastColumnTypesOperation) DataSetTransformOperationSource { return v.Source }).(DataSetTransformOperationSourceOutput)
 }
@@ -23601,6 +23657,7 @@ func (o DataSetCastColumnTypesOperationPtrOutput) Elem() DataSetCastColumnTypesO
 	}).(DataSetCastColumnTypesOperationOutput)
 }
 
+// Alias for this operation.
 func (o DataSetCastColumnTypesOperationPtrOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetCastColumnTypesOperation) *string {
 		if v == nil {
@@ -23610,6 +23667,7 @@ func (o DataSetCastColumnTypesOperationPtrOutput) Alias() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of column type casting operations to perform.
 func (o DataSetCastColumnTypesOperationPtrOutput) CastColumnTypeOperations() DataSetCastColumnTypeOperationArrayOutput {
 	return o.ApplyT(func(v *DataSetCastColumnTypesOperation) []DataSetCastColumnTypeOperation {
 		if v == nil {
@@ -23619,6 +23677,7 @@ func (o DataSetCastColumnTypesOperationPtrOutput) CastColumnTypeOperations() Dat
 	}).(DataSetCastColumnTypeOperationArrayOutput)
 }
 
+// The source transform operation that provides input data for the type casting.
 func (o DataSetCastColumnTypesOperationPtrOutput) Source() DataSetTransformOperationSourcePtrOutput {
 	return o.ApplyT(func(v *DataSetCastColumnTypesOperation) *DataSetTransformOperationSource {
 		if v == nil {
@@ -24235,8 +24294,10 @@ func (o DataSetColumnTagArrayOutput) Index(i pulumi.IntInput) DataSetColumnTagOu
 }
 
 type DataSetColumnToUnpivot struct {
+	// The name of the column to unpivot from the source data.
 	ColumnName *string `pulumi:"columnName"`
-	NewValue   *string `pulumi:"newValue"`
+	// The value to assign to this column in the unpivoted result, typically the column name or a descriptive label.
+	NewValue *string `pulumi:"newValue"`
 }
 
 // DataSetColumnToUnpivotInput is an input type that accepts DataSetColumnToUnpivotArgs and DataSetColumnToUnpivotOutput values.
@@ -24251,8 +24312,10 @@ type DataSetColumnToUnpivotInput interface {
 }
 
 type DataSetColumnToUnpivotArgs struct {
+	// The name of the column to unpivot from the source data.
 	ColumnName pulumi.StringPtrInput `pulumi:"columnName"`
-	NewValue   pulumi.StringPtrInput `pulumi:"newValue"`
+	// The value to assign to this column in the unpivoted result, typically the column name or a descriptive label.
+	NewValue pulumi.StringPtrInput `pulumi:"newValue"`
 }
 
 func (DataSetColumnToUnpivotArgs) ElementType() reflect.Type {
@@ -24306,10 +24369,12 @@ func (o DataSetColumnToUnpivotOutput) ToDataSetColumnToUnpivotOutputWithContext(
 	return o
 }
 
+// The name of the column to unpivot from the source data.
 func (o DataSetColumnToUnpivotOutput) ColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetColumnToUnpivot) *string { return v.ColumnName }).(pulumi.StringPtrOutput)
 }
 
+// The value to assign to this column in the unpivoted result, typically the column name or a descriptive label.
 func (o DataSetColumnToUnpivotOutput) NewValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetColumnToUnpivot) *string { return v.NewValue }).(pulumi.StringPtrOutput)
 }
@@ -24338,10 +24403,12 @@ func (o DataSetColumnToUnpivotArrayOutput) Index(i pulumi.IntInput) DataSetColum
 //
 //	operation form a lexical closure.</p>
 type DataSetCreateColumnsOperation struct {
+	// Alias for this operation.
 	Alias *string `pulumi:"alias"`
 	// <p>Calculated columns to create.</p>
-	Columns []DataSetCalculatedColumn        `pulumi:"columns"`
-	Source  *DataSetTransformOperationSource `pulumi:"source"`
+	Columns []DataSetCalculatedColumn `pulumi:"columns"`
+	// The source transform operation that provides input data for creating new calculated columns.
+	Source *DataSetTransformOperationSource `pulumi:"source"`
 }
 
 // DataSetCreateColumnsOperationInput is an input type that accepts DataSetCreateColumnsOperationArgs and DataSetCreateColumnsOperationOutput values.
@@ -24359,10 +24426,12 @@ type DataSetCreateColumnsOperationInput interface {
 //
 //	operation form a lexical closure.</p>
 type DataSetCreateColumnsOperationArgs struct {
+	// Alias for this operation.
 	Alias pulumi.StringPtrInput `pulumi:"alias"`
 	// <p>Calculated columns to create.</p>
-	Columns DataSetCalculatedColumnArrayInput       `pulumi:"columns"`
-	Source  DataSetTransformOperationSourcePtrInput `pulumi:"source"`
+	Columns DataSetCalculatedColumnArrayInput `pulumi:"columns"`
+	// The source transform operation that provides input data for creating new calculated columns.
+	Source DataSetTransformOperationSourcePtrInput `pulumi:"source"`
 }
 
 func (DataSetCreateColumnsOperationArgs) ElementType() reflect.Type {
@@ -24445,6 +24514,7 @@ func (o DataSetCreateColumnsOperationOutput) ToDataSetCreateColumnsOperationPtrO
 	}).(DataSetCreateColumnsOperationPtrOutput)
 }
 
+// Alias for this operation.
 func (o DataSetCreateColumnsOperationOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetCreateColumnsOperation) *string { return v.Alias }).(pulumi.StringPtrOutput)
 }
@@ -24454,6 +24524,7 @@ func (o DataSetCreateColumnsOperationOutput) Columns() DataSetCalculatedColumnAr
 	return o.ApplyT(func(v DataSetCreateColumnsOperation) []DataSetCalculatedColumn { return v.Columns }).(DataSetCalculatedColumnArrayOutput)
 }
 
+// The source transform operation that provides input data for creating new calculated columns.
 func (o DataSetCreateColumnsOperationOutput) Source() DataSetTransformOperationSourcePtrOutput {
 	return o.ApplyT(func(v DataSetCreateColumnsOperation) *DataSetTransformOperationSource { return v.Source }).(DataSetTransformOperationSourcePtrOutput)
 }
@@ -24482,6 +24553,7 @@ func (o DataSetCreateColumnsOperationPtrOutput) Elem() DataSetCreateColumnsOpera
 	}).(DataSetCreateColumnsOperationOutput)
 }
 
+// Alias for this operation.
 func (o DataSetCreateColumnsOperationPtrOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetCreateColumnsOperation) *string {
 		if v == nil {
@@ -24501,6 +24573,7 @@ func (o DataSetCreateColumnsOperationPtrOutput) Columns() DataSetCalculatedColum
 	}).(DataSetCalculatedColumnArrayOutput)
 }
 
+// The source transform operation that provides input data for creating new calculated columns.
 func (o DataSetCreateColumnsOperationPtrOutput) Source() DataSetTransformOperationSourcePtrOutput {
 	return o.ApplyT(func(v *DataSetCreateColumnsOperation) *DataSetTransformOperationSource {
 		if v == nil {
@@ -24708,9 +24781,11 @@ func (o DataSetCustomSqlPtrOutput) SqlQuery() pulumi.StringPtrOutput {
 }
 
 type DataSetDataPrepAggregationFunction struct {
+	// A list aggregation function that concatenates values from multiple rows into a single delimited string.
 	ListAggregation       *DataSetDataPrepListAggregationFunction       `pulumi:"listAggregation"`
 	PercentileAggregation *DataSetDataPrepPercentileAggregationFunction `pulumi:"percentileAggregation"`
-	SimpleAggregation     *DataSetDataPrepSimpleAggregationFunction     `pulumi:"simpleAggregation"`
+	// A simple aggregation function such as `SUM` , `COUNT` , `AVERAGE` , `MIN` , `MAX` , `MEDIAN` , `VARIANCE` , or `STANDARD_DEVIATION` .
+	SimpleAggregation *DataSetDataPrepSimpleAggregationFunction `pulumi:"simpleAggregation"`
 }
 
 // DataSetDataPrepAggregationFunctionInput is an input type that accepts DataSetDataPrepAggregationFunctionArgs and DataSetDataPrepAggregationFunctionOutput values.
@@ -24725,9 +24800,11 @@ type DataSetDataPrepAggregationFunctionInput interface {
 }
 
 type DataSetDataPrepAggregationFunctionArgs struct {
+	// A list aggregation function that concatenates values from multiple rows into a single delimited string.
 	ListAggregation       DataSetDataPrepListAggregationFunctionPtrInput       `pulumi:"listAggregation"`
 	PercentileAggregation DataSetDataPrepPercentileAggregationFunctionPtrInput `pulumi:"percentileAggregation"`
-	SimpleAggregation     DataSetDataPrepSimpleAggregationFunctionPtrInput     `pulumi:"simpleAggregation"`
+	// A simple aggregation function such as `SUM` , `COUNT` , `AVERAGE` , `MIN` , `MAX` , `MEDIAN` , `VARIANCE` , or `STANDARD_DEVIATION` .
+	SimpleAggregation DataSetDataPrepSimpleAggregationFunctionPtrInput `pulumi:"simpleAggregation"`
 }
 
 func (DataSetDataPrepAggregationFunctionArgs) ElementType() reflect.Type {
@@ -24807,6 +24884,7 @@ func (o DataSetDataPrepAggregationFunctionOutput) ToDataSetDataPrepAggregationFu
 	}).(DataSetDataPrepAggregationFunctionPtrOutput)
 }
 
+// A list aggregation function that concatenates values from multiple rows into a single delimited string.
 func (o DataSetDataPrepAggregationFunctionOutput) ListAggregation() DataSetDataPrepListAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v DataSetDataPrepAggregationFunction) *DataSetDataPrepListAggregationFunction {
 		return v.ListAggregation
@@ -24819,6 +24897,7 @@ func (o DataSetDataPrepAggregationFunctionOutput) PercentileAggregation() DataSe
 	}).(DataSetDataPrepPercentileAggregationFunctionPtrOutput)
 }
 
+// A simple aggregation function such as `SUM` , `COUNT` , `AVERAGE` , `MIN` , `MAX` , `MEDIAN` , `VARIANCE` , or `STANDARD_DEVIATION` .
 func (o DataSetDataPrepAggregationFunctionOutput) SimpleAggregation() DataSetDataPrepSimpleAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v DataSetDataPrepAggregationFunction) *DataSetDataPrepSimpleAggregationFunction {
 		return v.SimpleAggregation
@@ -24849,6 +24928,7 @@ func (o DataSetDataPrepAggregationFunctionPtrOutput) Elem() DataSetDataPrepAggre
 	}).(DataSetDataPrepAggregationFunctionOutput)
 }
 
+// A list aggregation function that concatenates values from multiple rows into a single delimited string.
 func (o DataSetDataPrepAggregationFunctionPtrOutput) ListAggregation() DataSetDataPrepListAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v *DataSetDataPrepAggregationFunction) *DataSetDataPrepListAggregationFunction {
 		if v == nil {
@@ -24867,6 +24947,7 @@ func (o DataSetDataPrepAggregationFunctionPtrOutput) PercentileAggregation() Dat
 	}).(DataSetDataPrepPercentileAggregationFunctionPtrOutput)
 }
 
+// A simple aggregation function such as `SUM` , `COUNT` , `AVERAGE` , `MIN` , `MAX` , `MEDIAN` , `VARIANCE` , or `STANDARD_DEVIATION` .
 func (o DataSetDataPrepAggregationFunctionPtrOutput) SimpleAggregation() DataSetDataPrepSimpleAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v *DataSetDataPrepAggregationFunction) *DataSetDataPrepSimpleAggregationFunction {
 		if v == nil {
@@ -24877,9 +24958,12 @@ func (o DataSetDataPrepAggregationFunctionPtrOutput) SimpleAggregation() DataSet
 }
 
 type DataSetDataPrepConfiguration struct {
+	// A map of destination tables that receive the final prepared data.
 	DestinationTableMap map[string]DataSetDestinationTable `pulumi:"destinationTableMap"`
-	SourceTableMap      map[string]DataSetSourceTable      `pulumi:"sourceTableMap"`
-	TransformStepMap    map[string]DataSetTransformStep    `pulumi:"transformStepMap"`
+	// A map of source tables that provide information about underlying sources.
+	SourceTableMap map[string]DataSetSourceTable `pulumi:"sourceTableMap"`
+	// A map of transformation steps that process the data.
+	TransformStepMap map[string]DataSetTransformStep `pulumi:"transformStepMap"`
 }
 
 // DataSetDataPrepConfigurationInput is an input type that accepts DataSetDataPrepConfigurationArgs and DataSetDataPrepConfigurationOutput values.
@@ -24894,9 +24978,12 @@ type DataSetDataPrepConfigurationInput interface {
 }
 
 type DataSetDataPrepConfigurationArgs struct {
+	// A map of destination tables that receive the final prepared data.
 	DestinationTableMap DataSetDestinationTableMapInput `pulumi:"destinationTableMap"`
-	SourceTableMap      DataSetSourceTableMapInput      `pulumi:"sourceTableMap"`
-	TransformStepMap    DataSetTransformStepMapInput    `pulumi:"transformStepMap"`
+	// A map of source tables that provide information about underlying sources.
+	SourceTableMap DataSetSourceTableMapInput `pulumi:"sourceTableMap"`
+	// A map of transformation steps that process the data.
+	TransformStepMap DataSetTransformStepMapInput `pulumi:"transformStepMap"`
 }
 
 func (DataSetDataPrepConfigurationArgs) ElementType() reflect.Type {
@@ -24976,14 +25063,17 @@ func (o DataSetDataPrepConfigurationOutput) ToDataSetDataPrepConfigurationPtrOut
 	}).(DataSetDataPrepConfigurationPtrOutput)
 }
 
+// A map of destination tables that receive the final prepared data.
 func (o DataSetDataPrepConfigurationOutput) DestinationTableMap() DataSetDestinationTableMapOutput {
 	return o.ApplyT(func(v DataSetDataPrepConfiguration) map[string]DataSetDestinationTable { return v.DestinationTableMap }).(DataSetDestinationTableMapOutput)
 }
 
+// A map of source tables that provide information about underlying sources.
 func (o DataSetDataPrepConfigurationOutput) SourceTableMap() DataSetSourceTableMapOutput {
 	return o.ApplyT(func(v DataSetDataPrepConfiguration) map[string]DataSetSourceTable { return v.SourceTableMap }).(DataSetSourceTableMapOutput)
 }
 
+// A map of transformation steps that process the data.
 func (o DataSetDataPrepConfigurationOutput) TransformStepMap() DataSetTransformStepMapOutput {
 	return o.ApplyT(func(v DataSetDataPrepConfiguration) map[string]DataSetTransformStep { return v.TransformStepMap }).(DataSetTransformStepMapOutput)
 }
@@ -25012,6 +25102,7 @@ func (o DataSetDataPrepConfigurationPtrOutput) Elem() DataSetDataPrepConfigurati
 	}).(DataSetDataPrepConfigurationOutput)
 }
 
+// A map of destination tables that receive the final prepared data.
 func (o DataSetDataPrepConfigurationPtrOutput) DestinationTableMap() DataSetDestinationTableMapOutput {
 	return o.ApplyT(func(v *DataSetDataPrepConfiguration) map[string]DataSetDestinationTable {
 		if v == nil {
@@ -25021,6 +25112,7 @@ func (o DataSetDataPrepConfigurationPtrOutput) DestinationTableMap() DataSetDest
 	}).(DataSetDestinationTableMapOutput)
 }
 
+// A map of source tables that provide information about underlying sources.
 func (o DataSetDataPrepConfigurationPtrOutput) SourceTableMap() DataSetSourceTableMapOutput {
 	return o.ApplyT(func(v *DataSetDataPrepConfiguration) map[string]DataSetSourceTable {
 		if v == nil {
@@ -25030,6 +25122,7 @@ func (o DataSetDataPrepConfigurationPtrOutput) SourceTableMap() DataSetSourceTab
 	}).(DataSetSourceTableMapOutput)
 }
 
+// A map of transformation steps that process the data.
 func (o DataSetDataPrepConfigurationPtrOutput) TransformStepMap() DataSetTransformStepMapOutput {
 	return o.ApplyT(func(v *DataSetDataPrepConfiguration) map[string]DataSetTransformStep {
 		if v == nil {
@@ -25040,9 +25133,12 @@ func (o DataSetDataPrepConfigurationPtrOutput) TransformStepMap() DataSetTransfo
 }
 
 type DataSetDataPrepListAggregationFunction struct {
-	Distinct        bool    `pulumi:"distinct"`
+	// Whether to include only distinct values in the concatenated result, removing duplicates.
+	Distinct bool `pulumi:"distinct"`
+	// The name of the column containing values to be concatenated.
 	InputColumnName *string `pulumi:"inputColumnName"`
-	Separator       string  `pulumi:"separator"`
+	// The string used to separate values in the concatenated result.
+	Separator string `pulumi:"separator"`
 }
 
 // DataSetDataPrepListAggregationFunctionInput is an input type that accepts DataSetDataPrepListAggregationFunctionArgs and DataSetDataPrepListAggregationFunctionOutput values.
@@ -25057,9 +25153,12 @@ type DataSetDataPrepListAggregationFunctionInput interface {
 }
 
 type DataSetDataPrepListAggregationFunctionArgs struct {
-	Distinct        pulumi.BoolInput      `pulumi:"distinct"`
+	// Whether to include only distinct values in the concatenated result, removing duplicates.
+	Distinct pulumi.BoolInput `pulumi:"distinct"`
+	// The name of the column containing values to be concatenated.
 	InputColumnName pulumi.StringPtrInput `pulumi:"inputColumnName"`
-	Separator       pulumi.StringInput    `pulumi:"separator"`
+	// The string used to separate values in the concatenated result.
+	Separator pulumi.StringInput `pulumi:"separator"`
 }
 
 func (DataSetDataPrepListAggregationFunctionArgs) ElementType() reflect.Type {
@@ -25139,14 +25238,17 @@ func (o DataSetDataPrepListAggregationFunctionOutput) ToDataSetDataPrepListAggre
 	}).(DataSetDataPrepListAggregationFunctionPtrOutput)
 }
 
+// Whether to include only distinct values in the concatenated result, removing duplicates.
 func (o DataSetDataPrepListAggregationFunctionOutput) Distinct() pulumi.BoolOutput {
 	return o.ApplyT(func(v DataSetDataPrepListAggregationFunction) bool { return v.Distinct }).(pulumi.BoolOutput)
 }
 
+// The name of the column containing values to be concatenated.
 func (o DataSetDataPrepListAggregationFunctionOutput) InputColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetDataPrepListAggregationFunction) *string { return v.InputColumnName }).(pulumi.StringPtrOutput)
 }
 
+// The string used to separate values in the concatenated result.
 func (o DataSetDataPrepListAggregationFunctionOutput) Separator() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetDataPrepListAggregationFunction) string { return v.Separator }).(pulumi.StringOutput)
 }
@@ -25175,6 +25277,7 @@ func (o DataSetDataPrepListAggregationFunctionPtrOutput) Elem() DataSetDataPrepL
 	}).(DataSetDataPrepListAggregationFunctionOutput)
 }
 
+// Whether to include only distinct values in the concatenated result, removing duplicates.
 func (o DataSetDataPrepListAggregationFunctionPtrOutput) Distinct() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSetDataPrepListAggregationFunction) *bool {
 		if v == nil {
@@ -25184,6 +25287,7 @@ func (o DataSetDataPrepListAggregationFunctionPtrOutput) Distinct() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The name of the column containing values to be concatenated.
 func (o DataSetDataPrepListAggregationFunctionPtrOutput) InputColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetDataPrepListAggregationFunction) *string {
 		if v == nil {
@@ -25193,6 +25297,7 @@ func (o DataSetDataPrepListAggregationFunctionPtrOutput) InputColumnName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The string used to separate values in the concatenated result.
 func (o DataSetDataPrepListAggregationFunctionPtrOutput) Separator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetDataPrepListAggregationFunction) *string {
 		if v == nil {
@@ -25351,8 +25456,10 @@ func (o DataSetDataPrepPercentileAggregationFunctionPtrOutput) PercentileValue()
 }
 
 type DataSetDataPrepSimpleAggregationFunction struct {
-	FunctionType    DataSetDataPrepSimpleAggregationFunctionType `pulumi:"functionType"`
-	InputColumnName *string                                      `pulumi:"inputColumnName"`
+	// The type of aggregation function to perform, such as `COUNT` , `SUM` , `AVERAGE` , `MIN` , `MAX` , `MEDIAN` , `VARIANCE` , or `STANDARD_DEVIATION` .
+	FunctionType DataSetDataPrepSimpleAggregationFunctionType `pulumi:"functionType"`
+	// The name of the column on which to perform the aggregation function.
+	InputColumnName *string `pulumi:"inputColumnName"`
 }
 
 // DataSetDataPrepSimpleAggregationFunctionInput is an input type that accepts DataSetDataPrepSimpleAggregationFunctionArgs and DataSetDataPrepSimpleAggregationFunctionOutput values.
@@ -25367,8 +25474,10 @@ type DataSetDataPrepSimpleAggregationFunctionInput interface {
 }
 
 type DataSetDataPrepSimpleAggregationFunctionArgs struct {
-	FunctionType    DataSetDataPrepSimpleAggregationFunctionTypeInput `pulumi:"functionType"`
-	InputColumnName pulumi.StringPtrInput                             `pulumi:"inputColumnName"`
+	// The type of aggregation function to perform, such as `COUNT` , `SUM` , `AVERAGE` , `MIN` , `MAX` , `MEDIAN` , `VARIANCE` , or `STANDARD_DEVIATION` .
+	FunctionType DataSetDataPrepSimpleAggregationFunctionTypeInput `pulumi:"functionType"`
+	// The name of the column on which to perform the aggregation function.
+	InputColumnName pulumi.StringPtrInput `pulumi:"inputColumnName"`
 }
 
 func (DataSetDataPrepSimpleAggregationFunctionArgs) ElementType() reflect.Type {
@@ -25448,12 +25557,14 @@ func (o DataSetDataPrepSimpleAggregationFunctionOutput) ToDataSetDataPrepSimpleA
 	}).(DataSetDataPrepSimpleAggregationFunctionPtrOutput)
 }
 
+// The type of aggregation function to perform, such as `COUNT` , `SUM` , `AVERAGE` , `MIN` , `MAX` , `MEDIAN` , `VARIANCE` , or `STANDARD_DEVIATION` .
 func (o DataSetDataPrepSimpleAggregationFunctionOutput) FunctionType() DataSetDataPrepSimpleAggregationFunctionTypeOutput {
 	return o.ApplyT(func(v DataSetDataPrepSimpleAggregationFunction) DataSetDataPrepSimpleAggregationFunctionType {
 		return v.FunctionType
 	}).(DataSetDataPrepSimpleAggregationFunctionTypeOutput)
 }
 
+// The name of the column on which to perform the aggregation function.
 func (o DataSetDataPrepSimpleAggregationFunctionOutput) InputColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetDataPrepSimpleAggregationFunction) *string { return v.InputColumnName }).(pulumi.StringPtrOutput)
 }
@@ -25482,6 +25593,7 @@ func (o DataSetDataPrepSimpleAggregationFunctionPtrOutput) Elem() DataSetDataPre
 	}).(DataSetDataPrepSimpleAggregationFunctionOutput)
 }
 
+// The type of aggregation function to perform, such as `COUNT` , `SUM` , `AVERAGE` , `MIN` , `MAX` , `MEDIAN` , `VARIANCE` , or `STANDARD_DEVIATION` .
 func (o DataSetDataPrepSimpleAggregationFunctionPtrOutput) FunctionType() DataSetDataPrepSimpleAggregationFunctionTypePtrOutput {
 	return o.ApplyT(func(v *DataSetDataPrepSimpleAggregationFunction) *DataSetDataPrepSimpleAggregationFunctionType {
 		if v == nil {
@@ -25491,6 +25603,7 @@ func (o DataSetDataPrepSimpleAggregationFunctionPtrOutput) FunctionType() DataSe
 	}).(DataSetDataPrepSimpleAggregationFunctionTypePtrOutput)
 }
 
+// The name of the column on which to perform the aggregation function.
 func (o DataSetDataPrepSimpleAggregationFunctionPtrOutput) InputColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetDataPrepSimpleAggregationFunction) *string {
 		if v == nil {
@@ -25628,8 +25741,10 @@ func (o DataSetDatasetParameterArrayOutput) Index(i pulumi.IntInput) DataSetData
 }
 
 type DataSetDateComparisonFilterCondition struct {
+	// The comparison operator to use, such as `BEFORE` , `BEFORE_OR_EQUALS_TO` , `AFTER` , or `AFTER_OR_EQUALS_TO` .
 	Operator DataSetDateComparisonFilterOperator `pulumi:"operator"`
-	Value    *DataSetDateFilterValue             `pulumi:"value"`
+	// The date value to compare against.
+	Value *DataSetDateFilterValue `pulumi:"value"`
 }
 
 // DataSetDateComparisonFilterConditionInput is an input type that accepts DataSetDateComparisonFilterConditionArgs and DataSetDateComparisonFilterConditionOutput values.
@@ -25644,8 +25759,10 @@ type DataSetDateComparisonFilterConditionInput interface {
 }
 
 type DataSetDateComparisonFilterConditionArgs struct {
+	// The comparison operator to use, such as `BEFORE` , `BEFORE_OR_EQUALS_TO` , `AFTER` , or `AFTER_OR_EQUALS_TO` .
 	Operator DataSetDateComparisonFilterOperatorInput `pulumi:"operator"`
-	Value    DataSetDateFilterValuePtrInput           `pulumi:"value"`
+	// The date value to compare against.
+	Value DataSetDateFilterValuePtrInput `pulumi:"value"`
 }
 
 func (DataSetDateComparisonFilterConditionArgs) ElementType() reflect.Type {
@@ -25725,10 +25842,12 @@ func (o DataSetDateComparisonFilterConditionOutput) ToDataSetDateComparisonFilte
 	}).(DataSetDateComparisonFilterConditionPtrOutput)
 }
 
+// The comparison operator to use, such as `BEFORE` , `BEFORE_OR_EQUALS_TO` , `AFTER` , or `AFTER_OR_EQUALS_TO` .
 func (o DataSetDateComparisonFilterConditionOutput) Operator() DataSetDateComparisonFilterOperatorOutput {
 	return o.ApplyT(func(v DataSetDateComparisonFilterCondition) DataSetDateComparisonFilterOperator { return v.Operator }).(DataSetDateComparisonFilterOperatorOutput)
 }
 
+// The date value to compare against.
 func (o DataSetDateComparisonFilterConditionOutput) Value() DataSetDateFilterValuePtrOutput {
 	return o.ApplyT(func(v DataSetDateComparisonFilterCondition) *DataSetDateFilterValue { return v.Value }).(DataSetDateFilterValuePtrOutput)
 }
@@ -25757,6 +25876,7 @@ func (o DataSetDateComparisonFilterConditionPtrOutput) Elem() DataSetDateCompari
 	}).(DataSetDateComparisonFilterConditionOutput)
 }
 
+// The comparison operator to use, such as `BEFORE` , `BEFORE_OR_EQUALS_TO` , `AFTER` , or `AFTER_OR_EQUALS_TO` .
 func (o DataSetDateComparisonFilterConditionPtrOutput) Operator() DataSetDateComparisonFilterOperatorPtrOutput {
 	return o.ApplyT(func(v *DataSetDateComparisonFilterCondition) *DataSetDateComparisonFilterOperator {
 		if v == nil {
@@ -25766,6 +25886,7 @@ func (o DataSetDateComparisonFilterConditionPtrOutput) Operator() DataSetDateCom
 	}).(DataSetDateComparisonFilterOperatorPtrOutput)
 }
 
+// The date value to compare against.
 func (o DataSetDateComparisonFilterConditionPtrOutput) Value() DataSetDateFilterValuePtrOutput {
 	return o.ApplyT(func(v *DataSetDateComparisonFilterCondition) *DataSetDateFilterValue {
 		if v == nil {
@@ -25776,9 +25897,12 @@ func (o DataSetDateComparisonFilterConditionPtrOutput) Value() DataSetDateFilter
 }
 
 type DataSetDateFilterCondition struct {
-	ColumnName                *string                               `pulumi:"columnName"`
+	// The name of the date column to filter.
+	ColumnName *string `pulumi:"columnName"`
+	// A comparison-based filter condition for the date column.
 	ComparisonFilterCondition *DataSetDateComparisonFilterCondition `pulumi:"comparisonFilterCondition"`
-	RangeFilterCondition      *DataSetDateRangeFilterCondition      `pulumi:"rangeFilterCondition"`
+	// A range-based filter condition for the date column, filtering values between minimum and maximum dates.
+	RangeFilterCondition *DataSetDateRangeFilterCondition `pulumi:"rangeFilterCondition"`
 }
 
 // DataSetDateFilterConditionInput is an input type that accepts DataSetDateFilterConditionArgs and DataSetDateFilterConditionOutput values.
@@ -25793,9 +25917,12 @@ type DataSetDateFilterConditionInput interface {
 }
 
 type DataSetDateFilterConditionArgs struct {
-	ColumnName                pulumi.StringPtrInput                        `pulumi:"columnName"`
+	// The name of the date column to filter.
+	ColumnName pulumi.StringPtrInput `pulumi:"columnName"`
+	// A comparison-based filter condition for the date column.
 	ComparisonFilterCondition DataSetDateComparisonFilterConditionPtrInput `pulumi:"comparisonFilterCondition"`
-	RangeFilterCondition      DataSetDateRangeFilterConditionPtrInput      `pulumi:"rangeFilterCondition"`
+	// A range-based filter condition for the date column, filtering values between minimum and maximum dates.
+	RangeFilterCondition DataSetDateRangeFilterConditionPtrInput `pulumi:"rangeFilterCondition"`
 }
 
 func (DataSetDateFilterConditionArgs) ElementType() reflect.Type {
@@ -25875,16 +26002,19 @@ func (o DataSetDateFilterConditionOutput) ToDataSetDateFilterConditionPtrOutputW
 	}).(DataSetDateFilterConditionPtrOutput)
 }
 
+// The name of the date column to filter.
 func (o DataSetDateFilterConditionOutput) ColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetDateFilterCondition) *string { return v.ColumnName }).(pulumi.StringPtrOutput)
 }
 
+// A comparison-based filter condition for the date column.
 func (o DataSetDateFilterConditionOutput) ComparisonFilterCondition() DataSetDateComparisonFilterConditionPtrOutput {
 	return o.ApplyT(func(v DataSetDateFilterCondition) *DataSetDateComparisonFilterCondition {
 		return v.ComparisonFilterCondition
 	}).(DataSetDateComparisonFilterConditionPtrOutput)
 }
 
+// A range-based filter condition for the date column, filtering values between minimum and maximum dates.
 func (o DataSetDateFilterConditionOutput) RangeFilterCondition() DataSetDateRangeFilterConditionPtrOutput {
 	return o.ApplyT(func(v DataSetDateFilterCondition) *DataSetDateRangeFilterCondition { return v.RangeFilterCondition }).(DataSetDateRangeFilterConditionPtrOutput)
 }
@@ -25913,6 +26043,7 @@ func (o DataSetDateFilterConditionPtrOutput) Elem() DataSetDateFilterConditionOu
 	}).(DataSetDateFilterConditionOutput)
 }
 
+// The name of the date column to filter.
 func (o DataSetDateFilterConditionPtrOutput) ColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetDateFilterCondition) *string {
 		if v == nil {
@@ -25922,6 +26053,7 @@ func (o DataSetDateFilterConditionPtrOutput) ColumnName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// A comparison-based filter condition for the date column.
 func (o DataSetDateFilterConditionPtrOutput) ComparisonFilterCondition() DataSetDateComparisonFilterConditionPtrOutput {
 	return o.ApplyT(func(v *DataSetDateFilterCondition) *DataSetDateComparisonFilterCondition {
 		if v == nil {
@@ -25931,6 +26063,7 @@ func (o DataSetDateFilterConditionPtrOutput) ComparisonFilterCondition() DataSet
 	}).(DataSetDateComparisonFilterConditionPtrOutput)
 }
 
+// A range-based filter condition for the date column, filtering values between minimum and maximum dates.
 func (o DataSetDateFilterConditionPtrOutput) RangeFilterCondition() DataSetDateRangeFilterConditionPtrOutput {
 	return o.ApplyT(func(v *DataSetDateFilterCondition) *DataSetDateRangeFilterCondition {
 		if v == nil {
@@ -25941,6 +26074,7 @@ func (o DataSetDateFilterConditionPtrOutput) RangeFilterCondition() DataSetDateR
 }
 
 type DataSetDateFilterValue struct {
+	// A static date value used for filtering.
 	StaticValue *string `pulumi:"staticValue"`
 }
 
@@ -25956,6 +26090,7 @@ type DataSetDateFilterValueInput interface {
 }
 
 type DataSetDateFilterValueArgs struct {
+	// A static date value used for filtering.
 	StaticValue pulumi.StringPtrInput `pulumi:"staticValue"`
 }
 
@@ -26036,6 +26171,7 @@ func (o DataSetDateFilterValueOutput) ToDataSetDateFilterValuePtrOutputWithConte
 	}).(DataSetDateFilterValuePtrOutput)
 }
 
+// A static date value used for filtering.
 func (o DataSetDateFilterValueOutput) StaticValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetDateFilterValue) *string { return v.StaticValue }).(pulumi.StringPtrOutput)
 }
@@ -26064,6 +26200,7 @@ func (o DataSetDateFilterValuePtrOutput) Elem() DataSetDateFilterValueOutput {
 	}).(DataSetDateFilterValueOutput)
 }
 
+// A static date value used for filtering.
 func (o DataSetDateFilterValuePtrOutput) StaticValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetDateFilterValue) *string {
 		if v == nil {
@@ -26074,10 +26211,14 @@ func (o DataSetDateFilterValuePtrOutput) StaticValue() pulumi.StringPtrOutput {
 }
 
 type DataSetDateRangeFilterCondition struct {
-	IncludeMaximum *bool                   `pulumi:"includeMaximum"`
-	IncludeMinimum *bool                   `pulumi:"includeMinimum"`
-	RangeMaximum   *DataSetDateFilterValue `pulumi:"rangeMaximum"`
-	RangeMinimum   *DataSetDateFilterValue `pulumi:"rangeMinimum"`
+	// Whether to include the maximum value in the filter range.
+	IncludeMaximum *bool `pulumi:"includeMaximum"`
+	// Whether to include the minimum value in the filter range.
+	IncludeMinimum *bool `pulumi:"includeMinimum"`
+	// The maximum date value for the range filter.
+	RangeMaximum *DataSetDateFilterValue `pulumi:"rangeMaximum"`
+	// The minimum date value for the range filter.
+	RangeMinimum *DataSetDateFilterValue `pulumi:"rangeMinimum"`
 }
 
 // DataSetDateRangeFilterConditionInput is an input type that accepts DataSetDateRangeFilterConditionArgs and DataSetDateRangeFilterConditionOutput values.
@@ -26092,10 +26233,14 @@ type DataSetDateRangeFilterConditionInput interface {
 }
 
 type DataSetDateRangeFilterConditionArgs struct {
-	IncludeMaximum pulumi.BoolPtrInput            `pulumi:"includeMaximum"`
-	IncludeMinimum pulumi.BoolPtrInput            `pulumi:"includeMinimum"`
-	RangeMaximum   DataSetDateFilterValuePtrInput `pulumi:"rangeMaximum"`
-	RangeMinimum   DataSetDateFilterValuePtrInput `pulumi:"rangeMinimum"`
+	// Whether to include the maximum value in the filter range.
+	IncludeMaximum pulumi.BoolPtrInput `pulumi:"includeMaximum"`
+	// Whether to include the minimum value in the filter range.
+	IncludeMinimum pulumi.BoolPtrInput `pulumi:"includeMinimum"`
+	// The maximum date value for the range filter.
+	RangeMaximum DataSetDateFilterValuePtrInput `pulumi:"rangeMaximum"`
+	// The minimum date value for the range filter.
+	RangeMinimum DataSetDateFilterValuePtrInput `pulumi:"rangeMinimum"`
 }
 
 func (DataSetDateRangeFilterConditionArgs) ElementType() reflect.Type {
@@ -26175,18 +26320,22 @@ func (o DataSetDateRangeFilterConditionOutput) ToDataSetDateRangeFilterCondition
 	}).(DataSetDateRangeFilterConditionPtrOutput)
 }
 
+// Whether to include the maximum value in the filter range.
 func (o DataSetDateRangeFilterConditionOutput) IncludeMaximum() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSetDateRangeFilterCondition) *bool { return v.IncludeMaximum }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to include the minimum value in the filter range.
 func (o DataSetDateRangeFilterConditionOutput) IncludeMinimum() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSetDateRangeFilterCondition) *bool { return v.IncludeMinimum }).(pulumi.BoolPtrOutput)
 }
 
+// The maximum date value for the range filter.
 func (o DataSetDateRangeFilterConditionOutput) RangeMaximum() DataSetDateFilterValuePtrOutput {
 	return o.ApplyT(func(v DataSetDateRangeFilterCondition) *DataSetDateFilterValue { return v.RangeMaximum }).(DataSetDateFilterValuePtrOutput)
 }
 
+// The minimum date value for the range filter.
 func (o DataSetDateRangeFilterConditionOutput) RangeMinimum() DataSetDateFilterValuePtrOutput {
 	return o.ApplyT(func(v DataSetDateRangeFilterCondition) *DataSetDateFilterValue { return v.RangeMinimum }).(DataSetDateFilterValuePtrOutput)
 }
@@ -26215,6 +26364,7 @@ func (o DataSetDateRangeFilterConditionPtrOutput) Elem() DataSetDateRangeFilterC
 	}).(DataSetDateRangeFilterConditionOutput)
 }
 
+// Whether to include the maximum value in the filter range.
 func (o DataSetDateRangeFilterConditionPtrOutput) IncludeMaximum() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSetDateRangeFilterCondition) *bool {
 		if v == nil {
@@ -26224,6 +26374,7 @@ func (o DataSetDateRangeFilterConditionPtrOutput) IncludeMaximum() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether to include the minimum value in the filter range.
 func (o DataSetDateRangeFilterConditionPtrOutput) IncludeMinimum() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSetDateRangeFilterCondition) *bool {
 		if v == nil {
@@ -26233,6 +26384,7 @@ func (o DataSetDateRangeFilterConditionPtrOutput) IncludeMinimum() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The maximum date value for the range filter.
 func (o DataSetDateRangeFilterConditionPtrOutput) RangeMaximum() DataSetDateFilterValuePtrOutput {
 	return o.ApplyT(func(v *DataSetDateRangeFilterCondition) *DataSetDateFilterValue {
 		if v == nil {
@@ -26242,6 +26394,7 @@ func (o DataSetDateRangeFilterConditionPtrOutput) RangeMaximum() DataSetDateFilt
 	}).(DataSetDateFilterValuePtrOutput)
 }
 
+// The minimum date value for the range filter.
 func (o DataSetDateRangeFilterConditionPtrOutput) RangeMinimum() DataSetDateFilterValuePtrOutput {
 	return o.ApplyT(func(v *DataSetDateRangeFilterCondition) *DataSetDateFilterValue {
 		if v == nil {
@@ -26949,7 +27102,9 @@ func (o DataSetDecimalDatasetParameterDefaultValuesPtrOutput) StaticValues() pul
 }
 
 type DataSetDestinationTable struct {
-	Alias  string                        `pulumi:"alias"`
+	// Alias for the destination table.
+	Alias string `pulumi:"alias"`
+	// The source configuration that specifies which transform operation provides data to this destination table.
 	Source DataSetDestinationTableSource `pulumi:"source"`
 }
 
@@ -26965,7 +27120,9 @@ type DataSetDestinationTableInput interface {
 }
 
 type DataSetDestinationTableArgs struct {
-	Alias  pulumi.StringInput                 `pulumi:"alias"`
+	// Alias for the destination table.
+	Alias pulumi.StringInput `pulumi:"alias"`
+	// The source configuration that specifies which transform operation provides data to this destination table.
 	Source DataSetDestinationTableSourceInput `pulumi:"source"`
 }
 
@@ -27020,10 +27177,12 @@ func (o DataSetDestinationTableOutput) ToDataSetDestinationTableOutputWithContex
 	return o
 }
 
+// Alias for the destination table.
 func (o DataSetDestinationTableOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetDestinationTable) string { return v.Alias }).(pulumi.StringOutput)
 }
 
+// The source configuration that specifies which transform operation provides data to this destination table.
 func (o DataSetDestinationTableOutput) Source() DataSetDestinationTableSourceOutput {
 	return o.ApplyT(func(v DataSetDestinationTable) DataSetDestinationTableSource { return v.Source }).(DataSetDestinationTableSourceOutput)
 }
@@ -27049,6 +27208,7 @@ func (o DataSetDestinationTableMapOutput) MapIndex(k pulumi.StringInput) DataSet
 }
 
 type DataSetDestinationTableSource struct {
+	// The identifier of the transform operation that provides data to the destination table.
 	TransformOperationId string `pulumi:"transformOperationId"`
 }
 
@@ -27064,6 +27224,7 @@ type DataSetDestinationTableSourceInput interface {
 }
 
 type DataSetDestinationTableSourceArgs struct {
+	// The identifier of the transform operation that provides data to the destination table.
 	TransformOperationId pulumi.StringInput `pulumi:"transformOperationId"`
 }
 
@@ -27093,6 +27254,7 @@ func (o DataSetDestinationTableSourceOutput) ToDataSetDestinationTableSourceOutp
 	return o
 }
 
+// The identifier of the transform operation that provides data to the destination table.
 func (o DataSetDestinationTableSourceOutput) TransformOperationId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetDestinationTableSource) string { return v.TransformOperationId }).(pulumi.StringOutput)
 }
@@ -27210,10 +27372,13 @@ func (o DataSetFieldFolderMapOutput) MapIndex(k pulumi.StringInput) DataSetField
 type DataSetFilterOperation struct {
 	// <p>An expression that must evaluate to a Boolean value. Rows for which the expression
 	//             evaluates to true are kept in the dataset.</p>
-	ConditionExpression    *string                        `pulumi:"conditionExpression"`
-	DateFilterCondition    *DataSetDateFilterCondition    `pulumi:"dateFilterCondition"`
+	ConditionExpression *string `pulumi:"conditionExpression"`
+	// A date-based filter condition within a filter operation.
+	DateFilterCondition *DataSetDateFilterCondition `pulumi:"dateFilterCondition"`
+	// A numeric-based filter condition within a filter operation.
 	NumericFilterCondition *DataSetNumericFilterCondition `pulumi:"numericFilterCondition"`
-	StringFilterCondition  *DataSetStringFilterCondition  `pulumi:"stringFilterCondition"`
+	// A string-based filter condition within a filter operation.
+	StringFilterCondition *DataSetStringFilterCondition `pulumi:"stringFilterCondition"`
 }
 
 // DataSetFilterOperationInput is an input type that accepts DataSetFilterOperationArgs and DataSetFilterOperationOutput values.
@@ -27231,10 +27396,13 @@ type DataSetFilterOperationInput interface {
 type DataSetFilterOperationArgs struct {
 	// <p>An expression that must evaluate to a Boolean value. Rows for which the expression
 	//             evaluates to true are kept in the dataset.</p>
-	ConditionExpression    pulumi.StringPtrInput                 `pulumi:"conditionExpression"`
-	DateFilterCondition    DataSetDateFilterConditionPtrInput    `pulumi:"dateFilterCondition"`
+	ConditionExpression pulumi.StringPtrInput `pulumi:"conditionExpression"`
+	// A date-based filter condition within a filter operation.
+	DateFilterCondition DataSetDateFilterConditionPtrInput `pulumi:"dateFilterCondition"`
+	// A numeric-based filter condition within a filter operation.
 	NumericFilterCondition DataSetNumericFilterConditionPtrInput `pulumi:"numericFilterCondition"`
-	StringFilterCondition  DataSetStringFilterConditionPtrInput  `pulumi:"stringFilterCondition"`
+	// A string-based filter condition within a filter operation.
+	StringFilterCondition DataSetStringFilterConditionPtrInput `pulumi:"stringFilterCondition"`
 }
 
 func (DataSetFilterOperationArgs) ElementType() reflect.Type {
@@ -27347,14 +27515,17 @@ func (o DataSetFilterOperationOutput) ConditionExpression() pulumi.StringPtrOutp
 	return o.ApplyT(func(v DataSetFilterOperation) *string { return v.ConditionExpression }).(pulumi.StringPtrOutput)
 }
 
+// A date-based filter condition within a filter operation.
 func (o DataSetFilterOperationOutput) DateFilterCondition() DataSetDateFilterConditionPtrOutput {
 	return o.ApplyT(func(v DataSetFilterOperation) *DataSetDateFilterCondition { return v.DateFilterCondition }).(DataSetDateFilterConditionPtrOutput)
 }
 
+// A numeric-based filter condition within a filter operation.
 func (o DataSetFilterOperationOutput) NumericFilterCondition() DataSetNumericFilterConditionPtrOutput {
 	return o.ApplyT(func(v DataSetFilterOperation) *DataSetNumericFilterCondition { return v.NumericFilterCondition }).(DataSetNumericFilterConditionPtrOutput)
 }
 
+// A string-based filter condition within a filter operation.
 func (o DataSetFilterOperationOutput) StringFilterCondition() DataSetStringFilterConditionPtrOutput {
 	return o.ApplyT(func(v DataSetFilterOperation) *DataSetStringFilterCondition { return v.StringFilterCondition }).(DataSetStringFilterConditionPtrOutput)
 }
@@ -27395,6 +27566,7 @@ func (o DataSetFilterOperationPtrOutput) ConditionExpression() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// A date-based filter condition within a filter operation.
 func (o DataSetFilterOperationPtrOutput) DateFilterCondition() DataSetDateFilterConditionPtrOutput {
 	return o.ApplyT(func(v *DataSetFilterOperation) *DataSetDateFilterCondition {
 		if v == nil {
@@ -27404,6 +27576,7 @@ func (o DataSetFilterOperationPtrOutput) DateFilterCondition() DataSetDateFilter
 	}).(DataSetDateFilterConditionPtrOutput)
 }
 
+// A numeric-based filter condition within a filter operation.
 func (o DataSetFilterOperationPtrOutput) NumericFilterCondition() DataSetNumericFilterConditionPtrOutput {
 	return o.ApplyT(func(v *DataSetFilterOperation) *DataSetNumericFilterCondition {
 		if v == nil {
@@ -27413,6 +27586,7 @@ func (o DataSetFilterOperationPtrOutput) NumericFilterCondition() DataSetNumeric
 	}).(DataSetNumericFilterConditionPtrOutput)
 }
 
+// A string-based filter condition within a filter operation.
 func (o DataSetFilterOperationPtrOutput) StringFilterCondition() DataSetStringFilterConditionPtrOutput {
 	return o.ApplyT(func(v *DataSetFilterOperation) *DataSetStringFilterCondition {
 		if v == nil {
@@ -27443,9 +27617,12 @@ func (o DataSetFilterOperationArrayOutput) Index(i pulumi.IntInput) DataSetFilte
 }
 
 type DataSetFiltersOperation struct {
-	Alias            string                          `pulumi:"alias"`
-	FilterOperations []DataSetFilterOperation        `pulumi:"filterOperations"`
-	Source           DataSetTransformOperationSource `pulumi:"source"`
+	// Alias for this operation.
+	Alias string `pulumi:"alias"`
+	// The list of filter operations to apply.
+	FilterOperations []DataSetFilterOperation `pulumi:"filterOperations"`
+	// The source transform operation that provides input data for filtering.
+	Source DataSetTransformOperationSource `pulumi:"source"`
 }
 
 // DataSetFiltersOperationInput is an input type that accepts DataSetFiltersOperationArgs and DataSetFiltersOperationOutput values.
@@ -27460,9 +27637,12 @@ type DataSetFiltersOperationInput interface {
 }
 
 type DataSetFiltersOperationArgs struct {
-	Alias            pulumi.StringInput                   `pulumi:"alias"`
-	FilterOperations DataSetFilterOperationArrayInput     `pulumi:"filterOperations"`
-	Source           DataSetTransformOperationSourceInput `pulumi:"source"`
+	// Alias for this operation.
+	Alias pulumi.StringInput `pulumi:"alias"`
+	// The list of filter operations to apply.
+	FilterOperations DataSetFilterOperationArrayInput `pulumi:"filterOperations"`
+	// The source transform operation that provides input data for filtering.
+	Source DataSetTransformOperationSourceInput `pulumi:"source"`
 }
 
 func (DataSetFiltersOperationArgs) ElementType() reflect.Type {
@@ -27542,14 +27722,17 @@ func (o DataSetFiltersOperationOutput) ToDataSetFiltersOperationPtrOutputWithCon
 	}).(DataSetFiltersOperationPtrOutput)
 }
 
+// Alias for this operation.
 func (o DataSetFiltersOperationOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetFiltersOperation) string { return v.Alias }).(pulumi.StringOutput)
 }
 
+// The list of filter operations to apply.
 func (o DataSetFiltersOperationOutput) FilterOperations() DataSetFilterOperationArrayOutput {
 	return o.ApplyT(func(v DataSetFiltersOperation) []DataSetFilterOperation { return v.FilterOperations }).(DataSetFilterOperationArrayOutput)
 }
 
+// The source transform operation that provides input data for filtering.
 func (o DataSetFiltersOperationOutput) Source() DataSetTransformOperationSourceOutput {
 	return o.ApplyT(func(v DataSetFiltersOperation) DataSetTransformOperationSource { return v.Source }).(DataSetTransformOperationSourceOutput)
 }
@@ -27578,6 +27761,7 @@ func (o DataSetFiltersOperationPtrOutput) Elem() DataSetFiltersOperationOutput {
 	}).(DataSetFiltersOperationOutput)
 }
 
+// Alias for this operation.
 func (o DataSetFiltersOperationPtrOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetFiltersOperation) *string {
 		if v == nil {
@@ -27587,6 +27771,7 @@ func (o DataSetFiltersOperationPtrOutput) Alias() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of filter operations to apply.
 func (o DataSetFiltersOperationPtrOutput) FilterOperations() DataSetFilterOperationArrayOutput {
 	return o.ApplyT(func(v *DataSetFiltersOperation) []DataSetFilterOperation {
 		if v == nil {
@@ -27596,6 +27781,7 @@ func (o DataSetFiltersOperationPtrOutput) FilterOperations() DataSetFilterOperat
 	}).(DataSetFilterOperationArrayOutput)
 }
 
+// The source transform operation that provides input data for filtering.
 func (o DataSetFiltersOperationPtrOutput) Source() DataSetTransformOperationSourcePtrOutput {
 	return o.ApplyT(func(v *DataSetFiltersOperation) *DataSetTransformOperationSource {
 		if v == nil {
@@ -27784,7 +27970,9 @@ func (o DataSetGeoSpatialColumnGroupPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type DataSetImportTableOperation struct {
-	Alias  string                            `pulumi:"alias"`
+	// Alias for this operation.
+	Alias string `pulumi:"alias"`
+	// The source configuration that specifies which source table to import and any column mappings.
 	Source DataSetImportTableOperationSource `pulumi:"source"`
 }
 
@@ -27800,7 +27988,9 @@ type DataSetImportTableOperationInput interface {
 }
 
 type DataSetImportTableOperationArgs struct {
-	Alias  pulumi.StringInput                     `pulumi:"alias"`
+	// Alias for this operation.
+	Alias pulumi.StringInput `pulumi:"alias"`
+	// The source configuration that specifies which source table to import and any column mappings.
 	Source DataSetImportTableOperationSourceInput `pulumi:"source"`
 }
 
@@ -27881,10 +28071,12 @@ func (o DataSetImportTableOperationOutput) ToDataSetImportTableOperationPtrOutpu
 	}).(DataSetImportTableOperationPtrOutput)
 }
 
+// Alias for this operation.
 func (o DataSetImportTableOperationOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetImportTableOperation) string { return v.Alias }).(pulumi.StringOutput)
 }
 
+// The source configuration that specifies which source table to import and any column mappings.
 func (o DataSetImportTableOperationOutput) Source() DataSetImportTableOperationSourceOutput {
 	return o.ApplyT(func(v DataSetImportTableOperation) DataSetImportTableOperationSource { return v.Source }).(DataSetImportTableOperationSourceOutput)
 }
@@ -27913,6 +28105,7 @@ func (o DataSetImportTableOperationPtrOutput) Elem() DataSetImportTableOperation
 	}).(DataSetImportTableOperationOutput)
 }
 
+// Alias for this operation.
 func (o DataSetImportTableOperationPtrOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetImportTableOperation) *string {
 		if v == nil {
@@ -27922,6 +28115,7 @@ func (o DataSetImportTableOperationPtrOutput) Alias() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The source configuration that specifies which source table to import and any column mappings.
 func (o DataSetImportTableOperationPtrOutput) Source() DataSetImportTableOperationSourcePtrOutput {
 	return o.ApplyT(func(v *DataSetImportTableOperation) *DataSetImportTableOperationSource {
 		if v == nil {
@@ -27932,8 +28126,10 @@ func (o DataSetImportTableOperationPtrOutput) Source() DataSetImportTableOperati
 }
 
 type DataSetImportTableOperationSource struct {
+	// The mappings between source column identifiers and target column identifiers during the import.
 	ColumnIdMappings []DataSetColumnIdMapping `pulumi:"columnIdMappings"`
-	SourceTableId    string                   `pulumi:"sourceTableId"`
+	// The identifier of the source table to import data from.
+	SourceTableId string `pulumi:"sourceTableId"`
 }
 
 // DataSetImportTableOperationSourceInput is an input type that accepts DataSetImportTableOperationSourceArgs and DataSetImportTableOperationSourceOutput values.
@@ -27948,8 +28144,10 @@ type DataSetImportTableOperationSourceInput interface {
 }
 
 type DataSetImportTableOperationSourceArgs struct {
+	// The mappings between source column identifiers and target column identifiers during the import.
 	ColumnIdMappings DataSetColumnIdMappingArrayInput `pulumi:"columnIdMappings"`
-	SourceTableId    pulumi.StringInput               `pulumi:"sourceTableId"`
+	// The identifier of the source table to import data from.
+	SourceTableId pulumi.StringInput `pulumi:"sourceTableId"`
 }
 
 func (DataSetImportTableOperationSourceArgs) ElementType() reflect.Type {
@@ -28029,10 +28227,12 @@ func (o DataSetImportTableOperationSourceOutput) ToDataSetImportTableOperationSo
 	}).(DataSetImportTableOperationSourcePtrOutput)
 }
 
+// The mappings between source column identifiers and target column identifiers during the import.
 func (o DataSetImportTableOperationSourceOutput) ColumnIdMappings() DataSetColumnIdMappingArrayOutput {
 	return o.ApplyT(func(v DataSetImportTableOperationSource) []DataSetColumnIdMapping { return v.ColumnIdMappings }).(DataSetColumnIdMappingArrayOutput)
 }
 
+// The identifier of the source table to import data from.
 func (o DataSetImportTableOperationSourceOutput) SourceTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetImportTableOperationSource) string { return v.SourceTableId }).(pulumi.StringOutput)
 }
@@ -28061,6 +28261,7 @@ func (o DataSetImportTableOperationSourcePtrOutput) Elem() DataSetImportTableOpe
 	}).(DataSetImportTableOperationSourceOutput)
 }
 
+// The mappings between source column identifiers and target column identifiers during the import.
 func (o DataSetImportTableOperationSourcePtrOutput) ColumnIdMappings() DataSetColumnIdMappingArrayOutput {
 	return o.ApplyT(func(v *DataSetImportTableOperationSource) []DataSetColumnIdMapping {
 		if v == nil {
@@ -28070,6 +28271,7 @@ func (o DataSetImportTableOperationSourcePtrOutput) ColumnIdMappings() DataSetCo
 	}).(DataSetColumnIdMappingArrayOutput)
 }
 
+// The identifier of the source table to import data from.
 func (o DataSetImportTableOperationSourcePtrOutput) SourceTableId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetImportTableOperationSource) *string {
 		if v == nil {
@@ -28392,6 +28594,7 @@ func (o DataSetIngestionWaitPolicyPtrOutput) WaitForSpiceIngestion() pulumi.Bool
 
 // <p>Metadata for a column that is used as the input of a transform operation.</p>
 type DataSetInputColumn struct {
+	// A unique identifier for the input column.
 	Id *string `pulumi:"id"`
 	// <p>The name of this column in the underlying data source.</p>
 	Name string `pulumi:"name"`
@@ -28414,6 +28617,7 @@ type DataSetInputColumnInput interface {
 
 // <p>Metadata for a column that is used as the input of a transform operation.</p>
 type DataSetInputColumnArgs struct {
+	// A unique identifier for the input column.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// <p>The name of this column in the underlying data source.</p>
 	Name pulumi.StringInput `pulumi:"name"`
@@ -28475,6 +28679,7 @@ func (o DataSetInputColumnOutput) ToDataSetInputColumnOutputWithContext(ctx cont
 	return o
 }
 
+// A unique identifier for the input column.
 func (o DataSetInputColumnOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetInputColumn) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -29235,6 +29440,7 @@ func (o DataSetJoinKeyPropertiesPtrOutput) UniqueKey() pulumi.BoolPtrOutput {
 }
 
 type DataSetJoinOperandProperties struct {
+	// A list of column name overrides to apply to the join operand's output columns.
 	OutputColumnNameOverrides []DataSetOutputColumnNameOverride `pulumi:"outputColumnNameOverrides"`
 }
 
@@ -29250,6 +29456,7 @@ type DataSetJoinOperandPropertiesInput interface {
 }
 
 type DataSetJoinOperandPropertiesArgs struct {
+	// A list of column name overrides to apply to the join operand's output columns.
 	OutputColumnNameOverrides DataSetOutputColumnNameOverrideArrayInput `pulumi:"outputColumnNameOverrides"`
 }
 
@@ -29330,6 +29537,7 @@ func (o DataSetJoinOperandPropertiesOutput) ToDataSetJoinOperandPropertiesPtrOut
 	}).(DataSetJoinOperandPropertiesPtrOutput)
 }
 
+// A list of column name overrides to apply to the join operand's output columns.
 func (o DataSetJoinOperandPropertiesOutput) OutputColumnNameOverrides() DataSetOutputColumnNameOverrideArrayOutput {
 	return o.ApplyT(func(v DataSetJoinOperandProperties) []DataSetOutputColumnNameOverride {
 		return v.OutputColumnNameOverrides
@@ -29360,6 +29568,7 @@ func (o DataSetJoinOperandPropertiesPtrOutput) Elem() DataSetJoinOperandProperti
 	}).(DataSetJoinOperandPropertiesOutput)
 }
 
+// A list of column name overrides to apply to the join operand's output columns.
 func (o DataSetJoinOperandPropertiesPtrOutput) OutputColumnNameOverrides() DataSetOutputColumnNameOverrideArrayOutput {
 	return o.ApplyT(func(v *DataSetJoinOperandProperties) []DataSetOutputColumnNameOverride {
 		if v == nil {
@@ -29370,13 +29579,20 @@ func (o DataSetJoinOperandPropertiesPtrOutput) OutputColumnNameOverrides() DataS
 }
 
 type DataSetJoinOperation struct {
-	Alias                  string                          `pulumi:"alias"`
-	LeftOperand            DataSetTransformOperationSource `pulumi:"leftOperand"`
-	LeftOperandProperties  *DataSetJoinOperandProperties   `pulumi:"leftOperandProperties"`
-	OnClause               string                          `pulumi:"onClause"`
-	RightOperand           DataSetTransformOperationSource `pulumi:"rightOperand"`
-	RightOperandProperties *DataSetJoinOperandProperties   `pulumi:"rightOperandProperties"`
-	Type                   DataSetJoinOperationType        `pulumi:"type"`
+	// Alias for this operation.
+	Alias string `pulumi:"alias"`
+	// The left operand for the join operation.
+	LeftOperand DataSetTransformOperationSource `pulumi:"leftOperand"`
+	// Properties that control how the left operand's columns are handled in the join result.
+	LeftOperandProperties *DataSetJoinOperandProperties `pulumi:"leftOperandProperties"`
+	// The join condition that specifies how to match rows between the left and right operands.
+	OnClause string `pulumi:"onClause"`
+	// The right operand for the join operation.
+	RightOperand DataSetTransformOperationSource `pulumi:"rightOperand"`
+	// Properties that control how the right operand's columns are handled in the join result.
+	RightOperandProperties *DataSetJoinOperandProperties `pulumi:"rightOperandProperties"`
+	// The type of join to perform, such as `INNER` , `LEFT` , `RIGHT` , or `OUTER` .
+	Type DataSetJoinOperationType `pulumi:"type"`
 }
 
 // DataSetJoinOperationInput is an input type that accepts DataSetJoinOperationArgs and DataSetJoinOperationOutput values.
@@ -29391,13 +29607,20 @@ type DataSetJoinOperationInput interface {
 }
 
 type DataSetJoinOperationArgs struct {
-	Alias                  pulumi.StringInput                   `pulumi:"alias"`
-	LeftOperand            DataSetTransformOperationSourceInput `pulumi:"leftOperand"`
-	LeftOperandProperties  DataSetJoinOperandPropertiesPtrInput `pulumi:"leftOperandProperties"`
-	OnClause               pulumi.StringInput                   `pulumi:"onClause"`
-	RightOperand           DataSetTransformOperationSourceInput `pulumi:"rightOperand"`
+	// Alias for this operation.
+	Alias pulumi.StringInput `pulumi:"alias"`
+	// The left operand for the join operation.
+	LeftOperand DataSetTransformOperationSourceInput `pulumi:"leftOperand"`
+	// Properties that control how the left operand's columns are handled in the join result.
+	LeftOperandProperties DataSetJoinOperandPropertiesPtrInput `pulumi:"leftOperandProperties"`
+	// The join condition that specifies how to match rows between the left and right operands.
+	OnClause pulumi.StringInput `pulumi:"onClause"`
+	// The right operand for the join operation.
+	RightOperand DataSetTransformOperationSourceInput `pulumi:"rightOperand"`
+	// Properties that control how the right operand's columns are handled in the join result.
 	RightOperandProperties DataSetJoinOperandPropertiesPtrInput `pulumi:"rightOperandProperties"`
-	Type                   DataSetJoinOperationTypeInput        `pulumi:"type"`
+	// The type of join to perform, such as `INNER` , `LEFT` , `RIGHT` , or `OUTER` .
+	Type DataSetJoinOperationTypeInput `pulumi:"type"`
 }
 
 func (DataSetJoinOperationArgs) ElementType() reflect.Type {
@@ -29477,30 +29700,37 @@ func (o DataSetJoinOperationOutput) ToDataSetJoinOperationPtrOutputWithContext(c
 	}).(DataSetJoinOperationPtrOutput)
 }
 
+// Alias for this operation.
 func (o DataSetJoinOperationOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetJoinOperation) string { return v.Alias }).(pulumi.StringOutput)
 }
 
+// The left operand for the join operation.
 func (o DataSetJoinOperationOutput) LeftOperand() DataSetTransformOperationSourceOutput {
 	return o.ApplyT(func(v DataSetJoinOperation) DataSetTransformOperationSource { return v.LeftOperand }).(DataSetTransformOperationSourceOutput)
 }
 
+// Properties that control how the left operand's columns are handled in the join result.
 func (o DataSetJoinOperationOutput) LeftOperandProperties() DataSetJoinOperandPropertiesPtrOutput {
 	return o.ApplyT(func(v DataSetJoinOperation) *DataSetJoinOperandProperties { return v.LeftOperandProperties }).(DataSetJoinOperandPropertiesPtrOutput)
 }
 
+// The join condition that specifies how to match rows between the left and right operands.
 func (o DataSetJoinOperationOutput) OnClause() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetJoinOperation) string { return v.OnClause }).(pulumi.StringOutput)
 }
 
+// The right operand for the join operation.
 func (o DataSetJoinOperationOutput) RightOperand() DataSetTransformOperationSourceOutput {
 	return o.ApplyT(func(v DataSetJoinOperation) DataSetTransformOperationSource { return v.RightOperand }).(DataSetTransformOperationSourceOutput)
 }
 
+// Properties that control how the right operand's columns are handled in the join result.
 func (o DataSetJoinOperationOutput) RightOperandProperties() DataSetJoinOperandPropertiesPtrOutput {
 	return o.ApplyT(func(v DataSetJoinOperation) *DataSetJoinOperandProperties { return v.RightOperandProperties }).(DataSetJoinOperandPropertiesPtrOutput)
 }
 
+// The type of join to perform, such as `INNER` , `LEFT` , `RIGHT` , or `OUTER` .
 func (o DataSetJoinOperationOutput) Type() DataSetJoinOperationTypeOutput {
 	return o.ApplyT(func(v DataSetJoinOperation) DataSetJoinOperationType { return v.Type }).(DataSetJoinOperationTypeOutput)
 }
@@ -29529,6 +29759,7 @@ func (o DataSetJoinOperationPtrOutput) Elem() DataSetJoinOperationOutput {
 	}).(DataSetJoinOperationOutput)
 }
 
+// Alias for this operation.
 func (o DataSetJoinOperationPtrOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetJoinOperation) *string {
 		if v == nil {
@@ -29538,6 +29769,7 @@ func (o DataSetJoinOperationPtrOutput) Alias() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The left operand for the join operation.
 func (o DataSetJoinOperationPtrOutput) LeftOperand() DataSetTransformOperationSourcePtrOutput {
 	return o.ApplyT(func(v *DataSetJoinOperation) *DataSetTransformOperationSource {
 		if v == nil {
@@ -29547,6 +29779,7 @@ func (o DataSetJoinOperationPtrOutput) LeftOperand() DataSetTransformOperationSo
 	}).(DataSetTransformOperationSourcePtrOutput)
 }
 
+// Properties that control how the left operand's columns are handled in the join result.
 func (o DataSetJoinOperationPtrOutput) LeftOperandProperties() DataSetJoinOperandPropertiesPtrOutput {
 	return o.ApplyT(func(v *DataSetJoinOperation) *DataSetJoinOperandProperties {
 		if v == nil {
@@ -29556,6 +29789,7 @@ func (o DataSetJoinOperationPtrOutput) LeftOperandProperties() DataSetJoinOperan
 	}).(DataSetJoinOperandPropertiesPtrOutput)
 }
 
+// The join condition that specifies how to match rows between the left and right operands.
 func (o DataSetJoinOperationPtrOutput) OnClause() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetJoinOperation) *string {
 		if v == nil {
@@ -29565,6 +29799,7 @@ func (o DataSetJoinOperationPtrOutput) OnClause() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The right operand for the join operation.
 func (o DataSetJoinOperationPtrOutput) RightOperand() DataSetTransformOperationSourcePtrOutput {
 	return o.ApplyT(func(v *DataSetJoinOperation) *DataSetTransformOperationSource {
 		if v == nil {
@@ -29574,6 +29809,7 @@ func (o DataSetJoinOperationPtrOutput) RightOperand() DataSetTransformOperationS
 	}).(DataSetTransformOperationSourcePtrOutput)
 }
 
+// Properties that control how the right operand's columns are handled in the join result.
 func (o DataSetJoinOperationPtrOutput) RightOperandProperties() DataSetJoinOperandPropertiesPtrOutput {
 	return o.ApplyT(func(v *DataSetJoinOperation) *DataSetJoinOperandProperties {
 		if v == nil {
@@ -29583,6 +29819,7 @@ func (o DataSetJoinOperationPtrOutput) RightOperandProperties() DataSetJoinOpera
 	}).(DataSetJoinOperandPropertiesPtrOutput)
 }
 
+// The type of join to perform, such as `INNER` , `LEFT` , `RIGHT` , or `OUTER` .
 func (o DataSetJoinOperationPtrOutput) Type() DataSetJoinOperationTypePtrOutput {
 	return o.ApplyT(func(v *DataSetJoinOperation) *DataSetJoinOperationType {
 		if v == nil {
@@ -30174,8 +30411,10 @@ func (o DataSetNewDefaultValuesPtrOutput) StringStaticValues() pulumi.StringArra
 }
 
 type DataSetNumericComparisonFilterCondition struct {
+	// The comparison operator to use, such as `EQUALS` , `GREATER_THAN` , `LESS_THAN` , or their variants.
 	Operator DataSetNumericComparisonFilterOperator `pulumi:"operator"`
-	Value    *DataSetNumericFilterValue             `pulumi:"value"`
+	// The numeric value to compare against.
+	Value *DataSetNumericFilterValue `pulumi:"value"`
 }
 
 // DataSetNumericComparisonFilterConditionInput is an input type that accepts DataSetNumericComparisonFilterConditionArgs and DataSetNumericComparisonFilterConditionOutput values.
@@ -30190,8 +30429,10 @@ type DataSetNumericComparisonFilterConditionInput interface {
 }
 
 type DataSetNumericComparisonFilterConditionArgs struct {
+	// The comparison operator to use, such as `EQUALS` , `GREATER_THAN` , `LESS_THAN` , or their variants.
 	Operator DataSetNumericComparisonFilterOperatorInput `pulumi:"operator"`
-	Value    DataSetNumericFilterValuePtrInput           `pulumi:"value"`
+	// The numeric value to compare against.
+	Value DataSetNumericFilterValuePtrInput `pulumi:"value"`
 }
 
 func (DataSetNumericComparisonFilterConditionArgs) ElementType() reflect.Type {
@@ -30271,12 +30512,14 @@ func (o DataSetNumericComparisonFilterConditionOutput) ToDataSetNumericCompariso
 	}).(DataSetNumericComparisonFilterConditionPtrOutput)
 }
 
+// The comparison operator to use, such as `EQUALS` , `GREATER_THAN` , `LESS_THAN` , or their variants.
 func (o DataSetNumericComparisonFilterConditionOutput) Operator() DataSetNumericComparisonFilterOperatorOutput {
 	return o.ApplyT(func(v DataSetNumericComparisonFilterCondition) DataSetNumericComparisonFilterOperator {
 		return v.Operator
 	}).(DataSetNumericComparisonFilterOperatorOutput)
 }
 
+// The numeric value to compare against.
 func (o DataSetNumericComparisonFilterConditionOutput) Value() DataSetNumericFilterValuePtrOutput {
 	return o.ApplyT(func(v DataSetNumericComparisonFilterCondition) *DataSetNumericFilterValue { return v.Value }).(DataSetNumericFilterValuePtrOutput)
 }
@@ -30305,6 +30548,7 @@ func (o DataSetNumericComparisonFilterConditionPtrOutput) Elem() DataSetNumericC
 	}).(DataSetNumericComparisonFilterConditionOutput)
 }
 
+// The comparison operator to use, such as `EQUALS` , `GREATER_THAN` , `LESS_THAN` , or their variants.
 func (o DataSetNumericComparisonFilterConditionPtrOutput) Operator() DataSetNumericComparisonFilterOperatorPtrOutput {
 	return o.ApplyT(func(v *DataSetNumericComparisonFilterCondition) *DataSetNumericComparisonFilterOperator {
 		if v == nil {
@@ -30314,6 +30558,7 @@ func (o DataSetNumericComparisonFilterConditionPtrOutput) Operator() DataSetNume
 	}).(DataSetNumericComparisonFilterOperatorPtrOutput)
 }
 
+// The numeric value to compare against.
 func (o DataSetNumericComparisonFilterConditionPtrOutput) Value() DataSetNumericFilterValuePtrOutput {
 	return o.ApplyT(func(v *DataSetNumericComparisonFilterCondition) *DataSetNumericFilterValue {
 		if v == nil {
@@ -30324,9 +30569,12 @@ func (o DataSetNumericComparisonFilterConditionPtrOutput) Value() DataSetNumeric
 }
 
 type DataSetNumericFilterCondition struct {
-	ColumnName                *string                                  `pulumi:"columnName"`
+	// The name of the numeric column to filter.
+	ColumnName *string `pulumi:"columnName"`
+	// A comparison-based filter condition for the numeric column.
 	ComparisonFilterCondition *DataSetNumericComparisonFilterCondition `pulumi:"comparisonFilterCondition"`
-	RangeFilterCondition      *DataSetNumericRangeFilterCondition      `pulumi:"rangeFilterCondition"`
+	// A range-based filter condition for the numeric column, filtering values between minimum and maximum numbers.
+	RangeFilterCondition *DataSetNumericRangeFilterCondition `pulumi:"rangeFilterCondition"`
 }
 
 // DataSetNumericFilterConditionInput is an input type that accepts DataSetNumericFilterConditionArgs and DataSetNumericFilterConditionOutput values.
@@ -30341,9 +30589,12 @@ type DataSetNumericFilterConditionInput interface {
 }
 
 type DataSetNumericFilterConditionArgs struct {
-	ColumnName                pulumi.StringPtrInput                           `pulumi:"columnName"`
+	// The name of the numeric column to filter.
+	ColumnName pulumi.StringPtrInput `pulumi:"columnName"`
+	// A comparison-based filter condition for the numeric column.
 	ComparisonFilterCondition DataSetNumericComparisonFilterConditionPtrInput `pulumi:"comparisonFilterCondition"`
-	RangeFilterCondition      DataSetNumericRangeFilterConditionPtrInput      `pulumi:"rangeFilterCondition"`
+	// A range-based filter condition for the numeric column, filtering values between minimum and maximum numbers.
+	RangeFilterCondition DataSetNumericRangeFilterConditionPtrInput `pulumi:"rangeFilterCondition"`
 }
 
 func (DataSetNumericFilterConditionArgs) ElementType() reflect.Type {
@@ -30423,16 +30674,19 @@ func (o DataSetNumericFilterConditionOutput) ToDataSetNumericFilterConditionPtrO
 	}).(DataSetNumericFilterConditionPtrOutput)
 }
 
+// The name of the numeric column to filter.
 func (o DataSetNumericFilterConditionOutput) ColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetNumericFilterCondition) *string { return v.ColumnName }).(pulumi.StringPtrOutput)
 }
 
+// A comparison-based filter condition for the numeric column.
 func (o DataSetNumericFilterConditionOutput) ComparisonFilterCondition() DataSetNumericComparisonFilterConditionPtrOutput {
 	return o.ApplyT(func(v DataSetNumericFilterCondition) *DataSetNumericComparisonFilterCondition {
 		return v.ComparisonFilterCondition
 	}).(DataSetNumericComparisonFilterConditionPtrOutput)
 }
 
+// A range-based filter condition for the numeric column, filtering values between minimum and maximum numbers.
 func (o DataSetNumericFilterConditionOutput) RangeFilterCondition() DataSetNumericRangeFilterConditionPtrOutput {
 	return o.ApplyT(func(v DataSetNumericFilterCondition) *DataSetNumericRangeFilterCondition {
 		return v.RangeFilterCondition
@@ -30463,6 +30717,7 @@ func (o DataSetNumericFilterConditionPtrOutput) Elem() DataSetNumericFilterCondi
 	}).(DataSetNumericFilterConditionOutput)
 }
 
+// The name of the numeric column to filter.
 func (o DataSetNumericFilterConditionPtrOutput) ColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetNumericFilterCondition) *string {
 		if v == nil {
@@ -30472,6 +30727,7 @@ func (o DataSetNumericFilterConditionPtrOutput) ColumnName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// A comparison-based filter condition for the numeric column.
 func (o DataSetNumericFilterConditionPtrOutput) ComparisonFilterCondition() DataSetNumericComparisonFilterConditionPtrOutput {
 	return o.ApplyT(func(v *DataSetNumericFilterCondition) *DataSetNumericComparisonFilterCondition {
 		if v == nil {
@@ -30481,6 +30737,7 @@ func (o DataSetNumericFilterConditionPtrOutput) ComparisonFilterCondition() Data
 	}).(DataSetNumericComparisonFilterConditionPtrOutput)
 }
 
+// A range-based filter condition for the numeric column, filtering values between minimum and maximum numbers.
 func (o DataSetNumericFilterConditionPtrOutput) RangeFilterCondition() DataSetNumericRangeFilterConditionPtrOutput {
 	return o.ApplyT(func(v *DataSetNumericFilterCondition) *DataSetNumericRangeFilterCondition {
 		if v == nil {
@@ -30491,6 +30748,7 @@ func (o DataSetNumericFilterConditionPtrOutput) RangeFilterCondition() DataSetNu
 }
 
 type DataSetNumericFilterValue struct {
+	// A static numeric value used for filtering.
 	StaticValue *float64 `pulumi:"staticValue"`
 }
 
@@ -30506,6 +30764,7 @@ type DataSetNumericFilterValueInput interface {
 }
 
 type DataSetNumericFilterValueArgs struct {
+	// A static numeric value used for filtering.
 	StaticValue pulumi.Float64PtrInput `pulumi:"staticValue"`
 }
 
@@ -30586,6 +30845,7 @@ func (o DataSetNumericFilterValueOutput) ToDataSetNumericFilterValuePtrOutputWit
 	}).(DataSetNumericFilterValuePtrOutput)
 }
 
+// A static numeric value used for filtering.
 func (o DataSetNumericFilterValueOutput) StaticValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DataSetNumericFilterValue) *float64 { return v.StaticValue }).(pulumi.Float64PtrOutput)
 }
@@ -30614,6 +30874,7 @@ func (o DataSetNumericFilterValuePtrOutput) Elem() DataSetNumericFilterValueOutp
 	}).(DataSetNumericFilterValueOutput)
 }
 
+// A static numeric value used for filtering.
 func (o DataSetNumericFilterValuePtrOutput) StaticValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DataSetNumericFilterValue) *float64 {
 		if v == nil {
@@ -30624,10 +30885,14 @@ func (o DataSetNumericFilterValuePtrOutput) StaticValue() pulumi.Float64PtrOutpu
 }
 
 type DataSetNumericRangeFilterCondition struct {
-	IncludeMaximum *bool                      `pulumi:"includeMaximum"`
-	IncludeMinimum *bool                      `pulumi:"includeMinimum"`
-	RangeMaximum   *DataSetNumericFilterValue `pulumi:"rangeMaximum"`
-	RangeMinimum   *DataSetNumericFilterValue `pulumi:"rangeMinimum"`
+	// Whether to include the maximum value in the filter range.
+	IncludeMaximum *bool `pulumi:"includeMaximum"`
+	// Whether to include the minimum value in the filter range.
+	IncludeMinimum *bool `pulumi:"includeMinimum"`
+	// The maximum numeric value for the range filter.
+	RangeMaximum *DataSetNumericFilterValue `pulumi:"rangeMaximum"`
+	// The minimum numeric value for the range filter.
+	RangeMinimum *DataSetNumericFilterValue `pulumi:"rangeMinimum"`
 }
 
 // DataSetNumericRangeFilterConditionInput is an input type that accepts DataSetNumericRangeFilterConditionArgs and DataSetNumericRangeFilterConditionOutput values.
@@ -30642,10 +30907,14 @@ type DataSetNumericRangeFilterConditionInput interface {
 }
 
 type DataSetNumericRangeFilterConditionArgs struct {
-	IncludeMaximum pulumi.BoolPtrInput               `pulumi:"includeMaximum"`
-	IncludeMinimum pulumi.BoolPtrInput               `pulumi:"includeMinimum"`
-	RangeMaximum   DataSetNumericFilterValuePtrInput `pulumi:"rangeMaximum"`
-	RangeMinimum   DataSetNumericFilterValuePtrInput `pulumi:"rangeMinimum"`
+	// Whether to include the maximum value in the filter range.
+	IncludeMaximum pulumi.BoolPtrInput `pulumi:"includeMaximum"`
+	// Whether to include the minimum value in the filter range.
+	IncludeMinimum pulumi.BoolPtrInput `pulumi:"includeMinimum"`
+	// The maximum numeric value for the range filter.
+	RangeMaximum DataSetNumericFilterValuePtrInput `pulumi:"rangeMaximum"`
+	// The minimum numeric value for the range filter.
+	RangeMinimum DataSetNumericFilterValuePtrInput `pulumi:"rangeMinimum"`
 }
 
 func (DataSetNumericRangeFilterConditionArgs) ElementType() reflect.Type {
@@ -30725,18 +30994,22 @@ func (o DataSetNumericRangeFilterConditionOutput) ToDataSetNumericRangeFilterCon
 	}).(DataSetNumericRangeFilterConditionPtrOutput)
 }
 
+// Whether to include the maximum value in the filter range.
 func (o DataSetNumericRangeFilterConditionOutput) IncludeMaximum() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSetNumericRangeFilterCondition) *bool { return v.IncludeMaximum }).(pulumi.BoolPtrOutput)
 }
 
+// Whether to include the minimum value in the filter range.
 func (o DataSetNumericRangeFilterConditionOutput) IncludeMinimum() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSetNumericRangeFilterCondition) *bool { return v.IncludeMinimum }).(pulumi.BoolPtrOutput)
 }
 
+// The maximum numeric value for the range filter.
 func (o DataSetNumericRangeFilterConditionOutput) RangeMaximum() DataSetNumericFilterValuePtrOutput {
 	return o.ApplyT(func(v DataSetNumericRangeFilterCondition) *DataSetNumericFilterValue { return v.RangeMaximum }).(DataSetNumericFilterValuePtrOutput)
 }
 
+// The minimum numeric value for the range filter.
 func (o DataSetNumericRangeFilterConditionOutput) RangeMinimum() DataSetNumericFilterValuePtrOutput {
 	return o.ApplyT(func(v DataSetNumericRangeFilterCondition) *DataSetNumericFilterValue { return v.RangeMinimum }).(DataSetNumericFilterValuePtrOutput)
 }
@@ -30765,6 +31038,7 @@ func (o DataSetNumericRangeFilterConditionPtrOutput) Elem() DataSetNumericRangeF
 	}).(DataSetNumericRangeFilterConditionOutput)
 }
 
+// Whether to include the maximum value in the filter range.
 func (o DataSetNumericRangeFilterConditionPtrOutput) IncludeMaximum() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSetNumericRangeFilterCondition) *bool {
 		if v == nil {
@@ -30774,6 +31048,7 @@ func (o DataSetNumericRangeFilterConditionPtrOutput) IncludeMaximum() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether to include the minimum value in the filter range.
 func (o DataSetNumericRangeFilterConditionPtrOutput) IncludeMinimum() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSetNumericRangeFilterCondition) *bool {
 		if v == nil {
@@ -30783,6 +31058,7 @@ func (o DataSetNumericRangeFilterConditionPtrOutput) IncludeMinimum() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The maximum numeric value for the range filter.
 func (o DataSetNumericRangeFilterConditionPtrOutput) RangeMaximum() DataSetNumericFilterValuePtrOutput {
 	return o.ApplyT(func(v *DataSetNumericRangeFilterCondition) *DataSetNumericFilterValue {
 		if v == nil {
@@ -30792,6 +31068,7 @@ func (o DataSetNumericRangeFilterConditionPtrOutput) RangeMaximum() DataSetNumer
 	}).(DataSetNumericFilterValuePtrOutput)
 }
 
+// The minimum numeric value for the range filter.
 func (o DataSetNumericRangeFilterConditionPtrOutput) RangeMinimum() DataSetNumericFilterValuePtrOutput {
 	return o.ApplyT(func(v *DataSetNumericRangeFilterCondition) *DataSetNumericFilterValue {
 		if v == nil {
@@ -30805,7 +31082,8 @@ func (o DataSetNumericRangeFilterConditionPtrOutput) RangeMinimum() DataSetNumer
 type DataSetOutputColumn struct {
 	// <p>A description for a column.</p>
 	Description *string `pulumi:"description"`
-	Id          *string `pulumi:"id"`
+	// A unique identifier for the output column.
+	Id *string `pulumi:"id"`
 	// <p>The display name of the column..</p>
 	Name *string `pulumi:"name"`
 	// The sub data type of the column.
@@ -30834,6 +31112,7 @@ func (o DataSetOutputColumnOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetOutputColumn) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A unique identifier for the output column.
 func (o DataSetOutputColumnOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetOutputColumn) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -30874,7 +31153,9 @@ func (o DataSetOutputColumnArrayOutput) Index(i pulumi.IntInput) DataSetOutputCo
 }
 
 type DataSetOutputColumnNameOverride struct {
-	OutputColumnName string  `pulumi:"outputColumnName"`
+	// The new name to assign to the column in the output.
+	OutputColumnName string `pulumi:"outputColumnName"`
+	// The original name of the column from the source transform operation.
 	SourceColumnName *string `pulumi:"sourceColumnName"`
 }
 
@@ -30890,7 +31171,9 @@ type DataSetOutputColumnNameOverrideInput interface {
 }
 
 type DataSetOutputColumnNameOverrideArgs struct {
-	OutputColumnName pulumi.StringInput    `pulumi:"outputColumnName"`
+	// The new name to assign to the column in the output.
+	OutputColumnName pulumi.StringInput `pulumi:"outputColumnName"`
+	// The original name of the column from the source transform operation.
 	SourceColumnName pulumi.StringPtrInput `pulumi:"sourceColumnName"`
 }
 
@@ -30945,10 +31228,12 @@ func (o DataSetOutputColumnNameOverrideOutput) ToDataSetOutputColumnNameOverride
 	return o
 }
 
+// The new name to assign to the column in the output.
 func (o DataSetOutputColumnNameOverrideOutput) OutputColumnName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetOutputColumnNameOverride) string { return v.OutputColumnName }).(pulumi.StringOutput)
 }
 
+// The original name of the column from the source transform operation.
 func (o DataSetOutputColumnNameOverrideOutput) SourceColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetOutputColumnNameOverride) *string { return v.SourceColumnName }).(pulumi.StringPtrOutput)
 }
@@ -31152,7 +31437,9 @@ func (o DataSetOverrideDatasetParameterOperationPtrOutput) ParameterName() pulum
 }
 
 type DataSetParentDataSet struct {
-	DataSetArn   string               `pulumi:"dataSetArn"`
+	// The Amazon Resource Name (ARN) of the parent dataset.
+	DataSetArn string `pulumi:"dataSetArn"`
+	// The list of input columns available from the parent dataset.
 	InputColumns []DataSetInputColumn `pulumi:"inputColumns"`
 }
 
@@ -31168,7 +31455,9 @@ type DataSetParentDataSetInput interface {
 }
 
 type DataSetParentDataSetArgs struct {
-	DataSetArn   pulumi.StringInput           `pulumi:"dataSetArn"`
+	// The Amazon Resource Name (ARN) of the parent dataset.
+	DataSetArn pulumi.StringInput `pulumi:"dataSetArn"`
+	// The list of input columns available from the parent dataset.
 	InputColumns DataSetInputColumnArrayInput `pulumi:"inputColumns"`
 }
 
@@ -31249,10 +31538,12 @@ func (o DataSetParentDataSetOutput) ToDataSetParentDataSetPtrOutputWithContext(c
 	}).(DataSetParentDataSetPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the parent dataset.
 func (o DataSetParentDataSetOutput) DataSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetParentDataSet) string { return v.DataSetArn }).(pulumi.StringOutput)
 }
 
+// The list of input columns available from the parent dataset.
 func (o DataSetParentDataSetOutput) InputColumns() DataSetInputColumnArrayOutput {
 	return o.ApplyT(func(v DataSetParentDataSet) []DataSetInputColumn { return v.InputColumns }).(DataSetInputColumnArrayOutput)
 }
@@ -31281,6 +31572,7 @@ func (o DataSetParentDataSetPtrOutput) Elem() DataSetParentDataSetOutput {
 	}).(DataSetParentDataSetOutput)
 }
 
+// The Amazon Resource Name (ARN) of the parent dataset.
 func (o DataSetParentDataSetPtrOutput) DataSetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetParentDataSet) *string {
 		if v == nil {
@@ -31290,6 +31582,7 @@ func (o DataSetParentDataSetPtrOutput) DataSetArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of input columns available from the parent dataset.
 func (o DataSetParentDataSetPtrOutput) InputColumns() DataSetInputColumnArrayOutput {
 	return o.ApplyT(func(v *DataSetParentDataSet) []DataSetInputColumn {
 		if v == nil {
@@ -31442,7 +31735,8 @@ type DataSetPhysicalTable struct {
 	// A physical table type for relational data sources.
 	RelationalTable *DataSetRelationalTable `pulumi:"relationalTable"`
 	// A physical table type for as S3 data source.
-	S3Source  *DataSetS3Source  `pulumi:"s3Source"`
+	S3Source *DataSetS3Source `pulumi:"s3Source"`
+	// A physical table type for Software-as-a-Service (SaaS) sources.
 	SaaSTable *DataSetSaaSTable `pulumi:"saaSTable"`
 }
 
@@ -31467,7 +31761,8 @@ type DataSetPhysicalTableArgs struct {
 	// A physical table type for relational data sources.
 	RelationalTable DataSetRelationalTablePtrInput `pulumi:"relationalTable"`
 	// A physical table type for as S3 data source.
-	S3Source  DataSetS3SourcePtrInput  `pulumi:"s3Source"`
+	S3Source DataSetS3SourcePtrInput `pulumi:"s3Source"`
+	// A physical table type for Software-as-a-Service (SaaS) sources.
 	SaaSTable DataSetSaaSTablePtrInput `pulumi:"saaSTable"`
 }
 
@@ -31541,6 +31836,7 @@ func (o DataSetPhysicalTableOutput) S3Source() DataSetS3SourcePtrOutput {
 	return o.ApplyT(func(v DataSetPhysicalTable) *DataSetS3Source { return v.S3Source }).(DataSetS3SourcePtrOutput)
 }
 
+// A physical table type for Software-as-a-Service (SaaS) sources.
 func (o DataSetPhysicalTableOutput) SaaSTable() DataSetSaaSTablePtrOutput {
 	return o.ApplyT(func(v DataSetPhysicalTable) *DataSetSaaSTable { return v.SaaSTable }).(DataSetSaaSTablePtrOutput)
 }
@@ -31566,8 +31862,10 @@ func (o DataSetPhysicalTableMapOutput) MapIndex(k pulumi.StringInput) DataSetPhy
 }
 
 type DataSetPivotConfiguration struct {
-	LabelColumnName *string               `pulumi:"labelColumnName"`
-	PivotedLabels   []DataSetPivotedLabel `pulumi:"pivotedLabels"`
+	// The name of the column that contains the labels to be pivoted into separate columns.
+	LabelColumnName *string `pulumi:"labelColumnName"`
+	// The list of specific label values to pivot into separate columns.
+	PivotedLabels []DataSetPivotedLabel `pulumi:"pivotedLabels"`
 }
 
 // DataSetPivotConfigurationInput is an input type that accepts DataSetPivotConfigurationArgs and DataSetPivotConfigurationOutput values.
@@ -31582,8 +31880,10 @@ type DataSetPivotConfigurationInput interface {
 }
 
 type DataSetPivotConfigurationArgs struct {
-	LabelColumnName pulumi.StringPtrInput         `pulumi:"labelColumnName"`
-	PivotedLabels   DataSetPivotedLabelArrayInput `pulumi:"pivotedLabels"`
+	// The name of the column that contains the labels to be pivoted into separate columns.
+	LabelColumnName pulumi.StringPtrInput `pulumi:"labelColumnName"`
+	// The list of specific label values to pivot into separate columns.
+	PivotedLabels DataSetPivotedLabelArrayInput `pulumi:"pivotedLabels"`
 }
 
 func (DataSetPivotConfigurationArgs) ElementType() reflect.Type {
@@ -31663,10 +31963,12 @@ func (o DataSetPivotConfigurationOutput) ToDataSetPivotConfigurationPtrOutputWit
 	}).(DataSetPivotConfigurationPtrOutput)
 }
 
+// The name of the column that contains the labels to be pivoted into separate columns.
 func (o DataSetPivotConfigurationOutput) LabelColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetPivotConfiguration) *string { return v.LabelColumnName }).(pulumi.StringPtrOutput)
 }
 
+// The list of specific label values to pivot into separate columns.
 func (o DataSetPivotConfigurationOutput) PivotedLabels() DataSetPivotedLabelArrayOutput {
 	return o.ApplyT(func(v DataSetPivotConfiguration) []DataSetPivotedLabel { return v.PivotedLabels }).(DataSetPivotedLabelArrayOutput)
 }
@@ -31695,6 +31997,7 @@ func (o DataSetPivotConfigurationPtrOutput) Elem() DataSetPivotConfigurationOutp
 	}).(DataSetPivotConfigurationOutput)
 }
 
+// The name of the column that contains the labels to be pivoted into separate columns.
 func (o DataSetPivotConfigurationPtrOutput) LabelColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetPivotConfiguration) *string {
 		if v == nil {
@@ -31704,6 +32007,7 @@ func (o DataSetPivotConfigurationPtrOutput) LabelColumnName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of specific label values to pivot into separate columns.
 func (o DataSetPivotConfigurationPtrOutput) PivotedLabels() DataSetPivotedLabelArrayOutput {
 	return o.ApplyT(func(v *DataSetPivotConfiguration) []DataSetPivotedLabel {
 		if v == nil {
@@ -31714,10 +32018,15 @@ func (o DataSetPivotConfigurationPtrOutput) PivotedLabels() DataSetPivotedLabelA
 }
 
 type DataSetPivotOperation struct {
-	Alias                    string                          `pulumi:"alias"`
-	GroupByColumnNames       []string                        `pulumi:"groupByColumnNames"`
-	PivotConfiguration       DataSetPivotConfiguration       `pulumi:"pivotConfiguration"`
-	Source                   DataSetTransformOperationSource `pulumi:"source"`
+	// Alias for this operation.
+	Alias string `pulumi:"alias"`
+	// The list of column names to group by when performing the pivot operation.
+	GroupByColumnNames []string `pulumi:"groupByColumnNames"`
+	// Configuration that specifies which labels to pivot and how to structure the resulting columns.
+	PivotConfiguration DataSetPivotConfiguration `pulumi:"pivotConfiguration"`
+	// The source transform operation that provides input data for pivoting.
+	Source DataSetTransformOperationSource `pulumi:"source"`
+	// Configuration for how to aggregate values when multiple rows map to the same pivoted column.
 	ValueColumnConfiguration DataSetValueColumnConfiguration `pulumi:"valueColumnConfiguration"`
 }
 
@@ -31733,10 +32042,15 @@ type DataSetPivotOperationInput interface {
 }
 
 type DataSetPivotOperationArgs struct {
-	Alias                    pulumi.StringInput                   `pulumi:"alias"`
-	GroupByColumnNames       pulumi.StringArrayInput              `pulumi:"groupByColumnNames"`
-	PivotConfiguration       DataSetPivotConfigurationInput       `pulumi:"pivotConfiguration"`
-	Source                   DataSetTransformOperationSourceInput `pulumi:"source"`
+	// Alias for this operation.
+	Alias pulumi.StringInput `pulumi:"alias"`
+	// The list of column names to group by when performing the pivot operation.
+	GroupByColumnNames pulumi.StringArrayInput `pulumi:"groupByColumnNames"`
+	// Configuration that specifies which labels to pivot and how to structure the resulting columns.
+	PivotConfiguration DataSetPivotConfigurationInput `pulumi:"pivotConfiguration"`
+	// The source transform operation that provides input data for pivoting.
+	Source DataSetTransformOperationSourceInput `pulumi:"source"`
+	// Configuration for how to aggregate values when multiple rows map to the same pivoted column.
 	ValueColumnConfiguration DataSetValueColumnConfigurationInput `pulumi:"valueColumnConfiguration"`
 }
 
@@ -31817,22 +32131,27 @@ func (o DataSetPivotOperationOutput) ToDataSetPivotOperationPtrOutputWithContext
 	}).(DataSetPivotOperationPtrOutput)
 }
 
+// Alias for this operation.
 func (o DataSetPivotOperationOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetPivotOperation) string { return v.Alias }).(pulumi.StringOutput)
 }
 
+// The list of column names to group by when performing the pivot operation.
 func (o DataSetPivotOperationOutput) GroupByColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSetPivotOperation) []string { return v.GroupByColumnNames }).(pulumi.StringArrayOutput)
 }
 
+// Configuration that specifies which labels to pivot and how to structure the resulting columns.
 func (o DataSetPivotOperationOutput) PivotConfiguration() DataSetPivotConfigurationOutput {
 	return o.ApplyT(func(v DataSetPivotOperation) DataSetPivotConfiguration { return v.PivotConfiguration }).(DataSetPivotConfigurationOutput)
 }
 
+// The source transform operation that provides input data for pivoting.
 func (o DataSetPivotOperationOutput) Source() DataSetTransformOperationSourceOutput {
 	return o.ApplyT(func(v DataSetPivotOperation) DataSetTransformOperationSource { return v.Source }).(DataSetTransformOperationSourceOutput)
 }
 
+// Configuration for how to aggregate values when multiple rows map to the same pivoted column.
 func (o DataSetPivotOperationOutput) ValueColumnConfiguration() DataSetValueColumnConfigurationOutput {
 	return o.ApplyT(func(v DataSetPivotOperation) DataSetValueColumnConfiguration { return v.ValueColumnConfiguration }).(DataSetValueColumnConfigurationOutput)
 }
@@ -31861,6 +32180,7 @@ func (o DataSetPivotOperationPtrOutput) Elem() DataSetPivotOperationOutput {
 	}).(DataSetPivotOperationOutput)
 }
 
+// Alias for this operation.
 func (o DataSetPivotOperationPtrOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetPivotOperation) *string {
 		if v == nil {
@@ -31870,6 +32190,7 @@ func (o DataSetPivotOperationPtrOutput) Alias() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of column names to group by when performing the pivot operation.
 func (o DataSetPivotOperationPtrOutput) GroupByColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSetPivotOperation) []string {
 		if v == nil {
@@ -31879,6 +32200,7 @@ func (o DataSetPivotOperationPtrOutput) GroupByColumnNames() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
+// Configuration that specifies which labels to pivot and how to structure the resulting columns.
 func (o DataSetPivotOperationPtrOutput) PivotConfiguration() DataSetPivotConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSetPivotOperation) *DataSetPivotConfiguration {
 		if v == nil {
@@ -31888,6 +32210,7 @@ func (o DataSetPivotOperationPtrOutput) PivotConfiguration() DataSetPivotConfigu
 	}).(DataSetPivotConfigurationPtrOutput)
 }
 
+// The source transform operation that provides input data for pivoting.
 func (o DataSetPivotOperationPtrOutput) Source() DataSetTransformOperationSourcePtrOutput {
 	return o.ApplyT(func(v *DataSetPivotOperation) *DataSetTransformOperationSource {
 		if v == nil {
@@ -31897,6 +32220,7 @@ func (o DataSetPivotOperationPtrOutput) Source() DataSetTransformOperationSource
 	}).(DataSetTransformOperationSourcePtrOutput)
 }
 
+// Configuration for how to aggregate values when multiple rows map to the same pivoted column.
 func (o DataSetPivotOperationPtrOutput) ValueColumnConfiguration() DataSetValueColumnConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSetPivotOperation) *DataSetValueColumnConfiguration {
 		if v == nil {
@@ -31907,8 +32231,11 @@ func (o DataSetPivotOperationPtrOutput) ValueColumnConfiguration() DataSetValueC
 }
 
 type DataSetPivotedLabel struct {
-	LabelName     string `pulumi:"labelName"`
-	NewColumnId   string `pulumi:"newColumnId"`
+	// The label value from the source data to be pivoted.
+	LabelName string `pulumi:"labelName"`
+	// A unique identifier for the new column created from this pivoted label.
+	NewColumnId string `pulumi:"newColumnId"`
+	// The name for the new column created from this pivoted label.
 	NewColumnName string `pulumi:"newColumnName"`
 }
 
@@ -31924,8 +32251,11 @@ type DataSetPivotedLabelInput interface {
 }
 
 type DataSetPivotedLabelArgs struct {
-	LabelName     pulumi.StringInput `pulumi:"labelName"`
-	NewColumnId   pulumi.StringInput `pulumi:"newColumnId"`
+	// The label value from the source data to be pivoted.
+	LabelName pulumi.StringInput `pulumi:"labelName"`
+	// A unique identifier for the new column created from this pivoted label.
+	NewColumnId pulumi.StringInput `pulumi:"newColumnId"`
+	// The name for the new column created from this pivoted label.
 	NewColumnName pulumi.StringInput `pulumi:"newColumnName"`
 }
 
@@ -31980,14 +32310,17 @@ func (o DataSetPivotedLabelOutput) ToDataSetPivotedLabelOutputWithContext(ctx co
 	return o
 }
 
+// The label value from the source data to be pivoted.
 func (o DataSetPivotedLabelOutput) LabelName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetPivotedLabel) string { return v.LabelName }).(pulumi.StringOutput)
 }
 
+// A unique identifier for the new column created from this pivoted label.
 func (o DataSetPivotedLabelOutput) NewColumnId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetPivotedLabel) string { return v.NewColumnId }).(pulumi.StringOutput)
 }
 
+// The name for the new column created from this pivoted label.
 func (o DataSetPivotedLabelOutput) NewColumnName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetPivotedLabel) string { return v.NewColumnName }).(pulumi.StringOutput)
 }
@@ -32016,10 +32349,12 @@ func (o DataSetPivotedLabelArrayOutput) Index(i pulumi.IntInput) DataSetPivotedL
 //
 //	can only refer to projected columns.</p>
 type DataSetProjectOperation struct {
+	// Alias for this operation.
 	Alias *string `pulumi:"alias"`
 	// <p>Projected columns.</p>
-	ProjectedColumns []string                         `pulumi:"projectedColumns"`
-	Source           *DataSetTransformOperationSource `pulumi:"source"`
+	ProjectedColumns []string `pulumi:"projectedColumns"`
+	// The source transform operation that provides input data for column projection.
+	Source *DataSetTransformOperationSource `pulumi:"source"`
 }
 
 // DataSetProjectOperationInput is an input type that accepts DataSetProjectOperationArgs and DataSetProjectOperationOutput values.
@@ -32037,10 +32372,12 @@ type DataSetProjectOperationInput interface {
 //
 //	can only refer to projected columns.</p>
 type DataSetProjectOperationArgs struct {
+	// Alias for this operation.
 	Alias pulumi.StringPtrInput `pulumi:"alias"`
 	// <p>Projected columns.</p>
-	ProjectedColumns pulumi.StringArrayInput                 `pulumi:"projectedColumns"`
-	Source           DataSetTransformOperationSourcePtrInput `pulumi:"source"`
+	ProjectedColumns pulumi.StringArrayInput `pulumi:"projectedColumns"`
+	// The source transform operation that provides input data for column projection.
+	Source DataSetTransformOperationSourcePtrInput `pulumi:"source"`
 }
 
 func (DataSetProjectOperationArgs) ElementType() reflect.Type {
@@ -32123,6 +32460,7 @@ func (o DataSetProjectOperationOutput) ToDataSetProjectOperationPtrOutputWithCon
 	}).(DataSetProjectOperationPtrOutput)
 }
 
+// Alias for this operation.
 func (o DataSetProjectOperationOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetProjectOperation) *string { return v.Alias }).(pulumi.StringPtrOutput)
 }
@@ -32132,6 +32470,7 @@ func (o DataSetProjectOperationOutput) ProjectedColumns() pulumi.StringArrayOutp
 	return o.ApplyT(func(v DataSetProjectOperation) []string { return v.ProjectedColumns }).(pulumi.StringArrayOutput)
 }
 
+// The source transform operation that provides input data for column projection.
 func (o DataSetProjectOperationOutput) Source() DataSetTransformOperationSourcePtrOutput {
 	return o.ApplyT(func(v DataSetProjectOperation) *DataSetTransformOperationSource { return v.Source }).(DataSetTransformOperationSourcePtrOutput)
 }
@@ -32160,6 +32499,7 @@ func (o DataSetProjectOperationPtrOutput) Elem() DataSetProjectOperationOutput {
 	}).(DataSetProjectOperationOutput)
 }
 
+// Alias for this operation.
 func (o DataSetProjectOperationPtrOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetProjectOperation) *string {
 		if v == nil {
@@ -32179,6 +32519,7 @@ func (o DataSetProjectOperationPtrOutput) ProjectedColumns() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
+// The source transform operation that provides input data for column projection.
 func (o DataSetProjectOperationPtrOutput) Source() DataSetTransformOperationSourcePtrOutput {
 	return o.ApplyT(func(v *DataSetProjectOperation) *DataSetTransformOperationSource {
 		if v == nil {
@@ -33182,9 +33523,12 @@ func (o DataSetRenameColumnOperationArrayOutput) Index(i pulumi.IntInput) DataSe
 }
 
 type DataSetRenameColumnsOperation struct {
-	Alias                  string                          `pulumi:"alias"`
-	RenameColumnOperations []DataSetRenameColumnOperation  `pulumi:"renameColumnOperations"`
-	Source                 DataSetTransformOperationSource `pulumi:"source"`
+	// Alias for this operation.
+	Alias string `pulumi:"alias"`
+	// The list of column rename operations to perform, specifying old and new column names.
+	RenameColumnOperations []DataSetRenameColumnOperation `pulumi:"renameColumnOperations"`
+	// The source transform operation that provides input data for column renaming.
+	Source DataSetTransformOperationSource `pulumi:"source"`
 }
 
 // DataSetRenameColumnsOperationInput is an input type that accepts DataSetRenameColumnsOperationArgs and DataSetRenameColumnsOperationOutput values.
@@ -33199,9 +33543,12 @@ type DataSetRenameColumnsOperationInput interface {
 }
 
 type DataSetRenameColumnsOperationArgs struct {
-	Alias                  pulumi.StringInput                     `pulumi:"alias"`
+	// Alias for this operation.
+	Alias pulumi.StringInput `pulumi:"alias"`
+	// The list of column rename operations to perform, specifying old and new column names.
 	RenameColumnOperations DataSetRenameColumnOperationArrayInput `pulumi:"renameColumnOperations"`
-	Source                 DataSetTransformOperationSourceInput   `pulumi:"source"`
+	// The source transform operation that provides input data for column renaming.
+	Source DataSetTransformOperationSourceInput `pulumi:"source"`
 }
 
 func (DataSetRenameColumnsOperationArgs) ElementType() reflect.Type {
@@ -33281,14 +33628,17 @@ func (o DataSetRenameColumnsOperationOutput) ToDataSetRenameColumnsOperationPtrO
 	}).(DataSetRenameColumnsOperationPtrOutput)
 }
 
+// Alias for this operation.
 func (o DataSetRenameColumnsOperationOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetRenameColumnsOperation) string { return v.Alias }).(pulumi.StringOutput)
 }
 
+// The list of column rename operations to perform, specifying old and new column names.
 func (o DataSetRenameColumnsOperationOutput) RenameColumnOperations() DataSetRenameColumnOperationArrayOutput {
 	return o.ApplyT(func(v DataSetRenameColumnsOperation) []DataSetRenameColumnOperation { return v.RenameColumnOperations }).(DataSetRenameColumnOperationArrayOutput)
 }
 
+// The source transform operation that provides input data for column renaming.
 func (o DataSetRenameColumnsOperationOutput) Source() DataSetTransformOperationSourceOutput {
 	return o.ApplyT(func(v DataSetRenameColumnsOperation) DataSetTransformOperationSource { return v.Source }).(DataSetTransformOperationSourceOutput)
 }
@@ -33317,6 +33667,7 @@ func (o DataSetRenameColumnsOperationPtrOutput) Elem() DataSetRenameColumnsOpera
 	}).(DataSetRenameColumnsOperationOutput)
 }
 
+// Alias for this operation.
 func (o DataSetRenameColumnsOperationPtrOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetRenameColumnsOperation) *string {
 		if v == nil {
@@ -33326,6 +33677,7 @@ func (o DataSetRenameColumnsOperationPtrOutput) Alias() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of column rename operations to perform, specifying old and new column names.
 func (o DataSetRenameColumnsOperationPtrOutput) RenameColumnOperations() DataSetRenameColumnOperationArrayOutput {
 	return o.ApplyT(func(v *DataSetRenameColumnsOperation) []DataSetRenameColumnOperation {
 		if v == nil {
@@ -33335,6 +33687,7 @@ func (o DataSetRenameColumnsOperationPtrOutput) RenameColumnOperations() DataSet
 	}).(DataSetRenameColumnOperationArrayOutput)
 }
 
+// The source transform operation that provides input data for column renaming.
 func (o DataSetRenameColumnsOperationPtrOutput) Source() DataSetTransformOperationSourcePtrOutput {
 	return o.ApplyT(func(v *DataSetRenameColumnsOperation) *DataSetTransformOperationSource {
 		if v == nil {
@@ -34392,9 +34745,12 @@ func (o DataSetS3SourcePtrOutput) UploadSettings() DataSetUploadSettingsPtrOutpu
 }
 
 type DataSetSaaSTable struct {
-	DataSourceArn string                    `pulumi:"dataSourceArn"`
-	InputColumns  []DataSetInputColumn      `pulumi:"inputColumns"`
-	TablePath     []DataSetTablePathElement `pulumi:"tablePath"`
+	// The Amazon Resource Name (ARN) of the SaaS data source.
+	DataSourceArn string `pulumi:"dataSourceArn"`
+	// The list of input columns available from the SaaS table.
+	InputColumns []DataSetInputColumn `pulumi:"inputColumns"`
+	// The hierarchical path to the table within the SaaS data source.
+	TablePath []DataSetTablePathElement `pulumi:"tablePath"`
 }
 
 // DataSetSaaSTableInput is an input type that accepts DataSetSaaSTableArgs and DataSetSaaSTableOutput values.
@@ -34409,9 +34765,12 @@ type DataSetSaaSTableInput interface {
 }
 
 type DataSetSaaSTableArgs struct {
-	DataSourceArn pulumi.StringInput                `pulumi:"dataSourceArn"`
-	InputColumns  DataSetInputColumnArrayInput      `pulumi:"inputColumns"`
-	TablePath     DataSetTablePathElementArrayInput `pulumi:"tablePath"`
+	// The Amazon Resource Name (ARN) of the SaaS data source.
+	DataSourceArn pulumi.StringInput `pulumi:"dataSourceArn"`
+	// The list of input columns available from the SaaS table.
+	InputColumns DataSetInputColumnArrayInput `pulumi:"inputColumns"`
+	// The hierarchical path to the table within the SaaS data source.
+	TablePath DataSetTablePathElementArrayInput `pulumi:"tablePath"`
 }
 
 func (DataSetSaaSTableArgs) ElementType() reflect.Type {
@@ -34491,14 +34850,17 @@ func (o DataSetSaaSTableOutput) ToDataSetSaaSTablePtrOutputWithContext(ctx conte
 	}).(DataSetSaaSTablePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the SaaS data source.
 func (o DataSetSaaSTableOutput) DataSourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetSaaSTable) string { return v.DataSourceArn }).(pulumi.StringOutput)
 }
 
+// The list of input columns available from the SaaS table.
 func (o DataSetSaaSTableOutput) InputColumns() DataSetInputColumnArrayOutput {
 	return o.ApplyT(func(v DataSetSaaSTable) []DataSetInputColumn { return v.InputColumns }).(DataSetInputColumnArrayOutput)
 }
 
+// The hierarchical path to the table within the SaaS data source.
 func (o DataSetSaaSTableOutput) TablePath() DataSetTablePathElementArrayOutput {
 	return o.ApplyT(func(v DataSetSaaSTable) []DataSetTablePathElement { return v.TablePath }).(DataSetTablePathElementArrayOutput)
 }
@@ -34527,6 +34889,7 @@ func (o DataSetSaaSTablePtrOutput) Elem() DataSetSaaSTableOutput {
 	}).(DataSetSaaSTableOutput)
 }
 
+// The Amazon Resource Name (ARN) of the SaaS data source.
 func (o DataSetSaaSTablePtrOutput) DataSourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetSaaSTable) *string {
 		if v == nil {
@@ -34536,6 +34899,7 @@ func (o DataSetSaaSTablePtrOutput) DataSourceArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of input columns available from the SaaS table.
 func (o DataSetSaaSTablePtrOutput) InputColumns() DataSetInputColumnArrayOutput {
 	return o.ApplyT(func(v *DataSetSaaSTable) []DataSetInputColumn {
 		if v == nil {
@@ -34545,6 +34909,7 @@ func (o DataSetSaaSTablePtrOutput) InputColumns() DataSetInputColumnArrayOutput 
 	}).(DataSetInputColumnArrayOutput)
 }
 
+// The hierarchical path to the table within the SaaS data source.
 func (o DataSetSaaSTablePtrOutput) TablePath() DataSetTablePathElementArrayOutput {
 	return o.ApplyT(func(v *DataSetSaaSTable) []DataSetTablePathElement {
 		if v == nil {
@@ -34555,6 +34920,7 @@ func (o DataSetSaaSTablePtrOutput) TablePath() DataSetTablePathElementArrayOutpu
 }
 
 type DataSetSemanticModelConfiguration struct {
+	// A map of semantic tables that define the analytical structure.
 	TableMap map[string]DataSetSemanticTable `pulumi:"tableMap"`
 }
 
@@ -34570,6 +34936,7 @@ type DataSetSemanticModelConfigurationInput interface {
 }
 
 type DataSetSemanticModelConfigurationArgs struct {
+	// A map of semantic tables that define the analytical structure.
 	TableMap DataSetSemanticTableMapInput `pulumi:"tableMap"`
 }
 
@@ -34650,6 +35017,7 @@ func (o DataSetSemanticModelConfigurationOutput) ToDataSetSemanticModelConfigura
 	}).(DataSetSemanticModelConfigurationPtrOutput)
 }
 
+// A map of semantic tables that define the analytical structure.
 func (o DataSetSemanticModelConfigurationOutput) TableMap() DataSetSemanticTableMapOutput {
 	return o.ApplyT(func(v DataSetSemanticModelConfiguration) map[string]DataSetSemanticTable { return v.TableMap }).(DataSetSemanticTableMapOutput)
 }
@@ -34678,6 +35046,7 @@ func (o DataSetSemanticModelConfigurationPtrOutput) Elem() DataSetSemanticModelC
 	}).(DataSetSemanticModelConfigurationOutput)
 }
 
+// A map of semantic tables that define the analytical structure.
 func (o DataSetSemanticModelConfigurationPtrOutput) TableMap() DataSetSemanticTableMapOutput {
 	return o.ApplyT(func(v *DataSetSemanticModelConfiguration) map[string]DataSetSemanticTable {
 		if v == nil {
@@ -34688,8 +35057,11 @@ func (o DataSetSemanticModelConfigurationPtrOutput) TableMap() DataSetSemanticTa
 }
 
 type DataSetSemanticTable struct {
-	Alias                           string                                  `pulumi:"alias"`
-	DestinationTableId              string                                  `pulumi:"destinationTableId"`
+	// Alias for the semantic table.
+	Alias string `pulumi:"alias"`
+	// The identifier of the destination table from data preparation that provides data to this semantic table.
+	DestinationTableId string `pulumi:"destinationTableId"`
+	// Configuration for row level security that control data access for this semantic table.
 	RowLevelPermissionConfiguration *DataSetRowLevelPermissionConfiguration `pulumi:"rowLevelPermissionConfiguration"`
 }
 
@@ -34705,8 +35077,11 @@ type DataSetSemanticTableInput interface {
 }
 
 type DataSetSemanticTableArgs struct {
-	Alias                           pulumi.StringInput                             `pulumi:"alias"`
-	DestinationTableId              pulumi.StringInput                             `pulumi:"destinationTableId"`
+	// Alias for the semantic table.
+	Alias pulumi.StringInput `pulumi:"alias"`
+	// The identifier of the destination table from data preparation that provides data to this semantic table.
+	DestinationTableId pulumi.StringInput `pulumi:"destinationTableId"`
+	// Configuration for row level security that control data access for this semantic table.
 	RowLevelPermissionConfiguration DataSetRowLevelPermissionConfigurationPtrInput `pulumi:"rowLevelPermissionConfiguration"`
 }
 
@@ -34761,14 +35136,17 @@ func (o DataSetSemanticTableOutput) ToDataSetSemanticTableOutputWithContext(ctx 
 	return o
 }
 
+// Alias for the semantic table.
 func (o DataSetSemanticTableOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetSemanticTable) string { return v.Alias }).(pulumi.StringOutput)
 }
 
+// The identifier of the destination table from data preparation that provides data to this semantic table.
 func (o DataSetSemanticTableOutput) DestinationTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetSemanticTable) string { return v.DestinationTableId }).(pulumi.StringOutput)
 }
 
+// Configuration for row level security that control data access for this semantic table.
 func (o DataSetSemanticTableOutput) RowLevelPermissionConfiguration() DataSetRowLevelPermissionConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSetSemanticTable) *DataSetRowLevelPermissionConfiguration {
 		return v.RowLevelPermissionConfiguration
@@ -34796,8 +35174,10 @@ func (o DataSetSemanticTableMapOutput) MapIndex(k pulumi.StringInput) DataSetSem
 }
 
 type DataSetSourceTable struct {
-	DataSet         *DataSetParentDataSet `pulumi:"dataSet"`
-	PhysicalTableId *string               `pulumi:"physicalTableId"`
+	// A parent dataset that serves as the data source instead of a physical table.
+	DataSet *DataSetParentDataSet `pulumi:"dataSet"`
+	// The identifier of the physical table that serves as the data source.
+	PhysicalTableId *string `pulumi:"physicalTableId"`
 }
 
 // DataSetSourceTableInput is an input type that accepts DataSetSourceTableArgs and DataSetSourceTableOutput values.
@@ -34812,8 +35192,10 @@ type DataSetSourceTableInput interface {
 }
 
 type DataSetSourceTableArgs struct {
-	DataSet         DataSetParentDataSetPtrInput `pulumi:"dataSet"`
-	PhysicalTableId pulumi.StringPtrInput        `pulumi:"physicalTableId"`
+	// A parent dataset that serves as the data source instead of a physical table.
+	DataSet DataSetParentDataSetPtrInput `pulumi:"dataSet"`
+	// The identifier of the physical table that serves as the data source.
+	PhysicalTableId pulumi.StringPtrInput `pulumi:"physicalTableId"`
 }
 
 func (DataSetSourceTableArgs) ElementType() reflect.Type {
@@ -34867,10 +35249,12 @@ func (o DataSetSourceTableOutput) ToDataSetSourceTableOutputWithContext(ctx cont
 	return o
 }
 
+// A parent dataset that serves as the data source instead of a physical table.
 func (o DataSetSourceTableOutput) DataSet() DataSetParentDataSetPtrOutput {
 	return o.ApplyT(func(v DataSetSourceTable) *DataSetParentDataSet { return v.DataSet }).(DataSetParentDataSetPtrOutput)
 }
 
+// The identifier of the physical table that serves as the data source.
 func (o DataSetSourceTableOutput) PhysicalTableId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetSourceTable) *string { return v.PhysicalTableId }).(pulumi.StringPtrOutput)
 }
@@ -34896,8 +35280,10 @@ func (o DataSetSourceTableMapOutput) MapIndex(k pulumi.StringInput) DataSetSourc
 }
 
 type DataSetStringComparisonFilterCondition struct {
+	// The comparison operator to use, such as `EQUALS` , `CONTAINS` , `STARTS_WITH` , `ENDS_WITH` , or their negations.
 	Operator DataSetStringComparisonFilterOperator `pulumi:"operator"`
-	Value    *DataSetStringFilterValue             `pulumi:"value"`
+	// The string value to compare against.
+	Value *DataSetStringFilterValue `pulumi:"value"`
 }
 
 // DataSetStringComparisonFilterConditionInput is an input type that accepts DataSetStringComparisonFilterConditionArgs and DataSetStringComparisonFilterConditionOutput values.
@@ -34912,8 +35298,10 @@ type DataSetStringComparisonFilterConditionInput interface {
 }
 
 type DataSetStringComparisonFilterConditionArgs struct {
+	// The comparison operator to use, such as `EQUALS` , `CONTAINS` , `STARTS_WITH` , `ENDS_WITH` , or their negations.
 	Operator DataSetStringComparisonFilterOperatorInput `pulumi:"operator"`
-	Value    DataSetStringFilterValuePtrInput           `pulumi:"value"`
+	// The string value to compare against.
+	Value DataSetStringFilterValuePtrInput `pulumi:"value"`
 }
 
 func (DataSetStringComparisonFilterConditionArgs) ElementType() reflect.Type {
@@ -34993,12 +35381,14 @@ func (o DataSetStringComparisonFilterConditionOutput) ToDataSetStringComparisonF
 	}).(DataSetStringComparisonFilterConditionPtrOutput)
 }
 
+// The comparison operator to use, such as `EQUALS` , `CONTAINS` , `STARTS_WITH` , `ENDS_WITH` , or their negations.
 func (o DataSetStringComparisonFilterConditionOutput) Operator() DataSetStringComparisonFilterOperatorOutput {
 	return o.ApplyT(func(v DataSetStringComparisonFilterCondition) DataSetStringComparisonFilterOperator {
 		return v.Operator
 	}).(DataSetStringComparisonFilterOperatorOutput)
 }
 
+// The string value to compare against.
 func (o DataSetStringComparisonFilterConditionOutput) Value() DataSetStringFilterValuePtrOutput {
 	return o.ApplyT(func(v DataSetStringComparisonFilterCondition) *DataSetStringFilterValue { return v.Value }).(DataSetStringFilterValuePtrOutput)
 }
@@ -35027,6 +35417,7 @@ func (o DataSetStringComparisonFilterConditionPtrOutput) Elem() DataSetStringCom
 	}).(DataSetStringComparisonFilterConditionOutput)
 }
 
+// The comparison operator to use, such as `EQUALS` , `CONTAINS` , `STARTS_WITH` , `ENDS_WITH` , or their negations.
 func (o DataSetStringComparisonFilterConditionPtrOutput) Operator() DataSetStringComparisonFilterOperatorPtrOutput {
 	return o.ApplyT(func(v *DataSetStringComparisonFilterCondition) *DataSetStringComparisonFilterOperator {
 		if v == nil {
@@ -35036,6 +35427,7 @@ func (o DataSetStringComparisonFilterConditionPtrOutput) Operator() DataSetStrin
 	}).(DataSetStringComparisonFilterOperatorPtrOutput)
 }
 
+// The string value to compare against.
 func (o DataSetStringComparisonFilterConditionPtrOutput) Value() DataSetStringFilterValuePtrOutput {
 	return o.ApplyT(func(v *DataSetStringComparisonFilterCondition) *DataSetStringFilterValue {
 		if v == nil {
@@ -35385,9 +35777,12 @@ func (o DataSetStringDatasetParameterDefaultValuesPtrOutput) StaticValues() pulu
 }
 
 type DataSetStringFilterCondition struct {
-	ColumnName                *string                                 `pulumi:"columnName"`
+	// The name of the string column to filter.
+	ColumnName *string `pulumi:"columnName"`
+	// A comparison-based filter condition for the string column.
 	ComparisonFilterCondition *DataSetStringComparisonFilterCondition `pulumi:"comparisonFilterCondition"`
-	ListFilterCondition       *DataSetStringListFilterCondition       `pulumi:"listFilterCondition"`
+	// A list-based filter condition that includes or excludes values from a specified list.
+	ListFilterCondition *DataSetStringListFilterCondition `pulumi:"listFilterCondition"`
 }
 
 // DataSetStringFilterConditionInput is an input type that accepts DataSetStringFilterConditionArgs and DataSetStringFilterConditionOutput values.
@@ -35402,9 +35797,12 @@ type DataSetStringFilterConditionInput interface {
 }
 
 type DataSetStringFilterConditionArgs struct {
-	ColumnName                pulumi.StringPtrInput                          `pulumi:"columnName"`
+	// The name of the string column to filter.
+	ColumnName pulumi.StringPtrInput `pulumi:"columnName"`
+	// A comparison-based filter condition for the string column.
 	ComparisonFilterCondition DataSetStringComparisonFilterConditionPtrInput `pulumi:"comparisonFilterCondition"`
-	ListFilterCondition       DataSetStringListFilterConditionPtrInput       `pulumi:"listFilterCondition"`
+	// A list-based filter condition that includes or excludes values from a specified list.
+	ListFilterCondition DataSetStringListFilterConditionPtrInput `pulumi:"listFilterCondition"`
 }
 
 func (DataSetStringFilterConditionArgs) ElementType() reflect.Type {
@@ -35484,16 +35882,19 @@ func (o DataSetStringFilterConditionOutput) ToDataSetStringFilterConditionPtrOut
 	}).(DataSetStringFilterConditionPtrOutput)
 }
 
+// The name of the string column to filter.
 func (o DataSetStringFilterConditionOutput) ColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetStringFilterCondition) *string { return v.ColumnName }).(pulumi.StringPtrOutput)
 }
 
+// A comparison-based filter condition for the string column.
 func (o DataSetStringFilterConditionOutput) ComparisonFilterCondition() DataSetStringComparisonFilterConditionPtrOutput {
 	return o.ApplyT(func(v DataSetStringFilterCondition) *DataSetStringComparisonFilterCondition {
 		return v.ComparisonFilterCondition
 	}).(DataSetStringComparisonFilterConditionPtrOutput)
 }
 
+// A list-based filter condition that includes or excludes values from a specified list.
 func (o DataSetStringFilterConditionOutput) ListFilterCondition() DataSetStringListFilterConditionPtrOutput {
 	return o.ApplyT(func(v DataSetStringFilterCondition) *DataSetStringListFilterCondition { return v.ListFilterCondition }).(DataSetStringListFilterConditionPtrOutput)
 }
@@ -35522,6 +35923,7 @@ func (o DataSetStringFilterConditionPtrOutput) Elem() DataSetStringFilterConditi
 	}).(DataSetStringFilterConditionOutput)
 }
 
+// The name of the string column to filter.
 func (o DataSetStringFilterConditionPtrOutput) ColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetStringFilterCondition) *string {
 		if v == nil {
@@ -35531,6 +35933,7 @@ func (o DataSetStringFilterConditionPtrOutput) ColumnName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// A comparison-based filter condition for the string column.
 func (o DataSetStringFilterConditionPtrOutput) ComparisonFilterCondition() DataSetStringComparisonFilterConditionPtrOutput {
 	return o.ApplyT(func(v *DataSetStringFilterCondition) *DataSetStringComparisonFilterCondition {
 		if v == nil {
@@ -35540,6 +35943,7 @@ func (o DataSetStringFilterConditionPtrOutput) ComparisonFilterCondition() DataS
 	}).(DataSetStringComparisonFilterConditionPtrOutput)
 }
 
+// A list-based filter condition that includes or excludes values from a specified list.
 func (o DataSetStringFilterConditionPtrOutput) ListFilterCondition() DataSetStringListFilterConditionPtrOutput {
 	return o.ApplyT(func(v *DataSetStringFilterCondition) *DataSetStringListFilterCondition {
 		if v == nil {
@@ -35550,6 +35954,7 @@ func (o DataSetStringFilterConditionPtrOutput) ListFilterCondition() DataSetStri
 }
 
 type DataSetStringFilterValue struct {
+	// A static string value used for filtering.
 	StaticValue *string `pulumi:"staticValue"`
 }
 
@@ -35565,6 +35970,7 @@ type DataSetStringFilterValueInput interface {
 }
 
 type DataSetStringFilterValueArgs struct {
+	// A static string value used for filtering.
 	StaticValue pulumi.StringPtrInput `pulumi:"staticValue"`
 }
 
@@ -35645,6 +36051,7 @@ func (o DataSetStringFilterValueOutput) ToDataSetStringFilterValuePtrOutputWithC
 	}).(DataSetStringFilterValuePtrOutput)
 }
 
+// A static string value used for filtering.
 func (o DataSetStringFilterValueOutput) StaticValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetStringFilterValue) *string { return v.StaticValue }).(pulumi.StringPtrOutput)
 }
@@ -35673,6 +36080,7 @@ func (o DataSetStringFilterValuePtrOutput) Elem() DataSetStringFilterValueOutput
 	}).(DataSetStringFilterValueOutput)
 }
 
+// A static string value used for filtering.
 func (o DataSetStringFilterValuePtrOutput) StaticValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetStringFilterValue) *string {
 		if v == nil {
@@ -35683,8 +36091,10 @@ func (o DataSetStringFilterValuePtrOutput) StaticValue() pulumi.StringPtrOutput 
 }
 
 type DataSetStringListFilterCondition struct {
+	// The list operator to use, either `INCLUDE` to match values in the list or `EXCLUDE` to filter out values in the list.
 	Operator DataSetStringListFilterOperator `pulumi:"operator"`
-	Values   *DataSetStringListFilterValue   `pulumi:"values"`
+	// The list of string values to include or exclude in the filter.
+	Values *DataSetStringListFilterValue `pulumi:"values"`
 }
 
 // DataSetStringListFilterConditionInput is an input type that accepts DataSetStringListFilterConditionArgs and DataSetStringListFilterConditionOutput values.
@@ -35699,8 +36109,10 @@ type DataSetStringListFilterConditionInput interface {
 }
 
 type DataSetStringListFilterConditionArgs struct {
+	// The list operator to use, either `INCLUDE` to match values in the list or `EXCLUDE` to filter out values in the list.
 	Operator DataSetStringListFilterOperatorInput `pulumi:"operator"`
-	Values   DataSetStringListFilterValuePtrInput `pulumi:"values"`
+	// The list of string values to include or exclude in the filter.
+	Values DataSetStringListFilterValuePtrInput `pulumi:"values"`
 }
 
 func (DataSetStringListFilterConditionArgs) ElementType() reflect.Type {
@@ -35780,10 +36192,12 @@ func (o DataSetStringListFilterConditionOutput) ToDataSetStringListFilterConditi
 	}).(DataSetStringListFilterConditionPtrOutput)
 }
 
+// The list operator to use, either `INCLUDE` to match values in the list or `EXCLUDE` to filter out values in the list.
 func (o DataSetStringListFilterConditionOutput) Operator() DataSetStringListFilterOperatorOutput {
 	return o.ApplyT(func(v DataSetStringListFilterCondition) DataSetStringListFilterOperator { return v.Operator }).(DataSetStringListFilterOperatorOutput)
 }
 
+// The list of string values to include or exclude in the filter.
 func (o DataSetStringListFilterConditionOutput) Values() DataSetStringListFilterValuePtrOutput {
 	return o.ApplyT(func(v DataSetStringListFilterCondition) *DataSetStringListFilterValue { return v.Values }).(DataSetStringListFilterValuePtrOutput)
 }
@@ -35812,6 +36226,7 @@ func (o DataSetStringListFilterConditionPtrOutput) Elem() DataSetStringListFilte
 	}).(DataSetStringListFilterConditionOutput)
 }
 
+// The list operator to use, either `INCLUDE` to match values in the list or `EXCLUDE` to filter out values in the list.
 func (o DataSetStringListFilterConditionPtrOutput) Operator() DataSetStringListFilterOperatorPtrOutput {
 	return o.ApplyT(func(v *DataSetStringListFilterCondition) *DataSetStringListFilterOperator {
 		if v == nil {
@@ -35821,6 +36236,7 @@ func (o DataSetStringListFilterConditionPtrOutput) Operator() DataSetStringListF
 	}).(DataSetStringListFilterOperatorPtrOutput)
 }
 
+// The list of string values to include or exclude in the filter.
 func (o DataSetStringListFilterConditionPtrOutput) Values() DataSetStringListFilterValuePtrOutput {
 	return o.ApplyT(func(v *DataSetStringListFilterCondition) *DataSetStringListFilterValue {
 		if v == nil {
@@ -35831,6 +36247,7 @@ func (o DataSetStringListFilterConditionPtrOutput) Values() DataSetStringListFil
 }
 
 type DataSetStringListFilterValue struct {
+	// A list of static string values used for filtering.
 	StaticValues []string `pulumi:"staticValues"`
 }
 
@@ -35846,6 +36263,7 @@ type DataSetStringListFilterValueInput interface {
 }
 
 type DataSetStringListFilterValueArgs struct {
+	// A list of static string values used for filtering.
 	StaticValues pulumi.StringArrayInput `pulumi:"staticValues"`
 }
 
@@ -35926,6 +36344,7 @@ func (o DataSetStringListFilterValueOutput) ToDataSetStringListFilterValuePtrOut
 	}).(DataSetStringListFilterValuePtrOutput)
 }
 
+// A list of static string values used for filtering.
 func (o DataSetStringListFilterValueOutput) StaticValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSetStringListFilterValue) []string { return v.StaticValues }).(pulumi.StringArrayOutput)
 }
@@ -35954,6 +36373,7 @@ func (o DataSetStringListFilterValuePtrOutput) Elem() DataSetStringListFilterVal
 	}).(DataSetStringListFilterValueOutput)
 }
 
+// A list of static string values used for filtering.
 func (o DataSetStringListFilterValuePtrOutput) StaticValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSetStringListFilterValue) []string {
 		if v == nil {
@@ -35964,7 +36384,9 @@ func (o DataSetStringListFilterValuePtrOutput) StaticValues() pulumi.StringArray
 }
 
 type DataSetTablePathElement struct {
-	Id   *string `pulumi:"id"`
+	// The unique identifier of the path element.
+	Id *string `pulumi:"id"`
+	// The name of the path element.
 	Name *string `pulumi:"name"`
 }
 
@@ -35980,7 +36402,9 @@ type DataSetTablePathElementInput interface {
 }
 
 type DataSetTablePathElementArgs struct {
-	Id   pulumi.StringPtrInput `pulumi:"id"`
+	// The unique identifier of the path element.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the path element.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -36035,10 +36459,12 @@ func (o DataSetTablePathElementOutput) ToDataSetTablePathElementOutputWithContex
 	return o
 }
 
+// The unique identifier of the path element.
 func (o DataSetTablePathElementOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetTablePathElement) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The name of the path element.
 func (o DataSetTablePathElementOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetTablePathElement) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -36415,8 +36841,10 @@ func (o DataSetTransformOperationArrayOutput) Index(i pulumi.IntInput) DataSetTr
 }
 
 type DataSetTransformOperationSource struct {
-	ColumnIdMappings     []DataSetColumnIdMapping `pulumi:"columnIdMappings"`
-	TransformOperationId string                   `pulumi:"transformOperationId"`
+	// The mappings between source column identifiers and target column identifiers for this transformation.
+	ColumnIdMappings []DataSetColumnIdMapping `pulumi:"columnIdMappings"`
+	// The identifier of the transform operation that provides input data.
+	TransformOperationId string `pulumi:"transformOperationId"`
 }
 
 // DataSetTransformOperationSourceInput is an input type that accepts DataSetTransformOperationSourceArgs and DataSetTransformOperationSourceOutput values.
@@ -36431,8 +36859,10 @@ type DataSetTransformOperationSourceInput interface {
 }
 
 type DataSetTransformOperationSourceArgs struct {
-	ColumnIdMappings     DataSetColumnIdMappingArrayInput `pulumi:"columnIdMappings"`
-	TransformOperationId pulumi.StringInput               `pulumi:"transformOperationId"`
+	// The mappings between source column identifiers and target column identifiers for this transformation.
+	ColumnIdMappings DataSetColumnIdMappingArrayInput `pulumi:"columnIdMappings"`
+	// The identifier of the transform operation that provides input data.
+	TransformOperationId pulumi.StringInput `pulumi:"transformOperationId"`
 }
 
 func (DataSetTransformOperationSourceArgs) ElementType() reflect.Type {
@@ -36512,10 +36942,12 @@ func (o DataSetTransformOperationSourceOutput) ToDataSetTransformOperationSource
 	}).(DataSetTransformOperationSourcePtrOutput)
 }
 
+// The mappings between source column identifiers and target column identifiers for this transformation.
 func (o DataSetTransformOperationSourceOutput) ColumnIdMappings() DataSetColumnIdMappingArrayOutput {
 	return o.ApplyT(func(v DataSetTransformOperationSource) []DataSetColumnIdMapping { return v.ColumnIdMappings }).(DataSetColumnIdMappingArrayOutput)
 }
 
+// The identifier of the transform operation that provides input data.
 func (o DataSetTransformOperationSourceOutput) TransformOperationId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetTransformOperationSource) string { return v.TransformOperationId }).(pulumi.StringOutput)
 }
@@ -36544,6 +36976,7 @@ func (o DataSetTransformOperationSourcePtrOutput) Elem() DataSetTransformOperati
 	}).(DataSetTransformOperationSourceOutput)
 }
 
+// The mappings between source column identifiers and target column identifiers for this transformation.
 func (o DataSetTransformOperationSourcePtrOutput) ColumnIdMappings() DataSetColumnIdMappingArrayOutput {
 	return o.ApplyT(func(v *DataSetTransformOperationSource) []DataSetColumnIdMapping {
 		if v == nil {
@@ -36553,6 +36986,7 @@ func (o DataSetTransformOperationSourcePtrOutput) ColumnIdMappings() DataSetColu
 	}).(DataSetColumnIdMappingArrayOutput)
 }
 
+// The identifier of the transform operation that provides input data.
 func (o DataSetTransformOperationSourcePtrOutput) TransformOperationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetTransformOperationSource) *string {
 		if v == nil {
@@ -36563,17 +36997,26 @@ func (o DataSetTransformOperationSourcePtrOutput) TransformOperationId() pulumi.
 }
 
 type DataSetTransformStep struct {
-	AggregateStep       *DataSetAggregateOperation       `pulumi:"aggregateStep"`
-	AppendStep          *DataSetAppendOperation          `pulumi:"appendStep"`
+	// A transform step that groups data and applies aggregation functions to calculate summary values.
+	AggregateStep *DataSetAggregateOperation `pulumi:"aggregateStep"`
+	// A transform step that combines rows from multiple sources by stacking them vertically.
+	AppendStep *DataSetAppendOperation `pulumi:"appendStep"`
+	// A transform step that changes the data types of one or more columns.
 	CastColumnTypesStep *DataSetCastColumnTypesOperation `pulumi:"castColumnTypesStep"`
 	CreateColumnsStep   *DataSetCreateColumnsOperation   `pulumi:"createColumnsStep"`
-	FiltersStep         *DataSetFiltersOperation         `pulumi:"filtersStep"`
-	ImportTableStep     *DataSetImportTableOperation     `pulumi:"importTableStep"`
-	JoinStep            *DataSetJoinOperation            `pulumi:"joinStep"`
-	PivotStep           *DataSetPivotOperation           `pulumi:"pivotStep"`
-	ProjectStep         *DataSetProjectOperation         `pulumi:"projectStep"`
-	RenameColumnsStep   *DataSetRenameColumnsOperation   `pulumi:"renameColumnsStep"`
-	UnpivotStep         *DataSetUnpivotOperation         `pulumi:"unpivotStep"`
+	// A transform step that applies filter conditions.
+	FiltersStep *DataSetFiltersOperation `pulumi:"filtersStep"`
+	// A transform step that brings data from a source table.
+	ImportTableStep *DataSetImportTableOperation `pulumi:"importTableStep"`
+	// A transform step that combines data from two sources based on specified join conditions.
+	JoinStep *DataSetJoinOperation `pulumi:"joinStep"`
+	// A transform step that converts row values into columns to reshape the data structure.
+	PivotStep   *DataSetPivotOperation   `pulumi:"pivotStep"`
+	ProjectStep *DataSetProjectOperation `pulumi:"projectStep"`
+	// A transform step that changes the names of one or more columns.
+	RenameColumnsStep *DataSetRenameColumnsOperation `pulumi:"renameColumnsStep"`
+	// A transform step that converts columns into rows to normalize the data structure.
+	UnpivotStep *DataSetUnpivotOperation `pulumi:"unpivotStep"`
 }
 
 // DataSetTransformStepInput is an input type that accepts DataSetTransformStepArgs and DataSetTransformStepOutput values.
@@ -36588,17 +37031,26 @@ type DataSetTransformStepInput interface {
 }
 
 type DataSetTransformStepArgs struct {
-	AggregateStep       DataSetAggregateOperationPtrInput       `pulumi:"aggregateStep"`
-	AppendStep          DataSetAppendOperationPtrInput          `pulumi:"appendStep"`
+	// A transform step that groups data and applies aggregation functions to calculate summary values.
+	AggregateStep DataSetAggregateOperationPtrInput `pulumi:"aggregateStep"`
+	// A transform step that combines rows from multiple sources by stacking them vertically.
+	AppendStep DataSetAppendOperationPtrInput `pulumi:"appendStep"`
+	// A transform step that changes the data types of one or more columns.
 	CastColumnTypesStep DataSetCastColumnTypesOperationPtrInput `pulumi:"castColumnTypesStep"`
 	CreateColumnsStep   DataSetCreateColumnsOperationPtrInput   `pulumi:"createColumnsStep"`
-	FiltersStep         DataSetFiltersOperationPtrInput         `pulumi:"filtersStep"`
-	ImportTableStep     DataSetImportTableOperationPtrInput     `pulumi:"importTableStep"`
-	JoinStep            DataSetJoinOperationPtrInput            `pulumi:"joinStep"`
-	PivotStep           DataSetPivotOperationPtrInput           `pulumi:"pivotStep"`
-	ProjectStep         DataSetProjectOperationPtrInput         `pulumi:"projectStep"`
-	RenameColumnsStep   DataSetRenameColumnsOperationPtrInput   `pulumi:"renameColumnsStep"`
-	UnpivotStep         DataSetUnpivotOperationPtrInput         `pulumi:"unpivotStep"`
+	// A transform step that applies filter conditions.
+	FiltersStep DataSetFiltersOperationPtrInput `pulumi:"filtersStep"`
+	// A transform step that brings data from a source table.
+	ImportTableStep DataSetImportTableOperationPtrInput `pulumi:"importTableStep"`
+	// A transform step that combines data from two sources based on specified join conditions.
+	JoinStep DataSetJoinOperationPtrInput `pulumi:"joinStep"`
+	// A transform step that converts row values into columns to reshape the data structure.
+	PivotStep   DataSetPivotOperationPtrInput   `pulumi:"pivotStep"`
+	ProjectStep DataSetProjectOperationPtrInput `pulumi:"projectStep"`
+	// A transform step that changes the names of one or more columns.
+	RenameColumnsStep DataSetRenameColumnsOperationPtrInput `pulumi:"renameColumnsStep"`
+	// A transform step that converts columns into rows to normalize the data structure.
+	UnpivotStep DataSetUnpivotOperationPtrInput `pulumi:"unpivotStep"`
 }
 
 func (DataSetTransformStepArgs) ElementType() reflect.Type {
@@ -36652,14 +37104,17 @@ func (o DataSetTransformStepOutput) ToDataSetTransformStepOutputWithContext(ctx 
 	return o
 }
 
+// A transform step that groups data and applies aggregation functions to calculate summary values.
 func (o DataSetTransformStepOutput) AggregateStep() DataSetAggregateOperationPtrOutput {
 	return o.ApplyT(func(v DataSetTransformStep) *DataSetAggregateOperation { return v.AggregateStep }).(DataSetAggregateOperationPtrOutput)
 }
 
+// A transform step that combines rows from multiple sources by stacking them vertically.
 func (o DataSetTransformStepOutput) AppendStep() DataSetAppendOperationPtrOutput {
 	return o.ApplyT(func(v DataSetTransformStep) *DataSetAppendOperation { return v.AppendStep }).(DataSetAppendOperationPtrOutput)
 }
 
+// A transform step that changes the data types of one or more columns.
 func (o DataSetTransformStepOutput) CastColumnTypesStep() DataSetCastColumnTypesOperationPtrOutput {
 	return o.ApplyT(func(v DataSetTransformStep) *DataSetCastColumnTypesOperation { return v.CastColumnTypesStep }).(DataSetCastColumnTypesOperationPtrOutput)
 }
@@ -36668,18 +37123,22 @@ func (o DataSetTransformStepOutput) CreateColumnsStep() DataSetCreateColumnsOper
 	return o.ApplyT(func(v DataSetTransformStep) *DataSetCreateColumnsOperation { return v.CreateColumnsStep }).(DataSetCreateColumnsOperationPtrOutput)
 }
 
+// A transform step that applies filter conditions.
 func (o DataSetTransformStepOutput) FiltersStep() DataSetFiltersOperationPtrOutput {
 	return o.ApplyT(func(v DataSetTransformStep) *DataSetFiltersOperation { return v.FiltersStep }).(DataSetFiltersOperationPtrOutput)
 }
 
+// A transform step that brings data from a source table.
 func (o DataSetTransformStepOutput) ImportTableStep() DataSetImportTableOperationPtrOutput {
 	return o.ApplyT(func(v DataSetTransformStep) *DataSetImportTableOperation { return v.ImportTableStep }).(DataSetImportTableOperationPtrOutput)
 }
 
+// A transform step that combines data from two sources based on specified join conditions.
 func (o DataSetTransformStepOutput) JoinStep() DataSetJoinOperationPtrOutput {
 	return o.ApplyT(func(v DataSetTransformStep) *DataSetJoinOperation { return v.JoinStep }).(DataSetJoinOperationPtrOutput)
 }
 
+// A transform step that converts row values into columns to reshape the data structure.
 func (o DataSetTransformStepOutput) PivotStep() DataSetPivotOperationPtrOutput {
 	return o.ApplyT(func(v DataSetTransformStep) *DataSetPivotOperation { return v.PivotStep }).(DataSetPivotOperationPtrOutput)
 }
@@ -36688,10 +37147,12 @@ func (o DataSetTransformStepOutput) ProjectStep() DataSetProjectOperationPtrOutp
 	return o.ApplyT(func(v DataSetTransformStep) *DataSetProjectOperation { return v.ProjectStep }).(DataSetProjectOperationPtrOutput)
 }
 
+// A transform step that changes the names of one or more columns.
 func (o DataSetTransformStepOutput) RenameColumnsStep() DataSetRenameColumnsOperationPtrOutput {
 	return o.ApplyT(func(v DataSetTransformStep) *DataSetRenameColumnsOperation { return v.RenameColumnsStep }).(DataSetRenameColumnsOperationPtrOutput)
 }
 
+// A transform step that converts columns into rows to normalize the data structure.
 func (o DataSetTransformStepOutput) UnpivotStep() DataSetUnpivotOperationPtrOutput {
 	return o.ApplyT(func(v DataSetTransformStep) *DataSetUnpivotOperation { return v.UnpivotStep }).(DataSetUnpivotOperationPtrOutput)
 }
@@ -36811,13 +37272,20 @@ func (o DataSetUniqueKeyArrayOutput) Index(i pulumi.IntInput) DataSetUniqueKeyOu
 }
 
 type DataSetUnpivotOperation struct {
-	Alias                    string                          `pulumi:"alias"`
-	ColumnsToUnpivot         []DataSetColumnToUnpivot        `pulumi:"columnsToUnpivot"`
-	Source                   DataSetTransformOperationSource `pulumi:"source"`
-	UnpivotedLabelColumnId   string                          `pulumi:"unpivotedLabelColumnId"`
-	UnpivotedLabelColumnName string                          `pulumi:"unpivotedLabelColumnName"`
-	UnpivotedValueColumnId   string                          `pulumi:"unpivotedValueColumnId"`
-	UnpivotedValueColumnName string                          `pulumi:"unpivotedValueColumnName"`
+	// Alias for this operation.
+	Alias string `pulumi:"alias"`
+	// The list of columns to unpivot from the source data.
+	ColumnsToUnpivot []DataSetColumnToUnpivot `pulumi:"columnsToUnpivot"`
+	// The source transform operation that provides input data for unpivoting.
+	Source DataSetTransformOperationSource `pulumi:"source"`
+	// A unique identifier for the new column that will contain the unpivoted column names.
+	UnpivotedLabelColumnId string `pulumi:"unpivotedLabelColumnId"`
+	// The name for the new column that will contain the unpivoted column names.
+	UnpivotedLabelColumnName string `pulumi:"unpivotedLabelColumnName"`
+	// A unique identifier for the new column that will contain the unpivoted values.
+	UnpivotedValueColumnId string `pulumi:"unpivotedValueColumnId"`
+	// The name for the new column that will contain the unpivoted values.
+	UnpivotedValueColumnName string `pulumi:"unpivotedValueColumnName"`
 }
 
 // DataSetUnpivotOperationInput is an input type that accepts DataSetUnpivotOperationArgs and DataSetUnpivotOperationOutput values.
@@ -36832,13 +37300,20 @@ type DataSetUnpivotOperationInput interface {
 }
 
 type DataSetUnpivotOperationArgs struct {
-	Alias                    pulumi.StringInput                   `pulumi:"alias"`
-	ColumnsToUnpivot         DataSetColumnToUnpivotArrayInput     `pulumi:"columnsToUnpivot"`
-	Source                   DataSetTransformOperationSourceInput `pulumi:"source"`
-	UnpivotedLabelColumnId   pulumi.StringInput                   `pulumi:"unpivotedLabelColumnId"`
-	UnpivotedLabelColumnName pulumi.StringInput                   `pulumi:"unpivotedLabelColumnName"`
-	UnpivotedValueColumnId   pulumi.StringInput                   `pulumi:"unpivotedValueColumnId"`
-	UnpivotedValueColumnName pulumi.StringInput                   `pulumi:"unpivotedValueColumnName"`
+	// Alias for this operation.
+	Alias pulumi.StringInput `pulumi:"alias"`
+	// The list of columns to unpivot from the source data.
+	ColumnsToUnpivot DataSetColumnToUnpivotArrayInput `pulumi:"columnsToUnpivot"`
+	// The source transform operation that provides input data for unpivoting.
+	Source DataSetTransformOperationSourceInput `pulumi:"source"`
+	// A unique identifier for the new column that will contain the unpivoted column names.
+	UnpivotedLabelColumnId pulumi.StringInput `pulumi:"unpivotedLabelColumnId"`
+	// The name for the new column that will contain the unpivoted column names.
+	UnpivotedLabelColumnName pulumi.StringInput `pulumi:"unpivotedLabelColumnName"`
+	// A unique identifier for the new column that will contain the unpivoted values.
+	UnpivotedValueColumnId pulumi.StringInput `pulumi:"unpivotedValueColumnId"`
+	// The name for the new column that will contain the unpivoted values.
+	UnpivotedValueColumnName pulumi.StringInput `pulumi:"unpivotedValueColumnName"`
 }
 
 func (DataSetUnpivotOperationArgs) ElementType() reflect.Type {
@@ -36918,30 +37393,37 @@ func (o DataSetUnpivotOperationOutput) ToDataSetUnpivotOperationPtrOutputWithCon
 	}).(DataSetUnpivotOperationPtrOutput)
 }
 
+// Alias for this operation.
 func (o DataSetUnpivotOperationOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetUnpivotOperation) string { return v.Alias }).(pulumi.StringOutput)
 }
 
+// The list of columns to unpivot from the source data.
 func (o DataSetUnpivotOperationOutput) ColumnsToUnpivot() DataSetColumnToUnpivotArrayOutput {
 	return o.ApplyT(func(v DataSetUnpivotOperation) []DataSetColumnToUnpivot { return v.ColumnsToUnpivot }).(DataSetColumnToUnpivotArrayOutput)
 }
 
+// The source transform operation that provides input data for unpivoting.
 func (o DataSetUnpivotOperationOutput) Source() DataSetTransformOperationSourceOutput {
 	return o.ApplyT(func(v DataSetUnpivotOperation) DataSetTransformOperationSource { return v.Source }).(DataSetTransformOperationSourceOutput)
 }
 
+// A unique identifier for the new column that will contain the unpivoted column names.
 func (o DataSetUnpivotOperationOutput) UnpivotedLabelColumnId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetUnpivotOperation) string { return v.UnpivotedLabelColumnId }).(pulumi.StringOutput)
 }
 
+// The name for the new column that will contain the unpivoted column names.
 func (o DataSetUnpivotOperationOutput) UnpivotedLabelColumnName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetUnpivotOperation) string { return v.UnpivotedLabelColumnName }).(pulumi.StringOutput)
 }
 
+// A unique identifier for the new column that will contain the unpivoted values.
 func (o DataSetUnpivotOperationOutput) UnpivotedValueColumnId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetUnpivotOperation) string { return v.UnpivotedValueColumnId }).(pulumi.StringOutput)
 }
 
+// The name for the new column that will contain the unpivoted values.
 func (o DataSetUnpivotOperationOutput) UnpivotedValueColumnName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetUnpivotOperation) string { return v.UnpivotedValueColumnName }).(pulumi.StringOutput)
 }
@@ -36970,6 +37452,7 @@ func (o DataSetUnpivotOperationPtrOutput) Elem() DataSetUnpivotOperationOutput {
 	}).(DataSetUnpivotOperationOutput)
 }
 
+// Alias for this operation.
 func (o DataSetUnpivotOperationPtrOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetUnpivotOperation) *string {
 		if v == nil {
@@ -36979,6 +37462,7 @@ func (o DataSetUnpivotOperationPtrOutput) Alias() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The list of columns to unpivot from the source data.
 func (o DataSetUnpivotOperationPtrOutput) ColumnsToUnpivot() DataSetColumnToUnpivotArrayOutput {
 	return o.ApplyT(func(v *DataSetUnpivotOperation) []DataSetColumnToUnpivot {
 		if v == nil {
@@ -36988,6 +37472,7 @@ func (o DataSetUnpivotOperationPtrOutput) ColumnsToUnpivot() DataSetColumnToUnpi
 	}).(DataSetColumnToUnpivotArrayOutput)
 }
 
+// The source transform operation that provides input data for unpivoting.
 func (o DataSetUnpivotOperationPtrOutput) Source() DataSetTransformOperationSourcePtrOutput {
 	return o.ApplyT(func(v *DataSetUnpivotOperation) *DataSetTransformOperationSource {
 		if v == nil {
@@ -36997,6 +37482,7 @@ func (o DataSetUnpivotOperationPtrOutput) Source() DataSetTransformOperationSour
 	}).(DataSetTransformOperationSourcePtrOutput)
 }
 
+// A unique identifier for the new column that will contain the unpivoted column names.
 func (o DataSetUnpivotOperationPtrOutput) UnpivotedLabelColumnId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetUnpivotOperation) *string {
 		if v == nil {
@@ -37006,6 +37492,7 @@ func (o DataSetUnpivotOperationPtrOutput) UnpivotedLabelColumnId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name for the new column that will contain the unpivoted column names.
 func (o DataSetUnpivotOperationPtrOutput) UnpivotedLabelColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetUnpivotOperation) *string {
 		if v == nil {
@@ -37015,6 +37502,7 @@ func (o DataSetUnpivotOperationPtrOutput) UnpivotedLabelColumnName() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// A unique identifier for the new column that will contain the unpivoted values.
 func (o DataSetUnpivotOperationPtrOutput) UnpivotedValueColumnId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetUnpivotOperation) *string {
 		if v == nil {
@@ -37024,6 +37512,7 @@ func (o DataSetUnpivotOperationPtrOutput) UnpivotedValueColumnId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name for the new column that will contain the unpivoted values.
 func (o DataSetUnpivotOperationPtrOutput) UnpivotedValueColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetUnpivotOperation) *string {
 		if v == nil {
@@ -37568,6 +38057,7 @@ func (o DataSetUsageConfigurationPtrOutput) DisableUseAsImportedSource() pulumi.
 }
 
 type DataSetValueColumnConfiguration struct {
+	// The aggregation function to apply when multiple values map to the same pivoted cell.
 	AggregationFunction *DataSetDataPrepAggregationFunction `pulumi:"aggregationFunction"`
 }
 
@@ -37583,6 +38073,7 @@ type DataSetValueColumnConfigurationInput interface {
 }
 
 type DataSetValueColumnConfigurationArgs struct {
+	// The aggregation function to apply when multiple values map to the same pivoted cell.
 	AggregationFunction DataSetDataPrepAggregationFunctionPtrInput `pulumi:"aggregationFunction"`
 }
 
@@ -37663,6 +38154,7 @@ func (o DataSetValueColumnConfigurationOutput) ToDataSetValueColumnConfiguration
 	}).(DataSetValueColumnConfigurationPtrOutput)
 }
 
+// The aggregation function to apply when multiple values map to the same pivoted cell.
 func (o DataSetValueColumnConfigurationOutput) AggregationFunction() DataSetDataPrepAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v DataSetValueColumnConfiguration) *DataSetDataPrepAggregationFunction {
 		return v.AggregationFunction
@@ -37693,6 +38185,7 @@ func (o DataSetValueColumnConfigurationPtrOutput) Elem() DataSetValueColumnConfi
 	}).(DataSetValueColumnConfigurationOutput)
 }
 
+// The aggregation function to apply when multiple values map to the same pivoted cell.
 func (o DataSetValueColumnConfigurationPtrOutput) AggregationFunction() DataSetDataPrepAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v *DataSetValueColumnConfiguration) *DataSetDataPrepAggregationFunction {
 		if v == nil {

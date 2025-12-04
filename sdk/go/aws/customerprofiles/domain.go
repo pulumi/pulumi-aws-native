@@ -18,7 +18,8 @@ type Domain struct {
 	pulumi.CustomResourceState
 
 	// The time of this integration got created
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt pulumi.StringOutput      `pulumi:"createdAt"`
+	DataStore DomainDataStorePtrOutput `pulumi:"dataStore"`
 	// The URL of the SQS dead letter queue
 	DeadLetterQueueUrl pulumi.StringPtrOutput `pulumi:"deadLetterQueueUrl"`
 	// The default encryption key
@@ -85,6 +86,7 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
+	DataStore *DomainDataStore `pulumi:"dataStore"`
 	// The URL of the SQS dead letter queue
 	DeadLetterQueueUrl *string `pulumi:"deadLetterQueueUrl"`
 	// The default encryption key
@@ -103,6 +105,7 @@ type domainArgs struct {
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
+	DataStore DomainDataStorePtrInput
 	// The URL of the SQS dead letter queue
 	DeadLetterQueueUrl pulumi.StringPtrInput
 	// The default encryption key
@@ -159,6 +162,10 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 // The time of this integration got created
 func (o DomainOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o DomainOutput) DataStore() DomainDataStorePtrOutput {
+	return o.ApplyT(func(v *Domain) DomainDataStorePtrOutput { return v.DataStore }).(DomainDataStorePtrOutput)
 }
 
 // The URL of the SQS dead letter queue

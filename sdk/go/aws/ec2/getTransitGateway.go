@@ -41,6 +41,8 @@ type LookupTransitGatewayResult struct {
 	Description *string `pulumi:"description"`
 	// Enable or disable DNS support. Enabled by default.
 	DnsSupport *string `pulumi:"dnsSupport"`
+	// The encryption support state of the transit gateway.
+	EncryptionSupportState *string `pulumi:"encryptionSupportState"`
 	// The ID of the transit gateway.
 	Id *string `pulumi:"id"`
 	// The ID of the default propagation route table.
@@ -118,6 +120,11 @@ func (o LookupTransitGatewayResultOutput) Description() pulumi.StringPtrOutput {
 // Enable or disable DNS support. Enabled by default.
 func (o LookupTransitGatewayResultOutput) DnsSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) *string { return v.DnsSupport }).(pulumi.StringPtrOutput)
+}
+
+// The encryption support state of the transit gateway.
+func (o LookupTransitGatewayResultOutput) EncryptionSupportState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) *string { return v.EncryptionSupportState }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the transit gateway.

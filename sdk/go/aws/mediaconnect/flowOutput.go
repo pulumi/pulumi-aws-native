@@ -45,9 +45,12 @@ type FlowOutputResource struct {
 	// The port to use when content is distributed to this output.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// The protocol that is used by the source or output.
-	Protocol FlowOutputProtocolOutput `pulumi:"protocol"`
+	Protocol FlowOutputProtocolPtrOutput `pulumi:"protocol"`
 	// The remote ID for the Zixi-pull stream.
-	RemoteId pulumi.StringPtrOutput `pulumi:"remoteId"`
+	RemoteId               pulumi.StringPtrOutput                    `pulumi:"remoteId"`
+	RouterIntegrationState FlowOutputRouterIntegrationStatePtrOutput `pulumi:"routerIntegrationState"`
+	// Encryption information.
+	RouterIntegrationTransitEncryption FlowOutputFlowTransitEncryptionPtrOutput `pulumi:"routerIntegrationTransitEncryption"`
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
 	SmoothingLatency pulumi.IntPtrOutput `pulumi:"smoothingLatency"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
@@ -65,9 +68,6 @@ func NewFlowOutputResource(ctx *pulumi.Context,
 
 	if args.FlowArn == nil {
 		return nil, errors.New("invalid value for required argument 'FlowArn'")
-	}
-	if args.Protocol == nil {
-		return nil, errors.New("invalid value for required argument 'Protocol'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"name",
@@ -133,9 +133,12 @@ type flowOutputResourceArgs struct {
 	// The port to use when content is distributed to this output.
 	Port *int `pulumi:"port"`
 	// The protocol that is used by the source or output.
-	Protocol FlowOutputProtocol `pulumi:"protocol"`
+	Protocol *FlowOutputProtocol `pulumi:"protocol"`
 	// The remote ID for the Zixi-pull stream.
-	RemoteId *string `pulumi:"remoteId"`
+	RemoteId               *string                           `pulumi:"remoteId"`
+	RouterIntegrationState *FlowOutputRouterIntegrationState `pulumi:"routerIntegrationState"`
+	// Encryption information.
+	RouterIntegrationTransitEncryption *FlowOutputFlowTransitEncryption `pulumi:"routerIntegrationTransitEncryption"`
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
 	SmoothingLatency *int `pulumi:"smoothingLatency"`
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
@@ -173,9 +176,12 @@ type FlowOutputResourceArgs struct {
 	// The port to use when content is distributed to this output.
 	Port pulumi.IntPtrInput
 	// The protocol that is used by the source or output.
-	Protocol FlowOutputProtocolInput
+	Protocol FlowOutputProtocolPtrInput
 	// The remote ID for the Zixi-pull stream.
-	RemoteId pulumi.StringPtrInput
+	RemoteId               pulumi.StringPtrInput
+	RouterIntegrationState FlowOutputRouterIntegrationStatePtrInput
+	// Encryption information.
+	RouterIntegrationTransitEncryption FlowOutputFlowTransitEncryptionPtrInput
 	// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
 	SmoothingLatency pulumi.IntPtrInput
 	// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
@@ -294,13 +300,24 @@ func (o FlowOutputResourceOutput) Port() pulumi.IntPtrOutput {
 }
 
 // The protocol that is used by the source or output.
-func (o FlowOutputResourceOutput) Protocol() FlowOutputProtocolOutput {
-	return o.ApplyT(func(v *FlowOutputResource) FlowOutputProtocolOutput { return v.Protocol }).(FlowOutputProtocolOutput)
+func (o FlowOutputResourceOutput) Protocol() FlowOutputProtocolPtrOutput {
+	return o.ApplyT(func(v *FlowOutputResource) FlowOutputProtocolPtrOutput { return v.Protocol }).(FlowOutputProtocolPtrOutput)
 }
 
 // The remote ID for the Zixi-pull stream.
 func (o FlowOutputResourceOutput) RemoteId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowOutputResource) pulumi.StringPtrOutput { return v.RemoteId }).(pulumi.StringPtrOutput)
+}
+
+func (o FlowOutputResourceOutput) RouterIntegrationState() FlowOutputRouterIntegrationStatePtrOutput {
+	return o.ApplyT(func(v *FlowOutputResource) FlowOutputRouterIntegrationStatePtrOutput { return v.RouterIntegrationState }).(FlowOutputRouterIntegrationStatePtrOutput)
+}
+
+// Encryption information.
+func (o FlowOutputResourceOutput) RouterIntegrationTransitEncryption() FlowOutputFlowTransitEncryptionPtrOutput {
+	return o.ApplyT(func(v *FlowOutputResource) FlowOutputFlowTransitEncryptionPtrOutput {
+		return v.RouterIntegrationTransitEncryption
+	}).(FlowOutputFlowTransitEncryptionPtrOutput)
 }
 
 // The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.

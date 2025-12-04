@@ -70,13 +70,13 @@ namespace Pulumi.AwsNative.CodeStarNotifications
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon SNS topic or  client.
+        /// The Amazon Resource Name (ARN) of the Amazon  topic or  client.
         /// </summary>
         [Output("targetAddress")]
         public Output<string?> TargetAddress { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Amazon Resource Names (ARNs) of Amazon SNS topics and  clients to associate with the notification rule.
+        /// A list of Amazon Resource Names (ARNs) of Amazon  topics and  clients to associate with the notification rule.
         /// </summary>
         [Output("targets")]
         public Output<ImmutableArray<Outputs.NotificationRuleTarget>> Targets { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.AwsNative.CodeStarNotifications
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon SNS topic or  client.
+        /// The Amazon Resource Name (ARN) of the Amazon  topic or  client.
         /// </summary>
         [Input("targetAddress")]
         public Input<string>? TargetAddress { get; set; }
@@ -200,7 +200,7 @@ namespace Pulumi.AwsNative.CodeStarNotifications
         private InputList<Inputs.NotificationRuleTargetArgs>? _targets;
 
         /// <summary>
-        /// A list of Amazon Resource Names (ARNs) of Amazon SNS topics and  clients to associate with the notification rule.
+        /// A list of Amazon Resource Names (ARNs) of Amazon  topics and  clients to associate with the notification rule.
         /// </summary>
         public InputList<Inputs.NotificationRuleTargetArgs> Targets
         {

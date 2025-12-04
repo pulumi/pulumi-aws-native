@@ -34,6 +34,7 @@ __all__ = [
     'BridgeSourceVpcInterfaceAttachment',
     'BridgeVpcInterfaceAttachment',
     'FlowAudioMonitoringSetting',
+    'FlowAutomaticEncryptionKeyConfiguration',
     'FlowBlackFrames',
     'FlowEncryption',
     'FlowEntitlementEncryption',
@@ -50,22 +51,98 @@ __all__ = [
     'FlowMediaStreamSourceConfiguration',
     'FlowNdiConfig',
     'FlowNdiDiscoveryServerConfig',
+    'FlowOutputAutomaticEncryptionKeyConfiguration',
     'FlowOutputDestinationConfiguration',
     'FlowOutputEncodingParameters',
     'FlowOutputEncryption',
+    'FlowOutputFlowTransitEncryption',
+    'FlowOutputFlowTransitEncryptionKeyConfiguration0Properties',
+    'FlowOutputFlowTransitEncryptionKeyConfiguration1Properties',
     'FlowOutputInterface',
     'FlowOutputMediaStreamOutputConfiguration',
+    'FlowOutputSecretsManagerEncryptionKeyConfiguration',
     'FlowOutputVpcInterfaceAttachment',
+    'FlowSecretsManagerEncryptionKeyConfiguration',
     'FlowSilentAudio',
     'FlowSource',
     'FlowSourceEncryption',
     'FlowSourceGatewayBridgeSource',
     'FlowSourceMonitoringConfig',
     'FlowSourceVpcInterfaceAttachment',
+    'FlowTransitEncryption',
+    'FlowTransitEncryptionKeyConfiguration0Properties',
+    'FlowTransitEncryptionKeyConfiguration1Properties',
     'FlowVideoMonitoringSetting',
     'FlowVpcInterface',
     'FlowVpcInterfaceAttachment',
     'GatewayNetwork',
+    'RouterInputAutomaticEncryptionKeyConfiguration',
+    'RouterInputConfiguration0Properties',
+    'RouterInputConfiguration1Properties',
+    'RouterInputConfiguration2Properties',
+    'RouterInputConfiguration3Properties',
+    'RouterInputDefaultMaintenanceConfiguration',
+    'RouterInputFailoverRouterInputConfiguration',
+    'RouterInputFailoverRouterInputProtocolConfiguration0Properties',
+    'RouterInputFailoverRouterInputProtocolConfiguration1Properties',
+    'RouterInputFailoverRouterInputProtocolConfiguration2Properties',
+    'RouterInputFailoverRouterInputProtocolConfiguration3Properties',
+    'RouterInputFlowTransitEncryption',
+    'RouterInputFlowTransitEncryptionKeyConfiguration0Properties',
+    'RouterInputFlowTransitEncryptionKeyConfiguration1Properties',
+    'RouterInputMaintenanceConfiguration0Properties',
+    'RouterInputMaintenanceConfiguration1Properties',
+    'RouterInputMediaConnectFlowRouterInputConfiguration',
+    'RouterInputMergeRouterInputConfiguration',
+    'RouterInputMergeRouterInputProtocolConfiguration0Properties',
+    'RouterInputMergeRouterInputProtocolConfiguration1Properties',
+    'RouterInputPreferredDayTimeMaintenanceConfiguration',
+    'RouterInputProtocolConfiguration0Properties',
+    'RouterInputProtocolConfiguration1Properties',
+    'RouterInputProtocolConfiguration2Properties',
+    'RouterInputProtocolConfiguration3Properties',
+    'RouterInputRistRouterInputConfiguration',
+    'RouterInputRtpRouterInputConfiguration',
+    'RouterInputSecretsManagerEncryptionKeyConfiguration',
+    'RouterInputSrtCallerRouterInputConfiguration',
+    'RouterInputSrtDecryptionConfiguration',
+    'RouterInputSrtListenerRouterInputConfiguration',
+    'RouterInputStandardRouterInputConfiguration',
+    'RouterInputTransitEncryption',
+    'RouterInputTransitEncryptionKeyConfiguration0Properties',
+    'RouterInputTransitEncryptionKeyConfiguration1Properties',
+    'RouterNetworkInterfaceConfiguration0Properties',
+    'RouterNetworkInterfaceConfiguration1Properties',
+    'RouterNetworkInterfacePublicRouterNetworkInterfaceConfiguration',
+    'RouterNetworkInterfacePublicRouterNetworkInterfaceRule',
+    'RouterNetworkInterfaceVpcRouterNetworkInterfaceConfiguration',
+    'RouterOutputResourceAutomaticEncryptionKeyConfiguration',
+    'RouterOutputResourceDefaultMaintenanceConfiguration',
+    'RouterOutputResourceFlowTransitEncryption',
+    'RouterOutputResourceFlowTransitEncryptionKeyConfiguration0Properties',
+    'RouterOutputResourceFlowTransitEncryptionKeyConfiguration1Properties',
+    'RouterOutputResourceMaintenanceConfiguration0Properties',
+    'RouterOutputResourceMaintenanceConfiguration1Properties',
+    'RouterOutputResourceMediaConnectFlowRouterOutputConfiguration',
+    'RouterOutputResourceMediaLiveInputRouterOutputConfiguration',
+    'RouterOutputResourceMediaLiveTransitEncryption',
+    'RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0Properties',
+    'RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1Properties',
+    'RouterOutputResourcePreferredDayTimeMaintenanceConfiguration',
+    'RouterOutputResourceRistRouterOutputConfiguration',
+    'RouterOutputResourceRouterOutputConfiguration0Properties',
+    'RouterOutputResourceRouterOutputConfiguration1Properties',
+    'RouterOutputResourceRouterOutputConfiguration2Properties',
+    'RouterOutputResourceRouterOutputProtocolConfiguration0Properties',
+    'RouterOutputResourceRouterOutputProtocolConfiguration1Properties',
+    'RouterOutputResourceRouterOutputProtocolConfiguration2Properties',
+    'RouterOutputResourceRouterOutputProtocolConfiguration3Properties',
+    'RouterOutputResourceRtpRouterOutputConfiguration',
+    'RouterOutputResourceSecretsManagerEncryptionKeyConfiguration',
+    'RouterOutputResourceSrtCallerRouterOutputConfiguration',
+    'RouterOutputResourceSrtEncryptionConfiguration',
+    'RouterOutputResourceSrtListenerRouterOutputConfiguration',
+    'RouterOutputResourceStandardRouterOutputConfiguration',
 ]
 
 @pulumi.output_type
@@ -1033,6 +1110,18 @@ class FlowAudioMonitoringSetting(dict):
         Detects periods of silence.
         """
         return pulumi.get(self, "silent_audio")
+
+
+@pulumi.output_type
+class FlowAutomaticEncryptionKeyConfiguration(dict):
+    """
+    Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
+    """
+    def __init__(__self__):
+        """
+        Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
+        """
+        pass
 
 
 @pulumi.output_type
@@ -2205,6 +2294,18 @@ class FlowNdiDiscoveryServerConfig(dict):
 
 
 @pulumi.output_type
+class FlowOutputAutomaticEncryptionKeyConfiguration(dict):
+    """
+    Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
+    """
+    def __init__(__self__):
+        """
+        Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
+        """
+        pass
+
+
+@pulumi.output_type
 class FlowOutputDestinationConfiguration(dict):
     """
     The definition of a media stream that is associated with the output.
@@ -2399,6 +2500,104 @@ class FlowOutputEncryption(dict):
 
 
 @pulumi.output_type
+class FlowOutputFlowTransitEncryption(dict):
+    """
+    The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionKeyConfiguration":
+            suggest = "encryption_key_configuration"
+        elif key == "encryptionKeyType":
+            suggest = "encryption_key_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowOutputFlowTransitEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowOutputFlowTransitEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowOutputFlowTransitEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_key_configuration: Any,
+                 encryption_key_type: Optional['FlowOutputFlowTransitEncryptionKeyType'] = None):
+        """
+        The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+        """
+        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
+        if encryption_key_type is not None:
+            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyConfiguration")
+    def encryption_key_configuration(self) -> Any:
+        return pulumi.get(self, "encryption_key_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyType")
+    def encryption_key_type(self) -> Optional['FlowOutputFlowTransitEncryptionKeyType']:
+        return pulumi.get(self, "encryption_key_type")
+
+
+@pulumi.output_type
+class FlowOutputFlowTransitEncryptionKeyConfiguration0Properties(dict):
+    """
+    Configuration settings for flow transit encryption keys.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretsManager":
+            suggest = "secrets_manager"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowOutputFlowTransitEncryptionKeyConfiguration0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowOutputFlowTransitEncryptionKeyConfiguration0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowOutputFlowTransitEncryptionKeyConfiguration0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secrets_manager: 'outputs.FlowOutputSecretsManagerEncryptionKeyConfiguration'):
+        """
+        Configuration settings for flow transit encryption keys.
+        """
+        pulumi.set(__self__, "secrets_manager", secrets_manager)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManager")
+    def secrets_manager(self) -> 'outputs.FlowOutputSecretsManagerEncryptionKeyConfiguration':
+        return pulumi.get(self, "secrets_manager")
+
+
+@pulumi.output_type
+class FlowOutputFlowTransitEncryptionKeyConfiguration1Properties(dict):
+    """
+    Configuration settings for flow transit encryption keys.
+    """
+    def __init__(__self__, *,
+                 automatic: 'outputs.FlowOutputAutomaticEncryptionKeyConfiguration'):
+        """
+        Configuration settings for flow transit encryption keys.
+        """
+        pulumi.set(__self__, "automatic", automatic)
+
+    @_builtins.property
+    @pulumi.getter
+    def automatic(self) -> 'outputs.FlowOutputAutomaticEncryptionKeyConfiguration':
+        return pulumi.get(self, "automatic")
+
+
+@pulumi.output_type
 class FlowOutputInterface(dict):
     """
     The VPC interface that you want to use for the media stream associated with the output.
@@ -2501,6 +2700,58 @@ class FlowOutputMediaStreamOutputConfiguration(dict):
 
 
 @pulumi.output_type
+class FlowOutputSecretsManagerEncryptionKeyConfiguration(dict):
+    """
+    The configuration settings for transit encryption of a flow output using AWS Secrets Manager, including the secret ARN and role ARN.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowOutputSecretsManagerEncryptionKeyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowOutputSecretsManagerEncryptionKeyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowOutputSecretsManagerEncryptionKeyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: _builtins.str,
+                 secret_arn: _builtins.str):
+        """
+        The configuration settings for transit encryption of a flow output using AWS Secrets Manager, including the secret ARN and role ARN.
+        :param _builtins.str role_arn: The ARN of the IAM role used for transit encryption to the router input using AWS Secrets Manager.
+        :param _builtins.str secret_arn: The ARN of the AWS Secrets Manager secret used for transit encryption to the router input.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        The ARN of the IAM role used for transit encryption to the router input using AWS Secrets Manager.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        The ARN of the AWS Secrets Manager secret used for transit encryption to the router input.
+        """
+        return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
 class FlowOutputVpcInterfaceAttachment(dict):
     """
     The settings for attaching a VPC interface to an output.
@@ -2538,6 +2789,58 @@ class FlowOutputVpcInterfaceAttachment(dict):
         The name of the VPC interface to use for this output.
         """
         return pulumi.get(self, "vpc_interface_name")
+
+
+@pulumi.output_type
+class FlowSecretsManagerEncryptionKeyConfiguration(dict):
+    """
+    The configuration settings for transit encryption of a flow source using AWS Secrets Manager, including the secret ARN and role ARN.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowSecretsManagerEncryptionKeyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowSecretsManagerEncryptionKeyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowSecretsManagerEncryptionKeyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: _builtins.str,
+                 secret_arn: _builtins.str):
+        """
+        The configuration settings for transit encryption of a flow source using AWS Secrets Manager, including the secret ARN and role ARN.
+        :param _builtins.str role_arn: The ARN of the IAM role used for transit encryption from the router output using AWS Secrets Manager.
+        :param _builtins.str secret_arn: The ARN of the AWS Secrets Manager secret used for transit encryption from the router output.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        The ARN of the IAM role used for transit encryption from the router output using AWS Secrets Manager.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        The ARN of the AWS Secrets Manager secret used for transit encryption from the router output.
+        """
+        return pulumi.get(self, "secret_arn")
 
 
 @pulumi.output_type
@@ -2618,6 +2921,10 @@ class FlowSource(dict):
             suggest = "media_stream_source_configurations"
         elif key == "minLatency":
             suggest = "min_latency"
+        elif key == "routerIntegrationState":
+            suggest = "router_integration_state"
+        elif key == "routerIntegrationTransitDecryption":
+            suggest = "router_integration_transit_decryption"
         elif key == "senderControlPort":
             suggest = "sender_control_port"
         elif key == "senderIpAddress":
@@ -2662,6 +2969,8 @@ class FlowSource(dict):
                  min_latency: Optional[_builtins.int] = None,
                  name: Optional[_builtins.str] = None,
                  protocol: Optional['FlowSourceProtocol'] = None,
+                 router_integration_state: Optional['FlowSourceRouterIntegrationState'] = None,
+                 router_integration_transit_decryption: Optional['outputs.FlowTransitEncryption'] = None,
                  sender_control_port: Optional[_builtins.int] = None,
                  sender_ip_address: Optional[_builtins.str] = None,
                  source_arn: Optional[_builtins.str] = None,
@@ -2686,6 +2995,8 @@ class FlowSource(dict):
         :param _builtins.int min_latency: The minimum latency in milliseconds.
         :param _builtins.str name: The name of the source.
         :param 'FlowSourceProtocol' protocol: The protocol that is used by the source.
+        :param 'FlowSourceRouterIntegrationState' router_integration_state: Indicates if router integration is enabled or disabled on the flow source.
+        :param 'FlowTransitEncryption' router_integration_transit_decryption: The decryption configuration for the flow source when router integration is enabled.
         :param _builtins.int sender_control_port: The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
         :param _builtins.str sender_ip_address: The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
         :param _builtins.str source_arn: The ARN of the source.
@@ -2722,6 +3033,10 @@ class FlowSource(dict):
             pulumi.set(__self__, "name", name)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if router_integration_state is not None:
+            pulumi.set(__self__, "router_integration_state", router_integration_state)
+        if router_integration_transit_decryption is not None:
+            pulumi.set(__self__, "router_integration_transit_decryption", router_integration_transit_decryption)
         if sender_control_port is not None:
             pulumi.set(__self__, "sender_control_port", sender_control_port)
         if sender_ip_address is not None:
@@ -2844,6 +3159,22 @@ class FlowSource(dict):
         The protocol that is used by the source.
         """
         return pulumi.get(self, "protocol")
+
+    @_builtins.property
+    @pulumi.getter(name="routerIntegrationState")
+    def router_integration_state(self) -> Optional['FlowSourceRouterIntegrationState']:
+        """
+        Indicates if router integration is enabled or disabled on the flow source.
+        """
+        return pulumi.get(self, "router_integration_state")
+
+    @_builtins.property
+    @pulumi.getter(name="routerIntegrationTransitDecryption")
+    def router_integration_transit_decryption(self) -> Optional['outputs.FlowTransitEncryption']:
+        """
+        The decryption configuration for the flow source when router integration is enabled.
+        """
+        return pulumi.get(self, "router_integration_transit_decryption")
 
     @_builtins.property
     @pulumi.getter(name="senderControlPort")
@@ -3239,6 +3570,104 @@ class FlowSourceVpcInterfaceAttachment(dict):
 
 
 @pulumi.output_type
+class FlowTransitEncryption(dict):
+    """
+    The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionKeyConfiguration":
+            suggest = "encryption_key_configuration"
+        elif key == "encryptionKeyType":
+            suggest = "encryption_key_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowTransitEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowTransitEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowTransitEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_key_configuration: Any,
+                 encryption_key_type: Optional['FlowTransitEncryptionKeyType'] = None):
+        """
+        The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+        """
+        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
+        if encryption_key_type is not None:
+            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyConfiguration")
+    def encryption_key_configuration(self) -> Any:
+        return pulumi.get(self, "encryption_key_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyType")
+    def encryption_key_type(self) -> Optional['FlowTransitEncryptionKeyType']:
+        return pulumi.get(self, "encryption_key_type")
+
+
+@pulumi.output_type
+class FlowTransitEncryptionKeyConfiguration0Properties(dict):
+    """
+    Configuration settings for flow transit encryption keys.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretsManager":
+            suggest = "secrets_manager"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowTransitEncryptionKeyConfiguration0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowTransitEncryptionKeyConfiguration0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowTransitEncryptionKeyConfiguration0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secrets_manager: 'outputs.FlowSecretsManagerEncryptionKeyConfiguration'):
+        """
+        Configuration settings for flow transit encryption keys.
+        """
+        pulumi.set(__self__, "secrets_manager", secrets_manager)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManager")
+    def secrets_manager(self) -> 'outputs.FlowSecretsManagerEncryptionKeyConfiguration':
+        return pulumi.get(self, "secrets_manager")
+
+
+@pulumi.output_type
+class FlowTransitEncryptionKeyConfiguration1Properties(dict):
+    """
+    Configuration settings for flow transit encryption keys.
+    """
+    def __init__(__self__, *,
+                 automatic: 'outputs.FlowAutomaticEncryptionKeyConfiguration'):
+        """
+        Configuration settings for flow transit encryption keys.
+        """
+        pulumi.set(__self__, "automatic", automatic)
+
+    @_builtins.property
+    @pulumi.getter
+    def automatic(self) -> 'outputs.FlowAutomaticEncryptionKeyConfiguration':
+        return pulumi.get(self, "automatic")
+
+
+@pulumi.output_type
 class FlowVideoMonitoringSetting(dict):
     """
     Specifies the configuration for video stream metrics monitoring.
@@ -3484,5 +3913,2409 @@ class GatewayNetwork(dict):
         The name of the network. This name is used to reference the network and must be unique among networks in this gateway.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class RouterInputAutomaticEncryptionKeyConfiguration(dict):
+    """
+    Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
+    """
+    def __init__(__self__):
+        """
+        Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
+        """
+        pass
+
+
+@pulumi.output_type
+class RouterInputConfiguration0Properties(dict):
+    """
+    The configuration settings for a router input.
+    """
+    def __init__(__self__, *,
+                 standard: 'outputs.RouterInputStandardRouterInputConfiguration'):
+        """
+        The configuration settings for a router input.
+        """
+        pulumi.set(__self__, "standard", standard)
+
+    @_builtins.property
+    @pulumi.getter
+    def standard(self) -> 'outputs.RouterInputStandardRouterInputConfiguration':
+        return pulumi.get(self, "standard")
+
+
+@pulumi.output_type
+class RouterInputConfiguration1Properties(dict):
+    """
+    The configuration settings for a router input.
+    """
+    def __init__(__self__, *,
+                 failover: 'outputs.RouterInputFailoverRouterInputConfiguration'):
+        """
+        The configuration settings for a router input.
+        """
+        pulumi.set(__self__, "failover", failover)
+
+    @_builtins.property
+    @pulumi.getter
+    def failover(self) -> 'outputs.RouterInputFailoverRouterInputConfiguration':
+        return pulumi.get(self, "failover")
+
+
+@pulumi.output_type
+class RouterInputConfiguration2Properties(dict):
+    """
+    The configuration settings for a router input.
+    """
+    def __init__(__self__, *,
+                 merge: 'outputs.RouterInputMergeRouterInputConfiguration'):
+        """
+        The configuration settings for a router input.
+        """
+        pulumi.set(__self__, "merge", merge)
+
+    @_builtins.property
+    @pulumi.getter
+    def merge(self) -> 'outputs.RouterInputMergeRouterInputConfiguration':
+        return pulumi.get(self, "merge")
+
+
+@pulumi.output_type
+class RouterInputConfiguration3Properties(dict):
+    """
+    The configuration settings for a router input.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mediaConnectFlow":
+            suggest = "media_connect_flow"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputConfiguration3Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputConfiguration3Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputConfiguration3Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 media_connect_flow: 'outputs.RouterInputMediaConnectFlowRouterInputConfiguration'):
+        """
+        The configuration settings for a router input.
+        """
+        pulumi.set(__self__, "media_connect_flow", media_connect_flow)
+
+    @_builtins.property
+    @pulumi.getter(name="mediaConnectFlow")
+    def media_connect_flow(self) -> 'outputs.RouterInputMediaConnectFlowRouterInputConfiguration':
+        return pulumi.get(self, "media_connect_flow")
+
+
+@pulumi.output_type
+class RouterInputDefaultMaintenanceConfiguration(dict):
+    """
+    Configuration settings for default maintenance scheduling.
+    """
+    def __init__(__self__):
+        """
+        Configuration settings for default maintenance scheduling.
+        """
+        pass
+
+
+@pulumi.output_type
+class RouterInputFailoverRouterInputConfiguration(dict):
+    """
+    Configuration settings for a failover router input that allows switching between two input sources.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkInterfaceArn":
+            suggest = "network_interface_arn"
+        elif key == "protocolConfigurations":
+            suggest = "protocol_configurations"
+        elif key == "sourcePriorityMode":
+            suggest = "source_priority_mode"
+        elif key == "primarySourceIndex":
+            suggest = "primary_source_index"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputFailoverRouterInputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputFailoverRouterInputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputFailoverRouterInputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_interface_arn: _builtins.str,
+                 protocol_configurations: Sequence[Any],
+                 source_priority_mode: 'RouterInputFailoverInputSourcePriorityMode',
+                 primary_source_index: Optional[_builtins.int] = None):
+        """
+        Configuration settings for a failover router input that allows switching between two input sources.
+        :param _builtins.str network_interface_arn: The ARN of the network interface to use for this failover router input.
+        :param Sequence[Union['RouterInputFailoverRouterInputProtocolConfiguration0Properties', 'RouterInputFailoverRouterInputProtocolConfiguration1Properties', 'RouterInputFailoverRouterInputProtocolConfiguration2Properties', 'RouterInputFailoverRouterInputProtocolConfiguration3Properties']] protocol_configurations: A list of exactly two protocol configurations for the failover input sources. Both must use the same protocol type.
+        :param _builtins.int primary_source_index: The index (0 or 1) that specifies which source in the protocol configurations list is currently active. Used to control which of the two failover sources is currently selected. This field is ignored when sourcePriorityMode is set to NO_PRIORITY
+        """
+        pulumi.set(__self__, "network_interface_arn", network_interface_arn)
+        pulumi.set(__self__, "protocol_configurations", protocol_configurations)
+        pulumi.set(__self__, "source_priority_mode", source_priority_mode)
+        if primary_source_index is not None:
+            pulumi.set(__self__, "primary_source_index", primary_source_index)
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterfaceArn")
+    def network_interface_arn(self) -> _builtins.str:
+        """
+        The ARN of the network interface to use for this failover router input.
+        """
+        return pulumi.get(self, "network_interface_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="protocolConfigurations")
+    def protocol_configurations(self) -> Sequence[Any]:
+        """
+        A list of exactly two protocol configurations for the failover input sources. Both must use the same protocol type.
+        """
+        return pulumi.get(self, "protocol_configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePriorityMode")
+    def source_priority_mode(self) -> 'RouterInputFailoverInputSourcePriorityMode':
+        return pulumi.get(self, "source_priority_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="primarySourceIndex")
+    def primary_source_index(self) -> Optional[_builtins.int]:
+        """
+        The index (0 or 1) that specifies which source in the protocol configurations list is currently active. Used to control which of the two failover sources is currently selected. This field is ignored when sourcePriorityMode is set to NO_PRIORITY
+        """
+        return pulumi.get(self, "primary_source_index")
+
+
+@pulumi.output_type
+class RouterInputFailoverRouterInputProtocolConfiguration0Properties(dict):
+    """
+    Protocol configuration settings for failover router inputs.
+    """
+    def __init__(__self__, *,
+                 rtp: 'outputs.RouterInputRtpRouterInputConfiguration'):
+        """
+        Protocol configuration settings for failover router inputs.
+        """
+        pulumi.set(__self__, "rtp", rtp)
+
+    @_builtins.property
+    @pulumi.getter
+    def rtp(self) -> 'outputs.RouterInputRtpRouterInputConfiguration':
+        return pulumi.get(self, "rtp")
+
+
+@pulumi.output_type
+class RouterInputFailoverRouterInputProtocolConfiguration1Properties(dict):
+    """
+    Protocol configuration settings for failover router inputs.
+    """
+    def __init__(__self__, *,
+                 rist: 'outputs.RouterInputRistRouterInputConfiguration'):
+        """
+        Protocol configuration settings for failover router inputs.
+        """
+        pulumi.set(__self__, "rist", rist)
+
+    @_builtins.property
+    @pulumi.getter
+    def rist(self) -> 'outputs.RouterInputRistRouterInputConfiguration':
+        return pulumi.get(self, "rist")
+
+
+@pulumi.output_type
+class RouterInputFailoverRouterInputProtocolConfiguration2Properties(dict):
+    """
+    Protocol configuration settings for failover router inputs.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "srtListener":
+            suggest = "srt_listener"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputFailoverRouterInputProtocolConfiguration2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputFailoverRouterInputProtocolConfiguration2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputFailoverRouterInputProtocolConfiguration2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 srt_listener: 'outputs.RouterInputSrtListenerRouterInputConfiguration'):
+        """
+        Protocol configuration settings for failover router inputs.
+        """
+        pulumi.set(__self__, "srt_listener", srt_listener)
+
+    @_builtins.property
+    @pulumi.getter(name="srtListener")
+    def srt_listener(self) -> 'outputs.RouterInputSrtListenerRouterInputConfiguration':
+        return pulumi.get(self, "srt_listener")
+
+
+@pulumi.output_type
+class RouterInputFailoverRouterInputProtocolConfiguration3Properties(dict):
+    """
+    Protocol configuration settings for failover router inputs.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "srtCaller":
+            suggest = "srt_caller"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputFailoverRouterInputProtocolConfiguration3Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputFailoverRouterInputProtocolConfiguration3Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputFailoverRouterInputProtocolConfiguration3Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 srt_caller: 'outputs.RouterInputSrtCallerRouterInputConfiguration'):
+        """
+        Protocol configuration settings for failover router inputs.
+        """
+        pulumi.set(__self__, "srt_caller", srt_caller)
+
+    @_builtins.property
+    @pulumi.getter(name="srtCaller")
+    def srt_caller(self) -> 'outputs.RouterInputSrtCallerRouterInputConfiguration':
+        return pulumi.get(self, "srt_caller")
+
+
+@pulumi.output_type
+class RouterInputFlowTransitEncryption(dict):
+    """
+    The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionKeyConfiguration":
+            suggest = "encryption_key_configuration"
+        elif key == "encryptionKeyType":
+            suggest = "encryption_key_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputFlowTransitEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputFlowTransitEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputFlowTransitEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_key_configuration: Any,
+                 encryption_key_type: Optional['RouterInputFlowTransitEncryptionKeyType'] = None):
+        """
+        The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+        """
+        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
+        if encryption_key_type is not None:
+            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyConfiguration")
+    def encryption_key_configuration(self) -> Any:
+        return pulumi.get(self, "encryption_key_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyType")
+    def encryption_key_type(self) -> Optional['RouterInputFlowTransitEncryptionKeyType']:
+        return pulumi.get(self, "encryption_key_type")
+
+
+@pulumi.output_type
+class RouterInputFlowTransitEncryptionKeyConfiguration0Properties(dict):
+    """
+    Configuration settings for flow transit encryption keys.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretsManager":
+            suggest = "secrets_manager"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputFlowTransitEncryptionKeyConfiguration0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputFlowTransitEncryptionKeyConfiguration0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputFlowTransitEncryptionKeyConfiguration0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secrets_manager: 'outputs.RouterInputSecretsManagerEncryptionKeyConfiguration'):
+        """
+        Configuration settings for flow transit encryption keys.
+        """
+        pulumi.set(__self__, "secrets_manager", secrets_manager)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManager")
+    def secrets_manager(self) -> 'outputs.RouterInputSecretsManagerEncryptionKeyConfiguration':
+        return pulumi.get(self, "secrets_manager")
+
+
+@pulumi.output_type
+class RouterInputFlowTransitEncryptionKeyConfiguration1Properties(dict):
+    """
+    Configuration settings for flow transit encryption keys.
+    """
+    def __init__(__self__, *,
+                 automatic: 'outputs.RouterInputAutomaticEncryptionKeyConfiguration'):
+        """
+        Configuration settings for flow transit encryption keys.
+        """
+        pulumi.set(__self__, "automatic", automatic)
+
+    @_builtins.property
+    @pulumi.getter
+    def automatic(self) -> 'outputs.RouterInputAutomaticEncryptionKeyConfiguration':
+        return pulumi.get(self, "automatic")
+
+
+@pulumi.output_type
+class RouterInputMaintenanceConfiguration0Properties(dict):
+    """
+    The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preferredDayTime":
+            suggest = "preferred_day_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputMaintenanceConfiguration0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputMaintenanceConfiguration0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputMaintenanceConfiguration0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 preferred_day_time: 'outputs.RouterInputPreferredDayTimeMaintenanceConfiguration'):
+        """
+        The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
+        """
+        pulumi.set(__self__, "preferred_day_time", preferred_day_time)
+
+    @_builtins.property
+    @pulumi.getter(name="preferredDayTime")
+    def preferred_day_time(self) -> 'outputs.RouterInputPreferredDayTimeMaintenanceConfiguration':
+        return pulumi.get(self, "preferred_day_time")
+
+
+@pulumi.output_type
+class RouterInputMaintenanceConfiguration1Properties(dict):
+    """
+    The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
+    """
+    def __init__(__self__, *,
+                 default: 'outputs.RouterInputDefaultMaintenanceConfiguration'):
+        """
+        The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
+        """
+        pulumi.set(__self__, "default", default)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> 'outputs.RouterInputDefaultMaintenanceConfiguration':
+        return pulumi.get(self, "default")
+
+
+@pulumi.output_type
+class RouterInputMediaConnectFlowRouterInputConfiguration(dict):
+    """
+    Configuration settings for connecting a router input to a flow output.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceTransitDecryption":
+            suggest = "source_transit_decryption"
+        elif key == "flowArn":
+            suggest = "flow_arn"
+        elif key == "flowOutputArn":
+            suggest = "flow_output_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputMediaConnectFlowRouterInputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputMediaConnectFlowRouterInputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputMediaConnectFlowRouterInputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_transit_decryption: 'outputs.RouterInputFlowTransitEncryption',
+                 flow_arn: Optional[_builtins.str] = None,
+                 flow_output_arn: Optional[_builtins.str] = None):
+        """
+        Configuration settings for connecting a router input to a flow output.
+        :param _builtins.str flow_arn: The ARN of the flow to connect to.
+        :param _builtins.str flow_output_arn: The ARN of the flow output to connect to this router input.
+        """
+        pulumi.set(__self__, "source_transit_decryption", source_transit_decryption)
+        if flow_arn is not None:
+            pulumi.set(__self__, "flow_arn", flow_arn)
+        if flow_output_arn is not None:
+            pulumi.set(__self__, "flow_output_arn", flow_output_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceTransitDecryption")
+    def source_transit_decryption(self) -> 'outputs.RouterInputFlowTransitEncryption':
+        return pulumi.get(self, "source_transit_decryption")
+
+    @_builtins.property
+    @pulumi.getter(name="flowArn")
+    def flow_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the flow to connect to.
+        """
+        return pulumi.get(self, "flow_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="flowOutputArn")
+    def flow_output_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the flow output to connect to this router input.
+        """
+        return pulumi.get(self, "flow_output_arn")
+
+
+@pulumi.output_type
+class RouterInputMergeRouterInputConfiguration(dict):
+    """
+    Configuration settings for a merge router input that combines two input sources.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mergeRecoveryWindowMilliseconds":
+            suggest = "merge_recovery_window_milliseconds"
+        elif key == "networkInterfaceArn":
+            suggest = "network_interface_arn"
+        elif key == "protocolConfigurations":
+            suggest = "protocol_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputMergeRouterInputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputMergeRouterInputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputMergeRouterInputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 merge_recovery_window_milliseconds: _builtins.int,
+                 network_interface_arn: _builtins.str,
+                 protocol_configurations: Sequence[Any]):
+        """
+        Configuration settings for a merge router input that combines two input sources.
+        :param _builtins.int merge_recovery_window_milliseconds: The time window in milliseconds for merging the two input sources.
+        :param _builtins.str network_interface_arn: The ARN of the network interface to use for this merge router input.
+        :param Sequence[Union['RouterInputMergeRouterInputProtocolConfiguration0Properties', 'RouterInputMergeRouterInputProtocolConfiguration1Properties']] protocol_configurations: A list of exactly two protocol configurations for the merge input sources. Both must use the same protocol type.
+        """
+        pulumi.set(__self__, "merge_recovery_window_milliseconds", merge_recovery_window_milliseconds)
+        pulumi.set(__self__, "network_interface_arn", network_interface_arn)
+        pulumi.set(__self__, "protocol_configurations", protocol_configurations)
+
+    @_builtins.property
+    @pulumi.getter(name="mergeRecoveryWindowMilliseconds")
+    def merge_recovery_window_milliseconds(self) -> _builtins.int:
+        """
+        The time window in milliseconds for merging the two input sources.
+        """
+        return pulumi.get(self, "merge_recovery_window_milliseconds")
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterfaceArn")
+    def network_interface_arn(self) -> _builtins.str:
+        """
+        The ARN of the network interface to use for this merge router input.
+        """
+        return pulumi.get(self, "network_interface_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="protocolConfigurations")
+    def protocol_configurations(self) -> Sequence[Any]:
+        """
+        A list of exactly two protocol configurations for the merge input sources. Both must use the same protocol type.
+        """
+        return pulumi.get(self, "protocol_configurations")
+
+
+@pulumi.output_type
+class RouterInputMergeRouterInputProtocolConfiguration0Properties(dict):
+    """
+    Protocol configuration settings for merge router inputs.
+    """
+    def __init__(__self__, *,
+                 rtp: 'outputs.RouterInputRtpRouterInputConfiguration'):
+        """
+        Protocol configuration settings for merge router inputs.
+        """
+        pulumi.set(__self__, "rtp", rtp)
+
+    @_builtins.property
+    @pulumi.getter
+    def rtp(self) -> 'outputs.RouterInputRtpRouterInputConfiguration':
+        return pulumi.get(self, "rtp")
+
+
+@pulumi.output_type
+class RouterInputMergeRouterInputProtocolConfiguration1Properties(dict):
+    """
+    Protocol configuration settings for merge router inputs.
+    """
+    def __init__(__self__, *,
+                 rist: 'outputs.RouterInputRistRouterInputConfiguration'):
+        """
+        Protocol configuration settings for merge router inputs.
+        """
+        pulumi.set(__self__, "rist", rist)
+
+    @_builtins.property
+    @pulumi.getter
+    def rist(self) -> 'outputs.RouterInputRistRouterInputConfiguration':
+        return pulumi.get(self, "rist")
+
+
+@pulumi.output_type
+class RouterInputPreferredDayTimeMaintenanceConfiguration(dict):
+    """
+    Configuration for preferred day and time maintenance settings.
+    """
+    def __init__(__self__, *,
+                 day: 'RouterInputDay',
+                 time: _builtins.str):
+        """
+        Configuration for preferred day and time maintenance settings.
+        :param _builtins.str time: The preferred time for maintenance operations.
+        """
+        pulumi.set(__self__, "day", day)
+        pulumi.set(__self__, "time", time)
+
+    @_builtins.property
+    @pulumi.getter
+    def day(self) -> 'RouterInputDay':
+        return pulumi.get(self, "day")
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> _builtins.str:
+        """
+        The preferred time for maintenance operations.
+        """
+        return pulumi.get(self, "time")
+
+
+@pulumi.output_type
+class RouterInputProtocolConfiguration0Properties(dict):
+    """
+    The protocol configuration settings for a router input.
+    """
+    def __init__(__self__, *,
+                 rtp: 'outputs.RouterInputRtpRouterInputConfiguration'):
+        """
+        The protocol configuration settings for a router input.
+        """
+        pulumi.set(__self__, "rtp", rtp)
+
+    @_builtins.property
+    @pulumi.getter
+    def rtp(self) -> 'outputs.RouterInputRtpRouterInputConfiguration':
+        return pulumi.get(self, "rtp")
+
+
+@pulumi.output_type
+class RouterInputProtocolConfiguration1Properties(dict):
+    """
+    The protocol configuration settings for a router input.
+    """
+    def __init__(__self__, *,
+                 rist: 'outputs.RouterInputRistRouterInputConfiguration'):
+        """
+        The protocol configuration settings for a router input.
+        """
+        pulumi.set(__self__, "rist", rist)
+
+    @_builtins.property
+    @pulumi.getter
+    def rist(self) -> 'outputs.RouterInputRistRouterInputConfiguration':
+        return pulumi.get(self, "rist")
+
+
+@pulumi.output_type
+class RouterInputProtocolConfiguration2Properties(dict):
+    """
+    The protocol configuration settings for a router input.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "srtListener":
+            suggest = "srt_listener"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputProtocolConfiguration2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputProtocolConfiguration2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputProtocolConfiguration2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 srt_listener: 'outputs.RouterInputSrtListenerRouterInputConfiguration'):
+        """
+        The protocol configuration settings for a router input.
+        """
+        pulumi.set(__self__, "srt_listener", srt_listener)
+
+    @_builtins.property
+    @pulumi.getter(name="srtListener")
+    def srt_listener(self) -> 'outputs.RouterInputSrtListenerRouterInputConfiguration':
+        return pulumi.get(self, "srt_listener")
+
+
+@pulumi.output_type
+class RouterInputProtocolConfiguration3Properties(dict):
+    """
+    The protocol configuration settings for a router input.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "srtCaller":
+            suggest = "srt_caller"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputProtocolConfiguration3Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputProtocolConfiguration3Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputProtocolConfiguration3Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 srt_caller: 'outputs.RouterInputSrtCallerRouterInputConfiguration'):
+        """
+        The protocol configuration settings for a router input.
+        """
+        pulumi.set(__self__, "srt_caller", srt_caller)
+
+    @_builtins.property
+    @pulumi.getter(name="srtCaller")
+    def srt_caller(self) -> 'outputs.RouterInputSrtCallerRouterInputConfiguration':
+        return pulumi.get(self, "srt_caller")
+
+
+@pulumi.output_type
+class RouterInputRistRouterInputConfiguration(dict):
+    """
+    The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recoveryLatencyMilliseconds":
+            suggest = "recovery_latency_milliseconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputRistRouterInputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputRistRouterInputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputRistRouterInputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port: _builtins.int,
+                 recovery_latency_milliseconds: _builtins.int):
+        """
+        The configuration settings for a router input using the RIST (Reliable Internet Stream Transport) protocol, including the port and recovery latency.
+        :param _builtins.int port: The port number used for the RIST protocol in the router input configuration.
+        :param _builtins.int recovery_latency_milliseconds: The recovery latency in milliseconds for the RIST protocol in the router input configuration.
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "recovery_latency_milliseconds", recovery_latency_milliseconds)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> _builtins.int:
+        """
+        The port number used for the RIST protocol in the router input configuration.
+        """
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter(name="recoveryLatencyMilliseconds")
+    def recovery_latency_milliseconds(self) -> _builtins.int:
+        """
+        The recovery latency in milliseconds for the RIST protocol in the router input configuration.
+        """
+        return pulumi.get(self, "recovery_latency_milliseconds")
+
+
+@pulumi.output_type
+class RouterInputRtpRouterInputConfiguration(dict):
+    """
+    The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "forwardErrorCorrection":
+            suggest = "forward_error_correction"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputRtpRouterInputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputRtpRouterInputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputRtpRouterInputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port: _builtins.int,
+                 forward_error_correction: Optional['RouterInputForwardErrorCorrectionState'] = None):
+        """
+        The configuration settings for a Router Input using the RTP (Real-Time Transport Protocol) protocol, including the port and forward error correction state.
+        :param _builtins.int port: The port number used for the RTP protocol in the router input configuration.
+        """
+        pulumi.set(__self__, "port", port)
+        if forward_error_correction is not None:
+            pulumi.set(__self__, "forward_error_correction", forward_error_correction)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> _builtins.int:
+        """
+        The port number used for the RTP protocol in the router input configuration.
+        """
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter(name="forwardErrorCorrection")
+    def forward_error_correction(self) -> Optional['RouterInputForwardErrorCorrectionState']:
+        return pulumi.get(self, "forward_error_correction")
+
+
+@pulumi.output_type
+class RouterInputSecretsManagerEncryptionKeyConfiguration(dict):
+    """
+    The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputSecretsManagerEncryptionKeyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputSecretsManagerEncryptionKeyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputSecretsManagerEncryptionKeyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: _builtins.str,
+                 secret_arn: _builtins.str):
+        """
+        The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+        :param _builtins.str role_arn: The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
+        :param _builtins.str secret_arn: The ARN of the AWS Secrets Manager secret used for transit encryption.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        The ARN of the AWS Secrets Manager secret used for transit encryption.
+        """
+        return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class RouterInputSrtCallerRouterInputConfiguration(dict):
+    """
+    The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minimumLatencyMilliseconds":
+            suggest = "minimum_latency_milliseconds"
+        elif key == "sourceAddress":
+            suggest = "source_address"
+        elif key == "sourcePort":
+            suggest = "source_port"
+        elif key == "decryptionConfiguration":
+            suggest = "decryption_configuration"
+        elif key == "streamId":
+            suggest = "stream_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputSrtCallerRouterInputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputSrtCallerRouterInputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputSrtCallerRouterInputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 minimum_latency_milliseconds: _builtins.int,
+                 source_address: _builtins.str,
+                 source_port: _builtins.int,
+                 decryption_configuration: Optional['outputs.RouterInputSrtDecryptionConfiguration'] = None,
+                 stream_id: Optional[_builtins.str] = None):
+        """
+        The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in caller mode, including the source address and port, minimum latency, stream ID, and decryption key configuration.
+        :param _builtins.int minimum_latency_milliseconds: The minimum latency in milliseconds for the SRT protocol in caller mode.
+        :param _builtins.str source_address: The source IP address for the SRT protocol in caller mode.
+        :param _builtins.int source_port: The source port number for the SRT protocol in caller mode.
+        :param _builtins.str stream_id: The stream ID for the SRT protocol in caller mode.
+        """
+        pulumi.set(__self__, "minimum_latency_milliseconds", minimum_latency_milliseconds)
+        pulumi.set(__self__, "source_address", source_address)
+        pulumi.set(__self__, "source_port", source_port)
+        if decryption_configuration is not None:
+            pulumi.set(__self__, "decryption_configuration", decryption_configuration)
+        if stream_id is not None:
+            pulumi.set(__self__, "stream_id", stream_id)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumLatencyMilliseconds")
+    def minimum_latency_milliseconds(self) -> _builtins.int:
+        """
+        The minimum latency in milliseconds for the SRT protocol in caller mode.
+        """
+        return pulumi.get(self, "minimum_latency_milliseconds")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAddress")
+    def source_address(self) -> _builtins.str:
+        """
+        The source IP address for the SRT protocol in caller mode.
+        """
+        return pulumi.get(self, "source_address")
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePort")
+    def source_port(self) -> _builtins.int:
+        """
+        The source port number for the SRT protocol in caller mode.
+        """
+        return pulumi.get(self, "source_port")
+
+    @_builtins.property
+    @pulumi.getter(name="decryptionConfiguration")
+    def decryption_configuration(self) -> Optional['outputs.RouterInputSrtDecryptionConfiguration']:
+        return pulumi.get(self, "decryption_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="streamId")
+    def stream_id(self) -> Optional[_builtins.str]:
+        """
+        The stream ID for the SRT protocol in caller mode.
+        """
+        return pulumi.get(self, "stream_id")
+
+
+@pulumi.output_type
+class RouterInputSrtDecryptionConfiguration(dict):
+    """
+    Contains the configuration settings for decrypting SRT streams, including the encryption key details and decryption parameters.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionKey":
+            suggest = "encryption_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputSrtDecryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputSrtDecryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputSrtDecryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_key: 'outputs.RouterInputSecretsManagerEncryptionKeyConfiguration'):
+        """
+        Contains the configuration settings for decrypting SRT streams, including the encryption key details and decryption parameters.
+        """
+        pulumi.set(__self__, "encryption_key", encryption_key)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> 'outputs.RouterInputSecretsManagerEncryptionKeyConfiguration':
+        return pulumi.get(self, "encryption_key")
+
+
+@pulumi.output_type
+class RouterInputSrtListenerRouterInputConfiguration(dict):
+    """
+    The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and decryption key configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minimumLatencyMilliseconds":
+            suggest = "minimum_latency_milliseconds"
+        elif key == "decryptionConfiguration":
+            suggest = "decryption_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputSrtListenerRouterInputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputSrtListenerRouterInputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputSrtListenerRouterInputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 minimum_latency_milliseconds: _builtins.int,
+                 port: _builtins.int,
+                 decryption_configuration: Optional['outputs.RouterInputSrtDecryptionConfiguration'] = None):
+        """
+        The configuration settings for a router input using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and decryption key configuration.
+        :param _builtins.int minimum_latency_milliseconds: The minimum latency in milliseconds for the SRT protocol in listener mode.
+        :param _builtins.int port: The port number for the SRT protocol in listener mode.
+        """
+        pulumi.set(__self__, "minimum_latency_milliseconds", minimum_latency_milliseconds)
+        pulumi.set(__self__, "port", port)
+        if decryption_configuration is not None:
+            pulumi.set(__self__, "decryption_configuration", decryption_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumLatencyMilliseconds")
+    def minimum_latency_milliseconds(self) -> _builtins.int:
+        """
+        The minimum latency in milliseconds for the SRT protocol in listener mode.
+        """
+        return pulumi.get(self, "minimum_latency_milliseconds")
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> _builtins.int:
+        """
+        The port number for the SRT protocol in listener mode.
+        """
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter(name="decryptionConfiguration")
+    def decryption_configuration(self) -> Optional['outputs.RouterInputSrtDecryptionConfiguration']:
+        return pulumi.get(self, "decryption_configuration")
+
+
+@pulumi.output_type
+class RouterInputStandardRouterInputConfiguration(dict):
+    """
+    The configuration settings for a standard router input, including the protocol, protocol-specific configuration, network interface, and availability zone.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkInterfaceArn":
+            suggest = "network_interface_arn"
+        elif key == "protocolConfiguration":
+            suggest = "protocol_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputStandardRouterInputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputStandardRouterInputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputStandardRouterInputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_interface_arn: _builtins.str,
+                 protocol_configuration: Any,
+                 protocol: Optional['RouterInputProtocol'] = None):
+        """
+        The configuration settings for a standard router input, including the protocol, protocol-specific configuration, network interface, and availability zone.
+        :param _builtins.str network_interface_arn: The Amazon Resource Name (ARN) of the network interface associated with the standard router input.
+        """
+        pulumi.set(__self__, "network_interface_arn", network_interface_arn)
+        pulumi.set(__self__, "protocol_configuration", protocol_configuration)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterfaceArn")
+    def network_interface_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the network interface associated with the standard router input.
+        """
+        return pulumi.get(self, "network_interface_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="protocolConfiguration")
+    def protocol_configuration(self) -> Any:
+        return pulumi.get(self, "protocol_configuration")
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> Optional['RouterInputProtocol']:
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class RouterInputTransitEncryption(dict):
+    """
+    The transit encryption settings for a router input.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionKeyConfiguration":
+            suggest = "encryption_key_configuration"
+        elif key == "encryptionKeyType":
+            suggest = "encryption_key_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputTransitEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputTransitEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputTransitEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_key_configuration: Any,
+                 encryption_key_type: Optional['RouterInputTransitEncryptionKeyType'] = None):
+        """
+        The transit encryption settings for a router input.
+        """
+        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
+        if encryption_key_type is not None:
+            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyConfiguration")
+    def encryption_key_configuration(self) -> Any:
+        return pulumi.get(self, "encryption_key_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyType")
+    def encryption_key_type(self) -> Optional['RouterInputTransitEncryptionKeyType']:
+        return pulumi.get(self, "encryption_key_type")
+
+
+@pulumi.output_type
+class RouterInputTransitEncryptionKeyConfiguration0Properties(dict):
+    """
+    Defines the configuration settings for transit encryption keys.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretsManager":
+            suggest = "secrets_manager"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterInputTransitEncryptionKeyConfiguration0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterInputTransitEncryptionKeyConfiguration0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterInputTransitEncryptionKeyConfiguration0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secrets_manager: 'outputs.RouterInputSecretsManagerEncryptionKeyConfiguration'):
+        """
+        Defines the configuration settings for transit encryption keys.
+        """
+        pulumi.set(__self__, "secrets_manager", secrets_manager)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManager")
+    def secrets_manager(self) -> 'outputs.RouterInputSecretsManagerEncryptionKeyConfiguration':
+        return pulumi.get(self, "secrets_manager")
+
+
+@pulumi.output_type
+class RouterInputTransitEncryptionKeyConfiguration1Properties(dict):
+    """
+    Defines the configuration settings for transit encryption keys.
+    """
+    def __init__(__self__, *,
+                 automatic: 'outputs.RouterInputAutomaticEncryptionKeyConfiguration'):
+        """
+        Defines the configuration settings for transit encryption keys.
+        """
+        pulumi.set(__self__, "automatic", automatic)
+
+    @_builtins.property
+    @pulumi.getter
+    def automatic(self) -> 'outputs.RouterInputAutomaticEncryptionKeyConfiguration':
+        return pulumi.get(self, "automatic")
+
+
+@pulumi.output_type
+class RouterNetworkInterfaceConfiguration0Properties(dict):
+    """
+    The configuration settings for a router network interface.
+    """
+    def __init__(__self__, *,
+                 public: 'outputs.RouterNetworkInterfacePublicRouterNetworkInterfaceConfiguration'):
+        """
+        The configuration settings for a router network interface.
+        """
+        pulumi.set(__self__, "public", public)
+
+    @_builtins.property
+    @pulumi.getter
+    def public(self) -> 'outputs.RouterNetworkInterfacePublicRouterNetworkInterfaceConfiguration':
+        return pulumi.get(self, "public")
+
+
+@pulumi.output_type
+class RouterNetworkInterfaceConfiguration1Properties(dict):
+    """
+    The configuration settings for a router network interface.
+    """
+    def __init__(__self__, *,
+                 vpc: 'outputs.RouterNetworkInterfaceVpcRouterNetworkInterfaceConfiguration'):
+        """
+        The configuration settings for a router network interface.
+        """
+        pulumi.set(__self__, "vpc", vpc)
+
+    @_builtins.property
+    @pulumi.getter
+    def vpc(self) -> 'outputs.RouterNetworkInterfaceVpcRouterNetworkInterfaceConfiguration':
+        return pulumi.get(self, "vpc")
+
+
+@pulumi.output_type
+class RouterNetworkInterfacePublicRouterNetworkInterfaceConfiguration(dict):
+    """
+    The configuration settings for a public router network interface, including the list of allowed CIDR blocks.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowRules":
+            suggest = "allow_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterNetworkInterfacePublicRouterNetworkInterfaceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterNetworkInterfacePublicRouterNetworkInterfaceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterNetworkInterfacePublicRouterNetworkInterfaceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_rules: Sequence['outputs.RouterNetworkInterfacePublicRouterNetworkInterfaceRule']):
+        """
+        The configuration settings for a public router network interface, including the list of allowed CIDR blocks.
+        :param Sequence['RouterNetworkInterfacePublicRouterNetworkInterfaceRule'] allow_rules: The list of allowed CIDR blocks for the public router network interface.
+        """
+        pulumi.set(__self__, "allow_rules", allow_rules)
+
+    @_builtins.property
+    @pulumi.getter(name="allowRules")
+    def allow_rules(self) -> Sequence['outputs.RouterNetworkInterfacePublicRouterNetworkInterfaceRule']:
+        """
+        The list of allowed CIDR blocks for the public router network interface.
+        """
+        return pulumi.get(self, "allow_rules")
+
+
+@pulumi.output_type
+class RouterNetworkInterfacePublicRouterNetworkInterfaceRule(dict):
+    """
+    A rule that allows a specific CIDR block to access the public router network interface.
+    """
+    def __init__(__self__, *,
+                 cidr: _builtins.str):
+        """
+        A rule that allows a specific CIDR block to access the public router network interface.
+        :param _builtins.str cidr: The CIDR block that is allowed to access the public router network interface.
+        """
+        pulumi.set(__self__, "cidr", cidr)
+
+    @_builtins.property
+    @pulumi.getter
+    def cidr(self) -> _builtins.str:
+        """
+        The CIDR block that is allowed to access the public router network interface.
+        """
+        return pulumi.get(self, "cidr")
+
+
+@pulumi.output_type
+class RouterNetworkInterfaceVpcRouterNetworkInterfaceConfiguration(dict):
+    """
+    The configuration settings for a router network interface within a VPC, including the security group IDs and subnet ID.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterNetworkInterfaceVpcRouterNetworkInterfaceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterNetworkInterfaceVpcRouterNetworkInterfaceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterNetworkInterfaceVpcRouterNetworkInterfaceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[_builtins.str],
+                 subnet_id: _builtins.str):
+        """
+        The configuration settings for a router network interface within a VPC, including the security group IDs and subnet ID.
+        :param Sequence[_builtins.str] security_group_ids: The IDs of the security groups to associate with the router network interface within the VPC.
+        :param _builtins.str subnet_id: The ID of the subnet within the VPC to associate the router network interface with.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[_builtins.str]:
+        """
+        The IDs of the security groups to associate with the router network interface within the VPC.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> _builtins.str:
+        """
+        The ID of the subnet within the VPC to associate the router network interface with.
+        """
+        return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class RouterOutputResourceAutomaticEncryptionKeyConfiguration(dict):
+    """
+    Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
+    """
+    def __init__(__self__):
+        """
+        Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
+        """
+        pass
+
+
+@pulumi.output_type
+class RouterOutputResourceDefaultMaintenanceConfiguration(dict):
+    """
+    Configuration settings for default maintenance scheduling.
+    """
+    def __init__(__self__):
+        """
+        Configuration settings for default maintenance scheduling.
+        """
+        pass
+
+
+@pulumi.output_type
+class RouterOutputResourceFlowTransitEncryption(dict):
+    """
+    The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionKeyConfiguration":
+            suggest = "encryption_key_configuration"
+        elif key == "encryptionKeyType":
+            suggest = "encryption_key_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceFlowTransitEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceFlowTransitEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceFlowTransitEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_key_configuration: Any,
+                 encryption_key_type: Optional['RouterOutputResourceFlowTransitEncryptionKeyType'] = None):
+        """
+        The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+        """
+        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
+        if encryption_key_type is not None:
+            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyConfiguration")
+    def encryption_key_configuration(self) -> Any:
+        return pulumi.get(self, "encryption_key_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyType")
+    def encryption_key_type(self) -> Optional['RouterOutputResourceFlowTransitEncryptionKeyType']:
+        return pulumi.get(self, "encryption_key_type")
+
+
+@pulumi.output_type
+class RouterOutputResourceFlowTransitEncryptionKeyConfiguration0Properties(dict):
+    """
+    Configuration settings for flow transit encryption keys.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretsManager":
+            suggest = "secrets_manager"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceFlowTransitEncryptionKeyConfiguration0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceFlowTransitEncryptionKeyConfiguration0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceFlowTransitEncryptionKeyConfiguration0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secrets_manager: 'outputs.RouterOutputResourceSecretsManagerEncryptionKeyConfiguration'):
+        """
+        Configuration settings for flow transit encryption keys.
+        """
+        pulumi.set(__self__, "secrets_manager", secrets_manager)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManager")
+    def secrets_manager(self) -> 'outputs.RouterOutputResourceSecretsManagerEncryptionKeyConfiguration':
+        return pulumi.get(self, "secrets_manager")
+
+
+@pulumi.output_type
+class RouterOutputResourceFlowTransitEncryptionKeyConfiguration1Properties(dict):
+    """
+    Configuration settings for flow transit encryption keys.
+    """
+    def __init__(__self__, *,
+                 automatic: 'outputs.RouterOutputResourceAutomaticEncryptionKeyConfiguration'):
+        """
+        Configuration settings for flow transit encryption keys.
+        """
+        pulumi.set(__self__, "automatic", automatic)
+
+    @_builtins.property
+    @pulumi.getter
+    def automatic(self) -> 'outputs.RouterOutputResourceAutomaticEncryptionKeyConfiguration':
+        return pulumi.get(self, "automatic")
+
+
+@pulumi.output_type
+class RouterOutputResourceMaintenanceConfiguration0Properties(dict):
+    """
+    The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "preferredDayTime":
+            suggest = "preferred_day_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceMaintenanceConfiguration0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceMaintenanceConfiguration0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceMaintenanceConfiguration0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 preferred_day_time: 'outputs.RouterOutputResourcePreferredDayTimeMaintenanceConfiguration'):
+        """
+        The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
+        """
+        pulumi.set(__self__, "preferred_day_time", preferred_day_time)
+
+    @_builtins.property
+    @pulumi.getter(name="preferredDayTime")
+    def preferred_day_time(self) -> 'outputs.RouterOutputResourcePreferredDayTimeMaintenanceConfiguration':
+        return pulumi.get(self, "preferred_day_time")
+
+
+@pulumi.output_type
+class RouterOutputResourceMaintenanceConfiguration1Properties(dict):
+    """
+    The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
+    """
+    def __init__(__self__, *,
+                 default: 'outputs.RouterOutputResourceDefaultMaintenanceConfiguration'):
+        """
+        The configuration settings for maintenance operations, including preferred maintenance windows and schedules.
+        """
+        pulumi.set(__self__, "default", default)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> 'outputs.RouterOutputResourceDefaultMaintenanceConfiguration':
+        return pulumi.get(self, "default")
+
+
+@pulumi.output_type
+class RouterOutputResourceMediaConnectFlowRouterOutputConfiguration(dict):
+    """
+    Configuration settings for connecting a router output to a MediaConnect flow source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationTransitEncryption":
+            suggest = "destination_transit_encryption"
+        elif key == "flowArn":
+            suggest = "flow_arn"
+        elif key == "flowSourceArn":
+            suggest = "flow_source_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceMediaConnectFlowRouterOutputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceMediaConnectFlowRouterOutputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceMediaConnectFlowRouterOutputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_transit_encryption: 'outputs.RouterOutputResourceFlowTransitEncryption',
+                 flow_arn: Optional[_builtins.str] = None,
+                 flow_source_arn: Optional[_builtins.str] = None):
+        """
+        Configuration settings for connecting a router output to a MediaConnect flow source.
+        :param _builtins.str flow_arn: The ARN of the flow to connect to this router output.
+        :param _builtins.str flow_source_arn: The ARN of the flow source to connect to this router output.
+        """
+        pulumi.set(__self__, "destination_transit_encryption", destination_transit_encryption)
+        if flow_arn is not None:
+            pulumi.set(__self__, "flow_arn", flow_arn)
+        if flow_source_arn is not None:
+            pulumi.set(__self__, "flow_source_arn", flow_source_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationTransitEncryption")
+    def destination_transit_encryption(self) -> 'outputs.RouterOutputResourceFlowTransitEncryption':
+        return pulumi.get(self, "destination_transit_encryption")
+
+    @_builtins.property
+    @pulumi.getter(name="flowArn")
+    def flow_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the flow to connect to this router output.
+        """
+        return pulumi.get(self, "flow_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="flowSourceArn")
+    def flow_source_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the flow source to connect to this router output.
+        """
+        return pulumi.get(self, "flow_source_arn")
+
+
+@pulumi.output_type
+class RouterOutputResourceMediaLiveInputRouterOutputConfiguration(dict):
+    """
+    Configuration settings for connecting a router output to a MediaLive input.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationTransitEncryption":
+            suggest = "destination_transit_encryption"
+        elif key == "mediaLiveInputArn":
+            suggest = "media_live_input_arn"
+        elif key == "mediaLivePipelineId":
+            suggest = "media_live_pipeline_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceMediaLiveInputRouterOutputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceMediaLiveInputRouterOutputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceMediaLiveInputRouterOutputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_transit_encryption: 'outputs.RouterOutputResourceMediaLiveTransitEncryption',
+                 media_live_input_arn: Optional[_builtins.str] = None,
+                 media_live_pipeline_id: Optional['RouterOutputResourceMediaLiveInputPipelineId'] = None):
+        """
+        Configuration settings for connecting a router output to a MediaLive input.
+        :param _builtins.str media_live_input_arn: The ARN of the MediaLive input to connect to this router output.
+        """
+        pulumi.set(__self__, "destination_transit_encryption", destination_transit_encryption)
+        if media_live_input_arn is not None:
+            pulumi.set(__self__, "media_live_input_arn", media_live_input_arn)
+        if media_live_pipeline_id is not None:
+            pulumi.set(__self__, "media_live_pipeline_id", media_live_pipeline_id)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationTransitEncryption")
+    def destination_transit_encryption(self) -> 'outputs.RouterOutputResourceMediaLiveTransitEncryption':
+        return pulumi.get(self, "destination_transit_encryption")
+
+    @_builtins.property
+    @pulumi.getter(name="mediaLiveInputArn")
+    def media_live_input_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the MediaLive input to connect to this router output.
+        """
+        return pulumi.get(self, "media_live_input_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="mediaLivePipelineId")
+    def media_live_pipeline_id(self) -> Optional['RouterOutputResourceMediaLiveInputPipelineId']:
+        return pulumi.get(self, "media_live_pipeline_id")
+
+
+@pulumi.output_type
+class RouterOutputResourceMediaLiveTransitEncryption(dict):
+    """
+    The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through AWS Secrets Manager.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionKeyConfiguration":
+            suggest = "encryption_key_configuration"
+        elif key == "encryptionKeyType":
+            suggest = "encryption_key_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceMediaLiveTransitEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceMediaLiveTransitEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceMediaLiveTransitEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_key_configuration: Any,
+                 encryption_key_type: Optional['RouterOutputResourceMediaLiveTransitEncryptionKeyType'] = None):
+        """
+        The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through AWS Secrets Manager.
+        """
+        pulumi.set(__self__, "encryption_key_configuration", encryption_key_configuration)
+        if encryption_key_type is not None:
+            pulumi.set(__self__, "encryption_key_type", encryption_key_type)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyConfiguration")
+    def encryption_key_configuration(self) -> Any:
+        return pulumi.get(self, "encryption_key_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKeyType")
+    def encryption_key_type(self) -> Optional['RouterOutputResourceMediaLiveTransitEncryptionKeyType']:
+        return pulumi.get(self, "encryption_key_type")
+
+
+@pulumi.output_type
+class RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0Properties(dict):
+    """
+    Configuration settings for the MediaLive transit encryption key.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretsManager":
+            suggest = "secrets_manager"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secrets_manager: 'outputs.RouterOutputResourceSecretsManagerEncryptionKeyConfiguration'):
+        """
+        Configuration settings for the MediaLive transit encryption key.
+        """
+        pulumi.set(__self__, "secrets_manager", secrets_manager)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManager")
+    def secrets_manager(self) -> 'outputs.RouterOutputResourceSecretsManagerEncryptionKeyConfiguration':
+        return pulumi.get(self, "secrets_manager")
+
+
+@pulumi.output_type
+class RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1Properties(dict):
+    """
+    Configuration settings for the MediaLive transit encryption key.
+    """
+    def __init__(__self__, *,
+                 automatic: 'outputs.RouterOutputResourceAutomaticEncryptionKeyConfiguration'):
+        """
+        Configuration settings for the MediaLive transit encryption key.
+        """
+        pulumi.set(__self__, "automatic", automatic)
+
+    @_builtins.property
+    @pulumi.getter
+    def automatic(self) -> 'outputs.RouterOutputResourceAutomaticEncryptionKeyConfiguration':
+        return pulumi.get(self, "automatic")
+
+
+@pulumi.output_type
+class RouterOutputResourcePreferredDayTimeMaintenanceConfiguration(dict):
+    """
+    Configuration for preferred day and time maintenance settings.
+    """
+    def __init__(__self__, *,
+                 day: 'RouterOutputResourceDay',
+                 time: _builtins.str):
+        """
+        Configuration for preferred day and time maintenance settings.
+        :param _builtins.str time: The preferred time for maintenance operations.
+        """
+        pulumi.set(__self__, "day", day)
+        pulumi.set(__self__, "time", time)
+
+    @_builtins.property
+    @pulumi.getter
+    def day(self) -> 'RouterOutputResourceDay':
+        return pulumi.get(self, "day")
+
+    @_builtins.property
+    @pulumi.getter
+    def time(self) -> _builtins.str:
+        """
+        The preferred time for maintenance operations.
+        """
+        return pulumi.get(self, "time")
+
+
+@pulumi.output_type
+class RouterOutputResourceRistRouterOutputConfiguration(dict):
+    """
+    The configuration settings for a router output using the RIST (Reliable Internet Stream Transport) protocol, including the destination address and port.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationAddress":
+            suggest = "destination_address"
+        elif key == "destinationPort":
+            suggest = "destination_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceRistRouterOutputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceRistRouterOutputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceRistRouterOutputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_address: _builtins.str,
+                 destination_port: _builtins.int):
+        """
+        The configuration settings for a router output using the RIST (Reliable Internet Stream Transport) protocol, including the destination address and port.
+        :param _builtins.str destination_address: The destination IP address for the RIST protocol in the router output configuration.
+        :param _builtins.int destination_port: The destination port number for the RIST protocol in the router output configuration.
+        """
+        pulumi.set(__self__, "destination_address", destination_address)
+        pulumi.set(__self__, "destination_port", destination_port)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationAddress")
+    def destination_address(self) -> _builtins.str:
+        """
+        The destination IP address for the RIST protocol in the router output configuration.
+        """
+        return pulumi.get(self, "destination_address")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPort")
+    def destination_port(self) -> _builtins.int:
+        """
+        The destination port number for the RIST protocol in the router output configuration.
+        """
+        return pulumi.get(self, "destination_port")
+
+
+@pulumi.output_type
+class RouterOutputResourceRouterOutputConfiguration0Properties(dict):
+    """
+    The configuration settings for a router output.
+    """
+    def __init__(__self__, *,
+                 standard: 'outputs.RouterOutputResourceStandardRouterOutputConfiguration'):
+        """
+        The configuration settings for a router output.
+        """
+        pulumi.set(__self__, "standard", standard)
+
+    @_builtins.property
+    @pulumi.getter
+    def standard(self) -> 'outputs.RouterOutputResourceStandardRouterOutputConfiguration':
+        return pulumi.get(self, "standard")
+
+
+@pulumi.output_type
+class RouterOutputResourceRouterOutputConfiguration1Properties(dict):
+    """
+    The configuration settings for a router output.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mediaConnectFlow":
+            suggest = "media_connect_flow"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceRouterOutputConfiguration1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceRouterOutputConfiguration1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceRouterOutputConfiguration1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 media_connect_flow: 'outputs.RouterOutputResourceMediaConnectFlowRouterOutputConfiguration'):
+        """
+        The configuration settings for a router output.
+        """
+        pulumi.set(__self__, "media_connect_flow", media_connect_flow)
+
+    @_builtins.property
+    @pulumi.getter(name="mediaConnectFlow")
+    def media_connect_flow(self) -> 'outputs.RouterOutputResourceMediaConnectFlowRouterOutputConfiguration':
+        return pulumi.get(self, "media_connect_flow")
+
+
+@pulumi.output_type
+class RouterOutputResourceRouterOutputConfiguration2Properties(dict):
+    """
+    The configuration settings for a router output.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mediaLiveInput":
+            suggest = "media_live_input"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceRouterOutputConfiguration2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceRouterOutputConfiguration2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceRouterOutputConfiguration2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 media_live_input: 'outputs.RouterOutputResourceMediaLiveInputRouterOutputConfiguration'):
+        """
+        The configuration settings for a router output.
+        """
+        pulumi.set(__self__, "media_live_input", media_live_input)
+
+    @_builtins.property
+    @pulumi.getter(name="mediaLiveInput")
+    def media_live_input(self) -> 'outputs.RouterOutputResourceMediaLiveInputRouterOutputConfiguration':
+        return pulumi.get(self, "media_live_input")
+
+
+@pulumi.output_type
+class RouterOutputResourceRouterOutputProtocolConfiguration0Properties(dict):
+    """
+    The protocol configuration settings for a router output.
+    """
+    def __init__(__self__, *,
+                 rtp: 'outputs.RouterOutputResourceRtpRouterOutputConfiguration'):
+        """
+        The protocol configuration settings for a router output.
+        """
+        pulumi.set(__self__, "rtp", rtp)
+
+    @_builtins.property
+    @pulumi.getter
+    def rtp(self) -> 'outputs.RouterOutputResourceRtpRouterOutputConfiguration':
+        return pulumi.get(self, "rtp")
+
+
+@pulumi.output_type
+class RouterOutputResourceRouterOutputProtocolConfiguration1Properties(dict):
+    """
+    The protocol configuration settings for a router output.
+    """
+    def __init__(__self__, *,
+                 rist: 'outputs.RouterOutputResourceRistRouterOutputConfiguration'):
+        """
+        The protocol configuration settings for a router output.
+        """
+        pulumi.set(__self__, "rist", rist)
+
+    @_builtins.property
+    @pulumi.getter
+    def rist(self) -> 'outputs.RouterOutputResourceRistRouterOutputConfiguration':
+        return pulumi.get(self, "rist")
+
+
+@pulumi.output_type
+class RouterOutputResourceRouterOutputProtocolConfiguration2Properties(dict):
+    """
+    The protocol configuration settings for a router output.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "srtListener":
+            suggest = "srt_listener"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceRouterOutputProtocolConfiguration2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceRouterOutputProtocolConfiguration2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceRouterOutputProtocolConfiguration2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 srt_listener: 'outputs.RouterOutputResourceSrtListenerRouterOutputConfiguration'):
+        """
+        The protocol configuration settings for a router output.
+        """
+        pulumi.set(__self__, "srt_listener", srt_listener)
+
+    @_builtins.property
+    @pulumi.getter(name="srtListener")
+    def srt_listener(self) -> 'outputs.RouterOutputResourceSrtListenerRouterOutputConfiguration':
+        return pulumi.get(self, "srt_listener")
+
+
+@pulumi.output_type
+class RouterOutputResourceRouterOutputProtocolConfiguration3Properties(dict):
+    """
+    The protocol configuration settings for a router output.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "srtCaller":
+            suggest = "srt_caller"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceRouterOutputProtocolConfiguration3Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceRouterOutputProtocolConfiguration3Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceRouterOutputProtocolConfiguration3Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 srt_caller: 'outputs.RouterOutputResourceSrtCallerRouterOutputConfiguration'):
+        """
+        The protocol configuration settings for a router output.
+        """
+        pulumi.set(__self__, "srt_caller", srt_caller)
+
+    @_builtins.property
+    @pulumi.getter(name="srtCaller")
+    def srt_caller(self) -> 'outputs.RouterOutputResourceSrtCallerRouterOutputConfiguration':
+        return pulumi.get(self, "srt_caller")
+
+
+@pulumi.output_type
+class RouterOutputResourceRtpRouterOutputConfiguration(dict):
+    """
+    The configuration settings for a router output using the RTP (Real-Time Transport Protocol) protocol, including the destination address and port, and forward error correction state.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationAddress":
+            suggest = "destination_address"
+        elif key == "destinationPort":
+            suggest = "destination_port"
+        elif key == "forwardErrorCorrection":
+            suggest = "forward_error_correction"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceRtpRouterOutputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceRtpRouterOutputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceRtpRouterOutputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_address: _builtins.str,
+                 destination_port: _builtins.int,
+                 forward_error_correction: Optional['RouterOutputResourceForwardErrorCorrectionState'] = None):
+        """
+        The configuration settings for a router output using the RTP (Real-Time Transport Protocol) protocol, including the destination address and port, and forward error correction state.
+        :param _builtins.str destination_address: The destination IP address for the RTP protocol in the router output configuration.
+        :param _builtins.int destination_port: The destination port number for the RTP protocol in the router output configuration.
+        """
+        pulumi.set(__self__, "destination_address", destination_address)
+        pulumi.set(__self__, "destination_port", destination_port)
+        if forward_error_correction is not None:
+            pulumi.set(__self__, "forward_error_correction", forward_error_correction)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationAddress")
+    def destination_address(self) -> _builtins.str:
+        """
+        The destination IP address for the RTP protocol in the router output configuration.
+        """
+        return pulumi.get(self, "destination_address")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPort")
+    def destination_port(self) -> _builtins.int:
+        """
+        The destination port number for the RTP protocol in the router output configuration.
+        """
+        return pulumi.get(self, "destination_port")
+
+    @_builtins.property
+    @pulumi.getter(name="forwardErrorCorrection")
+    def forward_error_correction(self) -> Optional['RouterOutputResourceForwardErrorCorrectionState']:
+        return pulumi.get(self, "forward_error_correction")
+
+
+@pulumi.output_type
+class RouterOutputResourceSecretsManagerEncryptionKeyConfiguration(dict):
+    """
+    The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceSecretsManagerEncryptionKeyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceSecretsManagerEncryptionKeyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceSecretsManagerEncryptionKeyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: _builtins.str,
+                 secret_arn: _builtins.str):
+        """
+        The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+        :param _builtins.str role_arn: The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
+        :param _builtins.str secret_arn: The ARN of the AWS Secrets Manager secret used for transit encryption.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        The ARN of the AWS Secrets Manager secret used for transit encryption.
+        """
+        return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class RouterOutputResourceSrtCallerRouterOutputConfiguration(dict):
+    """
+    The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in caller mode, including the destination address and port, minimum latency, stream ID, and encryption key configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationAddress":
+            suggest = "destination_address"
+        elif key == "destinationPort":
+            suggest = "destination_port"
+        elif key == "minimumLatencyMilliseconds":
+            suggest = "minimum_latency_milliseconds"
+        elif key == "encryptionConfiguration":
+            suggest = "encryption_configuration"
+        elif key == "streamId":
+            suggest = "stream_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceSrtCallerRouterOutputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceSrtCallerRouterOutputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceSrtCallerRouterOutputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_address: _builtins.str,
+                 destination_port: _builtins.int,
+                 minimum_latency_milliseconds: _builtins.int,
+                 encryption_configuration: Optional['outputs.RouterOutputResourceSrtEncryptionConfiguration'] = None,
+                 stream_id: Optional[_builtins.str] = None):
+        """
+        The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in caller mode, including the destination address and port, minimum latency, stream ID, and encryption key configuration.
+        :param _builtins.str destination_address: The destination IP address for the SRT protocol in caller mode.
+        :param _builtins.int destination_port: The destination port number for the SRT protocol in caller mode.
+        :param _builtins.int minimum_latency_milliseconds: The minimum latency in milliseconds for the SRT protocol in caller mode.
+        :param _builtins.str stream_id: The stream ID for the SRT protocol in caller mode.
+        """
+        pulumi.set(__self__, "destination_address", destination_address)
+        pulumi.set(__self__, "destination_port", destination_port)
+        pulumi.set(__self__, "minimum_latency_milliseconds", minimum_latency_milliseconds)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+        if stream_id is not None:
+            pulumi.set(__self__, "stream_id", stream_id)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationAddress")
+    def destination_address(self) -> _builtins.str:
+        """
+        The destination IP address for the SRT protocol in caller mode.
+        """
+        return pulumi.get(self, "destination_address")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPort")
+    def destination_port(self) -> _builtins.int:
+        """
+        The destination port number for the SRT protocol in caller mode.
+        """
+        return pulumi.get(self, "destination_port")
+
+    @_builtins.property
+    @pulumi.getter(name="minimumLatencyMilliseconds")
+    def minimum_latency_milliseconds(self) -> _builtins.int:
+        """
+        The minimum latency in milliseconds for the SRT protocol in caller mode.
+        """
+        return pulumi.get(self, "minimum_latency_milliseconds")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional['outputs.RouterOutputResourceSrtEncryptionConfiguration']:
+        return pulumi.get(self, "encryption_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="streamId")
+    def stream_id(self) -> Optional[_builtins.str]:
+        """
+        The stream ID for the SRT protocol in caller mode.
+        """
+        return pulumi.get(self, "stream_id")
+
+
+@pulumi.output_type
+class RouterOutputResourceSrtEncryptionConfiguration(dict):
+    """
+    Contains the configuration settings for encrypting SRT streams, including the encryption key details and encryption parameters.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionKey":
+            suggest = "encryption_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceSrtEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceSrtEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceSrtEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_key: 'outputs.RouterOutputResourceSecretsManagerEncryptionKeyConfiguration'):
+        """
+        Contains the configuration settings for encrypting SRT streams, including the encryption key details and encryption parameters.
+        """
+        pulumi.set(__self__, "encryption_key", encryption_key)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> 'outputs.RouterOutputResourceSecretsManagerEncryptionKeyConfiguration':
+        return pulumi.get(self, "encryption_key")
+
+
+@pulumi.output_type
+class RouterOutputResourceSrtListenerRouterOutputConfiguration(dict):
+    """
+    The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and encryption key configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minimumLatencyMilliseconds":
+            suggest = "minimum_latency_milliseconds"
+        elif key == "encryptionConfiguration":
+            suggest = "encryption_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceSrtListenerRouterOutputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceSrtListenerRouterOutputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceSrtListenerRouterOutputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 minimum_latency_milliseconds: _builtins.int,
+                 port: _builtins.int,
+                 encryption_configuration: Optional['outputs.RouterOutputResourceSrtEncryptionConfiguration'] = None):
+        """
+        The configuration settings for a router output using the SRT (Secure Reliable Transport) protocol in listener mode, including the port, minimum latency, and encryption key configuration.
+        :param _builtins.int minimum_latency_milliseconds: The minimum latency in milliseconds for the SRT protocol in listener mode.
+        :param _builtins.int port: The port number for the SRT protocol in listener mode.
+        """
+        pulumi.set(__self__, "minimum_latency_milliseconds", minimum_latency_milliseconds)
+        pulumi.set(__self__, "port", port)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumLatencyMilliseconds")
+    def minimum_latency_milliseconds(self) -> _builtins.int:
+        """
+        The minimum latency in milliseconds for the SRT protocol in listener mode.
+        """
+        return pulumi.get(self, "minimum_latency_milliseconds")
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> _builtins.int:
+        """
+        The port number for the SRT protocol in listener mode.
+        """
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional['outputs.RouterOutputResourceSrtEncryptionConfiguration']:
+        return pulumi.get(self, "encryption_configuration")
+
+
+@pulumi.output_type
+class RouterOutputResourceStandardRouterOutputConfiguration(dict):
+    """
+    The configuration settings for a standard router output, including the protocol, protocol-specific configuration, network interface, and availability zone.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkInterfaceArn":
+            suggest = "network_interface_arn"
+        elif key == "protocolConfiguration":
+            suggest = "protocol_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouterOutputResourceStandardRouterOutputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouterOutputResourceStandardRouterOutputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouterOutputResourceStandardRouterOutputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_interface_arn: _builtins.str,
+                 protocol_configuration: Any,
+                 protocol: Optional['RouterOutputResourceRouterOutputProtocol'] = None):
+        """
+        The configuration settings for a standard router output, including the protocol, protocol-specific configuration, network interface, and availability zone.
+        :param _builtins.str network_interface_arn: The Amazon Resource Name (ARN) of the network interface associated with the standard router output.
+        """
+        pulumi.set(__self__, "network_interface_arn", network_interface_arn)
+        pulumi.set(__self__, "protocol_configuration", protocol_configuration)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterfaceArn")
+    def network_interface_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the network interface associated with the standard router output.
+        """
+        return pulumi.get(self, "network_interface_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="protocolConfiguration")
+    def protocol_configuration(self) -> Any:
+        return pulumi.get(self, "protocol_configuration")
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> Optional['RouterOutputResourceRouterOutputProtocol']:
+        return pulumi.get(self, "protocol")
 
 

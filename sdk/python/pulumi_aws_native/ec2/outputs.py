@@ -81,6 +81,7 @@ __all__ = [
     'IpamPoolTag',
     'IpamResourceDiscoveryIpamOperatingRegion',
     'IpamResourceDiscoveryOrganizationalUnitExclusion',
+    'IpamScopeExternalAuthorityConfiguration',
     'LaunchTemplateAcceleratorCount',
     'LaunchTemplateAcceleratorTotalMemoryMiB',
     'LaunchTemplateBaselineEbsBandwidthMbps',
@@ -214,6 +215,8 @@ __all__ = [
     'VerifiedAccessTrustProviderDeviceOptions',
     'VerifiedAccessTrustProviderNativeApplicationOidcOptions',
     'VerifiedAccessTrustProviderOidcOptions',
+    'VpcEncryptionControlExclusion',
+    'VpcEncryptionControlResourceExclusions',
     'VpcEndpointDnsOptionsSpecification',
     'VpnConnectionCloudwatchLogOptionsSpecification',
     'VpnConnectionIkeVersionsRequestListValue',
@@ -1750,12 +1753,19 @@ class Ec2FleetInstanceRequirementsRequest(dict):
                - For instance types with NVIDIA A100 GPUs, specify `a100` .
                - For instance types with NVIDIA H100 GPUs, specify `h100` .
                - For instance types with AWS Inferentia chips, specify `inferentia` .
+               - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
+               - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
                - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
                - For instance types with NVIDIA K80 GPUs, specify `k80` .
+               - For instance types with NVIDIA L4 GPUs, specify `l4` .
+               - For instance types with NVIDIA L40S GPUs, specify `l40s` .
                - For instance types with NVIDIA M60 GPUs, specify `m60` .
                - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+               - For instance types with AWS Trainium chips, specify `trainium` .
+               - For instance types with AWS Trainium2 chips, specify `trainium2` .
                - For instance types with NVIDIA T4 GPUs, specify `t4` .
                - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+               - For instance types with Xilinx U30 cards, specify `u30` .
                - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
                - For instance types with NVIDIA V100 GPUs, specify `v100` .
                
@@ -1768,6 +1778,7 @@ class Ec2FleetInstanceRequirementsRequest(dict):
                - For instance types with FPGA accelerators, specify `fpga` .
                - For instance types with GPU accelerators, specify `gpu` .
                - For instance types with Inference accelerators, specify `inference` .
+               - For instance types with Media accelerators, specify `media` .
                
                Default: Any accelerator type
         :param Sequence[_builtins.str] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -1974,12 +1985,19 @@ class Ec2FleetInstanceRequirementsRequest(dict):
         - For instance types with NVIDIA A100 GPUs, specify `a100` .
         - For instance types with NVIDIA H100 GPUs, specify `h100` .
         - For instance types with AWS Inferentia chips, specify `inferentia` .
+        - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
+        - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
         - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
         - For instance types with NVIDIA K80 GPUs, specify `k80` .
+        - For instance types with NVIDIA L4 GPUs, specify `l4` .
+        - For instance types with NVIDIA L40S GPUs, specify `l40s` .
         - For instance types with NVIDIA M60 GPUs, specify `m60` .
         - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+        - For instance types with AWS Trainium chips, specify `trainium` .
+        - For instance types with AWS Trainium2 chips, specify `trainium2` .
         - For instance types with NVIDIA T4 GPUs, specify `t4` .
         - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+        - For instance types with Xilinx U30 cards, specify `u30` .
         - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
         - For instance types with NVIDIA V100 GPUs, specify `v100` .
 
@@ -2006,6 +2024,7 @@ class Ec2FleetInstanceRequirementsRequest(dict):
         - For instance types with FPGA accelerators, specify `fpga` .
         - For instance types with GPU accelerators, specify `gpu` .
         - For instance types with Inference accelerators, specify `inference` .
+        - For instance types with Media accelerators, specify `media` .
 
         Default: Any accelerator type
         """
@@ -4606,6 +4625,58 @@ class IpamResourceDiscoveryOrganizationalUnitExclusion(dict):
         An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
         """
         return pulumi.get(self, "organizations_entity_path")
+
+
+@pulumi.output_type
+class IpamScopeExternalAuthorityConfiguration(dict):
+    """
+    External service configuration to connect your AWS IPAM scope.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalResourceIdentifier":
+            suggest = "external_resource_identifier"
+        elif key == "ipamScopeExternalAuthorityType":
+            suggest = "ipam_scope_external_authority_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IpamScopeExternalAuthorityConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IpamScopeExternalAuthorityConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IpamScopeExternalAuthorityConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_resource_identifier: _builtins.str,
+                 ipam_scope_external_authority_type: 'IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType'):
+        """
+        External service configuration to connect your AWS IPAM scope.
+        :param _builtins.str external_resource_identifier: Resource identifier of the scope in the external service connecting to your AWS IPAM scope.
+        :param 'IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType' ipam_scope_external_authority_type: An external service connecting to your AWS IPAM scope.
+        """
+        pulumi.set(__self__, "external_resource_identifier", external_resource_identifier)
+        pulumi.set(__self__, "ipam_scope_external_authority_type", ipam_scope_external_authority_type)
+
+    @_builtins.property
+    @pulumi.getter(name="externalResourceIdentifier")
+    def external_resource_identifier(self) -> _builtins.str:
+        """
+        Resource identifier of the scope in the external service connecting to your AWS IPAM scope.
+        """
+        return pulumi.get(self, "external_resource_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="ipamScopeExternalAuthorityType")
+    def ipam_scope_external_authority_type(self) -> 'IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType':
+        """
+        An external service connecting to your AWS IPAM scope.
+        """
+        return pulumi.get(self, "ipam_scope_external_authority_type")
 
 
 @pulumi.output_type
@@ -12261,12 +12332,19 @@ class SpotFleetInstanceRequirementsRequest(dict):
                - For instance types with NVIDIA A100 GPUs, specify `a100` .
                - For instance types with NVIDIA H100 GPUs, specify `h100` .
                - For instance types with AWS Inferentia chips, specify `inferentia` .
+               - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
+               - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
                - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
                - For instance types with NVIDIA K80 GPUs, specify `k80` .
+               - For instance types with NVIDIA L4 GPUs, specify `l4` .
+               - For instance types with NVIDIA L40S GPUs, specify `l40s` .
                - For instance types with NVIDIA M60 GPUs, specify `m60` .
                - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+               - For instance types with AWS Trainium chips, specify `trainium` .
+               - For instance types with AWS Trainium2 chips, specify `trainium2` .
                - For instance types with NVIDIA T4 GPUs, specify `t4` .
                - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+               - For instance types with Xilinx U30 cards, specify `u30` .
                - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
                - For instance types with NVIDIA V100 GPUs, specify `v100` .
                
@@ -12279,6 +12357,7 @@ class SpotFleetInstanceRequirementsRequest(dict):
                - For instance types with FPGA accelerators, specify `fpga` .
                - For instance types with GPU accelerators, specify `gpu` .
                - For instance types with Inference accelerators, specify `inference` .
+               - For instance types with Media accelerators, specify `media` .
                
                Default: Any accelerator type
         :param Sequence[_builtins.str] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -12485,12 +12564,19 @@ class SpotFleetInstanceRequirementsRequest(dict):
         - For instance types with NVIDIA A100 GPUs, specify `a100` .
         - For instance types with NVIDIA H100 GPUs, specify `h100` .
         - For instance types with AWS Inferentia chips, specify `inferentia` .
+        - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
+        - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
         - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
         - For instance types with NVIDIA K80 GPUs, specify `k80` .
+        - For instance types with NVIDIA L4 GPUs, specify `l4` .
+        - For instance types with NVIDIA L40S GPUs, specify `l40s` .
         - For instance types with NVIDIA M60 GPUs, specify `m60` .
         - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+        - For instance types with AWS Trainium chips, specify `trainium` .
+        - For instance types with AWS Trainium2 chips, specify `trainium2` .
         - For instance types with NVIDIA T4 GPUs, specify `t4` .
         - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+        - For instance types with Xilinx U30 cards, specify `u30` .
         - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
         - For instance types with NVIDIA V100 GPUs, specify `v100` .
 
@@ -12517,6 +12603,7 @@ class SpotFleetInstanceRequirementsRequest(dict):
         - For instance types with FPGA accelerators, specify `fpga` .
         - For instance types with GPU accelerators, specify `gpu` .
         - For instance types with Inference accelerators, specify `inference` .
+        - For instance types with Media accelerators, specify `media` .
 
         Default: Any accelerator type
         """
@@ -15927,6 +16014,188 @@ class VerifiedAccessTrustProviderOidcOptions(dict):
 
 
 @pulumi.output_type
+class VpcEncryptionControlExclusion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stateMessage":
+            suggest = "state_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpcEncryptionControlExclusion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpcEncryptionControlExclusion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpcEncryptionControlExclusion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 state: Optional[_builtins.str] = None,
+                 state_message: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str state: The current state of the exclusion configuration.
+        :param _builtins.str state_message: A message providing additional information about the exclusion state.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if state_message is not None:
+            pulumi.set(__self__, "state_message", state_message)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> Optional[_builtins.str]:
+        """
+        The current state of the exclusion configuration.
+        """
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter(name="stateMessage")
+    def state_message(self) -> Optional[_builtins.str]:
+        """
+        A message providing additional information about the exclusion state.
+        """
+        return pulumi.get(self, "state_message")
+
+
+@pulumi.output_type
+class VpcEncryptionControlResourceExclusions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "egressOnlyInternetGateway":
+            suggest = "egress_only_internet_gateway"
+        elif key == "elasticFileSystem":
+            suggest = "elastic_file_system"
+        elif key == "internetGateway":
+            suggest = "internet_gateway"
+        elif key == "lambda":
+            suggest = "lambda_"
+        elif key == "natGateway":
+            suggest = "nat_gateway"
+        elif key == "virtualPrivateGateway":
+            suggest = "virtual_private_gateway"
+        elif key == "vpcLattice":
+            suggest = "vpc_lattice"
+        elif key == "vpcPeering":
+            suggest = "vpc_peering"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpcEncryptionControlResourceExclusions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpcEncryptionControlResourceExclusions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpcEncryptionControlResourceExclusions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 egress_only_internet_gateway: Optional['outputs.VpcEncryptionControlExclusion'] = None,
+                 elastic_file_system: Optional['outputs.VpcEncryptionControlExclusion'] = None,
+                 internet_gateway: Optional['outputs.VpcEncryptionControlExclusion'] = None,
+                 lambda_: Optional['outputs.VpcEncryptionControlExclusion'] = None,
+                 nat_gateway: Optional['outputs.VpcEncryptionControlExclusion'] = None,
+                 virtual_private_gateway: Optional['outputs.VpcEncryptionControlExclusion'] = None,
+                 vpc_lattice: Optional['outputs.VpcEncryptionControlExclusion'] = None,
+                 vpc_peering: Optional['outputs.VpcEncryptionControlExclusion'] = None):
+        """
+        :param 'VpcEncryptionControlExclusion' egress_only_internet_gateway: Specifies whether to exclude egress-only internet gateway traffic from encryption enforcement.
+        :param 'VpcEncryptionControlExclusion' elastic_file_system: Specifies whether to exclude Elastic File System traffic from encryption enforcement.
+        :param 'VpcEncryptionControlExclusion' internet_gateway: Specifies whether to exclude internet gateway traffic from encryption enforcement.
+        :param 'VpcEncryptionControlExclusion' lambda_: Specifies whether to exclude Lambda function traffic from encryption enforcement.
+        :param 'VpcEncryptionControlExclusion' nat_gateway: Specifies whether to exclude NAT gateway traffic from encryption enforcement.
+        :param 'VpcEncryptionControlExclusion' virtual_private_gateway: Specifies whether to exclude virtual private gateway traffic from encryption enforcement.
+        :param 'VpcEncryptionControlExclusion' vpc_lattice: Specifies whether to exclude VPC Lattice traffic from encryption enforcement.
+        :param 'VpcEncryptionControlExclusion' vpc_peering: Specifies whether to exclude VPC peering connection traffic from encryption enforcement.
+        """
+        if egress_only_internet_gateway is not None:
+            pulumi.set(__self__, "egress_only_internet_gateway", egress_only_internet_gateway)
+        if elastic_file_system is not None:
+            pulumi.set(__self__, "elastic_file_system", elastic_file_system)
+        if internet_gateway is not None:
+            pulumi.set(__self__, "internet_gateway", internet_gateway)
+        if lambda_ is not None:
+            pulumi.set(__self__, "lambda_", lambda_)
+        if nat_gateway is not None:
+            pulumi.set(__self__, "nat_gateway", nat_gateway)
+        if virtual_private_gateway is not None:
+            pulumi.set(__self__, "virtual_private_gateway", virtual_private_gateway)
+        if vpc_lattice is not None:
+            pulumi.set(__self__, "vpc_lattice", vpc_lattice)
+        if vpc_peering is not None:
+            pulumi.set(__self__, "vpc_peering", vpc_peering)
+
+    @_builtins.property
+    @pulumi.getter(name="egressOnlyInternetGateway")
+    def egress_only_internet_gateway(self) -> Optional['outputs.VpcEncryptionControlExclusion']:
+        """
+        Specifies whether to exclude egress-only internet gateway traffic from encryption enforcement.
+        """
+        return pulumi.get(self, "egress_only_internet_gateway")
+
+    @_builtins.property
+    @pulumi.getter(name="elasticFileSystem")
+    def elastic_file_system(self) -> Optional['outputs.VpcEncryptionControlExclusion']:
+        """
+        Specifies whether to exclude Elastic File System traffic from encryption enforcement.
+        """
+        return pulumi.get(self, "elastic_file_system")
+
+    @_builtins.property
+    @pulumi.getter(name="internetGateway")
+    def internet_gateway(self) -> Optional['outputs.VpcEncryptionControlExclusion']:
+        """
+        Specifies whether to exclude internet gateway traffic from encryption enforcement.
+        """
+        return pulumi.get(self, "internet_gateway")
+
+    @_builtins.property
+    @pulumi.getter(name="lambda")
+    def lambda_(self) -> Optional['outputs.VpcEncryptionControlExclusion']:
+        """
+        Specifies whether to exclude Lambda function traffic from encryption enforcement.
+        """
+        return pulumi.get(self, "lambda_")
+
+    @_builtins.property
+    @pulumi.getter(name="natGateway")
+    def nat_gateway(self) -> Optional['outputs.VpcEncryptionControlExclusion']:
+        """
+        Specifies whether to exclude NAT gateway traffic from encryption enforcement.
+        """
+        return pulumi.get(self, "nat_gateway")
+
+    @_builtins.property
+    @pulumi.getter(name="virtualPrivateGateway")
+    def virtual_private_gateway(self) -> Optional['outputs.VpcEncryptionControlExclusion']:
+        """
+        Specifies whether to exclude virtual private gateway traffic from encryption enforcement.
+        """
+        return pulumi.get(self, "virtual_private_gateway")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcLattice")
+    def vpc_lattice(self) -> Optional['outputs.VpcEncryptionControlExclusion']:
+        """
+        Specifies whether to exclude VPC Lattice traffic from encryption enforcement.
+        """
+        return pulumi.get(self, "vpc_lattice")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcPeering")
+    def vpc_peering(self) -> Optional['outputs.VpcEncryptionControlExclusion']:
+        """
+        Specifies whether to exclude VPC peering connection traffic from encryption enforcement.
+        """
+        return pulumi.get(self, "vpc_peering")
+
+
+@pulumi.output_type
 class VpcEndpointDnsOptionsSpecification(dict):
     """
     Describes the DNS options for an endpoint.
@@ -15938,6 +16207,10 @@ class VpcEndpointDnsOptionsSpecification(dict):
             suggest = "dns_record_ip_type"
         elif key == "privateDnsOnlyForInboundResolverEndpoint":
             suggest = "private_dns_only_for_inbound_resolver_endpoint"
+        elif key == "privateDnsPreference":
+            suggest = "private_dns_preference"
+        elif key == "privateDnsSpecifiedDomains":
+            suggest = "private_dns_specified_domains"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VpcEndpointDnsOptionsSpecification. Access the value via the '{suggest}' property getter instead.")
@@ -15952,16 +16225,24 @@ class VpcEndpointDnsOptionsSpecification(dict):
 
     def __init__(__self__, *,
                  dns_record_ip_type: Optional['VpcEndpointDnsOptionsSpecificationDnsRecordIpType'] = None,
-                 private_dns_only_for_inbound_resolver_endpoint: Optional['VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint'] = None):
+                 private_dns_only_for_inbound_resolver_endpoint: Optional['VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint'] = None,
+                 private_dns_preference: Optional['VpcEndpointDnsOptionsSpecificationPrivateDnsPreference'] = None,
+                 private_dns_specified_domains: Optional[Sequence[_builtins.str]] = None):
         """
         Describes the DNS options for an endpoint.
         :param 'VpcEndpointDnsOptionsSpecificationDnsRecordIpType' dns_record_ip_type: The DNS records created for the endpoint.
         :param 'VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint' private_dns_only_for_inbound_resolver_endpoint: Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.
+        :param 'VpcEndpointDnsOptionsSpecificationPrivateDnsPreference' private_dns_preference: The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+        :param Sequence[_builtins.str] private_dns_specified_domains: Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
         """
         if dns_record_ip_type is not None:
             pulumi.set(__self__, "dns_record_ip_type", dns_record_ip_type)
         if private_dns_only_for_inbound_resolver_endpoint is not None:
             pulumi.set(__self__, "private_dns_only_for_inbound_resolver_endpoint", private_dns_only_for_inbound_resolver_endpoint)
+        if private_dns_preference is not None:
+            pulumi.set(__self__, "private_dns_preference", private_dns_preference)
+        if private_dns_specified_domains is not None:
+            pulumi.set(__self__, "private_dns_specified_domains", private_dns_specified_domains)
 
     @_builtins.property
     @pulumi.getter(name="dnsRecordIpType")
@@ -15979,6 +16260,22 @@ class VpcEndpointDnsOptionsSpecification(dict):
         """
         return pulumi.get(self, "private_dns_only_for_inbound_resolver_endpoint")
 
+    @_builtins.property
+    @pulumi.getter(name="privateDnsPreference")
+    def private_dns_preference(self) -> Optional['VpcEndpointDnsOptionsSpecificationPrivateDnsPreference']:
+        """
+        The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+        """
+        return pulumi.get(self, "private_dns_preference")
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsSpecifiedDomains")
+    def private_dns_specified_domains(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
+        """
+        return pulumi.get(self, "private_dns_specified_domains")
+
 
 @pulumi.output_type
 class VpnConnectionCloudwatchLogOptionsSpecification(dict):
@@ -15988,7 +16285,13 @@ class VpnConnectionCloudwatchLogOptionsSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "logEnabled":
+        if key == "bgpLogEnabled":
+            suggest = "bgp_log_enabled"
+        elif key == "bgpLogGroupArn":
+            suggest = "bgp_log_group_arn"
+        elif key == "bgpLogOutputFormat":
+            suggest = "bgp_log_output_format"
+        elif key == "logEnabled":
             suggest = "log_enabled"
         elif key == "logGroupArn":
             suggest = "log_group_arn"
@@ -16007,23 +16310,67 @@ class VpnConnectionCloudwatchLogOptionsSpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 bgp_log_enabled: Optional[_builtins.bool] = None,
+                 bgp_log_group_arn: Optional[_builtins.str] = None,
+                 bgp_log_output_format: Optional['VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat'] = None,
                  log_enabled: Optional[_builtins.bool] = None,
                  log_group_arn: Optional[_builtins.str] = None,
                  log_output_format: Optional['VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat'] = None):
         """
         Options for sending VPN tunnel logs to CloudWatch.
+        :param _builtins.bool bgp_log_enabled: Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
+               
+               Valid values: `True` | `False`
+        :param _builtins.str bgp_log_group_arn: The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.
+        :param 'VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat' bgp_log_output_format: The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
+               
+               Valid values: `json` | `text`
         :param _builtins.bool log_enabled: Enable or disable VPN tunnel logging feature. Default value is ``False``.
                 Valid values: ``True`` | ``False``
         :param _builtins.str log_group_arn: The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
         :param 'VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat' log_output_format: Set log format. Default format is ``json``.
                 Valid values: ``json`` | ``text``
         """
+        if bgp_log_enabled is not None:
+            pulumi.set(__self__, "bgp_log_enabled", bgp_log_enabled)
+        if bgp_log_group_arn is not None:
+            pulumi.set(__self__, "bgp_log_group_arn", bgp_log_group_arn)
+        if bgp_log_output_format is not None:
+            pulumi.set(__self__, "bgp_log_output_format", bgp_log_output_format)
         if log_enabled is not None:
             pulumi.set(__self__, "log_enabled", log_enabled)
         if log_group_arn is not None:
             pulumi.set(__self__, "log_group_arn", log_group_arn)
         if log_output_format is not None:
             pulumi.set(__self__, "log_output_format", log_output_format)
+
+    @_builtins.property
+    @pulumi.getter(name="bgpLogEnabled")
+    def bgp_log_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
+
+        Valid values: `True` | `False`
+        """
+        return pulumi.get(self, "bgp_log_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="bgpLogGroupArn")
+    def bgp_log_group_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.
+        """
+        return pulumi.get(self, "bgp_log_group_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="bgpLogOutputFormat")
+    def bgp_log_output_format(self) -> Optional['VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat']:
+        """
+        The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
+
+        Valid values: `json` | `text`
+        """
+        return pulumi.get(self, "bgp_log_output_format")
 
     @_builtins.property
     @pulumi.getter(name="logEnabled")

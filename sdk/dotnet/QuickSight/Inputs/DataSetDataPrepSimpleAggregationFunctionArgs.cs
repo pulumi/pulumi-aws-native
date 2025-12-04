@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetDataPrepSimpleAggregationFunctionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of aggregation function to perform, such as `COUNT` , `SUM` , `AVERAGE` , `MIN` , `MAX` , `MEDIAN` , `VARIANCE` , or `STANDARD_DEVIATION` .
+        /// </summary>
         [Input("functionType", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DataSetDataPrepSimpleAggregationFunctionType> FunctionType { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the column on which to perform the aggregation function.
+        /// </summary>
         [Input("inputColumnName")]
         public Input<string>? InputColumnName { get; set; }
 

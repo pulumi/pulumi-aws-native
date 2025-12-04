@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.Comprehend.Inputs
     public sealed class FlywheelDataSecurityConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID for the AWS KMS key that Amazon Comprehend uses to encrypt the data in the data lake.
+        /// ID for the AWS  key that Amazon Comprehend uses to encrypt the data in the data lake.
         /// </summary>
         [Input("dataLakeKmsKeyId")]
         public Input<string>? DataLakeKmsKeyId { get; set; }
 
         /// <summary>
-        /// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+        /// ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
         /// 
         /// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
         /// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Comprehend.Inputs
         public Input<string>? ModelKmsKeyId { get; set; }
 
         /// <summary>
-        /// ID for the AWS KMS key that Amazon Comprehend uses to encrypt the volume.
+        /// ID for the AWS  key that Amazon Comprehend uses to encrypt the volume.
         /// </summary>
         [Input("volumeKmsKeyId")]
         public Input<string>? VolumeKmsKeyId { get; set; }

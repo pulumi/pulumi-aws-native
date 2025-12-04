@@ -31,7 +31,7 @@ type LookupApplicationArgs struct {
 }
 
 type LookupApplicationResult struct {
-	// The resource ID of the API Gateway for the proxy.
+	// The resource ID of the ABP for the proxy.
 	ApiGatewayId *string `pulumi:"apiGatewayId"`
 	// The unique identifier of the application.
 	ApplicationIdentifier *string `pulumi:"applicationIdentifier"`
@@ -41,13 +41,13 @@ type LookupApplicationResult struct {
 	NlbArn *string `pulumi:"nlbArn"`
 	// The name of the Network Load Balancer configured by the API Gateway proxy.
 	NlbName *string `pulumi:"nlbName"`
-	// The endpoint URL of the Amazon API Gateway proxy.
+	// The endpoint URL of the ABPlong proxy.
 	ProxyUrl *string `pulumi:"proxyUrl"`
-	// The name of the API Gateway stage. The name defaults to `prod` .
+	// The name of the ABP stage. The name defaults to `prod` .
 	StageName *string `pulumi:"stageName"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
-	// The `VpcLink` ID of the API Gateway proxy.
+	// The `VpcLink` ID of the ABP proxy.
 	VpcLinkId *string `pulumi:"vpcLinkId"`
 }
 
@@ -85,7 +85,7 @@ func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContex
 	return o
 }
 
-// The resource ID of the API Gateway for the proxy.
+// The resource ID of the ABP for the proxy.
 func (o LookupApplicationResultOutput) ApiGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ApiGatewayId }).(pulumi.StringPtrOutput)
 }
@@ -110,12 +110,12 @@ func (o LookupApplicationResultOutput) NlbName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.NlbName }).(pulumi.StringPtrOutput)
 }
 
-// The endpoint URL of the Amazon API Gateway proxy.
+// The endpoint URL of the ABPlong proxy.
 func (o LookupApplicationResultOutput) ProxyUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ProxyUrl }).(pulumi.StringPtrOutput)
 }
 
-// The name of the API Gateway stage. The name defaults to `prod` .
+// The name of the ABP stage. The name defaults to `prod` .
 func (o LookupApplicationResultOutput) StageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.StageName }).(pulumi.StringPtrOutput)
 }
@@ -125,7 +125,7 @@ func (o LookupApplicationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupApplicationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The `VpcLink` ID of the API Gateway proxy.
+// The `VpcLink` ID of the ABP proxy.
 func (o LookupApplicationResultOutput) VpcLinkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.VpcLinkId }).(pulumi.StringPtrOutput)
 }

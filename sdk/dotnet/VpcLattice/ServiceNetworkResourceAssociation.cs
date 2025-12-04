@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates if private DNS is enabled for the service network resource association.
+        /// </summary>
+        [Output("privateDnsEnabled")]
+        public Output<bool?> PrivateDnsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the resource configuration associated with the service network.
         /// </summary>
         [Output("resourceConfigurationId")]
@@ -70,6 +76,7 @@ namespace Pulumi.AwsNative.VpcLattice
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "privateDnsEnabled",
                     "resourceConfigurationId",
                     "serviceNetworkId",
                 },
@@ -95,6 +102,12 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class ServiceNetworkResourceAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates if private DNS is enabled for the service network resource association.
+        /// </summary>
+        [Input("privateDnsEnabled")]
+        public Input<bool>? PrivateDnsEnabled { get; set; }
+
         /// <summary>
         /// The ID of the resource configuration associated with the service network.
         /// </summary>

@@ -17,11 +17,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetCreateColumnsOperation
     {
+        /// <summary>
+        /// Alias for this operation.
+        /// </summary>
         public readonly string? Alias;
         /// <summary>
         /// &lt;p&gt;Calculated columns to create.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.DataSetCalculatedColumn> Columns;
+        /// <summary>
+        /// The source transform operation that provides input data for creating new calculated columns.
+        /// </summary>
         public readonly Outputs.DataSetTransformOperationSource? Source;
 
         [OutputConstructor]

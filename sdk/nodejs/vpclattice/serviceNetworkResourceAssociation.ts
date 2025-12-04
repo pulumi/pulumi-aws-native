@@ -46,6 +46,10 @@ export class ServiceNetworkResourceAssociation extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
+     * Indicates if private DNS is enabled for the service network resource association.
+     */
+    declare public readonly privateDnsEnabled: pulumi.Output<boolean | undefined>;
+    /**
      * The ID of the resource configuration associated with the service network.
      */
     declare public readonly resourceConfigurationId: pulumi.Output<string | undefined>;
@@ -69,6 +73,7 @@ export class ServiceNetworkResourceAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["privateDnsEnabled"] = args?.privateDnsEnabled;
             resourceInputs["resourceConfigurationId"] = args?.resourceConfigurationId;
             resourceInputs["serviceNetworkId"] = args?.serviceNetworkId;
             resourceInputs["tags"] = args?.tags;
@@ -77,12 +82,13 @@ export class ServiceNetworkResourceAssociation extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["privateDnsEnabled"] = undefined /*out*/;
             resourceInputs["resourceConfigurationId"] = undefined /*out*/;
             resourceInputs["serviceNetworkId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["resourceConfigurationId", "serviceNetworkId"] };
+        const replaceOnChanges = { replaceOnChanges: ["privateDnsEnabled", "resourceConfigurationId", "serviceNetworkId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ServiceNetworkResourceAssociation.__pulumiType, name, resourceInputs, opts);
     }
@@ -92,6 +98,10 @@ export class ServiceNetworkResourceAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a ServiceNetworkResourceAssociation resource.
  */
 export interface ServiceNetworkResourceAssociationArgs {
+    /**
+     * Indicates if private DNS is enabled for the service network resource association.
+     */
+    privateDnsEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the resource configuration associated with the service network.
      */

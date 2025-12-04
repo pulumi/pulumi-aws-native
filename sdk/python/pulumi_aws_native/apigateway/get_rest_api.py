@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRestApiResult:
-    def __init__(__self__, api_key_source_type=None, binary_media_types=None, description=None, disable_execute_api_endpoint=None, endpoint_configuration=None, minimum_compression_size=None, name=None, policy=None, rest_api_id=None, root_resource_id=None, security_policy=None, tags=None):
+    def __init__(__self__, api_key_source_type=None, binary_media_types=None, description=None, disable_execute_api_endpoint=None, endpoint_access_mode=None, endpoint_configuration=None, minimum_compression_size=None, name=None, policy=None, rest_api_id=None, root_resource_id=None, security_policy=None, tags=None):
         if api_key_source_type and not isinstance(api_key_source_type, str):
             raise TypeError("Expected argument 'api_key_source_type' to be a str")
         pulumi.set(__self__, "api_key_source_type", api_key_source_type)
@@ -38,6 +38,9 @@ class GetRestApiResult:
         if disable_execute_api_endpoint and not isinstance(disable_execute_api_endpoint, bool):
             raise TypeError("Expected argument 'disable_execute_api_endpoint' to be a bool")
         pulumi.set(__self__, "disable_execute_api_endpoint", disable_execute_api_endpoint)
+        if endpoint_access_mode and not isinstance(endpoint_access_mode, str):
+            raise TypeError("Expected argument 'endpoint_access_mode' to be a str")
+        pulumi.set(__self__, "endpoint_access_mode", endpoint_access_mode)
         if endpoint_configuration and not isinstance(endpoint_configuration, dict):
             raise TypeError("Expected argument 'endpoint_configuration' to be a dict")
         pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
@@ -96,6 +99,14 @@ class GetRestApiResult:
         return pulumi.get(self, "disable_execute_api_endpoint")
 
     @_builtins.property
+    @pulumi.getter(name="endpointAccessMode")
+    def endpoint_access_mode(self) -> Optional[_builtins.str]:
+        """
+        The endpoint access mode for your RestApi.
+        """
+        return pulumi.get(self, "endpoint_access_mode")
+
+    @_builtins.property
     @pulumi.getter(name="endpointConfiguration")
     def endpoint_configuration(self) -> Optional['outputs.RestApiEndpointConfiguration']:
         """
@@ -148,6 +159,9 @@ class GetRestApiResult:
     @_builtins.property
     @pulumi.getter(name="securityPolicy")
     def security_policy(self) -> Optional[_builtins.str]:
+        """
+        The Transport Layer Security (TLS) version + cipher suite for this RestApi.
+        """
         return pulumi.get(self, "security_policy")
 
     @_builtins.property
@@ -169,6 +183,7 @@ class AwaitableGetRestApiResult(GetRestApiResult):
             binary_media_types=self.binary_media_types,
             description=self.description,
             disable_execute_api_endpoint=self.disable_execute_api_endpoint,
+            endpoint_access_mode=self.endpoint_access_mode,
             endpoint_configuration=self.endpoint_configuration,
             minimum_compression_size=self.minimum_compression_size,
             name=self.name,
@@ -198,6 +213,7 @@ def get_rest_api(rest_api_id: Optional[_builtins.str] = None,
         binary_media_types=pulumi.get(__ret__, 'binary_media_types'),
         description=pulumi.get(__ret__, 'description'),
         disable_execute_api_endpoint=pulumi.get(__ret__, 'disable_execute_api_endpoint'),
+        endpoint_access_mode=pulumi.get(__ret__, 'endpoint_access_mode'),
         endpoint_configuration=pulumi.get(__ret__, 'endpoint_configuration'),
         minimum_compression_size=pulumi.get(__ret__, 'minimum_compression_size'),
         name=pulumi.get(__ret__, 'name'),
@@ -224,6 +240,7 @@ def get_rest_api_output(rest_api_id: Optional[pulumi.Input[_builtins.str]] = Non
         binary_media_types=pulumi.get(__response__, 'binary_media_types'),
         description=pulumi.get(__response__, 'description'),
         disable_execute_api_endpoint=pulumi.get(__response__, 'disable_execute_api_endpoint'),
+        endpoint_access_mode=pulumi.get(__response__, 'endpoint_access_mode'),
         endpoint_configuration=pulumi.get(__response__, 'endpoint_configuration'),
         minimum_compression_size=pulumi.get(__response__, 'minimum_compression_size'),
         name=pulumi.get(__response__, 'name'),

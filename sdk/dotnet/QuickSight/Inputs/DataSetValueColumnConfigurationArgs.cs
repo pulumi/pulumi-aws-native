@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetValueColumnConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The aggregation function to apply when multiple values map to the same pivoted cell.
+        /// </summary>
         [Input("aggregationFunction")]
         public Input<Inputs.DataSetDataPrepAggregationFunctionArgs>? AggregationFunction { get; set; }
 

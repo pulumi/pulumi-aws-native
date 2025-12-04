@@ -10,11 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Outputs
 {
 
+    /// <summary>
+    /// Information about automatic fail configuration for an evaluation form.
+    /// </summary>
     [OutputType]
     public sealed class EvaluationFormAutomaticFailConfiguration
     {
         /// <summary>
-        /// The target section refId to control failure propagation boundary.
+        /// The referenceId of the target section for auto failure.
         /// </summary>
         public readonly string? TargetSection;
 

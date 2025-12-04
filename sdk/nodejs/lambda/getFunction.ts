@@ -40,6 +40,7 @@ export interface GetFunctionResult {
      * The Amazon Resource Name (ARN) of the function.
      */
     readonly arn?: string;
+    readonly capacityProviderConfig?: outputs.lambda.FunctionCapacityProviderConfig;
     /**
      * The code for the function. You can define your function code in multiple ways:
      *   +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
@@ -72,6 +73,7 @@ export interface GetFunctionResult {
      *  For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).
      */
     readonly fileSystemConfigs?: outputs.lambda.FunctionFileSystemConfig[];
+    readonly functionScalingConfig?: outputs.lambda.FunctionScalingConfig;
     /**
      * The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
      */

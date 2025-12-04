@@ -70,9 +70,17 @@ export class Stream extends pulumi.CustomResource {
      */
     declare public readonly streamModeDetails: pulumi.Output<outputs.kinesis.StreamModeDetails | undefined>;
     /**
-     * An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+     * An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Target warm throughput in MiB/s for the stream. This property can ONLY be set when StreamMode is ON_DEMAND.
+     */
+    declare public readonly warmThroughputMiBps: pulumi.Output<number | undefined>;
+    /**
+     * Warm throughput configuration details for the stream. Only present for ON_DEMAND streams.
+     */
+    declare public /*out*/ readonly warmThroughputObject: pulumi.Output<outputs.kinesis.StreamWarmThroughputObject>;
 
     /**
      * Create a Stream resource with the given unique name, arguments, and options.
@@ -93,7 +101,9 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["streamEncryption"] = args?.streamEncryption;
             resourceInputs["streamModeDetails"] = args?.streamModeDetails;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["warmThroughputMiBps"] = args?.warmThroughputMiBps;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["warmThroughputObject"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["desiredShardLevelMetrics"] = undefined /*out*/;
@@ -104,6 +114,8 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["streamEncryption"] = undefined /*out*/;
             resourceInputs["streamModeDetails"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["warmThroughputMiBps"] = undefined /*out*/;
+            resourceInputs["warmThroughputObject"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["name"] };
@@ -145,7 +157,11 @@ export interface StreamArgs {
      */
     streamModeDetails?: pulumi.Input<inputs.kinesis.StreamModeDetailsArgs>;
     /**
-     * An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+     * An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Target warm throughput in MiB/s for the stream. This property can ONLY be set when StreamMode is ON_DEMAND.
+     */
+    warmThroughputMiBps?: pulumi.Input<number>;
 }

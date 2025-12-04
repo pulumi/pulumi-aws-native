@@ -642,6 +642,34 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     [EnumType]
+    public readonly struct DataAutomationProjectAudioGenerativeOutputLanguage : IEquatable<DataAutomationProjectAudioGenerativeOutputLanguage>
+    {
+        private readonly string _value;
+
+        private DataAutomationProjectAudioGenerativeOutputLanguage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationProjectAudioGenerativeOutputLanguage Default { get; } = new DataAutomationProjectAudioGenerativeOutputLanguage("DEFAULT");
+        public static DataAutomationProjectAudioGenerativeOutputLanguage En { get; } = new DataAutomationProjectAudioGenerativeOutputLanguage("EN");
+
+        public static bool operator ==(DataAutomationProjectAudioGenerativeOutputLanguage left, DataAutomationProjectAudioGenerativeOutputLanguage right) => left.Equals(right);
+        public static bool operator !=(DataAutomationProjectAudioGenerativeOutputLanguage left, DataAutomationProjectAudioGenerativeOutputLanguage right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationProjectAudioGenerativeOutputLanguage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationProjectAudioGenerativeOutputLanguage other && Equals(other);
+        public bool Equals(DataAutomationProjectAudioGenerativeOutputLanguage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DataAutomationProjectAudioStandardGenerativeFieldType : IEquatable<DataAutomationProjectAudioStandardGenerativeFieldType>
     {
         private readonly string _value;
@@ -842,6 +870,216 @@ namespace Pulumi.AwsNative.Bedrock
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataAutomationProjectImageStandardGenerativeFieldType other && Equals(other);
         public bool Equals(DataAutomationProjectImageStandardGenerativeFieldType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataAutomationProjectLanguage : IEquatable<DataAutomationProjectLanguage>
+    {
+        private readonly string _value;
+
+        private DataAutomationProjectLanguage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationProjectLanguage En { get; } = new DataAutomationProjectLanguage("EN");
+        public static DataAutomationProjectLanguage De { get; } = new DataAutomationProjectLanguage("DE");
+        public static DataAutomationProjectLanguage Es { get; } = new DataAutomationProjectLanguage("ES");
+        public static DataAutomationProjectLanguage Fr { get; } = new DataAutomationProjectLanguage("FR");
+        public static DataAutomationProjectLanguage It { get; } = new DataAutomationProjectLanguage("IT");
+        public static DataAutomationProjectLanguage Pt { get; } = new DataAutomationProjectLanguage("PT");
+        public static DataAutomationProjectLanguage Ja { get; } = new DataAutomationProjectLanguage("JA");
+        public static DataAutomationProjectLanguage Ko { get; } = new DataAutomationProjectLanguage("KO");
+        public static DataAutomationProjectLanguage Cn { get; } = new DataAutomationProjectLanguage("CN");
+        public static DataAutomationProjectLanguage Tw { get; } = new DataAutomationProjectLanguage("TW");
+        public static DataAutomationProjectLanguage Hk { get; } = new DataAutomationProjectLanguage("HK");
+
+        public static bool operator ==(DataAutomationProjectLanguage left, DataAutomationProjectLanguage right) => left.Equals(right);
+        public static bool operator !=(DataAutomationProjectLanguage left, DataAutomationProjectLanguage right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationProjectLanguage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationProjectLanguage other && Equals(other);
+        public bool Equals(DataAutomationProjectLanguage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataAutomationProjectPiiEntityTypes : IEquatable<DataAutomationProjectPiiEntityTypes>
+    {
+        private readonly string _value;
+
+        private DataAutomationProjectPiiEntityTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationProjectPiiEntityTypes All { get; } = new DataAutomationProjectPiiEntityTypes("ALL");
+        public static DataAutomationProjectPiiEntityTypes Address { get; } = new DataAutomationProjectPiiEntityTypes("ADDRESS");
+        public static DataAutomationProjectPiiEntityTypes Age { get; } = new DataAutomationProjectPiiEntityTypes("AGE");
+        public static DataAutomationProjectPiiEntityTypes Name { get; } = new DataAutomationProjectPiiEntityTypes("NAME");
+        public static DataAutomationProjectPiiEntityTypes Email { get; } = new DataAutomationProjectPiiEntityTypes("EMAIL");
+        public static DataAutomationProjectPiiEntityTypes Phone { get; } = new DataAutomationProjectPiiEntityTypes("PHONE");
+        public static DataAutomationProjectPiiEntityTypes Username { get; } = new DataAutomationProjectPiiEntityTypes("USERNAME");
+        public static DataAutomationProjectPiiEntityTypes Password { get; } = new DataAutomationProjectPiiEntityTypes("PASSWORD");
+        public static DataAutomationProjectPiiEntityTypes DriverId { get; } = new DataAutomationProjectPiiEntityTypes("DRIVER_ID");
+        public static DataAutomationProjectPiiEntityTypes LicensePlate { get; } = new DataAutomationProjectPiiEntityTypes("LICENSE_PLATE");
+        public static DataAutomationProjectPiiEntityTypes VehicleIdentificationNumber { get; } = new DataAutomationProjectPiiEntityTypes("VEHICLE_IDENTIFICATION_NUMBER");
+        public static DataAutomationProjectPiiEntityTypes CreditDebitCardCvv { get; } = new DataAutomationProjectPiiEntityTypes("CREDIT_DEBIT_CARD_CVV");
+        public static DataAutomationProjectPiiEntityTypes CreditDebitCardExpiry { get; } = new DataAutomationProjectPiiEntityTypes("CREDIT_DEBIT_CARD_EXPIRY");
+        public static DataAutomationProjectPiiEntityTypes CreditDebitCardNumber { get; } = new DataAutomationProjectPiiEntityTypes("CREDIT_DEBIT_CARD_NUMBER");
+        public static DataAutomationProjectPiiEntityTypes Pin { get; } = new DataAutomationProjectPiiEntityTypes("PIN");
+        public static DataAutomationProjectPiiEntityTypes InternationalBankAccountNumber { get; } = new DataAutomationProjectPiiEntityTypes("INTERNATIONAL_BANK_ACCOUNT_NUMBER");
+        public static DataAutomationProjectPiiEntityTypes SwiftCode { get; } = new DataAutomationProjectPiiEntityTypes("SWIFT_CODE");
+        public static DataAutomationProjectPiiEntityTypes IpAddress { get; } = new DataAutomationProjectPiiEntityTypes("IP_ADDRESS");
+        public static DataAutomationProjectPiiEntityTypes MacAddress { get; } = new DataAutomationProjectPiiEntityTypes("MAC_ADDRESS");
+        public static DataAutomationProjectPiiEntityTypes Url { get; } = new DataAutomationProjectPiiEntityTypes("URL");
+        public static DataAutomationProjectPiiEntityTypes AwsAccessKey { get; } = new DataAutomationProjectPiiEntityTypes("AWS_ACCESS_KEY");
+        public static DataAutomationProjectPiiEntityTypes AwsSecretKey { get; } = new DataAutomationProjectPiiEntityTypes("AWS_SECRET_KEY");
+        public static DataAutomationProjectPiiEntityTypes UsBankAccountNumber { get; } = new DataAutomationProjectPiiEntityTypes("US_BANK_ACCOUNT_NUMBER");
+        public static DataAutomationProjectPiiEntityTypes UsBankRoutingNumber { get; } = new DataAutomationProjectPiiEntityTypes("US_BANK_ROUTING_NUMBER");
+        public static DataAutomationProjectPiiEntityTypes UsIndividualTaxIdentificationNumber { get; } = new DataAutomationProjectPiiEntityTypes("US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER");
+        public static DataAutomationProjectPiiEntityTypes UsPassportNumber { get; } = new DataAutomationProjectPiiEntityTypes("US_PASSPORT_NUMBER");
+        public static DataAutomationProjectPiiEntityTypes UsSocialSecurityNumber { get; } = new DataAutomationProjectPiiEntityTypes("US_SOCIAL_SECURITY_NUMBER");
+        public static DataAutomationProjectPiiEntityTypes CaHealthNumber { get; } = new DataAutomationProjectPiiEntityTypes("CA_HEALTH_NUMBER");
+        public static DataAutomationProjectPiiEntityTypes CaSocialInsuranceNumber { get; } = new DataAutomationProjectPiiEntityTypes("CA_SOCIAL_INSURANCE_NUMBER");
+        public static DataAutomationProjectPiiEntityTypes UkNationalHealthServiceNumber { get; } = new DataAutomationProjectPiiEntityTypes("UK_NATIONAL_HEALTH_SERVICE_NUMBER");
+        public static DataAutomationProjectPiiEntityTypes UkNationalInsuranceNumber { get; } = new DataAutomationProjectPiiEntityTypes("UK_NATIONAL_INSURANCE_NUMBER");
+        public static DataAutomationProjectPiiEntityTypes UkUniqueTaxpayerReferenceNumber { get; } = new DataAutomationProjectPiiEntityTypes("UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER");
+
+        public static bool operator ==(DataAutomationProjectPiiEntityTypes left, DataAutomationProjectPiiEntityTypes right) => left.Equals(right);
+        public static bool operator !=(DataAutomationProjectPiiEntityTypes left, DataAutomationProjectPiiEntityTypes right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationProjectPiiEntityTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationProjectPiiEntityTypes other && Equals(other);
+        public bool Equals(DataAutomationProjectPiiEntityTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataAutomationProjectPiiRedactionMaskMode : IEquatable<DataAutomationProjectPiiRedactionMaskMode>
+    {
+        private readonly string _value;
+
+        private DataAutomationProjectPiiRedactionMaskMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationProjectPiiRedactionMaskMode Pii { get; } = new DataAutomationProjectPiiRedactionMaskMode("PII");
+        public static DataAutomationProjectPiiRedactionMaskMode EntityType { get; } = new DataAutomationProjectPiiRedactionMaskMode("ENTITY_TYPE");
+
+        public static bool operator ==(DataAutomationProjectPiiRedactionMaskMode left, DataAutomationProjectPiiRedactionMaskMode right) => left.Equals(right);
+        public static bool operator !=(DataAutomationProjectPiiRedactionMaskMode left, DataAutomationProjectPiiRedactionMaskMode right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationProjectPiiRedactionMaskMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationProjectPiiRedactionMaskMode other && Equals(other);
+        public bool Equals(DataAutomationProjectPiiRedactionMaskMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the DataAutomationProject - Sync or Async
+    /// </summary>
+    [EnumType]
+    public readonly struct DataAutomationProjectProjectType : IEquatable<DataAutomationProjectProjectType>
+    {
+        private readonly string _value;
+
+        private DataAutomationProjectProjectType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationProjectProjectType Async { get; } = new DataAutomationProjectProjectType("ASYNC");
+        public static DataAutomationProjectProjectType Sync { get; } = new DataAutomationProjectProjectType("SYNC");
+
+        public static bool operator ==(DataAutomationProjectProjectType left, DataAutomationProjectProjectType right) => left.Equals(right);
+        public static bool operator !=(DataAutomationProjectProjectType left, DataAutomationProjectProjectType right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationProjectProjectType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationProjectProjectType other && Equals(other);
+        public bool Equals(DataAutomationProjectProjectType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataAutomationProjectSensitiveDataDetectionMode : IEquatable<DataAutomationProjectSensitiveDataDetectionMode>
+    {
+        private readonly string _value;
+
+        private DataAutomationProjectSensitiveDataDetectionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationProjectSensitiveDataDetectionMode Detection { get; } = new DataAutomationProjectSensitiveDataDetectionMode("DETECTION");
+        public static DataAutomationProjectSensitiveDataDetectionMode DetectionAndRedaction { get; } = new DataAutomationProjectSensitiveDataDetectionMode("DETECTION_AND_REDACTION");
+
+        public static bool operator ==(DataAutomationProjectSensitiveDataDetectionMode left, DataAutomationProjectSensitiveDataDetectionMode right) => left.Equals(right);
+        public static bool operator !=(DataAutomationProjectSensitiveDataDetectionMode left, DataAutomationProjectSensitiveDataDetectionMode right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationProjectSensitiveDataDetectionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationProjectSensitiveDataDetectionMode other && Equals(other);
+        public bool Equals(DataAutomationProjectSensitiveDataDetectionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataAutomationProjectSensitiveDataDetectionScope : IEquatable<DataAutomationProjectSensitiveDataDetectionScope>
+    {
+        private readonly string _value;
+
+        private DataAutomationProjectSensitiveDataDetectionScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataAutomationProjectSensitiveDataDetectionScope Standard { get; } = new DataAutomationProjectSensitiveDataDetectionScope("STANDARD");
+        public static DataAutomationProjectSensitiveDataDetectionScope Custom { get; } = new DataAutomationProjectSensitiveDataDetectionScope("CUSTOM");
+
+        public static bool operator ==(DataAutomationProjectSensitiveDataDetectionScope left, DataAutomationProjectSensitiveDataDetectionScope right) => left.Equals(right);
+        public static bool operator !=(DataAutomationProjectSensitiveDataDetectionScope left, DataAutomationProjectSensitiveDataDetectionScope right) => !left.Equals(right);
+
+        public static explicit operator string(DataAutomationProjectSensitiveDataDetectionScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataAutomationProjectSensitiveDataDetectionScope other && Equals(other);
+        public bool Equals(DataAutomationProjectSensitiveDataDetectionScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2964,6 +3202,7 @@ namespace Pulumi.AwsNative.Bedrock
         public static KnowledgeBaseStorageType Rds { get; } = new KnowledgeBaseStorageType("RDS");
         public static KnowledgeBaseStorageType MongoDbAtlas { get; } = new KnowledgeBaseStorageType("MONGO_DB_ATLAS");
         public static KnowledgeBaseStorageType NeptuneAnalytics { get; } = new KnowledgeBaseStorageType("NEPTUNE_ANALYTICS");
+        public static KnowledgeBaseStorageType S3Vectors { get; } = new KnowledgeBaseStorageType("S3_VECTORS");
         public static KnowledgeBaseStorageType OpensearchManagedCluster { get; } = new KnowledgeBaseStorageType("OPENSEARCH_MANAGED_CLUSTER");
 
         public static bool operator ==(KnowledgeBaseStorageType left, KnowledgeBaseStorageType right) => left.Equals(right);

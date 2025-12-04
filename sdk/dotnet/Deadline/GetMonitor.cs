@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Deadline
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
+        /// The Amazon Resource Name that the IAM Identity Center assigned to the monitor when it was created.
         /// </summary>
         public readonly string? IdentityCenterApplicationArn;
         /// <summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Deadline
         /// </summary>
         public readonly string? MonitorId;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+        /// The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
         /// </summary>
         public readonly string? RoleArn;
         /// <summary>

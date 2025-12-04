@@ -21,21 +21,37 @@ __all__ = ['ServiceNetworkResourceAssociationArgs', 'ServiceNetworkResourceAssoc
 @pulumi.input_type
 class ServiceNetworkResourceAssociationArgs:
     def __init__(__self__, *,
+                 private_dns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  resource_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
                  service_network_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceNetworkResourceAssociation resource.
+        :param pulumi.Input[_builtins.bool] private_dns_enabled: Indicates if private DNS is enabled for the service network resource association.
         :param pulumi.Input[_builtins.str] resource_configuration_id: The ID of the resource configuration associated with the service network.
         :param pulumi.Input[_builtins.str] service_network_id: The ID of the service network associated with the resource configuration.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A key-value pair to associate with a resource.
         """
+        if private_dns_enabled is not None:
+            pulumi.set(__self__, "private_dns_enabled", private_dns_enabled)
         if resource_configuration_id is not None:
             pulumi.set(__self__, "resource_configuration_id", resource_configuration_id)
         if service_network_id is not None:
             pulumi.set(__self__, "service_network_id", service_network_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsEnabled")
+    def private_dns_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Indicates if private DNS is enabled for the service network resource association.
+        """
+        return pulumi.get(self, "private_dns_enabled")
+
+    @private_dns_enabled.setter
+    def private_dns_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "private_dns_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationId")
@@ -80,6 +96,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 private_dns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  resource_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
                  service_network_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -89,6 +106,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] private_dns_enabled: Indicates if private DNS is enabled for the service network resource association.
         :param pulumi.Input[_builtins.str] resource_configuration_id: The ID of the resource configuration associated with the service network.
         :param pulumi.Input[_builtins.str] service_network_id: The ID of the service network associated with the resource configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A key-value pair to associate with a resource.
@@ -117,6 +135,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 private_dns_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  resource_configuration_id: Optional[pulumi.Input[_builtins.str]] = None,
                  service_network_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -129,12 +148,13 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceNetworkResourceAssociationArgs.__new__(ServiceNetworkResourceAssociationArgs)
 
+            __props__.__dict__["private_dns_enabled"] = private_dns_enabled
             __props__.__dict__["resource_configuration_id"] = resource_configuration_id
             __props__.__dict__["service_network_id"] = service_network_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resourceConfigurationId", "serviceNetworkId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["privateDnsEnabled", "resourceConfigurationId", "serviceNetworkId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ServiceNetworkResourceAssociation, __self__).__init__(
             'aws-native:vpclattice:ServiceNetworkResourceAssociation',
@@ -160,6 +180,7 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["aws_id"] = None
+        __props__.__dict__["private_dns_enabled"] = None
         __props__.__dict__["resource_configuration_id"] = None
         __props__.__dict__["service_network_id"] = None
         __props__.__dict__["tags"] = None
@@ -180,6 +201,14 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
         The ID of the association between the service network and resource configuration.
         """
         return pulumi.get(self, "aws_id")
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsEnabled")
+    def private_dns_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Indicates if private DNS is enabled for the service network resource association.
+        """
+        return pulumi.get(self, "private_dns_enabled")
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationId")

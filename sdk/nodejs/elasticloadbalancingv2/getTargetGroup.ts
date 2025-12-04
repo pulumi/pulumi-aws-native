@@ -66,6 +66,10 @@ export interface GetTargetGroupResult {
      */
     readonly tags?: outputs.Tag[];
     /**
+     * The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
+     */
+    readonly targetControlPort?: number;
+    /**
      * The ARN of the Target Group
      */
     readonly targetGroupArn?: string;

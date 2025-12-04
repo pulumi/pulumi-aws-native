@@ -21,7 +21,7 @@ export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promi
 
 export interface GetTopicArgs {
     /**
-     * Returns the ARN of an Amazon SNS topic.
+     * Returns the ARN of an Amazon  topic.
      */
     topicArn: string;
 }
@@ -88,7 +88,7 @@ export interface GetTopicResult {
      */
     readonly tags?: outputs.Tag[];
     /**
-     * Returns the ARN of an Amazon SNS topic.
+     * Returns the ARN of an Amazon  topic.
      */
     readonly topicArn?: string;
     /**
@@ -110,7 +110,7 @@ export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOut
 
 export interface GetTopicOutputArgs {
     /**
-     * Returns the ARN of an Amazon SNS topic.
+     * Returns the ARN of an Amazon  topic.
      */
     topicArn: pulumi.Input<string>;
 }

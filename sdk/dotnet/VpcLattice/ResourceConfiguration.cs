@@ -34,6 +34,24 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
+        /// The custom domain name.
+        /// </summary>
+        [Output("customDomainName")]
+        public Output<string?> CustomDomainName { get; private set; } = null!;
+
+        /// <summary>
+        /// The domain verification ID.
+        /// </summary>
+        [Output("domainVerificationId")]
+        public Output<string?> DomainVerificationId { get; private set; } = null!;
+
+        /// <summary>
+        /// (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain.
+        /// </summary>
+        [Output("groupDomain")]
+        public Output<string?> GroupDomain { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource configuration.
         /// </summary>
         [Output("name")]
@@ -121,6 +139,9 @@ namespace Pulumi.AwsNative.VpcLattice
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "customDomainName",
+                    "domainVerificationId",
+                    "groupDomain",
                     "protocolType",
                     "resourceConfigurationAuthType",
                     "resourceConfigurationType",
@@ -153,6 +174,24 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         [Input("allowAssociationToSharableServiceNetwork")]
         public Input<bool>? AllowAssociationToSharableServiceNetwork { get; set; }
+
+        /// <summary>
+        /// The custom domain name.
+        /// </summary>
+        [Input("customDomainName")]
+        public Input<string>? CustomDomainName { get; set; }
+
+        /// <summary>
+        /// The domain verification ID.
+        /// </summary>
+        [Input("domainVerificationId")]
+        public Input<string>? DomainVerificationId { get; set; }
+
+        /// <summary>
+        /// (GROUP) The group domain for a group resource configuration. Any domains that you create for the child resource are subdomains of the group domain. Child resources inherit the verification status of the domain.
+        /// </summary>
+        [Input("groupDomain")]
+        public Input<string>? GroupDomain { get; set; }
 
         /// <summary>
         /// The name of the resource configuration.

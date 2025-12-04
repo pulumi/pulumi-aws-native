@@ -386,6 +386,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public static GatewayTargetTargetStatus Deleting { get; } = new GatewayTargetTargetStatus("DELETING");
         public static GatewayTargetTargetStatus Ready { get; } = new GatewayTargetTargetStatus("READY");
         public static GatewayTargetTargetStatus Failed { get; } = new GatewayTargetTargetStatus("FAILED");
+        public static GatewayTargetTargetStatus Synchronizing { get; } = new GatewayTargetTargetStatus("SYNCHRONIZING");
+        public static GatewayTargetTargetStatus SynchronizeUnsuccessful { get; } = new GatewayTargetTargetStatus("SYNCHRONIZE_UNSUCCESSFUL");
 
         public static bool operator ==(GatewayTargetTargetStatus left, GatewayTargetTargetStatus right) => left.Equals(right);
         public static bool operator !=(GatewayTargetTargetStatus left, GatewayTargetTargetStatus right) => !left.Equals(right);
@@ -692,6 +694,39 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MemoryUserPreferenceMemoryStrategyType other && Equals(other);
         public bool Equals(MemoryUserPreferenceMemoryStrategyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Managed runtime types
+    /// </summary>
+    [EnumType]
+    public readonly struct RuntimeAgentManagedRuntimeType : IEquatable<RuntimeAgentManagedRuntimeType>
+    {
+        private readonly string _value;
+
+        private RuntimeAgentManagedRuntimeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuntimeAgentManagedRuntimeType Python310 { get; } = new RuntimeAgentManagedRuntimeType("PYTHON_3_10");
+        public static RuntimeAgentManagedRuntimeType Python311 { get; } = new RuntimeAgentManagedRuntimeType("PYTHON_3_11");
+        public static RuntimeAgentManagedRuntimeType Python312 { get; } = new RuntimeAgentManagedRuntimeType("PYTHON_3_12");
+        public static RuntimeAgentManagedRuntimeType Python313 { get; } = new RuntimeAgentManagedRuntimeType("PYTHON_3_13");
+
+        public static bool operator ==(RuntimeAgentManagedRuntimeType left, RuntimeAgentManagedRuntimeType right) => left.Equals(right);
+        public static bool operator !=(RuntimeAgentManagedRuntimeType left, RuntimeAgentManagedRuntimeType right) => !left.Equals(right);
+
+        public static explicit operator string(RuntimeAgentManagedRuntimeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuntimeAgentManagedRuntimeType other && Equals(other);
+        public bool Equals(RuntimeAgentManagedRuntimeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -15,7 +15,7 @@ var _ = internal.GetEnvOrDefault
 
 // The set of preferences used for recording RDP connections in the requesting AWS account and AWS Region. This includes details such as which S3 bucket recordings are stored in.
 type ConnectionRecordingPreferencesProperties struct {
-	// The ARN of a AWS KMS key that is used to encrypt data while it is being processed by the service. This key must exist in the same AWS Region as the node you start an RDP connection to.
+	// The ARN of a AWS  key that is used to encrypt data while it is being processed by the service. This key must exist in the same AWS Region as the node you start an RDP connection to.
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 	// Determines where recordings of RDP connections are stored.
 	RecordingDestinations PreferencesRecordingDestinations `pulumi:"recordingDestinations"`
@@ -34,7 +34,7 @@ type ConnectionRecordingPreferencesPropertiesInput interface {
 
 // The set of preferences used for recording RDP connections in the requesting AWS account and AWS Region. This includes details such as which S3 bucket recordings are stored in.
 type ConnectionRecordingPreferencesPropertiesArgs struct {
-	// The ARN of a AWS KMS key that is used to encrypt data while it is being processed by the service. This key must exist in the same AWS Region as the node you start an RDP connection to.
+	// The ARN of a AWS  key that is used to encrypt data while it is being processed by the service. This key must exist in the same AWS Region as the node you start an RDP connection to.
 	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 	// Determines where recordings of RDP connections are stored.
 	RecordingDestinations PreferencesRecordingDestinationsInput `pulumi:"recordingDestinations"`
@@ -118,7 +118,7 @@ func (o ConnectionRecordingPreferencesPropertiesOutput) ToConnectionRecordingPre
 	}).(ConnectionRecordingPreferencesPropertiesPtrOutput)
 }
 
-// The ARN of a AWS KMS key that is used to encrypt data while it is being processed by the service. This key must exist in the same AWS Region as the node you start an RDP connection to.
+// The ARN of a AWS  key that is used to encrypt data while it is being processed by the service. This key must exist in the same AWS Region as the node you start an RDP connection to.
 func (o ConnectionRecordingPreferencesPropertiesOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectionRecordingPreferencesProperties) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
@@ -154,7 +154,7 @@ func (o ConnectionRecordingPreferencesPropertiesPtrOutput) Elem() ConnectionReco
 	}).(ConnectionRecordingPreferencesPropertiesOutput)
 }
 
-// The ARN of a AWS KMS key that is used to encrypt data while it is being processed by the service. This key must exist in the same AWS Region as the node you start an RDP connection to.
+// The ARN of a AWS  key that is used to encrypt data while it is being processed by the service. This key must exist in the same AWS Region as the node you start an RDP connection to.
 func (o ConnectionRecordingPreferencesPropertiesPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionRecordingPreferencesProperties) *string {
 		if v == nil {

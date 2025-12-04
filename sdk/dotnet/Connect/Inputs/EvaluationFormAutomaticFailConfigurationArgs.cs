@@ -10,10 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
+    /// <summary>
+    /// Information about automatic fail configuration for an evaluation form.
+    /// </summary>
     public sealed class EvaluationFormAutomaticFailConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The target section refId to control failure propagation boundary.
+        /// The referenceId of the target section for auto failure.
         /// </summary>
         [Input("targetSection")]
         public Input<string>? TargetSection { get; set; }

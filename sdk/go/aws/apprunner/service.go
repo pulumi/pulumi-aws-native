@@ -42,7 +42,7 @@ type Service struct {
 	// AppRunner Service status.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -58,6 +58,7 @@ func NewService(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"encryptionConfiguration",
 		"serviceName",
+		"tags[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -110,7 +111,7 @@ type serviceArgs struct {
 	// The source to deploy to the App Runner service. It can be a code or an image repository.
 	SourceConfiguration ServiceSourceConfiguration `pulumi:"sourceConfiguration"`
 	// An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Service resource.
@@ -132,7 +133,7 @@ type ServiceArgs struct {
 	// The source to deploy to the App Runner service. It can be a code or an image repository.
 	SourceConfiguration ServiceSourceConfigurationInput
 	// An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.
-	Tags aws.TagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {
@@ -233,8 +234,8 @@ func (o ServiceOutput) Status() pulumi.StringOutput {
 }
 
 // An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.
-func (o ServiceOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v *Service) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+func (o ServiceOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Service) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

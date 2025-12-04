@@ -29,6 +29,7 @@ class ClusterArgs:
                  access_config: Optional[pulumi.Input['ClusterAccessConfigArgs']] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[_builtins.bool]] = None,
                  compute_config: Optional[pulumi.Input['ClusterComputeConfigArgs']] = None,
+                 control_plane_scaling_config: Optional[pulumi.Input['ClusterControlPlaneScalingConfigArgs']] = None,
                  deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionConfigArgs']]]] = None,
                  force: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -49,6 +50,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterAccessConfigArgs'] access_config: The access configuration for the cluster.
         :param pulumi.Input[_builtins.bool] bootstrap_self_managed_addons: Set this value to false to avoid creating the default networking add-ons when the cluster is created.
         :param pulumi.Input['ClusterComputeConfigArgs'] compute_config: Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
+        :param pulumi.Input['ClusterControlPlaneScalingConfigArgs'] control_plane_scaling_config: The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.
         :param pulumi.Input[_builtins.bool] deletion_protection: Set this value to true to enable deletion protection for the cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionConfigArgs']]] encryption_config: The encryption configuration for the cluster.
         :param pulumi.Input[_builtins.bool] force: Force cluster version update
@@ -73,6 +75,8 @@ class ClusterArgs:
             pulumi.set(__self__, "bootstrap_self_managed_addons", bootstrap_self_managed_addons)
         if compute_config is not None:
             pulumi.set(__self__, "compute_config", compute_config)
+        if control_plane_scaling_config is not None:
+            pulumi.set(__self__, "control_plane_scaling_config", control_plane_scaling_config)
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
         if encryption_config is not None:
@@ -159,6 +163,18 @@ class ClusterArgs:
     @compute_config.setter
     def compute_config(self, value: Optional[pulumi.Input['ClusterComputeConfigArgs']]):
         pulumi.set(self, "compute_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="controlPlaneScalingConfig")
+    def control_plane_scaling_config(self) -> Optional[pulumi.Input['ClusterControlPlaneScalingConfigArgs']]:
+        """
+        The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.
+        """
+        return pulumi.get(self, "control_plane_scaling_config")
+
+    @control_plane_scaling_config.setter
+    def control_plane_scaling_config(self, value: Optional[pulumi.Input['ClusterControlPlaneScalingConfigArgs']]):
+        pulumi.set(self, "control_plane_scaling_config", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
@@ -328,6 +344,7 @@ class Cluster(pulumi.CustomResource):
                  access_config: Optional[pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[_builtins.bool]] = None,
                  compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
+                 control_plane_scaling_config: Optional[pulumi.Input[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict']]] = None,
                  deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]]]] = None,
                  force: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -352,6 +369,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']] access_config: The access configuration for the cluster.
         :param pulumi.Input[_builtins.bool] bootstrap_self_managed_addons: Set this value to false to avoid creating the default networking add-ons when the cluster is created.
         :param pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']] compute_config: Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
+        :param pulumi.Input[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict']] control_plane_scaling_config: The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.
         :param pulumi.Input[_builtins.bool] deletion_protection: Set this value to true to enable deletion protection for the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]]] encryption_config: The encryption configuration for the cluster.
         :param pulumi.Input[_builtins.bool] force: Force cluster version update
@@ -397,6 +415,7 @@ class Cluster(pulumi.CustomResource):
                  access_config: Optional[pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[_builtins.bool]] = None,
                  compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
+                 control_plane_scaling_config: Optional[pulumi.Input[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict']]] = None,
                  deletion_protection: Optional[pulumi.Input[_builtins.bool]] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]]]] = None,
                  force: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -424,6 +443,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["access_config"] = access_config
             __props__.__dict__["bootstrap_self_managed_addons"] = bootstrap_self_managed_addons
             __props__.__dict__["compute_config"] = compute_config
+            __props__.__dict__["control_plane_scaling_config"] = control_plane_scaling_config
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["encryption_config"] = encryption_config
             __props__.__dict__["force"] = force
@@ -481,6 +501,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["certificate_authority_data"] = None
         __props__.__dict__["cluster_security_group_id"] = None
         __props__.__dict__["compute_config"] = None
+        __props__.__dict__["control_plane_scaling_config"] = None
         __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["encryption_config"] = None
         __props__.__dict__["encryption_config_key_arn"] = None
@@ -556,6 +577,14 @@ class Cluster(pulumi.CustomResource):
         Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
         """
         return pulumi.get(self, "compute_config")
+
+    @_builtins.property
+    @pulumi.getter(name="controlPlaneScalingConfig")
+    def control_plane_scaling_config(self) -> pulumi.Output[Optional['outputs.ClusterControlPlaneScalingConfig']]:
+        """
+        The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.
+        """
+        return pulumi.get(self, "control_plane_scaling_config")
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")

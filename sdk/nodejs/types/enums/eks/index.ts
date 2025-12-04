@@ -23,6 +23,47 @@ export const AddonResolveConflicts = {
  */
 export type AddonResolveConflicts = (typeof AddonResolveConflicts)[keyof typeof AddonResolveConflicts];
 
+export const CapabilityArgoCdRoleMappingRole = {
+    Admin: "ADMIN",
+    Editor: "EDITOR",
+    Viewer: "VIEWER",
+} as const;
+
+/**
+ * The Argo CD role to assign. Valid values are: ADMIN (full administrative access to Argo CD), EDITOR (edit access to Argo CD resources), or VIEWER (read-only access to Argo CD resources).
+ */
+export type CapabilityArgoCdRoleMappingRole = (typeof CapabilityArgoCdRoleMappingRole)[keyof typeof CapabilityArgoCdRoleMappingRole];
+
+export const CapabilityDeletePropagationPolicy = {
+    Retain: "RETAIN",
+} as const;
+
+/**
+ * Specifies how Kubernetes resources managed by the capability should be handled when the capability is deleted. Currently, the only supported value is RETAIN which retains all Kubernetes resources managed by the capability when the capability is deleted.
+ */
+export type CapabilityDeletePropagationPolicy = (typeof CapabilityDeletePropagationPolicy)[keyof typeof CapabilityDeletePropagationPolicy];
+
+export const CapabilitySsoIdentityType = {
+    SsoUser: "SSO_USER",
+    SsoGroup: "SSO_GROUP",
+} as const;
+
+/**
+ * The type of identity. Valid values are SSO_USER or SSO_GROUP.
+ */
+export type CapabilitySsoIdentityType = (typeof CapabilitySsoIdentityType)[keyof typeof CapabilitySsoIdentityType];
+
+export const CapabilityType = {
+    Argocd: "ARGOCD",
+    Ack: "ACK",
+    Kro: "KRO",
+} as const;
+
+/**
+ * The type of capability to create. Valid values are: ACK (AWS Controllers for Kubernetes, which lets you manage AWS resources directly from Kubernetes), ARGOCD (Argo CD for GitOps-based continuous delivery), or KRO (Kube Resource Orchestrator for composing and managing custom Kubernetes resources).
+ */
+export type CapabilityType = (typeof CapabilityType)[keyof typeof CapabilityType];
+
 export const ClusterAccessConfigAuthenticationMode = {
     ConfigMap: "CONFIG_MAP",
     ApiAndConfigMap: "API_AND_CONFIG_MAP",
@@ -33,6 +74,18 @@ export const ClusterAccessConfigAuthenticationMode = {
  * Specify the authentication mode that should be used to create your cluster.
  */
 export type ClusterAccessConfigAuthenticationMode = (typeof ClusterAccessConfigAuthenticationMode)[keyof typeof ClusterAccessConfigAuthenticationMode];
+
+export const ClusterControlPlaneScalingConfigTier = {
+    Standard: "standard",
+    TierXl: "tier-xl",
+    Tier2xl: "tier-2xl",
+    Tier4xl: "tier-4xl",
+} as const;
+
+/**
+ * The scaling tier for the provisioned control plane.
+ */
+export type ClusterControlPlaneScalingConfigTier = (typeof ClusterControlPlaneScalingConfigTier)[keyof typeof ClusterControlPlaneScalingConfigTier];
 
 export const ClusterKubernetesNetworkConfigIpFamily = {
     Ipv4: "ipv4",

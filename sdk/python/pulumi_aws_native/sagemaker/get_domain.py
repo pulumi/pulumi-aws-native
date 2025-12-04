@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, app_network_access_type=None, app_security_group_management=None, default_space_settings=None, default_user_settings=None, domain_arn=None, domain_id=None, domain_settings=None, home_efs_file_system_id=None, security_group_id_for_domain_boundary=None, single_sign_on_application_arn=None, single_sign_on_managed_application_instance_id=None, subnet_ids=None, tag_propagation=None, url=None):
+    def __init__(__self__, app_network_access_type=None, app_security_group_management=None, default_space_settings=None, default_user_settings=None, domain_arn=None, domain_id=None, domain_settings=None, home_efs_file_system_id=None, security_group_id_for_domain_boundary=None, single_sign_on_application_arn=None, single_sign_on_managed_application_instance_id=None, subnet_ids=None, tag_propagation=None, url=None, vpc_id=None):
         if app_network_access_type and not isinstance(app_network_access_type, str):
             raise TypeError("Expected argument 'app_network_access_type' to be a str")
         pulumi.set(__self__, "app_network_access_type", app_network_access_type)
@@ -68,6 +68,9 @@ class GetDomainResult:
         if url and not isinstance(url, str):
             raise TypeError("Expected argument 'url' to be a str")
         pulumi.set(__self__, "url", url)
+        if vpc_id and not isinstance(vpc_id, str):
+            raise TypeError("Expected argument 'vpc_id' to be a str")
+        pulumi.set(__self__, "vpc_id", vpc_id)
 
     @_builtins.property
     @pulumi.getter(name="appNetworkAccessType")
@@ -181,6 +184,14 @@ class GetDomainResult:
         """
         return pulumi.get(self, "url")
 
+    @_builtins.property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        """
+        return pulumi.get(self, "vpc_id")
+
 
 class AwaitableGetDomainResult(GetDomainResult):
     # pylint: disable=using-constant-test
@@ -201,7 +212,8 @@ class AwaitableGetDomainResult(GetDomainResult):
             single_sign_on_managed_application_instance_id=self.single_sign_on_managed_application_instance_id,
             subnet_ids=self.subnet_ids,
             tag_propagation=self.tag_propagation,
-            url=self.url)
+            url=self.url,
+            vpc_id=self.vpc_id)
 
 
 def get_domain(domain_id: Optional[_builtins.str] = None,
@@ -231,7 +243,8 @@ def get_domain(domain_id: Optional[_builtins.str] = None,
         single_sign_on_managed_application_instance_id=pulumi.get(__ret__, 'single_sign_on_managed_application_instance_id'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tag_propagation=pulumi.get(__ret__, 'tag_propagation'),
-        url=pulumi.get(__ret__, 'url'))
+        url=pulumi.get(__ret__, 'url'),
+        vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_domain_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
@@ -258,4 +271,5 @@ def get_domain_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
         single_sign_on_managed_application_instance_id=pulumi.get(__response__, 'single_sign_on_managed_application_instance_id'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),
         tag_propagation=pulumi.get(__response__, 'tag_propagation'),
-        url=pulumi.get(__response__, 'url')))
+        url=pulumi.get(__response__, 'url'),
+        vpc_id=pulumi.get(__response__, 'vpc_id')))

@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.Aps.Inputs
         [Input("eksConfiguration")]
         public Input<Inputs.ScraperSourceEksConfigurationPropertiesArgs>? EksConfiguration { get; set; }
 
+        /// <summary>
+        /// Configuration for VPC metrics source
+        /// </summary>
+        [Input("vpcConfiguration")]
+        public Input<Inputs.ScraperSourceVpcConfigurationPropertiesArgs>? VpcConfiguration { get; set; }
+
         public ScraperSourceArgs()
         {
         }

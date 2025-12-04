@@ -1797,6 +1797,161 @@ func (o DomainConsolidationPtrOutput) MatchingAttributesList() pulumi.StringArra
 	}).(pulumi.StringArrayArrayOutput)
 }
 
+// Configuration and status of the data store for the domain.
+type DomainDataStore struct {
+	// Whether the data store is enabled.
+	Enabled   *bool            `pulumi:"enabled"`
+	Readiness *DomainReadiness `pulumi:"readiness"`
+}
+
+// DomainDataStoreInput is an input type that accepts DomainDataStoreArgs and DomainDataStoreOutput values.
+// You can construct a concrete instance of `DomainDataStoreInput` via:
+//
+//	DomainDataStoreArgs{...}
+type DomainDataStoreInput interface {
+	pulumi.Input
+
+	ToDomainDataStoreOutput() DomainDataStoreOutput
+	ToDomainDataStoreOutputWithContext(context.Context) DomainDataStoreOutput
+}
+
+// Configuration and status of the data store for the domain.
+type DomainDataStoreArgs struct {
+	// Whether the data store is enabled.
+	Enabled   pulumi.BoolPtrInput     `pulumi:"enabled"`
+	Readiness DomainReadinessPtrInput `pulumi:"readiness"`
+}
+
+func (DomainDataStoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDataStore)(nil)).Elem()
+}
+
+func (i DomainDataStoreArgs) ToDomainDataStoreOutput() DomainDataStoreOutput {
+	return i.ToDomainDataStoreOutputWithContext(context.Background())
+}
+
+func (i DomainDataStoreArgs) ToDomainDataStoreOutputWithContext(ctx context.Context) DomainDataStoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDataStoreOutput)
+}
+
+func (i DomainDataStoreArgs) ToDomainDataStorePtrOutput() DomainDataStorePtrOutput {
+	return i.ToDomainDataStorePtrOutputWithContext(context.Background())
+}
+
+func (i DomainDataStoreArgs) ToDomainDataStorePtrOutputWithContext(ctx context.Context) DomainDataStorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDataStoreOutput).ToDomainDataStorePtrOutputWithContext(ctx)
+}
+
+// DomainDataStorePtrInput is an input type that accepts DomainDataStoreArgs, DomainDataStorePtr and DomainDataStorePtrOutput values.
+// You can construct a concrete instance of `DomainDataStorePtrInput` via:
+//
+//	        DomainDataStoreArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDataStorePtrInput interface {
+	pulumi.Input
+
+	ToDomainDataStorePtrOutput() DomainDataStorePtrOutput
+	ToDomainDataStorePtrOutputWithContext(context.Context) DomainDataStorePtrOutput
+}
+
+type domainDataStorePtrType DomainDataStoreArgs
+
+func DomainDataStorePtr(v *DomainDataStoreArgs) DomainDataStorePtrInput {
+	return (*domainDataStorePtrType)(v)
+}
+
+func (*domainDataStorePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDataStore)(nil)).Elem()
+}
+
+func (i *domainDataStorePtrType) ToDomainDataStorePtrOutput() DomainDataStorePtrOutput {
+	return i.ToDomainDataStorePtrOutputWithContext(context.Background())
+}
+
+func (i *domainDataStorePtrType) ToDomainDataStorePtrOutputWithContext(ctx context.Context) DomainDataStorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDataStorePtrOutput)
+}
+
+// Configuration and status of the data store for the domain.
+type DomainDataStoreOutput struct{ *pulumi.OutputState }
+
+func (DomainDataStoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDataStore)(nil)).Elem()
+}
+
+func (o DomainDataStoreOutput) ToDomainDataStoreOutput() DomainDataStoreOutput {
+	return o
+}
+
+func (o DomainDataStoreOutput) ToDomainDataStoreOutputWithContext(ctx context.Context) DomainDataStoreOutput {
+	return o
+}
+
+func (o DomainDataStoreOutput) ToDomainDataStorePtrOutput() DomainDataStorePtrOutput {
+	return o.ToDomainDataStorePtrOutputWithContext(context.Background())
+}
+
+func (o DomainDataStoreOutput) ToDomainDataStorePtrOutputWithContext(ctx context.Context) DomainDataStorePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDataStore) *DomainDataStore {
+		return &v
+	}).(DomainDataStorePtrOutput)
+}
+
+// Whether the data store is enabled.
+func (o DomainDataStoreOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainDataStore) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainDataStoreOutput) Readiness() DomainReadinessPtrOutput {
+	return o.ApplyT(func(v DomainDataStore) *DomainReadiness { return v.Readiness }).(DomainReadinessPtrOutput)
+}
+
+type DomainDataStorePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDataStorePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDataStore)(nil)).Elem()
+}
+
+func (o DomainDataStorePtrOutput) ToDomainDataStorePtrOutput() DomainDataStorePtrOutput {
+	return o
+}
+
+func (o DomainDataStorePtrOutput) ToDomainDataStorePtrOutputWithContext(ctx context.Context) DomainDataStorePtrOutput {
+	return o
+}
+
+func (o DomainDataStorePtrOutput) Elem() DomainDataStoreOutput {
+	return o.ApplyT(func(v *DomainDataStore) DomainDataStore {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDataStore
+		return ret
+	}).(DomainDataStoreOutput)
+}
+
+// Whether the data store is enabled.
+func (o DomainDataStorePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainDataStore) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainDataStorePtrOutput) Readiness() DomainReadinessPtrOutput {
+	return o.ApplyT(func(v *DomainDataStore) *DomainReadiness {
+		if v == nil {
+			return nil
+		}
+		return v.Readiness
+	}).(DomainReadinessPtrOutput)
+}
+
 // Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
 type DomainExportingConfig struct {
 	S3Exporting *DomainS3ExportingConfig `pulumi:"s3Exporting"`
@@ -2387,6 +2542,165 @@ func (o DomainMatchingRuleArrayOutput) Index(i pulumi.IntInput) DomainMatchingRu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainMatchingRule {
 		return vs[0].([]DomainMatchingRule)[vs[1].(int)]
 	}).(DomainMatchingRuleOutput)
+}
+
+// Progress information for data store setup.
+type DomainReadiness struct {
+	// A message describing the current progress.
+	Message *string `pulumi:"message"`
+	// The percentage of progress completed.
+	ProgressPercentage *int `pulumi:"progressPercentage"`
+}
+
+// DomainReadinessInput is an input type that accepts DomainReadinessArgs and DomainReadinessOutput values.
+// You can construct a concrete instance of `DomainReadinessInput` via:
+//
+//	DomainReadinessArgs{...}
+type DomainReadinessInput interface {
+	pulumi.Input
+
+	ToDomainReadinessOutput() DomainReadinessOutput
+	ToDomainReadinessOutputWithContext(context.Context) DomainReadinessOutput
+}
+
+// Progress information for data store setup.
+type DomainReadinessArgs struct {
+	// A message describing the current progress.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// The percentage of progress completed.
+	ProgressPercentage pulumi.IntPtrInput `pulumi:"progressPercentage"`
+}
+
+func (DomainReadinessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainReadiness)(nil)).Elem()
+}
+
+func (i DomainReadinessArgs) ToDomainReadinessOutput() DomainReadinessOutput {
+	return i.ToDomainReadinessOutputWithContext(context.Background())
+}
+
+func (i DomainReadinessArgs) ToDomainReadinessOutputWithContext(ctx context.Context) DomainReadinessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainReadinessOutput)
+}
+
+func (i DomainReadinessArgs) ToDomainReadinessPtrOutput() DomainReadinessPtrOutput {
+	return i.ToDomainReadinessPtrOutputWithContext(context.Background())
+}
+
+func (i DomainReadinessArgs) ToDomainReadinessPtrOutputWithContext(ctx context.Context) DomainReadinessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainReadinessOutput).ToDomainReadinessPtrOutputWithContext(ctx)
+}
+
+// DomainReadinessPtrInput is an input type that accepts DomainReadinessArgs, DomainReadinessPtr and DomainReadinessPtrOutput values.
+// You can construct a concrete instance of `DomainReadinessPtrInput` via:
+//
+//	        DomainReadinessArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainReadinessPtrInput interface {
+	pulumi.Input
+
+	ToDomainReadinessPtrOutput() DomainReadinessPtrOutput
+	ToDomainReadinessPtrOutputWithContext(context.Context) DomainReadinessPtrOutput
+}
+
+type domainReadinessPtrType DomainReadinessArgs
+
+func DomainReadinessPtr(v *DomainReadinessArgs) DomainReadinessPtrInput {
+	return (*domainReadinessPtrType)(v)
+}
+
+func (*domainReadinessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainReadiness)(nil)).Elem()
+}
+
+func (i *domainReadinessPtrType) ToDomainReadinessPtrOutput() DomainReadinessPtrOutput {
+	return i.ToDomainReadinessPtrOutputWithContext(context.Background())
+}
+
+func (i *domainReadinessPtrType) ToDomainReadinessPtrOutputWithContext(ctx context.Context) DomainReadinessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainReadinessPtrOutput)
+}
+
+// Progress information for data store setup.
+type DomainReadinessOutput struct{ *pulumi.OutputState }
+
+func (DomainReadinessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainReadiness)(nil)).Elem()
+}
+
+func (o DomainReadinessOutput) ToDomainReadinessOutput() DomainReadinessOutput {
+	return o
+}
+
+func (o DomainReadinessOutput) ToDomainReadinessOutputWithContext(ctx context.Context) DomainReadinessOutput {
+	return o
+}
+
+func (o DomainReadinessOutput) ToDomainReadinessPtrOutput() DomainReadinessPtrOutput {
+	return o.ToDomainReadinessPtrOutputWithContext(context.Background())
+}
+
+func (o DomainReadinessOutput) ToDomainReadinessPtrOutputWithContext(ctx context.Context) DomainReadinessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainReadiness) *DomainReadiness {
+		return &v
+	}).(DomainReadinessPtrOutput)
+}
+
+// A message describing the current progress.
+func (o DomainReadinessOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainReadiness) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// The percentage of progress completed.
+func (o DomainReadinessOutput) ProgressPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainReadiness) *int { return v.ProgressPercentage }).(pulumi.IntPtrOutput)
+}
+
+type DomainReadinessPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainReadinessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainReadiness)(nil)).Elem()
+}
+
+func (o DomainReadinessPtrOutput) ToDomainReadinessPtrOutput() DomainReadinessPtrOutput {
+	return o
+}
+
+func (o DomainReadinessPtrOutput) ToDomainReadinessPtrOutputWithContext(ctx context.Context) DomainReadinessPtrOutput {
+	return o
+}
+
+func (o DomainReadinessPtrOutput) Elem() DomainReadinessOutput {
+	return o.ApplyT(func(v *DomainReadiness) DomainReadiness {
+		if v != nil {
+			return *v
+		}
+		var ret DomainReadiness
+		return ret
+	}).(DomainReadinessOutput)
+}
+
+// A message describing the current progress.
+func (o DomainReadinessPtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainReadiness) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// The percentage of progress completed.
+func (o DomainReadinessPtrOutput) ProgressPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainReadiness) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ProgressPercentage
+	}).(pulumi.IntPtrOutput)
 }
 
 // The process of matching duplicate profiles using the Rule-Based matching. If RuleBasedMatching = true, Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the RuleBasedMatchingRequest. You can use the ListRuleBasedMatches and GetSimilarProfiles API to return and review the results. Also, if you have configured ExportingConfig in the RuleBasedMatchingRequest, you can download the results from S3.
@@ -8530,6 +8844,47 @@ func (i SegmentDefinitionSegmentGroupArgs) ToSegmentDefinitionSegmentGroupOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionSegmentGroupOutput)
 }
 
+func (i SegmentDefinitionSegmentGroupArgs) ToSegmentDefinitionSegmentGroupPtrOutput() SegmentDefinitionSegmentGroupPtrOutput {
+	return i.ToSegmentDefinitionSegmentGroupPtrOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionSegmentGroupArgs) ToSegmentDefinitionSegmentGroupPtrOutputWithContext(ctx context.Context) SegmentDefinitionSegmentGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionSegmentGroupOutput).ToSegmentDefinitionSegmentGroupPtrOutputWithContext(ctx)
+}
+
+// SegmentDefinitionSegmentGroupPtrInput is an input type that accepts SegmentDefinitionSegmentGroupArgs, SegmentDefinitionSegmentGroupPtr and SegmentDefinitionSegmentGroupPtrOutput values.
+// You can construct a concrete instance of `SegmentDefinitionSegmentGroupPtrInput` via:
+//
+//	        SegmentDefinitionSegmentGroupArgs{...}
+//
+//	or:
+//
+//	        nil
+type SegmentDefinitionSegmentGroupPtrInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionSegmentGroupPtrOutput() SegmentDefinitionSegmentGroupPtrOutput
+	ToSegmentDefinitionSegmentGroupPtrOutputWithContext(context.Context) SegmentDefinitionSegmentGroupPtrOutput
+}
+
+type segmentDefinitionSegmentGroupPtrType SegmentDefinitionSegmentGroupArgs
+
+func SegmentDefinitionSegmentGroupPtr(v *SegmentDefinitionSegmentGroupArgs) SegmentDefinitionSegmentGroupPtrInput {
+	return (*segmentDefinitionSegmentGroupPtrType)(v)
+}
+
+func (*segmentDefinitionSegmentGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDefinitionSegmentGroup)(nil)).Elem()
+}
+
+func (i *segmentDefinitionSegmentGroupPtrType) ToSegmentDefinitionSegmentGroupPtrOutput() SegmentDefinitionSegmentGroupPtrOutput {
+	return i.ToSegmentDefinitionSegmentGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *segmentDefinitionSegmentGroupPtrType) ToSegmentDefinitionSegmentGroupPtrOutputWithContext(ctx context.Context) SegmentDefinitionSegmentGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionSegmentGroupPtrOutput)
+}
+
 type SegmentDefinitionSegmentGroupOutput struct{ *pulumi.OutputState }
 
 func (SegmentDefinitionSegmentGroupOutput) ElementType() reflect.Type {
@@ -8544,6 +8899,16 @@ func (o SegmentDefinitionSegmentGroupOutput) ToSegmentDefinitionSegmentGroupOutp
 	return o
 }
 
+func (o SegmentDefinitionSegmentGroupOutput) ToSegmentDefinitionSegmentGroupPtrOutput() SegmentDefinitionSegmentGroupPtrOutput {
+	return o.ToSegmentDefinitionSegmentGroupPtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionSegmentGroupOutput) ToSegmentDefinitionSegmentGroupPtrOutputWithContext(ctx context.Context) SegmentDefinitionSegmentGroupPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SegmentDefinitionSegmentGroup) *SegmentDefinitionSegmentGroup {
+		return &v
+	}).(SegmentDefinitionSegmentGroupPtrOutput)
+}
+
 // Holds the list of groups within the segment definition.
 func (o SegmentDefinitionSegmentGroupOutput) Groups() SegmentDefinitionGroupArrayOutput {
 	return o.ApplyT(func(v SegmentDefinitionSegmentGroup) []SegmentDefinitionGroup { return v.Groups }).(SegmentDefinitionGroupArrayOutput)
@@ -8552,6 +8917,50 @@ func (o SegmentDefinitionSegmentGroupOutput) Groups() SegmentDefinitionGroupArra
 // Defines whether to include or exclude the profiles that fit the segment criteria.
 func (o SegmentDefinitionSegmentGroupOutput) Include() SegmentDefinitionIncludeOptionsPtrOutput {
 	return o.ApplyT(func(v SegmentDefinitionSegmentGroup) *SegmentDefinitionIncludeOptions { return v.Include }).(SegmentDefinitionIncludeOptionsPtrOutput)
+}
+
+type SegmentDefinitionSegmentGroupPtrOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionSegmentGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDefinitionSegmentGroup)(nil)).Elem()
+}
+
+func (o SegmentDefinitionSegmentGroupPtrOutput) ToSegmentDefinitionSegmentGroupPtrOutput() SegmentDefinitionSegmentGroupPtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionSegmentGroupPtrOutput) ToSegmentDefinitionSegmentGroupPtrOutputWithContext(ctx context.Context) SegmentDefinitionSegmentGroupPtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionSegmentGroupPtrOutput) Elem() SegmentDefinitionSegmentGroupOutput {
+	return o.ApplyT(func(v *SegmentDefinitionSegmentGroup) SegmentDefinitionSegmentGroup {
+		if v != nil {
+			return *v
+		}
+		var ret SegmentDefinitionSegmentGroup
+		return ret
+	}).(SegmentDefinitionSegmentGroupOutput)
+}
+
+// Holds the list of groups within the segment definition.
+func (o SegmentDefinitionSegmentGroupPtrOutput) Groups() SegmentDefinitionGroupArrayOutput {
+	return o.ApplyT(func(v *SegmentDefinitionSegmentGroup) []SegmentDefinitionGroup {
+		if v == nil {
+			return nil
+		}
+		return v.Groups
+	}).(SegmentDefinitionGroupArrayOutput)
+}
+
+// Defines whether to include or exclude the profiles that fit the segment criteria.
+func (o SegmentDefinitionSegmentGroupPtrOutput) Include() SegmentDefinitionIncludeOptionsPtrOutput {
+	return o.ApplyT(func(v *SegmentDefinitionSegmentGroup) *SegmentDefinitionIncludeOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Include
+	}).(SegmentDefinitionIncludeOptionsPtrOutput)
 }
 
 // The base segment to build the segment on.
@@ -8682,6 +9091,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConflictResolutionPtrInput)(nil)).Elem(), DomainConflictResolutionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConsolidationInput)(nil)).Elem(), DomainConsolidationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConsolidationPtrInput)(nil)).Elem(), DomainConsolidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDataStoreInput)(nil)).Elem(), DomainDataStoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDataStorePtrInput)(nil)).Elem(), DomainDataStoreArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainExportingConfigInput)(nil)).Elem(), DomainExportingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainExportingConfigPtrInput)(nil)).Elem(), DomainExportingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainJobScheduleInput)(nil)).Elem(), DomainJobScheduleArgs{})
@@ -8690,6 +9101,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainMatchingPtrInput)(nil)).Elem(), DomainMatchingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainMatchingRuleInput)(nil)).Elem(), DomainMatchingRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainMatchingRuleArrayInput)(nil)).Elem(), DomainMatchingRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainReadinessInput)(nil)).Elem(), DomainReadinessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainReadinessPtrInput)(nil)).Elem(), DomainReadinessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRuleBasedMatchingInput)(nil)).Elem(), DomainRuleBasedMatchingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRuleBasedMatchingPtrInput)(nil)).Elem(), DomainRuleBasedMatchingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainS3ExportingConfigInput)(nil)).Elem(), DomainS3ExportingConfigArgs{})
@@ -8768,6 +9181,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionRangeOverrideInput)(nil)).Elem(), SegmentDefinitionRangeOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionRangeOverridePtrInput)(nil)).Elem(), SegmentDefinitionRangeOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionSegmentGroupInput)(nil)).Elem(), SegmentDefinitionSegmentGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionSegmentGroupPtrInput)(nil)).Elem(), SegmentDefinitionSegmentGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionSourceSegmentInput)(nil)).Elem(), SegmentDefinitionSourceSegmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionSourceSegmentArrayInput)(nil)).Elem(), SegmentDefinitionSourceSegmentArray{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionAttributeDetailsOutput{})
@@ -8794,6 +9208,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainConflictResolutionPtrOutput{})
 	pulumi.RegisterOutputType(DomainConsolidationOutput{})
 	pulumi.RegisterOutputType(DomainConsolidationPtrOutput{})
+	pulumi.RegisterOutputType(DomainDataStoreOutput{})
+	pulumi.RegisterOutputType(DomainDataStorePtrOutput{})
 	pulumi.RegisterOutputType(DomainExportingConfigOutput{})
 	pulumi.RegisterOutputType(DomainExportingConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainJobScheduleOutput{})
@@ -8802,6 +9218,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainMatchingPtrOutput{})
 	pulumi.RegisterOutputType(DomainMatchingRuleOutput{})
 	pulumi.RegisterOutputType(DomainMatchingRuleArrayOutput{})
+	pulumi.RegisterOutputType(DomainReadinessOutput{})
+	pulumi.RegisterOutputType(DomainReadinessPtrOutput{})
 	pulumi.RegisterOutputType(DomainRuleBasedMatchingOutput{})
 	pulumi.RegisterOutputType(DomainRuleBasedMatchingPtrOutput{})
 	pulumi.RegisterOutputType(DomainS3ExportingConfigOutput{})
@@ -8882,6 +9300,7 @@ func init() {
 	pulumi.RegisterOutputType(SegmentDefinitionRangeOverrideOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionRangeOverridePtrOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionSegmentGroupOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionSegmentGroupPtrOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionSourceSegmentOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionSourceSegmentArrayOutput{})
 }

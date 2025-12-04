@@ -88,6 +88,10 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly string? DomainNameArn;
         /// <summary>
+        /// The endpoint access mode for your DomainName.
+        /// </summary>
+        public readonly string? EndpointAccessMode;
+        /// <summary>
         /// The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
         /// </summary>
         public readonly Outputs.DomainNameEndpointConfiguration? EndpointConfiguration;
@@ -116,7 +120,7 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly Pulumi.AwsNative.ApiGateway.DomainNameRoutingMode? RoutingMode;
         /// <summary>
-        /// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+        /// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
         /// </summary>
         public readonly string? SecurityPolicy;
         /// <summary>
@@ -133,6 +137,8 @@ namespace Pulumi.AwsNative.ApiGateway
             string? distributionHostedZoneId,
 
             string? domainNameArn,
+
+            string? endpointAccessMode,
 
             Outputs.DomainNameEndpointConfiguration? endpointConfiguration,
 
@@ -156,6 +162,7 @@ namespace Pulumi.AwsNative.ApiGateway
             DistributionDomainName = distributionDomainName;
             DistributionHostedZoneId = distributionHostedZoneId;
             DomainNameArn = domainNameArn;
+            EndpointAccessMode = endpointAccessMode;
             EndpointConfiguration = endpointConfiguration;
             MutualTlsAuthentication = mutualTlsAuthentication;
             OwnershipVerificationCertificateArn = ownershipVerificationCertificateArn;

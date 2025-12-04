@@ -4710,7 +4710,7 @@ if not MYPY:
         """
         The identifier of the directory corresponding to your WorkDocs site repository.
 
-        You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the AWS Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
+        You can find the organization ID in the [Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
         """
         crawl_comments: NotRequired[pulumi.Input[_builtins.bool]]
         """
@@ -4749,7 +4749,7 @@ class DataSourceWorkDocsConfigurationArgs:
         """
         :param pulumi.Input[_builtins.str] organization_id: The identifier of the directory corresponding to your WorkDocs site repository.
                
-               You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the AWS Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
+               You can find the organization ID in the [Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
         :param pulumi.Input[_builtins.bool] crawl_comments: `TRUE` to include comments on documents in your index. Including comments in your index means each comment is a document that can be searched on.
                
                The default is set to `FALSE` .
@@ -4776,7 +4776,7 @@ class DataSourceWorkDocsConfigurationArgs:
         """
         The identifier of the directory corresponding to your WorkDocs site repository.
 
-        You can find the organization ID in the [AWS Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the AWS Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
+        You can find the organization ID in the [Directory Service](https://docs.aws.amazon.com/directoryservicev2/) by going to *Active Directory* , then *Directories* . Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.
         """
         return pulumi.get(self, "organization_id")
 

@@ -72,7 +72,7 @@ class GetMonitorResult:
     @pulumi.getter(name="identityCenterApplicationArn")
     def identity_center_application_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
+        The Amazon Resource Name that the IAM Identity Center assigned to the monitor when it was created.
         """
         return pulumi.get(self, "identity_center_application_arn")
 
@@ -88,7 +88,7 @@ class GetMonitorResult:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+        The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
         """
         return pulumi.get(self, "role_arn")
 

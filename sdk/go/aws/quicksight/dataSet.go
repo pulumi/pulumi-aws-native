@@ -30,7 +30,8 @@ type DataSet struct {
 	//             imported into SPICE.</p>
 	ConsumedSpiceCapacityInBytes pulumi.Float64Output `pulumi:"consumedSpiceCapacityInBytes"`
 	// <p>The time that this dataset was created.</p>
-	CreatedTime           pulumi.StringOutput                   `pulumi:"createdTime"`
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// The data preparation configuration associated with this dataset.
 	DataPrepConfiguration DataSetDataPrepConfigurationPtrOutput `pulumi:"dataPrepConfiguration"`
 	// An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
 	DataSetId pulumi.StringPtrOutput `pulumi:"dataSetId"`
@@ -64,7 +65,8 @@ type DataSet struct {
 	PhysicalTableMap                   DataSetPhysicalTableMapOutput                      `pulumi:"physicalTableMap"`
 	RowLevelPermissionDataSet          DataSetRowLevelPermissionDataSetPtrOutput          `pulumi:"rowLevelPermissionDataSet"`
 	RowLevelPermissionTagConfiguration DataSetRowLevelPermissionTagConfigurationPtrOutput `pulumi:"rowLevelPermissionTagConfiguration"`
-	SemanticModelConfiguration         DataSetSemanticModelConfigurationPtrOutput         `pulumi:"semanticModelConfiguration"`
+	// The semantic model configuration associated with this dataset.
+	SemanticModelConfiguration DataSetSemanticModelConfigurationPtrOutput `pulumi:"semanticModelConfiguration"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The usage of the dataset.
@@ -124,7 +126,8 @@ type dataSetArgs struct {
 	//                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
 	//             </code>.</p>
 	ColumnLevelPermissionRules []DataSetColumnLevelPermissionRule `pulumi:"columnLevelPermissionRules"`
-	DataPrepConfiguration      *DataSetDataPrepConfiguration      `pulumi:"dataPrepConfiguration"`
+	// The data preparation configuration associated with this dataset.
+	DataPrepConfiguration *DataSetDataPrepConfiguration `pulumi:"dataPrepConfiguration"`
 	// An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
 	DataSetId *string `pulumi:"dataSetId"`
 	// The refresh properties of a dataset.
@@ -152,7 +155,8 @@ type dataSetArgs struct {
 	PhysicalTableMap                   map[string]DataSetPhysicalTable            `pulumi:"physicalTableMap"`
 	RowLevelPermissionDataSet          *DataSetRowLevelPermissionDataSet          `pulumi:"rowLevelPermissionDataSet"`
 	RowLevelPermissionTagConfiguration *DataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfiguration"`
-	SemanticModelConfiguration         *DataSetSemanticModelConfiguration         `pulumi:"semanticModelConfiguration"`
+	// The semantic model configuration associated with this dataset.
+	SemanticModelConfiguration *DataSetSemanticModelConfiguration `pulumi:"semanticModelConfiguration"`
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 	Tags []aws.Tag `pulumi:"tags"`
 	// The usage of the dataset.
@@ -169,7 +173,8 @@ type DataSetArgs struct {
 	//                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
 	//             </code>.</p>
 	ColumnLevelPermissionRules DataSetColumnLevelPermissionRuleArrayInput
-	DataPrepConfiguration      DataSetDataPrepConfigurationPtrInput
+	// The data preparation configuration associated with this dataset.
+	DataPrepConfiguration DataSetDataPrepConfigurationPtrInput
 	// An ID for the dataset that you want to create. This ID is unique per AWS Region for each AWS account.
 	DataSetId pulumi.StringPtrInput
 	// The refresh properties of a dataset.
@@ -197,7 +202,8 @@ type DataSetArgs struct {
 	PhysicalTableMap                   DataSetPhysicalTableMapInput
 	RowLevelPermissionDataSet          DataSetRowLevelPermissionDataSetPtrInput
 	RowLevelPermissionTagConfiguration DataSetRowLevelPermissionTagConfigurationPtrInput
-	SemanticModelConfiguration         DataSetSemanticModelConfigurationPtrInput
+	// The semantic model configuration associated with this dataset.
+	SemanticModelConfiguration DataSetSemanticModelConfigurationPtrInput
 	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
 	Tags aws.TagArrayInput
 	// The usage of the dataset.
@@ -276,6 +282,7 @@ func (o DataSetOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
+// The data preparation configuration associated with this dataset.
 func (o DataSetOutput) DataPrepConfiguration() DataSetDataPrepConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSet) DataSetDataPrepConfigurationPtrOutput { return v.DataPrepConfiguration }).(DataSetDataPrepConfigurationPtrOutput)
 }
@@ -366,6 +373,7 @@ func (o DataSetOutput) RowLevelPermissionTagConfiguration() DataSetRowLevelPermi
 	}).(DataSetRowLevelPermissionTagConfigurationPtrOutput)
 }
 
+// The semantic model configuration associated with this dataset.
 func (o DataSetOutput) SemanticModelConfiguration() DataSetSemanticModelConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSet) DataSetSemanticModelConfigurationPtrOutput { return v.SemanticModelConfiguration }).(DataSetSemanticModelConfigurationPtrOutput)
 }

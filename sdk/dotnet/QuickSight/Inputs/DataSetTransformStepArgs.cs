@@ -12,36 +12,63 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetTransformStepArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A transform step that groups data and applies aggregation functions to calculate summary values.
+        /// </summary>
         [Input("aggregateStep")]
         public Input<Inputs.DataSetAggregateOperationArgs>? AggregateStep { get; set; }
 
+        /// <summary>
+        /// A transform step that combines rows from multiple sources by stacking them vertically.
+        /// </summary>
         [Input("appendStep")]
         public Input<Inputs.DataSetAppendOperationArgs>? AppendStep { get; set; }
 
+        /// <summary>
+        /// A transform step that changes the data types of one or more columns.
+        /// </summary>
         [Input("castColumnTypesStep")]
         public Input<Inputs.DataSetCastColumnTypesOperationArgs>? CastColumnTypesStep { get; set; }
 
         [Input("createColumnsStep")]
         public Input<Inputs.DataSetCreateColumnsOperationArgs>? CreateColumnsStep { get; set; }
 
+        /// <summary>
+        /// A transform step that applies filter conditions.
+        /// </summary>
         [Input("filtersStep")]
         public Input<Inputs.DataSetFiltersOperationArgs>? FiltersStep { get; set; }
 
+        /// <summary>
+        /// A transform step that brings data from a source table.
+        /// </summary>
         [Input("importTableStep")]
         public Input<Inputs.DataSetImportTableOperationArgs>? ImportTableStep { get; set; }
 
+        /// <summary>
+        /// A transform step that combines data from two sources based on specified join conditions.
+        /// </summary>
         [Input("joinStep")]
         public Input<Inputs.DataSetJoinOperationArgs>? JoinStep { get; set; }
 
+        /// <summary>
+        /// A transform step that converts row values into columns to reshape the data structure.
+        /// </summary>
         [Input("pivotStep")]
         public Input<Inputs.DataSetPivotOperationArgs>? PivotStep { get; set; }
 
         [Input("projectStep")]
         public Input<Inputs.DataSetProjectOperationArgs>? ProjectStep { get; set; }
 
+        /// <summary>
+        /// A transform step that changes the names of one or more columns.
+        /// </summary>
         [Input("renameColumnsStep")]
         public Input<Inputs.DataSetRenameColumnsOperationArgs>? RenameColumnsStep { get; set; }
 
+        /// <summary>
+        /// A transform step that converts columns into rows to normalize the data structure.
+        /// </summary>
         [Input("unpivotStep")]
         public Input<Inputs.DataSetUnpivotOperationArgs>? UnpivotStep { get; set; }
 

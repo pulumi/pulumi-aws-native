@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetDestinationTableArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Alias for the destination table.
+        /// </summary>
         [Input("alias", required: true)]
         public Input<string> Alias { get; set; } = null!;
 
+        /// <summary>
+        /// The source configuration that specifies which transform operation provides data to this destination table.
+        /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.DataSetDestinationTableSourceArgs> Source { get; set; } = null!;
 

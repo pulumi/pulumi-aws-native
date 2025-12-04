@@ -7,39 +7,11 @@ import pulumi
 from enum import Enum
 
 __all__ = [
-    'CloudFormationProductProductType',
-    'CloudFormationProductProvisioningArtifactPropertiesType',
     'CloudFormationProvisionedProductAcceptLanguage',
     'CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType',
     'ServiceActionAcceptLanguage',
     'ServiceActionDefinitionType',
 ]
-
-
-@pulumi.type_token("aws-native:servicecatalog:CloudFormationProductProductType")
-class CloudFormationProductProductType(_builtins.str, Enum):
-    """
-    The type of product.
-    """
-    CLOUD_FORMATION_TEMPLATE = "CLOUD_FORMATION_TEMPLATE"
-    MARKETPLACE_AMI = "MARKETPLACE_AMI"
-    MARKETPLACE_CAR = "MARKETPLACE_CAR"
-    TERRAFORM_OPEN_SOURCE = "TERRAFORM_OPEN_SOURCE"
-    TERRAFORM_CLOUD = "TERRAFORM_CLOUD"
-    EXTERNAL = "EXTERNAL"
-
-
-@pulumi.type_token("aws-native:servicecatalog:CloudFormationProductProvisioningArtifactPropertiesType")
-class CloudFormationProductProvisioningArtifactPropertiesType(_builtins.str, Enum):
-    """
-    The type of provisioning artifact. Valid values are CLOUD_FORMATION_TEMPLATE, TERRAFORM_OPEN_SOURCE, TERRAFORM_CLOUD, EXTERNAL
-    """
-    CLOUD_FORMATION_TEMPLATE = "CLOUD_FORMATION_TEMPLATE"
-    MARKETPLACE_AMI = "MARKETPLACE_AMI"
-    MARKETPLACE_CAR = "MARKETPLACE_CAR"
-    TERRAFORM_OPEN_SOURCE = "TERRAFORM_OPEN_SOURCE"
-    TERRAFORM_CLOUD = "TERRAFORM_CLOUD"
-    EXTERNAL = "EXTERNAL"
 
 
 @pulumi.type_token("aws-native:servicecatalog:CloudFormationProvisionedProductAcceptLanguage")

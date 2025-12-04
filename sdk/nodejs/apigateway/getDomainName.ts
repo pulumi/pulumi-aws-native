@@ -46,6 +46,10 @@ export interface GetDomainNameResult {
      */
     readonly domainNameArn?: string;
     /**
+     * The endpoint access mode for your DomainName.
+     */
+    readonly endpointAccessMode?: string;
+    /**
      * The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
      */
     readonly endpointConfiguration?: outputs.apigateway.DomainNameEndpointConfiguration;
@@ -74,7 +78,7 @@ export interface GetDomainNameResult {
      */
     readonly routingMode?: enums.apigateway.DomainNameRoutingMode;
     /**
-     * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+     * The Transport Layer Security (TLS) version + cipher suite for this DomainName.
      */
     readonly securityPolicy?: string;
     /**

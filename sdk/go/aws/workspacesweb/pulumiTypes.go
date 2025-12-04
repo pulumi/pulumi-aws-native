@@ -20,6 +20,181 @@ type BrowserSettingsTag struct {
 	Value string `pulumi:"value"`
 }
 
+type BrowserSettingsWebContentFilteringPolicy struct {
+	// URLs and domains that are always accessible to end users.
+	AllowedUrls []string `pulumi:"allowedUrls"`
+	// Categories of websites that are blocked on the end user's browsers.
+	BlockedCategories []BrowserSettingsCategory `pulumi:"blockedCategories"`
+	// URLs and domains that end users cannot access.
+	BlockedUrls []string `pulumi:"blockedUrls"`
+}
+
+// BrowserSettingsWebContentFilteringPolicyInput is an input type that accepts BrowserSettingsWebContentFilteringPolicyArgs and BrowserSettingsWebContentFilteringPolicyOutput values.
+// You can construct a concrete instance of `BrowserSettingsWebContentFilteringPolicyInput` via:
+//
+//	BrowserSettingsWebContentFilteringPolicyArgs{...}
+type BrowserSettingsWebContentFilteringPolicyInput interface {
+	pulumi.Input
+
+	ToBrowserSettingsWebContentFilteringPolicyOutput() BrowserSettingsWebContentFilteringPolicyOutput
+	ToBrowserSettingsWebContentFilteringPolicyOutputWithContext(context.Context) BrowserSettingsWebContentFilteringPolicyOutput
+}
+
+type BrowserSettingsWebContentFilteringPolicyArgs struct {
+	// URLs and domains that are always accessible to end users.
+	AllowedUrls pulumi.StringArrayInput `pulumi:"allowedUrls"`
+	// Categories of websites that are blocked on the end user's browsers.
+	BlockedCategories BrowserSettingsCategoryArrayInput `pulumi:"blockedCategories"`
+	// URLs and domains that end users cannot access.
+	BlockedUrls pulumi.StringArrayInput `pulumi:"blockedUrls"`
+}
+
+func (BrowserSettingsWebContentFilteringPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrowserSettingsWebContentFilteringPolicy)(nil)).Elem()
+}
+
+func (i BrowserSettingsWebContentFilteringPolicyArgs) ToBrowserSettingsWebContentFilteringPolicyOutput() BrowserSettingsWebContentFilteringPolicyOutput {
+	return i.ToBrowserSettingsWebContentFilteringPolicyOutputWithContext(context.Background())
+}
+
+func (i BrowserSettingsWebContentFilteringPolicyArgs) ToBrowserSettingsWebContentFilteringPolicyOutputWithContext(ctx context.Context) BrowserSettingsWebContentFilteringPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrowserSettingsWebContentFilteringPolicyOutput)
+}
+
+func (i BrowserSettingsWebContentFilteringPolicyArgs) ToBrowserSettingsWebContentFilteringPolicyPtrOutput() BrowserSettingsWebContentFilteringPolicyPtrOutput {
+	return i.ToBrowserSettingsWebContentFilteringPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i BrowserSettingsWebContentFilteringPolicyArgs) ToBrowserSettingsWebContentFilteringPolicyPtrOutputWithContext(ctx context.Context) BrowserSettingsWebContentFilteringPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrowserSettingsWebContentFilteringPolicyOutput).ToBrowserSettingsWebContentFilteringPolicyPtrOutputWithContext(ctx)
+}
+
+// BrowserSettingsWebContentFilteringPolicyPtrInput is an input type that accepts BrowserSettingsWebContentFilteringPolicyArgs, BrowserSettingsWebContentFilteringPolicyPtr and BrowserSettingsWebContentFilteringPolicyPtrOutput values.
+// You can construct a concrete instance of `BrowserSettingsWebContentFilteringPolicyPtrInput` via:
+//
+//	        BrowserSettingsWebContentFilteringPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type BrowserSettingsWebContentFilteringPolicyPtrInput interface {
+	pulumi.Input
+
+	ToBrowserSettingsWebContentFilteringPolicyPtrOutput() BrowserSettingsWebContentFilteringPolicyPtrOutput
+	ToBrowserSettingsWebContentFilteringPolicyPtrOutputWithContext(context.Context) BrowserSettingsWebContentFilteringPolicyPtrOutput
+}
+
+type browserSettingsWebContentFilteringPolicyPtrType BrowserSettingsWebContentFilteringPolicyArgs
+
+func BrowserSettingsWebContentFilteringPolicyPtr(v *BrowserSettingsWebContentFilteringPolicyArgs) BrowserSettingsWebContentFilteringPolicyPtrInput {
+	return (*browserSettingsWebContentFilteringPolicyPtrType)(v)
+}
+
+func (*browserSettingsWebContentFilteringPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BrowserSettingsWebContentFilteringPolicy)(nil)).Elem()
+}
+
+func (i *browserSettingsWebContentFilteringPolicyPtrType) ToBrowserSettingsWebContentFilteringPolicyPtrOutput() BrowserSettingsWebContentFilteringPolicyPtrOutput {
+	return i.ToBrowserSettingsWebContentFilteringPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *browserSettingsWebContentFilteringPolicyPtrType) ToBrowserSettingsWebContentFilteringPolicyPtrOutputWithContext(ctx context.Context) BrowserSettingsWebContentFilteringPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrowserSettingsWebContentFilteringPolicyPtrOutput)
+}
+
+type BrowserSettingsWebContentFilteringPolicyOutput struct{ *pulumi.OutputState }
+
+func (BrowserSettingsWebContentFilteringPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrowserSettingsWebContentFilteringPolicy)(nil)).Elem()
+}
+
+func (o BrowserSettingsWebContentFilteringPolicyOutput) ToBrowserSettingsWebContentFilteringPolicyOutput() BrowserSettingsWebContentFilteringPolicyOutput {
+	return o
+}
+
+func (o BrowserSettingsWebContentFilteringPolicyOutput) ToBrowserSettingsWebContentFilteringPolicyOutputWithContext(ctx context.Context) BrowserSettingsWebContentFilteringPolicyOutput {
+	return o
+}
+
+func (o BrowserSettingsWebContentFilteringPolicyOutput) ToBrowserSettingsWebContentFilteringPolicyPtrOutput() BrowserSettingsWebContentFilteringPolicyPtrOutput {
+	return o.ToBrowserSettingsWebContentFilteringPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o BrowserSettingsWebContentFilteringPolicyOutput) ToBrowserSettingsWebContentFilteringPolicyPtrOutputWithContext(ctx context.Context) BrowserSettingsWebContentFilteringPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BrowserSettingsWebContentFilteringPolicy) *BrowserSettingsWebContentFilteringPolicy {
+		return &v
+	}).(BrowserSettingsWebContentFilteringPolicyPtrOutput)
+}
+
+// URLs and domains that are always accessible to end users.
+func (o BrowserSettingsWebContentFilteringPolicyOutput) AllowedUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BrowserSettingsWebContentFilteringPolicy) []string { return v.AllowedUrls }).(pulumi.StringArrayOutput)
+}
+
+// Categories of websites that are blocked on the end user's browsers.
+func (o BrowserSettingsWebContentFilteringPolicyOutput) BlockedCategories() BrowserSettingsCategoryArrayOutput {
+	return o.ApplyT(func(v BrowserSettingsWebContentFilteringPolicy) []BrowserSettingsCategory { return v.BlockedCategories }).(BrowserSettingsCategoryArrayOutput)
+}
+
+// URLs and domains that end users cannot access.
+func (o BrowserSettingsWebContentFilteringPolicyOutput) BlockedUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BrowserSettingsWebContentFilteringPolicy) []string { return v.BlockedUrls }).(pulumi.StringArrayOutput)
+}
+
+type BrowserSettingsWebContentFilteringPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (BrowserSettingsWebContentFilteringPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BrowserSettingsWebContentFilteringPolicy)(nil)).Elem()
+}
+
+func (o BrowserSettingsWebContentFilteringPolicyPtrOutput) ToBrowserSettingsWebContentFilteringPolicyPtrOutput() BrowserSettingsWebContentFilteringPolicyPtrOutput {
+	return o
+}
+
+func (o BrowserSettingsWebContentFilteringPolicyPtrOutput) ToBrowserSettingsWebContentFilteringPolicyPtrOutputWithContext(ctx context.Context) BrowserSettingsWebContentFilteringPolicyPtrOutput {
+	return o
+}
+
+func (o BrowserSettingsWebContentFilteringPolicyPtrOutput) Elem() BrowserSettingsWebContentFilteringPolicyOutput {
+	return o.ApplyT(func(v *BrowserSettingsWebContentFilteringPolicy) BrowserSettingsWebContentFilteringPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret BrowserSettingsWebContentFilteringPolicy
+		return ret
+	}).(BrowserSettingsWebContentFilteringPolicyOutput)
+}
+
+// URLs and domains that are always accessible to end users.
+func (o BrowserSettingsWebContentFilteringPolicyPtrOutput) AllowedUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BrowserSettingsWebContentFilteringPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedUrls
+	}).(pulumi.StringArrayOutput)
+}
+
+// Categories of websites that are blocked on the end user's browsers.
+func (o BrowserSettingsWebContentFilteringPolicyPtrOutput) BlockedCategories() BrowserSettingsCategoryArrayOutput {
+	return o.ApplyT(func(v *BrowserSettingsWebContentFilteringPolicy) []BrowserSettingsCategory {
+		if v == nil {
+			return nil
+		}
+		return v.BlockedCategories
+	}).(BrowserSettingsCategoryArrayOutput)
+}
+
+// URLs and domains that end users cannot access.
+func (o BrowserSettingsWebContentFilteringPolicyPtrOutput) BlockedUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BrowserSettingsWebContentFilteringPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BlockedUrls
+	}).(pulumi.StringArrayOutput)
+}
+
 type DataProtectionSettingsCustomPattern struct {
 	// The keyword regex for the customer pattern. After there is a match to the pattern regex, the keyword regex is used to search within the proximity of the match. If there is a keyword match, then the match is confirmed. If no keyword regex is provided, the pattern regex match will automatically be confirmed. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example, "/ab+c/gi"
 	KeywordRegex *string `pulumi:"keywordRegex"`
@@ -1790,6 +1965,8 @@ func (o UserSettingsToolbarConfigurationPtrOutput) VisualMode() UserSettingsVisu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BrowserSettingsWebContentFilteringPolicyInput)(nil)).Elem(), BrowserSettingsWebContentFilteringPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BrowserSettingsWebContentFilteringPolicyPtrInput)(nil)).Elem(), BrowserSettingsWebContentFilteringPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProtectionSettingsCustomPatternInput)(nil)).Elem(), DataProtectionSettingsCustomPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProtectionSettingsCustomPatternPtrInput)(nil)).Elem(), DataProtectionSettingsCustomPatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProtectionSettingsInlineRedactionConfigurationInput)(nil)).Elem(), DataProtectionSettingsInlineRedactionConfigurationArgs{})
@@ -1811,6 +1988,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsCookieSynchronizationConfigurationPtrInput)(nil)).Elem(), UserSettingsCookieSynchronizationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsToolbarConfigurationInput)(nil)).Elem(), UserSettingsToolbarConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsToolbarConfigurationPtrInput)(nil)).Elem(), UserSettingsToolbarConfigurationArgs{})
+	pulumi.RegisterOutputType(BrowserSettingsWebContentFilteringPolicyOutput{})
+	pulumi.RegisterOutputType(BrowserSettingsWebContentFilteringPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DataProtectionSettingsCustomPatternOutput{})
 	pulumi.RegisterOutputType(DataProtectionSettingsCustomPatternPtrOutput{})
 	pulumi.RegisterOutputType(DataProtectionSettingsInlineRedactionConfigurationOutput{})

@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.ResilienceHub.Outputs
         /// </summary>
         public readonly string? EksSourceName;
         /// <summary>
-        /// Name of the AWS CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
+        /// Name of the CloudFormation stack this resource is mapped to when the `mappingType` is `CfnStack` .
         /// </summary>
         public readonly string? LogicalStackName;
         /// <summary>

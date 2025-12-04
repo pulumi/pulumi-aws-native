@@ -78,6 +78,34 @@ namespace Pulumi.AwsNative.Msk
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ClusterRebalancingStatus : IEquatable<ClusterRebalancingStatus>
+    {
+        private readonly string _value;
+
+        private ClusterRebalancingStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterRebalancingStatus Paused { get; } = new ClusterRebalancingStatus("PAUSED");
+        public static ClusterRebalancingStatus Active { get; } = new ClusterRebalancingStatus("ACTIVE");
+
+        public static bool operator ==(ClusterRebalancingStatus left, ClusterRebalancingStatus right) => left.Equals(right);
+        public static bool operator !=(ClusterRebalancingStatus left, ClusterRebalancingStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterRebalancingStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterRebalancingStatus other && Equals(other);
+        public bool Equals(ClusterRebalancingStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// This controls storage mode for supported storage tiers.
     /// </summary>

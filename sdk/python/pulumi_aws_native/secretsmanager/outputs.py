@@ -15,11 +15,45 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'RotationScheduleExternalSecretRotationMetadataItem',
     'RotationScheduleHostedRotationLambda',
     'RotationScheduleRotationRules',
     'SecretGenerateSecretString',
     'SecretReplicaRegion',
 ]
+
+@pulumi.output_type
+class RotationScheduleExternalSecretRotationMetadataItem(dict):
+    """
+    The metadata needed to successfully rotate a managed external secret. Each metadata item is a key and value pair of strings in a JSON text string.
+    """
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        The metadata needed to successfully rotate a managed external secret. Each metadata item is a key and value pair of strings in a JSON text string.
+        :param _builtins.str key: The key name of the metadata item. You can specify a value that's 1 to 256 characters in length.
+        :param _builtins.str value: The value for the metadata item. You can specify a value that's 1 to 2048 characters in length.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The key name of the metadata item. You can specify a value that's 1 to 256 characters in length.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The value for the metadata item. You can specify a value that's 1 to 2048 characters in length.
+        """
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class RotationScheduleHostedRotationLambda(dict):

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetDataPrepListAggregationFunction
     {
+        /// <summary>
+        /// Whether to include only distinct values in the concatenated result, removing duplicates.
+        /// </summary>
         public readonly bool Distinct;
+        /// <summary>
+        /// The name of the column containing values to be concatenated.
+        /// </summary>
         public readonly string? InputColumnName;
+        /// <summary>
+        /// The string used to separate values in the concatenated result.
+        /// </summary>
         public readonly string Separator;
 
         [OutputConstructor]

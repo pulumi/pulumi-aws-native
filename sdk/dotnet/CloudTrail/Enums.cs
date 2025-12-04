@@ -227,6 +227,36 @@ namespace Pulumi.AwsNative.CloudTrail
     }
 
     /// <summary>
+    /// The category of events to be aggregated.
+    /// </summary>
+    [EnumType]
+    public readonly struct TrailAggregationConfigurationEventCategory : IEquatable<TrailAggregationConfigurationEventCategory>
+    {
+        private readonly string _value;
+
+        private TrailAggregationConfigurationEventCategory(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TrailAggregationConfigurationEventCategory Data { get; } = new TrailAggregationConfigurationEventCategory("Data");
+
+        public static bool operator ==(TrailAggregationConfigurationEventCategory left, TrailAggregationConfigurationEventCategory right) => left.Equals(right);
+        public static bool operator !=(TrailAggregationConfigurationEventCategory left, TrailAggregationConfigurationEventCategory right) => !left.Equals(right);
+
+        public static explicit operator string(TrailAggregationConfigurationEventCategory value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TrailAggregationConfigurationEventCategory other && Equals(other);
+        public bool Equals(TrailAggregationConfigurationEventCategory other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
     /// </summary>
     [EnumType]
@@ -251,6 +281,69 @@ namespace Pulumi.AwsNative.CloudTrail
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TrailEventSelectorReadWriteType other && Equals(other);
         public bool Equals(TrailEventSelectorReadWriteType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Event category for an insight selector.
+    /// </summary>
+    [EnumType]
+    public readonly struct TrailSourceEventCategory : IEquatable<TrailSourceEventCategory>
+    {
+        private readonly string _value;
+
+        private TrailSourceEventCategory(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TrailSourceEventCategory Management { get; } = new TrailSourceEventCategory("Management");
+        public static TrailSourceEventCategory Data { get; } = new TrailSourceEventCategory("Data");
+
+        public static bool operator ==(TrailSourceEventCategory left, TrailSourceEventCategory right) => left.Equals(right);
+        public static bool operator !=(TrailSourceEventCategory left, TrailSourceEventCategory right) => !left.Equals(right);
+
+        public static explicit operator string(TrailSourceEventCategory value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TrailSourceEventCategory other && Equals(other);
+        public bool Equals(TrailSourceEventCategory other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A template used to configure aggregation rules.
+    /// </summary>
+    [EnumType]
+    public readonly struct TrailTemplate : IEquatable<TrailTemplate>
+    {
+        private readonly string _value;
+
+        private TrailTemplate(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TrailTemplate ApiActivity { get; } = new TrailTemplate("API_ACTIVITY");
+        public static TrailTemplate ResourceAccess { get; } = new TrailTemplate("RESOURCE_ACCESS");
+        public static TrailTemplate UserActions { get; } = new TrailTemplate("USER_ACTIONS");
+
+        public static bool operator ==(TrailTemplate left, TrailTemplate right) => left.Equals(right);
+        public static bool operator !=(TrailTemplate left, TrailTemplate right) => !left.Equals(right);
+
+        public static explicit operator string(TrailTemplate value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TrailTemplate other && Equals(other);
+        public bool Equals(TrailTemplate other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

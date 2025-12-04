@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetNumericFilterValue
     {
+        /// <summary>
+        /// A static numeric value used for filtering.
+        /// </summary>
         public readonly double? StaticValue;
 
         [OutputConstructor]

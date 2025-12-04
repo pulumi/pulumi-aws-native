@@ -10,10 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
+    /// <summary>
+    /// An operand of the enablement condition.
+    /// </summary>
     public sealed class EvaluationFormItemEnablementConditionOperandArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A direct comparison expression that evaluates a form item's value against specified criteria.
+        /// An expression of the enablement condition.
         /// </summary>
         [Input("expression")]
         public Input<Inputs.EvaluationFormItemEnablementExpressionArgs>? Expression { get; set; }

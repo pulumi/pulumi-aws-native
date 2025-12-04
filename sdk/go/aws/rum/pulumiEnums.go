@@ -507,6 +507,173 @@ func (in *appMonitorMetricDestinationDestinationPtr) ToAppMonitorMetricDestinati
 	return pulumi.ToOutputWithContext(ctx, in).(AppMonitorMetricDestinationDestinationPtrOutput)
 }
 
+type AppMonitorPlatform string
+
+const (
+	AppMonitorPlatformWeb     = AppMonitorPlatform("Web")
+	AppMonitorPlatformAndroid = AppMonitorPlatform("Android")
+	AppMonitorPlatformIos     = AppMonitorPlatform("iOS")
+)
+
+func (AppMonitorPlatform) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppMonitorPlatform)(nil)).Elem()
+}
+
+func (e AppMonitorPlatform) ToAppMonitorPlatformOutput() AppMonitorPlatformOutput {
+	return pulumi.ToOutput(e).(AppMonitorPlatformOutput)
+}
+
+func (e AppMonitorPlatform) ToAppMonitorPlatformOutputWithContext(ctx context.Context) AppMonitorPlatformOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AppMonitorPlatformOutput)
+}
+
+func (e AppMonitorPlatform) ToAppMonitorPlatformPtrOutput() AppMonitorPlatformPtrOutput {
+	return e.ToAppMonitorPlatformPtrOutputWithContext(context.Background())
+}
+
+func (e AppMonitorPlatform) ToAppMonitorPlatformPtrOutputWithContext(ctx context.Context) AppMonitorPlatformPtrOutput {
+	return AppMonitorPlatform(e).ToAppMonitorPlatformOutputWithContext(ctx).ToAppMonitorPlatformPtrOutputWithContext(ctx)
+}
+
+func (e AppMonitorPlatform) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppMonitorPlatform) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AppMonitorPlatform) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AppMonitorPlatform) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AppMonitorPlatformOutput struct{ *pulumi.OutputState }
+
+func (AppMonitorPlatformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppMonitorPlatform)(nil)).Elem()
+}
+
+func (o AppMonitorPlatformOutput) ToAppMonitorPlatformOutput() AppMonitorPlatformOutput {
+	return o
+}
+
+func (o AppMonitorPlatformOutput) ToAppMonitorPlatformOutputWithContext(ctx context.Context) AppMonitorPlatformOutput {
+	return o
+}
+
+func (o AppMonitorPlatformOutput) ToAppMonitorPlatformPtrOutput() AppMonitorPlatformPtrOutput {
+	return o.ToAppMonitorPlatformPtrOutputWithContext(context.Background())
+}
+
+func (o AppMonitorPlatformOutput) ToAppMonitorPlatformPtrOutputWithContext(ctx context.Context) AppMonitorPlatformPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppMonitorPlatform) *AppMonitorPlatform {
+		return &v
+	}).(AppMonitorPlatformPtrOutput)
+}
+
+func (o AppMonitorPlatformOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AppMonitorPlatformOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppMonitorPlatform) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AppMonitorPlatformOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppMonitorPlatformOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AppMonitorPlatform) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AppMonitorPlatformPtrOutput struct{ *pulumi.OutputState }
+
+func (AppMonitorPlatformPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppMonitorPlatform)(nil)).Elem()
+}
+
+func (o AppMonitorPlatformPtrOutput) ToAppMonitorPlatformPtrOutput() AppMonitorPlatformPtrOutput {
+	return o
+}
+
+func (o AppMonitorPlatformPtrOutput) ToAppMonitorPlatformPtrOutputWithContext(ctx context.Context) AppMonitorPlatformPtrOutput {
+	return o
+}
+
+func (o AppMonitorPlatformPtrOutput) Elem() AppMonitorPlatformOutput {
+	return o.ApplyT(func(v *AppMonitorPlatform) AppMonitorPlatform {
+		if v != nil {
+			return *v
+		}
+		var ret AppMonitorPlatform
+		return ret
+	}).(AppMonitorPlatformOutput)
+}
+
+func (o AppMonitorPlatformPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AppMonitorPlatformPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AppMonitorPlatform) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AppMonitorPlatformInput is an input type that accepts values of the AppMonitorPlatform enum
+// A concrete instance of `AppMonitorPlatformInput` can be one of the following:
+//
+//	AppMonitorPlatformWeb
+//	AppMonitorPlatformAndroid
+//	AppMonitorPlatformIos
+type AppMonitorPlatformInput interface {
+	pulumi.Input
+
+	ToAppMonitorPlatformOutput() AppMonitorPlatformOutput
+	ToAppMonitorPlatformOutputWithContext(context.Context) AppMonitorPlatformOutput
+}
+
+var appMonitorPlatformPtrType = reflect.TypeOf((**AppMonitorPlatform)(nil)).Elem()
+
+type AppMonitorPlatformPtrInput interface {
+	pulumi.Input
+
+	ToAppMonitorPlatformPtrOutput() AppMonitorPlatformPtrOutput
+	ToAppMonitorPlatformPtrOutputWithContext(context.Context) AppMonitorPlatformPtrOutput
+}
+
+type appMonitorPlatformPtr string
+
+func AppMonitorPlatformPtr(v string) AppMonitorPlatformPtrInput {
+	return (*appMonitorPlatformPtr)(&v)
+}
+
+func (*appMonitorPlatformPtr) ElementType() reflect.Type {
+	return appMonitorPlatformPtrType
+}
+
+func (in *appMonitorPlatformPtr) ToAppMonitorPlatformPtrOutput() AppMonitorPlatformPtrOutput {
+	return pulumi.ToOutput(in).(AppMonitorPlatformPtrOutput)
+}
+
+func (in *appMonitorPlatformPtr) ToAppMonitorPlatformPtrOutputWithContext(ctx context.Context) AppMonitorPlatformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AppMonitorPlatformPtrOutput)
+}
+
 type AppMonitorTelemetry string
 
 const (
@@ -726,6 +893,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrInput)(nil)).Elem(), AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorMetricDestinationDestinationInput)(nil)).Elem(), AppMonitorMetricDestinationDestination("CloudWatch"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorMetricDestinationDestinationPtrInput)(nil)).Elem(), AppMonitorMetricDestinationDestination("CloudWatch"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorPlatformInput)(nil)).Elem(), AppMonitorPlatform("Web"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorPlatformPtrInput)(nil)).Elem(), AppMonitorPlatform("Web"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorTelemetryInput)(nil)).Elem(), AppMonitorTelemetry("errors"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorTelemetryPtrInput)(nil)).Elem(), AppMonitorTelemetry("errors"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppMonitorTelemetryArrayInput)(nil)).Elem(), AppMonitorTelemetryArray{})
@@ -735,6 +904,8 @@ func init() {
 	pulumi.RegisterOutputType(AppMonitorDeobfuscationConfigurationJavaScriptSourceMapsPropertiesStatusPtrOutput{})
 	pulumi.RegisterOutputType(AppMonitorMetricDestinationDestinationOutput{})
 	pulumi.RegisterOutputType(AppMonitorMetricDestinationDestinationPtrOutput{})
+	pulumi.RegisterOutputType(AppMonitorPlatformOutput{})
+	pulumi.RegisterOutputType(AppMonitorPlatformPtrOutput{})
 	pulumi.RegisterOutputType(AppMonitorTelemetryOutput{})
 	pulumi.RegisterOutputType(AppMonitorTelemetryPtrOutput{})
 	pulumi.RegisterOutputType(AppMonitorTelemetryArrayOutput{})

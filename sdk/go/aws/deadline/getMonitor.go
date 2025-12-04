@@ -35,11 +35,11 @@ type LookupMonitorResult struct {
 	//
 	// > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
 	DisplayName *string `pulumi:"displayName"`
-	// The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
+	// The Amazon Resource Name that the IAM Identity Center assigned to the monitor when it was created.
 	IdentityCenterApplicationArn *string `pulumi:"identityCenterApplicationArn"`
 	// The unique identifier for the monitor.
 	MonitorId *string `pulumi:"monitorId"`
-	// The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+	// The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
 	RoleArn *string `pulumi:"roleArn"`
 	// The subdomain used for the monitor URL. The full URL of the monitor is subdomain.Region.deadlinecloud.amazonaws.com.
 	Subdomain *string `pulumi:"subdomain"`
@@ -93,7 +93,7 @@ func (o LookupMonitorResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) that the IAM Identity Center assigned to the monitor when it was created.
+// The Amazon Resource Name that the IAM Identity Center assigned to the monitor when it was created.
 func (o LookupMonitorResultOutput) IdentityCenterApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *string { return v.IdentityCenterApplicationArn }).(pulumi.StringPtrOutput)
 }
@@ -103,7 +103,7 @@ func (o LookupMonitorResultOutput) MonitorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *string { return v.MonitorId }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
+// The Amazon Resource Name of the IAM role for the monitor. Users of the monitor use this role to access Deadline Cloud resources.
 func (o LookupMonitorResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMonitorResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }

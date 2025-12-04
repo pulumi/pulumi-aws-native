@@ -12,6 +12,7 @@ __all__ = [
     'ClusterAutoScalingConfigAutoScalerType',
     'ClusterAutoScalingConfigMode',
     'ClusterDeepHealthCheckType',
+    'ClusterKubernetesTaintEffect',
     'ClusterNodeProvisioningMode',
     'ClusterNodeRecovery',
     'ClusterStatus',
@@ -343,6 +344,16 @@ class ClusterDeepHealthCheckType(_builtins.str, Enum):
     """
     INSTANCE_STRESS = "InstanceStress"
     INSTANCE_CONNECTIVITY = "InstanceConnectivity"
+
+
+@pulumi.type_token("aws-native:sagemaker:ClusterKubernetesTaintEffect")
+class ClusterKubernetesTaintEffect(_builtins.str, Enum):
+    """
+    The effect of the taint.
+    """
+    NO_SCHEDULE = "NoSchedule"
+    PREFER_NO_SCHEDULE = "PreferNoSchedule"
+    NO_EXECUTE = "NoExecute"
 
 
 @pulumi.type_token("aws-native:sagemaker:ClusterNodeProvisioningMode")

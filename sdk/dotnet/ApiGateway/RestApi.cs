@@ -675,6 +675,12 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<bool?> DisableExecuteApiEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// The endpoint access mode for your RestApi.
+        /// </summary>
+        [Output("endpointAccessMode")]
+        public Output<string?> EndpointAccessMode { get; private set; } = null!;
+
+        /// <summary>
         /// A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
         /// </summary>
         [Output("endpointConfiguration")]
@@ -735,6 +741,9 @@ namespace Pulumi.AwsNative.ApiGateway
         [Output("rootResourceId")]
         public Output<string> RootResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Transport Layer Security (TLS) version + cipher suite for this RestApi.
+        /// </summary>
         [Output("securityPolicy")]
         public Output<string?> SecurityPolicy { get; private set; } = null!;
 
@@ -840,6 +849,12 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<bool>? DisableExecuteApiEndpoint { get; set; }
 
         /// <summary>
+        /// The endpoint access mode for your RestApi.
+        /// </summary>
+        [Input("endpointAccessMode")]
+        public Input<string>? EndpointAccessMode { get; set; }
+
+        /// <summary>
         /// A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
         /// </summary>
         [Input("endpointConfiguration")]
@@ -894,6 +909,9 @@ namespace Pulumi.AwsNative.ApiGateway
         [Input("policy")]
         public Input<object>? Policy { get; set; }
 
+        /// <summary>
+        /// The Transport Layer Security (TLS) version + cipher suite for this RestApi.
+        /// </summary>
         [Input("securityPolicy")]
         public Input<string>? SecurityPolicy { get; set; }
 

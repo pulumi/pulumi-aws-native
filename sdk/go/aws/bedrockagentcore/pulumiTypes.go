@@ -74,6 +74,142 @@ func (o BrowserCustomBrowserNetworkConfigurationOutput) VpcConfig() BrowserCusto
 	return o.ApplyT(func(v BrowserCustomBrowserNetworkConfiguration) *BrowserCustomVpcConfig { return v.VpcConfig }).(BrowserCustomVpcConfigPtrOutput)
 }
 
+// Browser signing configuration
+type BrowserCustomBrowserSigning struct {
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// BrowserCustomBrowserSigningInput is an input type that accepts BrowserCustomBrowserSigningArgs and BrowserCustomBrowserSigningOutput values.
+// You can construct a concrete instance of `BrowserCustomBrowserSigningInput` via:
+//
+//	BrowserCustomBrowserSigningArgs{...}
+type BrowserCustomBrowserSigningInput interface {
+	pulumi.Input
+
+	ToBrowserCustomBrowserSigningOutput() BrowserCustomBrowserSigningOutput
+	ToBrowserCustomBrowserSigningOutputWithContext(context.Context) BrowserCustomBrowserSigningOutput
+}
+
+// Browser signing configuration
+type BrowserCustomBrowserSigningArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (BrowserCustomBrowserSigningArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrowserCustomBrowserSigning)(nil)).Elem()
+}
+
+func (i BrowserCustomBrowserSigningArgs) ToBrowserCustomBrowserSigningOutput() BrowserCustomBrowserSigningOutput {
+	return i.ToBrowserCustomBrowserSigningOutputWithContext(context.Background())
+}
+
+func (i BrowserCustomBrowserSigningArgs) ToBrowserCustomBrowserSigningOutputWithContext(ctx context.Context) BrowserCustomBrowserSigningOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrowserCustomBrowserSigningOutput)
+}
+
+func (i BrowserCustomBrowserSigningArgs) ToBrowserCustomBrowserSigningPtrOutput() BrowserCustomBrowserSigningPtrOutput {
+	return i.ToBrowserCustomBrowserSigningPtrOutputWithContext(context.Background())
+}
+
+func (i BrowserCustomBrowserSigningArgs) ToBrowserCustomBrowserSigningPtrOutputWithContext(ctx context.Context) BrowserCustomBrowserSigningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrowserCustomBrowserSigningOutput).ToBrowserCustomBrowserSigningPtrOutputWithContext(ctx)
+}
+
+// BrowserCustomBrowserSigningPtrInput is an input type that accepts BrowserCustomBrowserSigningArgs, BrowserCustomBrowserSigningPtr and BrowserCustomBrowserSigningPtrOutput values.
+// You can construct a concrete instance of `BrowserCustomBrowserSigningPtrInput` via:
+//
+//	        BrowserCustomBrowserSigningArgs{...}
+//
+//	or:
+//
+//	        nil
+type BrowserCustomBrowserSigningPtrInput interface {
+	pulumi.Input
+
+	ToBrowserCustomBrowserSigningPtrOutput() BrowserCustomBrowserSigningPtrOutput
+	ToBrowserCustomBrowserSigningPtrOutputWithContext(context.Context) BrowserCustomBrowserSigningPtrOutput
+}
+
+type browserCustomBrowserSigningPtrType BrowserCustomBrowserSigningArgs
+
+func BrowserCustomBrowserSigningPtr(v *BrowserCustomBrowserSigningArgs) BrowserCustomBrowserSigningPtrInput {
+	return (*browserCustomBrowserSigningPtrType)(v)
+}
+
+func (*browserCustomBrowserSigningPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BrowserCustomBrowserSigning)(nil)).Elem()
+}
+
+func (i *browserCustomBrowserSigningPtrType) ToBrowserCustomBrowserSigningPtrOutput() BrowserCustomBrowserSigningPtrOutput {
+	return i.ToBrowserCustomBrowserSigningPtrOutputWithContext(context.Background())
+}
+
+func (i *browserCustomBrowserSigningPtrType) ToBrowserCustomBrowserSigningPtrOutputWithContext(ctx context.Context) BrowserCustomBrowserSigningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrowserCustomBrowserSigningPtrOutput)
+}
+
+// Browser signing configuration
+type BrowserCustomBrowserSigningOutput struct{ *pulumi.OutputState }
+
+func (BrowserCustomBrowserSigningOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrowserCustomBrowserSigning)(nil)).Elem()
+}
+
+func (o BrowserCustomBrowserSigningOutput) ToBrowserCustomBrowserSigningOutput() BrowserCustomBrowserSigningOutput {
+	return o
+}
+
+func (o BrowserCustomBrowserSigningOutput) ToBrowserCustomBrowserSigningOutputWithContext(ctx context.Context) BrowserCustomBrowserSigningOutput {
+	return o
+}
+
+func (o BrowserCustomBrowserSigningOutput) ToBrowserCustomBrowserSigningPtrOutput() BrowserCustomBrowserSigningPtrOutput {
+	return o.ToBrowserCustomBrowserSigningPtrOutputWithContext(context.Background())
+}
+
+func (o BrowserCustomBrowserSigningOutput) ToBrowserCustomBrowserSigningPtrOutputWithContext(ctx context.Context) BrowserCustomBrowserSigningPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BrowserCustomBrowserSigning) *BrowserCustomBrowserSigning {
+		return &v
+	}).(BrowserCustomBrowserSigningPtrOutput)
+}
+
+func (o BrowserCustomBrowserSigningOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BrowserCustomBrowserSigning) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type BrowserCustomBrowserSigningPtrOutput struct{ *pulumi.OutputState }
+
+func (BrowserCustomBrowserSigningPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BrowserCustomBrowserSigning)(nil)).Elem()
+}
+
+func (o BrowserCustomBrowserSigningPtrOutput) ToBrowserCustomBrowserSigningPtrOutput() BrowserCustomBrowserSigningPtrOutput {
+	return o
+}
+
+func (o BrowserCustomBrowserSigningPtrOutput) ToBrowserCustomBrowserSigningPtrOutputWithContext(ctx context.Context) BrowserCustomBrowserSigningPtrOutput {
+	return o
+}
+
+func (o BrowserCustomBrowserSigningPtrOutput) Elem() BrowserCustomBrowserSigningOutput {
+	return o.ApplyT(func(v *BrowserCustomBrowserSigning) BrowserCustomBrowserSigning {
+		if v != nil {
+			return *v
+		}
+		var ret BrowserCustomBrowserSigning
+		return ret
+	}).(BrowserCustomBrowserSigningOutput)
+}
+
+func (o BrowserCustomBrowserSigningPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BrowserCustomBrowserSigning) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Recording configuration for browser
 type BrowserCustomRecordingConfig struct {
 	// The recording configuration for a browser. This structure defines how browser sessions are recorded.
@@ -2180,6 +2316,88 @@ func (o GatewayTargetMcpLambdaTargetConfigurationPtrOutput) ToolSchema() pulumi.
 	}).(pulumi.AnyOutput)
 }
 
+type GatewayTargetMcpServerTargetConfiguration struct {
+	Endpoint string `pulumi:"endpoint"`
+}
+
+// GatewayTargetMcpServerTargetConfigurationInput is an input type that accepts GatewayTargetMcpServerTargetConfigurationArgs and GatewayTargetMcpServerTargetConfigurationOutput values.
+// You can construct a concrete instance of `GatewayTargetMcpServerTargetConfigurationInput` via:
+//
+//	GatewayTargetMcpServerTargetConfigurationArgs{...}
+type GatewayTargetMcpServerTargetConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayTargetMcpServerTargetConfigurationOutput() GatewayTargetMcpServerTargetConfigurationOutput
+	ToGatewayTargetMcpServerTargetConfigurationOutputWithContext(context.Context) GatewayTargetMcpServerTargetConfigurationOutput
+}
+
+type GatewayTargetMcpServerTargetConfigurationArgs struct {
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+}
+
+func (GatewayTargetMcpServerTargetConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetMcpServerTargetConfiguration)(nil)).Elem()
+}
+
+func (i GatewayTargetMcpServerTargetConfigurationArgs) ToGatewayTargetMcpServerTargetConfigurationOutput() GatewayTargetMcpServerTargetConfigurationOutput {
+	return i.ToGatewayTargetMcpServerTargetConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetMcpServerTargetConfigurationArgs) ToGatewayTargetMcpServerTargetConfigurationOutputWithContext(ctx context.Context) GatewayTargetMcpServerTargetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetMcpServerTargetConfigurationOutput)
+}
+
+type GatewayTargetMcpServerTargetConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetMcpServerTargetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetMcpServerTargetConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetMcpServerTargetConfigurationOutput) ToGatewayTargetMcpServerTargetConfigurationOutput() GatewayTargetMcpServerTargetConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetMcpServerTargetConfigurationOutput) ToGatewayTargetMcpServerTargetConfigurationOutputWithContext(ctx context.Context) GatewayTargetMcpServerTargetConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetMcpServerTargetConfigurationOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTargetMcpServerTargetConfiguration) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+type GatewayTargetMcpServerTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetMcpServerTargetConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetMcpServerTargetConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetMcpServerTargetConfigurationPtrOutput) ToGatewayTargetMcpServerTargetConfigurationPtrOutput() GatewayTargetMcpServerTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetMcpServerTargetConfigurationPtrOutput) ToGatewayTargetMcpServerTargetConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetMcpServerTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetMcpServerTargetConfigurationPtrOutput) Elem() GatewayTargetMcpServerTargetConfigurationOutput {
+	return o.ApplyT(func(v *GatewayTargetMcpServerTargetConfiguration) GatewayTargetMcpServerTargetConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetMcpServerTargetConfiguration
+		return ret
+	}).(GatewayTargetMcpServerTargetConfigurationOutput)
+}
+
+func (o GatewayTargetMcpServerTargetConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetMcpServerTargetConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
 type GatewayTargetMcpTargetConfiguration0Properties struct {
 	OpenApiSchema interface{} `pulumi:"openApiSchema"`
 }
@@ -2426,6 +2644,90 @@ func (o GatewayTargetMcpTargetConfiguration2PropertiesPtrOutput) Lambda() Gatewa
 		}
 		return &v.Lambda
 	}).(GatewayTargetMcpLambdaTargetConfigurationPtrOutput)
+}
+
+type GatewayTargetMcpTargetConfiguration3Properties struct {
+	McpServer GatewayTargetMcpServerTargetConfiguration `pulumi:"mcpServer"`
+}
+
+// GatewayTargetMcpTargetConfiguration3PropertiesInput is an input type that accepts GatewayTargetMcpTargetConfiguration3PropertiesArgs and GatewayTargetMcpTargetConfiguration3PropertiesOutput values.
+// You can construct a concrete instance of `GatewayTargetMcpTargetConfiguration3PropertiesInput` via:
+//
+//	GatewayTargetMcpTargetConfiguration3PropertiesArgs{...}
+type GatewayTargetMcpTargetConfiguration3PropertiesInput interface {
+	pulumi.Input
+
+	ToGatewayTargetMcpTargetConfiguration3PropertiesOutput() GatewayTargetMcpTargetConfiguration3PropertiesOutput
+	ToGatewayTargetMcpTargetConfiguration3PropertiesOutputWithContext(context.Context) GatewayTargetMcpTargetConfiguration3PropertiesOutput
+}
+
+type GatewayTargetMcpTargetConfiguration3PropertiesArgs struct {
+	McpServer GatewayTargetMcpServerTargetConfigurationInput `pulumi:"mcpServer"`
+}
+
+func (GatewayTargetMcpTargetConfiguration3PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetMcpTargetConfiguration3Properties)(nil)).Elem()
+}
+
+func (i GatewayTargetMcpTargetConfiguration3PropertiesArgs) ToGatewayTargetMcpTargetConfiguration3PropertiesOutput() GatewayTargetMcpTargetConfiguration3PropertiesOutput {
+	return i.ToGatewayTargetMcpTargetConfiguration3PropertiesOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetMcpTargetConfiguration3PropertiesArgs) ToGatewayTargetMcpTargetConfiguration3PropertiesOutputWithContext(ctx context.Context) GatewayTargetMcpTargetConfiguration3PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetMcpTargetConfiguration3PropertiesOutput)
+}
+
+type GatewayTargetMcpTargetConfiguration3PropertiesOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetMcpTargetConfiguration3PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetMcpTargetConfiguration3Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetMcpTargetConfiguration3PropertiesOutput) ToGatewayTargetMcpTargetConfiguration3PropertiesOutput() GatewayTargetMcpTargetConfiguration3PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetMcpTargetConfiguration3PropertiesOutput) ToGatewayTargetMcpTargetConfiguration3PropertiesOutputWithContext(ctx context.Context) GatewayTargetMcpTargetConfiguration3PropertiesOutput {
+	return o
+}
+
+func (o GatewayTargetMcpTargetConfiguration3PropertiesOutput) McpServer() GatewayTargetMcpServerTargetConfigurationOutput {
+	return o.ApplyT(func(v GatewayTargetMcpTargetConfiguration3Properties) GatewayTargetMcpServerTargetConfiguration {
+		return v.McpServer
+	}).(GatewayTargetMcpServerTargetConfigurationOutput)
+}
+
+type GatewayTargetMcpTargetConfiguration3PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetMcpTargetConfiguration3PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetMcpTargetConfiguration3Properties)(nil)).Elem()
+}
+
+func (o GatewayTargetMcpTargetConfiguration3PropertiesPtrOutput) ToGatewayTargetMcpTargetConfiguration3PropertiesPtrOutput() GatewayTargetMcpTargetConfiguration3PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetMcpTargetConfiguration3PropertiesPtrOutput) ToGatewayTargetMcpTargetConfiguration3PropertiesPtrOutputWithContext(ctx context.Context) GatewayTargetMcpTargetConfiguration3PropertiesPtrOutput {
+	return o
+}
+
+func (o GatewayTargetMcpTargetConfiguration3PropertiesPtrOutput) Elem() GatewayTargetMcpTargetConfiguration3PropertiesOutput {
+	return o.ApplyT(func(v *GatewayTargetMcpTargetConfiguration3Properties) GatewayTargetMcpTargetConfiguration3Properties {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetMcpTargetConfiguration3Properties
+		return ret
+	}).(GatewayTargetMcpTargetConfiguration3PropertiesOutput)
+}
+
+func (o GatewayTargetMcpTargetConfiguration3PropertiesPtrOutput) McpServer() GatewayTargetMcpServerTargetConfigurationPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetMcpTargetConfiguration3Properties) *GatewayTargetMcpServerTargetConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.McpServer
+	}).(GatewayTargetMcpServerTargetConfigurationPtrOutput)
 }
 
 type GatewayTargetOAuthCredentialProvider struct {
@@ -6680,6 +6982,7 @@ func (o MemoryUserPreferenceOverrideExtractionConfigurationInputPtrOutput) Model
 }
 
 type RuntimeAgentRuntimeArtifact struct {
+	CodeConfiguration *RuntimeCodeConfiguration `pulumi:"codeConfiguration"`
 	// Representation of a container configuration.
 	ContainerConfiguration *RuntimeContainerConfiguration `pulumi:"containerConfiguration"`
 }
@@ -6696,6 +6999,7 @@ type RuntimeAgentRuntimeArtifactInput interface {
 }
 
 type RuntimeAgentRuntimeArtifactArgs struct {
+	CodeConfiguration RuntimeCodeConfigurationPtrInput `pulumi:"codeConfiguration"`
 	// Representation of a container configuration.
 	ContainerConfiguration RuntimeContainerConfigurationPtrInput `pulumi:"containerConfiguration"`
 }
@@ -6726,6 +7030,10 @@ func (o RuntimeAgentRuntimeArtifactOutput) ToRuntimeAgentRuntimeArtifactOutputWi
 	return o
 }
 
+func (o RuntimeAgentRuntimeArtifactOutput) CodeConfiguration() RuntimeCodeConfigurationPtrOutput {
+	return o.ApplyT(func(v RuntimeAgentRuntimeArtifact) *RuntimeCodeConfiguration { return v.CodeConfiguration }).(RuntimeCodeConfigurationPtrOutput)
+}
+
 // Representation of a container configuration.
 func (o RuntimeAgentRuntimeArtifactOutput) ContainerConfiguration() RuntimeContainerConfigurationPtrOutput {
 	return o.ApplyT(func(v RuntimeAgentRuntimeArtifact) *RuntimeContainerConfiguration { return v.ContainerConfiguration }).(RuntimeContainerConfigurationPtrOutput)
@@ -6753,6 +7061,15 @@ func (o RuntimeAgentRuntimeArtifactPtrOutput) Elem() RuntimeAgentRuntimeArtifact
 		var ret RuntimeAgentRuntimeArtifact
 		return ret
 	}).(RuntimeAgentRuntimeArtifactOutput)
+}
+
+func (o RuntimeAgentRuntimeArtifactPtrOutput) CodeConfiguration() RuntimeCodeConfigurationPtrOutput {
+	return o.ApplyT(func(v *RuntimeAgentRuntimeArtifact) *RuntimeCodeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CodeConfiguration
+	}).(RuntimeCodeConfigurationPtrOutput)
 }
 
 // Representation of a container configuration.
@@ -6905,6 +7222,308 @@ func (o RuntimeAuthorizerConfigurationPtrOutput) CustomJwtAuthorizer() RuntimeCu
 		}
 		return v.CustomJwtAuthorizer
 	}).(RuntimeCustomJwtAuthorizerConfigurationPtrOutput)
+}
+
+// Object represents source code from zip file
+type RuntimeCode struct {
+	S3 *RuntimeS3Location `pulumi:"s3"`
+}
+
+// RuntimeCodeInput is an input type that accepts RuntimeCodeArgs and RuntimeCodeOutput values.
+// You can construct a concrete instance of `RuntimeCodeInput` via:
+//
+//	RuntimeCodeArgs{...}
+type RuntimeCodeInput interface {
+	pulumi.Input
+
+	ToRuntimeCodeOutput() RuntimeCodeOutput
+	ToRuntimeCodeOutputWithContext(context.Context) RuntimeCodeOutput
+}
+
+// Object represents source code from zip file
+type RuntimeCodeArgs struct {
+	S3 RuntimeS3LocationPtrInput `pulumi:"s3"`
+}
+
+func (RuntimeCodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeCode)(nil)).Elem()
+}
+
+func (i RuntimeCodeArgs) ToRuntimeCodeOutput() RuntimeCodeOutput {
+	return i.ToRuntimeCodeOutputWithContext(context.Background())
+}
+
+func (i RuntimeCodeArgs) ToRuntimeCodeOutputWithContext(ctx context.Context) RuntimeCodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeCodeOutput)
+}
+
+func (i RuntimeCodeArgs) ToRuntimeCodePtrOutput() RuntimeCodePtrOutput {
+	return i.ToRuntimeCodePtrOutputWithContext(context.Background())
+}
+
+func (i RuntimeCodeArgs) ToRuntimeCodePtrOutputWithContext(ctx context.Context) RuntimeCodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeCodeOutput).ToRuntimeCodePtrOutputWithContext(ctx)
+}
+
+// RuntimeCodePtrInput is an input type that accepts RuntimeCodeArgs, RuntimeCodePtr and RuntimeCodePtrOutput values.
+// You can construct a concrete instance of `RuntimeCodePtrInput` via:
+//
+//	        RuntimeCodeArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuntimeCodePtrInput interface {
+	pulumi.Input
+
+	ToRuntimeCodePtrOutput() RuntimeCodePtrOutput
+	ToRuntimeCodePtrOutputWithContext(context.Context) RuntimeCodePtrOutput
+}
+
+type runtimeCodePtrType RuntimeCodeArgs
+
+func RuntimeCodePtr(v *RuntimeCodeArgs) RuntimeCodePtrInput {
+	return (*runtimeCodePtrType)(v)
+}
+
+func (*runtimeCodePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeCode)(nil)).Elem()
+}
+
+func (i *runtimeCodePtrType) ToRuntimeCodePtrOutput() RuntimeCodePtrOutput {
+	return i.ToRuntimeCodePtrOutputWithContext(context.Background())
+}
+
+func (i *runtimeCodePtrType) ToRuntimeCodePtrOutputWithContext(ctx context.Context) RuntimeCodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeCodePtrOutput)
+}
+
+// Object represents source code from zip file
+type RuntimeCodeOutput struct{ *pulumi.OutputState }
+
+func (RuntimeCodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeCode)(nil)).Elem()
+}
+
+func (o RuntimeCodeOutput) ToRuntimeCodeOutput() RuntimeCodeOutput {
+	return o
+}
+
+func (o RuntimeCodeOutput) ToRuntimeCodeOutputWithContext(ctx context.Context) RuntimeCodeOutput {
+	return o
+}
+
+func (o RuntimeCodeOutput) ToRuntimeCodePtrOutput() RuntimeCodePtrOutput {
+	return o.ToRuntimeCodePtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeCodeOutput) ToRuntimeCodePtrOutputWithContext(ctx context.Context) RuntimeCodePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeCode) *RuntimeCode {
+		return &v
+	}).(RuntimeCodePtrOutput)
+}
+
+func (o RuntimeCodeOutput) S3() RuntimeS3LocationPtrOutput {
+	return o.ApplyT(func(v RuntimeCode) *RuntimeS3Location { return v.S3 }).(RuntimeS3LocationPtrOutput)
+}
+
+type RuntimeCodePtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeCodePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeCode)(nil)).Elem()
+}
+
+func (o RuntimeCodePtrOutput) ToRuntimeCodePtrOutput() RuntimeCodePtrOutput {
+	return o
+}
+
+func (o RuntimeCodePtrOutput) ToRuntimeCodePtrOutputWithContext(ctx context.Context) RuntimeCodePtrOutput {
+	return o
+}
+
+func (o RuntimeCodePtrOutput) Elem() RuntimeCodeOutput {
+	return o.ApplyT(func(v *RuntimeCode) RuntimeCode {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeCode
+		return ret
+	}).(RuntimeCodeOutput)
+}
+
+func (o RuntimeCodePtrOutput) S3() RuntimeS3LocationPtrOutput {
+	return o.ApplyT(func(v *RuntimeCode) *RuntimeS3Location {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(RuntimeS3LocationPtrOutput)
+}
+
+// Representation of a code configuration
+type RuntimeCodeConfiguration struct {
+	Code       RuntimeCode                    `pulumi:"code"`
+	EntryPoint []string                       `pulumi:"entryPoint"`
+	Runtime    RuntimeAgentManagedRuntimeType `pulumi:"runtime"`
+}
+
+// RuntimeCodeConfigurationInput is an input type that accepts RuntimeCodeConfigurationArgs and RuntimeCodeConfigurationOutput values.
+// You can construct a concrete instance of `RuntimeCodeConfigurationInput` via:
+//
+//	RuntimeCodeConfigurationArgs{...}
+type RuntimeCodeConfigurationInput interface {
+	pulumi.Input
+
+	ToRuntimeCodeConfigurationOutput() RuntimeCodeConfigurationOutput
+	ToRuntimeCodeConfigurationOutputWithContext(context.Context) RuntimeCodeConfigurationOutput
+}
+
+// Representation of a code configuration
+type RuntimeCodeConfigurationArgs struct {
+	Code       RuntimeCodeInput                    `pulumi:"code"`
+	EntryPoint pulumi.StringArrayInput             `pulumi:"entryPoint"`
+	Runtime    RuntimeAgentManagedRuntimeTypeInput `pulumi:"runtime"`
+}
+
+func (RuntimeCodeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeCodeConfiguration)(nil)).Elem()
+}
+
+func (i RuntimeCodeConfigurationArgs) ToRuntimeCodeConfigurationOutput() RuntimeCodeConfigurationOutput {
+	return i.ToRuntimeCodeConfigurationOutputWithContext(context.Background())
+}
+
+func (i RuntimeCodeConfigurationArgs) ToRuntimeCodeConfigurationOutputWithContext(ctx context.Context) RuntimeCodeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeCodeConfigurationOutput)
+}
+
+func (i RuntimeCodeConfigurationArgs) ToRuntimeCodeConfigurationPtrOutput() RuntimeCodeConfigurationPtrOutput {
+	return i.ToRuntimeCodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RuntimeCodeConfigurationArgs) ToRuntimeCodeConfigurationPtrOutputWithContext(ctx context.Context) RuntimeCodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeCodeConfigurationOutput).ToRuntimeCodeConfigurationPtrOutputWithContext(ctx)
+}
+
+// RuntimeCodeConfigurationPtrInput is an input type that accepts RuntimeCodeConfigurationArgs, RuntimeCodeConfigurationPtr and RuntimeCodeConfigurationPtrOutput values.
+// You can construct a concrete instance of `RuntimeCodeConfigurationPtrInput` via:
+//
+//	        RuntimeCodeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuntimeCodeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRuntimeCodeConfigurationPtrOutput() RuntimeCodeConfigurationPtrOutput
+	ToRuntimeCodeConfigurationPtrOutputWithContext(context.Context) RuntimeCodeConfigurationPtrOutput
+}
+
+type runtimeCodeConfigurationPtrType RuntimeCodeConfigurationArgs
+
+func RuntimeCodeConfigurationPtr(v *RuntimeCodeConfigurationArgs) RuntimeCodeConfigurationPtrInput {
+	return (*runtimeCodeConfigurationPtrType)(v)
+}
+
+func (*runtimeCodeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeCodeConfiguration)(nil)).Elem()
+}
+
+func (i *runtimeCodeConfigurationPtrType) ToRuntimeCodeConfigurationPtrOutput() RuntimeCodeConfigurationPtrOutput {
+	return i.ToRuntimeCodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *runtimeCodeConfigurationPtrType) ToRuntimeCodeConfigurationPtrOutputWithContext(ctx context.Context) RuntimeCodeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeCodeConfigurationPtrOutput)
+}
+
+// Representation of a code configuration
+type RuntimeCodeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RuntimeCodeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeCodeConfiguration)(nil)).Elem()
+}
+
+func (o RuntimeCodeConfigurationOutput) ToRuntimeCodeConfigurationOutput() RuntimeCodeConfigurationOutput {
+	return o
+}
+
+func (o RuntimeCodeConfigurationOutput) ToRuntimeCodeConfigurationOutputWithContext(ctx context.Context) RuntimeCodeConfigurationOutput {
+	return o
+}
+
+func (o RuntimeCodeConfigurationOutput) ToRuntimeCodeConfigurationPtrOutput() RuntimeCodeConfigurationPtrOutput {
+	return o.ToRuntimeCodeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeCodeConfigurationOutput) ToRuntimeCodeConfigurationPtrOutputWithContext(ctx context.Context) RuntimeCodeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeCodeConfiguration) *RuntimeCodeConfiguration {
+		return &v
+	}).(RuntimeCodeConfigurationPtrOutput)
+}
+
+func (o RuntimeCodeConfigurationOutput) Code() RuntimeCodeOutput {
+	return o.ApplyT(func(v RuntimeCodeConfiguration) RuntimeCode { return v.Code }).(RuntimeCodeOutput)
+}
+
+func (o RuntimeCodeConfigurationOutput) EntryPoint() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuntimeCodeConfiguration) []string { return v.EntryPoint }).(pulumi.StringArrayOutput)
+}
+
+func (o RuntimeCodeConfigurationOutput) Runtime() RuntimeAgentManagedRuntimeTypeOutput {
+	return o.ApplyT(func(v RuntimeCodeConfiguration) RuntimeAgentManagedRuntimeType { return v.Runtime }).(RuntimeAgentManagedRuntimeTypeOutput)
+}
+
+type RuntimeCodeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeCodeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeCodeConfiguration)(nil)).Elem()
+}
+
+func (o RuntimeCodeConfigurationPtrOutput) ToRuntimeCodeConfigurationPtrOutput() RuntimeCodeConfigurationPtrOutput {
+	return o
+}
+
+func (o RuntimeCodeConfigurationPtrOutput) ToRuntimeCodeConfigurationPtrOutputWithContext(ctx context.Context) RuntimeCodeConfigurationPtrOutput {
+	return o
+}
+
+func (o RuntimeCodeConfigurationPtrOutput) Elem() RuntimeCodeConfigurationOutput {
+	return o.ApplyT(func(v *RuntimeCodeConfiguration) RuntimeCodeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeCodeConfiguration
+		return ret
+	}).(RuntimeCodeConfigurationOutput)
+}
+
+func (o RuntimeCodeConfigurationPtrOutput) Code() RuntimeCodePtrOutput {
+	return o.ApplyT(func(v *RuntimeCodeConfiguration) *RuntimeCode {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(RuntimeCodePtrOutput)
+}
+
+func (o RuntimeCodeConfigurationPtrOutput) EntryPoint() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuntimeCodeConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EntryPoint
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RuntimeCodeConfigurationPtrOutput) Runtime() RuntimeAgentManagedRuntimeTypePtrOutput {
+	return o.ApplyT(func(v *RuntimeCodeConfiguration) *RuntimeAgentManagedRuntimeType {
+		if v == nil {
+			return nil
+		}
+		return &v.Runtime
+	}).(RuntimeAgentManagedRuntimeTypePtrOutput)
 }
 
 type RuntimeContainerConfiguration struct {
@@ -7222,6 +7841,165 @@ func (o RuntimeCustomJwtAuthorizerConfigurationPtrOutput) DiscoveryUrl() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration for managing the lifecycle of runtime sessions and resources
+type RuntimeLifecycleConfiguration struct {
+	// Timeout in seconds for idle runtime sessions
+	IdleRuntimeSessionTimeout *int `pulumi:"idleRuntimeSessionTimeout"`
+	// Maximum lifetime in seconds for runtime sessions
+	MaxLifetime *int `pulumi:"maxLifetime"`
+}
+
+// RuntimeLifecycleConfigurationInput is an input type that accepts RuntimeLifecycleConfigurationArgs and RuntimeLifecycleConfigurationOutput values.
+// You can construct a concrete instance of `RuntimeLifecycleConfigurationInput` via:
+//
+//	RuntimeLifecycleConfigurationArgs{...}
+type RuntimeLifecycleConfigurationInput interface {
+	pulumi.Input
+
+	ToRuntimeLifecycleConfigurationOutput() RuntimeLifecycleConfigurationOutput
+	ToRuntimeLifecycleConfigurationOutputWithContext(context.Context) RuntimeLifecycleConfigurationOutput
+}
+
+// Configuration for managing the lifecycle of runtime sessions and resources
+type RuntimeLifecycleConfigurationArgs struct {
+	// Timeout in seconds for idle runtime sessions
+	IdleRuntimeSessionTimeout pulumi.IntPtrInput `pulumi:"idleRuntimeSessionTimeout"`
+	// Maximum lifetime in seconds for runtime sessions
+	MaxLifetime pulumi.IntPtrInput `pulumi:"maxLifetime"`
+}
+
+func (RuntimeLifecycleConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeLifecycleConfiguration)(nil)).Elem()
+}
+
+func (i RuntimeLifecycleConfigurationArgs) ToRuntimeLifecycleConfigurationOutput() RuntimeLifecycleConfigurationOutput {
+	return i.ToRuntimeLifecycleConfigurationOutputWithContext(context.Background())
+}
+
+func (i RuntimeLifecycleConfigurationArgs) ToRuntimeLifecycleConfigurationOutputWithContext(ctx context.Context) RuntimeLifecycleConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeLifecycleConfigurationOutput)
+}
+
+func (i RuntimeLifecycleConfigurationArgs) ToRuntimeLifecycleConfigurationPtrOutput() RuntimeLifecycleConfigurationPtrOutput {
+	return i.ToRuntimeLifecycleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RuntimeLifecycleConfigurationArgs) ToRuntimeLifecycleConfigurationPtrOutputWithContext(ctx context.Context) RuntimeLifecycleConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeLifecycleConfigurationOutput).ToRuntimeLifecycleConfigurationPtrOutputWithContext(ctx)
+}
+
+// RuntimeLifecycleConfigurationPtrInput is an input type that accepts RuntimeLifecycleConfigurationArgs, RuntimeLifecycleConfigurationPtr and RuntimeLifecycleConfigurationPtrOutput values.
+// You can construct a concrete instance of `RuntimeLifecycleConfigurationPtrInput` via:
+//
+//	        RuntimeLifecycleConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuntimeLifecycleConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRuntimeLifecycleConfigurationPtrOutput() RuntimeLifecycleConfigurationPtrOutput
+	ToRuntimeLifecycleConfigurationPtrOutputWithContext(context.Context) RuntimeLifecycleConfigurationPtrOutput
+}
+
+type runtimeLifecycleConfigurationPtrType RuntimeLifecycleConfigurationArgs
+
+func RuntimeLifecycleConfigurationPtr(v *RuntimeLifecycleConfigurationArgs) RuntimeLifecycleConfigurationPtrInput {
+	return (*runtimeLifecycleConfigurationPtrType)(v)
+}
+
+func (*runtimeLifecycleConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeLifecycleConfiguration)(nil)).Elem()
+}
+
+func (i *runtimeLifecycleConfigurationPtrType) ToRuntimeLifecycleConfigurationPtrOutput() RuntimeLifecycleConfigurationPtrOutput {
+	return i.ToRuntimeLifecycleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *runtimeLifecycleConfigurationPtrType) ToRuntimeLifecycleConfigurationPtrOutputWithContext(ctx context.Context) RuntimeLifecycleConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeLifecycleConfigurationPtrOutput)
+}
+
+// Configuration for managing the lifecycle of runtime sessions and resources
+type RuntimeLifecycleConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RuntimeLifecycleConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeLifecycleConfiguration)(nil)).Elem()
+}
+
+func (o RuntimeLifecycleConfigurationOutput) ToRuntimeLifecycleConfigurationOutput() RuntimeLifecycleConfigurationOutput {
+	return o
+}
+
+func (o RuntimeLifecycleConfigurationOutput) ToRuntimeLifecycleConfigurationOutputWithContext(ctx context.Context) RuntimeLifecycleConfigurationOutput {
+	return o
+}
+
+func (o RuntimeLifecycleConfigurationOutput) ToRuntimeLifecycleConfigurationPtrOutput() RuntimeLifecycleConfigurationPtrOutput {
+	return o.ToRuntimeLifecycleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeLifecycleConfigurationOutput) ToRuntimeLifecycleConfigurationPtrOutputWithContext(ctx context.Context) RuntimeLifecycleConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeLifecycleConfiguration) *RuntimeLifecycleConfiguration {
+		return &v
+	}).(RuntimeLifecycleConfigurationPtrOutput)
+}
+
+// Timeout in seconds for idle runtime sessions
+func (o RuntimeLifecycleConfigurationOutput) IdleRuntimeSessionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RuntimeLifecycleConfiguration) *int { return v.IdleRuntimeSessionTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Maximum lifetime in seconds for runtime sessions
+func (o RuntimeLifecycleConfigurationOutput) MaxLifetime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RuntimeLifecycleConfiguration) *int { return v.MaxLifetime }).(pulumi.IntPtrOutput)
+}
+
+type RuntimeLifecycleConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeLifecycleConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeLifecycleConfiguration)(nil)).Elem()
+}
+
+func (o RuntimeLifecycleConfigurationPtrOutput) ToRuntimeLifecycleConfigurationPtrOutput() RuntimeLifecycleConfigurationPtrOutput {
+	return o
+}
+
+func (o RuntimeLifecycleConfigurationPtrOutput) ToRuntimeLifecycleConfigurationPtrOutputWithContext(ctx context.Context) RuntimeLifecycleConfigurationPtrOutput {
+	return o
+}
+
+func (o RuntimeLifecycleConfigurationPtrOutput) Elem() RuntimeLifecycleConfigurationOutput {
+	return o.ApplyT(func(v *RuntimeLifecycleConfiguration) RuntimeLifecycleConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeLifecycleConfiguration
+		return ret
+	}).(RuntimeLifecycleConfigurationOutput)
+}
+
+// Timeout in seconds for idle runtime sessions
+func (o RuntimeLifecycleConfigurationPtrOutput) IdleRuntimeSessionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RuntimeLifecycleConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleRuntimeSessionTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum lifetime in seconds for runtime sessions
+func (o RuntimeLifecycleConfigurationPtrOutput) MaxLifetime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RuntimeLifecycleConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxLifetime
+	}).(pulumi.IntPtrOutput)
+}
+
 type RuntimeNetworkConfiguration struct {
 	// The network mode.
 	NetworkMode       RuntimeNetworkMode `pulumi:"networkMode"`
@@ -7321,6 +8099,320 @@ func (o RuntimeNetworkConfigurationPtrOutput) NetworkModeConfig() RuntimeVpcConf
 		}
 		return v.NetworkModeConfig
 	}).(RuntimeVpcConfigPtrOutput)
+}
+
+// Configuration for HTTP request headers
+type RuntimeRequestHeaderConfiguration struct {
+	RequestHeaderAllowlist []string `pulumi:"requestHeaderAllowlist"`
+}
+
+// RuntimeRequestHeaderConfigurationInput is an input type that accepts RuntimeRequestHeaderConfigurationArgs and RuntimeRequestHeaderConfigurationOutput values.
+// You can construct a concrete instance of `RuntimeRequestHeaderConfigurationInput` via:
+//
+//	RuntimeRequestHeaderConfigurationArgs{...}
+type RuntimeRequestHeaderConfigurationInput interface {
+	pulumi.Input
+
+	ToRuntimeRequestHeaderConfigurationOutput() RuntimeRequestHeaderConfigurationOutput
+	ToRuntimeRequestHeaderConfigurationOutputWithContext(context.Context) RuntimeRequestHeaderConfigurationOutput
+}
+
+// Configuration for HTTP request headers
+type RuntimeRequestHeaderConfigurationArgs struct {
+	RequestHeaderAllowlist pulumi.StringArrayInput `pulumi:"requestHeaderAllowlist"`
+}
+
+func (RuntimeRequestHeaderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeRequestHeaderConfiguration)(nil)).Elem()
+}
+
+func (i RuntimeRequestHeaderConfigurationArgs) ToRuntimeRequestHeaderConfigurationOutput() RuntimeRequestHeaderConfigurationOutput {
+	return i.ToRuntimeRequestHeaderConfigurationOutputWithContext(context.Background())
+}
+
+func (i RuntimeRequestHeaderConfigurationArgs) ToRuntimeRequestHeaderConfigurationOutputWithContext(ctx context.Context) RuntimeRequestHeaderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeRequestHeaderConfigurationOutput)
+}
+
+func (i RuntimeRequestHeaderConfigurationArgs) ToRuntimeRequestHeaderConfigurationPtrOutput() RuntimeRequestHeaderConfigurationPtrOutput {
+	return i.ToRuntimeRequestHeaderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RuntimeRequestHeaderConfigurationArgs) ToRuntimeRequestHeaderConfigurationPtrOutputWithContext(ctx context.Context) RuntimeRequestHeaderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeRequestHeaderConfigurationOutput).ToRuntimeRequestHeaderConfigurationPtrOutputWithContext(ctx)
+}
+
+// RuntimeRequestHeaderConfigurationPtrInput is an input type that accepts RuntimeRequestHeaderConfigurationArgs, RuntimeRequestHeaderConfigurationPtr and RuntimeRequestHeaderConfigurationPtrOutput values.
+// You can construct a concrete instance of `RuntimeRequestHeaderConfigurationPtrInput` via:
+//
+//	        RuntimeRequestHeaderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuntimeRequestHeaderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRuntimeRequestHeaderConfigurationPtrOutput() RuntimeRequestHeaderConfigurationPtrOutput
+	ToRuntimeRequestHeaderConfigurationPtrOutputWithContext(context.Context) RuntimeRequestHeaderConfigurationPtrOutput
+}
+
+type runtimeRequestHeaderConfigurationPtrType RuntimeRequestHeaderConfigurationArgs
+
+func RuntimeRequestHeaderConfigurationPtr(v *RuntimeRequestHeaderConfigurationArgs) RuntimeRequestHeaderConfigurationPtrInput {
+	return (*runtimeRequestHeaderConfigurationPtrType)(v)
+}
+
+func (*runtimeRequestHeaderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeRequestHeaderConfiguration)(nil)).Elem()
+}
+
+func (i *runtimeRequestHeaderConfigurationPtrType) ToRuntimeRequestHeaderConfigurationPtrOutput() RuntimeRequestHeaderConfigurationPtrOutput {
+	return i.ToRuntimeRequestHeaderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *runtimeRequestHeaderConfigurationPtrType) ToRuntimeRequestHeaderConfigurationPtrOutputWithContext(ctx context.Context) RuntimeRequestHeaderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeRequestHeaderConfigurationPtrOutput)
+}
+
+// Configuration for HTTP request headers
+type RuntimeRequestHeaderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RuntimeRequestHeaderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeRequestHeaderConfiguration)(nil)).Elem()
+}
+
+func (o RuntimeRequestHeaderConfigurationOutput) ToRuntimeRequestHeaderConfigurationOutput() RuntimeRequestHeaderConfigurationOutput {
+	return o
+}
+
+func (o RuntimeRequestHeaderConfigurationOutput) ToRuntimeRequestHeaderConfigurationOutputWithContext(ctx context.Context) RuntimeRequestHeaderConfigurationOutput {
+	return o
+}
+
+func (o RuntimeRequestHeaderConfigurationOutput) ToRuntimeRequestHeaderConfigurationPtrOutput() RuntimeRequestHeaderConfigurationPtrOutput {
+	return o.ToRuntimeRequestHeaderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeRequestHeaderConfigurationOutput) ToRuntimeRequestHeaderConfigurationPtrOutputWithContext(ctx context.Context) RuntimeRequestHeaderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeRequestHeaderConfiguration) *RuntimeRequestHeaderConfiguration {
+		return &v
+	}).(RuntimeRequestHeaderConfigurationPtrOutput)
+}
+
+func (o RuntimeRequestHeaderConfigurationOutput) RequestHeaderAllowlist() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RuntimeRequestHeaderConfiguration) []string { return v.RequestHeaderAllowlist }).(pulumi.StringArrayOutput)
+}
+
+type RuntimeRequestHeaderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeRequestHeaderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeRequestHeaderConfiguration)(nil)).Elem()
+}
+
+func (o RuntimeRequestHeaderConfigurationPtrOutput) ToRuntimeRequestHeaderConfigurationPtrOutput() RuntimeRequestHeaderConfigurationPtrOutput {
+	return o
+}
+
+func (o RuntimeRequestHeaderConfigurationPtrOutput) ToRuntimeRequestHeaderConfigurationPtrOutputWithContext(ctx context.Context) RuntimeRequestHeaderConfigurationPtrOutput {
+	return o
+}
+
+func (o RuntimeRequestHeaderConfigurationPtrOutput) Elem() RuntimeRequestHeaderConfigurationOutput {
+	return o.ApplyT(func(v *RuntimeRequestHeaderConfiguration) RuntimeRequestHeaderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeRequestHeaderConfiguration
+		return ret
+	}).(RuntimeRequestHeaderConfigurationOutput)
+}
+
+func (o RuntimeRequestHeaderConfigurationPtrOutput) RequestHeaderAllowlist() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RuntimeRequestHeaderConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RequestHeaderAllowlist
+	}).(pulumi.StringArrayOutput)
+}
+
+// S3 Location Configuration
+type RuntimeS3Location struct {
+	// S3 bucket name
+	Bucket string `pulumi:"bucket"`
+	// S3 object key prefix
+	Prefix string `pulumi:"prefix"`
+	// S3 object version ID
+	VersionId *string `pulumi:"versionId"`
+}
+
+// RuntimeS3LocationInput is an input type that accepts RuntimeS3LocationArgs and RuntimeS3LocationOutput values.
+// You can construct a concrete instance of `RuntimeS3LocationInput` via:
+//
+//	RuntimeS3LocationArgs{...}
+type RuntimeS3LocationInput interface {
+	pulumi.Input
+
+	ToRuntimeS3LocationOutput() RuntimeS3LocationOutput
+	ToRuntimeS3LocationOutputWithContext(context.Context) RuntimeS3LocationOutput
+}
+
+// S3 Location Configuration
+type RuntimeS3LocationArgs struct {
+	// S3 bucket name
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// S3 object key prefix
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// S3 object version ID
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+}
+
+func (RuntimeS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeS3Location)(nil)).Elem()
+}
+
+func (i RuntimeS3LocationArgs) ToRuntimeS3LocationOutput() RuntimeS3LocationOutput {
+	return i.ToRuntimeS3LocationOutputWithContext(context.Background())
+}
+
+func (i RuntimeS3LocationArgs) ToRuntimeS3LocationOutputWithContext(ctx context.Context) RuntimeS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeS3LocationOutput)
+}
+
+func (i RuntimeS3LocationArgs) ToRuntimeS3LocationPtrOutput() RuntimeS3LocationPtrOutput {
+	return i.ToRuntimeS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i RuntimeS3LocationArgs) ToRuntimeS3LocationPtrOutputWithContext(ctx context.Context) RuntimeS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeS3LocationOutput).ToRuntimeS3LocationPtrOutputWithContext(ctx)
+}
+
+// RuntimeS3LocationPtrInput is an input type that accepts RuntimeS3LocationArgs, RuntimeS3LocationPtr and RuntimeS3LocationPtrOutput values.
+// You can construct a concrete instance of `RuntimeS3LocationPtrInput` via:
+//
+//	        RuntimeS3LocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuntimeS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToRuntimeS3LocationPtrOutput() RuntimeS3LocationPtrOutput
+	ToRuntimeS3LocationPtrOutputWithContext(context.Context) RuntimeS3LocationPtrOutput
+}
+
+type runtimeS3LocationPtrType RuntimeS3LocationArgs
+
+func RuntimeS3LocationPtr(v *RuntimeS3LocationArgs) RuntimeS3LocationPtrInput {
+	return (*runtimeS3LocationPtrType)(v)
+}
+
+func (*runtimeS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeS3Location)(nil)).Elem()
+}
+
+func (i *runtimeS3LocationPtrType) ToRuntimeS3LocationPtrOutput() RuntimeS3LocationPtrOutput {
+	return i.ToRuntimeS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *runtimeS3LocationPtrType) ToRuntimeS3LocationPtrOutputWithContext(ctx context.Context) RuntimeS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeS3LocationPtrOutput)
+}
+
+// S3 Location Configuration
+type RuntimeS3LocationOutput struct{ *pulumi.OutputState }
+
+func (RuntimeS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeS3Location)(nil)).Elem()
+}
+
+func (o RuntimeS3LocationOutput) ToRuntimeS3LocationOutput() RuntimeS3LocationOutput {
+	return o
+}
+
+func (o RuntimeS3LocationOutput) ToRuntimeS3LocationOutputWithContext(ctx context.Context) RuntimeS3LocationOutput {
+	return o
+}
+
+func (o RuntimeS3LocationOutput) ToRuntimeS3LocationPtrOutput() RuntimeS3LocationPtrOutput {
+	return o.ToRuntimeS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeS3LocationOutput) ToRuntimeS3LocationPtrOutputWithContext(ctx context.Context) RuntimeS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeS3Location) *RuntimeS3Location {
+		return &v
+	}).(RuntimeS3LocationPtrOutput)
+}
+
+// S3 bucket name
+func (o RuntimeS3LocationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v RuntimeS3Location) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// S3 object key prefix
+func (o RuntimeS3LocationOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v RuntimeS3Location) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+// S3 object version ID
+func (o RuntimeS3LocationOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuntimeS3Location) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+type RuntimeS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeS3Location)(nil)).Elem()
+}
+
+func (o RuntimeS3LocationPtrOutput) ToRuntimeS3LocationPtrOutput() RuntimeS3LocationPtrOutput {
+	return o
+}
+
+func (o RuntimeS3LocationPtrOutput) ToRuntimeS3LocationPtrOutputWithContext(ctx context.Context) RuntimeS3LocationPtrOutput {
+	return o
+}
+
+func (o RuntimeS3LocationPtrOutput) Elem() RuntimeS3LocationOutput {
+	return o.ApplyT(func(v *RuntimeS3Location) RuntimeS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeS3Location
+		return ret
+	}).(RuntimeS3LocationOutput)
+}
+
+// S3 bucket name
+func (o RuntimeS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuntimeS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 object key prefix
+func (o RuntimeS3LocationPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuntimeS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 object version ID
+func (o RuntimeS3LocationPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuntimeS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Network mode configuration for VPC
@@ -7543,6 +8635,8 @@ type WorkloadIdentityTag struct {
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserNetworkConfigurationInput)(nil)).Elem(), BrowserCustomBrowserNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserSigningInput)(nil)).Elem(), BrowserCustomBrowserSigningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomBrowserSigningPtrInput)(nil)).Elem(), BrowserCustomBrowserSigningArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomRecordingConfigInput)(nil)).Elem(), BrowserCustomRecordingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomRecordingConfigPtrInput)(nil)).Elem(), BrowserCustomRecordingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrowserCustomS3LocationInput)(nil)).Elem(), BrowserCustomS3LocationArgs{})
@@ -7571,9 +8665,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProviderConfigurationInput)(nil)).Elem(), GatewayTargetCredentialProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProviderConfigurationArrayInput)(nil)).Elem(), GatewayTargetCredentialProviderConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpLambdaTargetConfigurationInput)(nil)).Elem(), GatewayTargetMcpLambdaTargetConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpServerTargetConfigurationInput)(nil)).Elem(), GatewayTargetMcpServerTargetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpTargetConfiguration0PropertiesInput)(nil)).Elem(), GatewayTargetMcpTargetConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpTargetConfiguration1PropertiesInput)(nil)).Elem(), GatewayTargetMcpTargetConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpTargetConfiguration2PropertiesInput)(nil)).Elem(), GatewayTargetMcpTargetConfiguration2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpTargetConfiguration3PropertiesInput)(nil)).Elem(), GatewayTargetMcpTargetConfiguration3PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthCredentialProviderInput)(nil)).Elem(), GatewayTargetOAuthCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthCredentialProviderPtrInput)(nil)).Elem(), GatewayTargetOAuthCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetS3ConfigurationInput)(nil)).Elem(), GatewayTargetS3ConfigurationArgs{})
@@ -7628,14 +8724,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAgentRuntimeArtifactInput)(nil)).Elem(), RuntimeAgentRuntimeArtifactArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAuthorizerConfigurationInput)(nil)).Elem(), RuntimeAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAuthorizerConfigurationPtrInput)(nil)).Elem(), RuntimeAuthorizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCodeInput)(nil)).Elem(), RuntimeCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCodePtrInput)(nil)).Elem(), RuntimeCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCodeConfigurationInput)(nil)).Elem(), RuntimeCodeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCodeConfigurationPtrInput)(nil)).Elem(), RuntimeCodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeContainerConfigurationInput)(nil)).Elem(), RuntimeContainerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeContainerConfigurationPtrInput)(nil)).Elem(), RuntimeContainerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCustomJwtAuthorizerConfigurationInput)(nil)).Elem(), RuntimeCustomJwtAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCustomJwtAuthorizerConfigurationPtrInput)(nil)).Elem(), RuntimeCustomJwtAuthorizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeLifecycleConfigurationInput)(nil)).Elem(), RuntimeLifecycleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeLifecycleConfigurationPtrInput)(nil)).Elem(), RuntimeLifecycleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeNetworkConfigurationInput)(nil)).Elem(), RuntimeNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeRequestHeaderConfigurationInput)(nil)).Elem(), RuntimeRequestHeaderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeRequestHeaderConfigurationPtrInput)(nil)).Elem(), RuntimeRequestHeaderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeS3LocationInput)(nil)).Elem(), RuntimeS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeS3LocationPtrInput)(nil)).Elem(), RuntimeS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeVpcConfigInput)(nil)).Elem(), RuntimeVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeVpcConfigPtrInput)(nil)).Elem(), RuntimeVpcConfigArgs{})
 	pulumi.RegisterOutputType(BrowserCustomBrowserNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(BrowserCustomBrowserSigningOutput{})
+	pulumi.RegisterOutputType(BrowserCustomBrowserSigningPtrOutput{})
 	pulumi.RegisterOutputType(BrowserCustomRecordingConfigOutput{})
 	pulumi.RegisterOutputType(BrowserCustomRecordingConfigPtrOutput{})
 	pulumi.RegisterOutputType(BrowserCustomS3LocationOutput{})
@@ -7667,12 +8775,16 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetCredentialProviderConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpLambdaTargetConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpLambdaTargetConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetMcpServerTargetConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayTargetMcpServerTargetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration0PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration2PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration2PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration3PropertiesOutput{})
+	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration3PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetOAuthCredentialProviderOutput{})
 	pulumi.RegisterOutputType(GatewayTargetOAuthCredentialProviderPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetS3ConfigurationOutput{})
@@ -7734,12 +8846,22 @@ func init() {
 	pulumi.RegisterOutputType(RuntimeAgentRuntimeArtifactPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeAuthorizerConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeAuthorizerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeCodeOutput{})
+	pulumi.RegisterOutputType(RuntimeCodePtrOutput{})
+	pulumi.RegisterOutputType(RuntimeCodeConfigurationOutput{})
+	pulumi.RegisterOutputType(RuntimeCodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeContainerConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeContainerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeCustomJwtAuthorizerConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeCustomJwtAuthorizerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeLifecycleConfigurationOutput{})
+	pulumi.RegisterOutputType(RuntimeLifecycleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeRequestHeaderConfigurationOutput{})
+	pulumi.RegisterOutputType(RuntimeRequestHeaderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeS3LocationOutput{})
+	pulumi.RegisterOutputType(RuntimeS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeVpcConfigOutput{})
 	pulumi.RegisterOutputType(RuntimeVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeWorkloadIdentityDetailsOutput{})

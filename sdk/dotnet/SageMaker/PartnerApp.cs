@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.SageMaker
     public partial class PartnerApp : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The version of the PartnerApp.
+        /// </summary>
+        [Output("appVersion")]
+        public Output<string?> AppVersion { get; private set; } = null!;
+
+        /// <summary>
         /// A collection of settings that specify the maintenance schedule for the PartnerApp.
         /// </summary>
         [Output("applicationConfig")]
@@ -44,6 +50,18 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         [Output("clientToken")]
         public Output<string?> ClientToken { get; private set; } = null!;
+
+        /// <summary>
+        /// The end-of-life date for the current version of the PartnerApp.
+        /// </summary>
+        [Output("currentVersionEolDate")]
+        public Output<string> CurrentVersionEolDate { get; private set; } = null!;
+
+        /// <summary>
+        /// Enables automatic minor version upgrades for the PartnerApp.
+        /// </summary>
+        [Output("enableAutoMinorVersionUpgrade")]
+        public Output<bool?> EnableAutoMinorVersionUpgrade { get; private set; } = null!;
 
         /// <summary>
         /// Enables IAM Session based Identity for PartnerApp.
@@ -147,6 +165,12 @@ namespace Pulumi.AwsNative.SageMaker
     public sealed class PartnerAppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The version of the PartnerApp.
+        /// </summary>
+        [Input("appVersion")]
+        public Input<string>? AppVersion { get; set; }
+
+        /// <summary>
         /// A collection of settings that specify the maintenance schedule for the PartnerApp.
         /// </summary>
         [Input("applicationConfig")]
@@ -163,6 +187,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         [Input("clientToken")]
         public Input<string>? ClientToken { get; set; }
+
+        /// <summary>
+        /// Enables automatic minor version upgrades for the PartnerApp.
+        /// </summary>
+        [Input("enableAutoMinorVersionUpgrade")]
+        public Input<bool>? EnableAutoMinorVersionUpgrade { get; set; }
 
         /// <summary>
         /// Enables IAM Session based Identity for PartnerApp.

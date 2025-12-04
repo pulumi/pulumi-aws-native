@@ -374,6 +374,7 @@ class ContainerRecipe(pulumi.CustomResource):
             __props__.__dict__["version"] = version
             __props__.__dict__["working_directory"] = working_directory
             __props__.__dict__["arn"] = None
+            __props__.__dict__["latest_version"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["components[*]", "containerType", "description", "dockerfileTemplateData", "dockerfileTemplateUri", "imageOsVersionOverride", "instanceConfiguration", "kmsKeyId", "name", "parentImage", "platformOverride", "targetRepository", "version", "workingDirectory"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ContainerRecipe, __self__).__init__(
@@ -407,6 +408,7 @@ class ContainerRecipe(pulumi.CustomResource):
         __props__.__dict__["image_os_version_override"] = None
         __props__.__dict__["instance_configuration"] = None
         __props__.__dict__["kms_key_id"] = None
+        __props__.__dict__["latest_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["parent_image"] = None
         __props__.__dict__["platform_override"] = None
@@ -487,6 +489,14 @@ class ContainerRecipe(pulumi.CustomResource):
         Identifies which KMS key is used to encrypt the container image.
         """
         return pulumi.get(self, "kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="latestVersion")
+    def latest_version(self) -> pulumi.Output['outputs.ContainerRecipeLatestVersion']:
+        """
+        The latest version references of the container recipe.
+        """
+        return pulumi.get(self, "latest_version")
 
     @_builtins.property
     @pulumi.getter

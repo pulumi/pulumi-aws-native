@@ -328,6 +328,83 @@ type StreamTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Warm throughput configuration details for the stream. Only present for ON_DEMAND streams.
+type StreamWarmThroughputObject struct {
+	// Current warm throughput in MiB/s
+	CurrentMiBps *int `pulumi:"currentMiBps"`
+	// Target warm throughput in MiB/s that a customer can write to a stream at any given time
+	TargetMiBps *int `pulumi:"targetMiBps"`
+}
+
+// Warm throughput configuration details for the stream. Only present for ON_DEMAND streams.
+type StreamWarmThroughputObjectOutput struct{ *pulumi.OutputState }
+
+func (StreamWarmThroughputObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamWarmThroughputObject)(nil)).Elem()
+}
+
+func (o StreamWarmThroughputObjectOutput) ToStreamWarmThroughputObjectOutput() StreamWarmThroughputObjectOutput {
+	return o
+}
+
+func (o StreamWarmThroughputObjectOutput) ToStreamWarmThroughputObjectOutputWithContext(ctx context.Context) StreamWarmThroughputObjectOutput {
+	return o
+}
+
+// Current warm throughput in MiB/s
+func (o StreamWarmThroughputObjectOutput) CurrentMiBps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StreamWarmThroughputObject) *int { return v.CurrentMiBps }).(pulumi.IntPtrOutput)
+}
+
+// Target warm throughput in MiB/s that a customer can write to a stream at any given time
+func (o StreamWarmThroughputObjectOutput) TargetMiBps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StreamWarmThroughputObject) *int { return v.TargetMiBps }).(pulumi.IntPtrOutput)
+}
+
+type StreamWarmThroughputObjectPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamWarmThroughputObjectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamWarmThroughputObject)(nil)).Elem()
+}
+
+func (o StreamWarmThroughputObjectPtrOutput) ToStreamWarmThroughputObjectPtrOutput() StreamWarmThroughputObjectPtrOutput {
+	return o
+}
+
+func (o StreamWarmThroughputObjectPtrOutput) ToStreamWarmThroughputObjectPtrOutputWithContext(ctx context.Context) StreamWarmThroughputObjectPtrOutput {
+	return o
+}
+
+func (o StreamWarmThroughputObjectPtrOutput) Elem() StreamWarmThroughputObjectOutput {
+	return o.ApplyT(func(v *StreamWarmThroughputObject) StreamWarmThroughputObject {
+		if v != nil {
+			return *v
+		}
+		var ret StreamWarmThroughputObject
+		return ret
+	}).(StreamWarmThroughputObjectOutput)
+}
+
+// Current warm throughput in MiB/s
+func (o StreamWarmThroughputObjectPtrOutput) CurrentMiBps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StreamWarmThroughputObject) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CurrentMiBps
+	}).(pulumi.IntPtrOutput)
+}
+
+// Target warm throughput in MiB/s that a customer can write to a stream at any given time
+func (o StreamWarmThroughputObjectPtrOutput) TargetMiBps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StreamWarmThroughputObject) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TargetMiBps
+	}).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamEncryptionInput)(nil)).Elem(), StreamEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamEncryptionPtrInput)(nil)).Elem(), StreamEncryptionArgs{})
@@ -337,4 +414,6 @@ func init() {
 	pulumi.RegisterOutputType(StreamEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(StreamModeDetailsOutput{})
 	pulumi.RegisterOutputType(StreamModeDetailsPtrOutput{})
+	pulumi.RegisterOutputType(StreamWarmThroughputObjectOutput{})
+	pulumi.RegisterOutputType(StreamWarmThroughputObjectPtrOutput{})
 }

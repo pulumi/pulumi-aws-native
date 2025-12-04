@@ -64,6 +64,12 @@ namespace Pulumi.AwsNative.S3Tables
         public Output<string> TableName { get; private set; } = null!;
 
         /// <summary>
+        /// User tags (key-value pairs) to associate with the table.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
         /// The version token of the table.
         /// </summary>
         [Output("versionToken")]
@@ -174,6 +180,18 @@ namespace Pulumi.AwsNative.S3Tables
         /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// User tags (key-value pairs) to associate with the table.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .

@@ -30,6 +30,12 @@ __all__ = [
     'EvaluationFormItemEnablementExpression',
     'EvaluationFormItemEnablementSource',
     'EvaluationFormItemEnablementSourceValue',
+    'EvaluationFormLanguageConfiguration',
+    'EvaluationFormMultiSelectQuestionAutomation',
+    'EvaluationFormMultiSelectQuestionAutomationOption',
+    'EvaluationFormMultiSelectQuestionOption',
+    'EvaluationFormMultiSelectQuestionProperties',
+    'EvaluationFormMultiSelectQuestionRuleCategoryAutomation',
     'EvaluationFormNumericQuestionAutomation',
     'EvaluationFormNumericQuestionOption',
     'EvaluationFormNumericQuestionProperties',
@@ -44,6 +50,7 @@ __all__ = [
     'EvaluationFormSingleSelectQuestionOption',
     'EvaluationFormSingleSelectQuestionProperties',
     'EvaluationFormSingleSelectQuestionRuleCategoryAutomation',
+    'EvaluationFormTargetConfiguration',
     'EvaluationFormTextQuestionAutomation',
     'EvaluationFormTextQuestionProperties',
     'GranularAccessControlConfigurationProperties',
@@ -269,8 +276,14 @@ class EmailAddressAliasConfiguration(dict):
 
 @pulumi.output_type
 class EvaluationFormAutoEvaluationConfiguration(dict):
+    """
+    Configuration information about automated evaluations.
+    """
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None):
+        """
+        Configuration information about automated evaluations.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
@@ -282,6 +295,9 @@ class EvaluationFormAutoEvaluationConfiguration(dict):
 
 @pulumi.output_type
 class EvaluationFormAutomaticFailConfiguration(dict):
+    """
+    Information about automatic fail configuration for an evaluation form.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -302,7 +318,8 @@ class EvaluationFormAutomaticFailConfiguration(dict):
     def __init__(__self__, *,
                  target_section: Optional[_builtins.str] = None):
         """
-        :param _builtins.str target_section: The target section refId to control failure propagation boundary.
+        Information about automatic fail configuration for an evaluation form.
+        :param _builtins.str target_section: The referenceId of the target section for auto failure.
         """
         if target_section is not None:
             pulumi.set(__self__, "target_section", target_section)
@@ -311,7 +328,7 @@ class EvaluationFormAutomaticFailConfiguration(dict):
     @pulumi.getter(name="targetSection")
     def target_section(self) -> Optional[_builtins.str]:
         """
-        The target section refId to control failure propagation boundary.
+        The referenceId of the target section for auto failure.
         """
         return pulumi.get(self, "target_section")
 
@@ -375,12 +392,16 @@ class EvaluationFormItem(dict):
 
 @pulumi.output_type
 class EvaluationFormItemEnablementCondition(dict):
+    """
+    A condition for item enablement.
+    """
     def __init__(__self__, *,
                  operands: Sequence['outputs.EvaluationFormItemEnablementConditionOperand'],
                  operator: Optional['EvaluationFormItemEnablementConditionOperator'] = None):
         """
-        :param Sequence['EvaluationFormItemEnablementConditionOperand'] operands: The list of operands that compose the condition. Each operand represents a specific criteria to be evaluated.
-        :param 'EvaluationFormItemEnablementConditionOperator' operator: The logical operator used to combine multiple operands, determining how the condition is evaluated as a whole.
+        A condition for item enablement.
+        :param Sequence['EvaluationFormItemEnablementConditionOperand'] operands: Operands of the enablement condition.
+        :param 'EvaluationFormItemEnablementConditionOperator' operator: The operator to be used to be applied to operands if more than one provided.
         """
         pulumi.set(__self__, "operands", operands)
         if operator is not None:
@@ -390,7 +411,7 @@ class EvaluationFormItemEnablementCondition(dict):
     @pulumi.getter
     def operands(self) -> Sequence['outputs.EvaluationFormItemEnablementConditionOperand']:
         """
-        The list of operands that compose the condition. Each operand represents a specific criteria to be evaluated.
+        Operands of the enablement condition.
         """
         return pulumi.get(self, "operands")
 
@@ -398,17 +419,21 @@ class EvaluationFormItemEnablementCondition(dict):
     @pulumi.getter
     def operator(self) -> Optional['EvaluationFormItemEnablementConditionOperator']:
         """
-        The logical operator used to combine multiple operands, determining how the condition is evaluated as a whole.
+        The operator to be used to be applied to operands if more than one provided.
         """
         return pulumi.get(self, "operator")
 
 
 @pulumi.output_type
 class EvaluationFormItemEnablementConditionOperand(dict):
+    """
+    An operand of the enablement condition.
+    """
     def __init__(__self__, *,
                  expression: Optional['outputs.EvaluationFormItemEnablementExpression'] = None):
         """
-        :param 'EvaluationFormItemEnablementExpression' expression: A direct comparison expression that evaluates a form item's value against specified criteria.
+        An operand of the enablement condition.
+        :param 'EvaluationFormItemEnablementExpression' expression: An expression of the enablement condition.
         """
         if expression is not None:
             pulumi.set(__self__, "expression", expression)
@@ -417,13 +442,16 @@ class EvaluationFormItemEnablementConditionOperand(dict):
     @pulumi.getter
     def expression(self) -> Optional['outputs.EvaluationFormItemEnablementExpression']:
         """
-        A direct comparison expression that evaluates a form item's value against specified criteria.
+        An expression of the enablement condition.
         """
         return pulumi.get(self, "expression")
 
 
 @pulumi.output_type
 class EvaluationFormItemEnablementConfiguration(dict):
+    """
+    An item enablement configuration.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -446,9 +474,10 @@ class EvaluationFormItemEnablementConfiguration(dict):
                  condition: 'outputs.EvaluationFormItemEnablementCondition',
                  default_action: Optional['EvaluationFormItemEnablementConfigurationDefaultAction'] = None):
         """
-        :param 'EvaluationFormItemEnablementConfigurationAction' action: Defines the enablement status to be applied when the specified condition is met.
-        :param 'EvaluationFormItemEnablementCondition' condition: Specifies the logical condition that determines when to apply the enablement rules.
-        :param 'EvaluationFormItemEnablementConfigurationDefaultAction' default_action: Specifies the default enablement status to be applied when the condition is not satisfied.
+        An item enablement configuration.
+        :param 'EvaluationFormItemEnablementConfigurationAction' action: An enablement action that if condition is satisfied.
+        :param 'EvaluationFormItemEnablementCondition' condition: A condition for item enablement configuration.
+        :param 'EvaluationFormItemEnablementConfigurationDefaultAction' default_action: An enablement action that if condition is not satisfied.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "condition", condition)
@@ -459,7 +488,7 @@ class EvaluationFormItemEnablementConfiguration(dict):
     @pulumi.getter
     def action(self) -> 'EvaluationFormItemEnablementConfigurationAction':
         """
-        Defines the enablement status to be applied when the specified condition is met.
+        An enablement action that if condition is satisfied.
         """
         return pulumi.get(self, "action")
 
@@ -467,7 +496,7 @@ class EvaluationFormItemEnablementConfiguration(dict):
     @pulumi.getter
     def condition(self) -> 'outputs.EvaluationFormItemEnablementCondition':
         """
-        Specifies the logical condition that determines when to apply the enablement rules.
+        A condition for item enablement configuration.
         """
         return pulumi.get(self, "condition")
 
@@ -475,21 +504,25 @@ class EvaluationFormItemEnablementConfiguration(dict):
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> Optional['EvaluationFormItemEnablementConfigurationDefaultAction']:
         """
-        Specifies the default enablement status to be applied when the condition is not satisfied.
+        An enablement action that if condition is not satisfied.
         """
         return pulumi.get(self, "default_action")
 
 
 @pulumi.output_type
 class EvaluationFormItemEnablementExpression(dict):
+    """
+    An expression that defines a basic building block of conditional enablement.
+    """
     def __init__(__self__, *,
                  comparator: 'EvaluationFormItemEnablementExpressionComparator',
                  source: 'outputs.EvaluationFormItemEnablementSource',
                  values: Sequence['outputs.EvaluationFormItemEnablementSourceValue']):
         """
-        :param 'EvaluationFormItemEnablementExpressionComparator' comparator: Specifies the comparison method to determine if the source value matches any of the specified values.
-        :param 'EvaluationFormItemEnablementSource' source: Identifies the form item whose value will be evaluated in the expression.
-        :param Sequence['EvaluationFormItemEnablementSourceValue'] values: The list of possible values to compare against the source form item's value.
+        An expression that defines a basic building block of conditional enablement.
+        :param 'EvaluationFormItemEnablementExpressionComparator' comparator: A comparator to be used against list of values.
+        :param 'EvaluationFormItemEnablementSource' source: A source item of enablement expression.
+        :param Sequence['EvaluationFormItemEnablementSourceValue'] values: A list of values from source item.
         """
         pulumi.set(__self__, "comparator", comparator)
         pulumi.set(__self__, "source", source)
@@ -499,7 +532,7 @@ class EvaluationFormItemEnablementExpression(dict):
     @pulumi.getter
     def comparator(self) -> 'EvaluationFormItemEnablementExpressionComparator':
         """
-        Specifies the comparison method to determine if the source value matches any of the specified values.
+        A comparator to be used against list of values.
         """
         return pulumi.get(self, "comparator")
 
@@ -507,7 +540,7 @@ class EvaluationFormItemEnablementExpression(dict):
     @pulumi.getter
     def source(self) -> 'outputs.EvaluationFormItemEnablementSource':
         """
-        Identifies the form item whose value will be evaluated in the expression.
+        A source item of enablement expression.
         """
         return pulumi.get(self, "source")
 
@@ -515,13 +548,16 @@ class EvaluationFormItemEnablementExpression(dict):
     @pulumi.getter
     def values(self) -> Sequence['outputs.EvaluationFormItemEnablementSourceValue']:
         """
-        The list of possible values to compare against the source form item's value.
+        A list of values from source item.
         """
         return pulumi.get(self, "values")
 
 
 @pulumi.output_type
 class EvaluationFormItemEnablementSource(dict):
+    """
+    An enablement expression source item.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -543,7 +579,9 @@ class EvaluationFormItemEnablementSource(dict):
                  type: 'EvaluationFormItemEnablementSourceType',
                  ref_id: Optional[_builtins.str] = None):
         """
-        :param 'EvaluationFormItemEnablementSourceType' type: The type of the source entity.
+        An enablement expression source item.
+        :param 'EvaluationFormItemEnablementSourceType' type: A type of source item.
+        :param _builtins.str ref_id: A referenceId of the source item.
         """
         pulumi.set(__self__, "type", type)
         if ref_id is not None:
@@ -553,18 +591,24 @@ class EvaluationFormItemEnablementSource(dict):
     @pulumi.getter
     def type(self) -> 'EvaluationFormItemEnablementSourceType':
         """
-        The type of the source entity.
+        A type of source item.
         """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter(name="refId")
     def ref_id(self) -> Optional[_builtins.str]:
+        """
+        A referenceId of the source item.
+        """
         return pulumi.get(self, "ref_id")
 
 
 @pulumi.output_type
 class EvaluationFormItemEnablementSourceValue(dict):
+    """
+    An enablement expression source value.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -586,8 +630,9 @@ class EvaluationFormItemEnablementSourceValue(dict):
                  ref_id: Optional[_builtins.str] = None,
                  type: Optional['EvaluationFormItemEnablementSourceValueType'] = None):
         """
-        :param _builtins.str ref_id: The reference id of the source entity value.
-        :param 'EvaluationFormItemEnablementSourceValueType' type: Type of the source entity value.
+        An enablement expression source value.
+        :param _builtins.str ref_id: A referenceId of the source value.
+        :param 'EvaluationFormItemEnablementSourceValueType' type: A type of source item value.
         """
         if ref_id is not None:
             pulumi.set(__self__, "ref_id", ref_id)
@@ -598,7 +643,7 @@ class EvaluationFormItemEnablementSourceValue(dict):
     @pulumi.getter(name="refId")
     def ref_id(self) -> Optional[_builtins.str]:
         """
-        The reference id of the source entity value.
+        A referenceId of the source value.
         """
         return pulumi.get(self, "ref_id")
 
@@ -606,9 +651,303 @@ class EvaluationFormItemEnablementSourceValue(dict):
     @pulumi.getter
     def type(self) -> Optional['EvaluationFormItemEnablementSourceValueType']:
         """
-        Type of the source entity value.
+        A type of source item value.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class EvaluationFormLanguageConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "formLanguage":
+            suggest = "form_language"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormLanguageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormLanguageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormLanguageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 form_language: Optional['EvaluationFormLanguageConfigurationFormLanguage'] = None):
+        """
+        :param 'EvaluationFormLanguageConfigurationFormLanguage' form_language: The language of the form
+        """
+        if form_language is not None:
+            pulumi.set(__self__, "form_language", form_language)
+
+    @_builtins.property
+    @pulumi.getter(name="formLanguage")
+    def form_language(self) -> Optional['EvaluationFormLanguageConfigurationFormLanguage']:
+        """
+        The language of the form
+        """
+        return pulumi.get(self, "form_language")
+
+
+@pulumi.output_type
+class EvaluationFormMultiSelectQuestionAutomation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "answerSource":
+            suggest = "answer_source"
+        elif key == "defaultOptionRefIds":
+            suggest = "default_option_ref_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormMultiSelectQuestionAutomation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormMultiSelectQuestionAutomation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormMultiSelectQuestionAutomation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 options: Sequence['outputs.EvaluationFormMultiSelectQuestionAutomationOption'],
+                 answer_source: Optional['outputs.EvaluationFormQuestionAutomationAnswerSource'] = None,
+                 default_option_ref_ids: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence['EvaluationFormMultiSelectQuestionAutomationOption'] options: The answer options for the automation.
+        :param 'EvaluationFormQuestionAutomationAnswerSource' answer_source: The source of automation answer of the question.
+        :param Sequence[_builtins.str] default_option_ref_ids: The option reference identifiers of the default answers.
+        """
+        pulumi.set(__self__, "options", options)
+        if answer_source is not None:
+            pulumi.set(__self__, "answer_source", answer_source)
+        if default_option_ref_ids is not None:
+            pulumi.set(__self__, "default_option_ref_ids", default_option_ref_ids)
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> Sequence['outputs.EvaluationFormMultiSelectQuestionAutomationOption']:
+        """
+        The answer options for the automation.
+        """
+        return pulumi.get(self, "options")
+
+    @_builtins.property
+    @pulumi.getter(name="answerSource")
+    def answer_source(self) -> Optional['outputs.EvaluationFormQuestionAutomationAnswerSource']:
+        """
+        The source of automation answer of the question.
+        """
+        return pulumi.get(self, "answer_source")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultOptionRefIds")
+    def default_option_ref_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The option reference identifiers of the default answers.
+        """
+        return pulumi.get(self, "default_option_ref_ids")
+
+
+@pulumi.output_type
+class EvaluationFormMultiSelectQuestionAutomationOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleCategory":
+            suggest = "rule_category"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormMultiSelectQuestionAutomationOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormMultiSelectQuestionAutomationOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormMultiSelectQuestionAutomationOption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_category: 'outputs.EvaluationFormMultiSelectQuestionRuleCategoryAutomation'):
+        """
+        :param 'EvaluationFormMultiSelectQuestionRuleCategoryAutomation' rule_category: The automation option based on Rules categories.
+        """
+        pulumi.set(__self__, "rule_category", rule_category)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleCategory")
+    def rule_category(self) -> 'outputs.EvaluationFormMultiSelectQuestionRuleCategoryAutomation':
+        """
+        The automation option based on Rules categories.
+        """
+        return pulumi.get(self, "rule_category")
+
+
+@pulumi.output_type
+class EvaluationFormMultiSelectQuestionOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "refId":
+            suggest = "ref_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormMultiSelectQuestionOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormMultiSelectQuestionOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormMultiSelectQuestionOption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ref_id: _builtins.str,
+                 text: _builtins.str):
+        """
+        :param _builtins.str ref_id: The identifier used to reference the option.
+        :param _builtins.str text: The title of the option.
+        """
+        pulumi.set(__self__, "ref_id", ref_id)
+        pulumi.set(__self__, "text", text)
+
+    @_builtins.property
+    @pulumi.getter(name="refId")
+    def ref_id(self) -> _builtins.str:
+        """
+        The identifier used to reference the option.
+        """
+        return pulumi.get(self, "ref_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def text(self) -> _builtins.str:
+        """
+        The title of the option.
+        """
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class EvaluationFormMultiSelectQuestionProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayAs":
+            suggest = "display_as"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormMultiSelectQuestionProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormMultiSelectQuestionProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormMultiSelectQuestionProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 options: Sequence['outputs.EvaluationFormMultiSelectQuestionOption'],
+                 automation: Optional['outputs.EvaluationFormMultiSelectQuestionAutomation'] = None,
+                 display_as: Optional['EvaluationFormMultiSelectQuestionPropertiesDisplayAs'] = None):
+        """
+        :param Sequence['EvaluationFormMultiSelectQuestionOption'] options: The list of options for the question.
+        :param 'EvaluationFormMultiSelectQuestionAutomation' automation: The automation properties for the multi-select question.
+        :param 'EvaluationFormMultiSelectQuestionPropertiesDisplayAs' display_as: The display mode of the multi-select question.
+        """
+        pulumi.set(__self__, "options", options)
+        if automation is not None:
+            pulumi.set(__self__, "automation", automation)
+        if display_as is not None:
+            pulumi.set(__self__, "display_as", display_as)
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> Sequence['outputs.EvaluationFormMultiSelectQuestionOption']:
+        """
+        The list of options for the question.
+        """
+        return pulumi.get(self, "options")
+
+    @_builtins.property
+    @pulumi.getter
+    def automation(self) -> Optional['outputs.EvaluationFormMultiSelectQuestionAutomation']:
+        """
+        The automation properties for the multi-select question.
+        """
+        return pulumi.get(self, "automation")
+
+    @_builtins.property
+    @pulumi.getter(name="displayAs")
+    def display_as(self) -> Optional['EvaluationFormMultiSelectQuestionPropertiesDisplayAs']:
+        """
+        The display mode of the multi-select question.
+        """
+        return pulumi.get(self, "display_as")
+
+
+@pulumi.output_type
+class EvaluationFormMultiSelectQuestionRuleCategoryAutomation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "optionRefIds":
+            suggest = "option_ref_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormMultiSelectQuestionRuleCategoryAutomation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormMultiSelectQuestionRuleCategoryAutomation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormMultiSelectQuestionRuleCategoryAutomation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: _builtins.str,
+                 condition: 'EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition',
+                 option_ref_ids: Sequence[_builtins.str]):
+        """
+        :param _builtins.str category: The category name as defined in Rules.
+        :param 'EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition' condition: The automation condition applied on contact categories.
+        :param Sequence[_builtins.str] option_ref_ids: The option identifiers referencing the options to be selected when the automation option is triggered.
+        """
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "option_ref_ids", option_ref_ids)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> _builtins.str:
+        """
+        The category name as defined in Rules.
+        """
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def condition(self) -> 'EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition':
+        """
+        The automation condition applied on contact categories.
+        """
+        return pulumi.get(self, "condition")
+
+    @_builtins.property
+    @pulumi.getter(name="optionRefIds")
+    def option_ref_ids(self) -> Sequence[_builtins.str]:
+        """
+        The option identifiers referencing the options to be selected when the automation option is triggered.
+        """
+        return pulumi.get(self, "option_ref_ids")
 
 
 @pulumi.output_type
@@ -640,6 +979,7 @@ class EvaluationFormNumericQuestionAutomation(dict):
                  property_value: Optional['outputs.EvaluationFormNumericQuestionPropertyValueAutomation'] = None):
         """
         Information about the automation configuration in numeric questions.
+        :param 'EvaluationFormQuestionAutomationAnswerSource' answer_source: A source of automation answer for numeric question.
         :param 'EvaluationFormNumericQuestionPropertyValueAutomation' property_value: The property value of the automation.
         """
         if answer_source is not None:
@@ -650,6 +990,9 @@ class EvaluationFormNumericQuestionAutomation(dict):
     @_builtins.property
     @pulumi.getter(name="answerSource")
     def answer_source(self) -> Optional['outputs.EvaluationFormQuestionAutomationAnswerSource']:
+        """
+        A source of automation answer for numeric question.
+        """
         return pulumi.get(self, "answer_source")
 
     @_builtins.property
@@ -700,6 +1043,7 @@ class EvaluationFormNumericQuestionOption(dict):
         :param _builtins.int max_value: The maximum answer value of the range option.
         :param _builtins.int min_value: The minimum answer value of the range option.
         :param _builtins.bool automatic_fail: The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
+        :param 'EvaluationFormAutomaticFailConfiguration' automatic_fail_configuration: A configuration for automatic fail.
         :param _builtins.int score: The score assigned to answer values within the range option.
                 *Minimum*: 0
                 *Maximum*: 10
@@ -740,6 +1084,9 @@ class EvaluationFormNumericQuestionOption(dict):
     @_builtins.property
     @pulumi.getter(name="automaticFailConfiguration")
     def automatic_fail_configuration(self) -> Optional['outputs.EvaluationFormAutomaticFailConfiguration']:
+        """
+        A configuration for automatic fail.
+        """
         return pulumi.get(self, "automatic_fail_configuration")
 
     @_builtins.property
@@ -896,6 +1243,7 @@ class EvaluationFormQuestion(dict):
                 *Length Constraints*: Minimum length of 1. Maximum length of 40.
         :param _builtins.str title: The title of the question.
                 *Length Constraints*: Minimum length of 1. Maximum length of 350.
+        :param 'EvaluationFormItemEnablementConfiguration' enablement: A question conditional enablement.
         :param _builtins.str instructions: The instructions of the section.
                 *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         :param _builtins.bool not_applicable_enabled: The flag to enable not applicable answers to the question.
@@ -948,6 +1296,9 @@ class EvaluationFormQuestion(dict):
     @_builtins.property
     @pulumi.getter
     def enablement(self) -> Optional['outputs.EvaluationFormItemEnablementConfiguration']:
+        """
+        A question conditional enablement.
+        """
         return pulumi.get(self, "enablement")
 
     @_builtins.property
@@ -988,6 +1339,9 @@ class EvaluationFormQuestion(dict):
 
 @pulumi.output_type
 class EvaluationFormQuestionAutomationAnswerSource(dict):
+    """
+    A question automation answer.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1008,7 +1362,8 @@ class EvaluationFormQuestionAutomationAnswerSource(dict):
     def __init__(__self__, *,
                  source_type: 'EvaluationFormQuestionAutomationAnswerSourceSourceType'):
         """
-        :param 'EvaluationFormQuestionAutomationAnswerSourceSourceType' source_type: The type of the answer sourcr
+        A question automation answer.
+        :param 'EvaluationFormQuestionAutomationAnswerSourceSourceType' source_type: The automation answer source type.
         """
         pulumi.set(__self__, "source_type", source_type)
 
@@ -1016,7 +1371,7 @@ class EvaluationFormQuestionAutomationAnswerSource(dict):
     @pulumi.getter(name="sourceType")
     def source_type(self) -> 'EvaluationFormQuestionAutomationAnswerSourceSourceType':
         """
-        The type of the answer sourcr
+        The automation answer source type.
         """
         return pulumi.get(self, "source_type")
 
@@ -1029,7 +1384,9 @@ class EvaluationFormQuestionTypeProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "singleSelect":
+        if key == "multiSelect":
+            suggest = "multi_select"
+        elif key == "singleSelect":
             suggest = "single_select"
 
         if suggest:
@@ -1044,6 +1401,7 @@ class EvaluationFormQuestionTypeProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 multi_select: Optional['outputs.EvaluationFormMultiSelectQuestionProperties'] = None,
                  numeric: Optional['outputs.EvaluationFormNumericQuestionProperties'] = None,
                  single_select: Optional['outputs.EvaluationFormSingleSelectQuestionProperties'] = None,
                  text: Optional['outputs.EvaluationFormTextQuestionProperties'] = None):
@@ -1051,13 +1409,21 @@ class EvaluationFormQuestionTypeProperties(dict):
         Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
         :param 'EvaluationFormNumericQuestionProperties' numeric: The properties of the numeric question.
         :param 'EvaluationFormSingleSelectQuestionProperties' single_select: The properties of the numeric question.
+        :param 'EvaluationFormTextQuestionProperties' text: The properties of the text question.
         """
+        if multi_select is not None:
+            pulumi.set(__self__, "multi_select", multi_select)
         if numeric is not None:
             pulumi.set(__self__, "numeric", numeric)
         if single_select is not None:
             pulumi.set(__self__, "single_select", single_select)
         if text is not None:
             pulumi.set(__self__, "text", text)
+
+    @_builtins.property
+    @pulumi.getter(name="multiSelect")
+    def multi_select(self) -> Optional['outputs.EvaluationFormMultiSelectQuestionProperties']:
+        return pulumi.get(self, "multi_select")
 
     @_builtins.property
     @pulumi.getter
@@ -1078,6 +1444,9 @@ class EvaluationFormQuestionTypeProperties(dict):
     @_builtins.property
     @pulumi.getter
     def text(self) -> Optional['outputs.EvaluationFormTextQuestionProperties']:
+        """
+        The properties of the text question.
+        """
         return pulumi.get(self, "text")
 
 
@@ -1247,6 +1616,7 @@ class EvaluationFormSingleSelectQuestionAutomation(dict):
         :param Sequence['EvaluationFormSingleSelectQuestionAutomationOption'] options: The automation options of the single select question.
                 *Minimum*: 1
                 *Maximum*: 20
+        :param 'EvaluationFormQuestionAutomationAnswerSource' answer_source: Automation answer source.
         :param _builtins.str default_option_ref_id: The identifier of the default answer option, when none of the automation options match the criteria.
                 *Length Constraints*: Minimum length of 1. Maximum length of 40.
         """
@@ -1269,6 +1639,9 @@ class EvaluationFormSingleSelectQuestionAutomation(dict):
     @_builtins.property
     @pulumi.getter(name="answerSource")
     def answer_source(self) -> Optional['outputs.EvaluationFormQuestionAutomationAnswerSource']:
+        """
+        Automation answer source.
+        """
         return pulumi.get(self, "answer_source")
 
     @_builtins.property
@@ -1359,6 +1732,7 @@ class EvaluationFormSingleSelectQuestionOption(dict):
         :param _builtins.str text: The title of the answer option.
                 *Length Constraints*: Minimum length of 1. Maximum length of 128.
         :param _builtins.bool automatic_fail: The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
+        :param 'EvaluationFormAutomaticFailConfiguration' automatic_fail_configuration: Whether automatic fail is configured on a single select question.
         :param _builtins.int score: The score assigned to the answer option.
                 *Minimum*: 0
                 *Maximum*: 10
@@ -1401,6 +1775,9 @@ class EvaluationFormSingleSelectQuestionOption(dict):
     @_builtins.property
     @pulumi.getter(name="automaticFailConfiguration")
     def automatic_fail_configuration(self) -> Optional['outputs.EvaluationFormAutomaticFailConfiguration']:
+        """
+        Whether automatic fail is configured on a single select question.
+        """
         return pulumi.get(self, "automatic_fail_configuration")
 
     @_builtins.property
@@ -1557,7 +1934,45 @@ class EvaluationFormSingleSelectQuestionRuleCategoryAutomation(dict):
 
 
 @pulumi.output_type
+class EvaluationFormTargetConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contactInteractionType":
+            suggest = "contact_interaction_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationFormTargetConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationFormTargetConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationFormTargetConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 contact_interaction_type: 'EvaluationFormTargetConfigurationContactInteractionType'):
+        """
+        :param 'EvaluationFormTargetConfigurationContactInteractionType' contact_interaction_type: The interaction type of a contact
+        """
+        pulumi.set(__self__, "contact_interaction_type", contact_interaction_type)
+
+    @_builtins.property
+    @pulumi.getter(name="contactInteractionType")
+    def contact_interaction_type(self) -> 'EvaluationFormTargetConfigurationContactInteractionType':
+        """
+        The interaction type of a contact
+        """
+        return pulumi.get(self, "contact_interaction_type")
+
+
+@pulumi.output_type
 class EvaluationFormTextQuestionAutomation(dict):
+    """
+    Information about the automation configuration in text questions.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1578,7 +1993,8 @@ class EvaluationFormTextQuestionAutomation(dict):
     def __init__(__self__, *,
                  answer_source: Optional['outputs.EvaluationFormQuestionAutomationAnswerSource'] = None):
         """
-        :param 'EvaluationFormQuestionAutomationAnswerSource' answer_source: The source of automation answer of the question.
+        Information about the automation configuration in text questions.
+        :param 'EvaluationFormQuestionAutomationAnswerSource' answer_source: Automation answer source.
         """
         if answer_source is not None:
             pulumi.set(__self__, "answer_source", answer_source)
@@ -1587,17 +2003,21 @@ class EvaluationFormTextQuestionAutomation(dict):
     @pulumi.getter(name="answerSource")
     def answer_source(self) -> Optional['outputs.EvaluationFormQuestionAutomationAnswerSource']:
         """
-        The source of automation answer of the question.
+        Automation answer source.
         """
         return pulumi.get(self, "answer_source")
 
 
 @pulumi.output_type
 class EvaluationFormTextQuestionProperties(dict):
+    """
+    Information about properties for a text question in an evaluation form.
+    """
     def __init__(__self__, *,
                  automation: Optional['outputs.EvaluationFormTextQuestionAutomation'] = None):
         """
-        :param 'EvaluationFormTextQuestionAutomation' automation: Specifies how the question can be automatically answered.
+        Information about properties for a text question in an evaluation form.
+        :param 'EvaluationFormTextQuestionAutomation' automation: The automation properties of the text question.
         """
         if automation is not None:
             pulumi.set(__self__, "automation", automation)
@@ -1606,7 +2026,7 @@ class EvaluationFormTextQuestionProperties(dict):
     @pulumi.getter
     def automation(self) -> Optional['outputs.EvaluationFormTextQuestionAutomation']:
         """
-        Specifies how the question can be automatically answered.
+        The automation properties of the text question.
         """
         return pulumi.get(self, "automation")
 

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetNumericComparisonFilterConditionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The comparison operator to use, such as `EQUALS` , `GREATER_THAN` , `LESS_THAN` , or their variants.
+        /// </summary>
         [Input("operator", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DataSetNumericComparisonFilterOperator> Operator { get; set; } = null!;
 
+        /// <summary>
+        /// The numeric value to compare against.
+        /// </summary>
         [Input("value")]
         public Input<Inputs.DataSetNumericFilterValueArgs>? Value { get; set; }
 

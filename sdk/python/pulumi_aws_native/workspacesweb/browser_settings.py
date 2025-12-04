@@ -13,8 +13,11 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['BrowserSettingsArgs', 'BrowserSettings']
 
@@ -24,7 +27,8 @@ class BrowserSettingsArgs:
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  browser_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  customer_managed_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 web_content_filtering_policy: Optional[pulumi.Input['BrowserSettingsWebContentFilteringPolicyArgs']] = None):
         """
         The set of arguments for constructing a BrowserSettings resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: Additional encryption context of the browser settings.
@@ -33,6 +37,7 @@ class BrowserSettingsArgs:
                
                *Pattern* : `^arn:[\\w+=\\/,.@-]+:kms:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:key\\/[a-zA-Z0-9-]+$`
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the browser settings resource. A tag is a key-value pair.
+        :param pulumi.Input['BrowserSettingsWebContentFilteringPolicyArgs'] web_content_filtering_policy: The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.
         """
         if additional_encryption_context is not None:
             pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
@@ -42,6 +47,8 @@ class BrowserSettingsArgs:
             pulumi.set(__self__, "customer_managed_key", customer_managed_key)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if web_content_filtering_policy is not None:
+            pulumi.set(__self__, "web_content_filtering_policy", web_content_filtering_policy)
 
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
@@ -93,6 +100,18 @@ class BrowserSettingsArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter(name="webContentFilteringPolicy")
+    def web_content_filtering_policy(self) -> Optional[pulumi.Input['BrowserSettingsWebContentFilteringPolicyArgs']]:
+        """
+        The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.
+        """
+        return pulumi.get(self, "web_content_filtering_policy")
+
+    @web_content_filtering_policy.setter
+    def web_content_filtering_policy(self, value: Optional[pulumi.Input['BrowserSettingsWebContentFilteringPolicyArgs']]):
+        pulumi.set(self, "web_content_filtering_policy", value)
+
 
 @pulumi.type_token("aws-native:workspacesweb:BrowserSettings")
 class BrowserSettings(pulumi.CustomResource):
@@ -104,6 +123,7 @@ class BrowserSettings(pulumi.CustomResource):
                  browser_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  customer_managed_key: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 web_content_filtering_policy: Optional[pulumi.Input[Union['BrowserSettingsWebContentFilteringPolicyArgs', 'BrowserSettingsWebContentFilteringPolicyArgsDict']]] = None,
                  __props__=None):
         """
         Definition of AWS::WorkSpacesWeb::BrowserSettings Resource Type
@@ -116,6 +136,7 @@ class BrowserSettings(pulumi.CustomResource):
                
                *Pattern* : `^arn:[\\w+=\\/,.@-]+:kms:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:key\\/[a-zA-Z0-9-]+$`
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the browser settings resource. A tag is a key-value pair.
+        :param pulumi.Input[Union['BrowserSettingsWebContentFilteringPolicyArgs', 'BrowserSettingsWebContentFilteringPolicyArgsDict']] web_content_filtering_policy: The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.
         """
         ...
     @overload
@@ -145,6 +166,7 @@ class BrowserSettings(pulumi.CustomResource):
                  browser_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  customer_managed_key: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 web_content_filtering_policy: Optional[pulumi.Input[Union['BrowserSettingsWebContentFilteringPolicyArgs', 'BrowserSettingsWebContentFilteringPolicyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -158,6 +180,7 @@ class BrowserSettings(pulumi.CustomResource):
             __props__.__dict__["browser_policy"] = browser_policy
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["web_content_filtering_policy"] = web_content_filtering_policy
             __props__.__dict__["associated_portal_arns"] = None
             __props__.__dict__["browser_settings_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additionalEncryptionContext.*", "customerManagedKey"])
@@ -190,6 +213,7 @@ class BrowserSettings(pulumi.CustomResource):
         __props__.__dict__["browser_settings_arn"] = None
         __props__.__dict__["customer_managed_key"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["web_content_filtering_policy"] = None
         return BrowserSettings(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -241,4 +265,12 @@ class BrowserSettings(pulumi.CustomResource):
         The tags to add to the browser settings resource. A tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="webContentFilteringPolicy")
+    def web_content_filtering_policy(self) -> pulumi.Output[Optional['outputs.BrowserSettingsWebContentFilteringPolicy']]:
+        """
+        The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.
+        """
+        return pulumi.get(self, "web_content_filtering_policy")
 

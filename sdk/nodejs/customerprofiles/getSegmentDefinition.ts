@@ -43,6 +43,10 @@ export interface GetSegmentDefinitionResult {
      */
     readonly segmentDefinitionArn?: string;
     /**
+     * The SQL query that defines the segment criteria.
+     */
+    readonly segmentType?: enums.customerprofiles.SegmentDefinitionSegmentType;
+    /**
      * The tags used to organize, track, or control access for this resource.
      */
     readonly tags?: outputs.Tag[];

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetColumnToUnpivotArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the column to unpivot from the source data.
+        /// </summary>
         [Input("columnName")]
         public Input<string>? ColumnName { get; set; }
 
+        /// <summary>
+        /// The value to assign to this column in the unpivoted result, typically the column name or a descriptive label.
+        /// </summary>
         [Input("newValue")]
         public Input<string>? NewValue { get; set; }
 

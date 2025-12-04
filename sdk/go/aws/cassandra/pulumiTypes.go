@@ -2117,6 +2117,157 @@ func (o TableTargetTrackingScalingPolicyConfigurationPtrOutput) TargetValue() pu
 	}).(pulumi.IntPtrOutput)
 }
 
+// Warm throughput configuration for the table
+type TableWarmThroughput struct {
+	ReadUnitsPerSecond  *int `pulumi:"readUnitsPerSecond"`
+	WriteUnitsPerSecond *int `pulumi:"writeUnitsPerSecond"`
+}
+
+// TableWarmThroughputInput is an input type that accepts TableWarmThroughputArgs and TableWarmThroughputOutput values.
+// You can construct a concrete instance of `TableWarmThroughputInput` via:
+//
+//	TableWarmThroughputArgs{...}
+type TableWarmThroughputInput interface {
+	pulumi.Input
+
+	ToTableWarmThroughputOutput() TableWarmThroughputOutput
+	ToTableWarmThroughputOutputWithContext(context.Context) TableWarmThroughputOutput
+}
+
+// Warm throughput configuration for the table
+type TableWarmThroughputArgs struct {
+	ReadUnitsPerSecond  pulumi.IntPtrInput `pulumi:"readUnitsPerSecond"`
+	WriteUnitsPerSecond pulumi.IntPtrInput `pulumi:"writeUnitsPerSecond"`
+}
+
+func (TableWarmThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableWarmThroughput)(nil)).Elem()
+}
+
+func (i TableWarmThroughputArgs) ToTableWarmThroughputOutput() TableWarmThroughputOutput {
+	return i.ToTableWarmThroughputOutputWithContext(context.Background())
+}
+
+func (i TableWarmThroughputArgs) ToTableWarmThroughputOutputWithContext(ctx context.Context) TableWarmThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableWarmThroughputOutput)
+}
+
+func (i TableWarmThroughputArgs) ToTableWarmThroughputPtrOutput() TableWarmThroughputPtrOutput {
+	return i.ToTableWarmThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i TableWarmThroughputArgs) ToTableWarmThroughputPtrOutputWithContext(ctx context.Context) TableWarmThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableWarmThroughputOutput).ToTableWarmThroughputPtrOutputWithContext(ctx)
+}
+
+// TableWarmThroughputPtrInput is an input type that accepts TableWarmThroughputArgs, TableWarmThroughputPtr and TableWarmThroughputPtrOutput values.
+// You can construct a concrete instance of `TableWarmThroughputPtrInput` via:
+//
+//	        TableWarmThroughputArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableWarmThroughputPtrInput interface {
+	pulumi.Input
+
+	ToTableWarmThroughputPtrOutput() TableWarmThroughputPtrOutput
+	ToTableWarmThroughputPtrOutputWithContext(context.Context) TableWarmThroughputPtrOutput
+}
+
+type tableWarmThroughputPtrType TableWarmThroughputArgs
+
+func TableWarmThroughputPtr(v *TableWarmThroughputArgs) TableWarmThroughputPtrInput {
+	return (*tableWarmThroughputPtrType)(v)
+}
+
+func (*tableWarmThroughputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableWarmThroughput)(nil)).Elem()
+}
+
+func (i *tableWarmThroughputPtrType) ToTableWarmThroughputPtrOutput() TableWarmThroughputPtrOutput {
+	return i.ToTableWarmThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i *tableWarmThroughputPtrType) ToTableWarmThroughputPtrOutputWithContext(ctx context.Context) TableWarmThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableWarmThroughputPtrOutput)
+}
+
+// Warm throughput configuration for the table
+type TableWarmThroughputOutput struct{ *pulumi.OutputState }
+
+func (TableWarmThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableWarmThroughput)(nil)).Elem()
+}
+
+func (o TableWarmThroughputOutput) ToTableWarmThroughputOutput() TableWarmThroughputOutput {
+	return o
+}
+
+func (o TableWarmThroughputOutput) ToTableWarmThroughputOutputWithContext(ctx context.Context) TableWarmThroughputOutput {
+	return o
+}
+
+func (o TableWarmThroughputOutput) ToTableWarmThroughputPtrOutput() TableWarmThroughputPtrOutput {
+	return o.ToTableWarmThroughputPtrOutputWithContext(context.Background())
+}
+
+func (o TableWarmThroughputOutput) ToTableWarmThroughputPtrOutputWithContext(ctx context.Context) TableWarmThroughputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableWarmThroughput) *TableWarmThroughput {
+		return &v
+	}).(TableWarmThroughputPtrOutput)
+}
+
+func (o TableWarmThroughputOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableWarmThroughput) *int { return v.ReadUnitsPerSecond }).(pulumi.IntPtrOutput)
+}
+
+func (o TableWarmThroughputOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableWarmThroughput) *int { return v.WriteUnitsPerSecond }).(pulumi.IntPtrOutput)
+}
+
+type TableWarmThroughputPtrOutput struct{ *pulumi.OutputState }
+
+func (TableWarmThroughputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableWarmThroughput)(nil)).Elem()
+}
+
+func (o TableWarmThroughputPtrOutput) ToTableWarmThroughputPtrOutput() TableWarmThroughputPtrOutput {
+	return o
+}
+
+func (o TableWarmThroughputPtrOutput) ToTableWarmThroughputPtrOutputWithContext(ctx context.Context) TableWarmThroughputPtrOutput {
+	return o
+}
+
+func (o TableWarmThroughputPtrOutput) Elem() TableWarmThroughputOutput {
+	return o.ApplyT(func(v *TableWarmThroughput) TableWarmThroughput {
+		if v != nil {
+			return *v
+		}
+		var ret TableWarmThroughput
+		return ret
+	}).(TableWarmThroughputOutput)
+}
+
+func (o TableWarmThroughputPtrOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableWarmThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ReadUnitsPerSecond
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o TableWarmThroughputPtrOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableWarmThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WriteUnitsPerSecond
+	}).(pulumi.IntPtrOutput)
+}
+
 type TypeField struct {
 	// The name of the field.
 	FieldName string `pulumi:"fieldName"`
@@ -2250,6 +2401,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTagArrayInput)(nil)).Elem(), TableTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTargetTrackingScalingPolicyConfigurationInput)(nil)).Elem(), TableTargetTrackingScalingPolicyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTargetTrackingScalingPolicyConfigurationPtrInput)(nil)).Elem(), TableTargetTrackingScalingPolicyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableWarmThroughputInput)(nil)).Elem(), TableWarmThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableWarmThroughputPtrInput)(nil)).Elem(), TableWarmThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeFieldInput)(nil)).Elem(), TypeFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeFieldArrayInput)(nil)).Elem(), TypeFieldArray{})
 	pulumi.RegisterOutputType(KeyspaceReplicationSpecificationOutput{})
@@ -2278,6 +2431,8 @@ func init() {
 	pulumi.RegisterOutputType(TableTagArrayOutput{})
 	pulumi.RegisterOutputType(TableTargetTrackingScalingPolicyConfigurationOutput{})
 	pulumi.RegisterOutputType(TableTargetTrackingScalingPolicyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TableWarmThroughputOutput{})
+	pulumi.RegisterOutputType(TableWarmThroughputPtrOutput{})
 	pulumi.RegisterOutputType(TypeFieldOutput{})
 	pulumi.RegisterOutputType(TypeFieldArrayOutput{})
 }

@@ -39,6 +39,8 @@ type LookupStreamResult struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The media type of the stream. Consumers of the stream can use this information when processing the stream.
 	MediaType *string `pulumi:"mediaType"`
+	// Configuration for the storage tier of the Kinesis Video Stream.
+	StreamStorageConfiguration *StreamStorageConfiguration `pulumi:"streamStorageConfiguration"`
 	// An array of key-value pairs associated with the Kinesis Video Stream.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -98,6 +100,11 @@ func (o LookupStreamResultOutput) KmsKeyId() pulumi.StringPtrOutput {
 // The media type of the stream. Consumers of the stream can use this information when processing the stream.
 func (o LookupStreamResultOutput) MediaType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStreamResult) *string { return v.MediaType }).(pulumi.StringPtrOutput)
+}
+
+// Configuration for the storage tier of the Kinesis Video Stream.
+func (o LookupStreamResultOutput) StreamStorageConfiguration() StreamStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupStreamResult) *StreamStorageConfiguration { return v.StreamStorageConfiguration }).(StreamStorageConfigurationPtrOutput)
 }
 
 // An array of key-value pairs associated with the Kinesis Video Stream.

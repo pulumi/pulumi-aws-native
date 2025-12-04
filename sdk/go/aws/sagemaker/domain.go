@@ -76,7 +76,6 @@ func NewDomain(ctx *pulumi.Context,
 		"domainSettings.rStudioServerProDomainSettings.defaultResourceSpec",
 		"kmsKeyId",
 		"tags[*]",
-		"vpcId",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

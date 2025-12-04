@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetTablePathElement
     {
+        /// <summary>
+        /// The unique identifier of the path element.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The name of the path element.
+        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

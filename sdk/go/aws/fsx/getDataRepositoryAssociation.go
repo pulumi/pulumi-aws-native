@@ -12,9 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates an Amazon FSx for Lustre data repository association (DRA). A data repository association is a link between a directory on the file system and an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository associations on a file system. Data repository associations are supported on all FSx for Lustre 2.12 and newer file systems, excluding “scratch_1“ deployment type.
-//
-//	Each data repository association must have a unique Amazon FSx file system directory and a unique S3 bucket or prefix associated with it. You can configure a data repository association for automatic import only, for automatic export only, or for both. To learn more about linking a data repository to your file system, see [Linking your file system to an S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html).
+// Resource Type definition for AWS::FSx::DataRepositoryAssociation
 func LookupDataRepositoryAssociation(ctx *pulumi.Context, args *LookupDataRepositoryAssociationArgs, opts ...pulumi.InvokeOption) (*LookupDataRepositoryAssociationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDataRepositoryAssociationResult
@@ -26,28 +24,20 @@ func LookupDataRepositoryAssociation(ctx *pulumi.Context, args *LookupDataReposi
 }
 
 type LookupDataRepositoryAssociationArgs struct {
-	// Returns the data repository association's system generated Association ID.
-	//
-	// Example: `dra-abcdef0123456789d`
+	// The system-generated, unique ID of the data repository association.
 	AssociationId string `pulumi:"associationId"`
 }
 
 type LookupDataRepositoryAssociationResult struct {
-	// Returns the data repository association's system generated Association ID.
-	//
-	// Example: `dra-abcdef0123456789d`
+	// The system-generated, unique ID of the data repository association.
 	AssociationId *string `pulumi:"associationId"`
-	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system or cache.
-	//  The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
+	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
 	ImportedFileChunkSize *int `pulumi:"importedFileChunkSize"`
-	// Returns the data repository association's Amazon Resource Name (ARN).
-	//
-	// Example: `arn:aws:fsx:us-east-1:111122223333:association/fs-abc012345def6789a/dra-abcdef0123456789b`
+	// The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services resources. We require an ARN when you need to specify a resource unambiguously across all of Amazon Web Services. For more information, see Amazon Resource Names (ARNs) in the Amazon Web Services General Reference.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 	S3 *DataRepositoryAssociationS3 `pulumi:"s3"`
-	// An array of key-value pairs to apply to this resource.
-	//  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+	// A list of Tag values, with a maximum of 50 elements.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -61,9 +51,7 @@ func LookupDataRepositoryAssociationOutput(ctx *pulumi.Context, args LookupDataR
 }
 
 type LookupDataRepositoryAssociationOutputArgs struct {
-	// Returns the data repository association's system generated Association ID.
-	//
-	// Example: `dra-abcdef0123456789d`
+	// The system-generated, unique ID of the data repository association.
 	AssociationId pulumi.StringInput `pulumi:"associationId"`
 }
 
@@ -85,23 +73,17 @@ func (o LookupDataRepositoryAssociationResultOutput) ToLookupDataRepositoryAssoc
 	return o
 }
 
-// Returns the data repository association's system generated Association ID.
-//
-// Example: `dra-abcdef0123456789d`
+// The system-generated, unique ID of the data repository association.
 func (o LookupDataRepositoryAssociationResultOutput) AssociationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataRepositoryAssociationResult) *string { return v.AssociationId }).(pulumi.StringPtrOutput)
 }
 
-// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system or cache.
-//
-//	The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
+// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
 func (o LookupDataRepositoryAssociationResultOutput) ImportedFileChunkSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupDataRepositoryAssociationResult) *int { return v.ImportedFileChunkSize }).(pulumi.IntPtrOutput)
 }
 
-// Returns the data repository association's Amazon Resource Name (ARN).
-//
-// Example: `arn:aws:fsx:us-east-1:111122223333:association/fs-abc012345def6789a/dra-abcdef0123456789b`
+// The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services resources. We require an ARN when you need to specify a resource unambiguously across all of Amazon Web Services. For more information, see Amazon Resource Names (ARNs) in the Amazon Web Services General Reference.
 func (o LookupDataRepositoryAssociationResultOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataRepositoryAssociationResult) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
@@ -111,9 +93,7 @@ func (o LookupDataRepositoryAssociationResultOutput) S3() DataRepositoryAssociat
 	return o.ApplyT(func(v LookupDataRepositoryAssociationResult) *DataRepositoryAssociationS3 { return v.S3 }).(DataRepositoryAssociationS3PtrOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
-//
-//	For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+// A list of Tag values, with a maximum of 50 elements.
 func (o LookupDataRepositoryAssociationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDataRepositoryAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -46,6 +46,10 @@ export interface GetStreamResult {
      */
     readonly mediaType?: string;
     /**
+     * Configuration for the storage tier of the Kinesis Video Stream.
+     */
+    readonly streamStorageConfiguration?: outputs.kinesisvideo.StreamStorageConfiguration;
+    /**
      * An array of key-value pairs associated with the Kinesis Video Stream.
      */
     readonly tags?: outputs.Tag[];

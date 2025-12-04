@@ -532,12 +532,12 @@ class FlywheelDataSecurityConfig(dict):
                  volume_kms_key_id: Optional[_builtins.str] = None,
                  vpc_config: Optional['outputs.FlywheelVpcConfig'] = None):
         """
-        :param _builtins.str data_lake_kms_key_id: ID for the AWS KMS key that Amazon Comprehend uses to encrypt the data in the data lake.
-        :param _builtins.str model_kms_key_id: ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+        :param _builtins.str data_lake_kms_key_id: ID for the AWS  key that Amazon Comprehend uses to encrypt the data in the data lake.
+        :param _builtins.str model_kms_key_id: ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
                
                - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
                - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
-        :param _builtins.str volume_kms_key_id: ID for the AWS KMS key that Amazon Comprehend uses to encrypt the volume.
+        :param _builtins.str volume_kms_key_id: ID for the AWS  key that Amazon Comprehend uses to encrypt the volume.
         :param 'FlywheelVpcConfig' vpc_config: Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
         """
         if data_lake_kms_key_id is not None:
@@ -553,7 +553,7 @@ class FlywheelDataSecurityConfig(dict):
     @pulumi.getter(name="dataLakeKmsKeyId")
     def data_lake_kms_key_id(self) -> Optional[_builtins.str]:
         """
-        ID for the AWS KMS key that Amazon Comprehend uses to encrypt the data in the data lake.
+        ID for the AWS  key that Amazon Comprehend uses to encrypt the data in the data lake.
         """
         return pulumi.get(self, "data_lake_kms_key_id")
 
@@ -561,7 +561,7 @@ class FlywheelDataSecurityConfig(dict):
     @pulumi.getter(name="modelKmsKeyId")
     def model_kms_key_id(self) -> Optional[_builtins.str]:
         """
-        ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+        ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
 
         - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
         - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
@@ -572,7 +572,7 @@ class FlywheelDataSecurityConfig(dict):
     @pulumi.getter(name="volumeKmsKeyId")
     def volume_kms_key_id(self) -> Optional[_builtins.str]:
         """
-        ID for the AWS KMS key that Amazon Comprehend uses to encrypt the volume.
+        ID for the AWS  key that Amazon Comprehend uses to encrypt the volume.
         """
         return pulumi.get(self, "volume_kms_key_id")
 

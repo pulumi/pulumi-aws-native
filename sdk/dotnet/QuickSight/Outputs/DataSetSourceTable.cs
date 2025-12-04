@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetSourceTable
     {
+        /// <summary>
+        /// A parent dataset that serves as the data source instead of a physical table.
+        /// </summary>
         public readonly Outputs.DataSetParentDataSet? DataSet;
+        /// <summary>
+        /// The identifier of the physical table that serves as the data source.
+        /// </summary>
         public readonly string? PhysicalTableId;
 
         [OutputConstructor]

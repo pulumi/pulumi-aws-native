@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetDestinationTable
     {
+        /// <summary>
+        /// Alias for the destination table.
+        /// </summary>
         public readonly string Alias;
+        /// <summary>
+        /// The source configuration that specifies which transform operation provides data to this destination table.
+        /// </summary>
         public readonly Outputs.DataSetDestinationTableSource Source;
 
         [OutputConstructor]

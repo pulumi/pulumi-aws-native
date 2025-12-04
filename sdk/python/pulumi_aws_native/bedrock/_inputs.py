@@ -76,6 +76,8 @@ __all__ = [
     'DataAutomationProjectAudioExtractionCategoryTypeConfigurationArgsDict',
     'DataAutomationProjectAudioExtractionCategoryArgs',
     'DataAutomationProjectAudioExtractionCategoryArgsDict',
+    'DataAutomationProjectAudioLanguageConfigurationArgs',
+    'DataAutomationProjectAudioLanguageConfigurationArgsDict',
     'DataAutomationProjectAudioOverrideConfigurationArgs',
     'DataAutomationProjectAudioOverrideConfigurationArgsDict',
     'DataAutomationProjectAudioStandardExtractionArgs',
@@ -126,6 +128,10 @@ __all__ = [
     'DataAutomationProjectModalityRoutingConfigurationArgsDict',
     'DataAutomationProjectOverrideConfigurationArgs',
     'DataAutomationProjectOverrideConfigurationArgsDict',
+    'DataAutomationProjectPiiEntitiesConfigurationArgs',
+    'DataAutomationProjectPiiEntitiesConfigurationArgsDict',
+    'DataAutomationProjectSensitiveDataConfigurationArgs',
+    'DataAutomationProjectSensitiveDataConfigurationArgsDict',
     'DataAutomationProjectSpeakerLabelingConfigurationArgs',
     'DataAutomationProjectSpeakerLabelingConfigurationArgsDict',
     'DataAutomationProjectSplitterConfigurationArgs',
@@ -464,6 +470,8 @@ __all__ = [
     'KnowledgeBaseRedshiftServerlessConfigurationArgsDict',
     'KnowledgeBaseS3LocationArgs',
     'KnowledgeBaseS3LocationArgsDict',
+    'KnowledgeBaseS3VectorsConfigurationArgs',
+    'KnowledgeBaseS3VectorsConfigurationArgsDict',
     'KnowledgeBaseSqlKnowledgeBaseConfigurationArgs',
     'KnowledgeBaseSqlKnowledgeBaseConfigurationArgsDict',
     'KnowledgeBaseStorageConfigurationArgs',
@@ -2463,23 +2471,119 @@ class DataAutomationProjectAudioExtractionCategoryArgs:
 
 
 if not MYPY:
+    class DataAutomationProjectAudioLanguageConfigurationArgsDict(TypedDict):
+        generative_output_language: NotRequired[pulumi.Input['DataAutomationProjectAudioGenerativeOutputLanguage']]
+        """
+        The output language of your processing results. This can either be set to `EN` (English) or `DEFAULT` which will output the results in the dominant language of the audio. The dominant language is determined as the language in the audio, spoken the longest in the input audio.
+        """
+        identify_multiple_languages: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        The toggle determining if you want to detect multiple languages from your audio.
+        """
+        input_languages: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectLanguage']]]]
+        """
+        The input language of your audio. This can be set to any of the currently supported languages via the language codes.
+        """
+elif False:
+    DataAutomationProjectAudioLanguageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectAudioLanguageConfigurationArgs:
+    def __init__(__self__, *,
+                 generative_output_language: Optional[pulumi.Input['DataAutomationProjectAudioGenerativeOutputLanguage']] = None,
+                 identify_multiple_languages: Optional[pulumi.Input[_builtins.bool]] = None,
+                 input_languages: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectLanguage']]]] = None):
+        """
+        :param pulumi.Input['DataAutomationProjectAudioGenerativeOutputLanguage'] generative_output_language: The output language of your processing results. This can either be set to `EN` (English) or `DEFAULT` which will output the results in the dominant language of the audio. The dominant language is determined as the language in the audio, spoken the longest in the input audio.
+        :param pulumi.Input[_builtins.bool] identify_multiple_languages: The toggle determining if you want to detect multiple languages from your audio.
+        :param pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectLanguage']]] input_languages: The input language of your audio. This can be set to any of the currently supported languages via the language codes.
+        """
+        if generative_output_language is not None:
+            pulumi.set(__self__, "generative_output_language", generative_output_language)
+        if identify_multiple_languages is not None:
+            pulumi.set(__self__, "identify_multiple_languages", identify_multiple_languages)
+        if input_languages is not None:
+            pulumi.set(__self__, "input_languages", input_languages)
+
+    @_builtins.property
+    @pulumi.getter(name="generativeOutputLanguage")
+    def generative_output_language(self) -> Optional[pulumi.Input['DataAutomationProjectAudioGenerativeOutputLanguage']]:
+        """
+        The output language of your processing results. This can either be set to `EN` (English) or `DEFAULT` which will output the results in the dominant language of the audio. The dominant language is determined as the language in the audio, spoken the longest in the input audio.
+        """
+        return pulumi.get(self, "generative_output_language")
+
+    @generative_output_language.setter
+    def generative_output_language(self, value: Optional[pulumi.Input['DataAutomationProjectAudioGenerativeOutputLanguage']]):
+        pulumi.set(self, "generative_output_language", value)
+
+    @_builtins.property
+    @pulumi.getter(name="identifyMultipleLanguages")
+    def identify_multiple_languages(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        The toggle determining if you want to detect multiple languages from your audio.
+        """
+        return pulumi.get(self, "identify_multiple_languages")
+
+    @identify_multiple_languages.setter
+    def identify_multiple_languages(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "identify_multiple_languages", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inputLanguages")
+    def input_languages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectLanguage']]]]:
+        """
+        The input language of your audio. This can be set to any of the currently supported languages via the language codes.
+        """
+        return pulumi.get(self, "input_languages")
+
+    @input_languages.setter
+    def input_languages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectLanguage']]]]):
+        pulumi.set(self, "input_languages", value)
+
+
+if not MYPY:
     class DataAutomationProjectAudioOverrideConfigurationArgsDict(TypedDict):
+        language_configuration: NotRequired[pulumi.Input['DataAutomationProjectAudioLanguageConfigurationArgsDict']]
+        """
+        The output and input language configuration for your audio.
+        """
         modality_processing: NotRequired[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgsDict']]
         """
         Sets modality processing for audio files. All modalities are enabled by default.
         """
+        sensitive_data_configuration: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgsDict']]
 elif False:
     DataAutomationProjectAudioOverrideConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataAutomationProjectAudioOverrideConfigurationArgs:
     def __init__(__self__, *,
-                 modality_processing: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']] = None):
+                 language_configuration: Optional[pulumi.Input['DataAutomationProjectAudioLanguageConfigurationArgs']] = None,
+                 modality_processing: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']] = None,
+                 sensitive_data_configuration: Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']] = None):
         """
+        :param pulumi.Input['DataAutomationProjectAudioLanguageConfigurationArgs'] language_configuration: The output and input language configuration for your audio.
         :param pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs'] modality_processing: Sets modality processing for audio files. All modalities are enabled by default.
         """
+        if language_configuration is not None:
+            pulumi.set(__self__, "language_configuration", language_configuration)
         if modality_processing is not None:
             pulumi.set(__self__, "modality_processing", modality_processing)
+        if sensitive_data_configuration is not None:
+            pulumi.set(__self__, "sensitive_data_configuration", sensitive_data_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="languageConfiguration")
+    def language_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectAudioLanguageConfigurationArgs']]:
+        """
+        The output and input language configuration for your audio.
+        """
+        return pulumi.get(self, "language_configuration")
+
+    @language_configuration.setter
+    def language_configuration(self, value: Optional[pulumi.Input['DataAutomationProjectAudioLanguageConfigurationArgs']]):
+        pulumi.set(self, "language_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="modalityProcessing")
@@ -2492,6 +2596,15 @@ class DataAutomationProjectAudioOverrideConfigurationArgs:
     @modality_processing.setter
     def modality_processing(self, value: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']]):
         pulumi.set(self, "modality_processing", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sensitiveDataConfiguration")
+    def sensitive_data_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']]:
+        return pulumi.get(self, "sensitive_data_configuration")
+
+    @sensitive_data_configuration.setter
+    def sensitive_data_configuration(self, value: Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']]):
+        pulumi.set(self, "sensitive_data_configuration", value)
 
 
 if not MYPY:
@@ -2948,6 +3061,7 @@ if not MYPY:
         """
         Sets modality processing for document files. All modalities are enabled by default.
         """
+        sensitive_data_configuration: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgsDict']]
         splitter: NotRequired[pulumi.Input['DataAutomationProjectSplitterConfigurationArgsDict']]
         """
         Whether document splitter is enabled for a project.
@@ -2959,6 +3073,7 @@ elif False:
 class DataAutomationProjectDocumentOverrideConfigurationArgs:
     def __init__(__self__, *,
                  modality_processing: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']] = None,
+                 sensitive_data_configuration: Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']] = None,
                  splitter: Optional[pulumi.Input['DataAutomationProjectSplitterConfigurationArgs']] = None):
         """
         :param pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs'] modality_processing: Sets modality processing for document files. All modalities are enabled by default.
@@ -2966,6 +3081,8 @@ class DataAutomationProjectDocumentOverrideConfigurationArgs:
         """
         if modality_processing is not None:
             pulumi.set(__self__, "modality_processing", modality_processing)
+        if sensitive_data_configuration is not None:
+            pulumi.set(__self__, "sensitive_data_configuration", sensitive_data_configuration)
         if splitter is not None:
             pulumi.set(__self__, "splitter", splitter)
 
@@ -2980,6 +3097,15 @@ class DataAutomationProjectDocumentOverrideConfigurationArgs:
     @modality_processing.setter
     def modality_processing(self, value: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']]):
         pulumi.set(self, "modality_processing", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sensitiveDataConfiguration")
+    def sensitive_data_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']]:
+        return pulumi.get(self, "sensitive_data_configuration")
+
+    @sensitive_data_configuration.setter
+    def sensitive_data_configuration(self, value: Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']]):
+        pulumi.set(self, "sensitive_data_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -3235,18 +3361,22 @@ if not MYPY:
         """
         Sets modality processing for image files. All modalities are enabled by default.
         """
+        sensitive_data_configuration: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgsDict']]
 elif False:
     DataAutomationProjectImageOverrideConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataAutomationProjectImageOverrideConfigurationArgs:
     def __init__(__self__, *,
-                 modality_processing: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']] = None):
+                 modality_processing: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']] = None,
+                 sensitive_data_configuration: Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']] = None):
         """
         :param pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs'] modality_processing: Sets modality processing for image files. All modalities are enabled by default.
         """
         if modality_processing is not None:
             pulumi.set(__self__, "modality_processing", modality_processing)
+        if sensitive_data_configuration is not None:
+            pulumi.set(__self__, "sensitive_data_configuration", sensitive_data_configuration)
 
     @_builtins.property
     @pulumi.getter(name="modalityProcessing")
@@ -3259,6 +3389,15 @@ class DataAutomationProjectImageOverrideConfigurationArgs:
     @modality_processing.setter
     def modality_processing(self, value: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']]):
         pulumi.set(self, "modality_processing", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sensitiveDataConfiguration")
+    def sensitive_data_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']]:
+        return pulumi.get(self, "sensitive_data_configuration")
+
+    @sensitive_data_configuration.setter
+    def sensitive_data_configuration(self, value: Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']]):
+        pulumi.set(self, "sensitive_data_configuration", value)
 
 
 if not MYPY:
@@ -3659,6 +3798,91 @@ class DataAutomationProjectOverrideConfigurationArgs:
 
 
 if not MYPY:
+    class DataAutomationProjectPiiEntitiesConfigurationArgsDict(TypedDict):
+        pii_entity_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectPiiEntityTypes']]]]
+        redaction_mask_mode: NotRequired[pulumi.Input['DataAutomationProjectPiiRedactionMaskMode']]
+elif False:
+    DataAutomationProjectPiiEntitiesConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectPiiEntitiesConfigurationArgs:
+    def __init__(__self__, *,
+                 pii_entity_types: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectPiiEntityTypes']]]] = None,
+                 redaction_mask_mode: Optional[pulumi.Input['DataAutomationProjectPiiRedactionMaskMode']] = None):
+        if pii_entity_types is not None:
+            pulumi.set(__self__, "pii_entity_types", pii_entity_types)
+        if redaction_mask_mode is not None:
+            pulumi.set(__self__, "redaction_mask_mode", redaction_mask_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="piiEntityTypes")
+    def pii_entity_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectPiiEntityTypes']]]]:
+        return pulumi.get(self, "pii_entity_types")
+
+    @pii_entity_types.setter
+    def pii_entity_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectPiiEntityTypes']]]]):
+        pulumi.set(self, "pii_entity_types", value)
+
+    @_builtins.property
+    @pulumi.getter(name="redactionMaskMode")
+    def redaction_mask_mode(self) -> Optional[pulumi.Input['DataAutomationProjectPiiRedactionMaskMode']]:
+        return pulumi.get(self, "redaction_mask_mode")
+
+    @redaction_mask_mode.setter
+    def redaction_mask_mode(self, value: Optional[pulumi.Input['DataAutomationProjectPiiRedactionMaskMode']]):
+        pulumi.set(self, "redaction_mask_mode", value)
+
+
+if not MYPY:
+    class DataAutomationProjectSensitiveDataConfigurationArgsDict(TypedDict):
+        detection_mode: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataDetectionMode']]
+        detection_scope: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectSensitiveDataDetectionScope']]]]
+        pii_entities_configuration: NotRequired[pulumi.Input['DataAutomationProjectPiiEntitiesConfigurationArgsDict']]
+elif False:
+    DataAutomationProjectSensitiveDataConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAutomationProjectSensitiveDataConfigurationArgs:
+    def __init__(__self__, *,
+                 detection_mode: Optional[pulumi.Input['DataAutomationProjectSensitiveDataDetectionMode']] = None,
+                 detection_scope: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectSensitiveDataDetectionScope']]]] = None,
+                 pii_entities_configuration: Optional[pulumi.Input['DataAutomationProjectPiiEntitiesConfigurationArgs']] = None):
+        if detection_mode is not None:
+            pulumi.set(__self__, "detection_mode", detection_mode)
+        if detection_scope is not None:
+            pulumi.set(__self__, "detection_scope", detection_scope)
+        if pii_entities_configuration is not None:
+            pulumi.set(__self__, "pii_entities_configuration", pii_entities_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="detectionMode")
+    def detection_mode(self) -> Optional[pulumi.Input['DataAutomationProjectSensitiveDataDetectionMode']]:
+        return pulumi.get(self, "detection_mode")
+
+    @detection_mode.setter
+    def detection_mode(self, value: Optional[pulumi.Input['DataAutomationProjectSensitiveDataDetectionMode']]):
+        pulumi.set(self, "detection_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="detectionScope")
+    def detection_scope(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectSensitiveDataDetectionScope']]]]:
+        return pulumi.get(self, "detection_scope")
+
+    @detection_scope.setter
+    def detection_scope(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectSensitiveDataDetectionScope']]]]):
+        pulumi.set(self, "detection_scope", value)
+
+    @_builtins.property
+    @pulumi.getter(name="piiEntitiesConfiguration")
+    def pii_entities_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectPiiEntitiesConfigurationArgs']]:
+        return pulumi.get(self, "pii_entities_configuration")
+
+    @pii_entities_configuration.setter
+    def pii_entities_configuration(self, value: Optional[pulumi.Input['DataAutomationProjectPiiEntitiesConfigurationArgs']]):
+        pulumi.set(self, "pii_entities_configuration", value)
+
+
+if not MYPY:
     class DataAutomationProjectSpeakerLabelingConfigurationArgsDict(TypedDict):
         state: pulumi.Input['DataAutomationProjectState']
         """
@@ -3957,18 +4181,22 @@ if not MYPY:
         """
         Sets modality processing for video files. All modalities are enabled by default.
         """
+        sensitive_data_configuration: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgsDict']]
 elif False:
     DataAutomationProjectVideoOverrideConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataAutomationProjectVideoOverrideConfigurationArgs:
     def __init__(__self__, *,
-                 modality_processing: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']] = None):
+                 modality_processing: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']] = None,
+                 sensitive_data_configuration: Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']] = None):
         """
         :param pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs'] modality_processing: Sets modality processing for video files. All modalities are enabled by default.
         """
         if modality_processing is not None:
             pulumi.set(__self__, "modality_processing", modality_processing)
+        if sensitive_data_configuration is not None:
+            pulumi.set(__self__, "sensitive_data_configuration", sensitive_data_configuration)
 
     @_builtins.property
     @pulumi.getter(name="modalityProcessing")
@@ -3981,6 +4209,15 @@ class DataAutomationProjectVideoOverrideConfigurationArgs:
     @modality_processing.setter
     def modality_processing(self, value: Optional[pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs']]):
         pulumi.set(self, "modality_processing", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sensitiveDataConfiguration")
+    def sensitive_data_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']]:
+        return pulumi.get(self, "sensitive_data_configuration")
+
+    @sensitive_data_configuration.setter
+    def sensitive_data_configuration(self, value: Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']]):
+        pulumi.set(self, "sensitive_data_configuration", value)
 
 
 if not MYPY:
@@ -13360,6 +13597,82 @@ class KnowledgeBaseS3LocationArgs:
 
 
 if not MYPY:
+    class KnowledgeBaseS3VectorsConfigurationArgsDict(TypedDict):
+        """
+        Contains the storage configuration of the knowledge base for S3 vectors.
+        """
+        index_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Amazon Resource Name (ARN) of the vector index used for the knowledge base. This ARN identifies the specific vector index resource within Amazon Bedrock.
+        """
+        index_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The name of the vector index used for the knowledge base. This name identifies the vector index within the Amazon Bedrock service.
+        """
+        vector_bucket_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Amazon Resource Name (ARN) of the S3 bucket where vector embeddings are stored. This bucket contains the vector data used by the knowledge base.
+        """
+elif False:
+    KnowledgeBaseS3VectorsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseS3VectorsConfigurationArgs:
+    def __init__(__self__, *,
+                 index_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 index_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 vector_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Contains the storage configuration of the knowledge base for S3 vectors.
+        :param pulumi.Input[_builtins.str] index_arn: The Amazon Resource Name (ARN) of the vector index used for the knowledge base. This ARN identifies the specific vector index resource within Amazon Bedrock.
+        :param pulumi.Input[_builtins.str] index_name: The name of the vector index used for the knowledge base. This name identifies the vector index within the Amazon Bedrock service.
+        :param pulumi.Input[_builtins.str] vector_bucket_arn: The Amazon Resource Name (ARN) of the S3 bucket where vector embeddings are stored. This bucket contains the vector data used by the knowledge base.
+        """
+        if index_arn is not None:
+            pulumi.set(__self__, "index_arn", index_arn)
+        if index_name is not None:
+            pulumi.set(__self__, "index_name", index_name)
+        if vector_bucket_arn is not None:
+            pulumi.set(__self__, "vector_bucket_arn", vector_bucket_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="indexArn")
+    def index_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the vector index used for the knowledge base. This ARN identifies the specific vector index resource within Amazon Bedrock.
+        """
+        return pulumi.get(self, "index_arn")
+
+    @index_arn.setter
+    def index_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "index_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="indexName")
+    def index_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the vector index used for the knowledge base. This name identifies the vector index within the Amazon Bedrock service.
+        """
+        return pulumi.get(self, "index_name")
+
+    @index_name.setter
+    def index_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "index_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vectorBucketArn")
+    def vector_bucket_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the S3 bucket where vector embeddings are stored. This bucket contains the vector data used by the knowledge base.
+        """
+        return pulumi.get(self, "vector_bucket_arn")
+
+    @vector_bucket_arn.setter
+    def vector_bucket_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "vector_bucket_arn", value)
+
+
+if not MYPY:
     class KnowledgeBaseSqlKnowledgeBaseConfigurationArgsDict(TypedDict):
         """
         Configurations for a SQL knowledge base
@@ -13447,6 +13760,10 @@ if not MYPY:
         """
         Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html) .
         """
+        s3_vectors_configuration: NotRequired[pulumi.Input['KnowledgeBaseS3VectorsConfigurationArgsDict']]
+        """
+        The configuration settings for storing knowledge base data using S3 vectors. This includes vector index information and S3 bucket details for vector storage.
+        """
 elif False:
     KnowledgeBaseStorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -13459,7 +13776,8 @@ class KnowledgeBaseStorageConfigurationArgs:
                  opensearch_managed_cluster_configuration: Optional[pulumi.Input['KnowledgeBaseOpenSearchManagedClusterConfigurationArgs']] = None,
                  opensearch_serverless_configuration: Optional[pulumi.Input['KnowledgeBaseOpenSearchServerlessConfigurationArgs']] = None,
                  pinecone_configuration: Optional[pulumi.Input['KnowledgeBasePineconeConfigurationArgs']] = None,
-                 rds_configuration: Optional[pulumi.Input['KnowledgeBaseRdsConfigurationArgs']] = None):
+                 rds_configuration: Optional[pulumi.Input['KnowledgeBaseRdsConfigurationArgs']] = None,
+                 s3_vectors_configuration: Optional[pulumi.Input['KnowledgeBaseS3VectorsConfigurationArgs']] = None):
         """
         The vector store service in which the knowledge base is stored.
         :param pulumi.Input['KnowledgeBaseStorageType'] type: The vector store service in which the knowledge base is stored.
@@ -13469,6 +13787,7 @@ class KnowledgeBaseStorageConfigurationArgs:
         :param pulumi.Input['KnowledgeBaseOpenSearchServerlessConfigurationArgs'] opensearch_serverless_configuration: Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
         :param pulumi.Input['KnowledgeBasePineconeConfigurationArgs'] pinecone_configuration: Contains the storage configuration of the knowledge base in Pinecone.
         :param pulumi.Input['KnowledgeBaseRdsConfigurationArgs'] rds_configuration: Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html) .
+        :param pulumi.Input['KnowledgeBaseS3VectorsConfigurationArgs'] s3_vectors_configuration: The configuration settings for storing knowledge base data using S3 vectors. This includes vector index information and S3 bucket details for vector storage.
         """
         pulumi.set(__self__, "type", type)
         if mongo_db_atlas_configuration is not None:
@@ -13483,6 +13802,8 @@ class KnowledgeBaseStorageConfigurationArgs:
             pulumi.set(__self__, "pinecone_configuration", pinecone_configuration)
         if rds_configuration is not None:
             pulumi.set(__self__, "rds_configuration", rds_configuration)
+        if s3_vectors_configuration is not None:
+            pulumi.set(__self__, "s3_vectors_configuration", s3_vectors_configuration)
 
     @_builtins.property
     @pulumi.getter
@@ -13567,6 +13888,18 @@ class KnowledgeBaseStorageConfigurationArgs:
     @rds_configuration.setter
     def rds_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseRdsConfigurationArgs']]):
         pulumi.set(self, "rds_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3VectorsConfiguration")
+    def s3_vectors_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseS3VectorsConfigurationArgs']]:
+        """
+        The configuration settings for storing knowledge base data using S3 vectors. This includes vector index information and S3 bucket details for vector storage.
+        """
+        return pulumi.get(self, "s3_vectors_configuration")
+
+    @s3_vectors_configuration.setter
+    def s3_vectors_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseS3VectorsConfigurationArgs']]):
+        pulumi.set(self, "s3_vectors_configuration", value)
 
 
 if not MYPY:

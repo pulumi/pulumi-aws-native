@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetNumericFilterCondition
     {
+        /// <summary>
+        /// The name of the numeric column to filter.
+        /// </summary>
         public readonly string? ColumnName;
+        /// <summary>
+        /// A comparison-based filter condition for the numeric column.
+        /// </summary>
         public readonly Outputs.DataSetNumericComparisonFilterCondition? ComparisonFilterCondition;
+        /// <summary>
+        /// A range-based filter condition for the numeric column, filtering values between minimum and maximum numbers.
+        /// </summary>
         public readonly Outputs.DataSetNumericRangeFilterCondition? RangeFilterCondition;
 
         [OutputConstructor]

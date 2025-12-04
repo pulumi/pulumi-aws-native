@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:ecr:PullThroughCacheRule":
 		r = &PullThroughCacheRule{}
+	case "aws-native:ecr:PullTimeUpdateExclusion":
+		r = &PullTimeUpdateExclusion{}
 	case "aws-native:ecr:RegistryPolicy":
 		r = &RegistryPolicy{}
 	case "aws-native:ecr:RegistryScanningConfiguration":
@@ -33,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Repository{}
 	case "aws-native:ecr:RepositoryCreationTemplate":
 		r = &RepositoryCreationTemplate{}
+	case "aws-native:ecr:SigningConfiguration":
+		r = &SigningConfiguration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

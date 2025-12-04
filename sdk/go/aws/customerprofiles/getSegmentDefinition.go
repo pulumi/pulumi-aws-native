@@ -37,6 +37,8 @@ type LookupSegmentDefinitionResult struct {
 	Description *string `pulumi:"description"`
 	// The Amazon Resource Name (ARN) of the segment definition.
 	SegmentDefinitionArn *string `pulumi:"segmentDefinitionArn"`
+	// The SQL query that defines the segment criteria.
+	SegmentType *SegmentDefinitionSegmentType `pulumi:"segmentType"`
 	// The tags used to organize, track, or control access for this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -88,6 +90,11 @@ func (o LookupSegmentDefinitionResultOutput) Description() pulumi.StringPtrOutpu
 // The Amazon Resource Name (ARN) of the segment definition.
 func (o LookupSegmentDefinitionResultOutput) SegmentDefinitionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSegmentDefinitionResult) *string { return v.SegmentDefinitionArn }).(pulumi.StringPtrOutput)
+}
+
+// The SQL query that defines the segment criteria.
+func (o LookupSegmentDefinitionResultOutput) SegmentType() SegmentDefinitionSegmentTypePtrOutput {
+	return o.ApplyT(func(v LookupSegmentDefinitionResult) *SegmentDefinitionSegmentType { return v.SegmentType }).(SegmentDefinitionSegmentTypePtrOutput)
 }
 
 // The tags used to organize, track, or control access for this resource.

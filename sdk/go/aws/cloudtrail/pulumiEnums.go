@@ -1023,6 +1023,170 @@ func (in *eventDataStoreMaxEventSizePtr) ToEventDataStoreMaxEventSizePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(EventDataStoreMaxEventSizePtrOutput)
 }
 
+// The category of events to be aggregated.
+type TrailAggregationConfigurationEventCategory string
+
+const (
+	TrailAggregationConfigurationEventCategoryData = TrailAggregationConfigurationEventCategory("Data")
+)
+
+func (TrailAggregationConfigurationEventCategory) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrailAggregationConfigurationEventCategory)(nil)).Elem()
+}
+
+func (e TrailAggregationConfigurationEventCategory) ToTrailAggregationConfigurationEventCategoryOutput() TrailAggregationConfigurationEventCategoryOutput {
+	return pulumi.ToOutput(e).(TrailAggregationConfigurationEventCategoryOutput)
+}
+
+func (e TrailAggregationConfigurationEventCategory) ToTrailAggregationConfigurationEventCategoryOutputWithContext(ctx context.Context) TrailAggregationConfigurationEventCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TrailAggregationConfigurationEventCategoryOutput)
+}
+
+func (e TrailAggregationConfigurationEventCategory) ToTrailAggregationConfigurationEventCategoryPtrOutput() TrailAggregationConfigurationEventCategoryPtrOutput {
+	return e.ToTrailAggregationConfigurationEventCategoryPtrOutputWithContext(context.Background())
+}
+
+func (e TrailAggregationConfigurationEventCategory) ToTrailAggregationConfigurationEventCategoryPtrOutputWithContext(ctx context.Context) TrailAggregationConfigurationEventCategoryPtrOutput {
+	return TrailAggregationConfigurationEventCategory(e).ToTrailAggregationConfigurationEventCategoryOutputWithContext(ctx).ToTrailAggregationConfigurationEventCategoryPtrOutputWithContext(ctx)
+}
+
+func (e TrailAggregationConfigurationEventCategory) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TrailAggregationConfigurationEventCategory) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TrailAggregationConfigurationEventCategory) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TrailAggregationConfigurationEventCategory) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TrailAggregationConfigurationEventCategoryOutput struct{ *pulumi.OutputState }
+
+func (TrailAggregationConfigurationEventCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrailAggregationConfigurationEventCategory)(nil)).Elem()
+}
+
+func (o TrailAggregationConfigurationEventCategoryOutput) ToTrailAggregationConfigurationEventCategoryOutput() TrailAggregationConfigurationEventCategoryOutput {
+	return o
+}
+
+func (o TrailAggregationConfigurationEventCategoryOutput) ToTrailAggregationConfigurationEventCategoryOutputWithContext(ctx context.Context) TrailAggregationConfigurationEventCategoryOutput {
+	return o
+}
+
+func (o TrailAggregationConfigurationEventCategoryOutput) ToTrailAggregationConfigurationEventCategoryPtrOutput() TrailAggregationConfigurationEventCategoryPtrOutput {
+	return o.ToTrailAggregationConfigurationEventCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o TrailAggregationConfigurationEventCategoryOutput) ToTrailAggregationConfigurationEventCategoryPtrOutputWithContext(ctx context.Context) TrailAggregationConfigurationEventCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrailAggregationConfigurationEventCategory) *TrailAggregationConfigurationEventCategory {
+		return &v
+	}).(TrailAggregationConfigurationEventCategoryPtrOutput)
+}
+
+func (o TrailAggregationConfigurationEventCategoryOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TrailAggregationConfigurationEventCategoryOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrailAggregationConfigurationEventCategory) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TrailAggregationConfigurationEventCategoryOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrailAggregationConfigurationEventCategoryOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrailAggregationConfigurationEventCategory) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrailAggregationConfigurationEventCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (TrailAggregationConfigurationEventCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrailAggregationConfigurationEventCategory)(nil)).Elem()
+}
+
+func (o TrailAggregationConfigurationEventCategoryPtrOutput) ToTrailAggregationConfigurationEventCategoryPtrOutput() TrailAggregationConfigurationEventCategoryPtrOutput {
+	return o
+}
+
+func (o TrailAggregationConfigurationEventCategoryPtrOutput) ToTrailAggregationConfigurationEventCategoryPtrOutputWithContext(ctx context.Context) TrailAggregationConfigurationEventCategoryPtrOutput {
+	return o
+}
+
+func (o TrailAggregationConfigurationEventCategoryPtrOutput) Elem() TrailAggregationConfigurationEventCategoryOutput {
+	return o.ApplyT(func(v *TrailAggregationConfigurationEventCategory) TrailAggregationConfigurationEventCategory {
+		if v != nil {
+			return *v
+		}
+		var ret TrailAggregationConfigurationEventCategory
+		return ret
+	}).(TrailAggregationConfigurationEventCategoryOutput)
+}
+
+func (o TrailAggregationConfigurationEventCategoryPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrailAggregationConfigurationEventCategoryPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TrailAggregationConfigurationEventCategory) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TrailAggregationConfigurationEventCategoryInput is an input type that accepts values of the TrailAggregationConfigurationEventCategory enum
+// A concrete instance of `TrailAggregationConfigurationEventCategoryInput` can be one of the following:
+//
+//	TrailAggregationConfigurationEventCategoryData
+type TrailAggregationConfigurationEventCategoryInput interface {
+	pulumi.Input
+
+	ToTrailAggregationConfigurationEventCategoryOutput() TrailAggregationConfigurationEventCategoryOutput
+	ToTrailAggregationConfigurationEventCategoryOutputWithContext(context.Context) TrailAggregationConfigurationEventCategoryOutput
+}
+
+var trailAggregationConfigurationEventCategoryPtrType = reflect.TypeOf((**TrailAggregationConfigurationEventCategory)(nil)).Elem()
+
+type TrailAggregationConfigurationEventCategoryPtrInput interface {
+	pulumi.Input
+
+	ToTrailAggregationConfigurationEventCategoryPtrOutput() TrailAggregationConfigurationEventCategoryPtrOutput
+	ToTrailAggregationConfigurationEventCategoryPtrOutputWithContext(context.Context) TrailAggregationConfigurationEventCategoryPtrOutput
+}
+
+type trailAggregationConfigurationEventCategoryPtr string
+
+func TrailAggregationConfigurationEventCategoryPtr(v string) TrailAggregationConfigurationEventCategoryPtrInput {
+	return (*trailAggregationConfigurationEventCategoryPtr)(&v)
+}
+
+func (*trailAggregationConfigurationEventCategoryPtr) ElementType() reflect.Type {
+	return trailAggregationConfigurationEventCategoryPtrType
+}
+
+func (in *trailAggregationConfigurationEventCategoryPtr) ToTrailAggregationConfigurationEventCategoryPtrOutput() TrailAggregationConfigurationEventCategoryPtrOutput {
+	return pulumi.ToOutput(in).(TrailAggregationConfigurationEventCategoryPtrOutput)
+}
+
+func (in *trailAggregationConfigurationEventCategoryPtr) ToTrailAggregationConfigurationEventCategoryPtrOutputWithContext(ctx context.Context) TrailAggregationConfigurationEventCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TrailAggregationConfigurationEventCategoryPtrOutput)
+}
+
 // Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
 type TrailEventSelectorReadWriteType string
 
@@ -1191,6 +1355,430 @@ func (in *trailEventSelectorReadWriteTypePtr) ToTrailEventSelectorReadWriteTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(TrailEventSelectorReadWriteTypePtrOutput)
 }
 
+// Event category for an insight selector.
+type TrailSourceEventCategory string
+
+const (
+	TrailSourceEventCategoryManagement = TrailSourceEventCategory("Management")
+	TrailSourceEventCategoryData       = TrailSourceEventCategory("Data")
+)
+
+func (TrailSourceEventCategory) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrailSourceEventCategory)(nil)).Elem()
+}
+
+func (e TrailSourceEventCategory) ToTrailSourceEventCategoryOutput() TrailSourceEventCategoryOutput {
+	return pulumi.ToOutput(e).(TrailSourceEventCategoryOutput)
+}
+
+func (e TrailSourceEventCategory) ToTrailSourceEventCategoryOutputWithContext(ctx context.Context) TrailSourceEventCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TrailSourceEventCategoryOutput)
+}
+
+func (e TrailSourceEventCategory) ToTrailSourceEventCategoryPtrOutput() TrailSourceEventCategoryPtrOutput {
+	return e.ToTrailSourceEventCategoryPtrOutputWithContext(context.Background())
+}
+
+func (e TrailSourceEventCategory) ToTrailSourceEventCategoryPtrOutputWithContext(ctx context.Context) TrailSourceEventCategoryPtrOutput {
+	return TrailSourceEventCategory(e).ToTrailSourceEventCategoryOutputWithContext(ctx).ToTrailSourceEventCategoryPtrOutputWithContext(ctx)
+}
+
+func (e TrailSourceEventCategory) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TrailSourceEventCategory) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TrailSourceEventCategory) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TrailSourceEventCategory) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TrailSourceEventCategoryOutput struct{ *pulumi.OutputState }
+
+func (TrailSourceEventCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrailSourceEventCategory)(nil)).Elem()
+}
+
+func (o TrailSourceEventCategoryOutput) ToTrailSourceEventCategoryOutput() TrailSourceEventCategoryOutput {
+	return o
+}
+
+func (o TrailSourceEventCategoryOutput) ToTrailSourceEventCategoryOutputWithContext(ctx context.Context) TrailSourceEventCategoryOutput {
+	return o
+}
+
+func (o TrailSourceEventCategoryOutput) ToTrailSourceEventCategoryPtrOutput() TrailSourceEventCategoryPtrOutput {
+	return o.ToTrailSourceEventCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o TrailSourceEventCategoryOutput) ToTrailSourceEventCategoryPtrOutputWithContext(ctx context.Context) TrailSourceEventCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrailSourceEventCategory) *TrailSourceEventCategory {
+		return &v
+	}).(TrailSourceEventCategoryPtrOutput)
+}
+
+func (o TrailSourceEventCategoryOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TrailSourceEventCategoryOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrailSourceEventCategory) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TrailSourceEventCategoryOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrailSourceEventCategoryOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrailSourceEventCategory) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrailSourceEventCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (TrailSourceEventCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrailSourceEventCategory)(nil)).Elem()
+}
+
+func (o TrailSourceEventCategoryPtrOutput) ToTrailSourceEventCategoryPtrOutput() TrailSourceEventCategoryPtrOutput {
+	return o
+}
+
+func (o TrailSourceEventCategoryPtrOutput) ToTrailSourceEventCategoryPtrOutputWithContext(ctx context.Context) TrailSourceEventCategoryPtrOutput {
+	return o
+}
+
+func (o TrailSourceEventCategoryPtrOutput) Elem() TrailSourceEventCategoryOutput {
+	return o.ApplyT(func(v *TrailSourceEventCategory) TrailSourceEventCategory {
+		if v != nil {
+			return *v
+		}
+		var ret TrailSourceEventCategory
+		return ret
+	}).(TrailSourceEventCategoryOutput)
+}
+
+func (o TrailSourceEventCategoryPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrailSourceEventCategoryPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TrailSourceEventCategory) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TrailSourceEventCategoryInput is an input type that accepts values of the TrailSourceEventCategory enum
+// A concrete instance of `TrailSourceEventCategoryInput` can be one of the following:
+//
+//	TrailSourceEventCategoryManagement
+//	TrailSourceEventCategoryData
+type TrailSourceEventCategoryInput interface {
+	pulumi.Input
+
+	ToTrailSourceEventCategoryOutput() TrailSourceEventCategoryOutput
+	ToTrailSourceEventCategoryOutputWithContext(context.Context) TrailSourceEventCategoryOutput
+}
+
+var trailSourceEventCategoryPtrType = reflect.TypeOf((**TrailSourceEventCategory)(nil)).Elem()
+
+type TrailSourceEventCategoryPtrInput interface {
+	pulumi.Input
+
+	ToTrailSourceEventCategoryPtrOutput() TrailSourceEventCategoryPtrOutput
+	ToTrailSourceEventCategoryPtrOutputWithContext(context.Context) TrailSourceEventCategoryPtrOutput
+}
+
+type trailSourceEventCategoryPtr string
+
+func TrailSourceEventCategoryPtr(v string) TrailSourceEventCategoryPtrInput {
+	return (*trailSourceEventCategoryPtr)(&v)
+}
+
+func (*trailSourceEventCategoryPtr) ElementType() reflect.Type {
+	return trailSourceEventCategoryPtrType
+}
+
+func (in *trailSourceEventCategoryPtr) ToTrailSourceEventCategoryPtrOutput() TrailSourceEventCategoryPtrOutput {
+	return pulumi.ToOutput(in).(TrailSourceEventCategoryPtrOutput)
+}
+
+func (in *trailSourceEventCategoryPtr) ToTrailSourceEventCategoryPtrOutputWithContext(ctx context.Context) TrailSourceEventCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TrailSourceEventCategoryPtrOutput)
+}
+
+// TrailSourceEventCategoryArrayInput is an input type that accepts TrailSourceEventCategoryArray and TrailSourceEventCategoryArrayOutput values.
+// You can construct a concrete instance of `TrailSourceEventCategoryArrayInput` via:
+//
+//	TrailSourceEventCategoryArray{ TrailSourceEventCategoryArgs{...} }
+type TrailSourceEventCategoryArrayInput interface {
+	pulumi.Input
+
+	ToTrailSourceEventCategoryArrayOutput() TrailSourceEventCategoryArrayOutput
+	ToTrailSourceEventCategoryArrayOutputWithContext(context.Context) TrailSourceEventCategoryArrayOutput
+}
+
+type TrailSourceEventCategoryArray []TrailSourceEventCategory
+
+func (TrailSourceEventCategoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrailSourceEventCategory)(nil)).Elem()
+}
+
+func (i TrailSourceEventCategoryArray) ToTrailSourceEventCategoryArrayOutput() TrailSourceEventCategoryArrayOutput {
+	return i.ToTrailSourceEventCategoryArrayOutputWithContext(context.Background())
+}
+
+func (i TrailSourceEventCategoryArray) ToTrailSourceEventCategoryArrayOutputWithContext(ctx context.Context) TrailSourceEventCategoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrailSourceEventCategoryArrayOutput)
+}
+
+type TrailSourceEventCategoryArrayOutput struct{ *pulumi.OutputState }
+
+func (TrailSourceEventCategoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrailSourceEventCategory)(nil)).Elem()
+}
+
+func (o TrailSourceEventCategoryArrayOutput) ToTrailSourceEventCategoryArrayOutput() TrailSourceEventCategoryArrayOutput {
+	return o
+}
+
+func (o TrailSourceEventCategoryArrayOutput) ToTrailSourceEventCategoryArrayOutputWithContext(ctx context.Context) TrailSourceEventCategoryArrayOutput {
+	return o
+}
+
+func (o TrailSourceEventCategoryArrayOutput) Index(i pulumi.IntInput) TrailSourceEventCategoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrailSourceEventCategory {
+		return vs[0].([]TrailSourceEventCategory)[vs[1].(int)]
+	}).(TrailSourceEventCategoryOutput)
+}
+
+// A template used to configure aggregation rules.
+type TrailTemplate string
+
+const (
+	TrailTemplateApiActivity    = TrailTemplate("API_ACTIVITY")
+	TrailTemplateResourceAccess = TrailTemplate("RESOURCE_ACCESS")
+	TrailTemplateUserActions    = TrailTemplate("USER_ACTIONS")
+)
+
+func (TrailTemplate) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrailTemplate)(nil)).Elem()
+}
+
+func (e TrailTemplate) ToTrailTemplateOutput() TrailTemplateOutput {
+	return pulumi.ToOutput(e).(TrailTemplateOutput)
+}
+
+func (e TrailTemplate) ToTrailTemplateOutputWithContext(ctx context.Context) TrailTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TrailTemplateOutput)
+}
+
+func (e TrailTemplate) ToTrailTemplatePtrOutput() TrailTemplatePtrOutput {
+	return e.ToTrailTemplatePtrOutputWithContext(context.Background())
+}
+
+func (e TrailTemplate) ToTrailTemplatePtrOutputWithContext(ctx context.Context) TrailTemplatePtrOutput {
+	return TrailTemplate(e).ToTrailTemplateOutputWithContext(ctx).ToTrailTemplatePtrOutputWithContext(ctx)
+}
+
+func (e TrailTemplate) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TrailTemplate) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TrailTemplate) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TrailTemplate) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TrailTemplateOutput struct{ *pulumi.OutputState }
+
+func (TrailTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrailTemplate)(nil)).Elem()
+}
+
+func (o TrailTemplateOutput) ToTrailTemplateOutput() TrailTemplateOutput {
+	return o
+}
+
+func (o TrailTemplateOutput) ToTrailTemplateOutputWithContext(ctx context.Context) TrailTemplateOutput {
+	return o
+}
+
+func (o TrailTemplateOutput) ToTrailTemplatePtrOutput() TrailTemplatePtrOutput {
+	return o.ToTrailTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o TrailTemplateOutput) ToTrailTemplatePtrOutputWithContext(ctx context.Context) TrailTemplatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrailTemplate) *TrailTemplate {
+		return &v
+	}).(TrailTemplatePtrOutput)
+}
+
+func (o TrailTemplateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TrailTemplateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrailTemplate) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TrailTemplateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrailTemplateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrailTemplate) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrailTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (TrailTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrailTemplate)(nil)).Elem()
+}
+
+func (o TrailTemplatePtrOutput) ToTrailTemplatePtrOutput() TrailTemplatePtrOutput {
+	return o
+}
+
+func (o TrailTemplatePtrOutput) ToTrailTemplatePtrOutputWithContext(ctx context.Context) TrailTemplatePtrOutput {
+	return o
+}
+
+func (o TrailTemplatePtrOutput) Elem() TrailTemplateOutput {
+	return o.ApplyT(func(v *TrailTemplate) TrailTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret TrailTemplate
+		return ret
+	}).(TrailTemplateOutput)
+}
+
+func (o TrailTemplatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrailTemplatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TrailTemplate) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TrailTemplateInput is an input type that accepts values of the TrailTemplate enum
+// A concrete instance of `TrailTemplateInput` can be one of the following:
+//
+//	TrailTemplateApiActivity
+//	TrailTemplateResourceAccess
+//	TrailTemplateUserActions
+type TrailTemplateInput interface {
+	pulumi.Input
+
+	ToTrailTemplateOutput() TrailTemplateOutput
+	ToTrailTemplateOutputWithContext(context.Context) TrailTemplateOutput
+}
+
+var trailTemplatePtrType = reflect.TypeOf((**TrailTemplate)(nil)).Elem()
+
+type TrailTemplatePtrInput interface {
+	pulumi.Input
+
+	ToTrailTemplatePtrOutput() TrailTemplatePtrOutput
+	ToTrailTemplatePtrOutputWithContext(context.Context) TrailTemplatePtrOutput
+}
+
+type trailTemplatePtr string
+
+func TrailTemplatePtr(v string) TrailTemplatePtrInput {
+	return (*trailTemplatePtr)(&v)
+}
+
+func (*trailTemplatePtr) ElementType() reflect.Type {
+	return trailTemplatePtrType
+}
+
+func (in *trailTemplatePtr) ToTrailTemplatePtrOutput() TrailTemplatePtrOutput {
+	return pulumi.ToOutput(in).(TrailTemplatePtrOutput)
+}
+
+func (in *trailTemplatePtr) ToTrailTemplatePtrOutputWithContext(ctx context.Context) TrailTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TrailTemplatePtrOutput)
+}
+
+// TrailTemplateArrayInput is an input type that accepts TrailTemplateArray and TrailTemplateArrayOutput values.
+// You can construct a concrete instance of `TrailTemplateArrayInput` via:
+//
+//	TrailTemplateArray{ TrailTemplateArgs{...} }
+type TrailTemplateArrayInput interface {
+	pulumi.Input
+
+	ToTrailTemplateArrayOutput() TrailTemplateArrayOutput
+	ToTrailTemplateArrayOutputWithContext(context.Context) TrailTemplateArrayOutput
+}
+
+type TrailTemplateArray []TrailTemplate
+
+func (TrailTemplateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrailTemplate)(nil)).Elem()
+}
+
+func (i TrailTemplateArray) ToTrailTemplateArrayOutput() TrailTemplateArrayOutput {
+	return i.ToTrailTemplateArrayOutputWithContext(context.Background())
+}
+
+func (i TrailTemplateArray) ToTrailTemplateArrayOutputWithContext(ctx context.Context) TrailTemplateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrailTemplateArrayOutput)
+}
+
+type TrailTemplateArrayOutput struct{ *pulumi.OutputState }
+
+func (TrailTemplateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrailTemplate)(nil)).Elem()
+}
+
+func (o TrailTemplateArrayOutput) ToTrailTemplateArrayOutput() TrailTemplateArrayOutput {
+	return o
+}
+
+func (o TrailTemplateArrayOutput) ToTrailTemplateArrayOutputWithContext(ctx context.Context) TrailTemplateArrayOutput {
+	return o
+}
+
+func (o TrailTemplateArrayOutput) Index(i pulumi.IntInput) TrailTemplateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrailTemplate {
+		return vs[0].([]TrailTemplate)[vs[1].(int)]
+	}).(TrailTemplateOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDestinationTypeInput)(nil)).Elem(), ChannelDestinationType("EVENT_DATA_STORE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDestinationTypePtrInput)(nil)).Elem(), ChannelDestinationType("EVENT_DATA_STORE"))
@@ -1202,8 +1790,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreContextKeySelectorTypePtrInput)(nil)).Elem(), EventDataStoreContextKeySelectorType("RequestContext"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreMaxEventSizeInput)(nil)).Elem(), EventDataStoreMaxEventSize("Standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreMaxEventSizePtrInput)(nil)).Elem(), EventDataStoreMaxEventSize("Standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailAggregationConfigurationEventCategoryInput)(nil)).Elem(), TrailAggregationConfigurationEventCategory("Data"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailAggregationConfigurationEventCategoryPtrInput)(nil)).Elem(), TrailAggregationConfigurationEventCategory("Data"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailEventSelectorReadWriteTypeInput)(nil)).Elem(), TrailEventSelectorReadWriteType("All"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailEventSelectorReadWriteTypePtrInput)(nil)).Elem(), TrailEventSelectorReadWriteType("All"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailSourceEventCategoryInput)(nil)).Elem(), TrailSourceEventCategory("Management"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailSourceEventCategoryPtrInput)(nil)).Elem(), TrailSourceEventCategory("Management"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailSourceEventCategoryArrayInput)(nil)).Elem(), TrailSourceEventCategoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailTemplateInput)(nil)).Elem(), TrailTemplate("API_ACTIVITY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailTemplatePtrInput)(nil)).Elem(), TrailTemplate("API_ACTIVITY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailTemplateArrayInput)(nil)).Elem(), TrailTemplateArray{})
 	pulumi.RegisterOutputType(ChannelDestinationTypeOutput{})
 	pulumi.RegisterOutputType(ChannelDestinationTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardRefreshScheduleFrequencyPropertiesUnitOutput{})
@@ -1218,6 +1814,14 @@ func init() {
 	pulumi.RegisterOutputType(EventDataStoreContextKeySelectorTypePtrOutput{})
 	pulumi.RegisterOutputType(EventDataStoreMaxEventSizeOutput{})
 	pulumi.RegisterOutputType(EventDataStoreMaxEventSizePtrOutput{})
+	pulumi.RegisterOutputType(TrailAggregationConfigurationEventCategoryOutput{})
+	pulumi.RegisterOutputType(TrailAggregationConfigurationEventCategoryPtrOutput{})
 	pulumi.RegisterOutputType(TrailEventSelectorReadWriteTypeOutput{})
 	pulumi.RegisterOutputType(TrailEventSelectorReadWriteTypePtrOutput{})
+	pulumi.RegisterOutputType(TrailSourceEventCategoryOutput{})
+	pulumi.RegisterOutputType(TrailSourceEventCategoryPtrOutput{})
+	pulumi.RegisterOutputType(TrailSourceEventCategoryArrayOutput{})
+	pulumi.RegisterOutputType(TrailTemplateOutput{})
+	pulumi.RegisterOutputType(TrailTemplatePtrOutput{})
+	pulumi.RegisterOutputType(TrailTemplateArrayOutput{})
 }

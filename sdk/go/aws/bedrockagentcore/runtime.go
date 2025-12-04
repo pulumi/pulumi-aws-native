@@ -36,10 +36,14 @@ type Runtime struct {
 	EnvironmentVariables pulumi.StringMapOutput `pulumi:"environmentVariables"`
 	// When resource was last updated
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
+	// Lifecycle configuration for managing runtime sessions
+	LifecycleConfiguration RuntimeLifecycleConfigurationPtrOutput `pulumi:"lifecycleConfiguration"`
 	// Network access configuration for the Agent
 	NetworkConfiguration RuntimeNetworkConfigurationOutput `pulumi:"networkConfiguration"`
 	// Protocol configuration for the agent runtime
 	ProtocolConfiguration RuntimeProtocolConfigurationPtrOutput `pulumi:"protocolConfiguration"`
+	// Configuration for HTTP request headers
+	RequestHeaderConfiguration RuntimeRequestHeaderConfigurationPtrOutput `pulumi:"requestHeaderConfiguration"`
 	// Amazon Resource Name (ARN) of an IAM role
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Current status of the agent
@@ -116,10 +120,14 @@ type runtimeArgs struct {
 	Description *string `pulumi:"description"`
 	// Environment variables for the agent runtime
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
+	// Lifecycle configuration for managing runtime sessions
+	LifecycleConfiguration *RuntimeLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
 	// Network access configuration for the Agent
 	NetworkConfiguration RuntimeNetworkConfiguration `pulumi:"networkConfiguration"`
 	// Protocol configuration for the agent runtime
 	ProtocolConfiguration *RuntimeProtocolConfiguration `pulumi:"protocolConfiguration"`
+	// Configuration for HTTP request headers
+	RequestHeaderConfiguration *RuntimeRequestHeaderConfiguration `pulumi:"requestHeaderConfiguration"`
 	// Amazon Resource Name (ARN) of an IAM role
 	RoleArn string `pulumi:"roleArn"`
 	// The tags for the agent.
@@ -138,10 +146,14 @@ type RuntimeArgs struct {
 	Description pulumi.StringPtrInput
 	// Environment variables for the agent runtime
 	EnvironmentVariables pulumi.StringMapInput
+	// Lifecycle configuration for managing runtime sessions
+	LifecycleConfiguration RuntimeLifecycleConfigurationPtrInput
 	// Network access configuration for the Agent
 	NetworkConfiguration RuntimeNetworkConfigurationInput
 	// Protocol configuration for the agent runtime
 	ProtocolConfiguration RuntimeProtocolConfigurationPtrInput
+	// Configuration for HTTP request headers
+	RequestHeaderConfiguration RuntimeRequestHeaderConfigurationPtrInput
 	// Amazon Resource Name (ARN) of an IAM role
 	RoleArn pulumi.StringInput
 	// The tags for the agent.
@@ -235,6 +247,11 @@ func (o RuntimeOutput) LastUpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Runtime) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
 }
 
+// Lifecycle configuration for managing runtime sessions
+func (o RuntimeOutput) LifecycleConfiguration() RuntimeLifecycleConfigurationPtrOutput {
+	return o.ApplyT(func(v *Runtime) RuntimeLifecycleConfigurationPtrOutput { return v.LifecycleConfiguration }).(RuntimeLifecycleConfigurationPtrOutput)
+}
+
 // Network access configuration for the Agent
 func (o RuntimeOutput) NetworkConfiguration() RuntimeNetworkConfigurationOutput {
 	return o.ApplyT(func(v *Runtime) RuntimeNetworkConfigurationOutput { return v.NetworkConfiguration }).(RuntimeNetworkConfigurationOutput)
@@ -243,6 +260,11 @@ func (o RuntimeOutput) NetworkConfiguration() RuntimeNetworkConfigurationOutput 
 // Protocol configuration for the agent runtime
 func (o RuntimeOutput) ProtocolConfiguration() RuntimeProtocolConfigurationPtrOutput {
 	return o.ApplyT(func(v *Runtime) RuntimeProtocolConfigurationPtrOutput { return v.ProtocolConfiguration }).(RuntimeProtocolConfigurationPtrOutput)
+}
+
+// Configuration for HTTP request headers
+func (o RuntimeOutput) RequestHeaderConfiguration() RuntimeRequestHeaderConfigurationPtrOutput {
+	return o.ApplyT(func(v *Runtime) RuntimeRequestHeaderConfigurationPtrOutput { return v.RequestHeaderConfiguration }).(RuntimeRequestHeaderConfigurationPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of an IAM role

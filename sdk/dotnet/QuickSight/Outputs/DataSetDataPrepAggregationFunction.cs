@@ -13,8 +13,14 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetDataPrepAggregationFunction
     {
+        /// <summary>
+        /// A list aggregation function that concatenates values from multiple rows into a single delimited string.
+        /// </summary>
         public readonly Outputs.DataSetDataPrepListAggregationFunction? ListAggregation;
         public readonly Outputs.DataSetDataPrepPercentileAggregationFunction? PercentileAggregation;
+        /// <summary>
+        /// A simple aggregation function such as `SUM` , `COUNT` , `AVERAGE` , `MIN` , `MAX` , `MEDIAN` , `VARIANCE` , or `STANDARD_DEVIATION` .
+        /// </summary>
         public readonly Outputs.DataSetDataPrepSimpleAggregationFunction? SimpleAggregation;
 
         [OutputConstructor]

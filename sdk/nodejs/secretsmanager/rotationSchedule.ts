@@ -42,6 +42,14 @@ export class RotationSchedule extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
+     * The list of metadata needed to successfully rotate a managed external secret.
+     */
+    declare public readonly externalSecretRotationMetadata: pulumi.Output<outputs.secretsmanager.RotationScheduleExternalSecretRotationMetadataItem[] | undefined>;
+    /**
+     * The ARN of the IAM role that is used by Secrets Manager to rotate a managed external secret.
+     */
+    declare public readonly externalSecretRotationRoleArn: pulumi.Output<string | undefined>;
+    /**
      * Creates a new Lambda rotation function based on one of the Secrets Manager rotation function templates. To use a rotation function that already exists, specify RotationLambdaARN instead.
      */
     declare public readonly hostedRotationLambda: pulumi.Output<outputs.secretsmanager.RotationScheduleHostedRotationLambda | undefined>;
@@ -76,6 +84,8 @@ export class RotationSchedule extends pulumi.CustomResource {
             if (args?.secretId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secretId'");
             }
+            resourceInputs["externalSecretRotationMetadata"] = args?.externalSecretRotationMetadata;
+            resourceInputs["externalSecretRotationRoleArn"] = args?.externalSecretRotationRoleArn;
             resourceInputs["hostedRotationLambda"] = args?.hostedRotationLambda;
             resourceInputs["rotateImmediatelyOnUpdate"] = args?.rotateImmediatelyOnUpdate;
             resourceInputs["rotationLambdaArn"] = args?.rotationLambdaArn;
@@ -84,6 +94,8 @@ export class RotationSchedule extends pulumi.CustomResource {
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["externalSecretRotationMetadata"] = undefined /*out*/;
+            resourceInputs["externalSecretRotationRoleArn"] = undefined /*out*/;
             resourceInputs["hostedRotationLambda"] = undefined /*out*/;
             resourceInputs["rotateImmediatelyOnUpdate"] = undefined /*out*/;
             resourceInputs["rotationLambdaArn"] = undefined /*out*/;
@@ -101,6 +113,14 @@ export class RotationSchedule extends pulumi.CustomResource {
  * The set of arguments for constructing a RotationSchedule resource.
  */
 export interface RotationScheduleArgs {
+    /**
+     * The list of metadata needed to successfully rotate a managed external secret.
+     */
+    externalSecretRotationMetadata?: pulumi.Input<pulumi.Input<inputs.secretsmanager.RotationScheduleExternalSecretRotationMetadataItemArgs>[]>;
+    /**
+     * The ARN of the IAM role that is used by Secrets Manager to rotate a managed external secret.
+     */
+    externalSecretRotationRoleArn?: pulumi.Input<string>;
     /**
      * Creates a new Lambda rotation function based on one of the Secrets Manager rotation function templates. To use a rotation function that already exists, specify RotationLambdaARN instead.
      */

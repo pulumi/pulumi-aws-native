@@ -13,8 +13,11 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['StreamArgs', 'Stream']
 
@@ -26,6 +29,7 @@ class StreamArgs:
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  media_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 stream_storage_configuration: Optional[pulumi.Input['StreamStorageConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Stream resource.
@@ -34,6 +38,7 @@ class StreamArgs:
         :param pulumi.Input[_builtins.str] kms_key_id: AWS KMS key ID that Kinesis Video Streams uses to encrypt stream data.
         :param pulumi.Input[_builtins.str] media_type: The media type of the stream. Consumers of the stream can use this information when processing the stream.
         :param pulumi.Input[_builtins.str] name: The name of the Kinesis Video stream.
+        :param pulumi.Input['StreamStorageConfigurationArgs'] stream_storage_configuration: Configuration for the storage tier of the Kinesis Video Stream.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs associated with the Kinesis Video Stream.
         """
         if data_retention_in_hours is not None:
@@ -46,6 +51,8 @@ class StreamArgs:
             pulumi.set(__self__, "media_type", media_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if stream_storage_configuration is not None:
+            pulumi.set(__self__, "stream_storage_configuration", stream_storage_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -110,6 +117,18 @@ class StreamArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="streamStorageConfiguration")
+    def stream_storage_configuration(self) -> Optional[pulumi.Input['StreamStorageConfigurationArgs']]:
+        """
+        Configuration for the storage tier of the Kinesis Video Stream.
+        """
+        return pulumi.get(self, "stream_storage_configuration")
+
+    @stream_storage_configuration.setter
+    def stream_storage_configuration(self, value: Optional[pulumi.Input['StreamStorageConfigurationArgs']]):
+        pulumi.set(self, "stream_storage_configuration", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -133,6 +152,7 @@ class Stream(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  media_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 stream_storage_configuration: Optional[pulumi.Input[Union['StreamStorageConfigurationArgs', 'StreamStorageConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -145,6 +165,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] kms_key_id: AWS KMS key ID that Kinesis Video Streams uses to encrypt stream data.
         :param pulumi.Input[_builtins.str] media_type: The media type of the stream. Consumers of the stream can use this information when processing the stream.
         :param pulumi.Input[_builtins.str] name: The name of the Kinesis Video stream.
+        :param pulumi.Input[Union['StreamStorageConfigurationArgs', 'StreamStorageConfigurationArgsDict']] stream_storage_configuration: Configuration for the storage tier of the Kinesis Video Stream.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs associated with the Kinesis Video Stream.
         """
         ...
@@ -176,6 +197,7 @@ class Stream(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  media_type: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 stream_storage_configuration: Optional[pulumi.Input[Union['StreamStorageConfigurationArgs', 'StreamStorageConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -191,6 +213,7 @@ class Stream(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["media_type"] = media_type
             __props__.__dict__["name"] = name
+            __props__.__dict__["stream_storage_configuration"] = stream_storage_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
@@ -223,6 +246,7 @@ class Stream(pulumi.CustomResource):
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["media_type"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["stream_storage_configuration"] = None
         __props__.__dict__["tags"] = None
         return Stream(resource_name, opts=opts, __props__=__props__)
 
@@ -273,6 +297,14 @@ class Stream(pulumi.CustomResource):
         The name of the Kinesis Video stream.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="streamStorageConfiguration")
+    def stream_storage_configuration(self) -> pulumi.Output[Optional['outputs.StreamStorageConfiguration']]:
+        """
+        Configuration for the storage tier of the Kinesis Video Stream.
+        """
+        return pulumi.get(self, "stream_storage_configuration")
 
     @_builtins.property
     @pulumi.getter

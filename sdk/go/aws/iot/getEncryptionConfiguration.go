@@ -33,7 +33,7 @@ type LookupEncryptionConfigurationResult struct {
 	ConfigurationDetails *ConfigurationDetailsProperties `pulumi:"configurationDetails"`
 	// The type of the KMS key.
 	EncryptionType *EncryptionConfigurationEncryptionType `pulumi:"encryptionType"`
-	// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+	// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS  on behalf of the customer.
 	KmsAccessRoleArn *string `pulumi:"kmsAccessRoleArn"`
 	// The ARN of the customer managed KMS key.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
@@ -91,7 +91,7 @@ func (o LookupEncryptionConfigurationResultOutput) EncryptionType() EncryptionCo
 	}).(EncryptionConfigurationEncryptionTypePtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS KMS on behalf of the customer.
+// The Amazon Resource Name (ARN) of the IAM role assumed by AWS IoT Core to call AWS  on behalf of the customer.
 func (o LookupEncryptionConfigurationResultOutput) KmsAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEncryptionConfigurationResult) *string { return v.KmsAccessRoleArn }).(pulumi.StringPtrOutput)
 }

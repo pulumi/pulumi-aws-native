@@ -24,6 +24,7 @@ class VersionArgs:
                  function_name: pulumi.Input[_builtins.str],
                  code_sha256: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 function_scaling_config: Optional[pulumi.Input['VersionFunctionScalingConfigArgs']] = None,
                  provisioned_concurrency_config: Optional[pulumi.Input['VersionProvisionedConcurrencyConfigurationArgs']] = None,
                  runtime_policy: Optional[pulumi.Input['VersionRuntimePolicyArgs']] = None):
         """
@@ -31,6 +32,7 @@ class VersionArgs:
         :param pulumi.Input[_builtins.str] function_name: The name of the Lambda function.
         :param pulumi.Input[_builtins.str] code_sha256: Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
         :param pulumi.Input[_builtins.str] description: A description for the version to override the description in the function configuration. Updates are not supported for this property.
+        :param pulumi.Input['VersionFunctionScalingConfigArgs'] function_scaling_config: The scaling configuration to apply to the function, including minimum and maximum execution environment limits.
         :param pulumi.Input['VersionProvisionedConcurrencyConfigurationArgs'] provisioned_concurrency_config: Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
         :param pulumi.Input['VersionRuntimePolicyArgs'] runtime_policy: Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
         """
@@ -39,6 +41,8 @@ class VersionArgs:
             pulumi.set(__self__, "code_sha256", code_sha256)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if function_scaling_config is not None:
+            pulumi.set(__self__, "function_scaling_config", function_scaling_config)
         if provisioned_concurrency_config is not None:
             pulumi.set(__self__, "provisioned_concurrency_config", provisioned_concurrency_config)
         if runtime_policy is not None:
@@ -81,6 +85,18 @@ class VersionArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="functionScalingConfig")
+    def function_scaling_config(self) -> Optional[pulumi.Input['VersionFunctionScalingConfigArgs']]:
+        """
+        The scaling configuration to apply to the function, including minimum and maximum execution environment limits.
+        """
+        return pulumi.get(self, "function_scaling_config")
+
+    @function_scaling_config.setter
+    def function_scaling_config(self, value: Optional[pulumi.Input['VersionFunctionScalingConfigArgs']]):
+        pulumi.set(self, "function_scaling_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="provisionedConcurrencyConfig")
     def provisioned_concurrency_config(self) -> Optional[pulumi.Input['VersionProvisionedConcurrencyConfigurationArgs']]:
         """
@@ -114,6 +130,7 @@ class Version(pulumi.CustomResource):
                  code_sha256: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  function_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 function_scaling_config: Optional[pulumi.Input[Union['VersionFunctionScalingConfigArgs', 'VersionFunctionScalingConfigArgsDict']]] = None,
                  provisioned_concurrency_config: Optional[pulumi.Input[Union['VersionProvisionedConcurrencyConfigurationArgs', 'VersionProvisionedConcurrencyConfigurationArgsDict']]] = None,
                  runtime_policy: Optional[pulumi.Input[Union['VersionRuntimePolicyArgs', 'VersionRuntimePolicyArgsDict']]] = None,
                  __props__=None):
@@ -125,6 +142,7 @@ class Version(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] code_sha256: Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. Updates are not supported for this property.
         :param pulumi.Input[_builtins.str] description: A description for the version to override the description in the function configuration. Updates are not supported for this property.
         :param pulumi.Input[_builtins.str] function_name: The name of the Lambda function.
+        :param pulumi.Input[Union['VersionFunctionScalingConfigArgs', 'VersionFunctionScalingConfigArgsDict']] function_scaling_config: The scaling configuration to apply to the function, including minimum and maximum execution environment limits.
         :param pulumi.Input[Union['VersionProvisionedConcurrencyConfigurationArgs', 'VersionProvisionedConcurrencyConfigurationArgsDict']] provisioned_concurrency_config: Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
         :param pulumi.Input[Union['VersionRuntimePolicyArgs', 'VersionRuntimePolicyArgsDict']] runtime_policy: Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
         """
@@ -155,6 +173,7 @@ class Version(pulumi.CustomResource):
                  code_sha256: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  function_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 function_scaling_config: Optional[pulumi.Input[Union['VersionFunctionScalingConfigArgs', 'VersionFunctionScalingConfigArgsDict']]] = None,
                  provisioned_concurrency_config: Optional[pulumi.Input[Union['VersionProvisionedConcurrencyConfigurationArgs', 'VersionProvisionedConcurrencyConfigurationArgsDict']]] = None,
                  runtime_policy: Optional[pulumi.Input[Union['VersionRuntimePolicyArgs', 'VersionRuntimePolicyArgsDict']]] = None,
                  __props__=None):
@@ -171,6 +190,7 @@ class Version(pulumi.CustomResource):
             if function_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_name'")
             __props__.__dict__["function_name"] = function_name
+            __props__.__dict__["function_scaling_config"] = function_scaling_config
             __props__.__dict__["provisioned_concurrency_config"] = provisioned_concurrency_config
             __props__.__dict__["runtime_policy"] = runtime_policy
             __props__.__dict__["function_arn"] = None
@@ -203,6 +223,7 @@ class Version(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["function_arn"] = None
         __props__.__dict__["function_name"] = None
+        __props__.__dict__["function_scaling_config"] = None
         __props__.__dict__["provisioned_concurrency_config"] = None
         __props__.__dict__["runtime_policy"] = None
         __props__.__dict__["version"] = None
@@ -239,6 +260,14 @@ class Version(pulumi.CustomResource):
         The name of the Lambda function.
         """
         return pulumi.get(self, "function_name")
+
+    @_builtins.property
+    @pulumi.getter(name="functionScalingConfig")
+    def function_scaling_config(self) -> pulumi.Output[Optional['outputs.VersionFunctionScalingConfig']]:
+        """
+        The scaling configuration to apply to the function, including minimum and maximum execution environment limits.
+        """
+        return pulumi.get(self, "function_scaling_config")
 
     @_builtins.property
     @pulumi.getter(name="provisionedConcurrencyConfig")

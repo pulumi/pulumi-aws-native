@@ -8,6 +8,101 @@ using Pulumi;
 namespace Pulumi.AwsNative.CloudFront
 {
     /// <summary>
+    /// The function's runtime environment version.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionFunctionConfigRuntime : IEquatable<ConnectionFunctionConfigRuntime>
+    {
+        private readonly string _value;
+
+        private ConnectionFunctionConfigRuntime(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionFunctionConfigRuntime CloudfrontJs20 { get; } = new ConnectionFunctionConfigRuntime("cloudfront-js-2.0");
+
+        public static bool operator ==(ConnectionFunctionConfigRuntime left, ConnectionFunctionConfigRuntime right) => left.Equals(right);
+        public static bool operator !=(ConnectionFunctionConfigRuntime left, ConnectionFunctionConfigRuntime right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionFunctionConfigRuntime value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionFunctionConfigRuntime other && Equals(other);
+        public bool Equals(ConnectionFunctionConfigRuntime other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The connection function stage.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionFunctionStage : IEquatable<ConnectionFunctionStage>
+    {
+        private readonly string _value;
+
+        private ConnectionFunctionStage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionFunctionStage Development { get; } = new ConnectionFunctionStage("DEVELOPMENT");
+        public static ConnectionFunctionStage Live { get; } = new ConnectionFunctionStage("LIVE");
+
+        public static bool operator ==(ConnectionFunctionStage left, ConnectionFunctionStage right) => left.Equals(right);
+        public static bool operator !=(ConnectionFunctionStage left, ConnectionFunctionStage right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionFunctionStage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionFunctionStage other && Equals(other);
+        public bool Equals(ConnectionFunctionStage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The connection function status.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionFunctionStatus : IEquatable<ConnectionFunctionStatus>
+    {
+        private readonly string _value;
+
+        private ConnectionFunctionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionFunctionStatus Unpublished { get; } = new ConnectionFunctionStatus("UNPUBLISHED");
+        public static ConnectionFunctionStatus Deployed { get; } = new ConnectionFunctionStatus("DEPLOYED");
+        public static ConnectionFunctionStatus Unassociated { get; } = new ConnectionFunctionStatus("UNASSOCIATED");
+        public static ConnectionFunctionStatus Publishing { get; } = new ConnectionFunctionStatus("PUBLISHING");
+        public static ConnectionFunctionStatus InProgress { get; } = new ConnectionFunctionStatus("IN_PROGRESS");
+
+        public static bool operator ==(ConnectionFunctionStatus left, ConnectionFunctionStatus right) => left.Equals(right);
+        public static bool operator !=(ConnectionFunctionStatus left, ConnectionFunctionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionFunctionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionFunctionStatus other && Equals(other);
+        public bool Equals(ConnectionFunctionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of traffic configuration.
     /// </summary>
     [EnumType]
@@ -318,6 +413,34 @@ namespace Pulumi.AwsNative.CloudFront
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct DistributionViewerMtlsMode : IEquatable<DistributionViewerMtlsMode>
+    {
+        private readonly string _value;
+
+        private DistributionViewerMtlsMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DistributionViewerMtlsMode Required { get; } = new DistributionViewerMtlsMode("required");
+        public static DistributionViewerMtlsMode Optional { get; } = new DistributionViewerMtlsMode("optional");
+
+        public static bool operator ==(DistributionViewerMtlsMode left, DistributionViewerMtlsMode right) => left.Equals(right);
+        public static bool operator !=(DistributionViewerMtlsMode left, DistributionViewerMtlsMode right) => !left.Equals(right);
+
+        public static explicit operator string(DistributionViewerMtlsMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DistributionViewerMtlsMode other && Equals(other);
+        public bool Equals(DistributionViewerMtlsMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
     /// </summary>
@@ -342,6 +465,38 @@ namespace Pulumi.AwsNative.CloudFront
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus other && Equals(other);
         public bool Equals(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Current status of the trust store
+    /// </summary>
+    [EnumType]
+    public readonly struct TrustStoreStatus : IEquatable<TrustStoreStatus>
+    {
+        private readonly string _value;
+
+        private TrustStoreStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TrustStoreStatus Pending { get; } = new TrustStoreStatus("PENDING");
+        public static TrustStoreStatus Active { get; } = new TrustStoreStatus("ACTIVE");
+        public static TrustStoreStatus Failed { get; } = new TrustStoreStatus("FAILED");
+
+        public static bool operator ==(TrustStoreStatus left, TrustStoreStatus right) => left.Equals(right);
+        public static bool operator !=(TrustStoreStatus left, TrustStoreStatus right) => !left.Equals(right);
+
+        public static explicit operator string(TrustStoreStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TrustStoreStatus other && Equals(other);
+        public bool Equals(TrustStoreStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

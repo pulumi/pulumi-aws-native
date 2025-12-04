@@ -46,7 +46,7 @@ export class Branch extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
+     * The backend for a `Branch` of an Amplify app. Use for a backend created from an CloudFormation stack.
      *
      * This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
      */
@@ -188,7 +188,7 @@ export interface BranchArgs {
      */
     appId: pulumi.Input<string>;
     /**
-     * The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
+     * The backend for a `Branch` of an Amplify app. Use for a backend created from an CloudFormation stack.
      *
      * This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
      */

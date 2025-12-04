@@ -35,7 +35,7 @@ class GetNotificationChannelResult:
     @pulumi.getter(name="snsRoleName")
     def sns_role_name(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
+        The Amazon Resource Name (ARN) of the IAM role that allows Amazon  to record AWS Firewall Manager activity.
         """
         return pulumi.get(self, "sns_role_name")
 

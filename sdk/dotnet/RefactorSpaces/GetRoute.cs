@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// A mapping of Amazon API Gateway path resources to resource IDs.
+        /// A mapping of ABPlong path resources to resource IDs.
         /// </summary>
         public readonly string? PathResourceToId;
         /// <summary>

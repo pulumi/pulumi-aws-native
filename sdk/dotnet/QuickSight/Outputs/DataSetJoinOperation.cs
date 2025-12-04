@@ -13,12 +13,33 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetJoinOperation
     {
+        /// <summary>
+        /// Alias for this operation.
+        /// </summary>
         public readonly string Alias;
+        /// <summary>
+        /// The left operand for the join operation.
+        /// </summary>
         public readonly Outputs.DataSetTransformOperationSource LeftOperand;
+        /// <summary>
+        /// Properties that control how the left operand's columns are handled in the join result.
+        /// </summary>
         public readonly Outputs.DataSetJoinOperandProperties? LeftOperandProperties;
+        /// <summary>
+        /// The join condition that specifies how to match rows between the left and right operands.
+        /// </summary>
         public readonly string OnClause;
+        /// <summary>
+        /// The right operand for the join operation.
+        /// </summary>
         public readonly Outputs.DataSetTransformOperationSource RightOperand;
+        /// <summary>
+        /// Properties that control how the right operand's columns are handled in the join result.
+        /// </summary>
         public readonly Outputs.DataSetJoinOperandProperties? RightOperandProperties;
+        /// <summary>
+        /// The type of join to perform, such as `INNER` , `LEFT` , `RIGHT` , or `OUTER` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetJoinOperationType Type;
 
         [OutputConstructor]

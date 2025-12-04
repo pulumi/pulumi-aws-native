@@ -21,8 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:rtbfabric:InboundExternalLink":
+		r = &InboundExternalLink{}
 	case "aws-native:rtbfabric:Link":
 		r = &Link{}
+	case "aws-native:rtbfabric:OutboundExternalLink":
+		r = &OutboundExternalLink{}
 	case "aws-native:rtbfabric:RequesterGateway":
 		r = &RequesterGateway{}
 	case "aws-native:rtbfabric:ResponderGateway":

@@ -12,24 +12,45 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetJoinOperationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Alias for this operation.
+        /// </summary>
         [Input("alias", required: true)]
         public Input<string> Alias { get; set; } = null!;
 
+        /// <summary>
+        /// The left operand for the join operation.
+        /// </summary>
         [Input("leftOperand", required: true)]
         public Input<Inputs.DataSetTransformOperationSourceArgs> LeftOperand { get; set; } = null!;
 
+        /// <summary>
+        /// Properties that control how the left operand's columns are handled in the join result.
+        /// </summary>
         [Input("leftOperandProperties")]
         public Input<Inputs.DataSetJoinOperandPropertiesArgs>? LeftOperandProperties { get; set; }
 
+        /// <summary>
+        /// The join condition that specifies how to match rows between the left and right operands.
+        /// </summary>
         [Input("onClause", required: true)]
         public Input<string> OnClause { get; set; } = null!;
 
+        /// <summary>
+        /// The right operand for the join operation.
+        /// </summary>
         [Input("rightOperand", required: true)]
         public Input<Inputs.DataSetTransformOperationSourceArgs> RightOperand { get; set; } = null!;
 
+        /// <summary>
+        /// Properties that control how the right operand's columns are handled in the join result.
+        /// </summary>
         [Input("rightOperandProperties")]
         public Input<Inputs.DataSetJoinOperandPropertiesArgs>? RightOperandProperties { get; set; }
 
+        /// <summary>
+        /// The type of join to perform, such as `INNER` , `LEFT` , `RIGHT` , or `OUTER` .
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DataSetJoinOperationType> Type { get; set; } = null!;
 

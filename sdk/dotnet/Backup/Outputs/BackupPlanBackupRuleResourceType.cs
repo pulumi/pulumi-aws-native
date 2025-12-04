@@ -64,6 +64,7 @@ namespace Pulumi.AwsNative.Backup.Outputs
         /// The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created. They consist of letters, numbers, and hyphens.
         /// </summary>
         public readonly string TargetBackupVault;
+        public readonly string? TargetLogicallyAirGappedBackupVaultArn;
 
         [OutputConstructor]
         private BackupPlanBackupRuleResourceType(
@@ -87,7 +88,9 @@ namespace Pulumi.AwsNative.Backup.Outputs
 
             double? startWindowMinutes,
 
-            string targetBackupVault)
+            string targetBackupVault,
+
+            string? targetLogicallyAirGappedBackupVaultArn)
         {
             CompletionWindowMinutes = completionWindowMinutes;
             CopyActions = copyActions;
@@ -100,6 +103,7 @@ namespace Pulumi.AwsNative.Backup.Outputs
             ScheduleExpressionTimezone = scheduleExpressionTimezone;
             StartWindowMinutes = startWindowMinutes;
             TargetBackupVault = targetBackupVault;
+            TargetLogicallyAirGappedBackupVaultArn = targetLogicallyAirGappedBackupVaultArn;
         }
     }
 }

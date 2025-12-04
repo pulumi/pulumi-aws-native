@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetNumericFilterConditionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the numeric column to filter.
+        /// </summary>
         [Input("columnName")]
         public Input<string>? ColumnName { get; set; }
 
+        /// <summary>
+        /// A comparison-based filter condition for the numeric column.
+        /// </summary>
         [Input("comparisonFilterCondition")]
         public Input<Inputs.DataSetNumericComparisonFilterConditionArgs>? ComparisonFilterCondition { get; set; }
 
+        /// <summary>
+        /// A range-based filter condition for the numeric column, filtering values between minimum and maximum numbers.
+        /// </summary>
         [Input("rangeFilterCondition")]
         public Input<Inputs.DataSetNumericRangeFilterConditionArgs>? RangeFilterCondition { get; set; }
 

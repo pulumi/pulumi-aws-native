@@ -119,6 +119,10 @@ namespace Pulumi.AwsNative.SageMaker
         /// The URL to the created domain.
         /// </summary>
         public readonly string? Url;
+        /// <summary>
+        /// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        /// </summary>
+        public readonly string? VpcId;
 
         [OutputConstructor]
         private GetDomainResult(
@@ -148,7 +152,9 @@ namespace Pulumi.AwsNative.SageMaker
 
             Pulumi.AwsNative.SageMaker.DomainTagPropagation? tagPropagation,
 
-            string? url)
+            string? url,
+
+            string? vpcId)
         {
             AppNetworkAccessType = appNetworkAccessType;
             AppSecurityGroupManagement = appSecurityGroupManagement;
@@ -164,6 +170,7 @@ namespace Pulumi.AwsNative.SageMaker
             SubnetIds = subnetIds;
             TagPropagation = tagPropagation;
             Url = url;
+            VpcId = vpcId;
         }
     }
 }

@@ -100,6 +100,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("transportTransitGatewayAttachmentId")]
         public Output<string?> TransportTransitGatewayAttachmentId { get; private set; } = null!;
 
+        [Output("tunnelBandwidth")]
+        public Output<Pulumi.AwsNative.Ec2.VpnConnectionTunnelBandwidth?> TunnelBandwidth { get; private set; } = null!;
+
         /// <summary>
         /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
         ///  Default: ``ipv4``
@@ -112,6 +115,9 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        [Output("vpnConcentratorId")]
+        public Output<string?> VpnConcentratorId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the VPN connection.
@@ -168,8 +174,10 @@ namespace Pulumi.AwsNative.Ec2
                     "staticRoutesOnly",
                     "transitGatewayId",
                     "transportTransitGatewayAttachmentId",
+                    "tunnelBandwidth",
                     "tunnelInsideIpVersion",
                     "type",
+                    "vpnConcentratorId",
                     "vpnGatewayId",
                     "vpnTunnelOptionsSpecifications[*]",
                 },
@@ -283,6 +291,9 @@ namespace Pulumi.AwsNative.Ec2
         [Input("transportTransitGatewayAttachmentId")]
         public Input<string>? TransportTransitGatewayAttachmentId { get; set; }
 
+        [Input("tunnelBandwidth")]
+        public Input<Pulumi.AwsNative.Ec2.VpnConnectionTunnelBandwidth>? TunnelBandwidth { get; set; }
+
         /// <summary>
         /// Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
         ///  Default: ``ipv4``
@@ -295,6 +306,9 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        [Input("vpnConcentratorId")]
+        public Input<string>? VpnConcentratorId { get; set; }
 
         /// <summary>
         /// The ID of the virtual private gateway at the AWS side of the VPN connection.

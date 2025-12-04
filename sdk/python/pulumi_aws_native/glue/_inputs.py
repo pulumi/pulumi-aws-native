@@ -52,6 +52,8 @@ __all__ = [
     'DatabaseInputArgsDict',
     'DatabasePrincipalPrivilegesArgs',
     'DatabasePrincipalPrivilegesArgsDict',
+    'IntegrationConfigArgs',
+    'IntegrationConfigArgsDict',
     'JobCommandArgs',
     'JobCommandArgsDict',
     'JobConnectionsListArgs',
@@ -1606,6 +1608,82 @@ class DatabasePrincipalPrivilegesArgs:
     @principal.setter
     def principal(self, value: Optional[pulumi.Input['DatabaseDataLakePrincipalArgs']]):
         pulumi.set(self, "principal", value)
+
+
+if not MYPY:
+    class IntegrationConfigArgsDict(TypedDict):
+        """
+        The configuration settings for the integration.
+        """
+        continuous_sync: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Enables continuous synchronization for on-demand data extractions.
+        """
+        refresh_interval: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies the frequency at which CDC (Change Data Capture) pulls or incremental loads should occur.
+        """
+        source_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+        """
+        A collection of key-value pairs that specify additional properties for the integration source. These properties provide configuration options that can be used to customize the behavior of the ODB source during data integration operations.
+        """
+elif False:
+    IntegrationConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IntegrationConfigArgs:
+    def __init__(__self__, *,
+                 continuous_sync: Optional[pulumi.Input[_builtins.bool]] = None,
+                 refresh_interval: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        The configuration settings for the integration.
+        :param pulumi.Input[_builtins.bool] continuous_sync: Enables continuous synchronization for on-demand data extractions.
+        :param pulumi.Input[_builtins.str] refresh_interval: Specifies the frequency at which CDC (Change Data Capture) pulls or incremental loads should occur.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] source_properties: A collection of key-value pairs that specify additional properties for the integration source. These properties provide configuration options that can be used to customize the behavior of the ODB source during data integration operations.
+        """
+        if continuous_sync is not None:
+            pulumi.set(__self__, "continuous_sync", continuous_sync)
+        if refresh_interval is not None:
+            pulumi.set(__self__, "refresh_interval", refresh_interval)
+        if source_properties is not None:
+            pulumi.set(__self__, "source_properties", source_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="continuousSync")
+    def continuous_sync(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables continuous synchronization for on-demand data extractions.
+        """
+        return pulumi.get(self, "continuous_sync")
+
+    @continuous_sync.setter
+    def continuous_sync(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "continuous_sync", value)
+
+    @_builtins.property
+    @pulumi.getter(name="refreshInterval")
+    def refresh_interval(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the frequency at which CDC (Change Data Capture) pulls or incremental loads should occur.
+        """
+        return pulumi.get(self, "refresh_interval")
+
+    @refresh_interval.setter
+    def refresh_interval(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "refresh_interval", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceProperties")
+    def source_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A collection of key-value pairs that specify additional properties for the integration source. These properties provide configuration options that can be used to customize the behavior of the ODB source during data integration operations.
+        """
+        return pulumi.get(self, "source_properties")
+
+    @source_properties.setter
+    def source_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "source_properties", value)
 
 
 if not MYPY:

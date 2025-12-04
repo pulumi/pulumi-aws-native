@@ -29,7 +29,7 @@ type DocumentClassifier struct {
 	LanguageCode DocumentClassifierLanguageCodeOutput `pulumi:"languageCode"`
 	// Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class (single-label) mode or multi-label mode. Multi-class mode identifies a single class label for each document and multi-label mode identifies one or more class labels for each document. Multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
 	Mode DocumentClassifierModePtrOutput `pulumi:"mode"`
-	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+	// ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
 	//
 	// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
 	// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
@@ -131,7 +131,7 @@ type documentClassifierArgs struct {
 	LanguageCode DocumentClassifierLanguageCode `pulumi:"languageCode"`
 	// Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class (single-label) mode or multi-label mode. Multi-class mode identifies a single class label for each document and multi-label mode identifies one or more class labels for each document. Multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
 	Mode *DocumentClassifierMode `pulumi:"mode"`
-	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+	// ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
 	//
 	// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
 	// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
@@ -173,7 +173,7 @@ type DocumentClassifierArgs struct {
 	LanguageCode DocumentClassifierLanguageCodeInput
 	// Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class (single-label) mode or multi-label mode. Multi-class mode identifies a single class label for each document and multi-label mode identifies one or more class labels for each document. Multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).
 	Mode DocumentClassifierModePtrInput
-	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+	// ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
 	//
 	// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
 	// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
@@ -270,7 +270,7 @@ func (o DocumentClassifierOutput) Mode() DocumentClassifierModePtrOutput {
 	return o.ApplyT(func(v *DocumentClassifier) DocumentClassifierModePtrOutput { return v.Mode }).(DocumentClassifierModePtrOutput)
 }
 
-// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+// ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
 //
 // - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
 // - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`

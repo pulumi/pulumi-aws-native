@@ -88,6 +88,10 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? DnsSupport;
         /// <summary>
+        /// The encryption support state of the transit gateway.
+        /// </summary>
+        public readonly string? EncryptionSupportState;
+        /// <summary>
         /// The ID of the transit gateway.
         /// </summary>
         public readonly string? Id;
@@ -129,6 +133,8 @@ namespace Pulumi.AwsNative.Ec2
 
             string? dnsSupport,
 
+            string? encryptionSupportState,
+
             string? id,
 
             string? propagationDefaultRouteTableId,
@@ -149,6 +155,7 @@ namespace Pulumi.AwsNative.Ec2
             DefaultRouteTablePropagation = defaultRouteTablePropagation;
             Description = description;
             DnsSupport = dnsSupport;
+            EncryptionSupportState = encryptionSupportState;
             Id = id;
             PropagationDefaultRouteTableId = propagationDefaultRouteTableId;
             SecurityGroupReferencingSupport = securityGroupReferencingSupport;

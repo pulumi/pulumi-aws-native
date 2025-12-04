@@ -226,7 +226,7 @@ class GetPortalResult:
     @pulumi.getter(name="sessionLoggerArn")
     def session_logger_arn(self) -> Optional[_builtins.str]:
         """
-        The ARN of the session logger that is assocaited with the portal.
+        The ARN of the session logger that is associated with the portal.
         """
         return pulumi.get(self, "session_logger_arn")
 

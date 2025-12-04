@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetDateFilterConditionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the date column to filter.
+        /// </summary>
         [Input("columnName")]
         public Input<string>? ColumnName { get; set; }
 
+        /// <summary>
+        /// A comparison-based filter condition for the date column.
+        /// </summary>
         [Input("comparisonFilterCondition")]
         public Input<Inputs.DataSetDateComparisonFilterConditionArgs>? ComparisonFilterCondition { get; set; }
 
+        /// <summary>
+        /// A range-based filter condition for the date column, filtering values between minimum and maximum dates.
+        /// </summary>
         [Input("rangeFilterCondition")]
         public Input<Inputs.DataSetDateRangeFilterConditionArgs>? RangeFilterCondition { get; set; }
 

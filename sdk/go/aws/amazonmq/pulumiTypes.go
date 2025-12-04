@@ -175,7 +175,7 @@ type BrokerEncryptionOptions struct {
 	// The Key ARN is recommended so that drift can be detected,
 	// but a key ID or key alias will also be accepted for API compatibility reasons.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Enables the use of an AWS owned CMK using AWS KMS (KMS). Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
+	// Enables the use of an AWS owned CMK using AWS  (KMS). Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
 	UseAwsOwnedKey bool `pulumi:"useAwsOwnedKey"`
 }
 
@@ -196,7 +196,7 @@ type BrokerEncryptionOptionsArgs struct {
 	// The Key ARN is recommended so that drift can be detected,
 	// but a key ID or key alias will also be accepted for API compatibility reasons.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// Enables the use of an AWS owned CMK using AWS KMS (KMS). Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
+	// Enables the use of an AWS owned CMK using AWS  (KMS). Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
 	UseAwsOwnedKey pulumi.BoolInput `pulumi:"useAwsOwnedKey"`
 }
 
@@ -285,7 +285,7 @@ func (o BrokerEncryptionOptionsOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BrokerEncryptionOptions) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Enables the use of an AWS owned CMK using AWS KMS (KMS). Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
+// Enables the use of an AWS owned CMK using AWS  (KMS). Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
 func (o BrokerEncryptionOptionsOutput) UseAwsOwnedKey() pulumi.BoolOutput {
 	return o.ApplyT(func(v BrokerEncryptionOptions) bool { return v.UseAwsOwnedKey }).(pulumi.BoolOutput)
 }
@@ -327,7 +327,7 @@ func (o BrokerEncryptionOptionsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enables the use of an AWS owned CMK using AWS KMS (KMS). Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
+// Enables the use of an AWS owned CMK using AWS  (KMS). Set to `true` by default, if no value is provided, for example, for RabbitMQ brokers.
 func (o BrokerEncryptionOptionsPtrOutput) UseAwsOwnedKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BrokerEncryptionOptions) *bool {
 		if v == nil {

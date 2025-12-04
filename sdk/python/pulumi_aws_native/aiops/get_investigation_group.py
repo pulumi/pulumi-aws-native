@@ -110,7 +110,7 @@ class GetInvestigationGroupResult:
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> Optional['outputs.InvestigationGroupEncryptionConfigMap']:
         """
-        Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+        Specifies the customer managed AWS  key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
         """
         return pulumi.get(self, "encryption_config")
 

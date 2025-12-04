@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     public sealed class BotGrammarSlotTypeSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS KMS key required to decrypt the contents of the grammar, if any.
+        /// The AWS  key required to decrypt the contents of the grammar, if any.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }

@@ -450,6 +450,16 @@ export const SegmentDefinitionRangeOverrideUnit = {
  */
 export type SegmentDefinitionRangeOverrideUnit = (typeof SegmentDefinitionRangeOverrideUnit)[keyof typeof SegmentDefinitionRangeOverrideUnit];
 
+export const SegmentDefinitionSegmentType = {
+    Classic: "CLASSIC",
+    Enhanced: "ENHANCED",
+} as const;
+
+/**
+ * The SQL query that defines the segment criteria.
+ */
+export type SegmentDefinitionSegmentType = (typeof SegmentDefinitionSegmentType)[keyof typeof SegmentDefinitionSegmentType];
+
 export const SegmentDefinitionStringDimensionType = {
     Inclusive: "INCLUSIVE",
     Exclusive: "EXCLUSIVE",

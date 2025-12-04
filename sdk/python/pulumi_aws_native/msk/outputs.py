@@ -36,6 +36,7 @@ __all__ = [
     'ClusterPrometheus',
     'ClusterProvisionedThroughput',
     'ClusterPublicAccess',
+    'ClusterRebalancing',
     'ClusterS3',
     'ClusterSasl',
     'ClusterScram',
@@ -932,6 +933,18 @@ class ClusterPublicAccess(dict):
         DISABLED means that public access is turned off. SERVICE_PROVIDED_EIPS means that public access is turned on.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ClusterRebalancing(dict):
+    def __init__(__self__, *,
+                 status: 'ClusterRebalancingStatus'):
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> 'ClusterRebalancingStatus':
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

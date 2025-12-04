@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         public Input<int>? BakeTimeInMinutes { get; set; }
 
         /// <summary>
-        /// Configuration for canary deployment strategy. Only valid when the deployment strategy is `CANARY` . This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
+        /// Configuration for canary deployment strategy. Only valid when the deployment strategy is ``CANARY``. This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
         /// </summary>
         [Input("canaryConfiguration")]
         public Input<Inputs.ServiceCanaryConfigurationArgs>? CanaryConfiguration { get; set; }
@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         }
 
         /// <summary>
-        /// Configuration for linear deployment strategy. Only valid when the deployment strategy is `LINEAR` . This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
+        /// Configuration for linear deployment strategy. Only valid when the deployment strategy is ``LINEAR``. This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
         /// </summary>
         [Input("linearConfiguration")]
         public Input<Inputs.ServiceLinearConfigurationArgs>? LinearConfiguration { get; set; }

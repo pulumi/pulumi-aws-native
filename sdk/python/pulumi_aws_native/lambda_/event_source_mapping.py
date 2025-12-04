@@ -35,6 +35,7 @@ class EventSourceMappingArgs:
                  filter_criteria: Optional[pulumi.Input['EventSourceMappingFilterCriteriaArgs']] = None,
                  function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 logging_config: Optional[pulumi.Input['EventSourceMappingLoggingConfigArgs']] = None,
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  maximum_record_age_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
@@ -87,6 +88,7 @@ class EventSourceMappingArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]] function_response_types: (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
                 Valid Values: ``ReportBatchItemFailures``
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
+        :param pulumi.Input['EventSourceMappingLoggingConfigArgs'] logging_config: The function's Amazon CloudWatch Logs configuration settings.
         :param pulumi.Input[_builtins.int] maximum_batching_window_in_seconds: The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
                 *Default (, , event sources)*: 0
                 *Default (, Kafka, , event sources)*: 500 ms
@@ -96,9 +98,9 @@ class EventSourceMappingArgs:
         :param pulumi.Input[_builtins.int] maximum_retry_attempts: (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
         :param pulumi.Input['EventSourceMappingMetricsConfigArgs'] metrics_config: The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
         :param pulumi.Input[_builtins.int] parallelization_factor: (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
-        :param pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs'] provisioned_poller_config: (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
+        :param pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs'] provisioned_poller_config: (Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] queues: (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
-        :param pulumi.Input['EventSourceMappingScalingConfigArgs'] scaling_config: (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+        :param pulumi.Input['EventSourceMappingScalingConfigArgs'] scaling_config: This property is for Amazon SQS event sources only. You cannot use ``ProvisionedPollerConfig`` while using ``ScalingConfig``. These options are mutually exclusive. To remove the scaling configuration, pass an empty value.
         :param pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs'] self_managed_event_source: The self-managed Apache Kafka cluster for your event source.
         :param pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs'] self_managed_kafka_event_source_config: Specific configuration settings for a self-managed Apache Kafka event source.
         :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingSourceAccessConfigurationArgs']]] source_access_configurations: An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
@@ -133,6 +135,8 @@ class EventSourceMappingArgs:
             pulumi.set(__self__, "function_response_types", function_response_types)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if logging_config is not None:
+            pulumi.set(__self__, "logging_config", logging_config)
         if maximum_batching_window_in_seconds is not None:
             pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
         if maximum_record_age_in_seconds is not None:
@@ -322,6 +326,18 @@ class EventSourceMappingArgs:
         pulumi.set(self, "kms_key_arn", value)
 
     @_builtins.property
+    @pulumi.getter(name="loggingConfig")
+    def logging_config(self) -> Optional[pulumi.Input['EventSourceMappingLoggingConfigArgs']]:
+        """
+        The function's Amazon CloudWatch Logs configuration settings.
+        """
+        return pulumi.get(self, "logging_config")
+
+    @logging_config.setter
+    def logging_config(self, value: Optional[pulumi.Input['EventSourceMappingLoggingConfigArgs']]):
+        pulumi.set(self, "logging_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="maximumBatchingWindowInSeconds")
     def maximum_batching_window_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -389,7 +405,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="provisionedPollerConfig")
     def provisioned_poller_config(self) -> Optional[pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs']]:
         """
-        (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
+        (Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
         """
         return pulumi.get(self, "provisioned_poller_config")
 
@@ -413,7 +429,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="scalingConfig")
     def scaling_config(self) -> Optional[pulumi.Input['EventSourceMappingScalingConfigArgs']]:
         """
-        (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+        This property is for Amazon SQS event sources only. You cannot use ``ProvisionedPollerConfig`` while using ``ScalingConfig``. These options are mutually exclusive. To remove the scaling configuration, pass an empty value.
         """
         return pulumi.get(self, "scaling_config")
 
@@ -539,6 +555,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  function_name: Optional[pulumi.Input[_builtins.str]] = None,
                  function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 logging_config: Optional[pulumi.Input[Union['EventSourceMappingLoggingConfigArgs', 'EventSourceMappingLoggingConfigArgsDict']]] = None,
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  maximum_record_age_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
@@ -603,6 +620,7 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]] function_response_types: (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
                 Valid Values: ``ReportBatchItemFailures``
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
+        :param pulumi.Input[Union['EventSourceMappingLoggingConfigArgs', 'EventSourceMappingLoggingConfigArgsDict']] logging_config: The function's Amazon CloudWatch Logs configuration settings.
         :param pulumi.Input[_builtins.int] maximum_batching_window_in_seconds: The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
                 *Default (, , event sources)*: 0
                 *Default (, Kafka, , event sources)*: 500 ms
@@ -612,9 +630,9 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] maximum_retry_attempts: (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
         :param pulumi.Input[Union['EventSourceMappingMetricsConfigArgs', 'EventSourceMappingMetricsConfigArgsDict']] metrics_config: The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
         :param pulumi.Input[_builtins.int] parallelization_factor: (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
-        :param pulumi.Input[Union['EventSourceMappingProvisionedPollerConfigArgs', 'EventSourceMappingProvisionedPollerConfigArgsDict']] provisioned_poller_config: (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
+        :param pulumi.Input[Union['EventSourceMappingProvisionedPollerConfigArgs', 'EventSourceMappingProvisionedPollerConfigArgsDict']] provisioned_poller_config: (Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] queues: (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
-        :param pulumi.Input[Union['EventSourceMappingScalingConfigArgs', 'EventSourceMappingScalingConfigArgsDict']] scaling_config: (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+        :param pulumi.Input[Union['EventSourceMappingScalingConfigArgs', 'EventSourceMappingScalingConfigArgsDict']] scaling_config: This property is for Amazon SQS event sources only. You cannot use ``ProvisionedPollerConfig`` while using ``ScalingConfig``. These options are mutually exclusive. To remove the scaling configuration, pass an empty value.
         :param pulumi.Input[Union['EventSourceMappingSelfManagedEventSourceArgs', 'EventSourceMappingSelfManagedEventSourceArgsDict']] self_managed_event_source: The self-managed Apache Kafka cluster for your event source.
         :param pulumi.Input[Union['EventSourceMappingSelfManagedKafkaEventSourceConfigArgs', 'EventSourceMappingSelfManagedKafkaEventSourceConfigArgsDict']] self_managed_kafka_event_source_config: Specific configuration settings for a self-managed Apache Kafka event source.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventSourceMappingSourceAccessConfigurationArgs', 'EventSourceMappingSourceAccessConfigurationArgsDict']]]] source_access_configurations: An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.
@@ -671,6 +689,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  function_name: Optional[pulumi.Input[_builtins.str]] = None,
                  function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 logging_config: Optional[pulumi.Input[Union['EventSourceMappingLoggingConfigArgs', 'EventSourceMappingLoggingConfigArgsDict']]] = None,
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  maximum_record_age_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[_builtins.int]] = None,
@@ -709,6 +728,7 @@ class EventSourceMapping(pulumi.CustomResource):
             __props__.__dict__["function_name"] = function_name
             __props__.__dict__["function_response_types"] = function_response_types
             __props__.__dict__["kms_key_arn"] = kms_key_arn
+            __props__.__dict__["logging_config"] = logging_config
             __props__.__dict__["maximum_batching_window_in_seconds"] = maximum_batching_window_in_seconds
             __props__.__dict__["maximum_record_age_in_seconds"] = maximum_record_age_in_seconds
             __props__.__dict__["maximum_retry_attempts"] = maximum_retry_attempts
@@ -764,6 +784,7 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__.__dict__["function_name"] = None
         __props__.__dict__["function_response_types"] = None
         __props__.__dict__["kms_key_arn"] = None
+        __props__.__dict__["logging_config"] = None
         __props__.__dict__["maximum_batching_window_in_seconds"] = None
         __props__.__dict__["maximum_record_age_in_seconds"] = None
         __props__.__dict__["maximum_retry_attempts"] = None
@@ -910,6 +931,14 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "kms_key_arn")
 
     @_builtins.property
+    @pulumi.getter(name="loggingConfig")
+    def logging_config(self) -> pulumi.Output[Optional['outputs.EventSourceMappingLoggingConfig']]:
+        """
+        The function's Amazon CloudWatch Logs configuration settings.
+        """
+        return pulumi.get(self, "logging_config")
+
+    @_builtins.property
     @pulumi.getter(name="maximumBatchingWindowInSeconds")
     def maximum_batching_window_in_seconds(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
@@ -957,7 +986,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="provisionedPollerConfig")
     def provisioned_poller_config(self) -> pulumi.Output[Optional['outputs.EventSourceMappingProvisionedPollerConfig']]:
         """
-        (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
+        (Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
         """
         return pulumi.get(self, "provisioned_poller_config")
 
@@ -973,7 +1002,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="scalingConfig")
     def scaling_config(self) -> pulumi.Output[Optional['outputs.EventSourceMappingScalingConfig']]:
         """
-        (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+        This property is for Amazon SQS event sources only. You cannot use ``ProvisionedPollerConfig`` while using ``ScalingConfig``. These options are mutually exclusive. To remove the scaling configuration, pass an empty value.
         """
         return pulumi.get(self, "scaling_config")
 

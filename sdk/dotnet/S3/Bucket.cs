@@ -859,6 +859,12 @@ namespace Pulumi.AwsNative.S3
     public partial class Bucket : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see [Using tags with S3 general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html) .
+        /// </summary>
+        [Output("abacStatus")]
+        public Output<Pulumi.AwsNative.S3.BucketAbacStatus?> AbacStatus { get; private set; } = null!;
+
+        /// <summary>
         /// Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
         /// </summary>
         [Output("accelerateConfiguration")]
@@ -1096,6 +1102,12 @@ namespace Pulumi.AwsNative.S3
 
     public sealed class BucketArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see [Using tags with S3 general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html) .
+        /// </summary>
+        [Input("abacStatus")]
+        public Input<Pulumi.AwsNative.S3.BucketAbacStatus>? AbacStatus { get; set; }
+
         /// <summary>
         /// Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
         /// </summary>

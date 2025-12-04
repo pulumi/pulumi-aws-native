@@ -36,6 +36,8 @@ __all__ = [
     'DomainConflictResolutionArgsDict',
     'DomainConsolidationArgs',
     'DomainConsolidationArgsDict',
+    'DomainDataStoreArgs',
+    'DomainDataStoreArgsDict',
     'DomainExportingConfigArgs',
     'DomainExportingConfigArgsDict',
     'DomainJobScheduleArgs',
@@ -44,6 +46,8 @@ __all__ = [
     'DomainMatchingRuleArgsDict',
     'DomainMatchingArgs',
     'DomainMatchingArgsDict',
+    'DomainReadinessArgs',
+    'DomainReadinessArgsDict',
     'DomainRuleBasedMatchingArgs',
     'DomainRuleBasedMatchingArgsDict',
     'DomainS3ExportingConfigArgs',
@@ -794,6 +798,55 @@ class DomainConsolidationArgs:
 
 
 if not MYPY:
+    class DomainDataStoreArgsDict(TypedDict):
+        """
+        Configuration and status of the data store for the domain.
+        """
+        enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Whether the data store is enabled.
+        """
+        readiness: NotRequired[pulumi.Input['DomainReadinessArgsDict']]
+elif False:
+    DomainDataStoreArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainDataStoreArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 readiness: Optional[pulumi.Input['DomainReadinessArgs']] = None):
+        """
+        Configuration and status of the data store for the domain.
+        :param pulumi.Input[_builtins.bool] enabled: Whether the data store is enabled.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if readiness is not None:
+            pulumi.set(__self__, "readiness", readiness)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether the data store is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def readiness(self) -> Optional[pulumi.Input['DomainReadinessArgs']]:
+        return pulumi.get(self, "readiness")
+
+    @readiness.setter
+    def readiness(self, value: Optional[pulumi.Input['DomainReadinessArgs']]):
+        pulumi.set(self, "readiness", value)
+
+
+if not MYPY:
     class DomainExportingConfigArgsDict(TypedDict):
         """
         Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
@@ -1004,6 +1057,62 @@ class DomainMatchingArgs:
     @job_schedule.setter
     def job_schedule(self, value: Optional[pulumi.Input['DomainJobScheduleArgs']]):
         pulumi.set(self, "job_schedule", value)
+
+
+if not MYPY:
+    class DomainReadinessArgsDict(TypedDict):
+        """
+        Progress information for data store setup.
+        """
+        message: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A message describing the current progress.
+        """
+        progress_percentage: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The percentage of progress completed.
+        """
+elif False:
+    DomainReadinessArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainReadinessArgs:
+    def __init__(__self__, *,
+                 message: Optional[pulumi.Input[_builtins.str]] = None,
+                 progress_percentage: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        Progress information for data store setup.
+        :param pulumi.Input[_builtins.str] message: A message describing the current progress.
+        :param pulumi.Input[_builtins.int] progress_percentage: The percentage of progress completed.
+        """
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if progress_percentage is not None:
+            pulumi.set(__self__, "progress_percentage", progress_percentage)
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A message describing the current progress.
+        """
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "message", value)
+
+    @_builtins.property
+    @pulumi.getter(name="progressPercentage")
+    def progress_percentage(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The percentage of progress completed.
+        """
+        return pulumi.get(self, "progress_percentage")
+
+    @progress_percentage.setter
+    def progress_percentage(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "progress_percentage", value)
 
 
 if not MYPY:

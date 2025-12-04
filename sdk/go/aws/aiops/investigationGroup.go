@@ -26,7 +26,7 @@ type InvestigationGroup struct {
 	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
 	// An array of cross account configurations.
 	CrossAccountConfigurations InvestigationGroupCrossAccountConfigurationArrayOutput `pulumi:"crossAccountConfigurations"`
-	// Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+	// Specifies the customer managed AWS  key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
 	EncryptionConfig InvestigationGroupEncryptionConfigMapPtrOutput `pulumi:"encryptionConfig"`
 	// Investigation Group policy
 	InvestigationGroupPolicy pulumi.StringPtrOutput `pulumi:"investigationGroupPolicy"`
@@ -97,7 +97,7 @@ type investigationGroupArgs struct {
 	ChatbotNotificationChannels []InvestigationGroupChatbotNotificationChannel `pulumi:"chatbotNotificationChannels"`
 	// An array of cross account configurations.
 	CrossAccountConfigurations []InvestigationGroupCrossAccountConfiguration `pulumi:"crossAccountConfigurations"`
-	// Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+	// Specifies the customer managed AWS  key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
 	EncryptionConfig *InvestigationGroupEncryptionConfigMap `pulumi:"encryptionConfig"`
 	// Investigation Group policy
 	InvestigationGroupPolicy *string `pulumi:"investigationGroupPolicy"`
@@ -121,7 +121,7 @@ type InvestigationGroupArgs struct {
 	ChatbotNotificationChannels InvestigationGroupChatbotNotificationChannelArrayInput
 	// An array of cross account configurations.
 	CrossAccountConfigurations InvestigationGroupCrossAccountConfigurationArrayInput
-	// Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+	// Specifies the customer managed AWS  key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
 	EncryptionConfig InvestigationGroupEncryptionConfigMapPtrInput
 	// Investigation Group policy
 	InvestigationGroupPolicy pulumi.StringPtrInput
@@ -205,7 +205,7 @@ func (o InvestigationGroupOutput) CrossAccountConfigurations() InvestigationGrou
 	}).(InvestigationGroupCrossAccountConfigurationArrayOutput)
 }
 
-// Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+// Specifies the customer managed AWS  key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
 func (o InvestigationGroupOutput) EncryptionConfig() InvestigationGroupEncryptionConfigMapPtrOutput {
 	return o.ApplyT(func(v *InvestigationGroup) InvestigationGroupEncryptionConfigMapPtrOutput { return v.EncryptionConfig }).(InvestigationGroupEncryptionConfigMapPtrOutput)
 }

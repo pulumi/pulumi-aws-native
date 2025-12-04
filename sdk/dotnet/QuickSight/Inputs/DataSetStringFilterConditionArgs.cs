@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetStringFilterConditionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the string column to filter.
+        /// </summary>
         [Input("columnName")]
         public Input<string>? ColumnName { get; set; }
 
+        /// <summary>
+        /// A comparison-based filter condition for the string column.
+        /// </summary>
         [Input("comparisonFilterCondition")]
         public Input<Inputs.DataSetStringComparisonFilterConditionArgs>? ComparisonFilterCondition { get; set; }
 
+        /// <summary>
+        /// A list-based filter condition that includes or excludes values from a specified list.
+        /// </summary>
         [Input("listFilterCondition")]
         public Input<Inputs.DataSetStringListFilterConditionArgs>? ListFilterCondition { get; set; }
 

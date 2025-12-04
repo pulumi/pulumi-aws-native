@@ -2210,9 +2210,8 @@ const (
 	AutomationRuleV2OcsfNumberFilterFieldNameActivityId                    = AutomationRuleV2OcsfNumberFilterFieldName("activity_id")
 	AutomationRuleV2OcsfNumberFilterFieldNameComplianceStatusId            = AutomationRuleV2OcsfNumberFilterFieldName("compliance.status_id")
 	AutomationRuleV2OcsfNumberFilterFieldNameConfidenceScore               = AutomationRuleV2OcsfNumberFilterFieldName("confidence_score")
-	AutomationRuleV2OcsfNumberFilterFieldNameSeverityId                    = AutomationRuleV2OcsfNumberFilterFieldName("severity_id")
-	AutomationRuleV2OcsfNumberFilterFieldNameStatusId                      = AutomationRuleV2OcsfNumberFilterFieldName("status_id")
 	AutomationRuleV2OcsfNumberFilterFieldNameFindingInfoRelatedEventsCount = AutomationRuleV2OcsfNumberFilterFieldName("finding_info.related_events_count")
+	AutomationRuleV2OcsfNumberFilterFieldNameVendorAttributesSeverityId    = AutomationRuleV2OcsfNumberFilterFieldName("vendor_attributes.severity_id")
 )
 
 func (AutomationRuleV2OcsfNumberFilterFieldName) ElementType() reflect.Type {
@@ -2340,9 +2339,8 @@ func (o AutomationRuleV2OcsfNumberFilterFieldNamePtrOutput) ToStringPtrOutputWit
 //	AutomationRuleV2OcsfNumberFilterFieldNameActivityId
 //	AutomationRuleV2OcsfNumberFilterFieldNameComplianceStatusId
 //	AutomationRuleV2OcsfNumberFilterFieldNameConfidenceScore
-//	AutomationRuleV2OcsfNumberFilterFieldNameSeverityId
-//	AutomationRuleV2OcsfNumberFilterFieldNameStatusId
 //	AutomationRuleV2OcsfNumberFilterFieldNameFindingInfoRelatedEventsCount
+//	AutomationRuleV2OcsfNumberFilterFieldNameVendorAttributesSeverityId
 type AutomationRuleV2OcsfNumberFilterFieldNameInput interface {
 	pulumi.Input
 
@@ -2381,7 +2379,6 @@ func (in *automationRuleV2OcsfNumberFilterFieldNamePtr) ToAutomationRuleV2OcsfNu
 type AutomationRuleV2OcsfStringField string
 
 const (
-	AutomationRuleV2OcsfStringFieldMetadataUid                        = AutomationRuleV2OcsfStringField("metadata.uid")
 	AutomationRuleV2OcsfStringFieldActivityName                       = AutomationRuleV2OcsfStringField("activity_name")
 	AutomationRuleV2OcsfStringFieldCloudAccountName                   = AutomationRuleV2OcsfStringField("cloud.account.name")
 	AutomationRuleV2OcsfStringFieldCloudAccountUid                    = AutomationRuleV2OcsfStringField("cloud.account.uid")
@@ -2411,11 +2408,9 @@ const (
 	AutomationRuleV2OcsfStringFieldResourcesRegion                    = AutomationRuleV2OcsfStringField("resources.region")
 	AutomationRuleV2OcsfStringFieldResourcesType                      = AutomationRuleV2OcsfStringField("resources.type")
 	AutomationRuleV2OcsfStringFieldResourcesUid                       = AutomationRuleV2OcsfStringField("resources.uid")
-	AutomationRuleV2OcsfStringFieldSeverity                           = AutomationRuleV2OcsfStringField("severity")
-	AutomationRuleV2OcsfStringFieldStatus                             = AutomationRuleV2OcsfStringField("status")
-	AutomationRuleV2OcsfStringFieldComment                            = AutomationRuleV2OcsfStringField("comment")
 	AutomationRuleV2OcsfStringFieldVulnerabilitiesFixCoverage         = AutomationRuleV2OcsfStringField("vulnerabilities.fix_coverage")
 	AutomationRuleV2OcsfStringFieldClassName                          = AutomationRuleV2OcsfStringField("class_name")
+	AutomationRuleV2OcsfStringFieldVendorAttributesSeverity           = AutomationRuleV2OcsfStringField("vendor_attributes.severity")
 )
 
 func (AutomationRuleV2OcsfStringField) ElementType() reflect.Type {
@@ -2540,7 +2535,6 @@ func (o AutomationRuleV2OcsfStringFieldPtrOutput) ToStringPtrOutputWithContext(c
 // AutomationRuleV2OcsfStringFieldInput is an input type that accepts values of the AutomationRuleV2OcsfStringField enum
 // A concrete instance of `AutomationRuleV2OcsfStringFieldInput` can be one of the following:
 //
-//	AutomationRuleV2OcsfStringFieldMetadataUid
 //	AutomationRuleV2OcsfStringFieldActivityName
 //	AutomationRuleV2OcsfStringFieldCloudAccountName
 //	AutomationRuleV2OcsfStringFieldCloudAccountUid
@@ -2570,11 +2564,9 @@ func (o AutomationRuleV2OcsfStringFieldPtrOutput) ToStringPtrOutputWithContext(c
 //	AutomationRuleV2OcsfStringFieldResourcesRegion
 //	AutomationRuleV2OcsfStringFieldResourcesType
 //	AutomationRuleV2OcsfStringFieldResourcesUid
-//	AutomationRuleV2OcsfStringFieldSeverity
-//	AutomationRuleV2OcsfStringFieldStatus
-//	AutomationRuleV2OcsfStringFieldComment
 //	AutomationRuleV2OcsfStringFieldVulnerabilitiesFixCoverage
 //	AutomationRuleV2OcsfStringFieldClassName
+//	AutomationRuleV2OcsfStringFieldVendorAttributesSeverity
 type AutomationRuleV2OcsfStringFieldInput interface {
 	pulumi.Input
 
@@ -5167,7 +5159,7 @@ func (in *policyAssociationTargetTypePtr) ToPolicyAssociationTargetTypePtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyAssociationTargetTypePtrOutput)
 }
 
-// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior.
 //
 // When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
 //
@@ -5366,8 +5358,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfMapFilterFieldNamePtrInput)(nil)).Elem(), AutomationRuleV2OcsfMapFilterFieldName("resources.tags"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfNumberFilterFieldNameInput)(nil)).Elem(), AutomationRuleV2OcsfNumberFilterFieldName("activity_id"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfNumberFilterFieldNamePtrInput)(nil)).Elem(), AutomationRuleV2OcsfNumberFilterFieldName("activity_id"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfStringFieldInput)(nil)).Elem(), AutomationRuleV2OcsfStringField("metadata.uid"))
-	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfStringFieldPtrInput)(nil)).Elem(), AutomationRuleV2OcsfStringField("metadata.uid"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfStringFieldInput)(nil)).Elem(), AutomationRuleV2OcsfStringField("activity_name"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2OcsfStringFieldPtrInput)(nil)).Elem(), AutomationRuleV2OcsfStringField("activity_name"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2RuleStatusInput)(nil)).Elem(), AutomationRuleV2RuleStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2RuleStatusPtrInput)(nil)).Elem(), AutomationRuleV2RuleStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2StringFilterComparisonInput)(nil)).Elem(), AutomationRuleV2StringFilterComparison("EQUALS"))

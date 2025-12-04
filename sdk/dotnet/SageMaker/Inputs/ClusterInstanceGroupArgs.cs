@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ClusterInstanceGroupArgs : global::Pulumi.ResourceArgs
     {
+        [Input("capacityRequirements")]
+        public Input<Inputs.ClusterCapacityRequirementsArgs>? CapacityRequirements { get; set; }
+
         /// <summary>
         /// The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
         /// </summary>
@@ -46,6 +49,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
+
+        [Input("kubernetesConfig")]
+        public Input<Inputs.ClusterKubernetesConfigArgs>? KubernetesConfig { get; set; }
 
         [Input("lifeCycleConfig", required: true)]
         public Input<Inputs.ClusterLifeCycleConfigArgs> LifeCycleConfig { get; set; } = null!;

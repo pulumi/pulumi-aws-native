@@ -1034,14 +1034,14 @@ func (o DocumentClassifierVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput
 }
 
 type FlywheelDataSecurityConfig struct {
-	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt the data in the data lake.
+	// ID for the AWS  key that Amazon Comprehend uses to encrypt the data in the data lake.
 	DataLakeKmsKeyId *string `pulumi:"dataLakeKmsKeyId"`
-	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+	// ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
 	//
 	// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
 	// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
 	ModelKmsKeyId *string `pulumi:"modelKmsKeyId"`
-	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt the volume.
+	// ID for the AWS  key that Amazon Comprehend uses to encrypt the volume.
 	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
 	// Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
 	VpcConfig *FlywheelVpcConfig `pulumi:"vpcConfig"`
@@ -1059,14 +1059,14 @@ type FlywheelDataSecurityConfigInput interface {
 }
 
 type FlywheelDataSecurityConfigArgs struct {
-	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt the data in the data lake.
+	// ID for the AWS  key that Amazon Comprehend uses to encrypt the data in the data lake.
 	DataLakeKmsKeyId pulumi.StringPtrInput `pulumi:"dataLakeKmsKeyId"`
-	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+	// ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
 	//
 	// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
 	// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
 	ModelKmsKeyId pulumi.StringPtrInput `pulumi:"modelKmsKeyId"`
-	// ID for the AWS KMS key that Amazon Comprehend uses to encrypt the volume.
+	// ID for the AWS  key that Amazon Comprehend uses to encrypt the volume.
 	VolumeKmsKeyId pulumi.StringPtrInput `pulumi:"volumeKmsKeyId"`
 	// Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
 	VpcConfig FlywheelVpcConfigPtrInput `pulumi:"vpcConfig"`
@@ -1149,12 +1149,12 @@ func (o FlywheelDataSecurityConfigOutput) ToFlywheelDataSecurityConfigPtrOutputW
 	}).(FlywheelDataSecurityConfigPtrOutput)
 }
 
-// ID for the AWS KMS key that Amazon Comprehend uses to encrypt the data in the data lake.
+// ID for the AWS  key that Amazon Comprehend uses to encrypt the data in the data lake.
 func (o FlywheelDataSecurityConfigOutput) DataLakeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlywheelDataSecurityConfig) *string { return v.DataLakeKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+// ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
 //
 // - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
 // - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
@@ -1162,7 +1162,7 @@ func (o FlywheelDataSecurityConfigOutput) ModelKmsKeyId() pulumi.StringPtrOutput
 	return o.ApplyT(func(v FlywheelDataSecurityConfig) *string { return v.ModelKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// ID for the AWS KMS key that Amazon Comprehend uses to encrypt the volume.
+// ID for the AWS  key that Amazon Comprehend uses to encrypt the volume.
 func (o FlywheelDataSecurityConfigOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlywheelDataSecurityConfig) *string { return v.VolumeKmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -1196,7 +1196,7 @@ func (o FlywheelDataSecurityConfigPtrOutput) Elem() FlywheelDataSecurityConfigOu
 	}).(FlywheelDataSecurityConfigOutput)
 }
 
-// ID for the AWS KMS key that Amazon Comprehend uses to encrypt the data in the data lake.
+// ID for the AWS  key that Amazon Comprehend uses to encrypt the data in the data lake.
 func (o FlywheelDataSecurityConfigPtrOutput) DataLakeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlywheelDataSecurityConfig) *string {
 		if v == nil {
@@ -1206,7 +1206,7 @@ func (o FlywheelDataSecurityConfigPtrOutput) DataLakeKmsKeyId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// ID for the AWS KMS key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
+// ID for the AWS  key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:
 //
 // - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
 // - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
@@ -1219,7 +1219,7 @@ func (o FlywheelDataSecurityConfigPtrOutput) ModelKmsKeyId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// ID for the AWS KMS key that Amazon Comprehend uses to encrypt the volume.
+// ID for the AWS  key that Amazon Comprehend uses to encrypt the volume.
 func (o FlywheelDataSecurityConfigPtrOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlywheelDataSecurityConfig) *string {
 		if v == nil {

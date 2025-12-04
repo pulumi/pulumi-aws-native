@@ -24,6 +24,8 @@ type Version struct {
 	FunctionArn pulumi.StringOutput `pulumi:"functionArn"`
 	// The name of the Lambda function.
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
+	// The scaling configuration to apply to the function, including minimum and maximum execution environment limits.
+	FunctionScalingConfig VersionFunctionScalingConfigPtrOutput `pulumi:"functionScalingConfig"`
 	// Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
 	ProvisionedConcurrencyConfig VersionProvisionedConcurrencyConfigurationPtrOutput `pulumi:"provisionedConcurrencyConfig"`
 	// Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
@@ -89,6 +91,8 @@ type versionArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the Lambda function.
 	FunctionName string `pulumi:"functionName"`
+	// The scaling configuration to apply to the function, including minimum and maximum execution environment limits.
+	FunctionScalingConfig *VersionFunctionScalingConfig `pulumi:"functionScalingConfig"`
 	// Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
 	ProvisionedConcurrencyConfig *VersionProvisionedConcurrencyConfiguration `pulumi:"provisionedConcurrencyConfig"`
 	// Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
@@ -103,6 +107,8 @@ type VersionArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the Lambda function.
 	FunctionName pulumi.StringInput
+	// The scaling configuration to apply to the function, including minimum and maximum execution environment limits.
+	FunctionScalingConfig VersionFunctionScalingConfigPtrInput
 	// Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
 	ProvisionedConcurrencyConfig VersionProvisionedConcurrencyConfigurationPtrInput
 	// Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
@@ -164,6 +170,11 @@ func (o VersionOutput) FunctionArn() pulumi.StringOutput {
 // The name of the Lambda function.
 func (o VersionOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Version) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
+}
+
+// The scaling configuration to apply to the function, including minimum and maximum execution environment limits.
+func (o VersionOutput) FunctionScalingConfig() VersionFunctionScalingConfigPtrOutput {
+	return o.ApplyT(func(v *Version) VersionFunctionScalingConfigPtrOutput { return v.FunctionScalingConfig }).(VersionFunctionScalingConfigPtrOutput)
 }
 
 // Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.

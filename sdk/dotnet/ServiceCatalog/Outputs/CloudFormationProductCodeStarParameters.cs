@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.ServiceCatalog.Outputs
     public sealed class CloudFormationProductCodeStarParameters
     {
         /// <summary>
-        /// The absolute path where the artifact resides within the repo and branch, formatted as "folder/file.json".
+        /// The absolute path wehre the artifact resides within the repo and branch, formatted as "folder/file.json."
         /// </summary>
         public readonly string ArtifactPath;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.ServiceCatalog.Outputs
         /// </summary>
         public readonly string ConnectionArn;
         /// <summary>
-        /// The specific repository where the product's artifact-to-be-synced resides, formatted as "Account/Repo."
+        /// The specific repository where the product’s artifact-to-be-synced resides, formatted as "Account/Repo."
         /// </summary>
         public readonly string Repository;
 

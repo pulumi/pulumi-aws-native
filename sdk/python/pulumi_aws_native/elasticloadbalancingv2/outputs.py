@@ -23,6 +23,8 @@ __all__ = [
     'ListenerCertificate',
     'ListenerFixedResponseConfig',
     'ListenerForwardConfig',
+    'ListenerJwtValidationActionAdditionalClaim',
+    'ListenerJwtValidationConfig',
     'ListenerMutualAuthentication',
     'ListenerRedirectConfig',
     'ListenerRuleAction',
@@ -33,6 +35,8 @@ __all__ = [
     'ListenerRuleHostHeaderConfig',
     'ListenerRuleHttpHeaderConfig',
     'ListenerRuleHttpRequestMethodConfig',
+    'ListenerRuleJwtValidationActionAdditionalClaim',
+    'ListenerRuleJwtValidationConfig',
     'ListenerRulePathPatternConfig',
     'ListenerRuleQueryStringConfig',
     'ListenerRuleQueryStringKeyValue',
@@ -72,6 +76,8 @@ class ListenerAction(dict):
             suggest = "fixed_response_config"
         elif key == "forwardConfig":
             suggest = "forward_config"
+        elif key == "jwtValidationConfig":
+            suggest = "jwt_validation_config"
         elif key == "redirectConfig":
             suggest = "redirect_config"
         elif key == "targetGroupArn":
@@ -94,6 +100,7 @@ class ListenerAction(dict):
                  authenticate_oidc_config: Optional['outputs.ListenerAuthenticateOidcConfig'] = None,
                  fixed_response_config: Optional['outputs.ListenerFixedResponseConfig'] = None,
                  forward_config: Optional['outputs.ListenerForwardConfig'] = None,
+                 jwt_validation_config: Optional['outputs.ListenerJwtValidationConfig'] = None,
                  order: Optional[_builtins.int] = None,
                  redirect_config: Optional['outputs.ListenerRedirectConfig'] = None,
                  target_group_arn: Optional[_builtins.str] = None):
@@ -105,6 +112,7 @@ class ListenerAction(dict):
         :param 'ListenerFixedResponseConfig' fixed_response_config: [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
         :param 'ListenerForwardConfig' forward_config: Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
                 If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+        :param 'ListenerJwtValidationConfig' jwt_validation_config: [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when `Type` is `jwt-validation` .
         :param _builtins.int order: The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
         :param 'ListenerRedirectConfig' redirect_config: [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
         :param _builtins.str target_group_arn: The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to multiple target groups, you must use ``ForwardConfig`` instead.
@@ -118,6 +126,8 @@ class ListenerAction(dict):
             pulumi.set(__self__, "fixed_response_config", fixed_response_config)
         if forward_config is not None:
             pulumi.set(__self__, "forward_config", forward_config)
+        if jwt_validation_config is not None:
+            pulumi.set(__self__, "jwt_validation_config", jwt_validation_config)
         if order is not None:
             pulumi.set(__self__, "order", order)
         if redirect_config is not None:
@@ -165,6 +175,14 @@ class ListenerAction(dict):
          If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
         """
         return pulumi.get(self, "forward_config")
+
+    @_builtins.property
+    @pulumi.getter(name="jwtValidationConfig")
+    def jwt_validation_config(self) -> Optional['outputs.ListenerJwtValidationConfig']:
+        """
+        [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when `Type` is `jwt-validation` .
+        """
+        return pulumi.get(self, "jwt_validation_config")
 
     @_builtins.property
     @pulumi.getter
@@ -772,6 +790,92 @@ class ListenerForwardConfig(dict):
 
 
 @pulumi.output_type
+class ListenerJwtValidationActionAdditionalClaim(dict):
+    def __init__(__self__, *,
+                 format: _builtins.str,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str format: The format of the claim value.
+        :param _builtins.str name: The name of the claim. You can't specify `exp` , `iss` , `nbf` , or `iat` because we validate them by default.
+        :param Sequence[_builtins.str] values: The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is `space-separated-values` , the values can't include spaces.
+        """
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def format(self) -> _builtins.str:
+        """
+        The format of the claim value.
+        """
+        return pulumi.get(self, "format")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the claim. You can't specify `exp` , `iss` , `nbf` , or `iat` because we validate them by default.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is `space-separated-values` , the values can't include spaces.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class ListenerJwtValidationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jwksEndpoint":
+            suggest = "jwks_endpoint"
+        elif key == "additionalClaims":
+            suggest = "additional_claims"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerJwtValidationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerJwtValidationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerJwtValidationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 issuer: _builtins.str,
+                 jwks_endpoint: _builtins.str,
+                 additional_claims: Optional[Sequence['outputs.ListenerJwtValidationActionAdditionalClaim']] = None):
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "jwks_endpoint", jwks_endpoint)
+        if additional_claims is not None:
+            pulumi.set(__self__, "additional_claims", additional_claims)
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="jwksEndpoint")
+    def jwks_endpoint(self) -> _builtins.str:
+        return pulumi.get(self, "jwks_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="additionalClaims")
+    def additional_claims(self) -> Optional[Sequence['outputs.ListenerJwtValidationActionAdditionalClaim']]:
+        return pulumi.get(self, "additional_claims")
+
+
+@pulumi.output_type
 class ListenerMutualAuthentication(dict):
     """
     The mutual authentication configuration information.
@@ -984,6 +1088,8 @@ class ListenerRuleAction(dict):
             suggest = "fixed_response_config"
         elif key == "forwardConfig":
             suggest = "forward_config"
+        elif key == "jwtValidationConfig":
+            suggest = "jwt_validation_config"
         elif key == "redirectConfig":
             suggest = "redirect_config"
         elif key == "targetGroupArn":
@@ -1006,6 +1112,7 @@ class ListenerRuleAction(dict):
                  authenticate_oidc_config: Optional['outputs.ListenerRuleAuthenticateOidcConfig'] = None,
                  fixed_response_config: Optional['outputs.ListenerRuleFixedResponseConfig'] = None,
                  forward_config: Optional['outputs.ListenerRuleForwardConfig'] = None,
+                 jwt_validation_config: Optional['outputs.ListenerRuleJwtValidationConfig'] = None,
                  order: Optional[_builtins.int] = None,
                  redirect_config: Optional['outputs.ListenerRuleRedirectConfig'] = None,
                  target_group_arn: Optional[_builtins.str] = None):
@@ -1017,6 +1124,7 @@ class ListenerRuleAction(dict):
         :param 'ListenerRuleFixedResponseConfig' fixed_response_config: [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
         :param 'ListenerRuleForwardConfig' forward_config: Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
                 If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+        :param 'ListenerRuleJwtValidationConfig' jwt_validation_config: [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when `Type` is `jwt-validation` .
         :param _builtins.int order: The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
         :param 'ListenerRuleRedirectConfig' redirect_config: [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
         :param _builtins.str target_group_arn: The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to multiple target groups, you must use ``ForwardConfig`` instead.
@@ -1030,6 +1138,8 @@ class ListenerRuleAction(dict):
             pulumi.set(__self__, "fixed_response_config", fixed_response_config)
         if forward_config is not None:
             pulumi.set(__self__, "forward_config", forward_config)
+        if jwt_validation_config is not None:
+            pulumi.set(__self__, "jwt_validation_config", jwt_validation_config)
         if order is not None:
             pulumi.set(__self__, "order", order)
         if redirect_config is not None:
@@ -1077,6 +1187,14 @@ class ListenerRuleAction(dict):
          If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
         """
         return pulumi.get(self, "forward_config")
+
+    @_builtins.property
+    @pulumi.getter(name="jwtValidationConfig")
+    def jwt_validation_config(self) -> Optional['outputs.ListenerRuleJwtValidationConfig']:
+        """
+        [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when `Type` is `jwt-validation` .
+        """
+        return pulumi.get(self, "jwt_validation_config")
 
     @_builtins.property
     @pulumi.getter
@@ -1705,6 +1823,92 @@ class ListenerRuleHttpRequestMethodConfig(dict):
          If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class ListenerRuleJwtValidationActionAdditionalClaim(dict):
+    def __init__(__self__, *,
+                 format: _builtins.str,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str format: The format of the claim value.
+        :param _builtins.str name: The name of the claim. You can't specify `exp` , `iss` , `nbf` , or `iat` because we validate them by default.
+        :param Sequence[_builtins.str] values: The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is `space-separated-values` , the values can't include spaces.
+        """
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def format(self) -> _builtins.str:
+        """
+        The format of the claim value.
+        """
+        return pulumi.get(self, "format")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the claim. You can't specify `exp` , `iss` , `nbf` , or `iat` because we validate them by default.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is `space-separated-values` , the values can't include spaces.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class ListenerRuleJwtValidationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jwksEndpoint":
+            suggest = "jwks_endpoint"
+        elif key == "additionalClaims":
+            suggest = "additional_claims"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerRuleJwtValidationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerRuleJwtValidationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerRuleJwtValidationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 issuer: _builtins.str,
+                 jwks_endpoint: _builtins.str,
+                 additional_claims: Optional[Sequence['outputs.ListenerRuleJwtValidationActionAdditionalClaim']] = None):
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "jwks_endpoint", jwks_endpoint)
+        if additional_claims is not None:
+            pulumi.set(__self__, "additional_claims", additional_claims)
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> _builtins.str:
+        return pulumi.get(self, "issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="jwksEndpoint")
+    def jwks_endpoint(self) -> _builtins.str:
+        return pulumi.get(self, "jwks_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="additionalClaims")
+    def additional_claims(self) -> Optional[Sequence['outputs.ListenerRuleJwtValidationActionAdditionalClaim']]:
+        return pulumi.get(self, "additional_claims")
 
 
 @pulumi.output_type
@@ -2770,6 +2974,8 @@ class TargetGroupTargetDescription(dict):
         suggest = None
         if key == "availabilityZone":
             suggest = "availability_zone"
+        elif key == "quicServerId":
+            suggest = "quic_server_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TargetGroupTargetDescription. Access the value via the '{suggest}' property getter instead.")
@@ -2785,17 +2991,21 @@ class TargetGroupTargetDescription(dict):
     def __init__(__self__, *,
                  id: _builtins.str,
                  availability_zone: Optional[_builtins.str] = None,
-                 port: Optional[_builtins.int] = None):
+                 port: Optional[_builtins.int] = None,
+                 quic_server_id: Optional[_builtins.str] = None):
         """
         :param _builtins.str id: The ID of the target. If the target type of the target group is instance, specify an instance ID. If the target type is ip, specify an IP address. If the target type is lambda, specify the ARN of the Lambda function. If the target type is alb, specify the ARN of the Application Load Balancer target. 
         :param _builtins.str availability_zone: An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
         :param _builtins.int port: The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
+        :param _builtins.str quic_server_id: The Server ID used by targets when using QUIC or TCP_QUIC protocols.
         """
         pulumi.set(__self__, "id", id)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if quic_server_id is not None:
+            pulumi.set(__self__, "quic_server_id", quic_server_id)
 
     @_builtins.property
     @pulumi.getter
@@ -2820,6 +3030,14 @@ class TargetGroupTargetDescription(dict):
         The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
         """
         return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter(name="quicServerId")
+    def quic_server_id(self) -> Optional[_builtins.str]:
+        """
+        The Server ID used by targets when using QUIC or TCP_QUIC protocols.
+        """
+        return pulumi.get(self, "quic_server_id")
 
 
 @pulumi.output_type

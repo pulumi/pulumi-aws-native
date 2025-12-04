@@ -42,6 +42,8 @@ class RestoreTestingSelectionArgs:
                
                See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
         :param pulumi.Input[_builtins.str] restore_testing_selection_name: The unique name of the restore testing selection that belongs to the related restore testing plan.
+               
+               The name consists of only alphanumeric characters and underscores. Maximum length is 50.
         :param pulumi.Input[_builtins.int] validation_window_hours: This is amount of hours (1 to 168) available to run a validation script on the data. The data will be deleted upon the completion of the validation script or the end of the specified retention period, whichever comes first.
         """
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
@@ -139,6 +141,8 @@ class RestoreTestingSelectionArgs:
     def restore_testing_selection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The unique name of the restore testing selection that belongs to the related restore testing plan.
+
+        The name consists of only alphanumeric characters and underscores. Maximum length is 50.
         """
         return pulumi.get(self, "restore_testing_selection_name")
 
@@ -190,6 +194,8 @@ class RestoreTestingSelection(pulumi.CustomResource):
                
                The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
         :param pulumi.Input[_builtins.str] restore_testing_selection_name: The unique name of the restore testing selection that belongs to the related restore testing plan.
+               
+               The name consists of only alphanumeric characters and underscores. Maximum length is 50.
         :param pulumi.Input[_builtins.int] validation_window_hours: This is amount of hours (1 to 168) available to run a validation script on the data. The data will be deleted upon the completion of the validation script or the end of the specified retention period, whichever comes first.
         """
         ...
@@ -338,6 +344,8 @@ class RestoreTestingSelection(pulumi.CustomResource):
     def restore_testing_selection_name(self) -> pulumi.Output[_builtins.str]:
         """
         The unique name of the restore testing selection that belongs to the related restore testing plan.
+
+        The name consists of only alphanumeric characters and underscores. Maximum length is 50.
         """
         return pulumi.get(self, "restore_testing_selection_name")
 

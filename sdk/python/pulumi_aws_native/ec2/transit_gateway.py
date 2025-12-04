@@ -15,6 +15,7 @@ else:
 from .. import _utilities
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = ['TransitGatewayArgs', 'TransitGateway']
 
@@ -28,6 +29,7 @@ class TransitGatewayArgs:
                  default_route_table_propagation: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_support: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_support: Optional[pulumi.Input['TransitGatewayEncryptionSupport']] = None,
                  multicast_support: Optional[pulumi.Input[_builtins.str]] = None,
                  propagation_default_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
                  security_group_referencing_support: Optional[pulumi.Input[_builtins.str]] = None,
@@ -43,6 +45,7 @@ class TransitGatewayArgs:
         :param pulumi.Input[_builtins.str] default_route_table_propagation: Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default. If `DefaultRouteTablePropagation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
         :param pulumi.Input[_builtins.str] description: The description of the transit gateway.
         :param pulumi.Input[_builtins.str] dns_support: Enable or disable DNS support. Enabled by default.
+        :param pulumi.Input['TransitGatewayEncryptionSupport'] encryption_support: Enable or disable encryption support. Disabled by default.
         :param pulumi.Input[_builtins.str] multicast_support: Indicates whether multicast is enabled on the transit gateway
         :param pulumi.Input[_builtins.str] propagation_default_route_table_id: The ID of the default propagation route table.
         :param pulumi.Input[_builtins.str] security_group_referencing_support: Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.
@@ -66,6 +69,8 @@ class TransitGatewayArgs:
             pulumi.set(__self__, "description", description)
         if dns_support is not None:
             pulumi.set(__self__, "dns_support", dns_support)
+        if encryption_support is not None:
+            pulumi.set(__self__, "encryption_support", encryption_support)
         if multicast_support is not None:
             pulumi.set(__self__, "multicast_support", multicast_support)
         if propagation_default_route_table_id is not None:
@@ -164,6 +169,18 @@ class TransitGatewayArgs:
         pulumi.set(self, "dns_support", value)
 
     @_builtins.property
+    @pulumi.getter(name="encryptionSupport")
+    def encryption_support(self) -> Optional[pulumi.Input['TransitGatewayEncryptionSupport']]:
+        """
+        Enable or disable encryption support. Disabled by default.
+        """
+        return pulumi.get(self, "encryption_support")
+
+    @encryption_support.setter
+    def encryption_support(self, value: Optional[pulumi.Input['TransitGatewayEncryptionSupport']]):
+        pulumi.set(self, "encryption_support", value)
+
+    @_builtins.property
     @pulumi.getter(name="multicastSupport")
     def multicast_support(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -251,6 +268,7 @@ class TransitGateway(pulumi.CustomResource):
                  default_route_table_propagation: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_support: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_support: Optional[pulumi.Input['TransitGatewayEncryptionSupport']] = None,
                  multicast_support: Optional[pulumi.Input[_builtins.str]] = None,
                  propagation_default_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
                  security_group_referencing_support: Optional[pulumi.Input[_builtins.str]] = None,
@@ -270,6 +288,7 @@ class TransitGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_route_table_propagation: Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default. If `DefaultRouteTablePropagation` is set to enable, AWS Transit Gateway will create the default transit gateway route table.
         :param pulumi.Input[_builtins.str] description: The description of the transit gateway.
         :param pulumi.Input[_builtins.str] dns_support: Enable or disable DNS support. Enabled by default.
+        :param pulumi.Input['TransitGatewayEncryptionSupport'] encryption_support: Enable or disable encryption support. Disabled by default.
         :param pulumi.Input[_builtins.str] multicast_support: Indicates whether multicast is enabled on the transit gateway
         :param pulumi.Input[_builtins.str] propagation_default_route_table_id: The ID of the default propagation route table.
         :param pulumi.Input[_builtins.str] security_group_referencing_support: Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.
@@ -310,6 +329,7 @@ class TransitGateway(pulumi.CustomResource):
                  default_route_table_propagation: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  dns_support: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_support: Optional[pulumi.Input['TransitGatewayEncryptionSupport']] = None,
                  multicast_support: Optional[pulumi.Input[_builtins.str]] = None,
                  propagation_default_route_table_id: Optional[pulumi.Input[_builtins.str]] = None,
                  security_group_referencing_support: Optional[pulumi.Input[_builtins.str]] = None,
@@ -332,6 +352,7 @@ class TransitGateway(pulumi.CustomResource):
             __props__.__dict__["default_route_table_propagation"] = default_route_table_propagation
             __props__.__dict__["description"] = description
             __props__.__dict__["dns_support"] = dns_support
+            __props__.__dict__["encryption_support"] = encryption_support
             __props__.__dict__["multicast_support"] = multicast_support
             __props__.__dict__["propagation_default_route_table_id"] = propagation_default_route_table_id
             __props__.__dict__["security_group_referencing_support"] = security_group_referencing_support
@@ -339,6 +360,7 @@ class TransitGateway(pulumi.CustomResource):
             __props__.__dict__["transit_gateway_cidr_blocks"] = transit_gateway_cidr_blocks
             __props__.__dict__["vpn_ecmp_support"] = vpn_ecmp_support
             __props__.__dict__["aws_id"] = None
+            __props__.__dict__["encryption_support_state"] = None
             __props__.__dict__["transit_gateway_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazonSideAsn", "multicastSupport"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -372,6 +394,8 @@ class TransitGateway(pulumi.CustomResource):
         __props__.__dict__["default_route_table_propagation"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["dns_support"] = None
+        __props__.__dict__["encryption_support"] = None
+        __props__.__dict__["encryption_support_state"] = None
         __props__.__dict__["multicast_support"] = None
         __props__.__dict__["propagation_default_route_table_id"] = None
         __props__.__dict__["security_group_referencing_support"] = None
@@ -444,6 +468,22 @@ class TransitGateway(pulumi.CustomResource):
         Enable or disable DNS support. Enabled by default.
         """
         return pulumi.get(self, "dns_support")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionSupport")
+    def encryption_support(self) -> pulumi.Output[Optional['TransitGatewayEncryptionSupport']]:
+        """
+        Enable or disable encryption support. Disabled by default.
+        """
+        return pulumi.get(self, "encryption_support")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionSupportState")
+    def encryption_support_state(self) -> pulumi.Output[_builtins.str]:
+        """
+        The encryption support state of the transit gateway.
+        """
+        return pulumi.get(self, "encryption_support_state")
 
     @_builtins.property
     @pulumi.getter(name="multicastSupport")

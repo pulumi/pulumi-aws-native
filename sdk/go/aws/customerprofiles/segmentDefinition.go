@@ -30,7 +30,11 @@ type SegmentDefinition struct {
 	// The unique name of the segment definition.
 	SegmentDefinitionName pulumi.StringOutput `pulumi:"segmentDefinitionName"`
 	// An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
-	SegmentGroups SegmentDefinitionSegmentGroupOutput `pulumi:"segmentGroups"`
+	SegmentGroups SegmentDefinitionSegmentGroupPtrOutput `pulumi:"segmentGroups"`
+	// The SQL query that defines the segment criteria.
+	SegmentSqlQuery pulumi.StringPtrOutput `pulumi:"segmentSqlQuery"`
+	// The SQL query that defines the segment criteria.
+	SegmentType SegmentDefinitionSegmentTypeOutput `pulumi:"segmentType"`
 	// The tags used to organize, track, or control access for this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -48,14 +52,12 @@ func NewSegmentDefinition(ctx *pulumi.Context,
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}
-	if args.SegmentGroups == nil {
-		return nil, errors.New("invalid value for required argument 'SegmentGroups'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"displayName",
 		"domainName",
 		"segmentDefinitionName",
 		"segmentGroups",
+		"segmentSqlQuery",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -100,7 +102,9 @@ type segmentDefinitionArgs struct {
 	// The unique name of the segment definition.
 	SegmentDefinitionName *string `pulumi:"segmentDefinitionName"`
 	// An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
-	SegmentGroups SegmentDefinitionSegmentGroup `pulumi:"segmentGroups"`
+	SegmentGroups *SegmentDefinitionSegmentGroup `pulumi:"segmentGroups"`
+	// The SQL query that defines the segment criteria.
+	SegmentSqlQuery *string `pulumi:"segmentSqlQuery"`
 	// The tags used to organize, track, or control access for this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -116,7 +120,9 @@ type SegmentDefinitionArgs struct {
 	// The unique name of the segment definition.
 	SegmentDefinitionName pulumi.StringPtrInput
 	// An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
-	SegmentGroups SegmentDefinitionSegmentGroupInput
+	SegmentGroups SegmentDefinitionSegmentGroupPtrInput
+	// The SQL query that defines the segment criteria.
+	SegmentSqlQuery pulumi.StringPtrInput
 	// The tags used to organize, track, or control access for this resource.
 	Tags aws.TagArrayInput
 }
@@ -189,8 +195,18 @@ func (o SegmentDefinitionOutput) SegmentDefinitionName() pulumi.StringOutput {
 }
 
 // An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
-func (o SegmentDefinitionOutput) SegmentGroups() SegmentDefinitionSegmentGroupOutput {
-	return o.ApplyT(func(v *SegmentDefinition) SegmentDefinitionSegmentGroupOutput { return v.SegmentGroups }).(SegmentDefinitionSegmentGroupOutput)
+func (o SegmentDefinitionOutput) SegmentGroups() SegmentDefinitionSegmentGroupPtrOutput {
+	return o.ApplyT(func(v *SegmentDefinition) SegmentDefinitionSegmentGroupPtrOutput { return v.SegmentGroups }).(SegmentDefinitionSegmentGroupPtrOutput)
+}
+
+// The SQL query that defines the segment criteria.
+func (o SegmentDefinitionOutput) SegmentSqlQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SegmentDefinition) pulumi.StringPtrOutput { return v.SegmentSqlQuery }).(pulumi.StringPtrOutput)
+}
+
+// The SQL query that defines the segment criteria.
+func (o SegmentDefinitionOutput) SegmentType() SegmentDefinitionSegmentTypeOutput {
+	return o.ApplyT(func(v *SegmentDefinition) SegmentDefinitionSegmentTypeOutput { return v.SegmentType }).(SegmentDefinitionSegmentTypeOutput)
 }
 
 // The tags used to organize, track, or control access for this resource.

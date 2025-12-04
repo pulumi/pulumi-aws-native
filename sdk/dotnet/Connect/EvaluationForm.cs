@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Connect
     [AwsNativeResourceType("aws-native:connect:EvaluationForm")]
     public partial class EvaluationForm : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The automatic evaluation configuration of an evaluation form.
+        /// </summary>
         [Output("autoEvaluationConfiguration")]
         public Output<Outputs.EvaluationFormAutoEvaluationConfiguration?> AutoEvaluationConfiguration { get; private set; } = null!;
 
@@ -45,6 +48,9 @@ namespace Pulumi.AwsNative.Connect
         [Output("items")]
         public Output<ImmutableArray<Outputs.EvaluationFormBaseItem>> Items { get; private set; } = null!;
 
+        [Output("languageConfiguration")]
+        public Output<Outputs.EvaluationFormLanguageConfiguration?> LanguageConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// A scoring strategy of the evaluation form.
         /// </summary>
@@ -63,6 +69,9 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        [Output("targetConfiguration")]
+        public Output<Outputs.EvaluationFormTargetConfiguration?> TargetConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// A title of the evaluation form.
@@ -115,6 +124,9 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class EvaluationFormArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The automatic evaluation configuration of an evaluation form.
+        /// </summary>
         [Input("autoEvaluationConfiguration")]
         public Input<Inputs.EvaluationFormAutoEvaluationConfigurationArgs>? AutoEvaluationConfiguration { get; set; }
 
@@ -145,6 +157,9 @@ namespace Pulumi.AwsNative.Connect
             set => _items = value;
         }
 
+        [Input("languageConfiguration")]
+        public Input<Inputs.EvaluationFormLanguageConfigurationArgs>? LanguageConfiguration { get; set; }
+
         /// <summary>
         /// A scoring strategy of the evaluation form.
         /// </summary>
@@ -169,6 +184,9 @@ namespace Pulumi.AwsNative.Connect
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        [Input("targetConfiguration")]
+        public Input<Inputs.EvaluationFormTargetConfigurationArgs>? TargetConfiguration { get; set; }
 
         /// <summary>
         /// A title of the evaluation form.

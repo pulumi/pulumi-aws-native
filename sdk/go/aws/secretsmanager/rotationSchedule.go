@@ -18,6 +18,10 @@ type RotationSchedule struct {
 
 	// The ARN of the secret.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The list of metadata needed to successfully rotate a managed external secret.
+	ExternalSecretRotationMetadata RotationScheduleExternalSecretRotationMetadataItemArrayOutput `pulumi:"externalSecretRotationMetadata"`
+	// The ARN of the IAM role that is used by Secrets Manager to rotate a managed external secret.
+	ExternalSecretRotationRoleArn pulumi.StringPtrOutput `pulumi:"externalSecretRotationRoleArn"`
 	// Creates a new Lambda rotation function based on one of the Secrets Manager rotation function templates. To use a rotation function that already exists, specify RotationLambdaARN instead.
 	HostedRotationLambda RotationScheduleHostedRotationLambdaPtrOutput `pulumi:"hostedRotationLambda"`
 	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
@@ -77,6 +81,10 @@ func (RotationScheduleState) ElementType() reflect.Type {
 }
 
 type rotationScheduleArgs struct {
+	// The list of metadata needed to successfully rotate a managed external secret.
+	ExternalSecretRotationMetadata []RotationScheduleExternalSecretRotationMetadataItem `pulumi:"externalSecretRotationMetadata"`
+	// The ARN of the IAM role that is used by Secrets Manager to rotate a managed external secret.
+	ExternalSecretRotationRoleArn *string `pulumi:"externalSecretRotationRoleArn"`
 	// Creates a new Lambda rotation function based on one of the Secrets Manager rotation function templates. To use a rotation function that already exists, specify RotationLambdaARN instead.
 	HostedRotationLambda *RotationScheduleHostedRotationLambda `pulumi:"hostedRotationLambda"`
 	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
@@ -91,6 +99,10 @@ type rotationScheduleArgs struct {
 
 // The set of arguments for constructing a RotationSchedule resource.
 type RotationScheduleArgs struct {
+	// The list of metadata needed to successfully rotate a managed external secret.
+	ExternalSecretRotationMetadata RotationScheduleExternalSecretRotationMetadataItemArrayInput
+	// The ARN of the IAM role that is used by Secrets Manager to rotate a managed external secret.
+	ExternalSecretRotationRoleArn pulumi.StringPtrInput
 	// Creates a new Lambda rotation function based on one of the Secrets Manager rotation function templates. To use a rotation function that already exists, specify RotationLambdaARN instead.
 	HostedRotationLambda RotationScheduleHostedRotationLambdaPtrInput
 	// Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
@@ -143,6 +155,18 @@ func (o RotationScheduleOutput) ToRotationScheduleOutputWithContext(ctx context.
 // The ARN of the secret.
 func (o RotationScheduleOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RotationSchedule) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
+}
+
+// The list of metadata needed to successfully rotate a managed external secret.
+func (o RotationScheduleOutput) ExternalSecretRotationMetadata() RotationScheduleExternalSecretRotationMetadataItemArrayOutput {
+	return o.ApplyT(func(v *RotationSchedule) RotationScheduleExternalSecretRotationMetadataItemArrayOutput {
+		return v.ExternalSecretRotationMetadata
+	}).(RotationScheduleExternalSecretRotationMetadataItemArrayOutput)
+}
+
+// The ARN of the IAM role that is used by Secrets Manager to rotate a managed external secret.
+func (o RotationScheduleOutput) ExternalSecretRotationRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationSchedule) pulumi.StringPtrOutput { return v.ExternalSecretRotationRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // Creates a new Lambda rotation function based on one of the Secrets Manager rotation function templates. To use a rotation function that already exists, specify RotationLambdaARN instead.

@@ -46,6 +46,10 @@ export interface GetClusterResult {
      */
     readonly computeConfig?: outputs.eks.ClusterComputeConfig;
     /**
+     * The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.
+     */
+    readonly controlPlaneScalingConfig?: outputs.eks.ClusterControlPlaneScalingConfig;
+    /**
      * Set this value to true to enable deletion protection for the cluster.
      */
     readonly deletionProtection?: boolean;

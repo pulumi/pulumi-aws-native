@@ -18,6 +18,7 @@ from ._enums import *
 
 __all__ = [
     'BrowserCustomBrowserNetworkConfiguration',
+    'BrowserCustomBrowserSigning',
     'BrowserCustomRecordingConfig',
     'BrowserCustomS3Location',
     'BrowserCustomVpcConfig',
@@ -34,9 +35,11 @@ __all__ = [
     'GatewayTargetCredentialProvider1Properties',
     'GatewayTargetCredentialProviderConfiguration',
     'GatewayTargetMcpLambdaTargetConfiguration',
+    'GatewayTargetMcpServerTargetConfiguration',
     'GatewayTargetMcpTargetConfiguration0Properties',
     'GatewayTargetMcpTargetConfiguration1Properties',
     'GatewayTargetMcpTargetConfiguration2Properties',
+    'GatewayTargetMcpTargetConfiguration3Properties',
     'GatewayTargetOAuthCredentialProvider',
     'GatewayTargetS3Configuration',
     'GatewayTargetSchemaDefinition',
@@ -67,9 +70,14 @@ __all__ = [
     'MemoryUserPreferenceOverrideExtractionConfigurationInput',
     'RuntimeAgentRuntimeArtifact',
     'RuntimeAuthorizerConfiguration',
+    'RuntimeCode',
+    'RuntimeCodeConfiguration',
     'RuntimeContainerConfiguration',
     'RuntimeCustomJwtAuthorizerConfiguration',
+    'RuntimeLifecycleConfiguration',
     'RuntimeNetworkConfiguration',
+    'RuntimeRequestHeaderConfiguration',
+    'RuntimeS3Location',
     'RuntimeVpcConfig',
     'RuntimeWorkloadIdentityDetails',
 ]
@@ -121,6 +129,25 @@ class BrowserCustomBrowserNetworkConfiguration(dict):
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional['outputs.BrowserCustomVpcConfig']:
         return pulumi.get(self, "vpc_config")
+
+
+@pulumi.output_type
+class BrowserCustomBrowserSigning(dict):
+    """
+    Browser signing configuration
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[_builtins.bool] = None):
+        """
+        Browser signing configuration
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -725,6 +752,18 @@ class GatewayTargetMcpLambdaTargetConfiguration(dict):
 
 
 @pulumi.output_type
+class GatewayTargetMcpServerTargetConfiguration(dict):
+    def __init__(__self__, *,
+                 endpoint: _builtins.str):
+        pulumi.set(__self__, "endpoint", endpoint)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> _builtins.str:
+        return pulumi.get(self, "endpoint")
+
+
+@pulumi.output_type
 class GatewayTargetMcpTargetConfiguration0Properties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -809,6 +848,35 @@ class GatewayTargetMcpTargetConfiguration2Properties(dict):
     @pulumi.getter(name="lambda")
     def lambda_(self) -> 'outputs.GatewayTargetMcpLambdaTargetConfiguration':
         return pulumi.get(self, "lambda_")
+
+
+@pulumi.output_type
+class GatewayTargetMcpTargetConfiguration3Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mcpServer":
+            suggest = "mcp_server"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetMcpTargetConfiguration3Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetMcpTargetConfiguration3Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetMcpTargetConfiguration3Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mcp_server: 'outputs.GatewayTargetMcpServerTargetConfiguration'):
+        pulumi.set(__self__, "mcp_server", mcp_server)
+
+    @_builtins.property
+    @pulumi.getter(name="mcpServer")
+    def mcp_server(self) -> 'outputs.GatewayTargetMcpServerTargetConfiguration':
+        return pulumi.get(self, "mcp_server")
 
 
 @pulumi.output_type
@@ -2126,7 +2194,9 @@ class RuntimeAgentRuntimeArtifact(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "containerConfiguration":
+        if key == "codeConfiguration":
+            suggest = "code_configuration"
+        elif key == "containerConfiguration":
             suggest = "container_configuration"
 
         if suggest:
@@ -2141,12 +2211,20 @@ class RuntimeAgentRuntimeArtifact(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 code_configuration: Optional['outputs.RuntimeCodeConfiguration'] = None,
                  container_configuration: Optional['outputs.RuntimeContainerConfiguration'] = None):
         """
         :param 'RuntimeContainerConfiguration' container_configuration: Representation of a container configuration.
         """
+        if code_configuration is not None:
+            pulumi.set(__self__, "code_configuration", code_configuration)
         if container_configuration is not None:
             pulumi.set(__self__, "container_configuration", container_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="codeConfiguration")
+    def code_configuration(self) -> Optional['outputs.RuntimeCodeConfiguration']:
+        return pulumi.get(self, "code_configuration")
 
     @_builtins.property
     @pulumi.getter(name="containerConfiguration")
@@ -2195,6 +2273,74 @@ class RuntimeAuthorizerConfiguration(dict):
         Represents inbound authorization configuration options used to authenticate incoming requests.
         """
         return pulumi.get(self, "custom_jwt_authorizer")
+
+
+@pulumi.output_type
+class RuntimeCode(dict):
+    """
+    Object represents source code from zip file
+    """
+    def __init__(__self__, *,
+                 s3: Optional['outputs.RuntimeS3Location'] = None):
+        """
+        Object represents source code from zip file
+        """
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.RuntimeS3Location']:
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class RuntimeCodeConfiguration(dict):
+    """
+    Representation of a code configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entryPoint":
+            suggest = "entry_point"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeCodeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeCodeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeCodeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code: 'outputs.RuntimeCode',
+                 entry_point: Sequence[_builtins.str],
+                 runtime: 'RuntimeAgentManagedRuntimeType'):
+        """
+        Representation of a code configuration
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "entry_point", entry_point)
+        pulumi.set(__self__, "runtime", runtime)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> 'outputs.RuntimeCode':
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter(name="entryPoint")
+    def entry_point(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "entry_point")
+
+    @_builtins.property
+    @pulumi.getter
+    def runtime(self) -> 'RuntimeAgentManagedRuntimeType':
+        return pulumi.get(self, "runtime")
 
 
 @pulumi.output_type
@@ -2300,6 +2446,60 @@ class RuntimeCustomJwtAuthorizerConfiguration(dict):
 
 
 @pulumi.output_type
+class RuntimeLifecycleConfiguration(dict):
+    """
+    Configuration for managing the lifecycle of runtime sessions and resources
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleRuntimeSessionTimeout":
+            suggest = "idle_runtime_session_timeout"
+        elif key == "maxLifetime":
+            suggest = "max_lifetime"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeLifecycleConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeLifecycleConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeLifecycleConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_runtime_session_timeout: Optional[_builtins.int] = None,
+                 max_lifetime: Optional[_builtins.int] = None):
+        """
+        Configuration for managing the lifecycle of runtime sessions and resources
+        :param _builtins.int idle_runtime_session_timeout: Timeout in seconds for idle runtime sessions
+        :param _builtins.int max_lifetime: Maximum lifetime in seconds for runtime sessions
+        """
+        if idle_runtime_session_timeout is not None:
+            pulumi.set(__self__, "idle_runtime_session_timeout", idle_runtime_session_timeout)
+        if max_lifetime is not None:
+            pulumi.set(__self__, "max_lifetime", max_lifetime)
+
+    @_builtins.property
+    @pulumi.getter(name="idleRuntimeSessionTimeout")
+    def idle_runtime_session_timeout(self) -> Optional[_builtins.int]:
+        """
+        Timeout in seconds for idle runtime sessions
+        """
+        return pulumi.get(self, "idle_runtime_session_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="maxLifetime")
+    def max_lifetime(self) -> Optional[_builtins.int]:
+        """
+        Maximum lifetime in seconds for runtime sessions
+        """
+        return pulumi.get(self, "max_lifetime")
+
+
+@pulumi.output_type
 class RuntimeNetworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2342,6 +2542,104 @@ class RuntimeNetworkConfiguration(dict):
     @pulumi.getter(name="networkModeConfig")
     def network_mode_config(self) -> Optional['outputs.RuntimeVpcConfig']:
         return pulumi.get(self, "network_mode_config")
+
+
+@pulumi.output_type
+class RuntimeRequestHeaderConfiguration(dict):
+    """
+    Configuration for HTTP request headers
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requestHeaderAllowlist":
+            suggest = "request_header_allowlist"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeRequestHeaderConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeRequestHeaderConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeRequestHeaderConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 request_header_allowlist: Optional[Sequence[_builtins.str]] = None):
+        """
+        Configuration for HTTP request headers
+        """
+        if request_header_allowlist is not None:
+            pulumi.set(__self__, "request_header_allowlist", request_header_allowlist)
+
+    @_builtins.property
+    @pulumi.getter(name="requestHeaderAllowlist")
+    def request_header_allowlist(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "request_header_allowlist")
+
+
+@pulumi.output_type
+class RuntimeS3Location(dict):
+    """
+    S3 Location Configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "versionId":
+            suggest = "version_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeS3Location. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeS3Location.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeS3Location.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket: _builtins.str,
+                 prefix: _builtins.str,
+                 version_id: Optional[_builtins.str] = None):
+        """
+        S3 Location Configuration
+        :param _builtins.str bucket: S3 bucket name
+        :param _builtins.str prefix: S3 object key prefix
+        :param _builtins.str version_id: S3 object version ID
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "prefix", prefix)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> _builtins.str:
+        """
+        S3 bucket name
+        """
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> _builtins.str:
+        """
+        S3 object key prefix
+        """
+        return pulumi.get(self, "prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> Optional[_builtins.str]:
+        """
+        S3 object version ID
+        """
+        return pulumi.get(self, "version_id")
 
 
 @pulumi.output_type

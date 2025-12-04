@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetPivotedLabel
     {
+        /// <summary>
+        /// The label value from the source data to be pivoted.
+        /// </summary>
         public readonly string LabelName;
+        /// <summary>
+        /// A unique identifier for the new column created from this pivoted label.
+        /// </summary>
         public readonly string NewColumnId;
+        /// <summary>
+        /// The name for the new column created from this pivoted label.
+        /// </summary>
         public readonly string NewColumnName;
 
         [OutputConstructor]

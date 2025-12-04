@@ -9,6 +9,12 @@ export const LandingZoneDriftStatus = {
 
 export type LandingZoneDriftStatus = (typeof LandingZoneDriftStatus)[keyof typeof LandingZoneDriftStatus];
 
+export const LandingZoneRemediationTypesItem = {
+    InheritanceDrift: "INHERITANCE_DRIFT",
+} as const;
+
+export type LandingZoneRemediationTypesItem = (typeof LandingZoneRemediationTypesItem)[keyof typeof LandingZoneRemediationTypesItem];
+
 export const LandingZoneStatus = {
     Active: "ACTIVE",
     Processing: "PROCESSING",

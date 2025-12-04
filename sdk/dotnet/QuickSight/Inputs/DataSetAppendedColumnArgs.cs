@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetAppendedColumnArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the column to include in the appended result.
+        /// </summary>
         [Input("columnName", required: true)]
         public Input<string> ColumnName { get; set; } = null!;
 
+        /// <summary>
+        /// A unique identifier for the column in the appended result.
+        /// </summary>
         [Input("newColumnId", required: true)]
         public Input<string> NewColumnId { get; set; } = null!;
 

@@ -38,10 +38,12 @@ __all__ = [
     'ServiceDnsEntry',
     'ServiceNetworkServiceAssociationDnsEntry',
     'ServiceNetworkSharingConfig',
+    'ServiceNetworkVpcAssociationDnsOptions',
     'TargetGroupConfig',
     'TargetGroupHealthCheckConfig',
     'TargetGroupMatcher',
     'TargetGroupTarget',
+    'TxtMethodConfigProperties',
 ]
 
 @pulumi.output_type
@@ -944,6 +946,56 @@ class ServiceNetworkSharingConfig(dict):
 
 
 @pulumi.output_type
+class ServiceNetworkVpcAssociationDnsOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateDnsPreference":
+            suggest = "private_dns_preference"
+        elif key == "privateDnsSpecifiedDomains":
+            suggest = "private_dns_specified_domains"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceNetworkVpcAssociationDnsOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceNetworkVpcAssociationDnsOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceNetworkVpcAssociationDnsOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_dns_preference: Optional['ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference'] = None,
+                 private_dns_specified_domains: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param 'ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference' private_dns_preference: The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+        :param Sequence[_builtins.str] private_dns_specified_domains: Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
+        """
+        if private_dns_preference is not None:
+            pulumi.set(__self__, "private_dns_preference", private_dns_preference)
+        if private_dns_specified_domains is not None:
+            pulumi.set(__self__, "private_dns_specified_domains", private_dns_specified_domains)
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsPreference")
+    def private_dns_preference(self) -> Optional['ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference']:
+        """
+        The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+        """
+        return pulumi.get(self, "private_dns_preference")
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsSpecifiedDomains")
+    def private_dns_specified_domains(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
+        """
+        return pulumi.get(self, "private_dns_specified_domains")
+
+
+@pulumi.output_type
 class TargetGroupConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1274,5 +1326,36 @@ class TargetGroupTarget(dict):
         The port on which the target is listening. For HTTP, the default is 80. For HTTPS, the default is 443.
         """
         return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class TxtMethodConfigProperties(dict):
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str name: The name of the TXT record that must be created for domain verification.
+        :param _builtins.str value: The value that must be added to the TXT record for domain verification.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the TXT record that must be created for domain verification.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        The value that must be added to the TXT record for domain verification.
+        """
+        return pulumi.get(self, "value")
 
 

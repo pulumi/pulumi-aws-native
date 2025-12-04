@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.S3Tables
         [Output("encryptionConfiguration")]
         public Output<Outputs.TableBucketEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
+        [Output("metricsConfiguration")]
+        public Output<Outputs.TableBucketMetricsConfiguration?> MetricsConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the table bucket.
         /// </summary>
@@ -32,6 +35,12 @@ namespace Pulumi.AwsNative.S3Tables
         /// </summary>
         [Output("tableBucketName")]
         public Output<string> TableBucketName { get; private set; } = null!;
+
+        /// <summary>
+        /// User tags (key-value pairs) to associate with the table bucket.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
@@ -94,11 +103,26 @@ namespace Pulumi.AwsNative.S3Tables
         [Input("encryptionConfiguration")]
         public Input<Inputs.TableBucketEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
+        [Input("metricsConfiguration")]
+        public Input<Inputs.TableBucketMetricsConfigurationArgs>? MetricsConfiguration { get; set; }
+
         /// <summary>
         /// The name for the table bucket.
         /// </summary>
         [Input("tableBucketName")]
         public Input<string>? TableBucketName { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// User tags (key-value pairs) to associate with the table bucket.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .

@@ -110,3 +110,12 @@ export const RepositoryImageTagMutabilityExclusionFilterType = {
  * Specifies the type of filter to use for excluding image tags from the repository's mutability setting.
  */
 export type RepositoryImageTagMutabilityExclusionFilterType = (typeof RepositoryImageTagMutabilityExclusionFilterType)[keyof typeof RepositoryImageTagMutabilityExclusionFilterType];
+
+export const SigningConfigurationFilterType = {
+    WildcardMatch: "WILDCARD_MATCH",
+} as const;
+
+/**
+ * Type of repository filter
+ */
+export type SigningConfigurationFilterType = (typeof SigningConfigurationFilterType)[keyof typeof SigningConfigurationFilterType];

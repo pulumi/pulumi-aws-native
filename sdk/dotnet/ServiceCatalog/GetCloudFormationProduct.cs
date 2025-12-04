@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.ServiceCatalog
     public static class GetCloudFormationProduct
     {
         /// <summary>
-        /// Resource type definition for AWS::ServiceCatalog::CloudFormationProduct
+        /// Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
         /// </summary>
         public static Task<GetCloudFormationProductResult> InvokeAsync(GetCloudFormationProductArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudFormationProductResult>("aws-native:servicecatalog:getCloudFormationProduct", args ?? new GetCloudFormationProductArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource type definition for AWS::ServiceCatalog::CloudFormationProduct
+        /// Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
         /// </summary>
         public static Output<GetCloudFormationProductResult> Invoke(GetCloudFormationProductInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudFormationProductResult>("aws-native:servicecatalog:getCloudFormationProduct", args ?? new GetCloudFormationProductInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource type definition for AWS::ServiceCatalog::CloudFormationProduct
+        /// Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
         /// </summary>
         public static Output<GetCloudFormationProductResult> Invoke(GetCloudFormationProductInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudFormationProductResult>("aws-native:servicecatalog:getCloudFormationProduct", args ?? new GetCloudFormationProductInvokeArgs(), options.WithDefaults());
@@ -33,9 +33,6 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class GetCloudFormationProductArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ID of the product, such as prod-tsjbmal34qvek
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -47,9 +44,6 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class GetCloudFormationProductInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The ID of the product, such as prod-tsjbmal34qvek
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -64,6 +58,13 @@ namespace Pulumi.AwsNative.ServiceCatalog
     public sealed class GetCloudFormationProductResult
     {
         /// <summary>
+        /// The language code.
+        /// 
+        /// - `jp` - Japanese
+        /// - `zh` - Chinese
+        /// </summary>
+        public readonly string? AcceptLanguage;
+        /// <summary>
         /// The description of the product.
         /// </summary>
         public readonly string? Description;
@@ -71,9 +72,6 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// The distributor of the product.
         /// </summary>
         public readonly string? Distributor;
-        /// <summary>
-        /// The ID of the product, such as prod-tsjbmal34qvek
-        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// The name of the product.
@@ -90,13 +88,13 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// <summary>
         /// The type of product.
         /// </summary>
-        public readonly Pulumi.AwsNative.ServiceCatalog.CloudFormationProductProductType? ProductType;
+        public readonly string? ProductType;
         /// <summary>
-        /// The IDs of the provisioning artifacts
+        /// The IDs of the provisioning artifacts.
         /// </summary>
         public readonly string? ProvisioningArtifactIds;
         /// <summary>
-        /// The names of the provisioning artifacts
+        /// The names of the provisioning artifacts.
         /// </summary>
         public readonly string? ProvisioningArtifactNames;
         /// <summary>
@@ -104,7 +102,13 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// </summary>
         public readonly ImmutableArray<Outputs.CloudFormationProductProvisioningArtifactProperties> ProvisioningArtifactParameters;
         /// <summary>
-        /// A top level ProductViewDetail response containing details about the product's connection. AWS Service Catalog returns this field for the CreateProduct, UpdateProduct, DescribeProductAsAdmin, and SearchProductAsAdmin APIs. This response contains the same fields as the ConnectionParameters request, with the addition of the LastSync response.
+        /// This property is turned off by default. If turned off, you can update provisioning artifacts or product attributes (such as description, distributor, name, owner, and more) and the associated provisioning artifacts will retain the same unique identifier. Provisioning artifacts are matched within the CloudFormationProduct resource, and only those that have been updated will be changed. Provisioning artifacts are matched by a combinaton of provisioning artifact template URL and name.
+        /// 
+        /// If turned on, provisioning artifacts will be given a new unique identifier when you update the product or provisioning artifacts.
+        /// </summary>
+        public readonly bool? ReplaceProvisioningArtifacts;
+        /// <summary>
+        /// A top level `ProductViewDetail` response containing details about the product’s connection. AWS Service Catalog returns this field for the `CreateProduct` , `UpdateProduct` , `DescribeProductAsAdmin` , and `SearchProductAsAdmin` APIs. This response contains the same fields as the `ConnectionParameters` request, with the addition of the `LastSync` response.
         /// </summary>
         public readonly Outputs.CloudFormationProductSourceConnection? SourceConnection;
         /// <summary>
@@ -117,6 +121,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public readonly string? SupportEmail;
         /// <summary>
         /// The contact URL for product support.
+        /// 
+        /// `^https?:\/\//` / is the pattern used to validate SupportUrl.
         /// </summary>
         public readonly string? SupportUrl;
         /// <summary>
@@ -126,6 +132,8 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
         [OutputConstructor]
         private GetCloudFormationProductResult(
+            string? acceptLanguage,
+
             string? description,
 
             string? distributor,
@@ -138,13 +146,15 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
             string? productName,
 
-            Pulumi.AwsNative.ServiceCatalog.CloudFormationProductProductType? productType,
+            string? productType,
 
             string? provisioningArtifactIds,
 
             string? provisioningArtifactNames,
 
             ImmutableArray<Outputs.CloudFormationProductProvisioningArtifactProperties> provisioningArtifactParameters,
+
+            bool? replaceProvisioningArtifacts,
 
             Outputs.CloudFormationProductSourceConnection? sourceConnection,
 
@@ -156,6 +166,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            AcceptLanguage = acceptLanguage;
             Description = description;
             Distributor = distributor;
             Id = id;
@@ -166,6 +177,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
             ProvisioningArtifactIds = provisioningArtifactIds;
             ProvisioningArtifactNames = provisioningArtifactNames;
             ProvisioningArtifactParameters = provisioningArtifactParameters;
+            ReplaceProvisioningArtifacts = replaceProvisioningArtifacts;
             SourceConnection = sourceConnection;
             SupportDescription = supportDescription;
             SupportEmail = supportEmail;

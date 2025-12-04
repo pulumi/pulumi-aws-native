@@ -15,6 +15,18 @@ namespace Pulumi.AwsNative.CloudTrail.Inputs
     /// </summary>
     public sealed class TrailInsightSelectorArgs : global::Pulumi.ResourceArgs
     {
+        [Input("eventCategories")]
+        private InputList<Pulumi.AwsNative.CloudTrail.TrailSourceEventCategory>? _eventCategories;
+
+        /// <summary>
+        /// The categories of events for which to log insights. By default, insights are logged for management events only.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.CloudTrail.TrailSourceEventCategory> EventCategories
+        {
+            get => _eventCategories ?? (_eventCategories = new InputList<Pulumi.AwsNative.CloudTrail.TrailSourceEventCategory>());
+            set => _eventCategories = value;
+        }
+
         /// <summary>
         /// The type of insight to log on a trail.
         /// </summary>

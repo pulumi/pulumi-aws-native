@@ -28,6 +28,8 @@ type ImageRecipe struct {
 	Components ImageRecipeComponentConfigurationArrayOutput `pulumi:"components"`
 	// The description of the image recipe.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The latest version references of the image recipe.
+	LatestVersion ImageRecipeLatestVersionOutput `pulumi:"latestVersion"`
 	// The name of the image recipe.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The parent image of the image recipe.
@@ -47,9 +49,6 @@ func NewImageRecipe(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Components == nil {
-		return nil, errors.New("invalid value for required argument 'Components'")
-	}
 	if args.ParentImage == nil {
 		return nil, errors.New("invalid value for required argument 'ParentImage'")
 	}
@@ -212,6 +211,11 @@ func (o ImageRecipeOutput) Components() ImageRecipeComponentConfigurationArrayOu
 // The description of the image recipe.
 func (o ImageRecipeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The latest version references of the image recipe.
+func (o ImageRecipeOutput) LatestVersion() ImageRecipeLatestVersionOutput {
+	return o.ApplyT(func(v *ImageRecipe) ImageRecipeLatestVersionOutput { return v.LatestVersion }).(ImageRecipeLatestVersionOutput)
 }
 
 // The name of the image recipe.

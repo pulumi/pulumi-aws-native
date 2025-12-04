@@ -108,6 +108,8 @@ def get_restore_testing_selection(restore_testing_plan_name: Optional[_builtins.
            
            The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
     :param _builtins.str restore_testing_selection_name: The unique name of the restore testing selection that belongs to the related restore testing plan.
+           
+           The name consists of only alphanumeric characters and underscores. Maximum length is 50.
     """
     __args__ = dict()
     __args__['restoreTestingPlanName'] = restore_testing_plan_name
@@ -132,6 +134,8 @@ def get_restore_testing_selection_output(restore_testing_plan_name: Optional[pul
            
            The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
     :param _builtins.str restore_testing_selection_name: The unique name of the restore testing selection that belongs to the related restore testing plan.
+           
+           The name consists of only alphanumeric characters and underscores. Maximum length is 50.
     """
     __args__ = dict()
     __args__['restoreTestingPlanName'] = restore_testing_plan_name

@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetStreamResult:
-    def __init__(__self__, arn=None, desired_shard_level_metrics=None, max_record_size_in_ki_b=None, retention_period_hours=None, shard_count=None, stream_encryption=None, stream_mode_details=None, tags=None):
+    def __init__(__self__, arn=None, desired_shard_level_metrics=None, max_record_size_in_ki_b=None, retention_period_hours=None, shard_count=None, stream_encryption=None, stream_mode_details=None, tags=None, warm_throughput_object=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -51,6 +51,9 @@ class GetStreamResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if warm_throughput_object and not isinstance(warm_throughput_object, dict):
+            raise TypeError("Expected argument 'warm_throughput_object' to be a dict")
+        pulumi.set(__self__, "warm_throughput_object", warm_throughput_object)
 
     @_builtins.property
     @pulumi.getter
@@ -112,9 +115,17 @@ class GetStreamResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+        An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="warmThroughputObject")
+    def warm_throughput_object(self) -> Optional['outputs.StreamWarmThroughputObject']:
+        """
+        Warm throughput configuration details for the stream. Only present for ON_DEMAND streams.
+        """
+        return pulumi.get(self, "warm_throughput_object")
 
 
 class AwaitableGetStreamResult(GetStreamResult):
@@ -130,7 +141,8 @@ class AwaitableGetStreamResult(GetStreamResult):
             shard_count=self.shard_count,
             stream_encryption=self.stream_encryption,
             stream_mode_details=self.stream_mode_details,
-            tags=self.tags)
+            tags=self.tags,
+            warm_throughput_object=self.warm_throughput_object)
 
 
 def get_stream(name: Optional[_builtins.str] = None,
@@ -154,7 +166,8 @@ def get_stream(name: Optional[_builtins.str] = None,
         shard_count=pulumi.get(__ret__, 'shard_count'),
         stream_encryption=pulumi.get(__ret__, 'stream_encryption'),
         stream_mode_details=pulumi.get(__ret__, 'stream_mode_details'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        warm_throughput_object=pulumi.get(__ret__, 'warm_throughput_object'))
 def get_stream_output(name: Optional[pulumi.Input[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamResult]:
     """
@@ -175,4 +188,5 @@ def get_stream_output(name: Optional[pulumi.Input[_builtins.str]] = None,
         shard_count=pulumi.get(__response__, 'shard_count'),
         stream_encryption=pulumi.get(__response__, 'stream_encryption'),
         stream_mode_details=pulumi.get(__response__, 'stream_mode_details'),
-        tags=pulumi.get(__response__, 'tags')))
+        tags=pulumi.get(__response__, 'tags'),
+        warm_throughput_object=pulumi.get(__response__, 'warm_throughput_object')))

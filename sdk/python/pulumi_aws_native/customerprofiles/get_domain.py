@@ -26,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, created_at=None, dead_letter_queue_url=None, default_encryption_key=None, default_expiration_days=None, last_updated_at=None, matching=None, rule_based_matching=None, stats=None, tags=None):
+    def __init__(__self__, created_at=None, data_store=None, dead_letter_queue_url=None, default_encryption_key=None, default_expiration_days=None, last_updated_at=None, matching=None, rule_based_matching=None, stats=None, tags=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if data_store and not isinstance(data_store, dict):
+            raise TypeError("Expected argument 'data_store' to be a dict")
+        pulumi.set(__self__, "data_store", data_store)
         if dead_letter_queue_url and not isinstance(dead_letter_queue_url, str):
             raise TypeError("Expected argument 'dead_letter_queue_url' to be a str")
         pulumi.set(__self__, "dead_letter_queue_url", dead_letter_queue_url)
@@ -62,6 +65,11 @@ class GetDomainResult:
         The time of this integration got created
         """
         return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="dataStore")
+    def data_store(self) -> Optional['outputs.DomainDataStore']:
+        return pulumi.get(self, "data_store")
 
     @_builtins.property
     @pulumi.getter(name="deadLetterQueueUrl")
@@ -132,6 +140,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             yield self
         return GetDomainResult(
             created_at=self.created_at,
+            data_store=self.data_store,
             dead_letter_queue_url=self.dead_letter_queue_url,
             default_encryption_key=self.default_encryption_key,
             default_expiration_days=self.default_expiration_days,
@@ -157,6 +166,7 @@ def get_domain(domain_name: Optional[_builtins.str] = None,
 
     return AwaitableGetDomainResult(
         created_at=pulumi.get(__ret__, 'created_at'),
+        data_store=pulumi.get(__ret__, 'data_store'),
         dead_letter_queue_url=pulumi.get(__ret__, 'dead_letter_queue_url'),
         default_encryption_key=pulumi.get(__ret__, 'default_encryption_key'),
         default_expiration_days=pulumi.get(__ret__, 'default_expiration_days'),
@@ -179,6 +189,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:customerprofiles:getDomain', __args__, opts=opts, typ=GetDomainResult)
     return __ret__.apply(lambda __response__: GetDomainResult(
         created_at=pulumi.get(__response__, 'created_at'),
+        data_store=pulumi.get(__response__, 'data_store'),
         dead_letter_queue_url=pulumi.get(__response__, 'dead_letter_queue_url'),
         default_encryption_key=pulumi.get(__response__, 'default_encryption_key'),
         default_expiration_days=pulumi.get(__response__, 'default_expiration_days'),

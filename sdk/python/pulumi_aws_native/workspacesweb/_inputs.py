@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'BrowserSettingsWebContentFilteringPolicyArgs',
+    'BrowserSettingsWebContentFilteringPolicyArgsDict',
     'DataProtectionSettingsCustomPatternArgs',
     'DataProtectionSettingsCustomPatternArgsDict',
     'DataProtectionSettingsInlineRedactionConfigurationArgs',
@@ -45,6 +47,78 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class BrowserSettingsWebContentFilteringPolicyArgsDict(TypedDict):
+        allowed_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        URLs and domains that are always accessible to end users.
+        """
+        blocked_categories: NotRequired[pulumi.Input[Sequence[pulumi.Input['BrowserSettingsCategory']]]]
+        """
+        Categories of websites that are blocked on the end user's browsers.
+        """
+        blocked_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        URLs and domains that end users cannot access.
+        """
+elif False:
+    BrowserSettingsWebContentFilteringPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BrowserSettingsWebContentFilteringPolicyArgs:
+    def __init__(__self__, *,
+                 allowed_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocked_categories: Optional[pulumi.Input[Sequence[pulumi.Input['BrowserSettingsCategory']]]] = None,
+                 blocked_urls: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_urls: URLs and domains that are always accessible to end users.
+        :param pulumi.Input[Sequence[pulumi.Input['BrowserSettingsCategory']]] blocked_categories: Categories of websites that are blocked on the end user's browsers.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blocked_urls: URLs and domains that end users cannot access.
+        """
+        if allowed_urls is not None:
+            pulumi.set(__self__, "allowed_urls", allowed_urls)
+        if blocked_categories is not None:
+            pulumi.set(__self__, "blocked_categories", blocked_categories)
+        if blocked_urls is not None:
+            pulumi.set(__self__, "blocked_urls", blocked_urls)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedUrls")
+    def allowed_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URLs and domains that are always accessible to end users.
+        """
+        return pulumi.get(self, "allowed_urls")
+
+    @allowed_urls.setter
+    def allowed_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_urls", value)
+
+    @_builtins.property
+    @pulumi.getter(name="blockedCategories")
+    def blocked_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BrowserSettingsCategory']]]]:
+        """
+        Categories of websites that are blocked on the end user's browsers.
+        """
+        return pulumi.get(self, "blocked_categories")
+
+    @blocked_categories.setter
+    def blocked_categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BrowserSettingsCategory']]]]):
+        pulumi.set(self, "blocked_categories", value)
+
+    @_builtins.property
+    @pulumi.getter(name="blockedUrls")
+    def blocked_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        URLs and domains that end users cannot access.
+        """
+        return pulumi.get(self, "blocked_urls")
+
+    @blocked_urls.setter
+    def blocked_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "blocked_urls", value)
+
 
 if not MYPY:
     class DataProtectionSettingsCustomPatternArgsDict(TypedDict):

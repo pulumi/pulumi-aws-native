@@ -50,6 +50,7 @@ type LookupClusterResult struct {
 	NumberOfBrokerNodes *int `pulumi:"numberOfBrokerNodes"`
 	// The settings for open monitoring.
 	OpenMonitoring *ClusterOpenMonitoring `pulumi:"openMonitoring"`
+	Rebalancing    *ClusterRebalancing    `pulumi:"rebalancing"`
 	// This controls storage mode for supported storage tiers.
 	StorageMode *ClusterStorageMode `pulumi:"storageMode"`
 	// A key-value pair to associate with a resource.
@@ -141,6 +142,10 @@ func (o LookupClusterResultOutput) NumberOfBrokerNodes() pulumi.IntPtrOutput {
 // The settings for open monitoring.
 func (o LookupClusterResultOutput) OpenMonitoring() ClusterOpenMonitoringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterOpenMonitoring { return v.OpenMonitoring }).(ClusterOpenMonitoringPtrOutput)
+}
+
+func (o LookupClusterResultOutput) Rebalancing() ClusterRebalancingPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterRebalancing { return v.Rebalancing }).(ClusterRebalancingPtrOutput)
 }
 
 // This controls storage mode for supported storage tiers.

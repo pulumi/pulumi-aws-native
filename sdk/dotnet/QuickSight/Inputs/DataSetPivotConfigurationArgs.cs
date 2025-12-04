@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetPivotConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the column that contains the labels to be pivoted into separate columns.
+        /// </summary>
         [Input("labelColumnName")]
         public Input<string>? LabelColumnName { get; set; }
 
         [Input("pivotedLabels", required: true)]
         private InputList<Inputs.DataSetPivotedLabelArgs>? _pivotedLabels;
+
+        /// <summary>
+        /// The list of specific label values to pivot into separate columns.
+        /// </summary>
         public InputList<Inputs.DataSetPivotedLabelArgs> PivotedLabels
         {
             get => _pivotedLabels ?? (_pivotedLabels = new InputList<Inputs.DataSetPivotedLabelArgs>());

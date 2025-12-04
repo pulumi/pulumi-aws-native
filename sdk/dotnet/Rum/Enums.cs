@@ -98,6 +98,35 @@ namespace Pulumi.AwsNative.Rum
     }
 
     [EnumType]
+    public readonly struct AppMonitorPlatform : IEquatable<AppMonitorPlatform>
+    {
+        private readonly string _value;
+
+        private AppMonitorPlatform(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AppMonitorPlatform Web { get; } = new AppMonitorPlatform("Web");
+        public static AppMonitorPlatform Android { get; } = new AppMonitorPlatform("Android");
+        public static AppMonitorPlatform Ios { get; } = new AppMonitorPlatform("iOS");
+
+        public static bool operator ==(AppMonitorPlatform left, AppMonitorPlatform right) => left.Equals(right);
+        public static bool operator !=(AppMonitorPlatform left, AppMonitorPlatform right) => !left.Equals(right);
+
+        public static explicit operator string(AppMonitorPlatform value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AppMonitorPlatform other && Equals(other);
+        public bool Equals(AppMonitorPlatform other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AppMonitorTelemetry : IEquatable<AppMonitorTelemetry>
     {
         private readonly string _value;

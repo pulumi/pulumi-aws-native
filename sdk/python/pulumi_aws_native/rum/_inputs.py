@@ -402,11 +402,57 @@ if not MYPY:
 
         WebVitalsLargestContentfulPaint
 
+        WebVitalsInteractionToNextPaint
+
         JsErrorCount
 
         HttpErrorCount
 
         SessionCount
+
+        PageViewCount
+
+        Http4xxCount
+
+        Http5xxCount
+
+        SessionDuration
+
+        PageViewCountPerSession
+
+        JsErrorCountPerSession
+
+        Http4xxCountPerSession
+
+        Http5xxCountPerSession
+
+        JsErrorCountPerPageView
+
+        Http4xxCountPerPageView
+
+        Http5xxCountPerPageView
+
+        TimeOnPage
+
+        ColdLaunchTime
+
+        WarmLaunchTime
+
+        CrashCount
+
+        ANRCount
+
+        AppHangCount
+
+        ScreenLoadCount
+
+        ScreenLoadTime
+
+        NetworkLatency
+
+        SpanPayloadSize
+
+        LogEventPayloadSize
         """
         dimension_keys: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
         """
@@ -492,11 +538,57 @@ class AppMonitorMetricDefinitionArgs:
                
                WebVitalsLargestContentfulPaint
                
+               WebVitalsInteractionToNextPaint
+               
                JsErrorCount
                
                HttpErrorCount
                
                SessionCount
+               
+               PageViewCount
+               
+               Http4xxCount
+               
+               Http5xxCount
+               
+               SessionDuration
+               
+               PageViewCountPerSession
+               
+               JsErrorCountPerSession
+               
+               Http4xxCountPerSession
+               
+               Http5xxCountPerSession
+               
+               JsErrorCountPerPageView
+               
+               Http4xxCountPerPageView
+               
+               Http5xxCountPerPageView
+               
+               TimeOnPage
+               
+               ColdLaunchTime
+               
+               WarmLaunchTime
+               
+               CrashCount
+               
+               ANRCount
+               
+               AppHangCount
+               
+               ScreenLoadCount
+               
+               ScreenLoadTime
+               
+               NetworkLatency
+               
+               SpanPayloadSize
+               
+               LogEventPayloadSize
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] dimension_keys: Use this field only if you are sending the metric to CloudWatch.
                
                This field is a map of field paths to dimension names. It defines the dimensions to associate with this metric in CloudWatch. For extended metrics, valid values for the entries in this field are the following:
@@ -569,11 +661,57 @@ class AppMonitorMetricDefinitionArgs:
 
         WebVitalsLargestContentfulPaint
 
+        WebVitalsInteractionToNextPaint
+
         JsErrorCount
 
         HttpErrorCount
 
         SessionCount
+
+        PageViewCount
+
+        Http4xxCount
+
+        Http5xxCount
+
+        SessionDuration
+
+        PageViewCountPerSession
+
+        JsErrorCountPerSession
+
+        Http4xxCountPerSession
+
+        Http5xxCountPerSession
+
+        JsErrorCountPerPageView
+
+        Http4xxCountPerPageView
+
+        Http5xxCountPerPageView
+
+        TimeOnPage
+
+        ColdLaunchTime
+
+        WarmLaunchTime
+
+        CrashCount
+
+        ANRCount
+
+        AppHangCount
+
+        ScreenLoadCount
+
+        ScreenLoadTime
+
+        NetworkLatency
+
+        SpanPayloadSize
+
+        LogEventPayloadSize
         """
         return pulumi.get(self, "name")
 

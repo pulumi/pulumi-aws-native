@@ -452,9 +452,8 @@ namespace Pulumi.AwsNative.SecurityHub
         public static AutomationRuleV2OcsfNumberFilterFieldName ActivityId { get; } = new AutomationRuleV2OcsfNumberFilterFieldName("activity_id");
         public static AutomationRuleV2OcsfNumberFilterFieldName ComplianceStatusId { get; } = new AutomationRuleV2OcsfNumberFilterFieldName("compliance.status_id");
         public static AutomationRuleV2OcsfNumberFilterFieldName ConfidenceScore { get; } = new AutomationRuleV2OcsfNumberFilterFieldName("confidence_score");
-        public static AutomationRuleV2OcsfNumberFilterFieldName SeverityId { get; } = new AutomationRuleV2OcsfNumberFilterFieldName("severity_id");
-        public static AutomationRuleV2OcsfNumberFilterFieldName StatusId { get; } = new AutomationRuleV2OcsfNumberFilterFieldName("status_id");
         public static AutomationRuleV2OcsfNumberFilterFieldName FindingInfoRelatedEventsCount { get; } = new AutomationRuleV2OcsfNumberFilterFieldName("finding_info.related_events_count");
+        public static AutomationRuleV2OcsfNumberFilterFieldName VendorAttributesSeverityId { get; } = new AutomationRuleV2OcsfNumberFilterFieldName("vendor_attributes.severity_id");
 
         public static bool operator ==(AutomationRuleV2OcsfNumberFilterFieldName left, AutomationRuleV2OcsfNumberFilterFieldName right) => left.Equals(right);
         public static bool operator !=(AutomationRuleV2OcsfNumberFilterFieldName left, AutomationRuleV2OcsfNumberFilterFieldName right) => !left.Equals(right);
@@ -484,7 +483,6 @@ namespace Pulumi.AwsNative.SecurityHub
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static AutomationRuleV2OcsfStringField MetadataUid { get; } = new AutomationRuleV2OcsfStringField("metadata.uid");
         public static AutomationRuleV2OcsfStringField ActivityName { get; } = new AutomationRuleV2OcsfStringField("activity_name");
         public static AutomationRuleV2OcsfStringField CloudAccountName { get; } = new AutomationRuleV2OcsfStringField("cloud.account.name");
         public static AutomationRuleV2OcsfStringField CloudAccountUid { get; } = new AutomationRuleV2OcsfStringField("cloud.account.uid");
@@ -514,11 +512,9 @@ namespace Pulumi.AwsNative.SecurityHub
         public static AutomationRuleV2OcsfStringField ResourcesRegion { get; } = new AutomationRuleV2OcsfStringField("resources.region");
         public static AutomationRuleV2OcsfStringField ResourcesType { get; } = new AutomationRuleV2OcsfStringField("resources.type");
         public static AutomationRuleV2OcsfStringField ResourcesUid { get; } = new AutomationRuleV2OcsfStringField("resources.uid");
-        public static AutomationRuleV2OcsfStringField Severity { get; } = new AutomationRuleV2OcsfStringField("severity");
-        public static AutomationRuleV2OcsfStringField Status { get; } = new AutomationRuleV2OcsfStringField("status");
-        public static AutomationRuleV2OcsfStringField Comment { get; } = new AutomationRuleV2OcsfStringField("comment");
         public static AutomationRuleV2OcsfStringField VulnerabilitiesFixCoverage { get; } = new AutomationRuleV2OcsfStringField("vulnerabilities.fix_coverage");
         public static AutomationRuleV2OcsfStringField ClassName { get; } = new AutomationRuleV2OcsfStringField("class_name");
+        public static AutomationRuleV2OcsfStringField VendorAttributesSeverity { get; } = new AutomationRuleV2OcsfStringField("vendor_attributes.severity");
 
         public static bool operator ==(AutomationRuleV2OcsfStringField left, AutomationRuleV2OcsfStringField right) => left.Equals(right);
         public static bool operator !=(AutomationRuleV2OcsfStringField left, AutomationRuleV2OcsfStringField right) => !left.Equals(right);
@@ -1088,7 +1084,7 @@ namespace Pulumi.AwsNative.SecurityHub
     }
 
     /// <summary>
-    /// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+    /// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior.
     /// 
     /// When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
     /// 

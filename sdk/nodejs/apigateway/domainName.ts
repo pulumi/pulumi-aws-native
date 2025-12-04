@@ -106,6 +106,10 @@ export class DomainName extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly domainNameArn: pulumi.Output<string>;
     /**
+     * The endpoint access mode for your DomainName.
+     */
+    declare public readonly endpointAccessMode: pulumi.Output<string | undefined>;
+    /**
      * The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
      */
     declare public readonly endpointConfiguration: pulumi.Output<outputs.apigateway.DomainNameEndpointConfiguration | undefined>;
@@ -134,7 +138,7 @@ export class DomainName extends pulumi.CustomResource {
      */
     declare public readonly routingMode: pulumi.Output<enums.apigateway.DomainNameRoutingMode | undefined>;
     /**
-     * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+     * The Transport Layer Security (TLS) version + cipher suite for this DomainName.
      */
     declare public readonly securityPolicy: pulumi.Output<string | undefined>;
     /**
@@ -155,6 +159,7 @@ export class DomainName extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["certificateArn"] = args?.certificateArn;
             resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["endpointAccessMode"] = args?.endpointAccessMode;
             resourceInputs["endpointConfiguration"] = args?.endpointConfiguration;
             resourceInputs["mutualTlsAuthentication"] = args?.mutualTlsAuthentication;
             resourceInputs["ownershipVerificationCertificateArn"] = args?.ownershipVerificationCertificateArn;
@@ -173,6 +178,7 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["distributionHostedZoneId"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["domainNameArn"] = undefined /*out*/;
+            resourceInputs["endpointAccessMode"] = undefined /*out*/;
             resourceInputs["endpointConfiguration"] = undefined /*out*/;
             resourceInputs["mutualTlsAuthentication"] = undefined /*out*/;
             resourceInputs["ownershipVerificationCertificateArn"] = undefined /*out*/;
@@ -203,6 +209,10 @@ export interface DomainNameArgs {
      */
     domainName?: pulumi.Input<string>;
     /**
+     * The endpoint access mode for your DomainName.
+     */
+    endpointAccessMode?: pulumi.Input<string>;
+    /**
      * The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
      */
     endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfigurationArgs>;
@@ -223,7 +233,7 @@ export interface DomainNameArgs {
      */
     routingMode?: pulumi.Input<enums.apigateway.DomainNameRoutingMode>;
     /**
-     * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+     * The Transport Layer Security (TLS) version + cipher suite for this DomainName.
      */
     securityPolicy?: pulumi.Input<string>;
     /**

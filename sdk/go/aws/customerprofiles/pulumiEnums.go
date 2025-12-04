@@ -5345,6 +5345,97 @@ func (in *segmentDefinitionRangeOverrideUnitPtr) ToSegmentDefinitionRangeOverrid
 	return pulumi.ToOutputWithContext(ctx, in).(SegmentDefinitionRangeOverrideUnitPtrOutput)
 }
 
+// The SQL query that defines the segment criteria.
+type SegmentDefinitionSegmentType string
+
+const (
+	SegmentDefinitionSegmentTypeClassic  = SegmentDefinitionSegmentType("CLASSIC")
+	SegmentDefinitionSegmentTypeEnhanced = SegmentDefinitionSegmentType("ENHANCED")
+)
+
+type SegmentDefinitionSegmentTypeOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionSegmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionSegmentType)(nil)).Elem()
+}
+
+func (o SegmentDefinitionSegmentTypeOutput) ToSegmentDefinitionSegmentTypeOutput() SegmentDefinitionSegmentTypeOutput {
+	return o
+}
+
+func (o SegmentDefinitionSegmentTypeOutput) ToSegmentDefinitionSegmentTypeOutputWithContext(ctx context.Context) SegmentDefinitionSegmentTypeOutput {
+	return o
+}
+
+func (o SegmentDefinitionSegmentTypeOutput) ToSegmentDefinitionSegmentTypePtrOutput() SegmentDefinitionSegmentTypePtrOutput {
+	return o.ToSegmentDefinitionSegmentTypePtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionSegmentTypeOutput) ToSegmentDefinitionSegmentTypePtrOutputWithContext(ctx context.Context) SegmentDefinitionSegmentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SegmentDefinitionSegmentType) *SegmentDefinitionSegmentType {
+		return &v
+	}).(SegmentDefinitionSegmentTypePtrOutput)
+}
+
+func (o SegmentDefinitionSegmentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionSegmentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SegmentDefinitionSegmentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SegmentDefinitionSegmentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionSegmentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SegmentDefinitionSegmentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SegmentDefinitionSegmentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionSegmentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDefinitionSegmentType)(nil)).Elem()
+}
+
+func (o SegmentDefinitionSegmentTypePtrOutput) ToSegmentDefinitionSegmentTypePtrOutput() SegmentDefinitionSegmentTypePtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionSegmentTypePtrOutput) ToSegmentDefinitionSegmentTypePtrOutputWithContext(ctx context.Context) SegmentDefinitionSegmentTypePtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionSegmentTypePtrOutput) Elem() SegmentDefinitionSegmentTypeOutput {
+	return o.ApplyT(func(v *SegmentDefinitionSegmentType) SegmentDefinitionSegmentType {
+		if v != nil {
+			return *v
+		}
+		var ret SegmentDefinitionSegmentType
+		return ret
+	}).(SegmentDefinitionSegmentTypeOutput)
+}
+
+func (o SegmentDefinitionSegmentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionSegmentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SegmentDefinitionSegmentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The type of segment dimension to use for a string dimension.
 type SegmentDefinitionStringDimensionType string
 
@@ -5642,6 +5733,8 @@ func init() {
 	pulumi.RegisterOutputType(SegmentDefinitionProfileTypeDimensionTypePtrOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionRangeOverrideUnitOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionRangeOverrideUnitPtrOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionSegmentTypeOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionSegmentTypePtrOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionStringDimensionTypeOutput{})
 	pulumi.RegisterOutputType(SegmentDefinitionStringDimensionTypePtrOutput{})
 }

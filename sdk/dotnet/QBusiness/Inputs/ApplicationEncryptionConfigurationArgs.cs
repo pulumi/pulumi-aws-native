@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QBusiness.Inputs
     public sealed class ApplicationEncryptionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identifier of the AWS KMS key. Amazon Q Business doesn't support asymmetric keys.
+        /// The identifier of the AWS  key. Amazon Q Business doesn't support asymmetric keys.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

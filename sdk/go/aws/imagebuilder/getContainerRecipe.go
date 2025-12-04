@@ -30,6 +30,8 @@ type LookupContainerRecipeArgs struct {
 type LookupContainerRecipeResult struct {
 	// The Amazon Resource Name (ARN) of the container recipe.
 	Arn *string `pulumi:"arn"`
+	// The latest version references of the container recipe.
+	LatestVersion *ContainerRecipeLatestVersion `pulumi:"latestVersion"`
 	// Tags that are attached to the container recipe.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -69,6 +71,11 @@ func (o LookupContainerRecipeResultOutput) ToLookupContainerRecipeResultOutputWi
 // The Amazon Resource Name (ARN) of the container recipe.
 func (o LookupContainerRecipeResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupContainerRecipeResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The latest version references of the container recipe.
+func (o LookupContainerRecipeResultOutput) LatestVersion() ContainerRecipeLatestVersionPtrOutput {
+	return o.ApplyT(func(v LookupContainerRecipeResult) *ContainerRecipeLatestVersion { return v.LatestVersion }).(ContainerRecipeLatestVersionPtrOutput)
 }
 
 // Tags that are attached to the container recipe.

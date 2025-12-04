@@ -38,6 +38,10 @@ export class PartnerApp extends pulumi.CustomResource {
     }
 
     /**
+     * The version of the PartnerApp.
+     */
+    declare public readonly appVersion: pulumi.Output<string | undefined>;
+    /**
      * A collection of settings that specify the maintenance schedule for the PartnerApp.
      */
     declare public readonly applicationConfig: pulumi.Output<outputs.sagemaker.PartnerAppConfig | undefined>;
@@ -57,6 +61,14 @@ export class PartnerApp extends pulumi.CustomResource {
      * The client token for the PartnerApp.
      */
     declare public readonly clientToken: pulumi.Output<string | undefined>;
+    /**
+     * The end-of-life date for the current version of the PartnerApp.
+     */
+    declare public /*out*/ readonly currentVersionEolDate: pulumi.Output<string>;
+    /**
+     * Enables automatic minor version upgrades for the PartnerApp.
+     */
+    declare public readonly enableAutoMinorVersionUpgrade: pulumi.Output<boolean | undefined>;
     /**
      * Enables IAM Session based Identity for PartnerApp.
      */
@@ -113,9 +125,11 @@ export class PartnerApp extends pulumi.CustomResource {
             if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            resourceInputs["appVersion"] = args?.appVersion;
             resourceInputs["applicationConfig"] = args?.applicationConfig;
             resourceInputs["authType"] = args?.authType;
             resourceInputs["clientToken"] = args?.clientToken;
+            resourceInputs["enableAutoMinorVersionUpgrade"] = args?.enableAutoMinorVersionUpgrade;
             resourceInputs["enableIamSessionBasedIdentity"] = args?.enableIamSessionBasedIdentity;
             resourceInputs["executionRoleArn"] = args?.executionRoleArn;
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
@@ -126,12 +140,16 @@ export class PartnerApp extends pulumi.CustomResource {
             resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["baseUrl"] = undefined /*out*/;
+            resourceInputs["currentVersionEolDate"] = undefined /*out*/;
         } else {
+            resourceInputs["appVersion"] = undefined /*out*/;
             resourceInputs["applicationConfig"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["authType"] = undefined /*out*/;
             resourceInputs["baseUrl"] = undefined /*out*/;
             resourceInputs["clientToken"] = undefined /*out*/;
+            resourceInputs["currentVersionEolDate"] = undefined /*out*/;
+            resourceInputs["enableAutoMinorVersionUpgrade"] = undefined /*out*/;
             resourceInputs["enableIamSessionBasedIdentity"] = undefined /*out*/;
             resourceInputs["executionRoleArn"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
@@ -153,6 +171,10 @@ export class PartnerApp extends pulumi.CustomResource {
  */
 export interface PartnerAppArgs {
     /**
+     * The version of the PartnerApp.
+     */
+    appVersion?: pulumi.Input<string>;
+    /**
      * A collection of settings that specify the maintenance schedule for the PartnerApp.
      */
     applicationConfig?: pulumi.Input<inputs.sagemaker.PartnerAppConfigArgs>;
@@ -164,6 +186,10 @@ export interface PartnerAppArgs {
      * The client token for the PartnerApp.
      */
     clientToken?: pulumi.Input<string>;
+    /**
+     * Enables automatic minor version upgrades for the PartnerApp.
+     */
+    enableAutoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
      * Enables IAM Session based Identity for PartnerApp.
      */

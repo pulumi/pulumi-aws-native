@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainNameResult:
-    def __init__(__self__, certificate_arn=None, distribution_domain_name=None, distribution_hosted_zone_id=None, domain_name_arn=None, endpoint_configuration=None, mutual_tls_authentication=None, ownership_verification_certificate_arn=None, regional_certificate_arn=None, regional_domain_name=None, regional_hosted_zone_id=None, routing_mode=None, security_policy=None, tags=None):
+    def __init__(__self__, certificate_arn=None, distribution_domain_name=None, distribution_hosted_zone_id=None, domain_name_arn=None, endpoint_access_mode=None, endpoint_configuration=None, mutual_tls_authentication=None, ownership_verification_certificate_arn=None, regional_certificate_arn=None, regional_domain_name=None, regional_hosted_zone_id=None, routing_mode=None, security_policy=None, tags=None):
         if certificate_arn and not isinstance(certificate_arn, str):
             raise TypeError("Expected argument 'certificate_arn' to be a str")
         pulumi.set(__self__, "certificate_arn", certificate_arn)
@@ -39,6 +39,9 @@ class GetDomainNameResult:
         if domain_name_arn and not isinstance(domain_name_arn, str):
             raise TypeError("Expected argument 'domain_name_arn' to be a str")
         pulumi.set(__self__, "domain_name_arn", domain_name_arn)
+        if endpoint_access_mode and not isinstance(endpoint_access_mode, str):
+            raise TypeError("Expected argument 'endpoint_access_mode' to be a str")
+        pulumi.set(__self__, "endpoint_access_mode", endpoint_access_mode)
         if endpoint_configuration and not isinstance(endpoint_configuration, dict):
             raise TypeError("Expected argument 'endpoint_configuration' to be a dict")
         pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
@@ -102,6 +105,14 @@ class GetDomainNameResult:
         return pulumi.get(self, "domain_name_arn")
 
     @_builtins.property
+    @pulumi.getter(name="endpointAccessMode")
+    def endpoint_access_mode(self) -> Optional[_builtins.str]:
+        """
+        The endpoint access mode for your DomainName.
+        """
+        return pulumi.get(self, "endpoint_access_mode")
+
+    @_builtins.property
     @pulumi.getter(name="endpointConfiguration")
     def endpoint_configuration(self) -> Optional['outputs.DomainNameEndpointConfiguration']:
         """
@@ -161,7 +172,7 @@ class GetDomainNameResult:
     @pulumi.getter(name="securityPolicy")
     def security_policy(self) -> Optional[_builtins.str]:
         """
-        The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
+        The Transport Layer Security (TLS) version + cipher suite for this DomainName.
         """
         return pulumi.get(self, "security_policy")
 
@@ -184,6 +195,7 @@ class AwaitableGetDomainNameResult(GetDomainNameResult):
             distribution_domain_name=self.distribution_domain_name,
             distribution_hosted_zone_id=self.distribution_hosted_zone_id,
             domain_name_arn=self.domain_name_arn,
+            endpoint_access_mode=self.endpoint_access_mode,
             endpoint_configuration=self.endpoint_configuration,
             mutual_tls_authentication=self.mutual_tls_authentication,
             ownership_verification_certificate_arn=self.ownership_verification_certificate_arn,
@@ -215,6 +227,7 @@ def get_domain_name(domain_name: Optional[_builtins.str] = None,
         distribution_domain_name=pulumi.get(__ret__, 'distribution_domain_name'),
         distribution_hosted_zone_id=pulumi.get(__ret__, 'distribution_hosted_zone_id'),
         domain_name_arn=pulumi.get(__ret__, 'domain_name_arn'),
+        endpoint_access_mode=pulumi.get(__ret__, 'endpoint_access_mode'),
         endpoint_configuration=pulumi.get(__ret__, 'endpoint_configuration'),
         mutual_tls_authentication=pulumi.get(__ret__, 'mutual_tls_authentication'),
         ownership_verification_certificate_arn=pulumi.get(__ret__, 'ownership_verification_certificate_arn'),
@@ -243,6 +256,7 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[_builtins.str]] = 
         distribution_domain_name=pulumi.get(__response__, 'distribution_domain_name'),
         distribution_hosted_zone_id=pulumi.get(__response__, 'distribution_hosted_zone_id'),
         domain_name_arn=pulumi.get(__response__, 'domain_name_arn'),
+        endpoint_access_mode=pulumi.get(__response__, 'endpoint_access_mode'),
         endpoint_configuration=pulumi.get(__response__, 'endpoint_configuration'),
         mutual_tls_authentication=pulumi.get(__response__, 'mutual_tls_authentication'),
         ownership_verification_certificate_arn=pulumi.get(__response__, 'ownership_verification_certificate_arn'),

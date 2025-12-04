@@ -34,7 +34,7 @@ class ProtectionArgs:
         :param pulumi.Input[_builtins.str] resource_arn: The ARN (Amazon Resource Name) of the resource to be protected.
         :param pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationArgs'] application_layer_automatic_response_configuration: The automatic application layer DDoS mitigation settings for the protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
                
-               If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the additional guidance about web ACL management in the `AWS::WAFv2::WebACL` resource description.
+               If you use CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the additional guidance about web ACL management in the `AWS::WAFv2::WebACL` resource description.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] health_check_arns: The Amazon Resource Names (ARNs) of the health check to associate with the protection.
         :param pulumi.Input[_builtins.str] name: Friendly name for the Protection.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tag key-value pairs for the Protection object.
@@ -67,7 +67,7 @@ class ProtectionArgs:
         """
         The automatic application layer DDoS mitigation settings for the protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
 
-        If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the additional guidance about web ACL management in the `AWS::WAFv2::WebACL` resource description.
+        If you use CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the additional guidance about web ACL management in the `AWS::WAFv2::WebACL` resource description.
         """
         return pulumi.get(self, "application_layer_automatic_response_configuration")
 
@@ -131,7 +131,7 @@ class Protection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationArgsDict']] application_layer_automatic_response_configuration: The automatic application layer DDoS mitigation settings for the protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
                
-               If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the additional guidance about web ACL management in the `AWS::WAFv2::WebACL` resource description.
+               If you use CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the additional guidance about web ACL management in the `AWS::WAFv2::WebACL` resource description.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] health_check_arns: The Amazon Resource Names (ARNs) of the health check to associate with the protection.
         :param pulumi.Input[_builtins.str] name: Friendly name for the Protection.
         :param pulumi.Input[_builtins.str] resource_arn: The ARN (Amazon Resource Name) of the resource to be protected.
@@ -223,7 +223,7 @@ class Protection(pulumi.CustomResource):
         """
         The automatic application layer DDoS mitigation settings for the protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
 
-        If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the additional guidance about web ACL management in the `AWS::WAFv2::WebACL` resource description.
+        If you use CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the additional guidance about web ACL management in the `AWS::WAFv2::WebACL` resource description.
         """
         return pulumi.get(self, "application_layer_automatic_response_configuration")
 

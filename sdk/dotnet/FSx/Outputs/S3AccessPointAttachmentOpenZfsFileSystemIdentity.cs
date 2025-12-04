@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.FSx.Outputs
         /// </summary>
         public readonly Outputs.S3AccessPointAttachmentOpenZfsPosixFileSystemUser PosixUser;
         /// <summary>
-        /// Specifies the FSx for OpenZFS user identity type, accepts only `POSIX` .
+        /// Specifies the FSx for OpenZFS user identity type, accepts only POSIX.
         /// </summary>
         public readonly Pulumi.AwsNative.FSx.S3AccessPointAttachmentOpenZfsFileSystemIdentityType Type;
 

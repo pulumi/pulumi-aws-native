@@ -36,7 +36,7 @@ type LookupArchiveResult struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Events::Archive` for more information about the expected schema for this property.
 	EventPattern interface{} `pulumi:"eventPattern"`
-	// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	// The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 	//
 	// If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the archive.
 	//
@@ -99,7 +99,7 @@ func (o LookupArchiveResultOutput) EventPattern() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupArchiveResult) interface{} { return v.EventPattern }).(pulumi.AnyOutput)
 }
 
-// The identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+// The identifier of the AWS  customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
 //
 // If you do not specify a customer managed key identifier, EventBridge uses an AWS owned key to encrypt the archive.
 //

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetAggregation
     {
+        /// <summary>
+        /// The aggregation function to apply, such as `SUM` , `COUNT` , `AVERAGE` , `MIN` , `MAX`
+        /// </summary>
         public readonly Outputs.DataSetDataPrepAggregationFunction AggregationFunction;
+        /// <summary>
+        /// A unique identifier for the new column that will contain the aggregated values.
+        /// </summary>
         public readonly string NewColumnId;
+        /// <summary>
+        /// The name for the new column that will contain the aggregated values.
+        /// </summary>
         public readonly string NewColumnName;
 
         [OutputConstructor]

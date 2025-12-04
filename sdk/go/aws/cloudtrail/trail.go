@@ -19,6 +19,8 @@ type Trail struct {
 
 	// The advanced event selectors that were used to select events for the data store.
 	AdvancedEventSelectors TrailAdvancedEventSelectorArrayOutput `pulumi:"advancedEventSelectors"`
+	// Specifies the aggregation configuration to aggregate CloudTrail Events. A maximum of 1 aggregation configuration is allowed.
+	AggregationConfigurations TrailAggregationConfigurationArrayOutput `pulumi:"aggregationConfigurations"`
 	// `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
@@ -45,7 +47,7 @@ type Trail struct {
 	S3BucketName pulumi.StringOutput `pulumi:"s3BucketName"`
 	// Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
 	S3KeyPrefix pulumi.StringPtrOutput `pulumi:"s3KeyPrefix"`
-	// `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
+	// `Ref` returns the ARN of the Amazon  topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
 	SnsTopicArn pulumi.StringOutput `pulumi:"snsTopicArn"`
 	// Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
 	SnsTopicName pulumi.StringPtrOutput `pulumi:"snsTopicName"`
@@ -113,6 +115,8 @@ func (TrailState) ElementType() reflect.Type {
 type trailArgs struct {
 	// The advanced event selectors that were used to select events for the data store.
 	AdvancedEventSelectors []TrailAdvancedEventSelector `pulumi:"advancedEventSelectors"`
+	// Specifies the aggregation configuration to aggregate CloudTrail Events. A maximum of 1 aggregation configuration is allowed.
+	AggregationConfigurations []TrailAggregationConfiguration `pulumi:"aggregationConfigurations"`
 	// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
 	CloudWatchLogsLogGroupArn *string `pulumi:"cloudWatchLogsLogGroupArn"`
 	// Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
@@ -155,6 +159,8 @@ type trailArgs struct {
 type TrailArgs struct {
 	// The advanced event selectors that were used to select events for the data store.
 	AdvancedEventSelectors TrailAdvancedEventSelectorArrayInput
+	// Specifies the aggregation configuration to aggregate CloudTrail Events. A maximum of 1 aggregation configuration is allowed.
+	AggregationConfigurations TrailAggregationConfigurationArrayInput
 	// Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
 	CloudWatchLogsLogGroupArn pulumi.StringPtrInput
 	// Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's log group.
@@ -235,6 +241,11 @@ func (o TrailOutput) AdvancedEventSelectors() TrailAdvancedEventSelectorArrayOut
 	return o.ApplyT(func(v *Trail) TrailAdvancedEventSelectorArrayOutput { return v.AdvancedEventSelectors }).(TrailAdvancedEventSelectorArrayOutput)
 }
 
+// Specifies the aggregation configuration to aggregate CloudTrail Events. A maximum of 1 aggregation configuration is allowed.
+func (o TrailOutput) AggregationConfigurations() TrailAggregationConfigurationArrayOutput {
+	return o.ApplyT(func(v *Trail) TrailAggregationConfigurationArrayOutput { return v.AggregationConfigurations }).(TrailAggregationConfigurationArrayOutput)
+}
+
 // `Ref` returns the ARN of the CloudTrail trail, such as `arn:aws:cloudtrail:us-east-2:123456789012:trail/myCloudTrail` .
 func (o TrailOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
@@ -300,7 +311,7 @@ func (o TrailOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringPtrOutput { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
-// `Ref` returns the ARN of the Amazon SNS topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
+// `Ref` returns the ARN of the Amazon  topic that's associated with the CloudTrail trail, such as `arn:aws:sns:us-east-2:123456789012:mySNSTopic` .
 func (o TrailOutput) SnsTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringOutput { return v.SnsTopicArn }).(pulumi.StringOutput)
 }

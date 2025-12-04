@@ -125,6 +125,12 @@ namespace Pulumi.AwsNative.Lambda
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
+        /// The function's Amazon CloudWatch Logs configuration settings.
+        /// </summary>
+        [Output("loggingConfig")]
+        public Output<Outputs.EventSourceMappingLoggingConfig?> LoggingConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
         ///  *Default (, , event sources)*: 0
         ///  *Default (, Kafka, , event sources)*: 500 ms
@@ -159,7 +165,7 @@ namespace Pulumi.AwsNative.Lambda
         public Output<int?> ParallelizationFactor { get; private set; } = null!;
 
         /// <summary>
-        /// (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
+        /// (Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
         /// </summary>
         [Output("provisionedPollerConfig")]
         public Output<Outputs.EventSourceMappingProvisionedPollerConfig?> ProvisionedPollerConfig { get; private set; } = null!;
@@ -171,7 +177,7 @@ namespace Pulumi.AwsNative.Lambda
         public Output<ImmutableArray<string>> Queues { get; private set; } = null!;
 
         /// <summary>
-        /// (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+        /// This property is for Amazon SQS event sources only. You cannot use ``ProvisionedPollerConfig`` while using ``ScalingConfig``. These options are mutually exclusive. To remove the scaling configuration, pass an empty value.
         /// </summary>
         [Output("scalingConfig")]
         public Output<Outputs.EventSourceMappingScalingConfig?> ScalingConfig { get; private set; } = null!;
@@ -376,6 +382,12 @@ namespace Pulumi.AwsNative.Lambda
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
+        /// The function's Amazon CloudWatch Logs configuration settings.
+        /// </summary>
+        [Input("loggingConfig")]
+        public Input<Inputs.EventSourceMappingLoggingConfigArgs>? LoggingConfig { get; set; }
+
+        /// <summary>
         /// The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
         ///  *Default (, , event sources)*: 0
         ///  *Default (, Kafka, , event sources)*: 500 ms
@@ -410,7 +422,7 @@ namespace Pulumi.AwsNative.Lambda
         public Input<int>? ParallelizationFactor { get; set; }
 
         /// <summary>
-        /// (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
+        /// (Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
         /// </summary>
         [Input("provisionedPollerConfig")]
         public Input<Inputs.EventSourceMappingProvisionedPollerConfigArgs>? ProvisionedPollerConfig { get; set; }
@@ -428,7 +440,7 @@ namespace Pulumi.AwsNative.Lambda
         }
 
         /// <summary>
-        /// (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+        /// This property is for Amazon SQS event sources only. You cannot use ``ProvisionedPollerConfig`` while using ``ScalingConfig``. These options are mutually exclusive. To remove the scaling configuration, pass an empty value.
         /// </summary>
         [Input("scalingConfig")]
         public Input<Inputs.EventSourceMappingScalingConfigArgs>? ScalingConfig { get; set; }

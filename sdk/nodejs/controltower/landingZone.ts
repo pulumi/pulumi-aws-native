@@ -60,6 +60,10 @@ export class LandingZone extends pulumi.CustomResource {
      */
     declare public readonly manifest: pulumi.Output<any>;
     /**
+     * The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.
+     */
+    declare public readonly remediationTypes: pulumi.Output<enums.controltower.LandingZoneRemediationTypesItem[] | undefined>;
+    /**
      * The landing zone deployment status. One of `ACTIVE` , `PROCESSING` , `FAILED` .
      */
     declare public /*out*/ readonly status: pulumi.Output<enums.controltower.LandingZoneStatus>;
@@ -90,6 +94,7 @@ export class LandingZone extends pulumi.CustomResource {
                 throw new Error("Missing required property 'version'");
             }
             resourceInputs["manifest"] = args?.manifest;
+            resourceInputs["remediationTypes"] = args?.remediationTypes;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["version"] = args?.version;
             resourceInputs["arn"] = undefined /*out*/;
@@ -103,6 +108,7 @@ export class LandingZone extends pulumi.CustomResource {
             resourceInputs["landingZoneIdentifier"] = undefined /*out*/;
             resourceInputs["latestAvailableVersion"] = undefined /*out*/;
             resourceInputs["manifest"] = undefined /*out*/;
+            resourceInputs["remediationTypes"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
@@ -122,6 +128,10 @@ export interface LandingZoneArgs {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
      */
     manifest: any;
+    /**
+     * The types of remediation actions configured for the landing zone, such as automatic drift correction or compliance enforcement.
+     */
+    remediationTypes?: pulumi.Input<pulumi.Input<enums.controltower.LandingZoneRemediationTypesItem>[]>;
     /**
      * Tags to be applied to the landing zone.
      */

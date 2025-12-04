@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The data preparation configuration associated with this dataset.
+        /// </summary>
         [Output("dataPrepConfiguration")]
         public Output<Outputs.DataSetDataPrepConfiguration?> DataPrepConfiguration { get; private set; } = null!;
 
@@ -151,6 +154,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("rowLevelPermissionTagConfiguration")]
         public Output<Outputs.DataSetRowLevelPermissionTagConfiguration?> RowLevelPermissionTagConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The semantic model configuration associated with this dataset.
+        /// </summary>
         [Output("semanticModelConfiguration")]
         public Output<Outputs.DataSetSemanticModelConfiguration?> SemanticModelConfiguration { get; private set; } = null!;
 
@@ -248,6 +254,9 @@ namespace Pulumi.AwsNative.QuickSight
             set => _columnLevelPermissionRules = value;
         }
 
+        /// <summary>
+        /// The data preparation configuration associated with this dataset.
+        /// </summary>
         [Input("dataPrepConfiguration")]
         public Input<Inputs.DataSetDataPrepConfigurationArgs>? DataPrepConfiguration { get; set; }
 
@@ -367,6 +376,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("rowLevelPermissionTagConfiguration")]
         public Input<Inputs.DataSetRowLevelPermissionTagConfigurationArgs>? RowLevelPermissionTagConfiguration { get; set; }
 
+        /// <summary>
+        /// The semantic model configuration associated with this dataset.
+        /// </summary>
         [Input("semanticModelConfiguration")]
         public Input<Inputs.DataSetSemanticModelConfigurationArgs>? SemanticModelConfiguration { get; set; }
 

@@ -64,6 +64,14 @@ namespace Pulumi.AwsNative.SecretsManager
     public sealed class GetRotationScheduleResult
     {
         /// <summary>
+        /// The list of metadata needed to successfully rotate a managed external secret.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RotationScheduleExternalSecretRotationMetadataItem> ExternalSecretRotationMetadata;
+        /// <summary>
+        /// The ARN of the IAM role that is used by Secrets Manager to rotate a managed external secret.
+        /// </summary>
+        public readonly string? ExternalSecretRotationRoleArn;
+        /// <summary>
         /// The ARN of the secret.
         /// </summary>
         public readonly string? Id;
@@ -78,12 +86,18 @@ namespace Pulumi.AwsNative.SecretsManager
 
         [OutputConstructor]
         private GetRotationScheduleResult(
+            ImmutableArray<Outputs.RotationScheduleExternalSecretRotationMetadataItem> externalSecretRotationMetadata,
+
+            string? externalSecretRotationRoleArn,
+
             string? id,
 
             string? rotationLambdaArn,
 
             Outputs.RotationScheduleRotationRules? rotationRules)
         {
+            ExternalSecretRotationMetadata = externalSecretRotationMetadata;
+            ExternalSecretRotationRoleArn = externalSecretRotationRoleArn;
             Id = id;
             RotationLambdaArn = rotationLambdaArn;
             RotationRules = rotationRules;

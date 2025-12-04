@@ -300,7 +300,13 @@ export class AnomalyMonitor extends pulumi.CustomResource {
      */
     declare public readonly monitorSpecification: pulumi.Output<string | undefined>;
     /**
-     * The possible type values.
+     * The type of the monitor.
+     *
+     * Set this to `DIMENSIONAL` for an AWS managed monitor. AWS managed monitors automatically track up to the top 5,000 values by cost within a dimension of your choosing. Each dimension value is evaluated independently. If you start incurring cost in a new value of your chosen dimension, it will automatically be analyzed by an AWS managed monitor.
+     *
+     * Set this to `CUSTOM` for a customer managed monitor. Customer managed monitors let you select specific dimension values that get monitored in aggregate.
+     *
+     * For more information about monitor types, see [Monitor types](https://docs.aws.amazon.com/cost-management/latest/userguide/getting-started-ad.html#monitor-type-def) in the *Billing and Cost Management User Guide* .
      */
     declare public readonly monitorType: pulumi.Output<enums.ce.AnomalyMonitorMonitorType>;
     /**
@@ -368,7 +374,13 @@ export interface AnomalyMonitorArgs {
      */
     monitorSpecification?: pulumi.Input<string>;
     /**
-     * The possible type values.
+     * The type of the monitor.
+     *
+     * Set this to `DIMENSIONAL` for an AWS managed monitor. AWS managed monitors automatically track up to the top 5,000 values by cost within a dimension of your choosing. Each dimension value is evaluated independently. If you start incurring cost in a new value of your chosen dimension, it will automatically be analyzed by an AWS managed monitor.
+     *
+     * Set this to `CUSTOM` for a customer managed monitor. Customer managed monitors let you select specific dimension values that get monitored in aggregate.
+     *
+     * For more information about monitor types, see [Monitor types](https://docs.aws.amazon.com/cost-management/latest/userguide/getting-started-ad.html#monitor-type-def) in the *Billing and Cost Management User Guide* .
      */
     monitorType: pulumi.Input<enums.ce.AnomalyMonitorMonitorType>;
     /**

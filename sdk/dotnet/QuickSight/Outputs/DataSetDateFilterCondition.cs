@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetDateFilterCondition
     {
+        /// <summary>
+        /// The name of the date column to filter.
+        /// </summary>
         public readonly string? ColumnName;
+        /// <summary>
+        /// A comparison-based filter condition for the date column.
+        /// </summary>
         public readonly Outputs.DataSetDateComparisonFilterCondition? ComparisonFilterCondition;
+        /// <summary>
+        /// A range-based filter condition for the date column, filtering values between minimum and maximum dates.
+        /// </summary>
         public readonly Outputs.DataSetDateRangeFilterCondition? RangeFilterCondition;
 
         [OutputConstructor]

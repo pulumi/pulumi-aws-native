@@ -37,6 +37,7 @@ class SessionLoggerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: The additional encryption context of the session logger.
         :param pulumi.Input[_builtins.str] customer_managed_key: The custom managed key of the session logger.
         :param pulumi.Input[_builtins.str] display_name: The human-readable display name.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags of the session logger.
         """
         pulumi.set(__self__, "event_filter", event_filter)
         pulumi.set(__self__, "log_configuration", log_configuration)
@@ -112,6 +113,9 @@ class SessionLoggerArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags of the session logger.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -142,6 +146,7 @@ class SessionLogger(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: The human-readable display name.
         :param pulumi.Input[Union[Union['SessionLoggerEventFilter0PropertiesArgs', 'SessionLoggerEventFilter0PropertiesArgsDict'], Union['SessionLoggerEventFilter1PropertiesArgs', 'SessionLoggerEventFilter1PropertiesArgsDict']]] event_filter: The filter that specifies which events to monitor.
         :param pulumi.Input[Union['SessionLoggerLogConfigurationArgs', 'SessionLoggerLogConfigurationArgsDict']] log_configuration: The configuration that specifies where logs are fowarded.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags of the session logger.
         """
         ...
     @overload
@@ -297,5 +302,8 @@ class SessionLogger(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags of the session logger.
+        """
         return pulumi.get(self, "tags")
 

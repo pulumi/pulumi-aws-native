@@ -27,7 +27,7 @@ type Cluster struct {
 	// Represents the configuration that you want MSK to use for the cluster.
 	ConfigurationInfo ClusterConfigurationInfoPtrOutput `pulumi:"configurationInfo"`
 	// The current version of the MSK cluster
-	CurrentVersion pulumi.StringPtrOutput `pulumi:"currentVersion"`
+	CurrentVersion pulumi.StringOutput `pulumi:"currentVersion"`
 	// Includes all encryption-related information.
 	EncryptionInfo ClusterEncryptionInfoPtrOutput `pulumi:"encryptionInfo"`
 	// Specifies the level of monitoring for the MSK cluster.
@@ -40,6 +40,7 @@ type Cluster struct {
 	NumberOfBrokerNodes pulumi.IntOutput `pulumi:"numberOfBrokerNodes"`
 	// The settings for open monitoring.
 	OpenMonitoring ClusterOpenMonitoringPtrOutput `pulumi:"openMonitoring"`
+	Rebalancing    ClusterRebalancingPtrOutput    `pulumi:"rebalancing"`
 	// This controls storage mode for supported storage tiers.
 	StorageMode ClusterStorageModePtrOutput `pulumi:"storageMode"`
 	// A key-value pair to associate with a resource.
@@ -112,8 +113,6 @@ type clusterArgs struct {
 	ClusterName *string `pulumi:"clusterName"`
 	// Represents the configuration that you want MSK to use for the cluster.
 	ConfigurationInfo *ClusterConfigurationInfo `pulumi:"configurationInfo"`
-	// The current version of the MSK cluster
-	CurrentVersion *string `pulumi:"currentVersion"`
 	// Includes all encryption-related information.
 	EncryptionInfo *ClusterEncryptionInfo `pulumi:"encryptionInfo"`
 	// Specifies the level of monitoring for the MSK cluster.
@@ -126,6 +125,7 @@ type clusterArgs struct {
 	NumberOfBrokerNodes int `pulumi:"numberOfBrokerNodes"`
 	// The settings for open monitoring.
 	OpenMonitoring *ClusterOpenMonitoring `pulumi:"openMonitoring"`
+	Rebalancing    *ClusterRebalancing    `pulumi:"rebalancing"`
 	// This controls storage mode for supported storage tiers.
 	StorageMode *ClusterStorageMode `pulumi:"storageMode"`
 	// A key-value pair to associate with a resource.
@@ -142,8 +142,6 @@ type ClusterArgs struct {
 	ClusterName pulumi.StringPtrInput
 	// Represents the configuration that you want MSK to use for the cluster.
 	ConfigurationInfo ClusterConfigurationInfoPtrInput
-	// The current version of the MSK cluster
-	CurrentVersion pulumi.StringPtrInput
 	// Includes all encryption-related information.
 	EncryptionInfo ClusterEncryptionInfoPtrInput
 	// Specifies the level of monitoring for the MSK cluster.
@@ -156,6 +154,7 @@ type ClusterArgs struct {
 	NumberOfBrokerNodes pulumi.IntInput
 	// The settings for open monitoring.
 	OpenMonitoring ClusterOpenMonitoringPtrInput
+	Rebalancing    ClusterRebalancingPtrInput
 	// This controls storage mode for supported storage tiers.
 	StorageMode ClusterStorageModePtrInput
 	// A key-value pair to associate with a resource.
@@ -225,8 +224,8 @@ func (o ClusterOutput) ConfigurationInfo() ClusterConfigurationInfoPtrOutput {
 }
 
 // The current version of the MSK cluster
-func (o ClusterOutput) CurrentVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.CurrentVersion }).(pulumi.StringPtrOutput)
+func (o ClusterOutput) CurrentVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.CurrentVersion }).(pulumi.StringOutput)
 }
 
 // Includes all encryption-related information.
@@ -257,6 +256,10 @@ func (o ClusterOutput) NumberOfBrokerNodes() pulumi.IntOutput {
 // The settings for open monitoring.
 func (o ClusterOutput) OpenMonitoring() ClusterOpenMonitoringPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterOpenMonitoringPtrOutput { return v.OpenMonitoring }).(ClusterOpenMonitoringPtrOutput)
+}
+
+func (o ClusterOutput) Rebalancing() ClusterRebalancingPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterRebalancingPtrOutput { return v.Rebalancing }).(ClusterRebalancingPtrOutput)
 }
 
 // This controls storage mode for supported storage tiers.

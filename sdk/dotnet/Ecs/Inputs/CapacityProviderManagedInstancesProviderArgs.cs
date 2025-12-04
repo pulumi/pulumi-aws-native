@@ -13,6 +13,12 @@ namespace Pulumi.AwsNative.Ecs.Inputs
     public sealed class CapacityProviderManagedInstancesProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+        /// </summary>
+        [Input("infrastructureOptimization")]
+        public Input<Inputs.CapacityProviderManagedInstancesProviderInfrastructureOptimizationPropertiesArgs>? InfrastructureOptimization { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS assumes to manage instances. This role must include permissions for Amazon EC2 instance lifecycle management, networking, and any additional AWS services required for your workloads.
         /// 
         /// For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the *Amazon ECS Developer Guide* .

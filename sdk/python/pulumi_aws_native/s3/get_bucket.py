@@ -26,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetBucketResult:
-    def __init__(__self__, accelerate_configuration=None, analytics_configurations=None, arn=None, bucket_encryption=None, cors_configuration=None, domain_name=None, dual_stack_domain_name=None, intelligent_tiering_configurations=None, inventory_configurations=None, lifecycle_configuration=None, logging_configuration=None, metadata_configuration=None, metadata_table_configuration=None, metrics_configurations=None, notification_configuration=None, object_lock_configuration=None, object_lock_enabled=None, ownership_controls=None, public_access_block_configuration=None, regional_domain_name=None, replication_configuration=None, tags=None, versioning_configuration=None, website_configuration=None, website_url=None):
+    def __init__(__self__, abac_status=None, accelerate_configuration=None, analytics_configurations=None, arn=None, bucket_encryption=None, cors_configuration=None, domain_name=None, dual_stack_domain_name=None, intelligent_tiering_configurations=None, inventory_configurations=None, lifecycle_configuration=None, logging_configuration=None, metadata_configuration=None, metadata_table_configuration=None, metrics_configurations=None, notification_configuration=None, object_lock_configuration=None, object_lock_enabled=None, ownership_controls=None, public_access_block_configuration=None, regional_domain_name=None, replication_configuration=None, tags=None, versioning_configuration=None, website_configuration=None, website_url=None):
+        if abac_status and not isinstance(abac_status, str):
+            raise TypeError("Expected argument 'abac_status' to be a str")
+        pulumi.set(__self__, "abac_status", abac_status)
         if accelerate_configuration and not isinstance(accelerate_configuration, dict):
             raise TypeError("Expected argument 'accelerate_configuration' to be a dict")
         pulumi.set(__self__, "accelerate_configuration", accelerate_configuration)
@@ -102,6 +105,14 @@ class GetBucketResult:
         if website_url and not isinstance(website_url, str):
             raise TypeError("Expected argument 'website_url' to be a str")
         pulumi.set(__self__, "website_url", website_url)
+
+    @_builtins.property
+    @pulumi.getter(name="abacStatus")
+    def abac_status(self) -> Optional['BucketAbacStatus']:
+        """
+        The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see [Using tags with S3 general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html) .
+        """
+        return pulumi.get(self, "abac_status")
 
     @_builtins.property
     @pulumi.getter(name="accelerateConfiguration")
@@ -332,6 +343,7 @@ class AwaitableGetBucketResult(GetBucketResult):
         if False:
             yield self
         return GetBucketResult(
+            abac_status=self.abac_status,
             accelerate_configuration=self.accelerate_configuration,
             analytics_configurations=self.analytics_configurations,
             arn=self.arn,
@@ -376,6 +388,7 @@ def get_bucket(bucket_name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:s3:getBucket', __args__, opts=opts, typ=GetBucketResult).value
 
     return AwaitableGetBucketResult(
+        abac_status=pulumi.get(__ret__, 'abac_status'),
         accelerate_configuration=pulumi.get(__ret__, 'accelerate_configuration'),
         analytics_configurations=pulumi.get(__ret__, 'analytics_configurations'),
         arn=pulumi.get(__ret__, 'arn'),
@@ -417,6 +430,7 @@ def get_bucket_output(bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:s3:getBucket', __args__, opts=opts, typ=GetBucketResult)
     return __ret__.apply(lambda __response__: GetBucketResult(
+        abac_status=pulumi.get(__response__, 'abac_status'),
         accelerate_configuration=pulumi.get(__response__, 'accelerate_configuration'),
         analytics_configurations=pulumi.get(__response__, 'analytics_configurations'),
         arn=pulumi.get(__response__, 'arn'),

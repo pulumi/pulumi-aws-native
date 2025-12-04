@@ -16,6 +16,7 @@ type RuleResourceType string
 const (
 	RuleResourceTypeEbsSnapshot = RuleResourceType("EBS_SNAPSHOT")
 	RuleResourceTypeEc2Image    = RuleResourceType("EC2_IMAGE")
+	RuleResourceTypeEbsVolume   = RuleResourceType("EBS_VOLUME")
 )
 
 func (RuleResourceType) ElementType() reflect.Type {
@@ -142,6 +143,7 @@ func (o RuleResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 //
 //	RuleResourceTypeEbsSnapshot
 //	RuleResourceTypeEc2Image
+//	RuleResourceTypeEbsVolume
 type RuleResourceTypeInput interface {
 	pulumi.Input
 

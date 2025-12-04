@@ -23,6 +23,7 @@ __all__ = ['BrowserCustomArgs', 'BrowserCustom']
 class BrowserCustomArgs:
     def __init__(__self__, *,
                  network_configuration: pulumi.Input['BrowserCustomBrowserNetworkConfigurationArgs'],
+                 browser_signing: Optional[pulumi.Input['BrowserCustomBrowserSigningArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -31,6 +32,7 @@ class BrowserCustomArgs:
         """
         The set of arguments for constructing a BrowserCustom resource.
         :param pulumi.Input['BrowserCustomBrowserNetworkConfigurationArgs'] network_configuration: Network configuration for browser.
+        :param pulumi.Input['BrowserCustomBrowserSigningArgs'] browser_signing: Browser signing configuration.
         :param pulumi.Input[_builtins.str] description: The description of the browser.
         :param pulumi.Input[_builtins.str] execution_role_arn: The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
         :param pulumi.Input[_builtins.str] name: The name of the browser.
@@ -38,6 +40,8 @@ class BrowserCustomArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags for the custom browser.
         """
         pulumi.set(__self__, "network_configuration", network_configuration)
+        if browser_signing is not None:
+            pulumi.set(__self__, "browser_signing", browser_signing)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if execution_role_arn is not None:
@@ -60,6 +64,18 @@ class BrowserCustomArgs:
     @network_configuration.setter
     def network_configuration(self, value: pulumi.Input['BrowserCustomBrowserNetworkConfigurationArgs']):
         pulumi.set(self, "network_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="browserSigning")
+    def browser_signing(self) -> Optional[pulumi.Input['BrowserCustomBrowserSigningArgs']]:
+        """
+        Browser signing configuration.
+        """
+        return pulumi.get(self, "browser_signing")
+
+    @browser_signing.setter
+    def browser_signing(self, value: Optional[pulumi.Input['BrowserCustomBrowserSigningArgs']]):
+        pulumi.set(self, "browser_signing", value)
 
     @_builtins.property
     @pulumi.getter
@@ -128,6 +144,7 @@ class BrowserCustom(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 browser_signing: Optional[pulumi.Input[Union['BrowserCustomBrowserSigningArgs', 'BrowserCustomBrowserSigningArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -140,6 +157,7 @@ class BrowserCustom(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['BrowserCustomBrowserSigningArgs', 'BrowserCustomBrowserSigningArgsDict']] browser_signing: Browser signing configuration.
         :param pulumi.Input[_builtins.str] description: The description of the browser.
         :param pulumi.Input[_builtins.str] execution_role_arn: The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
         :param pulumi.Input[_builtins.str] name: The name of the browser.
@@ -171,6 +189,7 @@ class BrowserCustom(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 browser_signing: Optional[pulumi.Input[Union['BrowserCustomBrowserSigningArgs', 'BrowserCustomBrowserSigningArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -186,6 +205,7 @@ class BrowserCustom(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BrowserCustomArgs.__new__(BrowserCustomArgs)
 
+            __props__.__dict__["browser_signing"] = browser_signing
             __props__.__dict__["description"] = description
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["name"] = name
@@ -200,7 +220,7 @@ class BrowserCustom(pulumi.CustomResource):
             __props__.__dict__["failure_reason"] = None
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "executionRoleArn", "name", "networkConfiguration", "recordingConfig"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["browserSigning", "description", "executionRoleArn", "name", "networkConfiguration", "recordingConfig"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(BrowserCustom, __self__).__init__(
             'aws-native:bedrockagentcore:BrowserCustom',
@@ -226,6 +246,7 @@ class BrowserCustom(pulumi.CustomResource):
 
         __props__.__dict__["browser_arn"] = None
         __props__.__dict__["browser_id"] = None
+        __props__.__dict__["browser_signing"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["execution_role_arn"] = None
@@ -253,6 +274,14 @@ class BrowserCustom(pulumi.CustomResource):
         The id of the browser.
         """
         return pulumi.get(self, "browser_id")
+
+    @_builtins.property
+    @pulumi.getter(name="browserSigning")
+    def browser_signing(self) -> pulumi.Output[Optional['outputs.BrowserCustomBrowserSigning']]:
+        """
+        Browser signing configuration.
+        """
+        return pulumi.get(self, "browser_signing")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")

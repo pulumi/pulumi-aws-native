@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         public Input<Inputs.SecurityControlParameterValueArgs>? Value { get; set; }
 
         /// <summary>
-        /// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+        /// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior.
         /// 
         /// When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
         /// 

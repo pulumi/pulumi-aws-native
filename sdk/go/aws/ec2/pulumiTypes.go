@@ -3510,12 +3510,19 @@ type Ec2FleetInstanceRequirementsRequest struct {
 	// - For instance types with NVIDIA A100 GPUs, specify `a100` .
 	// - For instance types with NVIDIA H100 GPUs, specify `h100` .
 	// - For instance types with AWS Inferentia chips, specify `inferentia` .
+	// - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
+	// - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
 	// - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
 	// - For instance types with NVIDIA K80 GPUs, specify `k80` .
+	// - For instance types with NVIDIA L4 GPUs, specify `l4` .
+	// - For instance types with NVIDIA L40S GPUs, specify `l40s` .
 	// - For instance types with NVIDIA M60 GPUs, specify `m60` .
 	// - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+	// - For instance types with AWS Trainium chips, specify `trainium` .
+	// - For instance types with AWS Trainium2 chips, specify `trainium2` .
 	// - For instance types with NVIDIA T4 GPUs, specify `t4` .
 	// - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+	// - For instance types with Xilinx U30 cards, specify `u30` .
 	// - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
 	// - For instance types with NVIDIA V100 GPUs, specify `v100` .
 	//
@@ -3530,6 +3537,7 @@ type Ec2FleetInstanceRequirementsRequest struct {
 	// - For instance types with FPGA accelerators, specify `fpga` .
 	// - For instance types with GPU accelerators, specify `gpu` .
 	// - For instance types with Inference accelerators, specify `inference` .
+	// - For instance types with Media accelerators, specify `media` .
 	//
 	// Default: Any accelerator type
 	AcceleratorTypes []Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem `pulumi:"acceleratorTypes"`
@@ -3703,12 +3711,19 @@ type Ec2FleetInstanceRequirementsRequestArgs struct {
 	// - For instance types with NVIDIA A100 GPUs, specify `a100` .
 	// - For instance types with NVIDIA H100 GPUs, specify `h100` .
 	// - For instance types with AWS Inferentia chips, specify `inferentia` .
+	// - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
+	// - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
 	// - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
 	// - For instance types with NVIDIA K80 GPUs, specify `k80` .
+	// - For instance types with NVIDIA L4 GPUs, specify `l4` .
+	// - For instance types with NVIDIA L40S GPUs, specify `l40s` .
 	// - For instance types with NVIDIA M60 GPUs, specify `m60` .
 	// - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+	// - For instance types with AWS Trainium chips, specify `trainium` .
+	// - For instance types with AWS Trainium2 chips, specify `trainium2` .
 	// - For instance types with NVIDIA T4 GPUs, specify `t4` .
 	// - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+	// - For instance types with Xilinx U30 cards, specify `u30` .
 	// - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
 	// - For instance types with NVIDIA V100 GPUs, specify `v100` .
 	//
@@ -3723,6 +3738,7 @@ type Ec2FleetInstanceRequirementsRequestArgs struct {
 	// - For instance types with FPGA accelerators, specify `fpga` .
 	// - For instance types with GPU accelerators, specify `gpu` .
 	// - For instance types with Inference accelerators, specify `inference` .
+	// - For instance types with Media accelerators, specify `media` .
 	//
 	// Default: Any accelerator type
 	AcceleratorTypes Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput `pulumi:"acceleratorTypes"`
@@ -3971,12 +3987,19 @@ func (o Ec2FleetInstanceRequirementsRequestOutput) AcceleratorManufacturers() Ec
 // - For instance types with NVIDIA A100 GPUs, specify `a100` .
 // - For instance types with NVIDIA H100 GPUs, specify `h100` .
 // - For instance types with AWS Inferentia chips, specify `inferentia` .
+// - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
+// - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
 // - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
 // - For instance types with NVIDIA K80 GPUs, specify `k80` .
+// - For instance types with NVIDIA L4 GPUs, specify `l4` .
+// - For instance types with NVIDIA L40S GPUs, specify `l40s` .
 // - For instance types with NVIDIA M60 GPUs, specify `m60` .
 // - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+// - For instance types with AWS Trainium chips, specify `trainium` .
+// - For instance types with AWS Trainium2 chips, specify `trainium2` .
 // - For instance types with NVIDIA T4 GPUs, specify `t4` .
 // - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+// - For instance types with Xilinx U30 cards, specify `u30` .
 // - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
 // - For instance types with NVIDIA V100 GPUs, specify `v100` .
 //
@@ -4001,6 +4024,7 @@ func (o Ec2FleetInstanceRequirementsRequestOutput) AcceleratorTotalMemoryMiB() E
 // - For instance types with FPGA accelerators, specify `fpga` .
 // - For instance types with GPU accelerators, specify `gpu` .
 // - For instance types with Inference accelerators, specify `inference` .
+// - For instance types with Media accelerators, specify `media` .
 //
 // Default: Any accelerator type
 func (o Ec2FleetInstanceRequirementsRequestOutput) AcceleratorTypes() Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
@@ -4291,12 +4315,19 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorManufacturers()
 // - For instance types with NVIDIA A100 GPUs, specify `a100` .
 // - For instance types with NVIDIA H100 GPUs, specify `h100` .
 // - For instance types with AWS Inferentia chips, specify `inferentia` .
+// - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
+// - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
 // - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
 // - For instance types with NVIDIA K80 GPUs, specify `k80` .
+// - For instance types with NVIDIA L4 GPUs, specify `l4` .
+// - For instance types with NVIDIA L40S GPUs, specify `l40s` .
 // - For instance types with NVIDIA M60 GPUs, specify `m60` .
 // - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+// - For instance types with AWS Trainium chips, specify `trainium` .
+// - For instance types with AWS Trainium2 chips, specify `trainium2` .
 // - For instance types with NVIDIA T4 GPUs, specify `t4` .
 // - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+// - For instance types with Xilinx U30 cards, specify `u30` .
 // - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
 // - For instance types with NVIDIA V100 GPUs, specify `v100` .
 //
@@ -4327,6 +4358,7 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorTotalMemoryMiB(
 // - For instance types with FPGA accelerators, specify `fpga` .
 // - For instance types with GPU accelerators, specify `gpu` .
 // - For instance types with Inference accelerators, specify `inference` .
+// - For instance types with Media accelerators, specify `media` .
 //
 // Default: Any accelerator type
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorTypes() Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
@@ -10786,6 +10818,167 @@ type IpamResourceDiscoveryTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
+}
+
+// External service configuration to connect your AWS IPAM scope.
+type IpamScopeExternalAuthorityConfiguration struct {
+	// Resource identifier of the scope in the external service connecting to your AWS IPAM scope.
+	ExternalResourceIdentifier string `pulumi:"externalResourceIdentifier"`
+	// An external service connecting to your AWS IPAM scope.
+	IpamScopeExternalAuthorityType IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType `pulumi:"ipamScopeExternalAuthorityType"`
+}
+
+// IpamScopeExternalAuthorityConfigurationInput is an input type that accepts IpamScopeExternalAuthorityConfigurationArgs and IpamScopeExternalAuthorityConfigurationOutput values.
+// You can construct a concrete instance of `IpamScopeExternalAuthorityConfigurationInput` via:
+//
+//	IpamScopeExternalAuthorityConfigurationArgs{...}
+type IpamScopeExternalAuthorityConfigurationInput interface {
+	pulumi.Input
+
+	ToIpamScopeExternalAuthorityConfigurationOutput() IpamScopeExternalAuthorityConfigurationOutput
+	ToIpamScopeExternalAuthorityConfigurationOutputWithContext(context.Context) IpamScopeExternalAuthorityConfigurationOutput
+}
+
+// External service configuration to connect your AWS IPAM scope.
+type IpamScopeExternalAuthorityConfigurationArgs struct {
+	// Resource identifier of the scope in the external service connecting to your AWS IPAM scope.
+	ExternalResourceIdentifier pulumi.StringInput `pulumi:"externalResourceIdentifier"`
+	// An external service connecting to your AWS IPAM scope.
+	IpamScopeExternalAuthorityType IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeInput `pulumi:"ipamScopeExternalAuthorityType"`
+}
+
+func (IpamScopeExternalAuthorityConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamScopeExternalAuthorityConfiguration)(nil)).Elem()
+}
+
+func (i IpamScopeExternalAuthorityConfigurationArgs) ToIpamScopeExternalAuthorityConfigurationOutput() IpamScopeExternalAuthorityConfigurationOutput {
+	return i.ToIpamScopeExternalAuthorityConfigurationOutputWithContext(context.Background())
+}
+
+func (i IpamScopeExternalAuthorityConfigurationArgs) ToIpamScopeExternalAuthorityConfigurationOutputWithContext(ctx context.Context) IpamScopeExternalAuthorityConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamScopeExternalAuthorityConfigurationOutput)
+}
+
+func (i IpamScopeExternalAuthorityConfigurationArgs) ToIpamScopeExternalAuthorityConfigurationPtrOutput() IpamScopeExternalAuthorityConfigurationPtrOutput {
+	return i.ToIpamScopeExternalAuthorityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i IpamScopeExternalAuthorityConfigurationArgs) ToIpamScopeExternalAuthorityConfigurationPtrOutputWithContext(ctx context.Context) IpamScopeExternalAuthorityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamScopeExternalAuthorityConfigurationOutput).ToIpamScopeExternalAuthorityConfigurationPtrOutputWithContext(ctx)
+}
+
+// IpamScopeExternalAuthorityConfigurationPtrInput is an input type that accepts IpamScopeExternalAuthorityConfigurationArgs, IpamScopeExternalAuthorityConfigurationPtr and IpamScopeExternalAuthorityConfigurationPtrOutput values.
+// You can construct a concrete instance of `IpamScopeExternalAuthorityConfigurationPtrInput` via:
+//
+//	        IpamScopeExternalAuthorityConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type IpamScopeExternalAuthorityConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToIpamScopeExternalAuthorityConfigurationPtrOutput() IpamScopeExternalAuthorityConfigurationPtrOutput
+	ToIpamScopeExternalAuthorityConfigurationPtrOutputWithContext(context.Context) IpamScopeExternalAuthorityConfigurationPtrOutput
+}
+
+type ipamScopeExternalAuthorityConfigurationPtrType IpamScopeExternalAuthorityConfigurationArgs
+
+func IpamScopeExternalAuthorityConfigurationPtr(v *IpamScopeExternalAuthorityConfigurationArgs) IpamScopeExternalAuthorityConfigurationPtrInput {
+	return (*ipamScopeExternalAuthorityConfigurationPtrType)(v)
+}
+
+func (*ipamScopeExternalAuthorityConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpamScopeExternalAuthorityConfiguration)(nil)).Elem()
+}
+
+func (i *ipamScopeExternalAuthorityConfigurationPtrType) ToIpamScopeExternalAuthorityConfigurationPtrOutput() IpamScopeExternalAuthorityConfigurationPtrOutput {
+	return i.ToIpamScopeExternalAuthorityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *ipamScopeExternalAuthorityConfigurationPtrType) ToIpamScopeExternalAuthorityConfigurationPtrOutputWithContext(ctx context.Context) IpamScopeExternalAuthorityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpamScopeExternalAuthorityConfigurationPtrOutput)
+}
+
+// External service configuration to connect your AWS IPAM scope.
+type IpamScopeExternalAuthorityConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IpamScopeExternalAuthorityConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamScopeExternalAuthorityConfiguration)(nil)).Elem()
+}
+
+func (o IpamScopeExternalAuthorityConfigurationOutput) ToIpamScopeExternalAuthorityConfigurationOutput() IpamScopeExternalAuthorityConfigurationOutput {
+	return o
+}
+
+func (o IpamScopeExternalAuthorityConfigurationOutput) ToIpamScopeExternalAuthorityConfigurationOutputWithContext(ctx context.Context) IpamScopeExternalAuthorityConfigurationOutput {
+	return o
+}
+
+func (o IpamScopeExternalAuthorityConfigurationOutput) ToIpamScopeExternalAuthorityConfigurationPtrOutput() IpamScopeExternalAuthorityConfigurationPtrOutput {
+	return o.ToIpamScopeExternalAuthorityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o IpamScopeExternalAuthorityConfigurationOutput) ToIpamScopeExternalAuthorityConfigurationPtrOutputWithContext(ctx context.Context) IpamScopeExternalAuthorityConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpamScopeExternalAuthorityConfiguration) *IpamScopeExternalAuthorityConfiguration {
+		return &v
+	}).(IpamScopeExternalAuthorityConfigurationPtrOutput)
+}
+
+// Resource identifier of the scope in the external service connecting to your AWS IPAM scope.
+func (o IpamScopeExternalAuthorityConfigurationOutput) ExternalResourceIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v IpamScopeExternalAuthorityConfiguration) string { return v.ExternalResourceIdentifier }).(pulumi.StringOutput)
+}
+
+// An external service connecting to your AWS IPAM scope.
+func (o IpamScopeExternalAuthorityConfigurationOutput) IpamScopeExternalAuthorityType() IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput {
+	return o.ApplyT(func(v IpamScopeExternalAuthorityConfiguration) IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType {
+		return v.IpamScopeExternalAuthorityType
+	}).(IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypeOutput)
+}
+
+type IpamScopeExternalAuthorityConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IpamScopeExternalAuthorityConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpamScopeExternalAuthorityConfiguration)(nil)).Elem()
+}
+
+func (o IpamScopeExternalAuthorityConfigurationPtrOutput) ToIpamScopeExternalAuthorityConfigurationPtrOutput() IpamScopeExternalAuthorityConfigurationPtrOutput {
+	return o
+}
+
+func (o IpamScopeExternalAuthorityConfigurationPtrOutput) ToIpamScopeExternalAuthorityConfigurationPtrOutputWithContext(ctx context.Context) IpamScopeExternalAuthorityConfigurationPtrOutput {
+	return o
+}
+
+func (o IpamScopeExternalAuthorityConfigurationPtrOutput) Elem() IpamScopeExternalAuthorityConfigurationOutput {
+	return o.ApplyT(func(v *IpamScopeExternalAuthorityConfiguration) IpamScopeExternalAuthorityConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IpamScopeExternalAuthorityConfiguration
+		return ret
+	}).(IpamScopeExternalAuthorityConfigurationOutput)
+}
+
+// Resource identifier of the scope in the external service connecting to your AWS IPAM scope.
+func (o IpamScopeExternalAuthorityConfigurationPtrOutput) ExternalResourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpamScopeExternalAuthorityConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternalResourceIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// An external service connecting to your AWS IPAM scope.
+func (o IpamScopeExternalAuthorityConfigurationPtrOutput) IpamScopeExternalAuthorityType() IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput {
+	return o.ApplyT(func(v *IpamScopeExternalAuthorityConfiguration) *IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityType {
+		if v == nil {
+			return nil
+		}
+		return &v.IpamScopeExternalAuthorityType
+	}).(IpamScopeExternalAuthorityConfigurationIpamScopeExternalAuthorityTypePtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -26363,12 +26556,19 @@ type SpotFleetInstanceRequirementsRequest struct {
 	// - For instance types with NVIDIA A100 GPUs, specify `a100` .
 	// - For instance types with NVIDIA H100 GPUs, specify `h100` .
 	// - For instance types with AWS Inferentia chips, specify `inferentia` .
+	// - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
+	// - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
 	// - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
 	// - For instance types with NVIDIA K80 GPUs, specify `k80` .
+	// - For instance types with NVIDIA L4 GPUs, specify `l4` .
+	// - For instance types with NVIDIA L40S GPUs, specify `l40s` .
 	// - For instance types with NVIDIA M60 GPUs, specify `m60` .
 	// - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+	// - For instance types with AWS Trainium chips, specify `trainium` .
+	// - For instance types with AWS Trainium2 chips, specify `trainium2` .
 	// - For instance types with NVIDIA T4 GPUs, specify `t4` .
 	// - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+	// - For instance types with Xilinx U30 cards, specify `u30` .
 	// - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
 	// - For instance types with NVIDIA V100 GPUs, specify `v100` .
 	//
@@ -26383,6 +26583,7 @@ type SpotFleetInstanceRequirementsRequest struct {
 	// - For instance types with FPGA accelerators, specify `fpga` .
 	// - For instance types with GPU accelerators, specify `gpu` .
 	// - For instance types with Inference accelerators, specify `inference` .
+	// - For instance types with Media accelerators, specify `media` .
 	//
 	// Default: Any accelerator type
 	AcceleratorTypes []SpotFleetInstanceRequirementsRequestAcceleratorTypesItem `pulumi:"acceleratorTypes"`
@@ -26556,12 +26757,19 @@ type SpotFleetInstanceRequirementsRequestArgs struct {
 	// - For instance types with NVIDIA A100 GPUs, specify `a100` .
 	// - For instance types with NVIDIA H100 GPUs, specify `h100` .
 	// - For instance types with AWS Inferentia chips, specify `inferentia` .
+	// - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
+	// - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
 	// - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
 	// - For instance types with NVIDIA K80 GPUs, specify `k80` .
+	// - For instance types with NVIDIA L4 GPUs, specify `l4` .
+	// - For instance types with NVIDIA L40S GPUs, specify `l40s` .
 	// - For instance types with NVIDIA M60 GPUs, specify `m60` .
 	// - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+	// - For instance types with AWS Trainium chips, specify `trainium` .
+	// - For instance types with AWS Trainium2 chips, specify `trainium2` .
 	// - For instance types with NVIDIA T4 GPUs, specify `t4` .
 	// - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+	// - For instance types with Xilinx U30 cards, specify `u30` .
 	// - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
 	// - For instance types with NVIDIA V100 GPUs, specify `v100` .
 	//
@@ -26576,6 +26784,7 @@ type SpotFleetInstanceRequirementsRequestArgs struct {
 	// - For instance types with FPGA accelerators, specify `fpga` .
 	// - For instance types with GPU accelerators, specify `gpu` .
 	// - For instance types with Inference accelerators, specify `inference` .
+	// - For instance types with Media accelerators, specify `media` .
 	//
 	// Default: Any accelerator type
 	AcceleratorTypes SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput `pulumi:"acceleratorTypes"`
@@ -26824,12 +27033,19 @@ func (o SpotFleetInstanceRequirementsRequestOutput) AcceleratorManufacturers() S
 // - For instance types with NVIDIA A100 GPUs, specify `a100` .
 // - For instance types with NVIDIA H100 GPUs, specify `h100` .
 // - For instance types with AWS Inferentia chips, specify `inferentia` .
+// - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
+// - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
 // - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
 // - For instance types with NVIDIA K80 GPUs, specify `k80` .
+// - For instance types with NVIDIA L4 GPUs, specify `l4` .
+// - For instance types with NVIDIA L40S GPUs, specify `l40s` .
 // - For instance types with NVIDIA M60 GPUs, specify `m60` .
 // - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+// - For instance types with AWS Trainium chips, specify `trainium` .
+// - For instance types with AWS Trainium2 chips, specify `trainium2` .
 // - For instance types with NVIDIA T4 GPUs, specify `t4` .
 // - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+// - For instance types with Xilinx U30 cards, specify `u30` .
 // - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
 // - For instance types with NVIDIA V100 GPUs, specify `v100` .
 //
@@ -26854,6 +27070,7 @@ func (o SpotFleetInstanceRequirementsRequestOutput) AcceleratorTotalMemoryMiB() 
 // - For instance types with FPGA accelerators, specify `fpga` .
 // - For instance types with GPU accelerators, specify `gpu` .
 // - For instance types with Inference accelerators, specify `inference` .
+// - For instance types with Media accelerators, specify `media` .
 //
 // Default: Any accelerator type
 func (o SpotFleetInstanceRequirementsRequestOutput) AcceleratorTypes() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
@@ -27144,12 +27361,19 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) AcceleratorManufacturers(
 // - For instance types with NVIDIA A100 GPUs, specify `a100` .
 // - For instance types with NVIDIA H100 GPUs, specify `h100` .
 // - For instance types with AWS Inferentia chips, specify `inferentia` .
+// - For instance types with AWS Inferentia2 chips, specify `inferentia2` .
+// - For instance types with Habana Gaudi HL-205 GPUs, specify `gaudi-hl-205` .
 // - For instance types with NVIDIA GRID K520 GPUs, specify `k520` .
 // - For instance types with NVIDIA K80 GPUs, specify `k80` .
+// - For instance types with NVIDIA L4 GPUs, specify `l4` .
+// - For instance types with NVIDIA L40S GPUs, specify `l40s` .
 // - For instance types with NVIDIA M60 GPUs, specify `m60` .
 // - For instance types with AMD Radeon Pro V520 GPUs, specify `radeon-pro-v520` .
+// - For instance types with AWS Trainium chips, specify `trainium` .
+// - For instance types with AWS Trainium2 chips, specify `trainium2` .
 // - For instance types with NVIDIA T4 GPUs, specify `t4` .
 // - For instance types with NVIDIA T4G GPUs, specify `t4g` .
+// - For instance types with Xilinx U30 cards, specify `u30` .
 // - For instance types with Xilinx VU9P FPGAs, specify `vu9p` .
 // - For instance types with NVIDIA V100 GPUs, specify `v100` .
 //
@@ -27180,6 +27404,7 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) AcceleratorTotalMemoryMiB
 // - For instance types with FPGA accelerators, specify `fpga` .
 // - For instance types with GPU accelerators, specify `gpu` .
 // - For instance types with Inference accelerators, specify `inference` .
+// - For instance types with Media accelerators, specify `media` .
 //
 // Default: Any accelerator type
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) AcceleratorTypes() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
@@ -31922,6 +32147,17 @@ type TransitGatewayConnectTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type TransitGatewayMeteringPolicyTag struct {
+	// The key of the tag.
+	//
+	// Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with `aws:` .
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	//
+	// Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
+	Value string `pulumi:"value"`
+}
+
 type TransitGatewayMulticastDomainTag struct {
 	// The key of the tag. Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with aws:.
 	Key *string `pulumi:"key"`
@@ -34942,12 +35178,284 @@ type VpcBlockPublicAccessExclusionTag struct {
 	Value string `pulumi:"value"`
 }
 
+type VpcEncryptionControlExclusion struct {
+	// The current state of the exclusion configuration.
+	State *string `pulumi:"state"`
+	// A message providing additional information about the exclusion state.
+	StateMessage *string `pulumi:"stateMessage"`
+}
+
+type VpcEncryptionControlExclusionOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlExclusionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlExclusion)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlExclusionOutput) ToVpcEncryptionControlExclusionOutput() VpcEncryptionControlExclusionOutput {
+	return o
+}
+
+func (o VpcEncryptionControlExclusionOutput) ToVpcEncryptionControlExclusionOutputWithContext(ctx context.Context) VpcEncryptionControlExclusionOutput {
+	return o
+}
+
+// The current state of the exclusion configuration.
+func (o VpcEncryptionControlExclusionOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEncryptionControlExclusion) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// A message providing additional information about the exclusion state.
+func (o VpcEncryptionControlExclusionOutput) StateMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEncryptionControlExclusion) *string { return v.StateMessage }).(pulumi.StringPtrOutput)
+}
+
+type VpcEncryptionControlExclusionPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlExclusionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEncryptionControlExclusion)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlExclusionPtrOutput) ToVpcEncryptionControlExclusionPtrOutput() VpcEncryptionControlExclusionPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlExclusionPtrOutput) ToVpcEncryptionControlExclusionPtrOutputWithContext(ctx context.Context) VpcEncryptionControlExclusionPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlExclusionPtrOutput) Elem() VpcEncryptionControlExclusionOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlExclusion) VpcEncryptionControlExclusion {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEncryptionControlExclusion
+		return ret
+	}).(VpcEncryptionControlExclusionOutput)
+}
+
+// The current state of the exclusion configuration.
+func (o VpcEncryptionControlExclusionPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlExclusion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// A message providing additional information about the exclusion state.
+func (o VpcEncryptionControlExclusionPtrOutput) StateMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlExclusion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StateMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcEncryptionControlResourceExclusions struct {
+	// Specifies whether to exclude egress-only internet gateway traffic from encryption enforcement.
+	EgressOnlyInternetGateway *VpcEncryptionControlExclusion `pulumi:"egressOnlyInternetGateway"`
+	// Specifies whether to exclude Elastic File System traffic from encryption enforcement.
+	ElasticFileSystem *VpcEncryptionControlExclusion `pulumi:"elasticFileSystem"`
+	// Specifies whether to exclude internet gateway traffic from encryption enforcement.
+	InternetGateway *VpcEncryptionControlExclusion `pulumi:"internetGateway"`
+	// Specifies whether to exclude Lambda function traffic from encryption enforcement.
+	Lambda *VpcEncryptionControlExclusion `pulumi:"lambda"`
+	// Specifies whether to exclude NAT gateway traffic from encryption enforcement.
+	NatGateway *VpcEncryptionControlExclusion `pulumi:"natGateway"`
+	// Specifies whether to exclude virtual private gateway traffic from encryption enforcement.
+	VirtualPrivateGateway *VpcEncryptionControlExclusion `pulumi:"virtualPrivateGateway"`
+	// Specifies whether to exclude VPC Lattice traffic from encryption enforcement.
+	VpcLattice *VpcEncryptionControlExclusion `pulumi:"vpcLattice"`
+	// Specifies whether to exclude VPC peering connection traffic from encryption enforcement.
+	VpcPeering *VpcEncryptionControlExclusion `pulumi:"vpcPeering"`
+}
+
+type VpcEncryptionControlResourceExclusionsOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlResourceExclusionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEncryptionControlResourceExclusions)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlResourceExclusionsOutput) ToVpcEncryptionControlResourceExclusionsOutput() VpcEncryptionControlResourceExclusionsOutput {
+	return o
+}
+
+func (o VpcEncryptionControlResourceExclusionsOutput) ToVpcEncryptionControlResourceExclusionsOutputWithContext(ctx context.Context) VpcEncryptionControlResourceExclusionsOutput {
+	return o
+}
+
+// Specifies whether to exclude egress-only internet gateway traffic from encryption enforcement.
+func (o VpcEncryptionControlResourceExclusionsOutput) EgressOnlyInternetGateway() VpcEncryptionControlExclusionPtrOutput {
+	return o.ApplyT(func(v VpcEncryptionControlResourceExclusions) *VpcEncryptionControlExclusion {
+		return v.EgressOnlyInternetGateway
+	}).(VpcEncryptionControlExclusionPtrOutput)
+}
+
+// Specifies whether to exclude Elastic File System traffic from encryption enforcement.
+func (o VpcEncryptionControlResourceExclusionsOutput) ElasticFileSystem() VpcEncryptionControlExclusionPtrOutput {
+	return o.ApplyT(func(v VpcEncryptionControlResourceExclusions) *VpcEncryptionControlExclusion {
+		return v.ElasticFileSystem
+	}).(VpcEncryptionControlExclusionPtrOutput)
+}
+
+// Specifies whether to exclude internet gateway traffic from encryption enforcement.
+func (o VpcEncryptionControlResourceExclusionsOutput) InternetGateway() VpcEncryptionControlExclusionPtrOutput {
+	return o.ApplyT(func(v VpcEncryptionControlResourceExclusions) *VpcEncryptionControlExclusion {
+		return v.InternetGateway
+	}).(VpcEncryptionControlExclusionPtrOutput)
+}
+
+// Specifies whether to exclude Lambda function traffic from encryption enforcement.
+func (o VpcEncryptionControlResourceExclusionsOutput) Lambda() VpcEncryptionControlExclusionPtrOutput {
+	return o.ApplyT(func(v VpcEncryptionControlResourceExclusions) *VpcEncryptionControlExclusion { return v.Lambda }).(VpcEncryptionControlExclusionPtrOutput)
+}
+
+// Specifies whether to exclude NAT gateway traffic from encryption enforcement.
+func (o VpcEncryptionControlResourceExclusionsOutput) NatGateway() VpcEncryptionControlExclusionPtrOutput {
+	return o.ApplyT(func(v VpcEncryptionControlResourceExclusions) *VpcEncryptionControlExclusion { return v.NatGateway }).(VpcEncryptionControlExclusionPtrOutput)
+}
+
+// Specifies whether to exclude virtual private gateway traffic from encryption enforcement.
+func (o VpcEncryptionControlResourceExclusionsOutput) VirtualPrivateGateway() VpcEncryptionControlExclusionPtrOutput {
+	return o.ApplyT(func(v VpcEncryptionControlResourceExclusions) *VpcEncryptionControlExclusion {
+		return v.VirtualPrivateGateway
+	}).(VpcEncryptionControlExclusionPtrOutput)
+}
+
+// Specifies whether to exclude VPC Lattice traffic from encryption enforcement.
+func (o VpcEncryptionControlResourceExclusionsOutput) VpcLattice() VpcEncryptionControlExclusionPtrOutput {
+	return o.ApplyT(func(v VpcEncryptionControlResourceExclusions) *VpcEncryptionControlExclusion { return v.VpcLattice }).(VpcEncryptionControlExclusionPtrOutput)
+}
+
+// Specifies whether to exclude VPC peering connection traffic from encryption enforcement.
+func (o VpcEncryptionControlResourceExclusionsOutput) VpcPeering() VpcEncryptionControlExclusionPtrOutput {
+	return o.ApplyT(func(v VpcEncryptionControlResourceExclusions) *VpcEncryptionControlExclusion { return v.VpcPeering }).(VpcEncryptionControlExclusionPtrOutput)
+}
+
+type VpcEncryptionControlResourceExclusionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEncryptionControlResourceExclusionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEncryptionControlResourceExclusions)(nil)).Elem()
+}
+
+func (o VpcEncryptionControlResourceExclusionsPtrOutput) ToVpcEncryptionControlResourceExclusionsPtrOutput() VpcEncryptionControlResourceExclusionsPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlResourceExclusionsPtrOutput) ToVpcEncryptionControlResourceExclusionsPtrOutputWithContext(ctx context.Context) VpcEncryptionControlResourceExclusionsPtrOutput {
+	return o
+}
+
+func (o VpcEncryptionControlResourceExclusionsPtrOutput) Elem() VpcEncryptionControlResourceExclusionsOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusions) VpcEncryptionControlResourceExclusions {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEncryptionControlResourceExclusions
+		return ret
+	}).(VpcEncryptionControlResourceExclusionsOutput)
+}
+
+// Specifies whether to exclude egress-only internet gateway traffic from encryption enforcement.
+func (o VpcEncryptionControlResourceExclusionsPtrOutput) EgressOnlyInternetGateway() VpcEncryptionControlExclusionPtrOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusions) *VpcEncryptionControlExclusion {
+		if v == nil {
+			return nil
+		}
+		return v.EgressOnlyInternetGateway
+	}).(VpcEncryptionControlExclusionPtrOutput)
+}
+
+// Specifies whether to exclude Elastic File System traffic from encryption enforcement.
+func (o VpcEncryptionControlResourceExclusionsPtrOutput) ElasticFileSystem() VpcEncryptionControlExclusionPtrOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusions) *VpcEncryptionControlExclusion {
+		if v == nil {
+			return nil
+		}
+		return v.ElasticFileSystem
+	}).(VpcEncryptionControlExclusionPtrOutput)
+}
+
+// Specifies whether to exclude internet gateway traffic from encryption enforcement.
+func (o VpcEncryptionControlResourceExclusionsPtrOutput) InternetGateway() VpcEncryptionControlExclusionPtrOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusions) *VpcEncryptionControlExclusion {
+		if v == nil {
+			return nil
+		}
+		return v.InternetGateway
+	}).(VpcEncryptionControlExclusionPtrOutput)
+}
+
+// Specifies whether to exclude Lambda function traffic from encryption enforcement.
+func (o VpcEncryptionControlResourceExclusionsPtrOutput) Lambda() VpcEncryptionControlExclusionPtrOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusions) *VpcEncryptionControlExclusion {
+		if v == nil {
+			return nil
+		}
+		return v.Lambda
+	}).(VpcEncryptionControlExclusionPtrOutput)
+}
+
+// Specifies whether to exclude NAT gateway traffic from encryption enforcement.
+func (o VpcEncryptionControlResourceExclusionsPtrOutput) NatGateway() VpcEncryptionControlExclusionPtrOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusions) *VpcEncryptionControlExclusion {
+		if v == nil {
+			return nil
+		}
+		return v.NatGateway
+	}).(VpcEncryptionControlExclusionPtrOutput)
+}
+
+// Specifies whether to exclude virtual private gateway traffic from encryption enforcement.
+func (o VpcEncryptionControlResourceExclusionsPtrOutput) VirtualPrivateGateway() VpcEncryptionControlExclusionPtrOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusions) *VpcEncryptionControlExclusion {
+		if v == nil {
+			return nil
+		}
+		return v.VirtualPrivateGateway
+	}).(VpcEncryptionControlExclusionPtrOutput)
+}
+
+// Specifies whether to exclude VPC Lattice traffic from encryption enforcement.
+func (o VpcEncryptionControlResourceExclusionsPtrOutput) VpcLattice() VpcEncryptionControlExclusionPtrOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusions) *VpcEncryptionControlExclusion {
+		if v == nil {
+			return nil
+		}
+		return v.VpcLattice
+	}).(VpcEncryptionControlExclusionPtrOutput)
+}
+
+// Specifies whether to exclude VPC peering connection traffic from encryption enforcement.
+func (o VpcEncryptionControlResourceExclusionsPtrOutput) VpcPeering() VpcEncryptionControlExclusionPtrOutput {
+	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusions) *VpcEncryptionControlExclusion {
+		if v == nil {
+			return nil
+		}
+		return v.VpcPeering
+	}).(VpcEncryptionControlExclusionPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type VpcEncryptionControlTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 // Describes the DNS options for an endpoint.
 type VpcEndpointDnsOptionsSpecification struct {
 	// The DNS records created for the endpoint.
 	DnsRecordIpType *VpcEndpointDnsOptionsSpecificationDnsRecordIpType `pulumi:"dnsRecordIpType"`
 	// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.
 	PrivateDnsOnlyForInboundResolverEndpoint *VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
+	// The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+	PrivateDnsPreference *VpcEndpointDnsOptionsSpecificationPrivateDnsPreference `pulumi:"privateDnsPreference"`
+	// Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
+	PrivateDnsSpecifiedDomains []string `pulumi:"privateDnsSpecifiedDomains"`
 }
 
 // VpcEndpointDnsOptionsSpecificationInput is an input type that accepts VpcEndpointDnsOptionsSpecificationArgs and VpcEndpointDnsOptionsSpecificationOutput values.
@@ -34967,6 +35475,10 @@ type VpcEndpointDnsOptionsSpecificationArgs struct {
 	DnsRecordIpType VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrInput `pulumi:"dnsRecordIpType"`
 	// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.
 	PrivateDnsOnlyForInboundResolverEndpoint VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrInput `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
+	// The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+	PrivateDnsPreference VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrInput `pulumi:"privateDnsPreference"`
+	// Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
+	PrivateDnsSpecifiedDomains pulumi.StringArrayInput `pulumi:"privateDnsSpecifiedDomains"`
 }
 
 func (VpcEndpointDnsOptionsSpecificationArgs) ElementType() reflect.Type {
@@ -35061,6 +35573,18 @@ func (o VpcEndpointDnsOptionsSpecificationOutput) PrivateDnsOnlyForInboundResolv
 	}).(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput)
 }
 
+// The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+func (o VpcEndpointDnsOptionsSpecificationOutput) PrivateDnsPreference() VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput {
+	return o.ApplyT(func(v VpcEndpointDnsOptionsSpecification) *VpcEndpointDnsOptionsSpecificationPrivateDnsPreference {
+		return v.PrivateDnsPreference
+	}).(VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput)
+}
+
+// Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
+func (o VpcEndpointDnsOptionsSpecificationOutput) PrivateDnsSpecifiedDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VpcEndpointDnsOptionsSpecification) []string { return v.PrivateDnsSpecifiedDomains }).(pulumi.StringArrayOutput)
+}
+
 type VpcEndpointDnsOptionsSpecificationPtrOutput struct{ *pulumi.OutputState }
 
 func (VpcEndpointDnsOptionsSpecificationPtrOutput) ElementType() reflect.Type {
@@ -35105,6 +35629,26 @@ func (o VpcEndpointDnsOptionsSpecificationPtrOutput) PrivateDnsOnlyForInboundRes
 	}).(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput)
 }
 
+// The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+func (o VpcEndpointDnsOptionsSpecificationPtrOutput) PrivateDnsPreference() VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput {
+	return o.ApplyT(func(v *VpcEndpointDnsOptionsSpecification) *VpcEndpointDnsOptionsSpecificationPrivateDnsPreference {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateDnsPreference
+	}).(VpcEndpointDnsOptionsSpecificationPrivateDnsPreferencePtrOutput)
+}
+
+// Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
+func (o VpcEndpointDnsOptionsSpecificationPtrOutput) PrivateDnsSpecifiedDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpcEndpointDnsOptionsSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateDnsSpecifiedDomains
+	}).(pulumi.StringArrayOutput)
+}
+
 type VpcEndpointServiceTag struct {
 	// The key of the tag.
 	//
@@ -35142,8 +35686,29 @@ type VpcTag struct {
 	Value string `pulumi:"value"`
 }
 
+type VpnConcentratorTag struct {
+	// The key of the tag.
+	//
+	// Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with `aws:` .
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	//
+	// Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
+	Value string `pulumi:"value"`
+}
+
 // Options for sending VPN tunnel logs to CloudWatch.
 type VpnConnectionCloudwatchLogOptionsSpecification struct {
+	// Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
+	//
+	// Valid values: `True` | `False`
+	BgpLogEnabled *bool `pulumi:"bgpLogEnabled"`
+	// The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.
+	BgpLogGroupArn *string `pulumi:"bgpLogGroupArn"`
+	// The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
+	//
+	// Valid values: `json` | `text`
+	BgpLogOutputFormat *VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat `pulumi:"bgpLogOutputFormat"`
 	// Enable or disable VPN tunnel logging feature. Default value is ``False``.
 	//  Valid values: ``True`` | ``False``
 	LogEnabled *bool `pulumi:"logEnabled"`
@@ -35167,6 +35732,16 @@ type VpnConnectionCloudwatchLogOptionsSpecificationInput interface {
 
 // Options for sending VPN tunnel logs to CloudWatch.
 type VpnConnectionCloudwatchLogOptionsSpecificationArgs struct {
+	// Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
+	//
+	// Valid values: `True` | `False`
+	BgpLogEnabled pulumi.BoolPtrInput `pulumi:"bgpLogEnabled"`
+	// The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.
+	BgpLogGroupArn pulumi.StringPtrInput `pulumi:"bgpLogGroupArn"`
+	// The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
+	//
+	// Valid values: `json` | `text`
+	BgpLogOutputFormat VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrInput `pulumi:"bgpLogOutputFormat"`
 	// Enable or disable VPN tunnel logging feature. Default value is ``False``.
 	//  Valid values: ``True`` | ``False``
 	LogEnabled pulumi.BoolPtrInput `pulumi:"logEnabled"`
@@ -35255,6 +35830,27 @@ func (o VpnConnectionCloudwatchLogOptionsSpecificationOutput) ToVpnConnectionClo
 	}).(VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput)
 }
 
+// Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
+//
+// Valid values: `True` | `False`
+func (o VpnConnectionCloudwatchLogOptionsSpecificationOutput) BgpLogEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VpnConnectionCloudwatchLogOptionsSpecification) *bool { return v.BgpLogEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.
+func (o VpnConnectionCloudwatchLogOptionsSpecificationOutput) BgpLogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnConnectionCloudwatchLogOptionsSpecification) *string { return v.BgpLogGroupArn }).(pulumi.StringPtrOutput)
+}
+
+// The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
+//
+// Valid values: `json` | `text`
+func (o VpnConnectionCloudwatchLogOptionsSpecificationOutput) BgpLogOutputFormat() VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput {
+	return o.ApplyT(func(v VpnConnectionCloudwatchLogOptionsSpecification) *VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat {
+		return v.BgpLogOutputFormat
+	}).(VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput)
+}
+
 // Enable or disable VPN tunnel logging feature. Default value is “False“.
 //
 //	Valid values: ``True`` | ``False``
@@ -35298,6 +35894,40 @@ func (o VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput) Elem() VpnConne
 		var ret VpnConnectionCloudwatchLogOptionsSpecification
 		return ret
 	}).(VpnConnectionCloudwatchLogOptionsSpecificationOutput)
+}
+
+// Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
+//
+// Valid values: `True` | `False`
+func (o VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput) BgpLogEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionCloudwatchLogOptionsSpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BgpLogEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.
+func (o VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput) BgpLogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionCloudwatchLogOptionsSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BgpLogGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
+//
+// Valid values: `json` | `text`
+func (o VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput) BgpLogOutputFormat() VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput {
+	return o.ApplyT(func(v *VpnConnectionCloudwatchLogOptionsSpecification) *VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat {
+		if v == nil {
+			return nil
+		}
+		return v.BgpLogOutputFormat
+	}).(VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormatPtrOutput)
 }
 
 // Enable or disable VPN tunnel logging feature. Default value is “False“.
@@ -36730,6 +37360,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamResourceDiscoveryIpamOperatingRegionArrayInput)(nil)).Elem(), IpamResourceDiscoveryIpamOperatingRegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamResourceDiscoveryOrganizationalUnitExclusionInput)(nil)).Elem(), IpamResourceDiscoveryOrganizationalUnitExclusionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamResourceDiscoveryOrganizationalUnitExclusionArrayInput)(nil)).Elem(), IpamResourceDiscoveryOrganizationalUnitExclusionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamScopeExternalAuthorityConfigurationInput)(nil)).Elem(), IpamScopeExternalAuthorityConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamScopeExternalAuthorityConfigurationPtrInput)(nil)).Elem(), IpamScopeExternalAuthorityConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateAcceleratorCountInput)(nil)).Elem(), LaunchTemplateAcceleratorCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateAcceleratorCountPtrInput)(nil)).Elem(), LaunchTemplateAcceleratorCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateAcceleratorTotalMemoryMiBInput)(nil)).Elem(), LaunchTemplateAcceleratorTotalMemoryMiBArgs{})
@@ -37113,6 +37745,8 @@ func init() {
 	pulumi.RegisterOutputType(IpamResourceDiscoveryIpamOperatingRegionArrayOutput{})
 	pulumi.RegisterOutputType(IpamResourceDiscoveryOrganizationalUnitExclusionOutput{})
 	pulumi.RegisterOutputType(IpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput{})
+	pulumi.RegisterOutputType(IpamScopeExternalAuthorityConfigurationOutput{})
+	pulumi.RegisterOutputType(IpamScopeExternalAuthorityConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateAcceleratorCountOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateAcceleratorCountPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateAcceleratorTotalMemoryMiBOutput{})
@@ -37377,6 +38011,10 @@ func init() {
 	pulumi.RegisterOutputType(VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessTrustProviderOidcOptionsOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessTrustProviderOidcOptionsPtrOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlExclusionOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlExclusionPtrOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlResourceExclusionsOutput{})
+	pulumi.RegisterOutputType(VpcEncryptionControlResourceExclusionsPtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointDnsOptionsSpecificationOutput{})
 	pulumi.RegisterOutputType(VpcEndpointDnsOptionsSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionCloudwatchLogOptionsSpecificationOutput{})

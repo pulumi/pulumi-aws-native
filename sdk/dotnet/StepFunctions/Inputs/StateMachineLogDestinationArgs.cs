@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.StepFunctions.Inputs
     public sealed class StateMachineLogDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the AWS CloudFormation User Guide.
+        /// An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the CloudFormation User Guide.
         /// </summary>
         [Input("cloudWatchLogsLogGroup")]
         public Input<Inputs.StateMachineCloudWatchLogsLogGroupArgs>? CloudWatchLogsLogGroup { get; set; }

@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.CloudTrail.Outputs
 {
 
     /// <summary>
-    /// Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds. They help you control costs by logging only those events that are important to you.
+    /// Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record fields. They help you control costs by logging only those events that are important to you.
     /// </summary>
     [OutputType]
     public sealed class TrailAdvancedEventSelector

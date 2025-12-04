@@ -45,7 +45,7 @@ class ApplicationArgs:
         :param pulumi.Input['ApplicationAutoSubscriptionConfigurationArgs'] auto_subscription_configuration: Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_ids_for_oidc: The OIDC client ID for a Amazon Q Business application.
         :param pulumi.Input[_builtins.str] description: A description for the Amazon Q Business application.
-        :param pulumi.Input['ApplicationEncryptionConfigurationArgs'] encryption_configuration: Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+        :param pulumi.Input['ApplicationEncryptionConfigurationArgs'] encryption_configuration: Provides the identifier of the AWS  key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
         :param pulumi.Input[_builtins.str] iam_identity_provider_arn: The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
         :param pulumi.Input[_builtins.str] identity_center_instance_arn: The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
                
@@ -149,7 +149,7 @@ class ApplicationArgs:
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional[pulumi.Input['ApplicationEncryptionConfigurationArgs']]:
         """
-        Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+        Provides the identifier of the AWS  key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
         """
         return pulumi.get(self, "encryption_configuration")
 
@@ -287,7 +287,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_ids_for_oidc: The OIDC client ID for a Amazon Q Business application.
         :param pulumi.Input[_builtins.str] description: A description for the Amazon Q Business application.
         :param pulumi.Input[_builtins.str] display_name: The name of the Amazon Q Business application.
-        :param pulumi.Input[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']] encryption_configuration: Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+        :param pulumi.Input[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']] encryption_configuration: Provides the identifier of the AWS  key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
         :param pulumi.Input[_builtins.str] iam_identity_provider_arn: The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
         :param pulumi.Input[_builtins.str] identity_center_instance_arn: The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either creating for—or connecting to—your Amazon Q Business application.
                
@@ -482,7 +482,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationEncryptionConfiguration']]:
         """
-        Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
+        Provides the identifier of the AWS  key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
         """
         return pulumi.get(self, "encryption_configuration")
 

@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.Pcs
 
         public static ClusterEndpointType Slurmctld { get; } = new ClusterEndpointType("SLURMCTLD");
         public static ClusterEndpointType Slurmdbd { get; } = new ClusterEndpointType("SLURMDBD");
+        public static ClusterEndpointType Slurmrestd { get; } = new ClusterEndpointType("SLURMRESTD");
 
         public static bool operator ==(ClusterEndpointType left, ClusterEndpointType right) => left.Equals(right);
         public static bool operator !=(ClusterEndpointType left, ClusterEndpointType right) => !left.Equals(right);
@@ -155,6 +156,37 @@ namespace Pulumi.AwsNative.Pcs
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ClusterSize other && Equals(other);
         public bool Equals(ClusterSize other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The default value is `STANDARD`. A value of `STANDARD` means that Slurm Rest is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterSlurmRestMode : IEquatable<ClusterSlurmRestMode>
+    {
+        private readonly string _value;
+
+        private ClusterSlurmRestMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterSlurmRestMode Standard { get; } = new ClusterSlurmRestMode("STANDARD");
+        public static ClusterSlurmRestMode None { get; } = new ClusterSlurmRestMode("NONE");
+
+        public static bool operator ==(ClusterSlurmRestMode left, ClusterSlurmRestMode right) => left.Equals(right);
+        public static bool operator !=(ClusterSlurmRestMode left, ClusterSlurmRestMode right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterSlurmRestMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterSlurmRestMode other && Equals(other);
+        public bool Equals(ClusterSlurmRestMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -40,7 +40,7 @@ class CapacityReservationArgs:
         The set of arguments for constructing a CapacityReservation resource.
         :param pulumi.Input[_builtins.int] instance_count: The number of instances for which to reserve capacity.
                
-               > You can request future-dated Capacity Reservations for an instance count with a minimum of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *16 * m5.xlarge = 64 vCPUs* ). 
+               > You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ). 
                
                Valid range: 1 - 1000
         :param pulumi.Input[_builtins.str] instance_platform: The type of operating system for which to reserve capacity.
@@ -121,7 +121,7 @@ class CapacityReservationArgs:
         """
         The number of instances for which to reserve capacity.
 
-        > You can request future-dated Capacity Reservations for an instance count with a minimum of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *16 * m5.xlarge = 64 vCPUs* ). 
+        > You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ). 
 
         Valid range: 1 - 1000
         """
@@ -373,7 +373,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] ephemeral_storage: *Deprecated.*
         :param pulumi.Input[_builtins.int] instance_count: The number of instances for which to reserve capacity.
                
-               > You can request future-dated Capacity Reservations for an instance count with a minimum of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *16 * m5.xlarge = 64 vCPUs* ). 
+               > You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ). 
                
                Valid range: 1 - 1000
         :param pulumi.Input[_builtins.str] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
@@ -662,7 +662,7 @@ class CapacityReservation(pulumi.CustomResource):
         """
         The number of instances for which to reserve capacity.
 
-        > You can request future-dated Capacity Reservations for an instance count with a minimum of 64 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *16 * m5.xlarge = 64 vCPUs* ). 
+        > You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 8 instances ( *8 * m5.xlarge = 32 vCPUs* ). 
 
         Valid range: 1 - 1000
         """

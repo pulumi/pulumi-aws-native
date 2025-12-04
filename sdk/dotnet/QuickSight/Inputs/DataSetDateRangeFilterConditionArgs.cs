@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSetDateRangeFilterConditionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to include the maximum value in the filter range.
+        /// </summary>
         [Input("includeMaximum")]
         public Input<bool>? IncludeMaximum { get; set; }
 
+        /// <summary>
+        /// Whether to include the minimum value in the filter range.
+        /// </summary>
         [Input("includeMinimum")]
         public Input<bool>? IncludeMinimum { get; set; }
 
+        /// <summary>
+        /// The maximum date value for the range filter.
+        /// </summary>
         [Input("rangeMaximum")]
         public Input<Inputs.DataSetDateFilterValueArgs>? RangeMaximum { get; set; }
 
+        /// <summary>
+        /// The minimum date value for the range filter.
+        /// </summary>
         [Input("rangeMinimum")]
         public Input<Inputs.DataSetDateFilterValueArgs>? RangeMinimum { get; set; }
 

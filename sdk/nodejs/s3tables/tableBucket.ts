@@ -41,6 +41,7 @@ export class TableBucket extends pulumi.CustomResource {
      * Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
      */
     declare public readonly encryptionConfiguration: pulumi.Output<outputs.s3tables.TableBucketEncryptionConfiguration | undefined>;
+    declare public readonly metricsConfiguration: pulumi.Output<outputs.s3tables.TableBucketMetricsConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the table bucket.
      */
@@ -49,6 +50,10 @@ export class TableBucket extends pulumi.CustomResource {
      * The name for the table bucket.
      */
     declare public readonly tableBucketName: pulumi.Output<string>;
+    /**
+     * User tags (key-value pairs) to associate with the table bucket.
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
      */
@@ -66,13 +71,17 @@ export class TableBucket extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
+            resourceInputs["metricsConfiguration"] = args?.metricsConfiguration;
             resourceInputs["tableBucketName"] = args?.tableBucketName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["unreferencedFileRemoval"] = args?.unreferencedFileRemoval;
             resourceInputs["tableBucketArn"] = undefined /*out*/;
         } else {
             resourceInputs["encryptionConfiguration"] = undefined /*out*/;
+            resourceInputs["metricsConfiguration"] = undefined /*out*/;
             resourceInputs["tableBucketArn"] = undefined /*out*/;
             resourceInputs["tableBucketName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["unreferencedFileRemoval"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -90,10 +99,15 @@ export interface TableBucketArgs {
      * Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
      */
     encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableBucketEncryptionConfigurationArgs>;
+    metricsConfiguration?: pulumi.Input<inputs.s3tables.TableBucketMetricsConfigurationArgs>;
     /**
      * The name for the table bucket.
      */
     tableBucketName?: pulumi.Input<string>;
+    /**
+     * User tags (key-value pairs) to associate with the table bucket.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
      */

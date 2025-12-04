@@ -24,7 +24,8 @@ type GatewayTarget struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	GatewayArn  pulumi.StringOutput    `pulumi:"gatewayArn"`
 	// The gateway ID for the gateway target.
-	GatewayIdentifier pulumi.StringPtrOutput `pulumi:"gatewayIdentifier"`
+	GatewayIdentifier  pulumi.StringPtrOutput `pulumi:"gatewayIdentifier"`
+	LastSynchronizedAt pulumi.StringOutput    `pulumi:"lastSynchronizedAt"`
 	// The name for the gateway target.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The status for the gateway target.
@@ -176,6 +177,10 @@ func (o GatewayTargetOutput) GatewayArn() pulumi.StringOutput {
 // The gateway ID for the gateway target.
 func (o GatewayTargetOutput) GatewayIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayTarget) pulumi.StringPtrOutput { return v.GatewayIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetOutput) LastSynchronizedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayTarget) pulumi.StringOutput { return v.LastSynchronizedAt }).(pulumi.StringOutput)
 }
 
 // The name for the gateway target.

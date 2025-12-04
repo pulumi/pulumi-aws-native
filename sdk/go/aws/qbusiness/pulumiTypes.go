@@ -313,7 +313,7 @@ func (o ApplicationAutoSubscriptionConfigurationPtrOutput) DefaultSubscriptionTy
 }
 
 type ApplicationEncryptionConfiguration struct {
-	// The identifier of the AWS KMS key. Amazon Q Business doesn't support asymmetric keys.
+	// The identifier of the AWS  key. Amazon Q Business doesn't support asymmetric keys.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
@@ -329,7 +329,7 @@ type ApplicationEncryptionConfigurationInput interface {
 }
 
 type ApplicationEncryptionConfigurationArgs struct {
-	// The identifier of the AWS KMS key. Amazon Q Business doesn't support asymmetric keys.
+	// The identifier of the AWS  key. Amazon Q Business doesn't support asymmetric keys.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
@@ -410,7 +410,7 @@ func (o ApplicationEncryptionConfigurationOutput) ToApplicationEncryptionConfigu
 	}).(ApplicationEncryptionConfigurationPtrOutput)
 }
 
-// The identifier of the AWS KMS key. Amazon Q Business doesn't support asymmetric keys.
+// The identifier of the AWS  key. Amazon Q Business doesn't support asymmetric keys.
 func (o ApplicationEncryptionConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationEncryptionConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -439,7 +439,7 @@ func (o ApplicationEncryptionConfigurationPtrOutput) Elem() ApplicationEncryptio
 	}).(ApplicationEncryptionConfigurationOutput)
 }
 
-// The identifier of the AWS KMS key. Amazon Q Business doesn't support asymmetric keys.
+// The identifier of the AWS  key. Amazon Q Business doesn't support asymmetric keys.
 func (o ApplicationEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationEncryptionConfiguration) *string {
 		if v == nil {

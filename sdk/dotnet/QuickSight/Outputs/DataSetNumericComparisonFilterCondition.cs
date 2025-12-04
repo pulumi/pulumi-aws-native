@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetNumericComparisonFilterCondition
     {
+        /// <summary>
+        /// The comparison operator to use, such as `EQUALS` , `GREATER_THAN` , `LESS_THAN` , or their variants.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetNumericComparisonFilterOperator Operator;
+        /// <summary>
+        /// The numeric value to compare against.
+        /// </summary>
         public readonly Outputs.DataSetNumericFilterValue? Value;
 
         [OutputConstructor]

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SsmIncidents.Inputs
     public sealed class ResponsePlanNotificationTargetItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon SNS topic.
+        /// The Amazon Resource Name (ARN) of the Amazon  topic.
         /// </summary>
         [Input("snsTopicArn")]
         public Input<string>? SnsTopicArn { get; set; }

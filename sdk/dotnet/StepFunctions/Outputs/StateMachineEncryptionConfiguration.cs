@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.StepFunctions.Outputs
         /// </summary>
         public readonly int? KmsDataKeyReusePeriodSeconds;
         /// <summary>
-        /// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS KMS key to encrypt data. To specify a AWS KMS key in a different AWS account, you must use the key ARN or alias ARN.
+        /// An alias, alias ARN, key ID, or key ARN of a symmetric encryption AWS  key to encrypt data. To specify a AWS  key in a different AWS account, you must use the key ARN or alias ARN.
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>

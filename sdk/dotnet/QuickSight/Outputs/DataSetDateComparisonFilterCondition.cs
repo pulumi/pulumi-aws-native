@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetDateComparisonFilterCondition
     {
+        /// <summary>
+        /// The comparison operator to use, such as `BEFORE` , `BEFORE_OR_EQUALS_TO` , `AFTER` , or `AFTER_OR_EQUALS_TO` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSetDateComparisonFilterOperator Operator;
+        /// <summary>
+        /// The date value to compare against.
+        /// </summary>
         public readonly Outputs.DataSetDateFilterValue? Value;
 
         [OutputConstructor]

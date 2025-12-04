@@ -3070,6 +3070,171 @@ func (o DataAutomationProjectAudioExtractionCategoryTypeArrayOutput) Index(i pul
 	}).(DataAutomationProjectAudioExtractionCategoryTypeOutput)
 }
 
+type DataAutomationProjectAudioGenerativeOutputLanguage string
+
+const (
+	DataAutomationProjectAudioGenerativeOutputLanguageDefault = DataAutomationProjectAudioGenerativeOutputLanguage("DEFAULT")
+	DataAutomationProjectAudioGenerativeOutputLanguageEn      = DataAutomationProjectAudioGenerativeOutputLanguage("EN")
+)
+
+func (DataAutomationProjectAudioGenerativeOutputLanguage) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectAudioGenerativeOutputLanguage)(nil)).Elem()
+}
+
+func (e DataAutomationProjectAudioGenerativeOutputLanguage) ToDataAutomationProjectAudioGenerativeOutputLanguageOutput() DataAutomationProjectAudioGenerativeOutputLanguageOutput {
+	return pulumi.ToOutput(e).(DataAutomationProjectAudioGenerativeOutputLanguageOutput)
+}
+
+func (e DataAutomationProjectAudioGenerativeOutputLanguage) ToDataAutomationProjectAudioGenerativeOutputLanguageOutputWithContext(ctx context.Context) DataAutomationProjectAudioGenerativeOutputLanguageOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataAutomationProjectAudioGenerativeOutputLanguageOutput)
+}
+
+func (e DataAutomationProjectAudioGenerativeOutputLanguage) ToDataAutomationProjectAudioGenerativeOutputLanguagePtrOutput() DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput {
+	return e.ToDataAutomationProjectAudioGenerativeOutputLanguagePtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectAudioGenerativeOutputLanguage) ToDataAutomationProjectAudioGenerativeOutputLanguagePtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput {
+	return DataAutomationProjectAudioGenerativeOutputLanguage(e).ToDataAutomationProjectAudioGenerativeOutputLanguageOutputWithContext(ctx).ToDataAutomationProjectAudioGenerativeOutputLanguagePtrOutputWithContext(ctx)
+}
+
+func (e DataAutomationProjectAudioGenerativeOutputLanguage) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectAudioGenerativeOutputLanguage) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectAudioGenerativeOutputLanguage) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectAudioGenerativeOutputLanguage) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataAutomationProjectAudioGenerativeOutputLanguageOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectAudioGenerativeOutputLanguageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectAudioGenerativeOutputLanguage)(nil)).Elem()
+}
+
+func (o DataAutomationProjectAudioGenerativeOutputLanguageOutput) ToDataAutomationProjectAudioGenerativeOutputLanguageOutput() DataAutomationProjectAudioGenerativeOutputLanguageOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioGenerativeOutputLanguageOutput) ToDataAutomationProjectAudioGenerativeOutputLanguageOutputWithContext(ctx context.Context) DataAutomationProjectAudioGenerativeOutputLanguageOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioGenerativeOutputLanguageOutput) ToDataAutomationProjectAudioGenerativeOutputLanguagePtrOutput() DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput {
+	return o.ToDataAutomationProjectAudioGenerativeOutputLanguagePtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectAudioGenerativeOutputLanguageOutput) ToDataAutomationProjectAudioGenerativeOutputLanguagePtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectAudioGenerativeOutputLanguage) *DataAutomationProjectAudioGenerativeOutputLanguage {
+		return &v
+	}).(DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput)
+}
+
+func (o DataAutomationProjectAudioGenerativeOutputLanguageOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectAudioGenerativeOutputLanguageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectAudioGenerativeOutputLanguage) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationProjectAudioGenerativeOutputLanguageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectAudioGenerativeOutputLanguageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectAudioGenerativeOutputLanguage) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectAudioGenerativeOutputLanguage)(nil)).Elem()
+}
+
+func (o DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput) ToDataAutomationProjectAudioGenerativeOutputLanguagePtrOutput() DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput) ToDataAutomationProjectAudioGenerativeOutputLanguagePtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput) Elem() DataAutomationProjectAudioGenerativeOutputLanguageOutput {
+	return o.ApplyT(func(v *DataAutomationProjectAudioGenerativeOutputLanguage) DataAutomationProjectAudioGenerativeOutputLanguage {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectAudioGenerativeOutputLanguage
+		return ret
+	}).(DataAutomationProjectAudioGenerativeOutputLanguageOutput)
+}
+
+func (o DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationProjectAudioGenerativeOutputLanguage) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataAutomationProjectAudioGenerativeOutputLanguageInput is an input type that accepts values of the DataAutomationProjectAudioGenerativeOutputLanguage enum
+// A concrete instance of `DataAutomationProjectAudioGenerativeOutputLanguageInput` can be one of the following:
+//
+//	DataAutomationProjectAudioGenerativeOutputLanguageDefault
+//	DataAutomationProjectAudioGenerativeOutputLanguageEn
+type DataAutomationProjectAudioGenerativeOutputLanguageInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectAudioGenerativeOutputLanguageOutput() DataAutomationProjectAudioGenerativeOutputLanguageOutput
+	ToDataAutomationProjectAudioGenerativeOutputLanguageOutputWithContext(context.Context) DataAutomationProjectAudioGenerativeOutputLanguageOutput
+}
+
+var dataAutomationProjectAudioGenerativeOutputLanguagePtrType = reflect.TypeOf((**DataAutomationProjectAudioGenerativeOutputLanguage)(nil)).Elem()
+
+type DataAutomationProjectAudioGenerativeOutputLanguagePtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectAudioGenerativeOutputLanguagePtrOutput() DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput
+	ToDataAutomationProjectAudioGenerativeOutputLanguagePtrOutputWithContext(context.Context) DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput
+}
+
+type dataAutomationProjectAudioGenerativeOutputLanguagePtr string
+
+func DataAutomationProjectAudioGenerativeOutputLanguagePtr(v string) DataAutomationProjectAudioGenerativeOutputLanguagePtrInput {
+	return (*dataAutomationProjectAudioGenerativeOutputLanguagePtr)(&v)
+}
+
+func (*dataAutomationProjectAudioGenerativeOutputLanguagePtr) ElementType() reflect.Type {
+	return dataAutomationProjectAudioGenerativeOutputLanguagePtrType
+}
+
+func (in *dataAutomationProjectAudioGenerativeOutputLanguagePtr) ToDataAutomationProjectAudioGenerativeOutputLanguagePtrOutput() DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput {
+	return pulumi.ToOutput(in).(DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput)
+}
+
+func (in *dataAutomationProjectAudioGenerativeOutputLanguagePtr) ToDataAutomationProjectAudioGenerativeOutputLanguagePtrOutputWithContext(ctx context.Context) DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput)
+}
+
 type DataAutomationProjectAudioStandardGenerativeFieldType string
 
 const (
@@ -4467,6 +4632,1210 @@ func (o DataAutomationProjectImageStandardGenerativeFieldTypeArrayOutput) Index(
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataAutomationProjectImageStandardGenerativeFieldType {
 		return vs[0].([]DataAutomationProjectImageStandardGenerativeFieldType)[vs[1].(int)]
 	}).(DataAutomationProjectImageStandardGenerativeFieldTypeOutput)
+}
+
+type DataAutomationProjectLanguage string
+
+const (
+	DataAutomationProjectLanguageEn = DataAutomationProjectLanguage("EN")
+	DataAutomationProjectLanguageDe = DataAutomationProjectLanguage("DE")
+	DataAutomationProjectLanguageEs = DataAutomationProjectLanguage("ES")
+	DataAutomationProjectLanguageFr = DataAutomationProjectLanguage("FR")
+	DataAutomationProjectLanguageIt = DataAutomationProjectLanguage("IT")
+	DataAutomationProjectLanguagePt = DataAutomationProjectLanguage("PT")
+	DataAutomationProjectLanguageJa = DataAutomationProjectLanguage("JA")
+	DataAutomationProjectLanguageKo = DataAutomationProjectLanguage("KO")
+	DataAutomationProjectLanguageCn = DataAutomationProjectLanguage("CN")
+	DataAutomationProjectLanguageTw = DataAutomationProjectLanguage("TW")
+	DataAutomationProjectLanguageHk = DataAutomationProjectLanguage("HK")
+)
+
+func (DataAutomationProjectLanguage) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectLanguage)(nil)).Elem()
+}
+
+func (e DataAutomationProjectLanguage) ToDataAutomationProjectLanguageOutput() DataAutomationProjectLanguageOutput {
+	return pulumi.ToOutput(e).(DataAutomationProjectLanguageOutput)
+}
+
+func (e DataAutomationProjectLanguage) ToDataAutomationProjectLanguageOutputWithContext(ctx context.Context) DataAutomationProjectLanguageOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataAutomationProjectLanguageOutput)
+}
+
+func (e DataAutomationProjectLanguage) ToDataAutomationProjectLanguagePtrOutput() DataAutomationProjectLanguagePtrOutput {
+	return e.ToDataAutomationProjectLanguagePtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectLanguage) ToDataAutomationProjectLanguagePtrOutputWithContext(ctx context.Context) DataAutomationProjectLanguagePtrOutput {
+	return DataAutomationProjectLanguage(e).ToDataAutomationProjectLanguageOutputWithContext(ctx).ToDataAutomationProjectLanguagePtrOutputWithContext(ctx)
+}
+
+func (e DataAutomationProjectLanguage) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectLanguage) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectLanguage) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectLanguage) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataAutomationProjectLanguageOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectLanguageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectLanguage)(nil)).Elem()
+}
+
+func (o DataAutomationProjectLanguageOutput) ToDataAutomationProjectLanguageOutput() DataAutomationProjectLanguageOutput {
+	return o
+}
+
+func (o DataAutomationProjectLanguageOutput) ToDataAutomationProjectLanguageOutputWithContext(ctx context.Context) DataAutomationProjectLanguageOutput {
+	return o
+}
+
+func (o DataAutomationProjectLanguageOutput) ToDataAutomationProjectLanguagePtrOutput() DataAutomationProjectLanguagePtrOutput {
+	return o.ToDataAutomationProjectLanguagePtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectLanguageOutput) ToDataAutomationProjectLanguagePtrOutputWithContext(ctx context.Context) DataAutomationProjectLanguagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectLanguage) *DataAutomationProjectLanguage {
+		return &v
+	}).(DataAutomationProjectLanguagePtrOutput)
+}
+
+func (o DataAutomationProjectLanguageOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectLanguageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectLanguage) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationProjectLanguageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectLanguageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectLanguage) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectLanguagePtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectLanguagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectLanguage)(nil)).Elem()
+}
+
+func (o DataAutomationProjectLanguagePtrOutput) ToDataAutomationProjectLanguagePtrOutput() DataAutomationProjectLanguagePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectLanguagePtrOutput) ToDataAutomationProjectLanguagePtrOutputWithContext(ctx context.Context) DataAutomationProjectLanguagePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectLanguagePtrOutput) Elem() DataAutomationProjectLanguageOutput {
+	return o.ApplyT(func(v *DataAutomationProjectLanguage) DataAutomationProjectLanguage {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectLanguage
+		return ret
+	}).(DataAutomationProjectLanguageOutput)
+}
+
+func (o DataAutomationProjectLanguagePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectLanguagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationProjectLanguage) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataAutomationProjectLanguageInput is an input type that accepts values of the DataAutomationProjectLanguage enum
+// A concrete instance of `DataAutomationProjectLanguageInput` can be one of the following:
+//
+//	DataAutomationProjectLanguageEn
+//	DataAutomationProjectLanguageDe
+//	DataAutomationProjectLanguageEs
+//	DataAutomationProjectLanguageFr
+//	DataAutomationProjectLanguageIt
+//	DataAutomationProjectLanguagePt
+//	DataAutomationProjectLanguageJa
+//	DataAutomationProjectLanguageKo
+//	DataAutomationProjectLanguageCn
+//	DataAutomationProjectLanguageTw
+//	DataAutomationProjectLanguageHk
+type DataAutomationProjectLanguageInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectLanguageOutput() DataAutomationProjectLanguageOutput
+	ToDataAutomationProjectLanguageOutputWithContext(context.Context) DataAutomationProjectLanguageOutput
+}
+
+var dataAutomationProjectLanguagePtrType = reflect.TypeOf((**DataAutomationProjectLanguage)(nil)).Elem()
+
+type DataAutomationProjectLanguagePtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectLanguagePtrOutput() DataAutomationProjectLanguagePtrOutput
+	ToDataAutomationProjectLanguagePtrOutputWithContext(context.Context) DataAutomationProjectLanguagePtrOutput
+}
+
+type dataAutomationProjectLanguagePtr string
+
+func DataAutomationProjectLanguagePtr(v string) DataAutomationProjectLanguagePtrInput {
+	return (*dataAutomationProjectLanguagePtr)(&v)
+}
+
+func (*dataAutomationProjectLanguagePtr) ElementType() reflect.Type {
+	return dataAutomationProjectLanguagePtrType
+}
+
+func (in *dataAutomationProjectLanguagePtr) ToDataAutomationProjectLanguagePtrOutput() DataAutomationProjectLanguagePtrOutput {
+	return pulumi.ToOutput(in).(DataAutomationProjectLanguagePtrOutput)
+}
+
+func (in *dataAutomationProjectLanguagePtr) ToDataAutomationProjectLanguagePtrOutputWithContext(ctx context.Context) DataAutomationProjectLanguagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataAutomationProjectLanguagePtrOutput)
+}
+
+// DataAutomationProjectLanguageArrayInput is an input type that accepts DataAutomationProjectLanguageArray and DataAutomationProjectLanguageArrayOutput values.
+// You can construct a concrete instance of `DataAutomationProjectLanguageArrayInput` via:
+//
+//	DataAutomationProjectLanguageArray{ DataAutomationProjectLanguageArgs{...} }
+type DataAutomationProjectLanguageArrayInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectLanguageArrayOutput() DataAutomationProjectLanguageArrayOutput
+	ToDataAutomationProjectLanguageArrayOutputWithContext(context.Context) DataAutomationProjectLanguageArrayOutput
+}
+
+type DataAutomationProjectLanguageArray []DataAutomationProjectLanguage
+
+func (DataAutomationProjectLanguageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectLanguage)(nil)).Elem()
+}
+
+func (i DataAutomationProjectLanguageArray) ToDataAutomationProjectLanguageArrayOutput() DataAutomationProjectLanguageArrayOutput {
+	return i.ToDataAutomationProjectLanguageArrayOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectLanguageArray) ToDataAutomationProjectLanguageArrayOutputWithContext(ctx context.Context) DataAutomationProjectLanguageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectLanguageArrayOutput)
+}
+
+type DataAutomationProjectLanguageArrayOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectLanguageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectLanguage)(nil)).Elem()
+}
+
+func (o DataAutomationProjectLanguageArrayOutput) ToDataAutomationProjectLanguageArrayOutput() DataAutomationProjectLanguageArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectLanguageArrayOutput) ToDataAutomationProjectLanguageArrayOutputWithContext(ctx context.Context) DataAutomationProjectLanguageArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectLanguageArrayOutput) Index(i pulumi.IntInput) DataAutomationProjectLanguageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataAutomationProjectLanguage {
+		return vs[0].([]DataAutomationProjectLanguage)[vs[1].(int)]
+	}).(DataAutomationProjectLanguageOutput)
+}
+
+type DataAutomationProjectPiiEntityTypes string
+
+const (
+	DataAutomationProjectPiiEntityTypesAll                                 = DataAutomationProjectPiiEntityTypes("ALL")
+	DataAutomationProjectPiiEntityTypesAddress                             = DataAutomationProjectPiiEntityTypes("ADDRESS")
+	DataAutomationProjectPiiEntityTypesAge                                 = DataAutomationProjectPiiEntityTypes("AGE")
+	DataAutomationProjectPiiEntityTypesName                                = DataAutomationProjectPiiEntityTypes("NAME")
+	DataAutomationProjectPiiEntityTypesEmail                               = DataAutomationProjectPiiEntityTypes("EMAIL")
+	DataAutomationProjectPiiEntityTypesPhone                               = DataAutomationProjectPiiEntityTypes("PHONE")
+	DataAutomationProjectPiiEntityTypesUsername                            = DataAutomationProjectPiiEntityTypes("USERNAME")
+	DataAutomationProjectPiiEntityTypesPassword                            = DataAutomationProjectPiiEntityTypes("PASSWORD")
+	DataAutomationProjectPiiEntityTypesDriverId                            = DataAutomationProjectPiiEntityTypes("DRIVER_ID")
+	DataAutomationProjectPiiEntityTypesLicensePlate                        = DataAutomationProjectPiiEntityTypes("LICENSE_PLATE")
+	DataAutomationProjectPiiEntityTypesVehicleIdentificationNumber         = DataAutomationProjectPiiEntityTypes("VEHICLE_IDENTIFICATION_NUMBER")
+	DataAutomationProjectPiiEntityTypesCreditDebitCardCvv                  = DataAutomationProjectPiiEntityTypes("CREDIT_DEBIT_CARD_CVV")
+	DataAutomationProjectPiiEntityTypesCreditDebitCardExpiry               = DataAutomationProjectPiiEntityTypes("CREDIT_DEBIT_CARD_EXPIRY")
+	DataAutomationProjectPiiEntityTypesCreditDebitCardNumber               = DataAutomationProjectPiiEntityTypes("CREDIT_DEBIT_CARD_NUMBER")
+	DataAutomationProjectPiiEntityTypesPin                                 = DataAutomationProjectPiiEntityTypes("PIN")
+	DataAutomationProjectPiiEntityTypesInternationalBankAccountNumber      = DataAutomationProjectPiiEntityTypes("INTERNATIONAL_BANK_ACCOUNT_NUMBER")
+	DataAutomationProjectPiiEntityTypesSwiftCode                           = DataAutomationProjectPiiEntityTypes("SWIFT_CODE")
+	DataAutomationProjectPiiEntityTypesIpAddress                           = DataAutomationProjectPiiEntityTypes("IP_ADDRESS")
+	DataAutomationProjectPiiEntityTypesMacAddress                          = DataAutomationProjectPiiEntityTypes("MAC_ADDRESS")
+	DataAutomationProjectPiiEntityTypesUrl                                 = DataAutomationProjectPiiEntityTypes("URL")
+	DataAutomationProjectPiiEntityTypesAwsAccessKey                        = DataAutomationProjectPiiEntityTypes("AWS_ACCESS_KEY")
+	DataAutomationProjectPiiEntityTypesAwsSecretKey                        = DataAutomationProjectPiiEntityTypes("AWS_SECRET_KEY")
+	DataAutomationProjectPiiEntityTypesUsBankAccountNumber                 = DataAutomationProjectPiiEntityTypes("US_BANK_ACCOUNT_NUMBER")
+	DataAutomationProjectPiiEntityTypesUsBankRoutingNumber                 = DataAutomationProjectPiiEntityTypes("US_BANK_ROUTING_NUMBER")
+	DataAutomationProjectPiiEntityTypesUsIndividualTaxIdentificationNumber = DataAutomationProjectPiiEntityTypes("US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER")
+	DataAutomationProjectPiiEntityTypesUsPassportNumber                    = DataAutomationProjectPiiEntityTypes("US_PASSPORT_NUMBER")
+	DataAutomationProjectPiiEntityTypesUsSocialSecurityNumber              = DataAutomationProjectPiiEntityTypes("US_SOCIAL_SECURITY_NUMBER")
+	DataAutomationProjectPiiEntityTypesCaHealthNumber                      = DataAutomationProjectPiiEntityTypes("CA_HEALTH_NUMBER")
+	DataAutomationProjectPiiEntityTypesCaSocialInsuranceNumber             = DataAutomationProjectPiiEntityTypes("CA_SOCIAL_INSURANCE_NUMBER")
+	DataAutomationProjectPiiEntityTypesUkNationalHealthServiceNumber       = DataAutomationProjectPiiEntityTypes("UK_NATIONAL_HEALTH_SERVICE_NUMBER")
+	DataAutomationProjectPiiEntityTypesUkNationalInsuranceNumber           = DataAutomationProjectPiiEntityTypes("UK_NATIONAL_INSURANCE_NUMBER")
+	DataAutomationProjectPiiEntityTypesUkUniqueTaxpayerReferenceNumber     = DataAutomationProjectPiiEntityTypes("UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER")
+)
+
+func (DataAutomationProjectPiiEntityTypes) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectPiiEntityTypes)(nil)).Elem()
+}
+
+func (e DataAutomationProjectPiiEntityTypes) ToDataAutomationProjectPiiEntityTypesOutput() DataAutomationProjectPiiEntityTypesOutput {
+	return pulumi.ToOutput(e).(DataAutomationProjectPiiEntityTypesOutput)
+}
+
+func (e DataAutomationProjectPiiEntityTypes) ToDataAutomationProjectPiiEntityTypesOutputWithContext(ctx context.Context) DataAutomationProjectPiiEntityTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataAutomationProjectPiiEntityTypesOutput)
+}
+
+func (e DataAutomationProjectPiiEntityTypes) ToDataAutomationProjectPiiEntityTypesPtrOutput() DataAutomationProjectPiiEntityTypesPtrOutput {
+	return e.ToDataAutomationProjectPiiEntityTypesPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectPiiEntityTypes) ToDataAutomationProjectPiiEntityTypesPtrOutputWithContext(ctx context.Context) DataAutomationProjectPiiEntityTypesPtrOutput {
+	return DataAutomationProjectPiiEntityTypes(e).ToDataAutomationProjectPiiEntityTypesOutputWithContext(ctx).ToDataAutomationProjectPiiEntityTypesPtrOutputWithContext(ctx)
+}
+
+func (e DataAutomationProjectPiiEntityTypes) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectPiiEntityTypes) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectPiiEntityTypes) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectPiiEntityTypes) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataAutomationProjectPiiEntityTypesOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectPiiEntityTypesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectPiiEntityTypes)(nil)).Elem()
+}
+
+func (o DataAutomationProjectPiiEntityTypesOutput) ToDataAutomationProjectPiiEntityTypesOutput() DataAutomationProjectPiiEntityTypesOutput {
+	return o
+}
+
+func (o DataAutomationProjectPiiEntityTypesOutput) ToDataAutomationProjectPiiEntityTypesOutputWithContext(ctx context.Context) DataAutomationProjectPiiEntityTypesOutput {
+	return o
+}
+
+func (o DataAutomationProjectPiiEntityTypesOutput) ToDataAutomationProjectPiiEntityTypesPtrOutput() DataAutomationProjectPiiEntityTypesPtrOutput {
+	return o.ToDataAutomationProjectPiiEntityTypesPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectPiiEntityTypesOutput) ToDataAutomationProjectPiiEntityTypesPtrOutputWithContext(ctx context.Context) DataAutomationProjectPiiEntityTypesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectPiiEntityTypes) *DataAutomationProjectPiiEntityTypes {
+		return &v
+	}).(DataAutomationProjectPiiEntityTypesPtrOutput)
+}
+
+func (o DataAutomationProjectPiiEntityTypesOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectPiiEntityTypesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectPiiEntityTypes) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationProjectPiiEntityTypesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectPiiEntityTypesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectPiiEntityTypes) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectPiiEntityTypesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectPiiEntityTypesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectPiiEntityTypes)(nil)).Elem()
+}
+
+func (o DataAutomationProjectPiiEntityTypesPtrOutput) ToDataAutomationProjectPiiEntityTypesPtrOutput() DataAutomationProjectPiiEntityTypesPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectPiiEntityTypesPtrOutput) ToDataAutomationProjectPiiEntityTypesPtrOutputWithContext(ctx context.Context) DataAutomationProjectPiiEntityTypesPtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectPiiEntityTypesPtrOutput) Elem() DataAutomationProjectPiiEntityTypesOutput {
+	return o.ApplyT(func(v *DataAutomationProjectPiiEntityTypes) DataAutomationProjectPiiEntityTypes {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectPiiEntityTypes
+		return ret
+	}).(DataAutomationProjectPiiEntityTypesOutput)
+}
+
+func (o DataAutomationProjectPiiEntityTypesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectPiiEntityTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationProjectPiiEntityTypes) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataAutomationProjectPiiEntityTypesInput is an input type that accepts values of the DataAutomationProjectPiiEntityTypes enum
+// A concrete instance of `DataAutomationProjectPiiEntityTypesInput` can be one of the following:
+//
+//	DataAutomationProjectPiiEntityTypesAll
+//	DataAutomationProjectPiiEntityTypesAddress
+//	DataAutomationProjectPiiEntityTypesAge
+//	DataAutomationProjectPiiEntityTypesName
+//	DataAutomationProjectPiiEntityTypesEmail
+//	DataAutomationProjectPiiEntityTypesPhone
+//	DataAutomationProjectPiiEntityTypesUsername
+//	DataAutomationProjectPiiEntityTypesPassword
+//	DataAutomationProjectPiiEntityTypesDriverId
+//	DataAutomationProjectPiiEntityTypesLicensePlate
+//	DataAutomationProjectPiiEntityTypesVehicleIdentificationNumber
+//	DataAutomationProjectPiiEntityTypesCreditDebitCardCvv
+//	DataAutomationProjectPiiEntityTypesCreditDebitCardExpiry
+//	DataAutomationProjectPiiEntityTypesCreditDebitCardNumber
+//	DataAutomationProjectPiiEntityTypesPin
+//	DataAutomationProjectPiiEntityTypesInternationalBankAccountNumber
+//	DataAutomationProjectPiiEntityTypesSwiftCode
+//	DataAutomationProjectPiiEntityTypesIpAddress
+//	DataAutomationProjectPiiEntityTypesMacAddress
+//	DataAutomationProjectPiiEntityTypesUrl
+//	DataAutomationProjectPiiEntityTypesAwsAccessKey
+//	DataAutomationProjectPiiEntityTypesAwsSecretKey
+//	DataAutomationProjectPiiEntityTypesUsBankAccountNumber
+//	DataAutomationProjectPiiEntityTypesUsBankRoutingNumber
+//	DataAutomationProjectPiiEntityTypesUsIndividualTaxIdentificationNumber
+//	DataAutomationProjectPiiEntityTypesUsPassportNumber
+//	DataAutomationProjectPiiEntityTypesUsSocialSecurityNumber
+//	DataAutomationProjectPiiEntityTypesCaHealthNumber
+//	DataAutomationProjectPiiEntityTypesCaSocialInsuranceNumber
+//	DataAutomationProjectPiiEntityTypesUkNationalHealthServiceNumber
+//	DataAutomationProjectPiiEntityTypesUkNationalInsuranceNumber
+//	DataAutomationProjectPiiEntityTypesUkUniqueTaxpayerReferenceNumber
+type DataAutomationProjectPiiEntityTypesInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectPiiEntityTypesOutput() DataAutomationProjectPiiEntityTypesOutput
+	ToDataAutomationProjectPiiEntityTypesOutputWithContext(context.Context) DataAutomationProjectPiiEntityTypesOutput
+}
+
+var dataAutomationProjectPiiEntityTypesPtrType = reflect.TypeOf((**DataAutomationProjectPiiEntityTypes)(nil)).Elem()
+
+type DataAutomationProjectPiiEntityTypesPtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectPiiEntityTypesPtrOutput() DataAutomationProjectPiiEntityTypesPtrOutput
+	ToDataAutomationProjectPiiEntityTypesPtrOutputWithContext(context.Context) DataAutomationProjectPiiEntityTypesPtrOutput
+}
+
+type dataAutomationProjectPiiEntityTypesPtr string
+
+func DataAutomationProjectPiiEntityTypesPtr(v string) DataAutomationProjectPiiEntityTypesPtrInput {
+	return (*dataAutomationProjectPiiEntityTypesPtr)(&v)
+}
+
+func (*dataAutomationProjectPiiEntityTypesPtr) ElementType() reflect.Type {
+	return dataAutomationProjectPiiEntityTypesPtrType
+}
+
+func (in *dataAutomationProjectPiiEntityTypesPtr) ToDataAutomationProjectPiiEntityTypesPtrOutput() DataAutomationProjectPiiEntityTypesPtrOutput {
+	return pulumi.ToOutput(in).(DataAutomationProjectPiiEntityTypesPtrOutput)
+}
+
+func (in *dataAutomationProjectPiiEntityTypesPtr) ToDataAutomationProjectPiiEntityTypesPtrOutputWithContext(ctx context.Context) DataAutomationProjectPiiEntityTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataAutomationProjectPiiEntityTypesPtrOutput)
+}
+
+// DataAutomationProjectPiiEntityTypesArrayInput is an input type that accepts DataAutomationProjectPiiEntityTypesArray and DataAutomationProjectPiiEntityTypesArrayOutput values.
+// You can construct a concrete instance of `DataAutomationProjectPiiEntityTypesArrayInput` via:
+//
+//	DataAutomationProjectPiiEntityTypesArray{ DataAutomationProjectPiiEntityTypesArgs{...} }
+type DataAutomationProjectPiiEntityTypesArrayInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectPiiEntityTypesArrayOutput() DataAutomationProjectPiiEntityTypesArrayOutput
+	ToDataAutomationProjectPiiEntityTypesArrayOutputWithContext(context.Context) DataAutomationProjectPiiEntityTypesArrayOutput
+}
+
+type DataAutomationProjectPiiEntityTypesArray []DataAutomationProjectPiiEntityTypes
+
+func (DataAutomationProjectPiiEntityTypesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectPiiEntityTypes)(nil)).Elem()
+}
+
+func (i DataAutomationProjectPiiEntityTypesArray) ToDataAutomationProjectPiiEntityTypesArrayOutput() DataAutomationProjectPiiEntityTypesArrayOutput {
+	return i.ToDataAutomationProjectPiiEntityTypesArrayOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectPiiEntityTypesArray) ToDataAutomationProjectPiiEntityTypesArrayOutputWithContext(ctx context.Context) DataAutomationProjectPiiEntityTypesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectPiiEntityTypesArrayOutput)
+}
+
+type DataAutomationProjectPiiEntityTypesArrayOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectPiiEntityTypesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectPiiEntityTypes)(nil)).Elem()
+}
+
+func (o DataAutomationProjectPiiEntityTypesArrayOutput) ToDataAutomationProjectPiiEntityTypesArrayOutput() DataAutomationProjectPiiEntityTypesArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectPiiEntityTypesArrayOutput) ToDataAutomationProjectPiiEntityTypesArrayOutputWithContext(ctx context.Context) DataAutomationProjectPiiEntityTypesArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectPiiEntityTypesArrayOutput) Index(i pulumi.IntInput) DataAutomationProjectPiiEntityTypesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataAutomationProjectPiiEntityTypes {
+		return vs[0].([]DataAutomationProjectPiiEntityTypes)[vs[1].(int)]
+	}).(DataAutomationProjectPiiEntityTypesOutput)
+}
+
+type DataAutomationProjectPiiRedactionMaskMode string
+
+const (
+	DataAutomationProjectPiiRedactionMaskModePii        = DataAutomationProjectPiiRedactionMaskMode("PII")
+	DataAutomationProjectPiiRedactionMaskModeEntityType = DataAutomationProjectPiiRedactionMaskMode("ENTITY_TYPE")
+)
+
+func (DataAutomationProjectPiiRedactionMaskMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectPiiRedactionMaskMode)(nil)).Elem()
+}
+
+func (e DataAutomationProjectPiiRedactionMaskMode) ToDataAutomationProjectPiiRedactionMaskModeOutput() DataAutomationProjectPiiRedactionMaskModeOutput {
+	return pulumi.ToOutput(e).(DataAutomationProjectPiiRedactionMaskModeOutput)
+}
+
+func (e DataAutomationProjectPiiRedactionMaskMode) ToDataAutomationProjectPiiRedactionMaskModeOutputWithContext(ctx context.Context) DataAutomationProjectPiiRedactionMaskModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataAutomationProjectPiiRedactionMaskModeOutput)
+}
+
+func (e DataAutomationProjectPiiRedactionMaskMode) ToDataAutomationProjectPiiRedactionMaskModePtrOutput() DataAutomationProjectPiiRedactionMaskModePtrOutput {
+	return e.ToDataAutomationProjectPiiRedactionMaskModePtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectPiiRedactionMaskMode) ToDataAutomationProjectPiiRedactionMaskModePtrOutputWithContext(ctx context.Context) DataAutomationProjectPiiRedactionMaskModePtrOutput {
+	return DataAutomationProjectPiiRedactionMaskMode(e).ToDataAutomationProjectPiiRedactionMaskModeOutputWithContext(ctx).ToDataAutomationProjectPiiRedactionMaskModePtrOutputWithContext(ctx)
+}
+
+func (e DataAutomationProjectPiiRedactionMaskMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectPiiRedactionMaskMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectPiiRedactionMaskMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectPiiRedactionMaskMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataAutomationProjectPiiRedactionMaskModeOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectPiiRedactionMaskModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectPiiRedactionMaskMode)(nil)).Elem()
+}
+
+func (o DataAutomationProjectPiiRedactionMaskModeOutput) ToDataAutomationProjectPiiRedactionMaskModeOutput() DataAutomationProjectPiiRedactionMaskModeOutput {
+	return o
+}
+
+func (o DataAutomationProjectPiiRedactionMaskModeOutput) ToDataAutomationProjectPiiRedactionMaskModeOutputWithContext(ctx context.Context) DataAutomationProjectPiiRedactionMaskModeOutput {
+	return o
+}
+
+func (o DataAutomationProjectPiiRedactionMaskModeOutput) ToDataAutomationProjectPiiRedactionMaskModePtrOutput() DataAutomationProjectPiiRedactionMaskModePtrOutput {
+	return o.ToDataAutomationProjectPiiRedactionMaskModePtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectPiiRedactionMaskModeOutput) ToDataAutomationProjectPiiRedactionMaskModePtrOutputWithContext(ctx context.Context) DataAutomationProjectPiiRedactionMaskModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectPiiRedactionMaskMode) *DataAutomationProjectPiiRedactionMaskMode {
+		return &v
+	}).(DataAutomationProjectPiiRedactionMaskModePtrOutput)
+}
+
+func (o DataAutomationProjectPiiRedactionMaskModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectPiiRedactionMaskModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectPiiRedactionMaskMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationProjectPiiRedactionMaskModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectPiiRedactionMaskModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectPiiRedactionMaskMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectPiiRedactionMaskModePtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectPiiRedactionMaskModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectPiiRedactionMaskMode)(nil)).Elem()
+}
+
+func (o DataAutomationProjectPiiRedactionMaskModePtrOutput) ToDataAutomationProjectPiiRedactionMaskModePtrOutput() DataAutomationProjectPiiRedactionMaskModePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectPiiRedactionMaskModePtrOutput) ToDataAutomationProjectPiiRedactionMaskModePtrOutputWithContext(ctx context.Context) DataAutomationProjectPiiRedactionMaskModePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectPiiRedactionMaskModePtrOutput) Elem() DataAutomationProjectPiiRedactionMaskModeOutput {
+	return o.ApplyT(func(v *DataAutomationProjectPiiRedactionMaskMode) DataAutomationProjectPiiRedactionMaskMode {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectPiiRedactionMaskMode
+		return ret
+	}).(DataAutomationProjectPiiRedactionMaskModeOutput)
+}
+
+func (o DataAutomationProjectPiiRedactionMaskModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectPiiRedactionMaskModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationProjectPiiRedactionMaskMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataAutomationProjectPiiRedactionMaskModeInput is an input type that accepts values of the DataAutomationProjectPiiRedactionMaskMode enum
+// A concrete instance of `DataAutomationProjectPiiRedactionMaskModeInput` can be one of the following:
+//
+//	DataAutomationProjectPiiRedactionMaskModePii
+//	DataAutomationProjectPiiRedactionMaskModeEntityType
+type DataAutomationProjectPiiRedactionMaskModeInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectPiiRedactionMaskModeOutput() DataAutomationProjectPiiRedactionMaskModeOutput
+	ToDataAutomationProjectPiiRedactionMaskModeOutputWithContext(context.Context) DataAutomationProjectPiiRedactionMaskModeOutput
+}
+
+var dataAutomationProjectPiiRedactionMaskModePtrType = reflect.TypeOf((**DataAutomationProjectPiiRedactionMaskMode)(nil)).Elem()
+
+type DataAutomationProjectPiiRedactionMaskModePtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectPiiRedactionMaskModePtrOutput() DataAutomationProjectPiiRedactionMaskModePtrOutput
+	ToDataAutomationProjectPiiRedactionMaskModePtrOutputWithContext(context.Context) DataAutomationProjectPiiRedactionMaskModePtrOutput
+}
+
+type dataAutomationProjectPiiRedactionMaskModePtr string
+
+func DataAutomationProjectPiiRedactionMaskModePtr(v string) DataAutomationProjectPiiRedactionMaskModePtrInput {
+	return (*dataAutomationProjectPiiRedactionMaskModePtr)(&v)
+}
+
+func (*dataAutomationProjectPiiRedactionMaskModePtr) ElementType() reflect.Type {
+	return dataAutomationProjectPiiRedactionMaskModePtrType
+}
+
+func (in *dataAutomationProjectPiiRedactionMaskModePtr) ToDataAutomationProjectPiiRedactionMaskModePtrOutput() DataAutomationProjectPiiRedactionMaskModePtrOutput {
+	return pulumi.ToOutput(in).(DataAutomationProjectPiiRedactionMaskModePtrOutput)
+}
+
+func (in *dataAutomationProjectPiiRedactionMaskModePtr) ToDataAutomationProjectPiiRedactionMaskModePtrOutputWithContext(ctx context.Context) DataAutomationProjectPiiRedactionMaskModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataAutomationProjectPiiRedactionMaskModePtrOutput)
+}
+
+// Type of the DataAutomationProject - Sync or Async
+type DataAutomationProjectProjectType string
+
+const (
+	DataAutomationProjectProjectTypeAsync = DataAutomationProjectProjectType("ASYNC")
+	DataAutomationProjectProjectTypeSync  = DataAutomationProjectProjectType("SYNC")
+)
+
+func (DataAutomationProjectProjectType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectProjectType)(nil)).Elem()
+}
+
+func (e DataAutomationProjectProjectType) ToDataAutomationProjectProjectTypeOutput() DataAutomationProjectProjectTypeOutput {
+	return pulumi.ToOutput(e).(DataAutomationProjectProjectTypeOutput)
+}
+
+func (e DataAutomationProjectProjectType) ToDataAutomationProjectProjectTypeOutputWithContext(ctx context.Context) DataAutomationProjectProjectTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataAutomationProjectProjectTypeOutput)
+}
+
+func (e DataAutomationProjectProjectType) ToDataAutomationProjectProjectTypePtrOutput() DataAutomationProjectProjectTypePtrOutput {
+	return e.ToDataAutomationProjectProjectTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectProjectType) ToDataAutomationProjectProjectTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectProjectTypePtrOutput {
+	return DataAutomationProjectProjectType(e).ToDataAutomationProjectProjectTypeOutputWithContext(ctx).ToDataAutomationProjectProjectTypePtrOutputWithContext(ctx)
+}
+
+func (e DataAutomationProjectProjectType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectProjectType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectProjectType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectProjectType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataAutomationProjectProjectTypeOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectProjectTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectProjectType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectProjectTypeOutput) ToDataAutomationProjectProjectTypeOutput() DataAutomationProjectProjectTypeOutput {
+	return o
+}
+
+func (o DataAutomationProjectProjectTypeOutput) ToDataAutomationProjectProjectTypeOutputWithContext(ctx context.Context) DataAutomationProjectProjectTypeOutput {
+	return o
+}
+
+func (o DataAutomationProjectProjectTypeOutput) ToDataAutomationProjectProjectTypePtrOutput() DataAutomationProjectProjectTypePtrOutput {
+	return o.ToDataAutomationProjectProjectTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectProjectTypeOutput) ToDataAutomationProjectProjectTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectProjectTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectProjectType) *DataAutomationProjectProjectType {
+		return &v
+	}).(DataAutomationProjectProjectTypePtrOutput)
+}
+
+func (o DataAutomationProjectProjectTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectProjectTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectProjectType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationProjectProjectTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectProjectTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectProjectType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectProjectTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectProjectTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectProjectType)(nil)).Elem()
+}
+
+func (o DataAutomationProjectProjectTypePtrOutput) ToDataAutomationProjectProjectTypePtrOutput() DataAutomationProjectProjectTypePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectProjectTypePtrOutput) ToDataAutomationProjectProjectTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectProjectTypePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectProjectTypePtrOutput) Elem() DataAutomationProjectProjectTypeOutput {
+	return o.ApplyT(func(v *DataAutomationProjectProjectType) DataAutomationProjectProjectType {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectProjectType
+		return ret
+	}).(DataAutomationProjectProjectTypeOutput)
+}
+
+func (o DataAutomationProjectProjectTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectProjectTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationProjectProjectType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataAutomationProjectProjectTypeInput is an input type that accepts values of the DataAutomationProjectProjectType enum
+// A concrete instance of `DataAutomationProjectProjectTypeInput` can be one of the following:
+//
+//	DataAutomationProjectProjectTypeAsync
+//	DataAutomationProjectProjectTypeSync
+type DataAutomationProjectProjectTypeInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectProjectTypeOutput() DataAutomationProjectProjectTypeOutput
+	ToDataAutomationProjectProjectTypeOutputWithContext(context.Context) DataAutomationProjectProjectTypeOutput
+}
+
+var dataAutomationProjectProjectTypePtrType = reflect.TypeOf((**DataAutomationProjectProjectType)(nil)).Elem()
+
+type DataAutomationProjectProjectTypePtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectProjectTypePtrOutput() DataAutomationProjectProjectTypePtrOutput
+	ToDataAutomationProjectProjectTypePtrOutputWithContext(context.Context) DataAutomationProjectProjectTypePtrOutput
+}
+
+type dataAutomationProjectProjectTypePtr string
+
+func DataAutomationProjectProjectTypePtr(v string) DataAutomationProjectProjectTypePtrInput {
+	return (*dataAutomationProjectProjectTypePtr)(&v)
+}
+
+func (*dataAutomationProjectProjectTypePtr) ElementType() reflect.Type {
+	return dataAutomationProjectProjectTypePtrType
+}
+
+func (in *dataAutomationProjectProjectTypePtr) ToDataAutomationProjectProjectTypePtrOutput() DataAutomationProjectProjectTypePtrOutput {
+	return pulumi.ToOutput(in).(DataAutomationProjectProjectTypePtrOutput)
+}
+
+func (in *dataAutomationProjectProjectTypePtr) ToDataAutomationProjectProjectTypePtrOutputWithContext(ctx context.Context) DataAutomationProjectProjectTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataAutomationProjectProjectTypePtrOutput)
+}
+
+type DataAutomationProjectSensitiveDataDetectionMode string
+
+const (
+	DataAutomationProjectSensitiveDataDetectionModeDetection             = DataAutomationProjectSensitiveDataDetectionMode("DETECTION")
+	DataAutomationProjectSensitiveDataDetectionModeDetectionAndRedaction = DataAutomationProjectSensitiveDataDetectionMode("DETECTION_AND_REDACTION")
+)
+
+func (DataAutomationProjectSensitiveDataDetectionMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectSensitiveDataDetectionMode)(nil)).Elem()
+}
+
+func (e DataAutomationProjectSensitiveDataDetectionMode) ToDataAutomationProjectSensitiveDataDetectionModeOutput() DataAutomationProjectSensitiveDataDetectionModeOutput {
+	return pulumi.ToOutput(e).(DataAutomationProjectSensitiveDataDetectionModeOutput)
+}
+
+func (e DataAutomationProjectSensitiveDataDetectionMode) ToDataAutomationProjectSensitiveDataDetectionModeOutputWithContext(ctx context.Context) DataAutomationProjectSensitiveDataDetectionModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataAutomationProjectSensitiveDataDetectionModeOutput)
+}
+
+func (e DataAutomationProjectSensitiveDataDetectionMode) ToDataAutomationProjectSensitiveDataDetectionModePtrOutput() DataAutomationProjectSensitiveDataDetectionModePtrOutput {
+	return e.ToDataAutomationProjectSensitiveDataDetectionModePtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectSensitiveDataDetectionMode) ToDataAutomationProjectSensitiveDataDetectionModePtrOutputWithContext(ctx context.Context) DataAutomationProjectSensitiveDataDetectionModePtrOutput {
+	return DataAutomationProjectSensitiveDataDetectionMode(e).ToDataAutomationProjectSensitiveDataDetectionModeOutputWithContext(ctx).ToDataAutomationProjectSensitiveDataDetectionModePtrOutputWithContext(ctx)
+}
+
+func (e DataAutomationProjectSensitiveDataDetectionMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectSensitiveDataDetectionMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectSensitiveDataDetectionMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectSensitiveDataDetectionMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataAutomationProjectSensitiveDataDetectionModeOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectSensitiveDataDetectionModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectSensitiveDataDetectionMode)(nil)).Elem()
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionModeOutput) ToDataAutomationProjectSensitiveDataDetectionModeOutput() DataAutomationProjectSensitiveDataDetectionModeOutput {
+	return o
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionModeOutput) ToDataAutomationProjectSensitiveDataDetectionModeOutputWithContext(ctx context.Context) DataAutomationProjectSensitiveDataDetectionModeOutput {
+	return o
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionModeOutput) ToDataAutomationProjectSensitiveDataDetectionModePtrOutput() DataAutomationProjectSensitiveDataDetectionModePtrOutput {
+	return o.ToDataAutomationProjectSensitiveDataDetectionModePtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionModeOutput) ToDataAutomationProjectSensitiveDataDetectionModePtrOutputWithContext(ctx context.Context) DataAutomationProjectSensitiveDataDetectionModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectSensitiveDataDetectionMode) *DataAutomationProjectSensitiveDataDetectionMode {
+		return &v
+	}).(DataAutomationProjectSensitiveDataDetectionModePtrOutput)
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectSensitiveDataDetectionMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectSensitiveDataDetectionMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectSensitiveDataDetectionModePtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectSensitiveDataDetectionModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectSensitiveDataDetectionMode)(nil)).Elem()
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionModePtrOutput) ToDataAutomationProjectSensitiveDataDetectionModePtrOutput() DataAutomationProjectSensitiveDataDetectionModePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionModePtrOutput) ToDataAutomationProjectSensitiveDataDetectionModePtrOutputWithContext(ctx context.Context) DataAutomationProjectSensitiveDataDetectionModePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionModePtrOutput) Elem() DataAutomationProjectSensitiveDataDetectionModeOutput {
+	return o.ApplyT(func(v *DataAutomationProjectSensitiveDataDetectionMode) DataAutomationProjectSensitiveDataDetectionMode {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectSensitiveDataDetectionMode
+		return ret
+	}).(DataAutomationProjectSensitiveDataDetectionModeOutput)
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationProjectSensitiveDataDetectionMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataAutomationProjectSensitiveDataDetectionModeInput is an input type that accepts values of the DataAutomationProjectSensitiveDataDetectionMode enum
+// A concrete instance of `DataAutomationProjectSensitiveDataDetectionModeInput` can be one of the following:
+//
+//	DataAutomationProjectSensitiveDataDetectionModeDetection
+//	DataAutomationProjectSensitiveDataDetectionModeDetectionAndRedaction
+type DataAutomationProjectSensitiveDataDetectionModeInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectSensitiveDataDetectionModeOutput() DataAutomationProjectSensitiveDataDetectionModeOutput
+	ToDataAutomationProjectSensitiveDataDetectionModeOutputWithContext(context.Context) DataAutomationProjectSensitiveDataDetectionModeOutput
+}
+
+var dataAutomationProjectSensitiveDataDetectionModePtrType = reflect.TypeOf((**DataAutomationProjectSensitiveDataDetectionMode)(nil)).Elem()
+
+type DataAutomationProjectSensitiveDataDetectionModePtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectSensitiveDataDetectionModePtrOutput() DataAutomationProjectSensitiveDataDetectionModePtrOutput
+	ToDataAutomationProjectSensitiveDataDetectionModePtrOutputWithContext(context.Context) DataAutomationProjectSensitiveDataDetectionModePtrOutput
+}
+
+type dataAutomationProjectSensitiveDataDetectionModePtr string
+
+func DataAutomationProjectSensitiveDataDetectionModePtr(v string) DataAutomationProjectSensitiveDataDetectionModePtrInput {
+	return (*dataAutomationProjectSensitiveDataDetectionModePtr)(&v)
+}
+
+func (*dataAutomationProjectSensitiveDataDetectionModePtr) ElementType() reflect.Type {
+	return dataAutomationProjectSensitiveDataDetectionModePtrType
+}
+
+func (in *dataAutomationProjectSensitiveDataDetectionModePtr) ToDataAutomationProjectSensitiveDataDetectionModePtrOutput() DataAutomationProjectSensitiveDataDetectionModePtrOutput {
+	return pulumi.ToOutput(in).(DataAutomationProjectSensitiveDataDetectionModePtrOutput)
+}
+
+func (in *dataAutomationProjectSensitiveDataDetectionModePtr) ToDataAutomationProjectSensitiveDataDetectionModePtrOutputWithContext(ctx context.Context) DataAutomationProjectSensitiveDataDetectionModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataAutomationProjectSensitiveDataDetectionModePtrOutput)
+}
+
+type DataAutomationProjectSensitiveDataDetectionScope string
+
+const (
+	DataAutomationProjectSensitiveDataDetectionScopeStandard = DataAutomationProjectSensitiveDataDetectionScope("STANDARD")
+	DataAutomationProjectSensitiveDataDetectionScopeCustom   = DataAutomationProjectSensitiveDataDetectionScope("CUSTOM")
+)
+
+func (DataAutomationProjectSensitiveDataDetectionScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectSensitiveDataDetectionScope)(nil)).Elem()
+}
+
+func (e DataAutomationProjectSensitiveDataDetectionScope) ToDataAutomationProjectSensitiveDataDetectionScopeOutput() DataAutomationProjectSensitiveDataDetectionScopeOutput {
+	return pulumi.ToOutput(e).(DataAutomationProjectSensitiveDataDetectionScopeOutput)
+}
+
+func (e DataAutomationProjectSensitiveDataDetectionScope) ToDataAutomationProjectSensitiveDataDetectionScopeOutputWithContext(ctx context.Context) DataAutomationProjectSensitiveDataDetectionScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataAutomationProjectSensitiveDataDetectionScopeOutput)
+}
+
+func (e DataAutomationProjectSensitiveDataDetectionScope) ToDataAutomationProjectSensitiveDataDetectionScopePtrOutput() DataAutomationProjectSensitiveDataDetectionScopePtrOutput {
+	return e.ToDataAutomationProjectSensitiveDataDetectionScopePtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectSensitiveDataDetectionScope) ToDataAutomationProjectSensitiveDataDetectionScopePtrOutputWithContext(ctx context.Context) DataAutomationProjectSensitiveDataDetectionScopePtrOutput {
+	return DataAutomationProjectSensitiveDataDetectionScope(e).ToDataAutomationProjectSensitiveDataDetectionScopeOutputWithContext(ctx).ToDataAutomationProjectSensitiveDataDetectionScopePtrOutputWithContext(ctx)
+}
+
+func (e DataAutomationProjectSensitiveDataDetectionScope) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectSensitiveDataDetectionScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataAutomationProjectSensitiveDataDetectionScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataAutomationProjectSensitiveDataDetectionScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataAutomationProjectSensitiveDataDetectionScopeOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectSensitiveDataDetectionScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAutomationProjectSensitiveDataDetectionScope)(nil)).Elem()
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionScopeOutput) ToDataAutomationProjectSensitiveDataDetectionScopeOutput() DataAutomationProjectSensitiveDataDetectionScopeOutput {
+	return o
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionScopeOutput) ToDataAutomationProjectSensitiveDataDetectionScopeOutputWithContext(ctx context.Context) DataAutomationProjectSensitiveDataDetectionScopeOutput {
+	return o
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionScopeOutput) ToDataAutomationProjectSensitiveDataDetectionScopePtrOutput() DataAutomationProjectSensitiveDataDetectionScopePtrOutput {
+	return o.ToDataAutomationProjectSensitiveDataDetectionScopePtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionScopeOutput) ToDataAutomationProjectSensitiveDataDetectionScopePtrOutputWithContext(ctx context.Context) DataAutomationProjectSensitiveDataDetectionScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAutomationProjectSensitiveDataDetectionScope) *DataAutomationProjectSensitiveDataDetectionScope {
+		return &v
+	}).(DataAutomationProjectSensitiveDataDetectionScopePtrOutput)
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionScopeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectSensitiveDataDetectionScope) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataAutomationProjectSensitiveDataDetectionScope) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAutomationProjectSensitiveDataDetectionScopePtrOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectSensitiveDataDetectionScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAutomationProjectSensitiveDataDetectionScope)(nil)).Elem()
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionScopePtrOutput) ToDataAutomationProjectSensitiveDataDetectionScopePtrOutput() DataAutomationProjectSensitiveDataDetectionScopePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionScopePtrOutput) ToDataAutomationProjectSensitiveDataDetectionScopePtrOutputWithContext(ctx context.Context) DataAutomationProjectSensitiveDataDetectionScopePtrOutput {
+	return o
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionScopePtrOutput) Elem() DataAutomationProjectSensitiveDataDetectionScopeOutput {
+	return o.ApplyT(func(v *DataAutomationProjectSensitiveDataDetectionScope) DataAutomationProjectSensitiveDataDetectionScope {
+		if v != nil {
+			return *v
+		}
+		var ret DataAutomationProjectSensitiveDataDetectionScope
+		return ret
+	}).(DataAutomationProjectSensitiveDataDetectionScopeOutput)
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataAutomationProjectSensitiveDataDetectionScope) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataAutomationProjectSensitiveDataDetectionScopeInput is an input type that accepts values of the DataAutomationProjectSensitiveDataDetectionScope enum
+// A concrete instance of `DataAutomationProjectSensitiveDataDetectionScopeInput` can be one of the following:
+//
+//	DataAutomationProjectSensitiveDataDetectionScopeStandard
+//	DataAutomationProjectSensitiveDataDetectionScopeCustom
+type DataAutomationProjectSensitiveDataDetectionScopeInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectSensitiveDataDetectionScopeOutput() DataAutomationProjectSensitiveDataDetectionScopeOutput
+	ToDataAutomationProjectSensitiveDataDetectionScopeOutputWithContext(context.Context) DataAutomationProjectSensitiveDataDetectionScopeOutput
+}
+
+var dataAutomationProjectSensitiveDataDetectionScopePtrType = reflect.TypeOf((**DataAutomationProjectSensitiveDataDetectionScope)(nil)).Elem()
+
+type DataAutomationProjectSensitiveDataDetectionScopePtrInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectSensitiveDataDetectionScopePtrOutput() DataAutomationProjectSensitiveDataDetectionScopePtrOutput
+	ToDataAutomationProjectSensitiveDataDetectionScopePtrOutputWithContext(context.Context) DataAutomationProjectSensitiveDataDetectionScopePtrOutput
+}
+
+type dataAutomationProjectSensitiveDataDetectionScopePtr string
+
+func DataAutomationProjectSensitiveDataDetectionScopePtr(v string) DataAutomationProjectSensitiveDataDetectionScopePtrInput {
+	return (*dataAutomationProjectSensitiveDataDetectionScopePtr)(&v)
+}
+
+func (*dataAutomationProjectSensitiveDataDetectionScopePtr) ElementType() reflect.Type {
+	return dataAutomationProjectSensitiveDataDetectionScopePtrType
+}
+
+func (in *dataAutomationProjectSensitiveDataDetectionScopePtr) ToDataAutomationProjectSensitiveDataDetectionScopePtrOutput() DataAutomationProjectSensitiveDataDetectionScopePtrOutput {
+	return pulumi.ToOutput(in).(DataAutomationProjectSensitiveDataDetectionScopePtrOutput)
+}
+
+func (in *dataAutomationProjectSensitiveDataDetectionScopePtr) ToDataAutomationProjectSensitiveDataDetectionScopePtrOutputWithContext(ctx context.Context) DataAutomationProjectSensitiveDataDetectionScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataAutomationProjectSensitiveDataDetectionScopePtrOutput)
+}
+
+// DataAutomationProjectSensitiveDataDetectionScopeArrayInput is an input type that accepts DataAutomationProjectSensitiveDataDetectionScopeArray and DataAutomationProjectSensitiveDataDetectionScopeArrayOutput values.
+// You can construct a concrete instance of `DataAutomationProjectSensitiveDataDetectionScopeArrayInput` via:
+//
+//	DataAutomationProjectSensitiveDataDetectionScopeArray{ DataAutomationProjectSensitiveDataDetectionScopeArgs{...} }
+type DataAutomationProjectSensitiveDataDetectionScopeArrayInput interface {
+	pulumi.Input
+
+	ToDataAutomationProjectSensitiveDataDetectionScopeArrayOutput() DataAutomationProjectSensitiveDataDetectionScopeArrayOutput
+	ToDataAutomationProjectSensitiveDataDetectionScopeArrayOutputWithContext(context.Context) DataAutomationProjectSensitiveDataDetectionScopeArrayOutput
+}
+
+type DataAutomationProjectSensitiveDataDetectionScopeArray []DataAutomationProjectSensitiveDataDetectionScope
+
+func (DataAutomationProjectSensitiveDataDetectionScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectSensitiveDataDetectionScope)(nil)).Elem()
+}
+
+func (i DataAutomationProjectSensitiveDataDetectionScopeArray) ToDataAutomationProjectSensitiveDataDetectionScopeArrayOutput() DataAutomationProjectSensitiveDataDetectionScopeArrayOutput {
+	return i.ToDataAutomationProjectSensitiveDataDetectionScopeArrayOutputWithContext(context.Background())
+}
+
+func (i DataAutomationProjectSensitiveDataDetectionScopeArray) ToDataAutomationProjectSensitiveDataDetectionScopeArrayOutputWithContext(ctx context.Context) DataAutomationProjectSensitiveDataDetectionScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAutomationProjectSensitiveDataDetectionScopeArrayOutput)
+}
+
+type DataAutomationProjectSensitiveDataDetectionScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (DataAutomationProjectSensitiveDataDetectionScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAutomationProjectSensitiveDataDetectionScope)(nil)).Elem()
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionScopeArrayOutput) ToDataAutomationProjectSensitiveDataDetectionScopeArrayOutput() DataAutomationProjectSensitiveDataDetectionScopeArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionScopeArrayOutput) ToDataAutomationProjectSensitiveDataDetectionScopeArrayOutputWithContext(ctx context.Context) DataAutomationProjectSensitiveDataDetectionScopeArrayOutput {
+	return o
+}
+
+func (o DataAutomationProjectSensitiveDataDetectionScopeArrayOutput) Index(i pulumi.IntInput) DataAutomationProjectSensitiveDataDetectionScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataAutomationProjectSensitiveDataDetectionScope {
+		return vs[0].([]DataAutomationProjectSensitiveDataDetectionScope)[vs[1].(int)]
+	}).(DataAutomationProjectSensitiveDataDetectionScopeOutput)
 }
 
 // Stage of the Project
@@ -14414,6 +15783,7 @@ const (
 	KnowledgeBaseStorageTypeRds                      = KnowledgeBaseStorageType("RDS")
 	KnowledgeBaseStorageTypeMongoDbAtlas             = KnowledgeBaseStorageType("MONGO_DB_ATLAS")
 	KnowledgeBaseStorageTypeNeptuneAnalytics         = KnowledgeBaseStorageType("NEPTUNE_ANALYTICS")
+	KnowledgeBaseStorageTypeS3Vectors                = KnowledgeBaseStorageType("S3_VECTORS")
 	KnowledgeBaseStorageTypeOpensearchManagedCluster = KnowledgeBaseStorageType("OPENSEARCH_MANAGED_CLUSTER")
 )
 
@@ -14544,6 +15914,7 @@ func (o KnowledgeBaseStorageTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 //	KnowledgeBaseStorageTypeRds
 //	KnowledgeBaseStorageTypeMongoDbAtlas
 //	KnowledgeBaseStorageTypeNeptuneAnalytics
+//	KnowledgeBaseStorageTypeS3Vectors
 //	KnowledgeBaseStorageTypeOpensearchManagedCluster
 type KnowledgeBaseStorageTypeInput interface {
 	pulumi.Input
@@ -15712,6 +17083,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryTypeInput)(nil)).Elem(), DataAutomationProjectAudioExtractionCategoryType("AUDIO_CONTENT_MODERATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryTypePtrInput)(nil)).Elem(), DataAutomationProjectAudioExtractionCategoryType("AUDIO_CONTENT_MODERATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioExtractionCategoryTypeArrayInput)(nil)).Elem(), DataAutomationProjectAudioExtractionCategoryTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioGenerativeOutputLanguageInput)(nil)).Elem(), DataAutomationProjectAudioGenerativeOutputLanguage("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioGenerativeOutputLanguagePtrInput)(nil)).Elem(), DataAutomationProjectAudioGenerativeOutputLanguage("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioStandardGenerativeFieldTypeInput)(nil)).Elem(), DataAutomationProjectAudioStandardGenerativeFieldType("AUDIO_SUMMARY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioStandardGenerativeFieldTypePtrInput)(nil)).Elem(), DataAutomationProjectAudioStandardGenerativeFieldType("AUDIO_SUMMARY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectAudioStandardGenerativeFieldTypeArrayInput)(nil)).Elem(), DataAutomationProjectAudioStandardGenerativeFieldTypeArray{})
@@ -15731,6 +17104,21 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectImageStandardGenerativeFieldTypeInput)(nil)).Elem(), DataAutomationProjectImageStandardGenerativeFieldType("IMAGE_SUMMARY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectImageStandardGenerativeFieldTypePtrInput)(nil)).Elem(), DataAutomationProjectImageStandardGenerativeFieldType("IMAGE_SUMMARY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectImageStandardGenerativeFieldTypeArrayInput)(nil)).Elem(), DataAutomationProjectImageStandardGenerativeFieldTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectLanguageInput)(nil)).Elem(), DataAutomationProjectLanguage("EN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectLanguagePtrInput)(nil)).Elem(), DataAutomationProjectLanguage("EN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectLanguageArrayInput)(nil)).Elem(), DataAutomationProjectLanguageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectPiiEntityTypesInput)(nil)).Elem(), DataAutomationProjectPiiEntityTypes("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectPiiEntityTypesPtrInput)(nil)).Elem(), DataAutomationProjectPiiEntityTypes("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectPiiEntityTypesArrayInput)(nil)).Elem(), DataAutomationProjectPiiEntityTypesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectPiiRedactionMaskModeInput)(nil)).Elem(), DataAutomationProjectPiiRedactionMaskMode("PII"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectPiiRedactionMaskModePtrInput)(nil)).Elem(), DataAutomationProjectPiiRedactionMaskMode("PII"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectProjectTypeInput)(nil)).Elem(), DataAutomationProjectProjectType("ASYNC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectProjectTypePtrInput)(nil)).Elem(), DataAutomationProjectProjectType("ASYNC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectSensitiveDataDetectionModeInput)(nil)).Elem(), DataAutomationProjectSensitiveDataDetectionMode("DETECTION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectSensitiveDataDetectionModePtrInput)(nil)).Elem(), DataAutomationProjectSensitiveDataDetectionMode("DETECTION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectSensitiveDataDetectionScopeInput)(nil)).Elem(), DataAutomationProjectSensitiveDataDetectionScope("STANDARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectSensitiveDataDetectionScopePtrInput)(nil)).Elem(), DataAutomationProjectSensitiveDataDetectionScope("STANDARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectSensitiveDataDetectionScopeArrayInput)(nil)).Elem(), DataAutomationProjectSensitiveDataDetectionScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectStateEnumInput)(nil)).Elem(), DataAutomationProjectStateEnum("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectStateEnumPtrInput)(nil)).Elem(), DataAutomationProjectStateEnum("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataAutomationProjectVideoExtractionCategoryTypeInput)(nil)).Elem(), DataAutomationProjectVideoExtractionCategoryType("CONTENT_MODERATION"))
@@ -15886,6 +17274,8 @@ func init() {
 	pulumi.RegisterOutputType(DataAutomationProjectAudioExtractionCategoryTypeOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioExtractionCategoryTypePtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioExtractionCategoryTypeArrayOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectAudioGenerativeOutputLanguageOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectAudioGenerativeOutputLanguagePtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioStandardGenerativeFieldTypeOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioStandardGenerativeFieldTypePtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectAudioStandardGenerativeFieldTypeArrayOutput{})
@@ -15905,6 +17295,21 @@ func init() {
 	pulumi.RegisterOutputType(DataAutomationProjectImageStandardGenerativeFieldTypeOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectImageStandardGenerativeFieldTypePtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectImageStandardGenerativeFieldTypeArrayOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectLanguageOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectLanguagePtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectLanguageArrayOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectPiiEntityTypesOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectPiiEntityTypesPtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectPiiEntityTypesArrayOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectPiiRedactionMaskModeOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectPiiRedactionMaskModePtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectProjectTypeOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectProjectTypePtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectSensitiveDataDetectionModeOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectSensitiveDataDetectionModePtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectSensitiveDataDetectionScopeOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectSensitiveDataDetectionScopePtrOutput{})
+	pulumi.RegisterOutputType(DataAutomationProjectSensitiveDataDetectionScopeArrayOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectStageOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectStagePtrOutput{})
 	pulumi.RegisterOutputType(DataAutomationProjectStateEnumOutput{})

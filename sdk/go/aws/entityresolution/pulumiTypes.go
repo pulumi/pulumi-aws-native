@@ -790,7 +790,7 @@ func (o IdMappingWorkflowIntermediateSourceConfigurationPtrOutput) IntermediateS
 }
 
 type IdMappingWorkflowOutputSource struct {
-	// Customer AWS KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
+	// Customer AWS  ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
 	KmsArn *string `pulumi:"kmsArn"`
 	// The S3 path to which Entity Resolution will write the output table
 	OutputS3Path string `pulumi:"outputS3Path"`
@@ -808,7 +808,7 @@ type IdMappingWorkflowOutputSourceInput interface {
 }
 
 type IdMappingWorkflowOutputSourceArgs struct {
-	// Customer AWS KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
+	// Customer AWS  ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
 	KmsArn pulumi.StringPtrInput `pulumi:"kmsArn"`
 	// The S3 path to which Entity Resolution will write the output table
 	OutputS3Path pulumi.StringInput `pulumi:"outputS3Path"`
@@ -865,7 +865,7 @@ func (o IdMappingWorkflowOutputSourceOutput) ToIdMappingWorkflowOutputSourceOutp
 	return o
 }
 
-// Customer AWS KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
+// Customer AWS  ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
 func (o IdMappingWorkflowOutputSourceOutput) KmsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdMappingWorkflowOutputSource) *string { return v.KmsArn }).(pulumi.StringPtrOutput)
 }

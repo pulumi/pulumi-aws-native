@@ -24,15 +24,29 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.
         /// </summary>
         public readonly Pulumi.AwsNative.Ec2.VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint? PrivateDnsOnlyForInboundResolverEndpoint;
+        /// <summary>
+        /// The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Ec2.VpcEndpointDnsOptionsSpecificationPrivateDnsPreference? PrivateDnsPreference;
+        /// <summary>
+        /// Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .
+        /// </summary>
+        public readonly ImmutableArray<string> PrivateDnsSpecifiedDomains;
 
         [OutputConstructor]
         private VpcEndpointDnsOptionsSpecification(
             Pulumi.AwsNative.Ec2.VpcEndpointDnsOptionsSpecificationDnsRecordIpType? dnsRecordIpType,
 
-            Pulumi.AwsNative.Ec2.VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint? privateDnsOnlyForInboundResolverEndpoint)
+            Pulumi.AwsNative.Ec2.VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint? privateDnsOnlyForInboundResolverEndpoint,
+
+            Pulumi.AwsNative.Ec2.VpcEndpointDnsOptionsSpecificationPrivateDnsPreference? privateDnsPreference,
+
+            ImmutableArray<string> privateDnsSpecifiedDomains)
         {
             DnsRecordIpType = dnsRecordIpType;
             PrivateDnsOnlyForInboundResolverEndpoint = privateDnsOnlyForInboundResolverEndpoint;
+            PrivateDnsPreference = privateDnsPreference;
+            PrivateDnsSpecifiedDomains = privateDnsSpecifiedDomains;
         }
     }
 }

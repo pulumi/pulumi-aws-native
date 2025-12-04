@@ -21,6 +21,10 @@ type IpamScope struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The description of the scope.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.
+	//
+	// For more information, see [Integrate VPC IPAM with Infoblox infrastructure](https://docs.aws.amazon.com/vpc/latest/ipam/integrate-infoblox-ipam.html) in the *Amazon VPC IPAM User Guide* .
+	ExternalAuthorityConfiguration IpamScopeExternalAuthorityConfigurationPtrOutput `pulumi:"externalAuthorityConfiguration"`
 	// The Amazon Resource Name (ARN) of the IPAM this scope is a part of.
 	IpamArn pulumi.StringOutput `pulumi:"ipamArn"`
 	// The Id of the IPAM this scope is a part of.
@@ -86,6 +90,10 @@ func (IpamScopeState) ElementType() reflect.Type {
 type ipamScopeArgs struct {
 	// The description of the scope.
 	Description *string `pulumi:"description"`
+	// The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.
+	//
+	// For more information, see [Integrate VPC IPAM with Infoblox infrastructure](https://docs.aws.amazon.com/vpc/latest/ipam/integrate-infoblox-ipam.html) in the *Amazon VPC IPAM User Guide* .
+	ExternalAuthorityConfiguration *IpamScopeExternalAuthorityConfiguration `pulumi:"externalAuthorityConfiguration"`
 	// The Id of the IPAM this scope is a part of.
 	IpamId string `pulumi:"ipamId"`
 	// An array of key-value pairs to apply to this resource.
@@ -96,6 +104,10 @@ type ipamScopeArgs struct {
 type IpamScopeArgs struct {
 	// The description of the scope.
 	Description pulumi.StringPtrInput
+	// The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.
+	//
+	// For more information, see [Integrate VPC IPAM with Infoblox infrastructure](https://docs.aws.amazon.com/vpc/latest/ipam/integrate-infoblox-ipam.html) in the *Amazon VPC IPAM User Guide* .
+	ExternalAuthorityConfiguration IpamScopeExternalAuthorityConfigurationPtrInput
 	// The Id of the IPAM this scope is a part of.
 	IpamId pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
@@ -147,6 +159,15 @@ func (o IpamScopeOutput) Arn() pulumi.StringOutput {
 // The description of the scope.
 func (o IpamScopeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IpamScope) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The configuration that links an Amazon VPC IPAM scope to an external authority system. It specifies the type of external system and the external resource identifier that identifies your account or instance in that system.
+//
+// For more information, see [Integrate VPC IPAM with Infoblox infrastructure](https://docs.aws.amazon.com/vpc/latest/ipam/integrate-infoblox-ipam.html) in the *Amazon VPC IPAM User Guide* .
+func (o IpamScopeOutput) ExternalAuthorityConfiguration() IpamScopeExternalAuthorityConfigurationPtrOutput {
+	return o.ApplyT(func(v *IpamScope) IpamScopeExternalAuthorityConfigurationPtrOutput {
+		return v.ExternalAuthorityConfiguration
+	}).(IpamScopeExternalAuthorityConfigurationPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the IPAM this scope is a part of.

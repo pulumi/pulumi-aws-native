@@ -29,6 +29,7 @@ export interface GetDomainResult {
      * The time of this integration got created
      */
     readonly createdAt?: string;
+    readonly dataStore?: outputs.customerprofiles.DomainDataStore;
     /**
      * The URL of the SQS dead letter queue
      */

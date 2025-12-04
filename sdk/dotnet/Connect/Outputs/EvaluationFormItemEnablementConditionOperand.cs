@@ -10,11 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Outputs
 {
 
+    /// <summary>
+    /// An operand of the enablement condition.
+    /// </summary>
     [OutputType]
     public sealed class EvaluationFormItemEnablementConditionOperand
     {
         /// <summary>
-        /// A direct comparison expression that evaluates a form item's value against specified criteria.
+        /// An expression of the enablement condition.
         /// </summary>
         public readonly Outputs.EvaluationFormItemEnablementExpression? Expression;
 

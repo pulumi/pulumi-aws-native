@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.AiOps
         /// </summary>
         public readonly ImmutableArray<Outputs.InvestigationGroupCrossAccountConfiguration> CrossAccountConfigurations;
         /// <summary>
-        /// Specifies the customer managed AWS KMS key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
+        /// Specifies the customer managed AWS  key that the investigation group uses to encrypt data, if there is one. If not, the investigation group uses an AWS key to encrypt the data.
         /// </summary>
         public readonly Outputs.InvestigationGroupEncryptionConfigMap? EncryptionConfig;
         /// <summary>

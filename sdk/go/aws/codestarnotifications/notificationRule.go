@@ -34,9 +34,9 @@ type NotificationRule struct {
 	Status NotificationRuleStatusPtrOutput `pulumi:"status"`
 	// A list of tags to apply to this notification rule. Key names cannot start with " `aws` ".
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The Amazon Resource Name (ARN) of the Amazon SNS topic or  client.
+	// The Amazon Resource Name (ARN) of the Amazon  topic or  client.
 	TargetAddress pulumi.StringPtrOutput `pulumi:"targetAddress"`
-	// A list of Amazon Resource Names (ARNs) of Amazon SNS topics and  clients to associate with the notification rule.
+	// A list of Amazon Resource Names (ARNs) of Amazon  topics and  clients to associate with the notification rule.
 	Targets NotificationRuleTargetArrayOutput `pulumi:"targets"`
 }
 
@@ -112,9 +112,9 @@ type notificationRuleArgs struct {
 	Status *NotificationRuleStatus `pulumi:"status"`
 	// A list of tags to apply to this notification rule. Key names cannot start with " `aws` ".
 	Tags map[string]string `pulumi:"tags"`
-	// The Amazon Resource Name (ARN) of the Amazon SNS topic or  client.
+	// The Amazon Resource Name (ARN) of the Amazon  topic or  client.
 	TargetAddress *string `pulumi:"targetAddress"`
-	// A list of Amazon Resource Names (ARNs) of Amazon SNS topics and  clients to associate with the notification rule.
+	// A list of Amazon Resource Names (ARNs) of Amazon  topics and  clients to associate with the notification rule.
 	Targets []NotificationRuleTarget `pulumi:"targets"`
 }
 
@@ -136,9 +136,9 @@ type NotificationRuleArgs struct {
 	Status NotificationRuleStatusPtrInput
 	// A list of tags to apply to this notification rule. Key names cannot start with " `aws` ".
 	Tags pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) of the Amazon SNS topic or  client.
+	// The Amazon Resource Name (ARN) of the Amazon  topic or  client.
 	TargetAddress pulumi.StringPtrInput
-	// A list of Amazon Resource Names (ARNs) of Amazon SNS topics and  clients to associate with the notification rule.
+	// A list of Amazon Resource Names (ARNs) of Amazon  topics and  clients to associate with the notification rule.
 	Targets NotificationRuleTargetArrayInput
 }
 
@@ -224,12 +224,12 @@ func (o NotificationRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon SNS topic or  client.
+// The Amazon Resource Name (ARN) of the Amazon  topic or  client.
 func (o NotificationRuleOutput) TargetAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringPtrOutput { return v.TargetAddress }).(pulumi.StringPtrOutput)
 }
 
-// A list of Amazon Resource Names (ARNs) of Amazon SNS topics and  clients to associate with the notification rule.
+// A list of Amazon Resource Names (ARNs) of Amazon  topics and  clients to associate with the notification rule.
 func (o NotificationRuleOutput) Targets() NotificationRuleTargetArrayOutput {
 	return o.ApplyT(func(v *NotificationRule) NotificationRuleTargetArrayOutput { return v.Targets }).(NotificationRuleTargetArrayOutput)
 }

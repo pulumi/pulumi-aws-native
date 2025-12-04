@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccessLogSubscription{}
 	case "aws-native:vpclattice:AuthPolicy":
 		r = &AuthPolicy{}
+	case "aws-native:vpclattice:DomainVerification":
+		r = &DomainVerification{}
 	case "aws-native:vpclattice:Listener":
 		r = &Listener{}
 	case "aws-native:vpclattice:ResourceConfiguration":

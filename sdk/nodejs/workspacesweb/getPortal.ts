@@ -98,7 +98,7 @@ export interface GetPortalResult {
      */
     readonly serviceProviderSamlMetadata?: string;
     /**
-     * The ARN of the session logger that is assocaited with the portal.
+     * The ARN of the session logger that is associated with the portal.
      */
     readonly sessionLoggerArn?: string;
     /**

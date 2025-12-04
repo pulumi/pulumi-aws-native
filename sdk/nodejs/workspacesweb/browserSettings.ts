@@ -63,6 +63,10 @@ export class BrowserSettings extends pulumi.CustomResource {
      * The tags to add to the browser settings resource. A tag is a key-value pair.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.
+     */
+    declare public readonly webContentFilteringPolicy: pulumi.Output<outputs.workspacesweb.BrowserSettingsWebContentFilteringPolicy | undefined>;
 
     /**
      * Create a BrowserSettings resource with the given unique name, arguments, and options.
@@ -79,6 +83,7 @@ export class BrowserSettings extends pulumi.CustomResource {
             resourceInputs["browserPolicy"] = args?.browserPolicy;
             resourceInputs["customerManagedKey"] = args?.customerManagedKey;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["webContentFilteringPolicy"] = args?.webContentFilteringPolicy;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["browserSettingsArn"] = undefined /*out*/;
         } else {
@@ -88,6 +93,7 @@ export class BrowserSettings extends pulumi.CustomResource {
             resourceInputs["browserSettingsArn"] = undefined /*out*/;
             resourceInputs["customerManagedKey"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["webContentFilteringPolicy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["additionalEncryptionContext.*", "customerManagedKey"] };
@@ -118,4 +124,8 @@ export interface BrowserSettingsArgs {
      * The tags to add to the browser settings resource. A tag is a key-value pair.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.
+     */
+    webContentFilteringPolicy?: pulumi.Input<inputs.workspacesweb.BrowserSettingsWebContentFilteringPolicyArgs>;
 }

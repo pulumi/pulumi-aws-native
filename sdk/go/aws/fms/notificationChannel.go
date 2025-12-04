@@ -16,7 +16,7 @@ import (
 type NotificationChannel struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
+	// The Amazon Resource Name (ARN) of the IAM role that allows Amazon  to record AWS Firewall Manager activity.
 	SnsRoleName pulumi.StringOutput `pulumi:"snsRoleName"`
 	// The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
 	SnsTopicArn pulumi.StringOutput `pulumi:"snsTopicArn"`
@@ -68,7 +68,7 @@ func (NotificationChannelState) ElementType() reflect.Type {
 }
 
 type notificationChannelArgs struct {
-	// The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
+	// The Amazon Resource Name (ARN) of the IAM role that allows Amazon  to record AWS Firewall Manager activity.
 	SnsRoleName string `pulumi:"snsRoleName"`
 	// The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
 	SnsTopicArn string `pulumi:"snsTopicArn"`
@@ -76,7 +76,7 @@ type notificationChannelArgs struct {
 
 // The set of arguments for constructing a NotificationChannel resource.
 type NotificationChannelArgs struct {
-	// The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
+	// The Amazon Resource Name (ARN) of the IAM role that allows Amazon  to record AWS Firewall Manager activity.
 	SnsRoleName pulumi.StringInput
 	// The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
 	SnsTopicArn pulumi.StringInput
@@ -119,7 +119,7 @@ func (o NotificationChannelOutput) ToNotificationChannelOutputWithContext(ctx co
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to record AWS Firewall Manager activity.
+// The Amazon Resource Name (ARN) of the IAM role that allows Amazon  to record AWS Firewall Manager activity.
 func (o NotificationChannelOutput) SnsRoleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationChannel) pulumi.StringOutput { return v.SnsRoleName }).(pulumi.StringOutput)
 }

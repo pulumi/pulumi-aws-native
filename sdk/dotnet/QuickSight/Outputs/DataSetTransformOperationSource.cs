@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetTransformOperationSource
     {
+        /// <summary>
+        /// The mappings between source column identifiers and target column identifiers for this transformation.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataSetColumnIdMapping> ColumnIdMappings;
+        /// <summary>
+        /// The identifier of the transform operation that provides input data.
+        /// </summary>
         public readonly string TransformOperationId;
 
         [OutputConstructor]

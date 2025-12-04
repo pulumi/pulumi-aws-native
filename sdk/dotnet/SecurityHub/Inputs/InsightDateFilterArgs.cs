@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         /// <summary>
         /// A timestamp that provides the end date for the date filter.
         /// 
-        /// For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        /// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         /// </summary>
         [Input("end")]
         public Input<string>? End { get; set; }
@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         /// <summary>
         /// A timestamp that provides the start date for the date filter.
         /// 
-        /// For more information about the validation and formatting of timestamp fields in AWS Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        /// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         /// </summary>
         [Input("start")]
         public Input<string>? Start { get; set; }

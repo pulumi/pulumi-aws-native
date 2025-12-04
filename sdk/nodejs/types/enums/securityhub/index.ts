@@ -162,9 +162,8 @@ export const AutomationRuleV2OcsfNumberFilterFieldName = {
     ActivityId: "activity_id",
     ComplianceStatusId: "compliance.status_id",
     ConfidenceScore: "confidence_score",
-    SeverityId: "severity_id",
-    StatusId: "status_id",
     FindingInfoRelatedEventsCount: "finding_info.related_events_count",
+    VendorAttributesSeverityId: "vendor_attributes.severity_id",
 } as const;
 
 /**
@@ -173,7 +172,6 @@ export const AutomationRuleV2OcsfNumberFilterFieldName = {
 export type AutomationRuleV2OcsfNumberFilterFieldName = (typeof AutomationRuleV2OcsfNumberFilterFieldName)[keyof typeof AutomationRuleV2OcsfNumberFilterFieldName];
 
 export const AutomationRuleV2OcsfStringField = {
-    MetadataUid: "metadata.uid",
     ActivityName: "activity_name",
     CloudAccountName: "cloud.account.name",
     CloudAccountUid: "cloud.account.uid",
@@ -203,11 +201,9 @@ export const AutomationRuleV2OcsfStringField = {
     ResourcesRegion: "resources.region",
     ResourcesType: "resources.type",
     ResourcesUid: "resources.uid",
-    Severity: "severity",
-    Status: "status",
-    Comment: "comment",
     VulnerabilitiesFixCoverage: "vulnerabilities.fix_coverage",
     ClassName: "class_name",
+    VendorAttributesSeverity: "vendor_attributes.severity",
 } as const;
 
 /**
@@ -416,7 +412,7 @@ export const SecurityControlParameterConfigurationValueType = {
 } as const;
 
 /**
- * Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub behavior.
+ * Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior.
  *
  * When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
  *

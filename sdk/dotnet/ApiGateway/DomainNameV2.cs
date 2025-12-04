@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string> DomainNameId { get; private set; } = null!;
 
         /// <summary>
+        /// The endpoint access mode for your DomainName.
+        /// </summary>
+        [Output("endpointAccessMode")]
+        public Output<string?> EndpointAccessMode { get; private set; } = null!;
+
+        /// <summary>
         /// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
         /// </summary>
         [Output("endpointConfiguration")]
@@ -60,7 +66,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<Pulumi.AwsNative.ApiGateway.DomainNameV2RoutingMode?> RoutingMode { get; private set; } = null!;
 
         /// <summary>
-        /// The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
+        /// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
         /// </summary>
         [Output("securityPolicy")]
         public Output<string?> SecurityPolicy { get; private set; } = null!;
@@ -135,6 +141,12 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
+        /// The endpoint access mode for your DomainName.
+        /// </summary>
+        [Input("endpointAccessMode")]
+        public Input<string>? EndpointAccessMode { get; set; }
+
+        /// <summary>
         /// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it.
         /// </summary>
         [Input("endpointConfiguration")]
@@ -155,7 +167,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<Pulumi.AwsNative.ApiGateway.DomainNameV2RoutingMode>? RoutingMode { get; set; }
 
         /// <summary>
-        /// The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
+        /// The Transport Layer Security (TLS) version + cipher suite for this DomainName.
         /// </summary>
         [Input("securityPolicy")]
         public Input<string>? SecurityPolicy { get; set; }

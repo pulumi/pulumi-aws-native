@@ -26,6 +26,10 @@ export interface GetPartnerAppArgs {
 
 export interface GetPartnerAppResult {
     /**
+     * The version of the PartnerApp.
+     */
+    readonly appVersion?: string;
+    /**
      * A collection of settings that specify the maintenance schedule for the PartnerApp.
      */
     readonly applicationConfig?: outputs.sagemaker.PartnerAppConfig;
@@ -37,6 +41,14 @@ export interface GetPartnerAppResult {
      * The AppServerUrl based on app and account-info.
      */
     readonly baseUrl?: string;
+    /**
+     * The end-of-life date for the current version of the PartnerApp.
+     */
+    readonly currentVersionEolDate?: string;
+    /**
+     * Enables automatic minor version upgrades for the PartnerApp.
+     */
+    readonly enableAutoMinorVersionUpgrade?: boolean;
     /**
      * Enables IAM Session based Identity for PartnerApp.
      */

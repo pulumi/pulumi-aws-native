@@ -35,6 +35,7 @@ __all__ = [
     'DatabaseIdentifier',
     'DatabaseInput',
     'DatabasePrincipalPrivileges',
+    'IntegrationConfig',
     'JobCommand',
     'JobConnectionsList',
     'JobExecutionProperty',
@@ -1330,6 +1331,74 @@ class DatabasePrincipalPrivileges(dict):
         The principal who is granted permissions.
         """
         return pulumi.get(self, "principal")
+
+
+@pulumi.output_type
+class IntegrationConfig(dict):
+    """
+    The configuration settings for the integration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "continuousSync":
+            suggest = "continuous_sync"
+        elif key == "refreshInterval":
+            suggest = "refresh_interval"
+        elif key == "sourceProperties":
+            suggest = "source_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 continuous_sync: Optional[_builtins.bool] = None,
+                 refresh_interval: Optional[_builtins.str] = None,
+                 source_properties: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        The configuration settings for the integration.
+        :param _builtins.bool continuous_sync: Enables continuous synchronization for on-demand data extractions.
+        :param _builtins.str refresh_interval: Specifies the frequency at which CDC (Change Data Capture) pulls or incremental loads should occur.
+        :param Mapping[str, _builtins.str] source_properties: A collection of key-value pairs that specify additional properties for the integration source. These properties provide configuration options that can be used to customize the behavior of the ODB source during data integration operations.
+        """
+        if continuous_sync is not None:
+            pulumi.set(__self__, "continuous_sync", continuous_sync)
+        if refresh_interval is not None:
+            pulumi.set(__self__, "refresh_interval", refresh_interval)
+        if source_properties is not None:
+            pulumi.set(__self__, "source_properties", source_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="continuousSync")
+    def continuous_sync(self) -> Optional[_builtins.bool]:
+        """
+        Enables continuous synchronization for on-demand data extractions.
+        """
+        return pulumi.get(self, "continuous_sync")
+
+    @_builtins.property
+    @pulumi.getter(name="refreshInterval")
+    def refresh_interval(self) -> Optional[_builtins.str]:
+        """
+        Specifies the frequency at which CDC (Change Data Capture) pulls or incremental loads should occur.
+        """
+        return pulumi.get(self, "refresh_interval")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceProperties")
+    def source_properties(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        A collection of key-value pairs that specify additional properties for the integration source. These properties provide configuration options that can be used to customize the behavior of the ODB source during data integration operations.
+        """
+        return pulumi.get(self, "source_properties")
 
 
 @pulumi.output_type

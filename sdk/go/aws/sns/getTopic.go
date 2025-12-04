@@ -27,7 +27,7 @@ func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.Invo
 }
 
 type LookupTopicArgs struct {
-	// Returns the ARN of an Amazon SNS topic.
+	// Returns the ARN of an Amazon  topic.
 	TopicArn string `pulumi:"topicArn"`
 }
 
@@ -72,7 +72,7 @@ type LookupTopicResult struct {
 	// The list of tags to add to a new topic.
 	//   To be able to tag a topic on creation, you must have the ``sns:CreateTopic`` and ``sns:TagResource`` permissions.
 	Tags []aws.Tag `pulumi:"tags"`
-	// Returns the ARN of an Amazon SNS topic.
+	// Returns the ARN of an Amazon  topic.
 	TopicArn *string `pulumi:"topicArn"`
 	// Tracing mode of an SNS topic. By default ``TracingConfig`` is set to ``PassThrough``, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to ``Active``, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true.
 	TracingConfig *string `pulumi:"tracingConfig"`
@@ -88,7 +88,7 @@ func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...
 }
 
 type LookupTopicOutputArgs struct {
-	// Returns the ARN of an Amazon SNS topic.
+	// Returns the ARN of an Amazon  topic.
 	TopicArn pulumi.StringInput `pulumi:"topicArn"`
 }
 
@@ -189,7 +189,7 @@ func (o LookupTopicResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTopicResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// Returns the ARN of an Amazon SNS topic.
+// Returns the ARN of an Amazon  topic.
 func (o LookupTopicResultOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
 }

@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.ServiceCatalog.Inputs
     public sealed class CloudFormationProductSourceConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The connection details based on the connection Type.
+        /// The connection details based on the connection `Type` .
         /// </summary>
         [Input("connectionParameters", required: true)]
-        public Input<Inputs.CloudFormationProductSourceConnectionConnectionParametersPropertiesArgs> ConnectionParameters { get; set; } = null!;
+        public Input<Inputs.CloudFormationProductConnectionParametersArgs> ConnectionParameters { get; set; } = null!;
 
         /// <summary>
-        /// The only supported SourceConnection type is Codestar.
+        /// The only supported `SourceConnection` type is Codestar.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

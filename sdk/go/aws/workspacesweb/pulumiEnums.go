@@ -10,6 +10,266 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type BrowserSettingsCategory string
+
+const (
+	BrowserSettingsCategoryCults                      = BrowserSettingsCategory("Cults")
+	BrowserSettingsCategoryGambling                   = BrowserSettingsCategory("Gambling")
+	BrowserSettingsCategoryNudity                     = BrowserSettingsCategory("Nudity")
+	BrowserSettingsCategoryPornography                = BrowserSettingsCategory("Pornography")
+	BrowserSettingsCategorySexEducation               = BrowserSettingsCategory("SexEducation")
+	BrowserSettingsCategoryTasteless                  = BrowserSettingsCategory("Tasteless")
+	BrowserSettingsCategoryViolence                   = BrowserSettingsCategory("Violence")
+	BrowserSettingsCategoryDownloadSites              = BrowserSettingsCategory("DownloadSites")
+	BrowserSettingsCategoryImageSharing               = BrowserSettingsCategory("ImageSharing")
+	BrowserSettingsCategoryPeerToPeer                 = BrowserSettingsCategory("PeerToPeer")
+	BrowserSettingsCategoryStreamingMediaAndDownloads = BrowserSettingsCategory("StreamingMediaAndDownloads")
+	BrowserSettingsCategoryGenerativeAi               = BrowserSettingsCategory("GenerativeAI")
+	BrowserSettingsCategoryCriminalActivity           = BrowserSettingsCategory("CriminalActivity")
+	BrowserSettingsCategoryHacking                    = BrowserSettingsCategory("Hacking")
+	BrowserSettingsCategoryHateAndIntolerance         = BrowserSettingsCategory("HateAndIntolerance")
+	BrowserSettingsCategoryIllegalDrug                = BrowserSettingsCategory("IllegalDrug")
+	BrowserSettingsCategoryIllegalSoftware            = BrowserSettingsCategory("IllegalSoftware")
+	BrowserSettingsCategorySchoolCheating             = BrowserSettingsCategory("SchoolCheating")
+	BrowserSettingsCategorySelfHarm                   = BrowserSettingsCategory("SelfHarm")
+	BrowserSettingsCategoryWeapons                    = BrowserSettingsCategory("Weapons")
+	BrowserSettingsCategoryChat                       = BrowserSettingsCategory("Chat")
+	BrowserSettingsCategoryGames                      = BrowserSettingsCategory("Games")
+	BrowserSettingsCategoryInstantMessaging           = BrowserSettingsCategory("InstantMessaging")
+	BrowserSettingsCategoryProfessionalNetwork        = BrowserSettingsCategory("ProfessionalNetwork")
+	BrowserSettingsCategorySocialNetworking           = BrowserSettingsCategory("SocialNetworking")
+	BrowserSettingsCategoryWebBasedEmail              = BrowserSettingsCategory("WebBasedEmail")
+	BrowserSettingsCategoryParkedDomains              = BrowserSettingsCategory("ParkedDomains")
+)
+
+func (BrowserSettingsCategory) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrowserSettingsCategory)(nil)).Elem()
+}
+
+func (e BrowserSettingsCategory) ToBrowserSettingsCategoryOutput() BrowserSettingsCategoryOutput {
+	return pulumi.ToOutput(e).(BrowserSettingsCategoryOutput)
+}
+
+func (e BrowserSettingsCategory) ToBrowserSettingsCategoryOutputWithContext(ctx context.Context) BrowserSettingsCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BrowserSettingsCategoryOutput)
+}
+
+func (e BrowserSettingsCategory) ToBrowserSettingsCategoryPtrOutput() BrowserSettingsCategoryPtrOutput {
+	return e.ToBrowserSettingsCategoryPtrOutputWithContext(context.Background())
+}
+
+func (e BrowserSettingsCategory) ToBrowserSettingsCategoryPtrOutputWithContext(ctx context.Context) BrowserSettingsCategoryPtrOutput {
+	return BrowserSettingsCategory(e).ToBrowserSettingsCategoryOutputWithContext(ctx).ToBrowserSettingsCategoryPtrOutputWithContext(ctx)
+}
+
+func (e BrowserSettingsCategory) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BrowserSettingsCategory) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BrowserSettingsCategory) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BrowserSettingsCategory) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BrowserSettingsCategoryOutput struct{ *pulumi.OutputState }
+
+func (BrowserSettingsCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrowserSettingsCategory)(nil)).Elem()
+}
+
+func (o BrowserSettingsCategoryOutput) ToBrowserSettingsCategoryOutput() BrowserSettingsCategoryOutput {
+	return o
+}
+
+func (o BrowserSettingsCategoryOutput) ToBrowserSettingsCategoryOutputWithContext(ctx context.Context) BrowserSettingsCategoryOutput {
+	return o
+}
+
+func (o BrowserSettingsCategoryOutput) ToBrowserSettingsCategoryPtrOutput() BrowserSettingsCategoryPtrOutput {
+	return o.ToBrowserSettingsCategoryPtrOutputWithContext(context.Background())
+}
+
+func (o BrowserSettingsCategoryOutput) ToBrowserSettingsCategoryPtrOutputWithContext(ctx context.Context) BrowserSettingsCategoryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BrowserSettingsCategory) *BrowserSettingsCategory {
+		return &v
+	}).(BrowserSettingsCategoryPtrOutput)
+}
+
+func (o BrowserSettingsCategoryOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BrowserSettingsCategoryOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BrowserSettingsCategory) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BrowserSettingsCategoryOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BrowserSettingsCategoryOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BrowserSettingsCategory) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BrowserSettingsCategoryPtrOutput struct{ *pulumi.OutputState }
+
+func (BrowserSettingsCategoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BrowserSettingsCategory)(nil)).Elem()
+}
+
+func (o BrowserSettingsCategoryPtrOutput) ToBrowserSettingsCategoryPtrOutput() BrowserSettingsCategoryPtrOutput {
+	return o
+}
+
+func (o BrowserSettingsCategoryPtrOutput) ToBrowserSettingsCategoryPtrOutputWithContext(ctx context.Context) BrowserSettingsCategoryPtrOutput {
+	return o
+}
+
+func (o BrowserSettingsCategoryPtrOutput) Elem() BrowserSettingsCategoryOutput {
+	return o.ApplyT(func(v *BrowserSettingsCategory) BrowserSettingsCategory {
+		if v != nil {
+			return *v
+		}
+		var ret BrowserSettingsCategory
+		return ret
+	}).(BrowserSettingsCategoryOutput)
+}
+
+func (o BrowserSettingsCategoryPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BrowserSettingsCategoryPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BrowserSettingsCategory) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BrowserSettingsCategoryInput is an input type that accepts values of the BrowserSettingsCategory enum
+// A concrete instance of `BrowserSettingsCategoryInput` can be one of the following:
+//
+//	BrowserSettingsCategoryCults
+//	BrowserSettingsCategoryGambling
+//	BrowserSettingsCategoryNudity
+//	BrowserSettingsCategoryPornography
+//	BrowserSettingsCategorySexEducation
+//	BrowserSettingsCategoryTasteless
+//	BrowserSettingsCategoryViolence
+//	BrowserSettingsCategoryDownloadSites
+//	BrowserSettingsCategoryImageSharing
+//	BrowserSettingsCategoryPeerToPeer
+//	BrowserSettingsCategoryStreamingMediaAndDownloads
+//	BrowserSettingsCategoryGenerativeAi
+//	BrowserSettingsCategoryCriminalActivity
+//	BrowserSettingsCategoryHacking
+//	BrowserSettingsCategoryHateAndIntolerance
+//	BrowserSettingsCategoryIllegalDrug
+//	BrowserSettingsCategoryIllegalSoftware
+//	BrowserSettingsCategorySchoolCheating
+//	BrowserSettingsCategorySelfHarm
+//	BrowserSettingsCategoryWeapons
+//	BrowserSettingsCategoryChat
+//	BrowserSettingsCategoryGames
+//	BrowserSettingsCategoryInstantMessaging
+//	BrowserSettingsCategoryProfessionalNetwork
+//	BrowserSettingsCategorySocialNetworking
+//	BrowserSettingsCategoryWebBasedEmail
+//	BrowserSettingsCategoryParkedDomains
+type BrowserSettingsCategoryInput interface {
+	pulumi.Input
+
+	ToBrowserSettingsCategoryOutput() BrowserSettingsCategoryOutput
+	ToBrowserSettingsCategoryOutputWithContext(context.Context) BrowserSettingsCategoryOutput
+}
+
+var browserSettingsCategoryPtrType = reflect.TypeOf((**BrowserSettingsCategory)(nil)).Elem()
+
+type BrowserSettingsCategoryPtrInput interface {
+	pulumi.Input
+
+	ToBrowserSettingsCategoryPtrOutput() BrowserSettingsCategoryPtrOutput
+	ToBrowserSettingsCategoryPtrOutputWithContext(context.Context) BrowserSettingsCategoryPtrOutput
+}
+
+type browserSettingsCategoryPtr string
+
+func BrowserSettingsCategoryPtr(v string) BrowserSettingsCategoryPtrInput {
+	return (*browserSettingsCategoryPtr)(&v)
+}
+
+func (*browserSettingsCategoryPtr) ElementType() reflect.Type {
+	return browserSettingsCategoryPtrType
+}
+
+func (in *browserSettingsCategoryPtr) ToBrowserSettingsCategoryPtrOutput() BrowserSettingsCategoryPtrOutput {
+	return pulumi.ToOutput(in).(BrowserSettingsCategoryPtrOutput)
+}
+
+func (in *browserSettingsCategoryPtr) ToBrowserSettingsCategoryPtrOutputWithContext(ctx context.Context) BrowserSettingsCategoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BrowserSettingsCategoryPtrOutput)
+}
+
+// BrowserSettingsCategoryArrayInput is an input type that accepts BrowserSettingsCategoryArray and BrowserSettingsCategoryArrayOutput values.
+// You can construct a concrete instance of `BrowserSettingsCategoryArrayInput` via:
+//
+//	BrowserSettingsCategoryArray{ BrowserSettingsCategoryArgs{...} }
+type BrowserSettingsCategoryArrayInput interface {
+	pulumi.Input
+
+	ToBrowserSettingsCategoryArrayOutput() BrowserSettingsCategoryArrayOutput
+	ToBrowserSettingsCategoryArrayOutputWithContext(context.Context) BrowserSettingsCategoryArrayOutput
+}
+
+type BrowserSettingsCategoryArray []BrowserSettingsCategory
+
+func (BrowserSettingsCategoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BrowserSettingsCategory)(nil)).Elem()
+}
+
+func (i BrowserSettingsCategoryArray) ToBrowserSettingsCategoryArrayOutput() BrowserSettingsCategoryArrayOutput {
+	return i.ToBrowserSettingsCategoryArrayOutputWithContext(context.Background())
+}
+
+func (i BrowserSettingsCategoryArray) ToBrowserSettingsCategoryArrayOutputWithContext(ctx context.Context) BrowserSettingsCategoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrowserSettingsCategoryArrayOutput)
+}
+
+type BrowserSettingsCategoryArrayOutput struct{ *pulumi.OutputState }
+
+func (BrowserSettingsCategoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BrowserSettingsCategory)(nil)).Elem()
+}
+
+func (o BrowserSettingsCategoryArrayOutput) ToBrowserSettingsCategoryArrayOutput() BrowserSettingsCategoryArrayOutput {
+	return o
+}
+
+func (o BrowserSettingsCategoryArrayOutput) ToBrowserSettingsCategoryArrayOutputWithContext(ctx context.Context) BrowserSettingsCategoryArrayOutput {
+	return o
+}
+
+func (o BrowserSettingsCategoryArrayOutput) Index(i pulumi.IntInput) BrowserSettingsCategoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BrowserSettingsCategory {
+		return vs[0].([]BrowserSettingsCategory)[vs[1].(int)]
+	}).(BrowserSettingsCategoryOutput)
+}
+
 type DataProtectionSettingsRedactionPlaceHolderType string
 
 const (
@@ -2406,6 +2666,9 @@ func (in *userSettingsVisualModePtr) ToUserSettingsVisualModePtrOutputWithContex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BrowserSettingsCategoryInput)(nil)).Elem(), BrowserSettingsCategory("Cults"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BrowserSettingsCategoryPtrInput)(nil)).Elem(), BrowserSettingsCategory("Cults"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BrowserSettingsCategoryArrayInput)(nil)).Elem(), BrowserSettingsCategoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProtectionSettingsRedactionPlaceHolderTypeInput)(nil)).Elem(), DataProtectionSettingsRedactionPlaceHolderType("CustomText"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProtectionSettingsRedactionPlaceHolderTypePtrInput)(nil)).Elem(), DataProtectionSettingsRedactionPlaceHolderType("CustomText"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderTypeInput)(nil)).Elem(), IdentityProviderType("SAML"))
@@ -2432,6 +2695,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsToolbarTypePtrInput)(nil)).Elem(), UserSettingsToolbarType("Floating"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsVisualModeInput)(nil)).Elem(), UserSettingsVisualMode("Dark"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsVisualModePtrInput)(nil)).Elem(), UserSettingsVisualMode("Dark"))
+	pulumi.RegisterOutputType(BrowserSettingsCategoryOutput{})
+	pulumi.RegisterOutputType(BrowserSettingsCategoryPtrOutput{})
+	pulumi.RegisterOutputType(BrowserSettingsCategoryArrayOutput{})
 	pulumi.RegisterOutputType(DataProtectionSettingsRedactionPlaceHolderTypeOutput{})
 	pulumi.RegisterOutputType(DataProtectionSettingsRedactionPlaceHolderTypePtrOutput{})
 	pulumi.RegisterOutputType(IdentityProviderTypeOutput{})

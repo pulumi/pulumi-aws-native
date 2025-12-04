@@ -22,12 +22,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("conditionExpression")]
         public Input<string>? ConditionExpression { get; set; }
 
+        /// <summary>
+        /// A date-based filter condition within a filter operation.
+        /// </summary>
         [Input("dateFilterCondition")]
         public Input<Inputs.DataSetDateFilterConditionArgs>? DateFilterCondition { get; set; }
 
+        /// <summary>
+        /// A numeric-based filter condition within a filter operation.
+        /// </summary>
         [Input("numericFilterCondition")]
         public Input<Inputs.DataSetNumericFilterConditionArgs>? NumericFilterCondition { get; set; }
 
+        /// <summary>
+        /// A string-based filter condition within a filter operation.
+        /// </summary>
         [Input("stringFilterCondition")]
         public Input<Inputs.DataSetStringFilterConditionArgs>? StringFilterCondition { get; set; }
 

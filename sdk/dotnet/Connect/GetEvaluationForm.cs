@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.Connect
     [OutputType]
     public sealed class GetEvaluationFormResult
     {
+        /// <summary>
+        /// The automatic evaluation configuration of an evaluation form.
+        /// </summary>
         public readonly Outputs.EvaluationFormAutoEvaluationConfiguration? AutoEvaluationConfiguration;
         /// <summary>
         /// The description of the evaluation form.
@@ -83,6 +86,7 @@ namespace Pulumi.AwsNative.Connect
         ///  *Maximum size*: 100
         /// </summary>
         public readonly ImmutableArray<Outputs.EvaluationFormBaseItem> Items;
+        public readonly Outputs.EvaluationFormLanguageConfiguration? LanguageConfiguration;
         /// <summary>
         /// A scoring strategy of the evaluation form.
         /// </summary>
@@ -96,6 +100,7 @@ namespace Pulumi.AwsNative.Connect
         /// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly Outputs.EvaluationFormTargetConfiguration? TargetConfiguration;
         /// <summary>
         /// A title of the evaluation form.
         /// </summary>
@@ -113,11 +118,15 @@ namespace Pulumi.AwsNative.Connect
 
             ImmutableArray<Outputs.EvaluationFormBaseItem> items,
 
+            Outputs.EvaluationFormLanguageConfiguration? languageConfiguration,
+
             Outputs.EvaluationFormScoringStrategy? scoringStrategy,
 
             Pulumi.AwsNative.Connect.EvaluationFormStatus? status,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            Outputs.EvaluationFormTargetConfiguration? targetConfiguration,
 
             string? title)
         {
@@ -126,9 +135,11 @@ namespace Pulumi.AwsNative.Connect
             EvaluationFormArn = evaluationFormArn;
             InstanceArn = instanceArn;
             Items = items;
+            LanguageConfiguration = languageConfiguration;
             ScoringStrategy = scoringStrategy;
             Status = status;
             Tags = tags;
+            TargetConfiguration = targetConfiguration;
             Title = title;
         }
     }

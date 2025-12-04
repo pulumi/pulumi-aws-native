@@ -53,6 +53,12 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.
+        /// </summary>
+        [Output("webContentFilteringPolicy")]
+        public Output<Outputs.BrowserSettingsWebContentFilteringPolicy?> WebContentFilteringPolicy { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a BrowserSettings resource with the given unique name, arguments, and options.
@@ -140,6 +146,12 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The policy that specifies which URLs end users are allowed to access or which URLs or domain categories they are restricted from accessing for enhanced security.
+        /// </summary>
+        [Input("webContentFilteringPolicy")]
+        public Input<Inputs.BrowserSettingsWebContentFilteringPolicyArgs>? WebContentFilteringPolicy { get; set; }
 
         public BrowserSettingsArgs()
         {

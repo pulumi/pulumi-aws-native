@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSetValueColumnConfiguration
     {
+        /// <summary>
+        /// The aggregation function to apply when multiple values map to the same pivoted cell.
+        /// </summary>
         public readonly Outputs.DataSetDataPrepAggregationFunction? AggregationFunction;
 
         [OutputConstructor]

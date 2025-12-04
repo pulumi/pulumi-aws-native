@@ -24,6 +24,7 @@ __all__ = ['BucketArgs', 'Bucket']
 @pulumi.input_type
 class BucketArgs:
     def __init__(__self__, *,
+                 abac_status: Optional[pulumi.Input['BucketAbacStatus']] = None,
                  accelerate_configuration: Optional[pulumi.Input['BucketAccelerateConfigurationArgs']] = None,
                  access_control: Optional[pulumi.Input['BucketAccessControl']] = None,
                  analytics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketAnalyticsConfigurationArgs']]]] = None,
@@ -48,6 +49,7 @@ class BucketArgs:
                  website_configuration: Optional[pulumi.Input['BucketWebsiteConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Bucket resource.
+        :param pulumi.Input['BucketAbacStatus'] abac_status: The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see [Using tags with S3 general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html) .
         :param pulumi.Input['BucketAccelerateConfigurationArgs'] accelerate_configuration: Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input['BucketAccessControl'] access_control: This is a legacy property, and it is not recommended for most use cases. A majority of modern use cases in Amazon S3 no longer require the use of ACLs, and we recommend that you keep ACLs disabled. For more information, see [Controlling object ownership](https://docs.aws.amazon.com//AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
                  A canned access control list (ACL) that grants predefined permissions to the bucket. For more information about canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) in the *Amazon S3 User Guide*.
@@ -83,6 +85,8 @@ class BucketArgs:
                  When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket.
         :param pulumi.Input['BucketWebsiteConfigurationArgs'] website_configuration: Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
         """
+        if abac_status is not None:
+            pulumi.set(__self__, "abac_status", abac_status)
         if accelerate_configuration is not None:
             pulumi.set(__self__, "accelerate_configuration", accelerate_configuration)
         if access_control is not None:
@@ -127,6 +131,18 @@ class BucketArgs:
             pulumi.set(__self__, "versioning_configuration", versioning_configuration)
         if website_configuration is not None:
             pulumi.set(__self__, "website_configuration", website_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="abacStatus")
+    def abac_status(self) -> Optional[pulumi.Input['BucketAbacStatus']]:
+        """
+        The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see [Using tags with S3 general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html) .
+        """
+        return pulumi.get(self, "abac_status")
+
+    @abac_status.setter
+    def abac_status(self, value: Optional[pulumi.Input['BucketAbacStatus']]):
+        pulumi.set(self, "abac_status", value)
 
     @_builtins.property
     @pulumi.getter(name="accelerateConfiguration")
@@ -411,6 +427,7 @@ class Bucket(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 abac_status: Optional[pulumi.Input['BucketAbacStatus']] = None,
                  accelerate_configuration: Optional[pulumi.Input[Union['BucketAccelerateConfigurationArgs', 'BucketAccelerateConfigurationArgsDict']]] = None,
                  access_control: Optional[pulumi.Input['BucketAccessControl']] = None,
                  analytics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketAnalyticsConfigurationArgs', 'BucketAnalyticsConfigurationArgsDict']]]]] = None,
@@ -926,6 +943,7 @@ class Bucket(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['BucketAbacStatus'] abac_status: The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see [Using tags with S3 general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html) .
         :param pulumi.Input[Union['BucketAccelerateConfigurationArgs', 'BucketAccelerateConfigurationArgsDict']] accelerate_configuration: Configures the transfer acceleration state for an Amazon S3 bucket. For more information, see [Amazon S3 Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input['BucketAccessControl'] access_control: This is a legacy property, and it is not recommended for most use cases. A majority of modern use cases in Amazon S3 no longer require the use of ACLs, and we recommend that you keep ACLs disabled. For more information, see [Controlling object ownership](https://docs.aws.amazon.com//AmazonS3/latest/userguide/about-object-ownership.html) in the *Amazon S3 User Guide*.
                  A canned access control list (ACL) that grants predefined permissions to the bucket. For more information about canned ACLs, see [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) in the *Amazon S3 User Guide*.
@@ -1472,6 +1490,7 @@ class Bucket(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 abac_status: Optional[pulumi.Input['BucketAbacStatus']] = None,
                  accelerate_configuration: Optional[pulumi.Input[Union['BucketAccelerateConfigurationArgs', 'BucketAccelerateConfigurationArgsDict']]] = None,
                  access_control: Optional[pulumi.Input['BucketAccessControl']] = None,
                  analytics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketAnalyticsConfigurationArgs', 'BucketAnalyticsConfigurationArgsDict']]]]] = None,
@@ -1503,6 +1522,7 @@ class Bucket(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BucketArgs.__new__(BucketArgs)
 
+            __props__.__dict__["abac_status"] = abac_status
             __props__.__dict__["accelerate_configuration"] = accelerate_configuration
             __props__.__dict__["access_control"] = access_control
             __props__.__dict__["analytics_configurations"] = analytics_configurations
@@ -1554,6 +1574,7 @@ class Bucket(pulumi.CustomResource):
 
         __props__ = BucketArgs.__new__(BucketArgs)
 
+        __props__.__dict__["abac_status"] = None
         __props__.__dict__["accelerate_configuration"] = None
         __props__.__dict__["access_control"] = None
         __props__.__dict__["analytics_configurations"] = None
@@ -1582,6 +1603,14 @@ class Bucket(pulumi.CustomResource):
         __props__.__dict__["website_configuration"] = None
         __props__.__dict__["website_url"] = None
         return Bucket(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="abacStatus")
+    def abac_status(self) -> pulumi.Output[Optional['BucketAbacStatus']]:
+        """
+        The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see [Using tags with S3 general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html) .
+        """
+        return pulumi.get(self, "abac_status")
 
     @_builtins.property
     @pulumi.getter(name="accelerateConfiguration")

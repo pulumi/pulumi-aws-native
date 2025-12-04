@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ClusterInstanceGroup
     {
+        public readonly Outputs.ClusterCapacityRequirements? CapacityRequirements;
         /// <summary>
         /// The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
         /// </summary>
@@ -29,6 +30,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly string InstanceGroupName;
         public readonly ImmutableArray<Outputs.ClusterInstanceStorageConfig> InstanceStorageConfigs;
         public readonly string InstanceType;
+        public readonly Outputs.ClusterKubernetesConfig? KubernetesConfig;
         public readonly Outputs.ClusterLifeCycleConfig LifeCycleConfig;
         public readonly ImmutableArray<Pulumi.AwsNative.SageMaker.ClusterDeepHealthCheckType> OnStartDeepHealthChecks;
         public readonly Outputs.ClusterVpcConfig? OverrideVpcConfig;
@@ -44,6 +46,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
         [OutputConstructor]
         private ClusterInstanceGroup(
+            Outputs.ClusterCapacityRequirements? capacityRequirements,
+
             int? currentCount,
 
             string executionRole,
@@ -58,6 +62,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             string instanceType,
 
+            Outputs.ClusterKubernetesConfig? kubernetesConfig,
+
             Outputs.ClusterLifeCycleConfig lifeCycleConfig,
 
             ImmutableArray<Pulumi.AwsNative.SageMaker.ClusterDeepHealthCheckType> onStartDeepHealthChecks,
@@ -70,6 +76,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             string? trainingPlanArn)
         {
+            CapacityRequirements = capacityRequirements;
             CurrentCount = currentCount;
             ExecutionRole = executionRole;
             ImageId = imageId;
@@ -77,6 +84,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             InstanceGroupName = instanceGroupName;
             InstanceStorageConfigs = instanceStorageConfigs;
             InstanceType = instanceType;
+            KubernetesConfig = kubernetesConfig;
             LifeCycleConfig = lifeCycleConfig;
             OnStartDeepHealthChecks = onStartDeepHealthChecks;
             OverrideVpcConfig = overrideVpcConfig;

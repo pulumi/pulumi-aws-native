@@ -84,6 +84,10 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         public readonly Outputs.ClusterComputeConfig? ComputeConfig;
         /// <summary>
+        /// The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.
+        /// </summary>
+        public readonly Outputs.ClusterControlPlaneScalingConfig? ControlPlaneScalingConfig;
+        /// <summary>
         /// Set this value to true to enable deletion protection for the cluster.
         /// </summary>
         public readonly bool? DeletionProtection;
@@ -154,6 +158,8 @@ namespace Pulumi.AwsNative.Eks
 
             Outputs.ClusterComputeConfig? computeConfig,
 
+            Outputs.ClusterControlPlaneScalingConfig? controlPlaneScalingConfig,
+
             bool? deletionProtection,
 
             string? encryptionConfigKeyArn,
@@ -187,6 +193,7 @@ namespace Pulumi.AwsNative.Eks
             CertificateAuthorityData = certificateAuthorityData;
             ClusterSecurityGroupId = clusterSecurityGroupId;
             ComputeConfig = computeConfig;
+            ControlPlaneScalingConfig = controlPlaneScalingConfig;
             DeletionProtection = deletionProtection;
             EncryptionConfigKeyArn = encryptionConfigKeyArn;
             Endpoint = endpoint;

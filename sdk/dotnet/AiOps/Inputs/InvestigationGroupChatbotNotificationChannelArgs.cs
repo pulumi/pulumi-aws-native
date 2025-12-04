@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AiOps.Inputs
         }
 
         /// <summary>
-        /// Returns the ARN of an Amazon SNS topic used for third-party chat integrations.
+        /// Returns the ARN of an Amazon  topic used for third-party chat integrations.
         /// </summary>
         [Input("snsTopicArn")]
         public Input<string>? SnsTopicArn { get; set; }

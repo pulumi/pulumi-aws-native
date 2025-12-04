@@ -8,8 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Creates an Amazon FSx for Lustre data repository association (DRA). A data repository association is a link between a directory on the file system and an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository associations on a file system. Data repository associations are supported on all FSx for Lustre 2.12 and newer file systems, excluding ``scratch_1`` deployment type.
- *  Each data repository association must have a unique Amazon FSx file system directory and a unique S3 bucket or prefix associated with it. You can configure a data repository association for automatic import only, for automatic export only, or for both. To learn more about linking a data repository to your file system, see [Linking your file system to an S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html).
+ * Resource Type definition for AWS::FSx::DataRepositoryAssociation
  */
 export function getDataRepositoryAssociation(args: GetDataRepositoryAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetDataRepositoryAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -20,29 +19,22 @@ export function getDataRepositoryAssociation(args: GetDataRepositoryAssociationA
 
 export interface GetDataRepositoryAssociationArgs {
     /**
-     * Returns the data repository association's system generated Association ID.
-     *
-     * Example: `dra-abcdef0123456789d`
+     * The system-generated, unique ID of the data repository association.
      */
     associationId: string;
 }
 
 export interface GetDataRepositoryAssociationResult {
     /**
-     * Returns the data repository association's system generated Association ID.
-     *
-     * Example: `dra-abcdef0123456789d`
+     * The system-generated, unique ID of the data repository association.
      */
     readonly associationId?: string;
     /**
-     * For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system or cache.
-     *  The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
+     * For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
      */
     readonly importedFileChunkSize?: number;
     /**
-     * Returns the data repository association's Amazon Resource Name (ARN).
-     *
-     * Example: `arn:aws:fsx:us-east-1:111122223333:association/fs-abc012345def6789a/dra-abcdef0123456789b`
+     * The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services resources. We require an ARN when you need to specify a resource unambiguously across all of Amazon Web Services. For more information, see Amazon Resource Names (ARNs) in the Amazon Web Services General Reference.
      */
     readonly resourceArn?: string;
     /**
@@ -50,14 +42,12 @@ export interface GetDataRepositoryAssociationResult {
      */
     readonly s3?: outputs.fsx.DataRepositoryAssociationS3;
     /**
-     * An array of key-value pairs to apply to this resource.
-     *  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
+     * A list of Tag values, with a maximum of 50 elements.
      */
     readonly tags?: outputs.Tag[];
 }
 /**
- * Creates an Amazon FSx for Lustre data repository association (DRA). A data repository association is a link between a directory on the file system and an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository associations on a file system. Data repository associations are supported on all FSx for Lustre 2.12 and newer file systems, excluding ``scratch_1`` deployment type.
- *  Each data repository association must have a unique Amazon FSx file system directory and a unique S3 bucket or prefix associated with it. You can configure a data repository association for automatic import only, for automatic export only, or for both. To learn more about linking a data repository to your file system, see [Linking your file system to an S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html).
+ * Resource Type definition for AWS::FSx::DataRepositoryAssociation
  */
 export function getDataRepositoryAssociationOutput(args: GetDataRepositoryAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataRepositoryAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,9 +58,7 @@ export function getDataRepositoryAssociationOutput(args: GetDataRepositoryAssoci
 
 export interface GetDataRepositoryAssociationOutputArgs {
     /**
-     * Returns the data repository association's system generated Association ID.
-     *
-     * Example: `dra-abcdef0123456789d`
+     * The system-generated, unique ID of the data repository association.
      */
     associationId: pulumi.Input<string>;
 }

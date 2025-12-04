@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'ClusterEncryptionInTransitClientBroker',
     'ClusterEnhancedMonitoring',
+    'ClusterRebalancingStatus',
     'ClusterStorageMode',
     'ReplicatorReplicationInfoTargetCompressionType',
     'ReplicatorReplicationStartingPositionType',
@@ -42,6 +43,12 @@ class ClusterEnhancedMonitoring(_builtins.str, Enum):
     PER_BROKER = "PER_BROKER"
     PER_TOPIC_PER_BROKER = "PER_TOPIC_PER_BROKER"
     PER_TOPIC_PER_PARTITION = "PER_TOPIC_PER_PARTITION"
+
+
+@pulumi.type_token("aws-native:msk:ClusterRebalancingStatus")
+class ClusterRebalancingStatus(_builtins.str, Enum):
+    PAUSED = "PAUSED"
+    ACTIVE = "ACTIVE"
 
 
 @pulumi.type_token("aws-native:msk:ClusterStorageMode")

@@ -40,7 +40,7 @@ export interface GetRouteResult {
      */
     readonly arn?: string;
     /**
-     * A mapping of Amazon API Gateway path resources to resource IDs.
+     * A mapping of ABPlong path resources to resource IDs.
      */
     readonly pathResourceToId?: string;
     /**

@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.Logs.Inputs
         public Input<string> DataSourceRoleArn { get; set; } = null!;
 
         /// <summary>
-        /// To have the vended dashboard data encrypted with AWS KMS instead of the CloudWatch Logs default encryption method, specify the ARN of the AWS KMS key that you want to use.
+        /// To have the vended dashboard data encrypted with AWS  instead of the CloudWatch Logs default encryption method, specify the ARN of the AWS  key that you want to use.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }

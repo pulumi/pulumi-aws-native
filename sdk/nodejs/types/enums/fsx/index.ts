@@ -10,17 +10,28 @@ export const DataRepositoryAssociationEventType = {
 
 export type DataRepositoryAssociationEventType = (typeof DataRepositoryAssociationEventType)[keyof typeof DataRepositoryAssociationEventType];
 
+export const S3AccessPointAttachmentOntapFileSystemIdentityType = {
+    Unix: "UNIX",
+    Windows: "WINDOWS",
+} as const;
+
+/**
+ * Specifies the FSx for ONTAP user identity type, accepts either UNIX or WINDOWS.
+ */
+export type S3AccessPointAttachmentOntapFileSystemIdentityType = (typeof S3AccessPointAttachmentOntapFileSystemIdentityType)[keyof typeof S3AccessPointAttachmentOntapFileSystemIdentityType];
+
 export const S3AccessPointAttachmentOpenZfsFileSystemIdentityType = {
     Posix: "POSIX",
 } as const;
 
 /**
- * Specifies the FSx for OpenZFS user identity type, accepts only `POSIX` .
+ * Specifies the FSx for OpenZFS user identity type, accepts only POSIX.
  */
 export type S3AccessPointAttachmentOpenZfsFileSystemIdentityType = (typeof S3AccessPointAttachmentOpenZfsFileSystemIdentityType)[keyof typeof S3AccessPointAttachmentOpenZfsFileSystemIdentityType];
 
 export const S3AccessPointAttachmentType = {
     Openzfs: "OPENZFS",
+    Ontap: "ONTAP",
 } as const;
 
 /**

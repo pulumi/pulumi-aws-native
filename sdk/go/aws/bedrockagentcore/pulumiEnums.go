@@ -1790,12 +1790,14 @@ func (in *gatewayTargetSchemaTypePtr) ToGatewayTargetSchemaTypePtrOutputWithCont
 type GatewayTargetTargetStatus string
 
 const (
-	GatewayTargetTargetStatusCreating           = GatewayTargetTargetStatus("CREATING")
-	GatewayTargetTargetStatusUpdating           = GatewayTargetTargetStatus("UPDATING")
-	GatewayTargetTargetStatusUpdateUnsuccessful = GatewayTargetTargetStatus("UPDATE_UNSUCCESSFUL")
-	GatewayTargetTargetStatusDeleting           = GatewayTargetTargetStatus("DELETING")
-	GatewayTargetTargetStatusReady              = GatewayTargetTargetStatus("READY")
-	GatewayTargetTargetStatusFailed             = GatewayTargetTargetStatus("FAILED")
+	GatewayTargetTargetStatusCreating                = GatewayTargetTargetStatus("CREATING")
+	GatewayTargetTargetStatusUpdating                = GatewayTargetTargetStatus("UPDATING")
+	GatewayTargetTargetStatusUpdateUnsuccessful      = GatewayTargetTargetStatus("UPDATE_UNSUCCESSFUL")
+	GatewayTargetTargetStatusDeleting                = GatewayTargetTargetStatus("DELETING")
+	GatewayTargetTargetStatusReady                   = GatewayTargetTargetStatus("READY")
+	GatewayTargetTargetStatusFailed                  = GatewayTargetTargetStatus("FAILED")
+	GatewayTargetTargetStatusSynchronizing           = GatewayTargetTargetStatus("SYNCHRONIZING")
+	GatewayTargetTargetStatusSynchronizeUnsuccessful = GatewayTargetTargetStatus("SYNCHRONIZE_UNSUCCESSFUL")
 )
 
 type GatewayTargetTargetStatusOutput struct{ *pulumi.OutputState }
@@ -3334,6 +3336,176 @@ func (in *memoryUserPreferenceMemoryStrategyTypePtr) ToMemoryUserPreferenceMemor
 	return pulumi.ToOutputWithContext(ctx, in).(MemoryUserPreferenceMemoryStrategyTypePtrOutput)
 }
 
+// Managed runtime types
+type RuntimeAgentManagedRuntimeType string
+
+const (
+	RuntimeAgentManagedRuntimeTypePython310 = RuntimeAgentManagedRuntimeType("PYTHON_3_10")
+	RuntimeAgentManagedRuntimeTypePython311 = RuntimeAgentManagedRuntimeType("PYTHON_3_11")
+	RuntimeAgentManagedRuntimeTypePython312 = RuntimeAgentManagedRuntimeType("PYTHON_3_12")
+	RuntimeAgentManagedRuntimeTypePython313 = RuntimeAgentManagedRuntimeType("PYTHON_3_13")
+)
+
+func (RuntimeAgentManagedRuntimeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeAgentManagedRuntimeType)(nil)).Elem()
+}
+
+func (e RuntimeAgentManagedRuntimeType) ToRuntimeAgentManagedRuntimeTypeOutput() RuntimeAgentManagedRuntimeTypeOutput {
+	return pulumi.ToOutput(e).(RuntimeAgentManagedRuntimeTypeOutput)
+}
+
+func (e RuntimeAgentManagedRuntimeType) ToRuntimeAgentManagedRuntimeTypeOutputWithContext(ctx context.Context) RuntimeAgentManagedRuntimeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuntimeAgentManagedRuntimeTypeOutput)
+}
+
+func (e RuntimeAgentManagedRuntimeType) ToRuntimeAgentManagedRuntimeTypePtrOutput() RuntimeAgentManagedRuntimeTypePtrOutput {
+	return e.ToRuntimeAgentManagedRuntimeTypePtrOutputWithContext(context.Background())
+}
+
+func (e RuntimeAgentManagedRuntimeType) ToRuntimeAgentManagedRuntimeTypePtrOutputWithContext(ctx context.Context) RuntimeAgentManagedRuntimeTypePtrOutput {
+	return RuntimeAgentManagedRuntimeType(e).ToRuntimeAgentManagedRuntimeTypeOutputWithContext(ctx).ToRuntimeAgentManagedRuntimeTypePtrOutputWithContext(ctx)
+}
+
+func (e RuntimeAgentManagedRuntimeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuntimeAgentManagedRuntimeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RuntimeAgentManagedRuntimeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RuntimeAgentManagedRuntimeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RuntimeAgentManagedRuntimeTypeOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAgentManagedRuntimeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeAgentManagedRuntimeType)(nil)).Elem()
+}
+
+func (o RuntimeAgentManagedRuntimeTypeOutput) ToRuntimeAgentManagedRuntimeTypeOutput() RuntimeAgentManagedRuntimeTypeOutput {
+	return o
+}
+
+func (o RuntimeAgentManagedRuntimeTypeOutput) ToRuntimeAgentManagedRuntimeTypeOutputWithContext(ctx context.Context) RuntimeAgentManagedRuntimeTypeOutput {
+	return o
+}
+
+func (o RuntimeAgentManagedRuntimeTypeOutput) ToRuntimeAgentManagedRuntimeTypePtrOutput() RuntimeAgentManagedRuntimeTypePtrOutput {
+	return o.ToRuntimeAgentManagedRuntimeTypePtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeAgentManagedRuntimeTypeOutput) ToRuntimeAgentManagedRuntimeTypePtrOutputWithContext(ctx context.Context) RuntimeAgentManagedRuntimeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeAgentManagedRuntimeType) *RuntimeAgentManagedRuntimeType {
+		return &v
+	}).(RuntimeAgentManagedRuntimeTypePtrOutput)
+}
+
+func (o RuntimeAgentManagedRuntimeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuntimeAgentManagedRuntimeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeAgentManagedRuntimeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuntimeAgentManagedRuntimeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeAgentManagedRuntimeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuntimeAgentManagedRuntimeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuntimeAgentManagedRuntimeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeAgentManagedRuntimeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeAgentManagedRuntimeType)(nil)).Elem()
+}
+
+func (o RuntimeAgentManagedRuntimeTypePtrOutput) ToRuntimeAgentManagedRuntimeTypePtrOutput() RuntimeAgentManagedRuntimeTypePtrOutput {
+	return o
+}
+
+func (o RuntimeAgentManagedRuntimeTypePtrOutput) ToRuntimeAgentManagedRuntimeTypePtrOutputWithContext(ctx context.Context) RuntimeAgentManagedRuntimeTypePtrOutput {
+	return o
+}
+
+func (o RuntimeAgentManagedRuntimeTypePtrOutput) Elem() RuntimeAgentManagedRuntimeTypeOutput {
+	return o.ApplyT(func(v *RuntimeAgentManagedRuntimeType) RuntimeAgentManagedRuntimeType {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeAgentManagedRuntimeType
+		return ret
+	}).(RuntimeAgentManagedRuntimeTypeOutput)
+}
+
+func (o RuntimeAgentManagedRuntimeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeAgentManagedRuntimeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuntimeAgentManagedRuntimeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RuntimeAgentManagedRuntimeTypeInput is an input type that accepts values of the RuntimeAgentManagedRuntimeType enum
+// A concrete instance of `RuntimeAgentManagedRuntimeTypeInput` can be one of the following:
+//
+//	RuntimeAgentManagedRuntimeTypePython310
+//	RuntimeAgentManagedRuntimeTypePython311
+//	RuntimeAgentManagedRuntimeTypePython312
+//	RuntimeAgentManagedRuntimeTypePython313
+type RuntimeAgentManagedRuntimeTypeInput interface {
+	pulumi.Input
+
+	ToRuntimeAgentManagedRuntimeTypeOutput() RuntimeAgentManagedRuntimeTypeOutput
+	ToRuntimeAgentManagedRuntimeTypeOutputWithContext(context.Context) RuntimeAgentManagedRuntimeTypeOutput
+}
+
+var runtimeAgentManagedRuntimeTypePtrType = reflect.TypeOf((**RuntimeAgentManagedRuntimeType)(nil)).Elem()
+
+type RuntimeAgentManagedRuntimeTypePtrInput interface {
+	pulumi.Input
+
+	ToRuntimeAgentManagedRuntimeTypePtrOutput() RuntimeAgentManagedRuntimeTypePtrOutput
+	ToRuntimeAgentManagedRuntimeTypePtrOutputWithContext(context.Context) RuntimeAgentManagedRuntimeTypePtrOutput
+}
+
+type runtimeAgentManagedRuntimeTypePtr string
+
+func RuntimeAgentManagedRuntimeTypePtr(v string) RuntimeAgentManagedRuntimeTypePtrInput {
+	return (*runtimeAgentManagedRuntimeTypePtr)(&v)
+}
+
+func (*runtimeAgentManagedRuntimeTypePtr) ElementType() reflect.Type {
+	return runtimeAgentManagedRuntimeTypePtrType
+}
+
+func (in *runtimeAgentManagedRuntimeTypePtr) ToRuntimeAgentManagedRuntimeTypePtrOutput() RuntimeAgentManagedRuntimeTypePtrOutput {
+	return pulumi.ToOutput(in).(RuntimeAgentManagedRuntimeTypePtrOutput)
+}
+
+func (in *runtimeAgentManagedRuntimeTypePtr) ToRuntimeAgentManagedRuntimeTypePtrOutputWithContext(ctx context.Context) RuntimeAgentManagedRuntimeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuntimeAgentManagedRuntimeTypePtrOutput)
+}
+
 type RuntimeAgentStatus string
 
 const (
@@ -3890,6 +4062,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceMemoryStrategyStatusPtrInput)(nil)).Elem(), MemoryUserPreferenceMemoryStrategyStatus("CREATING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceMemoryStrategyTypeInput)(nil)).Elem(), MemoryUserPreferenceMemoryStrategyType("SEMANTIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryUserPreferenceMemoryStrategyTypePtrInput)(nil)).Elem(), MemoryUserPreferenceMemoryStrategyType("SEMANTIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAgentManagedRuntimeTypeInput)(nil)).Elem(), RuntimeAgentManagedRuntimeType("PYTHON_3_10"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAgentManagedRuntimeTypePtrInput)(nil)).Elem(), RuntimeAgentManagedRuntimeType("PYTHON_3_10"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeNetworkModeInput)(nil)).Elem(), RuntimeNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeNetworkModePtrInput)(nil)).Elem(), RuntimeNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeProtocolConfigurationInput)(nil)).Elem(), RuntimeProtocolConfiguration("MCP"))
@@ -3938,6 +4112,8 @@ func init() {
 	pulumi.RegisterOutputType(MemoryUserPreferenceMemoryStrategyStatusPtrOutput{})
 	pulumi.RegisterOutputType(MemoryUserPreferenceMemoryStrategyTypeOutput{})
 	pulumi.RegisterOutputType(MemoryUserPreferenceMemoryStrategyTypePtrOutput{})
+	pulumi.RegisterOutputType(RuntimeAgentManagedRuntimeTypeOutput{})
+	pulumi.RegisterOutputType(RuntimeAgentManagedRuntimeTypePtrOutput{})
 	pulumi.RegisterOutputType(RuntimeAgentStatusOutput{})
 	pulumi.RegisterOutputType(RuntimeAgentStatusPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeEndpointAgentRuntimeEndpointStatusOutput{})
