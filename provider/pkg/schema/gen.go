@@ -1014,7 +1014,7 @@ func (ctx *cfSchemaContext) gatherListHandlerSchema() *metadata.ListHandlerSchem
 	if propsAny, ok := handlerSchema["properties"]; ok {
 		if propsMap, ok := propsAny.(map[string]interface{}); ok {
 			result.Properties = map[string]metadata.ListHandlerProperty{}
-			for name, propVal := range propsMap {
+			for propName, propVal := range propsMap {
 				propMap, ok := propVal.(map[string]interface{})
 				if !ok {
 					continue
@@ -1030,9 +1030,9 @@ func (ctx *cfSchemaContext) gatherListHandlerSchema() *metadata.ListHandlerSchem
 
 				if prop.Description == "" && prop.Type == "" {
 					if ref, ok := propMap["$ref"].(string); ok {
-						name := parsePropertyNameFromRef(ref)
-						if name != "" {
-							if propSchema, ok := ctx.resourceSpec.Properties[name]; ok && propSchema != nil {
+						refName := parsePropertyNameFromRef(ref)
+						if refName != "" {
+							if propSchema, ok := ctx.resourceSpec.Properties[refName]; ok && propSchema != nil {
 								if prop.Description == "" && propSchema.Description != "" {
 									prop.Description = naming.SanitizeCfnString(propSchema.Description)
 								}
@@ -1049,7 +1049,7 @@ func (ctx *cfSchemaContext) gatherListHandlerSchema() *metadata.ListHandlerSchem
 					continue
 				}
 
-				result.Properties[name] = prop
+				result.Properties[propName] = prop
 			}
 			if len(result.Properties) == 0 {
 				result.Properties = nil
