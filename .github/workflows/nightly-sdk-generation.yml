@@ -17,6 +17,7 @@ env:
   JAVAVERSION: "11"
   AWS_REGION: us-west-2
   PULUMI_API: https://api.pulumi-staging.io
+  PULUMI_PULUMI_ENABLE_JOURNALING: "true"
 jobs:
   generate-sdk:
     runs-on: ubuntu-latest
