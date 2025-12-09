@@ -17,6 +17,7 @@ export type FileSystemBackupPolicyStatus = (typeof FileSystemBackupPolicyStatus)
 export const FileSystemProtectionReplicationOverwriteProtection = {
     Disabled: "DISABLED",
     Enabled: "ENABLED",
+    Replicating: "REPLICATING",
 } as const;
 
 /**

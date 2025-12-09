@@ -190,8 +190,9 @@ func (in *fileSystemBackupPolicyStatusPtr) ToFileSystemBackupPolicyStatusPtrOutp
 type FileSystemProtectionReplicationOverwriteProtection string
 
 const (
-	FileSystemProtectionReplicationOverwriteProtectionDisabled = FileSystemProtectionReplicationOverwriteProtection("DISABLED")
-	FileSystemProtectionReplicationOverwriteProtectionEnabled  = FileSystemProtectionReplicationOverwriteProtection("ENABLED")
+	FileSystemProtectionReplicationOverwriteProtectionDisabled    = FileSystemProtectionReplicationOverwriteProtection("DISABLED")
+	FileSystemProtectionReplicationOverwriteProtectionEnabled     = FileSystemProtectionReplicationOverwriteProtection("ENABLED")
+	FileSystemProtectionReplicationOverwriteProtectionReplicating = FileSystemProtectionReplicationOverwriteProtection("REPLICATING")
 )
 
 func (FileSystemProtectionReplicationOverwriteProtection) ElementType() reflect.Type {
@@ -318,6 +319,7 @@ func (o FileSystemProtectionReplicationOverwriteProtectionPtrOutput) ToStringPtr
 //
 //	FileSystemProtectionReplicationOverwriteProtectionDisabled
 //	FileSystemProtectionReplicationOverwriteProtectionEnabled
+//	FileSystemProtectionReplicationOverwriteProtectionReplicating
 type FileSystemProtectionReplicationOverwriteProtectionInput interface {
 	pulumi.Input
 

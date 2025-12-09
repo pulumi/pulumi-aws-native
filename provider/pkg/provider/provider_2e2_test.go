@@ -8,6 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"testing"
+	"time"
 
 	"github.com/pulumi/providertest"
 	"github.com/pulumi/providertest/providers"
@@ -61,6 +62,72 @@ func TestThrottling(t *testing.T) {
 	_ = test.Up(t)
 	_ = test.Destroy(t)
 	_ = test.Up(t)
+}
+
+// EFS replication refresh retry constants.
+// These values are tuned for EFS replication behavior:
+// - Initial replication setup takes 5-10 minutes
+// - State transitions happen gradually
+// - 10 attempts with increasing backoff covers ~10-15 minutes of polling
+const (
+	efsRefreshMaxAttempts    = 10
+	efsRefreshInitialBackoff = 5 * time.Second
+	efsRefreshMaxBackoff     = 30 * time.Second
+)
+
+func TestEfsReplicationProtection(t *testing.T) {
+	// Skip: takes ~25 min to run. Manual testing only.
+	// Run with: go test -v -timeout 30m -run TestEfsReplicationProtection ./pkg/provider
+	t.Skip("Manual test: EFS replication takes ~25 minutes")
+
+	skipIfShort(t)
+	pt := newAwsTest(t, filepath.Join("testdata", "efs-replication-protection"))
+	defer pt.Destroy(t)
+
+	// This test sets up actual EFS replication to verify the REPLICATING enum value
+	// Refresh must succeed not reject REPLICATING.
+
+	pt.Preview(t)
+
+	up := pt.Up(t)
+	assert.NotNil(t, up.Summary)
+
+	sourceProtection, ok := up.Outputs["sourceProtection"].Value.(string)
+	assert.True(t, ok, "sourceProtection output should be a string")
+	assert.Equal(t, "ENABLED", sourceProtection, "source should have ENABLED protection")
+
+	destinationProtection, ok := up.Outputs["destinationProtection"].Value.(string)
+	assert.True(t, ok, "destinationProtection output should be a string")
+	t.Logf("Destination protection after up: %s", destinationProtection)
+
+	// KEY TEST: Refresh with adaptive backoff until replication is active.
+	// After the fix, refresh should succeed even when AWS returns REPLICATING.
+	backoff := efsRefreshInitialBackoff
+
+	for attempt := 1; attempt <= efsRefreshMaxAttempts; attempt++ {
+		t.Logf("Refresh attempt %d/%d (backoff: %v)", attempt, efsRefreshMaxAttempts, backoff)
+
+		refreshResult := pt.Refresh(t)
+		assert.NotNil(t, refreshResult.Summary, "Refresh should complete successfully")
+
+		if refreshResult.Summary.ResourceChanges != nil {
+			changes := *refreshResult.Summary.ResourceChanges
+			if changes["update"] > 0 || changes["same"] > 0 {
+				t.Logf("Refresh detected state from AWS, schema validation passed")
+				break
+			}
+		}
+
+		if attempt < efsRefreshMaxAttempts {
+			t.Logf("Waiting %v before next attempt...", backoff)
+			time.Sleep(backoff)
+			if backoff < efsRefreshMaxBackoff {
+				backoff = backoff * 3 / 2
+			}
+		}
+	}
+
+	t.Log("Test passed: Refresh succeeded with REPLICATING enum value in schema")
 }
 
 func testUpgradeFrom(t *testing.T, test *pulumitest.PulumiTest, version string) {

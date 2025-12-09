@@ -36,6 +36,7 @@ class FileSystemProtectionReplicationOverwriteProtection(_builtins.str, Enum):
     """
     DISABLED = "DISABLED"
     ENABLED = "ENABLED"
+    REPLICATING = "REPLICATING"
 
 
 @pulumi.type_token("aws-native:efs:MountTargetIpAddressType")
