@@ -60,6 +60,7 @@ namespace Pulumi.AwsNative.Efs
 
         public static FileSystemProtectionReplicationOverwriteProtection Disabled { get; } = new FileSystemProtectionReplicationOverwriteProtection("DISABLED");
         public static FileSystemProtectionReplicationOverwriteProtection Enabled { get; } = new FileSystemProtectionReplicationOverwriteProtection("ENABLED");
+        public static FileSystemProtectionReplicationOverwriteProtection Replicating { get; } = new FileSystemProtectionReplicationOverwriteProtection("REPLICATING");
 
         public static bool operator ==(FileSystemProtectionReplicationOverwriteProtection left, FileSystemProtectionReplicationOverwriteProtection right) => left.Equals(right);
         public static bool operator !=(FileSystemProtectionReplicationOverwriteProtection left, FileSystemProtectionReplicationOverwriteProtection right) => !left.Equals(right);

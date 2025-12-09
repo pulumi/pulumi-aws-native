@@ -265,6 +265,9 @@ func TestEnumType(t *testing.T) {
 		schema         *jsschema.Schema
 		expectedType   string
 		expectedValues map[string]string
+		cfTypeName     string
+		resourceName   string
+		mod            string
 	}{
 		{
 			name: "SomeHTTPEnum",
@@ -278,29 +281,50 @@ func TestEnumType(t *testing.T) {
 				"UseHttp2Thing": "use_HTTP2_thing",
 			},
 		},
+		{
+			name:         "FileSystemProtectionReplicationOverwriteProtection",
+			cfTypeName:   "AWS::EFS::FileSystem",
+			resourceName: "FileSystemProtection",
+			mod:          "efs",
+			schema: &jsschema.Schema{
+				Type:        jsschema.PrimitiveTypes{jsschema.StringType},
+				Enum:        []interface{}{"DISABLED", "ENABLED"}, // CloudFormation schema values only
+				Description: "The status including REPLICATING state",
+			},
+			expectedType: "aws-native:efs:FileSystemProtectionReplicationOverwriteProtection",
+			expectedValues: map[string]string{
+				"Disabled":    "DISABLED",
+				"Enabled":     "ENABLED",
+				"Replicating": "REPLICATING", // Expected after fix
+			},
+		},
 	}
 
 	for _, tt := range cases {
-
-		ctx := cfSchemaContext{
-			pkg: &pschema.PackageSpec{
-				Types: map[string]pschema.ComplexTypeSpec{},
-			},
-			metadata: &metadata.CloudAPIMetadata{
-				Types: map[string]metadata.CloudAPIType{},
-			},
-		}
-		out, err := (&ctx).genEnumType(tt.name, tt.schema)
-		assert.NoError(t, err)
-		assert.Equal(t, "#/types/"+tt.expectedType, out.Ref)
-		if assert.Contains(t, ctx.pkg.Types, tt.expectedType) {
-			v := ctx.pkg.Types[tt.expectedType]
-			actualValues := map[string]string{}
-			for _, v := range v.Enum {
-				actualValues[v.Name] = v.Value.(string)
+		t.Run(tt.name, func(t *testing.T) {
+			ctx := cfSchemaContext{
+				pkg: &pschema.PackageSpec{
+					Types: map[string]pschema.ComplexTypeSpec{},
+				},
+				metadata: &metadata.CloudAPIMetadata{
+					Types: map[string]metadata.CloudAPIType{},
+				},
+				cfTypeName:   tt.cfTypeName,
+				resourceName: tt.resourceName,
+				mod:          tt.mod,
 			}
-			assert.Equal(t, tt.expectedValues, actualValues)
-		}
+			out, err := (&ctx).genEnumType(tt.name, tt.schema)
+			assert.NoError(t, err)
+			assert.Equal(t, "#/types/"+tt.expectedType, out.Ref)
+			if assert.Contains(t, ctx.pkg.Types, tt.expectedType) {
+				v := ctx.pkg.Types[tt.expectedType]
+				actualValues := map[string]string{}
+				for _, v := range v.Enum {
+					actualValues[v.Name] = v.Value.(string)
+				}
+				assert.Equal(t, tt.expectedValues, actualValues)
+			}
+		})
 	}
 }
 

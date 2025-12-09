@@ -1468,6 +1468,23 @@ func (ctx *cfSchemaContext) genEnumType(enumName string, propSchema *jsschema.Sc
 
 	tok := fmt.Sprintf("%s:%s:%s", packageName, ctx.mod, typName)
 
+	// AWS CloudFormation schema incorrectly omits REPLICATING from the enum,
+	// even though the description mentions it and AWS API returns it during replication.
+	// This is a workaround for the upstream schema bug. Match on the fully qualified
+	// type token to ensure we only modify this specific enum.
+	if tok == "aws-native:efs:FileSystemProtectionReplicationOverwriteProtection" {
+		hasReplicating := false
+		for _, val := range propSchema.Enum {
+			if val == "REPLICATING" {
+				hasReplicating = true
+				break
+			}
+		}
+		if !hasReplicating {
+			propSchema.Enum = append(propSchema.Enum, "REPLICATING")
+		}
+	}
+
 	enumSpec := &pschema.ComplexTypeSpec{
 		Enum: []pschema.EnumValueSpec{},
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
