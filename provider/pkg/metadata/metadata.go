@@ -51,6 +51,9 @@ type CloudAPIResource struct {
 	//
 	// See also https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-identifier.html
 	PrimaryIdentifier []string `json:"primaryIdentifier,omitempty"`
+
+	// ListHandlerSchema contains a minimal subset of the CloudFormation list handler schema for a resource.
+	ListHandlerSchema *ListHandlerSchema `json:"listHandlerSchema,omitempty"`
 }
 
 type AutoNamingSpec struct {
@@ -70,6 +73,18 @@ type CloudAPIType struct {
 type CloudAPIFunction struct {
 	CfType      string   `json:"cf"`
 	Identifiers []string `json:"ids"`
+}
+
+// ListHandlerSchema captures a limited view of a resource's list handler schema.
+type ListHandlerSchema struct {
+	Properties map[string]ListHandlerProperty `json:"properties,omitempty"`
+	Required   []string                       `json:"required,omitempty"`
+}
+
+// ListHandlerProperty contains a subset of the CFN property schema: description and type.
+type ListHandlerProperty struct {
+	Description string `json:"description,omitempty"`
+	Type        string `json:"type,omitempty"`
 }
 
 // ExtensionResourceToken is a Pulumi token for the resource to deploy
