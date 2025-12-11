@@ -57,9 +57,6 @@ resources:
         region: us-west-2
     options:
       provider: ${eastAwsProvider}
-      dependsOn:
-        - ${efsSource}
-        - ${efsDestination}
 
 outputs:
   # Basic identifiers
