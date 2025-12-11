@@ -297,8 +297,6 @@ if typing.TYPE_CHECKING:
     location = __location
     import pulumi_aws_native.logs as __logs
     logs = __logs
-    import pulumi_aws_native.lookoutmetrics as __lookoutmetrics
-    lookoutmetrics = __lookoutmetrics
     import pulumi_aws_native.lookoutvision as __lookoutvision
     lookoutvision = __lookoutvision
     import pulumi_aws_native.m2 as __m2
@@ -393,8 +391,6 @@ if typing.TYPE_CHECKING:
     resourceexplorer2 = __resourceexplorer2
     import pulumi_aws_native.resourcegroups as __resourcegroups
     resourcegroups = __resourcegroups
-    import pulumi_aws_native.robomaker as __robomaker
-    robomaker = __robomaker
     import pulumi_aws_native.rolesanywhere as __rolesanywhere
     rolesanywhere = __rolesanywhere
     import pulumi_aws_native.route53 as __route53
@@ -633,7 +629,6 @@ else:
     lightsail = _utilities.lazy_import('pulumi_aws_native.lightsail')
     location = _utilities.lazy_import('pulumi_aws_native.location')
     logs = _utilities.lazy_import('pulumi_aws_native.logs')
-    lookoutmetrics = _utilities.lazy_import('pulumi_aws_native.lookoutmetrics')
     lookoutvision = _utilities.lazy_import('pulumi_aws_native.lookoutvision')
     m2 = _utilities.lazy_import('pulumi_aws_native.m2')
     macie = _utilities.lazy_import('pulumi_aws_native.macie')
@@ -681,7 +676,6 @@ else:
     resiliencehub = _utilities.lazy_import('pulumi_aws_native.resiliencehub')
     resourceexplorer2 = _utilities.lazy_import('pulumi_aws_native.resourceexplorer2')
     resourcegroups = _utilities.lazy_import('pulumi_aws_native.resourcegroups')
-    robomaker = _utilities.lazy_import('pulumi_aws_native.robomaker')
     rolesanywhere = _utilities.lazy_import('pulumi_aws_native.rolesanywhere')
     route53 = _utilities.lazy_import('pulumi_aws_native.route53')
     route53profiles = _utilities.lazy_import('pulumi_aws_native.route53profiles')
@@ -1374,6 +1368,9 @@ _utilities.register(
    "aws-native:connect:ContactFlow": "ContactFlow",
    "aws-native:connect:ContactFlowModule": "ContactFlowModule",
    "aws-native:connect:ContactFlowVersion": "ContactFlowVersion",
+   "aws-native:connect:DataTable": "DataTable",
+   "aws-native:connect:DataTableAttribute": "DataTableAttribute",
+   "aws-native:connect:DataTableRecord": "DataTableRecord",
    "aws-native:connect:EmailAddress": "EmailAddress",
    "aws-native:connect:EvaluationForm": "EvaluationForm",
    "aws-native:connect:HoursOfOperation": "HoursOfOperation",
@@ -1395,7 +1392,8 @@ _utilities.register(
    "aws-native:connect:UserHierarchyGroup": "UserHierarchyGroup",
    "aws-native:connect:UserHierarchyStructure": "UserHierarchyStructure",
    "aws-native:connect:View": "View",
-   "aws-native:connect:ViewVersion": "ViewVersion"
+   "aws-native:connect:ViewVersion": "ViewVersion",
+   "aws-native:connect:Workspace": "Workspace"
   }
  },
  {
@@ -2480,15 +2478,6 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
-  "mod": "lookoutmetrics",
-  "fqn": "pulumi_aws_native.lookoutmetrics",
-  "classes": {
-   "aws-native:lookoutmetrics:Alert": "Alert",
-   "aws-native:lookoutmetrics:AnomalyDetector": "AnomalyDetector"
-  }
- },
- {
-  "pkg": "aws-native",
   "mod": "lookoutvision",
   "fqn": "pulumi_aws_native.lookoutvision",
   "classes": {
@@ -2668,6 +2657,7 @@ _utilities.register(
    "aws-native:networkmanager:ConnectAttachment": "ConnectAttachment",
    "aws-native:networkmanager:ConnectPeer": "ConnectPeer",
    "aws-native:networkmanager:CoreNetwork": "CoreNetwork",
+   "aws-native:networkmanager:CoreNetworkPrefixListAssociation": "CoreNetworkPrefixListAssociation",
    "aws-native:networkmanager:CustomerGatewayAssociation": "CustomerGatewayAssociation",
    "aws-native:networkmanager:Device": "Device",
    "aws-native:networkmanager:DirectConnectGatewayAttachment": "DirectConnectGatewayAttachment",
@@ -2709,6 +2699,7 @@ _utilities.register(
   "classes": {
    "aws-native:observabilityadmin:OrganizationCentralizationRule": "OrganizationCentralizationRule",
    "aws-native:observabilityadmin:OrganizationTelemetryRule": "OrganizationTelemetryRule",
+   "aws-native:observabilityadmin:TelemetryPipelines": "TelemetryPipelines",
    "aws-native:observabilityadmin:TelemetryRule": "TelemetryRule"
   }
  },
@@ -3031,19 +3022,6 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
-  "mod": "robomaker",
-  "fqn": "pulumi_aws_native.robomaker",
-  "classes": {
-   "aws-native:robomaker:Fleet": "Fleet",
-   "aws-native:robomaker:Robot": "Robot",
-   "aws-native:robomaker:RobotApplication": "RobotApplication",
-   "aws-native:robomaker:RobotApplicationVersion": "RobotApplicationVersion",
-   "aws-native:robomaker:SimulationApplication": "SimulationApplication",
-   "aws-native:robomaker:SimulationApplicationVersion": "SimulationApplicationVersion"
-  }
- },
- {
-  "pkg": "aws-native",
   "mod": "rolesanywhere",
   "fqn": "pulumi_aws_native.rolesanywhere",
   "classes": {
@@ -3267,6 +3245,7 @@ _utilities.register(
    "aws-native:securityhub:AutomationRule": "AutomationRule",
    "aws-native:securityhub:AutomationRuleV2": "AutomationRuleV2",
    "aws-native:securityhub:ConfigurationPolicy": "ConfigurationPolicy",
+   "aws-native:securityhub:ConnectorV2": "ConnectorV2",
    "aws-native:securityhub:DelegatedAdmin": "DelegatedAdmin",
    "aws-native:securityhub:FindingAggregator": "FindingAggregator",
    "aws-native:securityhub:Hub": "Hub",

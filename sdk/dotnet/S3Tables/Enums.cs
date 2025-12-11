@@ -70,6 +70,37 @@ namespace Pulumi.AwsNative.S3Tables
     }
 
     /// <summary>
+    /// The storage class for the table bucket
+    /// </summary>
+    [EnumType]
+    public readonly struct TableBucketStorageClassConfigurationStorageClass : IEquatable<TableBucketStorageClassConfigurationStorageClass>
+    {
+        private readonly string _value;
+
+        private TableBucketStorageClassConfigurationStorageClass(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TableBucketStorageClassConfigurationStorageClass Standard { get; } = new TableBucketStorageClassConfigurationStorageClass("STANDARD");
+        public static TableBucketStorageClassConfigurationStorageClass IntelligentTiering { get; } = new TableBucketStorageClassConfigurationStorageClass("INTELLIGENT_TIERING");
+
+        public static bool operator ==(TableBucketStorageClassConfigurationStorageClass left, TableBucketStorageClassConfigurationStorageClass right) => left.Equals(right);
+        public static bool operator !=(TableBucketStorageClassConfigurationStorageClass left, TableBucketStorageClassConfigurationStorageClass right) => !left.Equals(right);
+
+        public static explicit operator string(TableBucketStorageClassConfigurationStorageClass value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TableBucketStorageClassConfigurationStorageClass other && Equals(other);
+        public bool Equals(TableBucketStorageClassConfigurationStorageClass other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether the Unreferenced File Removal maintenance action is enabled.
     /// </summary>
     [EnumType]
@@ -185,6 +216,37 @@ namespace Pulumi.AwsNative.S3Tables
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TableSnapshotManagementStatus other && Equals(other);
         public bool Equals(TableSnapshotManagementStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The storage class for the table
+    /// </summary>
+    [EnumType]
+    public readonly struct TableStorageClassConfigurationStorageClass : IEquatable<TableStorageClassConfigurationStorageClass>
+    {
+        private readonly string _value;
+
+        private TableStorageClassConfigurationStorageClass(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TableStorageClassConfigurationStorageClass Standard { get; } = new TableStorageClassConfigurationStorageClass("STANDARD");
+        public static TableStorageClassConfigurationStorageClass IntelligentTiering { get; } = new TableStorageClassConfigurationStorageClass("INTELLIGENT_TIERING");
+
+        public static bool operator ==(TableStorageClassConfigurationStorageClass left, TableStorageClassConfigurationStorageClass right) => left.Equals(right);
+        public static bool operator !=(TableStorageClassConfigurationStorageClass left, TableStorageClassConfigurationStorageClass right) => !left.Equals(right);
+
+        public static explicit operator string(TableStorageClassConfigurationStorageClass value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TableStorageClassConfigurationStorageClass other && Equals(other);
+        public bool Equals(TableStorageClassConfigurationStorageClass other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

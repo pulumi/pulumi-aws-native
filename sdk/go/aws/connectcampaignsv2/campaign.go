@@ -20,7 +20,7 @@ type Campaign struct {
 	// Amazon Connect Campaign Arn
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Contains channel subtype configuration for an outbound campaign.
-	ChannelSubtypeConfig CampaignChannelSubtypeConfigOutput `pulumi:"channelSubtypeConfig"`
+	ChannelSubtypeConfig CampaignChannelSubtypeConfigPtrOutput `pulumi:"channelSubtypeConfig"`
 	// Communication limits configuration for an outbound campaign.
 	CommunicationLimitsOverride CampaignCommunicationLimitsConfigPtrOutput `pulumi:"communicationLimitsOverride"`
 	// Contains communication time configuration for an outbound campaign.
@@ -36,7 +36,8 @@ type Campaign struct {
 	// Contains source configuration.
 	Source CampaignSourcePtrOutput `pulumi:"source"`
 	// One or more tags.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput    `pulumi:"tags"`
+	Type CampaignTypePtrOutput `pulumi:"type"`
 }
 
 // NewCampaign registers a new resource with the given unique name, arguments, and options.
@@ -46,9 +47,6 @@ func NewCampaign(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ChannelSubtypeConfig == nil {
-		return nil, errors.New("invalid value for required argument 'ChannelSubtypeConfig'")
-	}
 	if args.ConnectInstanceId == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectInstanceId'")
 	}
@@ -90,7 +88,7 @@ func (CampaignState) ElementType() reflect.Type {
 
 type campaignArgs struct {
 	// Contains channel subtype configuration for an outbound campaign.
-	ChannelSubtypeConfig CampaignChannelSubtypeConfig `pulumi:"channelSubtypeConfig"`
+	ChannelSubtypeConfig *CampaignChannelSubtypeConfig `pulumi:"channelSubtypeConfig"`
 	// Communication limits configuration for an outbound campaign.
 	CommunicationLimitsOverride *CampaignCommunicationLimitsConfig `pulumi:"communicationLimitsOverride"`
 	// Contains communication time configuration for an outbound campaign.
@@ -106,13 +104,14 @@ type campaignArgs struct {
 	// Contains source configuration.
 	Source *CampaignSource `pulumi:"source"`
 	// One or more tags.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags []aws.Tag     `pulumi:"tags"`
+	Type *CampaignType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Campaign resource.
 type CampaignArgs struct {
 	// Contains channel subtype configuration for an outbound campaign.
-	ChannelSubtypeConfig CampaignChannelSubtypeConfigInput
+	ChannelSubtypeConfig CampaignChannelSubtypeConfigPtrInput
 	// Communication limits configuration for an outbound campaign.
 	CommunicationLimitsOverride CampaignCommunicationLimitsConfigPtrInput
 	// Contains communication time configuration for an outbound campaign.
@@ -129,6 +128,7 @@ type CampaignArgs struct {
 	Source CampaignSourcePtrInput
 	// One or more tags.
 	Tags aws.TagArrayInput
+	Type CampaignTypePtrInput
 }
 
 func (CampaignArgs) ElementType() reflect.Type {
@@ -174,8 +174,8 @@ func (o CampaignOutput) Arn() pulumi.StringOutput {
 }
 
 // Contains channel subtype configuration for an outbound campaign.
-func (o CampaignOutput) ChannelSubtypeConfig() CampaignChannelSubtypeConfigOutput {
-	return o.ApplyT(func(v *Campaign) CampaignChannelSubtypeConfigOutput { return v.ChannelSubtypeConfig }).(CampaignChannelSubtypeConfigOutput)
+func (o CampaignOutput) ChannelSubtypeConfig() CampaignChannelSubtypeConfigPtrOutput {
+	return o.ApplyT(func(v *Campaign) CampaignChannelSubtypeConfigPtrOutput { return v.ChannelSubtypeConfig }).(CampaignChannelSubtypeConfigPtrOutput)
 }
 
 // Communication limits configuration for an outbound campaign.
@@ -216,6 +216,10 @@ func (o CampaignOutput) Source() CampaignSourcePtrOutput {
 // One or more tags.
 func (o CampaignOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Campaign) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o CampaignOutput) Type() CampaignTypePtrOutput {
+	return o.ApplyT(func(v *Campaign) CampaignTypePtrOutput { return v.Type }).(CampaignTypePtrOutput)
 }
 
 func init() {

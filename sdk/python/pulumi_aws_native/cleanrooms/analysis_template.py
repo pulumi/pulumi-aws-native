@@ -33,6 +33,7 @@ class AnalysisTemplateArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  schema: Optional[pulumi.Input['AnalysisTemplateAnalysisSchemaArgs']] = None,
                  source_metadata: Optional[pulumi.Input['AnalysisTemplateAnalysisSourceMetadataPropertiesArgs']] = None,
+                 synthetic_data_parameters: Optional[pulumi.Input['AnalysisTemplateSyntheticDataParametersPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AnalysisTemplate resource.
@@ -62,6 +63,8 @@ class AnalysisTemplateArgs:
             pulumi.set(__self__, "schema", schema)
         if source_metadata is not None:
             pulumi.set(__self__, "source_metadata", source_metadata)
+        if synthetic_data_parameters is not None:
+            pulumi.set(__self__, "synthetic_data_parameters", synthetic_data_parameters)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -174,6 +177,15 @@ class AnalysisTemplateArgs:
         pulumi.set(self, "source_metadata", value)
 
     @_builtins.property
+    @pulumi.getter(name="syntheticDataParameters")
+    def synthetic_data_parameters(self) -> Optional[pulumi.Input['AnalysisTemplateSyntheticDataParametersPropertiesArgs']]:
+        return pulumi.get(self, "synthetic_data_parameters")
+
+    @synthetic_data_parameters.setter
+    def synthetic_data_parameters(self, value: Optional[pulumi.Input['AnalysisTemplateSyntheticDataParametersPropertiesArgs']]):
+        pulumi.set(self, "synthetic_data_parameters", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -201,6 +213,7 @@ class AnalysisTemplate(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[Union['AnalysisTemplateAnalysisSchemaArgs', 'AnalysisTemplateAnalysisSchemaArgsDict']]] = None,
                  source: Optional[pulumi.Input[Union[Union['AnalysisTemplateAnalysisSource0PropertiesArgs', 'AnalysisTemplateAnalysisSource0PropertiesArgsDict'], Union['AnalysisTemplateAnalysisSource1PropertiesArgs', 'AnalysisTemplateAnalysisSource1PropertiesArgsDict']]]] = None,
                  source_metadata: Optional[pulumi.Input[Union['AnalysisTemplateAnalysisSourceMetadataPropertiesArgs', 'AnalysisTemplateAnalysisSourceMetadataPropertiesArgsDict']]] = None,
+                 synthetic_data_parameters: Optional[pulumi.Input[Union['AnalysisTemplateSyntheticDataParametersPropertiesArgs', 'AnalysisTemplateSyntheticDataParametersPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -252,6 +265,7 @@ class AnalysisTemplate(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[Union['AnalysisTemplateAnalysisSchemaArgs', 'AnalysisTemplateAnalysisSchemaArgsDict']]] = None,
                  source: Optional[pulumi.Input[Union[Union['AnalysisTemplateAnalysisSource0PropertiesArgs', 'AnalysisTemplateAnalysisSource0PropertiesArgsDict'], Union['AnalysisTemplateAnalysisSource1PropertiesArgs', 'AnalysisTemplateAnalysisSource1PropertiesArgsDict']]]] = None,
                  source_metadata: Optional[pulumi.Input[Union['AnalysisTemplateAnalysisSourceMetadataPropertiesArgs', 'AnalysisTemplateAnalysisSourceMetadataPropertiesArgsDict']]] = None,
+                 synthetic_data_parameters: Optional[pulumi.Input[Union['AnalysisTemplateSyntheticDataParametersPropertiesArgs', 'AnalysisTemplateSyntheticDataParametersPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -277,13 +291,14 @@ class AnalysisTemplate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
             __props__.__dict__["source_metadata"] = source_metadata
+            __props__.__dict__["synthetic_data_parameters"] = synthetic_data_parameters
             __props__.__dict__["tags"] = tags
             __props__.__dict__["analysis_template_identifier"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["collaboration_arn"] = None
             __props__.__dict__["collaboration_identifier"] = None
             __props__.__dict__["membership_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["analysisParameters[*]", "errorMessageConfiguration", "format", "membershipIdentifier", "name", "schema", "source"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["analysisParameters[*]", "errorMessageConfiguration", "format", "membershipIdentifier", "name", "schema", "source", "syntheticDataParameters"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AnalysisTemplate, __self__).__init__(
             'aws-native:cleanrooms:AnalysisTemplate',
@@ -321,6 +336,7 @@ class AnalysisTemplate(pulumi.CustomResource):
         __props__.__dict__["schema"] = None
         __props__.__dict__["source"] = None
         __props__.__dict__["source_metadata"] = None
+        __props__.__dict__["synthetic_data_parameters"] = None
         __props__.__dict__["tags"] = None
         return AnalysisTemplate(resource_name, opts=opts, __props__=__props__)
 
@@ -445,6 +461,11 @@ class AnalysisTemplate(pulumi.CustomResource):
         The source metadata for the analysis template.
         """
         return pulumi.get(self, "source_metadata")
+
+    @_builtins.property
+    @pulumi.getter(name="syntheticDataParameters")
+    def synthetic_data_parameters(self) -> pulumi.Output[Optional['outputs.AnalysisTemplateSyntheticDataParametersProperties']]:
+        return pulumi.get(self, "synthetic_data_parameters")
 
     @_builtins.property
     @pulumi.getter

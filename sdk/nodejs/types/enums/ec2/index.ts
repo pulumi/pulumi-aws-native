@@ -612,6 +612,17 @@ export const NetworkInsightsPathProtocol = {
 
 export type NetworkInsightsPathProtocol = (typeof NetworkInsightsPathProtocol)[keyof typeof NetworkInsightsPathProtocol];
 
+export const NetworkInterfacePublicIpDnsHostnameTypeSpecification = {
+    PublicDualStackDnsName: "public-dual-stack-dns-name",
+    PublicIpv4DnsName: "public-ipv4-dns-name",
+    PublicIpv6DnsName: "public-ipv6-dns-name",
+} as const;
+
+/**
+ * Public IP DNS hostname type
+ */
+export type NetworkInterfacePublicIpDnsHostnameTypeSpecification = (typeof NetworkInterfacePublicIpDnsHostnameTypeSpecification)[keyof typeof NetworkInterfacePublicIpDnsHostnameTypeSpecification];
+
 export const PrefixListAddressFamily = {
     IPv4: "IPv4",
     IPv6: "IPv6",

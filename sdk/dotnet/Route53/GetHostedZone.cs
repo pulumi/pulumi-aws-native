@@ -113,6 +113,7 @@ namespace Pulumi.AwsNative.Route53
         ///  If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
         /// </summary>
         public readonly Outputs.HostedZoneConfig? HostedZoneConfig;
+        public readonly Outputs.HostedZoneFeatures? HostedZoneFeatures;
         /// <summary>
         /// Adds, edits, or deletes tags for a health check or a hosted zone.
         ///  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
@@ -149,6 +150,8 @@ namespace Pulumi.AwsNative.Route53
         private GetHostedZoneResult(
             Outputs.HostedZoneConfig? hostedZoneConfig,
 
+            Outputs.HostedZoneFeatures? hostedZoneFeatures,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> hostedZoneTags,
 
             string? id,
@@ -160,6 +163,7 @@ namespace Pulumi.AwsNative.Route53
             ImmutableArray<Outputs.HostedZoneVpc> vpcs)
         {
             HostedZoneConfig = hostedZoneConfig;
+            HostedZoneFeatures = hostedZoneFeatures;
             HostedZoneTags = hostedZoneTags;
             Id = id;
             NameServers = nameServers;

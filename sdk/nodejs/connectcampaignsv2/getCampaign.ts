@@ -61,6 +61,7 @@ export interface GetCampaignResult {
      * One or more tags.
      */
     readonly tags?: outputs.Tag[];
+    readonly type?: enums.connectcampaignsv2.CampaignType;
 }
 /**
  * Definition of AWS::ConnectCampaignsV2::Campaign Resource Type

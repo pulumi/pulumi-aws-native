@@ -51,6 +51,34 @@ export const ContactFlowType = {
  */
 export type ContactFlowType = (typeof ContactFlowType)[keyof typeof ContactFlowType];
 
+export const DataTableAttributeValueType = {
+    Text: "TEXT",
+    Number: "NUMBER",
+    Boolean: "BOOLEAN",
+    TextList: "TEXT_LIST",
+    NumberList: "NUMBER_LIST",
+} as const;
+
+export type DataTableAttributeValueType = (typeof DataTableAttributeValueType)[keyof typeof DataTableAttributeValueType];
+
+export const DataTableStatus = {
+    Published: "PUBLISHED",
+} as const;
+
+/**
+ * The status of the Data Table
+ */
+export type DataTableStatus = (typeof DataTableStatus)[keyof typeof DataTableStatus];
+
+export const DataTableValueLockLevel = {
+    None: "NONE",
+} as const;
+
+/**
+ * The value lock level of the Data Table
+ */
+export type DataTableValueLockLevel = (typeof DataTableValueLockLevel)[keyof typeof DataTableValueLockLevel];
+
 export const EvaluationFormItemEnablementConditionOperator = {
     Or: "OR",
     And: "AND",
@@ -546,3 +574,37 @@ export const UserPhoneType = {
  * The phone type.
  */
 export type UserPhoneType = (typeof UserPhoneType)[keyof typeof UserPhoneType];
+
+export const WorkspaceFontFamily = {
+    Arial: "ARIAL",
+    CourierNew: "COURIER_NEW",
+    Georgia: "GEORGIA",
+    TimesNewRoman: "TIMES_NEW_ROMAN",
+    Trebuchet: "TREBUCHET",
+    Verdana: "VERDANA",
+} as const;
+
+export type WorkspaceFontFamily = (typeof WorkspaceFontFamily)[keyof typeof WorkspaceFontFamily];
+
+export const WorkspaceMediaType = {
+    ImageLogoLightFavicon: "IMAGE_LOGO_LIGHT_FAVICON",
+    ImageLogoDarkFavicon: "IMAGE_LOGO_DARK_FAVICON",
+    ImageLogoLightHorizontal: "IMAGE_LOGO_LIGHT_HORIZONTAL",
+    ImageLogoDarkHorizontal: "IMAGE_LOGO_DARK_HORIZONTAL",
+} as const;
+
+/**
+ * The type of media
+ */
+export type WorkspaceMediaType = (typeof WorkspaceMediaType)[keyof typeof WorkspaceMediaType];
+
+export const WorkspaceVisibility = {
+    All: "ALL",
+    Assigned: "ASSIGNED",
+    None: "NONE",
+} as const;
+
+/**
+ * The visibility of the Connect workspace
+ */
+export type WorkspaceVisibility = (typeof WorkspaceVisibility)[keyof typeof WorkspaceVisibility];

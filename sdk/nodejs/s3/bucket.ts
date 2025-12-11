@@ -754,7 +754,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["websiteUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["bucketName", "metadataConfiguration.journalTableConfiguration.encryptionConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["bucketName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Bucket.__pulumiType, name, resourceInputs, opts);
     }

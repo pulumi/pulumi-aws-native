@@ -36,7 +36,8 @@ type HostedZone struct {
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// A complex type that contains an optional comment.
 	//  If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
-	HostedZoneConfig HostedZoneConfigPtrOutput `pulumi:"hostedZoneConfig"`
+	HostedZoneConfig   HostedZoneConfigPtrOutput   `pulumi:"hostedZoneConfig"`
+	HostedZoneFeatures HostedZoneFeaturesPtrOutput `pulumi:"hostedZoneFeatures"`
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
 	//  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
 	HostedZoneTags aws.TagArrayOutput `pulumi:"hostedZoneTags"`
@@ -107,7 +108,8 @@ func (HostedZoneState) ElementType() reflect.Type {
 type hostedZoneArgs struct {
 	// A complex type that contains an optional comment.
 	//  If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
-	HostedZoneConfig *HostedZoneConfig `pulumi:"hostedZoneConfig"`
+	HostedZoneConfig   *HostedZoneConfig   `pulumi:"hostedZoneConfig"`
+	HostedZoneFeatures *HostedZoneFeatures `pulumi:"hostedZoneFeatures"`
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
 	//  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
 	HostedZoneTags []aws.Tag `pulumi:"hostedZoneTags"`
@@ -132,7 +134,8 @@ type hostedZoneArgs struct {
 type HostedZoneArgs struct {
 	// A complex type that contains an optional comment.
 	//  If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
-	HostedZoneConfig HostedZoneConfigPtrInput
+	HostedZoneConfig   HostedZoneConfigPtrInput
+	HostedZoneFeatures HostedZoneFeaturesPtrInput
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
 	//  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
 	HostedZoneTags aws.TagArrayInput
@@ -200,6 +203,10 @@ func (o HostedZoneOutput) AwsId() pulumi.StringOutput {
 //	If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
 func (o HostedZoneOutput) HostedZoneConfig() HostedZoneConfigPtrOutput {
 	return o.ApplyT(func(v *HostedZone) HostedZoneConfigPtrOutput { return v.HostedZoneConfig }).(HostedZoneConfigPtrOutput)
+}
+
+func (o HostedZoneOutput) HostedZoneFeatures() HostedZoneFeaturesPtrOutput {
+	return o.ApplyT(func(v *HostedZone) HostedZoneFeaturesPtrOutput { return v.HostedZoneFeatures }).(HostedZoneFeaturesPtrOutput)
 }
 
 // Adds, edits, or deletes tags for a health check or a hosted zone.

@@ -25,13 +25,19 @@ __all__ = [
 
 @pulumi.output_type
 class GetExpressGatewayServiceResult:
-    def __init__(__self__, active_configurations=None, created_at=None, service_arn=None, status=None, updated_at=None):
+    def __init__(__self__, active_configurations=None, created_at=None, ecs_managed_resource_arns=None, endpoint=None, service_arn=None, status=None, updated_at=None):
         if active_configurations and not isinstance(active_configurations, list):
             raise TypeError("Expected argument 'active_configurations' to be a list")
         pulumi.set(__self__, "active_configurations", active_configurations)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if ecs_managed_resource_arns and not isinstance(ecs_managed_resource_arns, dict):
+            raise TypeError("Expected argument 'ecs_managed_resource_arns' to be a dict")
+        pulumi.set(__self__, "ecs_managed_resource_arns", ecs_managed_resource_arns)
+        if endpoint and not isinstance(endpoint, str):
+            raise TypeError("Expected argument 'endpoint' to be a str")
+        pulumi.set(__self__, "endpoint", endpoint)
         if service_arn and not isinstance(service_arn, str):
             raise TypeError("Expected argument 'service_arn' to be a str")
         pulumi.set(__self__, "service_arn", service_arn)
@@ -57,6 +63,16 @@ class GetExpressGatewayServiceResult:
         The Unix timestamp for when the Express service was created.
         """
         return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="ecsManagedResourceArns")
+    def ecs_managed_resource_arns(self) -> Optional['outputs.ExpressGatewayServiceEcsManagedResourceArns']:
+        return pulumi.get(self, "ecs_managed_resource_arns")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter(name="serviceArn")
@@ -88,6 +104,8 @@ class AwaitableGetExpressGatewayServiceResult(GetExpressGatewayServiceResult):
         return GetExpressGatewayServiceResult(
             active_configurations=self.active_configurations,
             created_at=self.created_at,
+            ecs_managed_resource_arns=self.ecs_managed_resource_arns,
+            endpoint=self.endpoint,
             service_arn=self.service_arn,
             status=self.status,
             updated_at=self.updated_at)
@@ -109,6 +127,8 @@ def get_express_gateway_service(service_arn: Optional[_builtins.str] = None,
     return AwaitableGetExpressGatewayServiceResult(
         active_configurations=pulumi.get(__ret__, 'active_configurations'),
         created_at=pulumi.get(__ret__, 'created_at'),
+        ecs_managed_resource_arns=pulumi.get(__ret__, 'ecs_managed_resource_arns'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
         service_arn=pulumi.get(__ret__, 'service_arn'),
         status=pulumi.get(__ret__, 'status'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
@@ -127,6 +147,8 @@ def get_express_gateway_service_output(service_arn: Optional[pulumi.Input[_built
     return __ret__.apply(lambda __response__: GetExpressGatewayServiceResult(
         active_configurations=pulumi.get(__response__, 'active_configurations'),
         created_at=pulumi.get(__response__, 'created_at'),
+        ecs_managed_resource_arns=pulumi.get(__response__, 'ecs_managed_resource_arns'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
         service_arn=pulumi.get(__response__, 'service_arn'),
         status=pulumi.get(__response__, 'status'),
         updated_at=pulumi.get(__response__, 'updated_at')))

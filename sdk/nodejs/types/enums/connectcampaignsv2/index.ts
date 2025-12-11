@@ -54,3 +54,13 @@ export const CampaignLocalTimeZoneDetectionType = {
  * Local TimeZone Detection method
  */
 export type CampaignLocalTimeZoneDetectionType = (typeof CampaignLocalTimeZoneDetectionType)[keyof typeof CampaignLocalTimeZoneDetectionType];
+
+export const CampaignType = {
+    Managed: "MANAGED",
+    Journey: "JOURNEY",
+} as const;
+
+/**
+ * Campaign type
+ */
+export type CampaignType = (typeof CampaignType)[keyof typeof CampaignType];

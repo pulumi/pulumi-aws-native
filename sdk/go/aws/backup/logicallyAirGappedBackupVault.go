@@ -27,13 +27,16 @@ type LogicallyAirGappedBackupVault struct {
 	// The tags to assign to the vault.
 	BackupVaultTags pulumi.StringMapOutput `pulumi:"backupVaultTags"`
 	// The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+	//
+	// If this field is left blank, AWS Backup will create an AWS owned key to be used to encrypt the content of the logically air-gapped vault. The ARN of this created key will be available as `Fn::GetAtt` output.
 	EncryptionKeyArn pulumi.StringPtrOutput `pulumi:"encryptionKeyArn"`
 	// The maximum retention period that the vault retains its recovery points.
 	MaxRetentionDays pulumi.IntOutput `pulumi:"maxRetentionDays"`
 	// This setting specifies the minimum retention period that the vault retains its recovery points.
 	//
 	// The minimum value accepted is 7 days.
-	MinRetentionDays   pulumi.IntOutput       `pulumi:"minRetentionDays"`
+	MinRetentionDays pulumi.IntOutput `pulumi:"minRetentionDays"`
+	// The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault. This cannot be changed after it is set from the CloudFormation template.
 	MpaApprovalTeamArn pulumi.StringPtrOutput `pulumi:"mpaApprovalTeamArn"`
 	// Returns event notifications for the specified backup vault.
 	Notifications LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput `pulumi:"notifications"`
@@ -105,13 +108,16 @@ type logicallyAirGappedBackupVaultArgs struct {
 	// The tags to assign to the vault.
 	BackupVaultTags map[string]string `pulumi:"backupVaultTags"`
 	// The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+	//
+	// If this field is left blank, AWS Backup will create an AWS owned key to be used to encrypt the content of the logically air-gapped vault. The ARN of this created key will be available as `Fn::GetAtt` output.
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// The maximum retention period that the vault retains its recovery points.
 	MaxRetentionDays int `pulumi:"maxRetentionDays"`
 	// This setting specifies the minimum retention period that the vault retains its recovery points.
 	//
 	// The minimum value accepted is 7 days.
-	MinRetentionDays   int     `pulumi:"minRetentionDays"`
+	MinRetentionDays int `pulumi:"minRetentionDays"`
+	// The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault. This cannot be changed after it is set from the CloudFormation template.
 	MpaApprovalTeamArn *string `pulumi:"mpaApprovalTeamArn"`
 	// Returns event notifications for the specified backup vault.
 	Notifications *LogicallyAirGappedBackupVaultNotificationObjectType `pulumi:"notifications"`
@@ -128,13 +134,16 @@ type LogicallyAirGappedBackupVaultArgs struct {
 	// The tags to assign to the vault.
 	BackupVaultTags pulumi.StringMapInput
 	// The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+	//
+	// If this field is left blank, AWS Backup will create an AWS owned key to be used to encrypt the content of the logically air-gapped vault. The ARN of this created key will be available as `Fn::GetAtt` output.
 	EncryptionKeyArn pulumi.StringPtrInput
 	// The maximum retention period that the vault retains its recovery points.
 	MaxRetentionDays pulumi.IntInput
 	// This setting specifies the minimum retention period that the vault retains its recovery points.
 	//
 	// The minimum value accepted is 7 days.
-	MinRetentionDays   pulumi.IntInput
+	MinRetentionDays pulumi.IntInput
+	// The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault. This cannot be changed after it is set from the CloudFormation template.
 	MpaApprovalTeamArn pulumi.StringPtrInput
 	// Returns event notifications for the specified backup vault.
 	Notifications LogicallyAirGappedBackupVaultNotificationObjectTypePtrInput
@@ -200,6 +209,8 @@ func (o LogicallyAirGappedBackupVaultOutput) BackupVaultTags() pulumi.StringMapO
 }
 
 // The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+//
+// If this field is left blank, AWS Backup will create an AWS owned key to be used to encrypt the content of the logically air-gapped vault. The ARN of this created key will be available as `Fn::GetAtt` output.
 func (o LogicallyAirGappedBackupVaultOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.StringPtrOutput { return v.EncryptionKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -216,6 +227,7 @@ func (o LogicallyAirGappedBackupVaultOutput) MinRetentionDays() pulumi.IntOutput
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.IntOutput { return v.MinRetentionDays }).(pulumi.IntOutput)
 }
 
+// The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault. This cannot be changed after it is set from the CloudFormation template.
 func (o LogicallyAirGappedBackupVaultOutput) MpaApprovalTeamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.StringPtrOutput { return v.MpaApprovalTeamArn }).(pulumi.StringPtrOutput)
 }

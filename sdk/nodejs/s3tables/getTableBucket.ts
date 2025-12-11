@@ -30,6 +30,7 @@ export interface GetTableBucketResult {
      */
     readonly encryptionConfiguration?: outputs.s3tables.TableBucketEncryptionConfiguration;
     readonly metricsConfiguration?: outputs.s3tables.TableBucketMetricsConfiguration;
+    readonly storageClassConfiguration?: outputs.s3tables.TableBucketStorageClassConfiguration;
     /**
      * The Amazon Resource Name (ARN) of the table bucket.
      */

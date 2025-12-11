@@ -4669,6 +4669,162 @@ func (o FunctionDeadLetterConfigPtrOutput) TargetArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type FunctionDurableConfig struct {
+	// The amount of time (in seconds) that Lambda allows a durable function to run before stopping it. The maximum is one 366-day year or 31,622,400 seconds.
+	ExecutionTimeout int `pulumi:"executionTimeout"`
+	// The number of days after a durable execution is closed that Lambda retains its history, from one to 90 days. The default is 14 days.
+	RetentionPeriodInDays *int `pulumi:"retentionPeriodInDays"`
+}
+
+// FunctionDurableConfigInput is an input type that accepts FunctionDurableConfigArgs and FunctionDurableConfigOutput values.
+// You can construct a concrete instance of `FunctionDurableConfigInput` via:
+//
+//	FunctionDurableConfigArgs{...}
+type FunctionDurableConfigInput interface {
+	pulumi.Input
+
+	ToFunctionDurableConfigOutput() FunctionDurableConfigOutput
+	ToFunctionDurableConfigOutputWithContext(context.Context) FunctionDurableConfigOutput
+}
+
+type FunctionDurableConfigArgs struct {
+	// The amount of time (in seconds) that Lambda allows a durable function to run before stopping it. The maximum is one 366-day year or 31,622,400 seconds.
+	ExecutionTimeout pulumi.IntInput `pulumi:"executionTimeout"`
+	// The number of days after a durable execution is closed that Lambda retains its history, from one to 90 days. The default is 14 days.
+	RetentionPeriodInDays pulumi.IntPtrInput `pulumi:"retentionPeriodInDays"`
+}
+
+func (FunctionDurableConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionDurableConfig)(nil)).Elem()
+}
+
+func (i FunctionDurableConfigArgs) ToFunctionDurableConfigOutput() FunctionDurableConfigOutput {
+	return i.ToFunctionDurableConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionDurableConfigArgs) ToFunctionDurableConfigOutputWithContext(ctx context.Context) FunctionDurableConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionDurableConfigOutput)
+}
+
+func (i FunctionDurableConfigArgs) ToFunctionDurableConfigPtrOutput() FunctionDurableConfigPtrOutput {
+	return i.ToFunctionDurableConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionDurableConfigArgs) ToFunctionDurableConfigPtrOutputWithContext(ctx context.Context) FunctionDurableConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionDurableConfigOutput).ToFunctionDurableConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionDurableConfigPtrInput is an input type that accepts FunctionDurableConfigArgs, FunctionDurableConfigPtr and FunctionDurableConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionDurableConfigPtrInput` via:
+//
+//	        FunctionDurableConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionDurableConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionDurableConfigPtrOutput() FunctionDurableConfigPtrOutput
+	ToFunctionDurableConfigPtrOutputWithContext(context.Context) FunctionDurableConfigPtrOutput
+}
+
+type functionDurableConfigPtrType FunctionDurableConfigArgs
+
+func FunctionDurableConfigPtr(v *FunctionDurableConfigArgs) FunctionDurableConfigPtrInput {
+	return (*functionDurableConfigPtrType)(v)
+}
+
+func (*functionDurableConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionDurableConfig)(nil)).Elem()
+}
+
+func (i *functionDurableConfigPtrType) ToFunctionDurableConfigPtrOutput() FunctionDurableConfigPtrOutput {
+	return i.ToFunctionDurableConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionDurableConfigPtrType) ToFunctionDurableConfigPtrOutputWithContext(ctx context.Context) FunctionDurableConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionDurableConfigPtrOutput)
+}
+
+type FunctionDurableConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionDurableConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionDurableConfig)(nil)).Elem()
+}
+
+func (o FunctionDurableConfigOutput) ToFunctionDurableConfigOutput() FunctionDurableConfigOutput {
+	return o
+}
+
+func (o FunctionDurableConfigOutput) ToFunctionDurableConfigOutputWithContext(ctx context.Context) FunctionDurableConfigOutput {
+	return o
+}
+
+func (o FunctionDurableConfigOutput) ToFunctionDurableConfigPtrOutput() FunctionDurableConfigPtrOutput {
+	return o.ToFunctionDurableConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionDurableConfigOutput) ToFunctionDurableConfigPtrOutputWithContext(ctx context.Context) FunctionDurableConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionDurableConfig) *FunctionDurableConfig {
+		return &v
+	}).(FunctionDurableConfigPtrOutput)
+}
+
+// The amount of time (in seconds) that Lambda allows a durable function to run before stopping it. The maximum is one 366-day year or 31,622,400 seconds.
+func (o FunctionDurableConfigOutput) ExecutionTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v FunctionDurableConfig) int { return v.ExecutionTimeout }).(pulumi.IntOutput)
+}
+
+// The number of days after a durable execution is closed that Lambda retains its history, from one to 90 days. The default is 14 days.
+func (o FunctionDurableConfigOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionDurableConfig) *int { return v.RetentionPeriodInDays }).(pulumi.IntPtrOutput)
+}
+
+type FunctionDurableConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionDurableConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionDurableConfig)(nil)).Elem()
+}
+
+func (o FunctionDurableConfigPtrOutput) ToFunctionDurableConfigPtrOutput() FunctionDurableConfigPtrOutput {
+	return o
+}
+
+func (o FunctionDurableConfigPtrOutput) ToFunctionDurableConfigPtrOutputWithContext(ctx context.Context) FunctionDurableConfigPtrOutput {
+	return o
+}
+
+func (o FunctionDurableConfigPtrOutput) Elem() FunctionDurableConfigOutput {
+	return o.ApplyT(func(v *FunctionDurableConfig) FunctionDurableConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionDurableConfig
+		return ret
+	}).(FunctionDurableConfigOutput)
+}
+
+// The amount of time (in seconds) that Lambda allows a durable function to run before stopping it. The maximum is one 366-day year or 31,622,400 seconds.
+func (o FunctionDurableConfigPtrOutput) ExecutionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionDurableConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ExecutionTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of days after a durable execution is closed that Lambda retains its history, from one to 90 days. The default is 14 days.
+func (o FunctionDurableConfigPtrOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionDurableConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionPeriodInDays
+	}).(pulumi.IntPtrOutput)
+}
+
 // A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
 type FunctionEnvironment struct {
 	// Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
@@ -7481,6 +7637,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCodeInput)(nil)).Elem(), FunctionCodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDeadLetterConfigInput)(nil)).Elem(), FunctionDeadLetterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDeadLetterConfigPtrInput)(nil)).Elem(), FunctionDeadLetterConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDurableConfigInput)(nil)).Elem(), FunctionDurableConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionDurableConfigPtrInput)(nil)).Elem(), FunctionDurableConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEnvironmentInput)(nil)).Elem(), FunctionEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEnvironmentPtrInput)(nil)).Elem(), FunctionEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEphemeralStorageInput)(nil)).Elem(), FunctionEphemeralStorageArgs{})
@@ -7578,6 +7736,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionCodePtrOutput{})
 	pulumi.RegisterOutputType(FunctionDeadLetterConfigOutput{})
 	pulumi.RegisterOutputType(FunctionDeadLetterConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionDurableConfigOutput{})
+	pulumi.RegisterOutputType(FunctionDurableConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionEnvironmentOutput{})
 	pulumi.RegisterOutputType(FunctionEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(FunctionEphemeralStorageOutput{})

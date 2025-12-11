@@ -73,6 +73,28 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetNatGatewayResult
     {
         /// <summary>
+        /// For regional NAT gateways only: Indicates whether AWS automatically manages AZ coverage. When enabled, the NAT gateway associates EIPs in all AZs where your VPC has subnets to handle outbound NAT traffic, expands to new AZs when you create subnets there, and retracts from AZs where you've removed all subnets. When disabled, you must manually manage which AZs the NAT gateway supports and their corresponding EIPs.
+        /// 
+        /// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+        /// 
+        /// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+        /// </summary>
+        public readonly string? AutoProvisionZones;
+        /// <summary>
+        /// For regional NAT gateways only: Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
+        /// 
+        /// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+        /// </summary>
+        public readonly string? AutoScalingIps;
+        /// <summary>
+        /// For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.
+        /// 
+        /// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+        /// 
+        /// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NatGatewayAvailabilityZoneAddress> AvailabilityZoneAddresses;
+        /// <summary>
         /// The ID of the network interface.
         /// </summary>
         public readonly string? EniId;
@@ -80,6 +102,10 @@ namespace Pulumi.AwsNative.Ec2
         /// The ID of the NAT gateway.
         /// </summary>
         public readonly string? NatGatewayId;
+        /// <summary>
+        /// For regional NAT gateways only, this is the ID of the NAT gateway.
+        /// </summary>
+        public readonly string? RouteTableId;
         /// <summary>
         /// Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.
         /// </summary>
@@ -101,9 +127,17 @@ namespace Pulumi.AwsNative.Ec2
 
         [OutputConstructor]
         private GetNatGatewayResult(
+            string? autoProvisionZones,
+
+            string? autoScalingIps,
+
+            ImmutableArray<Outputs.NatGatewayAvailabilityZoneAddress> availabilityZoneAddresses,
+
             string? eniId,
 
             string? natGatewayId,
+
+            string? routeTableId,
 
             ImmutableArray<string> secondaryAllocationIds,
 
@@ -113,8 +147,12 @@ namespace Pulumi.AwsNative.Ec2
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            AutoProvisionZones = autoProvisionZones;
+            AutoScalingIps = autoScalingIps;
+            AvailabilityZoneAddresses = availabilityZoneAddresses;
             EniId = eniId;
             NatGatewayId = natGatewayId;
+            RouteTableId = routeTableId;
             SecondaryAllocationIds = secondaryAllocationIds;
             SecondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;
             SecondaryPrivateIpAddresses = secondaryPrivateIpAddresses;

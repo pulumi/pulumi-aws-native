@@ -560,6 +560,171 @@ func (in *analysisTemplateFormatPtr) ToAnalysisTemplateFormatPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTemplateFormatPtrOutput)
 }
 
+type AnalysisTemplateSyntheticDataColumnPropertiesColumnType string
+
+const (
+	AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeCategorical = AnalysisTemplateSyntheticDataColumnPropertiesColumnType("CATEGORICAL")
+	AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeNumerical   = AnalysisTemplateSyntheticDataColumnPropertiesColumnType("NUMERICAL")
+)
+
+func (AnalysisTemplateSyntheticDataColumnPropertiesColumnType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateSyntheticDataColumnPropertiesColumnType)(nil)).Elem()
+}
+
+func (e AnalysisTemplateSyntheticDataColumnPropertiesColumnType) ToAnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput() AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput {
+	return pulumi.ToOutput(e).(AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput)
+}
+
+func (e AnalysisTemplateSyntheticDataColumnPropertiesColumnType) ToAnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutputWithContext(ctx context.Context) AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput)
+}
+
+func (e AnalysisTemplateSyntheticDataColumnPropertiesColumnType) ToAnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput() AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput {
+	return e.ToAnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisTemplateSyntheticDataColumnPropertiesColumnType) ToAnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutputWithContext(ctx context.Context) AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput {
+	return AnalysisTemplateSyntheticDataColumnPropertiesColumnType(e).ToAnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutputWithContext(ctx).ToAnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisTemplateSyntheticDataColumnPropertiesColumnType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisTemplateSyntheticDataColumnPropertiesColumnType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisTemplateSyntheticDataColumnPropertiesColumnType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisTemplateSyntheticDataColumnPropertiesColumnType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateSyntheticDataColumnPropertiesColumnType)(nil)).Elem()
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput) ToAnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput() AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput {
+	return o
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput) ToAnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutputWithContext(ctx context.Context) AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput {
+	return o
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput) ToAnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput() AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput {
+	return o.ToAnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput) ToAnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutputWithContext(ctx context.Context) AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTemplateSyntheticDataColumnPropertiesColumnType) *AnalysisTemplateSyntheticDataColumnPropertiesColumnType {
+		return &v
+	}).(AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput)
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisTemplateSyntheticDataColumnPropertiesColumnType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisTemplateSyntheticDataColumnPropertiesColumnType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTemplateSyntheticDataColumnPropertiesColumnType)(nil)).Elem()
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput) ToAnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput() AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput) ToAnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutputWithContext(ctx context.Context) AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput) Elem() AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput {
+	return o.ApplyT(func(v *AnalysisTemplateSyntheticDataColumnPropertiesColumnType) AnalysisTemplateSyntheticDataColumnPropertiesColumnType {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisTemplateSyntheticDataColumnPropertiesColumnType
+		return ret
+	}).(AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput)
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisTemplateSyntheticDataColumnPropertiesColumnType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeInput is an input type that accepts values of the AnalysisTemplateSyntheticDataColumnPropertiesColumnType enum
+// A concrete instance of `AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeInput` can be one of the following:
+//
+//	AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeCategorical
+//	AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeNumerical
+type AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput() AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput
+	ToAnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutputWithContext(context.Context) AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput
+}
+
+var analysisTemplateSyntheticDataColumnPropertiesColumnTypePtrType = reflect.TypeOf((**AnalysisTemplateSyntheticDataColumnPropertiesColumnType)(nil)).Elem()
+
+type AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput() AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput
+	ToAnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutputWithContext(context.Context) AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput
+}
+
+type analysisTemplateSyntheticDataColumnPropertiesColumnTypePtr string
+
+func AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtr(v string) AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrInput {
+	return (*analysisTemplateSyntheticDataColumnPropertiesColumnTypePtr)(&v)
+}
+
+func (*analysisTemplateSyntheticDataColumnPropertiesColumnTypePtr) ElementType() reflect.Type {
+	return analysisTemplateSyntheticDataColumnPropertiesColumnTypePtrType
+}
+
+func (in *analysisTemplateSyntheticDataColumnPropertiesColumnTypePtr) ToAnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput() AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput)
+}
+
+func (in *analysisTemplateSyntheticDataColumnPropertiesColumnTypePtr) ToAnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutputWithContext(ctx context.Context) AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput)
+}
+
 type CollaborationAnalyticsEngine string
 
 const (
@@ -5375,6 +5540,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateErrorMessageConfigurationTypePtrInput)(nil)).Elem(), AnalysisTemplateErrorMessageConfigurationType("DETAILED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateFormatInput)(nil)).Elem(), AnalysisTemplateFormat("SQL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateFormatPtrInput)(nil)).Elem(), AnalysisTemplateFormat("SQL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeInput)(nil)).Elem(), AnalysisTemplateSyntheticDataColumnPropertiesColumnType("CATEGORICAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrInput)(nil)).Elem(), AnalysisTemplateSyntheticDataColumnPropertiesColumnType("CATEGORICAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationAnalyticsEngineInput)(nil)).Elem(), CollaborationAnalyticsEngine("CLEAN_ROOMS_SQL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationAnalyticsEnginePtrInput)(nil)).Elem(), CollaborationAnalyticsEngine("CLEAN_ROOMS_SQL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationAutoApprovedChangeTypeInput)(nil)).Elem(), CollaborationAutoApprovedChangeType("ADD_MEMBER"))
@@ -5438,6 +5605,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisTemplateErrorMessageConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateFormatOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateFormatPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateSyntheticDataColumnPropertiesColumnTypePtrOutput{})
 	pulumi.RegisterOutputType(CollaborationAnalyticsEngineOutput{})
 	pulumi.RegisterOutputType(CollaborationAnalyticsEnginePtrOutput{})
 	pulumi.RegisterOutputType(CollaborationAutoApprovedChangeTypeOutput{})

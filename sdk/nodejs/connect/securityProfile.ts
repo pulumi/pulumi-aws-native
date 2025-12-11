@@ -53,6 +53,9 @@ export class SecurityProfile extends pulumi.CustomResource {
      * The description of the security profile.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * The granular access control configuration for the security profile, including data table permissions.
+     */
     declare public readonly granularAccessControlConfiguration: pulumi.Output<outputs.connect.GranularAccessControlConfigurationProperties | undefined>;
     /**
      * The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
@@ -162,6 +165,9 @@ export interface SecurityProfileArgs {
      * The description of the security profile.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The granular access control configuration for the security profile, including data table permissions.
+     */
     granularAccessControlConfiguration?: pulumi.Input<inputs.connect.GranularAccessControlConfigurationPropertiesArgs>;
     /**
      * The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.

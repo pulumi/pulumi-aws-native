@@ -94,6 +94,10 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
+     * Routing policy label
+     */
+    declare public readonly routingPolicyLabel: pulumi.Output<string | undefined>;
+    /**
      * The name of the segment that attachment is in.
      */
     declare public /*out*/ readonly segmentName: pulumi.Output<string>;
@@ -135,6 +139,7 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
             resourceInputs["peeringId"] = args?.peeringId;
             resourceInputs["proposedNetworkFunctionGroupChange"] = args?.proposedNetworkFunctionGroupChange;
             resourceInputs["proposedSegmentChange"] = args?.proposedSegmentChange;
+            resourceInputs["routingPolicyLabel"] = args?.routingPolicyLabel;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["transitGatewayRouteTableArn"] = args?.transitGatewayRouteTableArn;
             resourceInputs["attachmentId"] = undefined /*out*/;
@@ -165,6 +170,7 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
             resourceInputs["proposedNetworkFunctionGroupChange"] = undefined /*out*/;
             resourceInputs["proposedSegmentChange"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
+            resourceInputs["routingPolicyLabel"] = undefined /*out*/;
             resourceInputs["segmentName"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -172,7 +178,7 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["peeringId", "transitGatewayRouteTableArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["peeringId", "routingPolicyLabel", "transitGatewayRouteTableArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TransitGatewayRouteTableAttachment.__pulumiType, name, resourceInputs, opts);
     }
@@ -198,6 +204,10 @@ export interface TransitGatewayRouteTableAttachmentArgs {
      * The attachment to move from one segment to another.
      */
     proposedSegmentChange?: pulumi.Input<inputs.networkmanager.TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs>;
+    /**
+     * Routing policy label
+     */
+    routingPolicyLabel?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

@@ -20,6 +20,7 @@ __all__ = [
     'TableBucketEncryptionConfiguration',
     'TableBucketMetricsConfiguration',
     'TableBucketPolicyResourcePolicy',
+    'TableBucketStorageClassConfiguration',
     'TableBucketUnreferencedFileRemoval',
     'TableCompaction',
     'TableIcebergMetadata',
@@ -27,6 +28,7 @@ __all__ = [
     'TablePolicyResourcePolicy',
     'TableSchemaField',
     'TableSnapshotManagement',
+    'TableStorageClassConfiguration',
 ]
 
 @pulumi.output_type
@@ -116,6 +118,46 @@ class TableBucketPolicyResourcePolicy(dict):
         A policy document containing permissions to add to the specified table bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
         """
         pass
+
+
+@pulumi.output_type
+class TableBucketStorageClassConfiguration(dict):
+    """
+    Specifies storage class settings for the table bucket
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageClass":
+            suggest = "storage_class"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableBucketStorageClassConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableBucketStorageClassConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableBucketStorageClassConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_class: Optional['TableBucketStorageClassConfigurationStorageClass'] = None):
+        """
+        Specifies storage class settings for the table bucket
+        :param 'TableBucketStorageClassConfigurationStorageClass' storage_class: The storage class for the table bucket
+        """
+        if storage_class is not None:
+            pulumi.set(__self__, "storage_class", storage_class)
+
+    @_builtins.property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> Optional['TableBucketStorageClassConfigurationStorageClass']:
+        """
+        The storage class for the table bucket
+        """
+        return pulumi.get(self, "storage_class")
 
 
 @pulumi.output_type
@@ -435,5 +477,45 @@ class TableSnapshotManagement(dict):
         Indicates whether the SnapshotManagement maintenance action is enabled.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class TableStorageClassConfiguration(dict):
+    """
+    Specifies storage class settings for the table
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageClass":
+            suggest = "storage_class"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableStorageClassConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableStorageClassConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableStorageClassConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_class: Optional['TableStorageClassConfigurationStorageClass'] = None):
+        """
+        Specifies storage class settings for the table
+        :param 'TableStorageClassConfigurationStorageClass' storage_class: The storage class for the table
+        """
+        if storage_class is not None:
+            pulumi.set(__self__, "storage_class", storage_class)
+
+    @_builtins.property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> Optional['TableStorageClassConfigurationStorageClass']:
+        """
+        The storage class for the table
+        """
+        return pulumi.get(self, "storage_class")
 
 

@@ -19,6 +19,7 @@ from ._enums import *
 __all__ = [
     'KeyAttributes',
     'KeyModesOfUse',
+    'KeyReplicationStatusType',
 ]
 
 @pulumi.output_type
@@ -227,5 +228,42 @@ class KeyModesOfUse(dict):
         Speciﬁes whether an AWS Payment Cryptography key can be used to wrap other keys.
         """
         return pulumi.get(self, "wrap")
+
+
+@pulumi.output_type
+class KeyReplicationStatusType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusMessage":
+            suggest = "status_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyReplicationStatusType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyReplicationStatusType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyReplicationStatusType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: 'KeyReplicationState',
+                 status_message: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "status", status)
+        if status_message is not None:
+            pulumi.set(__self__, "status_message", status_message)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> 'KeyReplicationState':
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "status_message")
 
 

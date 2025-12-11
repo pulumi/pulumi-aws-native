@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
         /// Contains channel subtype configuration for an outbound campaign.
         /// </summary>
         [Output("channelSubtypeConfig")]
-        public Output<Outputs.CampaignChannelSubtypeConfig> ChannelSubtypeConfig { get; private set; } = null!;
+        public Output<Outputs.CampaignChannelSubtypeConfig?> ChannelSubtypeConfig { get; private set; } = null!;
 
         /// <summary>
         /// Communication limits configuration for an outbound campaign.
@@ -74,6 +74,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        [Output("type")]
+        public Output<Pulumi.AwsNative.ConnectCampaignsV2.CampaignType?> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -127,8 +130,8 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
         /// <summary>
         /// Contains channel subtype configuration for an outbound campaign.
         /// </summary>
-        [Input("channelSubtypeConfig", required: true)]
-        public Input<Inputs.CampaignChannelSubtypeConfigArgs> ChannelSubtypeConfig { get; set; } = null!;
+        [Input("channelSubtypeConfig")]
+        public Input<Inputs.CampaignChannelSubtypeConfigArgs>? ChannelSubtypeConfig { get; set; }
 
         /// <summary>
         /// Communication limits configuration for an outbound campaign.
@@ -183,6 +186,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        [Input("type")]
+        public Input<Pulumi.AwsNative.ConnectCampaignsV2.CampaignType>? Type { get; set; }
 
         public CampaignArgs()
         {

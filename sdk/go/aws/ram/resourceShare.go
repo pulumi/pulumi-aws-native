@@ -106,8 +106,16 @@ type ResourceShare struct {
 	AllowExternalPrincipals pulumi.BoolPtrOutput `pulumi:"allowExternalPrincipals"`
 	// The Amazon Resource Name (ARN) of the resource share.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The date and time when the resource share was created.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The feature set of the resource share.
+	FeatureSet ResourceShareFeatureSetOutput `pulumi:"featureSet"`
+	// The date and time when the resource share was last updated.
+	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// Specifies the name of the resource share.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The ID of the AWS account that owns the resource share.
+	OwningAccountId pulumi.StringOutput `pulumi:"owningAccountId"`
 	// Specifies the [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the AWS RAM permission to associate with the resource share. If you do not specify an ARN for the permission, AWS RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
 	PermissionArns pulumi.StringArrayOutput `pulumi:"permissionArns"`
 	// Specifies the principals to associate with the resource share. The possible values are:
@@ -126,6 +134,8 @@ type ResourceShare struct {
 	ResourceArns pulumi.StringArrayOutput `pulumi:"resourceArns"`
 	// Specifies from which source accounts the service principal has access to the resources in this resource share.
 	Sources pulumi.StringArrayOutput `pulumi:"sources"`
+	// The current status of the resource share.
+	Status ResourceShareStatusOutput `pulumi:"status"`
 	// Specifies one or more tags to attach to the resource share itself. It doesn't attach the tags to the resources associated with the resource share.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -271,9 +281,29 @@ func (o ResourceShareOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The date and time when the resource share was created.
+func (o ResourceShareOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceShare) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The feature set of the resource share.
+func (o ResourceShareOutput) FeatureSet() ResourceShareFeatureSetOutput {
+	return o.ApplyT(func(v *ResourceShare) ResourceShareFeatureSetOutput { return v.FeatureSet }).(ResourceShareFeatureSetOutput)
+}
+
+// The date and time when the resource share was last updated.
+func (o ResourceShareOutput) LastUpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceShare) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
 // Specifies the name of the resource share.
 func (o ResourceShareOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the AWS account that owns the resource share.
+func (o ResourceShareOutput) OwningAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceShare) pulumi.StringOutput { return v.OwningAccountId }).(pulumi.StringOutput)
 }
 
 // Specifies the [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the AWS RAM permission to associate with the resource share. If you do not specify an ARN for the permission, AWS RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
@@ -304,6 +334,11 @@ func (o ResourceShareOutput) ResourceArns() pulumi.StringArrayOutput {
 // Specifies from which source accounts the service principal has access to the resources in this resource share.
 func (o ResourceShareOutput) Sources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceShare) pulumi.StringArrayOutput { return v.Sources }).(pulumi.StringArrayOutput)
+}
+
+// The current status of the resource share.
+func (o ResourceShareOutput) Status() ResourceShareStatusOutput {
+	return o.ApplyT(func(v *ResourceShare) ResourceShareStatusOutput { return v.Status }).(ResourceShareStatusOutput)
 }
 
 // Specifies one or more tags to attach to the resource share itself. It doesn't attach the tags to the resources associated with the resource share.

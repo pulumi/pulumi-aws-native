@@ -1611,7 +1611,7 @@
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "s3:PutBucketTagging", "s3:GetBucketTagging", "s3:DeleteBucketTagging", "s3:TagResource", "s3:UntagResource", "s3:ListTagsForResource" ]
   },
-  "createOnlyProperties" : [ "/properties/BucketName", "/properties/MetadataConfiguration/JournalTableConfiguration/EncryptionConfiguration" ],
+  "createOnlyProperties" : [ "/properties/BucketName" ],
   "primaryIdentifier" : [ "/properties/BucketName" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/DomainName", "/properties/DualStackDomainName", "/properties/RegionalDomainName", "/properties/MetadataTableConfiguration/S3TablesDestination/TableNamespace", "/properties/MetadataTableConfiguration/S3TablesDestination/TableArn", "/properties/MetadataConfiguration/Destination", "/properties/MetadataConfiguration/JournalTableConfiguration/TableName", "/properties/MetadataConfiguration/JournalTableConfiguration/TableArn", "/properties/MetadataConfiguration/InventoryTableConfiguration/TableName", "/properties/MetadataConfiguration/InventoryTableConfiguration/TableArn", "/properties/WebsiteURL" ],
   "writeOnlyProperties" : [ "/properties/AccessControl", "/properties/MetadataConfiguration/JournalTableConfiguration/EncryptionConfiguration", "/properties/MetadataConfiguration/InventoryTableConfiguration/EncryptionConfiguration", "/properties/LifecycleConfiguration/Rules/*/NoncurrentVersionExpirationInDays", "/properties/LifecycleConfiguration/Rules/*/NoncurrentVersionTransition", "/properties/LifecycleConfiguration/Rules/*/Transition", "/properties/ReplicationConfiguration/Rules/*/Prefix", "/properties/LifecycleConfiguration/Rules/*/ExpiredObjectDeleteMarker" ],

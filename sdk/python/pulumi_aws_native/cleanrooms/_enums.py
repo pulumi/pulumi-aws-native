@@ -10,6 +10,7 @@ __all__ = [
     'AnalysisTemplateAnalysisParameterType',
     'AnalysisTemplateErrorMessageConfigurationType',
     'AnalysisTemplateFormat',
+    'AnalysisTemplateSyntheticDataColumnPropertiesColumnType',
     'CollaborationAnalyticsEngine',
     'CollaborationAutoApprovedChangeType',
     'CollaborationCustomMlMemberAbility',
@@ -92,6 +93,12 @@ class AnalysisTemplateFormat(_builtins.str, Enum):
     """
     SQL = "SQL"
     PYSPARK10 = "PYSPARK_1_0"
+
+
+@pulumi.type_token("aws-native:cleanrooms:AnalysisTemplateSyntheticDataColumnPropertiesColumnType")
+class AnalysisTemplateSyntheticDataColumnPropertiesColumnType(_builtins.str, Enum):
+    CATEGORICAL = "CATEGORICAL"
+    NUMERICAL = "NUMERICAL"
 
 
 @pulumi.type_token("aws-native:cleanrooms:CollaborationAnalyticsEngine")

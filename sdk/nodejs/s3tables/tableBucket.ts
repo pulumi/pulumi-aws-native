@@ -42,6 +42,7 @@ export class TableBucket extends pulumi.CustomResource {
      */
     declare public readonly encryptionConfiguration: pulumi.Output<outputs.s3tables.TableBucketEncryptionConfiguration | undefined>;
     declare public readonly metricsConfiguration: pulumi.Output<outputs.s3tables.TableBucketMetricsConfiguration | undefined>;
+    declare public readonly storageClassConfiguration: pulumi.Output<outputs.s3tables.TableBucketStorageClassConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the table bucket.
      */
@@ -72,6 +73,7 @@ export class TableBucket extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
             resourceInputs["metricsConfiguration"] = args?.metricsConfiguration;
+            resourceInputs["storageClassConfiguration"] = args?.storageClassConfiguration;
             resourceInputs["tableBucketName"] = args?.tableBucketName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["unreferencedFileRemoval"] = args?.unreferencedFileRemoval;
@@ -79,6 +81,7 @@ export class TableBucket extends pulumi.CustomResource {
         } else {
             resourceInputs["encryptionConfiguration"] = undefined /*out*/;
             resourceInputs["metricsConfiguration"] = undefined /*out*/;
+            resourceInputs["storageClassConfiguration"] = undefined /*out*/;
             resourceInputs["tableBucketArn"] = undefined /*out*/;
             resourceInputs["tableBucketName"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -100,6 +103,7 @@ export interface TableBucketArgs {
      */
     encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableBucketEncryptionConfigurationArgs>;
     metricsConfiguration?: pulumi.Input<inputs.s3tables.TableBucketMetricsConfigurationArgs>;
+    storageClassConfiguration?: pulumi.Input<inputs.s3tables.TableBucketStorageClassConfigurationArgs>;
     /**
      * The name for the table bucket.
      */

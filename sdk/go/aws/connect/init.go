@@ -31,6 +31,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ContactFlowModule{}
 	case "aws-native:connect:ContactFlowVersion":
 		r = &ContactFlowVersion{}
+	case "aws-native:connect:DataTable":
+		r = &DataTable{}
+	case "aws-native:connect:DataTableAttribute":
+		r = &DataTableAttribute{}
+	case "aws-native:connect:DataTableRecord":
+		r = &DataTableRecord{}
 	case "aws-native:connect:EmailAddress":
 		r = &EmailAddress{}
 	case "aws-native:connect:EvaluationForm":
@@ -75,6 +81,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &View{}
 	case "aws-native:connect:ViewVersion":
 		r = &ViewVersion{}
+	case "aws-native:connect:Workspace":
+		r = &Workspace{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

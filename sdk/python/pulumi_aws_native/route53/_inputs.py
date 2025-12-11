@@ -24,6 +24,8 @@ __all__ = [
     'HealthCheckConfigPropertiesArgsDict',
     'HostedZoneConfigArgs',
     'HostedZoneConfigArgsDict',
+    'HostedZoneFeaturesArgs',
+    'HostedZoneFeaturesArgsDict',
     'HostedZoneQueryLoggingConfigArgs',
     'HostedZoneQueryLoggingConfigArgsDict',
     'HostedZoneVpcArgs',
@@ -825,6 +827,38 @@ class HostedZoneConfigArgs:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "comment", value)
+
+
+if not MYPY:
+    class HostedZoneFeaturesArgsDict(TypedDict):
+        enable_accelerated_recovery: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
+        """
+elif False:
+    HostedZoneFeaturesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HostedZoneFeaturesArgs:
+    def __init__(__self__, *,
+                 enable_accelerated_recovery: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enable_accelerated_recovery: Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
+        """
+        if enable_accelerated_recovery is not None:
+            pulumi.set(__self__, "enable_accelerated_recovery", enable_accelerated_recovery)
+
+    @_builtins.property
+    @pulumi.getter(name="enableAcceleratedRecovery")
+    def enable_accelerated_recovery(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
+        """
+        return pulumi.get(self, "enable_accelerated_recovery")
+
+    @enable_accelerated_recovery.setter
+    def enable_accelerated_recovery(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_accelerated_recovery", value)
 
 
 if not MYPY:

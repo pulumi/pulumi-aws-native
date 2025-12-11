@@ -45,6 +45,8 @@ type DirectConnectGatewayAttachment struct {
 	ProposedSegmentChange DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput `pulumi:"proposedSegmentChange"`
 	// The ARN of the Resource.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	// Routing policy label
+	RoutingPolicyLabel pulumi.StringPtrOutput `pulumi:"routingPolicyLabel"`
 	// The name of the segment attachment..
 	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
 	// State of the attachment.
@@ -74,6 +76,7 @@ func NewDirectConnectGatewayAttachment(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"coreNetworkId",
 		"directConnectGatewayArn",
+		"routingPolicyLabel",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -119,6 +122,8 @@ type directConnectGatewayAttachmentArgs struct {
 	ProposedNetworkFunctionGroupChange *DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange *DirectConnectGatewayAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
+	// Routing policy label
+	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
 	// Tags for the attachment.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -135,6 +140,8 @@ type DirectConnectGatewayAttachmentArgs struct {
 	ProposedNetworkFunctionGroupChange DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrInput
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange DirectConnectGatewayAttachmentProposedSegmentChangePtrInput
+	// Routing policy label
+	RoutingPolicyLabel pulumi.StringPtrInput
 	// Tags for the attachment.
 	Tags aws.TagArrayInput
 }
@@ -248,6 +255,11 @@ func (o DirectConnectGatewayAttachmentOutput) ProposedSegmentChange() DirectConn
 // The ARN of the Resource.
 func (o DirectConnectGatewayAttachmentOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectConnectGatewayAttachment) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+// Routing policy label
+func (o DirectConnectGatewayAttachmentOutput) RoutingPolicyLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectConnectGatewayAttachment) pulumi.StringPtrOutput { return v.RoutingPolicyLabel }).(pulumi.StringPtrOutput)
 }
 
 // The name of the segment attachment..

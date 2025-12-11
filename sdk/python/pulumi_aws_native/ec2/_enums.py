@@ -56,6 +56,7 @@ __all__ = [
     'NetworkInsightsAccessScopeProtocol',
     'NetworkInsightsAnalysisStatus',
     'NetworkInsightsPathProtocol',
+    'NetworkInterfacePublicIpDnsHostnameTypeSpecification',
     'PrefixListAddressFamily',
     'RouteServerPeerBgpOptionsPeerLivenessDetection',
     'RouteServerPersistRoutes',
@@ -674,6 +675,16 @@ class NetworkInsightsAnalysisStatus(_builtins.str, Enum):
 class NetworkInsightsPathProtocol(_builtins.str, Enum):
     TCP = "tcp"
     UDP = "udp"
+
+
+@pulumi.type_token("aws-native:ec2:NetworkInterfacePublicIpDnsHostnameTypeSpecification")
+class NetworkInterfacePublicIpDnsHostnameTypeSpecification(_builtins.str, Enum):
+    """
+    Public IP DNS hostname type
+    """
+    PUBLIC_DUAL_STACK_DNS_NAME = "public-dual-stack-dns-name"
+    PUBLIC_IPV4_DNS_NAME = "public-ipv4-dns-name"
+    PUBLIC_IPV6_DNS_NAME = "public-ipv6-dns-name"
 
 
 @pulumi.type_token("aws-native:ec2:PrefixListAddressFamily")

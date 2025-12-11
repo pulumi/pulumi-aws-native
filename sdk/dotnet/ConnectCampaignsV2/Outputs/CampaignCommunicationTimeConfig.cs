@@ -32,6 +32,7 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
         /// The communication time configuration for the telephony channel subtype.
         /// </summary>
         public readonly Outputs.CampaignTimeWindow? Telephony;
+        public readonly Outputs.CampaignTimeWindow? WhatsApp;
 
         [OutputConstructor]
         private CampaignCommunicationTimeConfig(
@@ -41,12 +42,15 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
 
             Outputs.CampaignTimeWindow? sms,
 
-            Outputs.CampaignTimeWindow? telephony)
+            Outputs.CampaignTimeWindow? telephony,
+
+            Outputs.CampaignTimeWindow? whatsApp)
         {
             Email = email;
             LocalTimeZoneConfig = localTimeZoneConfig;
             Sms = sms;
             Telephony = telephony;
+            WhatsApp = whatsApp;
         }
     }
 }

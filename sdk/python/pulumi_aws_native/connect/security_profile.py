@@ -42,6 +42,7 @@ class SecurityProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]] allowed_access_control_tags: The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileApplicationArgs']]] applications: A list of third-party applications that the security profile will give access to.
         :param pulumi.Input[_builtins.str] description: The description of the security profile.
+        :param pulumi.Input['GranularAccessControlConfigurationPropertiesArgs'] granular_access_control_configuration: The granular access control configuration for the security profile, including data table permissions.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hierarchy_restricted_resources: The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: Permissions assigned to the security profile.
         :param pulumi.Input[_builtins.str] security_profile_name: The name of the security profile.
@@ -133,6 +134,9 @@ class SecurityProfileArgs:
     @_builtins.property
     @pulumi.getter(name="granularAccessControlConfiguration")
     def granular_access_control_configuration(self) -> Optional[pulumi.Input['GranularAccessControlConfigurationPropertiesArgs']]:
+        """
+        The granular access control configuration for the security profile, including data table permissions.
+        """
         return pulumi.get(self, "granular_access_control_configuration")
 
     @granular_access_control_configuration.setter
@@ -227,6 +231,7 @@ class SecurityProfile(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileTagArgs', 'SecurityProfileTagArgsDict']]]] allowed_access_control_tags: The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileApplicationArgs', 'SecurityProfileApplicationArgsDict']]]] applications: A list of third-party applications that the security profile will give access to.
         :param pulumi.Input[_builtins.str] description: The description of the security profile.
+        :param pulumi.Input[Union['GranularAccessControlConfigurationPropertiesArgs', 'GranularAccessControlConfigurationPropertiesArgsDict']] granular_access_control_configuration: The granular access control configuration for the security profile, including data table permissions.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hierarchy_restricted_resources: The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] permissions: Permissions assigned to the security profile.
@@ -369,6 +374,9 @@ class SecurityProfile(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="granularAccessControlConfiguration")
     def granular_access_control_configuration(self) -> pulumi.Output[Optional['outputs.GranularAccessControlConfigurationProperties']]:
+        """
+        The granular access control configuration for the security profile, including data table permissions.
+        """
         return pulumi.get(self, "granular_access_control_configuration")
 
     @_builtins.property

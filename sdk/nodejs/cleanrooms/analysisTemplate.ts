@@ -103,6 +103,7 @@ export class AnalysisTemplate extends pulumi.CustomResource {
      * The source metadata for the analysis template.
      */
     declare public readonly sourceMetadata: pulumi.Output<outputs.cleanrooms.AnalysisTemplateAnalysisSourceMetadataProperties | undefined>;
+    declare public readonly syntheticDataParameters: pulumi.Output<outputs.cleanrooms.AnalysisTemplateSyntheticDataParametersProperties | undefined>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
      */
@@ -137,6 +138,7 @@ export class AnalysisTemplate extends pulumi.CustomResource {
             resourceInputs["schema"] = args?.schema;
             resourceInputs["source"] = args?.source;
             resourceInputs["sourceMetadata"] = args?.sourceMetadata;
+            resourceInputs["syntheticDataParameters"] = args?.syntheticDataParameters;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["analysisTemplateIdentifier"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -158,10 +160,11 @@ export class AnalysisTemplate extends pulumi.CustomResource {
             resourceInputs["schema"] = undefined /*out*/;
             resourceInputs["source"] = undefined /*out*/;
             resourceInputs["sourceMetadata"] = undefined /*out*/;
+            resourceInputs["syntheticDataParameters"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["analysisParameters[*]", "errorMessageConfiguration", "format", "membershipIdentifier", "name", "schema", "source"] };
+        const replaceOnChanges = { replaceOnChanges: ["analysisParameters[*]", "errorMessageConfiguration", "format", "membershipIdentifier", "name", "schema", "source", "syntheticDataParameters"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AnalysisTemplate.__pulumiType, name, resourceInputs, opts);
     }
@@ -207,6 +210,7 @@ export interface AnalysisTemplateArgs {
      * The source metadata for the analysis template.
      */
     sourceMetadata?: pulumi.Input<inputs.cleanrooms.AnalysisTemplateAnalysisSourceMetadataPropertiesArgs>;
+    syntheticDataParameters?: pulumi.Input<inputs.cleanrooms.AnalysisTemplateSyntheticDataParametersPropertiesArgs>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
      */

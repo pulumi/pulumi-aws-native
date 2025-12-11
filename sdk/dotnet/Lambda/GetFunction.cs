@@ -111,6 +111,7 @@ namespace Pulumi.AwsNative.Lambda
         /// A description of the function.
         /// </summary>
         public readonly string? Description;
+        public readonly Outputs.FunctionDurableConfig? DurableConfig;
         /// <summary>
         /// Environment variables that are accessible from function code during execution.
         /// </summary>
@@ -214,6 +215,8 @@ namespace Pulumi.AwsNative.Lambda
 
             string? description,
 
+            Outputs.FunctionDurableConfig? durableConfig,
+
             Outputs.FunctionEnvironment? environment,
 
             Outputs.FunctionEphemeralStorage? ephemeralStorage,
@@ -261,6 +264,7 @@ namespace Pulumi.AwsNative.Lambda
             CodeSigningConfigArn = codeSigningConfigArn;
             DeadLetterConfig = deadLetterConfig;
             Description = description;
+            DurableConfig = durableConfig;
             Environment = environment;
             EphemeralStorage = ephemeralStorage;
             FileSystemConfigs = fileSystemConfigs;

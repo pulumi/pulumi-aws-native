@@ -55,6 +55,10 @@
       "description" : "The attachment to move from one network function group to another.",
       "$ref" : "#/definitions/ProposedNetworkFunctionGroupChange"
     },
+    "RoutingPolicyLabel" : {
+      "description" : "Routing policy label",
+      "type" : "string"
+    },
     "Tags" : {
       "description" : "Tags for the attachment.",
       "type" : "array",
@@ -159,7 +163,8 @@
     "permissions" : [ "networkmanager:TagResource", "networkmanager:UntagResource", "networkmanager:ListTagsForResource" ]
   },
   "additionalProperties" : false,
-  "createOnlyProperties" : [ "/properties/CoreNetworkId", "/properties/VpnConnectionArn" ],
+  "createOnlyProperties" : [ "/properties/CoreNetworkId", "/properties/VpnConnectionArn", "/properties/RoutingPolicyLabel" ],
+  "writeOnlyProperties" : [ "/properties/RoutingPolicyLabel" ],
   "readOnlyProperties" : [ "/properties/CoreNetworkArn", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/AttachmentType", "/properties/State", "/properties/ResourceArn", "/properties/AttachmentId", "/properties/OwnerAccountId", "/properties/EdgeLocation", "/properties/AttachmentPolicyRuleNumber", "/properties/SegmentName", "/properties/LastModificationErrors" ],
   "primaryIdentifier" : [ "/properties/AttachmentId" ],
   "additionalIdentifiers" : [ [ "/properties/CoreNetworkId", "/properties/VpnConnectionArn" ] ],

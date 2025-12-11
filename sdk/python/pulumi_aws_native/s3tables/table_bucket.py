@@ -26,6 +26,7 @@ class TableBucketArgs:
     def __init__(__self__, *,
                  encryption_configuration: Optional[pulumi.Input['TableBucketEncryptionConfigurationArgs']] = None,
                  metrics_configuration: Optional[pulumi.Input['TableBucketMetricsConfigurationArgs']] = None,
+                 storage_class_configuration: Optional[pulumi.Input['TableBucketStorageClassConfigurationArgs']] = None,
                  table_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  unreferenced_file_removal: Optional[pulumi.Input['TableBucketUnreferencedFileRemovalArgs']] = None):
@@ -40,6 +41,8 @@ class TableBucketArgs:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if metrics_configuration is not None:
             pulumi.set(__self__, "metrics_configuration", metrics_configuration)
+        if storage_class_configuration is not None:
+            pulumi.set(__self__, "storage_class_configuration", storage_class_configuration)
         if table_bucket_name is not None:
             pulumi.set(__self__, "table_bucket_name", table_bucket_name)
         if tags is not None:
@@ -67,6 +70,15 @@ class TableBucketArgs:
     @metrics_configuration.setter
     def metrics_configuration(self, value: Optional[pulumi.Input['TableBucketMetricsConfigurationArgs']]):
         pulumi.set(self, "metrics_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageClassConfiguration")
+    def storage_class_configuration(self) -> Optional[pulumi.Input['TableBucketStorageClassConfigurationArgs']]:
+        return pulumi.get(self, "storage_class_configuration")
+
+    @storage_class_configuration.setter
+    def storage_class_configuration(self, value: Optional[pulumi.Input['TableBucketStorageClassConfigurationArgs']]):
+        pulumi.set(self, "storage_class_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="tableBucketName")
@@ -113,6 +125,7 @@ class TableBucket(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_configuration: Optional[pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']]] = None,
                  metrics_configuration: Optional[pulumi.Input[Union['TableBucketMetricsConfigurationArgs', 'TableBucketMetricsConfigurationArgsDict']]] = None,
+                 storage_class_configuration: Optional[pulumi.Input[Union['TableBucketStorageClassConfigurationArgs', 'TableBucketStorageClassConfigurationArgsDict']]] = None,
                  table_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  unreferenced_file_removal: Optional[pulumi.Input[Union['TableBucketUnreferencedFileRemovalArgs', 'TableBucketUnreferencedFileRemovalArgsDict']]] = None,
@@ -153,6 +166,7 @@ class TableBucket(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_configuration: Optional[pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']]] = None,
                  metrics_configuration: Optional[pulumi.Input[Union['TableBucketMetricsConfigurationArgs', 'TableBucketMetricsConfigurationArgsDict']]] = None,
+                 storage_class_configuration: Optional[pulumi.Input[Union['TableBucketStorageClassConfigurationArgs', 'TableBucketStorageClassConfigurationArgsDict']]] = None,
                  table_bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  unreferenced_file_removal: Optional[pulumi.Input[Union['TableBucketUnreferencedFileRemovalArgs', 'TableBucketUnreferencedFileRemovalArgsDict']]] = None,
@@ -167,6 +181,7 @@ class TableBucket(pulumi.CustomResource):
 
             __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["metrics_configuration"] = metrics_configuration
+            __props__.__dict__["storage_class_configuration"] = storage_class_configuration
             __props__.__dict__["table_bucket_name"] = table_bucket_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["unreferenced_file_removal"] = unreferenced_file_removal
@@ -197,6 +212,7 @@ class TableBucket(pulumi.CustomResource):
 
         __props__.__dict__["encryption_configuration"] = None
         __props__.__dict__["metrics_configuration"] = None
+        __props__.__dict__["storage_class_configuration"] = None
         __props__.__dict__["table_bucket_arn"] = None
         __props__.__dict__["table_bucket_name"] = None
         __props__.__dict__["tags"] = None
@@ -215,6 +231,11 @@ class TableBucket(pulumi.CustomResource):
     @pulumi.getter(name="metricsConfiguration")
     def metrics_configuration(self) -> pulumi.Output[Optional['outputs.TableBucketMetricsConfiguration']]:
         return pulumi.get(self, "metrics_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="storageClassConfiguration")
+    def storage_class_configuration(self) -> pulumi.Output[Optional['outputs.TableBucketStorageClassConfiguration']]:
+        return pulumi.get(self, "storage_class_configuration")
 
     @_builtins.property
     @pulumi.getter(name="tableBucketArn")

@@ -52,6 +52,7 @@ __all__ = [
     'ConfigurationPolicySecurityControlCustomParameter',
     'ConfigurationPolicySecurityControlsConfiguration',
     'ConfigurationPolicySecurityHubPolicy',
+    'ConnectorV2Provider',
     'InsightAwsSecurityFindingFilters',
     'InsightBooleanFilter',
     'InsightDateFilter',
@@ -2623,6 +2624,18 @@ class ConfigurationPolicySecurityHubPolicy(dict):
         Indicates whether Security Hub is enabled in the policy.
         """
         return pulumi.get(self, "service_enabled")
+
+
+@pulumi.output_type
+class ConnectorV2Provider(dict):
+    """
+    The provider configuration of the connector
+    """
+    def __init__(__self__):
+        """
+        The provider configuration of the connector
+        """
+        pass
 
 
 @pulumi.output_type

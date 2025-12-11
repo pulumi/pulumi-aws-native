@@ -8230,6 +8230,174 @@ func (in *networkInsightsPathProtocolPtr) ToNetworkInsightsPathProtocolPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkInsightsPathProtocolPtrOutput)
 }
 
+// Public IP DNS hostname type
+type NetworkInterfacePublicIpDnsHostnameTypeSpecification string
+
+const (
+	NetworkInterfacePublicIpDnsHostnameTypeSpecificationPublicDualStackDnsName = NetworkInterfacePublicIpDnsHostnameTypeSpecification("public-dual-stack-dns-name")
+	NetworkInterfacePublicIpDnsHostnameTypeSpecificationPublicIpv4DnsName      = NetworkInterfacePublicIpDnsHostnameTypeSpecification("public-ipv4-dns-name")
+	NetworkInterfacePublicIpDnsHostnameTypeSpecificationPublicIpv6DnsName      = NetworkInterfacePublicIpDnsHostnameTypeSpecification("public-ipv6-dns-name")
+)
+
+func (NetworkInterfacePublicIpDnsHostnameTypeSpecification) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfacePublicIpDnsHostnameTypeSpecification)(nil)).Elem()
+}
+
+func (e NetworkInterfacePublicIpDnsHostnameTypeSpecification) ToNetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput() NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput {
+	return pulumi.ToOutput(e).(NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput)
+}
+
+func (e NetworkInterfacePublicIpDnsHostnameTypeSpecification) ToNetworkInterfacePublicIpDnsHostnameTypeSpecificationOutputWithContext(ctx context.Context) NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput)
+}
+
+func (e NetworkInterfacePublicIpDnsHostnameTypeSpecification) ToNetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput() NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput {
+	return e.ToNetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkInterfacePublicIpDnsHostnameTypeSpecification) ToNetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput {
+	return NetworkInterfacePublicIpDnsHostnameTypeSpecification(e).ToNetworkInterfacePublicIpDnsHostnameTypeSpecificationOutputWithContext(ctx).ToNetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutputWithContext(ctx)
+}
+
+func (e NetworkInterfacePublicIpDnsHostnameTypeSpecification) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkInterfacePublicIpDnsHostnameTypeSpecification) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NetworkInterfacePublicIpDnsHostnameTypeSpecification) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NetworkInterfacePublicIpDnsHostnameTypeSpecification) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfacePublicIpDnsHostnameTypeSpecification)(nil)).Elem()
+}
+
+func (o NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput) ToNetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput() NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput {
+	return o
+}
+
+func (o NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput) ToNetworkInterfacePublicIpDnsHostnameTypeSpecificationOutputWithContext(ctx context.Context) NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput {
+	return o
+}
+
+func (o NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput) ToNetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput() NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput {
+	return o.ToNetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput) ToNetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInterfacePublicIpDnsHostnameTypeSpecification) *NetworkInterfacePublicIpDnsHostnameTypeSpecification {
+		return &v
+	}).(NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput)
+}
+
+func (o NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkInterfacePublicIpDnsHostnameTypeSpecification) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkInterfacePublicIpDnsHostnameTypeSpecification) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInterfacePublicIpDnsHostnameTypeSpecification)(nil)).Elem()
+}
+
+func (o NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput) ToNetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput() NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput {
+	return o
+}
+
+func (o NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput) ToNetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput {
+	return o
+}
+
+func (o NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput) Elem() NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput {
+	return o.ApplyT(func(v *NetworkInterfacePublicIpDnsHostnameTypeSpecification) NetworkInterfacePublicIpDnsHostnameTypeSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInterfacePublicIpDnsHostnameTypeSpecification
+		return ret
+	}).(NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput)
+}
+
+func (o NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NetworkInterfacePublicIpDnsHostnameTypeSpecification) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// NetworkInterfacePublicIpDnsHostnameTypeSpecificationInput is an input type that accepts values of the NetworkInterfacePublicIpDnsHostnameTypeSpecification enum
+// A concrete instance of `NetworkInterfacePublicIpDnsHostnameTypeSpecificationInput` can be one of the following:
+//
+//	NetworkInterfacePublicIpDnsHostnameTypeSpecificationPublicDualStackDnsName
+//	NetworkInterfacePublicIpDnsHostnameTypeSpecificationPublicIpv4DnsName
+//	NetworkInterfacePublicIpDnsHostnameTypeSpecificationPublicIpv6DnsName
+type NetworkInterfacePublicIpDnsHostnameTypeSpecificationInput interface {
+	pulumi.Input
+
+	ToNetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput() NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput
+	ToNetworkInterfacePublicIpDnsHostnameTypeSpecificationOutputWithContext(context.Context) NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput
+}
+
+var networkInterfacePublicIpDnsHostnameTypeSpecificationPtrType = reflect.TypeOf((**NetworkInterfacePublicIpDnsHostnameTypeSpecification)(nil)).Elem()
+
+type NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput() NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput
+	ToNetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutputWithContext(context.Context) NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput
+}
+
+type networkInterfacePublicIpDnsHostnameTypeSpecificationPtr string
+
+func NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtr(v string) NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrInput {
+	return (*networkInterfacePublicIpDnsHostnameTypeSpecificationPtr)(&v)
+}
+
+func (*networkInterfacePublicIpDnsHostnameTypeSpecificationPtr) ElementType() reflect.Type {
+	return networkInterfacePublicIpDnsHostnameTypeSpecificationPtrType
+}
+
+func (in *networkInterfacePublicIpDnsHostnameTypeSpecificationPtr) ToNetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput() NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput {
+	return pulumi.ToOutput(in).(NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput)
+}
+
+func (in *networkInterfacePublicIpDnsHostnameTypeSpecificationPtr) ToNetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput)
+}
+
 // Ip Version of Prefix List.
 type PrefixListAddressFamily string
 
@@ -18091,6 +18259,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeProtocolArrayInput)(nil)).Elem(), NetworkInsightsAccessScopeProtocolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathProtocolInput)(nil)).Elem(), NetworkInsightsPathProtocol("tcp"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathProtocolPtrInput)(nil)).Elem(), NetworkInsightsPathProtocol("tcp"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfacePublicIpDnsHostnameTypeSpecificationInput)(nil)).Elem(), NetworkInterfacePublicIpDnsHostnameTypeSpecification("public-dual-stack-dns-name"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrInput)(nil)).Elem(), NetworkInterfacePublicIpDnsHostnameTypeSpecification("public-dual-stack-dns-name"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListAddressFamilyInput)(nil)).Elem(), PrefixListAddressFamily("IPv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListAddressFamilyPtrInput)(nil)).Elem(), PrefixListAddressFamily("IPv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerPeerBgpOptionsPeerLivenessDetectionInput)(nil)).Elem(), RouteServerPeerBgpOptionsPeerLivenessDetection("bfd"))
@@ -18312,6 +18482,8 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInsightsAnalysisStatusPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsPathProtocolOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsPathProtocolPtrOutput{})
+	pulumi.RegisterOutputType(NetworkInterfacePublicIpDnsHostnameTypeSpecificationOutput{})
+	pulumi.RegisterOutputType(NetworkInterfacePublicIpDnsHostnameTypeSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(PrefixListAddressFamilyOutput{})
 	pulumi.RegisterOutputType(PrefixListAddressFamilyPtrOutput{})
 	pulumi.RegisterOutputType(RouteServerPeerBgpOptionsPeerLivenessDetectionOutput{})

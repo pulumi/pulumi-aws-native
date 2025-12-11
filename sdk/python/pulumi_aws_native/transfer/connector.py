@@ -258,6 +258,7 @@ class Connector(pulumi.CustomResource):
             __props__.__dict__["url"] = url
             __props__.__dict__["arn"] = None
             __props__.__dict__["connector_id"] = None
+            __props__.__dict__["error_message"] = None
             __props__.__dict__["service_managed_egress_ip_addresses"] = None
             __props__.__dict__["status"] = None
         super(Connector, __self__).__init__(
@@ -288,6 +289,7 @@ class Connector(pulumi.CustomResource):
         __props__.__dict__["connector_id"] = None
         __props__.__dict__["egress_config"] = None
         __props__.__dict__["egress_type"] = None
+        __props__.__dict__["error_message"] = None
         __props__.__dict__["logging_role"] = None
         __props__.__dict__["security_policy_name"] = None
         __props__.__dict__["service_managed_egress_ip_addresses"] = None
@@ -344,6 +346,14 @@ class Connector(pulumi.CustomResource):
         Specifies the egress type for the connector.
         """
         return pulumi.get(self, "egress_type")
+
+    @_builtins.property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> pulumi.Output[_builtins.str]:
+        """
+        Detailed error message when Connector in ERRORED status
+        """
+        return pulumi.get(self, "error_message")
 
     @_builtins.property
     @pulumi.getter(name="loggingRole")

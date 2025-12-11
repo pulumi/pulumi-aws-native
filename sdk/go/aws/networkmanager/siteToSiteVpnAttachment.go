@@ -43,6 +43,8 @@ type SiteToSiteVpnAttachment struct {
 	ProposedSegmentChange SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput `pulumi:"proposedSegmentChange"`
 	// The ARN of the Resource.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	// Routing policy label
+	RoutingPolicyLabel pulumi.StringPtrOutput `pulumi:"routingPolicyLabel"`
 	// The name of the segment that attachment is in.
 	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
 	// The state of the attachment.
@@ -70,6 +72,7 @@ func NewSiteToSiteVpnAttachment(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"coreNetworkId",
+		"routingPolicyLabel",
 		"vpnConnectionArn",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -114,6 +117,8 @@ type siteToSiteVpnAttachmentArgs struct {
 	ProposedNetworkFunctionGroupChange *SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange *SiteToSiteVpnAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
+	// Routing policy label
+	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
 	// Tags for the attachment.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN of the site-to-site VPN attachment.
@@ -130,6 +135,8 @@ type SiteToSiteVpnAttachmentArgs struct {
 	ProposedNetworkFunctionGroupChange SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrInput
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange SiteToSiteVpnAttachmentProposedSegmentChangePtrInput
+	// Routing policy label
+	RoutingPolicyLabel pulumi.StringPtrInput
 	// Tags for the attachment.
 	Tags aws.TagArrayInput
 	// The ARN of the site-to-site VPN attachment.
@@ -240,6 +247,11 @@ func (o SiteToSiteVpnAttachmentOutput) ProposedSegmentChange() SiteToSiteVpnAtta
 // The ARN of the Resource.
 func (o SiteToSiteVpnAttachmentOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+// Routing policy label
+func (o SiteToSiteVpnAttachmentOutput) RoutingPolicyLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteToSiteVpnAttachment) pulumi.StringPtrOutput { return v.RoutingPolicyLabel }).(pulumi.StringPtrOutput)
 }
 
 // The name of the segment that attachment is in.

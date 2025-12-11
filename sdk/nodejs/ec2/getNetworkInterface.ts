@@ -81,6 +81,7 @@ export interface GetNetworkInterfaceResult {
      * Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property.
      */
     readonly privateIpAddresses?: outputs.ec2.NetworkInterfacePrivateIpAddressSpecification[];
+    readonly publicIpDnsNameOptions?: outputs.ec2.NetworkInterfacePublicIpDnsNameOptions;
     /**
      * The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses
      */

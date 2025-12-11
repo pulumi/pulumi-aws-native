@@ -301,6 +301,7 @@ type CampaignChannelSubtypeConfig struct {
 	Sms *CampaignSmsChannelSubtypeConfig `pulumi:"sms"`
 	// The configuration of the telephony channel subtype.
 	Telephony *CampaignTelephonyChannelSubtypeConfig `pulumi:"telephony"`
+	WhatsApp  *CampaignWhatsAppChannelSubtypeConfig  `pulumi:"whatsApp"`
 }
 
 // CampaignChannelSubtypeConfigInput is an input type that accepts CampaignChannelSubtypeConfigArgs and CampaignChannelSubtypeConfigOutput values.
@@ -322,6 +323,7 @@ type CampaignChannelSubtypeConfigArgs struct {
 	Sms CampaignSmsChannelSubtypeConfigPtrInput `pulumi:"sms"`
 	// The configuration of the telephony channel subtype.
 	Telephony CampaignTelephonyChannelSubtypeConfigPtrInput `pulumi:"telephony"`
+	WhatsApp  CampaignWhatsAppChannelSubtypeConfigPtrInput  `pulumi:"whatsApp"`
 }
 
 func (CampaignChannelSubtypeConfigArgs) ElementType() reflect.Type {
@@ -334,6 +336,47 @@ func (i CampaignChannelSubtypeConfigArgs) ToCampaignChannelSubtypeConfigOutput()
 
 func (i CampaignChannelSubtypeConfigArgs) ToCampaignChannelSubtypeConfigOutputWithContext(ctx context.Context) CampaignChannelSubtypeConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignChannelSubtypeConfigOutput)
+}
+
+func (i CampaignChannelSubtypeConfigArgs) ToCampaignChannelSubtypeConfigPtrOutput() CampaignChannelSubtypeConfigPtrOutput {
+	return i.ToCampaignChannelSubtypeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignChannelSubtypeConfigArgs) ToCampaignChannelSubtypeConfigPtrOutputWithContext(ctx context.Context) CampaignChannelSubtypeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignChannelSubtypeConfigOutput).ToCampaignChannelSubtypeConfigPtrOutputWithContext(ctx)
+}
+
+// CampaignChannelSubtypeConfigPtrInput is an input type that accepts CampaignChannelSubtypeConfigArgs, CampaignChannelSubtypeConfigPtr and CampaignChannelSubtypeConfigPtrOutput values.
+// You can construct a concrete instance of `CampaignChannelSubtypeConfigPtrInput` via:
+//
+//	        CampaignChannelSubtypeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignChannelSubtypeConfigPtrInput interface {
+	pulumi.Input
+
+	ToCampaignChannelSubtypeConfigPtrOutput() CampaignChannelSubtypeConfigPtrOutput
+	ToCampaignChannelSubtypeConfigPtrOutputWithContext(context.Context) CampaignChannelSubtypeConfigPtrOutput
+}
+
+type campaignChannelSubtypeConfigPtrType CampaignChannelSubtypeConfigArgs
+
+func CampaignChannelSubtypeConfigPtr(v *CampaignChannelSubtypeConfigArgs) CampaignChannelSubtypeConfigPtrInput {
+	return (*campaignChannelSubtypeConfigPtrType)(v)
+}
+
+func (*campaignChannelSubtypeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignChannelSubtypeConfig)(nil)).Elem()
+}
+
+func (i *campaignChannelSubtypeConfigPtrType) ToCampaignChannelSubtypeConfigPtrOutput() CampaignChannelSubtypeConfigPtrOutput {
+	return i.ToCampaignChannelSubtypeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignChannelSubtypeConfigPtrType) ToCampaignChannelSubtypeConfigPtrOutputWithContext(ctx context.Context) CampaignChannelSubtypeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignChannelSubtypeConfigPtrOutput)
 }
 
 // The possible types of channel subtype config parameters
@@ -351,6 +394,16 @@ func (o CampaignChannelSubtypeConfigOutput) ToCampaignChannelSubtypeConfigOutput
 	return o
 }
 
+func (o CampaignChannelSubtypeConfigOutput) ToCampaignChannelSubtypeConfigPtrOutput() CampaignChannelSubtypeConfigPtrOutput {
+	return o.ToCampaignChannelSubtypeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignChannelSubtypeConfigOutput) ToCampaignChannelSubtypeConfigPtrOutputWithContext(ctx context.Context) CampaignChannelSubtypeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignChannelSubtypeConfig) *CampaignChannelSubtypeConfig {
+		return &v
+	}).(CampaignChannelSubtypeConfigPtrOutput)
+}
+
 // The configuration of the email channel subtype.
 func (o CampaignChannelSubtypeConfigOutput) Email() CampaignEmailChannelSubtypeConfigPtrOutput {
 	return o.ApplyT(func(v CampaignChannelSubtypeConfig) *CampaignEmailChannelSubtypeConfig { return v.Email }).(CampaignEmailChannelSubtypeConfigPtrOutput)
@@ -364,6 +417,10 @@ func (o CampaignChannelSubtypeConfigOutput) Sms() CampaignSmsChannelSubtypeConfi
 // The configuration of the telephony channel subtype.
 func (o CampaignChannelSubtypeConfigOutput) Telephony() CampaignTelephonyChannelSubtypeConfigPtrOutput {
 	return o.ApplyT(func(v CampaignChannelSubtypeConfig) *CampaignTelephonyChannelSubtypeConfig { return v.Telephony }).(CampaignTelephonyChannelSubtypeConfigPtrOutput)
+}
+
+func (o CampaignChannelSubtypeConfigOutput) WhatsApp() CampaignWhatsAppChannelSubtypeConfigPtrOutput {
+	return o.ApplyT(func(v CampaignChannelSubtypeConfig) *CampaignWhatsAppChannelSubtypeConfig { return v.WhatsApp }).(CampaignWhatsAppChannelSubtypeConfigPtrOutput)
 }
 
 type CampaignChannelSubtypeConfigPtrOutput struct{ *pulumi.OutputState }
@@ -418,6 +475,15 @@ func (o CampaignChannelSubtypeConfigPtrOutput) Telephony() CampaignTelephonyChan
 		}
 		return v.Telephony
 	}).(CampaignTelephonyChannelSubtypeConfigPtrOutput)
+}
+
+func (o CampaignChannelSubtypeConfigPtrOutput) WhatsApp() CampaignWhatsAppChannelSubtypeConfigPtrOutput {
+	return o.ApplyT(func(v *CampaignChannelSubtypeConfig) *CampaignWhatsAppChannelSubtypeConfig {
+		if v == nil {
+			return nil
+		}
+		return v.WhatsApp
+	}).(CampaignWhatsAppChannelSubtypeConfigPtrOutput)
 }
 
 // Communication Limit
@@ -840,6 +906,7 @@ type CampaignCommunicationTimeConfig struct {
 	Sms *CampaignTimeWindow `pulumi:"sms"`
 	// The communication time configuration for the telephony channel subtype.
 	Telephony *CampaignTimeWindow `pulumi:"telephony"`
+	WhatsApp  *CampaignTimeWindow `pulumi:"whatsApp"`
 }
 
 // CampaignCommunicationTimeConfigInput is an input type that accepts CampaignCommunicationTimeConfigArgs and CampaignCommunicationTimeConfigOutput values.
@@ -863,6 +930,7 @@ type CampaignCommunicationTimeConfigArgs struct {
 	Sms CampaignTimeWindowPtrInput `pulumi:"sms"`
 	// The communication time configuration for the telephony channel subtype.
 	Telephony CampaignTimeWindowPtrInput `pulumi:"telephony"`
+	WhatsApp  CampaignTimeWindowPtrInput `pulumi:"whatsApp"`
 }
 
 func (CampaignCommunicationTimeConfigArgs) ElementType() reflect.Type {
@@ -963,6 +1031,10 @@ func (o CampaignCommunicationTimeConfigOutput) Telephony() CampaignTimeWindowPtr
 	return o.ApplyT(func(v CampaignCommunicationTimeConfig) *CampaignTimeWindow { return v.Telephony }).(CampaignTimeWindowPtrOutput)
 }
 
+func (o CampaignCommunicationTimeConfigOutput) WhatsApp() CampaignTimeWindowPtrOutput {
+	return o.ApplyT(func(v CampaignCommunicationTimeConfig) *CampaignTimeWindow { return v.WhatsApp }).(CampaignTimeWindowPtrOutput)
+}
+
 type CampaignCommunicationTimeConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (CampaignCommunicationTimeConfigPtrOutput) ElementType() reflect.Type {
@@ -1024,6 +1096,15 @@ func (o CampaignCommunicationTimeConfigPtrOutput) Telephony() CampaignTimeWindow
 			return nil
 		}
 		return v.Telephony
+	}).(CampaignTimeWindowPtrOutput)
+}
+
+func (o CampaignCommunicationTimeConfigPtrOutput) WhatsApp() CampaignTimeWindowPtrOutput {
+	return o.ApplyT(func(v *CampaignCommunicationTimeConfig) *CampaignTimeWindow {
+		if v == nil {
+			return nil
+		}
+		return v.WhatsApp
 	}).(CampaignTimeWindowPtrOutput)
 }
 
@@ -1308,7 +1389,7 @@ func (o CampaignEmailChannelSubtypeConfigPtrOutput) OutboundMode() CampaignEmail
 	}).(CampaignEmailOutboundModePtrOutput)
 }
 
-// Default SMS outbound config
+// Default Email outbound config
 type CampaignEmailOutboundConfig struct {
 	// The Amazon Connect source email address.
 	ConnectSourceEmailAddress string `pulumi:"connectSourceEmailAddress"`
@@ -1329,7 +1410,7 @@ type CampaignEmailOutboundConfigInput interface {
 	ToCampaignEmailOutboundConfigOutputWithContext(context.Context) CampaignEmailOutboundConfigOutput
 }
 
-// Default SMS outbound config
+// Default Email outbound config
 type CampaignEmailOutboundConfigArgs struct {
 	// The Amazon Connect source email address.
 	ConnectSourceEmailAddress pulumi.StringInput `pulumi:"connectSourceEmailAddress"`
@@ -1392,7 +1473,7 @@ func (i *campaignEmailOutboundConfigPtrType) ToCampaignEmailOutboundConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignEmailOutboundConfigPtrOutput)
 }
 
-// Default SMS outbound config
+// Default Email outbound config
 type CampaignEmailOutboundConfigOutput struct{ *pulumi.OutputState }
 
 func (CampaignEmailOutboundConfigOutput) ElementType() reflect.Type {
@@ -4591,12 +4672,468 @@ func (o CampaignTimeoutConfigPtrOutput) DurationInSeconds() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
+// WhatsApp Channel Subtype config
+type CampaignWhatsAppChannelSubtypeConfig struct {
+	Capacity              *float64                       `pulumi:"capacity"`
+	DefaultOutboundConfig CampaignWhatsAppOutboundConfig `pulumi:"defaultOutboundConfig"`
+	OutboundMode          CampaignWhatsAppOutboundMode   `pulumi:"outboundMode"`
+}
+
+// CampaignWhatsAppChannelSubtypeConfigInput is an input type that accepts CampaignWhatsAppChannelSubtypeConfigArgs and CampaignWhatsAppChannelSubtypeConfigOutput values.
+// You can construct a concrete instance of `CampaignWhatsAppChannelSubtypeConfigInput` via:
+//
+//	CampaignWhatsAppChannelSubtypeConfigArgs{...}
+type CampaignWhatsAppChannelSubtypeConfigInput interface {
+	pulumi.Input
+
+	ToCampaignWhatsAppChannelSubtypeConfigOutput() CampaignWhatsAppChannelSubtypeConfigOutput
+	ToCampaignWhatsAppChannelSubtypeConfigOutputWithContext(context.Context) CampaignWhatsAppChannelSubtypeConfigOutput
+}
+
+// WhatsApp Channel Subtype config
+type CampaignWhatsAppChannelSubtypeConfigArgs struct {
+	Capacity              pulumi.Float64PtrInput              `pulumi:"capacity"`
+	DefaultOutboundConfig CampaignWhatsAppOutboundConfigInput `pulumi:"defaultOutboundConfig"`
+	OutboundMode          CampaignWhatsAppOutboundModeInput   `pulumi:"outboundMode"`
+}
+
+func (CampaignWhatsAppChannelSubtypeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignWhatsAppChannelSubtypeConfig)(nil)).Elem()
+}
+
+func (i CampaignWhatsAppChannelSubtypeConfigArgs) ToCampaignWhatsAppChannelSubtypeConfigOutput() CampaignWhatsAppChannelSubtypeConfigOutput {
+	return i.ToCampaignWhatsAppChannelSubtypeConfigOutputWithContext(context.Background())
+}
+
+func (i CampaignWhatsAppChannelSubtypeConfigArgs) ToCampaignWhatsAppChannelSubtypeConfigOutputWithContext(ctx context.Context) CampaignWhatsAppChannelSubtypeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignWhatsAppChannelSubtypeConfigOutput)
+}
+
+func (i CampaignWhatsAppChannelSubtypeConfigArgs) ToCampaignWhatsAppChannelSubtypeConfigPtrOutput() CampaignWhatsAppChannelSubtypeConfigPtrOutput {
+	return i.ToCampaignWhatsAppChannelSubtypeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignWhatsAppChannelSubtypeConfigArgs) ToCampaignWhatsAppChannelSubtypeConfigPtrOutputWithContext(ctx context.Context) CampaignWhatsAppChannelSubtypeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignWhatsAppChannelSubtypeConfigOutput).ToCampaignWhatsAppChannelSubtypeConfigPtrOutputWithContext(ctx)
+}
+
+// CampaignWhatsAppChannelSubtypeConfigPtrInput is an input type that accepts CampaignWhatsAppChannelSubtypeConfigArgs, CampaignWhatsAppChannelSubtypeConfigPtr and CampaignWhatsAppChannelSubtypeConfigPtrOutput values.
+// You can construct a concrete instance of `CampaignWhatsAppChannelSubtypeConfigPtrInput` via:
+//
+//	        CampaignWhatsAppChannelSubtypeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignWhatsAppChannelSubtypeConfigPtrInput interface {
+	pulumi.Input
+
+	ToCampaignWhatsAppChannelSubtypeConfigPtrOutput() CampaignWhatsAppChannelSubtypeConfigPtrOutput
+	ToCampaignWhatsAppChannelSubtypeConfigPtrOutputWithContext(context.Context) CampaignWhatsAppChannelSubtypeConfigPtrOutput
+}
+
+type campaignWhatsAppChannelSubtypeConfigPtrType CampaignWhatsAppChannelSubtypeConfigArgs
+
+func CampaignWhatsAppChannelSubtypeConfigPtr(v *CampaignWhatsAppChannelSubtypeConfigArgs) CampaignWhatsAppChannelSubtypeConfigPtrInput {
+	return (*campaignWhatsAppChannelSubtypeConfigPtrType)(v)
+}
+
+func (*campaignWhatsAppChannelSubtypeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignWhatsAppChannelSubtypeConfig)(nil)).Elem()
+}
+
+func (i *campaignWhatsAppChannelSubtypeConfigPtrType) ToCampaignWhatsAppChannelSubtypeConfigPtrOutput() CampaignWhatsAppChannelSubtypeConfigPtrOutput {
+	return i.ToCampaignWhatsAppChannelSubtypeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignWhatsAppChannelSubtypeConfigPtrType) ToCampaignWhatsAppChannelSubtypeConfigPtrOutputWithContext(ctx context.Context) CampaignWhatsAppChannelSubtypeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignWhatsAppChannelSubtypeConfigPtrOutput)
+}
+
+// WhatsApp Channel Subtype config
+type CampaignWhatsAppChannelSubtypeConfigOutput struct{ *pulumi.OutputState }
+
+func (CampaignWhatsAppChannelSubtypeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignWhatsAppChannelSubtypeConfig)(nil)).Elem()
+}
+
+func (o CampaignWhatsAppChannelSubtypeConfigOutput) ToCampaignWhatsAppChannelSubtypeConfigOutput() CampaignWhatsAppChannelSubtypeConfigOutput {
+	return o
+}
+
+func (o CampaignWhatsAppChannelSubtypeConfigOutput) ToCampaignWhatsAppChannelSubtypeConfigOutputWithContext(ctx context.Context) CampaignWhatsAppChannelSubtypeConfigOutput {
+	return o
+}
+
+func (o CampaignWhatsAppChannelSubtypeConfigOutput) ToCampaignWhatsAppChannelSubtypeConfigPtrOutput() CampaignWhatsAppChannelSubtypeConfigPtrOutput {
+	return o.ToCampaignWhatsAppChannelSubtypeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignWhatsAppChannelSubtypeConfigOutput) ToCampaignWhatsAppChannelSubtypeConfigPtrOutputWithContext(ctx context.Context) CampaignWhatsAppChannelSubtypeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignWhatsAppChannelSubtypeConfig) *CampaignWhatsAppChannelSubtypeConfig {
+		return &v
+	}).(CampaignWhatsAppChannelSubtypeConfigPtrOutput)
+}
+
+func (o CampaignWhatsAppChannelSubtypeConfigOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CampaignWhatsAppChannelSubtypeConfig) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
+}
+
+func (o CampaignWhatsAppChannelSubtypeConfigOutput) DefaultOutboundConfig() CampaignWhatsAppOutboundConfigOutput {
+	return o.ApplyT(func(v CampaignWhatsAppChannelSubtypeConfig) CampaignWhatsAppOutboundConfig {
+		return v.DefaultOutboundConfig
+	}).(CampaignWhatsAppOutboundConfigOutput)
+}
+
+func (o CampaignWhatsAppChannelSubtypeConfigOutput) OutboundMode() CampaignWhatsAppOutboundModeOutput {
+	return o.ApplyT(func(v CampaignWhatsAppChannelSubtypeConfig) CampaignWhatsAppOutboundMode { return v.OutboundMode }).(CampaignWhatsAppOutboundModeOutput)
+}
+
+type CampaignWhatsAppChannelSubtypeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignWhatsAppChannelSubtypeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignWhatsAppChannelSubtypeConfig)(nil)).Elem()
+}
+
+func (o CampaignWhatsAppChannelSubtypeConfigPtrOutput) ToCampaignWhatsAppChannelSubtypeConfigPtrOutput() CampaignWhatsAppChannelSubtypeConfigPtrOutput {
+	return o
+}
+
+func (o CampaignWhatsAppChannelSubtypeConfigPtrOutput) ToCampaignWhatsAppChannelSubtypeConfigPtrOutputWithContext(ctx context.Context) CampaignWhatsAppChannelSubtypeConfigPtrOutput {
+	return o
+}
+
+func (o CampaignWhatsAppChannelSubtypeConfigPtrOutput) Elem() CampaignWhatsAppChannelSubtypeConfigOutput {
+	return o.ApplyT(func(v *CampaignWhatsAppChannelSubtypeConfig) CampaignWhatsAppChannelSubtypeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignWhatsAppChannelSubtypeConfig
+		return ret
+	}).(CampaignWhatsAppChannelSubtypeConfigOutput)
+}
+
+func (o CampaignWhatsAppChannelSubtypeConfigPtrOutput) Capacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CampaignWhatsAppChannelSubtypeConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o CampaignWhatsAppChannelSubtypeConfigPtrOutput) DefaultOutboundConfig() CampaignWhatsAppOutboundConfigPtrOutput {
+	return o.ApplyT(func(v *CampaignWhatsAppChannelSubtypeConfig) *CampaignWhatsAppOutboundConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultOutboundConfig
+	}).(CampaignWhatsAppOutboundConfigPtrOutput)
+}
+
+func (o CampaignWhatsAppChannelSubtypeConfigPtrOutput) OutboundMode() CampaignWhatsAppOutboundModePtrOutput {
+	return o.ApplyT(func(v *CampaignWhatsAppChannelSubtypeConfig) *CampaignWhatsAppOutboundMode {
+		if v == nil {
+			return nil
+		}
+		return &v.OutboundMode
+	}).(CampaignWhatsAppOutboundModePtrOutput)
+}
+
+// Default WhatsApp outbound config
+type CampaignWhatsAppOutboundConfig struct {
+	ConnectSourcePhoneNumberArn string `pulumi:"connectSourcePhoneNumberArn"`
+	WisdomTemplateArn           string `pulumi:"wisdomTemplateArn"`
+}
+
+// CampaignWhatsAppOutboundConfigInput is an input type that accepts CampaignWhatsAppOutboundConfigArgs and CampaignWhatsAppOutboundConfigOutput values.
+// You can construct a concrete instance of `CampaignWhatsAppOutboundConfigInput` via:
+//
+//	CampaignWhatsAppOutboundConfigArgs{...}
+type CampaignWhatsAppOutboundConfigInput interface {
+	pulumi.Input
+
+	ToCampaignWhatsAppOutboundConfigOutput() CampaignWhatsAppOutboundConfigOutput
+	ToCampaignWhatsAppOutboundConfigOutputWithContext(context.Context) CampaignWhatsAppOutboundConfigOutput
+}
+
+// Default WhatsApp outbound config
+type CampaignWhatsAppOutboundConfigArgs struct {
+	ConnectSourcePhoneNumberArn pulumi.StringInput `pulumi:"connectSourcePhoneNumberArn"`
+	WisdomTemplateArn           pulumi.StringInput `pulumi:"wisdomTemplateArn"`
+}
+
+func (CampaignWhatsAppOutboundConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignWhatsAppOutboundConfig)(nil)).Elem()
+}
+
+func (i CampaignWhatsAppOutboundConfigArgs) ToCampaignWhatsAppOutboundConfigOutput() CampaignWhatsAppOutboundConfigOutput {
+	return i.ToCampaignWhatsAppOutboundConfigOutputWithContext(context.Background())
+}
+
+func (i CampaignWhatsAppOutboundConfigArgs) ToCampaignWhatsAppOutboundConfigOutputWithContext(ctx context.Context) CampaignWhatsAppOutboundConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignWhatsAppOutboundConfigOutput)
+}
+
+func (i CampaignWhatsAppOutboundConfigArgs) ToCampaignWhatsAppOutboundConfigPtrOutput() CampaignWhatsAppOutboundConfigPtrOutput {
+	return i.ToCampaignWhatsAppOutboundConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignWhatsAppOutboundConfigArgs) ToCampaignWhatsAppOutboundConfigPtrOutputWithContext(ctx context.Context) CampaignWhatsAppOutboundConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignWhatsAppOutboundConfigOutput).ToCampaignWhatsAppOutboundConfigPtrOutputWithContext(ctx)
+}
+
+// CampaignWhatsAppOutboundConfigPtrInput is an input type that accepts CampaignWhatsAppOutboundConfigArgs, CampaignWhatsAppOutboundConfigPtr and CampaignWhatsAppOutboundConfigPtrOutput values.
+// You can construct a concrete instance of `CampaignWhatsAppOutboundConfigPtrInput` via:
+//
+//	        CampaignWhatsAppOutboundConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignWhatsAppOutboundConfigPtrInput interface {
+	pulumi.Input
+
+	ToCampaignWhatsAppOutboundConfigPtrOutput() CampaignWhatsAppOutboundConfigPtrOutput
+	ToCampaignWhatsAppOutboundConfigPtrOutputWithContext(context.Context) CampaignWhatsAppOutboundConfigPtrOutput
+}
+
+type campaignWhatsAppOutboundConfigPtrType CampaignWhatsAppOutboundConfigArgs
+
+func CampaignWhatsAppOutboundConfigPtr(v *CampaignWhatsAppOutboundConfigArgs) CampaignWhatsAppOutboundConfigPtrInput {
+	return (*campaignWhatsAppOutboundConfigPtrType)(v)
+}
+
+func (*campaignWhatsAppOutboundConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignWhatsAppOutboundConfig)(nil)).Elem()
+}
+
+func (i *campaignWhatsAppOutboundConfigPtrType) ToCampaignWhatsAppOutboundConfigPtrOutput() CampaignWhatsAppOutboundConfigPtrOutput {
+	return i.ToCampaignWhatsAppOutboundConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignWhatsAppOutboundConfigPtrType) ToCampaignWhatsAppOutboundConfigPtrOutputWithContext(ctx context.Context) CampaignWhatsAppOutboundConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignWhatsAppOutboundConfigPtrOutput)
+}
+
+// Default WhatsApp outbound config
+type CampaignWhatsAppOutboundConfigOutput struct{ *pulumi.OutputState }
+
+func (CampaignWhatsAppOutboundConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignWhatsAppOutboundConfig)(nil)).Elem()
+}
+
+func (o CampaignWhatsAppOutboundConfigOutput) ToCampaignWhatsAppOutboundConfigOutput() CampaignWhatsAppOutboundConfigOutput {
+	return o
+}
+
+func (o CampaignWhatsAppOutboundConfigOutput) ToCampaignWhatsAppOutboundConfigOutputWithContext(ctx context.Context) CampaignWhatsAppOutboundConfigOutput {
+	return o
+}
+
+func (o CampaignWhatsAppOutboundConfigOutput) ToCampaignWhatsAppOutboundConfigPtrOutput() CampaignWhatsAppOutboundConfigPtrOutput {
+	return o.ToCampaignWhatsAppOutboundConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignWhatsAppOutboundConfigOutput) ToCampaignWhatsAppOutboundConfigPtrOutputWithContext(ctx context.Context) CampaignWhatsAppOutboundConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignWhatsAppOutboundConfig) *CampaignWhatsAppOutboundConfig {
+		return &v
+	}).(CampaignWhatsAppOutboundConfigPtrOutput)
+}
+
+func (o CampaignWhatsAppOutboundConfigOutput) ConnectSourcePhoneNumberArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CampaignWhatsAppOutboundConfig) string { return v.ConnectSourcePhoneNumberArn }).(pulumi.StringOutput)
+}
+
+func (o CampaignWhatsAppOutboundConfigOutput) WisdomTemplateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v CampaignWhatsAppOutboundConfig) string { return v.WisdomTemplateArn }).(pulumi.StringOutput)
+}
+
+type CampaignWhatsAppOutboundConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignWhatsAppOutboundConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignWhatsAppOutboundConfig)(nil)).Elem()
+}
+
+func (o CampaignWhatsAppOutboundConfigPtrOutput) ToCampaignWhatsAppOutboundConfigPtrOutput() CampaignWhatsAppOutboundConfigPtrOutput {
+	return o
+}
+
+func (o CampaignWhatsAppOutboundConfigPtrOutput) ToCampaignWhatsAppOutboundConfigPtrOutputWithContext(ctx context.Context) CampaignWhatsAppOutboundConfigPtrOutput {
+	return o
+}
+
+func (o CampaignWhatsAppOutboundConfigPtrOutput) Elem() CampaignWhatsAppOutboundConfigOutput {
+	return o.ApplyT(func(v *CampaignWhatsAppOutboundConfig) CampaignWhatsAppOutboundConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignWhatsAppOutboundConfig
+		return ret
+	}).(CampaignWhatsAppOutboundConfigOutput)
+}
+
+func (o CampaignWhatsAppOutboundConfigPtrOutput) ConnectSourcePhoneNumberArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignWhatsAppOutboundConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConnectSourcePhoneNumberArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CampaignWhatsAppOutboundConfigPtrOutput) WisdomTemplateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignWhatsAppOutboundConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WisdomTemplateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// WhatsApp Outbound Mode
+type CampaignWhatsAppOutboundMode struct {
+	AgentlessConfig *CampaignAgentlessConfig `pulumi:"agentlessConfig"`
+}
+
+// CampaignWhatsAppOutboundModeInput is an input type that accepts CampaignWhatsAppOutboundModeArgs and CampaignWhatsAppOutboundModeOutput values.
+// You can construct a concrete instance of `CampaignWhatsAppOutboundModeInput` via:
+//
+//	CampaignWhatsAppOutboundModeArgs{...}
+type CampaignWhatsAppOutboundModeInput interface {
+	pulumi.Input
+
+	ToCampaignWhatsAppOutboundModeOutput() CampaignWhatsAppOutboundModeOutput
+	ToCampaignWhatsAppOutboundModeOutputWithContext(context.Context) CampaignWhatsAppOutboundModeOutput
+}
+
+// WhatsApp Outbound Mode
+type CampaignWhatsAppOutboundModeArgs struct {
+	AgentlessConfig CampaignAgentlessConfigPtrInput `pulumi:"agentlessConfig"`
+}
+
+func (CampaignWhatsAppOutboundModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignWhatsAppOutboundMode)(nil)).Elem()
+}
+
+func (i CampaignWhatsAppOutboundModeArgs) ToCampaignWhatsAppOutboundModeOutput() CampaignWhatsAppOutboundModeOutput {
+	return i.ToCampaignWhatsAppOutboundModeOutputWithContext(context.Background())
+}
+
+func (i CampaignWhatsAppOutboundModeArgs) ToCampaignWhatsAppOutboundModeOutputWithContext(ctx context.Context) CampaignWhatsAppOutboundModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignWhatsAppOutboundModeOutput)
+}
+
+func (i CampaignWhatsAppOutboundModeArgs) ToCampaignWhatsAppOutboundModePtrOutput() CampaignWhatsAppOutboundModePtrOutput {
+	return i.ToCampaignWhatsAppOutboundModePtrOutputWithContext(context.Background())
+}
+
+func (i CampaignWhatsAppOutboundModeArgs) ToCampaignWhatsAppOutboundModePtrOutputWithContext(ctx context.Context) CampaignWhatsAppOutboundModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignWhatsAppOutboundModeOutput).ToCampaignWhatsAppOutboundModePtrOutputWithContext(ctx)
+}
+
+// CampaignWhatsAppOutboundModePtrInput is an input type that accepts CampaignWhatsAppOutboundModeArgs, CampaignWhatsAppOutboundModePtr and CampaignWhatsAppOutboundModePtrOutput values.
+// You can construct a concrete instance of `CampaignWhatsAppOutboundModePtrInput` via:
+//
+//	        CampaignWhatsAppOutboundModeArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignWhatsAppOutboundModePtrInput interface {
+	pulumi.Input
+
+	ToCampaignWhatsAppOutboundModePtrOutput() CampaignWhatsAppOutboundModePtrOutput
+	ToCampaignWhatsAppOutboundModePtrOutputWithContext(context.Context) CampaignWhatsAppOutboundModePtrOutput
+}
+
+type campaignWhatsAppOutboundModePtrType CampaignWhatsAppOutboundModeArgs
+
+func CampaignWhatsAppOutboundModePtr(v *CampaignWhatsAppOutboundModeArgs) CampaignWhatsAppOutboundModePtrInput {
+	return (*campaignWhatsAppOutboundModePtrType)(v)
+}
+
+func (*campaignWhatsAppOutboundModePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignWhatsAppOutboundMode)(nil)).Elem()
+}
+
+func (i *campaignWhatsAppOutboundModePtrType) ToCampaignWhatsAppOutboundModePtrOutput() CampaignWhatsAppOutboundModePtrOutput {
+	return i.ToCampaignWhatsAppOutboundModePtrOutputWithContext(context.Background())
+}
+
+func (i *campaignWhatsAppOutboundModePtrType) ToCampaignWhatsAppOutboundModePtrOutputWithContext(ctx context.Context) CampaignWhatsAppOutboundModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignWhatsAppOutboundModePtrOutput)
+}
+
+// WhatsApp Outbound Mode
+type CampaignWhatsAppOutboundModeOutput struct{ *pulumi.OutputState }
+
+func (CampaignWhatsAppOutboundModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignWhatsAppOutboundMode)(nil)).Elem()
+}
+
+func (o CampaignWhatsAppOutboundModeOutput) ToCampaignWhatsAppOutboundModeOutput() CampaignWhatsAppOutboundModeOutput {
+	return o
+}
+
+func (o CampaignWhatsAppOutboundModeOutput) ToCampaignWhatsAppOutboundModeOutputWithContext(ctx context.Context) CampaignWhatsAppOutboundModeOutput {
+	return o
+}
+
+func (o CampaignWhatsAppOutboundModeOutput) ToCampaignWhatsAppOutboundModePtrOutput() CampaignWhatsAppOutboundModePtrOutput {
+	return o.ToCampaignWhatsAppOutboundModePtrOutputWithContext(context.Background())
+}
+
+func (o CampaignWhatsAppOutboundModeOutput) ToCampaignWhatsAppOutboundModePtrOutputWithContext(ctx context.Context) CampaignWhatsAppOutboundModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignWhatsAppOutboundMode) *CampaignWhatsAppOutboundMode {
+		return &v
+	}).(CampaignWhatsAppOutboundModePtrOutput)
+}
+
+func (o CampaignWhatsAppOutboundModeOutput) AgentlessConfig() CampaignAgentlessConfigPtrOutput {
+	return o.ApplyT(func(v CampaignWhatsAppOutboundMode) *CampaignAgentlessConfig { return v.AgentlessConfig }).(CampaignAgentlessConfigPtrOutput)
+}
+
+type CampaignWhatsAppOutboundModePtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignWhatsAppOutboundModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignWhatsAppOutboundMode)(nil)).Elem()
+}
+
+func (o CampaignWhatsAppOutboundModePtrOutput) ToCampaignWhatsAppOutboundModePtrOutput() CampaignWhatsAppOutboundModePtrOutput {
+	return o
+}
+
+func (o CampaignWhatsAppOutboundModePtrOutput) ToCampaignWhatsAppOutboundModePtrOutputWithContext(ctx context.Context) CampaignWhatsAppOutboundModePtrOutput {
+	return o
+}
+
+func (o CampaignWhatsAppOutboundModePtrOutput) Elem() CampaignWhatsAppOutboundModeOutput {
+	return o.ApplyT(func(v *CampaignWhatsAppOutboundMode) CampaignWhatsAppOutboundMode {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignWhatsAppOutboundMode
+		return ret
+	}).(CampaignWhatsAppOutboundModeOutput)
+}
+
+func (o CampaignWhatsAppOutboundModePtrOutput) AgentlessConfig() CampaignAgentlessConfigPtrOutput {
+	return o.ApplyT(func(v *CampaignWhatsAppOutboundMode) *CampaignAgentlessConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AgentlessConfig
+	}).(CampaignAgentlessConfigPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignAgentlessConfigInput)(nil)).Elem(), CampaignAgentlessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignAgentlessConfigPtrInput)(nil)).Elem(), CampaignAgentlessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignAnswerMachineDetectionConfigInput)(nil)).Elem(), CampaignAnswerMachineDetectionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignAnswerMachineDetectionConfigPtrInput)(nil)).Elem(), CampaignAnswerMachineDetectionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignChannelSubtypeConfigInput)(nil)).Elem(), CampaignChannelSubtypeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignChannelSubtypeConfigPtrInput)(nil)).Elem(), CampaignChannelSubtypeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignCommunicationLimitInput)(nil)).Elem(), CampaignCommunicationLimitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignCommunicationLimitArrayInput)(nil)).Elem(), CampaignCommunicationLimitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignCommunicationLimitsInput)(nil)).Elem(), CampaignCommunicationLimitsArgs{})
@@ -4651,6 +5188,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTimeWindowPtrInput)(nil)).Elem(), CampaignTimeWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTimeoutConfigInput)(nil)).Elem(), CampaignTimeoutConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTimeoutConfigPtrInput)(nil)).Elem(), CampaignTimeoutConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignWhatsAppChannelSubtypeConfigInput)(nil)).Elem(), CampaignWhatsAppChannelSubtypeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignWhatsAppChannelSubtypeConfigPtrInput)(nil)).Elem(), CampaignWhatsAppChannelSubtypeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignWhatsAppOutboundConfigInput)(nil)).Elem(), CampaignWhatsAppOutboundConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignWhatsAppOutboundConfigPtrInput)(nil)).Elem(), CampaignWhatsAppOutboundConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignWhatsAppOutboundModeInput)(nil)).Elem(), CampaignWhatsAppOutboundModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignWhatsAppOutboundModePtrInput)(nil)).Elem(), CampaignWhatsAppOutboundModeArgs{})
 	pulumi.RegisterOutputType(CampaignAgentlessConfigOutput{})
 	pulumi.RegisterOutputType(CampaignAgentlessConfigPtrOutput{})
 	pulumi.RegisterOutputType(CampaignAnswerMachineDetectionConfigOutput{})
@@ -4711,4 +5254,10 @@ func init() {
 	pulumi.RegisterOutputType(CampaignTimeWindowPtrOutput{})
 	pulumi.RegisterOutputType(CampaignTimeoutConfigOutput{})
 	pulumi.RegisterOutputType(CampaignTimeoutConfigPtrOutput{})
+	pulumi.RegisterOutputType(CampaignWhatsAppChannelSubtypeConfigOutput{})
+	pulumi.RegisterOutputType(CampaignWhatsAppChannelSubtypeConfigPtrOutput{})
+	pulumi.RegisterOutputType(CampaignWhatsAppOutboundConfigOutput{})
+	pulumi.RegisterOutputType(CampaignWhatsAppOutboundConfigPtrOutput{})
+	pulumi.RegisterOutputType(CampaignWhatsAppOutboundModeOutput{})
+	pulumi.RegisterOutputType(CampaignWhatsAppOutboundModePtrOutput{})
 }

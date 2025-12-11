@@ -64,7 +64,8 @@ type AutoScalingGroup struct {
 	HealthCheckType pulumi.StringPtrOutput `pulumi:"healthCheckType"`
 	// The ID of the instance used to base the launch configuration on. For more information, see [Create an Auto Scaling group using an EC2 instance](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	//  If you specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``LaunchConfigurationName``, don't specify ``InstanceId``.
-	InstanceId pulumi.StringPtrOutput `pulumi:"instanceId"`
+	InstanceId              pulumi.StringPtrOutput                           `pulumi:"instanceId"`
+	InstanceLifecyclePolicy AutoScalingGroupInstanceLifecyclePolicyPtrOutput `pulumi:"instanceLifecyclePolicy"`
 	// An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	InstanceMaintenancePolicy AutoScalingGroupInstanceMaintenancePolicyPtrOutput `pulumi:"instanceMaintenancePolicy"`
 	// The name of the launch configuration to use to launch instances.
@@ -210,7 +211,8 @@ type autoScalingGroupArgs struct {
 	HealthCheckType *string `pulumi:"healthCheckType"`
 	// The ID of the instance used to base the launch configuration on. For more information, see [Create an Auto Scaling group using an EC2 instance](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	//  If you specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``LaunchConfigurationName``, don't specify ``InstanceId``.
-	InstanceId *string `pulumi:"instanceId"`
+	InstanceId              *string                                  `pulumi:"instanceId"`
+	InstanceLifecyclePolicy *AutoScalingGroupInstanceLifecyclePolicy `pulumi:"instanceLifecyclePolicy"`
 	// An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	InstanceMaintenancePolicy *AutoScalingGroupInstanceMaintenancePolicy `pulumi:"instanceMaintenancePolicy"`
 	// The name of the launch configuration to use to launch instances.
@@ -307,7 +309,8 @@ type AutoScalingGroupArgs struct {
 	HealthCheckType pulumi.StringPtrInput
 	// The ID of the instance used to base the launch configuration on. For more information, see [Create an Auto Scaling group using an EC2 instance](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	//  If you specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``LaunchConfigurationName``, don't specify ``InstanceId``.
-	InstanceId pulumi.StringPtrInput
+	InstanceId              pulumi.StringPtrInput
+	InstanceLifecyclePolicy AutoScalingGroupInstanceLifecyclePolicyPtrInput
 	// An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	InstanceMaintenancePolicy AutoScalingGroupInstanceMaintenancePolicyPtrInput
 	// The name of the launch configuration to use to launch instances.
@@ -499,6 +502,12 @@ func (o AutoScalingGroupOutput) HealthCheckType() pulumi.StringPtrOutput {
 //	If you specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``LaunchConfigurationName``, don't specify ``InstanceId``.
 func (o AutoScalingGroupOutput) InstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringPtrOutput { return v.InstanceId }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) InstanceLifecyclePolicy() AutoScalingGroupInstanceLifecyclePolicyPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) AutoScalingGroupInstanceLifecyclePolicyPtrOutput {
+		return v.InstanceLifecyclePolicy
+	}).(AutoScalingGroupInstanceLifecyclePolicyPtrOutput)
 }
 
 // An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.

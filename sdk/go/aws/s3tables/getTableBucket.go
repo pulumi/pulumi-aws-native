@@ -30,8 +30,9 @@ type LookupTableBucketArgs struct {
 
 type LookupTableBucketResult struct {
 	// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
-	EncryptionConfiguration *TableBucketEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	MetricsConfiguration    *TableBucketMetricsConfiguration    `pulumi:"metricsConfiguration"`
+	EncryptionConfiguration   *TableBucketEncryptionConfiguration   `pulumi:"encryptionConfiguration"`
+	MetricsConfiguration      *TableBucketMetricsConfiguration      `pulumi:"metricsConfiguration"`
+	StorageClassConfiguration *TableBucketStorageClassConfiguration `pulumi:"storageClassConfiguration"`
 	// The Amazon Resource Name (ARN) of the table bucket.
 	TableBucketArn *string `pulumi:"tableBucketArn"`
 	// User tags (key-value pairs) to associate with the table bucket.
@@ -79,6 +80,12 @@ func (o LookupTableBucketResultOutput) EncryptionConfiguration() TableBucketEncr
 
 func (o LookupTableBucketResultOutput) MetricsConfiguration() TableBucketMetricsConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupTableBucketResult) *TableBucketMetricsConfiguration { return v.MetricsConfiguration }).(TableBucketMetricsConfigurationPtrOutput)
+}
+
+func (o LookupTableBucketResultOutput) StorageClassConfiguration() TableBucketStorageClassConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupTableBucketResult) *TableBucketStorageClassConfiguration {
+		return v.StorageClassConfiguration
+	}).(TableBucketStorageClassConfigurationPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the table bucket.

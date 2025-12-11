@@ -342,6 +342,172 @@ func (in *tableBucketMetricsConfigurationStatusPtr) ToTableBucketMetricsConfigur
 	return pulumi.ToOutputWithContext(ctx, in).(TableBucketMetricsConfigurationStatusPtrOutput)
 }
 
+// The storage class for the table bucket
+type TableBucketStorageClassConfigurationStorageClass string
+
+const (
+	TableBucketStorageClassConfigurationStorageClassStandard           = TableBucketStorageClassConfigurationStorageClass("STANDARD")
+	TableBucketStorageClassConfigurationStorageClassIntelligentTiering = TableBucketStorageClassConfigurationStorageClass("INTELLIGENT_TIERING")
+)
+
+func (TableBucketStorageClassConfigurationStorageClass) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketStorageClassConfigurationStorageClass)(nil)).Elem()
+}
+
+func (e TableBucketStorageClassConfigurationStorageClass) ToTableBucketStorageClassConfigurationStorageClassOutput() TableBucketStorageClassConfigurationStorageClassOutput {
+	return pulumi.ToOutput(e).(TableBucketStorageClassConfigurationStorageClassOutput)
+}
+
+func (e TableBucketStorageClassConfigurationStorageClass) ToTableBucketStorageClassConfigurationStorageClassOutputWithContext(ctx context.Context) TableBucketStorageClassConfigurationStorageClassOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TableBucketStorageClassConfigurationStorageClassOutput)
+}
+
+func (e TableBucketStorageClassConfigurationStorageClass) ToTableBucketStorageClassConfigurationStorageClassPtrOutput() TableBucketStorageClassConfigurationStorageClassPtrOutput {
+	return e.ToTableBucketStorageClassConfigurationStorageClassPtrOutputWithContext(context.Background())
+}
+
+func (e TableBucketStorageClassConfigurationStorageClass) ToTableBucketStorageClassConfigurationStorageClassPtrOutputWithContext(ctx context.Context) TableBucketStorageClassConfigurationStorageClassPtrOutput {
+	return TableBucketStorageClassConfigurationStorageClass(e).ToTableBucketStorageClassConfigurationStorageClassOutputWithContext(ctx).ToTableBucketStorageClassConfigurationStorageClassPtrOutputWithContext(ctx)
+}
+
+func (e TableBucketStorageClassConfigurationStorageClass) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableBucketStorageClassConfigurationStorageClass) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableBucketStorageClassConfigurationStorageClass) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TableBucketStorageClassConfigurationStorageClass) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TableBucketStorageClassConfigurationStorageClassOutput struct{ *pulumi.OutputState }
+
+func (TableBucketStorageClassConfigurationStorageClassOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableBucketStorageClassConfigurationStorageClass)(nil)).Elem()
+}
+
+func (o TableBucketStorageClassConfigurationStorageClassOutput) ToTableBucketStorageClassConfigurationStorageClassOutput() TableBucketStorageClassConfigurationStorageClassOutput {
+	return o
+}
+
+func (o TableBucketStorageClassConfigurationStorageClassOutput) ToTableBucketStorageClassConfigurationStorageClassOutputWithContext(ctx context.Context) TableBucketStorageClassConfigurationStorageClassOutput {
+	return o
+}
+
+func (o TableBucketStorageClassConfigurationStorageClassOutput) ToTableBucketStorageClassConfigurationStorageClassPtrOutput() TableBucketStorageClassConfigurationStorageClassPtrOutput {
+	return o.ToTableBucketStorageClassConfigurationStorageClassPtrOutputWithContext(context.Background())
+}
+
+func (o TableBucketStorageClassConfigurationStorageClassOutput) ToTableBucketStorageClassConfigurationStorageClassPtrOutputWithContext(ctx context.Context) TableBucketStorageClassConfigurationStorageClassPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableBucketStorageClassConfigurationStorageClass) *TableBucketStorageClassConfigurationStorageClass {
+		return &v
+	}).(TableBucketStorageClassConfigurationStorageClassPtrOutput)
+}
+
+func (o TableBucketStorageClassConfigurationStorageClassOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TableBucketStorageClassConfigurationStorageClassOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableBucketStorageClassConfigurationStorageClass) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TableBucketStorageClassConfigurationStorageClassOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableBucketStorageClassConfigurationStorageClassOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableBucketStorageClassConfigurationStorageClass) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableBucketStorageClassConfigurationStorageClassPtrOutput struct{ *pulumi.OutputState }
+
+func (TableBucketStorageClassConfigurationStorageClassPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableBucketStorageClassConfigurationStorageClass)(nil)).Elem()
+}
+
+func (o TableBucketStorageClassConfigurationStorageClassPtrOutput) ToTableBucketStorageClassConfigurationStorageClassPtrOutput() TableBucketStorageClassConfigurationStorageClassPtrOutput {
+	return o
+}
+
+func (o TableBucketStorageClassConfigurationStorageClassPtrOutput) ToTableBucketStorageClassConfigurationStorageClassPtrOutputWithContext(ctx context.Context) TableBucketStorageClassConfigurationStorageClassPtrOutput {
+	return o
+}
+
+func (o TableBucketStorageClassConfigurationStorageClassPtrOutput) Elem() TableBucketStorageClassConfigurationStorageClassOutput {
+	return o.ApplyT(func(v *TableBucketStorageClassConfigurationStorageClass) TableBucketStorageClassConfigurationStorageClass {
+		if v != nil {
+			return *v
+		}
+		var ret TableBucketStorageClassConfigurationStorageClass
+		return ret
+	}).(TableBucketStorageClassConfigurationStorageClassOutput)
+}
+
+func (o TableBucketStorageClassConfigurationStorageClassPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableBucketStorageClassConfigurationStorageClassPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TableBucketStorageClassConfigurationStorageClass) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TableBucketStorageClassConfigurationStorageClassInput is an input type that accepts values of the TableBucketStorageClassConfigurationStorageClass enum
+// A concrete instance of `TableBucketStorageClassConfigurationStorageClassInput` can be one of the following:
+//
+//	TableBucketStorageClassConfigurationStorageClassStandard
+//	TableBucketStorageClassConfigurationStorageClassIntelligentTiering
+type TableBucketStorageClassConfigurationStorageClassInput interface {
+	pulumi.Input
+
+	ToTableBucketStorageClassConfigurationStorageClassOutput() TableBucketStorageClassConfigurationStorageClassOutput
+	ToTableBucketStorageClassConfigurationStorageClassOutputWithContext(context.Context) TableBucketStorageClassConfigurationStorageClassOutput
+}
+
+var tableBucketStorageClassConfigurationStorageClassPtrType = reflect.TypeOf((**TableBucketStorageClassConfigurationStorageClass)(nil)).Elem()
+
+type TableBucketStorageClassConfigurationStorageClassPtrInput interface {
+	pulumi.Input
+
+	ToTableBucketStorageClassConfigurationStorageClassPtrOutput() TableBucketStorageClassConfigurationStorageClassPtrOutput
+	ToTableBucketStorageClassConfigurationStorageClassPtrOutputWithContext(context.Context) TableBucketStorageClassConfigurationStorageClassPtrOutput
+}
+
+type tableBucketStorageClassConfigurationStorageClassPtr string
+
+func TableBucketStorageClassConfigurationStorageClassPtr(v string) TableBucketStorageClassConfigurationStorageClassPtrInput {
+	return (*tableBucketStorageClassConfigurationStorageClassPtr)(&v)
+}
+
+func (*tableBucketStorageClassConfigurationStorageClassPtr) ElementType() reflect.Type {
+	return tableBucketStorageClassConfigurationStorageClassPtrType
+}
+
+func (in *tableBucketStorageClassConfigurationStorageClassPtr) ToTableBucketStorageClassConfigurationStorageClassPtrOutput() TableBucketStorageClassConfigurationStorageClassPtrOutput {
+	return pulumi.ToOutput(in).(TableBucketStorageClassConfigurationStorageClassPtrOutput)
+}
+
+func (in *tableBucketStorageClassConfigurationStorageClassPtr) ToTableBucketStorageClassConfigurationStorageClassPtrOutputWithContext(ctx context.Context) TableBucketStorageClassConfigurationStorageClassPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TableBucketStorageClassConfigurationStorageClassPtrOutput)
+}
+
 // Indicates whether the Unreferenced File Removal maintenance action is enabled.
 type TableBucketUnreferencedFileRemovalStatus string
 
@@ -1004,6 +1170,172 @@ func (in *tableSnapshotManagementStatusPtr) ToTableSnapshotManagementStatusPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(TableSnapshotManagementStatusPtrOutput)
 }
 
+// The storage class for the table
+type TableStorageClassConfigurationStorageClass string
+
+const (
+	TableStorageClassConfigurationStorageClassStandard           = TableStorageClassConfigurationStorageClass("STANDARD")
+	TableStorageClassConfigurationStorageClassIntelligentTiering = TableStorageClassConfigurationStorageClass("INTELLIGENT_TIERING")
+)
+
+func (TableStorageClassConfigurationStorageClass) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableStorageClassConfigurationStorageClass)(nil)).Elem()
+}
+
+func (e TableStorageClassConfigurationStorageClass) ToTableStorageClassConfigurationStorageClassOutput() TableStorageClassConfigurationStorageClassOutput {
+	return pulumi.ToOutput(e).(TableStorageClassConfigurationStorageClassOutput)
+}
+
+func (e TableStorageClassConfigurationStorageClass) ToTableStorageClassConfigurationStorageClassOutputWithContext(ctx context.Context) TableStorageClassConfigurationStorageClassOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TableStorageClassConfigurationStorageClassOutput)
+}
+
+func (e TableStorageClassConfigurationStorageClass) ToTableStorageClassConfigurationStorageClassPtrOutput() TableStorageClassConfigurationStorageClassPtrOutput {
+	return e.ToTableStorageClassConfigurationStorageClassPtrOutputWithContext(context.Background())
+}
+
+func (e TableStorageClassConfigurationStorageClass) ToTableStorageClassConfigurationStorageClassPtrOutputWithContext(ctx context.Context) TableStorageClassConfigurationStorageClassPtrOutput {
+	return TableStorageClassConfigurationStorageClass(e).ToTableStorageClassConfigurationStorageClassOutputWithContext(ctx).ToTableStorageClassConfigurationStorageClassPtrOutputWithContext(ctx)
+}
+
+func (e TableStorageClassConfigurationStorageClass) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableStorageClassConfigurationStorageClass) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TableStorageClassConfigurationStorageClass) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TableStorageClassConfigurationStorageClass) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TableStorageClassConfigurationStorageClassOutput struct{ *pulumi.OutputState }
+
+func (TableStorageClassConfigurationStorageClassOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableStorageClassConfigurationStorageClass)(nil)).Elem()
+}
+
+func (o TableStorageClassConfigurationStorageClassOutput) ToTableStorageClassConfigurationStorageClassOutput() TableStorageClassConfigurationStorageClassOutput {
+	return o
+}
+
+func (o TableStorageClassConfigurationStorageClassOutput) ToTableStorageClassConfigurationStorageClassOutputWithContext(ctx context.Context) TableStorageClassConfigurationStorageClassOutput {
+	return o
+}
+
+func (o TableStorageClassConfigurationStorageClassOutput) ToTableStorageClassConfigurationStorageClassPtrOutput() TableStorageClassConfigurationStorageClassPtrOutput {
+	return o.ToTableStorageClassConfigurationStorageClassPtrOutputWithContext(context.Background())
+}
+
+func (o TableStorageClassConfigurationStorageClassOutput) ToTableStorageClassConfigurationStorageClassPtrOutputWithContext(ctx context.Context) TableStorageClassConfigurationStorageClassPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableStorageClassConfigurationStorageClass) *TableStorageClassConfigurationStorageClass {
+		return &v
+	}).(TableStorageClassConfigurationStorageClassPtrOutput)
+}
+
+func (o TableStorageClassConfigurationStorageClassOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TableStorageClassConfigurationStorageClassOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableStorageClassConfigurationStorageClass) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TableStorageClassConfigurationStorageClassOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableStorageClassConfigurationStorageClassOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TableStorageClassConfigurationStorageClass) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TableStorageClassConfigurationStorageClassPtrOutput struct{ *pulumi.OutputState }
+
+func (TableStorageClassConfigurationStorageClassPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableStorageClassConfigurationStorageClass)(nil)).Elem()
+}
+
+func (o TableStorageClassConfigurationStorageClassPtrOutput) ToTableStorageClassConfigurationStorageClassPtrOutput() TableStorageClassConfigurationStorageClassPtrOutput {
+	return o
+}
+
+func (o TableStorageClassConfigurationStorageClassPtrOutput) ToTableStorageClassConfigurationStorageClassPtrOutputWithContext(ctx context.Context) TableStorageClassConfigurationStorageClassPtrOutput {
+	return o
+}
+
+func (o TableStorageClassConfigurationStorageClassPtrOutput) Elem() TableStorageClassConfigurationStorageClassOutput {
+	return o.ApplyT(func(v *TableStorageClassConfigurationStorageClass) TableStorageClassConfigurationStorageClass {
+		if v != nil {
+			return *v
+		}
+		var ret TableStorageClassConfigurationStorageClass
+		return ret
+	}).(TableStorageClassConfigurationStorageClassOutput)
+}
+
+func (o TableStorageClassConfigurationStorageClassPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TableStorageClassConfigurationStorageClassPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TableStorageClassConfigurationStorageClass) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TableStorageClassConfigurationStorageClassInput is an input type that accepts values of the TableStorageClassConfigurationStorageClass enum
+// A concrete instance of `TableStorageClassConfigurationStorageClassInput` can be one of the following:
+//
+//	TableStorageClassConfigurationStorageClassStandard
+//	TableStorageClassConfigurationStorageClassIntelligentTiering
+type TableStorageClassConfigurationStorageClassInput interface {
+	pulumi.Input
+
+	ToTableStorageClassConfigurationStorageClassOutput() TableStorageClassConfigurationStorageClassOutput
+	ToTableStorageClassConfigurationStorageClassOutputWithContext(context.Context) TableStorageClassConfigurationStorageClassOutput
+}
+
+var tableStorageClassConfigurationStorageClassPtrType = reflect.TypeOf((**TableStorageClassConfigurationStorageClass)(nil)).Elem()
+
+type TableStorageClassConfigurationStorageClassPtrInput interface {
+	pulumi.Input
+
+	ToTableStorageClassConfigurationStorageClassPtrOutput() TableStorageClassConfigurationStorageClassPtrOutput
+	ToTableStorageClassConfigurationStorageClassPtrOutputWithContext(context.Context) TableStorageClassConfigurationStorageClassPtrOutput
+}
+
+type tableStorageClassConfigurationStorageClassPtr string
+
+func TableStorageClassConfigurationStorageClassPtr(v string) TableStorageClassConfigurationStorageClassPtrInput {
+	return (*tableStorageClassConfigurationStorageClassPtr)(&v)
+}
+
+func (*tableStorageClassConfigurationStorageClassPtr) ElementType() reflect.Type {
+	return tableStorageClassConfigurationStorageClassPtrType
+}
+
+func (in *tableStorageClassConfigurationStorageClassPtr) ToTableStorageClassConfigurationStorageClassPtrOutput() TableStorageClassConfigurationStorageClassPtrOutput {
+	return pulumi.ToOutput(in).(TableStorageClassConfigurationStorageClassPtrOutput)
+}
+
+func (in *tableStorageClassConfigurationStorageClassPtr) ToTableStorageClassConfigurationStorageClassPtrOutputWithContext(ctx context.Context) TableStorageClassConfigurationStorageClassPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TableStorageClassConfigurationStorageClassPtrOutput)
+}
+
 // Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to 'IcebergMetadata', and its only possible value is 'Yes'.
 type TableWithoutMetadata string
 
@@ -1173,6 +1505,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationSseAlgorithmPtrInput)(nil)).Elem(), TableBucketEncryptionConfigurationSseAlgorithm("AES256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketMetricsConfigurationStatusInput)(nil)).Elem(), TableBucketMetricsConfigurationStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketMetricsConfigurationStatusPtrInput)(nil)).Elem(), TableBucketMetricsConfigurationStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketStorageClassConfigurationStorageClassInput)(nil)).Elem(), TableBucketStorageClassConfigurationStorageClass("STANDARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketStorageClassConfigurationStorageClassPtrInput)(nil)).Elem(), TableBucketStorageClassConfigurationStorageClass("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketUnreferencedFileRemovalStatusInput)(nil)).Elem(), TableBucketUnreferencedFileRemovalStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketUnreferencedFileRemovalStatusPtrInput)(nil)).Elem(), TableBucketUnreferencedFileRemovalStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableCompactionStatusInput)(nil)).Elem(), TableCompactionStatus("enabled"))
@@ -1181,12 +1515,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableOpenTableFormatPtrInput)(nil)).Elem(), TableOpenTableFormat("ICEBERG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSnapshotManagementStatusInput)(nil)).Elem(), TableSnapshotManagementStatus("enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSnapshotManagementStatusPtrInput)(nil)).Elem(), TableSnapshotManagementStatus("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableStorageClassConfigurationStorageClassInput)(nil)).Elem(), TableStorageClassConfigurationStorageClass("STANDARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TableStorageClassConfigurationStorageClassPtrInput)(nil)).Elem(), TableStorageClassConfigurationStorageClass("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableWithoutMetadataInput)(nil)).Elem(), TableWithoutMetadata("Yes"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableWithoutMetadataPtrInput)(nil)).Elem(), TableWithoutMetadata("Yes"))
 	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationSseAlgorithmOutput{})
 	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationSseAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketMetricsConfigurationStatusOutput{})
 	pulumi.RegisterOutputType(TableBucketMetricsConfigurationStatusPtrOutput{})
+	pulumi.RegisterOutputType(TableBucketStorageClassConfigurationStorageClassOutput{})
+	pulumi.RegisterOutputType(TableBucketStorageClassConfigurationStorageClassPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketUnreferencedFileRemovalStatusOutput{})
 	pulumi.RegisterOutputType(TableBucketUnreferencedFileRemovalStatusPtrOutput{})
 	pulumi.RegisterOutputType(TableCompactionStatusOutput{})
@@ -1195,6 +1533,8 @@ func init() {
 	pulumi.RegisterOutputType(TableOpenTableFormatPtrOutput{})
 	pulumi.RegisterOutputType(TableSnapshotManagementStatusOutput{})
 	pulumi.RegisterOutputType(TableSnapshotManagementStatusPtrOutput{})
+	pulumi.RegisterOutputType(TableStorageClassConfigurationStorageClassOutput{})
+	pulumi.RegisterOutputType(TableStorageClassConfigurationStorageClassPtrOutput{})
 	pulumi.RegisterOutputType(TableWithoutMetadataOutput{})
 	pulumi.RegisterOutputType(TableWithoutMetadataPtrOutput{})
 }

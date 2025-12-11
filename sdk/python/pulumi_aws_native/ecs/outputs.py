@@ -42,11 +42,14 @@ __all__ = [
     'ClusterManagedStorageConfiguration',
     'ClusterServiceConnectDefaults',
     'ClusterSettings',
+    'ExpressGatewayServiceAutoScalingArns',
     'ExpressGatewayServiceAwsLogsConfiguration',
     'ExpressGatewayServiceConfiguration',
+    'ExpressGatewayServiceEcsManagedResourceArns',
     'ExpressGatewayServiceExpressGatewayContainer',
     'ExpressGatewayServiceExpressGatewayRepositoryCredentials',
     'ExpressGatewayServiceExpressGatewayScalingTarget',
+    'ExpressGatewayServiceIngressPathArns',
     'ExpressGatewayServiceIngressPathSummary',
     'ExpressGatewayServiceKeyValuePair',
     'ExpressGatewayServiceNetworkConfiguration',
@@ -1770,6 +1773,46 @@ class ClusterSettings(dict):
 
 
 @pulumi.output_type
+class ExpressGatewayServiceAutoScalingArns(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationAutoScalingPolicies":
+            suggest = "application_auto_scaling_policies"
+        elif key == "scalableTarget":
+            suggest = "scalable_target"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressGatewayServiceAutoScalingArns. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressGatewayServiceAutoScalingArns.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressGatewayServiceAutoScalingArns.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_auto_scaling_policies: Optional[Sequence[_builtins.str]] = None,
+                 scalable_target: Optional[_builtins.str] = None):
+        if application_auto_scaling_policies is not None:
+            pulumi.set(__self__, "application_auto_scaling_policies", application_auto_scaling_policies)
+        if scalable_target is not None:
+            pulumi.set(__self__, "scalable_target", scalable_target)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationAutoScalingPolicies")
+    def application_auto_scaling_policies(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "application_auto_scaling_policies")
+
+    @_builtins.property
+    @pulumi.getter(name="scalableTarget")
+    def scalable_target(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "scalable_target")
+
+
+@pulumi.output_type
 class ExpressGatewayServiceAwsLogsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1987,6 +2030,76 @@ class ExpressGatewayServiceConfiguration(dict):
         The ARN of the task role for the service revision.
         """
         return pulumi.get(self, "task_role_arn")
+
+
+@pulumi.output_type
+class ExpressGatewayServiceEcsManagedResourceArns(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoScaling":
+            suggest = "auto_scaling"
+        elif key == "ingressPath":
+            suggest = "ingress_path"
+        elif key == "logGroups":
+            suggest = "log_groups"
+        elif key == "metricAlarms":
+            suggest = "metric_alarms"
+        elif key == "serviceSecurityGroups":
+            suggest = "service_security_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressGatewayServiceEcsManagedResourceArns. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressGatewayServiceEcsManagedResourceArns.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressGatewayServiceEcsManagedResourceArns.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_scaling: Optional['outputs.ExpressGatewayServiceAutoScalingArns'] = None,
+                 ingress_path: Optional['outputs.ExpressGatewayServiceIngressPathArns'] = None,
+                 log_groups: Optional[Sequence[_builtins.str]] = None,
+                 metric_alarms: Optional[Sequence[_builtins.str]] = None,
+                 service_security_groups: Optional[Sequence[_builtins.str]] = None):
+        if auto_scaling is not None:
+            pulumi.set(__self__, "auto_scaling", auto_scaling)
+        if ingress_path is not None:
+            pulumi.set(__self__, "ingress_path", ingress_path)
+        if log_groups is not None:
+            pulumi.set(__self__, "log_groups", log_groups)
+        if metric_alarms is not None:
+            pulumi.set(__self__, "metric_alarms", metric_alarms)
+        if service_security_groups is not None:
+            pulumi.set(__self__, "service_security_groups", service_security_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="autoScaling")
+    def auto_scaling(self) -> Optional['outputs.ExpressGatewayServiceAutoScalingArns']:
+        return pulumi.get(self, "auto_scaling")
+
+    @_builtins.property
+    @pulumi.getter(name="ingressPath")
+    def ingress_path(self) -> Optional['outputs.ExpressGatewayServiceIngressPathArns']:
+        return pulumi.get(self, "ingress_path")
+
+    @_builtins.property
+    @pulumi.getter(name="logGroups")
+    def log_groups(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "log_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="metricAlarms")
+    def metric_alarms(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "metric_alarms")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceSecurityGroups")
+    def service_security_groups(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "service_security_groups")
 
 
 @pulumi.output_type
@@ -2215,6 +2328,86 @@ class ExpressGatewayServiceExpressGatewayScalingTarget(dict):
         The minimum number of tasks to run in the Express service.
         """
         return pulumi.get(self, "min_task_count")
+
+
+@pulumi.output_type
+class ExpressGatewayServiceIngressPathArns(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateArn":
+            suggest = "certificate_arn"
+        elif key == "listenerArn":
+            suggest = "listener_arn"
+        elif key == "listenerRuleArn":
+            suggest = "listener_rule_arn"
+        elif key == "loadBalancerArn":
+            suggest = "load_balancer_arn"
+        elif key == "loadBalancerSecurityGroups":
+            suggest = "load_balancer_security_groups"
+        elif key == "targetGroupArns":
+            suggest = "target_group_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExpressGatewayServiceIngressPathArns. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExpressGatewayServiceIngressPathArns.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExpressGatewayServiceIngressPathArns.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_arn: Optional[_builtins.str] = None,
+                 listener_arn: Optional[_builtins.str] = None,
+                 listener_rule_arn: Optional[_builtins.str] = None,
+                 load_balancer_arn: Optional[_builtins.str] = None,
+                 load_balancer_security_groups: Optional[Sequence[_builtins.str]] = None,
+                 target_group_arns: Optional[Sequence[_builtins.str]] = None):
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if listener_arn is not None:
+            pulumi.set(__self__, "listener_arn", listener_arn)
+        if listener_rule_arn is not None:
+            pulumi.set(__self__, "listener_rule_arn", listener_rule_arn)
+        if load_balancer_arn is not None:
+            pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
+        if load_balancer_security_groups is not None:
+            pulumi.set(__self__, "load_balancer_security_groups", load_balancer_security_groups)
+        if target_group_arns is not None:
+            pulumi.set(__self__, "target_group_arns", target_group_arns)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "certificate_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="listenerArn")
+    def listener_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "listener_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="listenerRuleArn")
+    def listener_rule_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "listener_rule_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="loadBalancerArn")
+    def load_balancer_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "load_balancer_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="loadBalancerSecurityGroups")
+    def load_balancer_security_groups(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "load_balancer_security_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="targetGroupArns")
+    def target_group_arns(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "target_group_arns")
 
 
 @pulumi.output_type

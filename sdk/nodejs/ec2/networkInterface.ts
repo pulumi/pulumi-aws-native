@@ -102,6 +102,11 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     declare public readonly privateIpAddresses: pulumi.Output<outputs.ec2.NetworkInterfacePrivateIpAddressSpecification[] | undefined>;
     /**
+     * Public IP DNS hostname type
+     */
+    declare public readonly publicIpDnsHostnameTypeSpecification: pulumi.Output<enums.ec2.NetworkInterfacePublicIpDnsHostnameTypeSpecification | undefined>;
+    declare public /*out*/ readonly publicIpDnsNameOptions: pulumi.Output<outputs.ec2.NetworkInterfacePublicIpDnsNameOptions>;
+    /**
      * The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses
      */
     declare public readonly secondaryPrivateIpAddressCount: pulumi.Output<number | undefined>;
@@ -153,6 +158,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["ipv6Prefixes"] = args?.ipv6Prefixes;
             resourceInputs["privateIpAddress"] = args?.privateIpAddress;
             resourceInputs["privateIpAddresses"] = args?.privateIpAddresses;
+            resourceInputs["publicIpDnsHostnameTypeSpecification"] = args?.publicIpDnsHostnameTypeSpecification;
             resourceInputs["secondaryPrivateIpAddressCount"] = args?.secondaryPrivateIpAddressCount;
             resourceInputs["sourceDestCheck"] = args?.sourceDestCheck;
             resourceInputs["subnetId"] = args?.subnetId;
@@ -160,6 +166,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["primaryIpv6Address"] = undefined /*out*/;
             resourceInputs["primaryPrivateIpAddress"] = undefined /*out*/;
+            resourceInputs["publicIpDnsNameOptions"] = undefined /*out*/;
             resourceInputs["secondaryPrivateIpAddresses"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         } else {
@@ -179,6 +186,8 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["primaryPrivateIpAddress"] = undefined /*out*/;
             resourceInputs["privateIpAddress"] = undefined /*out*/;
             resourceInputs["privateIpAddresses"] = undefined /*out*/;
+            resourceInputs["publicIpDnsHostnameTypeSpecification"] = undefined /*out*/;
+            resourceInputs["publicIpDnsNameOptions"] = undefined /*out*/;
             resourceInputs["secondaryPrivateIpAddressCount"] = undefined /*out*/;
             resourceInputs["secondaryPrivateIpAddresses"] = undefined /*out*/;
             resourceInputs["sourceDestCheck"] = undefined /*out*/;
@@ -249,6 +258,10 @@ export interface NetworkInterfaceArgs {
      * Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property.
      */
     privateIpAddresses?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfacePrivateIpAddressSpecificationArgs>[]>;
+    /**
+     * Public IP DNS hostname type
+     */
+    publicIpDnsHostnameTypeSpecification?: pulumi.Input<enums.ec2.NetworkInterfacePublicIpDnsHostnameTypeSpecification>;
     /**
      * The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses
      */

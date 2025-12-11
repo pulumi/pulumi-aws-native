@@ -108,6 +108,10 @@ namespace Pulumi.AwsNative.Dsql
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
+        /// The DSQL cluster VPC endpoint.
+        /// </summary>
+        public readonly string? VpcEndpoint;
+        /// <summary>
         /// The VPC endpoint service name.
         /// </summary>
         public readonly string? VpcEndpointServiceName;
@@ -136,6 +140,8 @@ namespace Pulumi.AwsNative.Dsql
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
+            string? vpcEndpoint,
+
             string? vpcEndpointServiceName)
         {
             CreationTime = creationTime;
@@ -149,6 +155,7 @@ namespace Pulumi.AwsNative.Dsql
             ResourceArn = resourceArn;
             Status = status;
             Tags = tags;
+            VpcEndpoint = vpcEndpoint;
             VpcEndpointServiceName = vpcEndpointServiceName;
         }
     }

@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['NetworkInterfaceArgs', 'NetworkInterface']
@@ -37,6 +38,7 @@ class NetworkInterfaceArgs:
                  ipv6_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpv6PrefixSpecificationArgs']]]] = None,
                  private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
                  private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfacePrivateIpAddressSpecificationArgs']]]] = None,
+                 public_ip_dns_hostname_type_specification: Optional[pulumi.Input['NetworkInterfacePublicIpDnsHostnameTypeSpecification']] = None,
                  secondary_private_ip_address_count: Optional[pulumi.Input[_builtins.int]] = None,
                  source_dest_check: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -56,6 +58,7 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpv6PrefixSpecificationArgs']]] ipv6_prefixes: Assigns a list of IPv6 prefixes to the network interface. If you want EC2 to automatically assign IPv6 prefixes, use the Ipv6PrefixCount property and do not specify this property. Presently, only /80 prefixes are supported. You can't specify IPv6 prefixes if you've specified one of the following: a count of IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.
         :param pulumi.Input[_builtins.str] private_ip_address: Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property. 
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfacePrivateIpAddressSpecificationArgs']]] private_ip_addresses: Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property.
+        :param pulumi.Input['NetworkInterfacePublicIpDnsHostnameTypeSpecification'] public_ip_dns_hostname_type_specification: Public IP DNS hostname type
         :param pulumi.Input[_builtins.int] secondary_private_ip_address_count: The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses
         :param pulumi.Input[_builtins.bool] source_dest_check: Indicates whether traffic to or from the instance is validated.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this network interface.
@@ -87,6 +90,8 @@ class NetworkInterfaceArgs:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
         if private_ip_addresses is not None:
             pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+        if public_ip_dns_hostname_type_specification is not None:
+            pulumi.set(__self__, "public_ip_dns_hostname_type_specification", public_ip_dns_hostname_type_specification)
         if secondary_private_ip_address_count is not None:
             pulumi.set(__self__, "secondary_private_ip_address_count", secondary_private_ip_address_count)
         if source_dest_check is not None:
@@ -263,6 +268,18 @@ class NetworkInterfaceArgs:
         pulumi.set(self, "private_ip_addresses", value)
 
     @_builtins.property
+    @pulumi.getter(name="publicIpDnsHostnameTypeSpecification")
+    def public_ip_dns_hostname_type_specification(self) -> Optional[pulumi.Input['NetworkInterfacePublicIpDnsHostnameTypeSpecification']]:
+        """
+        Public IP DNS hostname type
+        """
+        return pulumi.get(self, "public_ip_dns_hostname_type_specification")
+
+    @public_ip_dns_hostname_type_specification.setter
+    def public_ip_dns_hostname_type_specification(self, value: Optional[pulumi.Input['NetworkInterfacePublicIpDnsHostnameTypeSpecification']]):
+        pulumi.set(self, "public_ip_dns_hostname_type_specification", value)
+
+    @_builtins.property
     @pulumi.getter(name="secondaryPrivateIpAddressCount")
     def secondary_private_ip_address_count(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -318,6 +335,7 @@ class NetworkInterface(pulumi.CustomResource):
                  ipv6_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpv6PrefixSpecificationArgs', 'NetworkInterfaceIpv6PrefixSpecificationArgsDict']]]]] = None,
                  private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
                  private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfacePrivateIpAddressSpecificationArgs', 'NetworkInterfacePrivateIpAddressSpecificationArgsDict']]]]] = None,
+                 public_ip_dns_hostname_type_specification: Optional[pulumi.Input['NetworkInterfacePublicIpDnsHostnameTypeSpecification']] = None,
                  secondary_private_ip_address_count: Optional[pulumi.Input[_builtins.int]] = None,
                  source_dest_check: Optional[pulumi.Input[_builtins.bool]] = None,
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -341,6 +359,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpv6PrefixSpecificationArgs', 'NetworkInterfaceIpv6PrefixSpecificationArgsDict']]]] ipv6_prefixes: Assigns a list of IPv6 prefixes to the network interface. If you want EC2 to automatically assign IPv6 prefixes, use the Ipv6PrefixCount property and do not specify this property. Presently, only /80 prefixes are supported. You can't specify IPv6 prefixes if you've specified one of the following: a count of IPv6 prefixes, specific IPv6 addresses, or a count of IPv6 addresses.
         :param pulumi.Input[_builtins.str] private_ip_address: Assigns a single private IP address to the network interface, which is used as the primary private IP address. If you want to specify multiple private IP address, use the PrivateIpAddresses property. 
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfacePrivateIpAddressSpecificationArgs', 'NetworkInterfacePrivateIpAddressSpecificationArgsDict']]]] private_ip_addresses: Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property.
+        :param pulumi.Input['NetworkInterfacePublicIpDnsHostnameTypeSpecification'] public_ip_dns_hostname_type_specification: Public IP DNS hostname type
         :param pulumi.Input[_builtins.int] secondary_private_ip_address_count: The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses
         :param pulumi.Input[_builtins.bool] source_dest_check: Indicates whether traffic to or from the instance is validated.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet to associate with the network interface.
@@ -383,6 +402,7 @@ class NetworkInterface(pulumi.CustomResource):
                  ipv6_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpv6PrefixSpecificationArgs', 'NetworkInterfaceIpv6PrefixSpecificationArgsDict']]]]] = None,
                  private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
                  private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfacePrivateIpAddressSpecificationArgs', 'NetworkInterfacePrivateIpAddressSpecificationArgsDict']]]]] = None,
+                 public_ip_dns_hostname_type_specification: Optional[pulumi.Input['NetworkInterfacePublicIpDnsHostnameTypeSpecification']] = None,
                  secondary_private_ip_address_count: Optional[pulumi.Input[_builtins.int]] = None,
                  source_dest_check: Optional[pulumi.Input[_builtins.bool]] = None,
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -409,6 +429,7 @@ class NetworkInterface(pulumi.CustomResource):
             __props__.__dict__["ipv6_prefixes"] = ipv6_prefixes
             __props__.__dict__["private_ip_address"] = private_ip_address
             __props__.__dict__["private_ip_addresses"] = private_ip_addresses
+            __props__.__dict__["public_ip_dns_hostname_type_specification"] = public_ip_dns_hostname_type_specification
             __props__.__dict__["secondary_private_ip_address_count"] = secondary_private_ip_address_count
             __props__.__dict__["source_dest_check"] = source_dest_check
             if subnet_id is None and not opts.urn:
@@ -418,6 +439,7 @@ class NetworkInterface(pulumi.CustomResource):
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["primary_ipv6_address"] = None
             __props__.__dict__["primary_private_ip_address"] = None
+            __props__.__dict__["public_ip_dns_name_options"] = None
             __props__.__dict__["secondary_private_ip_addresses"] = None
             __props__.__dict__["vpc_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["interfaceType", "privateIpAddress", "subnetId"])
@@ -460,6 +482,8 @@ class NetworkInterface(pulumi.CustomResource):
         __props__.__dict__["primary_private_ip_address"] = None
         __props__.__dict__["private_ip_address"] = None
         __props__.__dict__["private_ip_addresses"] = None
+        __props__.__dict__["public_ip_dns_hostname_type_specification"] = None
+        __props__.__dict__["public_ip_dns_name_options"] = None
         __props__.__dict__["secondary_private_ip_address_count"] = None
         __props__.__dict__["secondary_private_ip_addresses"] = None
         __props__.__dict__["source_dest_check"] = None
@@ -595,6 +619,19 @@ class NetworkInterface(pulumi.CustomResource):
         Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property.
         """
         return pulumi.get(self, "private_ip_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="publicIpDnsHostnameTypeSpecification")
+    def public_ip_dns_hostname_type_specification(self) -> pulumi.Output[Optional['NetworkInterfacePublicIpDnsHostnameTypeSpecification']]:
+        """
+        Public IP DNS hostname type
+        """
+        return pulumi.get(self, "public_ip_dns_hostname_type_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="publicIpDnsNameOptions")
+    def public_ip_dns_name_options(self) -> pulumi.Output['outputs.NetworkInterfacePublicIpDnsNameOptions']:
+        return pulumi.get(self, "public_ip_dns_name_options")
 
     @_builtins.property
     @pulumi.getter(name="secondaryPrivateIpAddressCount")

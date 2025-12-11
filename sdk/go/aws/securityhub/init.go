@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AutomationRuleV2{}
 	case "aws-native:securityhub:ConfigurationPolicy":
 		r = &ConfigurationPolicy{}
+	case "aws-native:securityhub:ConnectorV2":
+		r = &ConnectorV2{}
 	case "aws-native:securityhub:DelegatedAdmin":
 		r = &DelegatedAdmin{}
 	case "aws-native:securityhub:FindingAggregator":

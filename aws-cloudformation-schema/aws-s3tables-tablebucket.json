@@ -17,6 +17,9 @@
     "MetricsConfiguration" : {
       "$ref" : "#/definitions/MetricsConfiguration"
     },
+    "StorageClassConfiguration" : {
+      "$ref" : "#/definitions/StorageClassConfiguration"
+    },
     "Tags" : {
       "description" : "User tags (key-value pairs) to associate with the table bucket.",
       "type" : "array",
@@ -90,6 +93,18 @@
       },
       "additionalProperties" : false
     },
+    "StorageClassConfiguration" : {
+      "type" : "object",
+      "description" : "Specifies storage class settings for the table bucket",
+      "properties" : {
+        "StorageClass" : {
+          "type" : "string",
+          "description" : "The storage class for the table bucket",
+          "enum" : [ "STANDARD", "INTELLIGENT_TIERING" ]
+        }
+      },
+      "additionalProperties" : false
+    },
     "Tag" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -124,13 +139,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "s3tables:CreateTableBucket", "s3tables:PutTableBucketMaintenanceConfiguration", "s3tables:PutTableBucketMetricsConfiguration", "s3tables:PutTableBucketEncryption", "s3tables:GetTableBucket", "s3tables:GetTableBucketMaintenanceConfiguration", "s3tables:GetTableBucketMetricsConfiguration", "s3tables:GetTableBucketEncryption", "kms:DescribeKey", "s3tables:TagResource", "s3tables:ListTagsForResource" ]
+      "permissions" : [ "s3tables:CreateTableBucket", "s3tables:PutTableBucketMaintenanceConfiguration", "s3tables:PutTableBucketMetricsConfiguration", "s3tables:PutTableBucketEncryption", "s3tables:PutTableBucketStorageClass", "s3tables:GetTableBucket", "s3tables:GetTableBucketMaintenanceConfiguration", "s3tables:GetTableBucketMetricsConfiguration", "s3tables:GetTableBucketEncryption", "s3tables:GetTableBucketStorageClass", "kms:DescribeKey", "s3tables:TagResource", "s3tables:ListTagsForResource" ]
     },
     "read" : {
-      "permissions" : [ "s3tables:GetTableBucket", "s3tables:GetTableBucketMaintenanceConfiguration", "s3tables:GetTableBucketMetricsConfiguration", "s3tables:GetTableBucketEncryption", "s3tables:ListTagsForResource" ]
+      "permissions" : [ "s3tables:GetTableBucket", "s3tables:GetTableBucketMaintenanceConfiguration", "s3tables:GetTableBucketMetricsConfiguration", "s3tables:GetTableBucketEncryption", "s3tables:GetTableBucketStorageClass", "s3tables:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "s3tables:DeleteTableBucketMetricsConfiguration", "s3tables:PutTableBucketMaintenanceConfiguration", "s3tables:PutTableBucketMetricsConfiguration", "s3tables:PutTableBucketEncryption", "s3tables:GetTableBucketMaintenanceConfiguration", "s3tables:GetTableBucketMetricsConfiguration", "s3tables:GetTableBucketEncryption", "s3tables:DeleteTableBucketEncryption", "s3tables:GetTableBucket", "kms:DescribeKey", "s3tables:TagResource", "s3tables:UntagResource", "s3tables:ListTagsForResource" ]
+      "permissions" : [ "s3tables:DeleteTableBucketMetricsConfiguration", "s3tables:PutTableBucketMaintenanceConfiguration", "s3tables:PutTableBucketMetricsConfiguration", "s3tables:PutTableBucketEncryption", "s3tables:PutTableBucketStorageClass", "s3tables:GetTableBucketMaintenanceConfiguration", "s3tables:GetTableBucketMetricsConfiguration", "s3tables:GetTableBucketEncryption", "s3tables:GetTableBucketStorageClass", "s3tables:DeleteTableBucketEncryption", "s3tables:GetTableBucket", "kms:DescribeKey", "s3tables:TagResource", "s3tables:UntagResource", "s3tables:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "s3tables:DeleteTableBucket" ]

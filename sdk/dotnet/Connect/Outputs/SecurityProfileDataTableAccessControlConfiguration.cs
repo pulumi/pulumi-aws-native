@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class SecurityProfileDataTableAccessControlConfiguration
     {
+        /// <summary>
+        /// The configuration's primary attribute access control configuration.
+        /// </summary>
         public readonly Outputs.SecurityProfilePrimaryAttributeAccessControlConfigurationItem? PrimaryAttributeAccessControlConfiguration;
 
         [OutputConstructor]

@@ -936,6 +936,172 @@ func (o CampaignLocalTimeZoneDetectionTypeArrayOutput) Index(i pulumi.IntInput) 
 	}).(CampaignLocalTimeZoneDetectionTypeOutput)
 }
 
+// Campaign type
+type CampaignType string
+
+const (
+	CampaignTypeManaged = CampaignType("MANAGED")
+	CampaignTypeJourney = CampaignType("JOURNEY")
+)
+
+func (CampaignType) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignType)(nil)).Elem()
+}
+
+func (e CampaignType) ToCampaignTypeOutput() CampaignTypeOutput {
+	return pulumi.ToOutput(e).(CampaignTypeOutput)
+}
+
+func (e CampaignType) ToCampaignTypeOutputWithContext(ctx context.Context) CampaignTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CampaignTypeOutput)
+}
+
+func (e CampaignType) ToCampaignTypePtrOutput() CampaignTypePtrOutput {
+	return e.ToCampaignTypePtrOutputWithContext(context.Background())
+}
+
+func (e CampaignType) ToCampaignTypePtrOutputWithContext(ctx context.Context) CampaignTypePtrOutput {
+	return CampaignType(e).ToCampaignTypeOutputWithContext(ctx).ToCampaignTypePtrOutputWithContext(ctx)
+}
+
+func (e CampaignType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CampaignType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CampaignType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CampaignType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CampaignTypeOutput struct{ *pulumi.OutputState }
+
+func (CampaignTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignType)(nil)).Elem()
+}
+
+func (o CampaignTypeOutput) ToCampaignTypeOutput() CampaignTypeOutput {
+	return o
+}
+
+func (o CampaignTypeOutput) ToCampaignTypeOutputWithContext(ctx context.Context) CampaignTypeOutput {
+	return o
+}
+
+func (o CampaignTypeOutput) ToCampaignTypePtrOutput() CampaignTypePtrOutput {
+	return o.ToCampaignTypePtrOutputWithContext(context.Background())
+}
+
+func (o CampaignTypeOutput) ToCampaignTypePtrOutputWithContext(ctx context.Context) CampaignTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignType) *CampaignType {
+		return &v
+	}).(CampaignTypePtrOutput)
+}
+
+func (o CampaignTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CampaignTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CampaignType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CampaignTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CampaignType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CampaignTypePtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignType)(nil)).Elem()
+}
+
+func (o CampaignTypePtrOutput) ToCampaignTypePtrOutput() CampaignTypePtrOutput {
+	return o
+}
+
+func (o CampaignTypePtrOutput) ToCampaignTypePtrOutputWithContext(ctx context.Context) CampaignTypePtrOutput {
+	return o
+}
+
+func (o CampaignTypePtrOutput) Elem() CampaignTypeOutput {
+	return o.ApplyT(func(v *CampaignType) CampaignType {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignType
+		return ret
+	}).(CampaignTypeOutput)
+}
+
+func (o CampaignTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CampaignType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CampaignTypeInput is an input type that accepts values of the CampaignType enum
+// A concrete instance of `CampaignTypeInput` can be one of the following:
+//
+//	CampaignTypeManaged
+//	CampaignTypeJourney
+type CampaignTypeInput interface {
+	pulumi.Input
+
+	ToCampaignTypeOutput() CampaignTypeOutput
+	ToCampaignTypeOutputWithContext(context.Context) CampaignTypeOutput
+}
+
+var campaignTypePtrType = reflect.TypeOf((**CampaignType)(nil)).Elem()
+
+type CampaignTypePtrInput interface {
+	pulumi.Input
+
+	ToCampaignTypePtrOutput() CampaignTypePtrOutput
+	ToCampaignTypePtrOutputWithContext(context.Context) CampaignTypePtrOutput
+}
+
+type campaignTypePtr string
+
+func CampaignTypePtr(v string) CampaignTypePtrInput {
+	return (*campaignTypePtr)(&v)
+}
+
+func (*campaignTypePtr) ElementType() reflect.Type {
+	return campaignTypePtrType
+}
+
+func (in *campaignTypePtr) ToCampaignTypePtrOutput() CampaignTypePtrOutput {
+	return pulumi.ToOutput(in).(CampaignTypePtrOutput)
+}
+
+func (in *campaignTypePtr) ToCampaignTypePtrOutputWithContext(ctx context.Context) CampaignTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CampaignTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignAgentActionInput)(nil)).Elem(), CampaignAgentAction("DISCARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignAgentActionPtrInput)(nil)).Elem(), CampaignAgentAction("DISCARD"))
@@ -949,6 +1115,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignLocalTimeZoneDetectionTypeInput)(nil)).Elem(), CampaignLocalTimeZoneDetectionType("ZIP_CODE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignLocalTimeZoneDetectionTypePtrInput)(nil)).Elem(), CampaignLocalTimeZoneDetectionType("ZIP_CODE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignLocalTimeZoneDetectionTypeArrayInput)(nil)).Elem(), CampaignLocalTimeZoneDetectionTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTypeInput)(nil)).Elem(), CampaignType("MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignTypePtrInput)(nil)).Elem(), CampaignType("MANAGED"))
 	pulumi.RegisterOutputType(CampaignAgentActionOutput{})
 	pulumi.RegisterOutputType(CampaignAgentActionPtrOutput{})
 	pulumi.RegisterOutputType(CampaignAgentActionArrayOutput{})
@@ -961,4 +1129,6 @@ func init() {
 	pulumi.RegisterOutputType(CampaignLocalTimeZoneDetectionTypeOutput{})
 	pulumi.RegisterOutputType(CampaignLocalTimeZoneDetectionTypePtrOutput{})
 	pulumi.RegisterOutputType(CampaignLocalTimeZoneDetectionTypeArrayOutput{})
+	pulumi.RegisterOutputType(CampaignTypeOutput{})
+	pulumi.RegisterOutputType(CampaignTypePtrOutput{})
 }

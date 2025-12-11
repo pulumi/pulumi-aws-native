@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, creation_time=None, deletion_protection_enabled=None, encryption_details=None, endpoint=None, identifier=None, multi_region_properties=None, policy_document=None, policy_version=None, resource_arn=None, status=None, tags=None, vpc_endpoint_service_name=None):
+    def __init__(__self__, creation_time=None, deletion_protection_enabled=None, encryption_details=None, endpoint=None, identifier=None, multi_region_properties=None, policy_document=None, policy_version=None, resource_arn=None, status=None, tags=None, vpc_endpoint=None, vpc_endpoint_service_name=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -59,6 +59,9 @@ class GetClusterResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if vpc_endpoint and not isinstance(vpc_endpoint, str):
+            raise TypeError("Expected argument 'vpc_endpoint' to be a str")
+        pulumi.set(__self__, "vpc_endpoint", vpc_endpoint)
         if vpc_endpoint_service_name and not isinstance(vpc_endpoint_service_name, str):
             raise TypeError("Expected argument 'vpc_endpoint_service_name' to be a str")
         pulumi.set(__self__, "vpc_endpoint_service_name", vpc_endpoint_service_name)
@@ -152,6 +155,14 @@ class GetClusterResult:
         return pulumi.get(self, "tags")
 
     @_builtins.property
+    @pulumi.getter(name="vpcEndpoint")
+    def vpc_endpoint(self) -> Optional[_builtins.str]:
+        """
+        The DSQL cluster VPC endpoint.
+        """
+        return pulumi.get(self, "vpc_endpoint")
+
+    @_builtins.property
     @pulumi.getter(name="vpcEndpointServiceName")
     def vpc_endpoint_service_name(self) -> Optional[_builtins.str]:
         """
@@ -177,6 +188,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             resource_arn=self.resource_arn,
             status=self.status,
             tags=self.tags,
+            vpc_endpoint=self.vpc_endpoint,
             vpc_endpoint_service_name=self.vpc_endpoint_service_name)
 
 
@@ -205,6 +217,7 @@ def get_cluster(identifier: Optional[_builtins.str] = None,
         resource_arn=pulumi.get(__ret__, 'resource_arn'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
+        vpc_endpoint=pulumi.get(__ret__, 'vpc_endpoint'),
         vpc_endpoint_service_name=pulumi.get(__ret__, 'vpc_endpoint_service_name'))
 def get_cluster_output(identifier: Optional[pulumi.Input[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
@@ -230,4 +243,5 @@ def get_cluster_output(identifier: Optional[pulumi.Input[_builtins.str]] = None,
         resource_arn=pulumi.get(__response__, 'resource_arn'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),
+        vpc_endpoint=pulumi.get(__response__, 'vpc_endpoint'),
         vpc_endpoint_service_name=pulumi.get(__response__, 'vpc_endpoint_service_name')))

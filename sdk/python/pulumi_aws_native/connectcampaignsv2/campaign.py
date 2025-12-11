@@ -24,19 +24,20 @@ __all__ = ['CampaignArgs', 'Campaign']
 @pulumi.input_type
 class CampaignArgs:
     def __init__(__self__, *,
-                 channel_subtype_config: pulumi.Input['CampaignChannelSubtypeConfigArgs'],
                  connect_instance_id: pulumi.Input[_builtins.str],
+                 channel_subtype_config: Optional[pulumi.Input['CampaignChannelSubtypeConfigArgs']] = None,
                  communication_limits_override: Optional[pulumi.Input['CampaignCommunicationLimitsConfigArgs']] = None,
                  communication_time_config: Optional[pulumi.Input['CampaignCommunicationTimeConfigArgs']] = None,
                  connect_campaign_flow_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  schedule: Optional[pulumi.Input['CampaignScheduleArgs']] = None,
                  source: Optional[pulumi.Input['CampaignSourceArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 type: Optional[pulumi.Input['CampaignType']] = None):
         """
         The set of arguments for constructing a Campaign resource.
-        :param pulumi.Input['CampaignChannelSubtypeConfigArgs'] channel_subtype_config: Contains channel subtype configuration for an outbound campaign.
         :param pulumi.Input[_builtins.str] connect_instance_id: The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
+        :param pulumi.Input['CampaignChannelSubtypeConfigArgs'] channel_subtype_config: Contains channel subtype configuration for an outbound campaign.
         :param pulumi.Input['CampaignCommunicationLimitsConfigArgs'] communication_limits_override: Communication limits configuration for an outbound campaign.
         :param pulumi.Input['CampaignCommunicationTimeConfigArgs'] communication_time_config: Contains communication time configuration for an outbound campaign.
         :param pulumi.Input[_builtins.str] connect_campaign_flow_arn: The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
@@ -45,8 +46,9 @@ class CampaignArgs:
         :param pulumi.Input['CampaignSourceArgs'] source: Contains source configuration.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
         """
-        pulumi.set(__self__, "channel_subtype_config", channel_subtype_config)
         pulumi.set(__self__, "connect_instance_id", connect_instance_id)
+        if channel_subtype_config is not None:
+            pulumi.set(__self__, "channel_subtype_config", channel_subtype_config)
         if communication_limits_override is not None:
             pulumi.set(__self__, "communication_limits_override", communication_limits_override)
         if communication_time_config is not None:
@@ -61,18 +63,8 @@ class CampaignArgs:
             pulumi.set(__self__, "source", source)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="channelSubtypeConfig")
-    def channel_subtype_config(self) -> pulumi.Input['CampaignChannelSubtypeConfigArgs']:
-        """
-        Contains channel subtype configuration for an outbound campaign.
-        """
-        return pulumi.get(self, "channel_subtype_config")
-
-    @channel_subtype_config.setter
-    def channel_subtype_config(self, value: pulumi.Input['CampaignChannelSubtypeConfigArgs']):
-        pulumi.set(self, "channel_subtype_config", value)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter(name="connectInstanceId")
@@ -85,6 +77,18 @@ class CampaignArgs:
     @connect_instance_id.setter
     def connect_instance_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "connect_instance_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="channelSubtypeConfig")
+    def channel_subtype_config(self) -> Optional[pulumi.Input['CampaignChannelSubtypeConfigArgs']]:
+        """
+        Contains channel subtype configuration for an outbound campaign.
+        """
+        return pulumi.get(self, "channel_subtype_config")
+
+    @channel_subtype_config.setter
+    def channel_subtype_config(self, value: Optional[pulumi.Input['CampaignChannelSubtypeConfigArgs']]):
+        pulumi.set(self, "channel_subtype_config", value)
 
     @_builtins.property
     @pulumi.getter(name="communicationLimitsOverride")
@@ -170,6 +174,15 @@ class CampaignArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['CampaignType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['CampaignType']]):
+        pulumi.set(self, "type", value)
+
 
 @pulumi.type_token("aws-native:connectcampaignsv2:Campaign")
 class Campaign(pulumi.CustomResource):
@@ -186,6 +199,7 @@ class Campaign(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[Union['CampaignScheduleArgs', 'CampaignScheduleArgsDict']]] = None,
                  source: Optional[pulumi.Input[Union['CampaignSourceArgs', 'CampaignSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: Optional[pulumi.Input['CampaignType']] = None,
                  __props__=None):
         """
         Definition of AWS::ConnectCampaignsV2::Campaign Resource Type
@@ -235,6 +249,7 @@ class Campaign(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[Union['CampaignScheduleArgs', 'CampaignScheduleArgsDict']]] = None,
                  source: Optional[pulumi.Input[Union['CampaignSourceArgs', 'CampaignSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 type: Optional[pulumi.Input['CampaignType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -244,8 +259,6 @@ class Campaign(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CampaignArgs.__new__(CampaignArgs)
 
-            if channel_subtype_config is None and not opts.urn:
-                raise TypeError("Missing required property 'channel_subtype_config'")
             __props__.__dict__["channel_subtype_config"] = channel_subtype_config
             __props__.__dict__["communication_limits_override"] = communication_limits_override
             __props__.__dict__["communication_time_config"] = communication_time_config
@@ -257,6 +270,7 @@ class Campaign(pulumi.CustomResource):
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["source"] = source
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connectInstanceId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -292,6 +306,7 @@ class Campaign(pulumi.CustomResource):
         __props__.__dict__["schedule"] = None
         __props__.__dict__["source"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["type"] = None
         return Campaign(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -304,7 +319,7 @@ class Campaign(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="channelSubtypeConfig")
-    def channel_subtype_config(self) -> pulumi.Output['outputs.CampaignChannelSubtypeConfig']:
+    def channel_subtype_config(self) -> pulumi.Output[Optional['outputs.CampaignChannelSubtypeConfig']]:
         """
         Contains channel subtype configuration for an outbound campaign.
         """
@@ -373,4 +388,9 @@ class Campaign(pulumi.CustomResource):
         One or more tags.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Output[Optional['CampaignType']]:
+        return pulumi.get(self, "type")
 

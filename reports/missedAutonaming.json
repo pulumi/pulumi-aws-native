@@ -2621,6 +2621,25 @@
       }
     }
   },
+  "aws-native:connect:DataTableRecord": {
+    "cfTypeName": "AWS::Connect::DataTableRecord",
+    "properties": {
+      "dataTableArn": {
+        "type": "string"
+      },
+      "dataTableRecord": {
+        "$ref": "#/types/aws-native:connect:DataTableRecordProperties",
+        "language": {
+          "csharp": {
+            "name": "DataTableRecordValue"
+          }
+        }
+      },
+      "instanceArn": {
+        "type": "string"
+      }
+    }
+  },
   "aws-native:connect:EmailAddress": {
     "cfTypeName": "AWS::Connect::EmailAddress",
     "properties": {
@@ -5363,6 +5382,17 @@
         "type": "string",
         "description": "[Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway. This property is required for a public NAT gateway and cannot be specified with a private NAT gateway."
       },
+      "availabilityMode": {
+        "type": "string",
+        "description": "Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.\n\nA zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.\n\nFor more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* ."
+      },
+      "availabilityZoneAddresses": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:ec2:NatGatewayAvailabilityZoneAddress"
+        },
+        "description": "For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.\n\nA regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.\n\nFor more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* ."
+      },
       "connectivityType": {
         "type": "string",
         "description": "Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity."
@@ -5619,6 +5649,10 @@
         },
         "description": "Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property."
       },
+      "publicIpDnsHostnameTypeSpecification": {
+        "$ref": "#/types/aws-native:ec2:NetworkInterfacePublicIpDnsHostnameTypeSpecification",
+        "description": "Public IP DNS hostname type"
+      },
       "secondaryPrivateIpAddressCount": {
         "type": "integer",
         "description": "The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses"
@@ -5645,15 +5679,15 @@
     "properties": {
       "deleteOnTermination": {
         "type": "boolean",
-        "description": "Whether to delete the network interface when the instance terminates. By default, this value is set to true."
+        "description": "Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``."
       },
       "deviceIndex": {
         "type": "string",
-        "description": "The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0."
+        "description": "The network interface's position in the attachment order. For example, the first attached network interface has a ``DeviceIndex`` of 0."
       },
       "enaQueueCount": {
         "type": "integer",
-        "description": "The number of ENA queues to be created with the instance."
+        "description": "The number of ENA queues created with the instance."
       },
       "enaSrdSpecification": {
         "$ref": "#/types/aws-native:ec2:NetworkInterfaceAttachmentEnaSrdSpecification",
@@ -11253,6 +11287,10 @@
         "$ref": "#/types/aws-native:networkmanager:ConnectAttachmentProposedSegmentChange",
         "description": "The attachment to move from one segment to another."
       },
+      "routingPolicyLabel": {
+        "type": "string",
+        "description": "Routing policy label"
+      },
       "tags": {
         "type": "array",
         "items": {
@@ -11326,6 +11364,23 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The tags for the global network."
+      }
+    }
+  },
+  "aws-native:networkmanager:CoreNetworkPrefixListAssociation": {
+    "cfTypeName": "AWS::NetworkManager::CoreNetworkPrefixListAssociation",
+    "properties": {
+      "coreNetworkId": {
+        "type": "string",
+        "description": "The ID of the core network."
+      },
+      "prefixListAlias": {
+        "type": "string",
+        "description": "The alias of the prefix list"
+      },
+      "prefixListArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the prefix list."
       }
     }
   },
@@ -11423,6 +11478,10 @@
       "proposedSegmentChange": {
         "$ref": "#/types/aws-native:networkmanager:DirectConnectGatewayAttachmentProposedSegmentChange",
         "description": "The attachment to move from one segment to another."
+      },
+      "routingPolicyLabel": {
+        "type": "string",
+        "description": "Routing policy label"
       },
       "tags": {
         "type": "array",
@@ -11553,6 +11612,10 @@
         "$ref": "#/types/aws-native:networkmanager:SiteToSiteVpnAttachmentProposedSegmentChange",
         "description": "The attachment to move from one segment to another."
       },
+      "routingPolicyLabel": {
+        "type": "string",
+        "description": "Routing policy label"
+      },
       "tags": {
         "type": "array",
         "items": {
@@ -11618,6 +11681,10 @@
         "$ref": "#/types/aws-native:networkmanager:TransitGatewayRouteTableAttachmentProposedSegmentChange",
         "description": "The attachment to move from one segment to another."
       },
+      "routingPolicyLabel": {
+        "type": "string",
+        "description": "Routing policy label"
+      },
       "tags": {
         "type": "array",
         "items": {
@@ -11649,6 +11716,10 @@
       "proposedSegmentChange": {
         "$ref": "#/types/aws-native:networkmanager:VpcAttachmentProposedSegmentChange",
         "description": "The attachment to move from one segment to another."
+      },
+      "routingPolicyLabel": {
+        "type": "string",
+        "description": "Routing policy label"
       },
       "subnetArns": {
         "type": "array",
@@ -11992,6 +12063,12 @@
       "keyCheckValueAlgorithm": {
         "$ref": "#/types/aws-native:paymentcryptography:KeyCheckValueAlgorithm",
         "description": "The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.\n\nFor TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result."
+      },
+      "replicationRegions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
       },
       "tags": {
         "type": "array",
@@ -13756,32 +13833,6 @@
       "tagValue": {
         "type": "string",
         "description": "The tag value. Resources tagged with this tag key-value pair will be added to the application. If a resource with this tag is later untagged, the tag-sync task removes the resource from the application."
-      }
-    }
-  },
-  "aws-native:robomaker:RobotApplicationVersion": {
-    "cfTypeName": "AWS::RoboMaker::RobotApplicationVersion",
-    "properties": {
-      "application": {
-        "type": "string",
-        "description": "The application information for the robot application."
-      },
-      "currentRevisionId": {
-        "type": "string",
-        "description": "The revision ID of robot application."
-      }
-    }
-  },
-  "aws-native:robomaker:SimulationApplicationVersion": {
-    "cfTypeName": "AWS::RoboMaker::SimulationApplicationVersion",
-    "properties": {
-      "application": {
-        "type": "string",
-        "description": "The application information for the simulation application."
-      },
-      "currentRevisionId": {
-        "type": "string",
-        "description": "The revision ID of robot application."
       }
     }
   },

@@ -12,6 +12,7 @@ __all__ = [
     'KeyClass',
     'KeyDeriveKeyUsage',
     'KeyOrigin',
+    'KeyReplicationState',
     'KeyState',
     'KeyUsage',
 ]
@@ -82,6 +83,17 @@ class KeyOrigin(_builtins.str, Enum):
     """
     EXTERNAL = "EXTERNAL"
     AWS_PAYMENT_CRYPTOGRAPHY = "AWS_PAYMENT_CRYPTOGRAPHY"
+
+
+@pulumi.type_token("aws-native:paymentcryptography:KeyReplicationState")
+class KeyReplicationState(_builtins.str, Enum):
+    """
+    Defines the replication state of a key
+    """
+    IN_PROGRESS = "IN_PROGRESS"
+    DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS"
+    FAILED = "FAILED"
+    SYNCHRONIZED = "SYNCHRONIZED"
 
 
 @pulumi.type_token("aws-native:paymentcryptography:KeyState")

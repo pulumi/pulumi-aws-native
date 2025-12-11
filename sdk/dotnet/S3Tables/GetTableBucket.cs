@@ -68,6 +68,7 @@ namespace Pulumi.AwsNative.S3Tables
         /// </summary>
         public readonly Outputs.TableBucketEncryptionConfiguration? EncryptionConfiguration;
         public readonly Outputs.TableBucketMetricsConfiguration? MetricsConfiguration;
+        public readonly Outputs.TableBucketStorageClassConfiguration? StorageClassConfiguration;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the table bucket.
         /// </summary>
@@ -87,6 +88,8 @@ namespace Pulumi.AwsNative.S3Tables
 
             Outputs.TableBucketMetricsConfiguration? metricsConfiguration,
 
+            Outputs.TableBucketStorageClassConfiguration? storageClassConfiguration,
+
             string? tableBucketArn,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
@@ -95,6 +98,7 @@ namespace Pulumi.AwsNative.S3Tables
         {
             EncryptionConfiguration = encryptionConfiguration;
             MetricsConfiguration = metricsConfiguration;
+            StorageClassConfiguration = storageClassConfiguration;
             TableBucketArn = tableBucketArn;
             Tags = tags;
             UnreferencedFileRemoval = unreferencedFileRemoval;

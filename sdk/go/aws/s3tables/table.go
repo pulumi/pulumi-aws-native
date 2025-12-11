@@ -26,7 +26,8 @@ type Table struct {
 	// The format of the table.
 	OpenTableFormat TableOpenTableFormatOutput `pulumi:"openTableFormat"`
 	// Contains details about the Iceberg snapshot management settings for the table.
-	SnapshotManagement TableSnapshotManagementPtrOutput `pulumi:"snapshotManagement"`
+	SnapshotManagement        TableSnapshotManagementPtrOutput        `pulumi:"snapshotManagement"`
+	StorageClassConfiguration TableStorageClassConfigurationPtrOutput `pulumi:"storageClassConfiguration"`
 	// The Amazon Resource Name (ARN) of the table.
 	TableArn pulumi.StringOutput `pulumi:"tableArn"`
 	// The Amazon Resource Name (ARN) of the table bucket to create the table in.
@@ -62,6 +63,7 @@ func NewTable(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"icebergMetadata",
 		"openTableFormat",
+		"storageClassConfiguration",
 		"tableBucketArn",
 		"withoutMetadata",
 	})
@@ -108,7 +110,8 @@ type tableArgs struct {
 	// The format of the table.
 	OpenTableFormat TableOpenTableFormat `pulumi:"openTableFormat"`
 	// Contains details about the Iceberg snapshot management settings for the table.
-	SnapshotManagement *TableSnapshotManagement `pulumi:"snapshotManagement"`
+	SnapshotManagement        *TableSnapshotManagement        `pulumi:"snapshotManagement"`
+	StorageClassConfiguration *TableStorageClassConfiguration `pulumi:"storageClassConfiguration"`
 	// The Amazon Resource Name (ARN) of the table bucket to create the table in.
 	TableBucketArn string `pulumi:"tableBucketArn"`
 	// The name for the table.
@@ -130,7 +133,8 @@ type TableArgs struct {
 	// The format of the table.
 	OpenTableFormat TableOpenTableFormatInput
 	// Contains details about the Iceberg snapshot management settings for the table.
-	SnapshotManagement TableSnapshotManagementPtrInput
+	SnapshotManagement        TableSnapshotManagementPtrInput
+	StorageClassConfiguration TableStorageClassConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of the table bucket to create the table in.
 	TableBucketArn pulumi.StringInput
 	// The name for the table.
@@ -201,6 +205,10 @@ func (o TableOutput) OpenTableFormat() TableOpenTableFormatOutput {
 // Contains details about the Iceberg snapshot management settings for the table.
 func (o TableOutput) SnapshotManagement() TableSnapshotManagementPtrOutput {
 	return o.ApplyT(func(v *Table) TableSnapshotManagementPtrOutput { return v.SnapshotManagement }).(TableSnapshotManagementPtrOutput)
+}
+
+func (o TableOutput) StorageClassConfiguration() TableStorageClassConfigurationPtrOutput {
+	return o.ApplyT(func(v *Table) TableStorageClassConfigurationPtrOutput { return v.StorageClassConfiguration }).(TableStorageClassConfigurationPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the table.

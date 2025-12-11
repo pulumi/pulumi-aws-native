@@ -30,6 +30,7 @@ class TableArgs:
                  compaction: Optional[pulumi.Input['TableCompactionArgs']] = None,
                  iceberg_metadata: Optional[pulumi.Input['TableIcebergMetadataArgs']] = None,
                  snapshot_management: Optional[pulumi.Input['TableSnapshotManagementArgs']] = None,
+                 storage_class_configuration: Optional[pulumi.Input['TableStorageClassConfigurationArgs']] = None,
                  table_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  without_metadata: Optional[pulumi.Input['TableWithoutMetadata']] = None):
@@ -54,6 +55,8 @@ class TableArgs:
             pulumi.set(__self__, "iceberg_metadata", iceberg_metadata)
         if snapshot_management is not None:
             pulumi.set(__self__, "snapshot_management", snapshot_management)
+        if storage_class_configuration is not None:
+            pulumi.set(__self__, "storage_class_configuration", storage_class_configuration)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
         if tags is not None:
@@ -134,6 +137,15 @@ class TableArgs:
         pulumi.set(self, "snapshot_management", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageClassConfiguration")
+    def storage_class_configuration(self) -> Optional[pulumi.Input['TableStorageClassConfigurationArgs']]:
+        return pulumi.get(self, "storage_class_configuration")
+
+    @storage_class_configuration.setter
+    def storage_class_configuration(self, value: Optional[pulumi.Input['TableStorageClassConfigurationArgs']]):
+        pulumi.set(self, "storage_class_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -181,6 +193,7 @@ class Table(pulumi.CustomResource):
                  namespace: Optional[pulumi.Input[_builtins.str]] = None,
                  open_table_format: Optional[pulumi.Input['TableOpenTableFormat']] = None,
                  snapshot_management: Optional[pulumi.Input[Union['TableSnapshotManagementArgs', 'TableSnapshotManagementArgsDict']]] = None,
+                 storage_class_configuration: Optional[pulumi.Input[Union['TableStorageClassConfigurationArgs', 'TableStorageClassConfigurationArgsDict']]] = None,
                  table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  table_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -230,6 +243,7 @@ class Table(pulumi.CustomResource):
                  namespace: Optional[pulumi.Input[_builtins.str]] = None,
                  open_table_format: Optional[pulumi.Input['TableOpenTableFormat']] = None,
                  snapshot_management: Optional[pulumi.Input[Union['TableSnapshotManagementArgs', 'TableSnapshotManagementArgsDict']]] = None,
+                 storage_class_configuration: Optional[pulumi.Input[Union['TableStorageClassConfigurationArgs', 'TableStorageClassConfigurationArgsDict']]] = None,
                  table_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  table_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -252,6 +266,7 @@ class Table(pulumi.CustomResource):
                 raise TypeError("Missing required property 'open_table_format'")
             __props__.__dict__["open_table_format"] = open_table_format
             __props__.__dict__["snapshot_management"] = snapshot_management
+            __props__.__dict__["storage_class_configuration"] = storage_class_configuration
             if table_bucket_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'table_bucket_arn'")
             __props__.__dict__["table_bucket_arn"] = table_bucket_arn
@@ -261,7 +276,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["table_arn"] = None
             __props__.__dict__["version_token"] = None
             __props__.__dict__["warehouse_location"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["icebergMetadata", "openTableFormat", "tableBucketArn", "withoutMetadata"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["icebergMetadata", "openTableFormat", "storageClassConfiguration", "tableBucketArn", "withoutMetadata"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Table, __self__).__init__(
             'aws-native:s3tables:Table',
@@ -290,6 +305,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["namespace"] = None
         __props__.__dict__["open_table_format"] = None
         __props__.__dict__["snapshot_management"] = None
+        __props__.__dict__["storage_class_configuration"] = None
         __props__.__dict__["table_arn"] = None
         __props__.__dict__["table_bucket_arn"] = None
         __props__.__dict__["table_name"] = None
@@ -338,6 +354,11 @@ class Table(pulumi.CustomResource):
         Contains details about the Iceberg snapshot management settings for the table.
         """
         return pulumi.get(self, "snapshot_management")
+
+    @_builtins.property
+    @pulumi.getter(name="storageClassConfiguration")
+    def storage_class_configuration(self) -> pulumi.Output[Optional['outputs.TableStorageClassConfiguration']]:
+        return pulumi.get(self, "storage_class_configuration")
 
     @_builtins.property
     @pulumi.getter(name="tableArn")

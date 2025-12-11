@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetNetworkInterfaceResult:
-    def __init__(__self__, connection_tracking_specification=None, description=None, enable_primary_ipv6=None, group_set=None, id=None, ipv4_prefix_count=None, ipv4_prefixes=None, ipv6_address_count=None, ipv6_addresses=None, ipv6_prefix_count=None, ipv6_prefixes=None, primary_ipv6_address=None, primary_private_ip_address=None, private_ip_addresses=None, secondary_private_ip_address_count=None, secondary_private_ip_addresses=None, source_dest_check=None, tags=None, vpc_id=None):
+    def __init__(__self__, connection_tracking_specification=None, description=None, enable_primary_ipv6=None, group_set=None, id=None, ipv4_prefix_count=None, ipv4_prefixes=None, ipv6_address_count=None, ipv6_addresses=None, ipv6_prefix_count=None, ipv6_prefixes=None, primary_ipv6_address=None, primary_private_ip_address=None, private_ip_addresses=None, public_ip_dns_name_options=None, secondary_private_ip_address_count=None, secondary_private_ip_addresses=None, source_dest_check=None, tags=None, vpc_id=None):
         if connection_tracking_specification and not isinstance(connection_tracking_specification, dict):
             raise TypeError("Expected argument 'connection_tracking_specification' to be a dict")
         pulumi.set(__self__, "connection_tracking_specification", connection_tracking_specification)
@@ -68,6 +68,9 @@ class GetNetworkInterfaceResult:
         if private_ip_addresses and not isinstance(private_ip_addresses, list):
             raise TypeError("Expected argument 'private_ip_addresses' to be a list")
         pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+        if public_ip_dns_name_options and not isinstance(public_ip_dns_name_options, dict):
+            raise TypeError("Expected argument 'public_ip_dns_name_options' to be a dict")
+        pulumi.set(__self__, "public_ip_dns_name_options", public_ip_dns_name_options)
         if secondary_private_ip_address_count and not isinstance(secondary_private_ip_address_count, int):
             raise TypeError("Expected argument 'secondary_private_ip_address_count' to be a int")
         pulumi.set(__self__, "secondary_private_ip_address_count", secondary_private_ip_address_count)
@@ -197,6 +200,11 @@ class GetNetworkInterfaceResult:
         return pulumi.get(self, "private_ip_addresses")
 
     @_builtins.property
+    @pulumi.getter(name="publicIpDnsNameOptions")
+    def public_ip_dns_name_options(self) -> Optional['outputs.NetworkInterfacePublicIpDnsNameOptions']:
+        return pulumi.get(self, "public_ip_dns_name_options")
+
+    @_builtins.property
     @pulumi.getter(name="secondaryPrivateIpAddressCount")
     def secondary_private_ip_address_count(self) -> Optional[_builtins.int]:
         """
@@ -257,6 +265,7 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             primary_ipv6_address=self.primary_ipv6_address,
             primary_private_ip_address=self.primary_private_ip_address,
             private_ip_addresses=self.private_ip_addresses,
+            public_ip_dns_name_options=self.public_ip_dns_name_options,
             secondary_private_ip_address_count=self.secondary_private_ip_address_count,
             secondary_private_ip_addresses=self.secondary_private_ip_addresses,
             source_dest_check=self.source_dest_check,
@@ -292,6 +301,7 @@ def get_network_interface(id: Optional[_builtins.str] = None,
         primary_ipv6_address=pulumi.get(__ret__, 'primary_ipv6_address'),
         primary_private_ip_address=pulumi.get(__ret__, 'primary_private_ip_address'),
         private_ip_addresses=pulumi.get(__ret__, 'private_ip_addresses'),
+        public_ip_dns_name_options=pulumi.get(__ret__, 'public_ip_dns_name_options'),
         secondary_private_ip_address_count=pulumi.get(__ret__, 'secondary_private_ip_address_count'),
         secondary_private_ip_addresses=pulumi.get(__ret__, 'secondary_private_ip_addresses'),
         source_dest_check=pulumi.get(__ret__, 'source_dest_check'),
@@ -324,6 +334,7 @@ def get_network_interface_output(id: Optional[pulumi.Input[_builtins.str]] = Non
         primary_ipv6_address=pulumi.get(__response__, 'primary_ipv6_address'),
         primary_private_ip_address=pulumi.get(__response__, 'primary_private_ip_address'),
         private_ip_addresses=pulumi.get(__response__, 'private_ip_addresses'),
+        public_ip_dns_name_options=pulumi.get(__response__, 'public_ip_dns_name_options'),
         secondary_private_ip_address_count=pulumi.get(__response__, 'secondary_private_ip_address_count'),
         secondary_private_ip_addresses=pulumi.get(__response__, 'secondary_private_ip_addresses'),
         source_dest_check=pulumi.get(__response__, 'source_dest_check'),

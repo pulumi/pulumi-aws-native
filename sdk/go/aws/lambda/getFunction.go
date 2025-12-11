@@ -52,7 +52,8 @@ type LookupFunctionResult struct {
 	// A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
 	DeadLetterConfig *FunctionDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// A description of the function.
-	Description *string `pulumi:"description"`
+	Description   *string                `pulumi:"description"`
+	DurableConfig *FunctionDurableConfig `pulumi:"durableConfig"`
 	// Environment variables that are accessible from function code during execution.
 	Environment *FunctionEnvironment `pulumi:"environment"`
 	// The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
@@ -173,6 +174,10 @@ func (o LookupFunctionResultOutput) DeadLetterConfig() FunctionDeadLetterConfigP
 // A description of the function.
 func (o LookupFunctionResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupFunctionResultOutput) DurableConfig() FunctionDurableConfigPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *FunctionDurableConfig { return v.DurableConfig }).(FunctionDurableConfigPtrOutput)
 }
 
 // Environment variables that are accessible from function code during execution.

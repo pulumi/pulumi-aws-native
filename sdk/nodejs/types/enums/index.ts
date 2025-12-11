@@ -109,7 +109,6 @@ import * as lex from "./lex";
 import * as lightsail from "./lightsail";
 import * as location from "./location";
 import * as logs from "./logs";
-import * as lookoutmetrics from "./lookoutmetrics";
 import * as m2 from "./m2";
 import * as macie from "./macie";
 import * as mediaconnect from "./mediaconnect";
@@ -140,6 +139,7 @@ import * as pipes from "./pipes";
 import * as proton from "./proton";
 import * as qbusiness from "./qbusiness";
 import * as quicksight from "./quicksight";
+import * as ram from "./ram";
 import * as rbin from "./rbin";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
@@ -148,7 +148,6 @@ import * as refactorspaces from "./refactorspaces";
 import * as resiliencehub from "./resiliencehub";
 import * as resourceexplorer2 from "./resourceexplorer2";
 import * as resourcegroups from "./resourcegroups";
-import * as robomaker from "./robomaker";
 import * as rolesanywhere from "./rolesanywhere";
 import * as route53 from "./route53";
 import * as route53recoverycontrol from "./route53recoverycontrol";
@@ -299,7 +298,6 @@ export {
     lightsail,
     location,
     logs,
-    lookoutmetrics,
     m2,
     macie,
     mediaconnect,
@@ -330,6 +328,7 @@ export {
     proton,
     qbusiness,
     quicksight,
+    ram,
     rbin,
     rds,
     redshift,
@@ -338,7 +337,6 @@ export {
     resiliencehub,
     resourceexplorer2,
     resourcegroups,
-    robomaker,
     rolesanywhere,
     route53,
     route53recoverycontrol,

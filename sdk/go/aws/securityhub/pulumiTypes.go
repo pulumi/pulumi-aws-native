@@ -5476,6 +5476,76 @@ func (o ConfigurationPolicySecurityHubPolicyPtrOutput) ServiceEnabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The provider configuration of the connector
+type ConnectorV2Provider struct {
+}
+
+// ConnectorV2ProviderInput is an input type that accepts ConnectorV2ProviderArgs and ConnectorV2ProviderOutput values.
+// You can construct a concrete instance of `ConnectorV2ProviderInput` via:
+//
+//	ConnectorV2ProviderArgs{...}
+type ConnectorV2ProviderInput interface {
+	pulumi.Input
+
+	ToConnectorV2ProviderOutput() ConnectorV2ProviderOutput
+	ToConnectorV2ProviderOutputWithContext(context.Context) ConnectorV2ProviderOutput
+}
+
+// The provider configuration of the connector
+type ConnectorV2ProviderArgs struct {
+}
+
+func (ConnectorV2ProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2Provider)(nil)).Elem()
+}
+
+func (i ConnectorV2ProviderArgs) ToConnectorV2ProviderOutput() ConnectorV2ProviderOutput {
+	return i.ToConnectorV2ProviderOutputWithContext(context.Background())
+}
+
+func (i ConnectorV2ProviderArgs) ToConnectorV2ProviderOutputWithContext(ctx context.Context) ConnectorV2ProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2ProviderOutput)
+}
+
+// The provider configuration of the connector
+type ConnectorV2ProviderOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2ProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2Provider)(nil)).Elem()
+}
+
+func (o ConnectorV2ProviderOutput) ToConnectorV2ProviderOutput() ConnectorV2ProviderOutput {
+	return o
+}
+
+func (o ConnectorV2ProviderOutput) ToConnectorV2ProviderOutputWithContext(ctx context.Context) ConnectorV2ProviderOutput {
+	return o
+}
+
+type ConnectorV2ProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2ProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorV2Provider)(nil)).Elem()
+}
+
+func (o ConnectorV2ProviderPtrOutput) ToConnectorV2ProviderPtrOutput() ConnectorV2ProviderPtrOutput {
+	return o
+}
+
+func (o ConnectorV2ProviderPtrOutput) ToConnectorV2ProviderPtrOutputWithContext(ctx context.Context) ConnectorV2ProviderPtrOutput {
+	return o
+}
+
+func (o ConnectorV2ProviderPtrOutput) Elem() ConnectorV2ProviderOutput {
+	return o.ApplyT(func(v *ConnectorV2Provider) ConnectorV2Provider {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorV2Provider
+		return ret
+	}).(ConnectorV2ProviderOutput)
+}
+
 // A collection of filters that are applied to all active findings aggregated by AWS Security Hub.
 type InsightAwsSecurityFindingFilters struct {
 	// The AWS account ID in which a finding is generated.
@@ -9142,6 +9212,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicySecurityControlsConfigurationPtrInput)(nil)).Elem(), ConfigurationPolicySecurityControlsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicySecurityHubPolicyInput)(nil)).Elem(), ConfigurationPolicySecurityHubPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicySecurityHubPolicyPtrInput)(nil)).Elem(), ConfigurationPolicySecurityHubPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2ProviderInput)(nil)).Elem(), ConnectorV2ProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightAwsSecurityFindingFiltersInput)(nil)).Elem(), InsightAwsSecurityFindingFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightBooleanFilterInput)(nil)).Elem(), InsightBooleanFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightBooleanFilterArrayInput)(nil)).Elem(), InsightBooleanFilterArray{})
@@ -9229,6 +9300,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationPolicySecurityControlsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationPolicySecurityHubPolicyOutput{})
 	pulumi.RegisterOutputType(ConfigurationPolicySecurityHubPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ConnectorV2ProviderOutput{})
+	pulumi.RegisterOutputType(ConnectorV2ProviderPtrOutput{})
 	pulumi.RegisterOutputType(InsightAwsSecurityFindingFiltersOutput{})
 	pulumi.RegisterOutputType(InsightAwsSecurityFindingFiltersPtrOutput{})
 	pulumi.RegisterOutputType(InsightBooleanFilterOutput{})

@@ -112,6 +112,15 @@ namespace Pulumi.AwsNative.Ec2
         public Output<ImmutableArray<Outputs.NetworkInterfacePrivateIpAddressSpecification>> PrivateIpAddresses { get; private set; } = null!;
 
         /// <summary>
+        /// Public IP DNS hostname type
+        /// </summary>
+        [Output("publicIpDnsHostnameTypeSpecification")]
+        public Output<Pulumi.AwsNative.Ec2.NetworkInterfacePublicIpDnsHostnameTypeSpecification?> PublicIpDnsHostnameTypeSpecification { get; private set; } = null!;
+
+        [Output("publicIpDnsNameOptions")]
+        public Output<Outputs.NetworkInterfacePublicIpDnsNameOptions> PublicIpDnsNameOptions { get; private set; } = null!;
+
+        /// <summary>
         /// The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses
         /// </summary>
         [Output("secondaryPrivateIpAddressCount")]
@@ -305,6 +314,12 @@ namespace Pulumi.AwsNative.Ec2
             get => _privateIpAddresses ?? (_privateIpAddresses = new InputList<Inputs.NetworkInterfacePrivateIpAddressSpecificationArgs>());
             set => _privateIpAddresses = value;
         }
+
+        /// <summary>
+        /// Public IP DNS hostname type
+        /// </summary>
+        [Input("publicIpDnsHostnameTypeSpecification")]
+        public Input<Pulumi.AwsNative.Ec2.NetworkInterfacePublicIpDnsHostnameTypeSpecification>? PublicIpDnsHostnameTypeSpecification { get; set; }
 
         /// <summary>
         /// The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses

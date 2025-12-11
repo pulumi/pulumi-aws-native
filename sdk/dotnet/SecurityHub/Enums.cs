@@ -733,6 +733,39 @@ namespace Pulumi.AwsNative.SecurityHub
     }
 
     /// <summary>
+    /// The status of the connector
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectorV2ConnectorStatus : IEquatable<ConnectorV2ConnectorStatus>
+    {
+        private readonly string _value;
+
+        private ConnectorV2ConnectorStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectorV2ConnectorStatus Connected { get; } = new ConnectorV2ConnectorStatus("CONNECTED");
+        public static ConnectorV2ConnectorStatus FailedToConnect { get; } = new ConnectorV2ConnectorStatus("FAILED_TO_CONNECT");
+        public static ConnectorV2ConnectorStatus PendingAuthorization { get; } = new ConnectorV2ConnectorStatus("PENDING_AUTHORIZATION");
+        public static ConnectorV2ConnectorStatus PendingConfiguration { get; } = new ConnectorV2ConnectorStatus("PENDING_CONFIGURATION");
+
+        public static bool operator ==(ConnectorV2ConnectorStatus left, ConnectorV2ConnectorStatus right) => left.Equals(right);
+        public static bool operator !=(ConnectorV2ConnectorStatus left, ConnectorV2ConnectorStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectorV2ConnectorStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectorV2ConnectorStatus other && Equals(other);
+        public bool Equals(ConnectorV2ConnectorStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether the delegated Security Hub administrator is set for the organization.
     /// </summary>
     [EnumType]

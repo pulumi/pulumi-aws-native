@@ -9,10 +9,10 @@
   },
   "handlers" : {
     "read" : {
-      "permissions" : [ "s3tables:GetTable", "s3tables:GetTableMaintenanceConfiguration", "s3tables:ListTagsForResource" ]
+      "permissions" : [ "s3tables:GetTable", "s3tables:GetTableMaintenanceConfiguration", "s3tables:GetTableStorageClass", "s3tables:ListTagsForResource" ]
     },
     "create" : {
-      "permissions" : [ "s3tables:CreateTable", "s3tables:PutTableData", "s3tables:GetTable", "s3tables:PutTableMaintenanceConfiguration", "s3tables:GetTableMaintenanceConfiguration", "s3tables:TagResource", "s3tables:ListTagsForResource" ]
+      "permissions" : [ "s3tables:CreateTable", "s3tables:PutTableData", "s3tables:GetTable", "s3tables:PutTableMaintenanceConfiguration", "s3tables:GetTableMaintenanceConfiguration", "s3tables:PutTableStorageClass", "s3tables:GetTableStorageClass", "s3tables:TagResource", "s3tables:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "s3tables:GetTable", "s3tables:RenameTable", "s3tables:PutTableMaintenanceConfiguration", "s3tables:GetTableMaintenanceConfiguration", "s3tables:TagResource", "s3tables:UntagResource", "s3tables:ListTagsForResource" ]
@@ -42,7 +42,7 @@
   "readOnlyProperties" : [ "/properties/TableARN", "/properties/WarehouseLocation", "/properties/VersionToken" ],
   "description" : "Resource Type definition for AWS::S3Tables::Table",
   "writeOnlyProperties" : [ "/properties/IcebergMetadata", "/properties/WithoutMetadata" ],
-  "createOnlyProperties" : [ "/properties/TableBucketARN", "/properties/OpenTableFormat", "/properties/IcebergMetadata", "/properties/WithoutMetadata" ],
+  "createOnlyProperties" : [ "/properties/TableBucketARN", "/properties/OpenTableFormat", "/properties/IcebergMetadata", "/properties/WithoutMetadata", "/properties/StorageClassConfiguration" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/TableARN" ],
   "definitions" : {
@@ -50,6 +50,18 @@
       "description" : "Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to 'IcebergMetadata', and its only possible value is 'Yes'.",
       "type" : "string",
       "enum" : [ "Yes" ]
+    },
+    "StorageClassConfiguration" : {
+      "description" : "Specifies storage class settings for the table",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "StorageClass" : {
+          "description" : "The storage class for the table",
+          "type" : "string",
+          "enum" : [ "STANDARD", "INTELLIGENT_TIERING" ]
+        }
+      }
     },
     "Compaction" : {
       "description" : "Settings governing the Compaction maintenance action. Contains details about the compaction settings for an Iceberg table.",
@@ -194,6 +206,9 @@
   "properties" : {
     "WithoutMetadata" : {
       "$ref" : "#/definitions/WithoutMetadata"
+    },
+    "StorageClassConfiguration" : {
+      "$ref" : "#/definitions/StorageClassConfiguration"
     },
     "Compaction" : {
       "$ref" : "#/definitions/Compaction"

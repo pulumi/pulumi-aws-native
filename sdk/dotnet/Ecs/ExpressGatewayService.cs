@@ -39,6 +39,12 @@ namespace Pulumi.AwsNative.Ecs
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        [Output("ecsManagedResourceArns")]
+        public Output<Outputs.ExpressGatewayServiceEcsManagedResourceArns> EcsManagedResourceArns { get; private set; } = null!;
+
+        [Output("endpoint")]
+        public Output<string> Endpoint { get; private set; } = null!;
+
         /// <summary>
         /// The ARN of the task execution role for the service revision.
         /// </summary>

@@ -43,6 +43,8 @@ namespace Pulumi.AwsNative.Backup
 
         /// <summary>
         /// The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+        /// 
+        /// If this field is left blank, AWS Backup will create an AWS owned key to be used to encrypt the content of the logically air-gapped vault. The ARN of this created key will be available as `Fn::GetAtt` output.
         /// </summary>
         [Output("encryptionKeyArn")]
         public Output<string?> EncryptionKeyArn { get; private set; } = null!;
@@ -61,6 +63,9 @@ namespace Pulumi.AwsNative.Backup
         [Output("minRetentionDays")]
         public Output<int> MinRetentionDays { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault. This cannot be changed after it is set from the CloudFormation template.
+        /// </summary>
         [Output("mpaApprovalTeamArn")]
         public Output<string?> MpaApprovalTeamArn { get; private set; } = null!;
 
@@ -162,6 +167,8 @@ namespace Pulumi.AwsNative.Backup
 
         /// <summary>
         /// The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+        /// 
+        /// If this field is left blank, AWS Backup will create an AWS owned key to be used to encrypt the content of the logically air-gapped vault. The ARN of this created key will be available as `Fn::GetAtt` output.
         /// </summary>
         [Input("encryptionKeyArn")]
         public Input<string>? EncryptionKeyArn { get; set; }
@@ -180,6 +187,9 @@ namespace Pulumi.AwsNative.Backup
         [Input("minRetentionDays", required: true)]
         public Input<int> MinRetentionDays { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault. This cannot be changed after it is set from the CloudFormation template.
+        /// </summary>
         [Input("mpaApprovalTeamArn")]
         public Input<string>? MpaApprovalTeamArn { get; set; }
 

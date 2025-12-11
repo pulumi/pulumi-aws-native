@@ -71,6 +71,8 @@ namespace Pulumi.AwsNative.Ecs
         /// The Unix timestamp for when the Express service was created.
         /// </summary>
         public readonly string? CreatedAt;
+        public readonly Outputs.ExpressGatewayServiceEcsManagedResourceArns? EcsManagedResourceArns;
+        public readonly string? Endpoint;
         /// <summary>
         /// The ARN that identifies the Express service.
         /// </summary>
@@ -87,6 +89,10 @@ namespace Pulumi.AwsNative.Ecs
 
             string? createdAt,
 
+            Outputs.ExpressGatewayServiceEcsManagedResourceArns? ecsManagedResourceArns,
+
+            string? endpoint,
+
             string? serviceArn,
 
             Outputs.ExpressGatewayServiceStatus? status,
@@ -95,6 +101,8 @@ namespace Pulumi.AwsNative.Ecs
         {
             ActiveConfigurations = activeConfigurations;
             CreatedAt = createdAt;
+            EcsManagedResourceArns = ecsManagedResourceArns;
+            Endpoint = endpoint;
             ServiceArn = serviceArn;
             Status = status;
             UpdatedAt = updatedAt;

@@ -28,6 +28,7 @@ class SiteToSiteVpnAttachmentArgs:
                  network_function_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  proposed_network_function_group_change: Optional[pulumi.Input['SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs']] = None,
                  proposed_segment_change: Optional[pulumi.Input['SiteToSiteVpnAttachmentProposedSegmentChangeArgs']] = None,
+                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SiteToSiteVpnAttachment resource.
@@ -36,6 +37,7 @@ class SiteToSiteVpnAttachmentArgs:
         :param pulumi.Input[_builtins.str] network_function_group_name: The name of the network function group attachment.
         :param pulumi.Input['SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs'] proposed_network_function_group_change: The attachment to move from one network function group to another.
         :param pulumi.Input['SiteToSiteVpnAttachmentProposedSegmentChangeArgs'] proposed_segment_change: The attachment to move from one segment to another.
+        :param pulumi.Input[_builtins.str] routing_policy_label: Routing policy label
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags for the attachment.
         """
         pulumi.set(__self__, "core_network_id", core_network_id)
@@ -46,6 +48,8 @@ class SiteToSiteVpnAttachmentArgs:
             pulumi.set(__self__, "proposed_network_function_group_change", proposed_network_function_group_change)
         if proposed_segment_change is not None:
             pulumi.set(__self__, "proposed_segment_change", proposed_segment_change)
+        if routing_policy_label is not None:
+            pulumi.set(__self__, "routing_policy_label", routing_policy_label)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -110,6 +114,18 @@ class SiteToSiteVpnAttachmentArgs:
         pulumi.set(self, "proposed_segment_change", value)
 
     @_builtins.property
+    @pulumi.getter(name="routingPolicyLabel")
+    def routing_policy_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Routing policy label
+        """
+        return pulumi.get(self, "routing_policy_label")
+
+    @routing_policy_label.setter
+    def routing_policy_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "routing_policy_label", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -132,6 +148,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                  network_function_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  proposed_network_function_group_change: Optional[pulumi.Input[Union['SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs', 'SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgsDict']]] = None,
                  proposed_segment_change: Optional[pulumi.Input[Union['SiteToSiteVpnAttachmentProposedSegmentChangeArgs', 'SiteToSiteVpnAttachmentProposedSegmentChangeArgsDict']]] = None,
+                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpn_connection_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -144,6 +161,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] network_function_group_name: The name of the network function group attachment.
         :param pulumi.Input[Union['SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs', 'SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgsDict']] proposed_network_function_group_change: The attachment to move from one network function group to another.
         :param pulumi.Input[Union['SiteToSiteVpnAttachmentProposedSegmentChangeArgs', 'SiteToSiteVpnAttachmentProposedSegmentChangeArgsDict']] proposed_segment_change: The attachment to move from one segment to another.
+        :param pulumi.Input[_builtins.str] routing_policy_label: Routing policy label
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for the attachment.
         :param pulumi.Input[_builtins.str] vpn_connection_arn: The ARN of the site-to-site VPN attachment.
         """
@@ -175,6 +193,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                  network_function_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  proposed_network_function_group_change: Optional[pulumi.Input[Union['SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs', 'SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgsDict']]] = None,
                  proposed_segment_change: Optional[pulumi.Input[Union['SiteToSiteVpnAttachmentProposedSegmentChangeArgs', 'SiteToSiteVpnAttachmentProposedSegmentChangeArgsDict']]] = None,
+                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpn_connection_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -192,6 +211,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
             __props__.__dict__["network_function_group_name"] = network_function_group_name
             __props__.__dict__["proposed_network_function_group_change"] = proposed_network_function_group_change
             __props__.__dict__["proposed_segment_change"] = proposed_segment_change
+            __props__.__dict__["routing_policy_label"] = routing_policy_label
             __props__.__dict__["tags"] = tags
             if vpn_connection_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'vpn_connection_arn'")
@@ -208,7 +228,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
             __props__.__dict__["segment_name"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["coreNetworkId", "vpnConnectionArn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["coreNetworkId", "routingPolicyLabel", "vpnConnectionArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SiteToSiteVpnAttachment, __self__).__init__(
             'aws-native:networkmanager:SiteToSiteVpnAttachment',
@@ -245,6 +265,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
         __props__.__dict__["proposed_network_function_group_change"] = None
         __props__.__dict__["proposed_segment_change"] = None
         __props__.__dict__["resource_arn"] = None
+        __props__.__dict__["routing_policy_label"] = None
         __props__.__dict__["segment_name"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
@@ -355,6 +376,14 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
         The ARN of the Resource.
         """
         return pulumi.get(self, "resource_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="routingPolicyLabel")
+    def routing_policy_label(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Routing policy label
+        """
+        return pulumi.get(self, "routing_policy_label")
 
     @_builtins.property
     @pulumi.getter(name="segmentName")

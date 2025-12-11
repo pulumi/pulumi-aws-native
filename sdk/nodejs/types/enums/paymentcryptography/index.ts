@@ -74,6 +74,18 @@ export const KeyOrigin = {
  */
 export type KeyOrigin = (typeof KeyOrigin)[keyof typeof KeyOrigin];
 
+export const KeyReplicationState = {
+    InProgress: "IN_PROGRESS",
+    DeleteInProgress: "DELETE_IN_PROGRESS",
+    Failed: "FAILED",
+    Synchronized: "SYNCHRONIZED",
+} as const;
+
+/**
+ * Defines the replication state of a key
+ */
+export type KeyReplicationState = (typeof KeyReplicationState)[keyof typeof KeyReplicationState];
+
 export const KeyState = {
     CreateInProgress: "CREATE_IN_PROGRESS",
     CreateComplete: "CREATE_COMPLETE",

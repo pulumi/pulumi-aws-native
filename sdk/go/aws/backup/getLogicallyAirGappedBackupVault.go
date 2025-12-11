@@ -35,8 +35,9 @@ type LookupLogicallyAirGappedBackupVaultResult struct {
 	// The ARN of the backup vault.
 	BackupVaultArn *string `pulumi:"backupVaultArn"`
 	// The tags to assign to the vault.
-	BackupVaultTags    map[string]string `pulumi:"backupVaultTags"`
-	MpaApprovalTeamArn *string           `pulumi:"mpaApprovalTeamArn"`
+	BackupVaultTags map[string]string `pulumi:"backupVaultTags"`
+	// The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault. This cannot be changed after it is set from the CloudFormation template.
+	MpaApprovalTeamArn *string `pulumi:"mpaApprovalTeamArn"`
 	// Returns event notifications for the specified backup vault.
 	Notifications *LogicallyAirGappedBackupVaultNotificationObjectType `pulumi:"notifications"`
 	// The vault state. The possible values are `CREATING` , `AVAILABLE` , and `FAILED` .
@@ -94,6 +95,7 @@ func (o LookupLogicallyAirGappedBackupVaultResultOutput) BackupVaultTags() pulum
 	return o.ApplyT(func(v LookupLogicallyAirGappedBackupVaultResult) map[string]string { return v.BackupVaultTags }).(pulumi.StringMapOutput)
 }
 
+// The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault. This cannot be changed after it is set from the CloudFormation template.
 func (o LookupLogicallyAirGappedBackupVaultResultOutput) MpaApprovalTeamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLogicallyAirGappedBackupVaultResult) *string { return v.MpaApprovalTeamArn }).(pulumi.StringPtrOutput)
 }

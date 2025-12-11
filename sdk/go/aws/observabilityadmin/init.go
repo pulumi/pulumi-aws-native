@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OrganizationCentralizationRule{}
 	case "aws-native:observabilityadmin:OrganizationTelemetryRule":
 		r = &OrganizationTelemetryRule{}
+	case "aws-native:observabilityadmin:TelemetryPipelines":
+		r = &TelemetryPipelines{}
 	case "aws-native:observabilityadmin:TelemetryRule":
 		r = &TelemetryRule{}
 	default:

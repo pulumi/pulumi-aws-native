@@ -29,6 +29,7 @@ class KeyArgs:
                  derive_key_usage: Optional[pulumi.Input['KeyDeriveKeyUsage']] = None,
                  enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  key_check_value_algorithm: Optional[pulumi.Input['KeyCheckValueAlgorithm']] = None,
+                 replication_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Key resource.
@@ -48,6 +49,8 @@ class KeyArgs:
             pulumi.set(__self__, "enabled", enabled)
         if key_check_value_algorithm is not None:
             pulumi.set(__self__, "key_check_value_algorithm", key_check_value_algorithm)
+        if replication_regions is not None:
+            pulumi.set(__self__, "replication_regions", replication_regions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -114,6 +117,15 @@ class KeyArgs:
         pulumi.set(self, "key_check_value_algorithm", value)
 
     @_builtins.property
+    @pulumi.getter(name="replicationRegions")
+    def replication_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "replication_regions")
+
+    @replication_regions.setter
+    def replication_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "replication_regions", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -134,6 +146,7 @@ class Key(pulumi.CustomResource):
                  exportable: Optional[pulumi.Input[_builtins.bool]] = None,
                  key_attributes: Optional[pulumi.Input[Union['KeyAttributesArgs', 'KeyAttributesArgsDict']]] = None,
                  key_check_value_algorithm: Optional[pulumi.Input['KeyCheckValueAlgorithm']] = None,
+                 replication_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -178,6 +191,7 @@ class Key(pulumi.CustomResource):
                  exportable: Optional[pulumi.Input[_builtins.bool]] = None,
                  key_attributes: Optional[pulumi.Input[Union['KeyAttributesArgs', 'KeyAttributesArgsDict']]] = None,
                  key_check_value_algorithm: Optional[pulumi.Input['KeyCheckValueAlgorithm']] = None,
+                 replication_regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -197,10 +211,12 @@ class Key(pulumi.CustomResource):
                 raise TypeError("Missing required property 'key_attributes'")
             __props__.__dict__["key_attributes"] = key_attributes
             __props__.__dict__["key_check_value_algorithm"] = key_check_value_algorithm
+            __props__.__dict__["replication_regions"] = replication_regions
             __props__.__dict__["tags"] = tags
             __props__.__dict__["key_identifier"] = None
             __props__.__dict__["key_origin"] = None
             __props__.__dict__["key_state"] = None
+            __props__.__dict__["replication_status"] = None
         super(Key, __self__).__init__(
             'aws-native:paymentcryptography:Key',
             resource_name,
@@ -231,6 +247,8 @@ class Key(pulumi.CustomResource):
         __props__.__dict__["key_identifier"] = None
         __props__.__dict__["key_origin"] = None
         __props__.__dict__["key_state"] = None
+        __props__.__dict__["replication_regions"] = None
+        __props__.__dict__["replication_status"] = None
         __props__.__dict__["tags"] = None
         return Key(resource_name, opts=opts, __props__=__props__)
 
@@ -296,6 +314,16 @@ class Key(pulumi.CustomResource):
         The state of key that is being created or deleted.
         """
         return pulumi.get(self, "key_state")
+
+    @_builtins.property
+    @pulumi.getter(name="replicationRegions")
+    def replication_regions(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        return pulumi.get(self, "replication_regions")
+
+    @_builtins.property
+    @pulumi.getter(name="replicationStatus")
+    def replication_status(self) -> pulumi.Output[Mapping[str, 'outputs.KeyReplicationStatusType']]:
+        return pulumi.get(self, "replication_status")
 
     @_builtins.property
     @pulumi.getter

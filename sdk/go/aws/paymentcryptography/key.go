@@ -33,8 +33,10 @@ type Key struct {
 	// The source of the key material. For keys created within AWS Payment Cryptography, the value is `AWS_PAYMENT_CRYPTOGRAPHY` . For keys imported into AWS Payment Cryptography, the value is `EXTERNAL` .
 	KeyOrigin KeyOriginOutput `pulumi:"keyOrigin"`
 	// The state of key that is being created or deleted.
-	KeyState KeyStateEnumOutput `pulumi:"keyState"`
-	Tags     aws.TagArrayOutput `pulumi:"tags"`
+	KeyState           KeyStateEnumOutput                `pulumi:"keyState"`
+	ReplicationRegions pulumi.StringArrayOutput          `pulumi:"replicationRegions"`
+	ReplicationStatus  KeyReplicationStatusTypeMapOutput `pulumi:"replicationStatus"`
+	Tags               aws.TagArrayOutput                `pulumi:"tags"`
 }
 
 // NewKey registers a new resource with the given unique name, arguments, and options.
@@ -95,6 +97,7 @@ type keyArgs struct {
 	//
 	// For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
 	KeyCheckValueAlgorithm *KeyCheckValueAlgorithm `pulumi:"keyCheckValueAlgorithm"`
+	ReplicationRegions     []string                `pulumi:"replicationRegions"`
 	Tags                   []aws.Tag               `pulumi:"tags"`
 }
 
@@ -112,6 +115,7 @@ type KeyArgs struct {
 	//
 	// For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
 	KeyCheckValueAlgorithm KeyCheckValueAlgorithmPtrInput
+	ReplicationRegions     pulumi.StringArrayInput
 	Tags                   aws.TagArrayInput
 }
 
@@ -191,6 +195,14 @@ func (o KeyOutput) KeyOrigin() KeyOriginOutput {
 // The state of key that is being created or deleted.
 func (o KeyOutput) KeyState() KeyStateEnumOutput {
 	return o.ApplyT(func(v *Key) KeyStateEnumOutput { return v.KeyState }).(KeyStateEnumOutput)
+}
+
+func (o KeyOutput) ReplicationRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringArrayOutput { return v.ReplicationRegions }).(pulumi.StringArrayOutput)
+}
+
+func (o KeyOutput) ReplicationStatus() KeyReplicationStatusTypeMapOutput {
+	return o.ApplyT(func(v *Key) KeyReplicationStatusTypeMapOutput { return v.ReplicationStatus }).(KeyReplicationStatusTypeMapOutput)
 }
 
 func (o KeyOutput) Tags() aws.TagArrayOutput {

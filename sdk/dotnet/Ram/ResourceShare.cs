@@ -108,10 +108,34 @@ namespace Pulumi.AwsNative.Ram
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The date and time when the resource share was created.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The feature set of the resource share.
+        /// </summary>
+        [Output("featureSet")]
+        public Output<Pulumi.AwsNative.Ram.ResourceShareFeatureSet> FeatureSet { get; private set; } = null!;
+
+        /// <summary>
+        /// The date and time when the resource share was last updated.
+        /// </summary>
+        [Output("lastUpdatedTime")]
+        public Output<string> LastUpdatedTime { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the resource share.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the AWS account that owns the resource share.
+        /// </summary>
+        [Output("owningAccountId")]
+        public Output<string> OwningAccountId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the AWS RAM permission to associate with the resource share. If you do not specify an ARN for the permission, AWS RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
@@ -146,6 +170,12 @@ namespace Pulumi.AwsNative.Ram
         /// </summary>
         [Output("sources")]
         public Output<ImmutableArray<string>> Sources { get; private set; } = null!;
+
+        /// <summary>
+        /// The current status of the resource share.
+        /// </summary>
+        [Output("status")]
+        public Output<Pulumi.AwsNative.Ram.ResourceShareStatus> Status { get; private set; } = null!;
 
         /// <summary>
         /// Specifies one or more tags to attach to the resource share itself. It doesn't attach the tags to the resources associated with the resource share.

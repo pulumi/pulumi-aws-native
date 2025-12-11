@@ -50,6 +50,10 @@ export interface GetConnectorResult {
      */
     readonly egressType?: enums.transfer.ConnectorEgressType;
     /**
+     * Detailed error message when Connector in ERRORED status
+     */
+    readonly errorMessage?: string;
+    /**
      * Specifies the logging role for the connector.
      */
     readonly loggingRole?: string;

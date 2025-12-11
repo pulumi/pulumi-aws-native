@@ -22,6 +22,16 @@ export const TableBucketMetricsConfigurationStatus = {
  */
 export type TableBucketMetricsConfigurationStatus = (typeof TableBucketMetricsConfigurationStatus)[keyof typeof TableBucketMetricsConfigurationStatus];
 
+export const TableBucketStorageClassConfigurationStorageClass = {
+    Standard: "STANDARD",
+    IntelligentTiering: "INTELLIGENT_TIERING",
+} as const;
+
+/**
+ * The storage class for the table bucket
+ */
+export type TableBucketStorageClassConfigurationStorageClass = (typeof TableBucketStorageClassConfigurationStorageClass)[keyof typeof TableBucketStorageClassConfigurationStorageClass];
+
 export const TableBucketUnreferencedFileRemovalStatus = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -60,6 +70,16 @@ export const TableSnapshotManagementStatus = {
  * Indicates whether the SnapshotManagement maintenance action is enabled.
  */
 export type TableSnapshotManagementStatus = (typeof TableSnapshotManagementStatus)[keyof typeof TableSnapshotManagementStatus];
+
+export const TableStorageClassConfigurationStorageClass = {
+    Standard: "STANDARD",
+    IntelligentTiering: "INTELLIGENT_TIERING",
+} as const;
+
+/**
+ * The storage class for the table
+ */
+export type TableStorageClassConfigurationStorageClass = (typeof TableStorageClassConfigurationStorageClass)[keyof typeof TableStorageClassConfigurationStorageClass];
 
 export const TableWithoutMetadata = {
     Yes: "Yes",

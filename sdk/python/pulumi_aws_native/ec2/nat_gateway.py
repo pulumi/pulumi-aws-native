@@ -13,8 +13,10 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._inputs import *
 
 __all__ = ['NatGatewayArgs', 'NatGateway']
 
@@ -22,6 +24,8 @@ __all__ = ['NatGatewayArgs', 'NatGateway']
 class NatGatewayArgs:
     def __init__(__self__, *,
                  allocation_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 availability_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 availability_zone_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['NatGatewayAvailabilityZoneAddressArgs']]]] = None,
                  connectivity_type: Optional[pulumi.Input[_builtins.str]] = None,
                  max_drain_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
@@ -34,6 +38,16 @@ class NatGatewayArgs:
         """
         The set of arguments for constructing a NatGateway resource.
         :param pulumi.Input[_builtins.str] allocation_id: [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway. This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
+        :param pulumi.Input[_builtins.str] availability_mode: Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
+               
+               A zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+               
+               For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+        :param pulumi.Input[Sequence[pulumi.Input['NatGatewayAvailabilityZoneAddressArgs']]] availability_zone_addresses: For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.
+               
+               A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+               
+               For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
         :param pulumi.Input[_builtins.str] connectivity_type: Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
         :param pulumi.Input[_builtins.int] max_drain_duration_seconds: The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
         :param pulumi.Input[_builtins.str] private_ip_address: The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
@@ -48,6 +62,10 @@ class NatGatewayArgs:
         """
         if allocation_id is not None:
             pulumi.set(__self__, "allocation_id", allocation_id)
+        if availability_mode is not None:
+            pulumi.set(__self__, "availability_mode", availability_mode)
+        if availability_zone_addresses is not None:
+            pulumi.set(__self__, "availability_zone_addresses", availability_zone_addresses)
         if connectivity_type is not None:
             pulumi.set(__self__, "connectivity_type", connectivity_type)
         if max_drain_duration_seconds is not None:
@@ -78,6 +96,38 @@ class NatGatewayArgs:
     @allocation_id.setter
     def allocation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "allocation_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityMode")
+    def availability_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
+
+        A zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+
+        For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+        """
+        return pulumi.get(self, "availability_mode")
+
+    @availability_mode.setter
+    def availability_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "availability_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneAddresses")
+    def availability_zone_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NatGatewayAvailabilityZoneAddressArgs']]]]:
+        """
+        For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.
+
+        A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+
+        For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+        """
+        return pulumi.get(self, "availability_zone_addresses")
+
+    @availability_zone_addresses.setter
+    def availability_zone_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NatGatewayAvailabilityZoneAddressArgs']]]]):
+        pulumi.set(self, "availability_zone_addresses", value)
 
     @_builtins.property
     @pulumi.getter(name="connectivityType")
@@ -197,6 +247,8 @@ class NatGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 availability_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 availability_zone_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict']]]]] = None,
                  connectivity_type: Optional[pulumi.Input[_builtins.str]] = None,
                  max_drain_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
@@ -216,6 +268,16 @@ class NatGateway(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allocation_id: [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway. This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
+        :param pulumi.Input[_builtins.str] availability_mode: Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
+               
+               A zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+               
+               For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict']]]] availability_zone_addresses: For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.
+               
+               A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+               
+               For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
         :param pulumi.Input[_builtins.str] connectivity_type: Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
         :param pulumi.Input[_builtins.int] max_drain_duration_seconds: The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
         :param pulumi.Input[_builtins.str] private_ip_address: The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
@@ -256,6 +318,8 @@ class NatGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 availability_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 availability_zone_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NatGatewayAvailabilityZoneAddressArgs', 'NatGatewayAvailabilityZoneAddressArgsDict']]]]] = None,
                  connectivity_type: Optional[pulumi.Input[_builtins.str]] = None,
                  max_drain_duration_seconds: Optional[pulumi.Input[_builtins.int]] = None,
                  private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
@@ -275,6 +339,8 @@ class NatGateway(pulumi.CustomResource):
             __props__ = NatGatewayArgs.__new__(NatGatewayArgs)
 
             __props__.__dict__["allocation_id"] = allocation_id
+            __props__.__dict__["availability_mode"] = availability_mode
+            __props__.__dict__["availability_zone_addresses"] = availability_zone_addresses
             __props__.__dict__["connectivity_type"] = connectivity_type
             __props__.__dict__["max_drain_duration_seconds"] = max_drain_duration_seconds
             __props__.__dict__["private_ip_address"] = private_ip_address
@@ -284,9 +350,12 @@ class NatGateway(pulumi.CustomResource):
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["auto_provision_zones"] = None
+            __props__.__dict__["auto_scaling_ips"] = None
             __props__.__dict__["eni_id"] = None
             __props__.__dict__["nat_gateway_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["allocationId", "connectivityType", "privateIpAddress", "subnetId", "vpcId"])
+            __props__.__dict__["route_table_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["allocationId", "availabilityMode", "connectivityType", "privateIpAddress", "subnetId", "vpcId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NatGateway, __self__).__init__(
             'aws-native:ec2:NatGateway',
@@ -311,11 +380,16 @@ class NatGateway(pulumi.CustomResource):
         __props__ = NatGatewayArgs.__new__(NatGatewayArgs)
 
         __props__.__dict__["allocation_id"] = None
+        __props__.__dict__["auto_provision_zones"] = None
+        __props__.__dict__["auto_scaling_ips"] = None
+        __props__.__dict__["availability_mode"] = None
+        __props__.__dict__["availability_zone_addresses"] = None
         __props__.__dict__["connectivity_type"] = None
         __props__.__dict__["eni_id"] = None
         __props__.__dict__["max_drain_duration_seconds"] = None
         __props__.__dict__["nat_gateway_id"] = None
         __props__.__dict__["private_ip_address"] = None
+        __props__.__dict__["route_table_id"] = None
         __props__.__dict__["secondary_allocation_ids"] = None
         __props__.__dict__["secondary_private_ip_address_count"] = None
         __props__.__dict__["secondary_private_ip_addresses"] = None
@@ -331,6 +405,52 @@ class NatGateway(pulumi.CustomResource):
         [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway. This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
         """
         return pulumi.get(self, "allocation_id")
+
+    @_builtins.property
+    @pulumi.getter(name="autoProvisionZones")
+    def auto_provision_zones(self) -> pulumi.Output[_builtins.str]:
+        """
+        For regional NAT gateways only: Indicates whether AWS automatically manages AZ coverage. When enabled, the NAT gateway associates EIPs in all AZs where your VPC has subnets to handle outbound NAT traffic, expands to new AZs when you create subnets there, and retracts from AZs where you've removed all subnets. When disabled, you must manually manage which AZs the NAT gateway supports and their corresponding EIPs.
+
+        A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+
+        For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+        """
+        return pulumi.get(self, "auto_provision_zones")
+
+    @_builtins.property
+    @pulumi.getter(name="autoScalingIps")
+    def auto_scaling_ips(self) -> pulumi.Output[_builtins.str]:
+        """
+        For regional NAT gateways only: Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
+
+        For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+        """
+        return pulumi.get(self, "auto_scaling_ips")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityMode")
+    def availability_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
+
+        A zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+
+        For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+        """
+        return pulumi.get(self, "availability_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneAddresses")
+    def availability_zone_addresses(self) -> pulumi.Output[Optional[Sequence['outputs.NatGatewayAvailabilityZoneAddress']]]:
+        """
+        For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.
+
+        A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+
+        For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+        """
+        return pulumi.get(self, "availability_zone_addresses")
 
     @_builtins.property
     @pulumi.getter(name="connectivityType")
@@ -371,6 +491,14 @@ class NatGateway(pulumi.CustomResource):
         The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         """
         return pulumi.get(self, "private_ip_address")
+
+    @_builtins.property
+    @pulumi.getter(name="routeTableId")
+    def route_table_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        For regional NAT gateways only, this is the ID of the NAT gateway.
+        """
+        return pulumi.get(self, "route_table_id")
 
     @_builtins.property
     @pulumi.getter(name="secondaryAllocationIds")

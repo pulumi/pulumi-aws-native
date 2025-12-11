@@ -72,9 +72,29 @@ namespace Pulumi.AwsNative.Ram
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// The date and time when the resource share was created.
+        /// </summary>
+        public readonly string? CreationTime;
+        /// <summary>
+        /// The feature set of the resource share.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Ram.ResourceShareFeatureSet? FeatureSet;
+        /// <summary>
+        /// The date and time when the resource share was last updated.
+        /// </summary>
+        public readonly string? LastUpdatedTime;
+        /// <summary>
         /// Specifies the name of the resource share.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The ID of the AWS account that owns the resource share.
+        /// </summary>
+        public readonly string? OwningAccountId;
+        /// <summary>
+        /// The current status of the resource share.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Ram.ResourceShareStatus? Status;
         /// <summary>
         /// Specifies one or more tags to attach to the resource share itself. It doesn't attach the tags to the resources associated with the resource share.
         /// </summary>
@@ -86,13 +106,28 @@ namespace Pulumi.AwsNative.Ram
 
             string? arn,
 
+            string? creationTime,
+
+            Pulumi.AwsNative.Ram.ResourceShareFeatureSet? featureSet,
+
+            string? lastUpdatedTime,
+
             string? name,
+
+            string? owningAccountId,
+
+            Pulumi.AwsNative.Ram.ResourceShareStatus? status,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AllowExternalPrincipals = allowExternalPrincipals;
             Arn = arn;
+            CreationTime = creationTime;
+            FeatureSet = featureSet;
+            LastUpdatedTime = lastUpdatedTime;
             Name = name;
+            OwningAccountId = owningAccountId;
+            Status = status;
             Tags = tags;
         }
     }

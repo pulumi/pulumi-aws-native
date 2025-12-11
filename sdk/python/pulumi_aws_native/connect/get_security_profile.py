@@ -99,6 +99,9 @@ class GetSecurityProfileResult:
     @_builtins.property
     @pulumi.getter(name="granularAccessControlConfiguration")
     def granular_access_control_configuration(self) -> Optional['outputs.GranularAccessControlConfigurationProperties']:
+        """
+        The granular access control configuration for the security profile, including data table permissions.
+        """
         return pulumi.get(self, "granular_access_control_configuration")
 
     @_builtins.property

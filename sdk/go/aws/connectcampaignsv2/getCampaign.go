@@ -46,7 +46,8 @@ type LookupCampaignResult struct {
 	// Contains source configuration.
 	Source *CampaignSource `pulumi:"source"`
 	// One or more tags.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags []aws.Tag     `pulumi:"tags"`
+	Type *CampaignType `pulumi:"type"`
 }
 
 func LookupCampaignOutput(ctx *pulumi.Context, args LookupCampaignOutputArgs, opts ...pulumi.InvokeOption) LookupCampaignResultOutput {
@@ -124,6 +125,10 @@ func (o LookupCampaignResultOutput) Source() CampaignSourcePtrOutput {
 // One or more tags.
 func (o LookupCampaignResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupCampaignResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o LookupCampaignResultOutput) Type() CampaignTypePtrOutput {
+	return o.ApplyT(func(v LookupCampaignResult) *CampaignType { return v.Type }).(CampaignTypePtrOutput)
 }
 
 func init() {

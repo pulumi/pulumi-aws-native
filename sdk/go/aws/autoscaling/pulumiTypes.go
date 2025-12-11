@@ -1437,6 +1437,141 @@ func (o AutoScalingGroupCpuPerformanceFactorRequestPtrOutput) References() AutoS
 	}).(AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput)
 }
 
+type AutoScalingGroupInstanceLifecyclePolicy struct {
+	RetentionTriggers *AutoScalingGroupRetentionTriggers `pulumi:"retentionTriggers"`
+}
+
+// AutoScalingGroupInstanceLifecyclePolicyInput is an input type that accepts AutoScalingGroupInstanceLifecyclePolicyArgs and AutoScalingGroupInstanceLifecyclePolicyOutput values.
+// You can construct a concrete instance of `AutoScalingGroupInstanceLifecyclePolicyInput` via:
+//
+//	AutoScalingGroupInstanceLifecyclePolicyArgs{...}
+type AutoScalingGroupInstanceLifecyclePolicyInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupInstanceLifecyclePolicyOutput() AutoScalingGroupInstanceLifecyclePolicyOutput
+	ToAutoScalingGroupInstanceLifecyclePolicyOutputWithContext(context.Context) AutoScalingGroupInstanceLifecyclePolicyOutput
+}
+
+type AutoScalingGroupInstanceLifecyclePolicyArgs struct {
+	RetentionTriggers AutoScalingGroupRetentionTriggersPtrInput `pulumi:"retentionTriggers"`
+}
+
+func (AutoScalingGroupInstanceLifecyclePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupInstanceLifecyclePolicy)(nil)).Elem()
+}
+
+func (i AutoScalingGroupInstanceLifecyclePolicyArgs) ToAutoScalingGroupInstanceLifecyclePolicyOutput() AutoScalingGroupInstanceLifecyclePolicyOutput {
+	return i.ToAutoScalingGroupInstanceLifecyclePolicyOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupInstanceLifecyclePolicyArgs) ToAutoScalingGroupInstanceLifecyclePolicyOutputWithContext(ctx context.Context) AutoScalingGroupInstanceLifecyclePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupInstanceLifecyclePolicyOutput)
+}
+
+func (i AutoScalingGroupInstanceLifecyclePolicyArgs) ToAutoScalingGroupInstanceLifecyclePolicyPtrOutput() AutoScalingGroupInstanceLifecyclePolicyPtrOutput {
+	return i.ToAutoScalingGroupInstanceLifecyclePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupInstanceLifecyclePolicyArgs) ToAutoScalingGroupInstanceLifecyclePolicyPtrOutputWithContext(ctx context.Context) AutoScalingGroupInstanceLifecyclePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupInstanceLifecyclePolicyOutput).ToAutoScalingGroupInstanceLifecyclePolicyPtrOutputWithContext(ctx)
+}
+
+// AutoScalingGroupInstanceLifecyclePolicyPtrInput is an input type that accepts AutoScalingGroupInstanceLifecyclePolicyArgs, AutoScalingGroupInstanceLifecyclePolicyPtr and AutoScalingGroupInstanceLifecyclePolicyPtrOutput values.
+// You can construct a concrete instance of `AutoScalingGroupInstanceLifecyclePolicyPtrInput` via:
+//
+//	        AutoScalingGroupInstanceLifecyclePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutoScalingGroupInstanceLifecyclePolicyPtrInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupInstanceLifecyclePolicyPtrOutput() AutoScalingGroupInstanceLifecyclePolicyPtrOutput
+	ToAutoScalingGroupInstanceLifecyclePolicyPtrOutputWithContext(context.Context) AutoScalingGroupInstanceLifecyclePolicyPtrOutput
+}
+
+type autoScalingGroupInstanceLifecyclePolicyPtrType AutoScalingGroupInstanceLifecyclePolicyArgs
+
+func AutoScalingGroupInstanceLifecyclePolicyPtr(v *AutoScalingGroupInstanceLifecyclePolicyArgs) AutoScalingGroupInstanceLifecyclePolicyPtrInput {
+	return (*autoScalingGroupInstanceLifecyclePolicyPtrType)(v)
+}
+
+func (*autoScalingGroupInstanceLifecyclePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScalingGroupInstanceLifecyclePolicy)(nil)).Elem()
+}
+
+func (i *autoScalingGroupInstanceLifecyclePolicyPtrType) ToAutoScalingGroupInstanceLifecyclePolicyPtrOutput() AutoScalingGroupInstanceLifecyclePolicyPtrOutput {
+	return i.ToAutoScalingGroupInstanceLifecyclePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *autoScalingGroupInstanceLifecyclePolicyPtrType) ToAutoScalingGroupInstanceLifecyclePolicyPtrOutputWithContext(ctx context.Context) AutoScalingGroupInstanceLifecyclePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupInstanceLifecyclePolicyPtrOutput)
+}
+
+type AutoScalingGroupInstanceLifecyclePolicyOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupInstanceLifecyclePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupInstanceLifecyclePolicy)(nil)).Elem()
+}
+
+func (o AutoScalingGroupInstanceLifecyclePolicyOutput) ToAutoScalingGroupInstanceLifecyclePolicyOutput() AutoScalingGroupInstanceLifecyclePolicyOutput {
+	return o
+}
+
+func (o AutoScalingGroupInstanceLifecyclePolicyOutput) ToAutoScalingGroupInstanceLifecyclePolicyOutputWithContext(ctx context.Context) AutoScalingGroupInstanceLifecyclePolicyOutput {
+	return o
+}
+
+func (o AutoScalingGroupInstanceLifecyclePolicyOutput) ToAutoScalingGroupInstanceLifecyclePolicyPtrOutput() AutoScalingGroupInstanceLifecyclePolicyPtrOutput {
+	return o.ToAutoScalingGroupInstanceLifecyclePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o AutoScalingGroupInstanceLifecyclePolicyOutput) ToAutoScalingGroupInstanceLifecyclePolicyPtrOutputWithContext(ctx context.Context) AutoScalingGroupInstanceLifecyclePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScalingGroupInstanceLifecyclePolicy) *AutoScalingGroupInstanceLifecyclePolicy {
+		return &v
+	}).(AutoScalingGroupInstanceLifecyclePolicyPtrOutput)
+}
+
+func (o AutoScalingGroupInstanceLifecyclePolicyOutput) RetentionTriggers() AutoScalingGroupRetentionTriggersPtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupInstanceLifecyclePolicy) *AutoScalingGroupRetentionTriggers {
+		return v.RetentionTriggers
+	}).(AutoScalingGroupRetentionTriggersPtrOutput)
+}
+
+type AutoScalingGroupInstanceLifecyclePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupInstanceLifecyclePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScalingGroupInstanceLifecyclePolicy)(nil)).Elem()
+}
+
+func (o AutoScalingGroupInstanceLifecyclePolicyPtrOutput) ToAutoScalingGroupInstanceLifecyclePolicyPtrOutput() AutoScalingGroupInstanceLifecyclePolicyPtrOutput {
+	return o
+}
+
+func (o AutoScalingGroupInstanceLifecyclePolicyPtrOutput) ToAutoScalingGroupInstanceLifecyclePolicyPtrOutputWithContext(ctx context.Context) AutoScalingGroupInstanceLifecyclePolicyPtrOutput {
+	return o
+}
+
+func (o AutoScalingGroupInstanceLifecyclePolicyPtrOutput) Elem() AutoScalingGroupInstanceLifecyclePolicyOutput {
+	return o.ApplyT(func(v *AutoScalingGroupInstanceLifecyclePolicy) AutoScalingGroupInstanceLifecyclePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret AutoScalingGroupInstanceLifecyclePolicy
+		return ret
+	}).(AutoScalingGroupInstanceLifecyclePolicyOutput)
+}
+
+func (o AutoScalingGroupInstanceLifecyclePolicyPtrOutput) RetentionTriggers() AutoScalingGroupRetentionTriggersPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupInstanceLifecyclePolicy) *AutoScalingGroupRetentionTriggers {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionTriggers
+	}).(AutoScalingGroupRetentionTriggersPtrOutput)
+}
+
 // “InstanceMaintenancePolicy“ is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
 //
 //	For more information, see [Instance maintenance policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
@@ -3065,6 +3200,7 @@ func (o AutoScalingGroupLaunchTemplatePtrOutput) Overrides() AutoScalingGroupLau
 //     After you define your instance requirements, you don't have to keep updating these settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance requirements of the Auto Scaling group to determine whether a new EC2 instance type can be used.
 //     “LaunchTemplateOverrides“ is a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
 type AutoScalingGroupLaunchTemplateOverrides struct {
+	ImageId *string `pulumi:"imageId"`
 	// The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
 	//  You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template.
 	//   If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
@@ -3102,6 +3238,7 @@ type AutoScalingGroupLaunchTemplateOverridesInput interface {
 //     After you define your instance requirements, you don't have to keep updating these settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance requirements of the Auto Scaling group to determine whether a new EC2 instance type can be used.
 //     “LaunchTemplateOverrides“ is a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
 type AutoScalingGroupLaunchTemplateOverridesArgs struct {
+	ImageId pulumi.StringPtrInput `pulumi:"imageId"`
 	// The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
 	//  You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template.
 	//   If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
@@ -3176,6 +3313,10 @@ func (o AutoScalingGroupLaunchTemplateOverridesOutput) ToAutoScalingGroupLaunchT
 
 func (o AutoScalingGroupLaunchTemplateOverridesOutput) ToAutoScalingGroupLaunchTemplateOverridesOutputWithContext(ctx context.Context) AutoScalingGroupLaunchTemplateOverridesOutput {
 	return o
+}
+
+func (o AutoScalingGroupLaunchTemplateOverridesOutput) ImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupLaunchTemplateOverrides) *string { return v.ImageId }).(pulumi.StringPtrOutput)
 }
 
 // The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
@@ -5031,6 +5172,139 @@ func (o AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput) Index(i pu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoScalingGroupPerformanceFactorReferenceRequest {
 		return vs[0].([]AutoScalingGroupPerformanceFactorReferenceRequest)[vs[1].(int)]
 	}).(AutoScalingGroupPerformanceFactorReferenceRequestOutput)
+}
+
+type AutoScalingGroupRetentionTriggers struct {
+	TerminateHookAbandon *string `pulumi:"terminateHookAbandon"`
+}
+
+// AutoScalingGroupRetentionTriggersInput is an input type that accepts AutoScalingGroupRetentionTriggersArgs and AutoScalingGroupRetentionTriggersOutput values.
+// You can construct a concrete instance of `AutoScalingGroupRetentionTriggersInput` via:
+//
+//	AutoScalingGroupRetentionTriggersArgs{...}
+type AutoScalingGroupRetentionTriggersInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupRetentionTriggersOutput() AutoScalingGroupRetentionTriggersOutput
+	ToAutoScalingGroupRetentionTriggersOutputWithContext(context.Context) AutoScalingGroupRetentionTriggersOutput
+}
+
+type AutoScalingGroupRetentionTriggersArgs struct {
+	TerminateHookAbandon pulumi.StringPtrInput `pulumi:"terminateHookAbandon"`
+}
+
+func (AutoScalingGroupRetentionTriggersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupRetentionTriggers)(nil)).Elem()
+}
+
+func (i AutoScalingGroupRetentionTriggersArgs) ToAutoScalingGroupRetentionTriggersOutput() AutoScalingGroupRetentionTriggersOutput {
+	return i.ToAutoScalingGroupRetentionTriggersOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupRetentionTriggersArgs) ToAutoScalingGroupRetentionTriggersOutputWithContext(ctx context.Context) AutoScalingGroupRetentionTriggersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupRetentionTriggersOutput)
+}
+
+func (i AutoScalingGroupRetentionTriggersArgs) ToAutoScalingGroupRetentionTriggersPtrOutput() AutoScalingGroupRetentionTriggersPtrOutput {
+	return i.ToAutoScalingGroupRetentionTriggersPtrOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupRetentionTriggersArgs) ToAutoScalingGroupRetentionTriggersPtrOutputWithContext(ctx context.Context) AutoScalingGroupRetentionTriggersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupRetentionTriggersOutput).ToAutoScalingGroupRetentionTriggersPtrOutputWithContext(ctx)
+}
+
+// AutoScalingGroupRetentionTriggersPtrInput is an input type that accepts AutoScalingGroupRetentionTriggersArgs, AutoScalingGroupRetentionTriggersPtr and AutoScalingGroupRetentionTriggersPtrOutput values.
+// You can construct a concrete instance of `AutoScalingGroupRetentionTriggersPtrInput` via:
+//
+//	        AutoScalingGroupRetentionTriggersArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutoScalingGroupRetentionTriggersPtrInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupRetentionTriggersPtrOutput() AutoScalingGroupRetentionTriggersPtrOutput
+	ToAutoScalingGroupRetentionTriggersPtrOutputWithContext(context.Context) AutoScalingGroupRetentionTriggersPtrOutput
+}
+
+type autoScalingGroupRetentionTriggersPtrType AutoScalingGroupRetentionTriggersArgs
+
+func AutoScalingGroupRetentionTriggersPtr(v *AutoScalingGroupRetentionTriggersArgs) AutoScalingGroupRetentionTriggersPtrInput {
+	return (*autoScalingGroupRetentionTriggersPtrType)(v)
+}
+
+func (*autoScalingGroupRetentionTriggersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScalingGroupRetentionTriggers)(nil)).Elem()
+}
+
+func (i *autoScalingGroupRetentionTriggersPtrType) ToAutoScalingGroupRetentionTriggersPtrOutput() AutoScalingGroupRetentionTriggersPtrOutput {
+	return i.ToAutoScalingGroupRetentionTriggersPtrOutputWithContext(context.Background())
+}
+
+func (i *autoScalingGroupRetentionTriggersPtrType) ToAutoScalingGroupRetentionTriggersPtrOutputWithContext(ctx context.Context) AutoScalingGroupRetentionTriggersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupRetentionTriggersPtrOutput)
+}
+
+type AutoScalingGroupRetentionTriggersOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupRetentionTriggersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupRetentionTriggers)(nil)).Elem()
+}
+
+func (o AutoScalingGroupRetentionTriggersOutput) ToAutoScalingGroupRetentionTriggersOutput() AutoScalingGroupRetentionTriggersOutput {
+	return o
+}
+
+func (o AutoScalingGroupRetentionTriggersOutput) ToAutoScalingGroupRetentionTriggersOutputWithContext(ctx context.Context) AutoScalingGroupRetentionTriggersOutput {
+	return o
+}
+
+func (o AutoScalingGroupRetentionTriggersOutput) ToAutoScalingGroupRetentionTriggersPtrOutput() AutoScalingGroupRetentionTriggersPtrOutput {
+	return o.ToAutoScalingGroupRetentionTriggersPtrOutputWithContext(context.Background())
+}
+
+func (o AutoScalingGroupRetentionTriggersOutput) ToAutoScalingGroupRetentionTriggersPtrOutputWithContext(ctx context.Context) AutoScalingGroupRetentionTriggersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScalingGroupRetentionTriggers) *AutoScalingGroupRetentionTriggers {
+		return &v
+	}).(AutoScalingGroupRetentionTriggersPtrOutput)
+}
+
+func (o AutoScalingGroupRetentionTriggersOutput) TerminateHookAbandon() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupRetentionTriggers) *string { return v.TerminateHookAbandon }).(pulumi.StringPtrOutput)
+}
+
+type AutoScalingGroupRetentionTriggersPtrOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupRetentionTriggersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScalingGroupRetentionTriggers)(nil)).Elem()
+}
+
+func (o AutoScalingGroupRetentionTriggersPtrOutput) ToAutoScalingGroupRetentionTriggersPtrOutput() AutoScalingGroupRetentionTriggersPtrOutput {
+	return o
+}
+
+func (o AutoScalingGroupRetentionTriggersPtrOutput) ToAutoScalingGroupRetentionTriggersPtrOutputWithContext(ctx context.Context) AutoScalingGroupRetentionTriggersPtrOutput {
+	return o
+}
+
+func (o AutoScalingGroupRetentionTriggersPtrOutput) Elem() AutoScalingGroupRetentionTriggersOutput {
+	return o.ApplyT(func(v *AutoScalingGroupRetentionTriggers) AutoScalingGroupRetentionTriggers {
+		if v != nil {
+			return *v
+		}
+		var ret AutoScalingGroupRetentionTriggers
+		return ret
+	}).(AutoScalingGroupRetentionTriggersOutput)
+}
+
+func (o AutoScalingGroupRetentionTriggersPtrOutput) TerminateHookAbandon() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupRetentionTriggers) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TerminateHookAbandon
+	}).(pulumi.StringPtrOutput)
 }
 
 // A structure that specifies a tag for the “Tags“ property of [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
@@ -9623,6 +9897,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupCapacityReservationTargetPtrInput)(nil)).Elem(), AutoScalingGroupCapacityReservationTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupCpuPerformanceFactorRequestInput)(nil)).Elem(), AutoScalingGroupCpuPerformanceFactorRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupCpuPerformanceFactorRequestPtrInput)(nil)).Elem(), AutoScalingGroupCpuPerformanceFactorRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstanceLifecyclePolicyInput)(nil)).Elem(), AutoScalingGroupInstanceLifecyclePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstanceLifecyclePolicyPtrInput)(nil)).Elem(), AutoScalingGroupInstanceLifecyclePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstanceMaintenancePolicyInput)(nil)).Elem(), AutoScalingGroupInstanceMaintenancePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstanceMaintenancePolicyPtrInput)(nil)).Elem(), AutoScalingGroupInstanceMaintenancePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstanceRequirementsInput)(nil)).Elem(), AutoScalingGroupInstanceRequirementsArgs{})
@@ -9654,6 +9930,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupNotificationConfigurationArrayInput)(nil)).Elem(), AutoScalingGroupNotificationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupPerformanceFactorReferenceRequestInput)(nil)).Elem(), AutoScalingGroupPerformanceFactorReferenceRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupPerformanceFactorReferenceRequestArrayInput)(nil)).Elem(), AutoScalingGroupPerformanceFactorReferenceRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupRetentionTriggersInput)(nil)).Elem(), AutoScalingGroupRetentionTriggersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupRetentionTriggersPtrInput)(nil)).Elem(), AutoScalingGroupRetentionTriggersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupTagPropertyInput)(nil)).Elem(), AutoScalingGroupTagPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupTagPropertyArrayInput)(nil)).Elem(), AutoScalingGroupTagPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupTotalLocalStorageGbRequestInput)(nil)).Elem(), AutoScalingGroupTotalLocalStorageGbRequestArgs{})
@@ -9724,6 +10002,8 @@ func init() {
 	pulumi.RegisterOutputType(AutoScalingGroupCapacityReservationTargetPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupCpuPerformanceFactorRequestOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupCpuPerformanceFactorRequestPtrOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupInstanceLifecyclePolicyOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupInstanceLifecyclePolicyPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupInstanceMaintenancePolicyOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupInstanceMaintenancePolicyPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupInstanceRequirementsOutput{})
@@ -9755,6 +10035,8 @@ func init() {
 	pulumi.RegisterOutputType(AutoScalingGroupNotificationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupPerformanceFactorReferenceRequestOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupRetentionTriggersOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupRetentionTriggersPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupTagPropertyOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupTagPropertyArrayOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupTotalLocalStorageGbRequestOutput{})

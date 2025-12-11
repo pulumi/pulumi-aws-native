@@ -29,6 +29,8 @@ type Connector struct {
 	EgressConfig ConnectorEgressConfigPtrOutput `pulumi:"egressConfig"`
 	// Specifies the egress type for the connector.
 	EgressType ConnectorEgressTypePtrOutput `pulumi:"egressType"`
+	// Detailed error message when Connector in ERRORED status
+	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
 	// Specifies the logging role for the connector.
 	LoggingRole pulumi.StringPtrOutput `pulumi:"loggingRole"`
 	// Security policy for SFTP Connector
@@ -195,6 +197,11 @@ func (o ConnectorOutput) EgressConfig() ConnectorEgressConfigPtrOutput {
 // Specifies the egress type for the connector.
 func (o ConnectorOutput) EgressType() ConnectorEgressTypePtrOutput {
 	return o.ApplyT(func(v *Connector) ConnectorEgressTypePtrOutput { return v.EgressType }).(ConnectorEgressTypePtrOutput)
+}
+
+// Detailed error message when Connector in ERRORED status
+func (o ConnectorOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
 }
 
 // Specifies the logging role for the connector.

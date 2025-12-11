@@ -398,6 +398,53 @@ func (o KeyModesOfUsePtrOutput) Wrap() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type KeyReplicationStatusType struct {
+	Status        KeyReplicationState `pulumi:"status"`
+	StatusMessage *string             `pulumi:"statusMessage"`
+}
+
+type KeyReplicationStatusTypeOutput struct{ *pulumi.OutputState }
+
+func (KeyReplicationStatusTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyReplicationStatusType)(nil)).Elem()
+}
+
+func (o KeyReplicationStatusTypeOutput) ToKeyReplicationStatusTypeOutput() KeyReplicationStatusTypeOutput {
+	return o
+}
+
+func (o KeyReplicationStatusTypeOutput) ToKeyReplicationStatusTypeOutputWithContext(ctx context.Context) KeyReplicationStatusTypeOutput {
+	return o
+}
+
+func (o KeyReplicationStatusTypeOutput) Status() KeyReplicationStateOutput {
+	return o.ApplyT(func(v KeyReplicationStatusType) KeyReplicationState { return v.Status }).(KeyReplicationStateOutput)
+}
+
+func (o KeyReplicationStatusTypeOutput) StatusMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyReplicationStatusType) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
+}
+
+type KeyReplicationStatusTypeMapOutput struct{ *pulumi.OutputState }
+
+func (KeyReplicationStatusTypeMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]KeyReplicationStatusType)(nil)).Elem()
+}
+
+func (o KeyReplicationStatusTypeMapOutput) ToKeyReplicationStatusTypeMapOutput() KeyReplicationStatusTypeMapOutput {
+	return o
+}
+
+func (o KeyReplicationStatusTypeMapOutput) ToKeyReplicationStatusTypeMapOutputWithContext(ctx context.Context) KeyReplicationStatusTypeMapOutput {
+	return o
+}
+
+func (o KeyReplicationStatusTypeMapOutput) MapIndex(k pulumi.StringInput) KeyReplicationStatusTypeOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) KeyReplicationStatusType {
+		return vs[0].(map[string]KeyReplicationStatusType)[vs[1].(string)]
+	}).(KeyReplicationStatusTypeOutput)
+}
+
 type KeyTag struct {
 	// The key of the tag.
 	Key string `pulumi:"key"`
@@ -412,4 +459,6 @@ func init() {
 	pulumi.RegisterOutputType(KeyAttributesPtrOutput{})
 	pulumi.RegisterOutputType(KeyModesOfUseOutput{})
 	pulumi.RegisterOutputType(KeyModesOfUsePtrOutput{})
+	pulumi.RegisterOutputType(KeyReplicationStatusTypeOutput{})
+	pulumi.RegisterOutputType(KeyReplicationStatusTypeMapOutput{})
 }

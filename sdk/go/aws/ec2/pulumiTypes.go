@@ -19237,6 +19237,133 @@ type LocalGatewayVirtualInterfaceTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type NatGatewayAvailabilityZoneAddress struct {
+	// The allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
+	AllocationIds []string `pulumi:"allocationIds"`
+	// For regional NAT gateways only: The Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ.
+	//
+	// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// For regional NAT gateways only: The ID of the Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone for consistent identification of AZs across AWS Regions.
+	//
+	// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
+}
+
+// NatGatewayAvailabilityZoneAddressInput is an input type that accepts NatGatewayAvailabilityZoneAddressArgs and NatGatewayAvailabilityZoneAddressOutput values.
+// You can construct a concrete instance of `NatGatewayAvailabilityZoneAddressInput` via:
+//
+//	NatGatewayAvailabilityZoneAddressArgs{...}
+type NatGatewayAvailabilityZoneAddressInput interface {
+	pulumi.Input
+
+	ToNatGatewayAvailabilityZoneAddressOutput() NatGatewayAvailabilityZoneAddressOutput
+	ToNatGatewayAvailabilityZoneAddressOutputWithContext(context.Context) NatGatewayAvailabilityZoneAddressOutput
+}
+
+type NatGatewayAvailabilityZoneAddressArgs struct {
+	// The allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
+	AllocationIds pulumi.StringArrayInput `pulumi:"allocationIds"`
+	// For regional NAT gateways only: The Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ.
+	//
+	// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// For regional NAT gateways only: The ID of the Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone for consistent identification of AZs across AWS Regions.
+	//
+	// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+	AvailabilityZoneId pulumi.StringPtrInput `pulumi:"availabilityZoneId"`
+}
+
+func (NatGatewayAvailabilityZoneAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatGatewayAvailabilityZoneAddress)(nil)).Elem()
+}
+
+func (i NatGatewayAvailabilityZoneAddressArgs) ToNatGatewayAvailabilityZoneAddressOutput() NatGatewayAvailabilityZoneAddressOutput {
+	return i.ToNatGatewayAvailabilityZoneAddressOutputWithContext(context.Background())
+}
+
+func (i NatGatewayAvailabilityZoneAddressArgs) ToNatGatewayAvailabilityZoneAddressOutputWithContext(ctx context.Context) NatGatewayAvailabilityZoneAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayAvailabilityZoneAddressOutput)
+}
+
+// NatGatewayAvailabilityZoneAddressArrayInput is an input type that accepts NatGatewayAvailabilityZoneAddressArray and NatGatewayAvailabilityZoneAddressArrayOutput values.
+// You can construct a concrete instance of `NatGatewayAvailabilityZoneAddressArrayInput` via:
+//
+//	NatGatewayAvailabilityZoneAddressArray{ NatGatewayAvailabilityZoneAddressArgs{...} }
+type NatGatewayAvailabilityZoneAddressArrayInput interface {
+	pulumi.Input
+
+	ToNatGatewayAvailabilityZoneAddressArrayOutput() NatGatewayAvailabilityZoneAddressArrayOutput
+	ToNatGatewayAvailabilityZoneAddressArrayOutputWithContext(context.Context) NatGatewayAvailabilityZoneAddressArrayOutput
+}
+
+type NatGatewayAvailabilityZoneAddressArray []NatGatewayAvailabilityZoneAddressInput
+
+func (NatGatewayAvailabilityZoneAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NatGatewayAvailabilityZoneAddress)(nil)).Elem()
+}
+
+func (i NatGatewayAvailabilityZoneAddressArray) ToNatGatewayAvailabilityZoneAddressArrayOutput() NatGatewayAvailabilityZoneAddressArrayOutput {
+	return i.ToNatGatewayAvailabilityZoneAddressArrayOutputWithContext(context.Background())
+}
+
+func (i NatGatewayAvailabilityZoneAddressArray) ToNatGatewayAvailabilityZoneAddressArrayOutputWithContext(ctx context.Context) NatGatewayAvailabilityZoneAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayAvailabilityZoneAddressArrayOutput)
+}
+
+type NatGatewayAvailabilityZoneAddressOutput struct{ *pulumi.OutputState }
+
+func (NatGatewayAvailabilityZoneAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NatGatewayAvailabilityZoneAddress)(nil)).Elem()
+}
+
+func (o NatGatewayAvailabilityZoneAddressOutput) ToNatGatewayAvailabilityZoneAddressOutput() NatGatewayAvailabilityZoneAddressOutput {
+	return o
+}
+
+func (o NatGatewayAvailabilityZoneAddressOutput) ToNatGatewayAvailabilityZoneAddressOutputWithContext(ctx context.Context) NatGatewayAvailabilityZoneAddressOutput {
+	return o
+}
+
+// The allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
+func (o NatGatewayAvailabilityZoneAddressOutput) AllocationIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NatGatewayAvailabilityZoneAddress) []string { return v.AllocationIds }).(pulumi.StringArrayOutput)
+}
+
+// For regional NAT gateways only: The Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ.
+//
+// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+func (o NatGatewayAvailabilityZoneAddressOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatGatewayAvailabilityZoneAddress) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// For regional NAT gateways only: The ID of the Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone for consistent identification of AZs across AWS Regions.
+//
+// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+func (o NatGatewayAvailabilityZoneAddressOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NatGatewayAvailabilityZoneAddress) *string { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
+}
+
+type NatGatewayAvailabilityZoneAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (NatGatewayAvailabilityZoneAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NatGatewayAvailabilityZoneAddress)(nil)).Elem()
+}
+
+func (o NatGatewayAvailabilityZoneAddressArrayOutput) ToNatGatewayAvailabilityZoneAddressArrayOutput() NatGatewayAvailabilityZoneAddressArrayOutput {
+	return o
+}
+
+func (o NatGatewayAvailabilityZoneAddressArrayOutput) ToNatGatewayAvailabilityZoneAddressArrayOutputWithContext(ctx context.Context) NatGatewayAvailabilityZoneAddressArrayOutput {
+	return o
+}
+
+func (o NatGatewayAvailabilityZoneAddressArrayOutput) Index(i pulumi.IntInput) NatGatewayAvailabilityZoneAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NatGatewayAvailabilityZoneAddress {
+		return vs[0].([]NatGatewayAvailabilityZoneAddress)[vs[1].(int)]
+	}).(NatGatewayAvailabilityZoneAddressOutput)
+}
+
 // Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type NatGatewayTag struct {
 	// The tag key.
@@ -22407,6 +22534,9 @@ type NetworkInsightsPathTag struct {
 	Value *string `pulumi:"value"`
 }
 
+// ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
+//
+//	To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.
 type NetworkInterfaceAttachmentEnaSrdSpecification struct {
 	// Indicates whether ENA Express is enabled for the network interface.
 	EnaSrdEnabled *bool `pulumi:"enaSrdEnabled"`
@@ -22425,6 +22555,9 @@ type NetworkInterfaceAttachmentEnaSrdSpecificationInput interface {
 	ToNetworkInterfaceAttachmentEnaSrdSpecificationOutputWithContext(context.Context) NetworkInterfaceAttachmentEnaSrdSpecificationOutput
 }
 
+// ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
+//
+//	To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.
 type NetworkInterfaceAttachmentEnaSrdSpecificationArgs struct {
 	// Indicates whether ENA Express is enabled for the network interface.
 	EnaSrdEnabled pulumi.BoolPtrInput `pulumi:"enaSrdEnabled"`
@@ -22485,6 +22618,9 @@ func (i *networkInterfaceAttachmentEnaSrdSpecificationPtrType) ToNetworkInterfac
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput)
 }
 
+// ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
+//
+//	To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.
 type NetworkInterfaceAttachmentEnaSrdSpecificationOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceAttachmentEnaSrdSpecificationOutput) ElementType() reflect.Type {
@@ -23273,6 +23409,105 @@ func (o NetworkInterfacePrivateIpAddressSpecificationArrayOutput) Index(i pulumi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInterfacePrivateIpAddressSpecification {
 		return vs[0].([]NetworkInterfacePrivateIpAddressSpecification)[vs[1].(int)]
 	}).(NetworkInterfacePrivateIpAddressSpecificationOutput)
+}
+
+// Describes the public hostname type options, including public hostname type, IPv4-enabled public hostname, IPv6-enabled public hostname, and dual-stack public hostname.
+type NetworkInterfacePublicIpDnsNameOptions struct {
+	DnsHostnameType        *string `pulumi:"dnsHostnameType"`
+	PublicDualStackDnsName *string `pulumi:"publicDualStackDnsName"`
+	PublicIpv4DnsName      *string `pulumi:"publicIpv4DnsName"`
+	PublicIpv6DnsName      *string `pulumi:"publicIpv6DnsName"`
+}
+
+// Describes the public hostname type options, including public hostname type, IPv4-enabled public hostname, IPv6-enabled public hostname, and dual-stack public hostname.
+type NetworkInterfacePublicIpDnsNameOptionsOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfacePublicIpDnsNameOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfacePublicIpDnsNameOptions)(nil)).Elem()
+}
+
+func (o NetworkInterfacePublicIpDnsNameOptionsOutput) ToNetworkInterfacePublicIpDnsNameOptionsOutput() NetworkInterfacePublicIpDnsNameOptionsOutput {
+	return o
+}
+
+func (o NetworkInterfacePublicIpDnsNameOptionsOutput) ToNetworkInterfacePublicIpDnsNameOptionsOutputWithContext(ctx context.Context) NetworkInterfacePublicIpDnsNameOptionsOutput {
+	return o
+}
+
+func (o NetworkInterfacePublicIpDnsNameOptionsOutput) DnsHostnameType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInterfacePublicIpDnsNameOptions) *string { return v.DnsHostnameType }).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInterfacePublicIpDnsNameOptionsOutput) PublicDualStackDnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInterfacePublicIpDnsNameOptions) *string { return v.PublicDualStackDnsName }).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInterfacePublicIpDnsNameOptionsOutput) PublicIpv4DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInterfacePublicIpDnsNameOptions) *string { return v.PublicIpv4DnsName }).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInterfacePublicIpDnsNameOptionsOutput) PublicIpv6DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkInterfacePublicIpDnsNameOptions) *string { return v.PublicIpv6DnsName }).(pulumi.StringPtrOutput)
+}
+
+type NetworkInterfacePublicIpDnsNameOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfacePublicIpDnsNameOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInterfacePublicIpDnsNameOptions)(nil)).Elem()
+}
+
+func (o NetworkInterfacePublicIpDnsNameOptionsPtrOutput) ToNetworkInterfacePublicIpDnsNameOptionsPtrOutput() NetworkInterfacePublicIpDnsNameOptionsPtrOutput {
+	return o
+}
+
+func (o NetworkInterfacePublicIpDnsNameOptionsPtrOutput) ToNetworkInterfacePublicIpDnsNameOptionsPtrOutputWithContext(ctx context.Context) NetworkInterfacePublicIpDnsNameOptionsPtrOutput {
+	return o
+}
+
+func (o NetworkInterfacePublicIpDnsNameOptionsPtrOutput) Elem() NetworkInterfacePublicIpDnsNameOptionsOutput {
+	return o.ApplyT(func(v *NetworkInterfacePublicIpDnsNameOptions) NetworkInterfacePublicIpDnsNameOptions {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInterfacePublicIpDnsNameOptions
+		return ret
+	}).(NetworkInterfacePublicIpDnsNameOptionsOutput)
+}
+
+func (o NetworkInterfacePublicIpDnsNameOptionsPtrOutput) DnsHostnameType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfacePublicIpDnsNameOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsHostnameType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInterfacePublicIpDnsNameOptionsPtrOutput) PublicDualStackDnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfacePublicIpDnsNameOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicDualStackDnsName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInterfacePublicIpDnsNameOptionsPtrOutput) PublicIpv4DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfacePublicIpDnsNameOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIpv4DnsName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NetworkInterfacePublicIpDnsNameOptionsPtrOutput) PublicIpv6DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfacePublicIpDnsNameOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIpv6DnsName
+	}).(pulumi.StringPtrOutput)
 }
 
 type NetworkInterfaceTag struct {
@@ -37445,6 +37680,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateTotalLocalStorageGbPtrInput)(nil)).Elem(), LaunchTemplateTotalLocalStorageGbArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateVCpuCountInput)(nil)).Elem(), LaunchTemplateVCpuCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateVCpuCountPtrInput)(nil)).Elem(), LaunchTemplateVCpuCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayAvailabilityZoneAddressInput)(nil)).Elem(), NatGatewayAvailabilityZoneAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayAvailabilityZoneAddressArrayInput)(nil)).Elem(), NatGatewayAvailabilityZoneAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeAccessScopePathRequestInput)(nil)).Elem(), NetworkInsightsAccessScopeAccessScopePathRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopeAccessScopePathRequestArrayInput)(nil)).Elem(), NetworkInsightsAccessScopeAccessScopePathRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsAccessScopePacketHeaderStatementRequestInput)(nil)).Elem(), NetworkInsightsAccessScopePacketHeaderStatementRequestArgs{})
@@ -37830,6 +38067,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateTotalLocalStorageGbPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateVCpuCountOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateVCpuCountPtrOutput{})
+	pulumi.RegisterOutputType(NatGatewayAvailabilityZoneAddressOutput{})
+	pulumi.RegisterOutputType(NatGatewayAvailabilityZoneAddressArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAccessScopeAccessScopePathRequestOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAccessScopeAccessScopePathRequestArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInsightsAccessScopePacketHeaderStatementRequestOutput{})
@@ -37886,6 +38125,8 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInterfaceIpv6PrefixSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(NetworkInterfacePrivateIpAddressSpecificationOutput{})
 	pulumi.RegisterOutputType(NetworkInterfacePrivateIpAddressSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInterfacePublicIpDnsNameOptionsOutput{})
+	pulumi.RegisterOutputType(NetworkInterfacePublicIpDnsNameOptionsPtrOutput{})
 	pulumi.RegisterOutputType(OptionsPropertiesOutput{})
 	pulumi.RegisterOutputType(OptionsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PrefixListEntryOutput{})

@@ -61,6 +61,7 @@ export class HostedZone extends pulumi.CustomResource {
      *  If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
      */
     declare public readonly hostedZoneConfig: pulumi.Output<outputs.route53.HostedZoneConfig | undefined>;
+    declare public readonly hostedZoneFeatures: pulumi.Output<outputs.route53.HostedZoneFeatures | undefined>;
     /**
      * Adds, edits, or deletes tags for a health check or a hosted zone.
      *  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
@@ -106,6 +107,7 @@ export class HostedZone extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["hostedZoneConfig"] = args?.hostedZoneConfig;
+            resourceInputs["hostedZoneFeatures"] = args?.hostedZoneFeatures;
             resourceInputs["hostedZoneTags"] = args?.hostedZoneTags;
             resourceInputs["name"] = args?.name;
             resourceInputs["queryLoggingConfig"] = args?.queryLoggingConfig;
@@ -115,6 +117,7 @@ export class HostedZone extends pulumi.CustomResource {
         } else {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["hostedZoneConfig"] = undefined /*out*/;
+            resourceInputs["hostedZoneFeatures"] = undefined /*out*/;
             resourceInputs["hostedZoneTags"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nameServers"] = undefined /*out*/;
@@ -137,6 +140,7 @@ export interface HostedZoneArgs {
      *  If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
      */
     hostedZoneConfig?: pulumi.Input<inputs.route53.HostedZoneConfigArgs>;
+    hostedZoneFeatures?: pulumi.Input<inputs.route53.HostedZoneFeaturesArgs>;
     /**
      * Adds, edits, or deletes tags for a health check or a hosted zone.
      *  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.

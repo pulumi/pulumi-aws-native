@@ -9,6 +9,7 @@ import typing
 from .connect_attachment import *
 from .connect_peer import *
 from .core_network import *
+from .core_network_prefix_list_association import *
 from .customer_gateway_association import *
 from .device import *
 from .direct_connect_gateway_attachment import *

@@ -320,6 +320,8 @@ class ExpressGatewayService(pulumi.CustomResource):
             __props__.__dict__["task_role_arn"] = task_role_arn
             __props__.__dict__["active_configurations"] = None
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["ecs_managed_resource_arns"] = None
+            __props__.__dict__["endpoint"] = None
             __props__.__dict__["service_arn"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["updated_at"] = None
@@ -351,6 +353,8 @@ class ExpressGatewayService(pulumi.CustomResource):
         __props__.__dict__["cluster"] = None
         __props__.__dict__["cpu"] = None
         __props__.__dict__["created_at"] = None
+        __props__.__dict__["ecs_managed_resource_arns"] = None
+        __props__.__dict__["endpoint"] = None
         __props__.__dict__["execution_role_arn"] = None
         __props__.__dict__["health_check_path"] = None
         __props__.__dict__["infrastructure_role_arn"] = None
@@ -397,6 +401,16 @@ class ExpressGatewayService(pulumi.CustomResource):
         The Unix timestamp for when the Express service was created.
         """
         return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="ecsManagedResourceArns")
+    def ecs_managed_resource_arns(self) -> pulumi.Output['outputs.ExpressGatewayServiceEcsManagedResourceArns']:
+        return pulumi.get(self, "ecs_managed_resource_arns")
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")

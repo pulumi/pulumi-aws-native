@@ -21,15 +21,19 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
         /// The payment responsibilities accepted by the member for model training.
         /// </summary>
         public readonly Outputs.CollaborationModelTrainingPaymentConfig? ModelTraining;
+        public readonly Outputs.CollaborationSyntheticDataGenerationPaymentConfig? SyntheticDataGeneration;
 
         [OutputConstructor]
         private CollaborationMlPaymentConfig(
             Outputs.CollaborationModelInferencePaymentConfig? modelInference,
 
-            Outputs.CollaborationModelTrainingPaymentConfig? modelTraining)
+            Outputs.CollaborationModelTrainingPaymentConfig? modelTraining,
+
+            Outputs.CollaborationSyntheticDataGenerationPaymentConfig? syntheticDataGeneration)
         {
             ModelInference = modelInference;
             ModelTraining = modelTraining;
+            SyntheticDataGeneration = syntheticDataGeneration;
         }
     }
 }

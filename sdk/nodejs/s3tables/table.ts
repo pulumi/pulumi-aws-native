@@ -57,6 +57,7 @@ export class Table extends pulumi.CustomResource {
      * Contains details about the Iceberg snapshot management settings for the table.
      */
     declare public readonly snapshotManagement: pulumi.Output<outputs.s3tables.TableSnapshotManagement | undefined>;
+    declare public readonly storageClassConfiguration: pulumi.Output<outputs.s3tables.TableStorageClassConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the table.
      */
@@ -111,6 +112,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["namespace"] = args?.namespace;
             resourceInputs["openTableFormat"] = args?.openTableFormat;
             resourceInputs["snapshotManagement"] = args?.snapshotManagement;
+            resourceInputs["storageClassConfiguration"] = args?.storageClassConfiguration;
             resourceInputs["tableBucketArn"] = args?.tableBucketArn;
             resourceInputs["tableName"] = args?.tableName;
             resourceInputs["tags"] = args?.tags;
@@ -124,6 +126,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["namespace"] = undefined /*out*/;
             resourceInputs["openTableFormat"] = undefined /*out*/;
             resourceInputs["snapshotManagement"] = undefined /*out*/;
+            resourceInputs["storageClassConfiguration"] = undefined /*out*/;
             resourceInputs["tableArn"] = undefined /*out*/;
             resourceInputs["tableBucketArn"] = undefined /*out*/;
             resourceInputs["tableName"] = undefined /*out*/;
@@ -133,7 +136,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["withoutMetadata"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["icebergMetadata", "openTableFormat", "tableBucketArn", "withoutMetadata"] };
+        const replaceOnChanges = { replaceOnChanges: ["icebergMetadata", "openTableFormat", "storageClassConfiguration", "tableBucketArn", "withoutMetadata"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Table.__pulumiType, name, resourceInputs, opts);
     }
@@ -163,6 +166,7 @@ export interface TableArgs {
      * Contains details about the Iceberg snapshot management settings for the table.
      */
     snapshotManagement?: pulumi.Input<inputs.s3tables.TableSnapshotManagementArgs>;
+    storageClassConfiguration?: pulumi.Input<inputs.s3tables.TableStorageClassConfigurationArgs>;
     /**
      * The Amazon Resource Name (ARN) of the table bucket to create the table in.
      */

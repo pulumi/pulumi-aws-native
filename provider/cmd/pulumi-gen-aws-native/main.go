@@ -215,7 +215,7 @@ func readJsonSchemas(schemaDir string, overlay map[string]AutoNamingOverlay) (re
 	var fileNames []string
 	root := filepath.Join(".", schemaDir)
 	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
-		if !info.IsDir() {
+		if info != nil && !info.IsDir() {
 			fileNames = append(fileNames, path)
 		}
 		return nil
@@ -232,13 +232,68 @@ func readJsonSchemas(schemaDir string, overlay map[string]AutoNamingOverlay) (re
 }
 
 func readJsonSchema(schemaPath string, overlay map[string]AutoNamingOverlay) *jsschema.Schema {
-	s, err := jsschema.ReadFile(schemaPath)
+	raw, err := os.ReadFile(schemaPath)
 	if err != nil {
-		fatalf("%v", errors.Wrap(err, schemaPath))
+		fatalf("error reading json schema: %v", errors.Wrap(err, schemaPath))
+	}
+
+	s, err := jsschema.Read(bytes.NewReader(raw))
+	if err != nil && strings.Contains(err.Error(), "failed to extract 'exclusiveMaximum'") {
+		normalized, nerr := normalizeExclusiveBounds(raw)
+		if nerr != nil {
+			fatalf("error normalizing json schema: %v", errors.Wrap(nerr, schemaPath))
+		}
+		s, err = jsschema.Read(bytes.NewReader(normalized))
+	}
+	if err != nil {
+		fatalf("error reading json schema: %v", errors.Wrap(err, schemaPath))
 	}
 	mergeAutoNaming(s, overlay)
 
 	return s
+}
+
+// normalizeExclusiveBounds rewrites draft-06+ numeric exclusiveMinimum/Maximum
+// into the draft-04 shape that github.com/pulumi/jsschema expects:
+//
+//	exclusiveMaximum: <number> => maximum: <number>, exclusiveMaximum: true
+//	exclusiveMinimum: <number> => minimum: <number>, exclusiveMinimum: true
+//
+// It walks the document recursively, preserving other fields untouched.
+func normalizeExclusiveBounds(raw []byte) ([]byte, error) {
+	var v interface{}
+	if err := json.Unmarshal(raw, &v); err != nil {
+		return nil, err
+	}
+
+	var visit func(interface{}) interface{}
+	visit = func(node interface{}) interface{} {
+		switch t := node.(type) {
+		case map[string]interface{}:
+			if val, ok := t["exclusiveMaximum"].(float64); ok {
+				t["maximum"] = val
+				t["exclusiveMaximum"] = true
+			}
+			if val, ok := t["exclusiveMinimum"].(float64); ok {
+				t["minimum"] = val
+				t["exclusiveMinimum"] = true
+			}
+			for k, child := range t {
+				t[k] = visit(child)
+			}
+			return t
+		case []interface{}:
+			for i, child := range t {
+				t[i] = visit(child)
+			}
+			return t
+		default:
+			return node
+		}
+	}
+
+	v = visit(v)
+	return json.Marshal(v)
 }
 
 func mergeAutoNaming(schema *jsschema.Schema, overlay map[string]AutoNamingOverlay) {

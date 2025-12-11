@@ -51,6 +51,8 @@ type LookupClusterResult struct {
 	Status *string `pulumi:"status"`
 	// A map of key and value pairs this cluster is tagged with.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The DSQL cluster VPC endpoint.
+	VpcEndpoint *string `pulumi:"vpcEndpoint"`
 	// The VPC endpoint service name.
 	VpcEndpointServiceName *string `pulumi:"vpcEndpointServiceName"`
 }
@@ -140,6 +142,11 @@ func (o LookupClusterResultOutput) Status() pulumi.StringPtrOutput {
 // A map of key and value pairs this cluster is tagged with.
 func (o LookupClusterResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The DSQL cluster VPC endpoint.
+func (o LookupClusterResultOutput) VpcEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.VpcEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // The VPC endpoint service name.

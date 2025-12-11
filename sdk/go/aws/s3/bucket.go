@@ -876,7 +876,6 @@ func NewBucket(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"bucketName",
-		"metadataConfiguration.journalTableConfiguration.encryptionConfiguration",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

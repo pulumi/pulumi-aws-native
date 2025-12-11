@@ -63,6 +63,10 @@
       "description" : "The attachment to move from one network function group to another.",
       "$ref" : "#/definitions/ProposedNetworkFunctionGroupChange"
     },
+    "RoutingPolicyLabel" : {
+      "description" : "Routing policy label",
+      "type" : "string"
+    },
     "Tags" : {
       "description" : "Tags for the attachment.",
       "type" : "array",
@@ -164,7 +168,8 @@
   },
   "additionalProperties" : false,
   "required" : [ "CoreNetworkId", "DirectConnectGatewayArn", "EdgeLocations" ],
-  "createOnlyProperties" : [ "/properties/CoreNetworkId", "/properties/DirectConnectGatewayArn" ],
+  "createOnlyProperties" : [ "/properties/CoreNetworkId", "/properties/DirectConnectGatewayArn", "/properties/RoutingPolicyLabel" ],
+  "writeOnlyProperties" : [ "/properties/RoutingPolicyLabel" ],
   "readOnlyProperties" : [ "/properties/CoreNetworkArn", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/AttachmentType", "/properties/State", "/properties/AttachmentId", "/properties/OwnerAccountId", "/properties/AttachmentPolicyRuleNumber", "/properties/SegmentName", "/properties/NetworkFunctionGroupName", "/properties/ResourceArn", "/properties/LastModificationErrors" ],
   "primaryIdentifier" : [ "/properties/AttachmentId" ],
   "additionalIdentifiers" : [ [ "/properties/CoreNetworkId", "/properties/DirectConnectGatewayArn" ] ],

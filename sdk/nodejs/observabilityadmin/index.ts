@@ -15,6 +15,11 @@ export const getOrganizationTelemetryRule: typeof import("./getOrganizationTelem
 export const getOrganizationTelemetryRuleOutput: typeof import("./getOrganizationTelemetryRule").getOrganizationTelemetryRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getOrganizationTelemetryRule","getOrganizationTelemetryRuleOutput"], () => require("./getOrganizationTelemetryRule"));
 
+export { GetTelemetryPipelinesArgs, GetTelemetryPipelinesResult, GetTelemetryPipelinesOutputArgs } from "./getTelemetryPipelines";
+export const getTelemetryPipelines: typeof import("./getTelemetryPipelines").getTelemetryPipelines = null as any;
+export const getTelemetryPipelinesOutput: typeof import("./getTelemetryPipelines").getTelemetryPipelinesOutput = null as any;
+utilities.lazyLoad(exports, ["getTelemetryPipelines","getTelemetryPipelinesOutput"], () => require("./getTelemetryPipelines"));
+
 export { GetTelemetryRuleArgs, GetTelemetryRuleResult, GetTelemetryRuleOutputArgs } from "./getTelemetryRule";
 export const getTelemetryRule: typeof import("./getTelemetryRule").getTelemetryRule = null as any;
 export const getTelemetryRuleOutput: typeof import("./getTelemetryRule").getTelemetryRuleOutput = null as any;
@@ -29,6 +34,11 @@ export { OrganizationTelemetryRuleArgs } from "./organizationTelemetryRule";
 export type OrganizationTelemetryRule = import("./organizationTelemetryRule").OrganizationTelemetryRule;
 export const OrganizationTelemetryRule: typeof import("./organizationTelemetryRule").OrganizationTelemetryRule = null as any;
 utilities.lazyLoad(exports, ["OrganizationTelemetryRule"], () => require("./organizationTelemetryRule"));
+
+export { TelemetryPipelinesArgs } from "./telemetryPipelines";
+export type TelemetryPipelines = import("./telemetryPipelines").TelemetryPipelines;
+export const TelemetryPipelines: typeof import("./telemetryPipelines").TelemetryPipelines = null as any;
+utilities.lazyLoad(exports, ["TelemetryPipelines"], () => require("./telemetryPipelines"));
 
 export { TelemetryRuleArgs } from "./telemetryRule";
 export type TelemetryRule = import("./telemetryRule").TelemetryRule;
@@ -47,6 +57,8 @@ const _module = {
                 return new OrganizationCentralizationRule(name, <any>undefined, { urn })
             case "aws-native:observabilityadmin:OrganizationTelemetryRule":
                 return new OrganizationTelemetryRule(name, <any>undefined, { urn })
+            case "aws-native:observabilityadmin:TelemetryPipelines":
+                return new TelemetryPipelines(name, <any>undefined, { urn })
             case "aws-native:observabilityadmin:TelemetryRule":
                 return new TelemetryRule(name, <any>undefined, { urn })
             default:

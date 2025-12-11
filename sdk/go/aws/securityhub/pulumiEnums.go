@@ -3619,6 +3619,99 @@ func (in *configurationPolicyParameterConfigurationValueTypePtr) ToConfiguration
 	return pulumi.ToOutputWithContext(ctx, in).(ConfigurationPolicyParameterConfigurationValueTypePtrOutput)
 }
 
+// The status of the connector
+type ConnectorV2ConnectorStatus string
+
+const (
+	ConnectorV2ConnectorStatusConnected            = ConnectorV2ConnectorStatus("CONNECTED")
+	ConnectorV2ConnectorStatusFailedToConnect      = ConnectorV2ConnectorStatus("FAILED_TO_CONNECT")
+	ConnectorV2ConnectorStatusPendingAuthorization = ConnectorV2ConnectorStatus("PENDING_AUTHORIZATION")
+	ConnectorV2ConnectorStatusPendingConfiguration = ConnectorV2ConnectorStatus("PENDING_CONFIGURATION")
+)
+
+type ConnectorV2ConnectorStatusOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2ConnectorStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorV2ConnectorStatus)(nil)).Elem()
+}
+
+func (o ConnectorV2ConnectorStatusOutput) ToConnectorV2ConnectorStatusOutput() ConnectorV2ConnectorStatusOutput {
+	return o
+}
+
+func (o ConnectorV2ConnectorStatusOutput) ToConnectorV2ConnectorStatusOutputWithContext(ctx context.Context) ConnectorV2ConnectorStatusOutput {
+	return o
+}
+
+func (o ConnectorV2ConnectorStatusOutput) ToConnectorV2ConnectorStatusPtrOutput() ConnectorV2ConnectorStatusPtrOutput {
+	return o.ToConnectorV2ConnectorStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorV2ConnectorStatusOutput) ToConnectorV2ConnectorStatusPtrOutputWithContext(ctx context.Context) ConnectorV2ConnectorStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorV2ConnectorStatus) *ConnectorV2ConnectorStatus {
+		return &v
+	}).(ConnectorV2ConnectorStatusPtrOutput)
+}
+
+func (o ConnectorV2ConnectorStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectorV2ConnectorStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorV2ConnectorStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectorV2ConnectorStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorV2ConnectorStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorV2ConnectorStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorV2ConnectorStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorV2ConnectorStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorV2ConnectorStatus)(nil)).Elem()
+}
+
+func (o ConnectorV2ConnectorStatusPtrOutput) ToConnectorV2ConnectorStatusPtrOutput() ConnectorV2ConnectorStatusPtrOutput {
+	return o
+}
+
+func (o ConnectorV2ConnectorStatusPtrOutput) ToConnectorV2ConnectorStatusPtrOutputWithContext(ctx context.Context) ConnectorV2ConnectorStatusPtrOutput {
+	return o
+}
+
+func (o ConnectorV2ConnectorStatusPtrOutput) Elem() ConnectorV2ConnectorStatusOutput {
+	return o.ApplyT(func(v *ConnectorV2ConnectorStatus) ConnectorV2ConnectorStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorV2ConnectorStatus
+		return ret
+	}).(ConnectorV2ConnectorStatusOutput)
+}
+
+func (o ConnectorV2ConnectorStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorV2ConnectorStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectorV2ConnectorStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Whether the delegated Security Hub administrator is set for the organization.
 type DelegatedAdminStatus string
 
@@ -5430,6 +5523,8 @@ func init() {
 	pulumi.RegisterOutputType(AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationPolicyParameterConfigurationValueTypeOutput{})
 	pulumi.RegisterOutputType(ConfigurationPolicyParameterConfigurationValueTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectorV2ConnectorStatusOutput{})
+	pulumi.RegisterOutputType(ConnectorV2ConnectorStatusPtrOutput{})
 	pulumi.RegisterOutputType(DelegatedAdminStatusOutput{})
 	pulumi.RegisterOutputType(DelegatedAdminStatusPtrOutput{})
 	pulumi.RegisterOutputType(FindingAggregatorRegionLinkingModeOutput{})

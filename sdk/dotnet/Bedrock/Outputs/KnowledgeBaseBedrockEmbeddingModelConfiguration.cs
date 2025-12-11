@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class KnowledgeBaseBedrockEmbeddingModelConfiguration
     {
+        public readonly ImmutableArray<Outputs.KnowledgeBaseAudioConfiguration> Audio;
         /// <summary>
         /// The dimensions details for the vector configuration used on the Bedrock embeddings model.
         /// </summary>
@@ -24,15 +25,22 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// The data type for the vectors when using a model to convert text into vector embeddings.
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType? EmbeddingDataType;
+        public readonly ImmutableArray<Outputs.KnowledgeBaseVideoConfiguration> Video;
 
         [OutputConstructor]
         private KnowledgeBaseBedrockEmbeddingModelConfiguration(
+            ImmutableArray<Outputs.KnowledgeBaseAudioConfiguration> audio,
+
             int? dimensions,
 
-            Pulumi.AwsNative.Bedrock.KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType? embeddingDataType)
+            Pulumi.AwsNative.Bedrock.KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType? embeddingDataType,
+
+            ImmutableArray<Outputs.KnowledgeBaseVideoConfiguration> video)
         {
+            Audio = audio;
             Dimensions = dimensions;
             EmbeddingDataType = embeddingDataType;
+            Video = video;
         }
     }
 }

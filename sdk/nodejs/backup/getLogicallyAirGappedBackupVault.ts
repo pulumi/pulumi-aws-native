@@ -39,6 +39,9 @@ export interface GetLogicallyAirGappedBackupVaultResult {
      * The tags to assign to the vault.
      */
     readonly backupVaultTags?: {[key: string]: string};
+    /**
+     * The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault. This cannot be changed after it is set from the CloudFormation template.
+     */
     readonly mpaApprovalTeamArn?: string;
     /**
      * Returns event notifications for the specified backup vault.

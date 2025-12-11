@@ -25,6 +25,11 @@ export type ConfigurationPolicy = import("./configurationPolicy").ConfigurationP
 export const ConfigurationPolicy: typeof import("./configurationPolicy").ConfigurationPolicy = null as any;
 utilities.lazyLoad(exports, ["ConfigurationPolicy"], () => require("./configurationPolicy"));
 
+export { ConnectorV2Args } from "./connectorV2";
+export type ConnectorV2 = import("./connectorV2").ConnectorV2;
+export const ConnectorV2: typeof import("./connectorV2").ConnectorV2 = null as any;
+utilities.lazyLoad(exports, ["ConnectorV2"], () => require("./connectorV2"));
+
 export { DelegatedAdminArgs } from "./delegatedAdmin";
 export type DelegatedAdmin = import("./delegatedAdmin").DelegatedAdmin;
 export const DelegatedAdmin: typeof import("./delegatedAdmin").DelegatedAdmin = null as any;
@@ -54,6 +59,11 @@ export { GetConfigurationPolicyArgs, GetConfigurationPolicyResult, GetConfigurat
 export const getConfigurationPolicy: typeof import("./getConfigurationPolicy").getConfigurationPolicy = null as any;
 export const getConfigurationPolicyOutput: typeof import("./getConfigurationPolicy").getConfigurationPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getConfigurationPolicy","getConfigurationPolicyOutput"], () => require("./getConfigurationPolicy"));
+
+export { GetConnectorV2Args, GetConnectorV2Result, GetConnectorV2OutputArgs } from "./getConnectorV2";
+export const getConnectorV2: typeof import("./getConnectorV2").getConnectorV2 = null as any;
+export const getConnectorV2Output: typeof import("./getConnectorV2").getConnectorV2Output = null as any;
+utilities.lazyLoad(exports, ["getConnectorV2","getConnectorV2Output"], () => require("./getConnectorV2"));
 
 export { GetDelegatedAdminArgs, GetDelegatedAdminResult, GetDelegatedAdminOutputArgs } from "./getDelegatedAdmin";
 export const getDelegatedAdmin: typeof import("./getDelegatedAdmin").getDelegatedAdmin = null as any;
@@ -161,6 +171,8 @@ const _module = {
                 return new AutomationRuleV2(name, <any>undefined, { urn })
             case "aws-native:securityhub:ConfigurationPolicy":
                 return new ConfigurationPolicy(name, <any>undefined, { urn })
+            case "aws-native:securityhub:ConnectorV2":
+                return new ConnectorV2(name, <any>undefined, { urn })
             case "aws-native:securityhub:DelegatedAdmin":
                 return new DelegatedAdmin(name, <any>undefined, { urn })
             case "aws-native:securityhub:FindingAggregator":

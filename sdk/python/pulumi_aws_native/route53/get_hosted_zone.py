@@ -25,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetHostedZoneResult:
-    def __init__(__self__, hosted_zone_config=None, hosted_zone_tags=None, id=None, name_servers=None, query_logging_config=None, vpcs=None):
+    def __init__(__self__, hosted_zone_config=None, hosted_zone_features=None, hosted_zone_tags=None, id=None, name_servers=None, query_logging_config=None, vpcs=None):
         if hosted_zone_config and not isinstance(hosted_zone_config, dict):
             raise TypeError("Expected argument 'hosted_zone_config' to be a dict")
         pulumi.set(__self__, "hosted_zone_config", hosted_zone_config)
+        if hosted_zone_features and not isinstance(hosted_zone_features, dict):
+            raise TypeError("Expected argument 'hosted_zone_features' to be a dict")
+        pulumi.set(__self__, "hosted_zone_features", hosted_zone_features)
         if hosted_zone_tags and not isinstance(hosted_zone_tags, list):
             raise TypeError("Expected argument 'hosted_zone_tags' to be a list")
         pulumi.set(__self__, "hosted_zone_tags", hosted_zone_tags)
@@ -53,6 +56,11 @@ class GetHostedZoneResult:
          If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
         """
         return pulumi.get(self, "hosted_zone_config")
+
+    @_builtins.property
+    @pulumi.getter(name="hostedZoneFeatures")
+    def hosted_zone_features(self) -> Optional['outputs.HostedZoneFeatures']:
+        return pulumi.get(self, "hosted_zone_features")
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneTags")
@@ -113,6 +121,7 @@ class AwaitableGetHostedZoneResult(GetHostedZoneResult):
             yield self
         return GetHostedZoneResult(
             hosted_zone_config=self.hosted_zone_config,
+            hosted_zone_features=self.hosted_zone_features,
             hosted_zone_tags=self.hosted_zone_tags,
             id=self.id,
             name_servers=self.name_servers,
@@ -150,6 +159,7 @@ def get_hosted_zone(id: Optional[_builtins.str] = None,
 
     return AwaitableGetHostedZoneResult(
         hosted_zone_config=pulumi.get(__ret__, 'hosted_zone_config'),
+        hosted_zone_features=pulumi.get(__ret__, 'hosted_zone_features'),
         hosted_zone_tags=pulumi.get(__ret__, 'hosted_zone_tags'),
         id=pulumi.get(__ret__, 'id'),
         name_servers=pulumi.get(__ret__, 'name_servers'),
@@ -184,6 +194,7 @@ def get_hosted_zone_output(id: Optional[pulumi.Input[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53:getHostedZone', __args__, opts=opts, typ=GetHostedZoneResult)
     return __ret__.apply(lambda __response__: GetHostedZoneResult(
         hosted_zone_config=pulumi.get(__response__, 'hosted_zone_config'),
+        hosted_zone_features=pulumi.get(__response__, 'hosted_zone_features'),
         hosted_zone_tags=pulumi.get(__response__, 'hosted_zone_tags'),
         id=pulumi.get(__response__, 'id'),
         name_servers=pulumi.get(__response__, 'name_servers'),

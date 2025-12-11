@@ -44,7 +44,7 @@ export class Campaign extends pulumi.CustomResource {
     /**
      * Contains channel subtype configuration for an outbound campaign.
      */
-    declare public readonly channelSubtypeConfig: pulumi.Output<outputs.connectcampaignsv2.CampaignChannelSubtypeConfig>;
+    declare public readonly channelSubtypeConfig: pulumi.Output<outputs.connectcampaignsv2.CampaignChannelSubtypeConfig | undefined>;
     /**
      * Communication limits configuration for an outbound campaign.
      */
@@ -77,6 +77,7 @@ export class Campaign extends pulumi.CustomResource {
      * One or more tags.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly type: pulumi.Output<enums.connectcampaignsv2.CampaignType | undefined>;
 
     /**
      * Create a Campaign resource with the given unique name, arguments, and options.
@@ -89,9 +90,6 @@ export class Campaign extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.channelSubtypeConfig === undefined && !opts.urn) {
-                throw new Error("Missing required property 'channelSubtypeConfig'");
-            }
             if (args?.connectInstanceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectInstanceId'");
             }
@@ -104,6 +102,7 @@ export class Campaign extends pulumi.CustomResource {
             resourceInputs["schedule"] = args?.schedule;
             resourceInputs["source"] = args?.source;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -116,6 +115,7 @@ export class Campaign extends pulumi.CustomResource {
             resourceInputs["schedule"] = undefined /*out*/;
             resourceInputs["source"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["connectInstanceId"] };
@@ -131,7 +131,7 @@ export interface CampaignArgs {
     /**
      * Contains channel subtype configuration for an outbound campaign.
      */
-    channelSubtypeConfig: pulumi.Input<inputs.connectcampaignsv2.CampaignChannelSubtypeConfigArgs>;
+    channelSubtypeConfig?: pulumi.Input<inputs.connectcampaignsv2.CampaignChannelSubtypeConfigArgs>;
     /**
      * Communication limits configuration for an outbound campaign.
      */
@@ -164,4 +164,5 @@ export interface CampaignArgs {
      * One or more tags.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    type?: pulumi.Input<enums.connectcampaignsv2.CampaignType>;
 }

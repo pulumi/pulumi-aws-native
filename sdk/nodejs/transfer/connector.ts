@@ -62,6 +62,10 @@ export class Connector extends pulumi.CustomResource {
      */
     declare public readonly egressType: pulumi.Output<enums.transfer.ConnectorEgressType | undefined>;
     /**
+     * Detailed error message when Connector in ERRORED status
+     */
+    declare public /*out*/ readonly errorMessage: pulumi.Output<string>;
+    /**
      * Specifies the logging role for the connector.
      */
     declare public readonly loggingRole: pulumi.Output<string | undefined>;
@@ -115,6 +119,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["url"] = args?.url;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["connectorId"] = undefined /*out*/;
+            resourceInputs["errorMessage"] = undefined /*out*/;
             resourceInputs["serviceManagedEgressIpAddresses"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
@@ -124,6 +129,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["connectorId"] = undefined /*out*/;
             resourceInputs["egressConfig"] = undefined /*out*/;
             resourceInputs["egressType"] = undefined /*out*/;
+            resourceInputs["errorMessage"] = undefined /*out*/;
             resourceInputs["loggingRole"] = undefined /*out*/;
             resourceInputs["securityPolicyName"] = undefined /*out*/;
             resourceInputs["serviceManagedEgressIpAddresses"] = undefined /*out*/;

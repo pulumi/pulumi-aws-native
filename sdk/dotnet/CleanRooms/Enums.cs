@@ -128,6 +128,34 @@ namespace Pulumi.AwsNative.CleanRooms
     }
 
     [EnumType]
+    public readonly struct AnalysisTemplateSyntheticDataColumnPropertiesColumnType : IEquatable<AnalysisTemplateSyntheticDataColumnPropertiesColumnType>
+    {
+        private readonly string _value;
+
+        private AnalysisTemplateSyntheticDataColumnPropertiesColumnType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisTemplateSyntheticDataColumnPropertiesColumnType Categorical { get; } = new AnalysisTemplateSyntheticDataColumnPropertiesColumnType("CATEGORICAL");
+        public static AnalysisTemplateSyntheticDataColumnPropertiesColumnType Numerical { get; } = new AnalysisTemplateSyntheticDataColumnPropertiesColumnType("NUMERICAL");
+
+        public static bool operator ==(AnalysisTemplateSyntheticDataColumnPropertiesColumnType left, AnalysisTemplateSyntheticDataColumnPropertiesColumnType right) => left.Equals(right);
+        public static bool operator !=(AnalysisTemplateSyntheticDataColumnPropertiesColumnType left, AnalysisTemplateSyntheticDataColumnPropertiesColumnType right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisTemplateSyntheticDataColumnPropertiesColumnType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisTemplateSyntheticDataColumnPropertiesColumnType other && Equals(other);
+        public bool Equals(AnalysisTemplateSyntheticDataColumnPropertiesColumnType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct CollaborationAnalyticsEngine : IEquatable<CollaborationAnalyticsEngine>
     {
         private readonly string _value;

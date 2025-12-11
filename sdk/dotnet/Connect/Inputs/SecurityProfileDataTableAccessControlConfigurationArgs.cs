@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class SecurityProfileDataTableAccessControlConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration's primary attribute access control configuration.
+        /// </summary>
         [Input("primaryAttributeAccessControlConfiguration")]
         public Input<Inputs.SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs>? PrimaryAttributeAccessControlConfiguration { get; set; }
 

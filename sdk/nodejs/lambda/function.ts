@@ -287,6 +287,7 @@ export class Function extends pulumi.CustomResource {
      * A description of the function.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly durableConfig: pulumi.Output<outputs.lambda.FunctionDurableConfig | undefined>;
     /**
      * Environment variables that are accessible from function code during execution.
      */
@@ -415,6 +416,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["codeSigningConfigArn"] = args?.codeSigningConfigArn;
             resourceInputs["deadLetterConfig"] = args?.deadLetterConfig;
             resourceInputs["description"] = args?.description;
+            resourceInputs["durableConfig"] = args?.durableConfig;
             resourceInputs["environment"] = args?.environment;
             resourceInputs["ephemeralStorage"] = args?.ephemeralStorage;
             resourceInputs["fileSystemConfigs"] = args?.fileSystemConfigs;
@@ -449,6 +451,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["codeSigningConfigArn"] = undefined /*out*/;
             resourceInputs["deadLetterConfig"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["durableConfig"] = undefined /*out*/;
             resourceInputs["environment"] = undefined /*out*/;
             resourceInputs["ephemeralStorage"] = undefined /*out*/;
             resourceInputs["fileSystemConfigs"] = undefined /*out*/;
@@ -510,6 +513,7 @@ export interface FunctionArgs {
      * A description of the function.
      */
     description?: pulumi.Input<string>;
+    durableConfig?: pulumi.Input<inputs.lambda.FunctionDurableConfigArgs>;
     /**
      * Environment variables that are accessible from function code during execution.
      */

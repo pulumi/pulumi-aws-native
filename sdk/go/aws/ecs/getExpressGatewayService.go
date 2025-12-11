@@ -31,7 +31,9 @@ type LookupExpressGatewayServiceResult struct {
 	// The list of active service configurations for the Express service.
 	ActiveConfigurations []ExpressGatewayServiceConfiguration `pulumi:"activeConfigurations"`
 	// The Unix timestamp for when the Express service was created.
-	CreatedAt *string `pulumi:"createdAt"`
+	CreatedAt              *string                                      `pulumi:"createdAt"`
+	EcsManagedResourceArns *ExpressGatewayServiceEcsManagedResourceArns `pulumi:"ecsManagedResourceArns"`
+	Endpoint               *string                                      `pulumi:"endpoint"`
 	// The ARN that identifies the Express service.
 	ServiceArn *string                      `pulumi:"serviceArn"`
 	Status     *ExpressGatewayServiceStatus `pulumi:"status"`
@@ -81,6 +83,16 @@ func (o LookupExpressGatewayServiceResultOutput) ActiveConfigurations() ExpressG
 // The Unix timestamp for when the Express service was created.
 func (o LookupExpressGatewayServiceResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExpressGatewayServiceResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupExpressGatewayServiceResultOutput) EcsManagedResourceArns() ExpressGatewayServiceEcsManagedResourceArnsPtrOutput {
+	return o.ApplyT(func(v LookupExpressGatewayServiceResult) *ExpressGatewayServiceEcsManagedResourceArns {
+		return v.EcsManagedResourceArns
+	}).(ExpressGatewayServiceEcsManagedResourceArnsPtrOutput)
+}
+
+func (o LookupExpressGatewayServiceResultOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupExpressGatewayServiceResult) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
 // The ARN that identifies the Express service.

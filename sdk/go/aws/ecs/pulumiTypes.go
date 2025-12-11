@@ -4741,6 +4741,75 @@ type ClusterTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type ExpressGatewayServiceAutoScalingArns struct {
+	ApplicationAutoScalingPolicies []string `pulumi:"applicationAutoScalingPolicies"`
+	ScalableTarget                 *string  `pulumi:"scalableTarget"`
+}
+
+type ExpressGatewayServiceAutoScalingArnsOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceAutoScalingArnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceAutoScalingArns)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceAutoScalingArnsOutput) ToExpressGatewayServiceAutoScalingArnsOutput() ExpressGatewayServiceAutoScalingArnsOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceAutoScalingArnsOutput) ToExpressGatewayServiceAutoScalingArnsOutputWithContext(ctx context.Context) ExpressGatewayServiceAutoScalingArnsOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceAutoScalingArnsOutput) ApplicationAutoScalingPolicies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceAutoScalingArns) []string { return v.ApplicationAutoScalingPolicies }).(pulumi.StringArrayOutput)
+}
+
+func (o ExpressGatewayServiceAutoScalingArnsOutput) ScalableTarget() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceAutoScalingArns) *string { return v.ScalableTarget }).(pulumi.StringPtrOutput)
+}
+
+type ExpressGatewayServiceAutoScalingArnsPtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceAutoScalingArnsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServiceAutoScalingArns)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceAutoScalingArnsPtrOutput) ToExpressGatewayServiceAutoScalingArnsPtrOutput() ExpressGatewayServiceAutoScalingArnsPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceAutoScalingArnsPtrOutput) ToExpressGatewayServiceAutoScalingArnsPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceAutoScalingArnsPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceAutoScalingArnsPtrOutput) Elem() ExpressGatewayServiceAutoScalingArnsOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceAutoScalingArns) ExpressGatewayServiceAutoScalingArns {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressGatewayServiceAutoScalingArns
+		return ret
+	}).(ExpressGatewayServiceAutoScalingArnsOutput)
+}
+
+func (o ExpressGatewayServiceAutoScalingArnsPtrOutput) ApplicationAutoScalingPolicies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceAutoScalingArns) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationAutoScalingPolicies
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ExpressGatewayServiceAutoScalingArnsPtrOutput) ScalableTarget() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceAutoScalingArns) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScalableTarget
+	}).(pulumi.StringPtrOutput)
+}
+
 type ExpressGatewayServiceAwsLogsConfiguration struct {
 	// The name of the CloudWatch Logs log group to send container logs to.
 	LogGroup string `pulumi:"logGroup"`
@@ -5017,6 +5086,121 @@ func (o ExpressGatewayServiceConfigurationArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressGatewayServiceConfiguration {
 		return vs[0].([]ExpressGatewayServiceConfiguration)[vs[1].(int)]
 	}).(ExpressGatewayServiceConfigurationOutput)
+}
+
+type ExpressGatewayServiceEcsManagedResourceArns struct {
+	AutoScaling           *ExpressGatewayServiceAutoScalingArns `pulumi:"autoScaling"`
+	IngressPath           *ExpressGatewayServiceIngressPathArns `pulumi:"ingressPath"`
+	LogGroups             []string                              `pulumi:"logGroups"`
+	MetricAlarms          []string                              `pulumi:"metricAlarms"`
+	ServiceSecurityGroups []string                              `pulumi:"serviceSecurityGroups"`
+}
+
+type ExpressGatewayServiceEcsManagedResourceArnsOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceEcsManagedResourceArnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceEcsManagedResourceArns)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceEcsManagedResourceArnsOutput) ToExpressGatewayServiceEcsManagedResourceArnsOutput() ExpressGatewayServiceEcsManagedResourceArnsOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceEcsManagedResourceArnsOutput) ToExpressGatewayServiceEcsManagedResourceArnsOutputWithContext(ctx context.Context) ExpressGatewayServiceEcsManagedResourceArnsOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceEcsManagedResourceArnsOutput) AutoScaling() ExpressGatewayServiceAutoScalingArnsPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceEcsManagedResourceArns) *ExpressGatewayServiceAutoScalingArns {
+		return v.AutoScaling
+	}).(ExpressGatewayServiceAutoScalingArnsPtrOutput)
+}
+
+func (o ExpressGatewayServiceEcsManagedResourceArnsOutput) IngressPath() ExpressGatewayServiceIngressPathArnsPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceEcsManagedResourceArns) *ExpressGatewayServiceIngressPathArns {
+		return v.IngressPath
+	}).(ExpressGatewayServiceIngressPathArnsPtrOutput)
+}
+
+func (o ExpressGatewayServiceEcsManagedResourceArnsOutput) LogGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceEcsManagedResourceArns) []string { return v.LogGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o ExpressGatewayServiceEcsManagedResourceArnsOutput) MetricAlarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceEcsManagedResourceArns) []string { return v.MetricAlarms }).(pulumi.StringArrayOutput)
+}
+
+func (o ExpressGatewayServiceEcsManagedResourceArnsOutput) ServiceSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceEcsManagedResourceArns) []string { return v.ServiceSecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+type ExpressGatewayServiceEcsManagedResourceArnsPtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceEcsManagedResourceArnsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServiceEcsManagedResourceArns)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceEcsManagedResourceArnsPtrOutput) ToExpressGatewayServiceEcsManagedResourceArnsPtrOutput() ExpressGatewayServiceEcsManagedResourceArnsPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceEcsManagedResourceArnsPtrOutput) ToExpressGatewayServiceEcsManagedResourceArnsPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceEcsManagedResourceArnsPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceEcsManagedResourceArnsPtrOutput) Elem() ExpressGatewayServiceEcsManagedResourceArnsOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceEcsManagedResourceArns) ExpressGatewayServiceEcsManagedResourceArns {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressGatewayServiceEcsManagedResourceArns
+		return ret
+	}).(ExpressGatewayServiceEcsManagedResourceArnsOutput)
+}
+
+func (o ExpressGatewayServiceEcsManagedResourceArnsPtrOutput) AutoScaling() ExpressGatewayServiceAutoScalingArnsPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceEcsManagedResourceArns) *ExpressGatewayServiceAutoScalingArns {
+		if v == nil {
+			return nil
+		}
+		return v.AutoScaling
+	}).(ExpressGatewayServiceAutoScalingArnsPtrOutput)
+}
+
+func (o ExpressGatewayServiceEcsManagedResourceArnsPtrOutput) IngressPath() ExpressGatewayServiceIngressPathArnsPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceEcsManagedResourceArns) *ExpressGatewayServiceIngressPathArns {
+		if v == nil {
+			return nil
+		}
+		return v.IngressPath
+	}).(ExpressGatewayServiceIngressPathArnsPtrOutput)
+}
+
+func (o ExpressGatewayServiceEcsManagedResourceArnsPtrOutput) LogGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceEcsManagedResourceArns) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ExpressGatewayServiceEcsManagedResourceArnsPtrOutput) MetricAlarms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceEcsManagedResourceArns) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MetricAlarms
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ExpressGatewayServiceEcsManagedResourceArnsPtrOutput) ServiceSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceEcsManagedResourceArns) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceSecurityGroups
+	}).(pulumi.StringArrayOutput)
 }
 
 type ExpressGatewayServiceExpressGatewayContainer struct {
@@ -5564,6 +5748,131 @@ func (o ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput) MinTaskCount(
 		}
 		return v.MinTaskCount
 	}).(pulumi.IntPtrOutput)
+}
+
+type ExpressGatewayServiceIngressPathArns struct {
+	CertificateArn             *string  `pulumi:"certificateArn"`
+	ListenerArn                *string  `pulumi:"listenerArn"`
+	ListenerRuleArn            *string  `pulumi:"listenerRuleArn"`
+	LoadBalancerArn            *string  `pulumi:"loadBalancerArn"`
+	LoadBalancerSecurityGroups []string `pulumi:"loadBalancerSecurityGroups"`
+	TargetGroupArns            []string `pulumi:"targetGroupArns"`
+}
+
+type ExpressGatewayServiceIngressPathArnsOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceIngressPathArnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressGatewayServiceIngressPathArns)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceIngressPathArnsOutput) ToExpressGatewayServiceIngressPathArnsOutput() ExpressGatewayServiceIngressPathArnsOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceIngressPathArnsOutput) ToExpressGatewayServiceIngressPathArnsOutputWithContext(ctx context.Context) ExpressGatewayServiceIngressPathArnsOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceIngressPathArnsOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceIngressPathArns) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ExpressGatewayServiceIngressPathArnsOutput) ListenerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceIngressPathArns) *string { return v.ListenerArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ExpressGatewayServiceIngressPathArnsOutput) ListenerRuleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceIngressPathArns) *string { return v.ListenerRuleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ExpressGatewayServiceIngressPathArnsOutput) LoadBalancerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceIngressPathArns) *string { return v.LoadBalancerArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ExpressGatewayServiceIngressPathArnsOutput) LoadBalancerSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceIngressPathArns) []string { return v.LoadBalancerSecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o ExpressGatewayServiceIngressPathArnsOutput) TargetGroupArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExpressGatewayServiceIngressPathArns) []string { return v.TargetGroupArns }).(pulumi.StringArrayOutput)
+}
+
+type ExpressGatewayServiceIngressPathArnsPtrOutput struct{ *pulumi.OutputState }
+
+func (ExpressGatewayServiceIngressPathArnsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExpressGatewayServiceIngressPathArns)(nil)).Elem()
+}
+
+func (o ExpressGatewayServiceIngressPathArnsPtrOutput) ToExpressGatewayServiceIngressPathArnsPtrOutput() ExpressGatewayServiceIngressPathArnsPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceIngressPathArnsPtrOutput) ToExpressGatewayServiceIngressPathArnsPtrOutputWithContext(ctx context.Context) ExpressGatewayServiceIngressPathArnsPtrOutput {
+	return o
+}
+
+func (o ExpressGatewayServiceIngressPathArnsPtrOutput) Elem() ExpressGatewayServiceIngressPathArnsOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceIngressPathArns) ExpressGatewayServiceIngressPathArns {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressGatewayServiceIngressPathArns
+		return ret
+	}).(ExpressGatewayServiceIngressPathArnsOutput)
+}
+
+func (o ExpressGatewayServiceIngressPathArnsPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceIngressPathArns) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExpressGatewayServiceIngressPathArnsPtrOutput) ListenerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceIngressPathArns) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ListenerArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExpressGatewayServiceIngressPathArnsPtrOutput) ListenerRuleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceIngressPathArns) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ListenerRuleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExpressGatewayServiceIngressPathArnsPtrOutput) LoadBalancerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceIngressPathArns) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LoadBalancerArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExpressGatewayServiceIngressPathArnsPtrOutput) LoadBalancerSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceIngressPathArns) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LoadBalancerSecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ExpressGatewayServiceIngressPathArnsPtrOutput) TargetGroupArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExpressGatewayServiceIngressPathArns) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetGroupArns
+	}).(pulumi.StringArrayOutput)
 }
 
 type ExpressGatewayServiceIngressPathSummary struct {
@@ -19392,16 +19701,22 @@ func init() {
 	pulumi.RegisterOutputType(ClusterServiceConnectDefaultsPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSettingsOutput{})
 	pulumi.RegisterOutputType(ClusterSettingsArrayOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceAutoScalingArnsOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceAutoScalingArnsPtrOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceAwsLogsConfigurationOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceAwsLogsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceConfigurationOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceEcsManagedResourceArnsOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceEcsManagedResourceArnsPtrOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceExpressGatewayContainerOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceExpressGatewayContainerPtrOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceExpressGatewayRepositoryCredentialsOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceExpressGatewayRepositoryCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceExpressGatewayScalingTargetOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceExpressGatewayScalingTargetPtrOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceIngressPathArnsOutput{})
+	pulumi.RegisterOutputType(ExpressGatewayServiceIngressPathArnsPtrOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceIngressPathSummaryOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceIngressPathSummaryArrayOutput{})
 	pulumi.RegisterOutputType(ExpressGatewayServiceKeyValuePairOutput{})

@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
     [OutputType]
     public sealed class OrganizationTelemetryRuleTelemetryDestinationConfiguration
     {
+        public readonly Outputs.OrganizationTelemetryRuleCloudtrailParameters? CloudtrailParameters;
         /// <summary>
         /// The pattern used to generate the destination path or name, supporting macros like &lt;resourceId&gt; and &lt;accountId&gt;.
         /// </summary>
@@ -24,6 +25,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
         /// The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
         /// </summary>
         public readonly Pulumi.AwsNative.ObservabilityAdmin.OrganizationTelemetryRuleDestinationType? DestinationType;
+        public readonly Outputs.OrganizationTelemetryRuleElbLoadBalancerLoggingParameters? ElbLoadBalancerLoggingParameters;
         /// <summary>
         /// The number of days to retain the telemetry data in the destination.
         /// </summary>
@@ -32,21 +34,31 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
         /// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
         /// </summary>
         public readonly Outputs.OrganizationTelemetryRuleVpcFlowLogParameters? VpcFlowLogParameters;
+        public readonly Outputs.OrganizationTelemetryRuleWafLoggingParameters? WafLoggingParameters;
 
         [OutputConstructor]
         private OrganizationTelemetryRuleTelemetryDestinationConfiguration(
+            Outputs.OrganizationTelemetryRuleCloudtrailParameters? cloudtrailParameters,
+
             string? destinationPattern,
 
             Pulumi.AwsNative.ObservabilityAdmin.OrganizationTelemetryRuleDestinationType? destinationType,
 
+            Outputs.OrganizationTelemetryRuleElbLoadBalancerLoggingParameters? elbLoadBalancerLoggingParameters,
+
             int? retentionInDays,
 
-            Outputs.OrganizationTelemetryRuleVpcFlowLogParameters? vpcFlowLogParameters)
+            Outputs.OrganizationTelemetryRuleVpcFlowLogParameters? vpcFlowLogParameters,
+
+            Outputs.OrganizationTelemetryRuleWafLoggingParameters? wafLoggingParameters)
         {
+            CloudtrailParameters = cloudtrailParameters;
             DestinationPattern = destinationPattern;
             DestinationType = destinationType;
+            ElbLoadBalancerLoggingParameters = elbLoadBalancerLoggingParameters;
             RetentionInDays = retentionInDays;
             VpcFlowLogParameters = vpcFlowLogParameters;
+            WafLoggingParameters = wafLoggingParameters;
         }
     }
 }

@@ -88,6 +88,12 @@ namespace Pulumi.AwsNative.Dsql
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The DSQL cluster VPC endpoint.
+        /// </summary>
+        [Output("vpcEndpoint")]
+        public Output<string> VpcEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// The VPC endpoint service name.
         /// </summary>
         [Output("vpcEndpointServiceName")]

@@ -202,7 +202,6 @@ import * as licensemanager from "./licensemanager";
 import * as lightsail from "./lightsail";
 import * as location from "./location";
 import * as logs from "./logs";
-import * as lookoutmetrics from "./lookoutmetrics";
 import * as lookoutvision from "./lookoutvision";
 import * as m2 from "./m2";
 import * as macie from "./macie";
@@ -250,7 +249,6 @@ import * as rekognition from "./rekognition";
 import * as resiliencehub from "./resiliencehub";
 import * as resourceexplorer2 from "./resourceexplorer2";
 import * as resourcegroups from "./resourcegroups";
-import * as robomaker from "./robomaker";
 import * as rolesanywhere from "./rolesanywhere";
 import * as route53 from "./route53";
 import * as route53profiles from "./route53profiles";
@@ -441,7 +439,6 @@ export {
     lightsail,
     location,
     logs,
-    lookoutmetrics,
     lookoutvision,
     m2,
     macie,
@@ -489,7 +486,6 @@ export {
     resiliencehub,
     resourceexplorer2,
     resourcegroups,
-    robomaker,
     rolesanywhere,
     route53,
     route53profiles,

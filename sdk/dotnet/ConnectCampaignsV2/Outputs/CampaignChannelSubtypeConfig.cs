@@ -28,6 +28,7 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
         /// The configuration of the telephony channel subtype.
         /// </summary>
         public readonly Outputs.CampaignTelephonyChannelSubtypeConfig? Telephony;
+        public readonly Outputs.CampaignWhatsAppChannelSubtypeConfig? WhatsApp;
 
         [OutputConstructor]
         private CampaignChannelSubtypeConfig(
@@ -35,11 +36,14 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
 
             Outputs.CampaignSmsChannelSubtypeConfig? sms,
 
-            Outputs.CampaignTelephonyChannelSubtypeConfig? telephony)
+            Outputs.CampaignTelephonyChannelSubtypeConfig? telephony,
+
+            Outputs.CampaignWhatsAppChannelSubtypeConfig? whatsApp)
         {
             Email = email;
             Sms = sms;
             Telephony = telephony;
+            WhatsApp = whatsApp;
         }
     }
 }

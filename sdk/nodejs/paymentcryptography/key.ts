@@ -68,6 +68,8 @@ export class Key extends pulumi.CustomResource {
      * The state of key that is being created or deleted.
      */
     declare public /*out*/ readonly keyState: pulumi.Output<enums.paymentcryptography.KeyState>;
+    declare public readonly replicationRegions: pulumi.Output<string[] | undefined>;
+    declare public /*out*/ readonly replicationStatus: pulumi.Output<{[key: string]: outputs.paymentcryptography.KeyReplicationStatusType}>;
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -92,10 +94,12 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["exportable"] = args?.exportable;
             resourceInputs["keyAttributes"] = args?.keyAttributes;
             resourceInputs["keyCheckValueAlgorithm"] = args?.keyCheckValueAlgorithm;
+            resourceInputs["replicationRegions"] = args?.replicationRegions;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["keyIdentifier"] = undefined /*out*/;
             resourceInputs["keyOrigin"] = undefined /*out*/;
             resourceInputs["keyState"] = undefined /*out*/;
+            resourceInputs["replicationStatus"] = undefined /*out*/;
         } else {
             resourceInputs["deriveKeyUsage"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
@@ -105,6 +109,8 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["keyIdentifier"] = undefined /*out*/;
             resourceInputs["keyOrigin"] = undefined /*out*/;
             resourceInputs["keyState"] = undefined /*out*/;
+            resourceInputs["replicationRegions"] = undefined /*out*/;
+            resourceInputs["replicationStatus"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -138,5 +144,6 @@ export interface KeyArgs {
      * For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
      */
     keyCheckValueAlgorithm?: pulumi.Input<enums.paymentcryptography.KeyCheckValueAlgorithm>;
+    replicationRegions?: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

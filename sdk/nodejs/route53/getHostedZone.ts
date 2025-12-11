@@ -45,6 +45,7 @@ export interface GetHostedZoneResult {
      *  If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
      */
     readonly hostedZoneConfig?: outputs.route53.HostedZoneConfig;
+    readonly hostedZoneFeatures?: outputs.route53.HostedZoneFeatures;
     /**
      * Adds, edits, or deletes tags for a health check or a hosted zone.
      *  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.

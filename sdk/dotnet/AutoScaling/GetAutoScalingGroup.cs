@@ -140,6 +140,7 @@ namespace Pulumi.AwsNative.AutoScaling
         ///  Only specify ``EC2`` if you must clear a value that was previously set.
         /// </summary>
         public readonly string? HealthCheckType;
+        public readonly Outputs.AutoScalingGroupInstanceLifecyclePolicy? InstanceLifecyclePolicy;
         /// <summary>
         /// An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
         /// </summary>
@@ -256,6 +257,8 @@ namespace Pulumi.AwsNative.AutoScaling
 
             string? healthCheckType,
 
+            Outputs.AutoScalingGroupInstanceLifecyclePolicy? instanceLifecyclePolicy,
+
             Outputs.AutoScalingGroupInstanceMaintenancePolicy? instanceMaintenancePolicy,
 
             string? launchConfigurationName,
@@ -309,6 +312,7 @@ namespace Pulumi.AwsNative.AutoScaling
             DesiredCapacityType = desiredCapacityType;
             HealthCheckGracePeriod = healthCheckGracePeriod;
             HealthCheckType = healthCheckType;
+            InstanceLifecyclePolicy = instanceLifecyclePolicy;
             InstanceMaintenancePolicy = instanceMaintenancePolicy;
             LaunchConfigurationName = launchConfigurationName;
             LaunchTemplate = launchTemplate;

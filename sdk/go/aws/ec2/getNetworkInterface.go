@@ -56,7 +56,8 @@ type LookupNetworkInterfaceResult struct {
 	// Returns the primary private IP address of the network interface.
 	PrimaryPrivateIpAddress *string `pulumi:"primaryPrivateIpAddress"`
 	// Assigns a list of private IP addresses to the network interface. You can specify a primary private IP address by setting the value of the Primary property to true in the PrivateIpAddressSpecification property. If you want EC2 to automatically assign private IP addresses, use the SecondaryPrivateIpAddressCount property and do not specify this property.
-	PrivateIpAddresses []NetworkInterfacePrivateIpAddressSpecification `pulumi:"privateIpAddresses"`
+	PrivateIpAddresses     []NetworkInterfacePrivateIpAddressSpecification `pulumi:"privateIpAddresses"`
+	PublicIpDnsNameOptions *NetworkInterfacePublicIpDnsNameOptions         `pulumi:"publicIpDnsNameOptions"`
 	// The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses
 	SecondaryPrivateIpAddressCount *int `pulumi:"secondaryPrivateIpAddressCount"`
 	// Returns the secondary private IP addresses of the network interface.
@@ -173,6 +174,12 @@ func (o LookupNetworkInterfaceResultOutput) PrivateIpAddresses() NetworkInterfac
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) []NetworkInterfacePrivateIpAddressSpecification {
 		return v.PrivateIpAddresses
 	}).(NetworkInterfacePrivateIpAddressSpecificationArrayOutput)
+}
+
+func (o LookupNetworkInterfaceResultOutput) PublicIpDnsNameOptions() NetworkInterfacePublicIpDnsNameOptionsPtrOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) *NetworkInterfacePublicIpDnsNameOptions {
+		return v.PublicIpDnsNameOptions
+	}).(NetworkInterfacePublicIpDnsNameOptionsPtrOutput)
 }
 
 // The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses

@@ -15,6 +15,7 @@ else:
 from .. import _utilities
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = ['ResourceShareArgs', 'ResourceShare']
 
@@ -335,6 +336,11 @@ class ResourceShare(pulumi.CustomResource):
             __props__.__dict__["sources"] = sources
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["feature_set"] = None
+            __props__.__dict__["last_updated_time"] = None
+            __props__.__dict__["owning_account_id"] = None
+            __props__.__dict__["status"] = None
         super(ResourceShare, __self__).__init__(
             'aws-native:ram:ResourceShare',
             resource_name,
@@ -359,11 +365,16 @@ class ResourceShare(pulumi.CustomResource):
 
         __props__.__dict__["allow_external_principals"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["creation_time"] = None
+        __props__.__dict__["feature_set"] = None
+        __props__.__dict__["last_updated_time"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["owning_account_id"] = None
         __props__.__dict__["permission_arns"] = None
         __props__.__dict__["principals"] = None
         __props__.__dict__["resource_arns"] = None
         __props__.__dict__["sources"] = None
+        __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         return ResourceShare(resource_name, opts=opts, __props__=__props__)
 
@@ -384,12 +395,44 @@ class ResourceShare(pulumi.CustomResource):
         return pulumi.get(self, "arn")
 
     @_builtins.property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> pulumi.Output[_builtins.str]:
+        """
+        The date and time when the resource share was created.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @_builtins.property
+    @pulumi.getter(name="featureSet")
+    def feature_set(self) -> pulumi.Output['ResourceShareFeatureSet']:
+        """
+        The feature set of the resource share.
+        """
+        return pulumi.get(self, "feature_set")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> pulumi.Output[_builtins.str]:
+        """
+        The date and time when the resource share was last updated.
+        """
+        return pulumi.get(self, "last_updated_time")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
         Specifies the name of the resource share.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="owningAccountId")
+    def owning_account_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ID of the AWS account that owns the resource share.
+        """
+        return pulumi.get(self, "owning_account_id")
 
     @_builtins.property
     @pulumi.getter(name="permissionArns")
@@ -432,6 +475,14 @@ class ResourceShare(pulumi.CustomResource):
         Specifies from which source accounts the service principal has access to the resources in this resource share.
         """
         return pulumi.get(self, "sources")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Output['ResourceShareStatus']:
+        """
+        The current status of the resource share.
+        """
+        return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter

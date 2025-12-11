@@ -365,6 +365,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("durableConfig")]
+        public Output<Outputs.FunctionDurableConfig?> DurableConfig { get; private set; } = null!;
+
         /// <summary>
         /// Environment variables that are accessible from function code during execution.
         /// </summary>
@@ -611,6 +614,9 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("durableConfig")]
+        public Input<Inputs.FunctionDurableConfigArgs>? DurableConfig { get; set; }
 
         /// <summary>
         /// Environment variables that are accessible from function code during execution.

@@ -514,6 +514,13 @@
       "description" : "The timestamp when the association was last updated",
       "type" : "string",
       "format" : "date-time"
+    },
+    "LinkedAssociationIds" : {
+      "description" : "Set of linked association IDs for parent-child relationships",
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/AssociationId"
+      }
     }
   },
   "additionalProperties" : false,
@@ -523,7 +530,7 @@
   "required" : [ "AgentSpaceId", "ServiceId", "Configuration" ],
   "createOnlyProperties" : [ "/properties/AgentSpaceId" ],
   "readOnlyProperties" : [ "/properties/AssociationId", "/properties/CreatedAt", "/properties/UpdatedAt" ],
-  "writeOnlyProperties" : [ "/properties/Configuration/Dynatrace/EnableWebhookUpdates", "/properties/Configuration/ServiceNow/EnableWebhookUpdates", "/properties/Configuration/MCPServer/EnableWebhookUpdates", "/properties/Configuration/MCPServerDatadog/EnableWebhookUpdates", "/properties/Configuration/MCPServerSplunk/EnableWebhookUpdates", "/properties/Configuration/GitLab/EnableWebhookUpdates", "/properties/Configuration/EventChannel/EnableWebhookUpdates" ],
+  "writeOnlyProperties" : [ "/properties/Configuration/Dynatrace/EnableWebhookUpdates", "/properties/Configuration/ServiceNow/EnableWebhookUpdates", "/properties/Configuration/MCPServer/EnableWebhookUpdates", "/properties/Configuration/MCPServerDatadog/EnableWebhookUpdates", "/properties/Configuration/MCPServerSplunk/EnableWebhookUpdates", "/properties/Configuration/GitLab/EnableWebhookUpdates", "/properties/Configuration/EventChannel/EnableWebhookUpdates", "/properties/LinkedAssociationIds" ],
   "primaryIdentifier" : [ "/properties/AgentSpaceId", "/properties/AssociationId" ],
   "handlers" : {
     "create" : {

@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAutoScalingGroupResult:
-    def __init__(__self__, auto_scaling_group_arn=None, availability_zone_distribution=None, availability_zone_impairment_policy=None, availability_zones=None, capacity_rebalance=None, capacity_reservation_specification=None, context=None, cooldown=None, default_instance_warmup=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, instance_maintenance_policy=None, launch_configuration_name=None, launch_template=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configuration=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, traffic_sources=None, vpc_zone_identifier=None):
+    def __init__(__self__, auto_scaling_group_arn=None, availability_zone_distribution=None, availability_zone_impairment_policy=None, availability_zones=None, capacity_rebalance=None, capacity_reservation_specification=None, context=None, cooldown=None, default_instance_warmup=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, instance_lifecycle_policy=None, instance_maintenance_policy=None, launch_configuration_name=None, launch_template=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configuration=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, traffic_sources=None, vpc_zone_identifier=None):
         if auto_scaling_group_arn and not isinstance(auto_scaling_group_arn, str):
             raise TypeError("Expected argument 'auto_scaling_group_arn' to be a str")
         pulumi.set(__self__, "auto_scaling_group_arn", auto_scaling_group_arn)
@@ -65,6 +65,9 @@ class GetAutoScalingGroupResult:
         if health_check_type and not isinstance(health_check_type, str):
             raise TypeError("Expected argument 'health_check_type' to be a str")
         pulumi.set(__self__, "health_check_type", health_check_type)
+        if instance_lifecycle_policy and not isinstance(instance_lifecycle_policy, dict):
+            raise TypeError("Expected argument 'instance_lifecycle_policy' to be a dict")
+        pulumi.set(__self__, "instance_lifecycle_policy", instance_lifecycle_policy)
         if instance_maintenance_policy and not isinstance(instance_maintenance_policy, dict):
             raise TypeError("Expected argument 'instance_maintenance_policy' to be a dict")
         pulumi.set(__self__, "instance_maintenance_policy", instance_maintenance_policy)
@@ -241,6 +244,11 @@ class GetAutoScalingGroupResult:
          Only specify ``EC2`` if you must clear a value that was previously set.
         """
         return pulumi.get(self, "health_check_type")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceLifecyclePolicy")
+    def instance_lifecycle_policy(self) -> Optional['outputs.AutoScalingGroupInstanceLifecyclePolicy']:
+        return pulumi.get(self, "instance_lifecycle_policy")
 
     @_builtins.property
     @pulumi.getter(name="instanceMaintenancePolicy")
@@ -429,6 +437,7 @@ class AwaitableGetAutoScalingGroupResult(GetAutoScalingGroupResult):
             desired_capacity_type=self.desired_capacity_type,
             health_check_grace_period=self.health_check_grace_period,
             health_check_type=self.health_check_type,
+            instance_lifecycle_policy=self.instance_lifecycle_policy,
             instance_maintenance_policy=self.instance_maintenance_policy,
             launch_configuration_name=self.launch_configuration_name,
             launch_template=self.launch_template,
@@ -483,6 +492,7 @@ def get_auto_scaling_group(auto_scaling_group_name: Optional[_builtins.str] = No
         desired_capacity_type=pulumi.get(__ret__, 'desired_capacity_type'),
         health_check_grace_period=pulumi.get(__ret__, 'health_check_grace_period'),
         health_check_type=pulumi.get(__ret__, 'health_check_type'),
+        instance_lifecycle_policy=pulumi.get(__ret__, 'instance_lifecycle_policy'),
         instance_maintenance_policy=pulumi.get(__ret__, 'instance_maintenance_policy'),
         launch_configuration_name=pulumi.get(__ret__, 'launch_configuration_name'),
         launch_template=pulumi.get(__ret__, 'launch_template'),
@@ -534,6 +544,7 @@ def get_auto_scaling_group_output(auto_scaling_group_name: Optional[pulumi.Input
         desired_capacity_type=pulumi.get(__response__, 'desired_capacity_type'),
         health_check_grace_period=pulumi.get(__response__, 'health_check_grace_period'),
         health_check_type=pulumi.get(__response__, 'health_check_type'),
+        instance_lifecycle_policy=pulumi.get(__response__, 'instance_lifecycle_policy'),
         instance_maintenance_policy=pulumi.get(__response__, 'instance_maintenance_policy'),
         launch_configuration_name=pulumi.get(__response__, 'launch_configuration_name'),
         launch_template=pulumi.get(__response__, 'launch_template'),

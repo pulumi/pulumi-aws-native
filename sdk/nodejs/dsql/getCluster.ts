@@ -70,6 +70,10 @@ export interface GetClusterResult {
      */
     readonly tags?: outputs.Tag[];
     /**
+     * The DSQL cluster VPC endpoint.
+     */
+    readonly vpcEndpoint?: string;
+    /**
      * The VPC endpoint service name.
      */
     readonly vpcEndpointServiceName?: string;

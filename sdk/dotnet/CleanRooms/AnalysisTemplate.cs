@@ -109,6 +109,9 @@ namespace Pulumi.AwsNative.CleanRooms
         [Output("sourceMetadata")]
         public Output<Outputs.AnalysisTemplateAnalysisSourceMetadataProperties?> SourceMetadata { get; private set; } = null!;
 
+        [Output("syntheticDataParameters")]
+        public Output<Outputs.AnalysisTemplateSyntheticDataParametersProperties?> SyntheticDataParameters { get; private set; } = null!;
+
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
         /// </summary>
@@ -147,6 +150,7 @@ namespace Pulumi.AwsNative.CleanRooms
                     "name",
                     "schema",
                     "source",
+                    "syntheticDataParameters",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -229,6 +233,9 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         [Input("sourceMetadata")]
         public Input<Inputs.AnalysisTemplateAnalysisSourceMetadataPropertiesArgs>? SourceMetadata { get; set; }
+
+        [Input("syntheticDataParameters")]
+        public Input<Inputs.AnalysisTemplateSyntheticDataParametersPropertiesArgs>? SyntheticDataParameters { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

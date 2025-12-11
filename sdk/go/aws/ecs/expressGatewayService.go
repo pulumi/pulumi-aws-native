@@ -24,7 +24,9 @@ type ExpressGatewayService struct {
 	// The CPU allocation for tasks in this service revision.
 	Cpu pulumi.StringPtrOutput `pulumi:"cpu"`
 	// The Unix timestamp for when the Express service was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt              pulumi.StringOutput                               `pulumi:"createdAt"`
+	EcsManagedResourceArns ExpressGatewayServiceEcsManagedResourceArnsOutput `pulumi:"ecsManagedResourceArns"`
+	Endpoint               pulumi.StringOutput                               `pulumi:"endpoint"`
 	// The ARN of the task execution role for the service revision.
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
 	// The health check path for this service revision.
@@ -220,6 +222,16 @@ func (o ExpressGatewayServiceOutput) Cpu() pulumi.StringPtrOutput {
 // The Unix timestamp for when the Express service was created.
 func (o ExpressGatewayServiceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o ExpressGatewayServiceOutput) EcsManagedResourceArns() ExpressGatewayServiceEcsManagedResourceArnsOutput {
+	return o.ApplyT(func(v *ExpressGatewayService) ExpressGatewayServiceEcsManagedResourceArnsOutput {
+		return v.EcsManagedResourceArns
+	}).(ExpressGatewayServiceEcsManagedResourceArnsOutput)
+}
+
+func (o ExpressGatewayServiceOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
 // The ARN of the task execution role for the service revision.

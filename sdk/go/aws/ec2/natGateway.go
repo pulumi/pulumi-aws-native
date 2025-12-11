@@ -22,6 +22,28 @@ type NatGateway struct {
 
 	// [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway. This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
 	AllocationId pulumi.StringPtrOutput `pulumi:"allocationId"`
+	// For regional NAT gateways only: Indicates whether AWS automatically manages AZ coverage. When enabled, the NAT gateway associates EIPs in all AZs where your VPC has subnets to handle outbound NAT traffic, expands to new AZs when you create subnets there, and retracts from AZs where you've removed all subnets. When disabled, you must manually manage which AZs the NAT gateway supports and their corresponding EIPs.
+	//
+	// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+	//
+	// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+	AutoProvisionZones pulumi.StringOutput `pulumi:"autoProvisionZones"`
+	// For regional NAT gateways only: Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
+	//
+	// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+	AutoScalingIps pulumi.StringOutput `pulumi:"autoScalingIps"`
+	// Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
+	//
+	// A zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+	//
+	// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+	AvailabilityMode pulumi.StringPtrOutput `pulumi:"availabilityMode"`
+	// For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.
+	//
+	// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+	//
+	// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+	AvailabilityZoneAddresses NatGatewayAvailabilityZoneAddressArrayOutput `pulumi:"availabilityZoneAddresses"`
 	// Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
 	ConnectivityType pulumi.StringPtrOutput `pulumi:"connectivityType"`
 	// The ID of the network interface.
@@ -32,6 +54,8 @@ type NatGateway struct {
 	NatGatewayId pulumi.StringOutput `pulumi:"natGatewayId"`
 	// The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
 	PrivateIpAddress pulumi.StringPtrOutput `pulumi:"privateIpAddress"`
+	// For regional NAT gateways only, this is the ID of the NAT gateway.
+	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
 	// Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.
 	SecondaryAllocationIds pulumi.StringArrayOutput `pulumi:"secondaryAllocationIds"`
 	// [Private NAT gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT gateway. For more information about secondary addresses, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon Virtual Private Cloud User Guide*.
@@ -57,6 +81,7 @@ func NewNatGateway(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"allocationId",
+		"availabilityMode",
 		"connectivityType",
 		"privateIpAddress",
 		"subnetId",
@@ -98,6 +123,18 @@ func (NatGatewayState) ElementType() reflect.Type {
 type natGatewayArgs struct {
 	// [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway. This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
 	AllocationId *string `pulumi:"allocationId"`
+	// Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
+	//
+	// A zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+	//
+	// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+	AvailabilityMode *string `pulumi:"availabilityMode"`
+	// For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.
+	//
+	// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+	//
+	// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+	AvailabilityZoneAddresses []NatGatewayAvailabilityZoneAddress `pulumi:"availabilityZoneAddresses"`
 	// Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
 	ConnectivityType *string `pulumi:"connectivityType"`
 	// The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
@@ -124,6 +161,18 @@ type natGatewayArgs struct {
 type NatGatewayArgs struct {
 	// [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway. This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
 	AllocationId pulumi.StringPtrInput
+	// Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
+	//
+	// A zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+	//
+	// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+	AvailabilityMode pulumi.StringPtrInput
+	// For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.
+	//
+	// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+	//
+	// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+	AvailabilityZoneAddresses NatGatewayAvailabilityZoneAddressArrayInput
 	// Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
 	ConnectivityType pulumi.StringPtrInput
 	// The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.
@@ -188,6 +237,40 @@ func (o NatGatewayOutput) AllocationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.AllocationId }).(pulumi.StringPtrOutput)
 }
 
+// For regional NAT gateways only: Indicates whether AWS automatically manages AZ coverage. When enabled, the NAT gateway associates EIPs in all AZs where your VPC has subnets to handle outbound NAT traffic, expands to new AZs when you create subnets there, and retracts from AZs where you've removed all subnets. When disabled, you must manually manage which AZs the NAT gateway supports and their corresponding EIPs.
+//
+// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+//
+// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+func (o NatGatewayOutput) AutoProvisionZones() pulumi.StringOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.AutoProvisionZones }).(pulumi.StringOutput)
+}
+
+// For regional NAT gateways only: Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
+//
+// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+func (o NatGatewayOutput) AutoScalingIps() pulumi.StringOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.AutoScalingIps }).(pulumi.StringOutput)
+}
+
+// Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
+//
+// A zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+//
+// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+func (o NatGatewayOutput) AvailabilityMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.AvailabilityMode }).(pulumi.StringPtrOutput)
+}
+
+// For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.
+//
+// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+//
+// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+func (o NatGatewayOutput) AvailabilityZoneAddresses() NatGatewayAvailabilityZoneAddressArrayOutput {
+	return o.ApplyT(func(v *NatGateway) NatGatewayAvailabilityZoneAddressArrayOutput { return v.AvailabilityZoneAddresses }).(NatGatewayAvailabilityZoneAddressArrayOutput)
+}
+
 // Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
 func (o NatGatewayOutput) ConnectivityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.ConnectivityType }).(pulumi.StringPtrOutput)
@@ -211,6 +294,11 @@ func (o NatGatewayOutput) NatGatewayId() pulumi.StringOutput {
 // The private IPv4 address to assign to the NAT gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
 func (o NatGatewayOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringPtrOutput { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// For regional NAT gateways only, this is the ID of the NAT gateway.
+func (o NatGatewayOutput) RouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v *NatGateway) pulumi.StringOutput { return v.RouteTableId }).(pulumi.StringOutput)
 }
 
 // Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.

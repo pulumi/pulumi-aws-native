@@ -140,6 +140,97 @@ namespace Pulumi.AwsNative.Connect
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct DataTableAttributeValueType : IEquatable<DataTableAttributeValueType>
+    {
+        private readonly string _value;
+
+        private DataTableAttributeValueType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataTableAttributeValueType Text { get; } = new DataTableAttributeValueType("TEXT");
+        public static DataTableAttributeValueType Number { get; } = new DataTableAttributeValueType("NUMBER");
+        public static DataTableAttributeValueType Boolean { get; } = new DataTableAttributeValueType("BOOLEAN");
+        public static DataTableAttributeValueType TextList { get; } = new DataTableAttributeValueType("TEXT_LIST");
+        public static DataTableAttributeValueType NumberList { get; } = new DataTableAttributeValueType("NUMBER_LIST");
+
+        public static bool operator ==(DataTableAttributeValueType left, DataTableAttributeValueType right) => left.Equals(right);
+        public static bool operator !=(DataTableAttributeValueType left, DataTableAttributeValueType right) => !left.Equals(right);
+
+        public static explicit operator string(DataTableAttributeValueType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataTableAttributeValueType other && Equals(other);
+        public bool Equals(DataTableAttributeValueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the Data Table
+    /// </summary>
+    [EnumType]
+    public readonly struct DataTableStatus : IEquatable<DataTableStatus>
+    {
+        private readonly string _value;
+
+        private DataTableStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataTableStatus Published { get; } = new DataTableStatus("PUBLISHED");
+
+        public static bool operator ==(DataTableStatus left, DataTableStatus right) => left.Equals(right);
+        public static bool operator !=(DataTableStatus left, DataTableStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DataTableStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataTableStatus other && Equals(other);
+        public bool Equals(DataTableStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The value lock level of the Data Table
+    /// </summary>
+    [EnumType]
+    public readonly struct DataTableValueLockLevel : IEquatable<DataTableValueLockLevel>
+    {
+        private readonly string _value;
+
+        private DataTableValueLockLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataTableValueLockLevel None { get; } = new DataTableValueLockLevel("NONE");
+
+        public static bool operator ==(DataTableValueLockLevel left, DataTableValueLockLevel right) => left.Equals(right);
+        public static bool operator !=(DataTableValueLockLevel left, DataTableValueLockLevel right) => !left.Equals(right);
+
+        public static explicit operator string(DataTableValueLockLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataTableValueLockLevel other && Equals(other);
+        public bool Equals(DataTableValueLockLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The operator to be used to be applied to operands if more than one provided.
     /// </summary>
@@ -1511,6 +1602,103 @@ namespace Pulumi.AwsNative.Connect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UserPhoneType other && Equals(other);
         public bool Equals(UserPhoneType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct WorkspaceFontFamily : IEquatable<WorkspaceFontFamily>
+    {
+        private readonly string _value;
+
+        private WorkspaceFontFamily(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkspaceFontFamily Arial { get; } = new WorkspaceFontFamily("ARIAL");
+        public static WorkspaceFontFamily CourierNew { get; } = new WorkspaceFontFamily("COURIER_NEW");
+        public static WorkspaceFontFamily Georgia { get; } = new WorkspaceFontFamily("GEORGIA");
+        public static WorkspaceFontFamily TimesNewRoman { get; } = new WorkspaceFontFamily("TIMES_NEW_ROMAN");
+        public static WorkspaceFontFamily Trebuchet { get; } = new WorkspaceFontFamily("TREBUCHET");
+        public static WorkspaceFontFamily Verdana { get; } = new WorkspaceFontFamily("VERDANA");
+
+        public static bool operator ==(WorkspaceFontFamily left, WorkspaceFontFamily right) => left.Equals(right);
+        public static bool operator !=(WorkspaceFontFamily left, WorkspaceFontFamily right) => !left.Equals(right);
+
+        public static explicit operator string(WorkspaceFontFamily value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkspaceFontFamily other && Equals(other);
+        public bool Equals(WorkspaceFontFamily other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of media
+    /// </summary>
+    [EnumType]
+    public readonly struct WorkspaceMediaType : IEquatable<WorkspaceMediaType>
+    {
+        private readonly string _value;
+
+        private WorkspaceMediaType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkspaceMediaType ImageLogoLightFavicon { get; } = new WorkspaceMediaType("IMAGE_LOGO_LIGHT_FAVICON");
+        public static WorkspaceMediaType ImageLogoDarkFavicon { get; } = new WorkspaceMediaType("IMAGE_LOGO_DARK_FAVICON");
+        public static WorkspaceMediaType ImageLogoLightHorizontal { get; } = new WorkspaceMediaType("IMAGE_LOGO_LIGHT_HORIZONTAL");
+        public static WorkspaceMediaType ImageLogoDarkHorizontal { get; } = new WorkspaceMediaType("IMAGE_LOGO_DARK_HORIZONTAL");
+
+        public static bool operator ==(WorkspaceMediaType left, WorkspaceMediaType right) => left.Equals(right);
+        public static bool operator !=(WorkspaceMediaType left, WorkspaceMediaType right) => !left.Equals(right);
+
+        public static explicit operator string(WorkspaceMediaType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkspaceMediaType other && Equals(other);
+        public bool Equals(WorkspaceMediaType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The visibility of the Connect workspace
+    /// </summary>
+    [EnumType]
+    public readonly struct WorkspaceVisibility : IEquatable<WorkspaceVisibility>
+    {
+        private readonly string _value;
+
+        private WorkspaceVisibility(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkspaceVisibility All { get; } = new WorkspaceVisibility("ALL");
+        public static WorkspaceVisibility Assigned { get; } = new WorkspaceVisibility("ASSIGNED");
+        public static WorkspaceVisibility None { get; } = new WorkspaceVisibility("NONE");
+
+        public static bool operator ==(WorkspaceVisibility left, WorkspaceVisibility right) => left.Equals(right);
+        public static bool operator !=(WorkspaceVisibility left, WorkspaceVisibility right) => !left.Equals(right);
+
+        public static explicit operator string(WorkspaceVisibility value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkspaceVisibility other && Equals(other);
+        public bool Equals(WorkspaceVisibility other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

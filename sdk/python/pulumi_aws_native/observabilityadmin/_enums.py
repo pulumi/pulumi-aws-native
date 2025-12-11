@@ -10,12 +10,26 @@ __all__ = [
     'OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionConflictResolutionStrategy',
     'OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy',
     'OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy',
+    'OrganizationTelemetryRuleAction',
     'OrganizationTelemetryRuleDestinationType',
+    'OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat',
+    'OrganizationTelemetryRuleFilterBehavior',
+    'OrganizationTelemetryRuleFilterRequirement',
     'OrganizationTelemetryRuleResourceType',
+    'OrganizationTelemetryRuleTelemetrySourceType',
     'OrganizationTelemetryRuleTelemetryType',
+    'OrganizationTelemetryRuleWafLogType',
+    'TelemetryPipelinesTelemetryPipelineStatus',
+    'TelemetryRuleAction',
     'TelemetryRuleDestinationType',
+    'TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat',
+    'TelemetryRuleFilterBehavior',
+    'TelemetryRuleFilterRequirement',
     'TelemetryRuleResourceType',
+    'TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem',
+    'TelemetryRuleTelemetrySourceType',
     'TelemetryRuleTelemetryType',
+    'TelemetryRuleWafLogType',
 ]
 
 
@@ -46,6 +60,19 @@ class OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStra
     SKIP = "SKIP"
 
 
+@pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleAction")
+class OrganizationTelemetryRuleAction(_builtins.str, Enum):
+    """
+    The enumerated action to take.
+    """
+    ALLOW = "ALLOW"
+    BLOCK = "BLOCK"
+    COUNT = "COUNT"
+    CAPTCHA = "CAPTCHA"
+    CHALLENGE = "CHALLENGE"
+    EXCLUDED_AS_COUNT = "EXCLUDED_AS_COUNT"
+
+
 @pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleDestinationType")
 class OrganizationTelemetryRuleDestinationType(_builtins.str, Enum):
     """
@@ -54,12 +81,54 @@ class OrganizationTelemetryRuleDestinationType(_builtins.str, Enum):
     CLOUD_WATCH_LOGS = "cloud-watch-logs"
 
 
+@pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat")
+class OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat(_builtins.str, Enum):
+    PLAIN = "plain"
+    JSON = "json"
+
+
+@pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleFilterBehavior")
+class OrganizationTelemetryRuleFilterBehavior(_builtins.str, Enum):
+    """
+    The behavior required of the filter.
+    """
+    KEEP = "KEEP"
+    DROP = "DROP"
+
+
+@pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleFilterRequirement")
+class OrganizationTelemetryRuleFilterRequirement(_builtins.str, Enum):
+    """
+    The requirement portion of the filter.
+    """
+    MEETS_ALL = "MEETS_ALL"
+    MEETS_ANY = "MEETS_ANY"
+
+
 @pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleResourceType")
 class OrganizationTelemetryRuleResourceType(_builtins.str, Enum):
     """
     Resource Type associated with the Organization Telemetry Rule
     """
     AWSEC2VPC = "AWS::EC2::VPC"
+    AWSWA_FV2_WEB_ACL = "AWS::WAFv2::WebACL"
+    AWS_CLOUD_TRAIL = "AWS::CloudTrail"
+    AWSEKS_CLUSTER = "AWS::EKS::Cluster"
+    AWS_ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER = "AWS::ElasticLoadBalancingV2::LoadBalancer"
+
+
+@pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleTelemetrySourceType")
+class OrganizationTelemetryRuleTelemetrySourceType(_builtins.str, Enum):
+    """
+    The telemetry source type that goes into the array.
+    """
+    VPC_FLOW_LOGS = "VPC_FLOW_LOGS"
+    ROUTE53_RESOLVER_QUERY_LOGS = "ROUTE53_RESOLVER_QUERY_LOGS"
+    EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS"
+    EKS_AUTHENTICATOR_LOGS = "EKS_AUTHENTICATOR_LOGS"
+    EKS_CONTROLLER_MANAGER_LOGS = "EKS_CONTROLLER_MANAGER_LOGS"
+    EKS_SCHEDULER_LOGS = "EKS_SCHEDULER_LOGS"
+    EKS_API_LOGS = "EKS_API_LOGS"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleTelemetryType")
@@ -70,6 +139,37 @@ class OrganizationTelemetryRuleTelemetryType(_builtins.str, Enum):
     LOGS = "Logs"
 
 
+@pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleWafLogType")
+class OrganizationTelemetryRuleWafLogType(_builtins.str, Enum):
+    """
+    The type of logs to generate for WAF.
+    """
+    WAF_LOGS = "WAF_LOGS"
+
+
+@pulumi.type_token("aws-native:observabilityadmin:TelemetryPipelinesTelemetryPipelineStatus")
+class TelemetryPipelinesTelemetryPipelineStatus(_builtins.str, Enum):
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    CREATE_FAILED = "CREATE_FAILED"
+    UPDATE_FAILED = "UPDATE_FAILED"
+
+
+@pulumi.type_token("aws-native:observabilityadmin:TelemetryRuleAction")
+class TelemetryRuleAction(_builtins.str, Enum):
+    """
+    The enumerated action to take.
+    """
+    ALLOW = "ALLOW"
+    BLOCK = "BLOCK"
+    COUNT = "COUNT"
+    CAPTCHA = "CAPTCHA"
+    CHALLENGE = "CHALLENGE"
+    EXCLUDED_AS_COUNT = "EXCLUDED_AS_COUNT"
+
+
 @pulumi.type_token("aws-native:observabilityadmin:TelemetryRuleDestinationType")
 class TelemetryRuleDestinationType(_builtins.str, Enum):
     """
@@ -78,12 +178,63 @@ class TelemetryRuleDestinationType(_builtins.str, Enum):
     CLOUD_WATCH_LOGS = "cloud-watch-logs"
 
 
+@pulumi.type_token("aws-native:observabilityadmin:TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat")
+class TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat(_builtins.str, Enum):
+    PLAIN = "plain"
+    JSON = "json"
+
+
+@pulumi.type_token("aws-native:observabilityadmin:TelemetryRuleFilterBehavior")
+class TelemetryRuleFilterBehavior(_builtins.str, Enum):
+    """
+    The behavior required of the filter.
+    """
+    KEEP = "KEEP"
+    DROP = "DROP"
+
+
+@pulumi.type_token("aws-native:observabilityadmin:TelemetryRuleFilterRequirement")
+class TelemetryRuleFilterRequirement(_builtins.str, Enum):
+    """
+    The requirement portion of the filter.
+    """
+    MEETS_ALL = "MEETS_ALL"
+    MEETS_ANY = "MEETS_ANY"
+
+
 @pulumi.type_token("aws-native:observabilityadmin:TelemetryRuleResourceType")
 class TelemetryRuleResourceType(_builtins.str, Enum):
     """
     Resource Type associated with the Telemetry Rule
     """
     AWSEC2VPC = "AWS::EC2::VPC"
+    AWSWA_FV2_WEB_ACL = "AWS::WAFv2::WebACL"
+    AWS_CLOUD_TRAIL = "AWS::CloudTrail"
+    AWSEKS_CLUSTER = "AWS::EKS::Cluster"
+    AWS_ELASTIC_LOAD_BALANCING_V2_LOAD_BALANCER = "AWS::ElasticLoadBalancingV2::LoadBalancer"
+    AWS_BEDROCK_AGENT_CORE_RUNTIME = "AWS::BedrockAgentCore::Runtime"
+    AWS_BEDROCK_AGENT_CORE_BROWSER = "AWS::BedrockAgentCore::Browser"
+    AWS_BEDROCK_AGENT_CORE_CODE_INTERPRETER = "AWS::BedrockAgentCore::CodeInterpreter"
+
+
+@pulumi.type_token("aws-native:observabilityadmin:TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem")
+class TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem(_builtins.str, Enum):
+    APPLICATION_LOGS = "APPLICATION_LOGS"
+    USAGE_LOGS = "USAGE_LOGS"
+
+
+@pulumi.type_token("aws-native:observabilityadmin:TelemetryRuleTelemetrySourceType")
+class TelemetryRuleTelemetrySourceType(_builtins.str, Enum):
+    """
+    The telemetry source type that goes into the array.
+    """
+    VPC_FLOW_LOGS = "VPC_FLOW_LOGS"
+    ROUTE53_RESOLVER_QUERY_LOGS = "ROUTE53_RESOLVER_QUERY_LOGS"
+    EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS"
+    EKS_AUTHENTICATOR_LOGS = "EKS_AUTHENTICATOR_LOGS"
+    EKS_CONTROLLER_MANAGER_LOGS = "EKS_CONTROLLER_MANAGER_LOGS"
+    EKS_SCHEDULER_LOGS = "EKS_SCHEDULER_LOGS"
+    EKS_API_LOGS = "EKS_API_LOGS"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:TelemetryRuleTelemetryType")
@@ -92,3 +243,12 @@ class TelemetryRuleTelemetryType(_builtins.str, Enum):
     Telemetry Type associated with the Telemetry Rule
     """
     LOGS = "Logs"
+    TRACES = "Traces"
+
+
+@pulumi.type_token("aws-native:observabilityadmin:TelemetryRuleWafLogType")
+class TelemetryRuleWafLogType(_builtins.str, Enum):
+    """
+    The type of logs to generate for WAF.
+    """
+    WAF_LOGS = "WAF_LOGS"
