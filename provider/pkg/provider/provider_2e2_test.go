@@ -7,6 +7,7 @@ import (
 	"math/rand"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 	"time"
 
@@ -76,17 +77,26 @@ const (
 )
 
 func TestEfsReplicationProtection(t *testing.T) {
-	// Skip: takes ~25 min to run. Manual testing only.
-	// Run with: go test -v -timeout 30m -run TestEfsReplicationProtection ./pkg/provider
-	t.Skip("Manual test: EFS replication takes ~25 minutes")
+	// Skip: takes ~45 min to run. Manual testing only.
+	// Run with: go test -v -timeout 45m -run TestEfsReplicationProtection ./pkg/provider
+	// t.Skip("Manual test: EFS replication takes ~45 minutes")
 
 	skipIfShort(t)
-	pt := newAwsTest(t, filepath.Join("testdata", "efs-replication-protection"))
+
+	// NOTE: This test uses explicit provider resources with different regions.
+	// We do NOT use newAwsTest/attachProvider here because that attaches a single
+	// provider server which ignores the region configurations in the YAML file.
+	// Instead, we use the actual provider binary which respects each provider's config.
+	pt := pulumitest.NewPulumiTest(t, filepath.Join("testdata", "efs-replication-protection"),
+		opttest.Env("PULUMI_DEBUG_GRPC", "true"),
+		opttest.LocalProviderPath("aws-native", filepath.Join("..", "..", "..", "bin")),
+	)
 	defer pt.Destroy(t)
 
 	// This test sets up actual EFS replication to verify the REPLICATING enum value
 	// Refresh must succeed not reject REPLICATING.
 
+	t.Log("=== Phase 1: Initial Preview and Up ===")
 	pt.Preview(t)
 
 	up := pt.Up(t)
@@ -100,9 +110,18 @@ func TestEfsReplicationProtection(t *testing.T) {
 	assert.True(t, ok, "destinationProtection output should be a string")
 	t.Logf("Destination protection after up: %s", destinationProtection)
 
-	// KEY TEST: Refresh with adaptive backoff until replication is active.
-	// After the fix, refresh should succeed even when AWS returns REPLICATING.
+	// Log all outputs for debugging
+	t.Log("=== Outputs after initial up ===")
+	for k, v := range up.Outputs {
+		t.Logf("  %s = %v", k, v.Value)
+	}
+
+	// KEY TEST: Refresh with adaptive backoff until destination shows REPLICATING.
+	// AWS takes time to transition the destination from DISABLED to REPLICATING after
+	// replication is established. We must wait for this transition before running up.
+	t.Log("=== Phase 2: Refresh loop waiting for REPLICATING state ===")
 	backoff := efsRefreshInitialBackoff
+	foundReplicating := false
 
 	for attempt := 1; attempt <= efsRefreshMaxAttempts; attempt++ {
 		t.Logf("Refresh attempt %d/%d (backoff: %v)", attempt, efsRefreshMaxAttempts, backoff)
@@ -110,16 +129,28 @@ func TestEfsReplicationProtection(t *testing.T) {
 		refreshResult := pt.Refresh(t)
 		assert.NotNil(t, refreshResult.Summary, "Refresh should complete successfully")
 
+		// Log refresh output for debugging
+		t.Logf("=== Refresh %d StdOut ===\n%s", attempt, refreshResult.StdOut)
+		if refreshResult.StdErr != "" {
+			t.Logf("=== Refresh %d StdErr ===\n%s", attempt, refreshResult.StdErr)
+		}
+
 		if refreshResult.Summary.ResourceChanges != nil {
 			changes := *refreshResult.Summary.ResourceChanges
-			if changes["update"] > 0 || changes["same"] > 0 {
-				t.Logf("Refresh detected state from AWS, schema validation passed")
-				break
-			}
+			t.Logf("Resource changes: %+v", changes)
+		}
+
+		// Check if destination has transitioned to REPLICATING
+		// After refresh, we need to run preview/up to get current outputs
+		// Parse the refresh stdout for the destinationProtection value
+		if strings.Contains(refreshResult.StdOut, "REPLICATING") {
+			t.Log("Detected REPLICATING in refresh output, proceeding with up")
+			foundReplicating = true
+			break
 		}
 
 		if attempt < efsRefreshMaxAttempts {
-			t.Logf("Waiting %v before next attempt...", backoff)
+			t.Logf("Waiting %v for REPLICATING state...", backoff)
 			time.Sleep(backoff)
 			if backoff < efsRefreshMaxBackoff {
 				backoff = backoff * 3 / 2
@@ -127,7 +158,26 @@ func TestEfsReplicationProtection(t *testing.T) {
 		}
 	}
 
-	t.Log("Test passed: Refresh succeeded with REPLICATING enum value in schema")
+	// If we didn't find REPLICATING, the test is still valid - it tests that
+	// refresh succeeds. But we log a warning.
+	if !foundReplicating {
+		t.Log("WARNING: Destination never transitioned to REPLICATING during refresh loop")
+		t.Log("This may cause the subsequent up to fail if AWS has started the transition")
+	}
+
+	// KEY TEST: Run pulumi up after refresh - this is where the failure occurs
+	// The refresh may have added replicationConfiguration to state, and now
+	// pulumi up tries to reconcile that with the program (which doesn't specify it)
+	t.Log("=== Phase 3: Up after refresh (this is where the failure occurs) ===")
+	upAfterRefresh := pt.Up(t)
+	assert.NotNil(t, upAfterRefresh.Summary, "Up after refresh should complete successfully")
+
+	t.Log("=== Outputs after up (post-refresh) ===")
+	for k, v := range upAfterRefresh.Outputs {
+		t.Logf("  %s = %v", k, v.Value)
+	}
+
+	t.Log("Test passed: Refresh and subsequent Up succeeded with REPLICATING enum value")
 }
 
 func testUpgradeFrom(t *testing.T, test *pulumitest.PulumiTest, version string) {
