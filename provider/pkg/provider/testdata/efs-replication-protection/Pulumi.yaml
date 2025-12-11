@@ -13,24 +13,7 @@ resources:
     properties:
       region: us-west-2
 
-  eastClassicProvider:
-    type: pulumi:providers:aws
-    properties:
-      region: us-east-1
-      skipCredentialsValidation: true
-      skipMetadataApiCheck: true
-
-  efsSource:
-    type: aws-native:efs:FileSystem
-    properties:
-      performanceMode: generalPurpose
-      throughputMode: elastic
-      encrypted: true
-      fileSystemProtection:
-        replicationOverwriteProtection: ENABLED
-    options:
-      provider: ${eastNativeProvider}
-
+  # Destination filesystem - created first, will transition to REPLICATING when replication starts
   efsDestination:
     type: aws-native:efs:FileSystem
     properties:
@@ -42,21 +25,36 @@ resources:
     options:
       provider: ${westNativeProvider}
 
-  efsReplication:
-    type: aws:efs:ReplicationConfiguration
+  # Source filesystem with inline replicationConfiguration (not sidecar resource)
+  efsSource:
+    type: aws-native:efs:FileSystem
     properties:
-      sourceFileSystemId: ${efsSource.id}
-      destination:
-        region: us-west-2
-        fileSystemId: ${efsDestination.id}
+      performanceMode: generalPurpose
+      throughputMode: elastic
+      encrypted: true
+      fileSystemProtection:
+        replicationOverwriteProtection: ENABLED
+      # Use inline replicationConfiguration instead of sidecar resource
+      replicationConfiguration:
+        destinations:
+          - region: us-west-2
+            fileSystemId: ${efsDestination.id}
     options:
-      provider: ${eastClassicProvider}
+      provider: ${eastNativeProvider}
       dependsOn:
-        - ${efsSource}
         - ${efsDestination}
 
 outputs:
+  # Basic identifiers
   sourceId: ${efsSource.id}
-  sourceProtection: ${efsSource.fileSystemProtection.replicationOverwriteProtection}
+  sourceArn: ${efsSource.arn}
   destinationId: ${efsDestination.id}
+  destinationArn: ${efsDestination.arn}
+
+  # FileSystemProtection - destination changes from DISABLED to REPLICATING
+  sourceProtection: ${efsSource.fileSystemProtection.replicationOverwriteProtection}
   destinationProtection: ${efsDestination.fileSystemProtection.replicationOverwriteProtection}
+
+  # Full fileSystemProtection objects for debugging
+  sourceFileSystemProtection: ${efsSource.fileSystemProtection}
+  destinationFileSystemProtection: ${efsDestination.fileSystemProtection}
