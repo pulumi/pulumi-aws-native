@@ -133,6 +133,28 @@ func Test_mergeAutoNaming(t *testing.T) {
 	})
 }
 
+func Test_readJsonSchema_convertsExclusiveBounds(t *testing.T) {
+	tempDir := t.TempDir()
+	schemaPath := tempDir + "/schema.json"
+	err := os.WriteFile(schemaPath, []byte(`
+{
+  "typeName": "AWS::Test::Thing",
+  "properties": {
+    "Size": {
+      "type": "integer",
+      "exclusiveMaximum": 10
+    }
+  }
+}`), 0o600)
+	require.NoError(t, err)
+
+	schema := readJsonSchema(schemaPath, nil)
+	size := schema.Properties["Size"]
+	require.NotNil(t, size)
+	assert.Equal(t, float64(10), size.Maximum.Val)
+	assert.True(t, size.ExclusiveMaximum.Bool())
+}
+
 func assertExistsAndEmpty(t *testing.T, path string) bool {
 	assert := assert.New(t)
 
