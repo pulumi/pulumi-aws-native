@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Connect
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The granular access control configuration for the security profile, including data table permissions.
+        /// </summary>
         [Output("granularAccessControlConfiguration")]
         public Output<Outputs.GranularAccessControlConfigurationProperties?> GranularAccessControlConfiguration { get; private set; } = null!;
 
@@ -182,6 +185,9 @@ namespace Pulumi.AwsNative.Connect
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The granular access control configuration for the security profile, including data table permissions.
+        /// </summary>
         [Input("granularAccessControlConfiguration")]
         public Input<Inputs.GranularAccessControlConfigurationPropertiesArgs>? GranularAccessControlConfiguration { get; set; }
 

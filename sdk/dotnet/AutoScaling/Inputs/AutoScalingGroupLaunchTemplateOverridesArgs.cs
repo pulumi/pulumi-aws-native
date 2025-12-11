@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
     /// </summary>
     public sealed class AutoScalingGroupLaunchTemplateOverridesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("imageId")]
+        public Input<string>? ImageId { get; set; }
+
         /// <summary>
         /// The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
         ///  You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template. 

@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFunctionResult:
-    def __init__(__self__, architectures=None, arn=None, capacity_provider_config=None, code=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storage=None, file_system_configs=None, function_scaling_config=None, handler=None, image_config=None, kms_key_arn=None, layers=None, logging_config=None, memory_size=None, recursive_loop=None, reserved_concurrent_executions=None, role=None, runtime=None, runtime_management_config=None, snap_start_response=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
+    def __init__(__self__, architectures=None, arn=None, capacity_provider_config=None, code=None, code_signing_config_arn=None, dead_letter_config=None, description=None, durable_config=None, environment=None, ephemeral_storage=None, file_system_configs=None, function_scaling_config=None, handler=None, image_config=None, kms_key_arn=None, layers=None, logging_config=None, memory_size=None, recursive_loop=None, reserved_concurrent_executions=None, role=None, runtime=None, runtime_management_config=None, snap_start_response=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
         if architectures and not isinstance(architectures, list):
             raise TypeError("Expected argument 'architectures' to be a list")
         pulumi.set(__self__, "architectures", architectures)
@@ -48,6 +48,9 @@ class GetFunctionResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if durable_config and not isinstance(durable_config, dict):
+            raise TypeError("Expected argument 'durable_config' to be a dict")
+        pulumi.set(__self__, "durable_config", durable_config)
         if environment and not isinstance(environment, dict):
             raise TypeError("Expected argument 'environment' to be a dict")
         pulumi.set(__self__, "environment", environment)
@@ -164,6 +167,11 @@ class GetFunctionResult:
         A description of the function.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="durableConfig")
+    def durable_config(self) -> Optional['outputs.FunctionDurableConfig']:
+        return pulumi.get(self, "durable_config")
 
     @_builtins.property
     @pulumi.getter
@@ -345,6 +353,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             code_signing_config_arn=self.code_signing_config_arn,
             dead_letter_config=self.dead_letter_config,
             description=self.description,
+            durable_config=self.durable_config,
             environment=self.environment,
             ephemeral_storage=self.ephemeral_storage,
             file_system_configs=self.file_system_configs,
@@ -395,6 +404,7 @@ def get_function(function_name: Optional[_builtins.str] = None,
         code_signing_config_arn=pulumi.get(__ret__, 'code_signing_config_arn'),
         dead_letter_config=pulumi.get(__ret__, 'dead_letter_config'),
         description=pulumi.get(__ret__, 'description'),
+        durable_config=pulumi.get(__ret__, 'durable_config'),
         environment=pulumi.get(__ret__, 'environment'),
         ephemeral_storage=pulumi.get(__ret__, 'ephemeral_storage'),
         file_system_configs=pulumi.get(__ret__, 'file_system_configs'),
@@ -442,6 +452,7 @@ def get_function_output(function_name: Optional[pulumi.Input[_builtins.str]] = N
         code_signing_config_arn=pulumi.get(__response__, 'code_signing_config_arn'),
         dead_letter_config=pulumi.get(__response__, 'dead_letter_config'),
         description=pulumi.get(__response__, 'description'),
+        durable_config=pulumi.get(__response__, 'durable_config'),
         environment=pulumi.get(__response__, 'environment'),
         ephemeral_storage=pulumi.get(__response__, 'ephemeral_storage'),
         file_system_configs=pulumi.get(__response__, 'file_system_configs'),

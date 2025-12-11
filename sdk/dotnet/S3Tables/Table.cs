@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.S3Tables
         [Output("snapshotManagement")]
         public Output<Outputs.TableSnapshotManagement?> SnapshotManagement { get; private set; } = null!;
 
+        [Output("storageClassConfiguration")]
+        public Output<Outputs.TableStorageClassConfiguration?> StorageClassConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the table.
         /// </summary>
@@ -114,6 +117,7 @@ namespace Pulumi.AwsNative.S3Tables
                 {
                     "icebergMetadata",
                     "openTableFormat",
+                    "storageClassConfiguration",
                     "tableBucketArn",
                     "withoutMetadata",
                 },
@@ -168,6 +172,9 @@ namespace Pulumi.AwsNative.S3Tables
         /// </summary>
         [Input("snapshotManagement")]
         public Input<Inputs.TableSnapshotManagementArgs>? SnapshotManagement { get; set; }
+
+        [Input("storageClassConfiguration")]
+        public Input<Inputs.TableStorageClassConfigurationArgs>? StorageClassConfiguration { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the table bucket to create the table in.

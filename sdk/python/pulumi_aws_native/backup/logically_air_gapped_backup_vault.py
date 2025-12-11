@@ -41,6 +41,9 @@ class LogicallyAirGappedBackupVaultArgs:
         :param pulumi.Input[_builtins.str] backup_vault_name: The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] backup_vault_tags: The tags to assign to the vault.
         :param pulumi.Input[_builtins.str] encryption_key_arn: The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+               
+               If this field is left blank, AWS Backup will create an AWS owned key to be used to encrypt the content of the logically air-gapped vault. The ARN of this created key will be available as `Fn::GetAtt` output.
+        :param pulumi.Input[_builtins.str] mpa_approval_team_arn: The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault. This cannot be changed after it is set from the CloudFormation template.
         :param pulumi.Input['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs'] notifications: Returns event notifications for the specified backup vault.
         """
         pulumi.set(__self__, "max_retention_days", max_retention_days)
@@ -127,6 +130,8 @@ class LogicallyAirGappedBackupVaultArgs:
     def encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+
+        If this field is left blank, AWS Backup will create an AWS owned key to be used to encrypt the content of the logically air-gapped vault. The ARN of this created key will be available as `Fn::GetAtt` output.
         """
         return pulumi.get(self, "encryption_key_arn")
 
@@ -137,6 +142,9 @@ class LogicallyAirGappedBackupVaultArgs:
     @_builtins.property
     @pulumi.getter(name="mpaApprovalTeamArn")
     def mpa_approval_team_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault. This cannot be changed after it is set from the CloudFormation template.
+        """
         return pulumi.get(self, "mpa_approval_team_arn")
 
     @mpa_approval_team_arn.setter
@@ -182,10 +190,13 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] backup_vault_name: The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] backup_vault_tags: The tags to assign to the vault.
         :param pulumi.Input[_builtins.str] encryption_key_arn: The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+               
+               If this field is left blank, AWS Backup will create an AWS owned key to be used to encrypt the content of the logically air-gapped vault. The ARN of this created key will be available as `Fn::GetAtt` output.
         :param pulumi.Input[_builtins.int] max_retention_days: The maximum retention period that the vault retains its recovery points.
         :param pulumi.Input[_builtins.int] min_retention_days: This setting specifies the minimum retention period that the vault retains its recovery points.
                
                The minimum value accepted is 7 days.
+        :param pulumi.Input[_builtins.str] mpa_approval_team_arn: The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault. This cannot be changed after it is set from the CloudFormation template.
         :param pulumi.Input[Union['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs', 'LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict']] notifications: Returns event notifications for the specified backup vault.
         """
         ...
@@ -320,6 +331,8 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
     def encryption_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+
+        If this field is left blank, AWS Backup will create an AWS owned key to be used to encrypt the content of the logically air-gapped vault. The ARN of this created key will be available as `Fn::GetAtt` output.
         """
         return pulumi.get(self, "encryption_key_arn")
 
@@ -344,6 +357,9 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="mpaApprovalTeamArn")
     def mpa_approval_team_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault. This cannot be changed after it is set from the CloudFormation template.
+        """
         return pulumi.get(self, "mpa_approval_team_arn")
 
     @_builtins.property

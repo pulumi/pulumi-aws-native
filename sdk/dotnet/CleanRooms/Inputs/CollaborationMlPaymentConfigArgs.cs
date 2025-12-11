@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
         [Input("modelTraining")]
         public Input<Inputs.CollaborationModelTrainingPaymentConfigArgs>? ModelTraining { get; set; }
 
+        [Input("syntheticDataGeneration")]
+        public Input<Inputs.CollaborationSyntheticDataGenerationPaymentConfigArgs>? SyntheticDataGeneration { get; set; }
+
         public CollaborationMlPaymentConfigArgs()
         {
         }

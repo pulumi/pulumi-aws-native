@@ -20,6 +20,11 @@ export type CoreNetwork = import("./coreNetwork").CoreNetwork;
 export const CoreNetwork: typeof import("./coreNetwork").CoreNetwork = null as any;
 utilities.lazyLoad(exports, ["CoreNetwork"], () => require("./coreNetwork"));
 
+export { CoreNetworkPrefixListAssociationArgs } from "./coreNetworkPrefixListAssociation";
+export type CoreNetworkPrefixListAssociation = import("./coreNetworkPrefixListAssociation").CoreNetworkPrefixListAssociation;
+export const CoreNetworkPrefixListAssociation: typeof import("./coreNetworkPrefixListAssociation").CoreNetworkPrefixListAssociation = null as any;
+utilities.lazyLoad(exports, ["CoreNetworkPrefixListAssociation"], () => require("./coreNetworkPrefixListAssociation"));
+
 export { CustomerGatewayAssociationArgs } from "./customerGatewayAssociation";
 export type CustomerGatewayAssociation = import("./customerGatewayAssociation").CustomerGatewayAssociation;
 export const CustomerGatewayAssociation: typeof import("./customerGatewayAssociation").CustomerGatewayAssociation = null as any;
@@ -151,6 +156,8 @@ const _module = {
                 return new ConnectPeer(name, <any>undefined, { urn })
             case "aws-native:networkmanager:CoreNetwork":
                 return new CoreNetwork(name, <any>undefined, { urn })
+            case "aws-native:networkmanager:CoreNetworkPrefixListAssociation":
+                return new CoreNetworkPrefixListAssociation(name, <any>undefined, { urn })
             case "aws-native:networkmanager:CustomerGatewayAssociation":
                 return new CustomerGatewayAssociation(name, <any>undefined, { urn })
             case "aws-native:networkmanager:Device":

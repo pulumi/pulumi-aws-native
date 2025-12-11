@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 
 __all__ = [
@@ -24,13 +25,25 @@ __all__ = [
 
 @pulumi.output_type
 class GetNatGatewayResult:
-    def __init__(__self__, eni_id=None, nat_gateway_id=None, secondary_allocation_ids=None, secondary_private_ip_address_count=None, secondary_private_ip_addresses=None, tags=None):
+    def __init__(__self__, auto_provision_zones=None, auto_scaling_ips=None, availability_zone_addresses=None, eni_id=None, nat_gateway_id=None, route_table_id=None, secondary_allocation_ids=None, secondary_private_ip_address_count=None, secondary_private_ip_addresses=None, tags=None):
+        if auto_provision_zones and not isinstance(auto_provision_zones, str):
+            raise TypeError("Expected argument 'auto_provision_zones' to be a str")
+        pulumi.set(__self__, "auto_provision_zones", auto_provision_zones)
+        if auto_scaling_ips and not isinstance(auto_scaling_ips, str):
+            raise TypeError("Expected argument 'auto_scaling_ips' to be a str")
+        pulumi.set(__self__, "auto_scaling_ips", auto_scaling_ips)
+        if availability_zone_addresses and not isinstance(availability_zone_addresses, list):
+            raise TypeError("Expected argument 'availability_zone_addresses' to be a list")
+        pulumi.set(__self__, "availability_zone_addresses", availability_zone_addresses)
         if eni_id and not isinstance(eni_id, str):
             raise TypeError("Expected argument 'eni_id' to be a str")
         pulumi.set(__self__, "eni_id", eni_id)
         if nat_gateway_id and not isinstance(nat_gateway_id, str):
             raise TypeError("Expected argument 'nat_gateway_id' to be a str")
         pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
+        if route_table_id and not isinstance(route_table_id, str):
+            raise TypeError("Expected argument 'route_table_id' to be a str")
+        pulumi.set(__self__, "route_table_id", route_table_id)
         if secondary_allocation_ids and not isinstance(secondary_allocation_ids, list):
             raise TypeError("Expected argument 'secondary_allocation_ids' to be a list")
         pulumi.set(__self__, "secondary_allocation_ids", secondary_allocation_ids)
@@ -43,6 +56,40 @@ class GetNatGatewayResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="autoProvisionZones")
+    def auto_provision_zones(self) -> Optional[_builtins.str]:
+        """
+        For regional NAT gateways only: Indicates whether AWS automatically manages AZ coverage. When enabled, the NAT gateway associates EIPs in all AZs where your VPC has subnets to handle outbound NAT traffic, expands to new AZs when you create subnets there, and retracts from AZs where you've removed all subnets. When disabled, you must manually manage which AZs the NAT gateway supports and their corresponding EIPs.
+
+        A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+
+        For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+        """
+        return pulumi.get(self, "auto_provision_zones")
+
+    @_builtins.property
+    @pulumi.getter(name="autoScalingIps")
+    def auto_scaling_ips(self) -> Optional[_builtins.str]:
+        """
+        For regional NAT gateways only: Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
+
+        For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+        """
+        return pulumi.get(self, "auto_scaling_ips")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneAddresses")
+    def availability_zone_addresses(self) -> Optional[Sequence['outputs.NatGatewayAvailabilityZoneAddress']]:
+        """
+        For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.
+
+        A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+
+        For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+        """
+        return pulumi.get(self, "availability_zone_addresses")
 
     @_builtins.property
     @pulumi.getter(name="eniId")
@@ -59,6 +106,14 @@ class GetNatGatewayResult:
         The ID of the NAT gateway.
         """
         return pulumi.get(self, "nat_gateway_id")
+
+    @_builtins.property
+    @pulumi.getter(name="routeTableId")
+    def route_table_id(self) -> Optional[_builtins.str]:
+        """
+        For regional NAT gateways only, this is the ID of the NAT gateway.
+        """
+        return pulumi.get(self, "route_table_id")
 
     @_builtins.property
     @pulumi.getter(name="secondaryAllocationIds")
@@ -101,8 +156,12 @@ class AwaitableGetNatGatewayResult(GetNatGatewayResult):
         if False:
             yield self
         return GetNatGatewayResult(
+            auto_provision_zones=self.auto_provision_zones,
+            auto_scaling_ips=self.auto_scaling_ips,
+            availability_zone_addresses=self.availability_zone_addresses,
             eni_id=self.eni_id,
             nat_gateway_id=self.nat_gateway_id,
+            route_table_id=self.route_table_id,
             secondary_allocation_ids=self.secondary_allocation_ids,
             secondary_private_ip_address_count=self.secondary_private_ip_address_count,
             secondary_private_ip_addresses=self.secondary_private_ip_addresses,
@@ -126,8 +185,12 @@ def get_nat_gateway(nat_gateway_id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getNatGateway', __args__, opts=opts, typ=GetNatGatewayResult).value
 
     return AwaitableGetNatGatewayResult(
+        auto_provision_zones=pulumi.get(__ret__, 'auto_provision_zones'),
+        auto_scaling_ips=pulumi.get(__ret__, 'auto_scaling_ips'),
+        availability_zone_addresses=pulumi.get(__ret__, 'availability_zone_addresses'),
         eni_id=pulumi.get(__ret__, 'eni_id'),
         nat_gateway_id=pulumi.get(__ret__, 'nat_gateway_id'),
+        route_table_id=pulumi.get(__ret__, 'route_table_id'),
         secondary_allocation_ids=pulumi.get(__ret__, 'secondary_allocation_ids'),
         secondary_private_ip_address_count=pulumi.get(__ret__, 'secondary_private_ip_address_count'),
         secondary_private_ip_addresses=pulumi.get(__ret__, 'secondary_private_ip_addresses'),
@@ -148,8 +211,12 @@ def get_nat_gateway_output(nat_gateway_id: Optional[pulumi.Input[_builtins.str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getNatGateway', __args__, opts=opts, typ=GetNatGatewayResult)
     return __ret__.apply(lambda __response__: GetNatGatewayResult(
+        auto_provision_zones=pulumi.get(__response__, 'auto_provision_zones'),
+        auto_scaling_ips=pulumi.get(__response__, 'auto_scaling_ips'),
+        availability_zone_addresses=pulumi.get(__response__, 'availability_zone_addresses'),
         eni_id=pulumi.get(__response__, 'eni_id'),
         nat_gateway_id=pulumi.get(__response__, 'nat_gateway_id'),
+        route_table_id=pulumi.get(__response__, 'route_table_id'),
         secondary_allocation_ids=pulumi.get(__response__, 'secondary_allocation_ids'),
         secondary_private_ip_address_count=pulumi.get(__response__, 'secondary_private_ip_address_count'),
         secondary_private_ip_addresses=pulumi.get(__response__, 'secondary_private_ip_addresses'),

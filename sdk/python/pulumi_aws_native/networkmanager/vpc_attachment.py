@@ -29,6 +29,7 @@ class VpcAttachmentArgs:
                  options: Optional[pulumi.Input['VpcAttachmentVpcOptionsArgs']] = None,
                  proposed_network_function_group_change: Optional[pulumi.Input['VpcAttachmentProposedNetworkFunctionGroupChangeArgs']] = None,
                  proposed_segment_change: Optional[pulumi.Input['VpcAttachmentProposedSegmentChangeArgs']] = None,
+                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VpcAttachment resource.
@@ -38,6 +39,7 @@ class VpcAttachmentArgs:
         :param pulumi.Input['VpcAttachmentVpcOptionsArgs'] options: Vpc options of the attachment.
         :param pulumi.Input['VpcAttachmentProposedNetworkFunctionGroupChangeArgs'] proposed_network_function_group_change: The attachment to move from one network function group to another.
         :param pulumi.Input['VpcAttachmentProposedSegmentChangeArgs'] proposed_segment_change: The attachment to move from one segment to another.
+        :param pulumi.Input[_builtins.str] routing_policy_label: Routing policy label
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags for the attachment.
         """
         pulumi.set(__self__, "core_network_id", core_network_id)
@@ -49,6 +51,8 @@ class VpcAttachmentArgs:
             pulumi.set(__self__, "proposed_network_function_group_change", proposed_network_function_group_change)
         if proposed_segment_change is not None:
             pulumi.set(__self__, "proposed_segment_change", proposed_segment_change)
+        if routing_policy_label is not None:
+            pulumi.set(__self__, "routing_policy_label", routing_policy_label)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -125,6 +129,18 @@ class VpcAttachmentArgs:
         pulumi.set(self, "proposed_segment_change", value)
 
     @_builtins.property
+    @pulumi.getter(name="routingPolicyLabel")
+    def routing_policy_label(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Routing policy label
+        """
+        return pulumi.get(self, "routing_policy_label")
+
+    @routing_policy_label.setter
+    def routing_policy_label(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "routing_policy_label", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -147,6 +163,7 @@ class VpcAttachment(pulumi.CustomResource):
                  options: Optional[pulumi.Input[Union['VpcAttachmentVpcOptionsArgs', 'VpcAttachmentVpcOptionsArgsDict']]] = None,
                  proposed_network_function_group_change: Optional[pulumi.Input[Union['VpcAttachmentProposedNetworkFunctionGroupChangeArgs', 'VpcAttachmentProposedNetworkFunctionGroupChangeArgsDict']]] = None,
                  proposed_segment_change: Optional[pulumi.Input[Union['VpcAttachmentProposedSegmentChangeArgs', 'VpcAttachmentProposedSegmentChangeArgsDict']]] = None,
+                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -160,6 +177,7 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.Input[Union['VpcAttachmentVpcOptionsArgs', 'VpcAttachmentVpcOptionsArgsDict']] options: Vpc options of the attachment.
         :param pulumi.Input[Union['VpcAttachmentProposedNetworkFunctionGroupChangeArgs', 'VpcAttachmentProposedNetworkFunctionGroupChangeArgsDict']] proposed_network_function_group_change: The attachment to move from one network function group to another.
         :param pulumi.Input[Union['VpcAttachmentProposedSegmentChangeArgs', 'VpcAttachmentProposedSegmentChangeArgsDict']] proposed_segment_change: The attachment to move from one segment to another.
+        :param pulumi.Input[_builtins.str] routing_policy_label: Routing policy label
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_arns: Subnet Arn list
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for the attachment.
         :param pulumi.Input[_builtins.str] vpc_arn: The ARN of the VPC.
@@ -192,6 +210,7 @@ class VpcAttachment(pulumi.CustomResource):
                  options: Optional[pulumi.Input[Union['VpcAttachmentVpcOptionsArgs', 'VpcAttachmentVpcOptionsArgsDict']]] = None,
                  proposed_network_function_group_change: Optional[pulumi.Input[Union['VpcAttachmentProposedNetworkFunctionGroupChangeArgs', 'VpcAttachmentProposedNetworkFunctionGroupChangeArgsDict']]] = None,
                  proposed_segment_change: Optional[pulumi.Input[Union['VpcAttachmentProposedSegmentChangeArgs', 'VpcAttachmentProposedSegmentChangeArgsDict']]] = None,
+                 routing_policy_label: Optional[pulumi.Input[_builtins.str]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -210,6 +229,7 @@ class VpcAttachment(pulumi.CustomResource):
             __props__.__dict__["options"] = options
             __props__.__dict__["proposed_network_function_group_change"] = proposed_network_function_group_change
             __props__.__dict__["proposed_segment_change"] = proposed_segment_change
+            __props__.__dict__["routing_policy_label"] = routing_policy_label
             if subnet_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_arns'")
             __props__.__dict__["subnet_arns"] = subnet_arns
@@ -230,7 +250,7 @@ class VpcAttachment(pulumi.CustomResource):
             __props__.__dict__["segment_name"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["coreNetworkId", "vpcArn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["coreNetworkId", "routingPolicyLabel", "vpcArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcAttachment, __self__).__init__(
             'aws-native:networkmanager:VpcAttachment',
@@ -268,6 +288,7 @@ class VpcAttachment(pulumi.CustomResource):
         __props__.__dict__["proposed_network_function_group_change"] = None
         __props__.__dict__["proposed_segment_change"] = None
         __props__.__dict__["resource_arn"] = None
+        __props__.__dict__["routing_policy_label"] = None
         __props__.__dict__["segment_name"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["subnet_arns"] = None
@@ -387,6 +408,14 @@ class VpcAttachment(pulumi.CustomResource):
         The ARN of the Resource.
         """
         return pulumi.get(self, "resource_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="routingPolicyLabel")
+    def routing_policy_label(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Routing policy label
+        """
+        return pulumi.get(self, "routing_policy_label")
 
     @_builtins.property
     @pulumi.getter(name="segmentName")

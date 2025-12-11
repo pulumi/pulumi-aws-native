@@ -130,6 +130,10 @@
       "description" : "The attachment to move from one network function group to another.",
       "$ref" : "#/definitions/ProposedNetworkFunctionGroupChange"
     },
+    "RoutingPolicyLabel" : {
+      "description" : "Routing policy label",
+      "type" : "string"
+    },
     "CreatedAt" : {
       "description" : "Creation time of the attachment.",
       "type" : "string"
@@ -165,7 +169,8 @@
     "permissions" : [ "networkmanager:TagResource", "networkmanager:UntagResource", "networkmanager:ListTagsForResource" ]
   },
   "required" : [ "PeeringId", "TransitGatewayRouteTableArn" ],
-  "createOnlyProperties" : [ "/properties/PeeringId", "/properties/TransitGatewayRouteTableArn" ],
+  "createOnlyProperties" : [ "/properties/PeeringId", "/properties/TransitGatewayRouteTableArn", "/properties/RoutingPolicyLabel" ],
+  "writeOnlyProperties" : [ "/properties/RoutingPolicyLabel" ],
   "readOnlyProperties" : [ "/properties/CoreNetworkArn", "/properties/CoreNetworkId", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/AttachmentType", "/properties/State", "/properties/ResourceArn", "/properties/AttachmentId", "/properties/OwnerAccountId", "/properties/EdgeLocation", "/properties/AttachmentPolicyRuleNumber", "/properties/SegmentName", "/properties/LastModificationErrors" ],
   "primaryIdentifier" : [ "/properties/AttachmentId" ],
   "handlers" : {

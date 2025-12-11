@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
+ * Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
  */
 export function getNetworkInterfaceAttachment(args: GetNetworkInterfaceAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceAttachmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -30,11 +30,11 @@ export interface GetNetworkInterfaceAttachmentResult {
      */
     readonly attachmentId?: string;
     /**
-     * Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+     * Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
      */
     readonly deleteOnTermination?: boolean;
     /**
-     * The number of ENA queues to be created with the instance.
+     * The number of ENA queues created with the instance.
      */
     readonly enaQueueCount?: number;
     /**
@@ -43,7 +43,7 @@ export interface GetNetworkInterfaceAttachmentResult {
     readonly enaSrdSpecification?: outputs.ec2.NetworkInterfaceAttachmentEnaSrdSpecification;
 }
 /**
- * Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
+ * Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
  */
 export function getNetworkInterfaceAttachmentOutput(args: GetNetworkInterfaceAttachmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkInterfaceAttachmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

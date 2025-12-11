@@ -24,6 +24,7 @@ __all__ = ['HostedZoneArgs', 'HostedZone']
 class HostedZoneArgs:
     def __init__(__self__, *,
                  hosted_zone_config: Optional[pulumi.Input['HostedZoneConfigArgs']] = None,
+                 hosted_zone_features: Optional[pulumi.Input['HostedZoneFeaturesArgs']] = None,
                  hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  query_logging_config: Optional[pulumi.Input['HostedZoneQueryLoggingConfigArgs']] = None,
@@ -49,6 +50,8 @@ class HostedZoneArgs:
         """
         if hosted_zone_config is not None:
             pulumi.set(__self__, "hosted_zone_config", hosted_zone_config)
+        if hosted_zone_features is not None:
+            pulumi.set(__self__, "hosted_zone_features", hosted_zone_features)
         if hosted_zone_tags is not None:
             pulumi.set(__self__, "hosted_zone_tags", hosted_zone_tags)
         if name is not None:
@@ -70,6 +73,15 @@ class HostedZoneArgs:
     @hosted_zone_config.setter
     def hosted_zone_config(self, value: Optional[pulumi.Input['HostedZoneConfigArgs']]):
         pulumi.set(self, "hosted_zone_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hostedZoneFeatures")
+    def hosted_zone_features(self) -> Optional[pulumi.Input['HostedZoneFeaturesArgs']]:
+        return pulumi.get(self, "hosted_zone_features")
+
+    @hosted_zone_features.setter
+    def hosted_zone_features(self, value: Optional[pulumi.Input['HostedZoneFeaturesArgs']]):
+        pulumi.set(self, "hosted_zone_features", value)
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneTags")
@@ -137,6 +149,7 @@ class HostedZone(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hosted_zone_config: Optional[pulumi.Input[Union['HostedZoneConfigArgs', 'HostedZoneConfigArgsDict']]] = None,
+                 hosted_zone_features: Optional[pulumi.Input[Union['HostedZoneFeaturesArgs', 'HostedZoneFeaturesArgsDict']]] = None,
                  hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  query_logging_config: Optional[pulumi.Input[Union['HostedZoneQueryLoggingConfigArgs', 'HostedZoneQueryLoggingConfigArgsDict']]] = None,
@@ -219,6 +232,7 @@ class HostedZone(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hosted_zone_config: Optional[pulumi.Input[Union['HostedZoneConfigArgs', 'HostedZoneConfigArgsDict']]] = None,
+                 hosted_zone_features: Optional[pulumi.Input[Union['HostedZoneFeaturesArgs', 'HostedZoneFeaturesArgsDict']]] = None,
                  hosted_zone_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  query_logging_config: Optional[pulumi.Input[Union['HostedZoneQueryLoggingConfigArgs', 'HostedZoneQueryLoggingConfigArgsDict']]] = None,
@@ -233,6 +247,7 @@ class HostedZone(pulumi.CustomResource):
             __props__ = HostedZoneArgs.__new__(HostedZoneArgs)
 
             __props__.__dict__["hosted_zone_config"] = hosted_zone_config
+            __props__.__dict__["hosted_zone_features"] = hosted_zone_features
             __props__.__dict__["hosted_zone_tags"] = hosted_zone_tags
             __props__.__dict__["name"] = name
             __props__.__dict__["query_logging_config"] = query_logging_config
@@ -265,6 +280,7 @@ class HostedZone(pulumi.CustomResource):
 
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["hosted_zone_config"] = None
+        __props__.__dict__["hosted_zone_features"] = None
         __props__.__dict__["hosted_zone_tags"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["name_servers"] = None
@@ -288,6 +304,11 @@ class HostedZone(pulumi.CustomResource):
          If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
         """
         return pulumi.get(self, "hosted_zone_config")
+
+    @_builtins.property
+    @pulumi.getter(name="hostedZoneFeatures")
+    def hosted_zone_features(self) -> pulumi.Output[Optional['outputs.HostedZoneFeatures']]:
+        return pulumi.get(self, "hosted_zone_features")
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneTags")

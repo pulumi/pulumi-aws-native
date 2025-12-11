@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
     /// </summary>
     public sealed class TelemetryRuleTelemetryDestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("cloudtrailParameters")]
+        public Input<Inputs.TelemetryRuleCloudtrailParametersArgs>? CloudtrailParameters { get; set; }
+
         /// <summary>
         /// The pattern used to generate the destination path or name, supporting macros like &lt;resourceId&gt; and &lt;accountId&gt;.
         /// </summary>
@@ -27,6 +30,15 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
         [Input("destinationType")]
         public Input<Pulumi.AwsNative.ObservabilityAdmin.TelemetryRuleDestinationType>? DestinationType { get; set; }
 
+        [Input("elbLoadBalancerLoggingParameters")]
+        public Input<Inputs.TelemetryRuleElbLoadBalancerLoggingParametersArgs>? ElbLoadBalancerLoggingParameters { get; set; }
+
+        /// <summary>
+        /// Parameters for BedrockAgentCore log delivery
+        /// </summary>
+        [Input("logDeliveryParameters")]
+        public Input<Inputs.TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs>? LogDeliveryParameters { get; set; }
+
         /// <summary>
         /// The number of days to retain the telemetry data in the destination.
         /// </summary>
@@ -38,6 +50,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
         /// </summary>
         [Input("vpcFlowLogParameters")]
         public Input<Inputs.TelemetryRuleVpcFlowLogParametersArgs>? VpcFlowLogParameters { get; set; }
+
+        [Input("wafLoggingParameters")]
+        public Input<Inputs.TelemetryRuleWafLoggingParametersArgs>? WafLoggingParameters { get; set; }
 
         public TelemetryRuleTelemetryDestinationConfigurationArgs()
         {

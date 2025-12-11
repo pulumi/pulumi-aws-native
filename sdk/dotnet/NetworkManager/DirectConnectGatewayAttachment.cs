@@ -100,6 +100,12 @@ namespace Pulumi.AwsNative.NetworkManager
         public Output<string> ResourceArn { get; private set; } = null!;
 
         /// <summary>
+        /// Routing policy label
+        /// </summary>
+        [Output("routingPolicyLabel")]
+        public Output<string?> RoutingPolicyLabel { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the segment attachment..
         /// </summary>
         [Output("segmentName")]
@@ -150,6 +156,7 @@ namespace Pulumi.AwsNative.NetworkManager
                 {
                     "coreNetworkId",
                     "directConnectGatewayArn",
+                    "routingPolicyLabel",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -208,6 +215,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         [Input("proposedSegmentChange")]
         public Input<Inputs.DirectConnectGatewayAttachmentProposedSegmentChangeArgs>? ProposedSegmentChange { get; set; }
+
+        /// <summary>
+        /// Routing policy label
+        /// </summary>
+        [Input("routingPolicyLabel")]
+        public Input<string>? RoutingPolicyLabel { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

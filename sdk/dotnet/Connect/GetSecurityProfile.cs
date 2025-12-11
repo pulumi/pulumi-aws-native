@@ -79,6 +79,9 @@ namespace Pulumi.AwsNative.Connect
         /// The description of the security profile.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The granular access control configuration for the security profile, including data table permissions.
+        /// </summary>
         public readonly Outputs.GranularAccessControlConfigurationProperties? GranularAccessControlConfiguration;
         /// <summary>
         /// The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.

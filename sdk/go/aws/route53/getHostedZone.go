@@ -47,7 +47,8 @@ type LookupHostedZoneArgs struct {
 type LookupHostedZoneResult struct {
 	// A complex type that contains an optional comment.
 	//  If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
-	HostedZoneConfig *HostedZoneConfig `pulumi:"hostedZoneConfig"`
+	HostedZoneConfig   *HostedZoneConfig   `pulumi:"hostedZoneConfig"`
+	HostedZoneFeatures *HostedZoneFeatures `pulumi:"hostedZoneFeatures"`
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
 	//  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
 	HostedZoneTags []aws.Tag `pulumi:"hostedZoneTags"`
@@ -108,6 +109,10 @@ func (o LookupHostedZoneResultOutput) ToLookupHostedZoneResultOutputWithContext(
 //	If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
 func (o LookupHostedZoneResultOutput) HostedZoneConfig() HostedZoneConfigPtrOutput {
 	return o.ApplyT(func(v LookupHostedZoneResult) *HostedZoneConfig { return v.HostedZoneConfig }).(HostedZoneConfigPtrOutput)
+}
+
+func (o LookupHostedZoneResultOutput) HostedZoneFeatures() HostedZoneFeaturesPtrOutput {
+	return o.ApplyT(func(v LookupHostedZoneResult) *HostedZoneFeatures { return v.HostedZoneFeatures }).(HostedZoneFeaturesPtrOutput)
 }
 
 // Adds, edits, or deletes tags for a health check or a hosted zone.

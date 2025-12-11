@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
 {
 
     /// <summary>
-    /// Default SMS outbound config
+    /// Default Email outbound config
     /// </summary>
     public sealed class CampaignEmailOutboundConfigArgs : global::Pulumi.ResourceArgs
     {

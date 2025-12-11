@@ -100,6 +100,12 @@ namespace Pulumi.AwsNative.NetworkManager
         public Output<string> ResourceArn { get; private set; } = null!;
 
         /// <summary>
+        /// Routing policy label
+        /// </summary>
+        [Output("routingPolicyLabel")]
+        public Output<string?> RoutingPolicyLabel { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the segment attachment..
         /// </summary>
         [Output("segmentName")]
@@ -161,6 +167,7 @@ namespace Pulumi.AwsNative.NetworkManager
                 ReplaceOnChanges =
                 {
                     "coreNetworkId",
+                    "routingPolicyLabel",
                     "vpcArn",
                 },
             };
@@ -208,6 +215,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         [Input("proposedSegmentChange")]
         public Input<Inputs.VpcAttachmentProposedSegmentChangeArgs>? ProposedSegmentChange { get; set; }
+
+        /// <summary>
+        /// Routing policy label
+        /// </summary>
+        [Input("routingPolicyLabel")]
+        public Input<string>? RoutingPolicyLabel { get; set; }
 
         [Input("subnetArns", required: true)]
         private InputList<string>? _subnetArns;

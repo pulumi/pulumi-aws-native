@@ -187,6 +187,74 @@
       },
       "required" : [ "Type" ],
       "additionalProperties" : false
+    },
+    "SyntheticDataParameters" : {
+      "oneOf" : [ {
+        "type" : "object",
+        "title" : "MlSyntheticDataParameters",
+        "properties" : {
+          "MlSyntheticDataParameters" : {
+            "$ref" : "#/definitions/MLSyntheticDataParameters"
+          }
+        },
+        "required" : [ "MlSyntheticDataParameters" ],
+        "additionalProperties" : false
+      } ]
+    },
+    "MLSyntheticDataParameters" : {
+      "type" : "object",
+      "properties" : {
+        "Epsilon" : {
+          "type" : "number",
+          "minimum" : 1.0E-4,
+          "maximum" : 10
+        },
+        "MaxMembershipInferenceAttackScore" : {
+          "type" : "number",
+          "minimum" : 0.5,
+          "maximum" : 1
+        },
+        "ColumnClassification" : {
+          "$ref" : "#/definitions/ColumnClassificationDetails"
+        }
+      },
+      "required" : [ "Epsilon", "MaxMembershipInferenceAttackScore", "ColumnClassification" ],
+      "additionalProperties" : false
+    },
+    "ColumnClassificationDetails" : {
+      "type" : "object",
+      "properties" : {
+        "ColumnMapping" : {
+          "type" : "array",
+          "insertionOrder" : false,
+          "items" : {
+            "$ref" : "#/definitions/SyntheticDataColumnProperties"
+          },
+          "minItems" : 5,
+          "maxItems" : 1000
+        }
+      },
+      "required" : [ "ColumnMapping" ],
+      "additionalProperties" : false
+    },
+    "SyntheticDataColumnProperties" : {
+      "type" : "object",
+      "properties" : {
+        "ColumnName" : {
+          "type" : "string",
+          "maxLength" : 128,
+          "pattern" : "^[a-z0-9_](([a-z0-9_]+-)*([a-z0-9_]+))?$"
+        },
+        "ColumnType" : {
+          "type" : "string",
+          "enum" : [ "CATEGORICAL", "NUMERICAL" ]
+        },
+        "IsPredictiveValue" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "ColumnName", "ColumnType", "IsPredictiveValue" ],
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -263,11 +331,14 @@
     },
     "ErrorMessageConfiguration" : {
       "$ref" : "#/definitions/ErrorMessageConfiguration"
+    },
+    "SyntheticDataParameters" : {
+      "$ref" : "#/definitions/SyntheticDataParameters"
     }
   },
   "required" : [ "Source", "Format", "Name", "MembershipIdentifier" ],
   "readOnlyProperties" : [ "/properties/CollaborationArn", "/properties/CollaborationIdentifier", "/properties/AnalysisTemplateIdentifier", "/properties/Arn", "/properties/MembershipArn" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/MembershipIdentifier", "/properties/Source", "/properties/Format", "/properties/AnalysisParameters", "/properties/Schema", "/properties/ErrorMessageConfiguration" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/MembershipIdentifier", "/properties/Source", "/properties/Format", "/properties/AnalysisParameters", "/properties/Schema", "/properties/ErrorMessageConfiguration", "/properties/SyntheticDataParameters" ],
   "primaryIdentifier" : [ "/properties/AnalysisTemplateIdentifier", "/properties/MembershipIdentifier" ],
   "replacementStrategy" : "delete_then_create",
   "tagging" : {

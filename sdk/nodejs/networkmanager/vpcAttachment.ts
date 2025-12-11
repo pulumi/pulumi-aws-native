@@ -94,6 +94,10 @@ export class VpcAttachment extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
+     * Routing policy label
+     */
+    declare public readonly routingPolicyLabel: pulumi.Output<string | undefined>;
+    /**
      * The name of the segment attachment..
      */
     declare public /*out*/ readonly segmentName: pulumi.Output<string>;
@@ -142,6 +146,7 @@ export class VpcAttachment extends pulumi.CustomResource {
             resourceInputs["options"] = args?.options;
             resourceInputs["proposedNetworkFunctionGroupChange"] = args?.proposedNetworkFunctionGroupChange;
             resourceInputs["proposedSegmentChange"] = args?.proposedSegmentChange;
+            resourceInputs["routingPolicyLabel"] = args?.routingPolicyLabel;
             resourceInputs["subnetArns"] = args?.subnetArns;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["vpcArn"] = args?.vpcArn;
@@ -173,6 +178,7 @@ export class VpcAttachment extends pulumi.CustomResource {
             resourceInputs["proposedNetworkFunctionGroupChange"] = undefined /*out*/;
             resourceInputs["proposedSegmentChange"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
+            resourceInputs["routingPolicyLabel"] = undefined /*out*/;
             resourceInputs["segmentName"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["subnetArns"] = undefined /*out*/;
@@ -181,7 +187,7 @@ export class VpcAttachment extends pulumi.CustomResource {
             resourceInputs["vpcArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["coreNetworkId", "vpcArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["coreNetworkId", "routingPolicyLabel", "vpcArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpcAttachment.__pulumiType, name, resourceInputs, opts);
     }
@@ -207,6 +213,10 @@ export interface VpcAttachmentArgs {
      * The attachment to move from one segment to another.
      */
     proposedSegmentChange?: pulumi.Input<inputs.networkmanager.VpcAttachmentProposedSegmentChangeArgs>;
+    /**
+     * Routing policy label
+     */
+    routingPolicyLabel?: pulumi.Input<string>;
     /**
      * Subnet Arn list
      */

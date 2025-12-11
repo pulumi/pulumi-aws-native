@@ -17,8 +17,9 @@ type TableBucket struct {
 	pulumi.CustomResourceState
 
 	// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
-	EncryptionConfiguration TableBucketEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
-	MetricsConfiguration    TableBucketMetricsConfigurationPtrOutput    `pulumi:"metricsConfiguration"`
+	EncryptionConfiguration   TableBucketEncryptionConfigurationPtrOutput   `pulumi:"encryptionConfiguration"`
+	MetricsConfiguration      TableBucketMetricsConfigurationPtrOutput      `pulumi:"metricsConfiguration"`
+	StorageClassConfiguration TableBucketStorageClassConfigurationPtrOutput `pulumi:"storageClassConfiguration"`
 	// The Amazon Resource Name (ARN) of the table bucket.
 	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
 	// The name for the table bucket.
@@ -74,8 +75,9 @@ func (TableBucketState) ElementType() reflect.Type {
 
 type tableBucketArgs struct {
 	// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
-	EncryptionConfiguration *TableBucketEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	MetricsConfiguration    *TableBucketMetricsConfiguration    `pulumi:"metricsConfiguration"`
+	EncryptionConfiguration   *TableBucketEncryptionConfiguration   `pulumi:"encryptionConfiguration"`
+	MetricsConfiguration      *TableBucketMetricsConfiguration      `pulumi:"metricsConfiguration"`
+	StorageClassConfiguration *TableBucketStorageClassConfiguration `pulumi:"storageClassConfiguration"`
 	// The name for the table bucket.
 	TableBucketName *string `pulumi:"tableBucketName"`
 	// User tags (key-value pairs) to associate with the table bucket.
@@ -87,8 +89,9 @@ type tableBucketArgs struct {
 // The set of arguments for constructing a TableBucket resource.
 type TableBucketArgs struct {
 	// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
-	EncryptionConfiguration TableBucketEncryptionConfigurationPtrInput
-	MetricsConfiguration    TableBucketMetricsConfigurationPtrInput
+	EncryptionConfiguration   TableBucketEncryptionConfigurationPtrInput
+	MetricsConfiguration      TableBucketMetricsConfigurationPtrInput
+	StorageClassConfiguration TableBucketStorageClassConfigurationPtrInput
 	// The name for the table bucket.
 	TableBucketName pulumi.StringPtrInput
 	// User tags (key-value pairs) to associate with the table bucket.
@@ -141,6 +144,10 @@ func (o TableBucketOutput) EncryptionConfiguration() TableBucketEncryptionConfig
 
 func (o TableBucketOutput) MetricsConfiguration() TableBucketMetricsConfigurationPtrOutput {
 	return o.ApplyT(func(v *TableBucket) TableBucketMetricsConfigurationPtrOutput { return v.MetricsConfiguration }).(TableBucketMetricsConfigurationPtrOutput)
+}
+
+func (o TableBucketOutput) StorageClassConfiguration() TableBucketStorageClassConfigurationPtrOutput {
+	return o.ApplyT(func(v *TableBucket) TableBucketStorageClassConfigurationPtrOutput { return v.StorageClassConfiguration }).(TableBucketStorageClassConfigurationPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the table bucket.

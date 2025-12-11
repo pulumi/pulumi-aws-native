@@ -32,6 +32,20 @@ export const OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGr
  */
 export type OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy = (typeof OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy)[keyof typeof OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy];
 
+export const OrganizationTelemetryRuleAction = {
+    Allow: "ALLOW",
+    Block: "BLOCK",
+    Count: "COUNT",
+    Captcha: "CAPTCHA",
+    Challenge: "CHALLENGE",
+    ExcludedAsCount: "EXCLUDED_AS_COUNT",
+} as const;
+
+/**
+ * The enumerated action to take.
+ */
+export type OrganizationTelemetryRuleAction = (typeof OrganizationTelemetryRuleAction)[keyof typeof OrganizationTelemetryRuleAction];
+
 export const OrganizationTelemetryRuleDestinationType = {
     CloudWatchLogs: "cloud-watch-logs",
 } as const;
@@ -41,14 +55,60 @@ export const OrganizationTelemetryRuleDestinationType = {
  */
 export type OrganizationTelemetryRuleDestinationType = (typeof OrganizationTelemetryRuleDestinationType)[keyof typeof OrganizationTelemetryRuleDestinationType];
 
+export const OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat = {
+    Plain: "plain",
+    Json: "json",
+} as const;
+
+export type OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat = (typeof OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat)[keyof typeof OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat];
+
+export const OrganizationTelemetryRuleFilterBehavior = {
+    Keep: "KEEP",
+    Drop: "DROP",
+} as const;
+
+/**
+ * The behavior required of the filter.
+ */
+export type OrganizationTelemetryRuleFilterBehavior = (typeof OrganizationTelemetryRuleFilterBehavior)[keyof typeof OrganizationTelemetryRuleFilterBehavior];
+
+export const OrganizationTelemetryRuleFilterRequirement = {
+    MeetsAll: "MEETS_ALL",
+    MeetsAny: "MEETS_ANY",
+} as const;
+
+/**
+ * The requirement portion of the filter.
+ */
+export type OrganizationTelemetryRuleFilterRequirement = (typeof OrganizationTelemetryRuleFilterRequirement)[keyof typeof OrganizationTelemetryRuleFilterRequirement];
+
 export const OrganizationTelemetryRuleResourceType = {
     Awsec2vpc: "AWS::EC2::VPC",
+    AwswaFv2WebAcl: "AWS::WAFv2::WebACL",
+    AwsCloudTrail: "AWS::CloudTrail",
+    AwseksCluster: "AWS::EKS::Cluster",
+    AwsElasticLoadBalancingV2LoadBalancer: "AWS::ElasticLoadBalancingV2::LoadBalancer",
 } as const;
 
 /**
  * Resource Type associated with the Organization Telemetry Rule
  */
 export type OrganizationTelemetryRuleResourceType = (typeof OrganizationTelemetryRuleResourceType)[keyof typeof OrganizationTelemetryRuleResourceType];
+
+export const OrganizationTelemetryRuleTelemetrySourceType = {
+    VpcFlowLogs: "VPC_FLOW_LOGS",
+    Route53ResolverQueryLogs: "ROUTE53_RESOLVER_QUERY_LOGS",
+    EksAuditLogs: "EKS_AUDIT_LOGS",
+    EksAuthenticatorLogs: "EKS_AUTHENTICATOR_LOGS",
+    EksControllerManagerLogs: "EKS_CONTROLLER_MANAGER_LOGS",
+    EksSchedulerLogs: "EKS_SCHEDULER_LOGS",
+    EksApiLogs: "EKS_API_LOGS",
+} as const;
+
+/**
+ * The telemetry source type that goes into the array.
+ */
+export type OrganizationTelemetryRuleTelemetrySourceType = (typeof OrganizationTelemetryRuleTelemetrySourceType)[keyof typeof OrganizationTelemetryRuleTelemetrySourceType];
 
 export const OrganizationTelemetryRuleTelemetryType = {
     Logs: "Logs",
@@ -59,6 +119,40 @@ export const OrganizationTelemetryRuleTelemetryType = {
  */
 export type OrganizationTelemetryRuleTelemetryType = (typeof OrganizationTelemetryRuleTelemetryType)[keyof typeof OrganizationTelemetryRuleTelemetryType];
 
+export const OrganizationTelemetryRuleWafLogType = {
+    WafLogs: "WAF_LOGS",
+} as const;
+
+/**
+ * The type of logs to generate for WAF.
+ */
+export type OrganizationTelemetryRuleWafLogType = (typeof OrganizationTelemetryRuleWafLogType)[keyof typeof OrganizationTelemetryRuleWafLogType];
+
+export const TelemetryPipelinesTelemetryPipelineStatus = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Updating: "UPDATING",
+    Deleting: "DELETING",
+    CreateFailed: "CREATE_FAILED",
+    UpdateFailed: "UPDATE_FAILED",
+} as const;
+
+export type TelemetryPipelinesTelemetryPipelineStatus = (typeof TelemetryPipelinesTelemetryPipelineStatus)[keyof typeof TelemetryPipelinesTelemetryPipelineStatus];
+
+export const TelemetryRuleAction = {
+    Allow: "ALLOW",
+    Block: "BLOCK",
+    Count: "COUNT",
+    Captcha: "CAPTCHA",
+    Challenge: "CHALLENGE",
+    ExcludedAsCount: "EXCLUDED_AS_COUNT",
+} as const;
+
+/**
+ * The enumerated action to take.
+ */
+export type TelemetryRuleAction = (typeof TelemetryRuleAction)[keyof typeof TelemetryRuleAction];
+
 export const TelemetryRuleDestinationType = {
     CloudWatchLogs: "cloud-watch-logs",
 } as const;
@@ -68,8 +162,42 @@ export const TelemetryRuleDestinationType = {
  */
 export type TelemetryRuleDestinationType = (typeof TelemetryRuleDestinationType)[keyof typeof TelemetryRuleDestinationType];
 
+export const TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat = {
+    Plain: "plain",
+    Json: "json",
+} as const;
+
+export type TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat = (typeof TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat)[keyof typeof TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat];
+
+export const TelemetryRuleFilterBehavior = {
+    Keep: "KEEP",
+    Drop: "DROP",
+} as const;
+
+/**
+ * The behavior required of the filter.
+ */
+export type TelemetryRuleFilterBehavior = (typeof TelemetryRuleFilterBehavior)[keyof typeof TelemetryRuleFilterBehavior];
+
+export const TelemetryRuleFilterRequirement = {
+    MeetsAll: "MEETS_ALL",
+    MeetsAny: "MEETS_ANY",
+} as const;
+
+/**
+ * The requirement portion of the filter.
+ */
+export type TelemetryRuleFilterRequirement = (typeof TelemetryRuleFilterRequirement)[keyof typeof TelemetryRuleFilterRequirement];
+
 export const TelemetryRuleResourceType = {
     Awsec2vpc: "AWS::EC2::VPC",
+    AwswaFv2WebAcl: "AWS::WAFv2::WebACL",
+    AwsCloudTrail: "AWS::CloudTrail",
+    AwseksCluster: "AWS::EKS::Cluster",
+    AwsElasticLoadBalancingV2LoadBalancer: "AWS::ElasticLoadBalancingV2::LoadBalancer",
+    AwsBedrockAgentCoreRuntime: "AWS::BedrockAgentCore::Runtime",
+    AwsBedrockAgentCoreBrowser: "AWS::BedrockAgentCore::Browser",
+    AwsBedrockAgentCoreCodeInterpreter: "AWS::BedrockAgentCore::CodeInterpreter",
 } as const;
 
 /**
@@ -77,11 +205,43 @@ export const TelemetryRuleResourceType = {
  */
 export type TelemetryRuleResourceType = (typeof TelemetryRuleResourceType)[keyof typeof TelemetryRuleResourceType];
 
+export const TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem = {
+    ApplicationLogs: "APPLICATION_LOGS",
+    UsageLogs: "USAGE_LOGS",
+} as const;
+
+export type TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem = (typeof TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem)[keyof typeof TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem];
+
+export const TelemetryRuleTelemetrySourceType = {
+    VpcFlowLogs: "VPC_FLOW_LOGS",
+    Route53ResolverQueryLogs: "ROUTE53_RESOLVER_QUERY_LOGS",
+    EksAuditLogs: "EKS_AUDIT_LOGS",
+    EksAuthenticatorLogs: "EKS_AUTHENTICATOR_LOGS",
+    EksControllerManagerLogs: "EKS_CONTROLLER_MANAGER_LOGS",
+    EksSchedulerLogs: "EKS_SCHEDULER_LOGS",
+    EksApiLogs: "EKS_API_LOGS",
+} as const;
+
+/**
+ * The telemetry source type that goes into the array.
+ */
+export type TelemetryRuleTelemetrySourceType = (typeof TelemetryRuleTelemetrySourceType)[keyof typeof TelemetryRuleTelemetrySourceType];
+
 export const TelemetryRuleTelemetryType = {
     Logs: "Logs",
+    Traces: "Traces",
 } as const;
 
 /**
  * Telemetry Type associated with the Telemetry Rule
  */
 export type TelemetryRuleTelemetryType = (typeof TelemetryRuleTelemetryType)[keyof typeof TelemetryRuleTelemetryType];
+
+export const TelemetryRuleWafLogType = {
+    WafLogs: "WAF_LOGS",
+} as const;
+
+/**
+ * The type of logs to generate for WAF.
+ */
+export type TelemetryRuleWafLogType = (typeof TelemetryRuleWafLogType)[keyof typeof TelemetryRuleWafLogType];

@@ -33,8 +33,18 @@ type LookupResourceShareResult struct {
 	AllowExternalPrincipals *bool `pulumi:"allowExternalPrincipals"`
 	// The Amazon Resource Name (ARN) of the resource share.
 	Arn *string `pulumi:"arn"`
+	// The date and time when the resource share was created.
+	CreationTime *string `pulumi:"creationTime"`
+	// The feature set of the resource share.
+	FeatureSet *ResourceShareFeatureSet `pulumi:"featureSet"`
+	// The date and time when the resource share was last updated.
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Specifies the name of the resource share.
 	Name *string `pulumi:"name"`
+	// The ID of the AWS account that owns the resource share.
+	OwningAccountId *string `pulumi:"owningAccountId"`
+	// The current status of the resource share.
+	Status *ResourceShareStatus `pulumi:"status"`
 	// Specifies one or more tags to attach to the resource share itself. It doesn't attach the tags to the resources associated with the resource share.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -81,9 +91,34 @@ func (o LookupResourceShareResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourceShareResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The date and time when the resource share was created.
+func (o LookupResourceShareResultOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourceShareResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// The feature set of the resource share.
+func (o LookupResourceShareResultOutput) FeatureSet() ResourceShareFeatureSetPtrOutput {
+	return o.ApplyT(func(v LookupResourceShareResult) *ResourceShareFeatureSet { return v.FeatureSet }).(ResourceShareFeatureSetPtrOutput)
+}
+
+// The date and time when the resource share was last updated.
+func (o LookupResourceShareResultOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourceShareResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the name of the resource share.
 func (o LookupResourceShareResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourceShareResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the AWS account that owns the resource share.
+func (o LookupResourceShareResultOutput) OwningAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResourceShareResult) *string { return v.OwningAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The current status of the resource share.
+func (o LookupResourceShareResultOutput) Status() ResourceShareStatusPtrOutput {
+	return o.ApplyT(func(v LookupResourceShareResult) *ResourceShareStatus { return v.Status }).(ResourceShareStatusPtrOutput)
 }
 
 // Specifies one or more tags to attach to the resource share itself. It doesn't attach the tags to the resources associated with the resource share.

@@ -88,6 +88,7 @@ namespace Pulumi.AwsNative.PaymentCryptography
         /// The state of key that is being created or deleted.
         /// </summary>
         public readonly Pulumi.AwsNative.PaymentCryptography.KeyState? KeyState;
+        public readonly ImmutableDictionary<string, Outputs.KeyReplicationStatusType>? ReplicationStatus;
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
@@ -108,6 +109,8 @@ namespace Pulumi.AwsNative.PaymentCryptography
 
             Pulumi.AwsNative.PaymentCryptography.KeyState? keyState,
 
+            ImmutableDictionary<string, Outputs.KeyReplicationStatusType>? replicationStatus,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DeriveKeyUsage = deriveKeyUsage;
@@ -118,6 +121,7 @@ namespace Pulumi.AwsNative.PaymentCryptography
             KeyIdentifier = keyIdentifier;
             KeyOrigin = keyOrigin;
             KeyState = keyState;
+            ReplicationStatus = replicationStatus;
             Tags = tags;
         }
     }

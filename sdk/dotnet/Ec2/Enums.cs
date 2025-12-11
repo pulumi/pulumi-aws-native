@@ -1647,6 +1647,38 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// Public IP DNS hostname type
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkInterfacePublicIpDnsHostnameTypeSpecification : IEquatable<NetworkInterfacePublicIpDnsHostnameTypeSpecification>
+    {
+        private readonly string _value;
+
+        private NetworkInterfacePublicIpDnsHostnameTypeSpecification(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkInterfacePublicIpDnsHostnameTypeSpecification PublicDualStackDnsName { get; } = new NetworkInterfacePublicIpDnsHostnameTypeSpecification("public-dual-stack-dns-name");
+        public static NetworkInterfacePublicIpDnsHostnameTypeSpecification PublicIpv4DnsName { get; } = new NetworkInterfacePublicIpDnsHostnameTypeSpecification("public-ipv4-dns-name");
+        public static NetworkInterfacePublicIpDnsHostnameTypeSpecification PublicIpv6DnsName { get; } = new NetworkInterfacePublicIpDnsHostnameTypeSpecification("public-ipv6-dns-name");
+
+        public static bool operator ==(NetworkInterfacePublicIpDnsHostnameTypeSpecification left, NetworkInterfacePublicIpDnsHostnameTypeSpecification right) => left.Equals(right);
+        public static bool operator !=(NetworkInterfacePublicIpDnsHostnameTypeSpecification left, NetworkInterfacePublicIpDnsHostnameTypeSpecification right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkInterfacePublicIpDnsHostnameTypeSpecification value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkInterfacePublicIpDnsHostnameTypeSpecification other && Equals(other);
+        public bool Equals(NetworkInterfacePublicIpDnsHostnameTypeSpecification other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Ip Version of Prefix List.
     /// </summary>
     [EnumType]

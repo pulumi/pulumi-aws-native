@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
+    /// <summary>
+    /// The granular access control configuration for the security profile, including data table permissions.
+    /// </summary>
     public sealed class GranularAccessControlConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The access control configuration for data tables.
+        /// </summary>
         [Input("dataTableAccessControlConfiguration")]
         public Input<Inputs.SecurityProfileDataTableAccessControlConfigurationArgs>? DataTableAccessControlConfiguration { get; set; }
 

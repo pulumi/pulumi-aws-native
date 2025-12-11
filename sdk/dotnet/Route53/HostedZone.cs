@@ -43,6 +43,9 @@ namespace Pulumi.AwsNative.Route53
         [Output("hostedZoneConfig")]
         public Output<Outputs.HostedZoneConfig?> HostedZoneConfig { get; private set; } = null!;
 
+        [Output("hostedZoneFeatures")]
+        public Output<Outputs.HostedZoneFeatures?> HostedZoneFeatures { get; private set; } = null!;
+
         /// <summary>
         /// Adds, edits, or deletes tags for a health check or a hosted zone.
         ///  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
@@ -140,6 +143,9 @@ namespace Pulumi.AwsNative.Route53
         /// </summary>
         [Input("hostedZoneConfig")]
         public Input<Inputs.HostedZoneConfigArgs>? HostedZoneConfig { get; set; }
+
+        [Input("hostedZoneFeatures")]
+        public Input<Inputs.HostedZoneFeaturesArgs>? HostedZoneFeatures { get; set; }
 
         [Input("hostedZoneTags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _hostedZoneTags;

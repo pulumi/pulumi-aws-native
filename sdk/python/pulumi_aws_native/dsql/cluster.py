@@ -181,6 +181,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["policy_version"] = None
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["vpc_endpoint"] = None
             __props__.__dict__["vpc_endpoint_service_name"] = None
         super(Cluster, __self__).__init__(
             'aws-native:dsql:Cluster',
@@ -216,6 +217,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["resource_arn"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["vpc_endpoint"] = None
         __props__.__dict__["vpc_endpoint_service_name"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
@@ -314,6 +316,14 @@ class Cluster(pulumi.CustomResource):
         A map of key and value pairs this cluster is tagged with.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcEndpoint")
+    def vpc_endpoint(self) -> pulumi.Output[_builtins.str]:
+        """
+        The DSQL cluster VPC endpoint.
+        """
+        return pulumi.get(self, "vpc_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="vpcEndpointServiceName")

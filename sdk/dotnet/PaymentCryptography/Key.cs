@@ -62,6 +62,12 @@ namespace Pulumi.AwsNative.PaymentCryptography
         [Output("keyState")]
         public Output<Pulumi.AwsNative.PaymentCryptography.KeyState> KeyState { get; private set; } = null!;
 
+        [Output("replicationRegions")]
+        public Output<ImmutableArray<string>> ReplicationRegions { get; private set; } = null!;
+
+        [Output("replicationStatus")]
+        public Output<ImmutableDictionary<string, Outputs.KeyReplicationStatusType>> ReplicationStatus { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -141,6 +147,14 @@ namespace Pulumi.AwsNative.PaymentCryptography
         /// </summary>
         [Input("keyCheckValueAlgorithm")]
         public Input<Pulumi.AwsNative.PaymentCryptography.KeyCheckValueAlgorithm>? KeyCheckValueAlgorithm { get; set; }
+
+        [Input("replicationRegions")]
+        private InputList<string>? _replicationRegions;
+        public InputList<string> ReplicationRegions
+        {
+            get => _replicationRegions ?? (_replicationRegions = new InputList<string>());
+            set => _replicationRegions = value;
+        }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

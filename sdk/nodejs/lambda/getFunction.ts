@@ -60,6 +60,7 @@ export interface GetFunctionResult {
      * A description of the function.
      */
     readonly description?: string;
+    readonly durableConfig?: outputs.lambda.FunctionDurableConfig;
     /**
      * Environment variables that are accessible from function code during execution.
      */

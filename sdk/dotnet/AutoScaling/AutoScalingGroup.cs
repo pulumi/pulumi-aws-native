@@ -123,6 +123,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Output("instanceId")]
         public Output<string?> InstanceId { get; private set; } = null!;
 
+        [Output("instanceLifecyclePolicy")]
+        public Output<Outputs.AutoScalingGroupInstanceLifecyclePolicy?> InstanceLifecyclePolicy { get; private set; } = null!;
+
         /// <summary>
         /// An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
         /// </summary>
@@ -407,6 +410,9 @@ namespace Pulumi.AwsNative.AutoScaling
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
+
+        [Input("instanceLifecyclePolicy")]
+        public Input<Inputs.AutoScalingGroupInstanceLifecyclePolicyArgs>? InstanceLifecyclePolicy { get; set; }
 
         /// <summary>
         /// An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.

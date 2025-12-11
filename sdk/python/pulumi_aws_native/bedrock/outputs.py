@@ -283,6 +283,8 @@ __all__ = [
     'GuardrailWordPolicyConfig',
     'IntelligentPromptRouterPromptRouterTargetModel',
     'IntelligentPromptRouterRoutingCriteria',
+    'KnowledgeBaseAudioConfiguration',
+    'KnowledgeBaseAudioSegmentationConfiguration',
     'KnowledgeBaseBedrockEmbeddingModelConfiguration',
     'KnowledgeBaseConfiguration',
     'KnowledgeBaseCuratedQuery',
@@ -320,6 +322,8 @@ __all__ = [
     'KnowledgeBaseSupplementalDataStorageConfiguration',
     'KnowledgeBaseSupplementalDataStorageLocation',
     'KnowledgeBaseVectorKnowledgeBaseConfiguration',
+    'KnowledgeBaseVideoConfiguration',
+    'KnowledgeBaseVideoSegmentationConfiguration',
     'PromptAdditionalModelRequestFields',
     'PromptAgentResource',
     'PromptAnyToolChoice',
@@ -11809,6 +11813,76 @@ class IntelligentPromptRouterRoutingCriteria(dict):
 
 
 @pulumi.output_type
+class KnowledgeBaseAudioConfiguration(dict):
+    """
+    Configure the audio configuration for multi modal ingestion.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "segmentationConfiguration":
+            suggest = "segmentation_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseAudioConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseAudioConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseAudioConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 segmentation_configuration: 'outputs.KnowledgeBaseAudioSegmentationConfiguration'):
+        """
+        Configure the audio configuration for multi modal ingestion.
+        """
+        pulumi.set(__self__, "segmentation_configuration", segmentation_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentationConfiguration")
+    def segmentation_configuration(self) -> 'outputs.KnowledgeBaseAudioSegmentationConfiguration':
+        return pulumi.get(self, "segmentation_configuration")
+
+
+@pulumi.output_type
+class KnowledgeBaseAudioSegmentationConfiguration(dict):
+    """
+    Configure the audio segmentation configuration for multi modal ingestion.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fixedLengthDuration":
+            suggest = "fixed_length_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseAudioSegmentationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseAudioSegmentationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseAudioSegmentationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fixed_length_duration: _builtins.int):
+        """
+        Configure the audio segmentation configuration for multi modal ingestion.
+        """
+        pulumi.set(__self__, "fixed_length_duration", fixed_length_duration)
+
+    @_builtins.property
+    @pulumi.getter(name="fixedLengthDuration")
+    def fixed_length_duration(self) -> _builtins.int:
+        return pulumi.get(self, "fixed_length_duration")
+
+
+@pulumi.output_type
 class KnowledgeBaseBedrockEmbeddingModelConfiguration(dict):
     """
     The vector configuration details for the Bedrock embeddings model.
@@ -11831,17 +11905,28 @@ class KnowledgeBaseBedrockEmbeddingModelConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 audio: Optional[Sequence['outputs.KnowledgeBaseAudioConfiguration']] = None,
                  dimensions: Optional[_builtins.int] = None,
-                 embedding_data_type: Optional['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType'] = None):
+                 embedding_data_type: Optional['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType'] = None,
+                 video: Optional[Sequence['outputs.KnowledgeBaseVideoConfiguration']] = None):
         """
         The vector configuration details for the Bedrock embeddings model.
         :param _builtins.int dimensions: The dimensions details for the vector configuration used on the Bedrock embeddings model.
         :param 'KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType' embedding_data_type: The data type for the vectors when using a model to convert text into vector embeddings.
         """
+        if audio is not None:
+            pulumi.set(__self__, "audio", audio)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
         if embedding_data_type is not None:
             pulumi.set(__self__, "embedding_data_type", embedding_data_type)
+        if video is not None:
+            pulumi.set(__self__, "video", video)
+
+    @_builtins.property
+    @pulumi.getter
+    def audio(self) -> Optional[Sequence['outputs.KnowledgeBaseAudioConfiguration']]:
+        return pulumi.get(self, "audio")
 
     @_builtins.property
     @pulumi.getter
@@ -11858,6 +11943,11 @@ class KnowledgeBaseBedrockEmbeddingModelConfiguration(dict):
         The data type for the vectors when using a model to convert text into vector embeddings.
         """
         return pulumi.get(self, "embedding_data_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def video(self) -> Optional[Sequence['outputs.KnowledgeBaseVideoConfiguration']]:
+        return pulumi.get(self, "video")
 
 
 @pulumi.output_type
@@ -14022,6 +14112,76 @@ class KnowledgeBaseVectorKnowledgeBaseConfiguration(dict):
         If you include multimodal data from your data source, use this object to specify configurations for the storage location of the images extracted from your documents. These images can be retrieved and returned to the end user. They can also be used in generation when using [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) .
         """
         return pulumi.get(self, "supplemental_data_storage_configuration")
+
+
+@pulumi.output_type
+class KnowledgeBaseVideoConfiguration(dict):
+    """
+    Configure the video configuration for multi modal ingestion.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "segmentationConfiguration":
+            suggest = "segmentation_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseVideoConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseVideoConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseVideoConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 segmentation_configuration: 'outputs.KnowledgeBaseVideoSegmentationConfiguration'):
+        """
+        Configure the video configuration for multi modal ingestion.
+        """
+        pulumi.set(__self__, "segmentation_configuration", segmentation_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentationConfiguration")
+    def segmentation_configuration(self) -> 'outputs.KnowledgeBaseVideoSegmentationConfiguration':
+        return pulumi.get(self, "segmentation_configuration")
+
+
+@pulumi.output_type
+class KnowledgeBaseVideoSegmentationConfiguration(dict):
+    """
+    Configure the video segmentation configuration for multi modal ingestion.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fixedLengthDuration":
+            suggest = "fixed_length_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseVideoSegmentationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseVideoSegmentationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseVideoSegmentationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fixed_length_duration: _builtins.int):
+        """
+        Configure the video segmentation configuration for multi modal ingestion.
+        """
+        pulumi.set(__self__, "fixed_length_duration", fixed_length_duration)
+
+    @_builtins.property
+    @pulumi.getter(name="fixedLengthDuration")
+    def fixed_length_duration(self) -> _builtins.int:
+        return pulumi.get(self, "fixed_length_duration")
 
 
 @pulumi.output_type

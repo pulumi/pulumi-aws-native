@@ -33,6 +33,8 @@ export interface GetExpressGatewayServiceResult {
      * The Unix timestamp for when the Express service was created.
      */
     readonly createdAt?: string;
+    readonly ecsManagedResourceArns?: outputs.ecs.ExpressGatewayServiceEcsManagedResourceArns;
+    readonly endpoint?: string;
     /**
      * The ARN that identifies the Express service.
      */

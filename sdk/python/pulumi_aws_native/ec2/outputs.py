@@ -124,6 +124,7 @@ __all__ = [
     'LaunchTemplateTagSpecification',
     'LaunchTemplateTotalLocalStorageGb',
     'LaunchTemplateVCpuCount',
+    'NatGatewayAvailabilityZoneAddress',
     'NetworkInsightsAccessScopeAccessScopePathRequest',
     'NetworkInsightsAccessScopePacketHeaderStatementRequest',
     'NetworkInsightsAccessScopePathStatementRequest',
@@ -151,6 +152,7 @@ __all__ = [
     'NetworkInterfaceIpv4PrefixSpecification',
     'NetworkInterfaceIpv6PrefixSpecification',
     'NetworkInterfacePrivateIpAddressSpecification',
+    'NetworkInterfacePublicIpDnsNameOptions',
     'OptionsProperties',
     'PrefixListEntry',
     'PrivateDnsNameOptionsOnLaunchProperties',
@@ -8206,6 +8208,77 @@ class LaunchTemplateVCpuCount(dict):
 
 
 @pulumi.output_type
+class NatGatewayAvailabilityZoneAddress(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allocationIds":
+            suggest = "allocation_ids"
+        elif key == "availabilityZone":
+            suggest = "availability_zone"
+        elif key == "availabilityZoneId":
+            suggest = "availability_zone_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NatGatewayAvailabilityZoneAddress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NatGatewayAvailabilityZoneAddress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NatGatewayAvailabilityZoneAddress.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allocation_ids: Sequence[_builtins.str],
+                 availability_zone: Optional[_builtins.str] = None,
+                 availability_zone_id: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] allocation_ids: The allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
+        :param _builtins.str availability_zone: For regional NAT gateways only: The Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ.
+               
+               A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+        :param _builtins.str availability_zone_id: For regional NAT gateways only: The ID of the Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone for consistent identification of AZs across AWS Regions.
+               
+               A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+        """
+        pulumi.set(__self__, "allocation_ids", allocation_ids)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if availability_zone_id is not None:
+            pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+
+    @_builtins.property
+    @pulumi.getter(name="allocationIds")
+    def allocation_ids(self) -> Sequence[_builtins.str]:
+        """
+        The allocation IDs of the Elastic IP addresses (EIPs) to be used for handling outbound NAT traffic in this specific Availability Zone.
+        """
+        return pulumi.get(self, "allocation_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[_builtins.str]:
+        """
+        For regional NAT gateways only: The Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ.
+
+        A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> Optional[_builtins.str]:
+        """
+        For regional NAT gateways only: The ID of the Availability Zone where this specific NAT gateway configuration will be active. Each AZ in a regional NAT gateway has its own configuration to handle outbound NAT traffic from that AZ. Use this instead of AvailabilityZone for consistent identification of AZs across AWS Regions.
+
+        A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+        """
+        return pulumi.get(self, "availability_zone_id")
+
+
+@pulumi.output_type
 class NetworkInsightsAccessScopeAccessScopePathRequest(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -10550,6 +10623,10 @@ class NetworkInsightsPathPathFilter(dict):
 
 @pulumi.output_type
 class NetworkInterfaceAttachmentEnaSrdSpecification(dict):
+    """
+    ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
+     To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10573,6 +10650,8 @@ class NetworkInterfaceAttachmentEnaSrdSpecification(dict):
                  ena_srd_enabled: Optional[_builtins.bool] = None,
                  ena_srd_udp_specification: Optional['outputs.NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties'] = None):
         """
+        ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
+         To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.
         :param _builtins.bool ena_srd_enabled: Indicates whether ENA Express is enabled for the network interface.
         :param 'NetworkInterfaceAttachmentEnaSrdSpecificationEnaSrdUdpSpecificationProperties' ena_srd_udp_specification: Configures ENA Express for UDP network traffic.
         """
@@ -10847,6 +10926,72 @@ class NetworkInterfacePrivateIpAddressSpecification(dict):
         The private IP address of the network interface.
         """
         return pulumi.get(self, "private_ip_address")
+
+
+@pulumi.output_type
+class NetworkInterfacePublicIpDnsNameOptions(dict):
+    """
+    Describes the public hostname type options, including public hostname type, IPv4-enabled public hostname, IPv6-enabled public hostname, and dual-stack public hostname.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsHostnameType":
+            suggest = "dns_hostname_type"
+        elif key == "publicDualStackDnsName":
+            suggest = "public_dual_stack_dns_name"
+        elif key == "publicIpv4DnsName":
+            suggest = "public_ipv4_dns_name"
+        elif key == "publicIpv6DnsName":
+            suggest = "public_ipv6_dns_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfacePublicIpDnsNameOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfacePublicIpDnsNameOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfacePublicIpDnsNameOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_hostname_type: Optional[_builtins.str] = None,
+                 public_dual_stack_dns_name: Optional[_builtins.str] = None,
+                 public_ipv4_dns_name: Optional[_builtins.str] = None,
+                 public_ipv6_dns_name: Optional[_builtins.str] = None):
+        """
+        Describes the public hostname type options, including public hostname type, IPv4-enabled public hostname, IPv6-enabled public hostname, and dual-stack public hostname.
+        """
+        if dns_hostname_type is not None:
+            pulumi.set(__self__, "dns_hostname_type", dns_hostname_type)
+        if public_dual_stack_dns_name is not None:
+            pulumi.set(__self__, "public_dual_stack_dns_name", public_dual_stack_dns_name)
+        if public_ipv4_dns_name is not None:
+            pulumi.set(__self__, "public_ipv4_dns_name", public_ipv4_dns_name)
+        if public_ipv6_dns_name is not None:
+            pulumi.set(__self__, "public_ipv6_dns_name", public_ipv6_dns_name)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsHostnameType")
+    def dns_hostname_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "dns_hostname_type")
+
+    @_builtins.property
+    @pulumi.getter(name="publicDualStackDnsName")
+    def public_dual_stack_dns_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "public_dual_stack_dns_name")
+
+    @_builtins.property
+    @pulumi.getter(name="publicIpv4DnsName")
+    def public_ipv4_dns_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "public_ipv4_dns_name")
+
+    @_builtins.property
+    @pulumi.getter(name="publicIpv6DnsName")
+    def public_ipv6_dns_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "public_ipv6_dns_name")
 
 
 @pulumi.output_type

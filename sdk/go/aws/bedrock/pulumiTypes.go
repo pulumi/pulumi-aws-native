@@ -34124,12 +34124,165 @@ type IntelligentPromptRouterTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Configure the audio configuration for multi modal ingestion.
+type KnowledgeBaseAudioConfiguration struct {
+	SegmentationConfiguration KnowledgeBaseAudioSegmentationConfiguration `pulumi:"segmentationConfiguration"`
+}
+
+// KnowledgeBaseAudioConfigurationInput is an input type that accepts KnowledgeBaseAudioConfigurationArgs and KnowledgeBaseAudioConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseAudioConfigurationInput` via:
+//
+//	KnowledgeBaseAudioConfigurationArgs{...}
+type KnowledgeBaseAudioConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseAudioConfigurationOutput() KnowledgeBaseAudioConfigurationOutput
+	ToKnowledgeBaseAudioConfigurationOutputWithContext(context.Context) KnowledgeBaseAudioConfigurationOutput
+}
+
+// Configure the audio configuration for multi modal ingestion.
+type KnowledgeBaseAudioConfigurationArgs struct {
+	SegmentationConfiguration KnowledgeBaseAudioSegmentationConfigurationInput `pulumi:"segmentationConfiguration"`
+}
+
+func (KnowledgeBaseAudioConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseAudioConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseAudioConfigurationArgs) ToKnowledgeBaseAudioConfigurationOutput() KnowledgeBaseAudioConfigurationOutput {
+	return i.ToKnowledgeBaseAudioConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseAudioConfigurationArgs) ToKnowledgeBaseAudioConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseAudioConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseAudioConfigurationOutput)
+}
+
+// KnowledgeBaseAudioConfigurationArrayInput is an input type that accepts KnowledgeBaseAudioConfigurationArray and KnowledgeBaseAudioConfigurationArrayOutput values.
+// You can construct a concrete instance of `KnowledgeBaseAudioConfigurationArrayInput` via:
+//
+//	KnowledgeBaseAudioConfigurationArray{ KnowledgeBaseAudioConfigurationArgs{...} }
+type KnowledgeBaseAudioConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseAudioConfigurationArrayOutput() KnowledgeBaseAudioConfigurationArrayOutput
+	ToKnowledgeBaseAudioConfigurationArrayOutputWithContext(context.Context) KnowledgeBaseAudioConfigurationArrayOutput
+}
+
+type KnowledgeBaseAudioConfigurationArray []KnowledgeBaseAudioConfigurationInput
+
+func (KnowledgeBaseAudioConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KnowledgeBaseAudioConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseAudioConfigurationArray) ToKnowledgeBaseAudioConfigurationArrayOutput() KnowledgeBaseAudioConfigurationArrayOutput {
+	return i.ToKnowledgeBaseAudioConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseAudioConfigurationArray) ToKnowledgeBaseAudioConfigurationArrayOutputWithContext(ctx context.Context) KnowledgeBaseAudioConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseAudioConfigurationArrayOutput)
+}
+
+// Configure the audio configuration for multi modal ingestion.
+type KnowledgeBaseAudioConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseAudioConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseAudioConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseAudioConfigurationOutput) ToKnowledgeBaseAudioConfigurationOutput() KnowledgeBaseAudioConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseAudioConfigurationOutput) ToKnowledgeBaseAudioConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseAudioConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseAudioConfigurationOutput) SegmentationConfiguration() KnowledgeBaseAudioSegmentationConfigurationOutput {
+	return o.ApplyT(func(v KnowledgeBaseAudioConfiguration) KnowledgeBaseAudioSegmentationConfiguration {
+		return v.SegmentationConfiguration
+	}).(KnowledgeBaseAudioSegmentationConfigurationOutput)
+}
+
+type KnowledgeBaseAudioConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseAudioConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KnowledgeBaseAudioConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseAudioConfigurationArrayOutput) ToKnowledgeBaseAudioConfigurationArrayOutput() KnowledgeBaseAudioConfigurationArrayOutput {
+	return o
+}
+
+func (o KnowledgeBaseAudioConfigurationArrayOutput) ToKnowledgeBaseAudioConfigurationArrayOutputWithContext(ctx context.Context) KnowledgeBaseAudioConfigurationArrayOutput {
+	return o
+}
+
+func (o KnowledgeBaseAudioConfigurationArrayOutput) Index(i pulumi.IntInput) KnowledgeBaseAudioConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KnowledgeBaseAudioConfiguration {
+		return vs[0].([]KnowledgeBaseAudioConfiguration)[vs[1].(int)]
+	}).(KnowledgeBaseAudioConfigurationOutput)
+}
+
+// Configure the audio segmentation configuration for multi modal ingestion.
+type KnowledgeBaseAudioSegmentationConfiguration struct {
+	FixedLengthDuration int `pulumi:"fixedLengthDuration"`
+}
+
+// KnowledgeBaseAudioSegmentationConfigurationInput is an input type that accepts KnowledgeBaseAudioSegmentationConfigurationArgs and KnowledgeBaseAudioSegmentationConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseAudioSegmentationConfigurationInput` via:
+//
+//	KnowledgeBaseAudioSegmentationConfigurationArgs{...}
+type KnowledgeBaseAudioSegmentationConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseAudioSegmentationConfigurationOutput() KnowledgeBaseAudioSegmentationConfigurationOutput
+	ToKnowledgeBaseAudioSegmentationConfigurationOutputWithContext(context.Context) KnowledgeBaseAudioSegmentationConfigurationOutput
+}
+
+// Configure the audio segmentation configuration for multi modal ingestion.
+type KnowledgeBaseAudioSegmentationConfigurationArgs struct {
+	FixedLengthDuration pulumi.IntInput `pulumi:"fixedLengthDuration"`
+}
+
+func (KnowledgeBaseAudioSegmentationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseAudioSegmentationConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseAudioSegmentationConfigurationArgs) ToKnowledgeBaseAudioSegmentationConfigurationOutput() KnowledgeBaseAudioSegmentationConfigurationOutput {
+	return i.ToKnowledgeBaseAudioSegmentationConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseAudioSegmentationConfigurationArgs) ToKnowledgeBaseAudioSegmentationConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseAudioSegmentationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseAudioSegmentationConfigurationOutput)
+}
+
+// Configure the audio segmentation configuration for multi modal ingestion.
+type KnowledgeBaseAudioSegmentationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseAudioSegmentationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseAudioSegmentationConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseAudioSegmentationConfigurationOutput) ToKnowledgeBaseAudioSegmentationConfigurationOutput() KnowledgeBaseAudioSegmentationConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseAudioSegmentationConfigurationOutput) ToKnowledgeBaseAudioSegmentationConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseAudioSegmentationConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseAudioSegmentationConfigurationOutput) FixedLengthDuration() pulumi.IntOutput {
+	return o.ApplyT(func(v KnowledgeBaseAudioSegmentationConfiguration) int { return v.FixedLengthDuration }).(pulumi.IntOutput)
+}
+
 // The vector configuration details for the Bedrock embeddings model.
 type KnowledgeBaseBedrockEmbeddingModelConfiguration struct {
+	Audio []KnowledgeBaseAudioConfiguration `pulumi:"audio"`
 	// The dimensions details for the vector configuration used on the Bedrock embeddings model.
 	Dimensions *int `pulumi:"dimensions"`
 	// The data type for the vectors when using a model to convert text into vector embeddings.
 	EmbeddingDataType *KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType `pulumi:"embeddingDataType"`
+	Video             []KnowledgeBaseVideoConfiguration                                 `pulumi:"video"`
 }
 
 // KnowledgeBaseBedrockEmbeddingModelConfigurationInput is an input type that accepts KnowledgeBaseBedrockEmbeddingModelConfigurationArgs and KnowledgeBaseBedrockEmbeddingModelConfigurationOutput values.
@@ -34145,10 +34298,12 @@ type KnowledgeBaseBedrockEmbeddingModelConfigurationInput interface {
 
 // The vector configuration details for the Bedrock embeddings model.
 type KnowledgeBaseBedrockEmbeddingModelConfigurationArgs struct {
+	Audio KnowledgeBaseAudioConfigurationArrayInput `pulumi:"audio"`
 	// The dimensions details for the vector configuration used on the Bedrock embeddings model.
 	Dimensions pulumi.IntPtrInput `pulumi:"dimensions"`
 	// The data type for the vectors when using a model to convert text into vector embeddings.
 	EmbeddingDataType KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrInput `pulumi:"embeddingDataType"`
+	Video             KnowledgeBaseVideoConfigurationArrayInput                                `pulumi:"video"`
 }
 
 func (KnowledgeBaseBedrockEmbeddingModelConfigurationArgs) ElementType() reflect.Type {
@@ -34229,6 +34384,12 @@ func (o KnowledgeBaseBedrockEmbeddingModelConfigurationOutput) ToKnowledgeBaseBe
 	}).(KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput)
 }
 
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationOutput) Audio() KnowledgeBaseAudioConfigurationArrayOutput {
+	return o.ApplyT(func(v KnowledgeBaseBedrockEmbeddingModelConfiguration) []KnowledgeBaseAudioConfiguration {
+		return v.Audio
+	}).(KnowledgeBaseAudioConfigurationArrayOutput)
+}
+
 // The dimensions details for the vector configuration used on the Bedrock embeddings model.
 func (o KnowledgeBaseBedrockEmbeddingModelConfigurationOutput) Dimensions() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseBedrockEmbeddingModelConfiguration) *int { return v.Dimensions }).(pulumi.IntPtrOutput)
@@ -34239,6 +34400,12 @@ func (o KnowledgeBaseBedrockEmbeddingModelConfigurationOutput) EmbeddingDataType
 	return o.ApplyT(func(v KnowledgeBaseBedrockEmbeddingModelConfiguration) *KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType {
 		return v.EmbeddingDataType
 	}).(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput)
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationOutput) Video() KnowledgeBaseVideoConfigurationArrayOutput {
+	return o.ApplyT(func(v KnowledgeBaseBedrockEmbeddingModelConfiguration) []KnowledgeBaseVideoConfiguration {
+		return v.Video
+	}).(KnowledgeBaseVideoConfigurationArrayOutput)
 }
 
 type KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -34265,6 +34432,15 @@ func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) Elem() Knowled
 	}).(KnowledgeBaseBedrockEmbeddingModelConfigurationOutput)
 }
 
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) Audio() KnowledgeBaseAudioConfigurationArrayOutput {
+	return o.ApplyT(func(v *KnowledgeBaseBedrockEmbeddingModelConfiguration) []KnowledgeBaseAudioConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Audio
+	}).(KnowledgeBaseAudioConfigurationArrayOutput)
+}
+
 // The dimensions details for the vector configuration used on the Bedrock embeddings model.
 func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) Dimensions() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseBedrockEmbeddingModelConfiguration) *int {
@@ -34283,6 +34459,15 @@ func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) EmbeddingDataT
 		}
 		return v.EmbeddingDataType
 	}).(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput)
+}
+
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) Video() KnowledgeBaseVideoConfigurationArrayOutput {
+	return o.ApplyT(func(v *KnowledgeBaseBedrockEmbeddingModelConfiguration) []KnowledgeBaseVideoConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Video
+	}).(KnowledgeBaseVideoConfigurationArrayOutput)
 }
 
 // Contains details about the embeddings model used for the knowledge base.
@@ -40271,6 +40456,157 @@ func (o KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput) SupplementalData
 	}).(KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput)
 }
 
+// Configure the video configuration for multi modal ingestion.
+type KnowledgeBaseVideoConfiguration struct {
+	SegmentationConfiguration KnowledgeBaseVideoSegmentationConfiguration `pulumi:"segmentationConfiguration"`
+}
+
+// KnowledgeBaseVideoConfigurationInput is an input type that accepts KnowledgeBaseVideoConfigurationArgs and KnowledgeBaseVideoConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseVideoConfigurationInput` via:
+//
+//	KnowledgeBaseVideoConfigurationArgs{...}
+type KnowledgeBaseVideoConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseVideoConfigurationOutput() KnowledgeBaseVideoConfigurationOutput
+	ToKnowledgeBaseVideoConfigurationOutputWithContext(context.Context) KnowledgeBaseVideoConfigurationOutput
+}
+
+// Configure the video configuration for multi modal ingestion.
+type KnowledgeBaseVideoConfigurationArgs struct {
+	SegmentationConfiguration KnowledgeBaseVideoSegmentationConfigurationInput `pulumi:"segmentationConfiguration"`
+}
+
+func (KnowledgeBaseVideoConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseVideoConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseVideoConfigurationArgs) ToKnowledgeBaseVideoConfigurationOutput() KnowledgeBaseVideoConfigurationOutput {
+	return i.ToKnowledgeBaseVideoConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseVideoConfigurationArgs) ToKnowledgeBaseVideoConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseVideoConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseVideoConfigurationOutput)
+}
+
+// KnowledgeBaseVideoConfigurationArrayInput is an input type that accepts KnowledgeBaseVideoConfigurationArray and KnowledgeBaseVideoConfigurationArrayOutput values.
+// You can construct a concrete instance of `KnowledgeBaseVideoConfigurationArrayInput` via:
+//
+//	KnowledgeBaseVideoConfigurationArray{ KnowledgeBaseVideoConfigurationArgs{...} }
+type KnowledgeBaseVideoConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseVideoConfigurationArrayOutput() KnowledgeBaseVideoConfigurationArrayOutput
+	ToKnowledgeBaseVideoConfigurationArrayOutputWithContext(context.Context) KnowledgeBaseVideoConfigurationArrayOutput
+}
+
+type KnowledgeBaseVideoConfigurationArray []KnowledgeBaseVideoConfigurationInput
+
+func (KnowledgeBaseVideoConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KnowledgeBaseVideoConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseVideoConfigurationArray) ToKnowledgeBaseVideoConfigurationArrayOutput() KnowledgeBaseVideoConfigurationArrayOutput {
+	return i.ToKnowledgeBaseVideoConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseVideoConfigurationArray) ToKnowledgeBaseVideoConfigurationArrayOutputWithContext(ctx context.Context) KnowledgeBaseVideoConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseVideoConfigurationArrayOutput)
+}
+
+// Configure the video configuration for multi modal ingestion.
+type KnowledgeBaseVideoConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseVideoConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseVideoConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseVideoConfigurationOutput) ToKnowledgeBaseVideoConfigurationOutput() KnowledgeBaseVideoConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseVideoConfigurationOutput) ToKnowledgeBaseVideoConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseVideoConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseVideoConfigurationOutput) SegmentationConfiguration() KnowledgeBaseVideoSegmentationConfigurationOutput {
+	return o.ApplyT(func(v KnowledgeBaseVideoConfiguration) KnowledgeBaseVideoSegmentationConfiguration {
+		return v.SegmentationConfiguration
+	}).(KnowledgeBaseVideoSegmentationConfigurationOutput)
+}
+
+type KnowledgeBaseVideoConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseVideoConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KnowledgeBaseVideoConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseVideoConfigurationArrayOutput) ToKnowledgeBaseVideoConfigurationArrayOutput() KnowledgeBaseVideoConfigurationArrayOutput {
+	return o
+}
+
+func (o KnowledgeBaseVideoConfigurationArrayOutput) ToKnowledgeBaseVideoConfigurationArrayOutputWithContext(ctx context.Context) KnowledgeBaseVideoConfigurationArrayOutput {
+	return o
+}
+
+func (o KnowledgeBaseVideoConfigurationArrayOutput) Index(i pulumi.IntInput) KnowledgeBaseVideoConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KnowledgeBaseVideoConfiguration {
+		return vs[0].([]KnowledgeBaseVideoConfiguration)[vs[1].(int)]
+	}).(KnowledgeBaseVideoConfigurationOutput)
+}
+
+// Configure the video segmentation configuration for multi modal ingestion.
+type KnowledgeBaseVideoSegmentationConfiguration struct {
+	FixedLengthDuration int `pulumi:"fixedLengthDuration"`
+}
+
+// KnowledgeBaseVideoSegmentationConfigurationInput is an input type that accepts KnowledgeBaseVideoSegmentationConfigurationArgs and KnowledgeBaseVideoSegmentationConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseVideoSegmentationConfigurationInput` via:
+//
+//	KnowledgeBaseVideoSegmentationConfigurationArgs{...}
+type KnowledgeBaseVideoSegmentationConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseVideoSegmentationConfigurationOutput() KnowledgeBaseVideoSegmentationConfigurationOutput
+	ToKnowledgeBaseVideoSegmentationConfigurationOutputWithContext(context.Context) KnowledgeBaseVideoSegmentationConfigurationOutput
+}
+
+// Configure the video segmentation configuration for multi modal ingestion.
+type KnowledgeBaseVideoSegmentationConfigurationArgs struct {
+	FixedLengthDuration pulumi.IntInput `pulumi:"fixedLengthDuration"`
+}
+
+func (KnowledgeBaseVideoSegmentationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseVideoSegmentationConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseVideoSegmentationConfigurationArgs) ToKnowledgeBaseVideoSegmentationConfigurationOutput() KnowledgeBaseVideoSegmentationConfigurationOutput {
+	return i.ToKnowledgeBaseVideoSegmentationConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseVideoSegmentationConfigurationArgs) ToKnowledgeBaseVideoSegmentationConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseVideoSegmentationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseVideoSegmentationConfigurationOutput)
+}
+
+// Configure the video segmentation configuration for multi modal ingestion.
+type KnowledgeBaseVideoSegmentationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseVideoSegmentationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseVideoSegmentationConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseVideoSegmentationConfigurationOutput) ToKnowledgeBaseVideoSegmentationConfigurationOutput() KnowledgeBaseVideoSegmentationConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseVideoSegmentationConfigurationOutput) ToKnowledgeBaseVideoSegmentationConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseVideoSegmentationConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseVideoSegmentationConfigurationOutput) FixedLengthDuration() pulumi.IntOutput {
+	return o.ApplyT(func(v KnowledgeBaseVideoSegmentationConfiguration) int { return v.FixedLengthDuration }).(pulumi.IntOutput)
+}
+
 // Contains model-specific configurations
 type PromptAdditionalModelRequestFields struct {
 }
@@ -45221,6 +45557,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntelligentPromptRouterPromptRouterTargetModelInput)(nil)).Elem(), IntelligentPromptRouterPromptRouterTargetModelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntelligentPromptRouterPromptRouterTargetModelArrayInput)(nil)).Elem(), IntelligentPromptRouterPromptRouterTargetModelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntelligentPromptRouterRoutingCriteriaInput)(nil)).Elem(), IntelligentPromptRouterRoutingCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseAudioConfigurationInput)(nil)).Elem(), KnowledgeBaseAudioConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseAudioConfigurationArrayInput)(nil)).Elem(), KnowledgeBaseAudioConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseAudioSegmentationConfigurationInput)(nil)).Elem(), KnowledgeBaseAudioSegmentationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseBedrockEmbeddingModelConfigurationInput)(nil)).Elem(), KnowledgeBaseBedrockEmbeddingModelConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseBedrockEmbeddingModelConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseBedrockEmbeddingModelConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseConfigurationInput)(nil)).Elem(), KnowledgeBaseConfigurationArgs{})
@@ -45294,6 +45633,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSupplementalDataStorageLocationArrayInput)(nil)).Elem(), KnowledgeBaseSupplementalDataStorageLocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVectorKnowledgeBaseConfigurationInput)(nil)).Elem(), KnowledgeBaseVectorKnowledgeBaseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVectorKnowledgeBaseConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseVectorKnowledgeBaseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVideoConfigurationInput)(nil)).Elem(), KnowledgeBaseVideoConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVideoConfigurationArrayInput)(nil)).Elem(), KnowledgeBaseVideoConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVideoSegmentationConfigurationInput)(nil)).Elem(), KnowledgeBaseVideoSegmentationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptAdditionalModelRequestFieldsInput)(nil)).Elem(), PromptAdditionalModelRequestFieldsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptAdditionalModelRequestFieldsPtrInput)(nil)).Elem(), PromptAdditionalModelRequestFieldsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptAgentResourceInput)(nil)).Elem(), PromptAgentResourceArgs{})
@@ -45872,6 +46214,9 @@ func init() {
 	pulumi.RegisterOutputType(IntelligentPromptRouterPromptRouterTargetModelOutput{})
 	pulumi.RegisterOutputType(IntelligentPromptRouterPromptRouterTargetModelArrayOutput{})
 	pulumi.RegisterOutputType(IntelligentPromptRouterRoutingCriteriaOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseAudioConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseAudioConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseAudioSegmentationConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseBedrockEmbeddingModelConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseConfigurationOutput{})
@@ -45946,6 +46291,9 @@ func init() {
 	pulumi.RegisterOutputType(KnowledgeBaseSupplementalDataStorageLocationArrayOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseVectorKnowledgeBaseConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseVideoConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseVideoConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseVideoSegmentationConfigurationOutput{})
 	pulumi.RegisterOutputType(PromptAdditionalModelRequestFieldsOutput{})
 	pulumi.RegisterOutputType(PromptAdditionalModelRequestFieldsPtrOutput{})
 	pulumi.RegisterOutputType(PromptAgentResourceOutput{})

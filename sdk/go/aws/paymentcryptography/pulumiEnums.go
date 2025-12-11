@@ -829,6 +829,99 @@ func (o KeyOriginPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Defines the replication state of a key
+type KeyReplicationState string
+
+const (
+	KeyReplicationStateInProgress       = KeyReplicationState("IN_PROGRESS")
+	KeyReplicationStateDeleteInProgress = KeyReplicationState("DELETE_IN_PROGRESS")
+	KeyReplicationStateFailed           = KeyReplicationState("FAILED")
+	KeyReplicationStateSynchronized     = KeyReplicationState("SYNCHRONIZED")
+)
+
+type KeyReplicationStateOutput struct{ *pulumi.OutputState }
+
+func (KeyReplicationStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyReplicationState)(nil)).Elem()
+}
+
+func (o KeyReplicationStateOutput) ToKeyReplicationStateOutput() KeyReplicationStateOutput {
+	return o
+}
+
+func (o KeyReplicationStateOutput) ToKeyReplicationStateOutputWithContext(ctx context.Context) KeyReplicationStateOutput {
+	return o
+}
+
+func (o KeyReplicationStateOutput) ToKeyReplicationStatePtrOutput() KeyReplicationStatePtrOutput {
+	return o.ToKeyReplicationStatePtrOutputWithContext(context.Background())
+}
+
+func (o KeyReplicationStateOutput) ToKeyReplicationStatePtrOutputWithContext(ctx context.Context) KeyReplicationStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyReplicationState) *KeyReplicationState {
+		return &v
+	}).(KeyReplicationStatePtrOutput)
+}
+
+func (o KeyReplicationStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KeyReplicationStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyReplicationState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KeyReplicationStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KeyReplicationStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeyReplicationState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KeyReplicationStatePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyReplicationStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyReplicationState)(nil)).Elem()
+}
+
+func (o KeyReplicationStatePtrOutput) ToKeyReplicationStatePtrOutput() KeyReplicationStatePtrOutput {
+	return o
+}
+
+func (o KeyReplicationStatePtrOutput) ToKeyReplicationStatePtrOutputWithContext(ctx context.Context) KeyReplicationStatePtrOutput {
+	return o
+}
+
+func (o KeyReplicationStatePtrOutput) Elem() KeyReplicationStateOutput {
+	return o.ApplyT(func(v *KeyReplicationState) KeyReplicationState {
+		if v != nil {
+			return *v
+		}
+		var ret KeyReplicationState
+		return ret
+	}).(KeyReplicationStateOutput)
+}
+
+func (o KeyReplicationStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KeyReplicationStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KeyReplicationState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Defines the state of a key
 type KeyStateEnum string
 
@@ -1150,6 +1243,8 @@ func init() {
 	pulumi.RegisterOutputType(KeyDeriveKeyUsagePtrOutput{})
 	pulumi.RegisterOutputType(KeyOriginOutput{})
 	pulumi.RegisterOutputType(KeyOriginPtrOutput{})
+	pulumi.RegisterOutputType(KeyReplicationStateOutput{})
+	pulumi.RegisterOutputType(KeyReplicationStatePtrOutput{})
 	pulumi.RegisterOutputType(KeyStateEnumOutput{})
 	pulumi.RegisterOutputType(KeyStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(KeyUsageOutput{})

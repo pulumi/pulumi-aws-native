@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.S3Tables
         [Output("metricsConfiguration")]
         public Output<Outputs.TableBucketMetricsConfiguration?> MetricsConfiguration { get; private set; } = null!;
 
+        [Output("storageClassConfiguration")]
+        public Output<Outputs.TableBucketStorageClassConfiguration?> StorageClassConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the table bucket.
         /// </summary>
@@ -105,6 +108,9 @@ namespace Pulumi.AwsNative.S3Tables
 
         [Input("metricsConfiguration")]
         public Input<Inputs.TableBucketMetricsConfigurationArgs>? MetricsConfiguration { get; set; }
+
+        [Input("storageClassConfiguration")]
+        public Input<Inputs.TableBucketStorageClassConfigurationArgs>? StorageClassConfiguration { get; set; }
 
         /// <summary>
         /// The name for the table bucket.

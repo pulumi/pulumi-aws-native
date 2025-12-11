@@ -94,9 +94,25 @@ export class ResourceShare extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
+     * The date and time when the resource share was created.
+     */
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
+    /**
+     * The feature set of the resource share.
+     */
+    declare public /*out*/ readonly featureSet: pulumi.Output<enums.ram.ResourceShareFeatureSet>;
+    /**
+     * The date and time when the resource share was last updated.
+     */
+    declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
+    /**
      * Specifies the name of the resource share.
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * The ID of the AWS account that owns the resource share.
+     */
+    declare public /*out*/ readonly owningAccountId: pulumi.Output<string>;
     /**
      * Specifies the [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the AWS RAM permission to associate with the resource share. If you do not specify an ARN for the permission, AWS RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      */
@@ -124,6 +140,10 @@ export class ResourceShare extends pulumi.CustomResource {
      */
     declare public readonly sources: pulumi.Output<string[] | undefined>;
     /**
+     * The current status of the resource share.
+     */
+    declare public /*out*/ readonly status: pulumi.Output<enums.ram.ResourceShareStatus>;
+    /**
      * Specifies one or more tags to attach to the resource share itself. It doesn't attach the tags to the resources associated with the resource share.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -147,14 +167,24 @@ export class ResourceShare extends pulumi.CustomResource {
             resourceInputs["sources"] = args?.sources;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["featureSet"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["owningAccountId"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["allowExternalPrincipals"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["featureSet"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["owningAccountId"] = undefined /*out*/;
             resourceInputs["permissionArns"] = undefined /*out*/;
             resourceInputs["principals"] = undefined /*out*/;
             resourceInputs["resourceArns"] = undefined /*out*/;
             resourceInputs["sources"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

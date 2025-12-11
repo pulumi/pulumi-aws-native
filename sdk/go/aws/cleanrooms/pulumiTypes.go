@@ -805,6 +805,141 @@ func (o AnalysisTemplateArtifactsOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisTemplateArtifacts) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+type AnalysisTemplateColumnClassificationDetails struct {
+	ColumnMapping []AnalysisTemplateSyntheticDataColumnProperties `pulumi:"columnMapping"`
+}
+
+// AnalysisTemplateColumnClassificationDetailsInput is an input type that accepts AnalysisTemplateColumnClassificationDetailsArgs and AnalysisTemplateColumnClassificationDetailsOutput values.
+// You can construct a concrete instance of `AnalysisTemplateColumnClassificationDetailsInput` via:
+//
+//	AnalysisTemplateColumnClassificationDetailsArgs{...}
+type AnalysisTemplateColumnClassificationDetailsInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateColumnClassificationDetailsOutput() AnalysisTemplateColumnClassificationDetailsOutput
+	ToAnalysisTemplateColumnClassificationDetailsOutputWithContext(context.Context) AnalysisTemplateColumnClassificationDetailsOutput
+}
+
+type AnalysisTemplateColumnClassificationDetailsArgs struct {
+	ColumnMapping AnalysisTemplateSyntheticDataColumnPropertiesArrayInput `pulumi:"columnMapping"`
+}
+
+func (AnalysisTemplateColumnClassificationDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateColumnClassificationDetails)(nil)).Elem()
+}
+
+func (i AnalysisTemplateColumnClassificationDetailsArgs) ToAnalysisTemplateColumnClassificationDetailsOutput() AnalysisTemplateColumnClassificationDetailsOutput {
+	return i.ToAnalysisTemplateColumnClassificationDetailsOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateColumnClassificationDetailsArgs) ToAnalysisTemplateColumnClassificationDetailsOutputWithContext(ctx context.Context) AnalysisTemplateColumnClassificationDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateColumnClassificationDetailsOutput)
+}
+
+func (i AnalysisTemplateColumnClassificationDetailsArgs) ToAnalysisTemplateColumnClassificationDetailsPtrOutput() AnalysisTemplateColumnClassificationDetailsPtrOutput {
+	return i.ToAnalysisTemplateColumnClassificationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateColumnClassificationDetailsArgs) ToAnalysisTemplateColumnClassificationDetailsPtrOutputWithContext(ctx context.Context) AnalysisTemplateColumnClassificationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateColumnClassificationDetailsOutput).ToAnalysisTemplateColumnClassificationDetailsPtrOutputWithContext(ctx)
+}
+
+// AnalysisTemplateColumnClassificationDetailsPtrInput is an input type that accepts AnalysisTemplateColumnClassificationDetailsArgs, AnalysisTemplateColumnClassificationDetailsPtr and AnalysisTemplateColumnClassificationDetailsPtrOutput values.
+// You can construct a concrete instance of `AnalysisTemplateColumnClassificationDetailsPtrInput` via:
+//
+//	        AnalysisTemplateColumnClassificationDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisTemplateColumnClassificationDetailsPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateColumnClassificationDetailsPtrOutput() AnalysisTemplateColumnClassificationDetailsPtrOutput
+	ToAnalysisTemplateColumnClassificationDetailsPtrOutputWithContext(context.Context) AnalysisTemplateColumnClassificationDetailsPtrOutput
+}
+
+type analysisTemplateColumnClassificationDetailsPtrType AnalysisTemplateColumnClassificationDetailsArgs
+
+func AnalysisTemplateColumnClassificationDetailsPtr(v *AnalysisTemplateColumnClassificationDetailsArgs) AnalysisTemplateColumnClassificationDetailsPtrInput {
+	return (*analysisTemplateColumnClassificationDetailsPtrType)(v)
+}
+
+func (*analysisTemplateColumnClassificationDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTemplateColumnClassificationDetails)(nil)).Elem()
+}
+
+func (i *analysisTemplateColumnClassificationDetailsPtrType) ToAnalysisTemplateColumnClassificationDetailsPtrOutput() AnalysisTemplateColumnClassificationDetailsPtrOutput {
+	return i.ToAnalysisTemplateColumnClassificationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisTemplateColumnClassificationDetailsPtrType) ToAnalysisTemplateColumnClassificationDetailsPtrOutputWithContext(ctx context.Context) AnalysisTemplateColumnClassificationDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateColumnClassificationDetailsPtrOutput)
+}
+
+type AnalysisTemplateColumnClassificationDetailsOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateColumnClassificationDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateColumnClassificationDetails)(nil)).Elem()
+}
+
+func (o AnalysisTemplateColumnClassificationDetailsOutput) ToAnalysisTemplateColumnClassificationDetailsOutput() AnalysisTemplateColumnClassificationDetailsOutput {
+	return o
+}
+
+func (o AnalysisTemplateColumnClassificationDetailsOutput) ToAnalysisTemplateColumnClassificationDetailsOutputWithContext(ctx context.Context) AnalysisTemplateColumnClassificationDetailsOutput {
+	return o
+}
+
+func (o AnalysisTemplateColumnClassificationDetailsOutput) ToAnalysisTemplateColumnClassificationDetailsPtrOutput() AnalysisTemplateColumnClassificationDetailsPtrOutput {
+	return o.ToAnalysisTemplateColumnClassificationDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateColumnClassificationDetailsOutput) ToAnalysisTemplateColumnClassificationDetailsPtrOutputWithContext(ctx context.Context) AnalysisTemplateColumnClassificationDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTemplateColumnClassificationDetails) *AnalysisTemplateColumnClassificationDetails {
+		return &v
+	}).(AnalysisTemplateColumnClassificationDetailsPtrOutput)
+}
+
+func (o AnalysisTemplateColumnClassificationDetailsOutput) ColumnMapping() AnalysisTemplateSyntheticDataColumnPropertiesArrayOutput {
+	return o.ApplyT(func(v AnalysisTemplateColumnClassificationDetails) []AnalysisTemplateSyntheticDataColumnProperties {
+		return v.ColumnMapping
+	}).(AnalysisTemplateSyntheticDataColumnPropertiesArrayOutput)
+}
+
+type AnalysisTemplateColumnClassificationDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateColumnClassificationDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTemplateColumnClassificationDetails)(nil)).Elem()
+}
+
+func (o AnalysisTemplateColumnClassificationDetailsPtrOutput) ToAnalysisTemplateColumnClassificationDetailsPtrOutput() AnalysisTemplateColumnClassificationDetailsPtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateColumnClassificationDetailsPtrOutput) ToAnalysisTemplateColumnClassificationDetailsPtrOutputWithContext(ctx context.Context) AnalysisTemplateColumnClassificationDetailsPtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateColumnClassificationDetailsPtrOutput) Elem() AnalysisTemplateColumnClassificationDetailsOutput {
+	return o.ApplyT(func(v *AnalysisTemplateColumnClassificationDetails) AnalysisTemplateColumnClassificationDetails {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisTemplateColumnClassificationDetails
+		return ret
+	}).(AnalysisTemplateColumnClassificationDetailsOutput)
+}
+
+func (o AnalysisTemplateColumnClassificationDetailsPtrOutput) ColumnMapping() AnalysisTemplateSyntheticDataColumnPropertiesArrayOutput {
+	return o.ApplyT(func(v *AnalysisTemplateColumnClassificationDetails) []AnalysisTemplateSyntheticDataColumnProperties {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnMapping
+	}).(AnalysisTemplateSyntheticDataColumnPropertiesArrayOutput)
+}
+
 type AnalysisTemplateErrorMessageConfiguration struct {
 	// The level of detail for error messages returned by the PySpark job. When set to DETAILED, error messages include more information to help troubleshoot issues with your PySpark job.
 	//
@@ -1130,6 +1265,171 @@ func (o AnalysisTemplateHashArrayOutput) Index(i pulumi.IntInput) AnalysisTempla
 	}).(AnalysisTemplateHashOutput)
 }
 
+type AnalysisTemplateMlSyntheticDataParameters struct {
+	ColumnClassification              AnalysisTemplateColumnClassificationDetails `pulumi:"columnClassification"`
+	Epsilon                           float64                                     `pulumi:"epsilon"`
+	MaxMembershipInferenceAttackScore float64                                     `pulumi:"maxMembershipInferenceAttackScore"`
+}
+
+// AnalysisTemplateMlSyntheticDataParametersInput is an input type that accepts AnalysisTemplateMlSyntheticDataParametersArgs and AnalysisTemplateMlSyntheticDataParametersOutput values.
+// You can construct a concrete instance of `AnalysisTemplateMlSyntheticDataParametersInput` via:
+//
+//	AnalysisTemplateMlSyntheticDataParametersArgs{...}
+type AnalysisTemplateMlSyntheticDataParametersInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateMlSyntheticDataParametersOutput() AnalysisTemplateMlSyntheticDataParametersOutput
+	ToAnalysisTemplateMlSyntheticDataParametersOutputWithContext(context.Context) AnalysisTemplateMlSyntheticDataParametersOutput
+}
+
+type AnalysisTemplateMlSyntheticDataParametersArgs struct {
+	ColumnClassification              AnalysisTemplateColumnClassificationDetailsInput `pulumi:"columnClassification"`
+	Epsilon                           pulumi.Float64Input                              `pulumi:"epsilon"`
+	MaxMembershipInferenceAttackScore pulumi.Float64Input                              `pulumi:"maxMembershipInferenceAttackScore"`
+}
+
+func (AnalysisTemplateMlSyntheticDataParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateMlSyntheticDataParameters)(nil)).Elem()
+}
+
+func (i AnalysisTemplateMlSyntheticDataParametersArgs) ToAnalysisTemplateMlSyntheticDataParametersOutput() AnalysisTemplateMlSyntheticDataParametersOutput {
+	return i.ToAnalysisTemplateMlSyntheticDataParametersOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateMlSyntheticDataParametersArgs) ToAnalysisTemplateMlSyntheticDataParametersOutputWithContext(ctx context.Context) AnalysisTemplateMlSyntheticDataParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateMlSyntheticDataParametersOutput)
+}
+
+func (i AnalysisTemplateMlSyntheticDataParametersArgs) ToAnalysisTemplateMlSyntheticDataParametersPtrOutput() AnalysisTemplateMlSyntheticDataParametersPtrOutput {
+	return i.ToAnalysisTemplateMlSyntheticDataParametersPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateMlSyntheticDataParametersArgs) ToAnalysisTemplateMlSyntheticDataParametersPtrOutputWithContext(ctx context.Context) AnalysisTemplateMlSyntheticDataParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateMlSyntheticDataParametersOutput).ToAnalysisTemplateMlSyntheticDataParametersPtrOutputWithContext(ctx)
+}
+
+// AnalysisTemplateMlSyntheticDataParametersPtrInput is an input type that accepts AnalysisTemplateMlSyntheticDataParametersArgs, AnalysisTemplateMlSyntheticDataParametersPtr and AnalysisTemplateMlSyntheticDataParametersPtrOutput values.
+// You can construct a concrete instance of `AnalysisTemplateMlSyntheticDataParametersPtrInput` via:
+//
+//	        AnalysisTemplateMlSyntheticDataParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisTemplateMlSyntheticDataParametersPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateMlSyntheticDataParametersPtrOutput() AnalysisTemplateMlSyntheticDataParametersPtrOutput
+	ToAnalysisTemplateMlSyntheticDataParametersPtrOutputWithContext(context.Context) AnalysisTemplateMlSyntheticDataParametersPtrOutput
+}
+
+type analysisTemplateMlSyntheticDataParametersPtrType AnalysisTemplateMlSyntheticDataParametersArgs
+
+func AnalysisTemplateMlSyntheticDataParametersPtr(v *AnalysisTemplateMlSyntheticDataParametersArgs) AnalysisTemplateMlSyntheticDataParametersPtrInput {
+	return (*analysisTemplateMlSyntheticDataParametersPtrType)(v)
+}
+
+func (*analysisTemplateMlSyntheticDataParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTemplateMlSyntheticDataParameters)(nil)).Elem()
+}
+
+func (i *analysisTemplateMlSyntheticDataParametersPtrType) ToAnalysisTemplateMlSyntheticDataParametersPtrOutput() AnalysisTemplateMlSyntheticDataParametersPtrOutput {
+	return i.ToAnalysisTemplateMlSyntheticDataParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisTemplateMlSyntheticDataParametersPtrType) ToAnalysisTemplateMlSyntheticDataParametersPtrOutputWithContext(ctx context.Context) AnalysisTemplateMlSyntheticDataParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateMlSyntheticDataParametersPtrOutput)
+}
+
+type AnalysisTemplateMlSyntheticDataParametersOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateMlSyntheticDataParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateMlSyntheticDataParameters)(nil)).Elem()
+}
+
+func (o AnalysisTemplateMlSyntheticDataParametersOutput) ToAnalysisTemplateMlSyntheticDataParametersOutput() AnalysisTemplateMlSyntheticDataParametersOutput {
+	return o
+}
+
+func (o AnalysisTemplateMlSyntheticDataParametersOutput) ToAnalysisTemplateMlSyntheticDataParametersOutputWithContext(ctx context.Context) AnalysisTemplateMlSyntheticDataParametersOutput {
+	return o
+}
+
+func (o AnalysisTemplateMlSyntheticDataParametersOutput) ToAnalysisTemplateMlSyntheticDataParametersPtrOutput() AnalysisTemplateMlSyntheticDataParametersPtrOutput {
+	return o.ToAnalysisTemplateMlSyntheticDataParametersPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateMlSyntheticDataParametersOutput) ToAnalysisTemplateMlSyntheticDataParametersPtrOutputWithContext(ctx context.Context) AnalysisTemplateMlSyntheticDataParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTemplateMlSyntheticDataParameters) *AnalysisTemplateMlSyntheticDataParameters {
+		return &v
+	}).(AnalysisTemplateMlSyntheticDataParametersPtrOutput)
+}
+
+func (o AnalysisTemplateMlSyntheticDataParametersOutput) ColumnClassification() AnalysisTemplateColumnClassificationDetailsOutput {
+	return o.ApplyT(func(v AnalysisTemplateMlSyntheticDataParameters) AnalysisTemplateColumnClassificationDetails {
+		return v.ColumnClassification
+	}).(AnalysisTemplateColumnClassificationDetailsOutput)
+}
+
+func (o AnalysisTemplateMlSyntheticDataParametersOutput) Epsilon() pulumi.Float64Output {
+	return o.ApplyT(func(v AnalysisTemplateMlSyntheticDataParameters) float64 { return v.Epsilon }).(pulumi.Float64Output)
+}
+
+func (o AnalysisTemplateMlSyntheticDataParametersOutput) MaxMembershipInferenceAttackScore() pulumi.Float64Output {
+	return o.ApplyT(func(v AnalysisTemplateMlSyntheticDataParameters) float64 { return v.MaxMembershipInferenceAttackScore }).(pulumi.Float64Output)
+}
+
+type AnalysisTemplateMlSyntheticDataParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateMlSyntheticDataParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTemplateMlSyntheticDataParameters)(nil)).Elem()
+}
+
+func (o AnalysisTemplateMlSyntheticDataParametersPtrOutput) ToAnalysisTemplateMlSyntheticDataParametersPtrOutput() AnalysisTemplateMlSyntheticDataParametersPtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateMlSyntheticDataParametersPtrOutput) ToAnalysisTemplateMlSyntheticDataParametersPtrOutputWithContext(ctx context.Context) AnalysisTemplateMlSyntheticDataParametersPtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateMlSyntheticDataParametersPtrOutput) Elem() AnalysisTemplateMlSyntheticDataParametersOutput {
+	return o.ApplyT(func(v *AnalysisTemplateMlSyntheticDataParameters) AnalysisTemplateMlSyntheticDataParameters {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisTemplateMlSyntheticDataParameters
+		return ret
+	}).(AnalysisTemplateMlSyntheticDataParametersOutput)
+}
+
+func (o AnalysisTemplateMlSyntheticDataParametersPtrOutput) ColumnClassification() AnalysisTemplateColumnClassificationDetailsPtrOutput {
+	return o.ApplyT(func(v *AnalysisTemplateMlSyntheticDataParameters) *AnalysisTemplateColumnClassificationDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.ColumnClassification
+	}).(AnalysisTemplateColumnClassificationDetailsPtrOutput)
+}
+
+func (o AnalysisTemplateMlSyntheticDataParametersPtrOutput) Epsilon() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AnalysisTemplateMlSyntheticDataParameters) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Epsilon
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o AnalysisTemplateMlSyntheticDataParametersPtrOutput) MaxMembershipInferenceAttackScore() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AnalysisTemplateMlSyntheticDataParameters) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxMembershipInferenceAttackScore
+	}).(pulumi.Float64PtrOutput)
+}
+
 type AnalysisTemplateS3Location struct {
 	Bucket string `pulumi:"bucket"`
 	Key    string `pulumi:"key"`
@@ -1183,6 +1483,253 @@ func (o AnalysisTemplateS3LocationOutput) Bucket() pulumi.StringOutput {
 
 func (o AnalysisTemplateS3LocationOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisTemplateS3Location) string { return v.Key }).(pulumi.StringOutput)
+}
+
+type AnalysisTemplateSyntheticDataColumnProperties struct {
+	ColumnName        string                                                  `pulumi:"columnName"`
+	ColumnType        AnalysisTemplateSyntheticDataColumnPropertiesColumnType `pulumi:"columnType"`
+	IsPredictiveValue bool                                                    `pulumi:"isPredictiveValue"`
+}
+
+// AnalysisTemplateSyntheticDataColumnPropertiesInput is an input type that accepts AnalysisTemplateSyntheticDataColumnPropertiesArgs and AnalysisTemplateSyntheticDataColumnPropertiesOutput values.
+// You can construct a concrete instance of `AnalysisTemplateSyntheticDataColumnPropertiesInput` via:
+//
+//	AnalysisTemplateSyntheticDataColumnPropertiesArgs{...}
+type AnalysisTemplateSyntheticDataColumnPropertiesInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateSyntheticDataColumnPropertiesOutput() AnalysisTemplateSyntheticDataColumnPropertiesOutput
+	ToAnalysisTemplateSyntheticDataColumnPropertiesOutputWithContext(context.Context) AnalysisTemplateSyntheticDataColumnPropertiesOutput
+}
+
+type AnalysisTemplateSyntheticDataColumnPropertiesArgs struct {
+	ColumnName        pulumi.StringInput                                           `pulumi:"columnName"`
+	ColumnType        AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeInput `pulumi:"columnType"`
+	IsPredictiveValue pulumi.BoolInput                                             `pulumi:"isPredictiveValue"`
+}
+
+func (AnalysisTemplateSyntheticDataColumnPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateSyntheticDataColumnProperties)(nil)).Elem()
+}
+
+func (i AnalysisTemplateSyntheticDataColumnPropertiesArgs) ToAnalysisTemplateSyntheticDataColumnPropertiesOutput() AnalysisTemplateSyntheticDataColumnPropertiesOutput {
+	return i.ToAnalysisTemplateSyntheticDataColumnPropertiesOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateSyntheticDataColumnPropertiesArgs) ToAnalysisTemplateSyntheticDataColumnPropertiesOutputWithContext(ctx context.Context) AnalysisTemplateSyntheticDataColumnPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateSyntheticDataColumnPropertiesOutput)
+}
+
+// AnalysisTemplateSyntheticDataColumnPropertiesArrayInput is an input type that accepts AnalysisTemplateSyntheticDataColumnPropertiesArray and AnalysisTemplateSyntheticDataColumnPropertiesArrayOutput values.
+// You can construct a concrete instance of `AnalysisTemplateSyntheticDataColumnPropertiesArrayInput` via:
+//
+//	AnalysisTemplateSyntheticDataColumnPropertiesArray{ AnalysisTemplateSyntheticDataColumnPropertiesArgs{...} }
+type AnalysisTemplateSyntheticDataColumnPropertiesArrayInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateSyntheticDataColumnPropertiesArrayOutput() AnalysisTemplateSyntheticDataColumnPropertiesArrayOutput
+	ToAnalysisTemplateSyntheticDataColumnPropertiesArrayOutputWithContext(context.Context) AnalysisTemplateSyntheticDataColumnPropertiesArrayOutput
+}
+
+type AnalysisTemplateSyntheticDataColumnPropertiesArray []AnalysisTemplateSyntheticDataColumnPropertiesInput
+
+func (AnalysisTemplateSyntheticDataColumnPropertiesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisTemplateSyntheticDataColumnProperties)(nil)).Elem()
+}
+
+func (i AnalysisTemplateSyntheticDataColumnPropertiesArray) ToAnalysisTemplateSyntheticDataColumnPropertiesArrayOutput() AnalysisTemplateSyntheticDataColumnPropertiesArrayOutput {
+	return i.ToAnalysisTemplateSyntheticDataColumnPropertiesArrayOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateSyntheticDataColumnPropertiesArray) ToAnalysisTemplateSyntheticDataColumnPropertiesArrayOutputWithContext(ctx context.Context) AnalysisTemplateSyntheticDataColumnPropertiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateSyntheticDataColumnPropertiesArrayOutput)
+}
+
+type AnalysisTemplateSyntheticDataColumnPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateSyntheticDataColumnPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateSyntheticDataColumnProperties)(nil)).Elem()
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesOutput) ToAnalysisTemplateSyntheticDataColumnPropertiesOutput() AnalysisTemplateSyntheticDataColumnPropertiesOutput {
+	return o
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesOutput) ToAnalysisTemplateSyntheticDataColumnPropertiesOutputWithContext(ctx context.Context) AnalysisTemplateSyntheticDataColumnPropertiesOutput {
+	return o
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisTemplateSyntheticDataColumnProperties) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesOutput) ColumnType() AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput {
+	return o.ApplyT(func(v AnalysisTemplateSyntheticDataColumnProperties) AnalysisTemplateSyntheticDataColumnPropertiesColumnType {
+		return v.ColumnType
+	}).(AnalysisTemplateSyntheticDataColumnPropertiesColumnTypeOutput)
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesOutput) IsPredictiveValue() pulumi.BoolOutput {
+	return o.ApplyT(func(v AnalysisTemplateSyntheticDataColumnProperties) bool { return v.IsPredictiveValue }).(pulumi.BoolOutput)
+}
+
+type AnalysisTemplateSyntheticDataColumnPropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateSyntheticDataColumnPropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisTemplateSyntheticDataColumnProperties)(nil)).Elem()
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesArrayOutput) ToAnalysisTemplateSyntheticDataColumnPropertiesArrayOutput() AnalysisTemplateSyntheticDataColumnPropertiesArrayOutput {
+	return o
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesArrayOutput) ToAnalysisTemplateSyntheticDataColumnPropertiesArrayOutputWithContext(ctx context.Context) AnalysisTemplateSyntheticDataColumnPropertiesArrayOutput {
+	return o
+}
+
+func (o AnalysisTemplateSyntheticDataColumnPropertiesArrayOutput) Index(i pulumi.IntInput) AnalysisTemplateSyntheticDataColumnPropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisTemplateSyntheticDataColumnProperties {
+		return vs[0].([]AnalysisTemplateSyntheticDataColumnProperties)[vs[1].(int)]
+	}).(AnalysisTemplateSyntheticDataColumnPropertiesOutput)
+}
+
+type AnalysisTemplateSyntheticDataParameters0Properties struct {
+	MlSyntheticDataParameters AnalysisTemplateMlSyntheticDataParameters `pulumi:"mlSyntheticDataParameters"`
+}
+
+type AnalysisTemplateSyntheticDataParametersProperties struct {
+	MlSyntheticDataParameters AnalysisTemplateMlSyntheticDataParameters `pulumi:"mlSyntheticDataParameters"`
+}
+
+// AnalysisTemplateSyntheticDataParametersPropertiesInput is an input type that accepts AnalysisTemplateSyntheticDataParametersPropertiesArgs and AnalysisTemplateSyntheticDataParametersPropertiesOutput values.
+// You can construct a concrete instance of `AnalysisTemplateSyntheticDataParametersPropertiesInput` via:
+//
+//	AnalysisTemplateSyntheticDataParametersPropertiesArgs{...}
+type AnalysisTemplateSyntheticDataParametersPropertiesInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateSyntheticDataParametersPropertiesOutput() AnalysisTemplateSyntheticDataParametersPropertiesOutput
+	ToAnalysisTemplateSyntheticDataParametersPropertiesOutputWithContext(context.Context) AnalysisTemplateSyntheticDataParametersPropertiesOutput
+}
+
+type AnalysisTemplateSyntheticDataParametersPropertiesArgs struct {
+	MlSyntheticDataParameters AnalysisTemplateMlSyntheticDataParametersInput `pulumi:"mlSyntheticDataParameters"`
+}
+
+func (AnalysisTemplateSyntheticDataParametersPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateSyntheticDataParametersProperties)(nil)).Elem()
+}
+
+func (i AnalysisTemplateSyntheticDataParametersPropertiesArgs) ToAnalysisTemplateSyntheticDataParametersPropertiesOutput() AnalysisTemplateSyntheticDataParametersPropertiesOutput {
+	return i.ToAnalysisTemplateSyntheticDataParametersPropertiesOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateSyntheticDataParametersPropertiesArgs) ToAnalysisTemplateSyntheticDataParametersPropertiesOutputWithContext(ctx context.Context) AnalysisTemplateSyntheticDataParametersPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateSyntheticDataParametersPropertiesOutput)
+}
+
+func (i AnalysisTemplateSyntheticDataParametersPropertiesArgs) ToAnalysisTemplateSyntheticDataParametersPropertiesPtrOutput() AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput {
+	return i.ToAnalysisTemplateSyntheticDataParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i AnalysisTemplateSyntheticDataParametersPropertiesArgs) ToAnalysisTemplateSyntheticDataParametersPropertiesPtrOutputWithContext(ctx context.Context) AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateSyntheticDataParametersPropertiesOutput).ToAnalysisTemplateSyntheticDataParametersPropertiesPtrOutputWithContext(ctx)
+}
+
+// AnalysisTemplateSyntheticDataParametersPropertiesPtrInput is an input type that accepts AnalysisTemplateSyntheticDataParametersPropertiesArgs, AnalysisTemplateSyntheticDataParametersPropertiesPtr and AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput values.
+// You can construct a concrete instance of `AnalysisTemplateSyntheticDataParametersPropertiesPtrInput` via:
+//
+//	        AnalysisTemplateSyntheticDataParametersPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalysisTemplateSyntheticDataParametersPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisTemplateSyntheticDataParametersPropertiesPtrOutput() AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput
+	ToAnalysisTemplateSyntheticDataParametersPropertiesPtrOutputWithContext(context.Context) AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput
+}
+
+type analysisTemplateSyntheticDataParametersPropertiesPtrType AnalysisTemplateSyntheticDataParametersPropertiesArgs
+
+func AnalysisTemplateSyntheticDataParametersPropertiesPtr(v *AnalysisTemplateSyntheticDataParametersPropertiesArgs) AnalysisTemplateSyntheticDataParametersPropertiesPtrInput {
+	return (*analysisTemplateSyntheticDataParametersPropertiesPtrType)(v)
+}
+
+func (*analysisTemplateSyntheticDataParametersPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTemplateSyntheticDataParametersProperties)(nil)).Elem()
+}
+
+func (i *analysisTemplateSyntheticDataParametersPropertiesPtrType) ToAnalysisTemplateSyntheticDataParametersPropertiesPtrOutput() AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput {
+	return i.ToAnalysisTemplateSyntheticDataParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *analysisTemplateSyntheticDataParametersPropertiesPtrType) ToAnalysisTemplateSyntheticDataParametersPropertiesPtrOutputWithContext(ctx context.Context) AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput)
+}
+
+type AnalysisTemplateSyntheticDataParametersPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateSyntheticDataParametersPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTemplateSyntheticDataParametersProperties)(nil)).Elem()
+}
+
+func (o AnalysisTemplateSyntheticDataParametersPropertiesOutput) ToAnalysisTemplateSyntheticDataParametersPropertiesOutput() AnalysisTemplateSyntheticDataParametersPropertiesOutput {
+	return o
+}
+
+func (o AnalysisTemplateSyntheticDataParametersPropertiesOutput) ToAnalysisTemplateSyntheticDataParametersPropertiesOutputWithContext(ctx context.Context) AnalysisTemplateSyntheticDataParametersPropertiesOutput {
+	return o
+}
+
+func (o AnalysisTemplateSyntheticDataParametersPropertiesOutput) ToAnalysisTemplateSyntheticDataParametersPropertiesPtrOutput() AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput {
+	return o.ToAnalysisTemplateSyntheticDataParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisTemplateSyntheticDataParametersPropertiesOutput) ToAnalysisTemplateSyntheticDataParametersPropertiesPtrOutputWithContext(ctx context.Context) AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisTemplateSyntheticDataParametersProperties) *AnalysisTemplateSyntheticDataParametersProperties {
+		return &v
+	}).(AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput)
+}
+
+func (o AnalysisTemplateSyntheticDataParametersPropertiesOutput) MlSyntheticDataParameters() AnalysisTemplateMlSyntheticDataParametersOutput {
+	return o.ApplyT(func(v AnalysisTemplateSyntheticDataParametersProperties) AnalysisTemplateMlSyntheticDataParameters {
+		return v.MlSyntheticDataParameters
+	}).(AnalysisTemplateMlSyntheticDataParametersOutput)
+}
+
+type AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisTemplateSyntheticDataParametersProperties)(nil)).Elem()
+}
+
+func (o AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput) ToAnalysisTemplateSyntheticDataParametersPropertiesPtrOutput() AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput) ToAnalysisTemplateSyntheticDataParametersPropertiesPtrOutputWithContext(ctx context.Context) AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput) Elem() AnalysisTemplateSyntheticDataParametersPropertiesOutput {
+	return o.ApplyT(func(v *AnalysisTemplateSyntheticDataParametersProperties) AnalysisTemplateSyntheticDataParametersProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisTemplateSyntheticDataParametersProperties
+		return ret
+	}).(AnalysisTemplateSyntheticDataParametersPropertiesOutput)
+}
+
+func (o AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput) MlSyntheticDataParameters() AnalysisTemplateMlSyntheticDataParametersPtrOutput {
+	return o.ApplyT(func(v *AnalysisTemplateSyntheticDataParametersProperties) *AnalysisTemplateMlSyntheticDataParameters {
+		if v == nil {
+			return nil
+		}
+		return &v.MlSyntheticDataParameters
+	}).(AnalysisTemplateMlSyntheticDataParametersPtrOutput)
 }
 
 type AnalysisTemplateTag struct {
@@ -1829,7 +2376,8 @@ type CollaborationMlPaymentConfig struct {
 	// The payment responsibilities accepted by the member for model inference.
 	ModelInference *CollaborationModelInferencePaymentConfig `pulumi:"modelInference"`
 	// The payment responsibilities accepted by the member for model training.
-	ModelTraining *CollaborationModelTrainingPaymentConfig `pulumi:"modelTraining"`
+	ModelTraining           *CollaborationModelTrainingPaymentConfig           `pulumi:"modelTraining"`
+	SyntheticDataGeneration *CollaborationSyntheticDataGenerationPaymentConfig `pulumi:"syntheticDataGeneration"`
 }
 
 // CollaborationMlPaymentConfigInput is an input type that accepts CollaborationMlPaymentConfigArgs and CollaborationMlPaymentConfigOutput values.
@@ -1847,7 +2395,8 @@ type CollaborationMlPaymentConfigArgs struct {
 	// The payment responsibilities accepted by the member for model inference.
 	ModelInference CollaborationModelInferencePaymentConfigPtrInput `pulumi:"modelInference"`
 	// The payment responsibilities accepted by the member for model training.
-	ModelTraining CollaborationModelTrainingPaymentConfigPtrInput `pulumi:"modelTraining"`
+	ModelTraining           CollaborationModelTrainingPaymentConfigPtrInput           `pulumi:"modelTraining"`
+	SyntheticDataGeneration CollaborationSyntheticDataGenerationPaymentConfigPtrInput `pulumi:"syntheticDataGeneration"`
 }
 
 func (CollaborationMlPaymentConfigArgs) ElementType() reflect.Type {
@@ -1939,6 +2488,12 @@ func (o CollaborationMlPaymentConfigOutput) ModelTraining() CollaborationModelTr
 	return o.ApplyT(func(v CollaborationMlPaymentConfig) *CollaborationModelTrainingPaymentConfig { return v.ModelTraining }).(CollaborationModelTrainingPaymentConfigPtrOutput)
 }
 
+func (o CollaborationMlPaymentConfigOutput) SyntheticDataGeneration() CollaborationSyntheticDataGenerationPaymentConfigPtrOutput {
+	return o.ApplyT(func(v CollaborationMlPaymentConfig) *CollaborationSyntheticDataGenerationPaymentConfig {
+		return v.SyntheticDataGeneration
+	}).(CollaborationSyntheticDataGenerationPaymentConfigPtrOutput)
+}
+
 type CollaborationMlPaymentConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (CollaborationMlPaymentConfigPtrOutput) ElementType() reflect.Type {
@@ -1981,6 +2536,15 @@ func (o CollaborationMlPaymentConfigPtrOutput) ModelTraining() CollaborationMode
 		}
 		return v.ModelTraining
 	}).(CollaborationModelTrainingPaymentConfigPtrOutput)
+}
+
+func (o CollaborationMlPaymentConfigPtrOutput) SyntheticDataGeneration() CollaborationSyntheticDataGenerationPaymentConfigPtrOutput {
+	return o.ApplyT(func(v *CollaborationMlPaymentConfig) *CollaborationSyntheticDataGenerationPaymentConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SyntheticDataGeneration
+	}).(CollaborationSyntheticDataGenerationPaymentConfigPtrOutput)
 }
 
 type CollaborationModelInferencePaymentConfig struct {
@@ -2612,6 +3176,139 @@ func (o CollaborationQueryComputePaymentConfigPtrOutput) Elem() CollaborationQue
 // If the collaboration creator hasn't specified anyone as the member paying for query compute costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
 func (o CollaborationQueryComputePaymentConfigPtrOutput) IsResponsible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CollaborationQueryComputePaymentConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsResponsible
+	}).(pulumi.BoolPtrOutput)
+}
+
+type CollaborationSyntheticDataGenerationPaymentConfig struct {
+	IsResponsible bool `pulumi:"isResponsible"`
+}
+
+// CollaborationSyntheticDataGenerationPaymentConfigInput is an input type that accepts CollaborationSyntheticDataGenerationPaymentConfigArgs and CollaborationSyntheticDataGenerationPaymentConfigOutput values.
+// You can construct a concrete instance of `CollaborationSyntheticDataGenerationPaymentConfigInput` via:
+//
+//	CollaborationSyntheticDataGenerationPaymentConfigArgs{...}
+type CollaborationSyntheticDataGenerationPaymentConfigInput interface {
+	pulumi.Input
+
+	ToCollaborationSyntheticDataGenerationPaymentConfigOutput() CollaborationSyntheticDataGenerationPaymentConfigOutput
+	ToCollaborationSyntheticDataGenerationPaymentConfigOutputWithContext(context.Context) CollaborationSyntheticDataGenerationPaymentConfigOutput
+}
+
+type CollaborationSyntheticDataGenerationPaymentConfigArgs struct {
+	IsResponsible pulumi.BoolInput `pulumi:"isResponsible"`
+}
+
+func (CollaborationSyntheticDataGenerationPaymentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationSyntheticDataGenerationPaymentConfig)(nil)).Elem()
+}
+
+func (i CollaborationSyntheticDataGenerationPaymentConfigArgs) ToCollaborationSyntheticDataGenerationPaymentConfigOutput() CollaborationSyntheticDataGenerationPaymentConfigOutput {
+	return i.ToCollaborationSyntheticDataGenerationPaymentConfigOutputWithContext(context.Background())
+}
+
+func (i CollaborationSyntheticDataGenerationPaymentConfigArgs) ToCollaborationSyntheticDataGenerationPaymentConfigOutputWithContext(ctx context.Context) CollaborationSyntheticDataGenerationPaymentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationSyntheticDataGenerationPaymentConfigOutput)
+}
+
+func (i CollaborationSyntheticDataGenerationPaymentConfigArgs) ToCollaborationSyntheticDataGenerationPaymentConfigPtrOutput() CollaborationSyntheticDataGenerationPaymentConfigPtrOutput {
+	return i.ToCollaborationSyntheticDataGenerationPaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CollaborationSyntheticDataGenerationPaymentConfigArgs) ToCollaborationSyntheticDataGenerationPaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationSyntheticDataGenerationPaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationSyntheticDataGenerationPaymentConfigOutput).ToCollaborationSyntheticDataGenerationPaymentConfigPtrOutputWithContext(ctx)
+}
+
+// CollaborationSyntheticDataGenerationPaymentConfigPtrInput is an input type that accepts CollaborationSyntheticDataGenerationPaymentConfigArgs, CollaborationSyntheticDataGenerationPaymentConfigPtr and CollaborationSyntheticDataGenerationPaymentConfigPtrOutput values.
+// You can construct a concrete instance of `CollaborationSyntheticDataGenerationPaymentConfigPtrInput` via:
+//
+//	        CollaborationSyntheticDataGenerationPaymentConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CollaborationSyntheticDataGenerationPaymentConfigPtrInput interface {
+	pulumi.Input
+
+	ToCollaborationSyntheticDataGenerationPaymentConfigPtrOutput() CollaborationSyntheticDataGenerationPaymentConfigPtrOutput
+	ToCollaborationSyntheticDataGenerationPaymentConfigPtrOutputWithContext(context.Context) CollaborationSyntheticDataGenerationPaymentConfigPtrOutput
+}
+
+type collaborationSyntheticDataGenerationPaymentConfigPtrType CollaborationSyntheticDataGenerationPaymentConfigArgs
+
+func CollaborationSyntheticDataGenerationPaymentConfigPtr(v *CollaborationSyntheticDataGenerationPaymentConfigArgs) CollaborationSyntheticDataGenerationPaymentConfigPtrInput {
+	return (*collaborationSyntheticDataGenerationPaymentConfigPtrType)(v)
+}
+
+func (*collaborationSyntheticDataGenerationPaymentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationSyntheticDataGenerationPaymentConfig)(nil)).Elem()
+}
+
+func (i *collaborationSyntheticDataGenerationPaymentConfigPtrType) ToCollaborationSyntheticDataGenerationPaymentConfigPtrOutput() CollaborationSyntheticDataGenerationPaymentConfigPtrOutput {
+	return i.ToCollaborationSyntheticDataGenerationPaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *collaborationSyntheticDataGenerationPaymentConfigPtrType) ToCollaborationSyntheticDataGenerationPaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationSyntheticDataGenerationPaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationSyntheticDataGenerationPaymentConfigPtrOutput)
+}
+
+type CollaborationSyntheticDataGenerationPaymentConfigOutput struct{ *pulumi.OutputState }
+
+func (CollaborationSyntheticDataGenerationPaymentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationSyntheticDataGenerationPaymentConfig)(nil)).Elem()
+}
+
+func (o CollaborationSyntheticDataGenerationPaymentConfigOutput) ToCollaborationSyntheticDataGenerationPaymentConfigOutput() CollaborationSyntheticDataGenerationPaymentConfigOutput {
+	return o
+}
+
+func (o CollaborationSyntheticDataGenerationPaymentConfigOutput) ToCollaborationSyntheticDataGenerationPaymentConfigOutputWithContext(ctx context.Context) CollaborationSyntheticDataGenerationPaymentConfigOutput {
+	return o
+}
+
+func (o CollaborationSyntheticDataGenerationPaymentConfigOutput) ToCollaborationSyntheticDataGenerationPaymentConfigPtrOutput() CollaborationSyntheticDataGenerationPaymentConfigPtrOutput {
+	return o.ToCollaborationSyntheticDataGenerationPaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationSyntheticDataGenerationPaymentConfigOutput) ToCollaborationSyntheticDataGenerationPaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationSyntheticDataGenerationPaymentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollaborationSyntheticDataGenerationPaymentConfig) *CollaborationSyntheticDataGenerationPaymentConfig {
+		return &v
+	}).(CollaborationSyntheticDataGenerationPaymentConfigPtrOutput)
+}
+
+func (o CollaborationSyntheticDataGenerationPaymentConfigOutput) IsResponsible() pulumi.BoolOutput {
+	return o.ApplyT(func(v CollaborationSyntheticDataGenerationPaymentConfig) bool { return v.IsResponsible }).(pulumi.BoolOutput)
+}
+
+type CollaborationSyntheticDataGenerationPaymentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CollaborationSyntheticDataGenerationPaymentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationSyntheticDataGenerationPaymentConfig)(nil)).Elem()
+}
+
+func (o CollaborationSyntheticDataGenerationPaymentConfigPtrOutput) ToCollaborationSyntheticDataGenerationPaymentConfigPtrOutput() CollaborationSyntheticDataGenerationPaymentConfigPtrOutput {
+	return o
+}
+
+func (o CollaborationSyntheticDataGenerationPaymentConfigPtrOutput) ToCollaborationSyntheticDataGenerationPaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationSyntheticDataGenerationPaymentConfigPtrOutput {
+	return o
+}
+
+func (o CollaborationSyntheticDataGenerationPaymentConfigPtrOutput) Elem() CollaborationSyntheticDataGenerationPaymentConfigOutput {
+	return o.ApplyT(func(v *CollaborationSyntheticDataGenerationPaymentConfig) CollaborationSyntheticDataGenerationPaymentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CollaborationSyntheticDataGenerationPaymentConfig
+		return ret
+	}).(CollaborationSyntheticDataGenerationPaymentConfigOutput)
+}
+
+func (o CollaborationSyntheticDataGenerationPaymentConfigPtrOutput) IsResponsible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CollaborationSyntheticDataGenerationPaymentConfig) *bool {
 		if v == nil {
 			return nil
 		}
@@ -5651,7 +6348,8 @@ type MembershipMlPaymentConfig struct {
 	// The payment responsibilities accepted by the member for model inference.
 	ModelInference *MembershipModelInferencePaymentConfig `pulumi:"modelInference"`
 	// The payment responsibilities accepted by the member for model training.
-	ModelTraining *MembershipModelTrainingPaymentConfig `pulumi:"modelTraining"`
+	ModelTraining           *MembershipModelTrainingPaymentConfig           `pulumi:"modelTraining"`
+	SyntheticDataGeneration *MembershipSyntheticDataGenerationPaymentConfig `pulumi:"syntheticDataGeneration"`
 }
 
 // MembershipMlPaymentConfigInput is an input type that accepts MembershipMlPaymentConfigArgs and MembershipMlPaymentConfigOutput values.
@@ -5669,7 +6367,8 @@ type MembershipMlPaymentConfigArgs struct {
 	// The payment responsibilities accepted by the member for model inference.
 	ModelInference MembershipModelInferencePaymentConfigPtrInput `pulumi:"modelInference"`
 	// The payment responsibilities accepted by the member for model training.
-	ModelTraining MembershipModelTrainingPaymentConfigPtrInput `pulumi:"modelTraining"`
+	ModelTraining           MembershipModelTrainingPaymentConfigPtrInput           `pulumi:"modelTraining"`
+	SyntheticDataGeneration MembershipSyntheticDataGenerationPaymentConfigPtrInput `pulumi:"syntheticDataGeneration"`
 }
 
 func (MembershipMlPaymentConfigArgs) ElementType() reflect.Type {
@@ -5759,6 +6458,12 @@ func (o MembershipMlPaymentConfigOutput) ModelTraining() MembershipModelTraining
 	return o.ApplyT(func(v MembershipMlPaymentConfig) *MembershipModelTrainingPaymentConfig { return v.ModelTraining }).(MembershipModelTrainingPaymentConfigPtrOutput)
 }
 
+func (o MembershipMlPaymentConfigOutput) SyntheticDataGeneration() MembershipSyntheticDataGenerationPaymentConfigPtrOutput {
+	return o.ApplyT(func(v MembershipMlPaymentConfig) *MembershipSyntheticDataGenerationPaymentConfig {
+		return v.SyntheticDataGeneration
+	}).(MembershipSyntheticDataGenerationPaymentConfigPtrOutput)
+}
+
 type MembershipMlPaymentConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (MembershipMlPaymentConfigPtrOutput) ElementType() reflect.Type {
@@ -5801,6 +6506,15 @@ func (o MembershipMlPaymentConfigPtrOutput) ModelTraining() MembershipModelTrain
 		}
 		return v.ModelTraining
 	}).(MembershipModelTrainingPaymentConfigPtrOutput)
+}
+
+func (o MembershipMlPaymentConfigPtrOutput) SyntheticDataGeneration() MembershipSyntheticDataGenerationPaymentConfigPtrOutput {
+	return o.ApplyT(func(v *MembershipMlPaymentConfig) *MembershipSyntheticDataGenerationPaymentConfig {
+		if v == nil {
+			return nil
+		}
+		return v.SyntheticDataGeneration
+	}).(MembershipSyntheticDataGenerationPaymentConfigPtrOutput)
 }
 
 type MembershipModelInferencePaymentConfig struct {
@@ -7417,6 +8131,139 @@ func (o MembershipQueryComputePaymentConfigPtrOutput) IsResponsible() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
+type MembershipSyntheticDataGenerationPaymentConfig struct {
+	IsResponsible bool `pulumi:"isResponsible"`
+}
+
+// MembershipSyntheticDataGenerationPaymentConfigInput is an input type that accepts MembershipSyntheticDataGenerationPaymentConfigArgs and MembershipSyntheticDataGenerationPaymentConfigOutput values.
+// You can construct a concrete instance of `MembershipSyntheticDataGenerationPaymentConfigInput` via:
+//
+//	MembershipSyntheticDataGenerationPaymentConfigArgs{...}
+type MembershipSyntheticDataGenerationPaymentConfigInput interface {
+	pulumi.Input
+
+	ToMembershipSyntheticDataGenerationPaymentConfigOutput() MembershipSyntheticDataGenerationPaymentConfigOutput
+	ToMembershipSyntheticDataGenerationPaymentConfigOutputWithContext(context.Context) MembershipSyntheticDataGenerationPaymentConfigOutput
+}
+
+type MembershipSyntheticDataGenerationPaymentConfigArgs struct {
+	IsResponsible pulumi.BoolInput `pulumi:"isResponsible"`
+}
+
+func (MembershipSyntheticDataGenerationPaymentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipSyntheticDataGenerationPaymentConfig)(nil)).Elem()
+}
+
+func (i MembershipSyntheticDataGenerationPaymentConfigArgs) ToMembershipSyntheticDataGenerationPaymentConfigOutput() MembershipSyntheticDataGenerationPaymentConfigOutput {
+	return i.ToMembershipSyntheticDataGenerationPaymentConfigOutputWithContext(context.Background())
+}
+
+func (i MembershipSyntheticDataGenerationPaymentConfigArgs) ToMembershipSyntheticDataGenerationPaymentConfigOutputWithContext(ctx context.Context) MembershipSyntheticDataGenerationPaymentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipSyntheticDataGenerationPaymentConfigOutput)
+}
+
+func (i MembershipSyntheticDataGenerationPaymentConfigArgs) ToMembershipSyntheticDataGenerationPaymentConfigPtrOutput() MembershipSyntheticDataGenerationPaymentConfigPtrOutput {
+	return i.ToMembershipSyntheticDataGenerationPaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MembershipSyntheticDataGenerationPaymentConfigArgs) ToMembershipSyntheticDataGenerationPaymentConfigPtrOutputWithContext(ctx context.Context) MembershipSyntheticDataGenerationPaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipSyntheticDataGenerationPaymentConfigOutput).ToMembershipSyntheticDataGenerationPaymentConfigPtrOutputWithContext(ctx)
+}
+
+// MembershipSyntheticDataGenerationPaymentConfigPtrInput is an input type that accepts MembershipSyntheticDataGenerationPaymentConfigArgs, MembershipSyntheticDataGenerationPaymentConfigPtr and MembershipSyntheticDataGenerationPaymentConfigPtrOutput values.
+// You can construct a concrete instance of `MembershipSyntheticDataGenerationPaymentConfigPtrInput` via:
+//
+//	        MembershipSyntheticDataGenerationPaymentConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type MembershipSyntheticDataGenerationPaymentConfigPtrInput interface {
+	pulumi.Input
+
+	ToMembershipSyntheticDataGenerationPaymentConfigPtrOutput() MembershipSyntheticDataGenerationPaymentConfigPtrOutput
+	ToMembershipSyntheticDataGenerationPaymentConfigPtrOutputWithContext(context.Context) MembershipSyntheticDataGenerationPaymentConfigPtrOutput
+}
+
+type membershipSyntheticDataGenerationPaymentConfigPtrType MembershipSyntheticDataGenerationPaymentConfigArgs
+
+func MembershipSyntheticDataGenerationPaymentConfigPtr(v *MembershipSyntheticDataGenerationPaymentConfigArgs) MembershipSyntheticDataGenerationPaymentConfigPtrInput {
+	return (*membershipSyntheticDataGenerationPaymentConfigPtrType)(v)
+}
+
+func (*membershipSyntheticDataGenerationPaymentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipSyntheticDataGenerationPaymentConfig)(nil)).Elem()
+}
+
+func (i *membershipSyntheticDataGenerationPaymentConfigPtrType) ToMembershipSyntheticDataGenerationPaymentConfigPtrOutput() MembershipSyntheticDataGenerationPaymentConfigPtrOutput {
+	return i.ToMembershipSyntheticDataGenerationPaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *membershipSyntheticDataGenerationPaymentConfigPtrType) ToMembershipSyntheticDataGenerationPaymentConfigPtrOutputWithContext(ctx context.Context) MembershipSyntheticDataGenerationPaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipSyntheticDataGenerationPaymentConfigPtrOutput)
+}
+
+type MembershipSyntheticDataGenerationPaymentConfigOutput struct{ *pulumi.OutputState }
+
+func (MembershipSyntheticDataGenerationPaymentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipSyntheticDataGenerationPaymentConfig)(nil)).Elem()
+}
+
+func (o MembershipSyntheticDataGenerationPaymentConfigOutput) ToMembershipSyntheticDataGenerationPaymentConfigOutput() MembershipSyntheticDataGenerationPaymentConfigOutput {
+	return o
+}
+
+func (o MembershipSyntheticDataGenerationPaymentConfigOutput) ToMembershipSyntheticDataGenerationPaymentConfigOutputWithContext(ctx context.Context) MembershipSyntheticDataGenerationPaymentConfigOutput {
+	return o
+}
+
+func (o MembershipSyntheticDataGenerationPaymentConfigOutput) ToMembershipSyntheticDataGenerationPaymentConfigPtrOutput() MembershipSyntheticDataGenerationPaymentConfigPtrOutput {
+	return o.ToMembershipSyntheticDataGenerationPaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipSyntheticDataGenerationPaymentConfigOutput) ToMembershipSyntheticDataGenerationPaymentConfigPtrOutputWithContext(ctx context.Context) MembershipSyntheticDataGenerationPaymentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipSyntheticDataGenerationPaymentConfig) *MembershipSyntheticDataGenerationPaymentConfig {
+		return &v
+	}).(MembershipSyntheticDataGenerationPaymentConfigPtrOutput)
+}
+
+func (o MembershipSyntheticDataGenerationPaymentConfigOutput) IsResponsible() pulumi.BoolOutput {
+	return o.ApplyT(func(v MembershipSyntheticDataGenerationPaymentConfig) bool { return v.IsResponsible }).(pulumi.BoolOutput)
+}
+
+type MembershipSyntheticDataGenerationPaymentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipSyntheticDataGenerationPaymentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipSyntheticDataGenerationPaymentConfig)(nil)).Elem()
+}
+
+func (o MembershipSyntheticDataGenerationPaymentConfigPtrOutput) ToMembershipSyntheticDataGenerationPaymentConfigPtrOutput() MembershipSyntheticDataGenerationPaymentConfigPtrOutput {
+	return o
+}
+
+func (o MembershipSyntheticDataGenerationPaymentConfigPtrOutput) ToMembershipSyntheticDataGenerationPaymentConfigPtrOutputWithContext(ctx context.Context) MembershipSyntheticDataGenerationPaymentConfigPtrOutput {
+	return o
+}
+
+func (o MembershipSyntheticDataGenerationPaymentConfigPtrOutput) Elem() MembershipSyntheticDataGenerationPaymentConfigOutput {
+	return o.ApplyT(func(v *MembershipSyntheticDataGenerationPaymentConfig) MembershipSyntheticDataGenerationPaymentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipSyntheticDataGenerationPaymentConfig
+		return ret
+	}).(MembershipSyntheticDataGenerationPaymentConfigOutput)
+}
+
+func (o MembershipSyntheticDataGenerationPaymentConfigPtrOutput) IsResponsible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MembershipSyntheticDataGenerationPaymentConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsResponsible
+	}).(pulumi.BoolPtrOutput)
+}
+
 type MembershipTag struct {
 	// The key of the tag.
 	Key string `pulumi:"key"`
@@ -7704,12 +8551,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateArtifactMetadataInput)(nil)).Elem(), AnalysisTemplateArtifactMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateArtifactMetadataPtrInput)(nil)).Elem(), AnalysisTemplateArtifactMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateArtifactsInput)(nil)).Elem(), AnalysisTemplateArtifactsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateColumnClassificationDetailsInput)(nil)).Elem(), AnalysisTemplateColumnClassificationDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateColumnClassificationDetailsPtrInput)(nil)).Elem(), AnalysisTemplateColumnClassificationDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateErrorMessageConfigurationInput)(nil)).Elem(), AnalysisTemplateErrorMessageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateErrorMessageConfigurationPtrInput)(nil)).Elem(), AnalysisTemplateErrorMessageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateHashInput)(nil)).Elem(), AnalysisTemplateHashArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateHashPtrInput)(nil)).Elem(), AnalysisTemplateHashArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateHashArrayInput)(nil)).Elem(), AnalysisTemplateHashArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateMlSyntheticDataParametersInput)(nil)).Elem(), AnalysisTemplateMlSyntheticDataParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateMlSyntheticDataParametersPtrInput)(nil)).Elem(), AnalysisTemplateMlSyntheticDataParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateS3LocationInput)(nil)).Elem(), AnalysisTemplateS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateSyntheticDataColumnPropertiesInput)(nil)).Elem(), AnalysisTemplateSyntheticDataColumnPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateSyntheticDataColumnPropertiesArrayInput)(nil)).Elem(), AnalysisTemplateSyntheticDataColumnPropertiesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateSyntheticDataParametersPropertiesInput)(nil)).Elem(), AnalysisTemplateSyntheticDataParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateSyntheticDataParametersPropertiesPtrInput)(nil)).Elem(), AnalysisTemplateSyntheticDataParametersPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationDataEncryptionMetadataInput)(nil)).Elem(), CollaborationDataEncryptionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationDataEncryptionMetadataPtrInput)(nil)).Elem(), CollaborationDataEncryptionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationJobComputePaymentConfigInput)(nil)).Elem(), CollaborationJobComputePaymentConfigArgs{})
@@ -7728,6 +8583,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationPaymentConfigurationPtrInput)(nil)).Elem(), CollaborationPaymentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationQueryComputePaymentConfigInput)(nil)).Elem(), CollaborationQueryComputePaymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationQueryComputePaymentConfigPtrInput)(nil)).Elem(), CollaborationQueryComputePaymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationSyntheticDataGenerationPaymentConfigInput)(nil)).Elem(), CollaborationSyntheticDataGenerationPaymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationSyntheticDataGenerationPaymentConfigPtrInput)(nil)).Elem(), CollaborationSyntheticDataGenerationPaymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregateColumnInput)(nil)).Elem(), ConfiguredTableAggregateColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregateColumnArrayInput)(nil)).Elem(), ConfiguredTableAggregateColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregationConstraintInput)(nil)).Elem(), ConfiguredTableAggregationConstraintArgs{})
@@ -7791,6 +8648,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryS3OutputConfigurationPtrInput)(nil)).Elem(), MembershipProtectedQueryS3OutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipQueryComputePaymentConfigInput)(nil)).Elem(), MembershipQueryComputePaymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipQueryComputePaymentConfigPtrInput)(nil)).Elem(), MembershipQueryComputePaymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipSyntheticDataGenerationPaymentConfigInput)(nil)).Elem(), MembershipSyntheticDataGenerationPaymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipSyntheticDataGenerationPaymentConfigPtrInput)(nil)).Elem(), MembershipSyntheticDataGenerationPaymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParametersPropertiesInput)(nil)).Elem(), ParametersPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivacyBudgetTemplateBudgetParameterInput)(nil)).Elem(), PrivacyBudgetTemplateBudgetParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrivacyBudgetTemplateBudgetParameterArrayInput)(nil)).Elem(), PrivacyBudgetTemplateBudgetParameterArray{})
@@ -7807,12 +8666,20 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisTemplateArtifactMetadataOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateArtifactMetadataPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateArtifactsOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateColumnClassificationDetailsOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateColumnClassificationDetailsPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateErrorMessageConfigurationOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateErrorMessageConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateHashOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateHashPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateHashArrayOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateMlSyntheticDataParametersOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateMlSyntheticDataParametersPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateS3LocationOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateSyntheticDataColumnPropertiesOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateSyntheticDataColumnPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateSyntheticDataParametersPropertiesOutput{})
+	pulumi.RegisterOutputType(AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationDataEncryptionMetadataOutput{})
 	pulumi.RegisterOutputType(CollaborationDataEncryptionMetadataPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationJobComputePaymentConfigOutput{})
@@ -7831,6 +8698,8 @@ func init() {
 	pulumi.RegisterOutputType(CollaborationPaymentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationQueryComputePaymentConfigOutput{})
 	pulumi.RegisterOutputType(CollaborationQueryComputePaymentConfigPtrOutput{})
+	pulumi.RegisterOutputType(CollaborationSyntheticDataGenerationPaymentConfigOutput{})
+	pulumi.RegisterOutputType(CollaborationSyntheticDataGenerationPaymentConfigPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAggregateColumnOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAggregateColumnArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAggregationConstraintOutput{})
@@ -7909,6 +8778,8 @@ func init() {
 	pulumi.RegisterOutputType(MembershipProtectedQueryS3OutputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MembershipQueryComputePaymentConfigOutput{})
 	pulumi.RegisterOutputType(MembershipQueryComputePaymentConfigPtrOutput{})
+	pulumi.RegisterOutputType(MembershipSyntheticDataGenerationPaymentConfigOutput{})
+	pulumi.RegisterOutputType(MembershipSyntheticDataGenerationPaymentConfigPtrOutput{})
 	pulumi.RegisterOutputType(ParametersPropertiesOutput{})
 	pulumi.RegisterOutputType(ParametersPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PrivacyBudgetTemplateBudgetParameterOutput{})

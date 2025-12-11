@@ -30,6 +30,21 @@ export type ContactFlowVersion = import("./contactFlowVersion").ContactFlowVersi
 export const ContactFlowVersion: typeof import("./contactFlowVersion").ContactFlowVersion = null as any;
 utilities.lazyLoad(exports, ["ContactFlowVersion"], () => require("./contactFlowVersion"));
 
+export { DataTableArgs } from "./dataTable";
+export type DataTable = import("./dataTable").DataTable;
+export const DataTable: typeof import("./dataTable").DataTable = null as any;
+utilities.lazyLoad(exports, ["DataTable"], () => require("./dataTable"));
+
+export { DataTableAttributeArgs } from "./dataTableAttribute";
+export type DataTableAttribute = import("./dataTableAttribute").DataTableAttribute;
+export const DataTableAttribute: typeof import("./dataTableAttribute").DataTableAttribute = null as any;
+utilities.lazyLoad(exports, ["DataTableAttribute"], () => require("./dataTableAttribute"));
+
+export { DataTableRecordArgs } from "./dataTableRecord";
+export type DataTableRecord = import("./dataTableRecord").DataTableRecord;
+export const DataTableRecord: typeof import("./dataTableRecord").DataTableRecord = null as any;
+utilities.lazyLoad(exports, ["DataTableRecord"], () => require("./dataTableRecord"));
+
 export { EmailAddressArgs } from "./emailAddress";
 export type EmailAddress = import("./emailAddress").EmailAddress;
 export const EmailAddress: typeof import("./emailAddress").EmailAddress = null as any;
@@ -59,6 +74,21 @@ export { GetContactFlowVersionArgs, GetContactFlowVersionResult, GetContactFlowV
 export const getContactFlowVersion: typeof import("./getContactFlowVersion").getContactFlowVersion = null as any;
 export const getContactFlowVersionOutput: typeof import("./getContactFlowVersion").getContactFlowVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getContactFlowVersion","getContactFlowVersionOutput"], () => require("./getContactFlowVersion"));
+
+export { GetDataTableArgs, GetDataTableResult, GetDataTableOutputArgs } from "./getDataTable";
+export const getDataTable: typeof import("./getDataTable").getDataTable = null as any;
+export const getDataTableOutput: typeof import("./getDataTable").getDataTableOutput = null as any;
+utilities.lazyLoad(exports, ["getDataTable","getDataTableOutput"], () => require("./getDataTable"));
+
+export { GetDataTableAttributeArgs, GetDataTableAttributeResult, GetDataTableAttributeOutputArgs } from "./getDataTableAttribute";
+export const getDataTableAttribute: typeof import("./getDataTableAttribute").getDataTableAttribute = null as any;
+export const getDataTableAttributeOutput: typeof import("./getDataTableAttribute").getDataTableAttributeOutput = null as any;
+utilities.lazyLoad(exports, ["getDataTableAttribute","getDataTableAttributeOutput"], () => require("./getDataTableAttribute"));
+
+export { GetDataTableRecordArgs, GetDataTableRecordResult, GetDataTableRecordOutputArgs } from "./getDataTableRecord";
+export const getDataTableRecord: typeof import("./getDataTableRecord").getDataTableRecord = null as any;
+export const getDataTableRecordOutput: typeof import("./getDataTableRecord").getDataTableRecordOutput = null as any;
+utilities.lazyLoad(exports, ["getDataTableRecord","getDataTableRecordOutput"], () => require("./getDataTableRecord"));
 
 export { GetEmailAddressArgs, GetEmailAddressResult, GetEmailAddressOutputArgs } from "./getEmailAddress";
 export const getEmailAddress: typeof import("./getEmailAddress").getEmailAddress = null as any;
@@ -170,6 +200,11 @@ export const getViewVersion: typeof import("./getViewVersion").getViewVersion = 
 export const getViewVersionOutput: typeof import("./getViewVersion").getViewVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getViewVersion","getViewVersionOutput"], () => require("./getViewVersion"));
 
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+
 export { HoursOfOperationArgs } from "./hoursOfOperation";
 export type HoursOfOperation = import("./hoursOfOperation").HoursOfOperation;
 export const HoursOfOperation: typeof import("./hoursOfOperation").HoursOfOperation = null as any;
@@ -270,6 +305,11 @@ export type ViewVersion = import("./viewVersion").ViewVersion;
 export const ViewVersion: typeof import("./viewVersion").ViewVersion = null as any;
 utilities.lazyLoad(exports, ["ViewVersion"], () => require("./viewVersion"));
 
+export { WorkspaceArgs } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
+
 
 // Export enums:
 export * from "../types/enums/connect";
@@ -288,6 +328,12 @@ const _module = {
                 return new ContactFlowModule(name, <any>undefined, { urn })
             case "aws-native:connect:ContactFlowVersion":
                 return new ContactFlowVersion(name, <any>undefined, { urn })
+            case "aws-native:connect:DataTable":
+                return new DataTable(name, <any>undefined, { urn })
+            case "aws-native:connect:DataTableAttribute":
+                return new DataTableAttribute(name, <any>undefined, { urn })
+            case "aws-native:connect:DataTableRecord":
+                return new DataTableRecord(name, <any>undefined, { urn })
             case "aws-native:connect:EmailAddress":
                 return new EmailAddress(name, <any>undefined, { urn })
             case "aws-native:connect:EvaluationForm":
@@ -332,6 +378,8 @@ const _module = {
                 return new View(name, <any>undefined, { urn })
             case "aws-native:connect:ViewVersion":
                 return new ViewVersion(name, <any>undefined, { urn })
+            case "aws-native:connect:Workspace":
+                return new Workspace(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

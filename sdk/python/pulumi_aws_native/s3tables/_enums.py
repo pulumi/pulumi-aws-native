@@ -9,10 +9,12 @@ from enum import Enum
 __all__ = [
     'TableBucketEncryptionConfigurationSseAlgorithm',
     'TableBucketMetricsConfigurationStatus',
+    'TableBucketStorageClassConfigurationStorageClass',
     'TableBucketUnreferencedFileRemovalStatus',
     'TableCompactionStatus',
     'TableOpenTableFormat',
     'TableSnapshotManagementStatus',
+    'TableStorageClassConfigurationStorageClass',
     'TableWithoutMetadata',
 ]
 
@@ -33,6 +35,15 @@ class TableBucketMetricsConfigurationStatus(_builtins.str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+@pulumi.type_token("aws-native:s3tables:TableBucketStorageClassConfigurationStorageClass")
+class TableBucketStorageClassConfigurationStorageClass(_builtins.str, Enum):
+    """
+    The storage class for the table bucket
+    """
+    STANDARD = "STANDARD"
+    INTELLIGENT_TIERING = "INTELLIGENT_TIERING"
 
 
 @pulumi.type_token("aws-native:s3tables:TableBucketUnreferencedFileRemovalStatus")
@@ -68,6 +79,15 @@ class TableSnapshotManagementStatus(_builtins.str, Enum):
     """
     ENABLED = "enabled"
     DISABLED = "disabled"
+
+
+@pulumi.type_token("aws-native:s3tables:TableStorageClassConfigurationStorageClass")
+class TableStorageClassConfigurationStorageClass(_builtins.str, Enum):
+    """
+    The storage class for the table
+    """
+    STANDARD = "STANDARD"
+    INTELLIGENT_TIERING = "INTELLIGENT_TIERING"
 
 
 @pulumi.type_token("aws-native:s3tables:TableWithoutMetadata")

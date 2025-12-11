@@ -94,6 +94,10 @@ export class ConnectAttachment extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
+     * Routing policy label
+     */
+    declare public readonly routingPolicyLabel: pulumi.Output<string | undefined>;
+    /**
      * The name of the segment attachment.
      */
     declare public /*out*/ readonly segmentName: pulumi.Output<string>;
@@ -143,6 +147,7 @@ export class ConnectAttachment extends pulumi.CustomResource {
             resourceInputs["options"] = args?.options;
             resourceInputs["proposedNetworkFunctionGroupChange"] = args?.proposedNetworkFunctionGroupChange;
             resourceInputs["proposedSegmentChange"] = args?.proposedSegmentChange;
+            resourceInputs["routingPolicyLabel"] = args?.routingPolicyLabel;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["transportAttachmentId"] = args?.transportAttachmentId;
             resourceInputs["attachmentId"] = undefined /*out*/;
@@ -171,6 +176,7 @@ export class ConnectAttachment extends pulumi.CustomResource {
             resourceInputs["proposedNetworkFunctionGroupChange"] = undefined /*out*/;
             resourceInputs["proposedSegmentChange"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
+            resourceInputs["routingPolicyLabel"] = undefined /*out*/;
             resourceInputs["segmentName"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -178,7 +184,7 @@ export class ConnectAttachment extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["coreNetworkId", "edgeLocation", "options", "transportAttachmentId"] };
+        const replaceOnChanges = { replaceOnChanges: ["coreNetworkId", "edgeLocation", "options", "routingPolicyLabel", "transportAttachmentId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConnectAttachment.__pulumiType, name, resourceInputs, opts);
     }
@@ -212,6 +218,10 @@ export interface ConnectAttachmentArgs {
      * The attachment to move from one segment to another.
      */
     proposedSegmentChange?: pulumi.Input<inputs.networkmanager.ConnectAttachmentProposedSegmentChangeArgs>;
+    /**
+     * Routing policy label
+     */
+    routingPolicyLabel?: pulumi.Input<string>;
     /**
      * Tags for the attachment.
      */

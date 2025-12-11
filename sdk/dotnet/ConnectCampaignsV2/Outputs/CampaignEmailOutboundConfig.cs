@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
 {
 
     /// <summary>
-    /// Default SMS outbound config
+    /// Default Email outbound config
     /// </summary>
     [OutputType]
     public sealed class CampaignEmailOutboundConfig

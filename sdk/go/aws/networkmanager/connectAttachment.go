@@ -45,6 +45,8 @@ type ConnectAttachment struct {
 	ProposedSegmentChange ConnectAttachmentProposedSegmentChangePtrOutput `pulumi:"proposedSegmentChange"`
 	// The attachment resource ARN.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	// Routing policy label
+	RoutingPolicyLabel pulumi.StringPtrOutput `pulumi:"routingPolicyLabel"`
 	// The name of the segment attachment.
 	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
 	// State of the attachment.
@@ -80,6 +82,7 @@ func NewConnectAttachment(ctx *pulumi.Context,
 		"coreNetworkId",
 		"edgeLocation",
 		"options",
+		"routingPolicyLabel",
 		"transportAttachmentId",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -128,6 +131,8 @@ type connectAttachmentArgs struct {
 	ProposedNetworkFunctionGroupChange *ConnectAttachmentProposedNetworkFunctionGroupChange `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange *ConnectAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
+	// Routing policy label
+	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
 	// Tags for the attachment.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Id of transport attachment
@@ -148,6 +153,8 @@ type ConnectAttachmentArgs struct {
 	ProposedNetworkFunctionGroupChange ConnectAttachmentProposedNetworkFunctionGroupChangePtrInput
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange ConnectAttachmentProposedSegmentChangePtrInput
+	// Routing policy label
+	RoutingPolicyLabel pulumi.StringPtrInput
 	// Tags for the attachment.
 	Tags aws.TagArrayInput
 	// Id of transport attachment
@@ -263,6 +270,11 @@ func (o ConnectAttachmentOutput) ProposedSegmentChange() ConnectAttachmentPropos
 // The attachment resource ARN.
 func (o ConnectAttachmentOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+// Routing policy label
+func (o ConnectAttachmentOutput) RoutingPolicyLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringPtrOutput { return v.RoutingPolicyLabel }).(pulumi.StringPtrOutput)
 }
 
 // The name of the segment attachment.

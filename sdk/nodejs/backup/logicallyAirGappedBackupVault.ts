@@ -57,6 +57,8 @@ export class LogicallyAirGappedBackupVault extends pulumi.CustomResource {
     declare public readonly backupVaultTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+     *
+     * If this field is left blank, AWS Backup will create an AWS owned key to be used to encrypt the content of the logically air-gapped vault. The ARN of this created key will be available as `Fn::GetAtt` output.
      */
     declare public readonly encryptionKeyArn: pulumi.Output<string | undefined>;
     /**
@@ -69,6 +71,9 @@ export class LogicallyAirGappedBackupVault extends pulumi.CustomResource {
      * The minimum value accepted is 7 days.
      */
     declare public readonly minRetentionDays: pulumi.Output<number>;
+    /**
+     * The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault. This cannot be changed after it is set from the CloudFormation template.
+     */
     declare public readonly mpaApprovalTeamArn: pulumi.Output<string | undefined>;
     /**
      * Returns event notifications for the specified backup vault.
@@ -151,6 +156,8 @@ export interface LogicallyAirGappedBackupVaultArgs {
     backupVaultTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The server-side encryption key that is used to protect your backups; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` .
+     *
+     * If this field is left blank, AWS Backup will create an AWS owned key to be used to encrypt the content of the logically air-gapped vault. The ARN of this created key will be available as `Fn::GetAtt` output.
      */
     encryptionKeyArn?: pulumi.Input<string>;
     /**
@@ -163,6 +170,9 @@ export interface LogicallyAirGappedBackupVaultArgs {
      * The minimum value accepted is 7 days.
      */
     minRetentionDays: pulumi.Input<number>;
+    /**
+     * The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault. This cannot be changed after it is set from the CloudFormation template.
+     */
     mpaApprovalTeamArn?: pulumi.Input<string>;
     /**
      * Returns event notifications for the specified backup vault.

@@ -26,6 +26,7 @@ __all__ = [
     'AutoScalingGroupCapacityReservationSpecification',
     'AutoScalingGroupCapacityReservationTarget',
     'AutoScalingGroupCpuPerformanceFactorRequest',
+    'AutoScalingGroupInstanceLifecyclePolicy',
     'AutoScalingGroupInstanceMaintenancePolicy',
     'AutoScalingGroupInstanceRequirements',
     'AutoScalingGroupInstancesDistribution',
@@ -41,6 +42,7 @@ __all__ = [
     'AutoScalingGroupNetworkInterfaceCountRequest',
     'AutoScalingGroupNotificationConfiguration',
     'AutoScalingGroupPerformanceFactorReferenceRequest',
+    'AutoScalingGroupRetentionTriggers',
     'AutoScalingGroupTagProperty',
     'AutoScalingGroupTotalLocalStorageGbRequest',
     'AutoScalingGroupTrafficSourceIdentifier',
@@ -433,6 +435,36 @@ class AutoScalingGroupCpuPerformanceFactorRequest(dict):
           Currently only one instance family can be specified in the list.
         """
         return pulumi.get(self, "references")
+
+
+@pulumi.output_type
+class AutoScalingGroupInstanceLifecyclePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionTriggers":
+            suggest = "retention_triggers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoScalingGroupInstanceLifecyclePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoScalingGroupInstanceLifecyclePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoScalingGroupInstanceLifecyclePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 retention_triggers: Optional['outputs.AutoScalingGroupRetentionTriggers'] = None):
+        if retention_triggers is not None:
+            pulumi.set(__self__, "retention_triggers", retention_triggers)
+
+    @_builtins.property
+    @pulumi.getter(name="retentionTriggers")
+    def retention_triggers(self) -> Optional['outputs.AutoScalingGroupRetentionTriggers']:
+        return pulumi.get(self, "retention_triggers")
 
 
 @pulumi.output_type
@@ -1218,7 +1250,9 @@ class AutoScalingGroupLaunchTemplateOverrides(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "instanceRequirements":
+        if key == "imageId":
+            suggest = "image_id"
+        elif key == "instanceRequirements":
             suggest = "instance_requirements"
         elif key == "instanceType":
             suggest = "instance_type"
@@ -1239,6 +1273,7 @@ class AutoScalingGroupLaunchTemplateOverrides(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 image_id: Optional[_builtins.str] = None,
                  instance_requirements: Optional['outputs.AutoScalingGroupInstanceRequirements'] = None,
                  instance_type: Optional[_builtins.str] = None,
                  launch_template_specification: Optional['outputs.AutoScalingGroupLaunchTemplateSpecification'] = None,
@@ -1262,6 +1297,8 @@ class AutoScalingGroupLaunchTemplateOverrides(dict):
                 If you specify a value for ``WeightedCapacity`` for one instance type, you must specify a value for ``WeightedCapacity`` for all of them.
                  Every Auto Scaling group has three size parameters (``DesiredCapacity``, ``MaxSize``, and ``MinSize``). Usually, you set these sizes based on a specific number of instances. However, if you configure a mixed instances policy that defines weights for the instance types, you must specify these sizes with the same units that you use for weighting instances.
         """
+        if image_id is not None:
+            pulumi.set(__self__, "image_id", image_id)
         if instance_requirements is not None:
             pulumi.set(__self__, "instance_requirements", instance_requirements)
         if instance_type is not None:
@@ -1270,6 +1307,11 @@ class AutoScalingGroupLaunchTemplateOverrides(dict):
             pulumi.set(__self__, "launch_template_specification", launch_template_specification)
         if weighted_capacity is not None:
             pulumi.set(__self__, "weighted_capacity", weighted_capacity)
+
+    @_builtins.property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "image_id")
 
     @_builtins.property
     @pulumi.getter(name="instanceRequirements")
@@ -1959,6 +2001,36 @@ class AutoScalingGroupPerformanceFactorReferenceRequest(dict):
          If you specify an unsupported instance family as a value for baseline performance, the API returns an empty response.
         """
         return pulumi.get(self, "instance_family")
+
+
+@pulumi.output_type
+class AutoScalingGroupRetentionTriggers(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "terminateHookAbandon":
+            suggest = "terminate_hook_abandon"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoScalingGroupRetentionTriggers. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoScalingGroupRetentionTriggers.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoScalingGroupRetentionTriggers.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 terminate_hook_abandon: Optional[_builtins.str] = None):
+        if terminate_hook_abandon is not None:
+            pulumi.set(__self__, "terminate_hook_abandon", terminate_hook_abandon)
+
+    @_builtins.property
+    @pulumi.getter(name="terminateHookAbandon")
+    def terminate_hook_abandon(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "terminate_hook_abandon")
 
 
 @pulumi.output_type

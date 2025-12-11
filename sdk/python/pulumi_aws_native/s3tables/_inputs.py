@@ -22,6 +22,8 @@ __all__ = [
     'TableBucketMetricsConfigurationArgsDict',
     'TableBucketPolicyResourcePolicyArgs',
     'TableBucketPolicyResourcePolicyArgsDict',
+    'TableBucketStorageClassConfigurationArgs',
+    'TableBucketStorageClassConfigurationArgsDict',
     'TableBucketUnreferencedFileRemovalArgs',
     'TableBucketUnreferencedFileRemovalArgsDict',
     'TableCompactionArgs',
@@ -36,6 +38,8 @@ __all__ = [
     'TableSchemaFieldArgsDict',
     'TableSnapshotManagementArgs',
     'TableSnapshotManagementArgsDict',
+    'TableStorageClassConfigurationArgs',
+    'TableStorageClassConfigurationArgsDict',
 ]
 
 MYPY = False
@@ -148,6 +152,42 @@ class TableBucketPolicyResourcePolicyArgs:
         A policy document containing permissions to add to the specified table bucket. In IAM, you must provide policy documents in JSON format. However, in CloudFormation you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to IAM.
         """
         pass
+
+
+if not MYPY:
+    class TableBucketStorageClassConfigurationArgsDict(TypedDict):
+        """
+        Specifies storage class settings for the table bucket
+        """
+        storage_class: NotRequired[pulumi.Input['TableBucketStorageClassConfigurationStorageClass']]
+        """
+        The storage class for the table bucket
+        """
+elif False:
+    TableBucketStorageClassConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableBucketStorageClassConfigurationArgs:
+    def __init__(__self__, *,
+                 storage_class: Optional[pulumi.Input['TableBucketStorageClassConfigurationStorageClass']] = None):
+        """
+        Specifies storage class settings for the table bucket
+        :param pulumi.Input['TableBucketStorageClassConfigurationStorageClass'] storage_class: The storage class for the table bucket
+        """
+        if storage_class is not None:
+            pulumi.set(__self__, "storage_class", storage_class)
+
+    @_builtins.property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> Optional[pulumi.Input['TableBucketStorageClassConfigurationStorageClass']]:
+        """
+        The storage class for the table bucket
+        """
+        return pulumi.get(self, "storage_class")
+
+    @storage_class.setter
+    def storage_class(self, value: Optional[pulumi.Input['TableBucketStorageClassConfigurationStorageClass']]):
+        pulumi.set(self, "storage_class", value)
 
 
 if not MYPY:
@@ -518,5 +558,41 @@ class TableSnapshotManagementArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input['TableSnapshotManagementStatus']]):
         pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class TableStorageClassConfigurationArgsDict(TypedDict):
+        """
+        Specifies storage class settings for the table
+        """
+        storage_class: NotRequired[pulumi.Input['TableStorageClassConfigurationStorageClass']]
+        """
+        The storage class for the table
+        """
+elif False:
+    TableStorageClassConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableStorageClassConfigurationArgs:
+    def __init__(__self__, *,
+                 storage_class: Optional[pulumi.Input['TableStorageClassConfigurationStorageClass']] = None):
+        """
+        Specifies storage class settings for the table
+        :param pulumi.Input['TableStorageClassConfigurationStorageClass'] storage_class: The storage class for the table
+        """
+        if storage_class is not None:
+            pulumi.set(__self__, "storage_class", storage_class)
+
+    @_builtins.property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> Optional[pulumi.Input['TableStorageClassConfigurationStorageClass']]:
+        """
+        The storage class for the table
+        """
+        return pulumi.get(self, "storage_class")
+
+    @storage_class.setter
+    def storage_class(self, value: Optional[pulumi.Input['TableStorageClassConfigurationStorageClass']]):
+        pulumi.set(self, "storage_class", value)
 
 

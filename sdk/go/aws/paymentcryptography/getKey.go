@@ -44,8 +44,9 @@ type LookupKeyResult struct {
 	// The source of the key material. For keys created within AWS Payment Cryptography, the value is `AWS_PAYMENT_CRYPTOGRAPHY` . For keys imported into AWS Payment Cryptography, the value is `EXTERNAL` .
 	KeyOrigin *KeyOrigin `pulumi:"keyOrigin"`
 	// The state of key that is being created or deleted.
-	KeyState *KeyStateEnum `pulumi:"keyState"`
-	Tags     []aws.Tag     `pulumi:"tags"`
+	KeyState          *KeyStateEnum                       `pulumi:"keyState"`
+	ReplicationStatus map[string]KeyReplicationStatusType `pulumi:"replicationStatus"`
+	Tags              []aws.Tag                           `pulumi:"tags"`
 }
 
 func LookupKeyOutput(ctx *pulumi.Context, args LookupKeyOutputArgs, opts ...pulumi.InvokeOption) LookupKeyResultOutput {
@@ -118,6 +119,10 @@ func (o LookupKeyResultOutput) KeyOrigin() KeyOriginPtrOutput {
 // The state of key that is being created or deleted.
 func (o LookupKeyResultOutput) KeyState() KeyStateEnumPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *KeyStateEnum { return v.KeyState }).(KeyStateEnumPtrOutput)
+}
+
+func (o LookupKeyResultOutput) ReplicationStatus() KeyReplicationStatusTypeMapOutput {
+	return o.ApplyT(func(v LookupKeyResult) map[string]KeyReplicationStatusType { return v.ReplicationStatus }).(KeyReplicationStatusTypeMapOutput)
 }
 
 func (o LookupKeyResultOutput) Tags() aws.TagArrayOutput {

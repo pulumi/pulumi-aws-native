@@ -21,6 +21,7 @@ __all__ = [
     'HealthCheckAlarmIdentifier',
     'HealthCheckConfigProperties',
     'HostedZoneConfig',
+    'HostedZoneFeatures',
     'HostedZoneQueryLoggingConfig',
     'HostedZoneVpc',
 ]
@@ -582,6 +583,42 @@ class HostedZoneConfig(dict):
         Any comments that you want to include about the hosted zone.
         """
         return pulumi.get(self, "comment")
+
+
+@pulumi.output_type
+class HostedZoneFeatures(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableAcceleratedRecovery":
+            suggest = "enable_accelerated_recovery"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HostedZoneFeatures. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HostedZoneFeatures.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HostedZoneFeatures.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_accelerated_recovery: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool enable_accelerated_recovery: Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
+        """
+        if enable_accelerated_recovery is not None:
+            pulumi.set(__self__, "enable_accelerated_recovery", enable_accelerated_recovery)
+
+    @_builtins.property
+    @pulumi.getter(name="enableAcceleratedRecovery")
+    def enable_accelerated_recovery(self) -> Optional[_builtins.bool]:
+        """
+        Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
+        """
+        return pulumi.get(self, "enable_accelerated_recovery")
 
 
 @pulumi.output_type

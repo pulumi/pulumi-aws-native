@@ -53,6 +53,8 @@ export class ExpressGatewayService extends pulumi.CustomResource {
      * The Unix timestamp for when the Express service was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    declare public /*out*/ readonly ecsManagedResourceArns: pulumi.Output<outputs.ecs.ExpressGatewayServiceEcsManagedResourceArns>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * The ARN of the task execution role for the service revision.
      */
@@ -137,6 +139,8 @@ export class ExpressGatewayService extends pulumi.CustomResource {
             resourceInputs["taskRoleArn"] = args?.taskRoleArn;
             resourceInputs["activeConfigurations"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["ecsManagedResourceArns"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["serviceArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
@@ -145,6 +149,8 @@ export class ExpressGatewayService extends pulumi.CustomResource {
             resourceInputs["cluster"] = undefined /*out*/;
             resourceInputs["cpu"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["ecsManagedResourceArns"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["executionRoleArn"] = undefined /*out*/;
             resourceInputs["healthCheckPath"] = undefined /*out*/;
             resourceInputs["infrastructureRoleArn"] = undefined /*out*/;

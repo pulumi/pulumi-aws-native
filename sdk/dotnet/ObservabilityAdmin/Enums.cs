@@ -101,6 +101,41 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
     }
 
     /// <summary>
+    /// The enumerated action to take.
+    /// </summary>
+    [EnumType]
+    public readonly struct OrganizationTelemetryRuleAction : IEquatable<OrganizationTelemetryRuleAction>
+    {
+        private readonly string _value;
+
+        private OrganizationTelemetryRuleAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OrganizationTelemetryRuleAction Allow { get; } = new OrganizationTelemetryRuleAction("ALLOW");
+        public static OrganizationTelemetryRuleAction Block { get; } = new OrganizationTelemetryRuleAction("BLOCK");
+        public static OrganizationTelemetryRuleAction Count { get; } = new OrganizationTelemetryRuleAction("COUNT");
+        public static OrganizationTelemetryRuleAction Captcha { get; } = new OrganizationTelemetryRuleAction("CAPTCHA");
+        public static OrganizationTelemetryRuleAction Challenge { get; } = new OrganizationTelemetryRuleAction("CHALLENGE");
+        public static OrganizationTelemetryRuleAction ExcludedAsCount { get; } = new OrganizationTelemetryRuleAction("EXCLUDED_AS_COUNT");
+
+        public static bool operator ==(OrganizationTelemetryRuleAction left, OrganizationTelemetryRuleAction right) => left.Equals(right);
+        public static bool operator !=(OrganizationTelemetryRuleAction left, OrganizationTelemetryRuleAction right) => !left.Equals(right);
+
+        public static explicit operator string(OrganizationTelemetryRuleAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrganizationTelemetryRuleAction other && Equals(other);
+        public bool Equals(OrganizationTelemetryRuleAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of telemetry destination
     /// </summary>
     [EnumType]
@@ -130,6 +165,96 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat : IEquatable<OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat>
+    {
+        private readonly string _value;
+
+        private OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat Plain { get; } = new OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat("plain");
+        public static OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat Json { get; } = new OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat("json");
+
+        public static bool operator ==(OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat left, OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat right) => left.Equals(right);
+        public static bool operator !=(OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat left, OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat right) => !left.Equals(right);
+
+        public static explicit operator string(OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat other && Equals(other);
+        public bool Equals(OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The behavior required of the filter.
+    /// </summary>
+    [EnumType]
+    public readonly struct OrganizationTelemetryRuleFilterBehavior : IEquatable<OrganizationTelemetryRuleFilterBehavior>
+    {
+        private readonly string _value;
+
+        private OrganizationTelemetryRuleFilterBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OrganizationTelemetryRuleFilterBehavior Keep { get; } = new OrganizationTelemetryRuleFilterBehavior("KEEP");
+        public static OrganizationTelemetryRuleFilterBehavior Drop { get; } = new OrganizationTelemetryRuleFilterBehavior("DROP");
+
+        public static bool operator ==(OrganizationTelemetryRuleFilterBehavior left, OrganizationTelemetryRuleFilterBehavior right) => left.Equals(right);
+        public static bool operator !=(OrganizationTelemetryRuleFilterBehavior left, OrganizationTelemetryRuleFilterBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(OrganizationTelemetryRuleFilterBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrganizationTelemetryRuleFilterBehavior other && Equals(other);
+        public bool Equals(OrganizationTelemetryRuleFilterBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The requirement portion of the filter.
+    /// </summary>
+    [EnumType]
+    public readonly struct OrganizationTelemetryRuleFilterRequirement : IEquatable<OrganizationTelemetryRuleFilterRequirement>
+    {
+        private readonly string _value;
+
+        private OrganizationTelemetryRuleFilterRequirement(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OrganizationTelemetryRuleFilterRequirement MeetsAll { get; } = new OrganizationTelemetryRuleFilterRequirement("MEETS_ALL");
+        public static OrganizationTelemetryRuleFilterRequirement MeetsAny { get; } = new OrganizationTelemetryRuleFilterRequirement("MEETS_ANY");
+
+        public static bool operator ==(OrganizationTelemetryRuleFilterRequirement left, OrganizationTelemetryRuleFilterRequirement right) => left.Equals(right);
+        public static bool operator !=(OrganizationTelemetryRuleFilterRequirement left, OrganizationTelemetryRuleFilterRequirement right) => !left.Equals(right);
+
+        public static explicit operator string(OrganizationTelemetryRuleFilterRequirement value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrganizationTelemetryRuleFilterRequirement other && Equals(other);
+        public bool Equals(OrganizationTelemetryRuleFilterRequirement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Resource Type associated with the Organization Telemetry Rule
     /// </summary>
@@ -144,6 +269,10 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         }
 
         public static OrganizationTelemetryRuleResourceType Awsec2vpc { get; } = new OrganizationTelemetryRuleResourceType("AWS::EC2::VPC");
+        public static OrganizationTelemetryRuleResourceType AwswaFv2WebAcl { get; } = new OrganizationTelemetryRuleResourceType("AWS::WAFv2::WebACL");
+        public static OrganizationTelemetryRuleResourceType AwsCloudTrail { get; } = new OrganizationTelemetryRuleResourceType("AWS::CloudTrail");
+        public static OrganizationTelemetryRuleResourceType AwseksCluster { get; } = new OrganizationTelemetryRuleResourceType("AWS::EKS::Cluster");
+        public static OrganizationTelemetryRuleResourceType AwsElasticLoadBalancingV2LoadBalancer { get; } = new OrganizationTelemetryRuleResourceType("AWS::ElasticLoadBalancingV2::LoadBalancer");
 
         public static bool operator ==(OrganizationTelemetryRuleResourceType left, OrganizationTelemetryRuleResourceType right) => left.Equals(right);
         public static bool operator !=(OrganizationTelemetryRuleResourceType left, OrganizationTelemetryRuleResourceType right) => !left.Equals(right);
@@ -153,6 +282,42 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OrganizationTelemetryRuleResourceType other && Equals(other);
         public bool Equals(OrganizationTelemetryRuleResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The telemetry source type that goes into the array.
+    /// </summary>
+    [EnumType]
+    public readonly struct OrganizationTelemetryRuleTelemetrySourceType : IEquatable<OrganizationTelemetryRuleTelemetrySourceType>
+    {
+        private readonly string _value;
+
+        private OrganizationTelemetryRuleTelemetrySourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OrganizationTelemetryRuleTelemetrySourceType VpcFlowLogs { get; } = new OrganizationTelemetryRuleTelemetrySourceType("VPC_FLOW_LOGS");
+        public static OrganizationTelemetryRuleTelemetrySourceType Route53ResolverQueryLogs { get; } = new OrganizationTelemetryRuleTelemetrySourceType("ROUTE53_RESOLVER_QUERY_LOGS");
+        public static OrganizationTelemetryRuleTelemetrySourceType EksAuditLogs { get; } = new OrganizationTelemetryRuleTelemetrySourceType("EKS_AUDIT_LOGS");
+        public static OrganizationTelemetryRuleTelemetrySourceType EksAuthenticatorLogs { get; } = new OrganizationTelemetryRuleTelemetrySourceType("EKS_AUTHENTICATOR_LOGS");
+        public static OrganizationTelemetryRuleTelemetrySourceType EksControllerManagerLogs { get; } = new OrganizationTelemetryRuleTelemetrySourceType("EKS_CONTROLLER_MANAGER_LOGS");
+        public static OrganizationTelemetryRuleTelemetrySourceType EksSchedulerLogs { get; } = new OrganizationTelemetryRuleTelemetrySourceType("EKS_SCHEDULER_LOGS");
+        public static OrganizationTelemetryRuleTelemetrySourceType EksApiLogs { get; } = new OrganizationTelemetryRuleTelemetrySourceType("EKS_API_LOGS");
+
+        public static bool operator ==(OrganizationTelemetryRuleTelemetrySourceType left, OrganizationTelemetryRuleTelemetrySourceType right) => left.Equals(right);
+        public static bool operator !=(OrganizationTelemetryRuleTelemetrySourceType left, OrganizationTelemetryRuleTelemetrySourceType right) => !left.Equals(right);
+
+        public static explicit operator string(OrganizationTelemetryRuleTelemetrySourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrganizationTelemetryRuleTelemetrySourceType other && Equals(other);
+        public bool Equals(OrganizationTelemetryRuleTelemetrySourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -191,6 +356,103 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
     }
 
     /// <summary>
+    /// The type of logs to generate for WAF.
+    /// </summary>
+    [EnumType]
+    public readonly struct OrganizationTelemetryRuleWafLogType : IEquatable<OrganizationTelemetryRuleWafLogType>
+    {
+        private readonly string _value;
+
+        private OrganizationTelemetryRuleWafLogType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OrganizationTelemetryRuleWafLogType WafLogs { get; } = new OrganizationTelemetryRuleWafLogType("WAF_LOGS");
+
+        public static bool operator ==(OrganizationTelemetryRuleWafLogType left, OrganizationTelemetryRuleWafLogType right) => left.Equals(right);
+        public static bool operator !=(OrganizationTelemetryRuleWafLogType left, OrganizationTelemetryRuleWafLogType right) => !left.Equals(right);
+
+        public static explicit operator string(OrganizationTelemetryRuleWafLogType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrganizationTelemetryRuleWafLogType other && Equals(other);
+        public bool Equals(OrganizationTelemetryRuleWafLogType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TelemetryPipelinesTelemetryPipelineStatus : IEquatable<TelemetryPipelinesTelemetryPipelineStatus>
+    {
+        private readonly string _value;
+
+        private TelemetryPipelinesTelemetryPipelineStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TelemetryPipelinesTelemetryPipelineStatus Creating { get; } = new TelemetryPipelinesTelemetryPipelineStatus("CREATING");
+        public static TelemetryPipelinesTelemetryPipelineStatus Active { get; } = new TelemetryPipelinesTelemetryPipelineStatus("ACTIVE");
+        public static TelemetryPipelinesTelemetryPipelineStatus Updating { get; } = new TelemetryPipelinesTelemetryPipelineStatus("UPDATING");
+        public static TelemetryPipelinesTelemetryPipelineStatus Deleting { get; } = new TelemetryPipelinesTelemetryPipelineStatus("DELETING");
+        public static TelemetryPipelinesTelemetryPipelineStatus CreateFailed { get; } = new TelemetryPipelinesTelemetryPipelineStatus("CREATE_FAILED");
+        public static TelemetryPipelinesTelemetryPipelineStatus UpdateFailed { get; } = new TelemetryPipelinesTelemetryPipelineStatus("UPDATE_FAILED");
+
+        public static bool operator ==(TelemetryPipelinesTelemetryPipelineStatus left, TelemetryPipelinesTelemetryPipelineStatus right) => left.Equals(right);
+        public static bool operator !=(TelemetryPipelinesTelemetryPipelineStatus left, TelemetryPipelinesTelemetryPipelineStatus right) => !left.Equals(right);
+
+        public static explicit operator string(TelemetryPipelinesTelemetryPipelineStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TelemetryPipelinesTelemetryPipelineStatus other && Equals(other);
+        public bool Equals(TelemetryPipelinesTelemetryPipelineStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The enumerated action to take.
+    /// </summary>
+    [EnumType]
+    public readonly struct TelemetryRuleAction : IEquatable<TelemetryRuleAction>
+    {
+        private readonly string _value;
+
+        private TelemetryRuleAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TelemetryRuleAction Allow { get; } = new TelemetryRuleAction("ALLOW");
+        public static TelemetryRuleAction Block { get; } = new TelemetryRuleAction("BLOCK");
+        public static TelemetryRuleAction Count { get; } = new TelemetryRuleAction("COUNT");
+        public static TelemetryRuleAction Captcha { get; } = new TelemetryRuleAction("CAPTCHA");
+        public static TelemetryRuleAction Challenge { get; } = new TelemetryRuleAction("CHALLENGE");
+        public static TelemetryRuleAction ExcludedAsCount { get; } = new TelemetryRuleAction("EXCLUDED_AS_COUNT");
+
+        public static bool operator ==(TelemetryRuleAction left, TelemetryRuleAction right) => left.Equals(right);
+        public static bool operator !=(TelemetryRuleAction left, TelemetryRuleAction right) => !left.Equals(right);
+
+        public static explicit operator string(TelemetryRuleAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TelemetryRuleAction other && Equals(other);
+        public bool Equals(TelemetryRuleAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of telemetry destination
     /// </summary>
     [EnumType]
@@ -220,6 +482,96 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat : IEquatable<TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat>
+    {
+        private readonly string _value;
+
+        private TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat Plain { get; } = new TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat("plain");
+        public static TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat Json { get; } = new TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat("json");
+
+        public static bool operator ==(TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat left, TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat right) => left.Equals(right);
+        public static bool operator !=(TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat left, TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat right) => !left.Equals(right);
+
+        public static explicit operator string(TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat other && Equals(other);
+        public bool Equals(TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The behavior required of the filter.
+    /// </summary>
+    [EnumType]
+    public readonly struct TelemetryRuleFilterBehavior : IEquatable<TelemetryRuleFilterBehavior>
+    {
+        private readonly string _value;
+
+        private TelemetryRuleFilterBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TelemetryRuleFilterBehavior Keep { get; } = new TelemetryRuleFilterBehavior("KEEP");
+        public static TelemetryRuleFilterBehavior Drop { get; } = new TelemetryRuleFilterBehavior("DROP");
+
+        public static bool operator ==(TelemetryRuleFilterBehavior left, TelemetryRuleFilterBehavior right) => left.Equals(right);
+        public static bool operator !=(TelemetryRuleFilterBehavior left, TelemetryRuleFilterBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(TelemetryRuleFilterBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TelemetryRuleFilterBehavior other && Equals(other);
+        public bool Equals(TelemetryRuleFilterBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The requirement portion of the filter.
+    /// </summary>
+    [EnumType]
+    public readonly struct TelemetryRuleFilterRequirement : IEquatable<TelemetryRuleFilterRequirement>
+    {
+        private readonly string _value;
+
+        private TelemetryRuleFilterRequirement(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TelemetryRuleFilterRequirement MeetsAll { get; } = new TelemetryRuleFilterRequirement("MEETS_ALL");
+        public static TelemetryRuleFilterRequirement MeetsAny { get; } = new TelemetryRuleFilterRequirement("MEETS_ANY");
+
+        public static bool operator ==(TelemetryRuleFilterRequirement left, TelemetryRuleFilterRequirement right) => left.Equals(right);
+        public static bool operator !=(TelemetryRuleFilterRequirement left, TelemetryRuleFilterRequirement right) => !left.Equals(right);
+
+        public static explicit operator string(TelemetryRuleFilterRequirement value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TelemetryRuleFilterRequirement other && Equals(other);
+        public bool Equals(TelemetryRuleFilterRequirement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Resource Type associated with the Telemetry Rule
     /// </summary>
@@ -234,6 +586,13 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         }
 
         public static TelemetryRuleResourceType Awsec2vpc { get; } = new TelemetryRuleResourceType("AWS::EC2::VPC");
+        public static TelemetryRuleResourceType AwswaFv2WebAcl { get; } = new TelemetryRuleResourceType("AWS::WAFv2::WebACL");
+        public static TelemetryRuleResourceType AwsCloudTrail { get; } = new TelemetryRuleResourceType("AWS::CloudTrail");
+        public static TelemetryRuleResourceType AwseksCluster { get; } = new TelemetryRuleResourceType("AWS::EKS::Cluster");
+        public static TelemetryRuleResourceType AwsElasticLoadBalancingV2LoadBalancer { get; } = new TelemetryRuleResourceType("AWS::ElasticLoadBalancingV2::LoadBalancer");
+        public static TelemetryRuleResourceType AwsBedrockAgentCoreRuntime { get; } = new TelemetryRuleResourceType("AWS::BedrockAgentCore::Runtime");
+        public static TelemetryRuleResourceType AwsBedrockAgentCoreBrowser { get; } = new TelemetryRuleResourceType("AWS::BedrockAgentCore::Browser");
+        public static TelemetryRuleResourceType AwsBedrockAgentCoreCodeInterpreter { get; } = new TelemetryRuleResourceType("AWS::BedrockAgentCore::CodeInterpreter");
 
         public static bool operator ==(TelemetryRuleResourceType left, TelemetryRuleResourceType right) => left.Equals(right);
         public static bool operator !=(TelemetryRuleResourceType left, TelemetryRuleResourceType right) => !left.Equals(right);
@@ -243,6 +602,70 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TelemetryRuleResourceType other && Equals(other);
         public bool Equals(TelemetryRuleResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem : IEquatable<TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem>
+    {
+        private readonly string _value;
+
+        private TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem ApplicationLogs { get; } = new TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("APPLICATION_LOGS");
+        public static TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem UsageLogs { get; } = new TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("USAGE_LOGS");
+
+        public static bool operator ==(TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem left, TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem right) => left.Equals(right);
+        public static bool operator !=(TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem left, TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem other && Equals(other);
+        public bool Equals(TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The telemetry source type that goes into the array.
+    /// </summary>
+    [EnumType]
+    public readonly struct TelemetryRuleTelemetrySourceType : IEquatable<TelemetryRuleTelemetrySourceType>
+    {
+        private readonly string _value;
+
+        private TelemetryRuleTelemetrySourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TelemetryRuleTelemetrySourceType VpcFlowLogs { get; } = new TelemetryRuleTelemetrySourceType("VPC_FLOW_LOGS");
+        public static TelemetryRuleTelemetrySourceType Route53ResolverQueryLogs { get; } = new TelemetryRuleTelemetrySourceType("ROUTE53_RESOLVER_QUERY_LOGS");
+        public static TelemetryRuleTelemetrySourceType EksAuditLogs { get; } = new TelemetryRuleTelemetrySourceType("EKS_AUDIT_LOGS");
+        public static TelemetryRuleTelemetrySourceType EksAuthenticatorLogs { get; } = new TelemetryRuleTelemetrySourceType("EKS_AUTHENTICATOR_LOGS");
+        public static TelemetryRuleTelemetrySourceType EksControllerManagerLogs { get; } = new TelemetryRuleTelemetrySourceType("EKS_CONTROLLER_MANAGER_LOGS");
+        public static TelemetryRuleTelemetrySourceType EksSchedulerLogs { get; } = new TelemetryRuleTelemetrySourceType("EKS_SCHEDULER_LOGS");
+        public static TelemetryRuleTelemetrySourceType EksApiLogs { get; } = new TelemetryRuleTelemetrySourceType("EKS_API_LOGS");
+
+        public static bool operator ==(TelemetryRuleTelemetrySourceType left, TelemetryRuleTelemetrySourceType right) => left.Equals(right);
+        public static bool operator !=(TelemetryRuleTelemetrySourceType left, TelemetryRuleTelemetrySourceType right) => !left.Equals(right);
+
+        public static explicit operator string(TelemetryRuleTelemetrySourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TelemetryRuleTelemetrySourceType other && Equals(other);
+        public bool Equals(TelemetryRuleTelemetrySourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -264,6 +687,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         }
 
         public static TelemetryRuleTelemetryType Logs { get; } = new TelemetryRuleTelemetryType("Logs");
+        public static TelemetryRuleTelemetryType Traces { get; } = new TelemetryRuleTelemetryType("Traces");
 
         public static bool operator ==(TelemetryRuleTelemetryType left, TelemetryRuleTelemetryType right) => left.Equals(right);
         public static bool operator !=(TelemetryRuleTelemetryType left, TelemetryRuleTelemetryType right) => !left.Equals(right);
@@ -273,6 +697,36 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TelemetryRuleTelemetryType other && Equals(other);
         public bool Equals(TelemetryRuleTelemetryType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of logs to generate for WAF.
+    /// </summary>
+    [EnumType]
+    public readonly struct TelemetryRuleWafLogType : IEquatable<TelemetryRuleWafLogType>
+    {
+        private readonly string _value;
+
+        private TelemetryRuleWafLogType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TelemetryRuleWafLogType WafLogs { get; } = new TelemetryRuleWafLogType("WAF_LOGS");
+
+        public static bool operator ==(TelemetryRuleWafLogType left, TelemetryRuleWafLogType right) => left.Equals(right);
+        public static bool operator !=(TelemetryRuleWafLogType left, TelemetryRuleWafLogType right) => !left.Equals(right);
+
+        public static explicit operator string(TelemetryRuleWafLogType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TelemetryRuleWafLogType other && Equals(other);
+        public bool Equals(TelemetryRuleWafLogType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

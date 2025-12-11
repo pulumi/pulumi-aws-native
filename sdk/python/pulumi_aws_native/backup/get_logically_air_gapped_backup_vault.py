@@ -76,6 +76,9 @@ class GetLogicallyAirGappedBackupVaultResult:
     @_builtins.property
     @pulumi.getter(name="mpaApprovalTeamArn")
     def mpa_approval_team_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the MPA approval team to associate with the backup vault. This cannot be changed after it is set from the CloudFormation template.
+        """
         return pulumi.get(self, "mpa_approval_team_arn")
 
     @_builtins.property

@@ -1078,7 +1078,6 @@ namespace Pulumi.AwsNative.S3
                 ReplaceOnChanges =
                 {
                     "bucketName",
-                    "metadataConfiguration.journalTableConfiguration.encryptionConfiguration",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

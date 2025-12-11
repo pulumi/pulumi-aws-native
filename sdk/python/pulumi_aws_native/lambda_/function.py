@@ -31,6 +31,7 @@ class FunctionArgs:
                  code_signing_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  dead_letter_config: Optional[pulumi.Input['FunctionDeadLetterConfigArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 durable_config: Optional[pulumi.Input['FunctionDurableConfigArgs']] = None,
                  environment: Optional[pulumi.Input['FunctionEnvironmentArgs']] = None,
                  ephemeral_storage: Optional[pulumi.Input['FunctionEphemeralStorageArgs']] = None,
                  file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionFileSystemConfigArgs']]]] = None,
@@ -112,6 +113,8 @@ class FunctionArgs:
             pulumi.set(__self__, "dead_letter_config", dead_letter_config)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if durable_config is not None:
+            pulumi.set(__self__, "durable_config", durable_config)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
         if ephemeral_storage is not None:
@@ -242,6 +245,15 @@ class FunctionArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="durableConfig")
+    def durable_config(self) -> Optional[pulumi.Input['FunctionDurableConfigArgs']]:
+        return pulumi.get(self, "durable_config")
+
+    @durable_config.setter
+    def durable_config(self, value: Optional[pulumi.Input['FunctionDurableConfigArgs']]):
+        pulumi.set(self, "durable_config", value)
 
     @_builtins.property
     @pulumi.getter
@@ -539,6 +551,7 @@ class Function(pulumi.CustomResource):
                  code_signing_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  dead_letter_config: Optional[pulumi.Input[Union['FunctionDeadLetterConfigArgs', 'FunctionDeadLetterConfigArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 durable_config: Optional[pulumi.Input[Union['FunctionDurableConfigArgs', 'FunctionDurableConfigArgsDict']]] = None,
                  environment: Optional[pulumi.Input[Union['FunctionEnvironmentArgs', 'FunctionEnvironmentArgsDict']]] = None,
                  ephemeral_storage: Optional[pulumi.Input[Union['FunctionEphemeralStorageArgs', 'FunctionEphemeralStorageArgsDict']]] = None,
                  file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionFileSystemConfigArgs', 'FunctionFileSystemConfigArgsDict']]]]] = None,
@@ -1061,6 +1074,7 @@ class Function(pulumi.CustomResource):
                  code_signing_config_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  dead_letter_config: Optional[pulumi.Input[Union['FunctionDeadLetterConfigArgs', 'FunctionDeadLetterConfigArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 durable_config: Optional[pulumi.Input[Union['FunctionDurableConfigArgs', 'FunctionDurableConfigArgsDict']]] = None,
                  environment: Optional[pulumi.Input[Union['FunctionEnvironmentArgs', 'FunctionEnvironmentArgsDict']]] = None,
                  ephemeral_storage: Optional[pulumi.Input[Union['FunctionEphemeralStorageArgs', 'FunctionEphemeralStorageArgsDict']]] = None,
                  file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionFileSystemConfigArgs', 'FunctionFileSystemConfigArgsDict']]]]] = None,
@@ -1102,6 +1116,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["code_signing_config_arn"] = code_signing_config_arn
             __props__.__dict__["dead_letter_config"] = dead_letter_config
             __props__.__dict__["description"] = description
+            __props__.__dict__["durable_config"] = durable_config
             __props__.__dict__["environment"] = environment
             __props__.__dict__["ephemeral_storage"] = ephemeral_storage
             __props__.__dict__["file_system_configs"] = file_system_configs
@@ -1161,6 +1176,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["code_signing_config_arn"] = None
         __props__.__dict__["dead_letter_config"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["durable_config"] = None
         __props__.__dict__["environment"] = None
         __props__.__dict__["ephemeral_storage"] = None
         __props__.__dict__["file_system_configs"] = None
@@ -1243,6 +1259,11 @@ class Function(pulumi.CustomResource):
         A description of the function.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="durableConfig")
+    def durable_config(self) -> pulumi.Output[Optional['outputs.FunctionDurableConfig']]:
+        return pulumi.get(self, "durable_config")
 
     @_builtins.property
     @pulumi.getter

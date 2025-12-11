@@ -692,6 +692,505 @@ func (in *contactFlowTypePtr) ToContactFlowTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(ContactFlowTypePtrOutput)
 }
 
+type DataTableAttributeValueType string
+
+const (
+	DataTableAttributeValueTypeText       = DataTableAttributeValueType("TEXT")
+	DataTableAttributeValueTypeNumber     = DataTableAttributeValueType("NUMBER")
+	DataTableAttributeValueTypeBoolean    = DataTableAttributeValueType("BOOLEAN")
+	DataTableAttributeValueTypeTextList   = DataTableAttributeValueType("TEXT_LIST")
+	DataTableAttributeValueTypeNumberList = DataTableAttributeValueType("NUMBER_LIST")
+)
+
+func (DataTableAttributeValueType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTableAttributeValueType)(nil)).Elem()
+}
+
+func (e DataTableAttributeValueType) ToDataTableAttributeValueTypeOutput() DataTableAttributeValueTypeOutput {
+	return pulumi.ToOutput(e).(DataTableAttributeValueTypeOutput)
+}
+
+func (e DataTableAttributeValueType) ToDataTableAttributeValueTypeOutputWithContext(ctx context.Context) DataTableAttributeValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataTableAttributeValueTypeOutput)
+}
+
+func (e DataTableAttributeValueType) ToDataTableAttributeValueTypePtrOutput() DataTableAttributeValueTypePtrOutput {
+	return e.ToDataTableAttributeValueTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataTableAttributeValueType) ToDataTableAttributeValueTypePtrOutputWithContext(ctx context.Context) DataTableAttributeValueTypePtrOutput {
+	return DataTableAttributeValueType(e).ToDataTableAttributeValueTypeOutputWithContext(ctx).ToDataTableAttributeValueTypePtrOutputWithContext(ctx)
+}
+
+func (e DataTableAttributeValueType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataTableAttributeValueType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataTableAttributeValueType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataTableAttributeValueType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataTableAttributeValueTypeOutput struct{ *pulumi.OutputState }
+
+func (DataTableAttributeValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTableAttributeValueType)(nil)).Elem()
+}
+
+func (o DataTableAttributeValueTypeOutput) ToDataTableAttributeValueTypeOutput() DataTableAttributeValueTypeOutput {
+	return o
+}
+
+func (o DataTableAttributeValueTypeOutput) ToDataTableAttributeValueTypeOutputWithContext(ctx context.Context) DataTableAttributeValueTypeOutput {
+	return o
+}
+
+func (o DataTableAttributeValueTypeOutput) ToDataTableAttributeValueTypePtrOutput() DataTableAttributeValueTypePtrOutput {
+	return o.ToDataTableAttributeValueTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataTableAttributeValueTypeOutput) ToDataTableAttributeValueTypePtrOutputWithContext(ctx context.Context) DataTableAttributeValueTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataTableAttributeValueType) *DataTableAttributeValueType {
+		return &v
+	}).(DataTableAttributeValueTypePtrOutput)
+}
+
+func (o DataTableAttributeValueTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataTableAttributeValueTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataTableAttributeValueType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataTableAttributeValueTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataTableAttributeValueTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataTableAttributeValueType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataTableAttributeValueTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataTableAttributeValueTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataTableAttributeValueType)(nil)).Elem()
+}
+
+func (o DataTableAttributeValueTypePtrOutput) ToDataTableAttributeValueTypePtrOutput() DataTableAttributeValueTypePtrOutput {
+	return o
+}
+
+func (o DataTableAttributeValueTypePtrOutput) ToDataTableAttributeValueTypePtrOutputWithContext(ctx context.Context) DataTableAttributeValueTypePtrOutput {
+	return o
+}
+
+func (o DataTableAttributeValueTypePtrOutput) Elem() DataTableAttributeValueTypeOutput {
+	return o.ApplyT(func(v *DataTableAttributeValueType) DataTableAttributeValueType {
+		if v != nil {
+			return *v
+		}
+		var ret DataTableAttributeValueType
+		return ret
+	}).(DataTableAttributeValueTypeOutput)
+}
+
+func (o DataTableAttributeValueTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataTableAttributeValueTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataTableAttributeValueType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataTableAttributeValueTypeInput is an input type that accepts values of the DataTableAttributeValueType enum
+// A concrete instance of `DataTableAttributeValueTypeInput` can be one of the following:
+//
+//	DataTableAttributeValueTypeText
+//	DataTableAttributeValueTypeNumber
+//	DataTableAttributeValueTypeBoolean
+//	DataTableAttributeValueTypeTextList
+//	DataTableAttributeValueTypeNumberList
+type DataTableAttributeValueTypeInput interface {
+	pulumi.Input
+
+	ToDataTableAttributeValueTypeOutput() DataTableAttributeValueTypeOutput
+	ToDataTableAttributeValueTypeOutputWithContext(context.Context) DataTableAttributeValueTypeOutput
+}
+
+var dataTableAttributeValueTypePtrType = reflect.TypeOf((**DataTableAttributeValueType)(nil)).Elem()
+
+type DataTableAttributeValueTypePtrInput interface {
+	pulumi.Input
+
+	ToDataTableAttributeValueTypePtrOutput() DataTableAttributeValueTypePtrOutput
+	ToDataTableAttributeValueTypePtrOutputWithContext(context.Context) DataTableAttributeValueTypePtrOutput
+}
+
+type dataTableAttributeValueTypePtr string
+
+func DataTableAttributeValueTypePtr(v string) DataTableAttributeValueTypePtrInput {
+	return (*dataTableAttributeValueTypePtr)(&v)
+}
+
+func (*dataTableAttributeValueTypePtr) ElementType() reflect.Type {
+	return dataTableAttributeValueTypePtrType
+}
+
+func (in *dataTableAttributeValueTypePtr) ToDataTableAttributeValueTypePtrOutput() DataTableAttributeValueTypePtrOutput {
+	return pulumi.ToOutput(in).(DataTableAttributeValueTypePtrOutput)
+}
+
+func (in *dataTableAttributeValueTypePtr) ToDataTableAttributeValueTypePtrOutputWithContext(ctx context.Context) DataTableAttributeValueTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataTableAttributeValueTypePtrOutput)
+}
+
+// The status of the Data Table
+type DataTableStatus string
+
+const (
+	DataTableStatusPublished = DataTableStatus("PUBLISHED")
+)
+
+func (DataTableStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTableStatus)(nil)).Elem()
+}
+
+func (e DataTableStatus) ToDataTableStatusOutput() DataTableStatusOutput {
+	return pulumi.ToOutput(e).(DataTableStatusOutput)
+}
+
+func (e DataTableStatus) ToDataTableStatusOutputWithContext(ctx context.Context) DataTableStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataTableStatusOutput)
+}
+
+func (e DataTableStatus) ToDataTableStatusPtrOutput() DataTableStatusPtrOutput {
+	return e.ToDataTableStatusPtrOutputWithContext(context.Background())
+}
+
+func (e DataTableStatus) ToDataTableStatusPtrOutputWithContext(ctx context.Context) DataTableStatusPtrOutput {
+	return DataTableStatus(e).ToDataTableStatusOutputWithContext(ctx).ToDataTableStatusPtrOutputWithContext(ctx)
+}
+
+func (e DataTableStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataTableStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataTableStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataTableStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataTableStatusOutput struct{ *pulumi.OutputState }
+
+func (DataTableStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTableStatus)(nil)).Elem()
+}
+
+func (o DataTableStatusOutput) ToDataTableStatusOutput() DataTableStatusOutput {
+	return o
+}
+
+func (o DataTableStatusOutput) ToDataTableStatusOutputWithContext(ctx context.Context) DataTableStatusOutput {
+	return o
+}
+
+func (o DataTableStatusOutput) ToDataTableStatusPtrOutput() DataTableStatusPtrOutput {
+	return o.ToDataTableStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DataTableStatusOutput) ToDataTableStatusPtrOutputWithContext(ctx context.Context) DataTableStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataTableStatus) *DataTableStatus {
+		return &v
+	}).(DataTableStatusPtrOutput)
+}
+
+func (o DataTableStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataTableStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataTableStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataTableStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataTableStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataTableStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataTableStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DataTableStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataTableStatus)(nil)).Elem()
+}
+
+func (o DataTableStatusPtrOutput) ToDataTableStatusPtrOutput() DataTableStatusPtrOutput {
+	return o
+}
+
+func (o DataTableStatusPtrOutput) ToDataTableStatusPtrOutputWithContext(ctx context.Context) DataTableStatusPtrOutput {
+	return o
+}
+
+func (o DataTableStatusPtrOutput) Elem() DataTableStatusOutput {
+	return o.ApplyT(func(v *DataTableStatus) DataTableStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DataTableStatus
+		return ret
+	}).(DataTableStatusOutput)
+}
+
+func (o DataTableStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataTableStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataTableStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataTableStatusInput is an input type that accepts values of the DataTableStatus enum
+// A concrete instance of `DataTableStatusInput` can be one of the following:
+//
+//	DataTableStatusPublished
+type DataTableStatusInput interface {
+	pulumi.Input
+
+	ToDataTableStatusOutput() DataTableStatusOutput
+	ToDataTableStatusOutputWithContext(context.Context) DataTableStatusOutput
+}
+
+var dataTableStatusPtrType = reflect.TypeOf((**DataTableStatus)(nil)).Elem()
+
+type DataTableStatusPtrInput interface {
+	pulumi.Input
+
+	ToDataTableStatusPtrOutput() DataTableStatusPtrOutput
+	ToDataTableStatusPtrOutputWithContext(context.Context) DataTableStatusPtrOutput
+}
+
+type dataTableStatusPtr string
+
+func DataTableStatusPtr(v string) DataTableStatusPtrInput {
+	return (*dataTableStatusPtr)(&v)
+}
+
+func (*dataTableStatusPtr) ElementType() reflect.Type {
+	return dataTableStatusPtrType
+}
+
+func (in *dataTableStatusPtr) ToDataTableStatusPtrOutput() DataTableStatusPtrOutput {
+	return pulumi.ToOutput(in).(DataTableStatusPtrOutput)
+}
+
+func (in *dataTableStatusPtr) ToDataTableStatusPtrOutputWithContext(ctx context.Context) DataTableStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataTableStatusPtrOutput)
+}
+
+// The value lock level of the Data Table
+type DataTableValueLockLevel string
+
+const (
+	DataTableValueLockLevelNone = DataTableValueLockLevel("NONE")
+)
+
+func (DataTableValueLockLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTableValueLockLevel)(nil)).Elem()
+}
+
+func (e DataTableValueLockLevel) ToDataTableValueLockLevelOutput() DataTableValueLockLevelOutput {
+	return pulumi.ToOutput(e).(DataTableValueLockLevelOutput)
+}
+
+func (e DataTableValueLockLevel) ToDataTableValueLockLevelOutputWithContext(ctx context.Context) DataTableValueLockLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataTableValueLockLevelOutput)
+}
+
+func (e DataTableValueLockLevel) ToDataTableValueLockLevelPtrOutput() DataTableValueLockLevelPtrOutput {
+	return e.ToDataTableValueLockLevelPtrOutputWithContext(context.Background())
+}
+
+func (e DataTableValueLockLevel) ToDataTableValueLockLevelPtrOutputWithContext(ctx context.Context) DataTableValueLockLevelPtrOutput {
+	return DataTableValueLockLevel(e).ToDataTableValueLockLevelOutputWithContext(ctx).ToDataTableValueLockLevelPtrOutputWithContext(ctx)
+}
+
+func (e DataTableValueLockLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataTableValueLockLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataTableValueLockLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataTableValueLockLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataTableValueLockLevelOutput struct{ *pulumi.OutputState }
+
+func (DataTableValueLockLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTableValueLockLevel)(nil)).Elem()
+}
+
+func (o DataTableValueLockLevelOutput) ToDataTableValueLockLevelOutput() DataTableValueLockLevelOutput {
+	return o
+}
+
+func (o DataTableValueLockLevelOutput) ToDataTableValueLockLevelOutputWithContext(ctx context.Context) DataTableValueLockLevelOutput {
+	return o
+}
+
+func (o DataTableValueLockLevelOutput) ToDataTableValueLockLevelPtrOutput() DataTableValueLockLevelPtrOutput {
+	return o.ToDataTableValueLockLevelPtrOutputWithContext(context.Background())
+}
+
+func (o DataTableValueLockLevelOutput) ToDataTableValueLockLevelPtrOutputWithContext(ctx context.Context) DataTableValueLockLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataTableValueLockLevel) *DataTableValueLockLevel {
+		return &v
+	}).(DataTableValueLockLevelPtrOutput)
+}
+
+func (o DataTableValueLockLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataTableValueLockLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataTableValueLockLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataTableValueLockLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataTableValueLockLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataTableValueLockLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataTableValueLockLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (DataTableValueLockLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataTableValueLockLevel)(nil)).Elem()
+}
+
+func (o DataTableValueLockLevelPtrOutput) ToDataTableValueLockLevelPtrOutput() DataTableValueLockLevelPtrOutput {
+	return o
+}
+
+func (o DataTableValueLockLevelPtrOutput) ToDataTableValueLockLevelPtrOutputWithContext(ctx context.Context) DataTableValueLockLevelPtrOutput {
+	return o
+}
+
+func (o DataTableValueLockLevelPtrOutput) Elem() DataTableValueLockLevelOutput {
+	return o.ApplyT(func(v *DataTableValueLockLevel) DataTableValueLockLevel {
+		if v != nil {
+			return *v
+		}
+		var ret DataTableValueLockLevel
+		return ret
+	}).(DataTableValueLockLevelOutput)
+}
+
+func (o DataTableValueLockLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataTableValueLockLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataTableValueLockLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataTableValueLockLevelInput is an input type that accepts values of the DataTableValueLockLevel enum
+// A concrete instance of `DataTableValueLockLevelInput` can be one of the following:
+//
+//	DataTableValueLockLevelNone
+type DataTableValueLockLevelInput interface {
+	pulumi.Input
+
+	ToDataTableValueLockLevelOutput() DataTableValueLockLevelOutput
+	ToDataTableValueLockLevelOutputWithContext(context.Context) DataTableValueLockLevelOutput
+}
+
+var dataTableValueLockLevelPtrType = reflect.TypeOf((**DataTableValueLockLevel)(nil)).Elem()
+
+type DataTableValueLockLevelPtrInput interface {
+	pulumi.Input
+
+	ToDataTableValueLockLevelPtrOutput() DataTableValueLockLevelPtrOutput
+	ToDataTableValueLockLevelPtrOutputWithContext(context.Context) DataTableValueLockLevelPtrOutput
+}
+
+type dataTableValueLockLevelPtr string
+
+func DataTableValueLockLevelPtr(v string) DataTableValueLockLevelPtrInput {
+	return (*dataTableValueLockLevelPtr)(&v)
+}
+
+func (*dataTableValueLockLevelPtr) ElementType() reflect.Type {
+	return dataTableValueLockLevelPtrType
+}
+
+func (in *dataTableValueLockLevelPtr) ToDataTableValueLockLevelPtrOutput() DataTableValueLockLevelPtrOutput {
+	return pulumi.ToOutput(in).(DataTableValueLockLevelPtrOutput)
+}
+
+func (in *dataTableValueLockLevelPtr) ToDataTableValueLockLevelPtrOutputWithContext(ctx context.Context) DataTableValueLockLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataTableValueLockLevelPtrOutput)
+}
+
 // The operator to be used to be applied to operands if more than one provided.
 type EvaluationFormItemEnablementConditionOperator string
 
@@ -7585,6 +8084,517 @@ func (in *userPhoneTypePtr) ToUserPhoneTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(UserPhoneTypePtrOutput)
 }
 
+type WorkspaceFontFamily string
+
+const (
+	WorkspaceFontFamilyArial         = WorkspaceFontFamily("ARIAL")
+	WorkspaceFontFamilyCourierNew    = WorkspaceFontFamily("COURIER_NEW")
+	WorkspaceFontFamilyGeorgia       = WorkspaceFontFamily("GEORGIA")
+	WorkspaceFontFamilyTimesNewRoman = WorkspaceFontFamily("TIMES_NEW_ROMAN")
+	WorkspaceFontFamilyTrebuchet     = WorkspaceFontFamily("TREBUCHET")
+	WorkspaceFontFamilyVerdana       = WorkspaceFontFamily("VERDANA")
+)
+
+func (WorkspaceFontFamily) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceFontFamily)(nil)).Elem()
+}
+
+func (e WorkspaceFontFamily) ToWorkspaceFontFamilyOutput() WorkspaceFontFamilyOutput {
+	return pulumi.ToOutput(e).(WorkspaceFontFamilyOutput)
+}
+
+func (e WorkspaceFontFamily) ToWorkspaceFontFamilyOutputWithContext(ctx context.Context) WorkspaceFontFamilyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkspaceFontFamilyOutput)
+}
+
+func (e WorkspaceFontFamily) ToWorkspaceFontFamilyPtrOutput() WorkspaceFontFamilyPtrOutput {
+	return e.ToWorkspaceFontFamilyPtrOutputWithContext(context.Background())
+}
+
+func (e WorkspaceFontFamily) ToWorkspaceFontFamilyPtrOutputWithContext(ctx context.Context) WorkspaceFontFamilyPtrOutput {
+	return WorkspaceFontFamily(e).ToWorkspaceFontFamilyOutputWithContext(ctx).ToWorkspaceFontFamilyPtrOutputWithContext(ctx)
+}
+
+func (e WorkspaceFontFamily) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkspaceFontFamily) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkspaceFontFamily) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkspaceFontFamily) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkspaceFontFamilyOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceFontFamilyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceFontFamily)(nil)).Elem()
+}
+
+func (o WorkspaceFontFamilyOutput) ToWorkspaceFontFamilyOutput() WorkspaceFontFamilyOutput {
+	return o
+}
+
+func (o WorkspaceFontFamilyOutput) ToWorkspaceFontFamilyOutputWithContext(ctx context.Context) WorkspaceFontFamilyOutput {
+	return o
+}
+
+func (o WorkspaceFontFamilyOutput) ToWorkspaceFontFamilyPtrOutput() WorkspaceFontFamilyPtrOutput {
+	return o.ToWorkspaceFontFamilyPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceFontFamilyOutput) ToWorkspaceFontFamilyPtrOutputWithContext(ctx context.Context) WorkspaceFontFamilyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceFontFamily) *WorkspaceFontFamily {
+		return &v
+	}).(WorkspaceFontFamilyPtrOutput)
+}
+
+func (o WorkspaceFontFamilyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkspaceFontFamilyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkspaceFontFamily) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkspaceFontFamilyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceFontFamilyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkspaceFontFamily) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceFontFamilyPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceFontFamilyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceFontFamily)(nil)).Elem()
+}
+
+func (o WorkspaceFontFamilyPtrOutput) ToWorkspaceFontFamilyPtrOutput() WorkspaceFontFamilyPtrOutput {
+	return o
+}
+
+func (o WorkspaceFontFamilyPtrOutput) ToWorkspaceFontFamilyPtrOutputWithContext(ctx context.Context) WorkspaceFontFamilyPtrOutput {
+	return o
+}
+
+func (o WorkspaceFontFamilyPtrOutput) Elem() WorkspaceFontFamilyOutput {
+	return o.ApplyT(func(v *WorkspaceFontFamily) WorkspaceFontFamily {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceFontFamily
+		return ret
+	}).(WorkspaceFontFamilyOutput)
+}
+
+func (o WorkspaceFontFamilyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceFontFamilyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkspaceFontFamily) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WorkspaceFontFamilyInput is an input type that accepts values of the WorkspaceFontFamily enum
+// A concrete instance of `WorkspaceFontFamilyInput` can be one of the following:
+//
+//	WorkspaceFontFamilyArial
+//	WorkspaceFontFamilyCourierNew
+//	WorkspaceFontFamilyGeorgia
+//	WorkspaceFontFamilyTimesNewRoman
+//	WorkspaceFontFamilyTrebuchet
+//	WorkspaceFontFamilyVerdana
+type WorkspaceFontFamilyInput interface {
+	pulumi.Input
+
+	ToWorkspaceFontFamilyOutput() WorkspaceFontFamilyOutput
+	ToWorkspaceFontFamilyOutputWithContext(context.Context) WorkspaceFontFamilyOutput
+}
+
+var workspaceFontFamilyPtrType = reflect.TypeOf((**WorkspaceFontFamily)(nil)).Elem()
+
+type WorkspaceFontFamilyPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceFontFamilyPtrOutput() WorkspaceFontFamilyPtrOutput
+	ToWorkspaceFontFamilyPtrOutputWithContext(context.Context) WorkspaceFontFamilyPtrOutput
+}
+
+type workspaceFontFamilyPtr string
+
+func WorkspaceFontFamilyPtr(v string) WorkspaceFontFamilyPtrInput {
+	return (*workspaceFontFamilyPtr)(&v)
+}
+
+func (*workspaceFontFamilyPtr) ElementType() reflect.Type {
+	return workspaceFontFamilyPtrType
+}
+
+func (in *workspaceFontFamilyPtr) ToWorkspaceFontFamilyPtrOutput() WorkspaceFontFamilyPtrOutput {
+	return pulumi.ToOutput(in).(WorkspaceFontFamilyPtrOutput)
+}
+
+func (in *workspaceFontFamilyPtr) ToWorkspaceFontFamilyPtrOutputWithContext(ctx context.Context) WorkspaceFontFamilyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkspaceFontFamilyPtrOutput)
+}
+
+// The type of media
+type WorkspaceMediaType string
+
+const (
+	WorkspaceMediaTypeImageLogoLightFavicon    = WorkspaceMediaType("IMAGE_LOGO_LIGHT_FAVICON")
+	WorkspaceMediaTypeImageLogoDarkFavicon     = WorkspaceMediaType("IMAGE_LOGO_DARK_FAVICON")
+	WorkspaceMediaTypeImageLogoLightHorizontal = WorkspaceMediaType("IMAGE_LOGO_LIGHT_HORIZONTAL")
+	WorkspaceMediaTypeImageLogoDarkHorizontal  = WorkspaceMediaType("IMAGE_LOGO_DARK_HORIZONTAL")
+)
+
+func (WorkspaceMediaType) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceMediaType)(nil)).Elem()
+}
+
+func (e WorkspaceMediaType) ToWorkspaceMediaTypeOutput() WorkspaceMediaTypeOutput {
+	return pulumi.ToOutput(e).(WorkspaceMediaTypeOutput)
+}
+
+func (e WorkspaceMediaType) ToWorkspaceMediaTypeOutputWithContext(ctx context.Context) WorkspaceMediaTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkspaceMediaTypeOutput)
+}
+
+func (e WorkspaceMediaType) ToWorkspaceMediaTypePtrOutput() WorkspaceMediaTypePtrOutput {
+	return e.ToWorkspaceMediaTypePtrOutputWithContext(context.Background())
+}
+
+func (e WorkspaceMediaType) ToWorkspaceMediaTypePtrOutputWithContext(ctx context.Context) WorkspaceMediaTypePtrOutput {
+	return WorkspaceMediaType(e).ToWorkspaceMediaTypeOutputWithContext(ctx).ToWorkspaceMediaTypePtrOutputWithContext(ctx)
+}
+
+func (e WorkspaceMediaType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkspaceMediaType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkspaceMediaType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkspaceMediaType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkspaceMediaTypeOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceMediaTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceMediaType)(nil)).Elem()
+}
+
+func (o WorkspaceMediaTypeOutput) ToWorkspaceMediaTypeOutput() WorkspaceMediaTypeOutput {
+	return o
+}
+
+func (o WorkspaceMediaTypeOutput) ToWorkspaceMediaTypeOutputWithContext(ctx context.Context) WorkspaceMediaTypeOutput {
+	return o
+}
+
+func (o WorkspaceMediaTypeOutput) ToWorkspaceMediaTypePtrOutput() WorkspaceMediaTypePtrOutput {
+	return o.ToWorkspaceMediaTypePtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceMediaTypeOutput) ToWorkspaceMediaTypePtrOutputWithContext(ctx context.Context) WorkspaceMediaTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceMediaType) *WorkspaceMediaType {
+		return &v
+	}).(WorkspaceMediaTypePtrOutput)
+}
+
+func (o WorkspaceMediaTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkspaceMediaTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkspaceMediaType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkspaceMediaTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceMediaTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkspaceMediaType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceMediaTypePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceMediaTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceMediaType)(nil)).Elem()
+}
+
+func (o WorkspaceMediaTypePtrOutput) ToWorkspaceMediaTypePtrOutput() WorkspaceMediaTypePtrOutput {
+	return o
+}
+
+func (o WorkspaceMediaTypePtrOutput) ToWorkspaceMediaTypePtrOutputWithContext(ctx context.Context) WorkspaceMediaTypePtrOutput {
+	return o
+}
+
+func (o WorkspaceMediaTypePtrOutput) Elem() WorkspaceMediaTypeOutput {
+	return o.ApplyT(func(v *WorkspaceMediaType) WorkspaceMediaType {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceMediaType
+		return ret
+	}).(WorkspaceMediaTypeOutput)
+}
+
+func (o WorkspaceMediaTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceMediaTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkspaceMediaType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WorkspaceMediaTypeInput is an input type that accepts values of the WorkspaceMediaType enum
+// A concrete instance of `WorkspaceMediaTypeInput` can be one of the following:
+//
+//	WorkspaceMediaTypeImageLogoLightFavicon
+//	WorkspaceMediaTypeImageLogoDarkFavicon
+//	WorkspaceMediaTypeImageLogoLightHorizontal
+//	WorkspaceMediaTypeImageLogoDarkHorizontal
+type WorkspaceMediaTypeInput interface {
+	pulumi.Input
+
+	ToWorkspaceMediaTypeOutput() WorkspaceMediaTypeOutput
+	ToWorkspaceMediaTypeOutputWithContext(context.Context) WorkspaceMediaTypeOutput
+}
+
+var workspaceMediaTypePtrType = reflect.TypeOf((**WorkspaceMediaType)(nil)).Elem()
+
+type WorkspaceMediaTypePtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceMediaTypePtrOutput() WorkspaceMediaTypePtrOutput
+	ToWorkspaceMediaTypePtrOutputWithContext(context.Context) WorkspaceMediaTypePtrOutput
+}
+
+type workspaceMediaTypePtr string
+
+func WorkspaceMediaTypePtr(v string) WorkspaceMediaTypePtrInput {
+	return (*workspaceMediaTypePtr)(&v)
+}
+
+func (*workspaceMediaTypePtr) ElementType() reflect.Type {
+	return workspaceMediaTypePtrType
+}
+
+func (in *workspaceMediaTypePtr) ToWorkspaceMediaTypePtrOutput() WorkspaceMediaTypePtrOutput {
+	return pulumi.ToOutput(in).(WorkspaceMediaTypePtrOutput)
+}
+
+func (in *workspaceMediaTypePtr) ToWorkspaceMediaTypePtrOutputWithContext(ctx context.Context) WorkspaceMediaTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkspaceMediaTypePtrOutput)
+}
+
+// The visibility of the Connect workspace
+type WorkspaceVisibility string
+
+const (
+	WorkspaceVisibilityAll      = WorkspaceVisibility("ALL")
+	WorkspaceVisibilityAssigned = WorkspaceVisibility("ASSIGNED")
+	WorkspaceVisibilityNone     = WorkspaceVisibility("NONE")
+)
+
+func (WorkspaceVisibility) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceVisibility)(nil)).Elem()
+}
+
+func (e WorkspaceVisibility) ToWorkspaceVisibilityOutput() WorkspaceVisibilityOutput {
+	return pulumi.ToOutput(e).(WorkspaceVisibilityOutput)
+}
+
+func (e WorkspaceVisibility) ToWorkspaceVisibilityOutputWithContext(ctx context.Context) WorkspaceVisibilityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkspaceVisibilityOutput)
+}
+
+func (e WorkspaceVisibility) ToWorkspaceVisibilityPtrOutput() WorkspaceVisibilityPtrOutput {
+	return e.ToWorkspaceVisibilityPtrOutputWithContext(context.Background())
+}
+
+func (e WorkspaceVisibility) ToWorkspaceVisibilityPtrOutputWithContext(ctx context.Context) WorkspaceVisibilityPtrOutput {
+	return WorkspaceVisibility(e).ToWorkspaceVisibilityOutputWithContext(ctx).ToWorkspaceVisibilityPtrOutputWithContext(ctx)
+}
+
+func (e WorkspaceVisibility) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkspaceVisibility) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkspaceVisibility) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkspaceVisibility) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkspaceVisibilityOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceVisibilityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceVisibility)(nil)).Elem()
+}
+
+func (o WorkspaceVisibilityOutput) ToWorkspaceVisibilityOutput() WorkspaceVisibilityOutput {
+	return o
+}
+
+func (o WorkspaceVisibilityOutput) ToWorkspaceVisibilityOutputWithContext(ctx context.Context) WorkspaceVisibilityOutput {
+	return o
+}
+
+func (o WorkspaceVisibilityOutput) ToWorkspaceVisibilityPtrOutput() WorkspaceVisibilityPtrOutput {
+	return o.ToWorkspaceVisibilityPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceVisibilityOutput) ToWorkspaceVisibilityPtrOutputWithContext(ctx context.Context) WorkspaceVisibilityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceVisibility) *WorkspaceVisibility {
+		return &v
+	}).(WorkspaceVisibilityPtrOutput)
+}
+
+func (o WorkspaceVisibilityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkspaceVisibilityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkspaceVisibility) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkspaceVisibilityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceVisibilityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkspaceVisibility) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceVisibilityPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceVisibilityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceVisibility)(nil)).Elem()
+}
+
+func (o WorkspaceVisibilityPtrOutput) ToWorkspaceVisibilityPtrOutput() WorkspaceVisibilityPtrOutput {
+	return o
+}
+
+func (o WorkspaceVisibilityPtrOutput) ToWorkspaceVisibilityPtrOutputWithContext(ctx context.Context) WorkspaceVisibilityPtrOutput {
+	return o
+}
+
+func (o WorkspaceVisibilityPtrOutput) Elem() WorkspaceVisibilityOutput {
+	return o.ApplyT(func(v *WorkspaceVisibility) WorkspaceVisibility {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceVisibility
+		return ret
+	}).(WorkspaceVisibilityOutput)
+}
+
+func (o WorkspaceVisibilityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceVisibilityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkspaceVisibility) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WorkspaceVisibilityInput is an input type that accepts values of the WorkspaceVisibility enum
+// A concrete instance of `WorkspaceVisibilityInput` can be one of the following:
+//
+//	WorkspaceVisibilityAll
+//	WorkspaceVisibilityAssigned
+//	WorkspaceVisibilityNone
+type WorkspaceVisibilityInput interface {
+	pulumi.Input
+
+	ToWorkspaceVisibilityOutput() WorkspaceVisibilityOutput
+	ToWorkspaceVisibilityOutputWithContext(context.Context) WorkspaceVisibilityOutput
+}
+
+var workspaceVisibilityPtrType = reflect.TypeOf((**WorkspaceVisibility)(nil)).Elem()
+
+type WorkspaceVisibilityPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceVisibilityPtrOutput() WorkspaceVisibilityPtrOutput
+	ToWorkspaceVisibilityPtrOutputWithContext(context.Context) WorkspaceVisibilityPtrOutput
+}
+
+type workspaceVisibilityPtr string
+
+func WorkspaceVisibilityPtr(v string) WorkspaceVisibilityPtrInput {
+	return (*workspaceVisibilityPtr)(&v)
+}
+
+func (*workspaceVisibilityPtr) ElementType() reflect.Type {
+	return workspaceVisibilityPtrType
+}
+
+func (in *workspaceVisibilityPtr) ToWorkspaceVisibilityPtrOutput() WorkspaceVisibilityPtrOutput {
+	return pulumi.ToOutput(in).(WorkspaceVisibilityPtrOutput)
+}
+
+func (in *workspaceVisibilityPtr) ToWorkspaceVisibilityPtrOutputWithContext(ctx context.Context) WorkspaceVisibilityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkspaceVisibilityPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentStatusStateEnumInput)(nil)).Elem(), AgentStatusStateEnum("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentStatusStateEnumPtrInput)(nil)).Elem(), AgentStatusStateEnum("ENABLED"))
@@ -7594,6 +8604,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowStateEnumPtrInput)(nil)).Elem(), ContactFlowStateEnum("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowTypeInput)(nil)).Elem(), ContactFlowType("CONTACT_FLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactFlowTypePtrInput)(nil)).Elem(), ContactFlowType("CONTACT_FLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataTableAttributeValueTypeInput)(nil)).Elem(), DataTableAttributeValueType("TEXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataTableAttributeValueTypePtrInput)(nil)).Elem(), DataTableAttributeValueType("TEXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataTableStatusInput)(nil)).Elem(), DataTableStatus("PUBLISHED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataTableStatusPtrInput)(nil)).Elem(), DataTableStatus("PUBLISHED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataTableValueLockLevelInput)(nil)).Elem(), DataTableValueLockLevel("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataTableValueLockLevelPtrInput)(nil)).Elem(), DataTableValueLockLevel("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormItemEnablementConditionOperatorInput)(nil)).Elem(), EvaluationFormItemEnablementConditionOperator("OR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormItemEnablementConditionOperatorPtrInput)(nil)).Elem(), EvaluationFormItemEnablementConditionOperator("OR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormItemEnablementConfigurationActionInput)(nil)).Elem(), EvaluationFormItemEnablementConfigurationAction("DISABLE"))
@@ -7672,6 +8688,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateStatusPtrInput)(nil)).Elem(), TaskTemplateStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneTypeInput)(nil)).Elem(), UserPhoneType("SOFT_PHONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneTypePtrInput)(nil)).Elem(), UserPhoneType("SOFT_PHONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceFontFamilyInput)(nil)).Elem(), WorkspaceFontFamily("ARIAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceFontFamilyPtrInput)(nil)).Elem(), WorkspaceFontFamily("ARIAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceMediaTypeInput)(nil)).Elem(), WorkspaceMediaType("IMAGE_LOGO_LIGHT_FAVICON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceMediaTypePtrInput)(nil)).Elem(), WorkspaceMediaType("IMAGE_LOGO_LIGHT_FAVICON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceVisibilityInput)(nil)).Elem(), WorkspaceVisibility("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceVisibilityPtrInput)(nil)).Elem(), WorkspaceVisibility("ALL"))
 	pulumi.RegisterOutputType(AgentStatusStateEnumOutput{})
 	pulumi.RegisterOutputType(AgentStatusStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(AgentStatusTypeOutput{})
@@ -7680,6 +8702,12 @@ func init() {
 	pulumi.RegisterOutputType(ContactFlowStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(ContactFlowTypeOutput{})
 	pulumi.RegisterOutputType(ContactFlowTypePtrOutput{})
+	pulumi.RegisterOutputType(DataTableAttributeValueTypeOutput{})
+	pulumi.RegisterOutputType(DataTableAttributeValueTypePtrOutput{})
+	pulumi.RegisterOutputType(DataTableStatusOutput{})
+	pulumi.RegisterOutputType(DataTableStatusPtrOutput{})
+	pulumi.RegisterOutputType(DataTableValueLockLevelOutput{})
+	pulumi.RegisterOutputType(DataTableValueLockLevelPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormItemEnablementConditionOperatorOutput{})
 	pulumi.RegisterOutputType(EvaluationFormItemEnablementConditionOperatorPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormItemEnablementConfigurationActionOutput{})
@@ -7764,4 +8792,10 @@ func init() {
 	pulumi.RegisterOutputType(TrafficDistributionGroupStatusPtrOutput{})
 	pulumi.RegisterOutputType(UserPhoneTypeOutput{})
 	pulumi.RegisterOutputType(UserPhoneTypePtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceFontFamilyOutput{})
+	pulumi.RegisterOutputType(WorkspaceFontFamilyPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceMediaTypeOutput{})
+	pulumi.RegisterOutputType(WorkspaceMediaTypePtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceVisibilityOutput{})
+	pulumi.RegisterOutputType(WorkspaceVisibilityPtrOutput{})
 }

@@ -286,6 +286,18 @@ export const ConfigurationPolicyParameterConfigurationValueType = {
  */
 export type ConfigurationPolicyParameterConfigurationValueType = (typeof ConfigurationPolicyParameterConfigurationValueType)[keyof typeof ConfigurationPolicyParameterConfigurationValueType];
 
+export const ConnectorV2ConnectorStatus = {
+    Connected: "CONNECTED",
+    FailedToConnect: "FAILED_TO_CONNECT",
+    PendingAuthorization: "PENDING_AUTHORIZATION",
+    PendingConfiguration: "PENDING_CONFIGURATION",
+} as const;
+
+/**
+ * The status of the connector
+ */
+export type ConnectorV2ConnectorStatus = (typeof ConnectorV2ConnectorStatus)[keyof typeof ConnectorV2ConnectorStatus];
+
 export const DelegatedAdminStatus = {
     Enabled: "ENABLED",
     DisableInProgress: "DISABLE_IN_PROGRESS",

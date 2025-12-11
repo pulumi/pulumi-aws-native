@@ -99,6 +99,7 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
         /// One or more tags.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly Pulumi.AwsNative.ConnectCampaignsV2.CampaignType? Type;
 
         [OutputConstructor]
         private GetCampaignResult(
@@ -118,7 +119,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
 
             Outputs.CampaignSource? source,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            Pulumi.AwsNative.ConnectCampaignsV2.CampaignType? type)
         {
             Arn = arn;
             ChannelSubtypeConfig = channelSubtypeConfig;
@@ -129,6 +132,7 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
             Schedule = schedule;
             Source = source;
             Tags = tags;
+            Type = type;
         }
     }
 }

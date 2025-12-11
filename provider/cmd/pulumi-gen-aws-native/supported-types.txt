@@ -259,6 +259,9 @@ AWS::Connect::ApprovedOrigin
 AWS::Connect::ContactFlow
 AWS::Connect::ContactFlowModule
 AWS::Connect::ContactFlowVersion
+AWS::Connect::DataTable
+AWS::Connect::DataTableAttribute
+AWS::Connect::DataTableRecord
 AWS::Connect::EmailAddress
 AWS::Connect::EvaluationForm
 AWS::Connect::HoursOfOperation
@@ -281,6 +284,7 @@ AWS::Connect::UserHierarchyGroup
 AWS::Connect::UserHierarchyStructure
 AWS::Connect::View
 AWS::Connect::ViewVersion
+AWS::Connect::Workspace
 AWS::ConnectCampaigns::Campaign
 AWS::ConnectCampaignsV2::Campaign
 AWS::ControlTower::EnabledBaseline
@@ -861,6 +865,7 @@ AWS::NetworkFirewall::VpcEndpointAssociation
 AWS::NetworkManager::ConnectAttachment
 AWS::NetworkManager::ConnectPeer
 AWS::NetworkManager::CoreNetwork
+AWS::NetworkManager::CoreNetworkPrefixListAssociation
 AWS::NetworkManager::CustomerGatewayAssociation
 AWS::NetworkManager::Device
 AWS::NetworkManager::DirectConnectGatewayAttachment
@@ -887,6 +892,7 @@ AWS::Oam::Link
 AWS::Oam::Sink
 AWS::ObservabilityAdmin::OrganizationCentralizationRule
 AWS::ObservabilityAdmin::OrganizationTelemetryRule
+AWS::ObservabilityAdmin::TelemetryPipelines
 AWS::ObservabilityAdmin::TelemetryRule
 AWS::Omics::AnnotationStore
 AWS::Omics::ReferenceStore

@@ -34,9 +34,29 @@ export interface GetResourceShareResult {
      */
     readonly arn?: string;
     /**
+     * The date and time when the resource share was created.
+     */
+    readonly creationTime?: string;
+    /**
+     * The feature set of the resource share.
+     */
+    readonly featureSet?: enums.ram.ResourceShareFeatureSet;
+    /**
+     * The date and time when the resource share was last updated.
+     */
+    readonly lastUpdatedTime?: string;
+    /**
      * Specifies the name of the resource share.
      */
     readonly name?: string;
+    /**
+     * The ID of the AWS account that owns the resource share.
+     */
+    readonly owningAccountId?: string;
+    /**
+     * The current status of the resource share.
+     */
+    readonly status?: enums.ram.ResourceShareStatus;
     /**
      * Specifies one or more tags to attach to the resource share itself. It doesn't attach the tags to the resources associated with the resource share.
      */

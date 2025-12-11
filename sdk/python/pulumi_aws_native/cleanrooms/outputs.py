@@ -25,9 +25,13 @@ __all__ = [
     'AnalysisTemplateArtifact',
     'AnalysisTemplateArtifactMetadata',
     'AnalysisTemplateArtifacts',
+    'AnalysisTemplateColumnClassificationDetails',
     'AnalysisTemplateErrorMessageConfiguration',
     'AnalysisTemplateHash',
+    'AnalysisTemplateMlSyntheticDataParameters',
     'AnalysisTemplateS3Location',
+    'AnalysisTemplateSyntheticDataColumnProperties',
+    'AnalysisTemplateSyntheticDataParametersProperties',
     'CollaborationDataEncryptionMetadata',
     'CollaborationJobComputePaymentConfig',
     'CollaborationMemberSpecification',
@@ -37,6 +41,7 @@ __all__ = [
     'CollaborationModelTrainingPaymentConfig',
     'CollaborationPaymentConfiguration',
     'CollaborationQueryComputePaymentConfig',
+    'CollaborationSyntheticDataGenerationPaymentConfig',
     'ConfiguredTableAggregateColumn',
     'ConfiguredTableAggregationConstraint',
     'ConfiguredTableAnalysisRule',
@@ -84,6 +89,7 @@ __all__ = [
     'MembershipProtectedQueryResultConfiguration',
     'MembershipProtectedQueryS3OutputConfiguration',
     'MembershipQueryComputePaymentConfig',
+    'MembershipSyntheticDataGenerationPaymentConfig',
     'ParametersProperties',
     'PrivacyBudgetTemplateBudgetParameter',
 ]
@@ -317,6 +323,35 @@ class AnalysisTemplateArtifacts(dict):
 
 
 @pulumi.output_type
+class AnalysisTemplateColumnClassificationDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnMapping":
+            suggest = "column_mapping"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisTemplateColumnClassificationDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisTemplateColumnClassificationDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisTemplateColumnClassificationDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_mapping: Sequence['outputs.AnalysisTemplateSyntheticDataColumnProperties']):
+        pulumi.set(__self__, "column_mapping", column_mapping)
+
+    @_builtins.property
+    @pulumi.getter(name="columnMapping")
+    def column_mapping(self) -> Sequence['outputs.AnalysisTemplateSyntheticDataColumnProperties']:
+        return pulumi.get(self, "column_mapping")
+
+
+@pulumi.output_type
 class AnalysisTemplateErrorMessageConfiguration(dict):
     def __init__(__self__, *,
                  type: 'AnalysisTemplateErrorMessageConfigurationType'):
@@ -352,6 +387,51 @@ class AnalysisTemplateHash(dict):
 
 
 @pulumi.output_type
+class AnalysisTemplateMlSyntheticDataParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnClassification":
+            suggest = "column_classification"
+        elif key == "maxMembershipInferenceAttackScore":
+            suggest = "max_membership_inference_attack_score"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisTemplateMlSyntheticDataParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisTemplateMlSyntheticDataParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisTemplateMlSyntheticDataParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_classification: 'outputs.AnalysisTemplateColumnClassificationDetails',
+                 epsilon: _builtins.float,
+                 max_membership_inference_attack_score: _builtins.float):
+        pulumi.set(__self__, "column_classification", column_classification)
+        pulumi.set(__self__, "epsilon", epsilon)
+        pulumi.set(__self__, "max_membership_inference_attack_score", max_membership_inference_attack_score)
+
+    @_builtins.property
+    @pulumi.getter(name="columnClassification")
+    def column_classification(self) -> 'outputs.AnalysisTemplateColumnClassificationDetails':
+        return pulumi.get(self, "column_classification")
+
+    @_builtins.property
+    @pulumi.getter
+    def epsilon(self) -> _builtins.float:
+        return pulumi.get(self, "epsilon")
+
+    @_builtins.property
+    @pulumi.getter(name="maxMembershipInferenceAttackScore")
+    def max_membership_inference_attack_score(self) -> _builtins.float:
+        return pulumi.get(self, "max_membership_inference_attack_score")
+
+
+@pulumi.output_type
 class AnalysisTemplateS3Location(dict):
     def __init__(__self__, *,
                  bucket: _builtins.str,
@@ -368,6 +448,82 @@ class AnalysisTemplateS3Location(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         return pulumi.get(self, "key")
+
+
+@pulumi.output_type
+class AnalysisTemplateSyntheticDataColumnProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+        elif key == "columnType":
+            suggest = "column_type"
+        elif key == "isPredictiveValue":
+            suggest = "is_predictive_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisTemplateSyntheticDataColumnProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisTemplateSyntheticDataColumnProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisTemplateSyntheticDataColumnProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_name: _builtins.str,
+                 column_type: 'AnalysisTemplateSyntheticDataColumnPropertiesColumnType',
+                 is_predictive_value: _builtins.bool):
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "column_type", column_type)
+        pulumi.set(__self__, "is_predictive_value", is_predictive_value)
+
+    @_builtins.property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> _builtins.str:
+        return pulumi.get(self, "column_name")
+
+    @_builtins.property
+    @pulumi.getter(name="columnType")
+    def column_type(self) -> 'AnalysisTemplateSyntheticDataColumnPropertiesColumnType':
+        return pulumi.get(self, "column_type")
+
+    @_builtins.property
+    @pulumi.getter(name="isPredictiveValue")
+    def is_predictive_value(self) -> _builtins.bool:
+        return pulumi.get(self, "is_predictive_value")
+
+
+@pulumi.output_type
+class AnalysisTemplateSyntheticDataParametersProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mlSyntheticDataParameters":
+            suggest = "ml_synthetic_data_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisTemplateSyntheticDataParametersProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisTemplateSyntheticDataParametersProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisTemplateSyntheticDataParametersProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ml_synthetic_data_parameters: 'outputs.AnalysisTemplateMlSyntheticDataParameters'):
+        pulumi.set(__self__, "ml_synthetic_data_parameters", ml_synthetic_data_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="mlSyntheticDataParameters")
+    def ml_synthetic_data_parameters(self) -> 'outputs.AnalysisTemplateMlSyntheticDataParameters':
+        return pulumi.get(self, "ml_synthetic_data_parameters")
 
 
 @pulumi.output_type
@@ -629,6 +785,8 @@ class CollaborationMlPaymentConfig(dict):
             suggest = "model_inference"
         elif key == "modelTraining":
             suggest = "model_training"
+        elif key == "syntheticDataGeneration":
+            suggest = "synthetic_data_generation"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CollaborationMlPaymentConfig. Access the value via the '{suggest}' property getter instead.")
@@ -643,7 +801,8 @@ class CollaborationMlPaymentConfig(dict):
 
     def __init__(__self__, *,
                  model_inference: Optional['outputs.CollaborationModelInferencePaymentConfig'] = None,
-                 model_training: Optional['outputs.CollaborationModelTrainingPaymentConfig'] = None):
+                 model_training: Optional['outputs.CollaborationModelTrainingPaymentConfig'] = None,
+                 synthetic_data_generation: Optional['outputs.CollaborationSyntheticDataGenerationPaymentConfig'] = None):
         """
         :param 'CollaborationModelInferencePaymentConfig' model_inference: The payment responsibilities accepted by the member for model inference.
         :param 'CollaborationModelTrainingPaymentConfig' model_training: The payment responsibilities accepted by the member for model training.
@@ -652,6 +811,8 @@ class CollaborationMlPaymentConfig(dict):
             pulumi.set(__self__, "model_inference", model_inference)
         if model_training is not None:
             pulumi.set(__self__, "model_training", model_training)
+        if synthetic_data_generation is not None:
+            pulumi.set(__self__, "synthetic_data_generation", synthetic_data_generation)
 
     @_builtins.property
     @pulumi.getter(name="modelInference")
@@ -668,6 +829,11 @@ class CollaborationMlPaymentConfig(dict):
         The payment responsibilities accepted by the member for model training.
         """
         return pulumi.get(self, "model_training")
+
+    @_builtins.property
+    @pulumi.getter(name="syntheticDataGeneration")
+    def synthetic_data_generation(self) -> Optional['outputs.CollaborationSyntheticDataGenerationPaymentConfig']:
+        return pulumi.get(self, "synthetic_data_generation")
 
 
 @pulumi.output_type
@@ -859,6 +1025,35 @@ class CollaborationQueryComputePaymentConfig(dict):
 
         If the collaboration creator hasn't specified anyone as the member paying for query compute costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
         """
+        return pulumi.get(self, "is_responsible")
+
+
+@pulumi.output_type
+class CollaborationSyntheticDataGenerationPaymentConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isResponsible":
+            suggest = "is_responsible"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CollaborationSyntheticDataGenerationPaymentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CollaborationSyntheticDataGenerationPaymentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CollaborationSyntheticDataGenerationPaymentConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_responsible: _builtins.bool):
+        pulumi.set(__self__, "is_responsible", is_responsible)
+
+    @_builtins.property
+    @pulumi.getter(name="isResponsible")
+    def is_responsible(self) -> _builtins.bool:
         return pulumi.get(self, "is_responsible")
 
 
@@ -2082,6 +2277,8 @@ class MembershipMlPaymentConfig(dict):
             suggest = "model_inference"
         elif key == "modelTraining":
             suggest = "model_training"
+        elif key == "syntheticDataGeneration":
+            suggest = "synthetic_data_generation"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MembershipMlPaymentConfig. Access the value via the '{suggest}' property getter instead.")
@@ -2096,7 +2293,8 @@ class MembershipMlPaymentConfig(dict):
 
     def __init__(__self__, *,
                  model_inference: Optional['outputs.MembershipModelInferencePaymentConfig'] = None,
-                 model_training: Optional['outputs.MembershipModelTrainingPaymentConfig'] = None):
+                 model_training: Optional['outputs.MembershipModelTrainingPaymentConfig'] = None,
+                 synthetic_data_generation: Optional['outputs.MembershipSyntheticDataGenerationPaymentConfig'] = None):
         """
         :param 'MembershipModelInferencePaymentConfig' model_inference: The payment responsibilities accepted by the member for model inference.
         :param 'MembershipModelTrainingPaymentConfig' model_training: The payment responsibilities accepted by the member for model training.
@@ -2105,6 +2303,8 @@ class MembershipMlPaymentConfig(dict):
             pulumi.set(__self__, "model_inference", model_inference)
         if model_training is not None:
             pulumi.set(__self__, "model_training", model_training)
+        if synthetic_data_generation is not None:
+            pulumi.set(__self__, "synthetic_data_generation", synthetic_data_generation)
 
     @_builtins.property
     @pulumi.getter(name="modelInference")
@@ -2121,6 +2321,11 @@ class MembershipMlPaymentConfig(dict):
         The payment responsibilities accepted by the member for model training.
         """
         return pulumi.get(self, "model_training")
+
+    @_builtins.property
+    @pulumi.getter(name="syntheticDataGeneration")
+    def synthetic_data_generation(self) -> Optional['outputs.MembershipSyntheticDataGenerationPaymentConfig']:
+        return pulumi.get(self, "synthetic_data_generation")
 
 
 @pulumi.output_type
@@ -2584,6 +2789,35 @@ class MembershipQueryComputePaymentConfig(dict):
         - If you set the value to `FALSE` but you are responsible to pay for query compute costs.
         - If you set the value to `TRUE` but you are not responsible to pay for query compute costs.
         """
+        return pulumi.get(self, "is_responsible")
+
+
+@pulumi.output_type
+class MembershipSyntheticDataGenerationPaymentConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isResponsible":
+            suggest = "is_responsible"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MembershipSyntheticDataGenerationPaymentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MembershipSyntheticDataGenerationPaymentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MembershipSyntheticDataGenerationPaymentConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_responsible: _builtins.bool):
+        pulumi.set(__self__, "is_responsible", is_responsible)
+
+    @_builtins.property
+    @pulumi.getter(name="isResponsible")
+    def is_responsible(self) -> _builtins.bool:
         return pulumi.get(self, "is_responsible")
 
 

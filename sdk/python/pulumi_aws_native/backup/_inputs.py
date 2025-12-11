@@ -198,6 +198,9 @@ if not MYPY:
         If this value is included, it must be at least 60 minutes to avoid errors.
         """
         target_logically_air_gapped_backup_vault_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ARN of a logically air-gapped vault. ARN must be in the same account and Region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+        """
 elif False:
     BackupPlanBackupRuleResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -235,6 +238,7 @@ class BackupPlanBackupRuleResourceTypeArgs:
         :param pulumi.Input[_builtins.float] start_window_minutes: An optional value that specifies a period of time in minutes after a backup is scheduled before a job is canceled if it doesn't start successfully.
                
                If this value is included, it must be at least 60 minutes to avoid errors.
+        :param pulumi.Input[_builtins.str] target_logically_air_gapped_backup_vault_arn: The ARN of a logically air-gapped vault. ARN must be in the same account and Region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
         """
         pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "target_backup_vault", target_backup_vault)
@@ -401,6 +405,9 @@ class BackupPlanBackupRuleResourceTypeArgs:
     @_builtins.property
     @pulumi.getter(name="targetLogicallyAirGappedBackupVaultArn")
     def target_logically_air_gapped_backup_vault_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of a logically air-gapped vault. ARN must be in the same account and Region. If provided, supported fully managed resources back up directly to logically air-gapped vault, while other supported resources create a temporary (billable) snapshot in backup vault, then copy it to logically air-gapped vault. Unsupported resources only back up to the specified backup vault.
+        """
         return pulumi.get(self, "target_logically_air_gapped_backup_vault_arn")
 
     @target_logically_air_gapped_backup_vault_arn.setter

@@ -45,6 +45,8 @@ type VpcAttachment struct {
 	ProposedSegmentChange VpcAttachmentProposedSegmentChangePtrOutput `pulumi:"proposedSegmentChange"`
 	// The ARN of the Resource.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	// Routing policy label
+	RoutingPolicyLabel pulumi.StringPtrOutput `pulumi:"routingPolicyLabel"`
 	// The name of the segment attachment..
 	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
 	// State of the attachment.
@@ -77,6 +79,7 @@ func NewVpcAttachment(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"coreNetworkId",
+		"routingPolicyLabel",
 		"vpcArn",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -121,6 +124,8 @@ type vpcAttachmentArgs struct {
 	ProposedNetworkFunctionGroupChange *VpcAttachmentProposedNetworkFunctionGroupChange `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange *VpcAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
+	// Routing policy label
+	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
 	// Subnet Arn list
 	SubnetArns []string `pulumi:"subnetArns"`
 	// Tags for the attachment.
@@ -139,6 +144,8 @@ type VpcAttachmentArgs struct {
 	ProposedNetworkFunctionGroupChange VpcAttachmentProposedNetworkFunctionGroupChangePtrInput
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange VpcAttachmentProposedSegmentChangePtrInput
+	// Routing policy label
+	RoutingPolicyLabel pulumi.StringPtrInput
 	// Subnet Arn list
 	SubnetArns pulumi.StringArrayInput
 	// Tags for the attachment.
@@ -254,6 +261,11 @@ func (o VpcAttachmentOutput) ProposedSegmentChange() VpcAttachmentProposedSegmen
 // The ARN of the Resource.
 func (o VpcAttachmentOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachment) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+// Routing policy label
+func (o VpcAttachmentOutput) RoutingPolicyLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcAttachment) pulumi.StringPtrOutput { return v.RoutingPolicyLabel }).(pulumi.StringPtrOutput)
 }
 
 // The name of the segment attachment..

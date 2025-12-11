@@ -19,6 +19,8 @@ from ._enums import *
 __all__ = [
     'AttributeConfigurationProperties',
     'ConstraintsProperties',
+    'DataTableRecordProperties',
+    'DataTableRecordValue',
     'EmailAddressAliasConfiguration',
     'EvaluationFormAutoEvaluationConfiguration',
     'EvaluationFormAutomaticFailConfiguration',
@@ -53,6 +55,7 @@ __all__ = [
     'EvaluationFormTargetConfiguration',
     'EvaluationFormTextQuestionAutomation',
     'EvaluationFormTextQuestionProperties',
+    'FontFamily',
     'GranularAccessControlConfigurationProperties',
     'HoursOfOperationConfig',
     'HoursOfOperationOverride',
@@ -65,6 +68,7 @@ __all__ = [
     'InstanceStorageConfigKinesisStreamConfig',
     'InstanceStorageConfigKinesisVideoStreamConfig',
     'InstanceStorageConfigS3Config',
+    'LockVersionProperties',
     'QueueOutboundCallerConfig',
     'QueueOutboundEmailConfig',
     'QuickConnectConfig',
@@ -110,7 +114,19 @@ __all__ = [
     'UserIdentityInfo',
     'UserPhoneConfig',
     'UserProficiency',
+    'ValidationProperties',
+    'ValidationPropertiesEnumProperties',
     'ValuesProperties',
+    'WorkspaceMediaItem',
+    'WorkspacePage',
+    'WorkspacePaletteCanvas',
+    'WorkspacePaletteHeader',
+    'WorkspacePaletteNavigation',
+    'WorkspacePalettePrimary',
+    'WorkspaceTheme',
+    'WorkspaceThemeConfig',
+    'WorkspaceThemePalette',
+    'WorkspaceThemeTypography',
 ]
 
 @pulumi.output_type
@@ -233,6 +249,83 @@ class ConstraintsProperties(dict):
         Lists the fields that are required to be filled by agents.
         """
         return pulumi.get(self, "required_fields")
+
+
+@pulumi.output_type
+class DataTableRecordProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primaryValues":
+            suggest = "primary_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataTableRecordProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataTableRecordProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataTableRecordProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 values: Sequence['outputs.DataTableRecordValue'],
+                 primary_values: Optional[Sequence['outputs.DataTableRecordValue']] = None):
+        pulumi.set(__self__, "values", values)
+        if primary_values is not None:
+            pulumi.set(__self__, "primary_values", primary_values)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence['outputs.DataTableRecordValue']:
+        return pulumi.get(self, "values")
+
+    @_builtins.property
+    @pulumi.getter(name="primaryValues")
+    def primary_values(self) -> Optional[Sequence['outputs.DataTableRecordValue']]:
+        return pulumi.get(self, "primary_values")
+
+
+@pulumi.output_type
+class DataTableRecordValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeId":
+            suggest = "attribute_id"
+        elif key == "attributeValue":
+            suggest = "attribute_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataTableRecordValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataTableRecordValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataTableRecordValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_id: Optional[_builtins.str] = None,
+                 attribute_value: Optional[_builtins.str] = None):
+        if attribute_id is not None:
+            pulumi.set(__self__, "attribute_id", attribute_id)
+        if attribute_value is not None:
+            pulumi.set(__self__, "attribute_value", attribute_value)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeId")
+    def attribute_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "attribute_id")
+
+    @_builtins.property
+    @pulumi.getter(name="attributeValue")
+    def attribute_value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "attribute_value")
 
 
 @pulumi.output_type
@@ -2032,7 +2125,23 @@ class EvaluationFormTextQuestionProperties(dict):
 
 
 @pulumi.output_type
+class FontFamily(dict):
+    def __init__(__self__, *,
+                 default: Optional['WorkspaceFontFamily'] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional['WorkspaceFontFamily']:
+        return pulumi.get(self, "default")
+
+
+@pulumi.output_type
 class GranularAccessControlConfigurationProperties(dict):
+    """
+    The granular access control configuration for the security profile, including data table permissions.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2052,12 +2161,19 @@ class GranularAccessControlConfigurationProperties(dict):
 
     def __init__(__self__, *,
                  data_table_access_control_configuration: Optional['outputs.SecurityProfileDataTableAccessControlConfiguration'] = None):
+        """
+        The granular access control configuration for the security profile, including data table permissions.
+        :param 'SecurityProfileDataTableAccessControlConfiguration' data_table_access_control_configuration: The access control configuration for data tables.
+        """
         if data_table_access_control_configuration is not None:
             pulumi.set(__self__, "data_table_access_control_configuration", data_table_access_control_configuration)
 
     @_builtins.property
     @pulumi.getter(name="dataTableAccessControlConfiguration")
     def data_table_access_control_configuration(self) -> Optional['outputs.SecurityProfileDataTableAccessControlConfiguration']:
+        """
+        The access control configuration for data tables.
+        """
         return pulumi.get(self, "data_table_access_control_configuration")
 
 
@@ -2734,6 +2850,44 @@ class InstanceStorageConfigS3Config(dict):
         The Amazon S3 encryption configuration.
         """
         return pulumi.get(self, "encryption_config")
+
+
+@pulumi.output_type
+class LockVersionProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataTable":
+            suggest = "data_table"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LockVersionProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LockVersionProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LockVersionProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute: Optional[_builtins.str] = None,
+                 data_table: Optional[_builtins.str] = None):
+        if attribute is not None:
+            pulumi.set(__self__, "attribute", attribute)
+        if data_table is not None:
+            pulumi.set(__self__, "data_table", data_table)
+
+    @_builtins.property
+    @pulumi.getter
+    def attribute(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="dataTable")
+    def data_table(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "data_table")
 
 
 @pulumi.output_type
@@ -4047,6 +4201,7 @@ class SecurityProfileDataTableAccessControlConfiguration(dict):
                  primary_attribute_access_control_configuration: Optional['outputs.SecurityProfilePrimaryAttributeAccessControlConfigurationItem'] = None):
         """
         Defines the access control configuration for data tables.
+        :param 'SecurityProfilePrimaryAttributeAccessControlConfigurationItem' primary_attribute_access_control_configuration: The configuration's primary attribute access control configuration.
         """
         if primary_attribute_access_control_configuration is not None:
             pulumi.set(__self__, "primary_attribute_access_control_configuration", primary_attribute_access_control_configuration)
@@ -4054,6 +4209,9 @@ class SecurityProfileDataTableAccessControlConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="primaryAttributeAccessControlConfiguration")
     def primary_attribute_access_control_configuration(self) -> Optional['outputs.SecurityProfilePrimaryAttributeAccessControlConfigurationItem']:
+        """
+        The configuration's primary attribute access control configuration.
+        """
         return pulumi.get(self, "primary_attribute_access_control_configuration")
 
 
@@ -5064,6 +5222,141 @@ class UserProficiency(dict):
 
 
 @pulumi.output_type
+class ValidationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "exclusiveMaximum":
+            suggest = "exclusive_maximum"
+        elif key == "exclusiveMinimum":
+            suggest = "exclusive_minimum"
+        elif key == "maxLength":
+            suggest = "max_length"
+        elif key == "maxValues":
+            suggest = "max_values"
+        elif key == "minLength":
+            suggest = "min_length"
+        elif key == "minValues":
+            suggest = "min_values"
+        elif key == "multipleOf":
+            suggest = "multiple_of"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ValidationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ValidationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ValidationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enum: Optional['outputs.ValidationPropertiesEnumProperties'] = None,
+                 exclusive_maximum: Optional[_builtins.float] = None,
+                 exclusive_minimum: Optional[_builtins.float] = None,
+                 max_length: Optional[_builtins.int] = None,
+                 max_values: Optional[_builtins.int] = None,
+                 maximum: Optional[_builtins.float] = None,
+                 min_length: Optional[_builtins.int] = None,
+                 min_values: Optional[_builtins.int] = None,
+                 minimum: Optional[_builtins.float] = None,
+                 multiple_of: Optional[_builtins.float] = None):
+        if enum is not None:
+            pulumi.set(__self__, "enum", enum)
+        if exclusive_maximum is not None:
+            pulumi.set(__self__, "exclusive_maximum", exclusive_maximum)
+        if exclusive_minimum is not None:
+            pulumi.set(__self__, "exclusive_minimum", exclusive_minimum)
+        if max_length is not None:
+            pulumi.set(__self__, "max_length", max_length)
+        if max_values is not None:
+            pulumi.set(__self__, "max_values", max_values)
+        if maximum is not None:
+            pulumi.set(__self__, "maximum", maximum)
+        if min_length is not None:
+            pulumi.set(__self__, "min_length", min_length)
+        if min_values is not None:
+            pulumi.set(__self__, "min_values", min_values)
+        if minimum is not None:
+            pulumi.set(__self__, "minimum", minimum)
+        if multiple_of is not None:
+            pulumi.set(__self__, "multiple_of", multiple_of)
+
+    @_builtins.property
+    @pulumi.getter
+    def enum(self) -> Optional['outputs.ValidationPropertiesEnumProperties']:
+        return pulumi.get(self, "enum")
+
+    @_builtins.property
+    @pulumi.getter(name="exclusiveMaximum")
+    def exclusive_maximum(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "exclusive_maximum")
+
+    @_builtins.property
+    @pulumi.getter(name="exclusiveMinimum")
+    def exclusive_minimum(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "exclusive_minimum")
+
+    @_builtins.property
+    @pulumi.getter(name="maxLength")
+    def max_length(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "max_length")
+
+    @_builtins.property
+    @pulumi.getter(name="maxValues")
+    def max_values(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "max_values")
+
+    @_builtins.property
+    @pulumi.getter
+    def maximum(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "maximum")
+
+    @_builtins.property
+    @pulumi.getter(name="minLength")
+    def min_length(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "min_length")
+
+    @_builtins.property
+    @pulumi.getter(name="minValues")
+    def min_values(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "min_values")
+
+    @_builtins.property
+    @pulumi.getter
+    def minimum(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "minimum")
+
+    @_builtins.property
+    @pulumi.getter(name="multipleOf")
+    def multiple_of(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "multiple_of")
+
+
+@pulumi.output_type
+class ValidationPropertiesEnumProperties(dict):
+    def __init__(__self__, *,
+                 strict: Optional[_builtins.bool] = None,
+                 values: Optional[Sequence[_builtins.str]] = None):
+        if strict is not None:
+            pulumi.set(__self__, "strict", strict)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def strict(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "strict")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
 class ValuesProperties(dict):
     """
     The values of a predefined attribute.
@@ -5101,5 +5394,450 @@ class ValuesProperties(dict):
         Predefined attribute values of type string list.
         """
         return pulumi.get(self, "string_list")
+
+
+@pulumi.output_type
+class WorkspaceMediaItem(dict):
+    def __init__(__self__, *,
+                 type: 'WorkspaceMediaType',
+                 source: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "type", type)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'WorkspaceMediaType':
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class WorkspacePage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+        elif key == "inputData":
+            suggest = "input_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspacePage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspacePage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspacePage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 page: _builtins.str,
+                 resource_arn: _builtins.str,
+                 input_data: Optional[_builtins.str] = None,
+                 slug: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str page: The page identifier.
+        :param _builtins.str resource_arn: The Amazon Resource Name (ARN) of the resource associated with the page.
+        :param _builtins.str input_data: The input data for the page.
+        :param _builtins.str slug: The slug for the page.
+        """
+        pulumi.set(__self__, "page", page)
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        if input_data is not None:
+            pulumi.set(__self__, "input_data", input_data)
+        if slug is not None:
+            pulumi.set(__self__, "slug", slug)
+
+    @_builtins.property
+    @pulumi.getter
+    def page(self) -> _builtins.str:
+        """
+        The page identifier.
+        """
+        return pulumi.get(self, "page")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> _builtins.str:
+        """
+        The Amazon Resource Name (ARN) of the resource associated with the page.
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="inputData")
+    def input_data(self) -> Optional[_builtins.str]:
+        """
+        The input data for the page.
+        """
+        return pulumi.get(self, "input_data")
+
+    @_builtins.property
+    @pulumi.getter
+    def slug(self) -> Optional[_builtins.str]:
+        """
+        The slug for the page.
+        """
+        return pulumi.get(self, "slug")
+
+
+@pulumi.output_type
+class WorkspacePaletteCanvas(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeBackground":
+            suggest = "active_background"
+        elif key == "containerBackground":
+            suggest = "container_background"
+        elif key == "pageBackground":
+            suggest = "page_background"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspacePaletteCanvas. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspacePaletteCanvas.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspacePaletteCanvas.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 active_background: Optional[_builtins.str] = None,
+                 container_background: Optional[_builtins.str] = None,
+                 page_background: Optional[_builtins.str] = None):
+        if active_background is not None:
+            pulumi.set(__self__, "active_background", active_background)
+        if container_background is not None:
+            pulumi.set(__self__, "container_background", container_background)
+        if page_background is not None:
+            pulumi.set(__self__, "page_background", page_background)
+
+    @_builtins.property
+    @pulumi.getter(name="activeBackground")
+    def active_background(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "active_background")
+
+    @_builtins.property
+    @pulumi.getter(name="containerBackground")
+    def container_background(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "container_background")
+
+    @_builtins.property
+    @pulumi.getter(name="pageBackground")
+    def page_background(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "page_background")
+
+
+@pulumi.output_type
+class WorkspacePaletteHeader(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "invertActionsColors":
+            suggest = "invert_actions_colors"
+        elif key == "textHover":
+            suggest = "text_hover"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspacePaletteHeader. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspacePaletteHeader.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspacePaletteHeader.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 background: Optional[_builtins.str] = None,
+                 invert_actions_colors: Optional[_builtins.bool] = None,
+                 text: Optional[_builtins.str] = None,
+                 text_hover: Optional[_builtins.str] = None):
+        if background is not None:
+            pulumi.set(__self__, "background", background)
+        if invert_actions_colors is not None:
+            pulumi.set(__self__, "invert_actions_colors", invert_actions_colors)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+        if text_hover is not None:
+            pulumi.set(__self__, "text_hover", text_hover)
+
+    @_builtins.property
+    @pulumi.getter
+    def background(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "background")
+
+    @_builtins.property
+    @pulumi.getter(name="invertActionsColors")
+    def invert_actions_colors(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "invert_actions_colors")
+
+    @_builtins.property
+    @pulumi.getter
+    def text(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "text")
+
+    @_builtins.property
+    @pulumi.getter(name="textHover")
+    def text_hover(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "text_hover")
+
+
+@pulumi.output_type
+class WorkspacePaletteNavigation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "invertActionsColors":
+            suggest = "invert_actions_colors"
+        elif key == "textActive":
+            suggest = "text_active"
+        elif key == "textBackgroundActive":
+            suggest = "text_background_active"
+        elif key == "textBackgroundHover":
+            suggest = "text_background_hover"
+        elif key == "textHover":
+            suggest = "text_hover"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspacePaletteNavigation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspacePaletteNavigation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspacePaletteNavigation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 background: Optional[_builtins.str] = None,
+                 invert_actions_colors: Optional[_builtins.bool] = None,
+                 text: Optional[_builtins.str] = None,
+                 text_active: Optional[_builtins.str] = None,
+                 text_background_active: Optional[_builtins.str] = None,
+                 text_background_hover: Optional[_builtins.str] = None,
+                 text_hover: Optional[_builtins.str] = None):
+        if background is not None:
+            pulumi.set(__self__, "background", background)
+        if invert_actions_colors is not None:
+            pulumi.set(__self__, "invert_actions_colors", invert_actions_colors)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+        if text_active is not None:
+            pulumi.set(__self__, "text_active", text_active)
+        if text_background_active is not None:
+            pulumi.set(__self__, "text_background_active", text_background_active)
+        if text_background_hover is not None:
+            pulumi.set(__self__, "text_background_hover", text_background_hover)
+        if text_hover is not None:
+            pulumi.set(__self__, "text_hover", text_hover)
+
+    @_builtins.property
+    @pulumi.getter
+    def background(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "background")
+
+    @_builtins.property
+    @pulumi.getter(name="invertActionsColors")
+    def invert_actions_colors(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "invert_actions_colors")
+
+    @_builtins.property
+    @pulumi.getter
+    def text(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "text")
+
+    @_builtins.property
+    @pulumi.getter(name="textActive")
+    def text_active(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "text_active")
+
+    @_builtins.property
+    @pulumi.getter(name="textBackgroundActive")
+    def text_background_active(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "text_background_active")
+
+    @_builtins.property
+    @pulumi.getter(name="textBackgroundHover")
+    def text_background_hover(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "text_background_hover")
+
+    @_builtins.property
+    @pulumi.getter(name="textHover")
+    def text_hover(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "text_hover")
+
+
+@pulumi.output_type
+class WorkspacePalettePrimary(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contrastText":
+            suggest = "contrast_text"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspacePalettePrimary. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspacePalettePrimary.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspacePalettePrimary.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 active: Optional[_builtins.str] = None,
+                 contrast_text: Optional[_builtins.str] = None,
+                 default: Optional[_builtins.str] = None):
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+        if contrast_text is not None:
+            pulumi.set(__self__, "contrast_text", contrast_text)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+
+    @_builtins.property
+    @pulumi.getter
+    def active(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "active")
+
+    @_builtins.property
+    @pulumi.getter(name="contrastText")
+    def contrast_text(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "contrast_text")
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+
+@pulumi.output_type
+class WorkspaceTheme(dict):
+    """
+    The theme configuration for the Connect workspace
+    """
+    def __init__(__self__, *,
+                 dark: Optional['outputs.WorkspaceThemeConfig'] = None,
+                 light: Optional['outputs.WorkspaceThemeConfig'] = None):
+        """
+        The theme configuration for the Connect workspace
+        """
+        if dark is not None:
+            pulumi.set(__self__, "dark", dark)
+        if light is not None:
+            pulumi.set(__self__, "light", light)
+
+    @_builtins.property
+    @pulumi.getter
+    def dark(self) -> Optional['outputs.WorkspaceThemeConfig']:
+        return pulumi.get(self, "dark")
+
+    @_builtins.property
+    @pulumi.getter
+    def light(self) -> Optional['outputs.WorkspaceThemeConfig']:
+        return pulumi.get(self, "light")
+
+
+@pulumi.output_type
+class WorkspaceThemeConfig(dict):
+    def __init__(__self__, *,
+                 palette: Optional['outputs.WorkspaceThemePalette'] = None,
+                 typography: Optional['outputs.WorkspaceThemeTypography'] = None):
+        if palette is not None:
+            pulumi.set(__self__, "palette", palette)
+        if typography is not None:
+            pulumi.set(__self__, "typography", typography)
+
+    @_builtins.property
+    @pulumi.getter
+    def palette(self) -> Optional['outputs.WorkspaceThemePalette']:
+        return pulumi.get(self, "palette")
+
+    @_builtins.property
+    @pulumi.getter
+    def typography(self) -> Optional['outputs.WorkspaceThemeTypography']:
+        return pulumi.get(self, "typography")
+
+
+@pulumi.output_type
+class WorkspaceThemePalette(dict):
+    def __init__(__self__, *,
+                 canvas: Optional['outputs.WorkspacePaletteCanvas'] = None,
+                 header: Optional['outputs.WorkspacePaletteHeader'] = None,
+                 navigation: Optional['outputs.WorkspacePaletteNavigation'] = None,
+                 primary: Optional['outputs.WorkspacePalettePrimary'] = None):
+        if canvas is not None:
+            pulumi.set(__self__, "canvas", canvas)
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+        if navigation is not None:
+            pulumi.set(__self__, "navigation", navigation)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+
+    @_builtins.property
+    @pulumi.getter
+    def canvas(self) -> Optional['outputs.WorkspacePaletteCanvas']:
+        return pulumi.get(self, "canvas")
+
+    @_builtins.property
+    @pulumi.getter
+    def header(self) -> Optional['outputs.WorkspacePaletteHeader']:
+        return pulumi.get(self, "header")
+
+    @_builtins.property
+    @pulumi.getter
+    def navigation(self) -> Optional['outputs.WorkspacePaletteNavigation']:
+        return pulumi.get(self, "navigation")
+
+    @_builtins.property
+    @pulumi.getter
+    def primary(self) -> Optional['outputs.WorkspacePalettePrimary']:
+        return pulumi.get(self, "primary")
+
+
+@pulumi.output_type
+class WorkspaceThemeTypography(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fontFamily":
+            suggest = "font_family"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceThemeTypography. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceThemeTypography.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceThemeTypography.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 font_family: Optional['outputs.FontFamily'] = None):
+        if font_family is not None:
+            pulumi.set(__self__, "font_family", font_family)
+
+    @_builtins.property
+    @pulumi.getter(name="fontFamily")
+    def font_family(self) -> Optional['outputs.FontFamily']:
+        return pulumi.get(self, "font_family")
 
 

@@ -34,6 +34,8 @@ __all__ = [
     'AutoScalingGroupCapacityReservationTargetArgsDict',
     'AutoScalingGroupCpuPerformanceFactorRequestArgs',
     'AutoScalingGroupCpuPerformanceFactorRequestArgsDict',
+    'AutoScalingGroupInstanceLifecyclePolicyArgs',
+    'AutoScalingGroupInstanceLifecyclePolicyArgsDict',
     'AutoScalingGroupInstanceMaintenancePolicyArgs',
     'AutoScalingGroupInstanceMaintenancePolicyArgsDict',
     'AutoScalingGroupInstanceRequirementsArgs',
@@ -64,6 +66,8 @@ __all__ = [
     'AutoScalingGroupNotificationConfigurationArgsDict',
     'AutoScalingGroupPerformanceFactorReferenceRequestArgs',
     'AutoScalingGroupPerformanceFactorReferenceRequestArgsDict',
+    'AutoScalingGroupRetentionTriggersArgs',
+    'AutoScalingGroupRetentionTriggersArgsDict',
     'AutoScalingGroupTagPropertyArgs',
     'AutoScalingGroupTagPropertyArgsDict',
     'AutoScalingGroupTotalLocalStorageGbRequestArgs',
@@ -582,6 +586,29 @@ class AutoScalingGroupCpuPerformanceFactorRequestArgs:
     @references.setter
     def references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupPerformanceFactorReferenceRequestArgs']]]]):
         pulumi.set(self, "references", value)
+
+
+if not MYPY:
+    class AutoScalingGroupInstanceLifecyclePolicyArgsDict(TypedDict):
+        retention_triggers: NotRequired[pulumi.Input['AutoScalingGroupRetentionTriggersArgsDict']]
+elif False:
+    AutoScalingGroupInstanceLifecyclePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutoScalingGroupInstanceLifecyclePolicyArgs:
+    def __init__(__self__, *,
+                 retention_triggers: Optional[pulumi.Input['AutoScalingGroupRetentionTriggersArgs']] = None):
+        if retention_triggers is not None:
+            pulumi.set(__self__, "retention_triggers", retention_triggers)
+
+    @_builtins.property
+    @pulumi.getter(name="retentionTriggers")
+    def retention_triggers(self) -> Optional[pulumi.Input['AutoScalingGroupRetentionTriggersArgs']]:
+        return pulumi.get(self, "retention_triggers")
+
+    @retention_triggers.setter
+    def retention_triggers(self, value: Optional[pulumi.Input['AutoScalingGroupRetentionTriggersArgs']]):
+        pulumi.set(self, "retention_triggers", value)
 
 
 if not MYPY:
@@ -1556,6 +1583,7 @@ if not MYPY:
          After you define your instance requirements, you don't have to keep updating these settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance requirements of the Auto Scaling group to determine whether a new EC2 instance type can be used.
          ``LaunchTemplateOverrides`` is a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
         """
+        image_id: NotRequired[pulumi.Input[_builtins.str]]
         instance_requirements: NotRequired[pulumi.Input['AutoScalingGroupInstanceRequirementsArgsDict']]
         """
         The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
@@ -1584,6 +1612,7 @@ elif False:
 @pulumi.input_type
 class AutoScalingGroupLaunchTemplateOverridesArgs:
     def __init__(__self__, *,
+                 image_id: Optional[pulumi.Input[_builtins.str]] = None,
                  instance_requirements: Optional[pulumi.Input['AutoScalingGroupInstanceRequirementsArgs']] = None,
                  instance_type: Optional[pulumi.Input[_builtins.str]] = None,
                  launch_template_specification: Optional[pulumi.Input['AutoScalingGroupLaunchTemplateSpecificationArgs']] = None,
@@ -1607,6 +1636,8 @@ class AutoScalingGroupLaunchTemplateOverridesArgs:
                 If you specify a value for ``WeightedCapacity`` for one instance type, you must specify a value for ``WeightedCapacity`` for all of them.
                  Every Auto Scaling group has three size parameters (``DesiredCapacity``, ``MaxSize``, and ``MinSize``). Usually, you set these sizes based on a specific number of instances. However, if you configure a mixed instances policy that defines weights for the instance types, you must specify these sizes with the same units that you use for weighting instances.
         """
+        if image_id is not None:
+            pulumi.set(__self__, "image_id", image_id)
         if instance_requirements is not None:
             pulumi.set(__self__, "instance_requirements", instance_requirements)
         if instance_type is not None:
@@ -1615,6 +1646,15 @@ class AutoScalingGroupLaunchTemplateOverridesArgs:
             pulumi.set(__self__, "launch_template_specification", launch_template_specification)
         if weighted_capacity is not None:
             pulumi.set(__self__, "weighted_capacity", weighted_capacity)
+
+    @_builtins.property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "image_id")
+
+    @image_id.setter
+    def image_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "image_id", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceRequirements")
@@ -2575,6 +2615,29 @@ class AutoScalingGroupPerformanceFactorReferenceRequestArgs:
     @instance_family.setter
     def instance_family(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "instance_family", value)
+
+
+if not MYPY:
+    class AutoScalingGroupRetentionTriggersArgsDict(TypedDict):
+        terminate_hook_abandon: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    AutoScalingGroupRetentionTriggersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutoScalingGroupRetentionTriggersArgs:
+    def __init__(__self__, *,
+                 terminate_hook_abandon: Optional[pulumi.Input[_builtins.str]] = None):
+        if terminate_hook_abandon is not None:
+            pulumi.set(__self__, "terminate_hook_abandon", terminate_hook_abandon)
+
+    @_builtins.property
+    @pulumi.getter(name="terminateHookAbandon")
+    def terminate_hook_abandon(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "terminate_hook_abandon")
+
+    @terminate_hook_abandon.setter
+    def terminate_hook_abandon(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "terminate_hook_abandon", value)
 
 
 if not MYPY:

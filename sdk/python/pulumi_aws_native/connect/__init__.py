@@ -12,12 +12,18 @@ from .approved_origin import *
 from .contact_flow import *
 from .contact_flow_module import *
 from .contact_flow_version import *
+from .data_table import *
+from .data_table_attribute import *
+from .data_table_record import *
 from .email_address import *
 from .evaluation_form import *
 from .get_agent_status import *
 from .get_contact_flow import *
 from .get_contact_flow_module import *
 from .get_contact_flow_version import *
+from .get_data_table import *
+from .get_data_table_attribute import *
+from .get_data_table_record import *
 from .get_email_address import *
 from .get_evaluation_form import *
 from .get_hours_of_operation import *
@@ -40,6 +46,7 @@ from .get_user_hierarchy_group import *
 from .get_user_hierarchy_structure import *
 from .get_view import *
 from .get_view_version import *
+from .get_workspace import *
 from .hours_of_operation import *
 from .instance import *
 from .instance_storage_config import *
@@ -60,5 +67,6 @@ from .user_hierarchy_group import *
 from .user_hierarchy_structure import *
 from .view import *
 from .view_version import *
+from .workspace import *
 from ._inputs import *
 from . import outputs

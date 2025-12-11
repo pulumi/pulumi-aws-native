@@ -185,6 +185,39 @@ namespace Pulumi.AwsNative.PaymentCryptography
     }
 
     /// <summary>
+    /// Defines the replication state of a key
+    /// </summary>
+    [EnumType]
+    public readonly struct KeyReplicationState : IEquatable<KeyReplicationState>
+    {
+        private readonly string _value;
+
+        private KeyReplicationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KeyReplicationState InProgress { get; } = new KeyReplicationState("IN_PROGRESS");
+        public static KeyReplicationState DeleteInProgress { get; } = new KeyReplicationState("DELETE_IN_PROGRESS");
+        public static KeyReplicationState Failed { get; } = new KeyReplicationState("FAILED");
+        public static KeyReplicationState Synchronized { get; } = new KeyReplicationState("SYNCHRONIZED");
+
+        public static bool operator ==(KeyReplicationState left, KeyReplicationState right) => left.Equals(right);
+        public static bool operator !=(KeyReplicationState left, KeyReplicationState right) => !left.Equals(right);
+
+        public static explicit operator string(KeyReplicationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KeyReplicationState other && Equals(other);
+        public bool Equals(KeyReplicationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Defines the state of a key
     /// </summary>
     [EnumType]

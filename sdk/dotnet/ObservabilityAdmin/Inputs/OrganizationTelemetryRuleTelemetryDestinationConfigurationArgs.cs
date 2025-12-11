@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
     /// </summary>
     public sealed class OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("cloudtrailParameters")]
+        public Input<Inputs.OrganizationTelemetryRuleCloudtrailParametersArgs>? CloudtrailParameters { get; set; }
+
         /// <summary>
         /// The pattern used to generate the destination path or name, supporting macros like &lt;resourceId&gt; and &lt;accountId&gt;.
         /// </summary>
@@ -27,6 +30,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
         [Input("destinationType")]
         public Input<Pulumi.AwsNative.ObservabilityAdmin.OrganizationTelemetryRuleDestinationType>? DestinationType { get; set; }
 
+        [Input("elbLoadBalancerLoggingParameters")]
+        public Input<Inputs.OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgs>? ElbLoadBalancerLoggingParameters { get; set; }
+
         /// <summary>
         /// The number of days to retain the telemetry data in the destination.
         /// </summary>
@@ -38,6 +44,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
         /// </summary>
         [Input("vpcFlowLogParameters")]
         public Input<Inputs.OrganizationTelemetryRuleVpcFlowLogParametersArgs>? VpcFlowLogParameters { get; set; }
+
+        [Input("wafLoggingParameters")]
+        public Input<Inputs.OrganizationTelemetryRuleWafLoggingParametersArgs>? WafLoggingParameters { get; set; }
 
         public OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs()
         {

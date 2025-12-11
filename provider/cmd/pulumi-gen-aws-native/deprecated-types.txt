@@ -1,6 +1,7 @@
 AWS::DataSync::StorageSystem
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
+AWS::IoTFleetHub::Application
 AWS::NimbleStudio::LaunchProfile
 AWS::NimbleStudio::StreamingImage
 AWS::NimbleStudio::Studio

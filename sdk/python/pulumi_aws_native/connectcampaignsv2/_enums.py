@@ -12,6 +12,7 @@ __all__ = [
     'CampaignDayOfWeek',
     'CampaignInstanceLimitsHandling',
     'CampaignLocalTimeZoneDetectionType',
+    'CampaignType',
 ]
 
 
@@ -61,3 +62,12 @@ class CampaignLocalTimeZoneDetectionType(_builtins.str, Enum):
     """
     ZIP_CODE = "ZIP_CODE"
     AREA_CODE = "AREA_CODE"
+
+
+@pulumi.type_token("aws-native:connectcampaignsv2:CampaignType")
+class CampaignType(_builtins.str, Enum):
+    """
+    Campaign type
+    """
+    MANAGED = "MANAGED"
+    JOURNEY = "JOURNEY"

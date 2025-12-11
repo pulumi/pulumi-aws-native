@@ -1217,6 +1217,143 @@ func (o HostedZoneConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type HostedZoneFeatures struct {
+	// Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
+	EnableAcceleratedRecovery *bool `pulumi:"enableAcceleratedRecovery"`
+}
+
+// HostedZoneFeaturesInput is an input type that accepts HostedZoneFeaturesArgs and HostedZoneFeaturesOutput values.
+// You can construct a concrete instance of `HostedZoneFeaturesInput` via:
+//
+//	HostedZoneFeaturesArgs{...}
+type HostedZoneFeaturesInput interface {
+	pulumi.Input
+
+	ToHostedZoneFeaturesOutput() HostedZoneFeaturesOutput
+	ToHostedZoneFeaturesOutputWithContext(context.Context) HostedZoneFeaturesOutput
+}
+
+type HostedZoneFeaturesArgs struct {
+	// Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
+	EnableAcceleratedRecovery pulumi.BoolPtrInput `pulumi:"enableAcceleratedRecovery"`
+}
+
+func (HostedZoneFeaturesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZoneFeatures)(nil)).Elem()
+}
+
+func (i HostedZoneFeaturesArgs) ToHostedZoneFeaturesOutput() HostedZoneFeaturesOutput {
+	return i.ToHostedZoneFeaturesOutputWithContext(context.Background())
+}
+
+func (i HostedZoneFeaturesArgs) ToHostedZoneFeaturesOutputWithContext(ctx context.Context) HostedZoneFeaturesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneFeaturesOutput)
+}
+
+func (i HostedZoneFeaturesArgs) ToHostedZoneFeaturesPtrOutput() HostedZoneFeaturesPtrOutput {
+	return i.ToHostedZoneFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (i HostedZoneFeaturesArgs) ToHostedZoneFeaturesPtrOutputWithContext(ctx context.Context) HostedZoneFeaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneFeaturesOutput).ToHostedZoneFeaturesPtrOutputWithContext(ctx)
+}
+
+// HostedZoneFeaturesPtrInput is an input type that accepts HostedZoneFeaturesArgs, HostedZoneFeaturesPtr and HostedZoneFeaturesPtrOutput values.
+// You can construct a concrete instance of `HostedZoneFeaturesPtrInput` via:
+//
+//	        HostedZoneFeaturesArgs{...}
+//
+//	or:
+//
+//	        nil
+type HostedZoneFeaturesPtrInput interface {
+	pulumi.Input
+
+	ToHostedZoneFeaturesPtrOutput() HostedZoneFeaturesPtrOutput
+	ToHostedZoneFeaturesPtrOutputWithContext(context.Context) HostedZoneFeaturesPtrOutput
+}
+
+type hostedZoneFeaturesPtrType HostedZoneFeaturesArgs
+
+func HostedZoneFeaturesPtr(v *HostedZoneFeaturesArgs) HostedZoneFeaturesPtrInput {
+	return (*hostedZoneFeaturesPtrType)(v)
+}
+
+func (*hostedZoneFeaturesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostedZoneFeatures)(nil)).Elem()
+}
+
+func (i *hostedZoneFeaturesPtrType) ToHostedZoneFeaturesPtrOutput() HostedZoneFeaturesPtrOutput {
+	return i.ToHostedZoneFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (i *hostedZoneFeaturesPtrType) ToHostedZoneFeaturesPtrOutputWithContext(ctx context.Context) HostedZoneFeaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneFeaturesPtrOutput)
+}
+
+type HostedZoneFeaturesOutput struct{ *pulumi.OutputState }
+
+func (HostedZoneFeaturesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostedZoneFeatures)(nil)).Elem()
+}
+
+func (o HostedZoneFeaturesOutput) ToHostedZoneFeaturesOutput() HostedZoneFeaturesOutput {
+	return o
+}
+
+func (o HostedZoneFeaturesOutput) ToHostedZoneFeaturesOutputWithContext(ctx context.Context) HostedZoneFeaturesOutput {
+	return o
+}
+
+func (o HostedZoneFeaturesOutput) ToHostedZoneFeaturesPtrOutput() HostedZoneFeaturesPtrOutput {
+	return o.ToHostedZoneFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (o HostedZoneFeaturesOutput) ToHostedZoneFeaturesPtrOutputWithContext(ctx context.Context) HostedZoneFeaturesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostedZoneFeatures) *HostedZoneFeatures {
+		return &v
+	}).(HostedZoneFeaturesPtrOutput)
+}
+
+// Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
+func (o HostedZoneFeaturesOutput) EnableAcceleratedRecovery() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HostedZoneFeatures) *bool { return v.EnableAcceleratedRecovery }).(pulumi.BoolPtrOutput)
+}
+
+type HostedZoneFeaturesPtrOutput struct{ *pulumi.OutputState }
+
+func (HostedZoneFeaturesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostedZoneFeatures)(nil)).Elem()
+}
+
+func (o HostedZoneFeaturesPtrOutput) ToHostedZoneFeaturesPtrOutput() HostedZoneFeaturesPtrOutput {
+	return o
+}
+
+func (o HostedZoneFeaturesPtrOutput) ToHostedZoneFeaturesPtrOutputWithContext(ctx context.Context) HostedZoneFeaturesPtrOutput {
+	return o
+}
+
+func (o HostedZoneFeaturesPtrOutput) Elem() HostedZoneFeaturesOutput {
+	return o.ApplyT(func(v *HostedZoneFeatures) HostedZoneFeatures {
+		if v != nil {
+			return *v
+		}
+		var ret HostedZoneFeatures
+		return ret
+	}).(HostedZoneFeaturesOutput)
+}
+
+// Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
+func (o HostedZoneFeaturesPtrOutput) EnableAcceleratedRecovery() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HostedZoneFeatures) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableAcceleratedRecovery
+	}).(pulumi.BoolPtrOutput)
+}
+
 // A complex type that contains information about a configuration for DNS query logging.
 type HostedZoneQueryLoggingConfig struct {
 	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
@@ -1502,6 +1639,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesInput)(nil)).Elem(), HealthCheckConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneConfigInput)(nil)).Elem(), HostedZoneConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneConfigPtrInput)(nil)).Elem(), HostedZoneConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneFeaturesInput)(nil)).Elem(), HostedZoneFeaturesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneFeaturesPtrInput)(nil)).Elem(), HostedZoneFeaturesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneQueryLoggingConfigInput)(nil)).Elem(), HostedZoneQueryLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneQueryLoggingConfigPtrInput)(nil)).Elem(), HostedZoneQueryLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneVpcInput)(nil)).Elem(), HostedZoneVpcArgs{})
@@ -1514,6 +1653,8 @@ func init() {
 	pulumi.RegisterOutputType(HealthCheckConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(HostedZoneConfigOutput{})
 	pulumi.RegisterOutputType(HostedZoneConfigPtrOutput{})
+	pulumi.RegisterOutputType(HostedZoneFeaturesOutput{})
+	pulumi.RegisterOutputType(HostedZoneFeaturesPtrOutput{})
 	pulumi.RegisterOutputType(HostedZoneQueryLoggingConfigOutput{})
 	pulumi.RegisterOutputType(HostedZoneQueryLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(HostedZoneVpcOutput{})

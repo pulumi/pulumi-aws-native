@@ -20,6 +20,10 @@ __all__ = [
     'AttributeConfigurationPropertiesArgsDict',
     'ConstraintsPropertiesArgs',
     'ConstraintsPropertiesArgsDict',
+    'DataTableRecordPropertiesArgs',
+    'DataTableRecordPropertiesArgsDict',
+    'DataTableRecordValueArgs',
+    'DataTableRecordValueArgsDict',
     'EmailAddressAliasConfigurationArgs',
     'EmailAddressAliasConfigurationArgsDict',
     'EvaluationFormAutoEvaluationConfigurationArgs',
@@ -88,6 +92,8 @@ __all__ = [
     'EvaluationFormTextQuestionAutomationArgsDict',
     'EvaluationFormTextQuestionPropertiesArgs',
     'EvaluationFormTextQuestionPropertiesArgsDict',
+    'FontFamilyArgs',
+    'FontFamilyArgsDict',
     'GranularAccessControlConfigurationPropertiesArgs',
     'GranularAccessControlConfigurationPropertiesArgsDict',
     'HoursOfOperationConfigArgs',
@@ -202,8 +208,32 @@ __all__ = [
     'UserPhoneConfigArgsDict',
     'UserProficiencyArgs',
     'UserProficiencyArgsDict',
+    'ValidationPropertiesEnumPropertiesArgs',
+    'ValidationPropertiesEnumPropertiesArgsDict',
+    'ValidationPropertiesArgs',
+    'ValidationPropertiesArgsDict',
     'ValuesPropertiesArgs',
     'ValuesPropertiesArgsDict',
+    'WorkspaceMediaItemArgs',
+    'WorkspaceMediaItemArgsDict',
+    'WorkspacePageArgs',
+    'WorkspacePageArgsDict',
+    'WorkspacePaletteCanvasArgs',
+    'WorkspacePaletteCanvasArgsDict',
+    'WorkspacePaletteHeaderArgs',
+    'WorkspacePaletteHeaderArgsDict',
+    'WorkspacePaletteNavigationArgs',
+    'WorkspacePaletteNavigationArgsDict',
+    'WorkspacePalettePrimaryArgs',
+    'WorkspacePalettePrimaryArgsDict',
+    'WorkspaceThemeConfigArgs',
+    'WorkspaceThemeConfigArgsDict',
+    'WorkspaceThemePaletteArgs',
+    'WorkspaceThemePaletteArgsDict',
+    'WorkspaceThemeTypographyArgs',
+    'WorkspaceThemeTypographyArgsDict',
+    'WorkspaceThemeArgs',
+    'WorkspaceThemeArgsDict',
 ]
 
 MYPY = False
@@ -338,6 +368,77 @@ class ConstraintsPropertiesArgs:
     @required_fields.setter
     def required_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateRequiredFieldInfoArgs']]]]):
         pulumi.set(self, "required_fields", value)
+
+
+if not MYPY:
+    class DataTableRecordPropertiesArgsDict(TypedDict):
+        values: pulumi.Input[Sequence[pulumi.Input['DataTableRecordValueArgsDict']]]
+        primary_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataTableRecordValueArgsDict']]]]
+elif False:
+    DataTableRecordPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataTableRecordPropertiesArgs:
+    def __init__(__self__, *,
+                 values: pulumi.Input[Sequence[pulumi.Input['DataTableRecordValueArgs']]],
+                 primary_values: Optional[pulumi.Input[Sequence[pulumi.Input['DataTableRecordValueArgs']]]] = None):
+        pulumi.set(__self__, "values", values)
+        if primary_values is not None:
+            pulumi.set(__self__, "primary_values", primary_values)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input['DataTableRecordValueArgs']]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input['DataTableRecordValueArgs']]]):
+        pulumi.set(self, "values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryValues")
+    def primary_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataTableRecordValueArgs']]]]:
+        return pulumi.get(self, "primary_values")
+
+    @primary_values.setter
+    def primary_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataTableRecordValueArgs']]]]):
+        pulumi.set(self, "primary_values", value)
+
+
+if not MYPY:
+    class DataTableRecordValueArgsDict(TypedDict):
+        attribute_id: NotRequired[pulumi.Input[_builtins.str]]
+        attribute_value: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    DataTableRecordValueArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataTableRecordValueArgs:
+    def __init__(__self__, *,
+                 attribute_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 attribute_value: Optional[pulumi.Input[_builtins.str]] = None):
+        if attribute_id is not None:
+            pulumi.set(__self__, "attribute_id", attribute_id)
+        if attribute_value is not None:
+            pulumi.set(__self__, "attribute_value", attribute_value)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeId")
+    def attribute_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "attribute_id")
+
+    @attribute_id.setter
+    def attribute_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "attribute_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeValue")
+    def attribute_value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "attribute_value")
+
+    @attribute_value.setter
+    def attribute_value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "attribute_value", value)
 
 
 if not MYPY:
@@ -2536,8 +2637,37 @@ class EvaluationFormTextQuestionPropertiesArgs:
 
 
 if not MYPY:
+    class FontFamilyArgsDict(TypedDict):
+        default: NotRequired[pulumi.Input['WorkspaceFontFamily']]
+elif False:
+    FontFamilyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FontFamilyArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input['WorkspaceFontFamily']] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input['WorkspaceFontFamily']]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input['WorkspaceFontFamily']]):
+        pulumi.set(self, "default", value)
+
+
+if not MYPY:
     class GranularAccessControlConfigurationPropertiesArgsDict(TypedDict):
+        """
+        The granular access control configuration for the security profile, including data table permissions.
+        """
         data_table_access_control_configuration: NotRequired[pulumi.Input['SecurityProfileDataTableAccessControlConfigurationArgsDict']]
+        """
+        The access control configuration for data tables.
+        """
 elif False:
     GranularAccessControlConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2545,12 +2675,19 @@ elif False:
 class GranularAccessControlConfigurationPropertiesArgs:
     def __init__(__self__, *,
                  data_table_access_control_configuration: Optional[pulumi.Input['SecurityProfileDataTableAccessControlConfigurationArgs']] = None):
+        """
+        The granular access control configuration for the security profile, including data table permissions.
+        :param pulumi.Input['SecurityProfileDataTableAccessControlConfigurationArgs'] data_table_access_control_configuration: The access control configuration for data tables.
+        """
         if data_table_access_control_configuration is not None:
             pulumi.set(__self__, "data_table_access_control_configuration", data_table_access_control_configuration)
 
     @_builtins.property
     @pulumi.getter(name="dataTableAccessControlConfiguration")
     def data_table_access_control_configuration(self) -> Optional[pulumi.Input['SecurityProfileDataTableAccessControlConfigurationArgs']]:
+        """
+        The access control configuration for data tables.
+        """
         return pulumi.get(self, "data_table_access_control_configuration")
 
     @data_table_access_control_configuration.setter
@@ -4840,6 +4977,9 @@ if not MYPY:
         Defines the access control configuration for data tables.
         """
         primary_attribute_access_control_configuration: NotRequired[pulumi.Input['SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgsDict']]
+        """
+        The configuration's primary attribute access control configuration.
+        """
 elif False:
     SecurityProfileDataTableAccessControlConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4849,6 +4989,7 @@ class SecurityProfileDataTableAccessControlConfigurationArgs:
                  primary_attribute_access_control_configuration: Optional[pulumi.Input['SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs']] = None):
         """
         Defines the access control configuration for data tables.
+        :param pulumi.Input['SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs'] primary_attribute_access_control_configuration: The configuration's primary attribute access control configuration.
         """
         if primary_attribute_access_control_configuration is not None:
             pulumi.set(__self__, "primary_attribute_access_control_configuration", primary_attribute_access_control_configuration)
@@ -4856,6 +4997,9 @@ class SecurityProfileDataTableAccessControlConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="primaryAttributeAccessControlConfiguration")
     def primary_attribute_access_control_configuration(self) -> Optional[pulumi.Input['SecurityProfilePrimaryAttributeAccessControlConfigurationItemArgs']]:
+        """
+        The configuration's primary attribute access control configuration.
+        """
         return pulumi.get(self, "primary_attribute_access_control_configuration")
 
     @primary_attribute_access_control_configuration.setter
@@ -6086,6 +6230,182 @@ class UserProficiencyArgs:
 
 
 if not MYPY:
+    class ValidationPropertiesEnumPropertiesArgsDict(TypedDict):
+        strict: NotRequired[pulumi.Input[_builtins.bool]]
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+elif False:
+    ValidationPropertiesEnumPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ValidationPropertiesEnumPropertiesArgs:
+    def __init__(__self__, *,
+                 strict: Optional[pulumi.Input[_builtins.bool]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        if strict is not None:
+            pulumi.set(__self__, "strict", strict)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def strict(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "strict")
+
+    @strict.setter
+    def strict(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "strict", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+if not MYPY:
+    class ValidationPropertiesArgsDict(TypedDict):
+        enum: NotRequired[pulumi.Input['ValidationPropertiesEnumPropertiesArgsDict']]
+        exclusive_maximum: NotRequired[pulumi.Input[_builtins.float]]
+        exclusive_minimum: NotRequired[pulumi.Input[_builtins.float]]
+        max_length: NotRequired[pulumi.Input[_builtins.int]]
+        max_values: NotRequired[pulumi.Input[_builtins.int]]
+        maximum: NotRequired[pulumi.Input[_builtins.float]]
+        min_length: NotRequired[pulumi.Input[_builtins.int]]
+        min_values: NotRequired[pulumi.Input[_builtins.int]]
+        minimum: NotRequired[pulumi.Input[_builtins.float]]
+        multiple_of: NotRequired[pulumi.Input[_builtins.float]]
+elif False:
+    ValidationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ValidationPropertiesArgs:
+    def __init__(__self__, *,
+                 enum: Optional[pulumi.Input['ValidationPropertiesEnumPropertiesArgs']] = None,
+                 exclusive_maximum: Optional[pulumi.Input[_builtins.float]] = None,
+                 exclusive_minimum: Optional[pulumi.Input[_builtins.float]] = None,
+                 max_length: Optional[pulumi.Input[_builtins.int]] = None,
+                 max_values: Optional[pulumi.Input[_builtins.int]] = None,
+                 maximum: Optional[pulumi.Input[_builtins.float]] = None,
+                 min_length: Optional[pulumi.Input[_builtins.int]] = None,
+                 min_values: Optional[pulumi.Input[_builtins.int]] = None,
+                 minimum: Optional[pulumi.Input[_builtins.float]] = None,
+                 multiple_of: Optional[pulumi.Input[_builtins.float]] = None):
+        if enum is not None:
+            pulumi.set(__self__, "enum", enum)
+        if exclusive_maximum is not None:
+            pulumi.set(__self__, "exclusive_maximum", exclusive_maximum)
+        if exclusive_minimum is not None:
+            pulumi.set(__self__, "exclusive_minimum", exclusive_minimum)
+        if max_length is not None:
+            pulumi.set(__self__, "max_length", max_length)
+        if max_values is not None:
+            pulumi.set(__self__, "max_values", max_values)
+        if maximum is not None:
+            pulumi.set(__self__, "maximum", maximum)
+        if min_length is not None:
+            pulumi.set(__self__, "min_length", min_length)
+        if min_values is not None:
+            pulumi.set(__self__, "min_values", min_values)
+        if minimum is not None:
+            pulumi.set(__self__, "minimum", minimum)
+        if multiple_of is not None:
+            pulumi.set(__self__, "multiple_of", multiple_of)
+
+    @_builtins.property
+    @pulumi.getter
+    def enum(self) -> Optional[pulumi.Input['ValidationPropertiesEnumPropertiesArgs']]:
+        return pulumi.get(self, "enum")
+
+    @enum.setter
+    def enum(self, value: Optional[pulumi.Input['ValidationPropertiesEnumPropertiesArgs']]):
+        pulumi.set(self, "enum", value)
+
+    @_builtins.property
+    @pulumi.getter(name="exclusiveMaximum")
+    def exclusive_maximum(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "exclusive_maximum")
+
+    @exclusive_maximum.setter
+    def exclusive_maximum(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "exclusive_maximum", value)
+
+    @_builtins.property
+    @pulumi.getter(name="exclusiveMinimum")
+    def exclusive_minimum(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "exclusive_minimum")
+
+    @exclusive_minimum.setter
+    def exclusive_minimum(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "exclusive_minimum", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxLength")
+    def max_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "max_length")
+
+    @max_length.setter
+    def max_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_length", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValues")
+    def max_values(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "max_values")
+
+    @max_values.setter
+    def max_values(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_values", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def maximum(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "maximum")
+
+    @maximum.setter
+    def maximum(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "maximum", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minLength")
+    def min_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "min_length")
+
+    @min_length.setter
+    def min_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "min_length", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minValues")
+    def min_values(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "min_values")
+
+    @min_values.setter
+    def min_values(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "min_values", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def minimum(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "minimum")
+
+    @minimum.setter
+    def minimum(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "minimum", value)
+
+    @_builtins.property
+    @pulumi.getter(name="multipleOf")
+    def multiple_of(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "multiple_of")
+
+    @multiple_of.setter
+    def multiple_of(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "multiple_of", value)
+
+
+if not MYPY:
     class ValuesPropertiesArgsDict(TypedDict):
         """
         The values of a predefined attribute.
@@ -6119,5 +6439,554 @@ class ValuesPropertiesArgs:
     @string_list.setter
     def string_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "string_list", value)
+
+
+if not MYPY:
+    class WorkspaceMediaItemArgsDict(TypedDict):
+        type: pulumi.Input['WorkspaceMediaType']
+        source: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    WorkspaceMediaItemArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceMediaItemArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['WorkspaceMediaType'],
+                 source: Optional[pulumi.Input[_builtins.str]] = None):
+        pulumi.set(__self__, "type", type)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['WorkspaceMediaType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['WorkspaceMediaType']):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "source", value)
+
+
+if not MYPY:
+    class WorkspacePageArgsDict(TypedDict):
+        page: pulumi.Input[_builtins.str]
+        """
+        The page identifier.
+        """
+        resource_arn: pulumi.Input[_builtins.str]
+        """
+        The Amazon Resource Name (ARN) of the resource associated with the page.
+        """
+        input_data: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The input data for the page.
+        """
+        slug: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The slug for the page.
+        """
+elif False:
+    WorkspacePageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspacePageArgs:
+    def __init__(__self__, *,
+                 page: pulumi.Input[_builtins.str],
+                 resource_arn: pulumi.Input[_builtins.str],
+                 input_data: Optional[pulumi.Input[_builtins.str]] = None,
+                 slug: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] page: The page identifier.
+        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the resource associated with the page.
+        :param pulumi.Input[_builtins.str] input_data: The input data for the page.
+        :param pulumi.Input[_builtins.str] slug: The slug for the page.
+        """
+        pulumi.set(__self__, "page", page)
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        if input_data is not None:
+            pulumi.set(__self__, "input_data", input_data)
+        if slug is not None:
+            pulumi.set(__self__, "slug", slug)
+
+    @_builtins.property
+    @pulumi.getter
+    def page(self) -> pulumi.Input[_builtins.str]:
+        """
+        The page identifier.
+        """
+        return pulumi.get(self, "page")
+
+    @page.setter
+    def page(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "page", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the resource associated with the page.
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inputData")
+    def input_data(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The input data for the page.
+        """
+        return pulumi.get(self, "input_data")
+
+    @input_data.setter
+    def input_data(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "input_data", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def slug(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The slug for the page.
+        """
+        return pulumi.get(self, "slug")
+
+    @slug.setter
+    def slug(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "slug", value)
+
+
+if not MYPY:
+    class WorkspacePaletteCanvasArgsDict(TypedDict):
+        active_background: NotRequired[pulumi.Input[_builtins.str]]
+        container_background: NotRequired[pulumi.Input[_builtins.str]]
+        page_background: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    WorkspacePaletteCanvasArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspacePaletteCanvasArgs:
+    def __init__(__self__, *,
+                 active_background: Optional[pulumi.Input[_builtins.str]] = None,
+                 container_background: Optional[pulumi.Input[_builtins.str]] = None,
+                 page_background: Optional[pulumi.Input[_builtins.str]] = None):
+        if active_background is not None:
+            pulumi.set(__self__, "active_background", active_background)
+        if container_background is not None:
+            pulumi.set(__self__, "container_background", container_background)
+        if page_background is not None:
+            pulumi.set(__self__, "page_background", page_background)
+
+    @_builtins.property
+    @pulumi.getter(name="activeBackground")
+    def active_background(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "active_background")
+
+    @active_background.setter
+    def active_background(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "active_background", value)
+
+    @_builtins.property
+    @pulumi.getter(name="containerBackground")
+    def container_background(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "container_background")
+
+    @container_background.setter
+    def container_background(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "container_background", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pageBackground")
+    def page_background(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "page_background")
+
+    @page_background.setter
+    def page_background(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "page_background", value)
+
+
+if not MYPY:
+    class WorkspacePaletteHeaderArgsDict(TypedDict):
+        background: NotRequired[pulumi.Input[_builtins.str]]
+        invert_actions_colors: NotRequired[pulumi.Input[_builtins.bool]]
+        text: NotRequired[pulumi.Input[_builtins.str]]
+        text_hover: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    WorkspacePaletteHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspacePaletteHeaderArgs:
+    def __init__(__self__, *,
+                 background: Optional[pulumi.Input[_builtins.str]] = None,
+                 invert_actions_colors: Optional[pulumi.Input[_builtins.bool]] = None,
+                 text: Optional[pulumi.Input[_builtins.str]] = None,
+                 text_hover: Optional[pulumi.Input[_builtins.str]] = None):
+        if background is not None:
+            pulumi.set(__self__, "background", background)
+        if invert_actions_colors is not None:
+            pulumi.set(__self__, "invert_actions_colors", invert_actions_colors)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+        if text_hover is not None:
+            pulumi.set(__self__, "text_hover", text_hover)
+
+    @_builtins.property
+    @pulumi.getter
+    def background(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "background")
+
+    @background.setter
+    def background(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "background", value)
+
+    @_builtins.property
+    @pulumi.getter(name="invertActionsColors")
+    def invert_actions_colors(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "invert_actions_colors")
+
+    @invert_actions_colors.setter
+    def invert_actions_colors(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "invert_actions_colors", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def text(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "text", value)
+
+    @_builtins.property
+    @pulumi.getter(name="textHover")
+    def text_hover(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "text_hover")
+
+    @text_hover.setter
+    def text_hover(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "text_hover", value)
+
+
+if not MYPY:
+    class WorkspacePaletteNavigationArgsDict(TypedDict):
+        background: NotRequired[pulumi.Input[_builtins.str]]
+        invert_actions_colors: NotRequired[pulumi.Input[_builtins.bool]]
+        text: NotRequired[pulumi.Input[_builtins.str]]
+        text_active: NotRequired[pulumi.Input[_builtins.str]]
+        text_background_active: NotRequired[pulumi.Input[_builtins.str]]
+        text_background_hover: NotRequired[pulumi.Input[_builtins.str]]
+        text_hover: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    WorkspacePaletteNavigationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspacePaletteNavigationArgs:
+    def __init__(__self__, *,
+                 background: Optional[pulumi.Input[_builtins.str]] = None,
+                 invert_actions_colors: Optional[pulumi.Input[_builtins.bool]] = None,
+                 text: Optional[pulumi.Input[_builtins.str]] = None,
+                 text_active: Optional[pulumi.Input[_builtins.str]] = None,
+                 text_background_active: Optional[pulumi.Input[_builtins.str]] = None,
+                 text_background_hover: Optional[pulumi.Input[_builtins.str]] = None,
+                 text_hover: Optional[pulumi.Input[_builtins.str]] = None):
+        if background is not None:
+            pulumi.set(__self__, "background", background)
+        if invert_actions_colors is not None:
+            pulumi.set(__self__, "invert_actions_colors", invert_actions_colors)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+        if text_active is not None:
+            pulumi.set(__self__, "text_active", text_active)
+        if text_background_active is not None:
+            pulumi.set(__self__, "text_background_active", text_background_active)
+        if text_background_hover is not None:
+            pulumi.set(__self__, "text_background_hover", text_background_hover)
+        if text_hover is not None:
+            pulumi.set(__self__, "text_hover", text_hover)
+
+    @_builtins.property
+    @pulumi.getter
+    def background(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "background")
+
+    @background.setter
+    def background(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "background", value)
+
+    @_builtins.property
+    @pulumi.getter(name="invertActionsColors")
+    def invert_actions_colors(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "invert_actions_colors")
+
+    @invert_actions_colors.setter
+    def invert_actions_colors(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "invert_actions_colors", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def text(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "text", value)
+
+    @_builtins.property
+    @pulumi.getter(name="textActive")
+    def text_active(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "text_active")
+
+    @text_active.setter
+    def text_active(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "text_active", value)
+
+    @_builtins.property
+    @pulumi.getter(name="textBackgroundActive")
+    def text_background_active(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "text_background_active")
+
+    @text_background_active.setter
+    def text_background_active(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "text_background_active", value)
+
+    @_builtins.property
+    @pulumi.getter(name="textBackgroundHover")
+    def text_background_hover(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "text_background_hover")
+
+    @text_background_hover.setter
+    def text_background_hover(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "text_background_hover", value)
+
+    @_builtins.property
+    @pulumi.getter(name="textHover")
+    def text_hover(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "text_hover")
+
+    @text_hover.setter
+    def text_hover(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "text_hover", value)
+
+
+if not MYPY:
+    class WorkspacePalettePrimaryArgsDict(TypedDict):
+        active: NotRequired[pulumi.Input[_builtins.str]]
+        contrast_text: NotRequired[pulumi.Input[_builtins.str]]
+        default: NotRequired[pulumi.Input[_builtins.str]]
+elif False:
+    WorkspacePalettePrimaryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspacePalettePrimaryArgs:
+    def __init__(__self__, *,
+                 active: Optional[pulumi.Input[_builtins.str]] = None,
+                 contrast_text: Optional[pulumi.Input[_builtins.str]] = None,
+                 default: Optional[pulumi.Input[_builtins.str]] = None):
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+        if contrast_text is not None:
+            pulumi.set(__self__, "contrast_text", contrast_text)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+
+    @_builtins.property
+    @pulumi.getter
+    def active(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "active")
+
+    @active.setter
+    def active(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "active", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contrastText")
+    def contrast_text(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "contrast_text")
+
+    @contrast_text.setter
+    def contrast_text(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "contrast_text", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+
+if not MYPY:
+    class WorkspaceThemeConfigArgsDict(TypedDict):
+        palette: NotRequired[pulumi.Input['WorkspaceThemePaletteArgsDict']]
+        typography: NotRequired[pulumi.Input['WorkspaceThemeTypographyArgsDict']]
+elif False:
+    WorkspaceThemeConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceThemeConfigArgs:
+    def __init__(__self__, *,
+                 palette: Optional[pulumi.Input['WorkspaceThemePaletteArgs']] = None,
+                 typography: Optional[pulumi.Input['WorkspaceThemeTypographyArgs']] = None):
+        if palette is not None:
+            pulumi.set(__self__, "palette", palette)
+        if typography is not None:
+            pulumi.set(__self__, "typography", typography)
+
+    @_builtins.property
+    @pulumi.getter
+    def palette(self) -> Optional[pulumi.Input['WorkspaceThemePaletteArgs']]:
+        return pulumi.get(self, "palette")
+
+    @palette.setter
+    def palette(self, value: Optional[pulumi.Input['WorkspaceThemePaletteArgs']]):
+        pulumi.set(self, "palette", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def typography(self) -> Optional[pulumi.Input['WorkspaceThemeTypographyArgs']]:
+        return pulumi.get(self, "typography")
+
+    @typography.setter
+    def typography(self, value: Optional[pulumi.Input['WorkspaceThemeTypographyArgs']]):
+        pulumi.set(self, "typography", value)
+
+
+if not MYPY:
+    class WorkspaceThemePaletteArgsDict(TypedDict):
+        canvas: NotRequired[pulumi.Input['WorkspacePaletteCanvasArgsDict']]
+        header: NotRequired[pulumi.Input['WorkspacePaletteHeaderArgsDict']]
+        navigation: NotRequired[pulumi.Input['WorkspacePaletteNavigationArgsDict']]
+        primary: NotRequired[pulumi.Input['WorkspacePalettePrimaryArgsDict']]
+elif False:
+    WorkspaceThemePaletteArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceThemePaletteArgs:
+    def __init__(__self__, *,
+                 canvas: Optional[pulumi.Input['WorkspacePaletteCanvasArgs']] = None,
+                 header: Optional[pulumi.Input['WorkspacePaletteHeaderArgs']] = None,
+                 navigation: Optional[pulumi.Input['WorkspacePaletteNavigationArgs']] = None,
+                 primary: Optional[pulumi.Input['WorkspacePalettePrimaryArgs']] = None):
+        if canvas is not None:
+            pulumi.set(__self__, "canvas", canvas)
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+        if navigation is not None:
+            pulumi.set(__self__, "navigation", navigation)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+
+    @_builtins.property
+    @pulumi.getter
+    def canvas(self) -> Optional[pulumi.Input['WorkspacePaletteCanvasArgs']]:
+        return pulumi.get(self, "canvas")
+
+    @canvas.setter
+    def canvas(self, value: Optional[pulumi.Input['WorkspacePaletteCanvasArgs']]):
+        pulumi.set(self, "canvas", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def header(self) -> Optional[pulumi.Input['WorkspacePaletteHeaderArgs']]:
+        return pulumi.get(self, "header")
+
+    @header.setter
+    def header(self, value: Optional[pulumi.Input['WorkspacePaletteHeaderArgs']]):
+        pulumi.set(self, "header", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def navigation(self) -> Optional[pulumi.Input['WorkspacePaletteNavigationArgs']]:
+        return pulumi.get(self, "navigation")
+
+    @navigation.setter
+    def navigation(self, value: Optional[pulumi.Input['WorkspacePaletteNavigationArgs']]):
+        pulumi.set(self, "navigation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def primary(self) -> Optional[pulumi.Input['WorkspacePalettePrimaryArgs']]:
+        return pulumi.get(self, "primary")
+
+    @primary.setter
+    def primary(self, value: Optional[pulumi.Input['WorkspacePalettePrimaryArgs']]):
+        pulumi.set(self, "primary", value)
+
+
+if not MYPY:
+    class WorkspaceThemeTypographyArgsDict(TypedDict):
+        font_family: NotRequired[pulumi.Input['FontFamilyArgsDict']]
+elif False:
+    WorkspaceThemeTypographyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceThemeTypographyArgs:
+    def __init__(__self__, *,
+                 font_family: Optional[pulumi.Input['FontFamilyArgs']] = None):
+        if font_family is not None:
+            pulumi.set(__self__, "font_family", font_family)
+
+    @_builtins.property
+    @pulumi.getter(name="fontFamily")
+    def font_family(self) -> Optional[pulumi.Input['FontFamilyArgs']]:
+        return pulumi.get(self, "font_family")
+
+    @font_family.setter
+    def font_family(self, value: Optional[pulumi.Input['FontFamilyArgs']]):
+        pulumi.set(self, "font_family", value)
+
+
+if not MYPY:
+    class WorkspaceThemeArgsDict(TypedDict):
+        """
+        The theme configuration for the Connect workspace
+        """
+        dark: NotRequired[pulumi.Input['WorkspaceThemeConfigArgsDict']]
+        light: NotRequired[pulumi.Input['WorkspaceThemeConfigArgsDict']]
+elif False:
+    WorkspaceThemeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkspaceThemeArgs:
+    def __init__(__self__, *,
+                 dark: Optional[pulumi.Input['WorkspaceThemeConfigArgs']] = None,
+                 light: Optional[pulumi.Input['WorkspaceThemeConfigArgs']] = None):
+        """
+        The theme configuration for the Connect workspace
+        """
+        if dark is not None:
+            pulumi.set(__self__, "dark", dark)
+        if light is not None:
+            pulumi.set(__self__, "light", light)
+
+    @_builtins.property
+    @pulumi.getter
+    def dark(self) -> Optional[pulumi.Input['WorkspaceThemeConfigArgs']]:
+        return pulumi.get(self, "dark")
+
+    @dark.setter
+    def dark(self, value: Optional[pulumi.Input['WorkspaceThemeConfigArgs']]):
+        pulumi.set(self, "dark", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def light(self) -> Optional[pulumi.Input['WorkspaceThemeConfigArgs']]:
+        return pulumi.get(self, "light")
+
+    @light.setter
+    def light(self, value: Optional[pulumi.Input['WorkspaceThemeConfigArgs']]):
+        pulumi.set(self, "light", value)
 
 

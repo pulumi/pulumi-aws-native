@@ -76,6 +76,12 @@ __all__ = [
     'CampaignTimeWindowArgsDict',
     'CampaignTimeoutConfigArgs',
     'CampaignTimeoutConfigArgsDict',
+    'CampaignWhatsAppChannelSubtypeConfigArgs',
+    'CampaignWhatsAppChannelSubtypeConfigArgsDict',
+    'CampaignWhatsAppOutboundConfigArgs',
+    'CampaignWhatsAppOutboundConfigArgsDict',
+    'CampaignWhatsAppOutboundModeArgs',
+    'CampaignWhatsAppOutboundModeArgsDict',
 ]
 
 MYPY = False
@@ -170,6 +176,7 @@ if not MYPY:
         """
         The configuration of the telephony channel subtype.
         """
+        whats_app: NotRequired[pulumi.Input['CampaignWhatsAppChannelSubtypeConfigArgsDict']]
 elif False:
     CampaignChannelSubtypeConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -178,7 +185,8 @@ class CampaignChannelSubtypeConfigArgs:
     def __init__(__self__, *,
                  email: Optional[pulumi.Input['CampaignEmailChannelSubtypeConfigArgs']] = None,
                  sms: Optional[pulumi.Input['CampaignSmsChannelSubtypeConfigArgs']] = None,
-                 telephony: Optional[pulumi.Input['CampaignTelephonyChannelSubtypeConfigArgs']] = None):
+                 telephony: Optional[pulumi.Input['CampaignTelephonyChannelSubtypeConfigArgs']] = None,
+                 whats_app: Optional[pulumi.Input['CampaignWhatsAppChannelSubtypeConfigArgs']] = None):
         """
         The possible types of channel subtype config parameters
         :param pulumi.Input['CampaignEmailChannelSubtypeConfigArgs'] email: The configuration of the email channel subtype.
@@ -191,6 +199,8 @@ class CampaignChannelSubtypeConfigArgs:
             pulumi.set(__self__, "sms", sms)
         if telephony is not None:
             pulumi.set(__self__, "telephony", telephony)
+        if whats_app is not None:
+            pulumi.set(__self__, "whats_app", whats_app)
 
     @_builtins.property
     @pulumi.getter
@@ -227,6 +237,15 @@ class CampaignChannelSubtypeConfigArgs:
     @telephony.setter
     def telephony(self, value: Optional[pulumi.Input['CampaignTelephonyChannelSubtypeConfigArgs']]):
         pulumi.set(self, "telephony", value)
+
+    @_builtins.property
+    @pulumi.getter(name="whatsApp")
+    def whats_app(self) -> Optional[pulumi.Input['CampaignWhatsAppChannelSubtypeConfigArgs']]:
+        return pulumi.get(self, "whats_app")
+
+    @whats_app.setter
+    def whats_app(self, value: Optional[pulumi.Input['CampaignWhatsAppChannelSubtypeConfigArgs']]):
+        pulumi.set(self, "whats_app", value)
 
 
 if not MYPY:
@@ -394,6 +413,7 @@ if not MYPY:
         """
         The communication time configuration for the telephony channel subtype.
         """
+        whats_app: NotRequired[pulumi.Input['CampaignTimeWindowArgsDict']]
 elif False:
     CampaignCommunicationTimeConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -403,7 +423,8 @@ class CampaignCommunicationTimeConfigArgs:
                  local_time_zone_config: pulumi.Input['CampaignLocalTimeZoneConfigArgs'],
                  email: Optional[pulumi.Input['CampaignTimeWindowArgs']] = None,
                  sms: Optional[pulumi.Input['CampaignTimeWindowArgs']] = None,
-                 telephony: Optional[pulumi.Input['CampaignTimeWindowArgs']] = None):
+                 telephony: Optional[pulumi.Input['CampaignTimeWindowArgs']] = None,
+                 whats_app: Optional[pulumi.Input['CampaignTimeWindowArgs']] = None):
         """
         Campaign communication time config
         :param pulumi.Input['CampaignLocalTimeZoneConfigArgs'] local_time_zone_config: The local timezone configuration.
@@ -418,6 +439,8 @@ class CampaignCommunicationTimeConfigArgs:
             pulumi.set(__self__, "sms", sms)
         if telephony is not None:
             pulumi.set(__self__, "telephony", telephony)
+        if whats_app is not None:
+            pulumi.set(__self__, "whats_app", whats_app)
 
     @_builtins.property
     @pulumi.getter(name="localTimeZoneConfig")
@@ -466,6 +489,15 @@ class CampaignCommunicationTimeConfigArgs:
     @telephony.setter
     def telephony(self, value: Optional[pulumi.Input['CampaignTimeWindowArgs']]):
         pulumi.set(self, "telephony", value)
+
+    @_builtins.property
+    @pulumi.getter(name="whatsApp")
+    def whats_app(self) -> Optional[pulumi.Input['CampaignTimeWindowArgs']]:
+        return pulumi.get(self, "whats_app")
+
+    @whats_app.setter
+    def whats_app(self, value: Optional[pulumi.Input['CampaignTimeWindowArgs']]):
+        pulumi.set(self, "whats_app", value)
 
 
 if not MYPY:
@@ -587,7 +619,7 @@ class CampaignEmailChannelSubtypeConfigArgs:
 if not MYPY:
     class CampaignEmailOutboundConfigArgsDict(TypedDict):
         """
-        Default SMS outbound config
+        Default Email outbound config
         """
         connect_source_email_address: pulumi.Input[_builtins.str]
         """
@@ -611,7 +643,7 @@ class CampaignEmailOutboundConfigArgs:
                  wisdom_template_arn: pulumi.Input[_builtins.str],
                  source_email_address_display_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        Default SMS outbound config
+        Default Email outbound config
         :param pulumi.Input[_builtins.str] connect_source_email_address: The Amazon Connect source email address.
         :param pulumi.Input[_builtins.str] wisdom_template_arn: The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
         :param pulumi.Input[_builtins.str] source_email_address_display_name: The display name for the Amazon Connect source email address.
@@ -1762,5 +1794,127 @@ class CampaignTimeoutConfigArgs:
     @duration_in_seconds.setter
     def duration_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "duration_in_seconds", value)
+
+
+if not MYPY:
+    class CampaignWhatsAppChannelSubtypeConfigArgsDict(TypedDict):
+        """
+        WhatsApp Channel Subtype config
+        """
+        default_outbound_config: pulumi.Input['CampaignWhatsAppOutboundConfigArgsDict']
+        outbound_mode: pulumi.Input['CampaignWhatsAppOutboundModeArgsDict']
+        capacity: NotRequired[pulumi.Input[_builtins.float]]
+elif False:
+    CampaignWhatsAppChannelSubtypeConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CampaignWhatsAppChannelSubtypeConfigArgs:
+    def __init__(__self__, *,
+                 default_outbound_config: pulumi.Input['CampaignWhatsAppOutboundConfigArgs'],
+                 outbound_mode: pulumi.Input['CampaignWhatsAppOutboundModeArgs'],
+                 capacity: Optional[pulumi.Input[_builtins.float]] = None):
+        """
+        WhatsApp Channel Subtype config
+        """
+        pulumi.set(__self__, "default_outbound_config", default_outbound_config)
+        pulumi.set(__self__, "outbound_mode", outbound_mode)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultOutboundConfig")
+    def default_outbound_config(self) -> pulumi.Input['CampaignWhatsAppOutboundConfigArgs']:
+        return pulumi.get(self, "default_outbound_config")
+
+    @default_outbound_config.setter
+    def default_outbound_config(self, value: pulumi.Input['CampaignWhatsAppOutboundConfigArgs']):
+        pulumi.set(self, "default_outbound_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outboundMode")
+    def outbound_mode(self) -> pulumi.Input['CampaignWhatsAppOutboundModeArgs']:
+        return pulumi.get(self, "outbound_mode")
+
+    @outbound_mode.setter
+    def outbound_mode(self, value: pulumi.Input['CampaignWhatsAppOutboundModeArgs']):
+        pulumi.set(self, "outbound_mode", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "capacity", value)
+
+
+if not MYPY:
+    class CampaignWhatsAppOutboundConfigArgsDict(TypedDict):
+        """
+        Default WhatsApp outbound config
+        """
+        connect_source_phone_number_arn: pulumi.Input[_builtins.str]
+        wisdom_template_arn: pulumi.Input[_builtins.str]
+elif False:
+    CampaignWhatsAppOutboundConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CampaignWhatsAppOutboundConfigArgs:
+    def __init__(__self__, *,
+                 connect_source_phone_number_arn: pulumi.Input[_builtins.str],
+                 wisdom_template_arn: pulumi.Input[_builtins.str]):
+        """
+        Default WhatsApp outbound config
+        """
+        pulumi.set(__self__, "connect_source_phone_number_arn", connect_source_phone_number_arn)
+        pulumi.set(__self__, "wisdom_template_arn", wisdom_template_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="connectSourcePhoneNumberArn")
+    def connect_source_phone_number_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "connect_source_phone_number_arn")
+
+    @connect_source_phone_number_arn.setter
+    def connect_source_phone_number_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connect_source_phone_number_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="wisdomTemplateArn")
+    def wisdom_template_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "wisdom_template_arn")
+
+    @wisdom_template_arn.setter
+    def wisdom_template_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "wisdom_template_arn", value)
+
+
+if not MYPY:
+    class CampaignWhatsAppOutboundModeArgsDict(TypedDict):
+        """
+        WhatsApp Outbound Mode
+        """
+        agentless_config: NotRequired[pulumi.Input['CampaignAgentlessConfigArgsDict']]
+elif False:
+    CampaignWhatsAppOutboundModeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CampaignWhatsAppOutboundModeArgs:
+    def __init__(__self__, *,
+                 agentless_config: Optional[pulumi.Input['CampaignAgentlessConfigArgs']] = None):
+        """
+        WhatsApp Outbound Mode
+        """
+        if agentless_config is not None:
+            pulumi.set(__self__, "agentless_config", agentless_config)
+
+    @_builtins.property
+    @pulumi.getter(name="agentlessConfig")
+    def agentless_config(self) -> Optional[pulumi.Input['CampaignAgentlessConfigArgs']]:
+        return pulumi.get(self, "agentless_config")
+
+    @agentless_config.setter
+    def agentless_config(self, value: Optional[pulumi.Input['CampaignAgentlessConfigArgs']]):
+        pulumi.set(self, "agentless_config", value)
 
 

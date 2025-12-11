@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetConnectorResult:
-    def __init__(__self__, access_role=None, arn=None, as2_config=None, connector_id=None, egress_config=None, egress_type=None, logging_role=None, security_policy_name=None, service_managed_egress_ip_addresses=None, sftp_config=None, status=None, tags=None, url=None):
+    def __init__(__self__, access_role=None, arn=None, as2_config=None, connector_id=None, egress_config=None, egress_type=None, error_message=None, logging_role=None, security_policy_name=None, service_managed_egress_ip_addresses=None, sftp_config=None, status=None, tags=None, url=None):
         if access_role and not isinstance(access_role, str):
             raise TypeError("Expected argument 'access_role' to be a str")
         pulumi.set(__self__, "access_role", access_role)
@@ -45,6 +45,9 @@ class GetConnectorResult:
         if egress_type and not isinstance(egress_type, str):
             raise TypeError("Expected argument 'egress_type' to be a str")
         pulumi.set(__self__, "egress_type", egress_type)
+        if error_message and not isinstance(error_message, str):
+            raise TypeError("Expected argument 'error_message' to be a str")
+        pulumi.set(__self__, "error_message", error_message)
         if logging_role and not isinstance(logging_role, str):
             raise TypeError("Expected argument 'logging_role' to be a str")
         pulumi.set(__self__, "logging_role", logging_role)
@@ -116,6 +119,14 @@ class GetConnectorResult:
         return pulumi.get(self, "egress_type")
 
     @_builtins.property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> Optional[_builtins.str]:
+        """
+        Detailed error message when Connector in ERRORED status
+        """
+        return pulumi.get(self, "error_message")
+
+    @_builtins.property
     @pulumi.getter(name="loggingRole")
     def logging_role(self) -> Optional[_builtins.str]:
         """
@@ -184,6 +195,7 @@ class AwaitableGetConnectorResult(GetConnectorResult):
             connector_id=self.connector_id,
             egress_config=self.egress_config,
             egress_type=self.egress_type,
+            error_message=self.error_message,
             logging_role=self.logging_role,
             security_policy_name=self.security_policy_name,
             service_managed_egress_ip_addresses=self.service_managed_egress_ip_addresses,
@@ -213,6 +225,7 @@ def get_connector(connector_id: Optional[_builtins.str] = None,
         connector_id=pulumi.get(__ret__, 'connector_id'),
         egress_config=pulumi.get(__ret__, 'egress_config'),
         egress_type=pulumi.get(__ret__, 'egress_type'),
+        error_message=pulumi.get(__ret__, 'error_message'),
         logging_role=pulumi.get(__ret__, 'logging_role'),
         security_policy_name=pulumi.get(__ret__, 'security_policy_name'),
         service_managed_egress_ip_addresses=pulumi.get(__ret__, 'service_managed_egress_ip_addresses'),
@@ -239,6 +252,7 @@ def get_connector_output(connector_id: Optional[pulumi.Input[_builtins.str]] = N
         connector_id=pulumi.get(__response__, 'connector_id'),
         egress_config=pulumi.get(__response__, 'egress_config'),
         egress_type=pulumi.get(__response__, 'egress_type'),
+        error_message=pulumi.get(__response__, 'error_message'),
         logging_role=pulumi.get(__response__, 'logging_role'),
         security_policy_name=pulumi.get(__response__, 'security_policy_name'),
         service_managed_egress_ip_addresses=pulumi.get(__response__, 'service_managed_egress_ip_addresses'),

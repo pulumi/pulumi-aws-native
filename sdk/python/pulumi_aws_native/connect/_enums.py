@@ -11,6 +11,9 @@ __all__ = [
     'AgentStatusType',
     'ContactFlowState',
     'ContactFlowType',
+    'DataTableAttributeValueType',
+    'DataTableStatus',
+    'DataTableValueLockLevel',
     'EvaluationFormItemEnablementConditionOperator',
     'EvaluationFormItemEnablementConfigurationAction',
     'EvaluationFormItemEnablementConfigurationDefaultAction',
@@ -53,6 +56,9 @@ __all__ = [
     'TaskTemplateStatus',
     'TrafficDistributionGroupStatus',
     'UserPhoneType',
+    'WorkspaceFontFamily',
+    'WorkspaceMediaType',
+    'WorkspaceVisibility',
 ]
 
 
@@ -99,6 +105,31 @@ class ContactFlowType(_builtins.str, Enum):
     AGENT_TRANSFER = "AGENT_TRANSFER"
     QUEUE_TRANSFER = "QUEUE_TRANSFER"
     CAMPAIGN = "CAMPAIGN"
+
+
+@pulumi.type_token("aws-native:connect:DataTableAttributeValueType")
+class DataTableAttributeValueType(_builtins.str, Enum):
+    TEXT = "TEXT"
+    NUMBER = "NUMBER"
+    BOOLEAN = "BOOLEAN"
+    TEXT_LIST = "TEXT_LIST"
+    NUMBER_LIST = "NUMBER_LIST"
+
+
+@pulumi.type_token("aws-native:connect:DataTableStatus")
+class DataTableStatus(_builtins.str, Enum):
+    """
+    The status of the Data Table
+    """
+    PUBLISHED = "PUBLISHED"
+
+
+@pulumi.type_token("aws-native:connect:DataTableValueLockLevel")
+class DataTableValueLockLevel(_builtins.str, Enum):
+    """
+    The value lock level of the Data Table
+    """
+    NONE = "NONE"
 
 
 @pulumi.type_token("aws-native:connect:EvaluationFormItemEnablementConditionOperator")
@@ -553,3 +584,34 @@ class UserPhoneType(_builtins.str, Enum):
     """
     SOFT_PHONE = "SOFT_PHONE"
     DESK_PHONE = "DESK_PHONE"
+
+
+@pulumi.type_token("aws-native:connect:WorkspaceFontFamily")
+class WorkspaceFontFamily(_builtins.str, Enum):
+    ARIAL = "ARIAL"
+    COURIER_NEW = "COURIER_NEW"
+    GEORGIA = "GEORGIA"
+    TIMES_NEW_ROMAN = "TIMES_NEW_ROMAN"
+    TREBUCHET = "TREBUCHET"
+    VERDANA = "VERDANA"
+
+
+@pulumi.type_token("aws-native:connect:WorkspaceMediaType")
+class WorkspaceMediaType(_builtins.str, Enum):
+    """
+    The type of media
+    """
+    IMAGE_LOGO_LIGHT_FAVICON = "IMAGE_LOGO_LIGHT_FAVICON"
+    IMAGE_LOGO_DARK_FAVICON = "IMAGE_LOGO_DARK_FAVICON"
+    IMAGE_LOGO_LIGHT_HORIZONTAL = "IMAGE_LOGO_LIGHT_HORIZONTAL"
+    IMAGE_LOGO_DARK_HORIZONTAL = "IMAGE_LOGO_DARK_HORIZONTAL"
+
+
+@pulumi.type_token("aws-native:connect:WorkspaceVisibility")
+class WorkspaceVisibility(_builtins.str, Enum):
+    """
+    The visibility of the Connect workspace
+    """
+    ALL = "ALL"
+    ASSIGNED = "ASSIGNED"
+    NONE = "NONE"

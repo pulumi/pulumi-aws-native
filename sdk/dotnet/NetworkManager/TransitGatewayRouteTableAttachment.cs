@@ -100,6 +100,12 @@ namespace Pulumi.AwsNative.NetworkManager
         public Output<string> ResourceArn { get; private set; } = null!;
 
         /// <summary>
+        /// Routing policy label
+        /// </summary>
+        [Output("routingPolicyLabel")]
+        public Output<string?> RoutingPolicyLabel { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the segment that attachment is in.
         /// </summary>
         [Output("segmentName")]
@@ -155,6 +161,7 @@ namespace Pulumi.AwsNative.NetworkManager
                 ReplaceOnChanges =
                 {
                     "peeringId",
+                    "routingPolicyLabel",
                     "transitGatewayRouteTableArn",
                 },
             };
@@ -202,6 +209,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         [Input("proposedSegmentChange")]
         public Input<Inputs.TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs>? ProposedSegmentChange { get; set; }
+
+        /// <summary>
+        /// Routing policy label
+        /// </summary>
+        [Input("routingPolicyLabel")]
+        public Input<string>? RoutingPolicyLabel { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

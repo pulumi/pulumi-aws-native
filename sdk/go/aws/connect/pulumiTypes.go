@@ -374,6 +374,262 @@ type ContactFlowTag struct {
 	Value string `pulumi:"value"`
 }
 
+type DataTableRecordProperties struct {
+	PrimaryValues []DataTableRecordValue `pulumi:"primaryValues"`
+	Values        []DataTableRecordValue `pulumi:"values"`
+}
+
+// DataTableRecordPropertiesInput is an input type that accepts DataTableRecordPropertiesArgs and DataTableRecordPropertiesOutput values.
+// You can construct a concrete instance of `DataTableRecordPropertiesInput` via:
+//
+//	DataTableRecordPropertiesArgs{...}
+type DataTableRecordPropertiesInput interface {
+	pulumi.Input
+
+	ToDataTableRecordPropertiesOutput() DataTableRecordPropertiesOutput
+	ToDataTableRecordPropertiesOutputWithContext(context.Context) DataTableRecordPropertiesOutput
+}
+
+type DataTableRecordPropertiesArgs struct {
+	PrimaryValues DataTableRecordValueArrayInput `pulumi:"primaryValues"`
+	Values        DataTableRecordValueArrayInput `pulumi:"values"`
+}
+
+func (DataTableRecordPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTableRecordProperties)(nil)).Elem()
+}
+
+func (i DataTableRecordPropertiesArgs) ToDataTableRecordPropertiesOutput() DataTableRecordPropertiesOutput {
+	return i.ToDataTableRecordPropertiesOutputWithContext(context.Background())
+}
+
+func (i DataTableRecordPropertiesArgs) ToDataTableRecordPropertiesOutputWithContext(ctx context.Context) DataTableRecordPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTableRecordPropertiesOutput)
+}
+
+func (i DataTableRecordPropertiesArgs) ToDataTableRecordPropertiesPtrOutput() DataTableRecordPropertiesPtrOutput {
+	return i.ToDataTableRecordPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DataTableRecordPropertiesArgs) ToDataTableRecordPropertiesPtrOutputWithContext(ctx context.Context) DataTableRecordPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTableRecordPropertiesOutput).ToDataTableRecordPropertiesPtrOutputWithContext(ctx)
+}
+
+// DataTableRecordPropertiesPtrInput is an input type that accepts DataTableRecordPropertiesArgs, DataTableRecordPropertiesPtr and DataTableRecordPropertiesPtrOutput values.
+// You can construct a concrete instance of `DataTableRecordPropertiesPtrInput` via:
+//
+//	        DataTableRecordPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataTableRecordPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDataTableRecordPropertiesPtrOutput() DataTableRecordPropertiesPtrOutput
+	ToDataTableRecordPropertiesPtrOutputWithContext(context.Context) DataTableRecordPropertiesPtrOutput
+}
+
+type dataTableRecordPropertiesPtrType DataTableRecordPropertiesArgs
+
+func DataTableRecordPropertiesPtr(v *DataTableRecordPropertiesArgs) DataTableRecordPropertiesPtrInput {
+	return (*dataTableRecordPropertiesPtrType)(v)
+}
+
+func (*dataTableRecordPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataTableRecordProperties)(nil)).Elem()
+}
+
+func (i *dataTableRecordPropertiesPtrType) ToDataTableRecordPropertiesPtrOutput() DataTableRecordPropertiesPtrOutput {
+	return i.ToDataTableRecordPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *dataTableRecordPropertiesPtrType) ToDataTableRecordPropertiesPtrOutputWithContext(ctx context.Context) DataTableRecordPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTableRecordPropertiesPtrOutput)
+}
+
+type DataTableRecordPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DataTableRecordPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTableRecordProperties)(nil)).Elem()
+}
+
+func (o DataTableRecordPropertiesOutput) ToDataTableRecordPropertiesOutput() DataTableRecordPropertiesOutput {
+	return o
+}
+
+func (o DataTableRecordPropertiesOutput) ToDataTableRecordPropertiesOutputWithContext(ctx context.Context) DataTableRecordPropertiesOutput {
+	return o
+}
+
+func (o DataTableRecordPropertiesOutput) ToDataTableRecordPropertiesPtrOutput() DataTableRecordPropertiesPtrOutput {
+	return o.ToDataTableRecordPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DataTableRecordPropertiesOutput) ToDataTableRecordPropertiesPtrOutputWithContext(ctx context.Context) DataTableRecordPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataTableRecordProperties) *DataTableRecordProperties {
+		return &v
+	}).(DataTableRecordPropertiesPtrOutput)
+}
+
+func (o DataTableRecordPropertiesOutput) PrimaryValues() DataTableRecordValueArrayOutput {
+	return o.ApplyT(func(v DataTableRecordProperties) []DataTableRecordValue { return v.PrimaryValues }).(DataTableRecordValueArrayOutput)
+}
+
+func (o DataTableRecordPropertiesOutput) Values() DataTableRecordValueArrayOutput {
+	return o.ApplyT(func(v DataTableRecordProperties) []DataTableRecordValue { return v.Values }).(DataTableRecordValueArrayOutput)
+}
+
+type DataTableRecordPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataTableRecordPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataTableRecordProperties)(nil)).Elem()
+}
+
+func (o DataTableRecordPropertiesPtrOutput) ToDataTableRecordPropertiesPtrOutput() DataTableRecordPropertiesPtrOutput {
+	return o
+}
+
+func (o DataTableRecordPropertiesPtrOutput) ToDataTableRecordPropertiesPtrOutputWithContext(ctx context.Context) DataTableRecordPropertiesPtrOutput {
+	return o
+}
+
+func (o DataTableRecordPropertiesPtrOutput) Elem() DataTableRecordPropertiesOutput {
+	return o.ApplyT(func(v *DataTableRecordProperties) DataTableRecordProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DataTableRecordProperties
+		return ret
+	}).(DataTableRecordPropertiesOutput)
+}
+
+func (o DataTableRecordPropertiesPtrOutput) PrimaryValues() DataTableRecordValueArrayOutput {
+	return o.ApplyT(func(v *DataTableRecordProperties) []DataTableRecordValue {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryValues
+	}).(DataTableRecordValueArrayOutput)
+}
+
+func (o DataTableRecordPropertiesPtrOutput) Values() DataTableRecordValueArrayOutput {
+	return o.ApplyT(func(v *DataTableRecordProperties) []DataTableRecordValue {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(DataTableRecordValueArrayOutput)
+}
+
+type DataTableRecordValue struct {
+	AttributeId    *string `pulumi:"attributeId"`
+	AttributeValue *string `pulumi:"attributeValue"`
+}
+
+// DataTableRecordValueInput is an input type that accepts DataTableRecordValueArgs and DataTableRecordValueOutput values.
+// You can construct a concrete instance of `DataTableRecordValueInput` via:
+//
+//	DataTableRecordValueArgs{...}
+type DataTableRecordValueInput interface {
+	pulumi.Input
+
+	ToDataTableRecordValueOutput() DataTableRecordValueOutput
+	ToDataTableRecordValueOutputWithContext(context.Context) DataTableRecordValueOutput
+}
+
+type DataTableRecordValueArgs struct {
+	AttributeId    pulumi.StringPtrInput `pulumi:"attributeId"`
+	AttributeValue pulumi.StringPtrInput `pulumi:"attributeValue"`
+}
+
+func (DataTableRecordValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTableRecordValue)(nil)).Elem()
+}
+
+func (i DataTableRecordValueArgs) ToDataTableRecordValueOutput() DataTableRecordValueOutput {
+	return i.ToDataTableRecordValueOutputWithContext(context.Background())
+}
+
+func (i DataTableRecordValueArgs) ToDataTableRecordValueOutputWithContext(ctx context.Context) DataTableRecordValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTableRecordValueOutput)
+}
+
+// DataTableRecordValueArrayInput is an input type that accepts DataTableRecordValueArray and DataTableRecordValueArrayOutput values.
+// You can construct a concrete instance of `DataTableRecordValueArrayInput` via:
+//
+//	DataTableRecordValueArray{ DataTableRecordValueArgs{...} }
+type DataTableRecordValueArrayInput interface {
+	pulumi.Input
+
+	ToDataTableRecordValueArrayOutput() DataTableRecordValueArrayOutput
+	ToDataTableRecordValueArrayOutputWithContext(context.Context) DataTableRecordValueArrayOutput
+}
+
+type DataTableRecordValueArray []DataTableRecordValueInput
+
+func (DataTableRecordValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataTableRecordValue)(nil)).Elem()
+}
+
+func (i DataTableRecordValueArray) ToDataTableRecordValueArrayOutput() DataTableRecordValueArrayOutput {
+	return i.ToDataTableRecordValueArrayOutputWithContext(context.Background())
+}
+
+func (i DataTableRecordValueArray) ToDataTableRecordValueArrayOutputWithContext(ctx context.Context) DataTableRecordValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataTableRecordValueArrayOutput)
+}
+
+type DataTableRecordValueOutput struct{ *pulumi.OutputState }
+
+func (DataTableRecordValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataTableRecordValue)(nil)).Elem()
+}
+
+func (o DataTableRecordValueOutput) ToDataTableRecordValueOutput() DataTableRecordValueOutput {
+	return o
+}
+
+func (o DataTableRecordValueOutput) ToDataTableRecordValueOutputWithContext(ctx context.Context) DataTableRecordValueOutput {
+	return o
+}
+
+func (o DataTableRecordValueOutput) AttributeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataTableRecordValue) *string { return v.AttributeId }).(pulumi.StringPtrOutput)
+}
+
+func (o DataTableRecordValueOutput) AttributeValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataTableRecordValue) *string { return v.AttributeValue }).(pulumi.StringPtrOutput)
+}
+
+type DataTableRecordValueArrayOutput struct{ *pulumi.OutputState }
+
+func (DataTableRecordValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataTableRecordValue)(nil)).Elem()
+}
+
+func (o DataTableRecordValueArrayOutput) ToDataTableRecordValueArrayOutput() DataTableRecordValueArrayOutput {
+	return o
+}
+
+func (o DataTableRecordValueArrayOutput) ToDataTableRecordValueArrayOutputWithContext(ctx context.Context) DataTableRecordValueArrayOutput {
+	return o
+}
+
+func (o DataTableRecordValueArrayOutput) Index(i pulumi.IntInput) DataTableRecordValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataTableRecordValue {
+		return vs[0].([]DataTableRecordValue)[vs[1].(int)]
+	}).(DataTableRecordValueOutput)
+}
+
+// A key-value pair to associate with a resource.
+type DataTableTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 // Configuration for an email address alias
 type EmailAddressAliasConfiguration struct {
 	// The identifier of the email address alias
@@ -5541,7 +5797,142 @@ func (o EvaluationFormTextQuestionPropertiesPtrOutput) Automation() EvaluationFo
 	}).(EvaluationFormTextQuestionAutomationPtrOutput)
 }
 
+type FontFamily struct {
+	Default *WorkspaceFontFamily `pulumi:"default"`
+}
+
+// FontFamilyInput is an input type that accepts FontFamilyArgs and FontFamilyOutput values.
+// You can construct a concrete instance of `FontFamilyInput` via:
+//
+//	FontFamilyArgs{...}
+type FontFamilyInput interface {
+	pulumi.Input
+
+	ToFontFamilyOutput() FontFamilyOutput
+	ToFontFamilyOutputWithContext(context.Context) FontFamilyOutput
+}
+
+type FontFamilyArgs struct {
+	Default WorkspaceFontFamilyPtrInput `pulumi:"default"`
+}
+
+func (FontFamilyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FontFamily)(nil)).Elem()
+}
+
+func (i FontFamilyArgs) ToFontFamilyOutput() FontFamilyOutput {
+	return i.ToFontFamilyOutputWithContext(context.Background())
+}
+
+func (i FontFamilyArgs) ToFontFamilyOutputWithContext(ctx context.Context) FontFamilyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FontFamilyOutput)
+}
+
+func (i FontFamilyArgs) ToFontFamilyPtrOutput() FontFamilyPtrOutput {
+	return i.ToFontFamilyPtrOutputWithContext(context.Background())
+}
+
+func (i FontFamilyArgs) ToFontFamilyPtrOutputWithContext(ctx context.Context) FontFamilyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FontFamilyOutput).ToFontFamilyPtrOutputWithContext(ctx)
+}
+
+// FontFamilyPtrInput is an input type that accepts FontFamilyArgs, FontFamilyPtr and FontFamilyPtrOutput values.
+// You can construct a concrete instance of `FontFamilyPtrInput` via:
+//
+//	        FontFamilyArgs{...}
+//
+//	or:
+//
+//	        nil
+type FontFamilyPtrInput interface {
+	pulumi.Input
+
+	ToFontFamilyPtrOutput() FontFamilyPtrOutput
+	ToFontFamilyPtrOutputWithContext(context.Context) FontFamilyPtrOutput
+}
+
+type fontFamilyPtrType FontFamilyArgs
+
+func FontFamilyPtr(v *FontFamilyArgs) FontFamilyPtrInput {
+	return (*fontFamilyPtrType)(v)
+}
+
+func (*fontFamilyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FontFamily)(nil)).Elem()
+}
+
+func (i *fontFamilyPtrType) ToFontFamilyPtrOutput() FontFamilyPtrOutput {
+	return i.ToFontFamilyPtrOutputWithContext(context.Background())
+}
+
+func (i *fontFamilyPtrType) ToFontFamilyPtrOutputWithContext(ctx context.Context) FontFamilyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FontFamilyPtrOutput)
+}
+
+type FontFamilyOutput struct{ *pulumi.OutputState }
+
+func (FontFamilyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FontFamily)(nil)).Elem()
+}
+
+func (o FontFamilyOutput) ToFontFamilyOutput() FontFamilyOutput {
+	return o
+}
+
+func (o FontFamilyOutput) ToFontFamilyOutputWithContext(ctx context.Context) FontFamilyOutput {
+	return o
+}
+
+func (o FontFamilyOutput) ToFontFamilyPtrOutput() FontFamilyPtrOutput {
+	return o.ToFontFamilyPtrOutputWithContext(context.Background())
+}
+
+func (o FontFamilyOutput) ToFontFamilyPtrOutputWithContext(ctx context.Context) FontFamilyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FontFamily) *FontFamily {
+		return &v
+	}).(FontFamilyPtrOutput)
+}
+
+func (o FontFamilyOutput) Default() WorkspaceFontFamilyPtrOutput {
+	return o.ApplyT(func(v FontFamily) *WorkspaceFontFamily { return v.Default }).(WorkspaceFontFamilyPtrOutput)
+}
+
+type FontFamilyPtrOutput struct{ *pulumi.OutputState }
+
+func (FontFamilyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FontFamily)(nil)).Elem()
+}
+
+func (o FontFamilyPtrOutput) ToFontFamilyPtrOutput() FontFamilyPtrOutput {
+	return o
+}
+
+func (o FontFamilyPtrOutput) ToFontFamilyPtrOutputWithContext(ctx context.Context) FontFamilyPtrOutput {
+	return o
+}
+
+func (o FontFamilyPtrOutput) Elem() FontFamilyOutput {
+	return o.ApplyT(func(v *FontFamily) FontFamily {
+		if v != nil {
+			return *v
+		}
+		var ret FontFamily
+		return ret
+	}).(FontFamilyOutput)
+}
+
+func (o FontFamilyPtrOutput) Default() WorkspaceFontFamilyPtrOutput {
+	return o.ApplyT(func(v *FontFamily) *WorkspaceFontFamily {
+		if v == nil {
+			return nil
+		}
+		return v.Default
+	}).(WorkspaceFontFamilyPtrOutput)
+}
+
+// The granular access control configuration for the security profile, including data table permissions.
 type GranularAccessControlConfigurationProperties struct {
+	// The access control configuration for data tables.
 	DataTableAccessControlConfiguration *SecurityProfileDataTableAccessControlConfiguration `pulumi:"dataTableAccessControlConfiguration"`
 }
 
@@ -5556,7 +5947,9 @@ type GranularAccessControlConfigurationPropertiesInput interface {
 	ToGranularAccessControlConfigurationPropertiesOutputWithContext(context.Context) GranularAccessControlConfigurationPropertiesOutput
 }
 
+// The granular access control configuration for the security profile, including data table permissions.
 type GranularAccessControlConfigurationPropertiesArgs struct {
+	// The access control configuration for data tables.
 	DataTableAccessControlConfiguration SecurityProfileDataTableAccessControlConfigurationPtrInput `pulumi:"dataTableAccessControlConfiguration"`
 }
 
@@ -5613,6 +6006,7 @@ func (i *granularAccessControlConfigurationPropertiesPtrType) ToGranularAccessCo
 	return pulumi.ToOutputWithContext(ctx, i).(GranularAccessControlConfigurationPropertiesPtrOutput)
 }
 
+// The granular access control configuration for the security profile, including data table permissions.
 type GranularAccessControlConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (GranularAccessControlConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -5637,6 +6031,7 @@ func (o GranularAccessControlConfigurationPropertiesOutput) ToGranularAccessCont
 	}).(GranularAccessControlConfigurationPropertiesPtrOutput)
 }
 
+// The access control configuration for data tables.
 func (o GranularAccessControlConfigurationPropertiesOutput) DataTableAccessControlConfiguration() SecurityProfileDataTableAccessControlConfigurationPtrOutput {
 	return o.ApplyT(func(v GranularAccessControlConfigurationProperties) *SecurityProfileDataTableAccessControlConfiguration {
 		return v.DataTableAccessControlConfiguration
@@ -5667,6 +6062,7 @@ func (o GranularAccessControlConfigurationPropertiesPtrOutput) Elem() GranularAc
 	}).(GranularAccessControlConfigurationPropertiesOutput)
 }
 
+// The access control configuration for data tables.
 func (o GranularAccessControlConfigurationPropertiesPtrOutput) DataTableAccessControlConfiguration() SecurityProfileDataTableAccessControlConfigurationPtrOutput {
 	return o.ApplyT(func(v *GranularAccessControlConfigurationProperties) *SecurityProfileDataTableAccessControlConfiguration {
 		if v == nil {
@@ -7247,6 +7643,75 @@ type InstanceTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
+}
+
+type LockVersionProperties struct {
+	Attribute *string `pulumi:"attribute"`
+	DataTable *string `pulumi:"dataTable"`
+}
+
+type LockVersionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (LockVersionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LockVersionProperties)(nil)).Elem()
+}
+
+func (o LockVersionPropertiesOutput) ToLockVersionPropertiesOutput() LockVersionPropertiesOutput {
+	return o
+}
+
+func (o LockVersionPropertiesOutput) ToLockVersionPropertiesOutputWithContext(ctx context.Context) LockVersionPropertiesOutput {
+	return o
+}
+
+func (o LockVersionPropertiesOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LockVersionProperties) *string { return v.Attribute }).(pulumi.StringPtrOutput)
+}
+
+func (o LockVersionPropertiesOutput) DataTable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LockVersionProperties) *string { return v.DataTable }).(pulumi.StringPtrOutput)
+}
+
+type LockVersionPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (LockVersionPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LockVersionProperties)(nil)).Elem()
+}
+
+func (o LockVersionPropertiesPtrOutput) ToLockVersionPropertiesPtrOutput() LockVersionPropertiesPtrOutput {
+	return o
+}
+
+func (o LockVersionPropertiesPtrOutput) ToLockVersionPropertiesPtrOutputWithContext(ctx context.Context) LockVersionPropertiesPtrOutput {
+	return o
+}
+
+func (o LockVersionPropertiesPtrOutput) Elem() LockVersionPropertiesOutput {
+	return o.ApplyT(func(v *LockVersionProperties) LockVersionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret LockVersionProperties
+		return ret
+	}).(LockVersionPropertiesOutput)
+}
+
+func (o LockVersionPropertiesPtrOutput) Attribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LockVersionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Attribute
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LockVersionPropertiesPtrOutput) DataTable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LockVersionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataTable
+	}).(pulumi.StringPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -10358,6 +10823,7 @@ func (o SecurityProfileApplicationArrayOutput) Index(i pulumi.IntInput) Security
 
 // Defines the access control configuration for data tables.
 type SecurityProfileDataTableAccessControlConfiguration struct {
+	// The configuration's primary attribute access control configuration.
 	PrimaryAttributeAccessControlConfiguration *SecurityProfilePrimaryAttributeAccessControlConfigurationItem `pulumi:"primaryAttributeAccessControlConfiguration"`
 }
 
@@ -10374,6 +10840,7 @@ type SecurityProfileDataTableAccessControlConfigurationInput interface {
 
 // Defines the access control configuration for data tables.
 type SecurityProfileDataTableAccessControlConfigurationArgs struct {
+	// The configuration's primary attribute access control configuration.
 	PrimaryAttributeAccessControlConfiguration SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrInput `pulumi:"primaryAttributeAccessControlConfiguration"`
 }
 
@@ -10455,6 +10922,7 @@ func (o SecurityProfileDataTableAccessControlConfigurationOutput) ToSecurityProf
 	}).(SecurityProfileDataTableAccessControlConfigurationPtrOutput)
 }
 
+// The configuration's primary attribute access control configuration.
 func (o SecurityProfileDataTableAccessControlConfigurationOutput) PrimaryAttributeAccessControlConfiguration() SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput {
 	return o.ApplyT(func(v SecurityProfileDataTableAccessControlConfiguration) *SecurityProfilePrimaryAttributeAccessControlConfigurationItem {
 		return v.PrimaryAttributeAccessControlConfiguration
@@ -10485,6 +10953,7 @@ func (o SecurityProfileDataTableAccessControlConfigurationPtrOutput) Elem() Secu
 	}).(SecurityProfileDataTableAccessControlConfigurationOutput)
 }
 
+// The configuration's primary attribute access control configuration.
 func (o SecurityProfileDataTableAccessControlConfigurationPtrOutput) PrimaryAttributeAccessControlConfiguration() SecurityProfilePrimaryAttributeAccessControlConfigurationItemPtrOutput {
 	return o.ApplyT(func(v *SecurityProfileDataTableAccessControlConfiguration) *SecurityProfilePrimaryAttributeAccessControlConfigurationItem {
 		if v == nil {
@@ -13092,6 +13561,422 @@ type UserTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ValidationProperties struct {
+	Enum             *ValidationPropertiesEnumProperties `pulumi:"enum"`
+	ExclusiveMaximum *float64                            `pulumi:"exclusiveMaximum"`
+	ExclusiveMinimum *float64                            `pulumi:"exclusiveMinimum"`
+	MaxLength        *int                                `pulumi:"maxLength"`
+	MaxValues        *int                                `pulumi:"maxValues"`
+	Maximum          *float64                            `pulumi:"maximum"`
+	MinLength        *int                                `pulumi:"minLength"`
+	MinValues        *int                                `pulumi:"minValues"`
+	Minimum          *float64                            `pulumi:"minimum"`
+	MultipleOf       *float64                            `pulumi:"multipleOf"`
+}
+
+// ValidationPropertiesInput is an input type that accepts ValidationPropertiesArgs and ValidationPropertiesOutput values.
+// You can construct a concrete instance of `ValidationPropertiesInput` via:
+//
+//	ValidationPropertiesArgs{...}
+type ValidationPropertiesInput interface {
+	pulumi.Input
+
+	ToValidationPropertiesOutput() ValidationPropertiesOutput
+	ToValidationPropertiesOutputWithContext(context.Context) ValidationPropertiesOutput
+}
+
+type ValidationPropertiesArgs struct {
+	Enum             ValidationPropertiesEnumPropertiesPtrInput `pulumi:"enum"`
+	ExclusiveMaximum pulumi.Float64PtrInput                     `pulumi:"exclusiveMaximum"`
+	ExclusiveMinimum pulumi.Float64PtrInput                     `pulumi:"exclusiveMinimum"`
+	MaxLength        pulumi.IntPtrInput                         `pulumi:"maxLength"`
+	MaxValues        pulumi.IntPtrInput                         `pulumi:"maxValues"`
+	Maximum          pulumi.Float64PtrInput                     `pulumi:"maximum"`
+	MinLength        pulumi.IntPtrInput                         `pulumi:"minLength"`
+	MinValues        pulumi.IntPtrInput                         `pulumi:"minValues"`
+	Minimum          pulumi.Float64PtrInput                     `pulumi:"minimum"`
+	MultipleOf       pulumi.Float64PtrInput                     `pulumi:"multipleOf"`
+}
+
+func (ValidationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ValidationProperties)(nil)).Elem()
+}
+
+func (i ValidationPropertiesArgs) ToValidationPropertiesOutput() ValidationPropertiesOutput {
+	return i.ToValidationPropertiesOutputWithContext(context.Background())
+}
+
+func (i ValidationPropertiesArgs) ToValidationPropertiesOutputWithContext(ctx context.Context) ValidationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ValidationPropertiesOutput)
+}
+
+func (i ValidationPropertiesArgs) ToValidationPropertiesPtrOutput() ValidationPropertiesPtrOutput {
+	return i.ToValidationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ValidationPropertiesArgs) ToValidationPropertiesPtrOutputWithContext(ctx context.Context) ValidationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ValidationPropertiesOutput).ToValidationPropertiesPtrOutputWithContext(ctx)
+}
+
+// ValidationPropertiesPtrInput is an input type that accepts ValidationPropertiesArgs, ValidationPropertiesPtr and ValidationPropertiesPtrOutput values.
+// You can construct a concrete instance of `ValidationPropertiesPtrInput` via:
+//
+//	        ValidationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ValidationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToValidationPropertiesPtrOutput() ValidationPropertiesPtrOutput
+	ToValidationPropertiesPtrOutputWithContext(context.Context) ValidationPropertiesPtrOutput
+}
+
+type validationPropertiesPtrType ValidationPropertiesArgs
+
+func ValidationPropertiesPtr(v *ValidationPropertiesArgs) ValidationPropertiesPtrInput {
+	return (*validationPropertiesPtrType)(v)
+}
+
+func (*validationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ValidationProperties)(nil)).Elem()
+}
+
+func (i *validationPropertiesPtrType) ToValidationPropertiesPtrOutput() ValidationPropertiesPtrOutput {
+	return i.ToValidationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *validationPropertiesPtrType) ToValidationPropertiesPtrOutputWithContext(ctx context.Context) ValidationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ValidationPropertiesPtrOutput)
+}
+
+type ValidationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ValidationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ValidationProperties)(nil)).Elem()
+}
+
+func (o ValidationPropertiesOutput) ToValidationPropertiesOutput() ValidationPropertiesOutput {
+	return o
+}
+
+func (o ValidationPropertiesOutput) ToValidationPropertiesOutputWithContext(ctx context.Context) ValidationPropertiesOutput {
+	return o
+}
+
+func (o ValidationPropertiesOutput) ToValidationPropertiesPtrOutput() ValidationPropertiesPtrOutput {
+	return o.ToValidationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ValidationPropertiesOutput) ToValidationPropertiesPtrOutputWithContext(ctx context.Context) ValidationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ValidationProperties) *ValidationProperties {
+		return &v
+	}).(ValidationPropertiesPtrOutput)
+}
+
+func (o ValidationPropertiesOutput) Enum() ValidationPropertiesEnumPropertiesPtrOutput {
+	return o.ApplyT(func(v ValidationProperties) *ValidationPropertiesEnumProperties { return v.Enum }).(ValidationPropertiesEnumPropertiesPtrOutput)
+}
+
+func (o ValidationPropertiesOutput) ExclusiveMaximum() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ValidationProperties) *float64 { return v.ExclusiveMaximum }).(pulumi.Float64PtrOutput)
+}
+
+func (o ValidationPropertiesOutput) ExclusiveMinimum() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ValidationProperties) *float64 { return v.ExclusiveMinimum }).(pulumi.Float64PtrOutput)
+}
+
+func (o ValidationPropertiesOutput) MaxLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ValidationProperties) *int { return v.MaxLength }).(pulumi.IntPtrOutput)
+}
+
+func (o ValidationPropertiesOutput) MaxValues() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ValidationProperties) *int { return v.MaxValues }).(pulumi.IntPtrOutput)
+}
+
+func (o ValidationPropertiesOutput) Maximum() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ValidationProperties) *float64 { return v.Maximum }).(pulumi.Float64PtrOutput)
+}
+
+func (o ValidationPropertiesOutput) MinLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ValidationProperties) *int { return v.MinLength }).(pulumi.IntPtrOutput)
+}
+
+func (o ValidationPropertiesOutput) MinValues() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ValidationProperties) *int { return v.MinValues }).(pulumi.IntPtrOutput)
+}
+
+func (o ValidationPropertiesOutput) Minimum() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ValidationProperties) *float64 { return v.Minimum }).(pulumi.Float64PtrOutput)
+}
+
+func (o ValidationPropertiesOutput) MultipleOf() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ValidationProperties) *float64 { return v.MultipleOf }).(pulumi.Float64PtrOutput)
+}
+
+type ValidationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ValidationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ValidationProperties)(nil)).Elem()
+}
+
+func (o ValidationPropertiesPtrOutput) ToValidationPropertiesPtrOutput() ValidationPropertiesPtrOutput {
+	return o
+}
+
+func (o ValidationPropertiesPtrOutput) ToValidationPropertiesPtrOutputWithContext(ctx context.Context) ValidationPropertiesPtrOutput {
+	return o
+}
+
+func (o ValidationPropertiesPtrOutput) Elem() ValidationPropertiesOutput {
+	return o.ApplyT(func(v *ValidationProperties) ValidationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ValidationProperties
+		return ret
+	}).(ValidationPropertiesOutput)
+}
+
+func (o ValidationPropertiesPtrOutput) Enum() ValidationPropertiesEnumPropertiesPtrOutput {
+	return o.ApplyT(func(v *ValidationProperties) *ValidationPropertiesEnumProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Enum
+	}).(ValidationPropertiesEnumPropertiesPtrOutput)
+}
+
+func (o ValidationPropertiesPtrOutput) ExclusiveMaximum() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ValidationProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ExclusiveMaximum
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o ValidationPropertiesPtrOutput) ExclusiveMinimum() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ValidationProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ExclusiveMinimum
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o ValidationPropertiesPtrOutput) MaxLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ValidationProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxLength
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ValidationPropertiesPtrOutput) MaxValues() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ValidationProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxValues
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ValidationPropertiesPtrOutput) Maximum() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ValidationProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Maximum
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o ValidationPropertiesPtrOutput) MinLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ValidationProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinLength
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ValidationPropertiesPtrOutput) MinValues() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ValidationProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinValues
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ValidationPropertiesPtrOutput) Minimum() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ValidationProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Minimum
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o ValidationPropertiesPtrOutput) MultipleOf() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ValidationProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MultipleOf
+	}).(pulumi.Float64PtrOutput)
+}
+
+type ValidationPropertiesEnumProperties struct {
+	Strict *bool    `pulumi:"strict"`
+	Values []string `pulumi:"values"`
+}
+
+// ValidationPropertiesEnumPropertiesInput is an input type that accepts ValidationPropertiesEnumPropertiesArgs and ValidationPropertiesEnumPropertiesOutput values.
+// You can construct a concrete instance of `ValidationPropertiesEnumPropertiesInput` via:
+//
+//	ValidationPropertiesEnumPropertiesArgs{...}
+type ValidationPropertiesEnumPropertiesInput interface {
+	pulumi.Input
+
+	ToValidationPropertiesEnumPropertiesOutput() ValidationPropertiesEnumPropertiesOutput
+	ToValidationPropertiesEnumPropertiesOutputWithContext(context.Context) ValidationPropertiesEnumPropertiesOutput
+}
+
+type ValidationPropertiesEnumPropertiesArgs struct {
+	Strict pulumi.BoolPtrInput     `pulumi:"strict"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ValidationPropertiesEnumPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ValidationPropertiesEnumProperties)(nil)).Elem()
+}
+
+func (i ValidationPropertiesEnumPropertiesArgs) ToValidationPropertiesEnumPropertiesOutput() ValidationPropertiesEnumPropertiesOutput {
+	return i.ToValidationPropertiesEnumPropertiesOutputWithContext(context.Background())
+}
+
+func (i ValidationPropertiesEnumPropertiesArgs) ToValidationPropertiesEnumPropertiesOutputWithContext(ctx context.Context) ValidationPropertiesEnumPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ValidationPropertiesEnumPropertiesOutput)
+}
+
+func (i ValidationPropertiesEnumPropertiesArgs) ToValidationPropertiesEnumPropertiesPtrOutput() ValidationPropertiesEnumPropertiesPtrOutput {
+	return i.ToValidationPropertiesEnumPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ValidationPropertiesEnumPropertiesArgs) ToValidationPropertiesEnumPropertiesPtrOutputWithContext(ctx context.Context) ValidationPropertiesEnumPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ValidationPropertiesEnumPropertiesOutput).ToValidationPropertiesEnumPropertiesPtrOutputWithContext(ctx)
+}
+
+// ValidationPropertiesEnumPropertiesPtrInput is an input type that accepts ValidationPropertiesEnumPropertiesArgs, ValidationPropertiesEnumPropertiesPtr and ValidationPropertiesEnumPropertiesPtrOutput values.
+// You can construct a concrete instance of `ValidationPropertiesEnumPropertiesPtrInput` via:
+//
+//	        ValidationPropertiesEnumPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ValidationPropertiesEnumPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToValidationPropertiesEnumPropertiesPtrOutput() ValidationPropertiesEnumPropertiesPtrOutput
+	ToValidationPropertiesEnumPropertiesPtrOutputWithContext(context.Context) ValidationPropertiesEnumPropertiesPtrOutput
+}
+
+type validationPropertiesEnumPropertiesPtrType ValidationPropertiesEnumPropertiesArgs
+
+func ValidationPropertiesEnumPropertiesPtr(v *ValidationPropertiesEnumPropertiesArgs) ValidationPropertiesEnumPropertiesPtrInput {
+	return (*validationPropertiesEnumPropertiesPtrType)(v)
+}
+
+func (*validationPropertiesEnumPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ValidationPropertiesEnumProperties)(nil)).Elem()
+}
+
+func (i *validationPropertiesEnumPropertiesPtrType) ToValidationPropertiesEnumPropertiesPtrOutput() ValidationPropertiesEnumPropertiesPtrOutput {
+	return i.ToValidationPropertiesEnumPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *validationPropertiesEnumPropertiesPtrType) ToValidationPropertiesEnumPropertiesPtrOutputWithContext(ctx context.Context) ValidationPropertiesEnumPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ValidationPropertiesEnumPropertiesPtrOutput)
+}
+
+type ValidationPropertiesEnumPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ValidationPropertiesEnumPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ValidationPropertiesEnumProperties)(nil)).Elem()
+}
+
+func (o ValidationPropertiesEnumPropertiesOutput) ToValidationPropertiesEnumPropertiesOutput() ValidationPropertiesEnumPropertiesOutput {
+	return o
+}
+
+func (o ValidationPropertiesEnumPropertiesOutput) ToValidationPropertiesEnumPropertiesOutputWithContext(ctx context.Context) ValidationPropertiesEnumPropertiesOutput {
+	return o
+}
+
+func (o ValidationPropertiesEnumPropertiesOutput) ToValidationPropertiesEnumPropertiesPtrOutput() ValidationPropertiesEnumPropertiesPtrOutput {
+	return o.ToValidationPropertiesEnumPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ValidationPropertiesEnumPropertiesOutput) ToValidationPropertiesEnumPropertiesPtrOutputWithContext(ctx context.Context) ValidationPropertiesEnumPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ValidationPropertiesEnumProperties) *ValidationPropertiesEnumProperties {
+		return &v
+	}).(ValidationPropertiesEnumPropertiesPtrOutput)
+}
+
+func (o ValidationPropertiesEnumPropertiesOutput) Strict() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ValidationPropertiesEnumProperties) *bool { return v.Strict }).(pulumi.BoolPtrOutput)
+}
+
+func (o ValidationPropertiesEnumPropertiesOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ValidationPropertiesEnumProperties) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ValidationPropertiesEnumPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ValidationPropertiesEnumPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ValidationPropertiesEnumProperties)(nil)).Elem()
+}
+
+func (o ValidationPropertiesEnumPropertiesPtrOutput) ToValidationPropertiesEnumPropertiesPtrOutput() ValidationPropertiesEnumPropertiesPtrOutput {
+	return o
+}
+
+func (o ValidationPropertiesEnumPropertiesPtrOutput) ToValidationPropertiesEnumPropertiesPtrOutputWithContext(ctx context.Context) ValidationPropertiesEnumPropertiesPtrOutput {
+	return o
+}
+
+func (o ValidationPropertiesEnumPropertiesPtrOutput) Elem() ValidationPropertiesEnumPropertiesOutput {
+	return o.ApplyT(func(v *ValidationPropertiesEnumProperties) ValidationPropertiesEnumProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ValidationPropertiesEnumProperties
+		return ret
+	}).(ValidationPropertiesEnumPropertiesOutput)
+}
+
+func (o ValidationPropertiesEnumPropertiesPtrOutput) Strict() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ValidationPropertiesEnumProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Strict
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ValidationPropertiesEnumPropertiesPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ValidationPropertiesEnumProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
 // The values of a predefined attribute.
 type ValuesProperties struct {
 	// Predefined attribute values of type string list.
@@ -13240,11 +14125,1584 @@ type ViewTag struct {
 	Value string `pulumi:"value"`
 }
 
+type WorkspaceMediaItem struct {
+	Source *string            `pulumi:"source"`
+	Type   WorkspaceMediaType `pulumi:"type"`
+}
+
+// WorkspaceMediaItemInput is an input type that accepts WorkspaceMediaItemArgs and WorkspaceMediaItemOutput values.
+// You can construct a concrete instance of `WorkspaceMediaItemInput` via:
+//
+//	WorkspaceMediaItemArgs{...}
+type WorkspaceMediaItemInput interface {
+	pulumi.Input
+
+	ToWorkspaceMediaItemOutput() WorkspaceMediaItemOutput
+	ToWorkspaceMediaItemOutputWithContext(context.Context) WorkspaceMediaItemOutput
+}
+
+type WorkspaceMediaItemArgs struct {
+	Source pulumi.StringPtrInput   `pulumi:"source"`
+	Type   WorkspaceMediaTypeInput `pulumi:"type"`
+}
+
+func (WorkspaceMediaItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceMediaItem)(nil)).Elem()
+}
+
+func (i WorkspaceMediaItemArgs) ToWorkspaceMediaItemOutput() WorkspaceMediaItemOutput {
+	return i.ToWorkspaceMediaItemOutputWithContext(context.Background())
+}
+
+func (i WorkspaceMediaItemArgs) ToWorkspaceMediaItemOutputWithContext(ctx context.Context) WorkspaceMediaItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceMediaItemOutput)
+}
+
+// WorkspaceMediaItemArrayInput is an input type that accepts WorkspaceMediaItemArray and WorkspaceMediaItemArrayOutput values.
+// You can construct a concrete instance of `WorkspaceMediaItemArrayInput` via:
+//
+//	WorkspaceMediaItemArray{ WorkspaceMediaItemArgs{...} }
+type WorkspaceMediaItemArrayInput interface {
+	pulumi.Input
+
+	ToWorkspaceMediaItemArrayOutput() WorkspaceMediaItemArrayOutput
+	ToWorkspaceMediaItemArrayOutputWithContext(context.Context) WorkspaceMediaItemArrayOutput
+}
+
+type WorkspaceMediaItemArray []WorkspaceMediaItemInput
+
+func (WorkspaceMediaItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceMediaItem)(nil)).Elem()
+}
+
+func (i WorkspaceMediaItemArray) ToWorkspaceMediaItemArrayOutput() WorkspaceMediaItemArrayOutput {
+	return i.ToWorkspaceMediaItemArrayOutputWithContext(context.Background())
+}
+
+func (i WorkspaceMediaItemArray) ToWorkspaceMediaItemArrayOutputWithContext(ctx context.Context) WorkspaceMediaItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceMediaItemArrayOutput)
+}
+
+type WorkspaceMediaItemOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceMediaItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceMediaItem)(nil)).Elem()
+}
+
+func (o WorkspaceMediaItemOutput) ToWorkspaceMediaItemOutput() WorkspaceMediaItemOutput {
+	return o
+}
+
+func (o WorkspaceMediaItemOutput) ToWorkspaceMediaItemOutputWithContext(ctx context.Context) WorkspaceMediaItemOutput {
+	return o
+}
+
+func (o WorkspaceMediaItemOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceMediaItem) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspaceMediaItemOutput) Type() WorkspaceMediaTypeOutput {
+	return o.ApplyT(func(v WorkspaceMediaItem) WorkspaceMediaType { return v.Type }).(WorkspaceMediaTypeOutput)
+}
+
+type WorkspaceMediaItemArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceMediaItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceMediaItem)(nil)).Elem()
+}
+
+func (o WorkspaceMediaItemArrayOutput) ToWorkspaceMediaItemArrayOutput() WorkspaceMediaItemArrayOutput {
+	return o
+}
+
+func (o WorkspaceMediaItemArrayOutput) ToWorkspaceMediaItemArrayOutputWithContext(ctx context.Context) WorkspaceMediaItemArrayOutput {
+	return o
+}
+
+func (o WorkspaceMediaItemArrayOutput) Index(i pulumi.IntInput) WorkspaceMediaItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceMediaItem {
+		return vs[0].([]WorkspaceMediaItem)[vs[1].(int)]
+	}).(WorkspaceMediaItemOutput)
+}
+
+type WorkspacePage struct {
+	// The input data for the page.
+	InputData *string `pulumi:"inputData"`
+	// The page identifier.
+	Page string `pulumi:"page"`
+	// The Amazon Resource Name (ARN) of the resource associated with the page.
+	ResourceArn string `pulumi:"resourceArn"`
+	// The slug for the page.
+	Slug *string `pulumi:"slug"`
+}
+
+// WorkspacePageInput is an input type that accepts WorkspacePageArgs and WorkspacePageOutput values.
+// You can construct a concrete instance of `WorkspacePageInput` via:
+//
+//	WorkspacePageArgs{...}
+type WorkspacePageInput interface {
+	pulumi.Input
+
+	ToWorkspacePageOutput() WorkspacePageOutput
+	ToWorkspacePageOutputWithContext(context.Context) WorkspacePageOutput
+}
+
+type WorkspacePageArgs struct {
+	// The input data for the page.
+	InputData pulumi.StringPtrInput `pulumi:"inputData"`
+	// The page identifier.
+	Page pulumi.StringInput `pulumi:"page"`
+	// The Amazon Resource Name (ARN) of the resource associated with the page.
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	// The slug for the page.
+	Slug pulumi.StringPtrInput `pulumi:"slug"`
+}
+
+func (WorkspacePageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacePage)(nil)).Elem()
+}
+
+func (i WorkspacePageArgs) ToWorkspacePageOutput() WorkspacePageOutput {
+	return i.ToWorkspacePageOutputWithContext(context.Background())
+}
+
+func (i WorkspacePageArgs) ToWorkspacePageOutputWithContext(ctx context.Context) WorkspacePageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePageOutput)
+}
+
+// WorkspacePageArrayInput is an input type that accepts WorkspacePageArray and WorkspacePageArrayOutput values.
+// You can construct a concrete instance of `WorkspacePageArrayInput` via:
+//
+//	WorkspacePageArray{ WorkspacePageArgs{...} }
+type WorkspacePageArrayInput interface {
+	pulumi.Input
+
+	ToWorkspacePageArrayOutput() WorkspacePageArrayOutput
+	ToWorkspacePageArrayOutputWithContext(context.Context) WorkspacePageArrayOutput
+}
+
+type WorkspacePageArray []WorkspacePageInput
+
+func (WorkspacePageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspacePage)(nil)).Elem()
+}
+
+func (i WorkspacePageArray) ToWorkspacePageArrayOutput() WorkspacePageArrayOutput {
+	return i.ToWorkspacePageArrayOutputWithContext(context.Background())
+}
+
+func (i WorkspacePageArray) ToWorkspacePageArrayOutputWithContext(ctx context.Context) WorkspacePageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePageArrayOutput)
+}
+
+type WorkspacePageOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacePage)(nil)).Elem()
+}
+
+func (o WorkspacePageOutput) ToWorkspacePageOutput() WorkspacePageOutput {
+	return o
+}
+
+func (o WorkspacePageOutput) ToWorkspacePageOutputWithContext(ctx context.Context) WorkspacePageOutput {
+	return o
+}
+
+// The input data for the page.
+func (o WorkspacePageOutput) InputData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspacePage) *string { return v.InputData }).(pulumi.StringPtrOutput)
+}
+
+// The page identifier.
+func (o WorkspacePageOutput) Page() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspacePage) string { return v.Page }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the resource associated with the page.
+func (o WorkspacePageOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspacePage) string { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+// The slug for the page.
+func (o WorkspacePageOutput) Slug() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspacePage) *string { return v.Slug }).(pulumi.StringPtrOutput)
+}
+
+type WorkspacePageArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspacePage)(nil)).Elem()
+}
+
+func (o WorkspacePageArrayOutput) ToWorkspacePageArrayOutput() WorkspacePageArrayOutput {
+	return o
+}
+
+func (o WorkspacePageArrayOutput) ToWorkspacePageArrayOutputWithContext(ctx context.Context) WorkspacePageArrayOutput {
+	return o
+}
+
+func (o WorkspacePageArrayOutput) Index(i pulumi.IntInput) WorkspacePageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspacePage {
+		return vs[0].([]WorkspacePage)[vs[1].(int)]
+	}).(WorkspacePageOutput)
+}
+
+type WorkspacePaletteCanvas struct {
+	ActiveBackground    *string `pulumi:"activeBackground"`
+	ContainerBackground *string `pulumi:"containerBackground"`
+	PageBackground      *string `pulumi:"pageBackground"`
+}
+
+// WorkspacePaletteCanvasInput is an input type that accepts WorkspacePaletteCanvasArgs and WorkspacePaletteCanvasOutput values.
+// You can construct a concrete instance of `WorkspacePaletteCanvasInput` via:
+//
+//	WorkspacePaletteCanvasArgs{...}
+type WorkspacePaletteCanvasInput interface {
+	pulumi.Input
+
+	ToWorkspacePaletteCanvasOutput() WorkspacePaletteCanvasOutput
+	ToWorkspacePaletteCanvasOutputWithContext(context.Context) WorkspacePaletteCanvasOutput
+}
+
+type WorkspacePaletteCanvasArgs struct {
+	ActiveBackground    pulumi.StringPtrInput `pulumi:"activeBackground"`
+	ContainerBackground pulumi.StringPtrInput `pulumi:"containerBackground"`
+	PageBackground      pulumi.StringPtrInput `pulumi:"pageBackground"`
+}
+
+func (WorkspacePaletteCanvasArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacePaletteCanvas)(nil)).Elem()
+}
+
+func (i WorkspacePaletteCanvasArgs) ToWorkspacePaletteCanvasOutput() WorkspacePaletteCanvasOutput {
+	return i.ToWorkspacePaletteCanvasOutputWithContext(context.Background())
+}
+
+func (i WorkspacePaletteCanvasArgs) ToWorkspacePaletteCanvasOutputWithContext(ctx context.Context) WorkspacePaletteCanvasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePaletteCanvasOutput)
+}
+
+func (i WorkspacePaletteCanvasArgs) ToWorkspacePaletteCanvasPtrOutput() WorkspacePaletteCanvasPtrOutput {
+	return i.ToWorkspacePaletteCanvasPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspacePaletteCanvasArgs) ToWorkspacePaletteCanvasPtrOutputWithContext(ctx context.Context) WorkspacePaletteCanvasPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePaletteCanvasOutput).ToWorkspacePaletteCanvasPtrOutputWithContext(ctx)
+}
+
+// WorkspacePaletteCanvasPtrInput is an input type that accepts WorkspacePaletteCanvasArgs, WorkspacePaletteCanvasPtr and WorkspacePaletteCanvasPtrOutput values.
+// You can construct a concrete instance of `WorkspacePaletteCanvasPtrInput` via:
+//
+//	        WorkspacePaletteCanvasArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspacePaletteCanvasPtrInput interface {
+	pulumi.Input
+
+	ToWorkspacePaletteCanvasPtrOutput() WorkspacePaletteCanvasPtrOutput
+	ToWorkspacePaletteCanvasPtrOutputWithContext(context.Context) WorkspacePaletteCanvasPtrOutput
+}
+
+type workspacePaletteCanvasPtrType WorkspacePaletteCanvasArgs
+
+func WorkspacePaletteCanvasPtr(v *WorkspacePaletteCanvasArgs) WorkspacePaletteCanvasPtrInput {
+	return (*workspacePaletteCanvasPtrType)(v)
+}
+
+func (*workspacePaletteCanvasPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspacePaletteCanvas)(nil)).Elem()
+}
+
+func (i *workspacePaletteCanvasPtrType) ToWorkspacePaletteCanvasPtrOutput() WorkspacePaletteCanvasPtrOutput {
+	return i.ToWorkspacePaletteCanvasPtrOutputWithContext(context.Background())
+}
+
+func (i *workspacePaletteCanvasPtrType) ToWorkspacePaletteCanvasPtrOutputWithContext(ctx context.Context) WorkspacePaletteCanvasPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePaletteCanvasPtrOutput)
+}
+
+type WorkspacePaletteCanvasOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePaletteCanvasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacePaletteCanvas)(nil)).Elem()
+}
+
+func (o WorkspacePaletteCanvasOutput) ToWorkspacePaletteCanvasOutput() WorkspacePaletteCanvasOutput {
+	return o
+}
+
+func (o WorkspacePaletteCanvasOutput) ToWorkspacePaletteCanvasOutputWithContext(ctx context.Context) WorkspacePaletteCanvasOutput {
+	return o
+}
+
+func (o WorkspacePaletteCanvasOutput) ToWorkspacePaletteCanvasPtrOutput() WorkspacePaletteCanvasPtrOutput {
+	return o.ToWorkspacePaletteCanvasPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspacePaletteCanvasOutput) ToWorkspacePaletteCanvasPtrOutputWithContext(ctx context.Context) WorkspacePaletteCanvasPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspacePaletteCanvas) *WorkspacePaletteCanvas {
+		return &v
+	}).(WorkspacePaletteCanvasPtrOutput)
+}
+
+func (o WorkspacePaletteCanvasOutput) ActiveBackground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspacePaletteCanvas) *string { return v.ActiveBackground }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePaletteCanvasOutput) ContainerBackground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspacePaletteCanvas) *string { return v.ContainerBackground }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePaletteCanvasOutput) PageBackground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspacePaletteCanvas) *string { return v.PageBackground }).(pulumi.StringPtrOutput)
+}
+
+type WorkspacePaletteCanvasPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePaletteCanvasPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspacePaletteCanvas)(nil)).Elem()
+}
+
+func (o WorkspacePaletteCanvasPtrOutput) ToWorkspacePaletteCanvasPtrOutput() WorkspacePaletteCanvasPtrOutput {
+	return o
+}
+
+func (o WorkspacePaletteCanvasPtrOutput) ToWorkspacePaletteCanvasPtrOutputWithContext(ctx context.Context) WorkspacePaletteCanvasPtrOutput {
+	return o
+}
+
+func (o WorkspacePaletteCanvasPtrOutput) Elem() WorkspacePaletteCanvasOutput {
+	return o.ApplyT(func(v *WorkspacePaletteCanvas) WorkspacePaletteCanvas {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspacePaletteCanvas
+		return ret
+	}).(WorkspacePaletteCanvasOutput)
+}
+
+func (o WorkspacePaletteCanvasPtrOutput) ActiveBackground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspacePaletteCanvas) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveBackground
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePaletteCanvasPtrOutput) ContainerBackground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspacePaletteCanvas) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerBackground
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePaletteCanvasPtrOutput) PageBackground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspacePaletteCanvas) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PageBackground
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkspacePaletteHeader struct {
+	Background          *string `pulumi:"background"`
+	InvertActionsColors *bool   `pulumi:"invertActionsColors"`
+	Text                *string `pulumi:"text"`
+	TextHover           *string `pulumi:"textHover"`
+}
+
+// WorkspacePaletteHeaderInput is an input type that accepts WorkspacePaletteHeaderArgs and WorkspacePaletteHeaderOutput values.
+// You can construct a concrete instance of `WorkspacePaletteHeaderInput` via:
+//
+//	WorkspacePaletteHeaderArgs{...}
+type WorkspacePaletteHeaderInput interface {
+	pulumi.Input
+
+	ToWorkspacePaletteHeaderOutput() WorkspacePaletteHeaderOutput
+	ToWorkspacePaletteHeaderOutputWithContext(context.Context) WorkspacePaletteHeaderOutput
+}
+
+type WorkspacePaletteHeaderArgs struct {
+	Background          pulumi.StringPtrInput `pulumi:"background"`
+	InvertActionsColors pulumi.BoolPtrInput   `pulumi:"invertActionsColors"`
+	Text                pulumi.StringPtrInput `pulumi:"text"`
+	TextHover           pulumi.StringPtrInput `pulumi:"textHover"`
+}
+
+func (WorkspacePaletteHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacePaletteHeader)(nil)).Elem()
+}
+
+func (i WorkspacePaletteHeaderArgs) ToWorkspacePaletteHeaderOutput() WorkspacePaletteHeaderOutput {
+	return i.ToWorkspacePaletteHeaderOutputWithContext(context.Background())
+}
+
+func (i WorkspacePaletteHeaderArgs) ToWorkspacePaletteHeaderOutputWithContext(ctx context.Context) WorkspacePaletteHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePaletteHeaderOutput)
+}
+
+func (i WorkspacePaletteHeaderArgs) ToWorkspacePaletteHeaderPtrOutput() WorkspacePaletteHeaderPtrOutput {
+	return i.ToWorkspacePaletteHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspacePaletteHeaderArgs) ToWorkspacePaletteHeaderPtrOutputWithContext(ctx context.Context) WorkspacePaletteHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePaletteHeaderOutput).ToWorkspacePaletteHeaderPtrOutputWithContext(ctx)
+}
+
+// WorkspacePaletteHeaderPtrInput is an input type that accepts WorkspacePaletteHeaderArgs, WorkspacePaletteHeaderPtr and WorkspacePaletteHeaderPtrOutput values.
+// You can construct a concrete instance of `WorkspacePaletteHeaderPtrInput` via:
+//
+//	        WorkspacePaletteHeaderArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspacePaletteHeaderPtrInput interface {
+	pulumi.Input
+
+	ToWorkspacePaletteHeaderPtrOutput() WorkspacePaletteHeaderPtrOutput
+	ToWorkspacePaletteHeaderPtrOutputWithContext(context.Context) WorkspacePaletteHeaderPtrOutput
+}
+
+type workspacePaletteHeaderPtrType WorkspacePaletteHeaderArgs
+
+func WorkspacePaletteHeaderPtr(v *WorkspacePaletteHeaderArgs) WorkspacePaletteHeaderPtrInput {
+	return (*workspacePaletteHeaderPtrType)(v)
+}
+
+func (*workspacePaletteHeaderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspacePaletteHeader)(nil)).Elem()
+}
+
+func (i *workspacePaletteHeaderPtrType) ToWorkspacePaletteHeaderPtrOutput() WorkspacePaletteHeaderPtrOutput {
+	return i.ToWorkspacePaletteHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i *workspacePaletteHeaderPtrType) ToWorkspacePaletteHeaderPtrOutputWithContext(ctx context.Context) WorkspacePaletteHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePaletteHeaderPtrOutput)
+}
+
+type WorkspacePaletteHeaderOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePaletteHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacePaletteHeader)(nil)).Elem()
+}
+
+func (o WorkspacePaletteHeaderOutput) ToWorkspacePaletteHeaderOutput() WorkspacePaletteHeaderOutput {
+	return o
+}
+
+func (o WorkspacePaletteHeaderOutput) ToWorkspacePaletteHeaderOutputWithContext(ctx context.Context) WorkspacePaletteHeaderOutput {
+	return o
+}
+
+func (o WorkspacePaletteHeaderOutput) ToWorkspacePaletteHeaderPtrOutput() WorkspacePaletteHeaderPtrOutput {
+	return o.ToWorkspacePaletteHeaderPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspacePaletteHeaderOutput) ToWorkspacePaletteHeaderPtrOutputWithContext(ctx context.Context) WorkspacePaletteHeaderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspacePaletteHeader) *WorkspacePaletteHeader {
+		return &v
+	}).(WorkspacePaletteHeaderPtrOutput)
+}
+
+func (o WorkspacePaletteHeaderOutput) Background() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspacePaletteHeader) *string { return v.Background }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePaletteHeaderOutput) InvertActionsColors() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspacePaletteHeader) *bool { return v.InvertActionsColors }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkspacePaletteHeaderOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspacePaletteHeader) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePaletteHeaderOutput) TextHover() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspacePaletteHeader) *string { return v.TextHover }).(pulumi.StringPtrOutput)
+}
+
+type WorkspacePaletteHeaderPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePaletteHeaderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspacePaletteHeader)(nil)).Elem()
+}
+
+func (o WorkspacePaletteHeaderPtrOutput) ToWorkspacePaletteHeaderPtrOutput() WorkspacePaletteHeaderPtrOutput {
+	return o
+}
+
+func (o WorkspacePaletteHeaderPtrOutput) ToWorkspacePaletteHeaderPtrOutputWithContext(ctx context.Context) WorkspacePaletteHeaderPtrOutput {
+	return o
+}
+
+func (o WorkspacePaletteHeaderPtrOutput) Elem() WorkspacePaletteHeaderOutput {
+	return o.ApplyT(func(v *WorkspacePaletteHeader) WorkspacePaletteHeader {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspacePaletteHeader
+		return ret
+	}).(WorkspacePaletteHeaderOutput)
+}
+
+func (o WorkspacePaletteHeaderPtrOutput) Background() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspacePaletteHeader) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Background
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePaletteHeaderPtrOutput) InvertActionsColors() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkspacePaletteHeader) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.InvertActionsColors
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkspacePaletteHeaderPtrOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspacePaletteHeader) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePaletteHeaderPtrOutput) TextHover() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspacePaletteHeader) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextHover
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkspacePaletteNavigation struct {
+	Background           *string `pulumi:"background"`
+	InvertActionsColors  *bool   `pulumi:"invertActionsColors"`
+	Text                 *string `pulumi:"text"`
+	TextActive           *string `pulumi:"textActive"`
+	TextBackgroundActive *string `pulumi:"textBackgroundActive"`
+	TextBackgroundHover  *string `pulumi:"textBackgroundHover"`
+	TextHover            *string `pulumi:"textHover"`
+}
+
+// WorkspacePaletteNavigationInput is an input type that accepts WorkspacePaletteNavigationArgs and WorkspacePaletteNavigationOutput values.
+// You can construct a concrete instance of `WorkspacePaletteNavigationInput` via:
+//
+//	WorkspacePaletteNavigationArgs{...}
+type WorkspacePaletteNavigationInput interface {
+	pulumi.Input
+
+	ToWorkspacePaletteNavigationOutput() WorkspacePaletteNavigationOutput
+	ToWorkspacePaletteNavigationOutputWithContext(context.Context) WorkspacePaletteNavigationOutput
+}
+
+type WorkspacePaletteNavigationArgs struct {
+	Background           pulumi.StringPtrInput `pulumi:"background"`
+	InvertActionsColors  pulumi.BoolPtrInput   `pulumi:"invertActionsColors"`
+	Text                 pulumi.StringPtrInput `pulumi:"text"`
+	TextActive           pulumi.StringPtrInput `pulumi:"textActive"`
+	TextBackgroundActive pulumi.StringPtrInput `pulumi:"textBackgroundActive"`
+	TextBackgroundHover  pulumi.StringPtrInput `pulumi:"textBackgroundHover"`
+	TextHover            pulumi.StringPtrInput `pulumi:"textHover"`
+}
+
+func (WorkspacePaletteNavigationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacePaletteNavigation)(nil)).Elem()
+}
+
+func (i WorkspacePaletteNavigationArgs) ToWorkspacePaletteNavigationOutput() WorkspacePaletteNavigationOutput {
+	return i.ToWorkspacePaletteNavigationOutputWithContext(context.Background())
+}
+
+func (i WorkspacePaletteNavigationArgs) ToWorkspacePaletteNavigationOutputWithContext(ctx context.Context) WorkspacePaletteNavigationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePaletteNavigationOutput)
+}
+
+func (i WorkspacePaletteNavigationArgs) ToWorkspacePaletteNavigationPtrOutput() WorkspacePaletteNavigationPtrOutput {
+	return i.ToWorkspacePaletteNavigationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspacePaletteNavigationArgs) ToWorkspacePaletteNavigationPtrOutputWithContext(ctx context.Context) WorkspacePaletteNavigationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePaletteNavigationOutput).ToWorkspacePaletteNavigationPtrOutputWithContext(ctx)
+}
+
+// WorkspacePaletteNavigationPtrInput is an input type that accepts WorkspacePaletteNavigationArgs, WorkspacePaletteNavigationPtr and WorkspacePaletteNavigationPtrOutput values.
+// You can construct a concrete instance of `WorkspacePaletteNavigationPtrInput` via:
+//
+//	        WorkspacePaletteNavigationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspacePaletteNavigationPtrInput interface {
+	pulumi.Input
+
+	ToWorkspacePaletteNavigationPtrOutput() WorkspacePaletteNavigationPtrOutput
+	ToWorkspacePaletteNavigationPtrOutputWithContext(context.Context) WorkspacePaletteNavigationPtrOutput
+}
+
+type workspacePaletteNavigationPtrType WorkspacePaletteNavigationArgs
+
+func WorkspacePaletteNavigationPtr(v *WorkspacePaletteNavigationArgs) WorkspacePaletteNavigationPtrInput {
+	return (*workspacePaletteNavigationPtrType)(v)
+}
+
+func (*workspacePaletteNavigationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspacePaletteNavigation)(nil)).Elem()
+}
+
+func (i *workspacePaletteNavigationPtrType) ToWorkspacePaletteNavigationPtrOutput() WorkspacePaletteNavigationPtrOutput {
+	return i.ToWorkspacePaletteNavigationPtrOutputWithContext(context.Background())
+}
+
+func (i *workspacePaletteNavigationPtrType) ToWorkspacePaletteNavigationPtrOutputWithContext(ctx context.Context) WorkspacePaletteNavigationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePaletteNavigationPtrOutput)
+}
+
+type WorkspacePaletteNavigationOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePaletteNavigationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacePaletteNavigation)(nil)).Elem()
+}
+
+func (o WorkspacePaletteNavigationOutput) ToWorkspacePaletteNavigationOutput() WorkspacePaletteNavigationOutput {
+	return o
+}
+
+func (o WorkspacePaletteNavigationOutput) ToWorkspacePaletteNavigationOutputWithContext(ctx context.Context) WorkspacePaletteNavigationOutput {
+	return o
+}
+
+func (o WorkspacePaletteNavigationOutput) ToWorkspacePaletteNavigationPtrOutput() WorkspacePaletteNavigationPtrOutput {
+	return o.ToWorkspacePaletteNavigationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspacePaletteNavigationOutput) ToWorkspacePaletteNavigationPtrOutputWithContext(ctx context.Context) WorkspacePaletteNavigationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspacePaletteNavigation) *WorkspacePaletteNavigation {
+		return &v
+	}).(WorkspacePaletteNavigationPtrOutput)
+}
+
+func (o WorkspacePaletteNavigationOutput) Background() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspacePaletteNavigation) *string { return v.Background }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePaletteNavigationOutput) InvertActionsColors() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspacePaletteNavigation) *bool { return v.InvertActionsColors }).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkspacePaletteNavigationOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspacePaletteNavigation) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePaletteNavigationOutput) TextActive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspacePaletteNavigation) *string { return v.TextActive }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePaletteNavigationOutput) TextBackgroundActive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspacePaletteNavigation) *string { return v.TextBackgroundActive }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePaletteNavigationOutput) TextBackgroundHover() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspacePaletteNavigation) *string { return v.TextBackgroundHover }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePaletteNavigationOutput) TextHover() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspacePaletteNavigation) *string { return v.TextHover }).(pulumi.StringPtrOutput)
+}
+
+type WorkspacePaletteNavigationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePaletteNavigationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspacePaletteNavigation)(nil)).Elem()
+}
+
+func (o WorkspacePaletteNavigationPtrOutput) ToWorkspacePaletteNavigationPtrOutput() WorkspacePaletteNavigationPtrOutput {
+	return o
+}
+
+func (o WorkspacePaletteNavigationPtrOutput) ToWorkspacePaletteNavigationPtrOutputWithContext(ctx context.Context) WorkspacePaletteNavigationPtrOutput {
+	return o
+}
+
+func (o WorkspacePaletteNavigationPtrOutput) Elem() WorkspacePaletteNavigationOutput {
+	return o.ApplyT(func(v *WorkspacePaletteNavigation) WorkspacePaletteNavigation {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspacePaletteNavigation
+		return ret
+	}).(WorkspacePaletteNavigationOutput)
+}
+
+func (o WorkspacePaletteNavigationPtrOutput) Background() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspacePaletteNavigation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Background
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePaletteNavigationPtrOutput) InvertActionsColors() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkspacePaletteNavigation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.InvertActionsColors
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o WorkspacePaletteNavigationPtrOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspacePaletteNavigation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePaletteNavigationPtrOutput) TextActive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspacePaletteNavigation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextActive
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePaletteNavigationPtrOutput) TextBackgroundActive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspacePaletteNavigation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextBackgroundActive
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePaletteNavigationPtrOutput) TextBackgroundHover() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspacePaletteNavigation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextBackgroundHover
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePaletteNavigationPtrOutput) TextHover() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspacePaletteNavigation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TextHover
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkspacePalettePrimary struct {
+	Active       *string `pulumi:"active"`
+	ContrastText *string `pulumi:"contrastText"`
+	Default      *string `pulumi:"default"`
+}
+
+// WorkspacePalettePrimaryInput is an input type that accepts WorkspacePalettePrimaryArgs and WorkspacePalettePrimaryOutput values.
+// You can construct a concrete instance of `WorkspacePalettePrimaryInput` via:
+//
+//	WorkspacePalettePrimaryArgs{...}
+type WorkspacePalettePrimaryInput interface {
+	pulumi.Input
+
+	ToWorkspacePalettePrimaryOutput() WorkspacePalettePrimaryOutput
+	ToWorkspacePalettePrimaryOutputWithContext(context.Context) WorkspacePalettePrimaryOutput
+}
+
+type WorkspacePalettePrimaryArgs struct {
+	Active       pulumi.StringPtrInput `pulumi:"active"`
+	ContrastText pulumi.StringPtrInput `pulumi:"contrastText"`
+	Default      pulumi.StringPtrInput `pulumi:"default"`
+}
+
+func (WorkspacePalettePrimaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacePalettePrimary)(nil)).Elem()
+}
+
+func (i WorkspacePalettePrimaryArgs) ToWorkspacePalettePrimaryOutput() WorkspacePalettePrimaryOutput {
+	return i.ToWorkspacePalettePrimaryOutputWithContext(context.Background())
+}
+
+func (i WorkspacePalettePrimaryArgs) ToWorkspacePalettePrimaryOutputWithContext(ctx context.Context) WorkspacePalettePrimaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePalettePrimaryOutput)
+}
+
+func (i WorkspacePalettePrimaryArgs) ToWorkspacePalettePrimaryPtrOutput() WorkspacePalettePrimaryPtrOutput {
+	return i.ToWorkspacePalettePrimaryPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspacePalettePrimaryArgs) ToWorkspacePalettePrimaryPtrOutputWithContext(ctx context.Context) WorkspacePalettePrimaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePalettePrimaryOutput).ToWorkspacePalettePrimaryPtrOutputWithContext(ctx)
+}
+
+// WorkspacePalettePrimaryPtrInput is an input type that accepts WorkspacePalettePrimaryArgs, WorkspacePalettePrimaryPtr and WorkspacePalettePrimaryPtrOutput values.
+// You can construct a concrete instance of `WorkspacePalettePrimaryPtrInput` via:
+//
+//	        WorkspacePalettePrimaryArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspacePalettePrimaryPtrInput interface {
+	pulumi.Input
+
+	ToWorkspacePalettePrimaryPtrOutput() WorkspacePalettePrimaryPtrOutput
+	ToWorkspacePalettePrimaryPtrOutputWithContext(context.Context) WorkspacePalettePrimaryPtrOutput
+}
+
+type workspacePalettePrimaryPtrType WorkspacePalettePrimaryArgs
+
+func WorkspacePalettePrimaryPtr(v *WorkspacePalettePrimaryArgs) WorkspacePalettePrimaryPtrInput {
+	return (*workspacePalettePrimaryPtrType)(v)
+}
+
+func (*workspacePalettePrimaryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspacePalettePrimary)(nil)).Elem()
+}
+
+func (i *workspacePalettePrimaryPtrType) ToWorkspacePalettePrimaryPtrOutput() WorkspacePalettePrimaryPtrOutput {
+	return i.ToWorkspacePalettePrimaryPtrOutputWithContext(context.Background())
+}
+
+func (i *workspacePalettePrimaryPtrType) ToWorkspacePalettePrimaryPtrOutputWithContext(ctx context.Context) WorkspacePalettePrimaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePalettePrimaryPtrOutput)
+}
+
+type WorkspacePalettePrimaryOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePalettePrimaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacePalettePrimary)(nil)).Elem()
+}
+
+func (o WorkspacePalettePrimaryOutput) ToWorkspacePalettePrimaryOutput() WorkspacePalettePrimaryOutput {
+	return o
+}
+
+func (o WorkspacePalettePrimaryOutput) ToWorkspacePalettePrimaryOutputWithContext(ctx context.Context) WorkspacePalettePrimaryOutput {
+	return o
+}
+
+func (o WorkspacePalettePrimaryOutput) ToWorkspacePalettePrimaryPtrOutput() WorkspacePalettePrimaryPtrOutput {
+	return o.ToWorkspacePalettePrimaryPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspacePalettePrimaryOutput) ToWorkspacePalettePrimaryPtrOutputWithContext(ctx context.Context) WorkspacePalettePrimaryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspacePalettePrimary) *WorkspacePalettePrimary {
+		return &v
+	}).(WorkspacePalettePrimaryPtrOutput)
+}
+
+func (o WorkspacePalettePrimaryOutput) Active() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspacePalettePrimary) *string { return v.Active }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePalettePrimaryOutput) ContrastText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspacePalettePrimary) *string { return v.ContrastText }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePalettePrimaryOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspacePalettePrimary) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+type WorkspacePalettePrimaryPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePalettePrimaryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspacePalettePrimary)(nil)).Elem()
+}
+
+func (o WorkspacePalettePrimaryPtrOutput) ToWorkspacePalettePrimaryPtrOutput() WorkspacePalettePrimaryPtrOutput {
+	return o
+}
+
+func (o WorkspacePalettePrimaryPtrOutput) ToWorkspacePalettePrimaryPtrOutputWithContext(ctx context.Context) WorkspacePalettePrimaryPtrOutput {
+	return o
+}
+
+func (o WorkspacePalettePrimaryPtrOutput) Elem() WorkspacePalettePrimaryOutput {
+	return o.ApplyT(func(v *WorkspacePalettePrimary) WorkspacePalettePrimary {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspacePalettePrimary
+		return ret
+	}).(WorkspacePalettePrimaryOutput)
+}
+
+func (o WorkspacePalettePrimaryPtrOutput) Active() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspacePalettePrimary) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Active
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePalettePrimaryPtrOutput) ContrastText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspacePalettePrimary) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContrastText
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkspacePalettePrimaryPtrOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspacePalettePrimary) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Default
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type WorkspaceTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// The theme configuration for the Connect workspace
+type WorkspaceTheme struct {
+	Dark  *WorkspaceThemeConfig `pulumi:"dark"`
+	Light *WorkspaceThemeConfig `pulumi:"light"`
+}
+
+// WorkspaceThemeInput is an input type that accepts WorkspaceThemeArgs and WorkspaceThemeOutput values.
+// You can construct a concrete instance of `WorkspaceThemeInput` via:
+//
+//	WorkspaceThemeArgs{...}
+type WorkspaceThemeInput interface {
+	pulumi.Input
+
+	ToWorkspaceThemeOutput() WorkspaceThemeOutput
+	ToWorkspaceThemeOutputWithContext(context.Context) WorkspaceThemeOutput
+}
+
+// The theme configuration for the Connect workspace
+type WorkspaceThemeArgs struct {
+	Dark  WorkspaceThemeConfigPtrInput `pulumi:"dark"`
+	Light WorkspaceThemeConfigPtrInput `pulumi:"light"`
+}
+
+func (WorkspaceThemeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceTheme)(nil)).Elem()
+}
+
+func (i WorkspaceThemeArgs) ToWorkspaceThemeOutput() WorkspaceThemeOutput {
+	return i.ToWorkspaceThemeOutputWithContext(context.Background())
+}
+
+func (i WorkspaceThemeArgs) ToWorkspaceThemeOutputWithContext(ctx context.Context) WorkspaceThemeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceThemeOutput)
+}
+
+func (i WorkspaceThemeArgs) ToWorkspaceThemePtrOutput() WorkspaceThemePtrOutput {
+	return i.ToWorkspaceThemePtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceThemeArgs) ToWorkspaceThemePtrOutputWithContext(ctx context.Context) WorkspaceThemePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceThemeOutput).ToWorkspaceThemePtrOutputWithContext(ctx)
+}
+
+// WorkspaceThemePtrInput is an input type that accepts WorkspaceThemeArgs, WorkspaceThemePtr and WorkspaceThemePtrOutput values.
+// You can construct a concrete instance of `WorkspaceThemePtrInput` via:
+//
+//	        WorkspaceThemeArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspaceThemePtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceThemePtrOutput() WorkspaceThemePtrOutput
+	ToWorkspaceThemePtrOutputWithContext(context.Context) WorkspaceThemePtrOutput
+}
+
+type workspaceThemePtrType WorkspaceThemeArgs
+
+func WorkspaceThemePtr(v *WorkspaceThemeArgs) WorkspaceThemePtrInput {
+	return (*workspaceThemePtrType)(v)
+}
+
+func (*workspaceThemePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceTheme)(nil)).Elem()
+}
+
+func (i *workspaceThemePtrType) ToWorkspaceThemePtrOutput() WorkspaceThemePtrOutput {
+	return i.ToWorkspaceThemePtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceThemePtrType) ToWorkspaceThemePtrOutputWithContext(ctx context.Context) WorkspaceThemePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceThemePtrOutput)
+}
+
+// The theme configuration for the Connect workspace
+type WorkspaceThemeOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceThemeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceTheme)(nil)).Elem()
+}
+
+func (o WorkspaceThemeOutput) ToWorkspaceThemeOutput() WorkspaceThemeOutput {
+	return o
+}
+
+func (o WorkspaceThemeOutput) ToWorkspaceThemeOutputWithContext(ctx context.Context) WorkspaceThemeOutput {
+	return o
+}
+
+func (o WorkspaceThemeOutput) ToWorkspaceThemePtrOutput() WorkspaceThemePtrOutput {
+	return o.ToWorkspaceThemePtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceThemeOutput) ToWorkspaceThemePtrOutputWithContext(ctx context.Context) WorkspaceThemePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceTheme) *WorkspaceTheme {
+		return &v
+	}).(WorkspaceThemePtrOutput)
+}
+
+func (o WorkspaceThemeOutput) Dark() WorkspaceThemeConfigPtrOutput {
+	return o.ApplyT(func(v WorkspaceTheme) *WorkspaceThemeConfig { return v.Dark }).(WorkspaceThemeConfigPtrOutput)
+}
+
+func (o WorkspaceThemeOutput) Light() WorkspaceThemeConfigPtrOutput {
+	return o.ApplyT(func(v WorkspaceTheme) *WorkspaceThemeConfig { return v.Light }).(WorkspaceThemeConfigPtrOutput)
+}
+
+type WorkspaceThemePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceThemePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceTheme)(nil)).Elem()
+}
+
+func (o WorkspaceThemePtrOutput) ToWorkspaceThemePtrOutput() WorkspaceThemePtrOutput {
+	return o
+}
+
+func (o WorkspaceThemePtrOutput) ToWorkspaceThemePtrOutputWithContext(ctx context.Context) WorkspaceThemePtrOutput {
+	return o
+}
+
+func (o WorkspaceThemePtrOutput) Elem() WorkspaceThemeOutput {
+	return o.ApplyT(func(v *WorkspaceTheme) WorkspaceTheme {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceTheme
+		return ret
+	}).(WorkspaceThemeOutput)
+}
+
+func (o WorkspaceThemePtrOutput) Dark() WorkspaceThemeConfigPtrOutput {
+	return o.ApplyT(func(v *WorkspaceTheme) *WorkspaceThemeConfig {
+		if v == nil {
+			return nil
+		}
+		return v.Dark
+	}).(WorkspaceThemeConfigPtrOutput)
+}
+
+func (o WorkspaceThemePtrOutput) Light() WorkspaceThemeConfigPtrOutput {
+	return o.ApplyT(func(v *WorkspaceTheme) *WorkspaceThemeConfig {
+		if v == nil {
+			return nil
+		}
+		return v.Light
+	}).(WorkspaceThemeConfigPtrOutput)
+}
+
+type WorkspaceThemeConfig struct {
+	Palette    *WorkspaceThemePalette    `pulumi:"palette"`
+	Typography *WorkspaceThemeTypography `pulumi:"typography"`
+}
+
+// WorkspaceThemeConfigInput is an input type that accepts WorkspaceThemeConfigArgs and WorkspaceThemeConfigOutput values.
+// You can construct a concrete instance of `WorkspaceThemeConfigInput` via:
+//
+//	WorkspaceThemeConfigArgs{...}
+type WorkspaceThemeConfigInput interface {
+	pulumi.Input
+
+	ToWorkspaceThemeConfigOutput() WorkspaceThemeConfigOutput
+	ToWorkspaceThemeConfigOutputWithContext(context.Context) WorkspaceThemeConfigOutput
+}
+
+type WorkspaceThemeConfigArgs struct {
+	Palette    WorkspaceThemePalettePtrInput    `pulumi:"palette"`
+	Typography WorkspaceThemeTypographyPtrInput `pulumi:"typography"`
+}
+
+func (WorkspaceThemeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceThemeConfig)(nil)).Elem()
+}
+
+func (i WorkspaceThemeConfigArgs) ToWorkspaceThemeConfigOutput() WorkspaceThemeConfigOutput {
+	return i.ToWorkspaceThemeConfigOutputWithContext(context.Background())
+}
+
+func (i WorkspaceThemeConfigArgs) ToWorkspaceThemeConfigOutputWithContext(ctx context.Context) WorkspaceThemeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceThemeConfigOutput)
+}
+
+func (i WorkspaceThemeConfigArgs) ToWorkspaceThemeConfigPtrOutput() WorkspaceThemeConfigPtrOutput {
+	return i.ToWorkspaceThemeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceThemeConfigArgs) ToWorkspaceThemeConfigPtrOutputWithContext(ctx context.Context) WorkspaceThemeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceThemeConfigOutput).ToWorkspaceThemeConfigPtrOutputWithContext(ctx)
+}
+
+// WorkspaceThemeConfigPtrInput is an input type that accepts WorkspaceThemeConfigArgs, WorkspaceThemeConfigPtr and WorkspaceThemeConfigPtrOutput values.
+// You can construct a concrete instance of `WorkspaceThemeConfigPtrInput` via:
+//
+//	        WorkspaceThemeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspaceThemeConfigPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceThemeConfigPtrOutput() WorkspaceThemeConfigPtrOutput
+	ToWorkspaceThemeConfigPtrOutputWithContext(context.Context) WorkspaceThemeConfigPtrOutput
+}
+
+type workspaceThemeConfigPtrType WorkspaceThemeConfigArgs
+
+func WorkspaceThemeConfigPtr(v *WorkspaceThemeConfigArgs) WorkspaceThemeConfigPtrInput {
+	return (*workspaceThemeConfigPtrType)(v)
+}
+
+func (*workspaceThemeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceThemeConfig)(nil)).Elem()
+}
+
+func (i *workspaceThemeConfigPtrType) ToWorkspaceThemeConfigPtrOutput() WorkspaceThemeConfigPtrOutput {
+	return i.ToWorkspaceThemeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceThemeConfigPtrType) ToWorkspaceThemeConfigPtrOutputWithContext(ctx context.Context) WorkspaceThemeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceThemeConfigPtrOutput)
+}
+
+type WorkspaceThemeConfigOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceThemeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceThemeConfig)(nil)).Elem()
+}
+
+func (o WorkspaceThemeConfigOutput) ToWorkspaceThemeConfigOutput() WorkspaceThemeConfigOutput {
+	return o
+}
+
+func (o WorkspaceThemeConfigOutput) ToWorkspaceThemeConfigOutputWithContext(ctx context.Context) WorkspaceThemeConfigOutput {
+	return o
+}
+
+func (o WorkspaceThemeConfigOutput) ToWorkspaceThemeConfigPtrOutput() WorkspaceThemeConfigPtrOutput {
+	return o.ToWorkspaceThemeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceThemeConfigOutput) ToWorkspaceThemeConfigPtrOutputWithContext(ctx context.Context) WorkspaceThemeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceThemeConfig) *WorkspaceThemeConfig {
+		return &v
+	}).(WorkspaceThemeConfigPtrOutput)
+}
+
+func (o WorkspaceThemeConfigOutput) Palette() WorkspaceThemePalettePtrOutput {
+	return o.ApplyT(func(v WorkspaceThemeConfig) *WorkspaceThemePalette { return v.Palette }).(WorkspaceThemePalettePtrOutput)
+}
+
+func (o WorkspaceThemeConfigOutput) Typography() WorkspaceThemeTypographyPtrOutput {
+	return o.ApplyT(func(v WorkspaceThemeConfig) *WorkspaceThemeTypography { return v.Typography }).(WorkspaceThemeTypographyPtrOutput)
+}
+
+type WorkspaceThemeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceThemeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceThemeConfig)(nil)).Elem()
+}
+
+func (o WorkspaceThemeConfigPtrOutput) ToWorkspaceThemeConfigPtrOutput() WorkspaceThemeConfigPtrOutput {
+	return o
+}
+
+func (o WorkspaceThemeConfigPtrOutput) ToWorkspaceThemeConfigPtrOutputWithContext(ctx context.Context) WorkspaceThemeConfigPtrOutput {
+	return o
+}
+
+func (o WorkspaceThemeConfigPtrOutput) Elem() WorkspaceThemeConfigOutput {
+	return o.ApplyT(func(v *WorkspaceThemeConfig) WorkspaceThemeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceThemeConfig
+		return ret
+	}).(WorkspaceThemeConfigOutput)
+}
+
+func (o WorkspaceThemeConfigPtrOutput) Palette() WorkspaceThemePalettePtrOutput {
+	return o.ApplyT(func(v *WorkspaceThemeConfig) *WorkspaceThemePalette {
+		if v == nil {
+			return nil
+		}
+		return v.Palette
+	}).(WorkspaceThemePalettePtrOutput)
+}
+
+func (o WorkspaceThemeConfigPtrOutput) Typography() WorkspaceThemeTypographyPtrOutput {
+	return o.ApplyT(func(v *WorkspaceThemeConfig) *WorkspaceThemeTypography {
+		if v == nil {
+			return nil
+		}
+		return v.Typography
+	}).(WorkspaceThemeTypographyPtrOutput)
+}
+
+type WorkspaceThemePalette struct {
+	Canvas     *WorkspacePaletteCanvas     `pulumi:"canvas"`
+	Header     *WorkspacePaletteHeader     `pulumi:"header"`
+	Navigation *WorkspacePaletteNavigation `pulumi:"navigation"`
+	Primary    *WorkspacePalettePrimary    `pulumi:"primary"`
+}
+
+// WorkspaceThemePaletteInput is an input type that accepts WorkspaceThemePaletteArgs and WorkspaceThemePaletteOutput values.
+// You can construct a concrete instance of `WorkspaceThemePaletteInput` via:
+//
+//	WorkspaceThemePaletteArgs{...}
+type WorkspaceThemePaletteInput interface {
+	pulumi.Input
+
+	ToWorkspaceThemePaletteOutput() WorkspaceThemePaletteOutput
+	ToWorkspaceThemePaletteOutputWithContext(context.Context) WorkspaceThemePaletteOutput
+}
+
+type WorkspaceThemePaletteArgs struct {
+	Canvas     WorkspacePaletteCanvasPtrInput     `pulumi:"canvas"`
+	Header     WorkspacePaletteHeaderPtrInput     `pulumi:"header"`
+	Navigation WorkspacePaletteNavigationPtrInput `pulumi:"navigation"`
+	Primary    WorkspacePalettePrimaryPtrInput    `pulumi:"primary"`
+}
+
+func (WorkspaceThemePaletteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceThemePalette)(nil)).Elem()
+}
+
+func (i WorkspaceThemePaletteArgs) ToWorkspaceThemePaletteOutput() WorkspaceThemePaletteOutput {
+	return i.ToWorkspaceThemePaletteOutputWithContext(context.Background())
+}
+
+func (i WorkspaceThemePaletteArgs) ToWorkspaceThemePaletteOutputWithContext(ctx context.Context) WorkspaceThemePaletteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceThemePaletteOutput)
+}
+
+func (i WorkspaceThemePaletteArgs) ToWorkspaceThemePalettePtrOutput() WorkspaceThemePalettePtrOutput {
+	return i.ToWorkspaceThemePalettePtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceThemePaletteArgs) ToWorkspaceThemePalettePtrOutputWithContext(ctx context.Context) WorkspaceThemePalettePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceThemePaletteOutput).ToWorkspaceThemePalettePtrOutputWithContext(ctx)
+}
+
+// WorkspaceThemePalettePtrInput is an input type that accepts WorkspaceThemePaletteArgs, WorkspaceThemePalettePtr and WorkspaceThemePalettePtrOutput values.
+// You can construct a concrete instance of `WorkspaceThemePalettePtrInput` via:
+//
+//	        WorkspaceThemePaletteArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspaceThemePalettePtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceThemePalettePtrOutput() WorkspaceThemePalettePtrOutput
+	ToWorkspaceThemePalettePtrOutputWithContext(context.Context) WorkspaceThemePalettePtrOutput
+}
+
+type workspaceThemePalettePtrType WorkspaceThemePaletteArgs
+
+func WorkspaceThemePalettePtr(v *WorkspaceThemePaletteArgs) WorkspaceThemePalettePtrInput {
+	return (*workspaceThemePalettePtrType)(v)
+}
+
+func (*workspaceThemePalettePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceThemePalette)(nil)).Elem()
+}
+
+func (i *workspaceThemePalettePtrType) ToWorkspaceThemePalettePtrOutput() WorkspaceThemePalettePtrOutput {
+	return i.ToWorkspaceThemePalettePtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceThemePalettePtrType) ToWorkspaceThemePalettePtrOutputWithContext(ctx context.Context) WorkspaceThemePalettePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceThemePalettePtrOutput)
+}
+
+type WorkspaceThemePaletteOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceThemePaletteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceThemePalette)(nil)).Elem()
+}
+
+func (o WorkspaceThemePaletteOutput) ToWorkspaceThemePaletteOutput() WorkspaceThemePaletteOutput {
+	return o
+}
+
+func (o WorkspaceThemePaletteOutput) ToWorkspaceThemePaletteOutputWithContext(ctx context.Context) WorkspaceThemePaletteOutput {
+	return o
+}
+
+func (o WorkspaceThemePaletteOutput) ToWorkspaceThemePalettePtrOutput() WorkspaceThemePalettePtrOutput {
+	return o.ToWorkspaceThemePalettePtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceThemePaletteOutput) ToWorkspaceThemePalettePtrOutputWithContext(ctx context.Context) WorkspaceThemePalettePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceThemePalette) *WorkspaceThemePalette {
+		return &v
+	}).(WorkspaceThemePalettePtrOutput)
+}
+
+func (o WorkspaceThemePaletteOutput) Canvas() WorkspacePaletteCanvasPtrOutput {
+	return o.ApplyT(func(v WorkspaceThemePalette) *WorkspacePaletteCanvas { return v.Canvas }).(WorkspacePaletteCanvasPtrOutput)
+}
+
+func (o WorkspaceThemePaletteOutput) Header() WorkspacePaletteHeaderPtrOutput {
+	return o.ApplyT(func(v WorkspaceThemePalette) *WorkspacePaletteHeader { return v.Header }).(WorkspacePaletteHeaderPtrOutput)
+}
+
+func (o WorkspaceThemePaletteOutput) Navigation() WorkspacePaletteNavigationPtrOutput {
+	return o.ApplyT(func(v WorkspaceThemePalette) *WorkspacePaletteNavigation { return v.Navigation }).(WorkspacePaletteNavigationPtrOutput)
+}
+
+func (o WorkspaceThemePaletteOutput) Primary() WorkspacePalettePrimaryPtrOutput {
+	return o.ApplyT(func(v WorkspaceThemePalette) *WorkspacePalettePrimary { return v.Primary }).(WorkspacePalettePrimaryPtrOutput)
+}
+
+type WorkspaceThemePalettePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceThemePalettePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceThemePalette)(nil)).Elem()
+}
+
+func (o WorkspaceThemePalettePtrOutput) ToWorkspaceThemePalettePtrOutput() WorkspaceThemePalettePtrOutput {
+	return o
+}
+
+func (o WorkspaceThemePalettePtrOutput) ToWorkspaceThemePalettePtrOutputWithContext(ctx context.Context) WorkspaceThemePalettePtrOutput {
+	return o
+}
+
+func (o WorkspaceThemePalettePtrOutput) Elem() WorkspaceThemePaletteOutput {
+	return o.ApplyT(func(v *WorkspaceThemePalette) WorkspaceThemePalette {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceThemePalette
+		return ret
+	}).(WorkspaceThemePaletteOutput)
+}
+
+func (o WorkspaceThemePalettePtrOutput) Canvas() WorkspacePaletteCanvasPtrOutput {
+	return o.ApplyT(func(v *WorkspaceThemePalette) *WorkspacePaletteCanvas {
+		if v == nil {
+			return nil
+		}
+		return v.Canvas
+	}).(WorkspacePaletteCanvasPtrOutput)
+}
+
+func (o WorkspaceThemePalettePtrOutput) Header() WorkspacePaletteHeaderPtrOutput {
+	return o.ApplyT(func(v *WorkspaceThemePalette) *WorkspacePaletteHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Header
+	}).(WorkspacePaletteHeaderPtrOutput)
+}
+
+func (o WorkspaceThemePalettePtrOutput) Navigation() WorkspacePaletteNavigationPtrOutput {
+	return o.ApplyT(func(v *WorkspaceThemePalette) *WorkspacePaletteNavigation {
+		if v == nil {
+			return nil
+		}
+		return v.Navigation
+	}).(WorkspacePaletteNavigationPtrOutput)
+}
+
+func (o WorkspaceThemePalettePtrOutput) Primary() WorkspacePalettePrimaryPtrOutput {
+	return o.ApplyT(func(v *WorkspaceThemePalette) *WorkspacePalettePrimary {
+		if v == nil {
+			return nil
+		}
+		return v.Primary
+	}).(WorkspacePalettePrimaryPtrOutput)
+}
+
+type WorkspaceThemeTypography struct {
+	FontFamily *FontFamily `pulumi:"fontFamily"`
+}
+
+// WorkspaceThemeTypographyInput is an input type that accepts WorkspaceThemeTypographyArgs and WorkspaceThemeTypographyOutput values.
+// You can construct a concrete instance of `WorkspaceThemeTypographyInput` via:
+//
+//	WorkspaceThemeTypographyArgs{...}
+type WorkspaceThemeTypographyInput interface {
+	pulumi.Input
+
+	ToWorkspaceThemeTypographyOutput() WorkspaceThemeTypographyOutput
+	ToWorkspaceThemeTypographyOutputWithContext(context.Context) WorkspaceThemeTypographyOutput
+}
+
+type WorkspaceThemeTypographyArgs struct {
+	FontFamily FontFamilyPtrInput `pulumi:"fontFamily"`
+}
+
+func (WorkspaceThemeTypographyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceThemeTypography)(nil)).Elem()
+}
+
+func (i WorkspaceThemeTypographyArgs) ToWorkspaceThemeTypographyOutput() WorkspaceThemeTypographyOutput {
+	return i.ToWorkspaceThemeTypographyOutputWithContext(context.Background())
+}
+
+func (i WorkspaceThemeTypographyArgs) ToWorkspaceThemeTypographyOutputWithContext(ctx context.Context) WorkspaceThemeTypographyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceThemeTypographyOutput)
+}
+
+func (i WorkspaceThemeTypographyArgs) ToWorkspaceThemeTypographyPtrOutput() WorkspaceThemeTypographyPtrOutput {
+	return i.ToWorkspaceThemeTypographyPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceThemeTypographyArgs) ToWorkspaceThemeTypographyPtrOutputWithContext(ctx context.Context) WorkspaceThemeTypographyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceThemeTypographyOutput).ToWorkspaceThemeTypographyPtrOutputWithContext(ctx)
+}
+
+// WorkspaceThemeTypographyPtrInput is an input type that accepts WorkspaceThemeTypographyArgs, WorkspaceThemeTypographyPtr and WorkspaceThemeTypographyPtrOutput values.
+// You can construct a concrete instance of `WorkspaceThemeTypographyPtrInput` via:
+//
+//	        WorkspaceThemeTypographyArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspaceThemeTypographyPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceThemeTypographyPtrOutput() WorkspaceThemeTypographyPtrOutput
+	ToWorkspaceThemeTypographyPtrOutputWithContext(context.Context) WorkspaceThemeTypographyPtrOutput
+}
+
+type workspaceThemeTypographyPtrType WorkspaceThemeTypographyArgs
+
+func WorkspaceThemeTypographyPtr(v *WorkspaceThemeTypographyArgs) WorkspaceThemeTypographyPtrInput {
+	return (*workspaceThemeTypographyPtrType)(v)
+}
+
+func (*workspaceThemeTypographyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceThemeTypography)(nil)).Elem()
+}
+
+func (i *workspaceThemeTypographyPtrType) ToWorkspaceThemeTypographyPtrOutput() WorkspaceThemeTypographyPtrOutput {
+	return i.ToWorkspaceThemeTypographyPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceThemeTypographyPtrType) ToWorkspaceThemeTypographyPtrOutputWithContext(ctx context.Context) WorkspaceThemeTypographyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceThemeTypographyPtrOutput)
+}
+
+type WorkspaceThemeTypographyOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceThemeTypographyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceThemeTypography)(nil)).Elem()
+}
+
+func (o WorkspaceThemeTypographyOutput) ToWorkspaceThemeTypographyOutput() WorkspaceThemeTypographyOutput {
+	return o
+}
+
+func (o WorkspaceThemeTypographyOutput) ToWorkspaceThemeTypographyOutputWithContext(ctx context.Context) WorkspaceThemeTypographyOutput {
+	return o
+}
+
+func (o WorkspaceThemeTypographyOutput) ToWorkspaceThemeTypographyPtrOutput() WorkspaceThemeTypographyPtrOutput {
+	return o.ToWorkspaceThemeTypographyPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceThemeTypographyOutput) ToWorkspaceThemeTypographyPtrOutputWithContext(ctx context.Context) WorkspaceThemeTypographyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceThemeTypography) *WorkspaceThemeTypography {
+		return &v
+	}).(WorkspaceThemeTypographyPtrOutput)
+}
+
+func (o WorkspaceThemeTypographyOutput) FontFamily() FontFamilyPtrOutput {
+	return o.ApplyT(func(v WorkspaceThemeTypography) *FontFamily { return v.FontFamily }).(FontFamilyPtrOutput)
+}
+
+type WorkspaceThemeTypographyPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceThemeTypographyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceThemeTypography)(nil)).Elem()
+}
+
+func (o WorkspaceThemeTypographyPtrOutput) ToWorkspaceThemeTypographyPtrOutput() WorkspaceThemeTypographyPtrOutput {
+	return o
+}
+
+func (o WorkspaceThemeTypographyPtrOutput) ToWorkspaceThemeTypographyPtrOutputWithContext(ctx context.Context) WorkspaceThemeTypographyPtrOutput {
+	return o
+}
+
+func (o WorkspaceThemeTypographyPtrOutput) Elem() WorkspaceThemeTypographyOutput {
+	return o.ApplyT(func(v *WorkspaceThemeTypography) WorkspaceThemeTypography {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceThemeTypography
+		return ret
+	}).(WorkspaceThemeTypographyOutput)
+}
+
+func (o WorkspaceThemeTypographyPtrOutput) FontFamily() FontFamilyPtrOutput {
+	return o.ApplyT(func(v *WorkspaceThemeTypography) *FontFamily {
+		if v == nil {
+			return nil
+		}
+		return v.FontFamily
+	}).(FontFamilyPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AttributeConfigurationPropertiesInput)(nil)).Elem(), AttributeConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AttributeConfigurationPropertiesPtrInput)(nil)).Elem(), AttributeConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConstraintsPropertiesInput)(nil)).Elem(), ConstraintsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConstraintsPropertiesPtrInput)(nil)).Elem(), ConstraintsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataTableRecordPropertiesInput)(nil)).Elem(), DataTableRecordPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataTableRecordPropertiesPtrInput)(nil)).Elem(), DataTableRecordPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataTableRecordValueInput)(nil)).Elem(), DataTableRecordValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataTableRecordValueArrayInput)(nil)).Elem(), DataTableRecordValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailAddressAliasConfigurationInput)(nil)).Elem(), EmailAddressAliasConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailAddressAliasConfigurationArrayInput)(nil)).Elem(), EmailAddressAliasConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormAutoEvaluationConfigurationInput)(nil)).Elem(), EvaluationFormAutoEvaluationConfigurationArgs{})
@@ -13311,6 +15769,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormTextQuestionAutomationPtrInput)(nil)).Elem(), EvaluationFormTextQuestionAutomationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormTextQuestionPropertiesInput)(nil)).Elem(), EvaluationFormTextQuestionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormTextQuestionPropertiesPtrInput)(nil)).Elem(), EvaluationFormTextQuestionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FontFamilyInput)(nil)).Elem(), FontFamilyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FontFamilyPtrInput)(nil)).Elem(), FontFamilyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GranularAccessControlConfigurationPropertiesInput)(nil)).Elem(), GranularAccessControlConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GranularAccessControlConfigurationPropertiesPtrInput)(nil)).Elem(), GranularAccessControlConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigInput)(nil)).Elem(), HoursOfOperationConfigArgs{})
@@ -13414,12 +15874,40 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneConfigInput)(nil)).Elem(), UserPhoneConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProficiencyInput)(nil)).Elem(), UserProficiencyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProficiencyArrayInput)(nil)).Elem(), UserProficiencyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ValidationPropertiesInput)(nil)).Elem(), ValidationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ValidationPropertiesPtrInput)(nil)).Elem(), ValidationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ValidationPropertiesEnumPropertiesInput)(nil)).Elem(), ValidationPropertiesEnumPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ValidationPropertiesEnumPropertiesPtrInput)(nil)).Elem(), ValidationPropertiesEnumPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ValuesPropertiesInput)(nil)).Elem(), ValuesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ValuesPropertiesPtrInput)(nil)).Elem(), ValuesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceMediaItemInput)(nil)).Elem(), WorkspaceMediaItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceMediaItemArrayInput)(nil)).Elem(), WorkspaceMediaItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePageInput)(nil)).Elem(), WorkspacePageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePageArrayInput)(nil)).Elem(), WorkspacePageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePaletteCanvasInput)(nil)).Elem(), WorkspacePaletteCanvasArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePaletteCanvasPtrInput)(nil)).Elem(), WorkspacePaletteCanvasArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePaletteHeaderInput)(nil)).Elem(), WorkspacePaletteHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePaletteHeaderPtrInput)(nil)).Elem(), WorkspacePaletteHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePaletteNavigationInput)(nil)).Elem(), WorkspacePaletteNavigationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePaletteNavigationPtrInput)(nil)).Elem(), WorkspacePaletteNavigationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePalettePrimaryInput)(nil)).Elem(), WorkspacePalettePrimaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspacePalettePrimaryPtrInput)(nil)).Elem(), WorkspacePalettePrimaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceThemeInput)(nil)).Elem(), WorkspaceThemeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceThemePtrInput)(nil)).Elem(), WorkspaceThemeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceThemeConfigInput)(nil)).Elem(), WorkspaceThemeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceThemeConfigPtrInput)(nil)).Elem(), WorkspaceThemeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceThemePaletteInput)(nil)).Elem(), WorkspaceThemePaletteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceThemePalettePtrInput)(nil)).Elem(), WorkspaceThemePaletteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceThemeTypographyInput)(nil)).Elem(), WorkspaceThemeTypographyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceThemeTypographyPtrInput)(nil)).Elem(), WorkspaceThemeTypographyArgs{})
 	pulumi.RegisterOutputType(AttributeConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(AttributeConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConstraintsPropertiesOutput{})
 	pulumi.RegisterOutputType(ConstraintsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataTableRecordPropertiesOutput{})
+	pulumi.RegisterOutputType(DataTableRecordPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataTableRecordValueOutput{})
+	pulumi.RegisterOutputType(DataTableRecordValueArrayOutput{})
 	pulumi.RegisterOutputType(EmailAddressAliasConfigurationOutput{})
 	pulumi.RegisterOutputType(EmailAddressAliasConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(EvaluationFormAutoEvaluationConfigurationOutput{})
@@ -13486,6 +15974,8 @@ func init() {
 	pulumi.RegisterOutputType(EvaluationFormTextQuestionAutomationPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormTextQuestionPropertiesOutput{})
 	pulumi.RegisterOutputType(EvaluationFormTextQuestionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FontFamilyOutput{})
+	pulumi.RegisterOutputType(FontFamilyPtrOutput{})
 	pulumi.RegisterOutputType(GranularAccessControlConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(GranularAccessControlConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationConfigOutput{})
@@ -13508,6 +15998,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceStorageConfigKinesisVideoStreamConfigPtrOutput{})
 	pulumi.RegisterOutputType(InstanceStorageConfigS3ConfigOutput{})
 	pulumi.RegisterOutputType(InstanceStorageConfigS3ConfigPtrOutput{})
+	pulumi.RegisterOutputType(LockVersionPropertiesOutput{})
+	pulumi.RegisterOutputType(LockVersionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(QueueOutboundCallerConfigOutput{})
 	pulumi.RegisterOutputType(QueueOutboundCallerConfigPtrOutput{})
 	pulumi.RegisterOutputType(QueueOutboundEmailConfigOutput{})
@@ -13593,6 +16085,30 @@ func init() {
 	pulumi.RegisterOutputType(UserPhoneConfigPtrOutput{})
 	pulumi.RegisterOutputType(UserProficiencyOutput{})
 	pulumi.RegisterOutputType(UserProficiencyArrayOutput{})
+	pulumi.RegisterOutputType(ValidationPropertiesOutput{})
+	pulumi.RegisterOutputType(ValidationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ValidationPropertiesEnumPropertiesOutput{})
+	pulumi.RegisterOutputType(ValidationPropertiesEnumPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ValuesPropertiesOutput{})
 	pulumi.RegisterOutputType(ValuesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceMediaItemOutput{})
+	pulumi.RegisterOutputType(WorkspaceMediaItemArrayOutput{})
+	pulumi.RegisterOutputType(WorkspacePageOutput{})
+	pulumi.RegisterOutputType(WorkspacePageArrayOutput{})
+	pulumi.RegisterOutputType(WorkspacePaletteCanvasOutput{})
+	pulumi.RegisterOutputType(WorkspacePaletteCanvasPtrOutput{})
+	pulumi.RegisterOutputType(WorkspacePaletteHeaderOutput{})
+	pulumi.RegisterOutputType(WorkspacePaletteHeaderPtrOutput{})
+	pulumi.RegisterOutputType(WorkspacePaletteNavigationOutput{})
+	pulumi.RegisterOutputType(WorkspacePaletteNavigationPtrOutput{})
+	pulumi.RegisterOutputType(WorkspacePalettePrimaryOutput{})
+	pulumi.RegisterOutputType(WorkspacePalettePrimaryPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceThemeOutput{})
+	pulumi.RegisterOutputType(WorkspaceThemePtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceThemeConfigOutput{})
+	pulumi.RegisterOutputType(WorkspaceThemeConfigPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceThemePaletteOutput{})
+	pulumi.RegisterOutputType(WorkspaceThemePalettePtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceThemeTypographyOutput{})
+	pulumi.RegisterOutputType(WorkspaceThemeTypographyPtrOutput{})
 }

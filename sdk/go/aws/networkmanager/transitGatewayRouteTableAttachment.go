@@ -45,6 +45,8 @@ type TransitGatewayRouteTableAttachment struct {
 	ProposedSegmentChange TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput `pulumi:"proposedSegmentChange"`
 	// The ARN of the Resource.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	// Routing policy label
+	RoutingPolicyLabel pulumi.StringPtrOutput `pulumi:"routingPolicyLabel"`
 	// The name of the segment that attachment is in.
 	SegmentName pulumi.StringOutput `pulumi:"segmentName"`
 	// The state of the attachment.
@@ -72,6 +74,7 @@ func NewTransitGatewayRouteTableAttachment(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"peeringId",
+		"routingPolicyLabel",
 		"transitGatewayRouteTableArn",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -116,6 +119,8 @@ type transitGatewayRouteTableAttachmentArgs struct {
 	ProposedNetworkFunctionGroupChange *TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange *TransitGatewayRouteTableAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
+	// Routing policy label
+	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The Arn of transit gateway route table.
@@ -132,6 +137,8 @@ type TransitGatewayRouteTableAttachmentArgs struct {
 	ProposedNetworkFunctionGroupChange TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrInput
 	// The attachment to move from one segment to another.
 	ProposedSegmentChange TransitGatewayRouteTableAttachmentProposedSegmentChangePtrInput
+	// Routing policy label
+	RoutingPolicyLabel pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 	// The Arn of transit gateway route table.
@@ -247,6 +254,11 @@ func (o TransitGatewayRouteTableAttachmentOutput) ProposedSegmentChange() Transi
 // The ARN of the Resource.
 func (o TransitGatewayRouteTableAttachmentOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+// Routing policy label
+func (o TransitGatewayRouteTableAttachmentOutput) RoutingPolicyLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) pulumi.StringPtrOutput { return v.RoutingPolicyLabel }).(pulumi.StringPtrOutput)
 }
 
 // The name of the segment that attachment is in.

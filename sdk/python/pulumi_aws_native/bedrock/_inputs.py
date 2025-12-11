@@ -408,6 +408,10 @@ __all__ = [
     'IntelligentPromptRouterPromptRouterTargetModelArgsDict',
     'IntelligentPromptRouterRoutingCriteriaArgs',
     'IntelligentPromptRouterRoutingCriteriaArgsDict',
+    'KnowledgeBaseAudioConfigurationArgs',
+    'KnowledgeBaseAudioConfigurationArgsDict',
+    'KnowledgeBaseAudioSegmentationConfigurationArgs',
+    'KnowledgeBaseAudioSegmentationConfigurationArgsDict',
     'KnowledgeBaseBedrockEmbeddingModelConfigurationArgs',
     'KnowledgeBaseBedrockEmbeddingModelConfigurationArgsDict',
     'KnowledgeBaseConfigurationArgs',
@@ -482,6 +486,10 @@ __all__ = [
     'KnowledgeBaseSupplementalDataStorageLocationArgsDict',
     'KnowledgeBaseVectorKnowledgeBaseConfigurationArgs',
     'KnowledgeBaseVectorKnowledgeBaseConfigurationArgsDict',
+    'KnowledgeBaseVideoConfigurationArgs',
+    'KnowledgeBaseVideoConfigurationArgsDict',
+    'KnowledgeBaseVideoSegmentationConfigurationArgs',
+    'KnowledgeBaseVideoSegmentationConfigurationArgsDict',
     'PromptAdditionalModelRequestFieldsArgs',
     'PromptAdditionalModelRequestFieldsArgsDict',
     'PromptAgentResourceArgs',
@@ -11537,10 +11545,67 @@ class IntelligentPromptRouterRoutingCriteriaArgs:
 
 
 if not MYPY:
+    class KnowledgeBaseAudioConfigurationArgsDict(TypedDict):
+        """
+        Configure the audio configuration for multi modal ingestion.
+        """
+        segmentation_configuration: pulumi.Input['KnowledgeBaseAudioSegmentationConfigurationArgsDict']
+elif False:
+    KnowledgeBaseAudioConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseAudioConfigurationArgs:
+    def __init__(__self__, *,
+                 segmentation_configuration: pulumi.Input['KnowledgeBaseAudioSegmentationConfigurationArgs']):
+        """
+        Configure the audio configuration for multi modal ingestion.
+        """
+        pulumi.set(__self__, "segmentation_configuration", segmentation_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentationConfiguration")
+    def segmentation_configuration(self) -> pulumi.Input['KnowledgeBaseAudioSegmentationConfigurationArgs']:
+        return pulumi.get(self, "segmentation_configuration")
+
+    @segmentation_configuration.setter
+    def segmentation_configuration(self, value: pulumi.Input['KnowledgeBaseAudioSegmentationConfigurationArgs']):
+        pulumi.set(self, "segmentation_configuration", value)
+
+
+if not MYPY:
+    class KnowledgeBaseAudioSegmentationConfigurationArgsDict(TypedDict):
+        """
+        Configure the audio segmentation configuration for multi modal ingestion.
+        """
+        fixed_length_duration: pulumi.Input[_builtins.int]
+elif False:
+    KnowledgeBaseAudioSegmentationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseAudioSegmentationConfigurationArgs:
+    def __init__(__self__, *,
+                 fixed_length_duration: pulumi.Input[_builtins.int]):
+        """
+        Configure the audio segmentation configuration for multi modal ingestion.
+        """
+        pulumi.set(__self__, "fixed_length_duration", fixed_length_duration)
+
+    @_builtins.property
+    @pulumi.getter(name="fixedLengthDuration")
+    def fixed_length_duration(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "fixed_length_duration")
+
+    @fixed_length_duration.setter
+    def fixed_length_duration(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "fixed_length_duration", value)
+
+
+if not MYPY:
     class KnowledgeBaseBedrockEmbeddingModelConfigurationArgsDict(TypedDict):
         """
         The vector configuration details for the Bedrock embeddings model.
         """
+        audio: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseAudioConfigurationArgsDict']]]]
         dimensions: NotRequired[pulumi.Input[_builtins.int]]
         """
         The dimensions details for the vector configuration used on the Bedrock embeddings model.
@@ -11549,23 +11614,39 @@ if not MYPY:
         """
         The data type for the vectors when using a model to convert text into vector embeddings.
         """
+        video: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgsDict']]]]
 elif False:
     KnowledgeBaseBedrockEmbeddingModelConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KnowledgeBaseBedrockEmbeddingModelConfigurationArgs:
     def __init__(__self__, *,
+                 audio: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseAudioConfigurationArgs']]]] = None,
                  dimensions: Optional[pulumi.Input[_builtins.int]] = None,
-                 embedding_data_type: Optional[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType']] = None):
+                 embedding_data_type: Optional[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType']] = None,
+                 video: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgs']]]] = None):
         """
         The vector configuration details for the Bedrock embeddings model.
         :param pulumi.Input[_builtins.int] dimensions: The dimensions details for the vector configuration used on the Bedrock embeddings model.
         :param pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType'] embedding_data_type: The data type for the vectors when using a model to convert text into vector embeddings.
         """
+        if audio is not None:
+            pulumi.set(__self__, "audio", audio)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
         if embedding_data_type is not None:
             pulumi.set(__self__, "embedding_data_type", embedding_data_type)
+        if video is not None:
+            pulumi.set(__self__, "video", video)
+
+    @_builtins.property
+    @pulumi.getter
+    def audio(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseAudioConfigurationArgs']]]]:
+        return pulumi.get(self, "audio")
+
+    @audio.setter
+    def audio(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseAudioConfigurationArgs']]]]):
+        pulumi.set(self, "audio", value)
 
     @_builtins.property
     @pulumi.getter
@@ -11590,6 +11671,15 @@ class KnowledgeBaseBedrockEmbeddingModelConfigurationArgs:
     @embedding_data_type.setter
     def embedding_data_type(self, value: Optional[pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType']]):
         pulumi.set(self, "embedding_data_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def video(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgs']]]]:
+        return pulumi.get(self, "video")
+
+    @video.setter
+    def video(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgs']]]]):
+        pulumi.set(self, "video", value)
 
 
 if not MYPY:
@@ -14044,6 +14134,62 @@ class KnowledgeBaseVectorKnowledgeBaseConfigurationArgs:
     @supplemental_data_storage_configuration.setter
     def supplemental_data_storage_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseSupplementalDataStorageConfigurationArgs']]):
         pulumi.set(self, "supplemental_data_storage_configuration", value)
+
+
+if not MYPY:
+    class KnowledgeBaseVideoConfigurationArgsDict(TypedDict):
+        """
+        Configure the video configuration for multi modal ingestion.
+        """
+        segmentation_configuration: pulumi.Input['KnowledgeBaseVideoSegmentationConfigurationArgsDict']
+elif False:
+    KnowledgeBaseVideoConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseVideoConfigurationArgs:
+    def __init__(__self__, *,
+                 segmentation_configuration: pulumi.Input['KnowledgeBaseVideoSegmentationConfigurationArgs']):
+        """
+        Configure the video configuration for multi modal ingestion.
+        """
+        pulumi.set(__self__, "segmentation_configuration", segmentation_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="segmentationConfiguration")
+    def segmentation_configuration(self) -> pulumi.Input['KnowledgeBaseVideoSegmentationConfigurationArgs']:
+        return pulumi.get(self, "segmentation_configuration")
+
+    @segmentation_configuration.setter
+    def segmentation_configuration(self, value: pulumi.Input['KnowledgeBaseVideoSegmentationConfigurationArgs']):
+        pulumi.set(self, "segmentation_configuration", value)
+
+
+if not MYPY:
+    class KnowledgeBaseVideoSegmentationConfigurationArgsDict(TypedDict):
+        """
+        Configure the video segmentation configuration for multi modal ingestion.
+        """
+        fixed_length_duration: pulumi.Input[_builtins.int]
+elif False:
+    KnowledgeBaseVideoSegmentationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseVideoSegmentationConfigurationArgs:
+    def __init__(__self__, *,
+                 fixed_length_duration: pulumi.Input[_builtins.int]):
+        """
+        Configure the video segmentation configuration for multi modal ingestion.
+        """
+        pulumi.set(__self__, "fixed_length_duration", fixed_length_duration)
+
+    @_builtins.property
+    @pulumi.getter(name="fixedLengthDuration")
+    def fixed_length_duration(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "fixed_length_duration")
+
+    @fixed_length_duration.setter
+    def fixed_length_duration(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "fixed_length_duration", value)
 
 
 if not MYPY:

@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.Transfer
         public Output<Pulumi.AwsNative.Transfer.ConnectorEgressType?> EgressType { get; private set; } = null!;
 
         /// <summary>
+        /// Detailed error message when Connector in ERRORED status
+        /// </summary>
+        [Output("errorMessage")]
+        public Output<string> ErrorMessage { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the logging role for the connector.
         /// </summary>
         [Output("loggingRole")]

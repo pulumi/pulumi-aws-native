@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCampaignResult:
-    def __init__(__self__, arn=None, channel_subtype_config=None, communication_limits_override=None, communication_time_config=None, connect_campaign_flow_arn=None, name=None, schedule=None, source=None, tags=None):
+    def __init__(__self__, arn=None, channel_subtype_config=None, communication_limits_override=None, communication_time_config=None, connect_campaign_flow_arn=None, name=None, schedule=None, source=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -54,6 +54,9 @@ class GetCampaignResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
@@ -127,6 +130,11 @@ class GetCampaignResult:
         """
         return pulumi.get(self, "tags")
 
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional['CampaignType']:
+        return pulumi.get(self, "type")
+
 
 class AwaitableGetCampaignResult(GetCampaignResult):
     # pylint: disable=using-constant-test
@@ -142,7 +150,8 @@ class AwaitableGetCampaignResult(GetCampaignResult):
             name=self.name,
             schedule=self.schedule,
             source=self.source,
-            tags=self.tags)
+            tags=self.tags,
+            type=self.type)
 
 
 def get_campaign(arn: Optional[_builtins.str] = None,
@@ -167,7 +176,8 @@ def get_campaign(arn: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         schedule=pulumi.get(__ret__, 'schedule'),
         source=pulumi.get(__ret__, 'source'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 def get_campaign_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCampaignResult]:
     """
@@ -189,4 +199,5 @@ def get_campaign_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
         name=pulumi.get(__response__, 'name'),
         schedule=pulumi.get(__response__, 'schedule'),
         source=pulumi.get(__response__, 'source'),
-        tags=pulumi.get(__response__, 'tags')))
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

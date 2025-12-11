@@ -86,6 +86,8 @@ __all__ = [
     'ConfigurationPolicySecurityControlsConfigurationArgsDict',
     'ConfigurationPolicySecurityHubPolicyArgs',
     'ConfigurationPolicySecurityHubPolicyArgsDict',
+    'ConnectorV2ProviderArgs',
+    'ConnectorV2ProviderArgsDict',
     'InsightAwsSecurityFindingFiltersArgs',
     'InsightAwsSecurityFindingFiltersArgsDict',
     'InsightBooleanFilterArgs',
@@ -3460,6 +3462,24 @@ class ConfigurationPolicySecurityHubPolicyArgs:
     @service_enabled.setter
     def service_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "service_enabled", value)
+
+
+if not MYPY:
+    class ConnectorV2ProviderArgsDict(TypedDict):
+        """
+        The provider configuration of the connector
+        """
+        pass
+elif False:
+    ConnectorV2ProviderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectorV2ProviderArgs:
+    def __init__(__self__):
+        """
+        The provider configuration of the connector
+        """
+        pass
 
 
 if not MYPY:

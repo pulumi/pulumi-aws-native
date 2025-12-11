@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.S3
     public static class GetAccessGrant
     {
         /// <summary>
-        /// The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance.
+        /// The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance. 
         /// </summary>
         public static Task<GetAccessGrantResult> InvokeAsync(GetAccessGrantArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessGrantResult>("aws-native:s3:getAccessGrant", args ?? new GetAccessGrantArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance.
+        /// The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance. 
         /// </summary>
         public static Output<GetAccessGrantResult> Invoke(GetAccessGrantInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessGrantResult>("aws-native:s3:getAccessGrant", args ?? new GetAccessGrantInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance.
+        /// The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance. 
         /// </summary>
         public static Output<GetAccessGrantResult> Invoke(GetAccessGrantInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessGrantResult>("aws-native:s3:getAccessGrant", args ?? new GetAccessGrantInvokeArgs(), options.WithDefaults());

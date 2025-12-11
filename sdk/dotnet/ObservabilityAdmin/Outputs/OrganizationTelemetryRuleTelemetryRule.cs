@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
         /// </summary>
         public readonly Outputs.OrganizationTelemetryRuleTelemetryDestinationConfiguration? DestinationConfiguration;
         /// <summary>
-        /// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
+        /// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
         /// </summary>
         public readonly Pulumi.AwsNative.ObservabilityAdmin.OrganizationTelemetryRuleResourceType ResourceType;
         /// <summary>
@@ -32,6 +32,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
         /// Criteria for selecting which resources the rule applies to, such as resource tags.
         /// </summary>
         public readonly string? SelectionCriteria;
+        public readonly ImmutableArray<Pulumi.AwsNative.ObservabilityAdmin.OrganizationTelemetryRuleTelemetrySourceType> TelemetrySourceTypes;
         /// <summary>
         /// The type of telemetry to collect (Logs, Metrics, or Traces).
         /// </summary>
@@ -47,12 +48,15 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
 
             string? selectionCriteria,
 
+            ImmutableArray<Pulumi.AwsNative.ObservabilityAdmin.OrganizationTelemetryRuleTelemetrySourceType> telemetrySourceTypes,
+
             Pulumi.AwsNative.ObservabilityAdmin.OrganizationTelemetryRuleTelemetryType telemetryType)
         {
             DestinationConfiguration = destinationConfiguration;
             ResourceType = resourceType;
             Scope = scope;
             SelectionCriteria = selectionCriteria;
+            TelemetrySourceTypes = telemetrySourceTypes;
             TelemetryType = telemetryType;
         }
     }

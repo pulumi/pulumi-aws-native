@@ -15,6 +15,14 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class KnowledgeBaseBedrockEmbeddingModelConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("audio")]
+        private InputList<Inputs.KnowledgeBaseAudioConfigurationArgs>? _audio;
+        public InputList<Inputs.KnowledgeBaseAudioConfigurationArgs> Audio
+        {
+            get => _audio ?? (_audio = new InputList<Inputs.KnowledgeBaseAudioConfigurationArgs>());
+            set => _audio = value;
+        }
+
         /// <summary>
         /// The dimensions details for the vector configuration used on the Bedrock embeddings model.
         /// </summary>
@@ -26,6 +34,14 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         /// </summary>
         [Input("embeddingDataType")]
         public Input<Pulumi.AwsNative.Bedrock.KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType>? EmbeddingDataType { get; set; }
+
+        [Input("video")]
+        private InputList<Inputs.KnowledgeBaseVideoConfigurationArgs>? _video;
+        public InputList<Inputs.KnowledgeBaseVideoConfigurationArgs> Video
+        {
+            get => _video ?? (_video = new InputList<Inputs.KnowledgeBaseVideoConfigurationArgs>());
+            set => _video = value;
+        }
 
         public KnowledgeBaseBedrockEmbeddingModelConfigurationArgs()
         {

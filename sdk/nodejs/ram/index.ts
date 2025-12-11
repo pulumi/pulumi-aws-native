@@ -26,6 +26,9 @@ export const ResourceShare: typeof import("./resourceShare").ResourceShare = nul
 utilities.lazyLoad(exports, ["ResourceShare"], () => require("./resourceShare"));
 
 
+// Export enums:
+export * from "../types/enums/ram";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -28,6 +28,7 @@ __all__ = [
     'AutomationRulesActionType',
     'AutomationRulesFindingFieldsUpdateVerificationState',
     'ConfigurationPolicyParameterConfigurationValueType',
+    'ConnectorV2ConnectorStatus',
     'DelegatedAdminStatus',
     'FindingAggregatorRegionLinkingMode',
     'InsightDateRangeUnit',
@@ -304,6 +305,17 @@ class ConfigurationPolicyParameterConfigurationValueType(_builtins.str, Enum):
     """
     DEFAULT = "DEFAULT"
     CUSTOM = "CUSTOM"
+
+
+@pulumi.type_token("aws-native:securityhub:ConnectorV2ConnectorStatus")
+class ConnectorV2ConnectorStatus(_builtins.str, Enum):
+    """
+    The status of the connector
+    """
+    CONNECTED = "CONNECTED"
+    FAILED_TO_CONNECT = "FAILED_TO_CONNECT"
+    PENDING_AUTHORIZATION = "PENDING_AUTHORIZATION"
+    PENDING_CONFIGURATION = "PENDING_CONFIGURATION"
 
 
 @pulumi.type_token("aws-native:securityhub:DelegatedAdminStatus")

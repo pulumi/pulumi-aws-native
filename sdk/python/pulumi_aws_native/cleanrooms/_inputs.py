@@ -32,12 +32,20 @@ __all__ = [
     'AnalysisTemplateArtifactsArgsDict',
     'AnalysisTemplateArtifactArgs',
     'AnalysisTemplateArtifactArgsDict',
+    'AnalysisTemplateColumnClassificationDetailsArgs',
+    'AnalysisTemplateColumnClassificationDetailsArgsDict',
     'AnalysisTemplateErrorMessageConfigurationArgs',
     'AnalysisTemplateErrorMessageConfigurationArgsDict',
     'AnalysisTemplateHashArgs',
     'AnalysisTemplateHashArgsDict',
+    'AnalysisTemplateMlSyntheticDataParametersArgs',
+    'AnalysisTemplateMlSyntheticDataParametersArgsDict',
     'AnalysisTemplateS3LocationArgs',
     'AnalysisTemplateS3LocationArgsDict',
+    'AnalysisTemplateSyntheticDataColumnPropertiesArgs',
+    'AnalysisTemplateSyntheticDataColumnPropertiesArgsDict',
+    'AnalysisTemplateSyntheticDataParametersPropertiesArgs',
+    'AnalysisTemplateSyntheticDataParametersPropertiesArgsDict',
     'CollaborationDataEncryptionMetadataArgs',
     'CollaborationDataEncryptionMetadataArgsDict',
     'CollaborationJobComputePaymentConfigArgs',
@@ -56,6 +64,8 @@ __all__ = [
     'CollaborationPaymentConfigurationArgsDict',
     'CollaborationQueryComputePaymentConfigArgs',
     'CollaborationQueryComputePaymentConfigArgsDict',
+    'CollaborationSyntheticDataGenerationPaymentConfigArgs',
+    'CollaborationSyntheticDataGenerationPaymentConfigArgsDict',
     'ConfiguredTableAggregateColumnArgs',
     'ConfiguredTableAggregateColumnArgsDict',
     'ConfiguredTableAggregationConstraintArgs',
@@ -142,6 +152,8 @@ __all__ = [
     'MembershipProtectedQueryS3OutputConfigurationArgsDict',
     'MembershipQueryComputePaymentConfigArgs',
     'MembershipQueryComputePaymentConfigArgsDict',
+    'MembershipSyntheticDataGenerationPaymentConfigArgs',
+    'MembershipSyntheticDataGenerationPaymentConfigArgsDict',
     'ParametersPropertiesArgs',
     'ParametersPropertiesArgsDict',
     'PrivacyBudgetTemplateBudgetParameterArgs',
@@ -422,6 +434,28 @@ class AnalysisTemplateArtifactArgs:
 
 
 if not MYPY:
+    class AnalysisTemplateColumnClassificationDetailsArgsDict(TypedDict):
+        column_mapping: pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateSyntheticDataColumnPropertiesArgsDict']]]
+elif False:
+    AnalysisTemplateColumnClassificationDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnalysisTemplateColumnClassificationDetailsArgs:
+    def __init__(__self__, *,
+                 column_mapping: pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateSyntheticDataColumnPropertiesArgs']]]):
+        pulumi.set(__self__, "column_mapping", column_mapping)
+
+    @_builtins.property
+    @pulumi.getter(name="columnMapping")
+    def column_mapping(self) -> pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateSyntheticDataColumnPropertiesArgs']]]:
+        return pulumi.get(self, "column_mapping")
+
+    @column_mapping.setter
+    def column_mapping(self, value: pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateSyntheticDataColumnPropertiesArgs']]]):
+        pulumi.set(self, "column_mapping", value)
+
+
+if not MYPY:
     class AnalysisTemplateErrorMessageConfigurationArgsDict(TypedDict):
         type: pulumi.Input['AnalysisTemplateErrorMessageConfigurationType']
         """
@@ -482,6 +516,52 @@ class AnalysisTemplateHashArgs:
 
 
 if not MYPY:
+    class AnalysisTemplateMlSyntheticDataParametersArgsDict(TypedDict):
+        column_classification: pulumi.Input['AnalysisTemplateColumnClassificationDetailsArgsDict']
+        epsilon: pulumi.Input[_builtins.float]
+        max_membership_inference_attack_score: pulumi.Input[_builtins.float]
+elif False:
+    AnalysisTemplateMlSyntheticDataParametersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnalysisTemplateMlSyntheticDataParametersArgs:
+    def __init__(__self__, *,
+                 column_classification: pulumi.Input['AnalysisTemplateColumnClassificationDetailsArgs'],
+                 epsilon: pulumi.Input[_builtins.float],
+                 max_membership_inference_attack_score: pulumi.Input[_builtins.float]):
+        pulumi.set(__self__, "column_classification", column_classification)
+        pulumi.set(__self__, "epsilon", epsilon)
+        pulumi.set(__self__, "max_membership_inference_attack_score", max_membership_inference_attack_score)
+
+    @_builtins.property
+    @pulumi.getter(name="columnClassification")
+    def column_classification(self) -> pulumi.Input['AnalysisTemplateColumnClassificationDetailsArgs']:
+        return pulumi.get(self, "column_classification")
+
+    @column_classification.setter
+    def column_classification(self, value: pulumi.Input['AnalysisTemplateColumnClassificationDetailsArgs']):
+        pulumi.set(self, "column_classification", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def epsilon(self) -> pulumi.Input[_builtins.float]:
+        return pulumi.get(self, "epsilon")
+
+    @epsilon.setter
+    def epsilon(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "epsilon", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxMembershipInferenceAttackScore")
+    def max_membership_inference_attack_score(self) -> pulumi.Input[_builtins.float]:
+        return pulumi.get(self, "max_membership_inference_attack_score")
+
+    @max_membership_inference_attack_score.setter
+    def max_membership_inference_attack_score(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "max_membership_inference_attack_score", value)
+
+
+if not MYPY:
     class AnalysisTemplateS3LocationArgsDict(TypedDict):
         bucket: pulumi.Input[_builtins.str]
         key: pulumi.Input[_builtins.str]
@@ -513,6 +593,74 @@ class AnalysisTemplateS3LocationArgs:
     @key.setter
     def key(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "key", value)
+
+
+if not MYPY:
+    class AnalysisTemplateSyntheticDataColumnPropertiesArgsDict(TypedDict):
+        column_name: pulumi.Input[_builtins.str]
+        column_type: pulumi.Input['AnalysisTemplateSyntheticDataColumnPropertiesColumnType']
+        is_predictive_value: pulumi.Input[_builtins.bool]
+elif False:
+    AnalysisTemplateSyntheticDataColumnPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnalysisTemplateSyntheticDataColumnPropertiesArgs:
+    def __init__(__self__, *,
+                 column_name: pulumi.Input[_builtins.str],
+                 column_type: pulumi.Input['AnalysisTemplateSyntheticDataColumnPropertiesColumnType'],
+                 is_predictive_value: pulumi.Input[_builtins.bool]):
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "column_type", column_type)
+        pulumi.set(__self__, "is_predictive_value", is_predictive_value)
+
+    @_builtins.property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "column_name")
+
+    @column_name.setter
+    def column_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "column_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="columnType")
+    def column_type(self) -> pulumi.Input['AnalysisTemplateSyntheticDataColumnPropertiesColumnType']:
+        return pulumi.get(self, "column_type")
+
+    @column_type.setter
+    def column_type(self, value: pulumi.Input['AnalysisTemplateSyntheticDataColumnPropertiesColumnType']):
+        pulumi.set(self, "column_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isPredictiveValue")
+    def is_predictive_value(self) -> pulumi.Input[_builtins.bool]:
+        return pulumi.get(self, "is_predictive_value")
+
+    @is_predictive_value.setter
+    def is_predictive_value(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "is_predictive_value", value)
+
+
+if not MYPY:
+    class AnalysisTemplateSyntheticDataParametersPropertiesArgsDict(TypedDict):
+        ml_synthetic_data_parameters: pulumi.Input['AnalysisTemplateMlSyntheticDataParametersArgsDict']
+elif False:
+    AnalysisTemplateSyntheticDataParametersPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnalysisTemplateSyntheticDataParametersPropertiesArgs:
+    def __init__(__self__, *,
+                 ml_synthetic_data_parameters: pulumi.Input['AnalysisTemplateMlSyntheticDataParametersArgs']):
+        pulumi.set(__self__, "ml_synthetic_data_parameters", ml_synthetic_data_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="mlSyntheticDataParameters")
+    def ml_synthetic_data_parameters(self) -> pulumi.Input['AnalysisTemplateMlSyntheticDataParametersArgs']:
+        return pulumi.get(self, "ml_synthetic_data_parameters")
+
+    @ml_synthetic_data_parameters.setter
+    def ml_synthetic_data_parameters(self, value: pulumi.Input['AnalysisTemplateMlSyntheticDataParametersArgs']):
+        pulumi.set(self, "ml_synthetic_data_parameters", value)
 
 
 if not MYPY:
@@ -809,6 +957,7 @@ if not MYPY:
         """
         The payment responsibilities accepted by the member for model training.
         """
+        synthetic_data_generation: NotRequired[pulumi.Input['CollaborationSyntheticDataGenerationPaymentConfigArgsDict']]
 elif False:
     CollaborationMlPaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -816,7 +965,8 @@ elif False:
 class CollaborationMlPaymentConfigArgs:
     def __init__(__self__, *,
                  model_inference: Optional[pulumi.Input['CollaborationModelInferencePaymentConfigArgs']] = None,
-                 model_training: Optional[pulumi.Input['CollaborationModelTrainingPaymentConfigArgs']] = None):
+                 model_training: Optional[pulumi.Input['CollaborationModelTrainingPaymentConfigArgs']] = None,
+                 synthetic_data_generation: Optional[pulumi.Input['CollaborationSyntheticDataGenerationPaymentConfigArgs']] = None):
         """
         :param pulumi.Input['CollaborationModelInferencePaymentConfigArgs'] model_inference: The payment responsibilities accepted by the member for model inference.
         :param pulumi.Input['CollaborationModelTrainingPaymentConfigArgs'] model_training: The payment responsibilities accepted by the member for model training.
@@ -825,6 +975,8 @@ class CollaborationMlPaymentConfigArgs:
             pulumi.set(__self__, "model_inference", model_inference)
         if model_training is not None:
             pulumi.set(__self__, "model_training", model_training)
+        if synthetic_data_generation is not None:
+            pulumi.set(__self__, "synthetic_data_generation", synthetic_data_generation)
 
     @_builtins.property
     @pulumi.getter(name="modelInference")
@@ -849,6 +1001,15 @@ class CollaborationMlPaymentConfigArgs:
     @model_training.setter
     def model_training(self, value: Optional[pulumi.Input['CollaborationModelTrainingPaymentConfigArgs']]):
         pulumi.set(self, "model_training", value)
+
+    @_builtins.property
+    @pulumi.getter(name="syntheticDataGeneration")
+    def synthetic_data_generation(self) -> Optional[pulumi.Input['CollaborationSyntheticDataGenerationPaymentConfigArgs']]:
+        return pulumi.get(self, "synthetic_data_generation")
+
+    @synthetic_data_generation.setter
+    def synthetic_data_generation(self, value: Optional[pulumi.Input['CollaborationSyntheticDataGenerationPaymentConfigArgs']]):
+        pulumi.set(self, "synthetic_data_generation", value)
 
 
 if not MYPY:
@@ -1044,6 +1205,28 @@ class CollaborationQueryComputePaymentConfigArgs:
 
         If the collaboration creator hasn't specified anyone as the member paying for query compute costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
         """
+        return pulumi.get(self, "is_responsible")
+
+    @is_responsible.setter
+    def is_responsible(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "is_responsible", value)
+
+
+if not MYPY:
+    class CollaborationSyntheticDataGenerationPaymentConfigArgsDict(TypedDict):
+        is_responsible: pulumi.Input[_builtins.bool]
+elif False:
+    CollaborationSyntheticDataGenerationPaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CollaborationSyntheticDataGenerationPaymentConfigArgs:
+    def __init__(__self__, *,
+                 is_responsible: pulumi.Input[_builtins.bool]):
+        pulumi.set(__self__, "is_responsible", is_responsible)
+
+    @_builtins.property
+    @pulumi.getter(name="isResponsible")
+    def is_responsible(self) -> pulumi.Input[_builtins.bool]:
         return pulumi.get(self, "is_responsible")
 
     @is_responsible.setter
@@ -2354,6 +2537,7 @@ if not MYPY:
         """
         The payment responsibilities accepted by the member for model training.
         """
+        synthetic_data_generation: NotRequired[pulumi.Input['MembershipSyntheticDataGenerationPaymentConfigArgsDict']]
 elif False:
     MembershipMlPaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2361,7 +2545,8 @@ elif False:
 class MembershipMlPaymentConfigArgs:
     def __init__(__self__, *,
                  model_inference: Optional[pulumi.Input['MembershipModelInferencePaymentConfigArgs']] = None,
-                 model_training: Optional[pulumi.Input['MembershipModelTrainingPaymentConfigArgs']] = None):
+                 model_training: Optional[pulumi.Input['MembershipModelTrainingPaymentConfigArgs']] = None,
+                 synthetic_data_generation: Optional[pulumi.Input['MembershipSyntheticDataGenerationPaymentConfigArgs']] = None):
         """
         :param pulumi.Input['MembershipModelInferencePaymentConfigArgs'] model_inference: The payment responsibilities accepted by the member for model inference.
         :param pulumi.Input['MembershipModelTrainingPaymentConfigArgs'] model_training: The payment responsibilities accepted by the member for model training.
@@ -2370,6 +2555,8 @@ class MembershipMlPaymentConfigArgs:
             pulumi.set(__self__, "model_inference", model_inference)
         if model_training is not None:
             pulumi.set(__self__, "model_training", model_training)
+        if synthetic_data_generation is not None:
+            pulumi.set(__self__, "synthetic_data_generation", synthetic_data_generation)
 
     @_builtins.property
     @pulumi.getter(name="modelInference")
@@ -2394,6 +2581,15 @@ class MembershipMlPaymentConfigArgs:
     @model_training.setter
     def model_training(self, value: Optional[pulumi.Input['MembershipModelTrainingPaymentConfigArgs']]):
         pulumi.set(self, "model_training", value)
+
+    @_builtins.property
+    @pulumi.getter(name="syntheticDataGeneration")
+    def synthetic_data_generation(self) -> Optional[pulumi.Input['MembershipSyntheticDataGenerationPaymentConfigArgs']]:
+        return pulumi.get(self, "synthetic_data_generation")
+
+    @synthetic_data_generation.setter
+    def synthetic_data_generation(self, value: Optional[pulumi.Input['MembershipSyntheticDataGenerationPaymentConfigArgs']]):
+        pulumi.set(self, "synthetic_data_generation", value)
 
 
 if not MYPY:
@@ -2920,6 +3116,28 @@ class MembershipQueryComputePaymentConfigArgs:
         - If you set the value to `FALSE` but you are responsible to pay for query compute costs.
         - If you set the value to `TRUE` but you are not responsible to pay for query compute costs.
         """
+        return pulumi.get(self, "is_responsible")
+
+    @is_responsible.setter
+    def is_responsible(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "is_responsible", value)
+
+
+if not MYPY:
+    class MembershipSyntheticDataGenerationPaymentConfigArgsDict(TypedDict):
+        is_responsible: pulumi.Input[_builtins.bool]
+elif False:
+    MembershipSyntheticDataGenerationPaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MembershipSyntheticDataGenerationPaymentConfigArgs:
+    def __init__(__self__, *,
+                 is_responsible: pulumi.Input[_builtins.bool]):
+        pulumi.set(__self__, "is_responsible", is_responsible)
+
+    @_builtins.property
+    @pulumi.getter(name="isResponsible")
+    def is_responsible(self) -> pulumi.Input[_builtins.bool]:
         return pulumi.get(self, "is_responsible")
 
     @is_responsible.setter

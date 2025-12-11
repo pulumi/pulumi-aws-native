@@ -90,6 +90,10 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
+     * Routing policy label
+     */
+    declare public readonly routingPolicyLabel: pulumi.Output<string | undefined>;
+    /**
      * The name of the segment that attachment is in.
      */
     declare public /*out*/ readonly segmentName: pulumi.Output<string>;
@@ -131,6 +135,7 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
             resourceInputs["networkFunctionGroupName"] = args?.networkFunctionGroupName;
             resourceInputs["proposedNetworkFunctionGroupChange"] = args?.proposedNetworkFunctionGroupChange;
             resourceInputs["proposedSegmentChange"] = args?.proposedSegmentChange;
+            resourceInputs["routingPolicyLabel"] = args?.routingPolicyLabel;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["vpnConnectionArn"] = args?.vpnConnectionArn;
             resourceInputs["attachmentId"] = undefined /*out*/;
@@ -159,6 +164,7 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
             resourceInputs["proposedNetworkFunctionGroupChange"] = undefined /*out*/;
             resourceInputs["proposedSegmentChange"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
+            resourceInputs["routingPolicyLabel"] = undefined /*out*/;
             resourceInputs["segmentName"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -166,7 +172,7 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
             resourceInputs["vpnConnectionArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["coreNetworkId", "vpnConnectionArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["coreNetworkId", "routingPolicyLabel", "vpnConnectionArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SiteToSiteVpnAttachment.__pulumiType, name, resourceInputs, opts);
     }
@@ -192,6 +198,10 @@ export interface SiteToSiteVpnAttachmentArgs {
      * The attachment to move from one segment to another.
      */
     proposedSegmentChange?: pulumi.Input<inputs.networkmanager.SiteToSiteVpnAttachmentProposedSegmentChangeArgs>;
+    /**
+     * Routing policy label
+     */
+    routingPolicyLabel?: pulumi.Input<string>;
     /**
      * Tags for the attachment.
      */

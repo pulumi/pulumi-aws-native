@@ -12,17 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
+// Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
 type NetworkInterfaceAttachment struct {
 	pulumi.CustomResourceState
 
 	// The ID of the network interface attachment.
 	AttachmentId pulumi.StringOutput `pulumi:"attachmentId"`
-	// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+	// Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
 	DeleteOnTermination pulumi.BoolPtrOutput `pulumi:"deleteOnTermination"`
-	// The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+	// The network interface's position in the attachment order. For example, the first attached network interface has a ``DeviceIndex`` of 0.
 	DeviceIndex pulumi.StringOutput `pulumi:"deviceIndex"`
-	// The number of ENA queues to be created with the instance.
+	// The number of ENA queues created with the instance.
 	EnaQueueCount pulumi.IntPtrOutput `pulumi:"enaQueueCount"`
 	// Configures ENA Express for the network interface that this action attaches to the instance.
 	EnaSrdSpecification NetworkInterfaceAttachmentEnaSrdSpecificationPtrOutput `pulumi:"enaSrdSpecification"`
@@ -87,11 +87,11 @@ func (NetworkInterfaceAttachmentState) ElementType() reflect.Type {
 }
 
 type networkInterfaceAttachmentArgs struct {
-	// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+	// Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
-	// The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+	// The network interface's position in the attachment order. For example, the first attached network interface has a ``DeviceIndex`` of 0.
 	DeviceIndex string `pulumi:"deviceIndex"`
-	// The number of ENA queues to be created with the instance.
+	// The number of ENA queues created with the instance.
 	EnaQueueCount *int `pulumi:"enaQueueCount"`
 	// Configures ENA Express for the network interface that this action attaches to the instance.
 	EnaSrdSpecification *NetworkInterfaceAttachmentEnaSrdSpecification `pulumi:"enaSrdSpecification"`
@@ -103,11 +103,11 @@ type networkInterfaceAttachmentArgs struct {
 
 // The set of arguments for constructing a NetworkInterfaceAttachment resource.
 type NetworkInterfaceAttachmentArgs struct {
-	// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+	// Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
 	DeleteOnTermination pulumi.BoolPtrInput
-	// The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+	// The network interface's position in the attachment order. For example, the first attached network interface has a ``DeviceIndex`` of 0.
 	DeviceIndex pulumi.StringInput
-	// The number of ENA queues to be created with the instance.
+	// The number of ENA queues created with the instance.
 	EnaQueueCount pulumi.IntPtrInput
 	// Configures ENA Express for the network interface that this action attaches to the instance.
 	EnaSrdSpecification NetworkInterfaceAttachmentEnaSrdSpecificationPtrInput
@@ -159,17 +159,17 @@ func (o NetworkInterfaceAttachmentOutput) AttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.AttachmentId }).(pulumi.StringOutput)
 }
 
-// Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+// Whether to delete the network interface when the instance terminates. By default, this value is set to “true“.
 func (o NetworkInterfaceAttachmentOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.BoolPtrOutput { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
+// The network interface's position in the attachment order. For example, the first attached network interface has a “DeviceIndex“ of 0.
 func (o NetworkInterfaceAttachmentOutput) DeviceIndex() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.DeviceIndex }).(pulumi.StringOutput)
 }
 
-// The number of ENA queues to be created with the instance.
+// The number of ENA queues created with the instance.
 func (o NetworkInterfaceAttachmentOutput) EnaQueueCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.IntPtrOutput { return v.EnaQueueCount }).(pulumi.IntPtrOutput)
 }

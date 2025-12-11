@@ -50,7 +50,7 @@ class GetNetworkInterfaceAttachmentResult:
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> Optional[_builtins.bool]:
         """
-        Whether to delete the network interface when the instance terminates. By default, this value is set to true.
+        Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
         """
         return pulumi.get(self, "delete_on_termination")
 
@@ -58,7 +58,7 @@ class GetNetworkInterfaceAttachmentResult:
     @pulumi.getter(name="enaQueueCount")
     def ena_queue_count(self) -> Optional[_builtins.int]:
         """
-        The number of ENA queues to be created with the instance.
+        The number of ENA queues created with the instance.
         """
         return pulumi.get(self, "ena_queue_count")
 
@@ -86,7 +86,7 @@ class AwaitableGetNetworkInterfaceAttachmentResult(GetNetworkInterfaceAttachment
 def get_network_interface_attachment(attachment_id: Optional[_builtins.str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceAttachmentResult:
     """
-    Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
+    Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
 
 
     :param _builtins.str attachment_id: The ID of the network interface attachment.
@@ -104,7 +104,7 @@ def get_network_interface_attachment(attachment_id: Optional[_builtins.str] = No
 def get_network_interface_attachment_output(attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInterfaceAttachmentResult]:
     """
-    Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
+    Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
 
 
     :param _builtins.str attachment_id: The ID of the network interface attachment.

@@ -59,6 +59,13 @@ export const AnalysisTemplateFormat = {
  */
 export type AnalysisTemplateFormat = (typeof AnalysisTemplateFormat)[keyof typeof AnalysisTemplateFormat];
 
+export const AnalysisTemplateSyntheticDataColumnPropertiesColumnType = {
+    Categorical: "CATEGORICAL",
+    Numerical: "NUMERICAL",
+} as const;
+
+export type AnalysisTemplateSyntheticDataColumnPropertiesColumnType = (typeof AnalysisTemplateSyntheticDataColumnPropertiesColumnType)[keyof typeof AnalysisTemplateSyntheticDataColumnPropertiesColumnType];
+
 export const CollaborationAnalyticsEngine = {
     CleanRoomsSql: "CLEAN_ROOMS_SQL",
     Spark: "SPARK",

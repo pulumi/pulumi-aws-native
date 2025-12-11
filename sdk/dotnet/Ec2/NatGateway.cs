@@ -25,6 +25,44 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> AllocationId { get; private set; } = null!;
 
         /// <summary>
+        /// For regional NAT gateways only: Indicates whether AWS automatically manages AZ coverage. When enabled, the NAT gateway associates EIPs in all AZs where your VPC has subnets to handle outbound NAT traffic, expands to new AZs when you create subnets there, and retracts from AZs where you've removed all subnets. When disabled, you must manually manage which AZs the NAT gateway supports and their corresponding EIPs.
+        /// 
+        /// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+        /// 
+        /// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+        /// </summary>
+        [Output("autoProvisionZones")]
+        public Output<string> AutoProvisionZones { get; private set; } = null!;
+
+        /// <summary>
+        /// For regional NAT gateways only: Indicates whether AWS automatically allocates additional Elastic IP addresses (EIPs) in an AZ when the NAT gateway needs more ports due to increased concurrent connections to a single destination from that AZ.
+        /// 
+        /// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+        /// </summary>
+        [Output("autoScalingIps")]
+        public Output<string> AutoScalingIps { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
+        /// 
+        /// A zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+        /// 
+        /// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+        /// </summary>
+        [Output("availabilityMode")]
+        public Output<string?> AvailabilityMode { get; private set; } = null!;
+
+        /// <summary>
+        /// For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.
+        /// 
+        /// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+        /// 
+        /// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+        /// </summary>
+        [Output("availabilityZoneAddresses")]
+        public Output<ImmutableArray<Outputs.NatGatewayAvailabilityZoneAddress>> AvailabilityZoneAddresses { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
         /// </summary>
         [Output("connectivityType")]
@@ -53,6 +91,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Output("privateIpAddress")]
         public Output<string?> PrivateIpAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// For regional NAT gateways only, this is the ID of the NAT gateway.
+        /// </summary>
+        [Output("routeTableId")]
+        public Output<string> RouteTableId { get; private set; } = null!;
 
         /// <summary>
         /// Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.
@@ -118,6 +162,7 @@ namespace Pulumi.AwsNative.Ec2
                 ReplaceOnChanges =
                 {
                     "allocationId",
+                    "availabilityMode",
                     "connectivityType",
                     "privateIpAddress",
                     "subnetId",
@@ -150,6 +195,32 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
+
+        /// <summary>
+        /// Indicates whether this is a zonal (single-AZ) or regional (multi-AZ) NAT gateway.
+        /// 
+        /// A zonal NAT gateway is a NAT Gateway that provides redundancy and scalability within a single availability zone. A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+        /// 
+        /// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+        /// </summary>
+        [Input("availabilityMode")]
+        public Input<string>? AvailabilityMode { get; set; }
+
+        [Input("availabilityZoneAddresses")]
+        private InputList<Inputs.NatGatewayAvailabilityZoneAddressArgs>? _availabilityZoneAddresses;
+
+        /// <summary>
+        /// For regional NAT gateways only: Specifies which Availability Zones you want the NAT gateway to support and the Elastic IP addresses (EIPs) to use in each AZ. The regional NAT gateway uses these EIPs to handle outbound NAT traffic from their respective AZs. If not specified, the NAT gateway will automatically expand to new AZs and associate EIPs upon detection of an elastic network interface. If you specify this parameter, auto-expansion is disabled and you must manually manage AZ coverage.
+        /// 
+        /// A regional NAT gateway is a single NAT Gateway that works across multiple availability zones (AZs) in your VPC, providing redundancy, scalability and availability across all the AZs in a Region.
+        /// 
+        /// For more information, see [Regional NAT gateways for automatic multi-AZ expansion](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateways-regional.html) in the *Amazon VPC User Guide* .
+        /// </summary>
+        public InputList<Inputs.NatGatewayAvailabilityZoneAddressArgs> AvailabilityZoneAddresses
+        {
+            get => _availabilityZoneAddresses ?? (_availabilityZoneAddresses = new InputList<Inputs.NatGatewayAvailabilityZoneAddressArgs>());
+            set => _availabilityZoneAddresses = value;
+        }
 
         /// <summary>
         /// Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.

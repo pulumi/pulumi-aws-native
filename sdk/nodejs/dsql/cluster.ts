@@ -86,6 +86,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
+     * The DSQL cluster VPC endpoint.
+     */
+    declare public /*out*/ readonly vpcEndpoint: pulumi.Output<string>;
+    /**
      * The VPC endpoint service name.
      */
     declare public /*out*/ readonly vpcEndpointServiceName: pulumi.Output<string>;
@@ -113,6 +117,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["policyVersion"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["vpcEndpoint"] = undefined /*out*/;
             resourceInputs["vpcEndpointServiceName"] = undefined /*out*/;
         } else {
             resourceInputs["creationTime"] = undefined /*out*/;
@@ -127,6 +132,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcEndpoint"] = undefined /*out*/;
             resourceInputs["vpcEndpointServiceName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

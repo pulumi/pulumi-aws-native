@@ -53,6 +53,7 @@ export interface GetKeyResult {
      * The state of key that is being created or deleted.
      */
     readonly keyState?: enums.paymentcryptography.KeyState;
+    readonly replicationStatus?: {[key: string]: outputs.paymentcryptography.KeyReplicationStatusType};
     readonly tags?: outputs.Tag[];
 }
 /**

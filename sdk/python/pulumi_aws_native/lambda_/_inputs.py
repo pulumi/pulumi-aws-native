@@ -82,6 +82,8 @@ __all__ = [
     'FunctionCodeArgsDict',
     'FunctionDeadLetterConfigArgs',
     'FunctionDeadLetterConfigArgsDict',
+    'FunctionDurableConfigArgs',
+    'FunctionDurableConfigArgsDict',
     'FunctionEnvironmentArgs',
     'FunctionEnvironmentArgsDict',
     'FunctionEphemeralStorageArgs',
@@ -1823,6 +1825,57 @@ class FunctionDeadLetterConfigArgs:
     @target_arn.setter
     def target_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "target_arn", value)
+
+
+if not MYPY:
+    class FunctionDurableConfigArgsDict(TypedDict):
+        execution_timeout: pulumi.Input[_builtins.int]
+        """
+        The amount of time (in seconds) that Lambda allows a durable function to run before stopping it. The maximum is one 366-day year or 31,622,400 seconds.
+        """
+        retention_period_in_days: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The number of days after a durable execution is closed that Lambda retains its history, from one to 90 days. The default is 14 days.
+        """
+elif False:
+    FunctionDurableConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FunctionDurableConfigArgs:
+    def __init__(__self__, *,
+                 execution_timeout: pulumi.Input[_builtins.int],
+                 retention_period_in_days: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] execution_timeout: The amount of time (in seconds) that Lambda allows a durable function to run before stopping it. The maximum is one 366-day year or 31,622,400 seconds.
+        :param pulumi.Input[_builtins.int] retention_period_in_days: The number of days after a durable execution is closed that Lambda retains its history, from one to 90 days. The default is 14 days.
+        """
+        pulumi.set(__self__, "execution_timeout", execution_timeout)
+        if retention_period_in_days is not None:
+            pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
+
+    @_builtins.property
+    @pulumi.getter(name="executionTimeout")
+    def execution_timeout(self) -> pulumi.Input[_builtins.int]:
+        """
+        The amount of time (in seconds) that Lambda allows a durable function to run before stopping it. The maximum is one 366-day year or 31,622,400 seconds.
+        """
+        return pulumi.get(self, "execution_timeout")
+
+    @execution_timeout.setter
+    def execution_timeout(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "execution_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPeriodInDays")
+    def retention_period_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The number of days after a durable execution is closed that Lambda retains its history, from one to 90 days. The default is 14 days.
+        """
+        return pulumi.get(self, "retention_period_in_days")
+
+    @retention_period_in_days.setter
+    def retention_period_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "retention_period_in_days", value)
 
 
 if not MYPY:

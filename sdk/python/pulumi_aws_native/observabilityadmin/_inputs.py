@@ -30,16 +30,68 @@ __all__ = [
     'OrganizationCentralizationRuleLogsEncryptionConfigurationArgsDict',
     'OrganizationCentralizationRuleSourceLogsConfigurationArgs',
     'OrganizationCentralizationRuleSourceLogsConfigurationArgsDict',
+    'OrganizationTelemetryRuleActionConditionArgs',
+    'OrganizationTelemetryRuleActionConditionArgsDict',
+    'OrganizationTelemetryRuleAdvancedEventSelectorArgs',
+    'OrganizationTelemetryRuleAdvancedEventSelectorArgsDict',
+    'OrganizationTelemetryRuleAdvancedFieldSelectorArgs',
+    'OrganizationTelemetryRuleAdvancedFieldSelectorArgsDict',
+    'OrganizationTelemetryRuleCloudtrailParametersArgs',
+    'OrganizationTelemetryRuleCloudtrailParametersArgsDict',
+    'OrganizationTelemetryRuleConditionArgs',
+    'OrganizationTelemetryRuleConditionArgsDict',
+    'OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgs',
+    'OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgsDict',
+    'OrganizationTelemetryRuleFieldToMatchArgs',
+    'OrganizationTelemetryRuleFieldToMatchArgsDict',
+    'OrganizationTelemetryRuleFilterArgs',
+    'OrganizationTelemetryRuleFilterArgsDict',
+    'OrganizationTelemetryRuleLabelNameConditionArgs',
+    'OrganizationTelemetryRuleLabelNameConditionArgsDict',
+    'OrganizationTelemetryRuleLoggingFilterArgs',
+    'OrganizationTelemetryRuleLoggingFilterArgsDict',
+    'OrganizationTelemetryRuleSingleHeaderArgs',
+    'OrganizationTelemetryRuleSingleHeaderArgsDict',
     'OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs',
     'OrganizationTelemetryRuleTelemetryDestinationConfigurationArgsDict',
     'OrganizationTelemetryRuleTelemetryRuleArgs',
     'OrganizationTelemetryRuleTelemetryRuleArgsDict',
     'OrganizationTelemetryRuleVpcFlowLogParametersArgs',
     'OrganizationTelemetryRuleVpcFlowLogParametersArgsDict',
+    'OrganizationTelemetryRuleWafLoggingParametersArgs',
+    'OrganizationTelemetryRuleWafLoggingParametersArgsDict',
+    'TelemetryPipelinesTelemetryPipelineConfigurationArgs',
+    'TelemetryPipelinesTelemetryPipelineConfigurationArgsDict',
+    'TelemetryRuleActionConditionArgs',
+    'TelemetryRuleActionConditionArgsDict',
+    'TelemetryRuleAdvancedEventSelectorArgs',
+    'TelemetryRuleAdvancedEventSelectorArgsDict',
+    'TelemetryRuleAdvancedFieldSelectorArgs',
+    'TelemetryRuleAdvancedFieldSelectorArgsDict',
+    'TelemetryRuleCloudtrailParametersArgs',
+    'TelemetryRuleCloudtrailParametersArgsDict',
+    'TelemetryRuleConditionArgs',
+    'TelemetryRuleConditionArgsDict',
+    'TelemetryRuleElbLoadBalancerLoggingParametersArgs',
+    'TelemetryRuleElbLoadBalancerLoggingParametersArgsDict',
+    'TelemetryRuleFieldToMatchArgs',
+    'TelemetryRuleFieldToMatchArgsDict',
+    'TelemetryRuleFilterArgs',
+    'TelemetryRuleFilterArgsDict',
+    'TelemetryRuleLabelNameConditionArgs',
+    'TelemetryRuleLabelNameConditionArgsDict',
+    'TelemetryRuleLoggingFilterArgs',
+    'TelemetryRuleLoggingFilterArgsDict',
+    'TelemetryRuleSingleHeaderArgs',
+    'TelemetryRuleSingleHeaderArgsDict',
+    'TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs',
+    'TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgsDict',
     'TelemetryRuleTelemetryDestinationConfigurationArgs',
     'TelemetryRuleTelemetryDestinationConfigurationArgsDict',
     'TelemetryRuleVpcFlowLogParametersArgs',
     'TelemetryRuleVpcFlowLogParametersArgsDict',
+    'TelemetryRuleWafLoggingParametersArgs',
+    'TelemetryRuleWafLoggingParametersArgsDict',
     'TelemetryRuleArgs',
     'TelemetryRuleArgsDict',
 ]
@@ -463,10 +515,634 @@ class OrganizationCentralizationRuleSourceLogsConfigurationArgs:
 
 
 if not MYPY:
+    class OrganizationTelemetryRuleActionConditionArgsDict(TypedDict):
+        """
+        The condition of the action desired in the filter.
+        """
+        action: NotRequired[pulumi.Input['OrganizationTelemetryRuleAction']]
+elif False:
+    OrganizationTelemetryRuleActionConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationTelemetryRuleActionConditionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input['OrganizationTelemetryRuleAction']] = None):
+        """
+        The condition of the action desired in the filter.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input['OrganizationTelemetryRuleAction']]:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input['OrganizationTelemetryRuleAction']]):
+        pulumi.set(self, "action", value)
+
+
+if not MYPY:
+    class OrganizationTelemetryRuleAdvancedEventSelectorArgsDict(TypedDict):
+        """
+        An advanced event selector that includes optional name and field selectors
+        """
+        field_selectors: pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleAdvancedFieldSelectorArgsDict']]]
+        """
+        Contains all selector statements in an advanced event selector.
+        """
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        An optional descriptive name for the advanced event selector
+        """
+elif False:
+    OrganizationTelemetryRuleAdvancedEventSelectorArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationTelemetryRuleAdvancedEventSelectorArgs:
+    def __init__(__self__, *,
+                 field_selectors: pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleAdvancedFieldSelectorArgs']]],
+                 name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        An advanced event selector that includes optional name and field selectors
+        :param pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleAdvancedFieldSelectorArgs']]] field_selectors: Contains all selector statements in an advanced event selector.
+        :param pulumi.Input[_builtins.str] name: An optional descriptive name for the advanced event selector
+        """
+        pulumi.set(__self__, "field_selectors", field_selectors)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldSelectors")
+    def field_selectors(self) -> pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleAdvancedFieldSelectorArgs']]]:
+        """
+        Contains all selector statements in an advanced event selector.
+        """
+        return pulumi.get(self, "field_selectors")
+
+    @field_selectors.setter
+    def field_selectors(self, value: pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleAdvancedFieldSelectorArgs']]]):
+        pulumi.set(self, "field_selectors", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        An optional descriptive name for the advanced event selector
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class OrganizationTelemetryRuleAdvancedFieldSelectorArgsDict(TypedDict):
+        """
+        A single selector statement in an advanced event selector.
+        """
+        ends_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        An operator that includes events that match the last few characters of the event record field specified as the value of Field.
+        """
+        equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        An operator that includes events that match the exact value of the event record field specified as the value of Field.
+        """
+        field: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A field in a CloudTrail event record on which to filter events to be logged
+        """
+        not_ends_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        An operator that excludes events that match the last few characters of the event record field specified as the value of Field.
+        """
+        not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        An operator that excludes events that match the exact value of the event record field specified as the value of Field.
+        """
+        not_starts_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        An operator that excludes events that match the first few characters of the event record field specified as the value of Field.
+        """
+        starts_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        An operator that includes events that match the first few characters of the event record field specified as the value of Field.
+        """
+elif False:
+    OrganizationTelemetryRuleAdvancedFieldSelectorArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationTelemetryRuleAdvancedFieldSelectorArgs:
+    def __init__(__self__, *,
+                 ends_with: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 equals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 field: Optional[pulumi.Input[_builtins.str]] = None,
+                 not_ends_with: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_equals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_starts_with: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 starts_with: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        A single selector statement in an advanced event selector.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ends_with: An operator that includes events that match the last few characters of the event record field specified as the value of Field.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] equals: An operator that includes events that match the exact value of the event record field specified as the value of Field.
+        :param pulumi.Input[_builtins.str] field: A field in a CloudTrail event record on which to filter events to be logged
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] not_ends_with: An operator that excludes events that match the last few characters of the event record field specified as the value of Field.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] not_equals: An operator that excludes events that match the exact value of the event record field specified as the value of Field.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] not_starts_with: An operator that excludes events that match the first few characters of the event record field specified as the value of Field.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] starts_with: An operator that includes events that match the first few characters of the event record field specified as the value of Field.
+        """
+        if ends_with is not None:
+            pulumi.set(__self__, "ends_with", ends_with)
+        if equals is not None:
+            pulumi.set(__self__, "equals", equals)
+        if field is not None:
+            pulumi.set(__self__, "field", field)
+        if not_ends_with is not None:
+            pulumi.set(__self__, "not_ends_with", not_ends_with)
+        if not_equals is not None:
+            pulumi.set(__self__, "not_equals", not_equals)
+        if not_starts_with is not None:
+            pulumi.set(__self__, "not_starts_with", not_starts_with)
+        if starts_with is not None:
+            pulumi.set(__self__, "starts_with", starts_with)
+
+    @_builtins.property
+    @pulumi.getter(name="endsWith")
+    def ends_with(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        An operator that includes events that match the last few characters of the event record field specified as the value of Field.
+        """
+        return pulumi.get(self, "ends_with")
+
+    @ends_with.setter
+    def ends_with(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ends_with", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        An operator that includes events that match the exact value of the event record field specified as the value of Field.
+        """
+        return pulumi.get(self, "equals")
+
+    @equals.setter
+    def equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "equals", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def field(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A field in a CloudTrail event record on which to filter events to be logged
+        """
+        return pulumi.get(self, "field")
+
+    @field.setter
+    def field(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "field", value)
+
+    @_builtins.property
+    @pulumi.getter(name="notEndsWith")
+    def not_ends_with(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        An operator that excludes events that match the last few characters of the event record field specified as the value of Field.
+        """
+        return pulumi.get(self, "not_ends_with")
+
+    @not_ends_with.setter
+    def not_ends_with(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "not_ends_with", value)
+
+    @_builtins.property
+    @pulumi.getter(name="notEquals")
+    def not_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        An operator that excludes events that match the exact value of the event record field specified as the value of Field.
+        """
+        return pulumi.get(self, "not_equals")
+
+    @not_equals.setter
+    def not_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "not_equals", value)
+
+    @_builtins.property
+    @pulumi.getter(name="notStartsWith")
+    def not_starts_with(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        An operator that excludes events that match the first few characters of the event record field specified as the value of Field.
+        """
+        return pulumi.get(self, "not_starts_with")
+
+    @not_starts_with.setter
+    def not_starts_with(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "not_starts_with", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startsWith")
+    def starts_with(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        An operator that includes events that match the first few characters of the event record field specified as the value of Field.
+        """
+        return pulumi.get(self, "starts_with")
+
+    @starts_with.setter
+    def starts_with(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "starts_with", value)
+
+
+if not MYPY:
+    class OrganizationTelemetryRuleCloudtrailParametersArgsDict(TypedDict):
+        """
+        Telemetry parameters for Cloudtrail
+        """
+        advanced_event_selectors: pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleAdvancedEventSelectorArgsDict']]]
+        """
+        Create fine-grained selectors for AWS CloudTrail management and data.
+        """
+elif False:
+    OrganizationTelemetryRuleCloudtrailParametersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationTelemetryRuleCloudtrailParametersArgs:
+    def __init__(__self__, *,
+                 advanced_event_selectors: pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleAdvancedEventSelectorArgs']]]):
+        """
+        Telemetry parameters for Cloudtrail
+        :param pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleAdvancedEventSelectorArgs']]] advanced_event_selectors: Create fine-grained selectors for AWS CloudTrail management and data.
+        """
+        pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
+
+    @_builtins.property
+    @pulumi.getter(name="advancedEventSelectors")
+    def advanced_event_selectors(self) -> pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleAdvancedEventSelectorArgs']]]:
+        """
+        Create fine-grained selectors for AWS CloudTrail management and data.
+        """
+        return pulumi.get(self, "advanced_event_selectors")
+
+    @advanced_event_selectors.setter
+    def advanced_event_selectors(self, value: pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleAdvancedEventSelectorArgs']]]):
+        pulumi.set(self, "advanced_event_selectors", value)
+
+
+if not MYPY:
+    class OrganizationTelemetryRuleConditionArgsDict(TypedDict):
+        """
+        A condition for a filter.
+        """
+        action_condition: NotRequired[pulumi.Input['OrganizationTelemetryRuleActionConditionArgsDict']]
+        label_name_condition: NotRequired[pulumi.Input['OrganizationTelemetryRuleLabelNameConditionArgsDict']]
+elif False:
+    OrganizationTelemetryRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationTelemetryRuleConditionArgs:
+    def __init__(__self__, *,
+                 action_condition: Optional[pulumi.Input['OrganizationTelemetryRuleActionConditionArgs']] = None,
+                 label_name_condition: Optional[pulumi.Input['OrganizationTelemetryRuleLabelNameConditionArgs']] = None):
+        """
+        A condition for a filter.
+        """
+        if action_condition is not None:
+            pulumi.set(__self__, "action_condition", action_condition)
+        if label_name_condition is not None:
+            pulumi.set(__self__, "label_name_condition", label_name_condition)
+
+    @_builtins.property
+    @pulumi.getter(name="actionCondition")
+    def action_condition(self) -> Optional[pulumi.Input['OrganizationTelemetryRuleActionConditionArgs']]:
+        return pulumi.get(self, "action_condition")
+
+    @action_condition.setter
+    def action_condition(self, value: Optional[pulumi.Input['OrganizationTelemetryRuleActionConditionArgs']]):
+        pulumi.set(self, "action_condition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="labelNameCondition")
+    def label_name_condition(self) -> Optional[pulumi.Input['OrganizationTelemetryRuleLabelNameConditionArgs']]:
+        return pulumi.get(self, "label_name_condition")
+
+    @label_name_condition.setter
+    def label_name_condition(self, value: Optional[pulumi.Input['OrganizationTelemetryRuleLabelNameConditionArgs']]):
+        pulumi.set(self, "label_name_condition", value)
+
+
+if not MYPY:
+    class OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgsDict(TypedDict):
+        """
+        Telemetry parameters for ELB/NLB Load Balancer Logs
+        """
+        field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A delimiter to delineate log fields
+        """
+        output_format: NotRequired[pulumi.Input['OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat']]
+elif False:
+    OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgs:
+    def __init__(__self__, *,
+                 field_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
+                 output_format: Optional[pulumi.Input['OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat']] = None):
+        """
+        Telemetry parameters for ELB/NLB Load Balancer Logs
+        :param pulumi.Input[_builtins.str] field_delimiter: A delimiter to delineate log fields
+        """
+        if field_delimiter is not None:
+            pulumi.set(__self__, "field_delimiter", field_delimiter)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldDelimiter")
+    def field_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A delimiter to delineate log fields
+        """
+        return pulumi.get(self, "field_delimiter")
+
+    @field_delimiter.setter
+    def field_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "field_delimiter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> Optional[pulumi.Input['OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat']]:
+        return pulumi.get(self, "output_format")
+
+    @output_format.setter
+    def output_format(self, value: Optional[pulumi.Input['OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat']]):
+        pulumi.set(self, "output_format", value)
+
+
+if not MYPY:
+    class OrganizationTelemetryRuleFieldToMatchArgsDict(TypedDict):
+        """
+        The field that we want to match this rule to.
+        """
+        method: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The method with which to match this rule.
+        """
+        query_string: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The query string to find the resource to match this field to.
+        """
+        single_header: NotRequired[pulumi.Input['OrganizationTelemetryRuleSingleHeaderArgsDict']]
+        uri_path: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        This is the URI path to match this rule to.
+        """
+elif False:
+    OrganizationTelemetryRuleFieldToMatchArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationTelemetryRuleFieldToMatchArgs:
+    def __init__(__self__, *,
+                 method: Optional[pulumi.Input[_builtins.str]] = None,
+                 query_string: Optional[pulumi.Input[_builtins.str]] = None,
+                 single_header: Optional[pulumi.Input['OrganizationTelemetryRuleSingleHeaderArgs']] = None,
+                 uri_path: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The field that we want to match this rule to.
+        :param pulumi.Input[_builtins.str] method: The method with which to match this rule.
+        :param pulumi.Input[_builtins.str] query_string: The query string to find the resource to match this field to.
+        :param pulumi.Input[_builtins.str] uri_path: This is the URI path to match this rule to.
+        """
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
+        if single_header is not None:
+            pulumi.set(__self__, "single_header", single_header)
+        if uri_path is not None:
+            pulumi.set(__self__, "uri_path", uri_path)
+
+    @_builtins.property
+    @pulumi.getter
+    def method(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The method with which to match this rule.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "method", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The query string to find the resource to match this field to.
+        """
+        return pulumi.get(self, "query_string")
+
+    @query_string.setter
+    def query_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "query_string", value)
+
+    @_builtins.property
+    @pulumi.getter(name="singleHeader")
+    def single_header(self) -> Optional[pulumi.Input['OrganizationTelemetryRuleSingleHeaderArgs']]:
+        return pulumi.get(self, "single_header")
+
+    @single_header.setter
+    def single_header(self, value: Optional[pulumi.Input['OrganizationTelemetryRuleSingleHeaderArgs']]):
+        pulumi.set(self, "single_header", value)
+
+    @_builtins.property
+    @pulumi.getter(name="uriPath")
+    def uri_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        This is the URI path to match this rule to.
+        """
+        return pulumi.get(self, "uri_path")
+
+    @uri_path.setter
+    def uri_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "uri_path", value)
+
+
+if not MYPY:
+    class OrganizationTelemetryRuleFilterArgsDict(TypedDict):
+        """
+        A filter to be applied
+        """
+        behavior: NotRequired[pulumi.Input['OrganizationTelemetryRuleFilterBehavior']]
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleConditionArgsDict']]]]
+        requirement: NotRequired[pulumi.Input['OrganizationTelemetryRuleFilterRequirement']]
+elif False:
+    OrganizationTelemetryRuleFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationTelemetryRuleFilterArgs:
+    def __init__(__self__, *,
+                 behavior: Optional[pulumi.Input['OrganizationTelemetryRuleFilterBehavior']] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleConditionArgs']]]] = None,
+                 requirement: Optional[pulumi.Input['OrganizationTelemetryRuleFilterRequirement']] = None):
+        """
+        A filter to be applied
+        """
+        if behavior is not None:
+            pulumi.set(__self__, "behavior", behavior)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if requirement is not None:
+            pulumi.set(__self__, "requirement", requirement)
+
+    @_builtins.property
+    @pulumi.getter
+    def behavior(self) -> Optional[pulumi.Input['OrganizationTelemetryRuleFilterBehavior']]:
+        return pulumi.get(self, "behavior")
+
+    @behavior.setter
+    def behavior(self, value: Optional[pulumi.Input['OrganizationTelemetryRuleFilterBehavior']]):
+        pulumi.set(self, "behavior", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleConditionArgs']]]]:
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleConditionArgs']]]]):
+        pulumi.set(self, "conditions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def requirement(self) -> Optional[pulumi.Input['OrganizationTelemetryRuleFilterRequirement']]:
+        return pulumi.get(self, "requirement")
+
+    @requirement.setter
+    def requirement(self, value: Optional[pulumi.Input['OrganizationTelemetryRuleFilterRequirement']]):
+        pulumi.set(self, "requirement", value)
+
+
+if not MYPY:
+    class OrganizationTelemetryRuleLabelNameConditionArgsDict(TypedDict):
+        """
+        The label name of the condition.
+        """
+        label_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The label name of the condition.
+        """
+elif False:
+    OrganizationTelemetryRuleLabelNameConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationTelemetryRuleLabelNameConditionArgs:
+    def __init__(__self__, *,
+                 label_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The label name of the condition.
+        :param pulumi.Input[_builtins.str] label_name: The label name of the condition.
+        """
+        if label_name is not None:
+            pulumi.set(__self__, "label_name", label_name)
+
+    @_builtins.property
+    @pulumi.getter(name="labelName")
+    def label_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The label name of the condition.
+        """
+        return pulumi.get(self, "label_name")
+
+    @label_name.setter
+    def label_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "label_name", value)
+
+
+if not MYPY:
+    class OrganizationTelemetryRuleLoggingFilterArgsDict(TypedDict):
+        """
+        Default handling for logs that don't match any of the specified filtering conditions.
+        """
+        default_behavior: NotRequired[pulumi.Input['OrganizationTelemetryRuleFilterBehavior']]
+        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleFilterArgsDict']]]]
+elif False:
+    OrganizationTelemetryRuleLoggingFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationTelemetryRuleLoggingFilterArgs:
+    def __init__(__self__, *,
+                 default_behavior: Optional[pulumi.Input['OrganizationTelemetryRuleFilterBehavior']] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleFilterArgs']]]] = None):
+        """
+        Default handling for logs that don't match any of the specified filtering conditions.
+        """
+        if default_behavior is not None:
+            pulumi.set(__self__, "default_behavior", default_behavior)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultBehavior")
+    def default_behavior(self) -> Optional[pulumi.Input['OrganizationTelemetryRuleFilterBehavior']]:
+        return pulumi.get(self, "default_behavior")
+
+    @default_behavior.setter
+    def default_behavior(self, value: Optional[pulumi.Input['OrganizationTelemetryRuleFilterBehavior']]):
+        pulumi.set(self, "default_behavior", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleFilterArgs']]]]:
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleFilterArgs']]]]):
+        pulumi.set(self, "filters", value)
+
+
+if not MYPY:
+    class OrganizationTelemetryRuleSingleHeaderArgsDict(TypedDict):
+        """
+        Header for the field to match.
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        The name of the header
+        """
+elif False:
+    OrganizationTelemetryRuleSingleHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationTelemetryRuleSingleHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str]):
+        """
+        Header for the field to match.
+        :param pulumi.Input[_builtins.str] name: The name of the header
+        """
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the header
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
     class OrganizationTelemetryRuleTelemetryDestinationConfigurationArgsDict(TypedDict):
         """
         The destination configuration for telemetry data
         """
+        cloudtrail_parameters: NotRequired[pulumi.Input['OrganizationTelemetryRuleCloudtrailParametersArgsDict']]
         destination_pattern: NotRequired[pulumi.Input[_builtins.str]]
         """
         The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
@@ -475,6 +1151,7 @@ if not MYPY:
         """
         The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
         """
+        elb_load_balancer_logging_parameters: NotRequired[pulumi.Input['OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgsDict']]
         retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
         """
         The number of days to retain the telemetry data in the destination.
@@ -483,16 +1160,20 @@ if not MYPY:
         """
         Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
         """
+        waf_logging_parameters: NotRequired[pulumi.Input['OrganizationTelemetryRuleWafLoggingParametersArgsDict']]
 elif False:
     OrganizationTelemetryRuleTelemetryDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs:
     def __init__(__self__, *,
+                 cloudtrail_parameters: Optional[pulumi.Input['OrganizationTelemetryRuleCloudtrailParametersArgs']] = None,
                  destination_pattern: Optional[pulumi.Input[_builtins.str]] = None,
                  destination_type: Optional[pulumi.Input['OrganizationTelemetryRuleDestinationType']] = None,
+                 elb_load_balancer_logging_parameters: Optional[pulumi.Input['OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgs']] = None,
                  retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 vpc_flow_log_parameters: Optional[pulumi.Input['OrganizationTelemetryRuleVpcFlowLogParametersArgs']] = None):
+                 vpc_flow_log_parameters: Optional[pulumi.Input['OrganizationTelemetryRuleVpcFlowLogParametersArgs']] = None,
+                 waf_logging_parameters: Optional[pulumi.Input['OrganizationTelemetryRuleWafLoggingParametersArgs']] = None):
         """
         The destination configuration for telemetry data
         :param pulumi.Input[_builtins.str] destination_pattern: The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
@@ -500,14 +1181,29 @@ class OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs:
         :param pulumi.Input[_builtins.int] retention_in_days: The number of days to retain the telemetry data in the destination.
         :param pulumi.Input['OrganizationTelemetryRuleVpcFlowLogParametersArgs'] vpc_flow_log_parameters: Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
         """
+        if cloudtrail_parameters is not None:
+            pulumi.set(__self__, "cloudtrail_parameters", cloudtrail_parameters)
         if destination_pattern is not None:
             pulumi.set(__self__, "destination_pattern", destination_pattern)
         if destination_type is not None:
             pulumi.set(__self__, "destination_type", destination_type)
+        if elb_load_balancer_logging_parameters is not None:
+            pulumi.set(__self__, "elb_load_balancer_logging_parameters", elb_load_balancer_logging_parameters)
         if retention_in_days is not None:
             pulumi.set(__self__, "retention_in_days", retention_in_days)
         if vpc_flow_log_parameters is not None:
             pulumi.set(__self__, "vpc_flow_log_parameters", vpc_flow_log_parameters)
+        if waf_logging_parameters is not None:
+            pulumi.set(__self__, "waf_logging_parameters", waf_logging_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudtrailParameters")
+    def cloudtrail_parameters(self) -> Optional[pulumi.Input['OrganizationTelemetryRuleCloudtrailParametersArgs']]:
+        return pulumi.get(self, "cloudtrail_parameters")
+
+    @cloudtrail_parameters.setter
+    def cloudtrail_parameters(self, value: Optional[pulumi.Input['OrganizationTelemetryRuleCloudtrailParametersArgs']]):
+        pulumi.set(self, "cloudtrail_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPattern")
@@ -534,6 +1230,15 @@ class OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs:
         pulumi.set(self, "destination_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="elbLoadBalancerLoggingParameters")
+    def elb_load_balancer_logging_parameters(self) -> Optional[pulumi.Input['OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgs']]:
+        return pulumi.get(self, "elb_load_balancer_logging_parameters")
+
+    @elb_load_balancer_logging_parameters.setter
+    def elb_load_balancer_logging_parameters(self, value: Optional[pulumi.Input['OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgs']]):
+        pulumi.set(self, "elb_load_balancer_logging_parameters", value)
+
+    @_builtins.property
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -557,6 +1262,15 @@ class OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs:
     def vpc_flow_log_parameters(self, value: Optional[pulumi.Input['OrganizationTelemetryRuleVpcFlowLogParametersArgs']]):
         pulumi.set(self, "vpc_flow_log_parameters", value)
 
+    @_builtins.property
+    @pulumi.getter(name="wafLoggingParameters")
+    def waf_logging_parameters(self) -> Optional[pulumi.Input['OrganizationTelemetryRuleWafLoggingParametersArgs']]:
+        return pulumi.get(self, "waf_logging_parameters")
+
+    @waf_logging_parameters.setter
+    def waf_logging_parameters(self, value: Optional[pulumi.Input['OrganizationTelemetryRuleWafLoggingParametersArgs']]):
+        pulumi.set(self, "waf_logging_parameters", value)
+
 
 if not MYPY:
     class OrganizationTelemetryRuleTelemetryRuleArgsDict(TypedDict):
@@ -565,7 +1279,7 @@ if not MYPY:
         """
         resource_type: pulumi.Input['OrganizationTelemetryRuleResourceType']
         """
-        The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
+        The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
         """
         telemetry_type: pulumi.Input['OrganizationTelemetryRuleTelemetryType']
         """
@@ -583,6 +1297,7 @@ if not MYPY:
         """
         Criteria for selecting which resources the rule applies to, such as resource tags.
         """
+        telemetry_source_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleTelemetrySourceType']]]]
 elif False:
     OrganizationTelemetryRuleTelemetryRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -593,10 +1308,11 @@ class OrganizationTelemetryRuleTelemetryRuleArgs:
                  telemetry_type: pulumi.Input['OrganizationTelemetryRuleTelemetryType'],
                  destination_configuration: Optional[pulumi.Input['OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs']] = None,
                  scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 selection_criteria: Optional[pulumi.Input[_builtins.str]] = None):
+                 selection_criteria: Optional[pulumi.Input[_builtins.str]] = None,
+                 telemetry_source_types: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleTelemetrySourceType']]]] = None):
         """
         The telemetry rule
-        :param pulumi.Input['OrganizationTelemetryRuleResourceType'] resource_type: The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
+        :param pulumi.Input['OrganizationTelemetryRuleResourceType'] resource_type: The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
         :param pulumi.Input['OrganizationTelemetryRuleTelemetryType'] telemetry_type: The type of telemetry to collect (Logs, Metrics, or Traces).
         :param pulumi.Input['OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs'] destination_configuration: Configuration specifying where and how the telemetry data should be delivered.
         :param pulumi.Input[_builtins.str] scope: The organizational scope to which the rule applies, specified using accounts or organizational units.
@@ -610,12 +1326,14 @@ class OrganizationTelemetryRuleTelemetryRuleArgs:
             pulumi.set(__self__, "scope", scope)
         if selection_criteria is not None:
             pulumi.set(__self__, "selection_criteria", selection_criteria)
+        if telemetry_source_types is not None:
+            pulumi.set(__self__, "telemetry_source_types", telemetry_source_types)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Input['OrganizationTelemetryRuleResourceType']:
         """
-        The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
+        The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
         """
         return pulumi.get(self, "resource_type")
 
@@ -670,6 +1388,15 @@ class OrganizationTelemetryRuleTelemetryRuleArgs:
     @selection_criteria.setter
     def selection_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "selection_criteria", value)
+
+    @_builtins.property
+    @pulumi.getter(name="telemetrySourceTypes")
+    def telemetry_source_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleTelemetrySourceType']]]]:
+        return pulumi.get(self, "telemetry_source_types")
+
+    @telemetry_source_types.setter
+    def telemetry_source_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleTelemetrySourceType']]]]):
+        pulumi.set(self, "telemetry_source_types", value)
 
 
 if not MYPY:
@@ -749,10 +1476,754 @@ class OrganizationTelemetryRuleVpcFlowLogParametersArgs:
 
 
 if not MYPY:
+    class OrganizationTelemetryRuleWafLoggingParametersArgsDict(TypedDict):
+        """
+        Telemetry parameters for WAF v2 Web ACL
+        """
+        log_type: NotRequired[pulumi.Input['OrganizationTelemetryRuleWafLogType']]
+        logging_filter: NotRequired[pulumi.Input['OrganizationTelemetryRuleLoggingFilterArgsDict']]
+        redacted_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleFieldToMatchArgsDict']]]]
+        """
+        Fields not to be included in the logs.
+        """
+elif False:
+    OrganizationTelemetryRuleWafLoggingParametersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationTelemetryRuleWafLoggingParametersArgs:
+    def __init__(__self__, *,
+                 log_type: Optional[pulumi.Input['OrganizationTelemetryRuleWafLogType']] = None,
+                 logging_filter: Optional[pulumi.Input['OrganizationTelemetryRuleLoggingFilterArgs']] = None,
+                 redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleFieldToMatchArgs']]]] = None):
+        """
+        Telemetry parameters for WAF v2 Web ACL
+        :param pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleFieldToMatchArgs']]] redacted_fields: Fields not to be included in the logs.
+        """
+        if log_type is not None:
+            pulumi.set(__self__, "log_type", log_type)
+        if logging_filter is not None:
+            pulumi.set(__self__, "logging_filter", logging_filter)
+        if redacted_fields is not None:
+            pulumi.set(__self__, "redacted_fields", redacted_fields)
+
+    @_builtins.property
+    @pulumi.getter(name="logType")
+    def log_type(self) -> Optional[pulumi.Input['OrganizationTelemetryRuleWafLogType']]:
+        return pulumi.get(self, "log_type")
+
+    @log_type.setter
+    def log_type(self, value: Optional[pulumi.Input['OrganizationTelemetryRuleWafLogType']]):
+        pulumi.set(self, "log_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="loggingFilter")
+    def logging_filter(self) -> Optional[pulumi.Input['OrganizationTelemetryRuleLoggingFilterArgs']]:
+        return pulumi.get(self, "logging_filter")
+
+    @logging_filter.setter
+    def logging_filter(self, value: Optional[pulumi.Input['OrganizationTelemetryRuleLoggingFilterArgs']]):
+        pulumi.set(self, "logging_filter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="redactedFields")
+    def redacted_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleFieldToMatchArgs']]]]:
+        """
+        Fields not to be included in the logs.
+        """
+        return pulumi.get(self, "redacted_fields")
+
+    @redacted_fields.setter
+    def redacted_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleFieldToMatchArgs']]]]):
+        pulumi.set(self, "redacted_fields", value)
+
+
+if not MYPY:
+    class TelemetryPipelinesTelemetryPipelineConfigurationArgsDict(TypedDict):
+        body: pulumi.Input[_builtins.str]
+elif False:
+    TelemetryPipelinesTelemetryPipelineConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TelemetryPipelinesTelemetryPipelineConfigurationArgs:
+    def __init__(__self__, *,
+                 body: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "body", body)
+
+    @_builtins.property
+    @pulumi.getter
+    def body(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "body", value)
+
+
+if not MYPY:
+    class TelemetryRuleActionConditionArgsDict(TypedDict):
+        """
+        The condition of the action desired in the filter.
+        """
+        action: NotRequired[pulumi.Input['TelemetryRuleAction']]
+elif False:
+    TelemetryRuleActionConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TelemetryRuleActionConditionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input['TelemetryRuleAction']] = None):
+        """
+        The condition of the action desired in the filter.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @_builtins.property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input['TelemetryRuleAction']]:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input['TelemetryRuleAction']]):
+        pulumi.set(self, "action", value)
+
+
+if not MYPY:
+    class TelemetryRuleAdvancedEventSelectorArgsDict(TypedDict):
+        """
+        An advanced event selector that includes optional name and field selectors
+        """
+        field_selectors: pulumi.Input[Sequence[pulumi.Input['TelemetryRuleAdvancedFieldSelectorArgsDict']]]
+        """
+        Contains all selector statements in an advanced event selector.
+        """
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        An optional descriptive name for the advanced event selector
+        """
+elif False:
+    TelemetryRuleAdvancedEventSelectorArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TelemetryRuleAdvancedEventSelectorArgs:
+    def __init__(__self__, *,
+                 field_selectors: pulumi.Input[Sequence[pulumi.Input['TelemetryRuleAdvancedFieldSelectorArgs']]],
+                 name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        An advanced event selector that includes optional name and field selectors
+        :param pulumi.Input[Sequence[pulumi.Input['TelemetryRuleAdvancedFieldSelectorArgs']]] field_selectors: Contains all selector statements in an advanced event selector.
+        :param pulumi.Input[_builtins.str] name: An optional descriptive name for the advanced event selector
+        """
+        pulumi.set(__self__, "field_selectors", field_selectors)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldSelectors")
+    def field_selectors(self) -> pulumi.Input[Sequence[pulumi.Input['TelemetryRuleAdvancedFieldSelectorArgs']]]:
+        """
+        Contains all selector statements in an advanced event selector.
+        """
+        return pulumi.get(self, "field_selectors")
+
+    @field_selectors.setter
+    def field_selectors(self, value: pulumi.Input[Sequence[pulumi.Input['TelemetryRuleAdvancedFieldSelectorArgs']]]):
+        pulumi.set(self, "field_selectors", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        An optional descriptive name for the advanced event selector
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class TelemetryRuleAdvancedFieldSelectorArgsDict(TypedDict):
+        """
+        A single selector statement in an advanced event selector.
+        """
+        ends_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        An operator that includes events that match the last few characters of the event record field specified as the value of Field.
+        """
+        equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        An operator that includes events that match the exact value of the event record field specified as the value of Field.
+        """
+        field: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A field in a CloudTrail event record on which to filter events to be logged
+        """
+        not_ends_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        An operator that excludes events that match the last few characters of the event record field specified as the value of Field.
+        """
+        not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        An operator that excludes events that match the exact value of the event record field specified as the value of Field.
+        """
+        not_starts_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        An operator that excludes events that match the first few characters of the event record field specified as the value of Field.
+        """
+        starts_with: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        An operator that includes events that match the first few characters of the event record field specified as the value of Field.
+        """
+elif False:
+    TelemetryRuleAdvancedFieldSelectorArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TelemetryRuleAdvancedFieldSelectorArgs:
+    def __init__(__self__, *,
+                 ends_with: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 equals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 field: Optional[pulumi.Input[_builtins.str]] = None,
+                 not_ends_with: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_equals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_starts_with: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 starts_with: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        A single selector statement in an advanced event selector.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ends_with: An operator that includes events that match the last few characters of the event record field specified as the value of Field.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] equals: An operator that includes events that match the exact value of the event record field specified as the value of Field.
+        :param pulumi.Input[_builtins.str] field: A field in a CloudTrail event record on which to filter events to be logged
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] not_ends_with: An operator that excludes events that match the last few characters of the event record field specified as the value of Field.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] not_equals: An operator that excludes events that match the exact value of the event record field specified as the value of Field.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] not_starts_with: An operator that excludes events that match the first few characters of the event record field specified as the value of Field.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] starts_with: An operator that includes events that match the first few characters of the event record field specified as the value of Field.
+        """
+        if ends_with is not None:
+            pulumi.set(__self__, "ends_with", ends_with)
+        if equals is not None:
+            pulumi.set(__self__, "equals", equals)
+        if field is not None:
+            pulumi.set(__self__, "field", field)
+        if not_ends_with is not None:
+            pulumi.set(__self__, "not_ends_with", not_ends_with)
+        if not_equals is not None:
+            pulumi.set(__self__, "not_equals", not_equals)
+        if not_starts_with is not None:
+            pulumi.set(__self__, "not_starts_with", not_starts_with)
+        if starts_with is not None:
+            pulumi.set(__self__, "starts_with", starts_with)
+
+    @_builtins.property
+    @pulumi.getter(name="endsWith")
+    def ends_with(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        An operator that includes events that match the last few characters of the event record field specified as the value of Field.
+        """
+        return pulumi.get(self, "ends_with")
+
+    @ends_with.setter
+    def ends_with(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ends_with", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        An operator that includes events that match the exact value of the event record field specified as the value of Field.
+        """
+        return pulumi.get(self, "equals")
+
+    @equals.setter
+    def equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "equals", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def field(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A field in a CloudTrail event record on which to filter events to be logged
+        """
+        return pulumi.get(self, "field")
+
+    @field.setter
+    def field(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "field", value)
+
+    @_builtins.property
+    @pulumi.getter(name="notEndsWith")
+    def not_ends_with(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        An operator that excludes events that match the last few characters of the event record field specified as the value of Field.
+        """
+        return pulumi.get(self, "not_ends_with")
+
+    @not_ends_with.setter
+    def not_ends_with(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "not_ends_with", value)
+
+    @_builtins.property
+    @pulumi.getter(name="notEquals")
+    def not_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        An operator that excludes events that match the exact value of the event record field specified as the value of Field.
+        """
+        return pulumi.get(self, "not_equals")
+
+    @not_equals.setter
+    def not_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "not_equals", value)
+
+    @_builtins.property
+    @pulumi.getter(name="notStartsWith")
+    def not_starts_with(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        An operator that excludes events that match the first few characters of the event record field specified as the value of Field.
+        """
+        return pulumi.get(self, "not_starts_with")
+
+    @not_starts_with.setter
+    def not_starts_with(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "not_starts_with", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startsWith")
+    def starts_with(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        An operator that includes events that match the first few characters of the event record field specified as the value of Field.
+        """
+        return pulumi.get(self, "starts_with")
+
+    @starts_with.setter
+    def starts_with(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "starts_with", value)
+
+
+if not MYPY:
+    class TelemetryRuleCloudtrailParametersArgsDict(TypedDict):
+        """
+        Telemetry parameters for Cloudtrail
+        """
+        advanced_event_selectors: pulumi.Input[Sequence[pulumi.Input['TelemetryRuleAdvancedEventSelectorArgsDict']]]
+        """
+        Create fine-grained selectors for AWS CloudTrail management and data.
+        """
+elif False:
+    TelemetryRuleCloudtrailParametersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TelemetryRuleCloudtrailParametersArgs:
+    def __init__(__self__, *,
+                 advanced_event_selectors: pulumi.Input[Sequence[pulumi.Input['TelemetryRuleAdvancedEventSelectorArgs']]]):
+        """
+        Telemetry parameters for Cloudtrail
+        :param pulumi.Input[Sequence[pulumi.Input['TelemetryRuleAdvancedEventSelectorArgs']]] advanced_event_selectors: Create fine-grained selectors for AWS CloudTrail management and data.
+        """
+        pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
+
+    @_builtins.property
+    @pulumi.getter(name="advancedEventSelectors")
+    def advanced_event_selectors(self) -> pulumi.Input[Sequence[pulumi.Input['TelemetryRuleAdvancedEventSelectorArgs']]]:
+        """
+        Create fine-grained selectors for AWS CloudTrail management and data.
+        """
+        return pulumi.get(self, "advanced_event_selectors")
+
+    @advanced_event_selectors.setter
+    def advanced_event_selectors(self, value: pulumi.Input[Sequence[pulumi.Input['TelemetryRuleAdvancedEventSelectorArgs']]]):
+        pulumi.set(self, "advanced_event_selectors", value)
+
+
+if not MYPY:
+    class TelemetryRuleConditionArgsDict(TypedDict):
+        """
+        A condition for a filter.
+        """
+        action_condition: NotRequired[pulumi.Input['TelemetryRuleActionConditionArgsDict']]
+        label_name_condition: NotRequired[pulumi.Input['TelemetryRuleLabelNameConditionArgsDict']]
+elif False:
+    TelemetryRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TelemetryRuleConditionArgs:
+    def __init__(__self__, *,
+                 action_condition: Optional[pulumi.Input['TelemetryRuleActionConditionArgs']] = None,
+                 label_name_condition: Optional[pulumi.Input['TelemetryRuleLabelNameConditionArgs']] = None):
+        """
+        A condition for a filter.
+        """
+        if action_condition is not None:
+            pulumi.set(__self__, "action_condition", action_condition)
+        if label_name_condition is not None:
+            pulumi.set(__self__, "label_name_condition", label_name_condition)
+
+    @_builtins.property
+    @pulumi.getter(name="actionCondition")
+    def action_condition(self) -> Optional[pulumi.Input['TelemetryRuleActionConditionArgs']]:
+        return pulumi.get(self, "action_condition")
+
+    @action_condition.setter
+    def action_condition(self, value: Optional[pulumi.Input['TelemetryRuleActionConditionArgs']]):
+        pulumi.set(self, "action_condition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="labelNameCondition")
+    def label_name_condition(self) -> Optional[pulumi.Input['TelemetryRuleLabelNameConditionArgs']]:
+        return pulumi.get(self, "label_name_condition")
+
+    @label_name_condition.setter
+    def label_name_condition(self, value: Optional[pulumi.Input['TelemetryRuleLabelNameConditionArgs']]):
+        pulumi.set(self, "label_name_condition", value)
+
+
+if not MYPY:
+    class TelemetryRuleElbLoadBalancerLoggingParametersArgsDict(TypedDict):
+        """
+        Telemetry parameters for ELB/NLB Load Balancer Logs
+        """
+        field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A delimiter to delineate log fields
+        """
+        output_format: NotRequired[pulumi.Input['TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat']]
+elif False:
+    TelemetryRuleElbLoadBalancerLoggingParametersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TelemetryRuleElbLoadBalancerLoggingParametersArgs:
+    def __init__(__self__, *,
+                 field_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
+                 output_format: Optional[pulumi.Input['TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat']] = None):
+        """
+        Telemetry parameters for ELB/NLB Load Balancer Logs
+        :param pulumi.Input[_builtins.str] field_delimiter: A delimiter to delineate log fields
+        """
+        if field_delimiter is not None:
+            pulumi.set(__self__, "field_delimiter", field_delimiter)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldDelimiter")
+    def field_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A delimiter to delineate log fields
+        """
+        return pulumi.get(self, "field_delimiter")
+
+    @field_delimiter.setter
+    def field_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "field_delimiter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> Optional[pulumi.Input['TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat']]:
+        return pulumi.get(self, "output_format")
+
+    @output_format.setter
+    def output_format(self, value: Optional[pulumi.Input['TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat']]):
+        pulumi.set(self, "output_format", value)
+
+
+if not MYPY:
+    class TelemetryRuleFieldToMatchArgsDict(TypedDict):
+        """
+        The field that we want to match this rule to.
+        """
+        method: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The method with which to match this rule.
+        """
+        query_string: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The query string to find the resource to match this field to.
+        """
+        single_header: NotRequired[pulumi.Input['TelemetryRuleSingleHeaderArgsDict']]
+        uri_path: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        This is the URI path to match this rule to.
+        """
+elif False:
+    TelemetryRuleFieldToMatchArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TelemetryRuleFieldToMatchArgs:
+    def __init__(__self__, *,
+                 method: Optional[pulumi.Input[_builtins.str]] = None,
+                 query_string: Optional[pulumi.Input[_builtins.str]] = None,
+                 single_header: Optional[pulumi.Input['TelemetryRuleSingleHeaderArgs']] = None,
+                 uri_path: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The field that we want to match this rule to.
+        :param pulumi.Input[_builtins.str] method: The method with which to match this rule.
+        :param pulumi.Input[_builtins.str] query_string: The query string to find the resource to match this field to.
+        :param pulumi.Input[_builtins.str] uri_path: This is the URI path to match this rule to.
+        """
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
+        if single_header is not None:
+            pulumi.set(__self__, "single_header", single_header)
+        if uri_path is not None:
+            pulumi.set(__self__, "uri_path", uri_path)
+
+    @_builtins.property
+    @pulumi.getter
+    def method(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The method with which to match this rule.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "method", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The query string to find the resource to match this field to.
+        """
+        return pulumi.get(self, "query_string")
+
+    @query_string.setter
+    def query_string(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "query_string", value)
+
+    @_builtins.property
+    @pulumi.getter(name="singleHeader")
+    def single_header(self) -> Optional[pulumi.Input['TelemetryRuleSingleHeaderArgs']]:
+        return pulumi.get(self, "single_header")
+
+    @single_header.setter
+    def single_header(self, value: Optional[pulumi.Input['TelemetryRuleSingleHeaderArgs']]):
+        pulumi.set(self, "single_header", value)
+
+    @_builtins.property
+    @pulumi.getter(name="uriPath")
+    def uri_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        This is the URI path to match this rule to.
+        """
+        return pulumi.get(self, "uri_path")
+
+    @uri_path.setter
+    def uri_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "uri_path", value)
+
+
+if not MYPY:
+    class TelemetryRuleFilterArgsDict(TypedDict):
+        """
+        A filter to be applied
+        """
+        behavior: NotRequired[pulumi.Input['TelemetryRuleFilterBehavior']]
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleConditionArgsDict']]]]
+        requirement: NotRequired[pulumi.Input['TelemetryRuleFilterRequirement']]
+elif False:
+    TelemetryRuleFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TelemetryRuleFilterArgs:
+    def __init__(__self__, *,
+                 behavior: Optional[pulumi.Input['TelemetryRuleFilterBehavior']] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleConditionArgs']]]] = None,
+                 requirement: Optional[pulumi.Input['TelemetryRuleFilterRequirement']] = None):
+        """
+        A filter to be applied
+        """
+        if behavior is not None:
+            pulumi.set(__self__, "behavior", behavior)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if requirement is not None:
+            pulumi.set(__self__, "requirement", requirement)
+
+    @_builtins.property
+    @pulumi.getter
+    def behavior(self) -> Optional[pulumi.Input['TelemetryRuleFilterBehavior']]:
+        return pulumi.get(self, "behavior")
+
+    @behavior.setter
+    def behavior(self, value: Optional[pulumi.Input['TelemetryRuleFilterBehavior']]):
+        pulumi.set(self, "behavior", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleConditionArgs']]]]:
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleConditionArgs']]]]):
+        pulumi.set(self, "conditions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def requirement(self) -> Optional[pulumi.Input['TelemetryRuleFilterRequirement']]:
+        return pulumi.get(self, "requirement")
+
+    @requirement.setter
+    def requirement(self, value: Optional[pulumi.Input['TelemetryRuleFilterRequirement']]):
+        pulumi.set(self, "requirement", value)
+
+
+if not MYPY:
+    class TelemetryRuleLabelNameConditionArgsDict(TypedDict):
+        """
+        The label name of the condition.
+        """
+        label_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The label name of the condition.
+        """
+elif False:
+    TelemetryRuleLabelNameConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TelemetryRuleLabelNameConditionArgs:
+    def __init__(__self__, *,
+                 label_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The label name of the condition.
+        :param pulumi.Input[_builtins.str] label_name: The label name of the condition.
+        """
+        if label_name is not None:
+            pulumi.set(__self__, "label_name", label_name)
+
+    @_builtins.property
+    @pulumi.getter(name="labelName")
+    def label_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The label name of the condition.
+        """
+        return pulumi.get(self, "label_name")
+
+    @label_name.setter
+    def label_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "label_name", value)
+
+
+if not MYPY:
+    class TelemetryRuleLoggingFilterArgsDict(TypedDict):
+        """
+        Default handling for logs that don't match any of the specified filtering conditions.
+        """
+        default_behavior: NotRequired[pulumi.Input['TelemetryRuleFilterBehavior']]
+        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleFilterArgsDict']]]]
+elif False:
+    TelemetryRuleLoggingFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TelemetryRuleLoggingFilterArgs:
+    def __init__(__self__, *,
+                 default_behavior: Optional[pulumi.Input['TelemetryRuleFilterBehavior']] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleFilterArgs']]]] = None):
+        """
+        Default handling for logs that don't match any of the specified filtering conditions.
+        """
+        if default_behavior is not None:
+            pulumi.set(__self__, "default_behavior", default_behavior)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultBehavior")
+    def default_behavior(self) -> Optional[pulumi.Input['TelemetryRuleFilterBehavior']]:
+        return pulumi.get(self, "default_behavior")
+
+    @default_behavior.setter
+    def default_behavior(self, value: Optional[pulumi.Input['TelemetryRuleFilterBehavior']]):
+        pulumi.set(self, "default_behavior", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleFilterArgs']]]]:
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleFilterArgs']]]]):
+        pulumi.set(self, "filters", value)
+
+
+if not MYPY:
+    class TelemetryRuleSingleHeaderArgsDict(TypedDict):
+        """
+        Header for the field to match.
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        The name of the header
+        """
+elif False:
+    TelemetryRuleSingleHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TelemetryRuleSingleHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str]):
+        """
+        Header for the field to match.
+        :param pulumi.Input[_builtins.str] name: The name of the header
+        """
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the header
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgsDict(TypedDict):
+        """
+        Parameters for BedrockAgentCore log delivery
+        """
+        log_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem']]]]
+        """
+        Types of logs to deliver for BedrockAgentCore resources
+        """
+elif False:
+    TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs:
+    def __init__(__self__, *,
+                 log_types: Optional[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem']]]] = None):
+        """
+        Parameters for BedrockAgentCore log delivery
+        :param pulumi.Input[Sequence[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem']]] log_types: Types of logs to deliver for BedrockAgentCore resources
+        """
+        if log_types is not None:
+            pulumi.set(__self__, "log_types", log_types)
+
+    @_builtins.property
+    @pulumi.getter(name="logTypes")
+    def log_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem']]]]:
+        """
+        Types of logs to deliver for BedrockAgentCore resources
+        """
+        return pulumi.get(self, "log_types")
+
+    @log_types.setter
+    def log_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem']]]]):
+        pulumi.set(self, "log_types", value)
+
+
+if not MYPY:
     class TelemetryRuleTelemetryDestinationConfigurationArgsDict(TypedDict):
         """
         The destination configuration for telemetry data
         """
+        cloudtrail_parameters: NotRequired[pulumi.Input['TelemetryRuleCloudtrailParametersArgsDict']]
         destination_pattern: NotRequired[pulumi.Input[_builtins.str]]
         """
         The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
@@ -760,6 +2231,11 @@ if not MYPY:
         destination_type: NotRequired[pulumi.Input['TelemetryRuleDestinationType']]
         """
         The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
+        """
+        elb_load_balancer_logging_parameters: NotRequired[pulumi.Input['TelemetryRuleElbLoadBalancerLoggingParametersArgsDict']]
+        log_delivery_parameters: NotRequired[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgsDict']]
+        """
+        Parameters for BedrockAgentCore log delivery
         """
         retention_in_days: NotRequired[pulumi.Input[_builtins.int]]
         """
@@ -769,31 +2245,54 @@ if not MYPY:
         """
         Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
         """
+        waf_logging_parameters: NotRequired[pulumi.Input['TelemetryRuleWafLoggingParametersArgsDict']]
 elif False:
     TelemetryRuleTelemetryDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TelemetryRuleTelemetryDestinationConfigurationArgs:
     def __init__(__self__, *,
+                 cloudtrail_parameters: Optional[pulumi.Input['TelemetryRuleCloudtrailParametersArgs']] = None,
                  destination_pattern: Optional[pulumi.Input[_builtins.str]] = None,
                  destination_type: Optional[pulumi.Input['TelemetryRuleDestinationType']] = None,
+                 elb_load_balancer_logging_parameters: Optional[pulumi.Input['TelemetryRuleElbLoadBalancerLoggingParametersArgs']] = None,
+                 log_delivery_parameters: Optional[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs']] = None,
                  retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 vpc_flow_log_parameters: Optional[pulumi.Input['TelemetryRuleVpcFlowLogParametersArgs']] = None):
+                 vpc_flow_log_parameters: Optional[pulumi.Input['TelemetryRuleVpcFlowLogParametersArgs']] = None,
+                 waf_logging_parameters: Optional[pulumi.Input['TelemetryRuleWafLoggingParametersArgs']] = None):
         """
         The destination configuration for telemetry data
         :param pulumi.Input[_builtins.str] destination_pattern: The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
         :param pulumi.Input['TelemetryRuleDestinationType'] destination_type: The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
+        :param pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs'] log_delivery_parameters: Parameters for BedrockAgentCore log delivery
         :param pulumi.Input[_builtins.int] retention_in_days: The number of days to retain the telemetry data in the destination.
         :param pulumi.Input['TelemetryRuleVpcFlowLogParametersArgs'] vpc_flow_log_parameters: Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
         """
+        if cloudtrail_parameters is not None:
+            pulumi.set(__self__, "cloudtrail_parameters", cloudtrail_parameters)
         if destination_pattern is not None:
             pulumi.set(__self__, "destination_pattern", destination_pattern)
         if destination_type is not None:
             pulumi.set(__self__, "destination_type", destination_type)
+        if elb_load_balancer_logging_parameters is not None:
+            pulumi.set(__self__, "elb_load_balancer_logging_parameters", elb_load_balancer_logging_parameters)
+        if log_delivery_parameters is not None:
+            pulumi.set(__self__, "log_delivery_parameters", log_delivery_parameters)
         if retention_in_days is not None:
             pulumi.set(__self__, "retention_in_days", retention_in_days)
         if vpc_flow_log_parameters is not None:
             pulumi.set(__self__, "vpc_flow_log_parameters", vpc_flow_log_parameters)
+        if waf_logging_parameters is not None:
+            pulumi.set(__self__, "waf_logging_parameters", waf_logging_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudtrailParameters")
+    def cloudtrail_parameters(self) -> Optional[pulumi.Input['TelemetryRuleCloudtrailParametersArgs']]:
+        return pulumi.get(self, "cloudtrail_parameters")
+
+    @cloudtrail_parameters.setter
+    def cloudtrail_parameters(self, value: Optional[pulumi.Input['TelemetryRuleCloudtrailParametersArgs']]):
+        pulumi.set(self, "cloudtrail_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationPattern")
@@ -820,6 +2319,27 @@ class TelemetryRuleTelemetryDestinationConfigurationArgs:
         pulumi.set(self, "destination_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="elbLoadBalancerLoggingParameters")
+    def elb_load_balancer_logging_parameters(self) -> Optional[pulumi.Input['TelemetryRuleElbLoadBalancerLoggingParametersArgs']]:
+        return pulumi.get(self, "elb_load_balancer_logging_parameters")
+
+    @elb_load_balancer_logging_parameters.setter
+    def elb_load_balancer_logging_parameters(self, value: Optional[pulumi.Input['TelemetryRuleElbLoadBalancerLoggingParametersArgs']]):
+        pulumi.set(self, "elb_load_balancer_logging_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logDeliveryParameters")
+    def log_delivery_parameters(self) -> Optional[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs']]:
+        """
+        Parameters for BedrockAgentCore log delivery
+        """
+        return pulumi.get(self, "log_delivery_parameters")
+
+    @log_delivery_parameters.setter
+    def log_delivery_parameters(self, value: Optional[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesArgs']]):
+        pulumi.set(self, "log_delivery_parameters", value)
+
+    @_builtins.property
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
@@ -842,6 +2362,15 @@ class TelemetryRuleTelemetryDestinationConfigurationArgs:
     @vpc_flow_log_parameters.setter
     def vpc_flow_log_parameters(self, value: Optional[pulumi.Input['TelemetryRuleVpcFlowLogParametersArgs']]):
         pulumi.set(self, "vpc_flow_log_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="wafLoggingParameters")
+    def waf_logging_parameters(self) -> Optional[pulumi.Input['TelemetryRuleWafLoggingParametersArgs']]:
+        return pulumi.get(self, "waf_logging_parameters")
+
+    @waf_logging_parameters.setter
+    def waf_logging_parameters(self, value: Optional[pulumi.Input['TelemetryRuleWafLoggingParametersArgs']]):
+        pulumi.set(self, "waf_logging_parameters", value)
 
 
 if not MYPY:
@@ -921,13 +2450,75 @@ class TelemetryRuleVpcFlowLogParametersArgs:
 
 
 if not MYPY:
+    class TelemetryRuleWafLoggingParametersArgsDict(TypedDict):
+        """
+        Telemetry parameters for WAF v2 Web ACL
+        """
+        log_type: NotRequired[pulumi.Input['TelemetryRuleWafLogType']]
+        logging_filter: NotRequired[pulumi.Input['TelemetryRuleLoggingFilterArgsDict']]
+        redacted_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleFieldToMatchArgsDict']]]]
+        """
+        Fields not to be included in the logs.
+        """
+elif False:
+    TelemetryRuleWafLoggingParametersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TelemetryRuleWafLoggingParametersArgs:
+    def __init__(__self__, *,
+                 log_type: Optional[pulumi.Input['TelemetryRuleWafLogType']] = None,
+                 logging_filter: Optional[pulumi.Input['TelemetryRuleLoggingFilterArgs']] = None,
+                 redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleFieldToMatchArgs']]]] = None):
+        """
+        Telemetry parameters for WAF v2 Web ACL
+        :param pulumi.Input[Sequence[pulumi.Input['TelemetryRuleFieldToMatchArgs']]] redacted_fields: Fields not to be included in the logs.
+        """
+        if log_type is not None:
+            pulumi.set(__self__, "log_type", log_type)
+        if logging_filter is not None:
+            pulumi.set(__self__, "logging_filter", logging_filter)
+        if redacted_fields is not None:
+            pulumi.set(__self__, "redacted_fields", redacted_fields)
+
+    @_builtins.property
+    @pulumi.getter(name="logType")
+    def log_type(self) -> Optional[pulumi.Input['TelemetryRuleWafLogType']]:
+        return pulumi.get(self, "log_type")
+
+    @log_type.setter
+    def log_type(self, value: Optional[pulumi.Input['TelemetryRuleWafLogType']]):
+        pulumi.set(self, "log_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="loggingFilter")
+    def logging_filter(self) -> Optional[pulumi.Input['TelemetryRuleLoggingFilterArgs']]:
+        return pulumi.get(self, "logging_filter")
+
+    @logging_filter.setter
+    def logging_filter(self, value: Optional[pulumi.Input['TelemetryRuleLoggingFilterArgs']]):
+        pulumi.set(self, "logging_filter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="redactedFields")
+    def redacted_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleFieldToMatchArgs']]]]:
+        """
+        Fields not to be included in the logs.
+        """
+        return pulumi.get(self, "redacted_fields")
+
+    @redacted_fields.setter
+    def redacted_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleFieldToMatchArgs']]]]):
+        pulumi.set(self, "redacted_fields", value)
+
+
+if not MYPY:
     class TelemetryRuleArgsDict(TypedDict):
         """
         The telemetry rule
         """
         resource_type: pulumi.Input['TelemetryRuleResourceType']
         """
-        The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
+        The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
         """
         telemetry_type: pulumi.Input['TelemetryRuleTelemetryType']
         """
@@ -941,6 +2532,7 @@ if not MYPY:
         """
         Criteria for selecting which resources the rule applies to, such as resource tags.
         """
+        telemetry_source_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleTelemetrySourceType']]]]
 elif False:
     TelemetryRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -950,10 +2542,11 @@ class TelemetryRuleArgs:
                  resource_type: pulumi.Input['TelemetryRuleResourceType'],
                  telemetry_type: pulumi.Input['TelemetryRuleTelemetryType'],
                  destination_configuration: Optional[pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationArgs']] = None,
-                 selection_criteria: Optional[pulumi.Input[_builtins.str]] = None):
+                 selection_criteria: Optional[pulumi.Input[_builtins.str]] = None,
+                 telemetry_source_types: Optional[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleTelemetrySourceType']]]] = None):
         """
         The telemetry rule
-        :param pulumi.Input['TelemetryRuleResourceType'] resource_type: The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
+        :param pulumi.Input['TelemetryRuleResourceType'] resource_type: The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
         :param pulumi.Input['TelemetryRuleTelemetryType'] telemetry_type: The type of telemetry to collect (Logs, Metrics, or Traces).
         :param pulumi.Input['TelemetryRuleTelemetryDestinationConfigurationArgs'] destination_configuration: Configuration specifying where and how the telemetry data should be delivered.
         :param pulumi.Input[_builtins.str] selection_criteria: Criteria for selecting which resources the rule applies to, such as resource tags.
@@ -964,12 +2557,14 @@ class TelemetryRuleArgs:
             pulumi.set(__self__, "destination_configuration", destination_configuration)
         if selection_criteria is not None:
             pulumi.set(__self__, "selection_criteria", selection_criteria)
+        if telemetry_source_types is not None:
+            pulumi.set(__self__, "telemetry_source_types", telemetry_source_types)
 
     @_builtins.property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Input['TelemetryRuleResourceType']:
         """
-        The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC").
+        The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
         """
         return pulumi.get(self, "resource_type")
 
@@ -1012,5 +2607,14 @@ class TelemetryRuleArgs:
     @selection_criteria.setter
     def selection_criteria(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "selection_criteria", value)
+
+    @_builtins.property
+    @pulumi.getter(name="telemetrySourceTypes")
+    def telemetry_source_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleTelemetrySourceType']]]]:
+        return pulumi.get(self, "telemetry_source_types")
+
+    @telemetry_source_types.setter
+    def telemetry_source_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TelemetryRuleTelemetrySourceType']]]]):
+        pulumi.set(self, "telemetry_source_types", value)
 
 

@@ -115,6 +115,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
      *  If you specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``LaunchConfigurationName``, don't specify ``InstanceId``.
      */
     declare public readonly instanceId: pulumi.Output<string | undefined>;
+    declare public readonly instanceLifecyclePolicy: pulumi.Output<outputs.autoscaling.AutoScalingGroupInstanceLifecyclePolicy | undefined>;
     /**
      * An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
      */
@@ -235,6 +236,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["healthCheckGracePeriod"] = args?.healthCheckGracePeriod;
             resourceInputs["healthCheckType"] = args?.healthCheckType;
             resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["instanceLifecyclePolicy"] = args?.instanceLifecyclePolicy;
             resourceInputs["instanceMaintenancePolicy"] = args?.instanceMaintenancePolicy;
             resourceInputs["launchConfigurationName"] = args?.launchConfigurationName;
             resourceInputs["launchTemplate"] = args?.launchTemplate;
@@ -273,6 +275,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["healthCheckGracePeriod"] = undefined /*out*/;
             resourceInputs["healthCheckType"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;
+            resourceInputs["instanceLifecyclePolicy"] = undefined /*out*/;
             resourceInputs["instanceMaintenancePolicy"] = undefined /*out*/;
             resourceInputs["launchConfigurationName"] = undefined /*out*/;
             resourceInputs["launchTemplate"] = undefined /*out*/;
@@ -377,6 +380,7 @@ export interface AutoScalingGroupArgs {
      *  If you specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``LaunchConfigurationName``, don't specify ``InstanceId``.
      */
     instanceId?: pulumi.Input<string>;
+    instanceLifecyclePolicy?: pulumi.Input<inputs.autoscaling.AutoScalingGroupInstanceLifecyclePolicyArgs>;
     /**
      * An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
      */

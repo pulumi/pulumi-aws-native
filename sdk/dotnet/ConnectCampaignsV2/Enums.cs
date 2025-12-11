@@ -164,4 +164,35 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Campaign type
+    /// </summary>
+    [EnumType]
+    public readonly struct CampaignType : IEquatable<CampaignType>
+    {
+        private readonly string _value;
+
+        private CampaignType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CampaignType Managed { get; } = new CampaignType("MANAGED");
+        public static CampaignType Journey { get; } = new CampaignType("JOURNEY");
+
+        public static bool operator ==(CampaignType left, CampaignType right) => left.Equals(right);
+        public static bool operator !=(CampaignType left, CampaignType right) => !left.Equals(right);
+
+        public static explicit operator string(CampaignType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CampaignType other && Equals(other);
+        public bool Equals(CampaignType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }
