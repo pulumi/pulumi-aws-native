@@ -26,6 +26,8 @@ __all__ = [
     'DocumentAttachmentsSourceArgsDict',
     'DocumentRequiresArgs',
     'DocumentRequiresArgsDict',
+    'MaintenanceWindowTargetTargetsArgs',
+    'MaintenanceWindowTargetTargetsArgsDict',
     'PatchBaselinePatchFilterGroupArgs',
     'PatchBaselinePatchFilterGroupArgsDict',
     'PatchBaselinePatchFilterArgs',
@@ -328,6 +330,56 @@ class DocumentRequiresArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "version", value)
+
+
+if not MYPY:
+    class MaintenanceWindowTargetTargetsArgsDict(TypedDict):
+        key: pulumi.Input[_builtins.str]
+        """
+        User-defined criteria for sending commands that target managed nodes that meet the criteria.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        User-defined criteria that maps to Key.
+        """
+elif False:
+    MaintenanceWindowTargetTargetsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MaintenanceWindowTargetTargetsArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] key: User-defined criteria for sending commands that target managed nodes that meet the criteria.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: User-defined criteria that maps to Key.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        User-defined criteria for sending commands that target managed nodes that meet the criteria.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        User-defined criteria that maps to Key.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
 
 
 if not MYPY:

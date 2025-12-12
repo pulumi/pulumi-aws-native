@@ -48,6 +48,9 @@ namespace Pulumi.AwsNative.Connect
         [Output("items")]
         public Output<ImmutableArray<Outputs.EvaluationFormBaseItem>> Items { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration for language settings of this evaluation form.
+        /// </summary>
         [Output("languageConfiguration")]
         public Output<Outputs.EvaluationFormLanguageConfiguration?> LanguageConfiguration { get; private set; } = null!;
 
@@ -70,6 +73,9 @@ namespace Pulumi.AwsNative.Connect
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration that specifies the target for this evaluation form.
+        /// </summary>
         [Output("targetConfiguration")]
         public Output<Outputs.EvaluationFormTargetConfiguration?> TargetConfiguration { get; private set; } = null!;
 
@@ -157,6 +163,9 @@ namespace Pulumi.AwsNative.Connect
             set => _items = value;
         }
 
+        /// <summary>
+        /// Configuration for language settings of this evaluation form.
+        /// </summary>
         [Input("languageConfiguration")]
         public Input<Inputs.EvaluationFormLanguageConfigurationArgs>? LanguageConfiguration { get; set; }
 
@@ -185,6 +194,9 @@ namespace Pulumi.AwsNative.Connect
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Configuration that specifies the target for this evaluation form.
+        /// </summary>
         [Input("targetConfiguration")]
         public Input<Inputs.EvaluationFormTargetConfigurationArgs>? TargetConfiguration { get; set; }
 

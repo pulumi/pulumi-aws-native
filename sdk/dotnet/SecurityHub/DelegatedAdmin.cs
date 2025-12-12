@@ -25,13 +25,13 @@ namespace Pulumi.AwsNative.SecurityHub
         public Output<string> AdminAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
+        /// The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
         /// </summary>
         [Output("delegatedAdminIdentifier")]
         public Output<string> DelegatedAdminIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the delegated Security Hub administrator is set for the organization.
+        /// Whether the delegated Security Hub CSPM administrator is set for the organization.
         /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.SecurityHub.DelegatedAdminStatus> Status { get; private set; } = null!;

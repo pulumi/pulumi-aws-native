@@ -33,6 +33,7 @@ class TableBucketArgs:
         """
         The set of arguments for constructing a TableBucket resource.
         :param pulumi.Input['TableBucketEncryptionConfigurationArgs'] encryption_configuration: Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
+        :param pulumi.Input['TableBucketStorageClassConfigurationArgs'] storage_class_configuration: The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
         :param pulumi.Input[_builtins.str] table_bucket_name: The name for the table bucket.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: User tags (key-value pairs) to associate with the table bucket.
         :param pulumi.Input['TableBucketUnreferencedFileRemovalArgs'] unreferenced_file_removal: The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
@@ -74,6 +75,9 @@ class TableBucketArgs:
     @_builtins.property
     @pulumi.getter(name="storageClassConfiguration")
     def storage_class_configuration(self) -> Optional[pulumi.Input['TableBucketStorageClassConfigurationArgs']]:
+        """
+        The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
+        """
         return pulumi.get(self, "storage_class_configuration")
 
     @storage_class_configuration.setter
@@ -136,6 +140,7 @@ class TableBucket(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']] encryption_configuration: Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
+        :param pulumi.Input[Union['TableBucketStorageClassConfigurationArgs', 'TableBucketStorageClassConfigurationArgsDict']] storage_class_configuration: The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
         :param pulumi.Input[_builtins.str] table_bucket_name: The name for the table bucket.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: User tags (key-value pairs) to associate with the table bucket.
         :param pulumi.Input[Union['TableBucketUnreferencedFileRemovalArgs', 'TableBucketUnreferencedFileRemovalArgsDict']] unreferenced_file_removal: The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
@@ -235,6 +240,9 @@ class TableBucket(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="storageClassConfiguration")
     def storage_class_configuration(self) -> pulumi.Output[Optional['outputs.TableBucketStorageClassConfiguration']]:
+        """
+        The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
+        """
         return pulumi.get(self, "storage_class_configuration")
 
     @_builtins.property

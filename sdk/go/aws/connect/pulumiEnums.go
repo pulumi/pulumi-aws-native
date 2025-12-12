@@ -692,6 +692,7 @@ func (in *contactFlowTypePtr) ToContactFlowTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(ContactFlowTypePtrOutput)
 }
 
+// The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
 type DataTableAttributeValueType string
 
 const (

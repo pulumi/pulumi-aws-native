@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.SecurityHub
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub enables all other controls (including newly released controls).
+        /// An object that defines how AWS Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub CSPM enables all other controls (including newly released controls).
         /// </summary>
         [Output("configurationPolicy")]
         public Output<Outputs.ConfigurationPolicyPolicy> ConfigurationPolicyValue { get; private set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.SecurityHub
         public Output<bool> ServiceEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// User-defined tags associated with a configuration policy. For more information, see [Tagging Security Hub resources](https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html) in the *Security Hub user guide* .
+        /// User-defined tags associated with a configuration policy. For more information, see [Tagging AWS Security Hub CSPM resources](https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html) in the *Security Hub CSPM user guide* .
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.AwsNative.SecurityHub
     public sealed class ConfigurationPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub enables all other controls (including newly released controls).
+        /// An object that defines how AWS Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub CSPM enables all other controls (including newly released controls).
         /// </summary>
         [Input("configurationPolicy", required: true)]
         public Input<Inputs.ConfigurationPolicyPolicyArgs> ConfigurationPolicyValue { get; set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.SecurityHub
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// User-defined tags associated with a configuration policy. For more information, see [Tagging Security Hub resources](https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html) in the *Security Hub user guide* .
+        /// User-defined tags associated with a configuration policy. For more information, see [Tagging AWS Security Hub CSPM resources](https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html) in the *Security Hub CSPM user guide* .
         /// </summary>
         public InputMap<string> Tags
         {

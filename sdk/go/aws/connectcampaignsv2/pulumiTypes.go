@@ -3886,7 +3886,8 @@ type CampaignTelephonyOutboundConfig struct {
 	ConnectContactFlowId string `pulumi:"connectContactFlowId"`
 	// The Amazon Connect source phone number.
 	ConnectSourcePhoneNumber *string `pulumi:"connectSourcePhoneNumber"`
-	RingTimeout              *int    `pulumi:"ringTimeout"`
+	// The ring timeout configuration for outbound calls. Specifies how long to wait for the call to be answered before timing out.
+	RingTimeout *int `pulumi:"ringTimeout"`
 }
 
 // CampaignTelephonyOutboundConfigInput is an input type that accepts CampaignTelephonyOutboundConfigArgs and CampaignTelephonyOutboundConfigOutput values.
@@ -3908,7 +3909,8 @@ type CampaignTelephonyOutboundConfigArgs struct {
 	ConnectContactFlowId pulumi.StringInput `pulumi:"connectContactFlowId"`
 	// The Amazon Connect source phone number.
 	ConnectSourcePhoneNumber pulumi.StringPtrInput `pulumi:"connectSourcePhoneNumber"`
-	RingTimeout              pulumi.IntPtrInput    `pulumi:"ringTimeout"`
+	// The ring timeout configuration for outbound calls. Specifies how long to wait for the call to be answered before timing out.
+	RingTimeout pulumi.IntPtrInput `pulumi:"ringTimeout"`
 }
 
 func (CampaignTelephonyOutboundConfigArgs) ElementType() reflect.Type {
@@ -4006,6 +4008,7 @@ func (o CampaignTelephonyOutboundConfigOutput) ConnectSourcePhoneNumber() pulumi
 	return o.ApplyT(func(v CampaignTelephonyOutboundConfig) *string { return v.ConnectSourcePhoneNumber }).(pulumi.StringPtrOutput)
 }
 
+// The ring timeout configuration for outbound calls. Specifies how long to wait for the call to be answered before timing out.
 func (o CampaignTelephonyOutboundConfigOutput) RingTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CampaignTelephonyOutboundConfig) *int { return v.RingTimeout }).(pulumi.IntPtrOutput)
 }
@@ -4064,6 +4067,7 @@ func (o CampaignTelephonyOutboundConfigPtrOutput) ConnectSourcePhoneNumber() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ring timeout configuration for outbound calls. Specifies how long to wait for the call to be answered before timing out.
 func (o CampaignTelephonyOutboundConfigPtrOutput) RingTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CampaignTelephonyOutboundConfig) *int {
 		if v == nil {

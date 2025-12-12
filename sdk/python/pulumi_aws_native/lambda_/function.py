@@ -63,15 +63,18 @@ class FunctionArgs:
                  +  For container images, specify the URI of your container image in the ECR registry in the ``ImageUri`` property.
         :param pulumi.Input[_builtins.str] role: The Amazon Resource Name (ARN) of the function's execution role.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]] architectures: The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
+        :param pulumi.Input['FunctionCapacityProviderConfigArgs'] capacity_provider_config: Configuration for the capacity provider that manages compute resources for Lambda functions.
         :param pulumi.Input[_builtins.str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         :param pulumi.Input['FunctionDeadLetterConfigArgs'] dead_letter_config: A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
         :param pulumi.Input[_builtins.str] description: A description of the function.
+        :param pulumi.Input['FunctionDurableConfigArgs'] durable_config: Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
         :param pulumi.Input['FunctionEnvironmentArgs'] environment: Environment variables that are accessible from function code during execution.
         :param pulumi.Input['FunctionEphemeralStorageArgs'] ephemeral_storage: The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionFileSystemConfigArgs']]] file_system_configs: Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function.
                 For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).
         :param pulumi.Input[_builtins.str] function_name: The name of the Lambda function, up to 64 characters in length. If you don't specify a name, CFN generates one.
                 If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        :param pulumi.Input['FunctionScalingConfigArgs'] function_scaling_config: Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
         :param pulumi.Input[_builtins.str] handler: The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
         :param pulumi.Input['FunctionImageConfigArgs'] image_config: Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMSlong (KMS) customer managed key that's used to encrypt the following resources:
@@ -204,6 +207,9 @@ class FunctionArgs:
     @_builtins.property
     @pulumi.getter(name="capacityProviderConfig")
     def capacity_provider_config(self) -> Optional[pulumi.Input['FunctionCapacityProviderConfigArgs']]:
+        """
+        Configuration for the capacity provider that manages compute resources for Lambda functions.
+        """
         return pulumi.get(self, "capacity_provider_config")
 
     @capacity_provider_config.setter
@@ -249,6 +255,9 @@ class FunctionArgs:
     @_builtins.property
     @pulumi.getter(name="durableConfig")
     def durable_config(self) -> Optional[pulumi.Input['FunctionDurableConfigArgs']]:
+        """
+        Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+        """
         return pulumi.get(self, "durable_config")
 
     @durable_config.setter
@@ -308,6 +317,9 @@ class FunctionArgs:
     @_builtins.property
     @pulumi.getter(name="functionScalingConfig")
     def function_scaling_config(self) -> Optional[pulumi.Input['FunctionScalingConfigArgs']]:
+        """
+        Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+        """
         return pulumi.get(self, "function_scaling_config")
 
     @function_scaling_config.setter
@@ -792,6 +804,7 @@ class Function(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]] architectures: The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
+        :param pulumi.Input[Union['FunctionCapacityProviderConfigArgs', 'FunctionCapacityProviderConfigArgsDict']] capacity_provider_config: Configuration for the capacity provider that manages compute resources for Lambda functions.
         :param pulumi.Input[Union['FunctionCodeArgs', 'FunctionCodeArgsDict']] code: The code for the function. You can define your function code in multiple ways:
                  +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
                  +  For .zip deployment packages, you can alternatively define the function code inline in the ``ZipFile`` property. This method works only for Node.js and Python functions.
@@ -799,12 +812,14 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         :param pulumi.Input[Union['FunctionDeadLetterConfigArgs', 'FunctionDeadLetterConfigArgsDict']] dead_letter_config: A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
         :param pulumi.Input[_builtins.str] description: A description of the function.
+        :param pulumi.Input[Union['FunctionDurableConfigArgs', 'FunctionDurableConfigArgsDict']] durable_config: Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
         :param pulumi.Input[Union['FunctionEnvironmentArgs', 'FunctionEnvironmentArgsDict']] environment: Environment variables that are accessible from function code during execution.
         :param pulumi.Input[Union['FunctionEphemeralStorageArgs', 'FunctionEphemeralStorageArgsDict']] ephemeral_storage: The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionFileSystemConfigArgs', 'FunctionFileSystemConfigArgsDict']]]] file_system_configs: Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function.
                 For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).
         :param pulumi.Input[_builtins.str] function_name: The name of the Lambda function, up to 64 characters in length. If you don't specify a name, CFN generates one.
                 If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        :param pulumi.Input[Union['FunctionScalingConfigArgs', 'FunctionScalingConfigArgsDict']] function_scaling_config: Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
         :param pulumi.Input[_builtins.str] handler: The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
         :param pulumi.Input[Union['FunctionImageConfigArgs', 'FunctionImageConfigArgsDict']] image_config: Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMSlong (KMS) customer managed key that's used to encrypt the following resources:
@@ -1223,6 +1238,9 @@ class Function(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="capacityProviderConfig")
     def capacity_provider_config(self) -> pulumi.Output[Optional['outputs.FunctionCapacityProviderConfig']]:
+        """
+        Configuration for the capacity provider that manages compute resources for Lambda functions.
+        """
         return pulumi.get(self, "capacity_provider_config")
 
     @_builtins.property
@@ -1263,6 +1281,9 @@ class Function(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="durableConfig")
     def durable_config(self) -> pulumi.Output[Optional['outputs.FunctionDurableConfig']]:
+        """
+        Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+        """
         return pulumi.get(self, "durable_config")
 
     @_builtins.property
@@ -1302,6 +1323,9 @@ class Function(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="functionScalingConfig")
     def function_scaling_config(self) -> pulumi.Output[Optional['outputs.FunctionScalingConfig']]:
+        """
+        Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+        """
         return pulumi.get(self, "function_scaling_config")
 
     @_builtins.property

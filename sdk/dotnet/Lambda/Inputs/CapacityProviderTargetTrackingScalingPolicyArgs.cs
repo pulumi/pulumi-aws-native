@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     /// </summary>
     public sealed class CapacityProviderTargetTrackingScalingPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The predefined metric type to track for scaling decisions.
+        /// </summary>
         [Input("predefinedMetricType", required: true)]
         public Input<Pulumi.AwsNative.Lambda.CapacityProviderPredefinedMetricType> PredefinedMetricType { get; set; } = null!;
 

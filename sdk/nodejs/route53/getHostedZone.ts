@@ -45,6 +45,9 @@ export interface GetHostedZoneResult {
      *  If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
      */
     readonly hostedZoneConfig?: outputs.route53.HostedZoneConfig;
+    /**
+     * The features configuration for the hosted zone, including accelerated recovery settings and status information.
+     */
     readonly hostedZoneFeatures?: outputs.route53.HostedZoneFeatures;
     /**
      * Adds, edits, or deletes tags for a health check or a hosted zone.

@@ -37,16 +37,46 @@ export class DataTableAttribute extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataTableAttribute.__pulumiType;
     }
 
+    /**
+     * The unique identifier for the attribute within the data table.
+     */
     declare public /*out*/ readonly attributeId: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the data table that contains this attribute.
+     */
     declare public readonly dataTableArn: pulumi.Output<string | undefined>;
+    /**
+     * An optional description explaining the purpose and usage of this attribute.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the instance.
+     */
     declare public readonly instanceArn: pulumi.Output<string | undefined>;
+    /**
+     * The AWS Region where this attribute was last modified, used for region replication.
+     */
     declare public /*out*/ readonly lastModifiedRegion: pulumi.Output<string>;
+    /**
+     * The timestamp when this attribute was last modified.
+     */
     declare public /*out*/ readonly lastModifiedTime: pulumi.Output<number>;
     declare public /*out*/ readonly lockVersion: pulumi.Output<outputs.connect.LockVersionProperties>;
+    /**
+     * The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.
+     */
     declare public readonly name: pulumi.Output<string | undefined>;
+    /**
+     * Boolean indicating whether this attribute is used as a primary key for record identification. Primary attributes must have unique value combinations and cannot contain expressions.
+     */
     declare public readonly primary: pulumi.Output<boolean | undefined>;
+    /**
+     * The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
+     */
     declare public readonly validation: pulumi.Output<outputs.connect.ValidationProperties | undefined>;
+    /**
+     * The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
+     */
     declare public readonly valueType: pulumi.Output<enums.connect.DataTableAttributeValueType | undefined>;
 
     /**
@@ -95,11 +125,32 @@ export class DataTableAttribute extends pulumi.CustomResource {
  * The set of arguments for constructing a DataTableAttribute resource.
  */
 export interface DataTableAttributeArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the data table that contains this attribute.
+     */
     dataTableArn?: pulumi.Input<string>;
+    /**
+     * An optional description explaining the purpose and usage of this attribute.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the instance.
+     */
     instanceArn?: pulumi.Input<string>;
+    /**
+     * The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Boolean indicating whether this attribute is used as a primary key for record identification. Primary attributes must have unique value combinations and cannot contain expressions.
+     */
     primary?: pulumi.Input<boolean>;
+    /**
+     * The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
+     */
     validation?: pulumi.Input<inputs.connect.ValidationPropertiesArgs>;
+    /**
+     * The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
+     */
     valueType?: pulumi.Input<enums.connect.DataTableAttributeValueType>;
 }

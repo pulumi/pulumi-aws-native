@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class WorkspaceThemeTypography
     {
+        /// <summary>
+        /// The font family configuration for text in the workspace.
+        /// </summary>
         public readonly Outputs.FontFamily? FontFamily;
 
         [OutputConstructor]

@@ -17,8 +17,9 @@ type TableBucket struct {
 	pulumi.CustomResourceState
 
 	// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
-	EncryptionConfiguration   TableBucketEncryptionConfigurationPtrOutput   `pulumi:"encryptionConfiguration"`
-	MetricsConfiguration      TableBucketMetricsConfigurationPtrOutput      `pulumi:"metricsConfiguration"`
+	EncryptionConfiguration TableBucketEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
+	MetricsConfiguration    TableBucketMetricsConfigurationPtrOutput    `pulumi:"metricsConfiguration"`
+	// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
 	StorageClassConfiguration TableBucketStorageClassConfigurationPtrOutput `pulumi:"storageClassConfiguration"`
 	// The Amazon Resource Name (ARN) of the table bucket.
 	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
@@ -75,8 +76,9 @@ func (TableBucketState) ElementType() reflect.Type {
 
 type tableBucketArgs struct {
 	// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
-	EncryptionConfiguration   *TableBucketEncryptionConfiguration   `pulumi:"encryptionConfiguration"`
-	MetricsConfiguration      *TableBucketMetricsConfiguration      `pulumi:"metricsConfiguration"`
+	EncryptionConfiguration *TableBucketEncryptionConfiguration `pulumi:"encryptionConfiguration"`
+	MetricsConfiguration    *TableBucketMetricsConfiguration    `pulumi:"metricsConfiguration"`
+	// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
 	StorageClassConfiguration *TableBucketStorageClassConfiguration `pulumi:"storageClassConfiguration"`
 	// The name for the table bucket.
 	TableBucketName *string `pulumi:"tableBucketName"`
@@ -89,8 +91,9 @@ type tableBucketArgs struct {
 // The set of arguments for constructing a TableBucket resource.
 type TableBucketArgs struct {
 	// Configuration specifying how data should be encrypted. This structure defines the encryption algorithm and optional KMS key to be used for server-side encryption.
-	EncryptionConfiguration   TableBucketEncryptionConfigurationPtrInput
-	MetricsConfiguration      TableBucketMetricsConfigurationPtrInput
+	EncryptionConfiguration TableBucketEncryptionConfigurationPtrInput
+	MetricsConfiguration    TableBucketMetricsConfigurationPtrInput
+	// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
 	StorageClassConfiguration TableBucketStorageClassConfigurationPtrInput
 	// The name for the table bucket.
 	TableBucketName pulumi.StringPtrInput
@@ -146,6 +149,7 @@ func (o TableBucketOutput) MetricsConfiguration() TableBucketMetricsConfiguratio
 	return o.ApplyT(func(v *TableBucket) TableBucketMetricsConfigurationPtrOutput { return v.MetricsConfiguration }).(TableBucketMetricsConfigurationPtrOutput)
 }
 
+// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
 func (o TableBucketOutput) StorageClassConfiguration() TableBucketStorageClassConfigurationPtrOutput {
 	return o.ApplyT(func(v *TableBucket) TableBucketStorageClassConfigurationPtrOutput { return v.StorageClassConfiguration }).(TableBucketStorageClassConfigurationPtrOutput)
 }

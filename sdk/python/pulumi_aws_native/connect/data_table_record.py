@@ -26,6 +26,8 @@ class DataTableRecordArgs:
                  instance_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataTableRecord resource.
+        :param pulumi.Input[_builtins.str] data_table_arn: The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
+        :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the instance.
         """
         if data_table_arn is not None:
             pulumi.set(__self__, "data_table_arn", data_table_arn)
@@ -37,6 +39,9 @@ class DataTableRecordArgs:
     @_builtins.property
     @pulumi.getter(name="dataTableArn")
     def data_table_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
+        """
         return pulumi.get(self, "data_table_arn")
 
     @data_table_arn.setter
@@ -55,6 +60,9 @@ class DataTableRecordArgs:
     @_builtins.property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the instance.
+        """
         return pulumi.get(self, "instance_arn")
 
     @instance_arn.setter
@@ -77,6 +85,8 @@ class DataTableRecord(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] data_table_arn: The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
+        :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the instance.
         """
         ...
     @overload
@@ -151,6 +161,9 @@ class DataTableRecord(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="dataTableArn")
     def data_table_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
+        """
         return pulumi.get(self, "data_table_arn")
 
     @_builtins.property
@@ -161,6 +174,9 @@ class DataTableRecord(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the instance.
+        """
         return pulumi.get(self, "instance_arn")
 
     @_builtins.property

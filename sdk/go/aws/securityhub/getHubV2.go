@@ -32,7 +32,7 @@ type LookupHubV2Result struct {
 	HubV2Arn *string `pulumi:"hubV2Arn"`
 	// The date and time when the service was enabled in the account.
 	SubscribedAt *string `pulumi:"subscribedAt"`
-	// The tags to add to the hub V2 resource when you enable Security Hub.
+	// The tags to add to the hub V2 resource when you enable Security Hub CSPM.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -78,7 +78,7 @@ func (o LookupHubV2ResultOutput) SubscribedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHubV2Result) *string { return v.SubscribedAt }).(pulumi.StringPtrOutput)
 }
 
-// The tags to add to the hub V2 resource when you enable Security Hub.
+// The tags to add to the hub V2 resource when you enable Security Hub CSPM.
 func (o LookupHubV2ResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupHubV2Result) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

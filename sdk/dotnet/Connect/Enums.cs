@@ -140,6 +140,9 @@ namespace Pulumi.AwsNative.Connect
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
+    /// </summary>
     [EnumType]
     public readonly struct DataTableAttributeValueType : IEquatable<DataTableAttributeValueType>
     {

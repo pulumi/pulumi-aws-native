@@ -43,7 +43,7 @@ export class HubV2 extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly subscribedAt: pulumi.Output<string>;
     /**
-     * The tags to add to the hub V2 resource when you enable Security Hub.
+     * The tags to add to the hub V2 resource when you enable Security Hub CSPM.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -76,7 +76,7 @@ export class HubV2 extends pulumi.CustomResource {
  */
 export interface HubV2Args {
     /**
-     * The tags to add to the hub V2 resource when you enable Security Hub.
+     * The tags to add to the hub V2 resource when you enable Security Hub CSPM.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

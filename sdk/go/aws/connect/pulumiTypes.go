@@ -4002,6 +4002,7 @@ func (o EvaluationFormQuestionAutomationAnswerSourcePtrOutput) SourceType() Eval
 
 // Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
 type EvaluationFormQuestionTypeProperties struct {
+	// Properties for multi-select question types.
 	MultiSelect *EvaluationFormMultiSelectQuestionProperties `pulumi:"multiSelect"`
 	// The properties of the numeric question.
 	Numeric *EvaluationFormNumericQuestionProperties `pulumi:"numeric"`
@@ -4024,6 +4025,7 @@ type EvaluationFormQuestionTypePropertiesInput interface {
 
 // Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
 type EvaluationFormQuestionTypePropertiesArgs struct {
+	// Properties for multi-select question types.
 	MultiSelect EvaluationFormMultiSelectQuestionPropertiesPtrInput `pulumi:"multiSelect"`
 	// The properties of the numeric question.
 	Numeric EvaluationFormNumericQuestionPropertiesPtrInput `pulumi:"numeric"`
@@ -4111,6 +4113,7 @@ func (o EvaluationFormQuestionTypePropertiesOutput) ToEvaluationFormQuestionType
 	}).(EvaluationFormQuestionTypePropertiesPtrOutput)
 }
 
+// Properties for multi-select question types.
 func (o EvaluationFormQuestionTypePropertiesOutput) MultiSelect() EvaluationFormMultiSelectQuestionPropertiesPtrOutput {
 	return o.ApplyT(func(v EvaluationFormQuestionTypeProperties) *EvaluationFormMultiSelectQuestionProperties {
 		return v.MultiSelect
@@ -4160,6 +4163,7 @@ func (o EvaluationFormQuestionTypePropertiesPtrOutput) Elem() EvaluationFormQues
 	}).(EvaluationFormQuestionTypePropertiesOutput)
 }
 
+// Properties for multi-select question types.
 func (o EvaluationFormQuestionTypePropertiesPtrOutput) MultiSelect() EvaluationFormMultiSelectQuestionPropertiesPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormQuestionTypeProperties) *EvaluationFormMultiSelectQuestionProperties {
 		if v == nil {
@@ -5798,6 +5802,7 @@ func (o EvaluationFormTextQuestionPropertiesPtrOutput) Automation() EvaluationFo
 }
 
 type FontFamily struct {
+	// The default font family to use in the workspace theme.
 	Default *WorkspaceFontFamily `pulumi:"default"`
 }
 
@@ -5813,6 +5818,7 @@ type FontFamilyInput interface {
 }
 
 type FontFamilyArgs struct {
+	// The default font family to use in the workspace theme.
 	Default WorkspaceFontFamilyPtrInput `pulumi:"default"`
 }
 
@@ -5893,6 +5899,7 @@ func (o FontFamilyOutput) ToFontFamilyPtrOutputWithContext(ctx context.Context) 
 	}).(FontFamilyPtrOutput)
 }
 
+// The default font family to use in the workspace theme.
 func (o FontFamilyOutput) Default() WorkspaceFontFamilyPtrOutput {
 	return o.ApplyT(func(v FontFamily) *WorkspaceFontFamily { return v.Default }).(WorkspaceFontFamilyPtrOutput)
 }
@@ -5921,6 +5928,7 @@ func (o FontFamilyPtrOutput) Elem() FontFamilyOutput {
 	}).(FontFamilyOutput)
 }
 
+// The default font family to use in the workspace theme.
 func (o FontFamilyPtrOutput) Default() WorkspaceFontFamilyPtrOutput {
 	return o.ApplyT(func(v *FontFamily) *WorkspaceFontFamily {
 		if v == nil {
@@ -13561,17 +13569,28 @@ type UserTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
 type ValidationProperties struct {
-	Enum             *ValidationPropertiesEnumProperties `pulumi:"enum"`
-	ExclusiveMaximum *float64                            `pulumi:"exclusiveMaximum"`
-	ExclusiveMinimum *float64                            `pulumi:"exclusiveMinimum"`
-	MaxLength        *int                                `pulumi:"maxLength"`
-	MaxValues        *int                                `pulumi:"maxValues"`
-	Maximum          *float64                            `pulumi:"maximum"`
-	MinLength        *int                                `pulumi:"minLength"`
-	MinValues        *int                                `pulumi:"minValues"`
-	Minimum          *float64                            `pulumi:"minimum"`
-	MultipleOf       *float64                            `pulumi:"multipleOf"`
+	// Defines enumeration constraints for attribute values. Can specify a list of allowed values and whether custom values are permitted beyond the enumerated list.
+	Enum *ValidationPropertiesEnumProperties `pulumi:"enum"`
+	// The largest exclusive numeric value for NUMBER value type. Can be provided alongside Maximum where both operate independently. Must be greater than ExclusiveMinimum and Minimum. Applies to NUMBER and values within NUMBER_LIST.
+	ExclusiveMaximum *float64 `pulumi:"exclusiveMaximum"`
+	// The smallest exclusive numeric value for NUMBER value type. Can be provided alongside Minimum where both operate independently. Must be less than ExclusiveMaximum and Maximum. Applies to NUMBER and values within NUMBER_LIST.
+	ExclusiveMinimum *float64 `pulumi:"exclusiveMinimum"`
+	// The maximum number of characters a text value can contain. Applies to TEXT value type and values within a TEXT_LIST. Must be greater than or equal to MinLength.
+	MaxLength *int `pulumi:"maxLength"`
+	// The maximum number of values in a list. Must be an integer greater than or equal to 0 and greater than or equal to MinValues. Applies to all list types.
+	MaxValues *int `pulumi:"maxValues"`
+	// The largest inclusive numeric value for NUMBER value type. Can be provided alongside ExclusiveMaximum where both operate independently. Must be greater than or equal to Minimum and greater than ExclusiveMinimum. Applies to NUMBER and values within NUMBER_LIST.
+	Maximum *float64 `pulumi:"maximum"`
+	// The minimum number of characters a text value can contain. Applies to TEXT value type and values within a TEXT_LIST. Must be less than or equal to MaxLength.
+	MinLength *int `pulumi:"minLength"`
+	// The minimum number of values in a list. Must be an integer greater than or equal to 0 and less than or equal to MaxValues. Applies to all list types.
+	MinValues *int `pulumi:"minValues"`
+	// The smallest inclusive numeric value for NUMBER value type. Cannot be provided when ExclusiveMinimum is also provided. Must be less than or equal to Maximum and less than ExclusiveMaximum. Applies to NUMBER and values within NUMBER_LIST.
+	Minimum *float64 `pulumi:"minimum"`
+	// Specifies that numeric values must be multiples of this number. Must be greater than 0. The result of dividing a value by this multiple must result in an integer. Applies to NUMBER and values within NUMBER_LIST.
+	MultipleOf *float64 `pulumi:"multipleOf"`
 }
 
 // ValidationPropertiesInput is an input type that accepts ValidationPropertiesArgs and ValidationPropertiesOutput values.
@@ -13585,17 +13604,28 @@ type ValidationPropertiesInput interface {
 	ToValidationPropertiesOutputWithContext(context.Context) ValidationPropertiesOutput
 }
 
+// The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
 type ValidationPropertiesArgs struct {
-	Enum             ValidationPropertiesEnumPropertiesPtrInput `pulumi:"enum"`
-	ExclusiveMaximum pulumi.Float64PtrInput                     `pulumi:"exclusiveMaximum"`
-	ExclusiveMinimum pulumi.Float64PtrInput                     `pulumi:"exclusiveMinimum"`
-	MaxLength        pulumi.IntPtrInput                         `pulumi:"maxLength"`
-	MaxValues        pulumi.IntPtrInput                         `pulumi:"maxValues"`
-	Maximum          pulumi.Float64PtrInput                     `pulumi:"maximum"`
-	MinLength        pulumi.IntPtrInput                         `pulumi:"minLength"`
-	MinValues        pulumi.IntPtrInput                         `pulumi:"minValues"`
-	Minimum          pulumi.Float64PtrInput                     `pulumi:"minimum"`
-	MultipleOf       pulumi.Float64PtrInput                     `pulumi:"multipleOf"`
+	// Defines enumeration constraints for attribute values. Can specify a list of allowed values and whether custom values are permitted beyond the enumerated list.
+	Enum ValidationPropertiesEnumPropertiesPtrInput `pulumi:"enum"`
+	// The largest exclusive numeric value for NUMBER value type. Can be provided alongside Maximum where both operate independently. Must be greater than ExclusiveMinimum and Minimum. Applies to NUMBER and values within NUMBER_LIST.
+	ExclusiveMaximum pulumi.Float64PtrInput `pulumi:"exclusiveMaximum"`
+	// The smallest exclusive numeric value for NUMBER value type. Can be provided alongside Minimum where both operate independently. Must be less than ExclusiveMaximum and Maximum. Applies to NUMBER and values within NUMBER_LIST.
+	ExclusiveMinimum pulumi.Float64PtrInput `pulumi:"exclusiveMinimum"`
+	// The maximum number of characters a text value can contain. Applies to TEXT value type and values within a TEXT_LIST. Must be greater than or equal to MinLength.
+	MaxLength pulumi.IntPtrInput `pulumi:"maxLength"`
+	// The maximum number of values in a list. Must be an integer greater than or equal to 0 and greater than or equal to MinValues. Applies to all list types.
+	MaxValues pulumi.IntPtrInput `pulumi:"maxValues"`
+	// The largest inclusive numeric value for NUMBER value type. Can be provided alongside ExclusiveMaximum where both operate independently. Must be greater than or equal to Minimum and greater than ExclusiveMinimum. Applies to NUMBER and values within NUMBER_LIST.
+	Maximum pulumi.Float64PtrInput `pulumi:"maximum"`
+	// The minimum number of characters a text value can contain. Applies to TEXT value type and values within a TEXT_LIST. Must be less than or equal to MaxLength.
+	MinLength pulumi.IntPtrInput `pulumi:"minLength"`
+	// The minimum number of values in a list. Must be an integer greater than or equal to 0 and less than or equal to MaxValues. Applies to all list types.
+	MinValues pulumi.IntPtrInput `pulumi:"minValues"`
+	// The smallest inclusive numeric value for NUMBER value type. Cannot be provided when ExclusiveMinimum is also provided. Must be less than or equal to Maximum and less than ExclusiveMaximum. Applies to NUMBER and values within NUMBER_LIST.
+	Minimum pulumi.Float64PtrInput `pulumi:"minimum"`
+	// Specifies that numeric values must be multiples of this number. Must be greater than 0. The result of dividing a value by this multiple must result in an integer. Applies to NUMBER and values within NUMBER_LIST.
+	MultipleOf pulumi.Float64PtrInput `pulumi:"multipleOf"`
 }
 
 func (ValidationPropertiesArgs) ElementType() reflect.Type {
@@ -13651,6 +13681,7 @@ func (i *validationPropertiesPtrType) ToValidationPropertiesPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ValidationPropertiesPtrOutput)
 }
 
+// The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
 type ValidationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ValidationPropertiesOutput) ElementType() reflect.Type {
@@ -13675,42 +13706,52 @@ func (o ValidationPropertiesOutput) ToValidationPropertiesPtrOutputWithContext(c
 	}).(ValidationPropertiesPtrOutput)
 }
 
+// Defines enumeration constraints for attribute values. Can specify a list of allowed values and whether custom values are permitted beyond the enumerated list.
 func (o ValidationPropertiesOutput) Enum() ValidationPropertiesEnumPropertiesPtrOutput {
 	return o.ApplyT(func(v ValidationProperties) *ValidationPropertiesEnumProperties { return v.Enum }).(ValidationPropertiesEnumPropertiesPtrOutput)
 }
 
+// The largest exclusive numeric value for NUMBER value type. Can be provided alongside Maximum where both operate independently. Must be greater than ExclusiveMinimum and Minimum. Applies to NUMBER and values within NUMBER_LIST.
 func (o ValidationPropertiesOutput) ExclusiveMaximum() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ValidationProperties) *float64 { return v.ExclusiveMaximum }).(pulumi.Float64PtrOutput)
 }
 
+// The smallest exclusive numeric value for NUMBER value type. Can be provided alongside Minimum where both operate independently. Must be less than ExclusiveMaximum and Maximum. Applies to NUMBER and values within NUMBER_LIST.
 func (o ValidationPropertiesOutput) ExclusiveMinimum() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ValidationProperties) *float64 { return v.ExclusiveMinimum }).(pulumi.Float64PtrOutput)
 }
 
+// The maximum number of characters a text value can contain. Applies to TEXT value type and values within a TEXT_LIST. Must be greater than or equal to MinLength.
 func (o ValidationPropertiesOutput) MaxLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ValidationProperties) *int { return v.MaxLength }).(pulumi.IntPtrOutput)
 }
 
+// The maximum number of values in a list. Must be an integer greater than or equal to 0 and greater than or equal to MinValues. Applies to all list types.
 func (o ValidationPropertiesOutput) MaxValues() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ValidationProperties) *int { return v.MaxValues }).(pulumi.IntPtrOutput)
 }
 
+// The largest inclusive numeric value for NUMBER value type. Can be provided alongside ExclusiveMaximum where both operate independently. Must be greater than or equal to Minimum and greater than ExclusiveMinimum. Applies to NUMBER and values within NUMBER_LIST.
 func (o ValidationPropertiesOutput) Maximum() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ValidationProperties) *float64 { return v.Maximum }).(pulumi.Float64PtrOutput)
 }
 
+// The minimum number of characters a text value can contain. Applies to TEXT value type and values within a TEXT_LIST. Must be less than or equal to MaxLength.
 func (o ValidationPropertiesOutput) MinLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ValidationProperties) *int { return v.MinLength }).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of values in a list. Must be an integer greater than or equal to 0 and less than or equal to MaxValues. Applies to all list types.
 func (o ValidationPropertiesOutput) MinValues() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ValidationProperties) *int { return v.MinValues }).(pulumi.IntPtrOutput)
 }
 
+// The smallest inclusive numeric value for NUMBER value type. Cannot be provided when ExclusiveMinimum is also provided. Must be less than or equal to Maximum and less than ExclusiveMaximum. Applies to NUMBER and values within NUMBER_LIST.
 func (o ValidationPropertiesOutput) Minimum() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ValidationProperties) *float64 { return v.Minimum }).(pulumi.Float64PtrOutput)
 }
 
+// Specifies that numeric values must be multiples of this number. Must be greater than 0. The result of dividing a value by this multiple must result in an integer. Applies to NUMBER and values within NUMBER_LIST.
 func (o ValidationPropertiesOutput) MultipleOf() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ValidationProperties) *float64 { return v.MultipleOf }).(pulumi.Float64PtrOutput)
 }
@@ -13739,6 +13780,7 @@ func (o ValidationPropertiesPtrOutput) Elem() ValidationPropertiesOutput {
 	}).(ValidationPropertiesOutput)
 }
 
+// Defines enumeration constraints for attribute values. Can specify a list of allowed values and whether custom values are permitted beyond the enumerated list.
 func (o ValidationPropertiesPtrOutput) Enum() ValidationPropertiesEnumPropertiesPtrOutput {
 	return o.ApplyT(func(v *ValidationProperties) *ValidationPropertiesEnumProperties {
 		if v == nil {
@@ -13748,6 +13790,7 @@ func (o ValidationPropertiesPtrOutput) Enum() ValidationPropertiesEnumProperties
 	}).(ValidationPropertiesEnumPropertiesPtrOutput)
 }
 
+// The largest exclusive numeric value for NUMBER value type. Can be provided alongside Maximum where both operate independently. Must be greater than ExclusiveMinimum and Minimum. Applies to NUMBER and values within NUMBER_LIST.
 func (o ValidationPropertiesPtrOutput) ExclusiveMaximum() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ValidationProperties) *float64 {
 		if v == nil {
@@ -13757,6 +13800,7 @@ func (o ValidationPropertiesPtrOutput) ExclusiveMaximum() pulumi.Float64PtrOutpu
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The smallest exclusive numeric value for NUMBER value type. Can be provided alongside Minimum where both operate independently. Must be less than ExclusiveMaximum and Maximum. Applies to NUMBER and values within NUMBER_LIST.
 func (o ValidationPropertiesPtrOutput) ExclusiveMinimum() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ValidationProperties) *float64 {
 		if v == nil {
@@ -13766,6 +13810,7 @@ func (o ValidationPropertiesPtrOutput) ExclusiveMinimum() pulumi.Float64PtrOutpu
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The maximum number of characters a text value can contain. Applies to TEXT value type and values within a TEXT_LIST. Must be greater than or equal to MinLength.
 func (o ValidationPropertiesPtrOutput) MaxLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ValidationProperties) *int {
 		if v == nil {
@@ -13775,6 +13820,7 @@ func (o ValidationPropertiesPtrOutput) MaxLength() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The maximum number of values in a list. Must be an integer greater than or equal to 0 and greater than or equal to MinValues. Applies to all list types.
 func (o ValidationPropertiesPtrOutput) MaxValues() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ValidationProperties) *int {
 		if v == nil {
@@ -13784,6 +13830,7 @@ func (o ValidationPropertiesPtrOutput) MaxValues() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The largest inclusive numeric value for NUMBER value type. Can be provided alongside ExclusiveMaximum where both operate independently. Must be greater than or equal to Minimum and greater than ExclusiveMinimum. Applies to NUMBER and values within NUMBER_LIST.
 func (o ValidationPropertiesPtrOutput) Maximum() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ValidationProperties) *float64 {
 		if v == nil {
@@ -13793,6 +13840,7 @@ func (o ValidationPropertiesPtrOutput) Maximum() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The minimum number of characters a text value can contain. Applies to TEXT value type and values within a TEXT_LIST. Must be less than or equal to MaxLength.
 func (o ValidationPropertiesPtrOutput) MinLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ValidationProperties) *int {
 		if v == nil {
@@ -13802,6 +13850,7 @@ func (o ValidationPropertiesPtrOutput) MinLength() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The minimum number of values in a list. Must be an integer greater than or equal to 0 and less than or equal to MaxValues. Applies to all list types.
 func (o ValidationPropertiesPtrOutput) MinValues() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ValidationProperties) *int {
 		if v == nil {
@@ -13811,6 +13860,7 @@ func (o ValidationPropertiesPtrOutput) MinValues() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The smallest inclusive numeric value for NUMBER value type. Cannot be provided when ExclusiveMinimum is also provided. Must be less than or equal to Maximum and less than ExclusiveMaximum. Applies to NUMBER and values within NUMBER_LIST.
 func (o ValidationPropertiesPtrOutput) Minimum() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ValidationProperties) *float64 {
 		if v == nil {
@@ -13820,6 +13870,7 @@ func (o ValidationPropertiesPtrOutput) Minimum() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Specifies that numeric values must be multiples of this number. Must be greater than 0. The result of dividing a value by this multiple must result in an integer. Applies to NUMBER and values within NUMBER_LIST.
 func (o ValidationPropertiesPtrOutput) MultipleOf() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ValidationProperties) *float64 {
 		if v == nil {
@@ -13829,6 +13880,7 @@ func (o ValidationPropertiesPtrOutput) MultipleOf() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Defines enumeration constraints for attribute values. Can specify a list of allowed values and whether custom values are permitted beyond the enumerated list.
 type ValidationPropertiesEnumProperties struct {
 	Strict *bool    `pulumi:"strict"`
 	Values []string `pulumi:"values"`
@@ -13845,6 +13897,7 @@ type ValidationPropertiesEnumPropertiesInput interface {
 	ToValidationPropertiesEnumPropertiesOutputWithContext(context.Context) ValidationPropertiesEnumPropertiesOutput
 }
 
+// Defines enumeration constraints for attribute values. Can specify a list of allowed values and whether custom values are permitted beyond the enumerated list.
 type ValidationPropertiesEnumPropertiesArgs struct {
 	Strict pulumi.BoolPtrInput     `pulumi:"strict"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -13903,6 +13956,7 @@ func (i *validationPropertiesEnumPropertiesPtrType) ToValidationPropertiesEnumPr
 	return pulumi.ToOutputWithContext(ctx, i).(ValidationPropertiesEnumPropertiesPtrOutput)
 }
 
+// Defines enumeration constraints for attribute values. Can specify a list of allowed values and whether custom values are permitted beyond the enumerated list.
 type ValidationPropertiesEnumPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ValidationPropertiesEnumPropertiesOutput) ElementType() reflect.Type {
@@ -14126,8 +14180,10 @@ type ViewTag struct {
 }
 
 type WorkspaceMediaItem struct {
-	Source *string            `pulumi:"source"`
-	Type   WorkspaceMediaType `pulumi:"type"`
+	// The source URL or data for the media asset.
+	Source *string `pulumi:"source"`
+	// The type of media. Valid values are: `IMAGE_LOGO_FAVICON` and `IMAGE_LOGO_HORIZONTAL` .
+	Type WorkspaceMediaType `pulumi:"type"`
 }
 
 // WorkspaceMediaItemInput is an input type that accepts WorkspaceMediaItemArgs and WorkspaceMediaItemOutput values.
@@ -14142,8 +14198,10 @@ type WorkspaceMediaItemInput interface {
 }
 
 type WorkspaceMediaItemArgs struct {
-	Source pulumi.StringPtrInput   `pulumi:"source"`
-	Type   WorkspaceMediaTypeInput `pulumi:"type"`
+	// The source URL or data for the media asset.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+	// The type of media. Valid values are: `IMAGE_LOGO_FAVICON` and `IMAGE_LOGO_HORIZONTAL` .
+	Type WorkspaceMediaTypeInput `pulumi:"type"`
 }
 
 func (WorkspaceMediaItemArgs) ElementType() reflect.Type {
@@ -14197,10 +14255,12 @@ func (o WorkspaceMediaItemOutput) ToWorkspaceMediaItemOutputWithContext(ctx cont
 	return o
 }
 
+// The source URL or data for the media asset.
 func (o WorkspaceMediaItemOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceMediaItem) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
+// The type of media. Valid values are: `IMAGE_LOGO_FAVICON` and `IMAGE_LOGO_HORIZONTAL` .
 func (o WorkspaceMediaItemOutput) Type() WorkspaceMediaTypeOutput {
 	return o.ApplyT(func(v WorkspaceMediaItem) WorkspaceMediaType { return v.Type }).(WorkspaceMediaTypeOutput)
 }
@@ -14350,9 +14410,12 @@ func (o WorkspacePageArrayOutput) Index(i pulumi.IntInput) WorkspacePageOutput {
 }
 
 type WorkspacePaletteCanvas struct {
-	ActiveBackground    *string `pulumi:"activeBackground"`
+	// The background color for active elements.
+	ActiveBackground *string `pulumi:"activeBackground"`
+	// The background color for container elements.
 	ContainerBackground *string `pulumi:"containerBackground"`
-	PageBackground      *string `pulumi:"pageBackground"`
+	// The background color for page elements.
+	PageBackground *string `pulumi:"pageBackground"`
 }
 
 // WorkspacePaletteCanvasInput is an input type that accepts WorkspacePaletteCanvasArgs and WorkspacePaletteCanvasOutput values.
@@ -14367,9 +14430,12 @@ type WorkspacePaletteCanvasInput interface {
 }
 
 type WorkspacePaletteCanvasArgs struct {
-	ActiveBackground    pulumi.StringPtrInput `pulumi:"activeBackground"`
+	// The background color for active elements.
+	ActiveBackground pulumi.StringPtrInput `pulumi:"activeBackground"`
+	// The background color for container elements.
 	ContainerBackground pulumi.StringPtrInput `pulumi:"containerBackground"`
-	PageBackground      pulumi.StringPtrInput `pulumi:"pageBackground"`
+	// The background color for page elements.
+	PageBackground pulumi.StringPtrInput `pulumi:"pageBackground"`
 }
 
 func (WorkspacePaletteCanvasArgs) ElementType() reflect.Type {
@@ -14449,14 +14515,17 @@ func (o WorkspacePaletteCanvasOutput) ToWorkspacePaletteCanvasPtrOutputWithConte
 	}).(WorkspacePaletteCanvasPtrOutput)
 }
 
+// The background color for active elements.
 func (o WorkspacePaletteCanvasOutput) ActiveBackground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspacePaletteCanvas) *string { return v.ActiveBackground }).(pulumi.StringPtrOutput)
 }
 
+// The background color for container elements.
 func (o WorkspacePaletteCanvasOutput) ContainerBackground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspacePaletteCanvas) *string { return v.ContainerBackground }).(pulumi.StringPtrOutput)
 }
 
+// The background color for page elements.
 func (o WorkspacePaletteCanvasOutput) PageBackground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspacePaletteCanvas) *string { return v.PageBackground }).(pulumi.StringPtrOutput)
 }
@@ -14485,6 +14554,7 @@ func (o WorkspacePaletteCanvasPtrOutput) Elem() WorkspacePaletteCanvasOutput {
 	}).(WorkspacePaletteCanvasOutput)
 }
 
+// The background color for active elements.
 func (o WorkspacePaletteCanvasPtrOutput) ActiveBackground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspacePaletteCanvas) *string {
 		if v == nil {
@@ -14494,6 +14564,7 @@ func (o WorkspacePaletteCanvasPtrOutput) ActiveBackground() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The background color for container elements.
 func (o WorkspacePaletteCanvasPtrOutput) ContainerBackground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspacePaletteCanvas) *string {
 		if v == nil {
@@ -14503,6 +14574,7 @@ func (o WorkspacePaletteCanvasPtrOutput) ContainerBackground() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The background color for page elements.
 func (o WorkspacePaletteCanvasPtrOutput) PageBackground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspacePaletteCanvas) *string {
 		if v == nil {
@@ -14513,10 +14585,14 @@ func (o WorkspacePaletteCanvasPtrOutput) PageBackground() pulumi.StringPtrOutput
 }
 
 type WorkspacePaletteHeader struct {
-	Background          *string `pulumi:"background"`
-	InvertActionsColors *bool   `pulumi:"invertActionsColors"`
-	Text                *string `pulumi:"text"`
-	TextHover           *string `pulumi:"textHover"`
+	// The background color of the header.
+	Background *string `pulumi:"background"`
+	// Whether to invert the colors of action buttons in the header.
+	InvertActionsColors *bool `pulumi:"invertActionsColors"`
+	// The text color in the header.
+	Text *string `pulumi:"text"`
+	// The text color when hovering over header elements.
+	TextHover *string `pulumi:"textHover"`
 }
 
 // WorkspacePaletteHeaderInput is an input type that accepts WorkspacePaletteHeaderArgs and WorkspacePaletteHeaderOutput values.
@@ -14531,10 +14607,14 @@ type WorkspacePaletteHeaderInput interface {
 }
 
 type WorkspacePaletteHeaderArgs struct {
-	Background          pulumi.StringPtrInput `pulumi:"background"`
-	InvertActionsColors pulumi.BoolPtrInput   `pulumi:"invertActionsColors"`
-	Text                pulumi.StringPtrInput `pulumi:"text"`
-	TextHover           pulumi.StringPtrInput `pulumi:"textHover"`
+	// The background color of the header.
+	Background pulumi.StringPtrInput `pulumi:"background"`
+	// Whether to invert the colors of action buttons in the header.
+	InvertActionsColors pulumi.BoolPtrInput `pulumi:"invertActionsColors"`
+	// The text color in the header.
+	Text pulumi.StringPtrInput `pulumi:"text"`
+	// The text color when hovering over header elements.
+	TextHover pulumi.StringPtrInput `pulumi:"textHover"`
 }
 
 func (WorkspacePaletteHeaderArgs) ElementType() reflect.Type {
@@ -14614,18 +14694,22 @@ func (o WorkspacePaletteHeaderOutput) ToWorkspacePaletteHeaderPtrOutputWithConte
 	}).(WorkspacePaletteHeaderPtrOutput)
 }
 
+// The background color of the header.
 func (o WorkspacePaletteHeaderOutput) Background() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspacePaletteHeader) *string { return v.Background }).(pulumi.StringPtrOutput)
 }
 
+// Whether to invert the colors of action buttons in the header.
 func (o WorkspacePaletteHeaderOutput) InvertActionsColors() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkspacePaletteHeader) *bool { return v.InvertActionsColors }).(pulumi.BoolPtrOutput)
 }
 
+// The text color in the header.
 func (o WorkspacePaletteHeaderOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspacePaletteHeader) *string { return v.Text }).(pulumi.StringPtrOutput)
 }
 
+// The text color when hovering over header elements.
 func (o WorkspacePaletteHeaderOutput) TextHover() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspacePaletteHeader) *string { return v.TextHover }).(pulumi.StringPtrOutput)
 }
@@ -14654,6 +14738,7 @@ func (o WorkspacePaletteHeaderPtrOutput) Elem() WorkspacePaletteHeaderOutput {
 	}).(WorkspacePaletteHeaderOutput)
 }
 
+// The background color of the header.
 func (o WorkspacePaletteHeaderPtrOutput) Background() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspacePaletteHeader) *string {
 		if v == nil {
@@ -14663,6 +14748,7 @@ func (o WorkspacePaletteHeaderPtrOutput) Background() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to invert the colors of action buttons in the header.
 func (o WorkspacePaletteHeaderPtrOutput) InvertActionsColors() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkspacePaletteHeader) *bool {
 		if v == nil {
@@ -14672,6 +14758,7 @@ func (o WorkspacePaletteHeaderPtrOutput) InvertActionsColors() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The text color in the header.
 func (o WorkspacePaletteHeaderPtrOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspacePaletteHeader) *string {
 		if v == nil {
@@ -14681,6 +14768,7 @@ func (o WorkspacePaletteHeaderPtrOutput) Text() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The text color when hovering over header elements.
 func (o WorkspacePaletteHeaderPtrOutput) TextHover() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspacePaletteHeader) *string {
 		if v == nil {
@@ -14691,13 +14779,20 @@ func (o WorkspacePaletteHeaderPtrOutput) TextHover() pulumi.StringPtrOutput {
 }
 
 type WorkspacePaletteNavigation struct {
-	Background           *string `pulumi:"background"`
-	InvertActionsColors  *bool   `pulumi:"invertActionsColors"`
-	Text                 *string `pulumi:"text"`
-	TextActive           *string `pulumi:"textActive"`
+	// The background color of the navigation area.
+	Background *string `pulumi:"background"`
+	// Whether to invert the colors of action buttons in the navigation area.
+	InvertActionsColors *bool `pulumi:"invertActionsColors"`
+	// The text color in the navigation area.
+	Text *string `pulumi:"text"`
+	// The text color for active navigation items.
+	TextActive *string `pulumi:"textActive"`
+	// The background color for active navigation items.
 	TextBackgroundActive *string `pulumi:"textBackgroundActive"`
-	TextBackgroundHover  *string `pulumi:"textBackgroundHover"`
-	TextHover            *string `pulumi:"textHover"`
+	// The background color when hovering over navigation text.
+	TextBackgroundHover *string `pulumi:"textBackgroundHover"`
+	// The text color when hovering over navigation items.
+	TextHover *string `pulumi:"textHover"`
 }
 
 // WorkspacePaletteNavigationInput is an input type that accepts WorkspacePaletteNavigationArgs and WorkspacePaletteNavigationOutput values.
@@ -14712,13 +14807,20 @@ type WorkspacePaletteNavigationInput interface {
 }
 
 type WorkspacePaletteNavigationArgs struct {
-	Background           pulumi.StringPtrInput `pulumi:"background"`
-	InvertActionsColors  pulumi.BoolPtrInput   `pulumi:"invertActionsColors"`
-	Text                 pulumi.StringPtrInput `pulumi:"text"`
-	TextActive           pulumi.StringPtrInput `pulumi:"textActive"`
+	// The background color of the navigation area.
+	Background pulumi.StringPtrInput `pulumi:"background"`
+	// Whether to invert the colors of action buttons in the navigation area.
+	InvertActionsColors pulumi.BoolPtrInput `pulumi:"invertActionsColors"`
+	// The text color in the navigation area.
+	Text pulumi.StringPtrInput `pulumi:"text"`
+	// The text color for active navigation items.
+	TextActive pulumi.StringPtrInput `pulumi:"textActive"`
+	// The background color for active navigation items.
 	TextBackgroundActive pulumi.StringPtrInput `pulumi:"textBackgroundActive"`
-	TextBackgroundHover  pulumi.StringPtrInput `pulumi:"textBackgroundHover"`
-	TextHover            pulumi.StringPtrInput `pulumi:"textHover"`
+	// The background color when hovering over navigation text.
+	TextBackgroundHover pulumi.StringPtrInput `pulumi:"textBackgroundHover"`
+	// The text color when hovering over navigation items.
+	TextHover pulumi.StringPtrInput `pulumi:"textHover"`
 }
 
 func (WorkspacePaletteNavigationArgs) ElementType() reflect.Type {
@@ -14798,30 +14900,37 @@ func (o WorkspacePaletteNavigationOutput) ToWorkspacePaletteNavigationPtrOutputW
 	}).(WorkspacePaletteNavigationPtrOutput)
 }
 
+// The background color of the navigation area.
 func (o WorkspacePaletteNavigationOutput) Background() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspacePaletteNavigation) *string { return v.Background }).(pulumi.StringPtrOutput)
 }
 
+// Whether to invert the colors of action buttons in the navigation area.
 func (o WorkspacePaletteNavigationOutput) InvertActionsColors() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkspacePaletteNavigation) *bool { return v.InvertActionsColors }).(pulumi.BoolPtrOutput)
 }
 
+// The text color in the navigation area.
 func (o WorkspacePaletteNavigationOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspacePaletteNavigation) *string { return v.Text }).(pulumi.StringPtrOutput)
 }
 
+// The text color for active navigation items.
 func (o WorkspacePaletteNavigationOutput) TextActive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspacePaletteNavigation) *string { return v.TextActive }).(pulumi.StringPtrOutput)
 }
 
+// The background color for active navigation items.
 func (o WorkspacePaletteNavigationOutput) TextBackgroundActive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspacePaletteNavigation) *string { return v.TextBackgroundActive }).(pulumi.StringPtrOutput)
 }
 
+// The background color when hovering over navigation text.
 func (o WorkspacePaletteNavigationOutput) TextBackgroundHover() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspacePaletteNavigation) *string { return v.TextBackgroundHover }).(pulumi.StringPtrOutput)
 }
 
+// The text color when hovering over navigation items.
 func (o WorkspacePaletteNavigationOutput) TextHover() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspacePaletteNavigation) *string { return v.TextHover }).(pulumi.StringPtrOutput)
 }
@@ -14850,6 +14959,7 @@ func (o WorkspacePaletteNavigationPtrOutput) Elem() WorkspacePaletteNavigationOu
 	}).(WorkspacePaletteNavigationOutput)
 }
 
+// The background color of the navigation area.
 func (o WorkspacePaletteNavigationPtrOutput) Background() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspacePaletteNavigation) *string {
 		if v == nil {
@@ -14859,6 +14969,7 @@ func (o WorkspacePaletteNavigationPtrOutput) Background() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Whether to invert the colors of action buttons in the navigation area.
 func (o WorkspacePaletteNavigationPtrOutput) InvertActionsColors() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkspacePaletteNavigation) *bool {
 		if v == nil {
@@ -14868,6 +14979,7 @@ func (o WorkspacePaletteNavigationPtrOutput) InvertActionsColors() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The text color in the navigation area.
 func (o WorkspacePaletteNavigationPtrOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspacePaletteNavigation) *string {
 		if v == nil {
@@ -14877,6 +14989,7 @@ func (o WorkspacePaletteNavigationPtrOutput) Text() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The text color for active navigation items.
 func (o WorkspacePaletteNavigationPtrOutput) TextActive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspacePaletteNavigation) *string {
 		if v == nil {
@@ -14886,6 +14999,7 @@ func (o WorkspacePaletteNavigationPtrOutput) TextActive() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The background color for active navigation items.
 func (o WorkspacePaletteNavigationPtrOutput) TextBackgroundActive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspacePaletteNavigation) *string {
 		if v == nil {
@@ -14895,6 +15009,7 @@ func (o WorkspacePaletteNavigationPtrOutput) TextBackgroundActive() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The background color when hovering over navigation text.
 func (o WorkspacePaletteNavigationPtrOutput) TextBackgroundHover() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspacePaletteNavigation) *string {
 		if v == nil {
@@ -14904,6 +15019,7 @@ func (o WorkspacePaletteNavigationPtrOutput) TextBackgroundHover() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+// The text color when hovering over navigation items.
 func (o WorkspacePaletteNavigationPtrOutput) TextHover() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspacePaletteNavigation) *string {
 		if v == nil {
@@ -14914,9 +15030,12 @@ func (o WorkspacePaletteNavigationPtrOutput) TextHover() pulumi.StringPtrOutput 
 }
 
 type WorkspacePalettePrimary struct {
-	Active       *string `pulumi:"active"`
+	// The primary color used for active states.
+	Active *string `pulumi:"active"`
+	// The text color that contrasts with the primary color for readability.
 	ContrastText *string `pulumi:"contrastText"`
-	Default      *string `pulumi:"default"`
+	// The default primary color used throughout the workspace.
+	Default *string `pulumi:"default"`
 }
 
 // WorkspacePalettePrimaryInput is an input type that accepts WorkspacePalettePrimaryArgs and WorkspacePalettePrimaryOutput values.
@@ -14931,9 +15050,12 @@ type WorkspacePalettePrimaryInput interface {
 }
 
 type WorkspacePalettePrimaryArgs struct {
-	Active       pulumi.StringPtrInput `pulumi:"active"`
+	// The primary color used for active states.
+	Active pulumi.StringPtrInput `pulumi:"active"`
+	// The text color that contrasts with the primary color for readability.
 	ContrastText pulumi.StringPtrInput `pulumi:"contrastText"`
-	Default      pulumi.StringPtrInput `pulumi:"default"`
+	// The default primary color used throughout the workspace.
+	Default pulumi.StringPtrInput `pulumi:"default"`
 }
 
 func (WorkspacePalettePrimaryArgs) ElementType() reflect.Type {
@@ -15013,14 +15135,17 @@ func (o WorkspacePalettePrimaryOutput) ToWorkspacePalettePrimaryPtrOutputWithCon
 	}).(WorkspacePalettePrimaryPtrOutput)
 }
 
+// The primary color used for active states.
 func (o WorkspacePalettePrimaryOutput) Active() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspacePalettePrimary) *string { return v.Active }).(pulumi.StringPtrOutput)
 }
 
+// The text color that contrasts with the primary color for readability.
 func (o WorkspacePalettePrimaryOutput) ContrastText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspacePalettePrimary) *string { return v.ContrastText }).(pulumi.StringPtrOutput)
 }
 
+// The default primary color used throughout the workspace.
 func (o WorkspacePalettePrimaryOutput) Default() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspacePalettePrimary) *string { return v.Default }).(pulumi.StringPtrOutput)
 }
@@ -15049,6 +15174,7 @@ func (o WorkspacePalettePrimaryPtrOutput) Elem() WorkspacePalettePrimaryOutput {
 	}).(WorkspacePalettePrimaryOutput)
 }
 
+// The primary color used for active states.
 func (o WorkspacePalettePrimaryPtrOutput) Active() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspacePalettePrimary) *string {
 		if v == nil {
@@ -15058,6 +15184,7 @@ func (o WorkspacePalettePrimaryPtrOutput) Active() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The text color that contrasts with the primary color for readability.
 func (o WorkspacePalettePrimaryPtrOutput) ContrastText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspacePalettePrimary) *string {
 		if v == nil {
@@ -15067,6 +15194,7 @@ func (o WorkspacePalettePrimaryPtrOutput) ContrastText() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The default primary color used throughout the workspace.
 func (o WorkspacePalettePrimaryPtrOutput) Default() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspacePalettePrimary) *string {
 		if v == nil {
@@ -15086,7 +15214,9 @@ type WorkspaceTag struct {
 
 // The theme configuration for the Connect workspace
 type WorkspaceTheme struct {
-	Dark  *WorkspaceThemeConfig `pulumi:"dark"`
+	// The theme configuration for dark mode.
+	Dark *WorkspaceThemeConfig `pulumi:"dark"`
+	// The theme configuration for light mode.
 	Light *WorkspaceThemeConfig `pulumi:"light"`
 }
 
@@ -15103,7 +15233,9 @@ type WorkspaceThemeInput interface {
 
 // The theme configuration for the Connect workspace
 type WorkspaceThemeArgs struct {
-	Dark  WorkspaceThemeConfigPtrInput `pulumi:"dark"`
+	// The theme configuration for dark mode.
+	Dark WorkspaceThemeConfigPtrInput `pulumi:"dark"`
+	// The theme configuration for light mode.
 	Light WorkspaceThemeConfigPtrInput `pulumi:"light"`
 }
 
@@ -15185,10 +15317,12 @@ func (o WorkspaceThemeOutput) ToWorkspaceThemePtrOutputWithContext(ctx context.C
 	}).(WorkspaceThemePtrOutput)
 }
 
+// The theme configuration for dark mode.
 func (o WorkspaceThemeOutput) Dark() WorkspaceThemeConfigPtrOutput {
 	return o.ApplyT(func(v WorkspaceTheme) *WorkspaceThemeConfig { return v.Dark }).(WorkspaceThemeConfigPtrOutput)
 }
 
+// The theme configuration for light mode.
 func (o WorkspaceThemeOutput) Light() WorkspaceThemeConfigPtrOutput {
 	return o.ApplyT(func(v WorkspaceTheme) *WorkspaceThemeConfig { return v.Light }).(WorkspaceThemeConfigPtrOutput)
 }
@@ -15217,6 +15351,7 @@ func (o WorkspaceThemePtrOutput) Elem() WorkspaceThemeOutput {
 	}).(WorkspaceThemeOutput)
 }
 
+// The theme configuration for dark mode.
 func (o WorkspaceThemePtrOutput) Dark() WorkspaceThemeConfigPtrOutput {
 	return o.ApplyT(func(v *WorkspaceTheme) *WorkspaceThemeConfig {
 		if v == nil {
@@ -15226,6 +15361,7 @@ func (o WorkspaceThemePtrOutput) Dark() WorkspaceThemeConfigPtrOutput {
 	}).(WorkspaceThemeConfigPtrOutput)
 }
 
+// The theme configuration for light mode.
 func (o WorkspaceThemePtrOutput) Light() WorkspaceThemeConfigPtrOutput {
 	return o.ApplyT(func(v *WorkspaceTheme) *WorkspaceThemeConfig {
 		if v == nil {
@@ -15236,7 +15372,9 @@ func (o WorkspaceThemePtrOutput) Light() WorkspaceThemeConfigPtrOutput {
 }
 
 type WorkspaceThemeConfig struct {
-	Palette    *WorkspaceThemePalette    `pulumi:"palette"`
+	// The color palette configuration for the workspace theme.
+	Palette *WorkspaceThemePalette `pulumi:"palette"`
+	// The typography configuration for the workspace theme.
 	Typography *WorkspaceThemeTypography `pulumi:"typography"`
 }
 
@@ -15252,7 +15390,9 @@ type WorkspaceThemeConfigInput interface {
 }
 
 type WorkspaceThemeConfigArgs struct {
-	Palette    WorkspaceThemePalettePtrInput    `pulumi:"palette"`
+	// The color palette configuration for the workspace theme.
+	Palette WorkspaceThemePalettePtrInput `pulumi:"palette"`
+	// The typography configuration for the workspace theme.
 	Typography WorkspaceThemeTypographyPtrInput `pulumi:"typography"`
 }
 
@@ -15333,10 +15473,12 @@ func (o WorkspaceThemeConfigOutput) ToWorkspaceThemeConfigPtrOutputWithContext(c
 	}).(WorkspaceThemeConfigPtrOutput)
 }
 
+// The color palette configuration for the workspace theme.
 func (o WorkspaceThemeConfigOutput) Palette() WorkspaceThemePalettePtrOutput {
 	return o.ApplyT(func(v WorkspaceThemeConfig) *WorkspaceThemePalette { return v.Palette }).(WorkspaceThemePalettePtrOutput)
 }
 
+// The typography configuration for the workspace theme.
 func (o WorkspaceThemeConfigOutput) Typography() WorkspaceThemeTypographyPtrOutput {
 	return o.ApplyT(func(v WorkspaceThemeConfig) *WorkspaceThemeTypography { return v.Typography }).(WorkspaceThemeTypographyPtrOutput)
 }
@@ -15365,6 +15507,7 @@ func (o WorkspaceThemeConfigPtrOutput) Elem() WorkspaceThemeConfigOutput {
 	}).(WorkspaceThemeConfigOutput)
 }
 
+// The color palette configuration for the workspace theme.
 func (o WorkspaceThemeConfigPtrOutput) Palette() WorkspaceThemePalettePtrOutput {
 	return o.ApplyT(func(v *WorkspaceThemeConfig) *WorkspaceThemePalette {
 		if v == nil {
@@ -15374,6 +15517,7 @@ func (o WorkspaceThemeConfigPtrOutput) Palette() WorkspaceThemePalettePtrOutput 
 	}).(WorkspaceThemePalettePtrOutput)
 }
 
+// The typography configuration for the workspace theme.
 func (o WorkspaceThemeConfigPtrOutput) Typography() WorkspaceThemeTypographyPtrOutput {
 	return o.ApplyT(func(v *WorkspaceThemeConfig) *WorkspaceThemeTypography {
 		if v == nil {
@@ -15384,10 +15528,14 @@ func (o WorkspaceThemeConfigPtrOutput) Typography() WorkspaceThemeTypographyPtrO
 }
 
 type WorkspaceThemePalette struct {
-	Canvas     *WorkspacePaletteCanvas     `pulumi:"canvas"`
-	Header     *WorkspacePaletteHeader     `pulumi:"header"`
+	// The color configuration for the canvas area.
+	Canvas *WorkspacePaletteCanvas `pulumi:"canvas"`
+	// The color configuration for the header area.
+	Header *WorkspacePaletteHeader `pulumi:"header"`
+	// The color configuration for the navigation area.
 	Navigation *WorkspacePaletteNavigation `pulumi:"navigation"`
-	Primary    *WorkspacePalettePrimary    `pulumi:"primary"`
+	// The primary color configuration used throughout the workspace.
+	Primary *WorkspacePalettePrimary `pulumi:"primary"`
 }
 
 // WorkspaceThemePaletteInput is an input type that accepts WorkspaceThemePaletteArgs and WorkspaceThemePaletteOutput values.
@@ -15402,10 +15550,14 @@ type WorkspaceThemePaletteInput interface {
 }
 
 type WorkspaceThemePaletteArgs struct {
-	Canvas     WorkspacePaletteCanvasPtrInput     `pulumi:"canvas"`
-	Header     WorkspacePaletteHeaderPtrInput     `pulumi:"header"`
+	// The color configuration for the canvas area.
+	Canvas WorkspacePaletteCanvasPtrInput `pulumi:"canvas"`
+	// The color configuration for the header area.
+	Header WorkspacePaletteHeaderPtrInput `pulumi:"header"`
+	// The color configuration for the navigation area.
 	Navigation WorkspacePaletteNavigationPtrInput `pulumi:"navigation"`
-	Primary    WorkspacePalettePrimaryPtrInput    `pulumi:"primary"`
+	// The primary color configuration used throughout the workspace.
+	Primary WorkspacePalettePrimaryPtrInput `pulumi:"primary"`
 }
 
 func (WorkspaceThemePaletteArgs) ElementType() reflect.Type {
@@ -15485,18 +15637,22 @@ func (o WorkspaceThemePaletteOutput) ToWorkspaceThemePalettePtrOutputWithContext
 	}).(WorkspaceThemePalettePtrOutput)
 }
 
+// The color configuration for the canvas area.
 func (o WorkspaceThemePaletteOutput) Canvas() WorkspacePaletteCanvasPtrOutput {
 	return o.ApplyT(func(v WorkspaceThemePalette) *WorkspacePaletteCanvas { return v.Canvas }).(WorkspacePaletteCanvasPtrOutput)
 }
 
+// The color configuration for the header area.
 func (o WorkspaceThemePaletteOutput) Header() WorkspacePaletteHeaderPtrOutput {
 	return o.ApplyT(func(v WorkspaceThemePalette) *WorkspacePaletteHeader { return v.Header }).(WorkspacePaletteHeaderPtrOutput)
 }
 
+// The color configuration for the navigation area.
 func (o WorkspaceThemePaletteOutput) Navigation() WorkspacePaletteNavigationPtrOutput {
 	return o.ApplyT(func(v WorkspaceThemePalette) *WorkspacePaletteNavigation { return v.Navigation }).(WorkspacePaletteNavigationPtrOutput)
 }
 
+// The primary color configuration used throughout the workspace.
 func (o WorkspaceThemePaletteOutput) Primary() WorkspacePalettePrimaryPtrOutput {
 	return o.ApplyT(func(v WorkspaceThemePalette) *WorkspacePalettePrimary { return v.Primary }).(WorkspacePalettePrimaryPtrOutput)
 }
@@ -15525,6 +15681,7 @@ func (o WorkspaceThemePalettePtrOutput) Elem() WorkspaceThemePaletteOutput {
 	}).(WorkspaceThemePaletteOutput)
 }
 
+// The color configuration for the canvas area.
 func (o WorkspaceThemePalettePtrOutput) Canvas() WorkspacePaletteCanvasPtrOutput {
 	return o.ApplyT(func(v *WorkspaceThemePalette) *WorkspacePaletteCanvas {
 		if v == nil {
@@ -15534,6 +15691,7 @@ func (o WorkspaceThemePalettePtrOutput) Canvas() WorkspacePaletteCanvasPtrOutput
 	}).(WorkspacePaletteCanvasPtrOutput)
 }
 
+// The color configuration for the header area.
 func (o WorkspaceThemePalettePtrOutput) Header() WorkspacePaletteHeaderPtrOutput {
 	return o.ApplyT(func(v *WorkspaceThemePalette) *WorkspacePaletteHeader {
 		if v == nil {
@@ -15543,6 +15701,7 @@ func (o WorkspaceThemePalettePtrOutput) Header() WorkspacePaletteHeaderPtrOutput
 	}).(WorkspacePaletteHeaderPtrOutput)
 }
 
+// The color configuration for the navigation area.
 func (o WorkspaceThemePalettePtrOutput) Navigation() WorkspacePaletteNavigationPtrOutput {
 	return o.ApplyT(func(v *WorkspaceThemePalette) *WorkspacePaletteNavigation {
 		if v == nil {
@@ -15552,6 +15711,7 @@ func (o WorkspaceThemePalettePtrOutput) Navigation() WorkspacePaletteNavigationP
 	}).(WorkspacePaletteNavigationPtrOutput)
 }
 
+// The primary color configuration used throughout the workspace.
 func (o WorkspaceThemePalettePtrOutput) Primary() WorkspacePalettePrimaryPtrOutput {
 	return o.ApplyT(func(v *WorkspaceThemePalette) *WorkspacePalettePrimary {
 		if v == nil {
@@ -15562,6 +15722,7 @@ func (o WorkspaceThemePalettePtrOutput) Primary() WorkspacePalettePrimaryPtrOutp
 }
 
 type WorkspaceThemeTypography struct {
+	// The font family configuration for text in the workspace.
 	FontFamily *FontFamily `pulumi:"fontFamily"`
 }
 
@@ -15577,6 +15738,7 @@ type WorkspaceThemeTypographyInput interface {
 }
 
 type WorkspaceThemeTypographyArgs struct {
+	// The font family configuration for text in the workspace.
 	FontFamily FontFamilyPtrInput `pulumi:"fontFamily"`
 }
 
@@ -15657,6 +15819,7 @@ func (o WorkspaceThemeTypographyOutput) ToWorkspaceThemeTypographyPtrOutputWithC
 	}).(WorkspaceThemeTypographyPtrOutput)
 }
 
+// The font family configuration for text in the workspace.
 func (o WorkspaceThemeTypographyOutput) FontFamily() FontFamilyPtrOutput {
 	return o.ApplyT(func(v WorkspaceThemeTypography) *FontFamily { return v.FontFamily }).(FontFamilyPtrOutput)
 }
@@ -15685,6 +15848,7 @@ func (o WorkspaceThemeTypographyPtrOutput) Elem() WorkspaceThemeTypographyOutput
 	}).(WorkspaceThemeTypographyOutput)
 }
 
+// The font family configuration for text in the workspace.
 func (o WorkspaceThemeTypographyPtrOutput) FontFamily() FontFamilyPtrOutput {
 	return o.ApplyT(func(v *WorkspaceThemeTypography) *FontFamily {
 		if v == nil {

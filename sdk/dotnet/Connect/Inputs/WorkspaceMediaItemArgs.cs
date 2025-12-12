@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
     public sealed class WorkspaceMediaItemArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The source URL or data for the media asset.
+        /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
 
+        /// <summary>
+        /// The type of media. Valid values are: `IMAGE_LOGO_FAVICON` and `IMAGE_LOGO_HORIZONTAL` .
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Connect.WorkspaceMediaType> Type { get; set; } = null!;
 

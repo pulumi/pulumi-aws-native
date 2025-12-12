@@ -15,12 +15,18 @@ namespace Pulumi.AwsNative.Connect
     [AwsNativeResourceType("aws-native:connect:DataTableRecord")]
     public partial class DataTableRecord : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
+        /// </summary>
         [Output("dataTableArn")]
         public Output<string?> DataTableArn { get; private set; } = null!;
 
         [Output("dataTableRecord")]
         public Output<Outputs.DataTableRecordProperties?> DataTableRecordValue { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance.
+        /// </summary>
         [Output("instanceArn")]
         public Output<string?> InstanceArn { get; private set; } = null!;
 
@@ -77,12 +83,18 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class DataTableRecordArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
+        /// </summary>
         [Input("dataTableArn")]
         public Input<string>? DataTableArn { get; set; }
 
         [Input("dataTableRecord")]
         public Input<Inputs.DataTableRecordPropertiesArgs>? DataTableRecordValue { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance.
+        /// </summary>
         [Input("instanceArn")]
         public Input<string>? InstanceArn { get; set; }
 

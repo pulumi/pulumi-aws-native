@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.SecurityHub
     public sealed class GetDelegatedAdminArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
+        /// The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
         /// </summary>
         [Input("delegatedAdminIdentifier", required: true)]
         public string DelegatedAdminIdentifier { get; set; } = null!;
@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.SecurityHub
     public sealed class GetDelegatedAdminInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
+        /// The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
         /// </summary>
         [Input("delegatedAdminIdentifier", required: true)]
         public Input<string> DelegatedAdminIdentifier { get; set; } = null!;
@@ -73,11 +73,11 @@ namespace Pulumi.AwsNative.SecurityHub
     public sealed class GetDelegatedAdminResult
     {
         /// <summary>
-        /// The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
+        /// The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
         /// </summary>
         public readonly string? DelegatedAdminIdentifier;
         /// <summary>
-        /// Whether the delegated Security Hub administrator is set for the organization.
+        /// Whether the delegated Security Hub CSPM administrator is set for the organization.
         /// </summary>
         public readonly Pulumi.AwsNative.SecurityHub.DelegatedAdminStatus? Status;
 

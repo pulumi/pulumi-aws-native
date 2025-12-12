@@ -25,6 +25,11 @@ export const getDocument: typeof import("./getDocument").getDocument = null as a
 export const getDocumentOutput: typeof import("./getDocument").getDocumentOutput = null as any;
 utilities.lazyLoad(exports, ["getDocument","getDocumentOutput"], () => require("./getDocument"));
 
+export { GetMaintenanceWindowTargetArgs, GetMaintenanceWindowTargetResult, GetMaintenanceWindowTargetOutputArgs } from "./getMaintenanceWindowTarget";
+export const getMaintenanceWindowTarget: typeof import("./getMaintenanceWindowTarget").getMaintenanceWindowTarget = null as any;
+export const getMaintenanceWindowTargetOutput: typeof import("./getMaintenanceWindowTarget").getMaintenanceWindowTargetOutput = null as any;
+utilities.lazyLoad(exports, ["getMaintenanceWindowTarget","getMaintenanceWindowTargetOutput"], () => require("./getMaintenanceWindowTarget"));
+
 export { GetParameterArgs, GetParameterResult, GetParameterOutputArgs } from "./getParameter";
 export const getParameter: typeof import("./getParameter").getParameter = null as any;
 export const getParameterOutput: typeof import("./getParameter").getParameterOutput = null as any;
@@ -44,6 +49,11 @@ export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutput
 export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
 export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
+
+export { MaintenanceWindowTargetArgs } from "./maintenanceWindowTarget";
+export type MaintenanceWindowTarget = import("./maintenanceWindowTarget").MaintenanceWindowTarget;
+export const MaintenanceWindowTarget: typeof import("./maintenanceWindowTarget").MaintenanceWindowTarget = null as any;
+utilities.lazyLoad(exports, ["MaintenanceWindowTarget"], () => require("./maintenanceWindowTarget"));
 
 export { ParameterArgs } from "./parameter";
 export type Parameter = import("./parameter").Parameter;
@@ -77,6 +87,8 @@ const _module = {
                 return new Association(name, <any>undefined, { urn })
             case "aws-native:ssm:Document":
                 return new Document(name, <any>undefined, { urn })
+            case "aws-native:ssm:MaintenanceWindowTarget":
+                return new MaintenanceWindowTarget(name, <any>undefined, { urn })
             case "aws-native:ssm:Parameter":
                 return new Parameter(name, <any>undefined, { urn })
             case "aws-native:ssm:PatchBaseline":

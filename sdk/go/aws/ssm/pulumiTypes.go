@@ -665,6 +665,112 @@ type DocumentTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type MaintenanceWindowTargetTargets struct {
+	// User-defined criteria for sending commands that target managed nodes that meet the criteria.
+	Key string `pulumi:"key"`
+	// User-defined criteria that maps to Key.
+	Values []string `pulumi:"values"`
+}
+
+// MaintenanceWindowTargetTargetsInput is an input type that accepts MaintenanceWindowTargetTargetsArgs and MaintenanceWindowTargetTargetsOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTargetTargetsInput` via:
+//
+//	MaintenanceWindowTargetTargetsArgs{...}
+type MaintenanceWindowTargetTargetsInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTargetTargetsOutput() MaintenanceWindowTargetTargetsOutput
+	ToMaintenanceWindowTargetTargetsOutputWithContext(context.Context) MaintenanceWindowTargetTargetsOutput
+}
+
+type MaintenanceWindowTargetTargetsArgs struct {
+	// User-defined criteria for sending commands that target managed nodes that meet the criteria.
+	Key pulumi.StringInput `pulumi:"key"`
+	// User-defined criteria that maps to Key.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (MaintenanceWindowTargetTargetsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTargetTargets)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTargetTargetsArgs) ToMaintenanceWindowTargetTargetsOutput() MaintenanceWindowTargetTargetsOutput {
+	return i.ToMaintenanceWindowTargetTargetsOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTargetTargetsArgs) ToMaintenanceWindowTargetTargetsOutputWithContext(ctx context.Context) MaintenanceWindowTargetTargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTargetTargetsOutput)
+}
+
+// MaintenanceWindowTargetTargetsArrayInput is an input type that accepts MaintenanceWindowTargetTargetsArray and MaintenanceWindowTargetTargetsArrayOutput values.
+// You can construct a concrete instance of `MaintenanceWindowTargetTargetsArrayInput` via:
+//
+//	MaintenanceWindowTargetTargetsArray{ MaintenanceWindowTargetTargetsArgs{...} }
+type MaintenanceWindowTargetTargetsArrayInput interface {
+	pulumi.Input
+
+	ToMaintenanceWindowTargetTargetsArrayOutput() MaintenanceWindowTargetTargetsArrayOutput
+	ToMaintenanceWindowTargetTargetsArrayOutputWithContext(context.Context) MaintenanceWindowTargetTargetsArrayOutput
+}
+
+type MaintenanceWindowTargetTargetsArray []MaintenanceWindowTargetTargetsInput
+
+func (MaintenanceWindowTargetTargetsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MaintenanceWindowTargetTargets)(nil)).Elem()
+}
+
+func (i MaintenanceWindowTargetTargetsArray) ToMaintenanceWindowTargetTargetsArrayOutput() MaintenanceWindowTargetTargetsArrayOutput {
+	return i.ToMaintenanceWindowTargetTargetsArrayOutputWithContext(context.Background())
+}
+
+func (i MaintenanceWindowTargetTargetsArray) ToMaintenanceWindowTargetTargetsArrayOutputWithContext(ctx context.Context) MaintenanceWindowTargetTargetsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowTargetTargetsArrayOutput)
+}
+
+type MaintenanceWindowTargetTargetsOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTargetTargetsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MaintenanceWindowTargetTargets)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTargetTargetsOutput) ToMaintenanceWindowTargetTargetsOutput() MaintenanceWindowTargetTargetsOutput {
+	return o
+}
+
+func (o MaintenanceWindowTargetTargetsOutput) ToMaintenanceWindowTargetTargetsOutputWithContext(ctx context.Context) MaintenanceWindowTargetTargetsOutput {
+	return o
+}
+
+// User-defined criteria for sending commands that target managed nodes that meet the criteria.
+func (o MaintenanceWindowTargetTargetsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v MaintenanceWindowTargetTargets) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// User-defined criteria that maps to Key.
+func (o MaintenanceWindowTargetTargetsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MaintenanceWindowTargetTargets) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type MaintenanceWindowTargetTargetsArrayOutput struct{ *pulumi.OutputState }
+
+func (MaintenanceWindowTargetTargetsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MaintenanceWindowTargetTargets)(nil)).Elem()
+}
+
+func (o MaintenanceWindowTargetTargetsArrayOutput) ToMaintenanceWindowTargetTargetsArrayOutput() MaintenanceWindowTargetTargetsArrayOutput {
+	return o
+}
+
+func (o MaintenanceWindowTargetTargetsArrayOutput) ToMaintenanceWindowTargetTargetsArrayOutputWithContext(ctx context.Context) MaintenanceWindowTargetTargetsArrayOutput {
+	return o
+}
+
+func (o MaintenanceWindowTargetTargetsArrayOutput) Index(i pulumi.IntInput) MaintenanceWindowTargetTargetsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MaintenanceWindowTargetTargets {
+		return vs[0].([]MaintenanceWindowTargetTargets)[vs[1].(int)]
+	}).(MaintenanceWindowTargetTargetsOutput)
+}
+
 // Defines which patches should be included in a patch baseline.
 type PatchBaselinePatchFilter struct {
 	// The key for the filter.
@@ -2018,6 +2124,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentAttachmentsSourceArrayInput)(nil)).Elem(), DocumentAttachmentsSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentRequiresInput)(nil)).Elem(), DocumentRequiresArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentRequiresArrayInput)(nil)).Elem(), DocumentRequiresArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTargetTargetsInput)(nil)).Elem(), MaintenanceWindowTargetTargetsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTargetTargetsArrayInput)(nil)).Elem(), MaintenanceWindowTargetTargetsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselinePatchFilterInput)(nil)).Elem(), PatchBaselinePatchFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselinePatchFilterArrayInput)(nil)).Elem(), PatchBaselinePatchFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselinePatchFilterGroupInput)(nil)).Elem(), PatchBaselinePatchFilterGroupArgs{})
@@ -2044,6 +2152,8 @@ func init() {
 	pulumi.RegisterOutputType(DocumentAttachmentsSourceArrayOutput{})
 	pulumi.RegisterOutputType(DocumentRequiresOutput{})
 	pulumi.RegisterOutputType(DocumentRequiresArrayOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTargetTargetsOutput{})
+	pulumi.RegisterOutputType(MaintenanceWindowTargetTargetsArrayOutput{})
 	pulumi.RegisterOutputType(PatchBaselinePatchFilterOutput{})
 	pulumi.RegisterOutputType(PatchBaselinePatchFilterArrayOutput{})
 	pulumi.RegisterOutputType(PatchBaselinePatchFilterGroupOutput{})

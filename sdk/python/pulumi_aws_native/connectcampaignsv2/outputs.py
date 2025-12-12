@@ -1379,6 +1379,7 @@ class CampaignTelephonyOutboundConfig(dict):
         :param _builtins.str connect_contact_flow_id: The identifier of the published Amazon Connect contact flow.
         :param 'CampaignAnswerMachineDetectionConfig' answer_machine_detection_config: The answering machine detection configuration.
         :param _builtins.str connect_source_phone_number: The Amazon Connect source phone number.
+        :param _builtins.int ring_timeout: The ring timeout configuration for outbound calls. Specifies how long to wait for the call to be answered before timing out.
         """
         pulumi.set(__self__, "connect_contact_flow_id", connect_contact_flow_id)
         if answer_machine_detection_config is not None:
@@ -1415,6 +1416,9 @@ class CampaignTelephonyOutboundConfig(dict):
     @_builtins.property
     @pulumi.getter(name="ringTimeout")
     def ring_timeout(self) -> Optional[_builtins.int]:
+        """
+        The ring timeout configuration for outbound calls. Specifies how long to wait for the call to be answered before timing out.
+        """
         return pulumi.get(self, "ring_timeout")
 
 

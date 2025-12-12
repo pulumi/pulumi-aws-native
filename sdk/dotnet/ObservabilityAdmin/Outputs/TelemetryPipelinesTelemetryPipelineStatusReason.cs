@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
     [OutputType]
     public sealed class TelemetryPipelinesTelemetryPipelineStatusReason
     {
+        /// <summary>
+        /// A description of the pipeline status reason, providing additional context about the current state.
+        /// </summary>
         public readonly string? Description;
 
         [OutputConstructor]

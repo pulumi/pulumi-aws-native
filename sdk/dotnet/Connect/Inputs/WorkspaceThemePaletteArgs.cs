@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
     public sealed class WorkspaceThemePaletteArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The color configuration for the canvas area.
+        /// </summary>
         [Input("canvas")]
         public Input<Inputs.WorkspacePaletteCanvasArgs>? Canvas { get; set; }
 
+        /// <summary>
+        /// The color configuration for the header area.
+        /// </summary>
         [Input("header")]
         public Input<Inputs.WorkspacePaletteHeaderArgs>? Header { get; set; }
 
+        /// <summary>
+        /// The color configuration for the navigation area.
+        /// </summary>
         [Input("navigation")]
         public Input<Inputs.WorkspacePaletteNavigationArgs>? Navigation { get; set; }
 
+        /// <summary>
+        /// The primary color configuration used throughout the workspace.
+        /// </summary>
         [Input("primary")]
         public Input<Inputs.WorkspacePalettePrimaryArgs>? Primary { get; set; }
 

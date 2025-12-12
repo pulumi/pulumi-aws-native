@@ -15,17 +15,27 @@ import (
 type DataTableAttribute struct {
 	pulumi.CustomResourceState
 
-	AttributeId        pulumi.StringOutput                  `pulumi:"attributeId"`
-	DataTableArn       pulumi.StringPtrOutput               `pulumi:"dataTableArn"`
-	Description        pulumi.StringPtrOutput               `pulumi:"description"`
-	InstanceArn        pulumi.StringPtrOutput               `pulumi:"instanceArn"`
-	LastModifiedRegion pulumi.StringOutput                  `pulumi:"lastModifiedRegion"`
-	LastModifiedTime   pulumi.Float64Output                 `pulumi:"lastModifiedTime"`
-	LockVersion        LockVersionPropertiesOutput          `pulumi:"lockVersion"`
-	Name               pulumi.StringPtrOutput               `pulumi:"name"`
-	Primary            pulumi.BoolPtrOutput                 `pulumi:"primary"`
-	Validation         ValidationPropertiesPtrOutput        `pulumi:"validation"`
-	ValueType          DataTableAttributeValueTypePtrOutput `pulumi:"valueType"`
+	// The unique identifier for the attribute within the data table.
+	AttributeId pulumi.StringOutput `pulumi:"attributeId"`
+	// The Amazon Resource Name (ARN) of the data table that contains this attribute.
+	DataTableArn pulumi.StringPtrOutput `pulumi:"dataTableArn"`
+	// An optional description explaining the purpose and usage of this attribute.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The Amazon Resource Name (ARN) of the instance.
+	InstanceArn pulumi.StringPtrOutput `pulumi:"instanceArn"`
+	// The AWS Region where this attribute was last modified, used for region replication.
+	LastModifiedRegion pulumi.StringOutput `pulumi:"lastModifiedRegion"`
+	// The timestamp when this attribute was last modified.
+	LastModifiedTime pulumi.Float64Output        `pulumi:"lastModifiedTime"`
+	LockVersion      LockVersionPropertiesOutput `pulumi:"lockVersion"`
+	// The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Boolean indicating whether this attribute is used as a primary key for record identification. Primary attributes must have unique value combinations and cannot contain expressions.
+	Primary pulumi.BoolPtrOutput `pulumi:"primary"`
+	// The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
+	Validation ValidationPropertiesPtrOutput `pulumi:"validation"`
+	// The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
+	ValueType DataTableAttributeValueTypePtrOutput `pulumi:"valueType"`
 }
 
 // NewDataTableAttribute registers a new resource with the given unique name, arguments, and options.
@@ -73,24 +83,38 @@ func (DataTableAttributeState) ElementType() reflect.Type {
 }
 
 type dataTableAttributeArgs struct {
-	DataTableArn *string                      `pulumi:"dataTableArn"`
-	Description  *string                      `pulumi:"description"`
-	InstanceArn  *string                      `pulumi:"instanceArn"`
-	Name         *string                      `pulumi:"name"`
-	Primary      *bool                        `pulumi:"primary"`
-	Validation   *ValidationProperties        `pulumi:"validation"`
-	ValueType    *DataTableAttributeValueType `pulumi:"valueType"`
+	// The Amazon Resource Name (ARN) of the data table that contains this attribute.
+	DataTableArn *string `pulumi:"dataTableArn"`
+	// An optional description explaining the purpose and usage of this attribute.
+	Description *string `pulumi:"description"`
+	// The Amazon Resource Name (ARN) of the instance.
+	InstanceArn *string `pulumi:"instanceArn"`
+	// The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.
+	Name *string `pulumi:"name"`
+	// Boolean indicating whether this attribute is used as a primary key for record identification. Primary attributes must have unique value combinations and cannot contain expressions.
+	Primary *bool `pulumi:"primary"`
+	// The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
+	Validation *ValidationProperties `pulumi:"validation"`
+	// The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
+	ValueType *DataTableAttributeValueType `pulumi:"valueType"`
 }
 
 // The set of arguments for constructing a DataTableAttribute resource.
 type DataTableAttributeArgs struct {
+	// The Amazon Resource Name (ARN) of the data table that contains this attribute.
 	DataTableArn pulumi.StringPtrInput
-	Description  pulumi.StringPtrInput
-	InstanceArn  pulumi.StringPtrInput
-	Name         pulumi.StringPtrInput
-	Primary      pulumi.BoolPtrInput
-	Validation   ValidationPropertiesPtrInput
-	ValueType    DataTableAttributeValueTypePtrInput
+	// An optional description explaining the purpose and usage of this attribute.
+	Description pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the instance.
+	InstanceArn pulumi.StringPtrInput
+	// The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.
+	Name pulumi.StringPtrInput
+	// Boolean indicating whether this attribute is used as a primary key for record identification. Primary attributes must have unique value combinations and cannot contain expressions.
+	Primary pulumi.BoolPtrInput
+	// The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
+	Validation ValidationPropertiesPtrInput
+	// The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
+	ValueType DataTableAttributeValueTypePtrInput
 }
 
 func (DataTableAttributeArgs) ElementType() reflect.Type {
@@ -130,26 +154,32 @@ func (o DataTableAttributeOutput) ToDataTableAttributeOutputWithContext(ctx cont
 	return o
 }
 
+// The unique identifier for the attribute within the data table.
 func (o DataTableAttributeOutput) AttributeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataTableAttribute) pulumi.StringOutput { return v.AttributeId }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the data table that contains this attribute.
 func (o DataTableAttributeOutput) DataTableArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataTableAttribute) pulumi.StringPtrOutput { return v.DataTableArn }).(pulumi.StringPtrOutput)
 }
 
+// An optional description explaining the purpose and usage of this attribute.
 func (o DataTableAttributeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataTableAttribute) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the instance.
 func (o DataTableAttributeOutput) InstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataTableAttribute) pulumi.StringPtrOutput { return v.InstanceArn }).(pulumi.StringPtrOutput)
 }
 
+// The AWS Region where this attribute was last modified, used for region replication.
 func (o DataTableAttributeOutput) LastModifiedRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataTableAttribute) pulumi.StringOutput { return v.LastModifiedRegion }).(pulumi.StringOutput)
 }
 
+// The timestamp when this attribute was last modified.
 func (o DataTableAttributeOutput) LastModifiedTime() pulumi.Float64Output {
 	return o.ApplyT(func(v *DataTableAttribute) pulumi.Float64Output { return v.LastModifiedTime }).(pulumi.Float64Output)
 }
@@ -158,18 +188,22 @@ func (o DataTableAttributeOutput) LockVersion() LockVersionPropertiesOutput {
 	return o.ApplyT(func(v *DataTableAttribute) LockVersionPropertiesOutput { return v.LockVersion }).(LockVersionPropertiesOutput)
 }
 
+// The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.
 func (o DataTableAttributeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataTableAttribute) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Boolean indicating whether this attribute is used as a primary key for record identification. Primary attributes must have unique value combinations and cannot contain expressions.
 func (o DataTableAttributeOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataTableAttribute) pulumi.BoolPtrOutput { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
+// The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
 func (o DataTableAttributeOutput) Validation() ValidationPropertiesPtrOutput {
 	return o.ApplyT(func(v *DataTableAttribute) ValidationPropertiesPtrOutput { return v.Validation }).(ValidationPropertiesPtrOutput)
 }
 
+// The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
 func (o DataTableAttributeOutput) ValueType() DataTableAttributeValueTypePtrOutput {
 	return o.ApplyT(func(v *DataTableAttribute) DataTableAttributeValueTypePtrOutput { return v.ValueType }).(DataTableAttributeValueTypePtrOutput)
 }

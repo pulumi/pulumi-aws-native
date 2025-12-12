@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     {
         [Input("audio")]
         private InputList<Inputs.KnowledgeBaseAudioConfigurationArgs>? _audio;
+
+        /// <summary>
+        /// Configuration settings for processing audio content in multimodal knowledge bases.
+        /// </summary>
         public InputList<Inputs.KnowledgeBaseAudioConfigurationArgs> Audio
         {
             get => _audio ?? (_audio = new InputList<Inputs.KnowledgeBaseAudioConfigurationArgs>());
@@ -37,6 +41,10 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
 
         [Input("video")]
         private InputList<Inputs.KnowledgeBaseVideoConfigurationArgs>? _video;
+
+        /// <summary>
+        /// Configuration settings for processing video content in multimodal knowledge bases.
+        /// </summary>
         public InputList<Inputs.KnowledgeBaseVideoConfigurationArgs> Video
         {
             get => _video ?? (_video = new InputList<Inputs.KnowledgeBaseVideoConfigurationArgs>());

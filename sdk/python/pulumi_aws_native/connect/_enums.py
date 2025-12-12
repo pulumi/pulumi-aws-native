@@ -109,6 +109,9 @@ class ContactFlowType(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:connect:DataTableAttributeValueType")
 class DataTableAttributeValueType(_builtins.str, Enum):
+    """
+    The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
+    """
     TEXT = "TEXT"
     NUMBER = "NUMBER"
     BOOLEAN = "BOOLEAN"

@@ -399,8 +399,14 @@ func (o KeyModesOfUsePtrOutput) Wrap() pulumi.BoolPtrOutput {
 }
 
 type KeyReplicationStatusType struct {
-	Status        KeyReplicationState `pulumi:"status"`
-	StatusMessage *string             `pulumi:"statusMessage"`
+	// The current status of key replication in this AWS Region .
+	//
+	// This field indicates whether the key replication is in progress, completed successfully, or has encountered an error. Possible values include states such as `SYNCRHONIZED` , `IN_PROGRESS` , `DELETE_IN_PROGRESS` , or `FAILED` . This provides visibility into the replication process for monitoring and troubleshooting purposes.
+	Status KeyReplicationState `pulumi:"status"`
+	// A message that provides additional information about the current replication status of the key.
+	//
+	// This field contains details about any issues or progress updates related to key replication operations. It may include information about replication failures, synchronization status, or other operational details.
+	StatusMessage *string `pulumi:"statusMessage"`
 }
 
 type KeyReplicationStatusTypeOutput struct{ *pulumi.OutputState }
@@ -417,10 +423,16 @@ func (o KeyReplicationStatusTypeOutput) ToKeyReplicationStatusTypeOutputWithCont
 	return o
 }
 
+// The current status of key replication in this AWS Region .
+//
+// This field indicates whether the key replication is in progress, completed successfully, or has encountered an error. Possible values include states such as `SYNCRHONIZED` , `IN_PROGRESS` , `DELETE_IN_PROGRESS` , or `FAILED` . This provides visibility into the replication process for monitoring and troubleshooting purposes.
 func (o KeyReplicationStatusTypeOutput) Status() KeyReplicationStateOutput {
 	return o.ApplyT(func(v KeyReplicationStatusType) KeyReplicationState { return v.Status }).(KeyReplicationStateOutput)
 }
 
+// A message that provides additional information about the current replication status of the key.
+//
+// This field contains details about any issues or progress updates related to key replication operations. It may include information about replication failures, synchronization status, or other operational details.
 func (o KeyReplicationStatusTypeOutput) StatusMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyReplicationStatusType) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
 }

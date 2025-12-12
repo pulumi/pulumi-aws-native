@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
+    /// <summary>
+    /// Defines enumeration constraints for attribute values. Can specify a list of allowed values and whether custom values are permitted beyond the enumerated list.
+    /// </summary>
     public sealed class ValidationPropertiesEnumPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("strict")]

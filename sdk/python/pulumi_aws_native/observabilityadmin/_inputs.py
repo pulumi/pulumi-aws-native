@@ -1540,6 +1540,9 @@ class OrganizationTelemetryRuleWafLoggingParametersArgs:
 if not MYPY:
     class TelemetryPipelinesTelemetryPipelineConfigurationArgsDict(TypedDict):
         body: pulumi.Input[_builtins.str]
+        """
+        The pipeline configuration body that defines the data processing rules and transformations.
+        """
 elif False:
     TelemetryPipelinesTelemetryPipelineConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1547,11 +1550,17 @@ elif False:
 class TelemetryPipelinesTelemetryPipelineConfigurationArgs:
     def __init__(__self__, *,
                  body: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] body: The pipeline configuration body that defines the data processing rules and transformations.
+        """
         pulumi.set(__self__, "body", body)
 
     @_builtins.property
     @pulumi.getter
     def body(self) -> pulumi.Input[_builtins.str]:
+        """
+        The pipeline configuration body that defines the data processing rules and transformations.
+        """
         return pulumi.get(self, "body")
 
     @body.setter

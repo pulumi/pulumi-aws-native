@@ -37,8 +37,14 @@ export class DataTableRecord extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataTableRecord.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
+     */
     declare public readonly dataTableArn: pulumi.Output<string | undefined>;
     declare public readonly dataTableRecord: pulumi.Output<outputs.connect.DataTableRecordProperties | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the instance.
+     */
     declare public readonly instanceArn: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly recordId: pulumi.Output<string>;
 
@@ -74,7 +80,13 @@ export class DataTableRecord extends pulumi.CustomResource {
  * The set of arguments for constructing a DataTableRecord resource.
  */
 export interface DataTableRecordArgs {
+    /**
+     * The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
+     */
     dataTableArn?: pulumi.Input<string>;
     dataTableRecord?: pulumi.Input<inputs.connect.DataTableRecordPropertiesArgs>;
+    /**
+     * The Amazon Resource Name (ARN) of the instance.
+     */
     instanceArn?: pulumi.Input<string>;
 }

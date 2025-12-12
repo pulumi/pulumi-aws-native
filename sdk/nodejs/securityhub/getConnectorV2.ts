@@ -37,18 +37,33 @@ export interface GetConnectorV2Result {
      * The status of the connector
      */
     readonly connectorStatus?: enums.securityhub.ConnectorV2ConnectorStatus;
+    /**
+     * The timestamp when the V2 connector was created.
+     */
     readonly createdAt?: string;
     /**
      * A description of the connector
      */
     readonly description?: string;
+    /**
+     * The most recent timestamp when the V2 connector was checked on health status.
+     */
     readonly lastCheckedAt?: string;
+    /**
+     * The most recent timestamp when the V2 connector was updated.
+     */
     readonly lastUpdatedAt?: string;
     /**
      * The message of the connector status change
      */
     readonly message?: string;
+    /**
+     * The third-party provider detail for a service configuration.
+     */
     readonly provider?: outputs.securityhub.ConnectorV2Provider;
+    /**
+     * The tags to add to the connectorV2 when you create.
+     */
     readonly tags?: {[key: string]: string};
 }
 /**

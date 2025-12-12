@@ -131,6 +131,9 @@ class GetFunctionResult:
     @_builtins.property
     @pulumi.getter(name="capacityProviderConfig")
     def capacity_provider_config(self) -> Optional['outputs.FunctionCapacityProviderConfig']:
+        """
+        Configuration for the capacity provider that manages compute resources for Lambda functions.
+        """
         return pulumi.get(self, "capacity_provider_config")
 
     @_builtins.property
@@ -171,6 +174,9 @@ class GetFunctionResult:
     @_builtins.property
     @pulumi.getter(name="durableConfig")
     def durable_config(self) -> Optional['outputs.FunctionDurableConfig']:
+        """
+        Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+        """
         return pulumi.get(self, "durable_config")
 
     @_builtins.property
@@ -201,6 +207,9 @@ class GetFunctionResult:
     @_builtins.property
     @pulumi.getter(name="functionScalingConfig")
     def function_scaling_config(self) -> Optional['outputs.FunctionScalingConfig']:
+        """
+        Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+        """
         return pulumi.get(self, "function_scaling_config")
 
     @_builtins.property

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     [OutputType]
     public sealed class FunctionCapacityProviderConfig
     {
+        /// <summary>
+        /// Configuration for Lambda-managed instances used by the capacity provider.
+        /// </summary>
         public readonly Outputs.FunctionLambdaManagedInstancesCapacityProviderConfig LambdaManagedInstancesCapacityProviderConfig;
 
         [OutputConstructor]

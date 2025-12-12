@@ -3372,13 +3372,20 @@ func (o TelemetryPipelinesTagArrayOutput) Index(i pulumi.IntInput) TelemetryPipe
 }
 
 type TelemetryPipelinesTelemetryPipeline struct {
-	Arn                 *string                                           `pulumi:"arn"`
-	Configuration       *TelemetryPipelinesTelemetryPipelineConfiguration `pulumi:"configuration"`
-	CreatedTimeStamp    *float64                                          `pulumi:"createdTimeStamp"`
-	LastUpdateTimeStamp *float64                                          `pulumi:"lastUpdateTimeStamp"`
-	Name                *string                                           `pulumi:"name"`
-	Status              *TelemetryPipelinesTelemetryPipelineStatus        `pulumi:"status"`
-	StatusReason        *TelemetryPipelinesTelemetryPipelineStatusReason  `pulumi:"statusReason"`
+	// The Amazon Resource Name (ARN) of the telemetry pipeline.
+	Arn *string `pulumi:"arn"`
+	// The configuration that defines how the telemetry pipeline processes data.
+	Configuration *TelemetryPipelinesTelemetryPipelineConfiguration `pulumi:"configuration"`
+	// The timestamp when the telemetry pipeline was created.
+	CreatedTimeStamp *float64 `pulumi:"createdTimeStamp"`
+	// The timestamp when the telemetry pipeline was last updated.
+	LastUpdateTimeStamp *float64 `pulumi:"lastUpdateTimeStamp"`
+	// The name of the telemetry pipeline.
+	Name *string `pulumi:"name"`
+	// The current status of the telemetry pipeline.
+	Status *TelemetryPipelinesTelemetryPipelineStatus `pulumi:"status"`
+	// Additional information about the pipeline status, including reasons for failure states.
+	StatusReason *TelemetryPipelinesTelemetryPipelineStatusReason `pulumi:"statusReason"`
 	// An array of key-value pairs to apply to this resource
 	Tags []TelemetryPipelinesTag `pulumi:"tags"`
 }
@@ -3397,34 +3404,41 @@ func (o TelemetryPipelinesTelemetryPipelineOutput) ToTelemetryPipelinesTelemetry
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the telemetry pipeline.
 func (o TelemetryPipelinesTelemetryPipelineOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TelemetryPipelinesTelemetryPipeline) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The configuration that defines how the telemetry pipeline processes data.
 func (o TelemetryPipelinesTelemetryPipelineOutput) Configuration() TelemetryPipelinesTelemetryPipelineConfigurationPtrOutput {
 	return o.ApplyT(func(v TelemetryPipelinesTelemetryPipeline) *TelemetryPipelinesTelemetryPipelineConfiguration {
 		return v.Configuration
 	}).(TelemetryPipelinesTelemetryPipelineConfigurationPtrOutput)
 }
 
+// The timestamp when the telemetry pipeline was created.
 func (o TelemetryPipelinesTelemetryPipelineOutput) CreatedTimeStamp() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TelemetryPipelinesTelemetryPipeline) *float64 { return v.CreatedTimeStamp }).(pulumi.Float64PtrOutput)
 }
 
+// The timestamp when the telemetry pipeline was last updated.
 func (o TelemetryPipelinesTelemetryPipelineOutput) LastUpdateTimeStamp() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TelemetryPipelinesTelemetryPipeline) *float64 { return v.LastUpdateTimeStamp }).(pulumi.Float64PtrOutput)
 }
 
+// The name of the telemetry pipeline.
 func (o TelemetryPipelinesTelemetryPipelineOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TelemetryPipelinesTelemetryPipeline) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The current status of the telemetry pipeline.
 func (o TelemetryPipelinesTelemetryPipelineOutput) Status() TelemetryPipelinesTelemetryPipelineStatusPtrOutput {
 	return o.ApplyT(func(v TelemetryPipelinesTelemetryPipeline) *TelemetryPipelinesTelemetryPipelineStatus {
 		return v.Status
 	}).(TelemetryPipelinesTelemetryPipelineStatusPtrOutput)
 }
 
+// Additional information about the pipeline status, including reasons for failure states.
 func (o TelemetryPipelinesTelemetryPipelineOutput) StatusReason() TelemetryPipelinesTelemetryPipelineStatusReasonPtrOutput {
 	return o.ApplyT(func(v TelemetryPipelinesTelemetryPipeline) *TelemetryPipelinesTelemetryPipelineStatusReason {
 		return v.StatusReason
@@ -3460,6 +3474,7 @@ func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Elem() TelemetryPipelinesT
 	}).(TelemetryPipelinesTelemetryPipelineOutput)
 }
 
+// The Amazon Resource Name (ARN) of the telemetry pipeline.
 func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TelemetryPipelinesTelemetryPipeline) *string {
 		if v == nil {
@@ -3469,6 +3484,7 @@ func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Arn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration that defines how the telemetry pipeline processes data.
 func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Configuration() TelemetryPipelinesTelemetryPipelineConfigurationPtrOutput {
 	return o.ApplyT(func(v *TelemetryPipelinesTelemetryPipeline) *TelemetryPipelinesTelemetryPipelineConfiguration {
 		if v == nil {
@@ -3478,6 +3494,7 @@ func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Configuration() TelemetryP
 	}).(TelemetryPipelinesTelemetryPipelineConfigurationPtrOutput)
 }
 
+// The timestamp when the telemetry pipeline was created.
 func (o TelemetryPipelinesTelemetryPipelinePtrOutput) CreatedTimeStamp() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TelemetryPipelinesTelemetryPipeline) *float64 {
 		if v == nil {
@@ -3487,6 +3504,7 @@ func (o TelemetryPipelinesTelemetryPipelinePtrOutput) CreatedTimeStamp() pulumi.
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The timestamp when the telemetry pipeline was last updated.
 func (o TelemetryPipelinesTelemetryPipelinePtrOutput) LastUpdateTimeStamp() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TelemetryPipelinesTelemetryPipeline) *float64 {
 		if v == nil {
@@ -3496,6 +3514,7 @@ func (o TelemetryPipelinesTelemetryPipelinePtrOutput) LastUpdateTimeStamp() pulu
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The name of the telemetry pipeline.
 func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TelemetryPipelinesTelemetryPipeline) *string {
 		if v == nil {
@@ -3505,6 +3524,7 @@ func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Name() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The current status of the telemetry pipeline.
 func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Status() TelemetryPipelinesTelemetryPipelineStatusPtrOutput {
 	return o.ApplyT(func(v *TelemetryPipelinesTelemetryPipeline) *TelemetryPipelinesTelemetryPipelineStatus {
 		if v == nil {
@@ -3514,6 +3534,7 @@ func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Status() TelemetryPipeline
 	}).(TelemetryPipelinesTelemetryPipelineStatusPtrOutput)
 }
 
+// Additional information about the pipeline status, including reasons for failure states.
 func (o TelemetryPipelinesTelemetryPipelinePtrOutput) StatusReason() TelemetryPipelinesTelemetryPipelineStatusReasonPtrOutput {
 	return o.ApplyT(func(v *TelemetryPipelinesTelemetryPipeline) *TelemetryPipelinesTelemetryPipelineStatusReason {
 		if v == nil {
@@ -3534,6 +3555,7 @@ func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Tags() TelemetryPipelinesT
 }
 
 type TelemetryPipelinesTelemetryPipelineConfiguration struct {
+	// The pipeline configuration body that defines the data processing rules and transformations.
 	Body string `pulumi:"body"`
 }
 
@@ -3549,6 +3571,7 @@ type TelemetryPipelinesTelemetryPipelineConfigurationInput interface {
 }
 
 type TelemetryPipelinesTelemetryPipelineConfigurationArgs struct {
+	// The pipeline configuration body that defines the data processing rules and transformations.
 	Body pulumi.StringInput `pulumi:"body"`
 }
 
@@ -3578,6 +3601,7 @@ func (o TelemetryPipelinesTelemetryPipelineConfigurationOutput) ToTelemetryPipel
 	return o
 }
 
+// The pipeline configuration body that defines the data processing rules and transformations.
 func (o TelemetryPipelinesTelemetryPipelineConfigurationOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v TelemetryPipelinesTelemetryPipelineConfiguration) string { return v.Body }).(pulumi.StringOutput)
 }
@@ -3606,6 +3630,7 @@ func (o TelemetryPipelinesTelemetryPipelineConfigurationPtrOutput) Elem() Teleme
 	}).(TelemetryPipelinesTelemetryPipelineConfigurationOutput)
 }
 
+// The pipeline configuration body that defines the data processing rules and transformations.
 func (o TelemetryPipelinesTelemetryPipelineConfigurationPtrOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TelemetryPipelinesTelemetryPipelineConfiguration) *string {
 		if v == nil {
@@ -3616,6 +3641,7 @@ func (o TelemetryPipelinesTelemetryPipelineConfigurationPtrOutput) Body() pulumi
 }
 
 type TelemetryPipelinesTelemetryPipelineStatusReason struct {
+	// A description of the pipeline status reason, providing additional context about the current state.
 	Description *string `pulumi:"description"`
 }
 
@@ -3633,6 +3659,7 @@ func (o TelemetryPipelinesTelemetryPipelineStatusReasonOutput) ToTelemetryPipeli
 	return o
 }
 
+// A description of the pipeline status reason, providing additional context about the current state.
 func (o TelemetryPipelinesTelemetryPipelineStatusReasonOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TelemetryPipelinesTelemetryPipelineStatusReason) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -3661,6 +3688,7 @@ func (o TelemetryPipelinesTelemetryPipelineStatusReasonPtrOutput) Elem() Telemet
 	}).(TelemetryPipelinesTelemetryPipelineStatusReasonOutput)
 }
 
+// A description of the pipeline status reason, providing additional context about the current state.
 func (o TelemetryPipelinesTelemetryPipelineStatusReasonPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TelemetryPipelinesTelemetryPipelineStatusReason) *string {
 		if v == nil {

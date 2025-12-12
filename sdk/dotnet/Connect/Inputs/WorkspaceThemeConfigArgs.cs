@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
     public sealed class WorkspaceThemeConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The color palette configuration for the workspace theme.
+        /// </summary>
         [Input("palette")]
         public Input<Inputs.WorkspaceThemePaletteArgs>? Palette { get; set; }
 
+        /// <summary>
+        /// The typography configuration for the workspace theme.
+        /// </summary>
         [Input("typography")]
         public Input<Inputs.WorkspaceThemeTypographyArgs>? Typography { get; set; }
 

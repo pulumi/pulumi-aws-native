@@ -15,36 +15,66 @@ namespace Pulumi.AwsNative.Connect
     [AwsNativeResourceType("aws-native:connect:DataTableAttribute")]
     public partial class DataTableAttribute : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The unique identifier for the attribute within the data table.
+        /// </summary>
         [Output("attributeId")]
         public Output<string> AttributeId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the data table that contains this attribute.
+        /// </summary>
         [Output("dataTableArn")]
         public Output<string?> DataTableArn { get; private set; } = null!;
 
+        /// <summary>
+        /// An optional description explaining the purpose and usage of this attribute.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance.
+        /// </summary>
         [Output("instanceArn")]
         public Output<string?> InstanceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS Region where this attribute was last modified, used for region replication.
+        /// </summary>
         [Output("lastModifiedRegion")]
         public Output<string> LastModifiedRegion { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp when this attribute was last modified.
+        /// </summary>
         [Output("lastModifiedTime")]
         public Output<double> LastModifiedTime { get; private set; } = null!;
 
         [Output("lockVersion")]
         public Output<Outputs.LockVersionProperties> LockVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Boolean indicating whether this attribute is used as a primary key for record identification. Primary attributes must have unique value combinations and cannot contain expressions.
+        /// </summary>
         [Output("primary")]
         public Output<bool?> Primary { get; private set; } = null!;
 
+        /// <summary>
+        /// The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
+        /// </summary>
         [Output("validation")]
         public Output<Outputs.ValidationProperties?> Validation { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
+        /// </summary>
         [Output("valueType")]
         public Output<Pulumi.AwsNative.Connect.DataTableAttributeValueType?> ValueType { get; private set; } = null!;
 
@@ -98,24 +128,45 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class DataTableAttributeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the data table that contains this attribute.
+        /// </summary>
         [Input("dataTableArn")]
         public Input<string>? DataTableArn { get; set; }
 
+        /// <summary>
+        /// An optional description explaining the purpose and usage of this attribute.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance.
+        /// </summary>
         [Input("instanceArn")]
         public Input<string>? InstanceArn { get; set; }
 
+        /// <summary>
+        /// The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Boolean indicating whether this attribute is used as a primary key for record identification. Primary attributes must have unique value combinations and cannot contain expressions.
+        /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }
 
+        /// <summary>
+        /// The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
+        /// </summary>
         [Input("validation")]
         public Input<Inputs.ValidationPropertiesArgs>? Validation { get; set; }
 
+        /// <summary>
+        /// The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
+        /// </summary>
         [Input("valueType")]
         public Input<Pulumi.AwsNative.Connect.DataTableAttributeValueType>? ValueType { get; set; }
 

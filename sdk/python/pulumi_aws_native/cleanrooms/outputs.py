@@ -806,6 +806,7 @@ class CollaborationMlPaymentConfig(dict):
         """
         :param 'CollaborationModelInferencePaymentConfig' model_inference: The payment responsibilities accepted by the member for model inference.
         :param 'CollaborationModelTrainingPaymentConfig' model_training: The payment responsibilities accepted by the member for model training.
+        :param 'CollaborationSyntheticDataGenerationPaymentConfig' synthetic_data_generation: The payment configuration for machine learning synthetic data generation.
         """
         if model_inference is not None:
             pulumi.set(__self__, "model_inference", model_inference)
@@ -833,6 +834,9 @@ class CollaborationMlPaymentConfig(dict):
     @_builtins.property
     @pulumi.getter(name="syntheticDataGeneration")
     def synthetic_data_generation(self) -> Optional['outputs.CollaborationSyntheticDataGenerationPaymentConfig']:
+        """
+        The payment configuration for machine learning synthetic data generation.
+        """
         return pulumi.get(self, "synthetic_data_generation")
 
 
@@ -1049,11 +1053,17 @@ class CollaborationSyntheticDataGenerationPaymentConfig(dict):
 
     def __init__(__self__, *,
                  is_responsible: _builtins.bool):
+        """
+        :param _builtins.bool is_responsible: Indicates who is responsible for paying for synthetic data generation.
+        """
         pulumi.set(__self__, "is_responsible", is_responsible)
 
     @_builtins.property
     @pulumi.getter(name="isResponsible")
     def is_responsible(self) -> _builtins.bool:
+        """
+        Indicates who is responsible for paying for synthetic data generation.
+        """
         return pulumi.get(self, "is_responsible")
 
 
@@ -2298,6 +2308,7 @@ class MembershipMlPaymentConfig(dict):
         """
         :param 'MembershipModelInferencePaymentConfig' model_inference: The payment responsibilities accepted by the member for model inference.
         :param 'MembershipModelTrainingPaymentConfig' model_training: The payment responsibilities accepted by the member for model training.
+        :param 'MembershipSyntheticDataGenerationPaymentConfig' synthetic_data_generation: The payment configuration for synthetic data generation for this machine learning membership.
         """
         if model_inference is not None:
             pulumi.set(__self__, "model_inference", model_inference)
@@ -2325,6 +2336,9 @@ class MembershipMlPaymentConfig(dict):
     @_builtins.property
     @pulumi.getter(name="syntheticDataGeneration")
     def synthetic_data_generation(self) -> Optional['outputs.MembershipSyntheticDataGenerationPaymentConfig']:
+        """
+        The payment configuration for synthetic data generation for this machine learning membership.
+        """
         return pulumi.get(self, "synthetic_data_generation")
 
 
@@ -2813,11 +2827,17 @@ class MembershipSyntheticDataGenerationPaymentConfig(dict):
 
     def __init__(__self__, *,
                  is_responsible: _builtins.bool):
+        """
+        :param _builtins.bool is_responsible: Indicates if this membership is responsible for paying for synthetic data generation.
+        """
         pulumi.set(__self__, "is_responsible", is_responsible)
 
     @_builtins.property
     @pulumi.getter(name="isResponsible")
     def is_responsible(self) -> _builtins.bool:
+        """
+        Indicates if this membership is responsible for paying for synthetic data generation.
+        """
         return pulumi.get(self, "is_responsible")
 
 

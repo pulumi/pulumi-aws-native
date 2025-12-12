@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.S3Tables
         [Output("metricsConfiguration")]
         public Output<Outputs.TableBucketMetricsConfiguration?> MetricsConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
+        /// </summary>
         [Output("storageClassConfiguration")]
         public Output<Outputs.TableBucketStorageClassConfiguration?> StorageClassConfiguration { get; private set; } = null!;
 
@@ -109,6 +112,9 @@ namespace Pulumi.AwsNative.S3Tables
         [Input("metricsConfiguration")]
         public Input<Inputs.TableBucketMetricsConfigurationArgs>? MetricsConfiguration { get; set; }
 
+        /// <summary>
+        /// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
+        /// </summary>
         [Input("storageClassConfiguration")]
         public Input<Inputs.TableBucketStorageClassConfigurationArgs>? StorageClassConfiguration { get; set; }
 

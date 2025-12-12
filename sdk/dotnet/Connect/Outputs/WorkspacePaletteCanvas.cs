@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class WorkspacePaletteCanvas
     {
+        /// <summary>
+        /// The background color for active elements.
+        /// </summary>
         public readonly string? ActiveBackground;
+        /// <summary>
+        /// The background color for container elements.
+        /// </summary>
         public readonly string? ContainerBackground;
+        /// <summary>
+        /// The background color for page elements.
+        /// </summary>
         public readonly string? PageBackground;
 
         [OutputConstructor]

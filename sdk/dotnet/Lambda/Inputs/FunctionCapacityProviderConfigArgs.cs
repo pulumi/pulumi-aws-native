@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 
     public sealed class FunctionCapacityProviderConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration for Lambda-managed instances used by the capacity provider.
+        /// </summary>
         [Input("lambdaManagedInstancesCapacityProviderConfig", required: true)]
         public Input<Inputs.FunctionLambdaManagedInstancesCapacityProviderConfigArgs> LambdaManagedInstancesCapacityProviderConfig { get; set; } = null!;
 

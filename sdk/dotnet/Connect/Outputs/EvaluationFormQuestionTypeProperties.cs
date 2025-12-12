@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class EvaluationFormQuestionTypeProperties
     {
+        /// <summary>
+        /// Properties for multi-select question types.
+        /// </summary>
         public readonly Outputs.EvaluationFormMultiSelectQuestionProperties? MultiSelect;
         /// <summary>
         /// The properties of the numeric question.

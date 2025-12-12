@@ -103,6 +103,9 @@ export class AnalysisTemplate extends pulumi.CustomResource {
      * The source metadata for the analysis template.
      */
     declare public readonly sourceMetadata: pulumi.Output<outputs.cleanrooms.AnalysisTemplateAnalysisSourceMetadataProperties | undefined>;
+    /**
+     * The parameters used to generate synthetic data for this analysis template.
+     */
     declare public readonly syntheticDataParameters: pulumi.Output<outputs.cleanrooms.AnalysisTemplateSyntheticDataParametersProperties | undefined>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
@@ -210,6 +213,9 @@ export interface AnalysisTemplateArgs {
      * The source metadata for the analysis template.
      */
     sourceMetadata?: pulumi.Input<inputs.cleanrooms.AnalysisTemplateAnalysisSourceMetadataPropertiesArgs>;
+    /**
+     * The parameters used to generate synthetic data for this analysis template.
+     */
     syntheticDataParameters?: pulumi.Input<inputs.cleanrooms.AnalysisTemplateSyntheticDataParametersPropertiesArgs>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.

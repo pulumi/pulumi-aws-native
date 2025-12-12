@@ -62,6 +62,9 @@ class GetTableBucketResult:
     @_builtins.property
     @pulumi.getter(name="storageClassConfiguration")
     def storage_class_configuration(self) -> Optional['outputs.TableBucketStorageClassConfiguration']:
+        """
+        The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
+        """
         return pulumi.get(self, "storage_class_configuration")
 
     @_builtins.property

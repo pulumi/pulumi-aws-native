@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class WorkspaceThemeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The theme configuration for dark mode.
+        /// </summary>
         [Input("dark")]
         public Input<Inputs.WorkspaceThemeConfigArgs>? Dark { get; set; }
 
+        /// <summary>
+        /// The theme configuration for light mode.
+        /// </summary>
         [Input("light")]
         public Input<Inputs.WorkspaceThemeConfigArgs>? Light { get; set; }
 

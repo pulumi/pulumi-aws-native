@@ -1102,6 +1102,7 @@ AWS::SQS::Queue
 AWS::SQS::QueueInlinePolicy
 AWS::SSM::Association
 AWS::SSM::Document
+AWS::SSM::MaintenanceWindowTarget
 AWS::SSM::Parameter
 AWS::SSM::PatchBaseline
 AWS::SSM::ResourceDataSync

@@ -10,18 +10,51 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Outputs
 {
 
+    /// <summary>
+    /// The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
+    /// </summary>
     [OutputType]
     public sealed class ValidationProperties
     {
+        /// <summary>
+        /// Defines enumeration constraints for attribute values. Can specify a list of allowed values and whether custom values are permitted beyond the enumerated list.
+        /// </summary>
         public readonly Outputs.ValidationPropertiesEnumProperties? Enum;
+        /// <summary>
+        /// The largest exclusive numeric value for NUMBER value type. Can be provided alongside Maximum where both operate independently. Must be greater than ExclusiveMinimum and Minimum. Applies to NUMBER and values within NUMBER_LIST.
+        /// </summary>
         public readonly double? ExclusiveMaximum;
+        /// <summary>
+        /// The smallest exclusive numeric value for NUMBER value type. Can be provided alongside Minimum where both operate independently. Must be less than ExclusiveMaximum and Maximum. Applies to NUMBER and values within NUMBER_LIST.
+        /// </summary>
         public readonly double? ExclusiveMinimum;
+        /// <summary>
+        /// The maximum number of characters a text value can contain. Applies to TEXT value type and values within a TEXT_LIST. Must be greater than or equal to MinLength.
+        /// </summary>
         public readonly int? MaxLength;
+        /// <summary>
+        /// The maximum number of values in a list. Must be an integer greater than or equal to 0 and greater than or equal to MinValues. Applies to all list types.
+        /// </summary>
         public readonly int? MaxValues;
+        /// <summary>
+        /// The largest inclusive numeric value for NUMBER value type. Can be provided alongside ExclusiveMaximum where both operate independently. Must be greater than or equal to Minimum and greater than ExclusiveMinimum. Applies to NUMBER and values within NUMBER_LIST.
+        /// </summary>
         public readonly double? Maximum;
+        /// <summary>
+        /// The minimum number of characters a text value can contain. Applies to TEXT value type and values within a TEXT_LIST. Must be less than or equal to MaxLength.
+        /// </summary>
         public readonly int? MinLength;
+        /// <summary>
+        /// The minimum number of values in a list. Must be an integer greater than or equal to 0 and less than or equal to MaxValues. Applies to all list types.
+        /// </summary>
         public readonly int? MinValues;
+        /// <summary>
+        /// The smallest inclusive numeric value for NUMBER value type. Cannot be provided when ExclusiveMinimum is also provided. Must be less than or equal to Maximum and less than ExclusiveMaximum. Applies to NUMBER and values within NUMBER_LIST.
+        /// </summary>
         public readonly double? Minimum;
+        /// <summary>
+        /// Specifies that numeric values must be multiples of this number. Must be greater than 0. The result of dividing a value by this multiple must result in an integer. Applies to NUMBER and values within NUMBER_LIST.
+        /// </summary>
         public readonly double? MultipleOf;
 
         [OutputConstructor]

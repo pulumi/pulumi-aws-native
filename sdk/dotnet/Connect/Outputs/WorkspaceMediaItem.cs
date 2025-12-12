@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class WorkspaceMediaItem
     {
+        /// <summary>
+        /// The source URL or data for the media asset.
+        /// </summary>
         public readonly string? Source;
+        /// <summary>
+        /// The type of media. Valid values are: `IMAGE_LOGO_FAVICON` and `IMAGE_LOGO_HORIZONTAL` .
+        /// </summary>
         public readonly Pulumi.AwsNative.Connect.WorkspaceMediaType Type;
 
         [OutputConstructor]

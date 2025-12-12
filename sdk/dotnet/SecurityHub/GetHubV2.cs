@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.SecurityHub
         /// </summary>
         public readonly string? SubscribedAt;
         /// <summary>
-        /// The tags to add to the hub V2 resource when you enable Security Hub.
+        /// The tags to add to the hub V2 resource when you enable Security Hub CSPM.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 

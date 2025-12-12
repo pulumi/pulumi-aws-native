@@ -45,11 +45,11 @@ export class DelegatedAdmin extends pulumi.CustomResource {
      */
     declare public readonly adminAccountId: pulumi.Output<string>;
     /**
-     * The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
+     * The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
      */
     declare public /*out*/ readonly delegatedAdminIdentifier: pulumi.Output<string>;
     /**
-     * Whether the delegated Security Hub administrator is set for the organization.
+     * Whether the delegated Security Hub CSPM administrator is set for the organization.
      */
     declare public /*out*/ readonly status: pulumi.Output<enums.securityhub.DelegatedAdminStatus>;
 

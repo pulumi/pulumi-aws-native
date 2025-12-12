@@ -2376,7 +2376,8 @@ type CollaborationMlPaymentConfig struct {
 	// The payment responsibilities accepted by the member for model inference.
 	ModelInference *CollaborationModelInferencePaymentConfig `pulumi:"modelInference"`
 	// The payment responsibilities accepted by the member for model training.
-	ModelTraining           *CollaborationModelTrainingPaymentConfig           `pulumi:"modelTraining"`
+	ModelTraining *CollaborationModelTrainingPaymentConfig `pulumi:"modelTraining"`
+	// The payment configuration for machine learning synthetic data generation.
 	SyntheticDataGeneration *CollaborationSyntheticDataGenerationPaymentConfig `pulumi:"syntheticDataGeneration"`
 }
 
@@ -2395,7 +2396,8 @@ type CollaborationMlPaymentConfigArgs struct {
 	// The payment responsibilities accepted by the member for model inference.
 	ModelInference CollaborationModelInferencePaymentConfigPtrInput `pulumi:"modelInference"`
 	// The payment responsibilities accepted by the member for model training.
-	ModelTraining           CollaborationModelTrainingPaymentConfigPtrInput           `pulumi:"modelTraining"`
+	ModelTraining CollaborationModelTrainingPaymentConfigPtrInput `pulumi:"modelTraining"`
+	// The payment configuration for machine learning synthetic data generation.
 	SyntheticDataGeneration CollaborationSyntheticDataGenerationPaymentConfigPtrInput `pulumi:"syntheticDataGeneration"`
 }
 
@@ -2488,6 +2490,7 @@ func (o CollaborationMlPaymentConfigOutput) ModelTraining() CollaborationModelTr
 	return o.ApplyT(func(v CollaborationMlPaymentConfig) *CollaborationModelTrainingPaymentConfig { return v.ModelTraining }).(CollaborationModelTrainingPaymentConfigPtrOutput)
 }
 
+// The payment configuration for machine learning synthetic data generation.
 func (o CollaborationMlPaymentConfigOutput) SyntheticDataGeneration() CollaborationSyntheticDataGenerationPaymentConfigPtrOutput {
 	return o.ApplyT(func(v CollaborationMlPaymentConfig) *CollaborationSyntheticDataGenerationPaymentConfig {
 		return v.SyntheticDataGeneration
@@ -2538,6 +2541,7 @@ func (o CollaborationMlPaymentConfigPtrOutput) ModelTraining() CollaborationMode
 	}).(CollaborationModelTrainingPaymentConfigPtrOutput)
 }
 
+// The payment configuration for machine learning synthetic data generation.
 func (o CollaborationMlPaymentConfigPtrOutput) SyntheticDataGeneration() CollaborationSyntheticDataGenerationPaymentConfigPtrOutput {
 	return o.ApplyT(func(v *CollaborationMlPaymentConfig) *CollaborationSyntheticDataGenerationPaymentConfig {
 		if v == nil {
@@ -3184,6 +3188,7 @@ func (o CollaborationQueryComputePaymentConfigPtrOutput) IsResponsible() pulumi.
 }
 
 type CollaborationSyntheticDataGenerationPaymentConfig struct {
+	// Indicates who is responsible for paying for synthetic data generation.
 	IsResponsible bool `pulumi:"isResponsible"`
 }
 
@@ -3199,6 +3204,7 @@ type CollaborationSyntheticDataGenerationPaymentConfigInput interface {
 }
 
 type CollaborationSyntheticDataGenerationPaymentConfigArgs struct {
+	// Indicates who is responsible for paying for synthetic data generation.
 	IsResponsible pulumi.BoolInput `pulumi:"isResponsible"`
 }
 
@@ -3279,6 +3285,7 @@ func (o CollaborationSyntheticDataGenerationPaymentConfigOutput) ToCollaboration
 	}).(CollaborationSyntheticDataGenerationPaymentConfigPtrOutput)
 }
 
+// Indicates who is responsible for paying for synthetic data generation.
 func (o CollaborationSyntheticDataGenerationPaymentConfigOutput) IsResponsible() pulumi.BoolOutput {
 	return o.ApplyT(func(v CollaborationSyntheticDataGenerationPaymentConfig) bool { return v.IsResponsible }).(pulumi.BoolOutput)
 }
@@ -3307,6 +3314,7 @@ func (o CollaborationSyntheticDataGenerationPaymentConfigPtrOutput) Elem() Colla
 	}).(CollaborationSyntheticDataGenerationPaymentConfigOutput)
 }
 
+// Indicates who is responsible for paying for synthetic data generation.
 func (o CollaborationSyntheticDataGenerationPaymentConfigPtrOutput) IsResponsible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CollaborationSyntheticDataGenerationPaymentConfig) *bool {
 		if v == nil {
@@ -6348,7 +6356,8 @@ type MembershipMlPaymentConfig struct {
 	// The payment responsibilities accepted by the member for model inference.
 	ModelInference *MembershipModelInferencePaymentConfig `pulumi:"modelInference"`
 	// The payment responsibilities accepted by the member for model training.
-	ModelTraining           *MembershipModelTrainingPaymentConfig           `pulumi:"modelTraining"`
+	ModelTraining *MembershipModelTrainingPaymentConfig `pulumi:"modelTraining"`
+	// The payment configuration for synthetic data generation for this machine learning membership.
 	SyntheticDataGeneration *MembershipSyntheticDataGenerationPaymentConfig `pulumi:"syntheticDataGeneration"`
 }
 
@@ -6367,7 +6376,8 @@ type MembershipMlPaymentConfigArgs struct {
 	// The payment responsibilities accepted by the member for model inference.
 	ModelInference MembershipModelInferencePaymentConfigPtrInput `pulumi:"modelInference"`
 	// The payment responsibilities accepted by the member for model training.
-	ModelTraining           MembershipModelTrainingPaymentConfigPtrInput           `pulumi:"modelTraining"`
+	ModelTraining MembershipModelTrainingPaymentConfigPtrInput `pulumi:"modelTraining"`
+	// The payment configuration for synthetic data generation for this machine learning membership.
 	SyntheticDataGeneration MembershipSyntheticDataGenerationPaymentConfigPtrInput `pulumi:"syntheticDataGeneration"`
 }
 
@@ -6458,6 +6468,7 @@ func (o MembershipMlPaymentConfigOutput) ModelTraining() MembershipModelTraining
 	return o.ApplyT(func(v MembershipMlPaymentConfig) *MembershipModelTrainingPaymentConfig { return v.ModelTraining }).(MembershipModelTrainingPaymentConfigPtrOutput)
 }
 
+// The payment configuration for synthetic data generation for this machine learning membership.
 func (o MembershipMlPaymentConfigOutput) SyntheticDataGeneration() MembershipSyntheticDataGenerationPaymentConfigPtrOutput {
 	return o.ApplyT(func(v MembershipMlPaymentConfig) *MembershipSyntheticDataGenerationPaymentConfig {
 		return v.SyntheticDataGeneration
@@ -6508,6 +6519,7 @@ func (o MembershipMlPaymentConfigPtrOutput) ModelTraining() MembershipModelTrain
 	}).(MembershipModelTrainingPaymentConfigPtrOutput)
 }
 
+// The payment configuration for synthetic data generation for this machine learning membership.
 func (o MembershipMlPaymentConfigPtrOutput) SyntheticDataGeneration() MembershipSyntheticDataGenerationPaymentConfigPtrOutput {
 	return o.ApplyT(func(v *MembershipMlPaymentConfig) *MembershipSyntheticDataGenerationPaymentConfig {
 		if v == nil {
@@ -8132,6 +8144,7 @@ func (o MembershipQueryComputePaymentConfigPtrOutput) IsResponsible() pulumi.Boo
 }
 
 type MembershipSyntheticDataGenerationPaymentConfig struct {
+	// Indicates if this membership is responsible for paying for synthetic data generation.
 	IsResponsible bool `pulumi:"isResponsible"`
 }
 
@@ -8147,6 +8160,7 @@ type MembershipSyntheticDataGenerationPaymentConfigInput interface {
 }
 
 type MembershipSyntheticDataGenerationPaymentConfigArgs struct {
+	// Indicates if this membership is responsible for paying for synthetic data generation.
 	IsResponsible pulumi.BoolInput `pulumi:"isResponsible"`
 }
 
@@ -8227,6 +8241,7 @@ func (o MembershipSyntheticDataGenerationPaymentConfigOutput) ToMembershipSynthe
 	}).(MembershipSyntheticDataGenerationPaymentConfigPtrOutput)
 }
 
+// Indicates if this membership is responsible for paying for synthetic data generation.
 func (o MembershipSyntheticDataGenerationPaymentConfigOutput) IsResponsible() pulumi.BoolOutput {
 	return o.ApplyT(func(v MembershipSyntheticDataGenerationPaymentConfig) bool { return v.IsResponsible }).(pulumi.BoolOutput)
 }
@@ -8255,6 +8270,7 @@ func (o MembershipSyntheticDataGenerationPaymentConfigPtrOutput) Elem() Membersh
 	}).(MembershipSyntheticDataGenerationPaymentConfigOutput)
 }
 
+// Indicates if this membership is responsible for paying for synthetic data generation.
 func (o MembershipSyntheticDataGenerationPaymentConfigPtrOutput) IsResponsible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MembershipSyntheticDataGenerationPaymentConfig) *bool {
 		if v == nil {

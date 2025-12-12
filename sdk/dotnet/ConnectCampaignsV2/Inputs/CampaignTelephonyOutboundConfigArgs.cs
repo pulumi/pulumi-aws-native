@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
         [Input("connectSourcePhoneNumber")]
         public Input<string>? ConnectSourcePhoneNumber { get; set; }
 
+        /// <summary>
+        /// The ring timeout configuration for outbound calls. Specifies how long to wait for the call to be answered before timing out.
+        /// </summary>
         [Input("ringTimeout")]
         public Input<int>? RingTimeout { get; set; }
 

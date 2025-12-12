@@ -34,15 +34,20 @@ type LookupConnectorV2Result struct {
 	ConnectorId *string `pulumi:"connectorId"`
 	// The status of the connector
 	ConnectorStatus *ConnectorV2ConnectorStatus `pulumi:"connectorStatus"`
-	CreatedAt       *string                     `pulumi:"createdAt"`
+	// The timestamp when the V2 connector was created.
+	CreatedAt *string `pulumi:"createdAt"`
 	// A description of the connector
-	Description   *string `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// The most recent timestamp when the V2 connector was checked on health status.
 	LastCheckedAt *string `pulumi:"lastCheckedAt"`
+	// The most recent timestamp when the V2 connector was updated.
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
 	// The message of the connector status change
-	Message  *string              `pulumi:"message"`
+	Message *string `pulumi:"message"`
+	// The third-party provider detail for a service configuration.
 	Provider *ConnectorV2Provider `pulumi:"provider"`
-	Tags     map[string]string    `pulumi:"tags"`
+	// The tags to add to the connectorV2 when you create.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupConnectorV2Output(ctx *pulumi.Context, args LookupConnectorV2OutputArgs, opts ...pulumi.InvokeOption) LookupConnectorV2ResultOutput {
@@ -92,6 +97,7 @@ func (o LookupConnectorV2ResultOutput) ConnectorStatus() ConnectorV2ConnectorSta
 	return o.ApplyT(func(v LookupConnectorV2Result) *ConnectorV2ConnectorStatus { return v.ConnectorStatus }).(ConnectorV2ConnectorStatusPtrOutput)
 }
 
+// The timestamp when the V2 connector was created.
 func (o LookupConnectorV2ResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorV2Result) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
@@ -101,10 +107,12 @@ func (o LookupConnectorV2ResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorV2Result) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The most recent timestamp when the V2 connector was checked on health status.
 func (o LookupConnectorV2ResultOutput) LastCheckedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorV2Result) *string { return v.LastCheckedAt }).(pulumi.StringPtrOutput)
 }
 
+// The most recent timestamp when the V2 connector was updated.
 func (o LookupConnectorV2ResultOutput) LastUpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorV2Result) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
 }
@@ -114,10 +122,12 @@ func (o LookupConnectorV2ResultOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorV2Result) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
+// The third-party provider detail for a service configuration.
 func (o LookupConnectorV2ResultOutput) Provider() ConnectorV2ProviderPtrOutput {
 	return o.ApplyT(func(v LookupConnectorV2Result) *ConnectorV2Provider { return v.Provider }).(ConnectorV2ProviderPtrOutput)
 }
 
+// The tags to add to the connectorV2 when you create.
 func (o LookupConnectorV2ResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupConnectorV2Result) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

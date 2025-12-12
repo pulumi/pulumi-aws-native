@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class WorkspaceTheme
     {
+        /// <summary>
+        /// The theme configuration for dark mode.
+        /// </summary>
         public readonly Outputs.WorkspaceThemeConfig? Dark;
+        /// <summary>
+        /// The theme configuration for light mode.
+        /// </summary>
         public readonly Outputs.WorkspaceThemeConfig? Light;
 
         [OutputConstructor]

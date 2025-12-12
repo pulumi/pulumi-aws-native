@@ -59,6 +59,10 @@ def get_data_table_record(data_table_arn: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataTableRecordResult:
     """
     Resource Type definition for AWS::Connect::DataTableRecord
+
+
+    :param _builtins.str data_table_arn: The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
+    :param _builtins.str instance_arn: The Amazon Resource Name (ARN) of the instance.
     """
     __args__ = dict()
     __args__['dataTableArn'] = data_table_arn
@@ -76,6 +80,10 @@ def get_data_table_record_output(data_table_arn: Optional[pulumi.Input[_builtins
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataTableRecordResult]:
     """
     Resource Type definition for AWS::Connect::DataTableRecord
+
+
+    :param _builtins.str data_table_arn: The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
+    :param _builtins.str instance_arn: The Amazon Resource Name (ARN) of the instance.
     """
     __args__ = dict()
     __args__['dataTableArn'] = data_table_arn

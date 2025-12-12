@@ -33,9 +33,15 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class GetDataTableRecordArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
+        /// </summary>
         [Input("dataTableArn", required: true)]
         public string DataTableArn { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance.
+        /// </summary>
         [Input("instanceArn", required: true)]
         public string InstanceArn { get; set; } = null!;
 
@@ -50,9 +56,15 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class GetDataTableRecordInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
+        /// </summary>
         [Input("dataTableArn", required: true)]
         public Input<string> DataTableArn { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance.
+        /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 

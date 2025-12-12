@@ -1148,13 +1148,13 @@ if not MYPY:
         """
         A timestamp that provides the end date for the date filter.
 
-        For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         """
         start: NotRequired[pulumi.Input[_builtins.str]]
         """
         A timestamp that provides the start date for the date filter.
 
-        For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         """
 elif False:
     AutomationRuleV2DateFilterArgsDict: TypeAlias = Mapping[str, Any]
@@ -1170,10 +1170,10 @@ class AutomationRuleV2DateFilterArgs:
         :param pulumi.Input['AutomationRuleV2DateRangeArgs'] date_range: A date range for the date filter.
         :param pulumi.Input[_builtins.str] end: A timestamp that provides the end date for the date filter.
                
-               For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+               For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         :param pulumi.Input[_builtins.str] start: A timestamp that provides the start date for the date filter.
                
-               For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+               For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
@@ -1200,7 +1200,7 @@ class AutomationRuleV2DateFilterArgs:
         """
         A timestamp that provides the end date for the date filter.
 
-        For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         """
         return pulumi.get(self, "end")
 
@@ -1214,7 +1214,7 @@ class AutomationRuleV2DateFilterArgs:
         """
         A timestamp that provides the start date for the date filter.
 
-        For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         """
         return pulumi.get(self, "start")
 
@@ -5626,13 +5626,13 @@ if not MYPY:
         """
         A timestamp that provides the end date for the date filter.
 
-        For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         """
         start: NotRequired[pulumi.Input[_builtins.str]]
         """
         A timestamp that provides the start date for the date filter.
 
-        For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         """
 elif False:
     InsightDateFilterArgsDict: TypeAlias = Mapping[str, Any]
@@ -5648,10 +5648,10 @@ class InsightDateFilterArgs:
         :param pulumi.Input['InsightDateRangeArgs'] date_range: A date range for the date filter.
         :param pulumi.Input[_builtins.str] end: A timestamp that provides the end date for the date filter.
                
-               For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+               For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         :param pulumi.Input[_builtins.str] start: A timestamp that provides the start date for the date filter.
                
-               For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+               For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         """
         if date_range is not None:
             pulumi.set(__self__, "date_range", date_range)
@@ -5678,7 +5678,7 @@ class InsightDateFilterArgs:
         """
         A timestamp that provides the end date for the date filter.
 
-        For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         """
         return pulumi.get(self, "end")
 
@@ -5692,7 +5692,7 @@ class InsightDateFilterArgs:
         """
         A timestamp that provides the start date for the date filter.
 
-        For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+        For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
         """
         return pulumi.get(self, "start")
 
@@ -5981,7 +5981,7 @@ if not MYPY:
         """
         comparison: pulumi.Input['InsightStringFilterComparison']
         """
-        The condition to apply to a string value when filtering Security Hub findings.
+        The condition to apply to a string value when filtering Security Hub CSPM findings.
 
         To search for values that have the filter value, use one of the following comparison operators:
 
@@ -6001,20 +6001,20 @@ if not MYPY:
 
         You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can't provide both an `EQUALS` filter and a `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filter on the same field. Combining filters in this way returns an error. `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
 
-        You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
+        You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub CSPM first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
 
-        For example, for the following filters, Security Hub first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
+        For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
 
         - `ResourceType PREFIX AwsIam`
         - `ResourceType PREFIX AwsEc2`
         - `ResourceType NOT_EQUALS AwsIamPolicy`
         - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
 
-        `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *Security Hub User Guide* .
+        `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub CSPM User Guide* .
         """
         value: pulumi.Input[_builtins.str]
         """
-        The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub` . If you provide `security hub` as the filter value, there's no match.
+        The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub CSPM` . If you provide `security hub` as the filter value, there's no match.
         """
 elif False:
     InsightStringFilterArgsDict: TypeAlias = Mapping[str, Any]
@@ -6026,7 +6026,7 @@ class InsightStringFilterArgs:
                  value: pulumi.Input[_builtins.str]):
         """
         A string filter for filtering AWS Security Hub findings.
-        :param pulumi.Input['InsightStringFilterComparison'] comparison: The condition to apply to a string value when filtering Security Hub findings.
+        :param pulumi.Input['InsightStringFilterComparison'] comparison: The condition to apply to a string value when filtering Security Hub CSPM findings.
                
                To search for values that have the filter value, use one of the following comparison operators:
                
@@ -6046,17 +6046,17 @@ class InsightStringFilterArgs:
                
                You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can't provide both an `EQUALS` filter and a `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filter on the same field. Combining filters in this way returns an error. `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
                
-               You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
+               You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub CSPM first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
                
-               For example, for the following filters, Security Hub first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
+               For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
                
                - `ResourceType PREFIX AwsIam`
                - `ResourceType PREFIX AwsEc2`
                - `ResourceType NOT_EQUALS AwsIamPolicy`
                - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
                
-               `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *Security Hub User Guide* .
-        :param pulumi.Input[_builtins.str] value: The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub` . If you provide `security hub` as the filter value, there's no match.
+               `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub CSPM User Guide* .
+        :param pulumi.Input[_builtins.str] value: The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub CSPM` . If you provide `security hub` as the filter value, there's no match.
         """
         pulumi.set(__self__, "comparison", comparison)
         pulumi.set(__self__, "value", value)
@@ -6065,7 +6065,7 @@ class InsightStringFilterArgs:
     @pulumi.getter
     def comparison(self) -> pulumi.Input['InsightStringFilterComparison']:
         """
-        The condition to apply to a string value when filtering Security Hub findings.
+        The condition to apply to a string value when filtering Security Hub CSPM findings.
 
         To search for values that have the filter value, use one of the following comparison operators:
 
@@ -6085,16 +6085,16 @@ class InsightStringFilterArgs:
 
         You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can't provide both an `EQUALS` filter and a `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filter on the same field. Combining filters in this way returns an error. `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
 
-        You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
+        You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub CSPM first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
 
-        For example, for the following filters, Security Hub first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
+        For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
 
         - `ResourceType PREFIX AwsIam`
         - `ResourceType PREFIX AwsEc2`
         - `ResourceType NOT_EQUALS AwsIamPolicy`
         - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
 
-        `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *Security Hub User Guide* .
+        `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub CSPM User Guide* .
         """
         return pulumi.get(self, "comparison")
 
@@ -6106,7 +6106,7 @@ class InsightStringFilterArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
         """
-        The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub` . If you provide `security hub` as the filter value, there's no match.
+        The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub CSPM` . If you provide `security hub` as the filter value, there's no match.
         """
         return pulumi.get(self, "value")
 
@@ -6119,9 +6119,9 @@ if not MYPY:
     class SecurityControlParameterConfigurationArgsDict(TypedDict):
         value_type: pulumi.Input['SecurityControlParameterConfigurationValueType']
         """
-        Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior.
+        Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub CSPM behavior.
 
-        When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
+        When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub CSPM default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub CSPM ignores user-provided input for the `Value` field.
 
         When `ValueType` is set equal to `CUSTOM` , the `Value` field can't be empty.
         """
@@ -6138,9 +6138,9 @@ class SecurityControlParameterConfigurationArgs:
                  value_type: pulumi.Input['SecurityControlParameterConfigurationValueType'],
                  value: Optional[pulumi.Input['SecurityControlParameterValueArgs']] = None):
         """
-        :param pulumi.Input['SecurityControlParameterConfigurationValueType'] value_type: Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior.
+        :param pulumi.Input['SecurityControlParameterConfigurationValueType'] value_type: Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub CSPM behavior.
                
-               When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
+               When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub CSPM default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub CSPM ignores user-provided input for the `Value` field.
                
                When `ValueType` is set equal to `CUSTOM` , the `Value` field can't be empty.
         :param pulumi.Input['SecurityControlParameterValueArgs'] value: The current value of a control parameter.
@@ -6153,9 +6153,9 @@ class SecurityControlParameterConfigurationArgs:
     @pulumi.getter(name="valueType")
     def value_type(self) -> pulumi.Input['SecurityControlParameterConfigurationValueType']:
         """
-        Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior.
+        Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub CSPM behavior.
 
-        When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
+        When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub CSPM default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub CSPM ignores user-provided input for the `Value` field.
 
         When `ValueType` is set equal to `CUSTOM` , the `Value` field can't be empty.
         """

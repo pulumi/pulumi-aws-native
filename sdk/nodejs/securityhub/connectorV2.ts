@@ -49,6 +49,9 @@ export class ConnectorV2 extends pulumi.CustomResource {
      * The status of the connector
      */
     declare public /*out*/ readonly connectorStatus: pulumi.Output<enums.securityhub.ConnectorV2ConnectorStatus>;
+    /**
+     * The timestamp when the V2 connector was created.
+     */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * A description of the connector
@@ -58,7 +61,13 @@ export class ConnectorV2 extends pulumi.CustomResource {
      * The ARN of KMS key used for the connector
      */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
+    /**
+     * The most recent timestamp when the V2 connector was checked on health status.
+     */
     declare public /*out*/ readonly lastCheckedAt: pulumi.Output<string>;
+    /**
+     * The most recent timestamp when the V2 connector was updated.
+     */
     declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
     /**
      * The message of the connector status change
@@ -68,7 +77,13 @@ export class ConnectorV2 extends pulumi.CustomResource {
      * The name of the connector
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * The third-party provider detail for a service configuration.
+     */
     declare public readonly provider: pulumi.Output<outputs.securityhub.ConnectorV2Provider>;
+    /**
+     * The tags to add to the connectorV2 when you create.
+     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
@@ -134,6 +149,12 @@ export interface ConnectorV2Args {
      * The name of the connector
      */
     name?: pulumi.Input<string>;
+    /**
+     * The third-party provider detail for a service configuration.
+     */
     provider: pulumi.Input<inputs.securityhub.ConnectorV2ProviderArgs>;
+    /**
+     * The tags to add to the connectorV2 when you create.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

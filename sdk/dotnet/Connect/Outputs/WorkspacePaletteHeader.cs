@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class WorkspacePaletteHeader
     {
+        /// <summary>
+        /// The background color of the header.
+        /// </summary>
         public readonly string? Background;
+        /// <summary>
+        /// Whether to invert the colors of action buttons in the header.
+        /// </summary>
         public readonly bool? InvertActionsColors;
+        /// <summary>
+        /// The text color in the header.
+        /// </summary>
         public readonly string? Text;
+        /// <summary>
+        /// The text color when hovering over header elements.
+        /// </summary>
         public readonly string? TextHover;
 
         [OutputConstructor]

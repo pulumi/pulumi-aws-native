@@ -84,6 +84,9 @@ class GetConnectorV2Result:
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp when the V2 connector was created.
+        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
@@ -97,11 +100,17 @@ class GetConnectorV2Result:
     @_builtins.property
     @pulumi.getter(name="lastCheckedAt")
     def last_checked_at(self) -> Optional[_builtins.str]:
+        """
+        The most recent timestamp when the V2 connector was checked on health status.
+        """
         return pulumi.get(self, "last_checked_at")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> Optional[_builtins.str]:
+        """
+        The most recent timestamp when the V2 connector was updated.
+        """
         return pulumi.get(self, "last_updated_at")
 
     @_builtins.property
@@ -115,11 +124,17 @@ class GetConnectorV2Result:
     @_builtins.property
     @pulumi.getter
     def provider(self) -> Optional['outputs.ConnectorV2Provider']:
+        """
+        The third-party provider detail for a service configuration.
+        """
         return pulumi.get(self, "provider")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        The tags to add to the connectorV2 when you create.
+        """
         return pulumi.get(self, "tags")
 
 

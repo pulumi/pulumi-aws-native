@@ -29,7 +29,8 @@ type EvaluationForm struct {
 	// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
 	//  *Minimum size*: 1
 	//  *Maximum size*: 100
-	Items                 EvaluationFormBaseItemArrayOutput            `pulumi:"items"`
+	Items EvaluationFormBaseItemArrayOutput `pulumi:"items"`
+	// Configuration for language settings of this evaluation form.
 	LanguageConfiguration EvaluationFormLanguageConfigurationPtrOutput `pulumi:"languageConfiguration"`
 	// A scoring strategy of the evaluation form.
 	ScoringStrategy EvaluationFormScoringStrategyPtrOutput `pulumi:"scoringStrategy"`
@@ -37,7 +38,8 @@ type EvaluationForm struct {
 	//  *Allowed values*: ``DRAFT`` | ``ACTIVE``
 	Status EvaluationFormStatusOutput `pulumi:"status"`
 	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
-	Tags                aws.TagArrayOutput                         `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Configuration that specifies the target for this evaluation form.
 	TargetConfiguration EvaluationFormTargetConfigurationPtrOutput `pulumi:"targetConfiguration"`
 	// A title of the evaluation form.
 	Title pulumi.StringOutput `pulumi:"title"`
@@ -105,7 +107,8 @@ type evaluationFormArgs struct {
 	// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
 	//  *Minimum size*: 1
 	//  *Maximum size*: 100
-	Items                 []EvaluationFormBaseItem             `pulumi:"items"`
+	Items []EvaluationFormBaseItem `pulumi:"items"`
+	// Configuration for language settings of this evaluation form.
 	LanguageConfiguration *EvaluationFormLanguageConfiguration `pulumi:"languageConfiguration"`
 	// A scoring strategy of the evaluation form.
 	ScoringStrategy *EvaluationFormScoringStrategy `pulumi:"scoringStrategy"`
@@ -113,7 +116,8 @@ type evaluationFormArgs struct {
 	//  *Allowed values*: ``DRAFT`` | ``ACTIVE``
 	Status EvaluationFormStatus `pulumi:"status"`
 	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
-	Tags                []aws.Tag                          `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// Configuration that specifies the target for this evaluation form.
 	TargetConfiguration *EvaluationFormTargetConfiguration `pulumi:"targetConfiguration"`
 	// A title of the evaluation form.
 	Title string `pulumi:"title"`
@@ -131,7 +135,8 @@ type EvaluationFormArgs struct {
 	// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
 	//  *Minimum size*: 1
 	//  *Maximum size*: 100
-	Items                 EvaluationFormBaseItemArrayInput
+	Items EvaluationFormBaseItemArrayInput
+	// Configuration for language settings of this evaluation form.
 	LanguageConfiguration EvaluationFormLanguageConfigurationPtrInput
 	// A scoring strategy of the evaluation form.
 	ScoringStrategy EvaluationFormScoringStrategyPtrInput
@@ -139,7 +144,8 @@ type EvaluationFormArgs struct {
 	//  *Allowed values*: ``DRAFT`` | ``ACTIVE``
 	Status EvaluationFormStatusInput
 	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
-	Tags                aws.TagArrayInput
+	Tags aws.TagArrayInput
+	// Configuration that specifies the target for this evaluation form.
 	TargetConfiguration EvaluationFormTargetConfigurationPtrInput
 	// A title of the evaluation form.
 	Title pulumi.StringInput
@@ -214,6 +220,7 @@ func (o EvaluationFormOutput) Items() EvaluationFormBaseItemArrayOutput {
 	return o.ApplyT(func(v *EvaluationForm) EvaluationFormBaseItemArrayOutput { return v.Items }).(EvaluationFormBaseItemArrayOutput)
 }
 
+// Configuration for language settings of this evaluation form.
 func (o EvaluationFormOutput) LanguageConfiguration() EvaluationFormLanguageConfigurationPtrOutput {
 	return o.ApplyT(func(v *EvaluationForm) EvaluationFormLanguageConfigurationPtrOutput { return v.LanguageConfiguration }).(EvaluationFormLanguageConfigurationPtrOutput)
 }
@@ -235,6 +242,7 @@ func (o EvaluationFormOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *EvaluationForm) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Configuration that specifies the target for this evaluation form.
 func (o EvaluationFormOutput) TargetConfiguration() EvaluationFormTargetConfigurationPtrOutput {
 	return o.ApplyT(func(v *EvaluationForm) EvaluationFormTargetConfigurationPtrOutput { return v.TargetConfiguration }).(EvaluationFormTargetConfigurationPtrOutput)
 }

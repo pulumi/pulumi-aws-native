@@ -33,7 +33,10 @@ type Key struct {
 	// The source of the key material. For keys created within AWS Payment Cryptography, the value is `AWS_PAYMENT_CRYPTOGRAPHY` . For keys imported into AWS Payment Cryptography, the value is `EXTERNAL` .
 	KeyOrigin KeyOriginOutput `pulumi:"keyOrigin"`
 	// The state of key that is being created or deleted.
-	KeyState           KeyStateEnumOutput                `pulumi:"keyState"`
+	KeyState KeyStateEnumOutput `pulumi:"keyState"`
+	// The list of AWS Regions to remove from the key's replication configuration.
+	//
+	// The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.
 	ReplicationRegions pulumi.StringArrayOutput          `pulumi:"replicationRegions"`
 	ReplicationStatus  KeyReplicationStatusTypeMapOutput `pulumi:"replicationStatus"`
 	Tags               aws.TagArrayOutput                `pulumi:"tags"`
@@ -97,8 +100,11 @@ type keyArgs struct {
 	//
 	// For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
 	KeyCheckValueAlgorithm *KeyCheckValueAlgorithm `pulumi:"keyCheckValueAlgorithm"`
-	ReplicationRegions     []string                `pulumi:"replicationRegions"`
-	Tags                   []aws.Tag               `pulumi:"tags"`
+	// The list of AWS Regions to remove from the key's replication configuration.
+	//
+	// The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.
+	ReplicationRegions []string  `pulumi:"replicationRegions"`
+	Tags               []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Key resource.
@@ -115,8 +121,11 @@ type KeyArgs struct {
 	//
 	// For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
 	KeyCheckValueAlgorithm KeyCheckValueAlgorithmPtrInput
-	ReplicationRegions     pulumi.StringArrayInput
-	Tags                   aws.TagArrayInput
+	// The list of AWS Regions to remove from the key's replication configuration.
+	//
+	// The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.
+	ReplicationRegions pulumi.StringArrayInput
+	Tags               aws.TagArrayInput
 }
 
 func (KeyArgs) ElementType() reflect.Type {
@@ -197,6 +206,9 @@ func (o KeyOutput) KeyState() KeyStateEnumOutput {
 	return o.ApplyT(func(v *Key) KeyStateEnumOutput { return v.KeyState }).(KeyStateEnumOutput)
 }
 
+// The list of AWS Regions to remove from the key's replication configuration.
+//
+// The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.
 func (o KeyOutput) ReplicationRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringArrayOutput { return v.ReplicationRegions }).(pulumi.StringArrayOutput)
 }

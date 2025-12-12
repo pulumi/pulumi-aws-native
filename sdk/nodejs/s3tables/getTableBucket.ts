@@ -30,6 +30,9 @@ export interface GetTableBucketResult {
      */
     readonly encryptionConfiguration?: outputs.s3tables.TableBucketEncryptionConfiguration;
     readonly metricsConfiguration?: outputs.s3tables.TableBucketMetricsConfiguration;
+    /**
+     * The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
+     */
     readonly storageClassConfiguration?: outputs.s3tables.TableBucketStorageClassConfiguration;
     /**
      * The Amazon Resource Name (ARN) of the table bucket.

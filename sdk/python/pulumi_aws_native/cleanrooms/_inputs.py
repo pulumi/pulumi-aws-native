@@ -958,6 +958,9 @@ if not MYPY:
         The payment responsibilities accepted by the member for model training.
         """
         synthetic_data_generation: NotRequired[pulumi.Input['CollaborationSyntheticDataGenerationPaymentConfigArgsDict']]
+        """
+        The payment configuration for machine learning synthetic data generation.
+        """
 elif False:
     CollaborationMlPaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -970,6 +973,7 @@ class CollaborationMlPaymentConfigArgs:
         """
         :param pulumi.Input['CollaborationModelInferencePaymentConfigArgs'] model_inference: The payment responsibilities accepted by the member for model inference.
         :param pulumi.Input['CollaborationModelTrainingPaymentConfigArgs'] model_training: The payment responsibilities accepted by the member for model training.
+        :param pulumi.Input['CollaborationSyntheticDataGenerationPaymentConfigArgs'] synthetic_data_generation: The payment configuration for machine learning synthetic data generation.
         """
         if model_inference is not None:
             pulumi.set(__self__, "model_inference", model_inference)
@@ -1005,6 +1009,9 @@ class CollaborationMlPaymentConfigArgs:
     @_builtins.property
     @pulumi.getter(name="syntheticDataGeneration")
     def synthetic_data_generation(self) -> Optional[pulumi.Input['CollaborationSyntheticDataGenerationPaymentConfigArgs']]:
+        """
+        The payment configuration for machine learning synthetic data generation.
+        """
         return pulumi.get(self, "synthetic_data_generation")
 
     @synthetic_data_generation.setter
@@ -1215,6 +1222,9 @@ class CollaborationQueryComputePaymentConfigArgs:
 if not MYPY:
     class CollaborationSyntheticDataGenerationPaymentConfigArgsDict(TypedDict):
         is_responsible: pulumi.Input[_builtins.bool]
+        """
+        Indicates who is responsible for paying for synthetic data generation.
+        """
 elif False:
     CollaborationSyntheticDataGenerationPaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1222,11 +1232,17 @@ elif False:
 class CollaborationSyntheticDataGenerationPaymentConfigArgs:
     def __init__(__self__, *,
                  is_responsible: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] is_responsible: Indicates who is responsible for paying for synthetic data generation.
+        """
         pulumi.set(__self__, "is_responsible", is_responsible)
 
     @_builtins.property
     @pulumi.getter(name="isResponsible")
     def is_responsible(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Indicates who is responsible for paying for synthetic data generation.
+        """
         return pulumi.get(self, "is_responsible")
 
     @is_responsible.setter
@@ -2538,6 +2554,9 @@ if not MYPY:
         The payment responsibilities accepted by the member for model training.
         """
         synthetic_data_generation: NotRequired[pulumi.Input['MembershipSyntheticDataGenerationPaymentConfigArgsDict']]
+        """
+        The payment configuration for synthetic data generation for this machine learning membership.
+        """
 elif False:
     MembershipMlPaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2550,6 +2569,7 @@ class MembershipMlPaymentConfigArgs:
         """
         :param pulumi.Input['MembershipModelInferencePaymentConfigArgs'] model_inference: The payment responsibilities accepted by the member for model inference.
         :param pulumi.Input['MembershipModelTrainingPaymentConfigArgs'] model_training: The payment responsibilities accepted by the member for model training.
+        :param pulumi.Input['MembershipSyntheticDataGenerationPaymentConfigArgs'] synthetic_data_generation: The payment configuration for synthetic data generation for this machine learning membership.
         """
         if model_inference is not None:
             pulumi.set(__self__, "model_inference", model_inference)
@@ -2585,6 +2605,9 @@ class MembershipMlPaymentConfigArgs:
     @_builtins.property
     @pulumi.getter(name="syntheticDataGeneration")
     def synthetic_data_generation(self) -> Optional[pulumi.Input['MembershipSyntheticDataGenerationPaymentConfigArgs']]:
+        """
+        The payment configuration for synthetic data generation for this machine learning membership.
+        """
         return pulumi.get(self, "synthetic_data_generation")
 
     @synthetic_data_generation.setter
@@ -3126,6 +3149,9 @@ class MembershipQueryComputePaymentConfigArgs:
 if not MYPY:
     class MembershipSyntheticDataGenerationPaymentConfigArgsDict(TypedDict):
         is_responsible: pulumi.Input[_builtins.bool]
+        """
+        Indicates if this membership is responsible for paying for synthetic data generation.
+        """
 elif False:
     MembershipSyntheticDataGenerationPaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3133,11 +3159,17 @@ elif False:
 class MembershipSyntheticDataGenerationPaymentConfigArgs:
     def __init__(__self__, *,
                  is_responsible: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] is_responsible: Indicates if this membership is responsible for paying for synthetic data generation.
+        """
         pulumi.set(__self__, "is_responsible", is_responsible)
 
     @_builtins.property
     @pulumi.getter(name="isResponsible")
     def is_responsible(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Indicates if this membership is responsible for paying for synthetic data generation.
+        """
         return pulumi.get(self, "is_responsible")
 
     @is_responsible.setter

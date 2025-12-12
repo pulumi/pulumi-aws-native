@@ -22,9 +22,9 @@ type DelegatedAdmin struct {
 
 	// The AWS-account identifier of the account to designate as the Security Hub administrator account.
 	AdminAccountId pulumi.StringOutput `pulumi:"adminAccountId"`
-	// The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
+	// The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
 	DelegatedAdminIdentifier pulumi.StringOutput `pulumi:"delegatedAdminIdentifier"`
-	// Whether the delegated Security Hub administrator is set for the organization.
+	// Whether the delegated Security Hub CSPM administrator is set for the organization.
 	Status DelegatedAdminStatusOutput `pulumi:"status"`
 }
 
@@ -127,12 +127,12 @@ func (o DelegatedAdminOutput) AdminAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdmin) pulumi.StringOutput { return v.AdminAccountId }).(pulumi.StringOutput)
 }
 
-// The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
+// The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
 func (o DelegatedAdminOutput) DelegatedAdminIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *DelegatedAdmin) pulumi.StringOutput { return v.DelegatedAdminIdentifier }).(pulumi.StringOutput)
 }
 
-// Whether the delegated Security Hub administrator is set for the organization.
+// Whether the delegated Security Hub CSPM administrator is set for the organization.
 func (o DelegatedAdminOutput) Status() DelegatedAdminStatusOutput {
 	return o.ApplyT(func(v *DelegatedAdmin) DelegatedAdminStatusOutput { return v.Status }).(DelegatedAdminStatusOutput)
 }

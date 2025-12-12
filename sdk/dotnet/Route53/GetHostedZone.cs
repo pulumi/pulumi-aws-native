@@ -113,6 +113,9 @@ namespace Pulumi.AwsNative.Route53
         ///  If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
         /// </summary>
         public readonly Outputs.HostedZoneConfig? HostedZoneConfig;
+        /// <summary>
+        /// The features configuration for the hosted zone, including accelerated recovery settings and status information.
+        /// </summary>
         public readonly Outputs.HostedZoneFeatures? HostedZoneFeatures;
         /// <summary>
         /// Adds, edits, or deletes tags for a health check or a hosted zone.

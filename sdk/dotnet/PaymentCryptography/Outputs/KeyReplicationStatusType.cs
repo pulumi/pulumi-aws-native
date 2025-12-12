@@ -13,7 +13,17 @@ namespace Pulumi.AwsNative.PaymentCryptography.Outputs
     [OutputType]
     public sealed class KeyReplicationStatusType
     {
+        /// <summary>
+        /// The current status of key replication in this AWS Region .
+        /// 
+        /// This field indicates whether the key replication is in progress, completed successfully, or has encountered an error. Possible values include states such as `SYNCRHONIZED` , `IN_PROGRESS` , `DELETE_IN_PROGRESS` , or `FAILED` . This provides visibility into the replication process for monitoring and troubleshooting purposes.
+        /// </summary>
         public readonly Pulumi.AwsNative.PaymentCryptography.KeyReplicationState Status;
+        /// <summary>
+        /// A message that provides additional information about the current replication status of the key.
+        /// 
+        /// This field contains details about any issues or progress updates related to key replication operations. It may include information about replication failures, synchronization status, or other operational details.
+        /// </summary>
         public readonly string? StatusMessage;
 
         [OutputConstructor]

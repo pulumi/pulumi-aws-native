@@ -1840,11 +1840,11 @@ type AutomationRuleV2DateFilter struct {
 	DateRange *AutomationRuleV2DateRange `pulumi:"dateRange"`
 	// A timestamp that provides the end date for the date filter.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	End *string `pulumi:"end"`
 	// A timestamp that provides the start date for the date filter.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	Start *string `pulumi:"start"`
 }
 
@@ -1865,11 +1865,11 @@ type AutomationRuleV2DateFilterArgs struct {
 	DateRange AutomationRuleV2DateRangePtrInput `pulumi:"dateRange"`
 	// A timestamp that provides the end date for the date filter.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	End pulumi.StringPtrInput `pulumi:"end"`
 	// A timestamp that provides the start date for the date filter.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
@@ -1907,14 +1907,14 @@ func (o AutomationRuleV2DateFilterOutput) DateRange() AutomationRuleV2DateRangeP
 
 // A timestamp that provides the end date for the date filter.
 //
-// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 func (o AutomationRuleV2DateFilterOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleV2DateFilter) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
 // A timestamp that provides the start date for the date filter.
 //
-// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 func (o AutomationRuleV2DateFilterOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleV2DateFilter) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -7736,11 +7736,11 @@ type InsightDateFilter struct {
 	DateRange *InsightDateRange `pulumi:"dateRange"`
 	// A timestamp that provides the end date for the date filter.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	End *string `pulumi:"end"`
 	// A timestamp that provides the start date for the date filter.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	Start *string `pulumi:"start"`
 }
 
@@ -7761,11 +7761,11 @@ type InsightDateFilterArgs struct {
 	DateRange InsightDateRangePtrInput `pulumi:"dateRange"`
 	// A timestamp that provides the end date for the date filter.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	End pulumi.StringPtrInput `pulumi:"end"`
 	// A timestamp that provides the start date for the date filter.
 	//
-	// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+	// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
@@ -7828,14 +7828,14 @@ func (o InsightDateFilterOutput) DateRange() InsightDateRangePtrOutput {
 
 // A timestamp that provides the end date for the date filter.
 //
-// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 func (o InsightDateFilterOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightDateFilter) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
 // A timestamp that provides the start date for the date filter.
 //
-// For more information about the validation and formatting of timestamp fields in Security Hub , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
+// For more information about the validation and formatting of timestamp fields in AWS Security Hub CSPM , see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps) .
 func (o InsightDateFilterOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InsightDateFilter) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -8457,7 +8457,7 @@ func (o InsightNumberFilterArrayOutput) Index(i pulumi.IntInput) InsightNumberFi
 
 // A string filter for filtering AWS Security Hub findings.
 type InsightStringFilter struct {
-	// The condition to apply to a string value when filtering Security Hub findings.
+	// The condition to apply to a string value when filtering Security Hub CSPM findings.
 	//
 	// To search for values that have the filter value, use one of the following comparison operators:
 	//
@@ -8477,18 +8477,18 @@ type InsightStringFilter struct {
 	//
 	// You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can't provide both an `EQUALS` filter and a `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filter on the same field. Combining filters in this way returns an error. `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
 	//
-	// You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
+	// You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub CSPM first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
 	//
-	// For example, for the following filters, Security Hub first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
+	// For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
 	//
 	// - `ResourceType PREFIX AwsIam`
 	// - `ResourceType PREFIX AwsEc2`
 	// - `ResourceType NOT_EQUALS AwsIamPolicy`
 	// - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
 	//
-	// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *Security Hub User Guide* .
+	// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub CSPM User Guide* .
 	Comparison InsightStringFilterComparison `pulumi:"comparison"`
-	// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub` . If you provide `security hub` as the filter value, there's no match.
+	// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub CSPM` . If you provide `security hub` as the filter value, there's no match.
 	Value string `pulumi:"value"`
 }
 
@@ -8505,7 +8505,7 @@ type InsightStringFilterInput interface {
 
 // A string filter for filtering AWS Security Hub findings.
 type InsightStringFilterArgs struct {
-	// The condition to apply to a string value when filtering Security Hub findings.
+	// The condition to apply to a string value when filtering Security Hub CSPM findings.
 	//
 	// To search for values that have the filter value, use one of the following comparison operators:
 	//
@@ -8525,18 +8525,18 @@ type InsightStringFilterArgs struct {
 	//
 	// You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can't provide both an `EQUALS` filter and a `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filter on the same field. Combining filters in this way returns an error. `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
 	//
-	// You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
+	// You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub CSPM first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
 	//
-	// For example, for the following filters, Security Hub first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
+	// For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
 	//
 	// - `ResourceType PREFIX AwsIam`
 	// - `ResourceType PREFIX AwsEc2`
 	// - `ResourceType NOT_EQUALS AwsIamPolicy`
 	// - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
 	//
-	// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *Security Hub User Guide* .
+	// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub CSPM User Guide* .
 	Comparison InsightStringFilterComparisonInput `pulumi:"comparison"`
-	// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub` . If you provide `security hub` as the filter value, there's no match.
+	// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub CSPM` . If you provide `security hub` as the filter value, there's no match.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -8592,7 +8592,7 @@ func (o InsightStringFilterOutput) ToInsightStringFilterOutputWithContext(ctx co
 	return o
 }
 
-// The condition to apply to a string value when filtering Security Hub findings.
+// The condition to apply to a string value when filtering Security Hub CSPM findings.
 //
 // To search for values that have the filter value, use one of the following comparison operators:
 //
@@ -8612,21 +8612,21 @@ func (o InsightStringFilterOutput) ToInsightStringFilterOutputWithContext(ctx co
 //
 // You can’t have both a `CONTAINS` filter and a `NOT_CONTAINS` filter on the same field. Similarly, you can't provide both an `EQUALS` filter and a `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filter on the same field. Combining filters in this way returns an error. `CONTAINS` filters can only be used with other `CONTAINS` filters. `NOT_CONTAINS` filters can only be used with other `NOT_CONTAINS` filters.
 //
-// You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
+// You can combine `PREFIX` filters with `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters for the same field. Security Hub CSPM first processes the `PREFIX` filters, and then the `NOT_EQUALS` or `PREFIX_NOT_EQUALS` filters.
 //
-// For example, for the following filters, Security Hub first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
+// For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either `AwsIam` or `AwsEc2` . It then excludes findings that have a resource type of `AwsIamPolicy` and findings that have a resource type of `AwsEc2NetworkInterface` .
 //
 // - `ResourceType PREFIX AwsIam`
 // - `ResourceType PREFIX AwsEc2`
 // - `ResourceType NOT_EQUALS AwsIamPolicy`
 // - `ResourceType NOT_EQUALS AwsEc2NetworkInterface`
 //
-// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *Security Hub User Guide* .
+// `CONTAINS` and `NOT_CONTAINS` operators can be used only with automation rules V1. `CONTAINS_WORD` operator is only supported in `GetFindingsV2` , `GetFindingStatisticsV2` , `GetResourcesV2` , and `GetResourceStatisticsV2` APIs. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *AWS Security Hub CSPM User Guide* .
 func (o InsightStringFilterOutput) Comparison() InsightStringFilterComparisonOutput {
 	return o.ApplyT(func(v InsightStringFilter) InsightStringFilterComparison { return v.Comparison }).(InsightStringFilterComparisonOutput)
 }
 
-// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub` . If you provide `security hub` as the filter value, there's no match.
+// The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is `Security Hub CSPM` . If you provide `security hub` as the filter value, there's no match.
 func (o InsightStringFilterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v InsightStringFilter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -8654,9 +8654,9 @@ func (o InsightStringFilterArrayOutput) Index(i pulumi.IntInput) InsightStringFi
 type SecurityControlParameterConfiguration struct {
 	// The current value of a control parameter.
 	Value *SecurityControlParameterValue `pulumi:"value"`
-	// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior.
+	// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub CSPM behavior.
 	//
-	// When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
+	// When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub CSPM default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub CSPM ignores user-provided input for the `Value` field.
 	//
 	// When `ValueType` is set equal to `CUSTOM` , the `Value` field can't be empty.
 	ValueType SecurityControlParameterConfigurationValueType `pulumi:"valueType"`
@@ -8676,9 +8676,9 @@ type SecurityControlParameterConfigurationInput interface {
 type SecurityControlParameterConfigurationArgs struct {
 	// The current value of a control parameter.
 	Value SecurityControlParameterValuePtrInput `pulumi:"value"`
-	// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior.
+	// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub CSPM behavior.
 	//
-	// When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
+	// When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub CSPM default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub CSPM ignores user-provided input for the `Value` field.
 	//
 	// When `ValueType` is set equal to `CUSTOM` , the `Value` field can't be empty.
 	ValueType SecurityControlParameterConfigurationValueTypeInput `pulumi:"valueType"`
@@ -8740,9 +8740,9 @@ func (o SecurityControlParameterConfigurationOutput) Value() SecurityControlPara
 	return o.ApplyT(func(v SecurityControlParameterConfiguration) *SecurityControlParameterValue { return v.Value }).(SecurityControlParameterValuePtrOutput)
 }
 
-// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior.
+// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub CSPM behavior.
 //
-// When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
+// When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub CSPM default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub CSPM ignores user-provided input for the `Value` field.
 //
 // When `ValueType` is set equal to `CUSTOM` , the `Value` field can't be empty.
 func (o SecurityControlParameterConfigurationOutput) ValueType() SecurityControlParameterConfigurationValueTypeOutput {

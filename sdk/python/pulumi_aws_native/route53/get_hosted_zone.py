@@ -60,6 +60,9 @@ class GetHostedZoneResult:
     @_builtins.property
     @pulumi.getter(name="hostedZoneFeatures")
     def hosted_zone_features(self) -> Optional['outputs.HostedZoneFeatures']:
+        """
+        The features configuration for the hosted zone, including accelerated recovery settings and status information.
+        """
         return pulumi.get(self, "hosted_zone_features")
 
     @_builtins.property

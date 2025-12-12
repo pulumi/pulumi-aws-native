@@ -22,6 +22,7 @@ __all__ = [
     'AssociationTarget',
     'DocumentAttachmentsSource',
     'DocumentRequires',
+    'MaintenanceWindowTargetTargets',
     'PatchBaselinePatchFilter',
     'PatchBaselinePatchFilterGroup',
     'PatchBaselinePatchSource',
@@ -237,6 +238,35 @@ class DocumentRequires(dict):
         The document version required by the current document.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class MaintenanceWindowTargetTargets(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str key: User-defined criteria for sending commands that target managed nodes that meet the criteria.
+        :param Sequence[_builtins.str] values: User-defined criteria that maps to Key.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        User-defined criteria for sending commands that target managed nodes that meet the criteria.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        User-defined criteria that maps to Key.
+        """
+        return pulumi.get(self, "values")
 
 
 @pulumi.output_type

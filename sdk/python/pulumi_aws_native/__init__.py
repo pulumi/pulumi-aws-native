@@ -3391,6 +3391,7 @@ _utilities.register(
   "classes": {
    "aws-native:ssm:Association": "Association",
    "aws-native:ssm:Document": "Document",
+   "aws-native:ssm:MaintenanceWindowTarget": "MaintenanceWindowTarget",
    "aws-native:ssm:Parameter": "Parameter",
    "aws-native:ssm:PatchBaseline": "PatchBaseline",
    "aws-native:ssm:ResourceDataSync": "ResourceDataSync",

@@ -335,6 +335,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration for the capacity provider that manages compute resources for Lambda functions.
+        /// </summary>
         [Output("capacityProviderConfig")]
         public Output<Outputs.FunctionCapacityProviderConfig?> CapacityProviderConfig { get; private set; } = null!;
 
@@ -365,6 +368,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+        /// </summary>
         [Output("durableConfig")]
         public Output<Outputs.FunctionDurableConfig?> DurableConfig { get; private set; } = null!;
 
@@ -394,6 +400,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("functionName")]
         public Output<string?> FunctionName { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+        /// </summary>
         [Output("functionScalingConfig")]
         public Output<Outputs.FunctionScalingConfig?> FunctionScalingConfig { get; private set; } = null!;
 
@@ -585,6 +594,9 @@ namespace Pulumi.AwsNative.Lambda
             set => _architectures = value;
         }
 
+        /// <summary>
+        /// Configuration for the capacity provider that manages compute resources for Lambda functions.
+        /// </summary>
         [Input("capacityProviderConfig")]
         public Input<Inputs.FunctionCapacityProviderConfigArgs>? CapacityProviderConfig { get; set; }
 
@@ -615,6 +627,9 @@ namespace Pulumi.AwsNative.Lambda
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+        /// </summary>
         [Input("durableConfig")]
         public Input<Inputs.FunctionDurableConfigArgs>? DurableConfig { get; set; }
 
@@ -650,6 +665,9 @@ namespace Pulumi.AwsNative.Lambda
         [Input("functionName")]
         public Input<string>? FunctionName { get; set; }
 
+        /// <summary>
+        /// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+        /// </summary>
         [Input("functionScalingConfig")]
         public Input<Inputs.FunctionScalingConfigArgs>? FunctionScalingConfig { get; set; }
 

@@ -54,7 +54,7 @@ class GetHubV2Result:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        The tags to add to the hub V2 resource when you enable Security Hub.
+        The tags to add to the hub V2 resource when you enable Security Hub CSPM.
         """
         return pulumi.get(self, "tags")
 

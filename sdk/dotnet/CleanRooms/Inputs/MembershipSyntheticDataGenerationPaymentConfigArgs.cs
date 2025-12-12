@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
 
     public sealed class MembershipSyntheticDataGenerationPaymentConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates if this membership is responsible for paying for synthetic data generation.
+        /// </summary>
         [Input("isResponsible", required: true)]
         public Input<bool> IsResponsible { get; set; } = null!;
 

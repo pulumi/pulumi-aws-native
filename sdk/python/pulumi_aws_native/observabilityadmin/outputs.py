@@ -1366,6 +1366,13 @@ class TelemetryPipelinesTelemetryPipeline(dict):
                  status_reason: Optional['outputs.TelemetryPipelinesTelemetryPipelineStatusReason'] = None,
                  tags: Optional[Sequence['outputs.TelemetryPipelinesTag']] = None):
         """
+        :param _builtins.str arn: The Amazon Resource Name (ARN) of the telemetry pipeline.
+        :param 'TelemetryPipelinesTelemetryPipelineConfiguration' configuration: The configuration that defines how the telemetry pipeline processes data.
+        :param _builtins.float created_time_stamp: The timestamp when the telemetry pipeline was created.
+        :param _builtins.float last_update_time_stamp: The timestamp when the telemetry pipeline was last updated.
+        :param _builtins.str name: The name of the telemetry pipeline.
+        :param 'TelemetryPipelinesTelemetryPipelineStatus' status: The current status of the telemetry pipeline.
+        :param 'TelemetryPipelinesTelemetryPipelineStatusReason' status_reason: Additional information about the pipeline status, including reasons for failure states.
         :param Sequence['TelemetryPipelinesTag'] tags: An array of key-value pairs to apply to this resource
         """
         if arn is not None:
@@ -1388,36 +1395,57 @@ class TelemetryPipelinesTelemetryPipeline(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the telemetry pipeline.
+        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> Optional['outputs.TelemetryPipelinesTelemetryPipelineConfiguration']:
+        """
+        The configuration that defines how the telemetry pipeline processes data.
+        """
         return pulumi.get(self, "configuration")
 
     @_builtins.property
     @pulumi.getter(name="createdTimeStamp")
     def created_time_stamp(self) -> Optional[_builtins.float]:
+        """
+        The timestamp when the telemetry pipeline was created.
+        """
         return pulumi.get(self, "created_time_stamp")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdateTimeStamp")
     def last_update_time_stamp(self) -> Optional[_builtins.float]:
+        """
+        The timestamp when the telemetry pipeline was last updated.
+        """
         return pulumi.get(self, "last_update_time_stamp")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the telemetry pipeline.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional['TelemetryPipelinesTelemetryPipelineStatus']:
+        """
+        The current status of the telemetry pipeline.
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> Optional['outputs.TelemetryPipelinesTelemetryPipelineStatusReason']:
+        """
+        Additional information about the pipeline status, including reasons for failure states.
+        """
         return pulumi.get(self, "status_reason")
 
     @_builtins.property
@@ -1433,11 +1461,17 @@ class TelemetryPipelinesTelemetryPipeline(dict):
 class TelemetryPipelinesTelemetryPipelineConfiguration(dict):
     def __init__(__self__, *,
                  body: _builtins.str):
+        """
+        :param _builtins.str body: The pipeline configuration body that defines the data processing rules and transformations.
+        """
         pulumi.set(__self__, "body", body)
 
     @_builtins.property
     @pulumi.getter
     def body(self) -> _builtins.str:
+        """
+        The pipeline configuration body that defines the data processing rules and transformations.
+        """
         return pulumi.get(self, "body")
 
 
@@ -1445,12 +1479,18 @@ class TelemetryPipelinesTelemetryPipelineConfiguration(dict):
 class TelemetryPipelinesTelemetryPipelineStatusReason(dict):
     def __init__(__self__, *,
                  description: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str description: A description of the pipeline status reason, providing additional context about the current state.
+        """
         if description is not None:
             pulumi.set(__self__, "description", description)
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
+        """
+        A description of the pipeline status reason, providing additional context about the current state.
+        """
         return pulumi.get(self, "description")
 
 

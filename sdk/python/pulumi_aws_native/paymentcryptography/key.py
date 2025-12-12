@@ -40,6 +40,9 @@ class KeyArgs:
         :param pulumi.Input['KeyCheckValueAlgorithm'] key_check_value_algorithm: The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
                
                For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] replication_regions: The list of AWS Regions to remove from the key's replication configuration.
+               
+               The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.
         """
         pulumi.set(__self__, "exportable", exportable)
         pulumi.set(__self__, "key_attributes", key_attributes)
@@ -119,6 +122,11 @@ class KeyArgs:
     @_builtins.property
     @pulumi.getter(name="replicationRegions")
     def replication_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of AWS Regions to remove from the key's replication configuration.
+
+        The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.
+        """
         return pulumi.get(self, "replication_regions")
 
     @replication_regions.setter
@@ -161,6 +169,9 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input['KeyCheckValueAlgorithm'] key_check_value_algorithm: The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
                
                For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] replication_regions: The list of AWS Regions to remove from the key's replication configuration.
+               
+               The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.
         """
         ...
     @overload
@@ -318,6 +329,11 @@ class Key(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="replicationRegions")
     def replication_regions(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        The list of AWS Regions to remove from the key's replication configuration.
+
+        The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.
+        """
         return pulumi.get(self, "replication_regions")
 
     @_builtins.property

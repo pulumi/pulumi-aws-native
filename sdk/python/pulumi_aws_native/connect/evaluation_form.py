@@ -46,8 +46,10 @@ class EvaluationFormArgs:
         :param pulumi.Input['EvaluationFormAutoEvaluationConfigurationArgs'] auto_evaluation_configuration: The automatic evaluation configuration of an evaluation form.
         :param pulumi.Input[_builtins.str] description: The description of the evaluation form.
                 *Length Constraints*: Minimum length of 0. Maximum length of 1024.
+        :param pulumi.Input['EvaluationFormLanguageConfigurationArgs'] language_configuration: Configuration for language settings of this evaluation form.
         :param pulumi.Input['EvaluationFormScoringStrategyArgs'] scoring_strategy: A scoring strategy of the evaluation form.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        :param pulumi.Input['EvaluationFormTargetConfigurationArgs'] target_configuration: Configuration that specifies the target for this evaluation form.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         pulumi.set(__self__, "items", items)
@@ -145,6 +147,9 @@ class EvaluationFormArgs:
     @_builtins.property
     @pulumi.getter(name="languageConfiguration")
     def language_configuration(self) -> Optional[pulumi.Input['EvaluationFormLanguageConfigurationArgs']]:
+        """
+        Configuration for language settings of this evaluation form.
+        """
         return pulumi.get(self, "language_configuration")
 
     @language_configuration.setter
@@ -178,6 +183,9 @@ class EvaluationFormArgs:
     @_builtins.property
     @pulumi.getter(name="targetConfiguration")
     def target_configuration(self) -> Optional[pulumi.Input['EvaluationFormTargetConfigurationArgs']]:
+        """
+        Configuration that specifies the target for this evaluation form.
+        """
         return pulumi.get(self, "target_configuration")
 
     @target_configuration.setter
@@ -214,10 +222,12 @@ class EvaluationForm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['EvaluationFormBaseItemArgs', 'EvaluationFormBaseItemArgsDict']]]] items: Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
                 *Minimum size*: 1
                 *Maximum size*: 100
+        :param pulumi.Input[Union['EvaluationFormLanguageConfigurationArgs', 'EvaluationFormLanguageConfigurationArgsDict']] language_configuration: Configuration for language settings of this evaluation form.
         :param pulumi.Input[Union['EvaluationFormScoringStrategyArgs', 'EvaluationFormScoringStrategyArgsDict']] scoring_strategy: A scoring strategy of the evaluation form.
         :param pulumi.Input['EvaluationFormStatus'] status: The status of the evaluation form.
                 *Allowed values*: ``DRAFT`` | ``ACTIVE``
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        :param pulumi.Input[Union['EvaluationFormTargetConfigurationArgs', 'EvaluationFormTargetConfigurationArgsDict']] target_configuration: Configuration that specifies the target for this evaluation form.
         :param pulumi.Input[_builtins.str] title: A title of the evaluation form.
         """
         ...
@@ -363,6 +373,9 @@ class EvaluationForm(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="languageConfiguration")
     def language_configuration(self) -> pulumi.Output[Optional['outputs.EvaluationFormLanguageConfiguration']]:
+        """
+        Configuration for language settings of this evaluation form.
+        """
         return pulumi.get(self, "language_configuration")
 
     @_builtins.property
@@ -393,6 +406,9 @@ class EvaluationForm(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="targetConfiguration")
     def target_configuration(self) -> pulumi.Output[Optional['outputs.EvaluationFormTargetConfiguration']]:
+        """
+        Configuration that specifies the target for this evaluation form.
+        """
         return pulumi.get(self, "target_configuration")
 
     @_builtins.property
