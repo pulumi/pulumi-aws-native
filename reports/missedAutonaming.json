@@ -2625,7 +2625,8 @@
     "cfTypeName": "AWS::Connect::DataTableRecord",
     "properties": {
       "dataTableArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) for the data table. Does not include version aliases."
       },
       "dataTableRecord": {
         "$ref": "#/types/aws-native:connect:DataTableRecordProperties",
@@ -2636,7 +2637,8 @@
         }
       },
       "instanceArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the instance."
       }
     }
   },
@@ -2703,7 +2705,8 @@
         "description": "Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.\n *Minimum size*: 1\n *Maximum size*: 100"
       },
       "languageConfiguration": {
-        "$ref": "#/types/aws-native:connect:EvaluationFormLanguageConfiguration"
+        "$ref": "#/types/aws-native:connect:EvaluationFormLanguageConfiguration",
+        "description": "Configuration for language settings of this evaluation form."
       },
       "scoringStrategy": {
         "$ref": "#/types/aws-native:connect:EvaluationFormScoringStrategy",
@@ -2721,7 +2724,8 @@
         "description": "The tags used to organize, track, or control access for this resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }."
       },
       "targetConfiguration": {
-        "$ref": "#/types/aws-native:connect:EvaluationFormTargetConfiguration"
+        "$ref": "#/types/aws-native:connect:EvaluationFormTargetConfiguration",
+        "description": "Configuration that specifies the target for this evaluation form."
       },
       "title": {
         "type": "string",
@@ -12068,7 +12072,8 @@
         "type": "array",
         "items": {
           "type": "string"
-        }
+        },
+        "description": "The list of AWS Regions to remove from the key's replication configuration.\n\nThe key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal."
       },
       "tags": {
         "type": "array",
@@ -14570,7 +14575,7 @@
         "additionalProperties": {
           "type": "string"
         },
-        "description": "The tags to add to the hub V2 resource when you enable Security Hub."
+        "description": "The tags to add to the hub V2 resource when you enable Security Hub CSPM."
       }
     }
   },
