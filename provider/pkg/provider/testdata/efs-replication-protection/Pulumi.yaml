@@ -56,7 +56,20 @@ resources:
         - ${efsDestination}
 
 outputs:
+  # Basic identifiers
   sourceId: ${efsSource.id}
-  sourceProtection: ${efsSource.fileSystemProtection.replicationOverwriteProtection}
+  sourceArn: ${efsSource.arn}
   destinationId: ${efsDestination.id}
+  destinationArn: ${efsDestination.arn}
+
+  # FileSystemProtection - this is what changes from DISABLED to REPLICATING
+  sourceProtection: ${efsSource.fileSystemProtection.replicationOverwriteProtection}
   destinationProtection: ${efsDestination.fileSystemProtection.replicationOverwriteProtection}
+
+  # Full fileSystemProtection objects for debugging
+  sourceFileSystemProtection: ${efsSource.fileSystemProtection}
+  destinationFileSystemProtection: ${efsDestination.fileSystemProtection}
+
+  # ReplicationConfiguration - this gets added to destination during replication
+  sourceReplicationConfig: ${efsSource.replicationConfiguration}
+  destinationReplicationConfig: ${efsDestination.replicationConfiguration}

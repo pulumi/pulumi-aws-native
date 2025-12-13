@@ -761,6 +761,15 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 			return nil, fmt.Errorf("failed to apply auto-naming: %w", err)
 		}
 
+		// Apply read-only nested property values from old state to new inputs.
+		// This ensures that when AWS changes a nested property (like EFS replicationOverwriteProtection
+		// changing from DISABLED to REPLICATING), the user's program value is overridden with the
+		// AWS state value to prevent failed updates.
+		if len(spec.ReadOnly) > 0 {
+			oldInputs := resources.ParseCheckpointObject(olds)
+			newInputs = schema.ApplyReadOnlyNestedProperties(newInputs, oldInputs, spec.ReadOnly)
+		}
+
 		// Merge default tags into the inputs if the resource supports tags and the user has not overridden them.
 		if len(p.defaultTags) > 0 && spec.TagsProperty != "" && spec.TagsStyle != default_tags.TagsStyleUnknown {
 			tagsKey := resource.PropertyKey(spec.TagsProperty)
@@ -807,6 +816,48 @@ func engineAutonaming(req *pulumirpc.CheckRequest) autonaming.EngineAutoNamingCo
 	return engineAutonaming
 }
 
+// filterAWSManagedPropertyDiffs removes diffs for properties that AWS manages and
+// cannot be changed by users. This handles cases where AWS transitions a property
+// to a managed state (e.g., EFS fileSystemProtection.replicationOverwriteProtection
+// changing from DISABLED to REPLICATING when replication is active).
+func filterAWSManagedPropertyDiffs(diff *resource.ObjectDiff, oldState resource.PropertyMap) *resource.ObjectDiff {
+	if diff == nil {
+		return nil
+	}
+
+	// Check for EFS fileSystemProtection with REPLICATING value
+	// When replicationOverwriteProtection is REPLICATING, AWS manages this property
+	// and rejects any attempts to change it.
+	if _, hasUpdate := diff.Updates["fileSystemProtection"]; hasUpdate {
+		if fsp, ok := oldState["fileSystemProtection"]; ok && fsp.IsObject() {
+			fspObj := fsp.ObjectValue()
+			if rop, ok := fspObj["replicationOverwriteProtection"]; ok && rop.IsString() {
+				if rop.StringValue() == "REPLICATING" {
+					// Remove fileSystemProtection from the diff
+					newDiff := &resource.ObjectDiff{
+						Adds:    diff.Adds,
+						Deletes: diff.Deletes,
+						Sames:   diff.Sames,
+						Updates: make(map[resource.PropertyKey]resource.ValueDiff),
+					}
+					for k, v := range diff.Updates {
+						if k != "fileSystemProtection" {
+							newDiff.Updates[k] = v
+						}
+					}
+					// If no changes remain, return nil
+					if len(newDiff.Adds) == 0 && len(newDiff.Deletes) == 0 && len(newDiff.Updates) == 0 {
+						return nil
+					}
+					return newDiff
+				}
+			}
+		}
+	}
+
+	return diff
+}
+
 func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pulumirpc.DiffResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Diff(%s)", p.name, urn)
@@ -838,6 +889,16 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 	diff := oldInputs.Diff(newInputs)
 
 	if diff == nil {
+		return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_NONE}, nil
+	}
+
+	// Filter out diffs for AWS-managed property transitions that cannot be reverted.
+	// For example, EFS fileSystemProtection.replicationOverwriteProtection transitions
+	// from DISABLED to REPLICATING when replication is active. AWS rejects any attempt
+	// to change this value while replication is active, so we suppress the diff.
+	diff = filterAWSManagedPropertyDiffs(diff, oldState)
+	if diff == nil {
+		glog.V(9).Infof("%s: diff suppressed for AWS-managed property transitions", label)
 		return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_NONE}, nil
 	}
 
@@ -1061,6 +1122,11 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 			diff := oldInputProjection.Diff(newInputProjection)
 			// 4. Apply this difference to the actual inputs (not a projection) that we have in state.
 			newInputs = resources.ApplyDiff(inputs, diff)
+			// 5. Filter out properties that are "effectively read-only" - properties with nested
+			// read-only paths that the user didn't specify. These shouldn't be treated as inputs
+			// because the user can't control the read-only nested values and attempting to remove
+			// them (when they appear after refresh but aren't in the user's program) can fail.
+			newInputs = schema.FilterEffectivelyReadOnlyProperties(newInputs, inputs, spec.ReadOnly)
 		}
 
 		newState = resources.CheckpointObject(newInputs, rawState)
