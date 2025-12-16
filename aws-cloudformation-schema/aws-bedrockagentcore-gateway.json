@@ -17,7 +17,7 @@
     },
     "AuthorizerType" : {
       "type" : "string",
-      "enum" : [ "CUSTOM_JWT", "AWS_IAM" ]
+      "enum" : [ "CUSTOM_JWT", "AWS_IAM", "NONE" ]
     },
     "CustomJWTAuthorizerConfiguration" : {
       "type" : "object",
@@ -47,6 +47,67 @@
     "ExceptionLevel" : {
       "type" : "string",
       "enum" : [ "DEBUG" ]
+    },
+    "GatewayInterceptionPoint" : {
+      "type" : "string",
+      "enum" : [ "REQUEST", "RESPONSE" ]
+    },
+    "GatewayInterceptorConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "Interceptor" : {
+          "$ref" : "#/definitions/InterceptorConfiguration"
+        },
+        "InterceptionPoints" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/GatewayInterceptionPoint"
+          },
+          "minItems" : 1,
+          "maxItems" : 2
+        },
+        "InputConfiguration" : {
+          "$ref" : "#/definitions/InterceptorInputConfiguration"
+        }
+      },
+      "required" : [ "Interceptor", "InterceptionPoints" ],
+      "additionalProperties" : false
+    },
+    "InterceptorConfiguration" : {
+      "oneOf" : [ {
+        "type" : "object",
+        "title" : "Lambda",
+        "properties" : {
+          "Lambda" : {
+            "$ref" : "#/definitions/LambdaInterceptorConfiguration"
+          }
+        },
+        "required" : [ "Lambda" ],
+        "additionalProperties" : false
+      } ]
+    },
+    "InterceptorInputConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "PassRequestHeaders" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "PassRequestHeaders" ],
+      "additionalProperties" : false
+    },
+    "LambdaInterceptorConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "Arn" : {
+          "type" : "string",
+          "maxLength" : 170,
+          "minLength" : 1,
+          "pattern" : "^arn:(aws[a-zA-Z-]*)?:lambda:([a-z]{2}(-gov)?-[a-z]+-\\d{1}):(\\d{12}):function:([a-zA-Z0-9-_.]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?$"
+        }
+      },
+      "required" : [ "Arn" ],
+      "additionalProperties" : false
     },
     "GatewayProtocolConfiguration" : {
       "oneOf" : [ {
@@ -139,6 +200,14 @@
     },
     "ExceptionLevel" : {
       "$ref" : "#/definitions/ExceptionLevel"
+    },
+    "InterceptorConfigurations" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/GatewayInterceptorConfiguration"
+      },
+      "minItems" : 1,
+      "maxItems" : 2
     },
     "GatewayArn" : {
       "type" : "string",

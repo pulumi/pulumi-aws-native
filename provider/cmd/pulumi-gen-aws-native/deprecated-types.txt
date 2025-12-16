@@ -2,6 +2,8 @@ AWS::DataSync::StorageSystem
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
 AWS::IoTFleetHub::Application
+AWS::LookoutMetrics::Alert
+AWS::LookoutMetrics::AnomalyDetector
 AWS::NimbleStudio::LaunchProfile
 AWS::NimbleStudio::StreamingImage
 AWS::NimbleStudio::Studio

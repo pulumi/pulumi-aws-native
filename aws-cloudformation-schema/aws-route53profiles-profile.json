@@ -31,6 +31,11 @@
     "Id" : {
       "type" : "string",
       "description" : "The ID of the profile."
+    },
+    "ShareStatus" : {
+      "type" : "string",
+      "description" : "The sharing status of the profile.",
+      "enum" : [ "NOT_SHARED", "SHARED_WITH_ME", "SHARED_BY_ME" ]
     }
   },
   "definitions" : {
@@ -64,7 +69,7 @@
   },
   "required" : [ "Name" ],
   "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/Id", "/properties/ClientToken" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/Id", "/properties/ClientToken", "/properties/ShareStatus" ],
   "createOnlyProperties" : [ "/properties/Name" ],
   "handlers" : {
     "create" : {

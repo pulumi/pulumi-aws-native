@@ -2,6 +2,43 @@
   "typeName" : "AWS::WorkSpacesWeb::UserSettings",
   "description" : "Definition of AWS::WorkSpacesWeb::UserSettings Resource Type",
   "definitions" : {
+    "BrandingConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "Logo" : {
+          "type" : "string",
+          "pattern" : "(^s3://[a-z0-9][a-z0-9\\.\\-]{1,61}[a-z0-9]/.+$)|(^(?=(.{4})*$)[A-Za-z0-9+/]*={0,2}$)"
+        },
+        "Wallpaper" : {
+          "type" : "string",
+          "pattern" : "(^s3://[a-z0-9][a-z0-9\\.\\-]{1,61}[a-z0-9]/.+$)|(^(?=(.{4})*$)[A-Za-z0-9+/]*={0,2}$)"
+        },
+        "Favicon" : {
+          "type" : "string",
+          "pattern" : "(^s3://[a-z0-9][a-z0-9\\.\\-]{1,61}[a-z0-9]/.+$)|(^(?=(.{4})*$)[A-Za-z0-9+/]*={0,2}$)"
+        },
+        "LogoMetadata" : {
+          "$ref" : "#/definitions/ImageMetadata"
+        },
+        "WallpaperMetadata" : {
+          "$ref" : "#/definitions/ImageMetadata"
+        },
+        "FaviconMetadata" : {
+          "$ref" : "#/definitions/ImageMetadata"
+        },
+        "LocalizedStrings" : {
+          "$ref" : "#/definitions/LocalizedBrandingStringMap"
+        },
+        "ColorTheme" : {
+          "$ref" : "#/definitions/ColorTheme"
+        },
+        "TermsOfService" : {
+          "type" : "string",
+          "maxLength" : 153600
+        }
+      },
+      "additionalProperties" : false
+    },
     "CookieSpecification" : {
       "type" : "object",
       "properties" : {
@@ -67,9 +104,89 @@
       },
       "additionalProperties" : false
     },
+    "ColorTheme" : {
+      "type" : "string",
+      "enum" : [ "Light", "Dark" ]
+    },
+    "ImageMetadata" : {
+      "type" : "object",
+      "properties" : {
+        "MimeType" : {
+          "$ref" : "#/definitions/MimeType"
+        },
+        "FileExtension" : {
+          "type" : "string",
+          "maxLength" : 131072,
+          "minLength" : 0,
+          "pattern" : "^[\\s\\S]*$"
+        },
+        "LastUploadTimestamp" : {
+          "type" : "string",
+          "format" : "date-time"
+        }
+      },
+      "required" : [ "FileExtension", "LastUploadTimestamp", "MimeType" ],
+      "additionalProperties" : false
+    },
+    "Locale" : {
+      "type" : "string",
+      "enum" : [ "de-DE", "en-US", "es-ES", "fr-FR", "id-ID", "it-IT", "ja-JP", "ko-KR", "pt-BR", "zh-CN", "zh-TW" ]
+    },
+    "LocalizedBrandingStringMap" : {
+      "type" : "object",
+      "patternProperties" : {
+        ".+" : {
+          "$ref" : "#/definitions/LocalizedBrandingStrings"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "LocalizedBrandingStrings" : {
+      "type" : "object",
+      "properties" : {
+        "BrowserTabTitle" : {
+          "type" : "string",
+          "pattern" : "^[^<>&'`~\\\\]*$"
+        },
+        "WelcomeText" : {
+          "type" : "string",
+          "pattern" : "^[^<>&'`~\\\\]*$"
+        },
+        "LoginTitle" : {
+          "type" : "string",
+          "pattern" : "^[^<>&'`~\\\\]*$"
+        },
+        "LoginDescription" : {
+          "type" : "string",
+          "pattern" : "^[^<>&'`~\\\\]*$"
+        },
+        "LoginButtonText" : {
+          "type" : "string",
+          "pattern" : "^[^<>&'`~\\\\]*$"
+        },
+        "ContactLink" : {
+          "type" : "string",
+          "pattern" : "^(https?://|mailto:).*"
+        },
+        "ContactButtonText" : {
+          "type" : "string",
+          "pattern" : "^[^<>&'`~\\\\]*$"
+        },
+        "LoadingText" : {
+          "type" : "string",
+          "pattern" : "^[^<>&'`~\\\\]*$"
+        }
+      },
+      "required" : [ "BrowserTabTitle", "WelcomeText" ],
+      "additionalProperties" : false
+    },
     "MaxDisplayResolution" : {
       "type" : "string",
       "enum" : [ "size4096X2160", "size3840X2160", "size3440X1440", "size2560X1440", "size1920X1080", "size1280X720", "size1024X768", "size800X600" ]
+    },
+    "MimeType" : {
+      "type" : "string",
+      "enum" : [ "image/png", "image/jpeg", "image/x-icon" ]
     },
     "Tag" : {
       "type" : "object",
@@ -138,6 +255,9 @@
       },
       "insertionOrder" : false
     },
+    "BrandingConfiguration" : {
+      "$ref" : "#/definitions/BrandingConfiguration"
+    },
     "CookieSynchronizationConfiguration" : {
       "$ref" : "#/definitions/CookieSynchronizationConfiguration"
     },
@@ -197,17 +317,18 @@
     }
   },
   "required" : [ "CopyAllowed", "DownloadAllowed", "PasteAllowed", "PrintAllowed", "UploadAllowed" ],
-  "readOnlyProperties" : [ "/properties/AssociatedPortalArns", "/properties/UserSettingsArn" ],
+  "writeOnlyProperties" : [ "/properties/BrandingConfiguration/Logo", "/properties/BrandingConfiguration/Favicon", "/properties/BrandingConfiguration/Wallpaper" ],
+  "readOnlyProperties" : [ "/properties/AssociatedPortalArns", "/properties/UserSettingsArn", "/properties/BrandingConfiguration/LogoMetadata", "/properties/BrandingConfiguration/FaviconMetadata", "/properties/BrandingConfiguration/WallpaperMetadata" ],
   "primaryIdentifier" : [ "/properties/UserSettingsArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "workspaces-web:CreateUserSettings", "workspaces-web:GetUserSettings", "workspaces-web:ListTagsForResource", "workspaces-web:TagResource", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt", "kms:GenerateDataKeyWithoutPlaintext", "kms:ReEncryptTo", "kms:ReEncryptFrom" ]
+      "permissions" : [ "workspaces-web:CreateUserSettings", "workspaces-web:GetUserSettings", "workspaces-web:ListTagsForResource", "workspaces-web:TagResource", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt", "kms:GenerateDataKeyWithoutPlaintext", "kms:ReEncryptTo", "kms:ReEncryptFrom", "s3:GetObject" ]
     },
     "read" : {
       "permissions" : [ "workspaces-web:GetUserSettings", "workspaces-web:ListTagsForResource", "kms:CreateGrant", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "update" : {
-      "permissions" : [ "workspaces-web:UpdateUserSettings", "workspaces-web:TagResource", "workspaces-web:UntagResource", "workspaces-web:GetUserSettings", "workspaces-web:ListTagsForResource", "kms:CreateGrant", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt" ]
+      "permissions" : [ "workspaces-web:UpdateUserSettings", "workspaces-web:TagResource", "workspaces-web:UntagResource", "workspaces-web:GetUserSettings", "workspaces-web:ListTagsForResource", "kms:CreateGrant", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt", "s3:GetObject" ]
     },
     "delete" : {
       "permissions" : [ "workspaces-web:GetUserSettings", "workspaces-web:DeleteUserSettings", "kms:CreateGrant", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt" ]

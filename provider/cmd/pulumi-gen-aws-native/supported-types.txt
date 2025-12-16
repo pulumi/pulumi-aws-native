@@ -1086,6 +1086,7 @@ AWS::SES::MailManagerRuleSet
 AWS::SES::MailManagerTrafficPolicy
 AWS::SES::MultiRegionEndpoint
 AWS::SES::Template
+AWS::SES::Tenant
 AWS::SES::VdmAttributes
 AWS::SMSVOICE::ConfigurationSet
 AWS::SMSVOICE::OptOutList
@@ -1102,6 +1103,8 @@ AWS::SQS::Queue
 AWS::SQS::QueueInlinePolicy
 AWS::SSM::Association
 AWS::SSM::Document
+AWS::SSM::MaintenanceWindowTarget
+AWS::SSM::MaintenanceWindowTask
 AWS::SSM::Parameter
 AWS::SSM::PatchBaseline
 AWS::SSM::ResourceDataSync
