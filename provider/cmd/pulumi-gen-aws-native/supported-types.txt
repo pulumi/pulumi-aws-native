@@ -297,6 +297,7 @@ AWS::CustomerProfiles::EventTrigger
 AWS::CustomerProfiles::Integration
 AWS::CustomerProfiles::ObjectType
 AWS::CustomerProfiles::SegmentDefinition
+AWS::DAX::SubnetGroup
 AWS::DMS::DataMigration
 AWS::DMS::DataProvider
 AWS::DMS::InstanceProfile
@@ -596,6 +597,7 @@ AWS::GreengrassV2::ComponentVersion
 AWS::GreengrassV2::Deployment
 AWS::GroundStation::Config
 AWS::GroundStation::DataflowEndpointGroup
+AWS::GroundStation::DataflowEndpointGroupV2
 AWS::GroundStation::MissionProfile
 AWS::GuardDuty::Detector
 AWS::GuardDuty::Filter
@@ -903,6 +905,7 @@ AWS::Omics::Workflow
 AWS::Omics::WorkflowVersion
 AWS::OpenSearchServerless::AccessPolicy
 AWS::OpenSearchServerless::Collection
+AWS::OpenSearchServerless::CollectionGroup
 AWS::OpenSearchServerless::Index
 AWS::OpenSearchServerless::LifecyclePolicy
 AWS::OpenSearchServerless::SecurityConfig
@@ -1086,6 +1089,7 @@ AWS::SES::MailManagerRuleSet
 AWS::SES::MailManagerTrafficPolicy
 AWS::SES::MultiRegionEndpoint
 AWS::SES::Template
+AWS::SES::Tenant
 AWS::SES::VdmAttributes
 AWS::SMSVOICE::ConfigurationSet
 AWS::SMSVOICE::OptOutList
@@ -1102,6 +1106,8 @@ AWS::SQS::Queue
 AWS::SQS::QueueInlinePolicy
 AWS::SSM::Association
 AWS::SSM::Document
+AWS::SSM::MaintenanceWindowTarget
+AWS::SSM::MaintenanceWindowTask
 AWS::SSM::Parameter
 AWS::SSM::PatchBaseline
 AWS::SSM::ResourceDataSync

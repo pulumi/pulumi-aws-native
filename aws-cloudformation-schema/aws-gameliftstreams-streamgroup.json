@@ -35,6 +35,15 @@
         },
         "OnDemandCapacity" : {
           "type" : "integer",
+          "minimum" : 0,
+          "description" : "This shape is deprecated."
+        },
+        "TargetIdleCapacity" : {
+          "type" : "integer",
+          "minimum" : 0
+        },
+        "MaximumCapacity" : {
+          "type" : "integer",
           "minimum" : 0
         }
       },
@@ -111,17 +120,17 @@
     "create" : {
       "permissions" : [ "gameliftstreams:CreateStreamGroup", "gameliftstreams:UpdateStreamGroup", "gameliftstreams:GetStreamGroup", "gameliftstreams:TagResource", "gameliftstreams:ListTagsForResource", "gameliftstreams:AssociateApplications" ]
     },
-    "read" : {
-      "permissions" : [ "gameliftstreams:GetStreamGroup", "gameliftstreams:ListTagsForResource" ]
-    },
-    "update" : {
-      "permissions" : [ "gameliftstreams:UpdateStreamGroup", "gameliftstreams:GetStreamGroup", "gameliftstreams:AddStreamGroupLocations", "gameliftstreams:RemoveStreamGroupLocations", "gameliftstreams:TagResource", "gameliftstreams:UntagResource", "gameliftstreams:ListTagsForResource" ]
-    },
     "delete" : {
       "permissions" : [ "gameliftstreams:DeleteStreamGroup", "gameliftstreams:GetStreamGroup" ]
     },
     "list" : {
       "permissions" : [ "gameliftstreams:ListStreamGroups", "gameliftstreams:ListTagsForResource" ]
+    },
+    "read" : {
+      "permissions" : [ "gameliftstreams:GetStreamGroup", "gameliftstreams:ListTagsForResource" ]
+    },
+    "update" : {
+      "permissions" : [ "gameliftstreams:UpdateStreamGroup", "gameliftstreams:GetStreamGroup", "gameliftstreams:AddStreamGroupLocations", "gameliftstreams:RemoveStreamGroupLocations", "gameliftstreams:TagResource", "gameliftstreams:UntagResource", "gameliftstreams:ListTagsForResource" ]
     }
   },
   "additionalProperties" : false,
@@ -133,5 +142,10 @@
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "gameliftstreams:TagResource", "gameliftstreams:UntagResource", "gameliftstreams:ListTagsForResource" ]
   },
-  "additionalIdentifiers" : [ [ "/properties/Id" ] ]
+  "propertyTransform" : {
+    "/properties/LocationConfiguration/OnDemandCapacity" : "$exists(LocationConfiguration.MaximumCapacity) ? (LocationConfiguration.MaximumCapacity - LocationConfiguration.AlwaysOnCapacity) : 0",
+    "/properties/LocationConfiguration/MaximumCapacity" : "($exists(LocationConfiguration.OnDemandCapacity) ? LocationConfiguration.OnDemandCapacity : 0) + LocationConfiguration.AlwaysOnCapacity"
+  },
+  "additionalIdentifiers" : [ [ "/properties/Id" ] ],
+  "deprecatedProperties" : [ "/properties/LocationConfiguration/OnDemandCapacity" ]
 }

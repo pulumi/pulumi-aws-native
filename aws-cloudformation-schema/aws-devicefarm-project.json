@@ -21,6 +21,22 @@
     "VpcConfig" : {
       "$ref" : "#/definitions/VpcConfig"
     },
+    "ExecutionRoleArn" : {
+      "type" : "string",
+      "minLength" : 20,
+      "maxLength" : 2048,
+      "pattern" : "^arn:[^:]*:iam::[0-9]{12}:role/.+"
+    },
+    "EnvironmentVariables" : {
+      "type" : "array",
+      "uniqueItems" : true,
+      "insertionOrder" : false,
+      "minItems" : 1,
+      "maxItems" : 32,
+      "items" : {
+        "$ref" : "#/definitions/EnvironmentVariable"
+      }
+    },
     "Tags" : {
       "type" : "array",
       "uniqueItems" : false,
@@ -72,6 +88,25 @@
       },
       "required" : [ "SecurityGroupIds", "SubnetIds", "VpcId" ]
     },
+    "EnvironmentVariable" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "insertionOrder" : false,
+      "properties" : {
+        "Name" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 256,
+          "pattern" : "[a-zA-Z_][a-zA-Z_0-9]*"
+        },
+        "Value" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 256
+        }
+      },
+      "required" : [ "Name", "Value" ]
+    },
     "Tag" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -105,13 +140,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "devicefarm:CreateProject", "devicefarm:TagResource", "devicefarm:GetProject", "devicefarm:ListTagsForResource", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "devicefarm:CreateProject", "devicefarm:TagResource", "devicefarm:GetProject", "devicefarm:ListTagsForResource", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "iam:CreateServiceLinkedRole", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "devicefarm:GetProject", "devicefarm:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "devicefarm:UpdateProject", "devicefarm:TagResource", "devicefarm:UntagResource", "devicefarm:ListTagsForResource", "devicefarm:GetProject", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "devicefarm:UpdateProject", "devicefarm:TagResource", "devicefarm:UntagResource", "devicefarm:ListTagsForResource", "devicefarm:GetProject", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "iam:CreateServiceLinkedRole", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "devicefarm:DeleteProject", "devicefarm:UntagResource", "devicefarm:GetProject", "devicefarm:ListTagsForResource" ]
