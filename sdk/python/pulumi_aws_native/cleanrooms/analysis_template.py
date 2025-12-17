@@ -46,6 +46,7 @@ class AnalysisTemplateArgs:
         :param pulumi.Input[_builtins.str] name: The name of the analysis template.
         :param pulumi.Input['AnalysisTemplateAnalysisSchemaArgs'] schema: The entire schema object.
         :param pulumi.Input['AnalysisTemplateAnalysisSourceMetadataPropertiesArgs'] source_metadata: The source metadata for the analysis template.
+        :param pulumi.Input['AnalysisTemplateSyntheticDataParametersPropertiesArgs'] synthetic_data_parameters: The parameters used to generate synthetic data for this analysis template.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
         """
         pulumi.set(__self__, "format", format)
@@ -179,6 +180,9 @@ class AnalysisTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="syntheticDataParameters")
     def synthetic_data_parameters(self) -> Optional[pulumi.Input['AnalysisTemplateSyntheticDataParametersPropertiesArgs']]:
+        """
+        The parameters used to generate synthetic data for this analysis template.
+        """
         return pulumi.get(self, "synthetic_data_parameters")
 
     @synthetic_data_parameters.setter
@@ -230,6 +234,7 @@ class AnalysisTemplate(pulumi.CustomResource):
         :param pulumi.Input[Union['AnalysisTemplateAnalysisSchemaArgs', 'AnalysisTemplateAnalysisSchemaArgsDict']] schema: The entire schema object.
         :param pulumi.Input[Union[Union['AnalysisTemplateAnalysisSource0PropertiesArgs', 'AnalysisTemplateAnalysisSource0PropertiesArgsDict'], Union['AnalysisTemplateAnalysisSource1PropertiesArgs', 'AnalysisTemplateAnalysisSource1PropertiesArgsDict']]] source: The source of the analysis template.
         :param pulumi.Input[Union['AnalysisTemplateAnalysisSourceMetadataPropertiesArgs', 'AnalysisTemplateAnalysisSourceMetadataPropertiesArgsDict']] source_metadata: The source metadata for the analysis template.
+        :param pulumi.Input[Union['AnalysisTemplateSyntheticDataParametersPropertiesArgs', 'AnalysisTemplateSyntheticDataParametersPropertiesArgsDict']] synthetic_data_parameters: The parameters used to generate synthetic data for this analysis template.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
         """
         ...
@@ -465,6 +470,9 @@ class AnalysisTemplate(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="syntheticDataParameters")
     def synthetic_data_parameters(self) -> pulumi.Output[Optional['outputs.AnalysisTemplateSyntheticDataParametersProperties']]:
+        """
+        The parameters used to generate synthetic data for this analysis template.
+        """
         return pulumi.get(self, "synthetic_data_parameters")
 
     @_builtins.property

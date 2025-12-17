@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.DataSync
         public Output<Pulumi.AwsNative.DataSync.LocationAzureBlobAzureBlobType?> AzureBlobType { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+        /// Specifies configuration information for a DataSync-managed secret, such as an authentication token, secret key, password, or Kerberos keytab that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
         /// 
         /// &gt; You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.DataSync
         public Output<Outputs.LocationAzureBlobCmkSecretConfig?> CmkSecretConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+        /// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location credentials is stored in Secrets Manager as plain text (for authentication token, secret key, or password) or as binary (for Kerberos keytab). This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
         /// 
         /// &gt; You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
         /// </summary>
@@ -190,7 +190,7 @@ namespace Pulumi.AwsNative.DataSync
         public Input<Pulumi.AwsNative.DataSync.LocationAzureBlobAzureBlobType>? AzureBlobType { get; set; }
 
         /// <summary>
-        /// Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+        /// Specifies configuration information for a DataSync-managed secret, such as an authentication token, secret key, password, or Kerberos keytab that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
         /// 
         /// &gt; You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
         /// </summary>
@@ -198,7 +198,7 @@ namespace Pulumi.AwsNative.DataSync
         public Input<Inputs.LocationAzureBlobCmkSecretConfigArgs>? CmkSecretConfig { get; set; }
 
         /// <summary>
-        /// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+        /// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location credentials is stored in Secrets Manager as plain text (for authentication token, secret key, or password) or as binary (for Kerberos keytab). This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
         /// 
         /// &gt; You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
         /// </summary>

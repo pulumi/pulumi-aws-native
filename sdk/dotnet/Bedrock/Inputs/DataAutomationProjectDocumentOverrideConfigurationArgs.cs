@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("modalityProcessing")]
         public Input<Inputs.DataAutomationProjectModalityProcessingConfigurationArgs>? ModalityProcessing { get; set; }
 
+        /// <summary>
+        /// Configuration for sensitive data detection and redaction for document files.
+        /// </summary>
         [Input("sensitiveDataConfiguration")]
         public Input<Inputs.DataAutomationProjectSensitiveDataConfigurationArgs>? SensitiveDataConfiguration { get; set; }
 

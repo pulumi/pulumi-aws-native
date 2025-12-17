@@ -3651,6 +3651,10 @@ type Ec2FleetInstanceRequirementsRequest struct {
 	//
 	// Default: `20`
 	OnDemandMaxPricePercentageOverLowestPrice *int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
+	//
+	// Default: `false`
+	RequireEncryptionInTransit *bool `pulumi:"requireEncryptionInTransit"`
 	// Indicates whether instance types must support hibernation for On-Demand Instances.
 	//
 	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
@@ -3852,6 +3856,10 @@ type Ec2FleetInstanceRequirementsRequestArgs struct {
 	//
 	// Default: `20`
 	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
+	//
+	// Default: `false`
+	RequireEncryptionInTransit pulumi.BoolPtrInput `pulumi:"requireEncryptionInTransit"`
 	// Indicates whether instance types must support hibernation for On-Demand Instances.
 	//
 	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
@@ -4213,6 +4221,13 @@ func (o Ec2FleetInstanceRequirementsRequestOutput) NetworkInterfaceCount() Ec2Fl
 // Default: `20`
 func (o Ec2FleetInstanceRequirementsRequestOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *int { return v.OnDemandMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
+}
+
+// Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
+//
+// Default: `false`
+func (o Ec2FleetInstanceRequirementsRequestOutput) RequireEncryptionInTransit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *bool { return v.RequireEncryptionInTransit }).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether instance types must support hibernation for On-Demand Instances.
@@ -4606,6 +4621,18 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) OnDemandMaxPricePercentage
 		}
 		return v.OnDemandMaxPricePercentageOverLowestPrice
 	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
+//
+// Default: `false`
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) RequireEncryptionInTransit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireEncryptionInTransit
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether instance types must support hibernation for On-Demand Instances.
@@ -23413,10 +23440,14 @@ func (o NetworkInterfacePrivateIpAddressSpecificationArrayOutput) Index(i pulumi
 
 // Describes the public hostname type options, including public hostname type, IPv4-enabled public hostname, IPv6-enabled public hostname, and dual-stack public hostname.
 type NetworkInterfacePublicIpDnsNameOptions struct {
-	DnsHostnameType        *string `pulumi:"dnsHostnameType"`
+	// The public hostname type. For more information, see [EC2 instance hostnames, DNS names, and domains](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon EC2 User Guide* .
+	DnsHostnameType *string `pulumi:"dnsHostnameType"`
+	// A dual-stack public hostname for a network interface. Requests from within the VPC resolve to both the private IPv4 address and the IPv6 Global Unicast Address of the network interface. Requests from the internet resolve to both the public IPv4 and the IPv6 GUA address of the network interface.
 	PublicDualStackDnsName *string `pulumi:"publicDualStackDnsName"`
-	PublicIpv4DnsName      *string `pulumi:"publicIpv4DnsName"`
-	PublicIpv6DnsName      *string `pulumi:"publicIpv6DnsName"`
+	// An IPv4-enabled public hostname for a network interface. Requests from within the VPC resolve to the private primary IPv4 address of the network interface. Requests from the internet resolve to the public IPv4 address of the network interface.
+	PublicIpv4DnsName *string `pulumi:"publicIpv4DnsName"`
+	// An IPv6-enabled public hostname for a network interface. Requests from within the VPC or from the internet resolve to the IPv6 GUA of the network interface.
+	PublicIpv6DnsName *string `pulumi:"publicIpv6DnsName"`
 }
 
 // Describes the public hostname type options, including public hostname type, IPv4-enabled public hostname, IPv6-enabled public hostname, and dual-stack public hostname.
@@ -23434,18 +23465,22 @@ func (o NetworkInterfacePublicIpDnsNameOptionsOutput) ToNetworkInterfacePublicIp
 	return o
 }
 
+// The public hostname type. For more information, see [EC2 instance hostnames, DNS names, and domains](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon EC2 User Guide* .
 func (o NetworkInterfacePublicIpDnsNameOptionsOutput) DnsHostnameType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfacePublicIpDnsNameOptions) *string { return v.DnsHostnameType }).(pulumi.StringPtrOutput)
 }
 
+// A dual-stack public hostname for a network interface. Requests from within the VPC resolve to both the private IPv4 address and the IPv6 Global Unicast Address of the network interface. Requests from the internet resolve to both the public IPv4 and the IPv6 GUA address of the network interface.
 func (o NetworkInterfacePublicIpDnsNameOptionsOutput) PublicDualStackDnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfacePublicIpDnsNameOptions) *string { return v.PublicDualStackDnsName }).(pulumi.StringPtrOutput)
 }
 
+// An IPv4-enabled public hostname for a network interface. Requests from within the VPC resolve to the private primary IPv4 address of the network interface. Requests from the internet resolve to the public IPv4 address of the network interface.
 func (o NetworkInterfacePublicIpDnsNameOptionsOutput) PublicIpv4DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfacePublicIpDnsNameOptions) *string { return v.PublicIpv4DnsName }).(pulumi.StringPtrOutput)
 }
 
+// An IPv6-enabled public hostname for a network interface. Requests from within the VPC or from the internet resolve to the IPv6 GUA of the network interface.
 func (o NetworkInterfacePublicIpDnsNameOptionsOutput) PublicIpv6DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfacePublicIpDnsNameOptions) *string { return v.PublicIpv6DnsName }).(pulumi.StringPtrOutput)
 }
@@ -23474,6 +23509,7 @@ func (o NetworkInterfacePublicIpDnsNameOptionsPtrOutput) Elem() NetworkInterface
 	}).(NetworkInterfacePublicIpDnsNameOptionsOutput)
 }
 
+// The public hostname type. For more information, see [EC2 instance hostnames, DNS names, and domains](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *Amazon EC2 User Guide* .
 func (o NetworkInterfacePublicIpDnsNameOptionsPtrOutput) DnsHostnameType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfacePublicIpDnsNameOptions) *string {
 		if v == nil {
@@ -23483,6 +23519,7 @@ func (o NetworkInterfacePublicIpDnsNameOptionsPtrOutput) DnsHostnameType() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// A dual-stack public hostname for a network interface. Requests from within the VPC resolve to both the private IPv4 address and the IPv6 Global Unicast Address of the network interface. Requests from the internet resolve to both the public IPv4 and the IPv6 GUA address of the network interface.
 func (o NetworkInterfacePublicIpDnsNameOptionsPtrOutput) PublicDualStackDnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfacePublicIpDnsNameOptions) *string {
 		if v == nil {
@@ -23492,6 +23529,7 @@ func (o NetworkInterfacePublicIpDnsNameOptionsPtrOutput) PublicDualStackDnsName(
 	}).(pulumi.StringPtrOutput)
 }
 
+// An IPv4-enabled public hostname for a network interface. Requests from within the VPC resolve to the private primary IPv4 address of the network interface. Requests from the internet resolve to the public IPv4 address of the network interface.
 func (o NetworkInterfacePublicIpDnsNameOptionsPtrOutput) PublicIpv4DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfacePublicIpDnsNameOptions) *string {
 		if v == nil {
@@ -23501,6 +23539,7 @@ func (o NetworkInterfacePublicIpDnsNameOptionsPtrOutput) PublicIpv4DnsName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// An IPv6-enabled public hostname for a network interface. Requests from within the VPC or from the internet resolve to the IPv6 GUA of the network interface.
 func (o NetworkInterfacePublicIpDnsNameOptionsPtrOutput) PublicIpv6DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInterfacePublicIpDnsNameOptions) *string {
 		if v == nil {
@@ -26932,6 +26971,10 @@ type SpotFleetInstanceRequirementsRequest struct {
 	//
 	// Default: `20`
 	OnDemandMaxPricePercentageOverLowestPrice *int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
+	//
+	// Default: `false`
+	RequireEncryptionInTransit *bool `pulumi:"requireEncryptionInTransit"`
 	// Indicates whether instance types must support hibernation for On-Demand Instances.
 	//
 	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
@@ -27133,6 +27176,10 @@ type SpotFleetInstanceRequirementsRequestArgs struct {
 	//
 	// Default: `20`
 	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
+	//
+	// Default: `false`
+	RequireEncryptionInTransit pulumi.BoolPtrInput `pulumi:"requireEncryptionInTransit"`
 	// Indicates whether instance types must support hibernation for On-Demand Instances.
 	//
 	// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
@@ -27494,6 +27541,13 @@ func (o SpotFleetInstanceRequirementsRequestOutput) NetworkInterfaceCount() Spot
 // Default: `20`
 func (o SpotFleetInstanceRequirementsRequestOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *int { return v.OnDemandMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
+}
+
+// Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
+//
+// Default: `false`
+func (o SpotFleetInstanceRequirementsRequestOutput) RequireEncryptionInTransit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *bool { return v.RequireEncryptionInTransit }).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether instance types must support hibernation for On-Demand Instances.
@@ -27887,6 +27941,18 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) OnDemandMaxPricePercentag
 		}
 		return v.OnDemandMaxPricePercentageOverLowestPrice
 	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
+//
+// Default: `false`
+func (o SpotFleetInstanceRequirementsRequestPtrOutput) RequireEncryptionInTransit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireEncryptionInTransit
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether instance types must support hibernation for On-Demand Instances.

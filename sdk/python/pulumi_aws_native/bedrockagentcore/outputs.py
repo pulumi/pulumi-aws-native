@@ -26,6 +26,9 @@ __all__ = [
     'CodeInterpreterCustomVpcConfig',
     'GatewayAuthorizerConfigurationProperties',
     'GatewayCustomJwtAuthorizerConfiguration',
+    'GatewayInterceptorConfiguration',
+    'GatewayInterceptorInputConfiguration',
+    'GatewayLambdaInterceptorConfiguration',
     'GatewayMcpGatewayConfiguration',
     'GatewayProtocolConfigurationProperties',
     'GatewayTargetApiKeyCredentialProvider',
@@ -48,6 +51,7 @@ __all__ = [
     'GatewayTargetToolSchema0Properties',
     'GatewayTargetToolSchema1Properties',
     'GatewayWorkloadIdentityDetails',
+    'InterceptorConfigurationProperties',
     'MemoryCustomConfigurationInput',
     'MemoryCustomMemoryStrategy',
     'MemoryInvocationConfigurationInput',
@@ -444,6 +448,93 @@ class GatewayCustomJwtAuthorizerConfiguration(dict):
     @pulumi.getter(name="allowedClients")
     def allowed_clients(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "allowed_clients")
+
+
+@pulumi.output_type
+class GatewayInterceptorConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "interceptionPoints":
+            suggest = "interception_points"
+        elif key == "inputConfiguration":
+            suggest = "input_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayInterceptorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayInterceptorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayInterceptorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 interception_points: Sequence['GatewayInterceptionPoint'],
+                 interceptor: 'outputs.InterceptorConfigurationProperties',
+                 input_configuration: Optional['outputs.GatewayInterceptorInputConfiguration'] = None):
+        pulumi.set(__self__, "interception_points", interception_points)
+        pulumi.set(__self__, "interceptor", interceptor)
+        if input_configuration is not None:
+            pulumi.set(__self__, "input_configuration", input_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="interceptionPoints")
+    def interception_points(self) -> Sequence['GatewayInterceptionPoint']:
+        return pulumi.get(self, "interception_points")
+
+    @_builtins.property
+    @pulumi.getter
+    def interceptor(self) -> 'outputs.InterceptorConfigurationProperties':
+        return pulumi.get(self, "interceptor")
+
+    @_builtins.property
+    @pulumi.getter(name="inputConfiguration")
+    def input_configuration(self) -> Optional['outputs.GatewayInterceptorInputConfiguration']:
+        return pulumi.get(self, "input_configuration")
+
+
+@pulumi.output_type
+class GatewayInterceptorInputConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passRequestHeaders":
+            suggest = "pass_request_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayInterceptorInputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayInterceptorInputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayInterceptorInputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pass_request_headers: _builtins.bool):
+        pulumi.set(__self__, "pass_request_headers", pass_request_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="passRequestHeaders")
+    def pass_request_headers(self) -> _builtins.bool:
+        return pulumi.get(self, "pass_request_headers")
+
+
+@pulumi.output_type
+class GatewayLambdaInterceptorConfiguration(dict):
+    def __init__(__self__, *,
+                 arn: _builtins.str):
+        pulumi.set(__self__, "arn", arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        return pulumi.get(self, "arn")
 
 
 @pulumi.output_type
@@ -1140,6 +1231,35 @@ class GatewayWorkloadIdentityDetails(dict):
     @pulumi.getter(name="workloadIdentityArn")
     def workload_identity_arn(self) -> _builtins.str:
         return pulumi.get(self, "workload_identity_arn")
+
+
+@pulumi.output_type
+class InterceptorConfigurationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambda":
+            suggest = "lambda_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InterceptorConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InterceptorConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InterceptorConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_: 'outputs.GatewayLambdaInterceptorConfiguration'):
+        pulumi.set(__self__, "lambda_", lambda_)
+
+    @_builtins.property
+    @pulumi.getter(name="lambda")
+    def lambda_(self) -> 'outputs.GatewayLambdaInterceptorConfiguration':
+        return pulumi.get(self, "lambda_")
 
 
 @pulumi.output_type

@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("s3BucketDestination")]
         public Input<Inputs.StorageLensS3BucketDestinationArgs>? S3BucketDestination { get; set; }
 
+        [Input("storageLensTableDestination")]
+        public Input<Inputs.StorageLensTableDestinationArgs>? StorageLensTableDestination { get; set; }
+
         public StorageLensExpandedPrefixesDataExportArgs()
         {
         }

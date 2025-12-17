@@ -18,6 +18,8 @@ from ._enums import *
 __all__ = [
     'DevicePoolRuleArgs',
     'DevicePoolRuleArgsDict',
+    'ProjectEnvironmentVariableArgs',
+    'ProjectEnvironmentVariableArgsDict',
     'ProjectVpcConfigArgs',
     'ProjectVpcConfigArgsDict',
     'TestGridProjectVpcConfigArgs',
@@ -99,6 +101,40 @@ class DevicePoolRuleArgs:
 
     @value.setter
     def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class ProjectEnvironmentVariableArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        value: pulumi.Input[_builtins.str]
+elif False:
+    ProjectEnvironmentVariableArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProjectEnvironmentVariableArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "value", value)
 
 

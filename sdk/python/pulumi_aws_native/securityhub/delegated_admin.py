@@ -141,7 +141,7 @@ class DelegatedAdmin(pulumi.CustomResource):
     @pulumi.getter(name="delegatedAdminIdentifier")
     def delegated_admin_identifier(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
+        The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
         """
         return pulumi.get(self, "delegated_admin_identifier")
 
@@ -149,7 +149,7 @@ class DelegatedAdmin(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output['DelegatedAdminStatus']:
         """
-        Whether the delegated Security Hub administrator is set for the organization.
+        Whether the delegated Security Hub CSPM administrator is set for the organization.
         """
         return pulumi.get(self, "status")
 

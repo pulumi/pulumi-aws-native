@@ -13,6 +13,165 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// The configuration to encrypt the collection
+type CollectionEncryptionConfig struct {
+	// The configuration to encrypt the collection with AWS owned key
+	AwsOwnedKey *bool `pulumi:"awsOwnedKey"`
+	// The ARN of the KMS key to encrypt the collection with
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+}
+
+// CollectionEncryptionConfigInput is an input type that accepts CollectionEncryptionConfigArgs and CollectionEncryptionConfigOutput values.
+// You can construct a concrete instance of `CollectionEncryptionConfigInput` via:
+//
+//	CollectionEncryptionConfigArgs{...}
+type CollectionEncryptionConfigInput interface {
+	pulumi.Input
+
+	ToCollectionEncryptionConfigOutput() CollectionEncryptionConfigOutput
+	ToCollectionEncryptionConfigOutputWithContext(context.Context) CollectionEncryptionConfigOutput
+}
+
+// The configuration to encrypt the collection
+type CollectionEncryptionConfigArgs struct {
+	// The configuration to encrypt the collection with AWS owned key
+	AwsOwnedKey pulumi.BoolPtrInput `pulumi:"awsOwnedKey"`
+	// The ARN of the KMS key to encrypt the collection with
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+}
+
+func (CollectionEncryptionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectionEncryptionConfig)(nil)).Elem()
+}
+
+func (i CollectionEncryptionConfigArgs) ToCollectionEncryptionConfigOutput() CollectionEncryptionConfigOutput {
+	return i.ToCollectionEncryptionConfigOutputWithContext(context.Background())
+}
+
+func (i CollectionEncryptionConfigArgs) ToCollectionEncryptionConfigOutputWithContext(ctx context.Context) CollectionEncryptionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollectionEncryptionConfigOutput)
+}
+
+func (i CollectionEncryptionConfigArgs) ToCollectionEncryptionConfigPtrOutput() CollectionEncryptionConfigPtrOutput {
+	return i.ToCollectionEncryptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CollectionEncryptionConfigArgs) ToCollectionEncryptionConfigPtrOutputWithContext(ctx context.Context) CollectionEncryptionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollectionEncryptionConfigOutput).ToCollectionEncryptionConfigPtrOutputWithContext(ctx)
+}
+
+// CollectionEncryptionConfigPtrInput is an input type that accepts CollectionEncryptionConfigArgs, CollectionEncryptionConfigPtr and CollectionEncryptionConfigPtrOutput values.
+// You can construct a concrete instance of `CollectionEncryptionConfigPtrInput` via:
+//
+//	        CollectionEncryptionConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CollectionEncryptionConfigPtrInput interface {
+	pulumi.Input
+
+	ToCollectionEncryptionConfigPtrOutput() CollectionEncryptionConfigPtrOutput
+	ToCollectionEncryptionConfigPtrOutputWithContext(context.Context) CollectionEncryptionConfigPtrOutput
+}
+
+type collectionEncryptionConfigPtrType CollectionEncryptionConfigArgs
+
+func CollectionEncryptionConfigPtr(v *CollectionEncryptionConfigArgs) CollectionEncryptionConfigPtrInput {
+	return (*collectionEncryptionConfigPtrType)(v)
+}
+
+func (*collectionEncryptionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollectionEncryptionConfig)(nil)).Elem()
+}
+
+func (i *collectionEncryptionConfigPtrType) ToCollectionEncryptionConfigPtrOutput() CollectionEncryptionConfigPtrOutput {
+	return i.ToCollectionEncryptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *collectionEncryptionConfigPtrType) ToCollectionEncryptionConfigPtrOutputWithContext(ctx context.Context) CollectionEncryptionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollectionEncryptionConfigPtrOutput)
+}
+
+// The configuration to encrypt the collection
+type CollectionEncryptionConfigOutput struct{ *pulumi.OutputState }
+
+func (CollectionEncryptionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollectionEncryptionConfig)(nil)).Elem()
+}
+
+func (o CollectionEncryptionConfigOutput) ToCollectionEncryptionConfigOutput() CollectionEncryptionConfigOutput {
+	return o
+}
+
+func (o CollectionEncryptionConfigOutput) ToCollectionEncryptionConfigOutputWithContext(ctx context.Context) CollectionEncryptionConfigOutput {
+	return o
+}
+
+func (o CollectionEncryptionConfigOutput) ToCollectionEncryptionConfigPtrOutput() CollectionEncryptionConfigPtrOutput {
+	return o.ToCollectionEncryptionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CollectionEncryptionConfigOutput) ToCollectionEncryptionConfigPtrOutputWithContext(ctx context.Context) CollectionEncryptionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollectionEncryptionConfig) *CollectionEncryptionConfig {
+		return &v
+	}).(CollectionEncryptionConfigPtrOutput)
+}
+
+// The configuration to encrypt the collection with AWS owned key
+func (o CollectionEncryptionConfigOutput) AwsOwnedKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CollectionEncryptionConfig) *bool { return v.AwsOwnedKey }).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the KMS key to encrypt the collection with
+func (o CollectionEncryptionConfigOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CollectionEncryptionConfig) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+type CollectionEncryptionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CollectionEncryptionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollectionEncryptionConfig)(nil)).Elem()
+}
+
+func (o CollectionEncryptionConfigPtrOutput) ToCollectionEncryptionConfigPtrOutput() CollectionEncryptionConfigPtrOutput {
+	return o
+}
+
+func (o CollectionEncryptionConfigPtrOutput) ToCollectionEncryptionConfigPtrOutputWithContext(ctx context.Context) CollectionEncryptionConfigPtrOutput {
+	return o
+}
+
+func (o CollectionEncryptionConfigPtrOutput) Elem() CollectionEncryptionConfigOutput {
+	return o.ApplyT(func(v *CollectionEncryptionConfig) CollectionEncryptionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CollectionEncryptionConfig
+		return ret
+	}).(CollectionEncryptionConfigOutput)
+}
+
+// The configuration to encrypt the collection with AWS owned key
+func (o CollectionEncryptionConfigPtrOutput) AwsOwnedKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CollectionEncryptionConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AwsOwnedKey
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the KMS key to encrypt the collection with
+func (o CollectionEncryptionConfigPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CollectionEncryptionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair metadata associated with resource
 type CollectionTag struct {
 	// The key in the key-value pair
@@ -1591,6 +1750,8 @@ func (o SecurityConfigSamlConfigOptionsPtrOutput) UserAttribute() pulumi.StringP
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CollectionEncryptionConfigInput)(nil)).Elem(), CollectionEncryptionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollectionEncryptionConfigPtrInput)(nil)).Elem(), CollectionEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingInput)(nil)).Elem(), IndexPropertyMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingMapInput)(nil)).Elem(), IndexPropertyMappingMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexPropertyMappingMethodPropertiesInput)(nil)).Elem(), IndexPropertyMappingMethodPropertiesArgs{})
@@ -1609,6 +1770,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigIamIdentityCenterConfigOptionsPtrInput)(nil)).Elem(), SecurityConfigIamIdentityCenterConfigOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigSamlConfigOptionsInput)(nil)).Elem(), SecurityConfigSamlConfigOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigSamlConfigOptionsPtrInput)(nil)).Elem(), SecurityConfigSamlConfigOptionsArgs{})
+	pulumi.RegisterOutputType(CollectionEncryptionConfigOutput{})
+	pulumi.RegisterOutputType(CollectionEncryptionConfigPtrOutput{})
 	pulumi.RegisterOutputType(IndexPropertyMappingOutput{})
 	pulumi.RegisterOutputType(IndexPropertyMappingMapOutput{})
 	pulumi.RegisterOutputType(IndexPropertyMappingMethodPropertiesOutput{})

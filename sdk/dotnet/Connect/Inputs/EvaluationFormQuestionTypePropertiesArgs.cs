@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class EvaluationFormQuestionTypePropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Properties for multi-select question types.
+        /// </summary>
         [Input("multiSelect")]
         public Input<Inputs.EvaluationFormMultiSelectQuestionPropertiesArgs>? MultiSelect { get; set; }
 

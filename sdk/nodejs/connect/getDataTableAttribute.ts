@@ -20,20 +20,53 @@ export function getDataTableAttribute(args: GetDataTableAttributeArgs, opts?: pu
 }
 
 export interface GetDataTableAttributeArgs {
+    /**
+     * The unique identifier for the attribute within the data table.
+     */
     attributeId: string;
+    /**
+     * The Amazon Resource Name (ARN) of the data table that contains this attribute.
+     */
     dataTableArn: string;
+    /**
+     * The Amazon Resource Name (ARN) of the instance.
+     */
     instanceArn: string;
 }
 
 export interface GetDataTableAttributeResult {
+    /**
+     * The unique identifier for the attribute within the data table.
+     */
     readonly attributeId?: string;
+    /**
+     * An optional description explaining the purpose and usage of this attribute.
+     */
     readonly description?: string;
+    /**
+     * The AWS Region where this attribute was last modified, used for region replication.
+     */
     readonly lastModifiedRegion?: string;
+    /**
+     * The timestamp when this attribute was last modified.
+     */
     readonly lastModifiedTime?: number;
     readonly lockVersion?: outputs.connect.LockVersionProperties;
+    /**
+     * The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.
+     */
     readonly name?: string;
+    /**
+     * Boolean indicating whether this attribute is used as a primary key for record identification. Primary attributes must have unique value combinations and cannot contain expressions.
+     */
     readonly primary?: boolean;
+    /**
+     * The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
+     */
     readonly validation?: outputs.connect.ValidationProperties;
+    /**
+     * The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
+     */
     readonly valueType?: enums.connect.DataTableAttributeValueType;
 }
 /**
@@ -49,7 +82,16 @@ export function getDataTableAttributeOutput(args: GetDataTableAttributeOutputArg
 }
 
 export interface GetDataTableAttributeOutputArgs {
+    /**
+     * The unique identifier for the attribute within the data table.
+     */
     attributeId: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the data table that contains this attribute.
+     */
     dataTableArn: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the instance.
+     */
     instanceArn: pulumi.Input<string>;
 }

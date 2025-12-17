@@ -13,22 +13,33 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['CollectionArgs', 'Collection']
 
 @pulumi.input_type
 class CollectionArgs:
     def __init__(__self__, *,
+                 collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_config: Optional[pulumi.Input['CollectionEncryptionConfigArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  standby_replicas: Optional[pulumi.Input['CollectionStandbyReplicas']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None,
                  type: Optional[pulumi.Input['CollectionType']] = None):
         """
         The set of arguments for constructing a Collection resource.
+        :param pulumi.Input[_builtins.str] collection_group_name: The name of the collection group.
+               
+               The name must meet the following criteria:
+               Unique to your account and AWS Region
+               Starts with a lowercase letter
+               Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
+               Contains between 3 and 32 characters
         :param pulumi.Input[_builtins.str] description: The description of the collection
         :param pulumi.Input[_builtins.str] name: The name of the collection.
                
@@ -41,8 +52,12 @@ class CollectionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: List of tags to be added to the resource
         :param pulumi.Input['CollectionType'] type: The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
         """
+        if collection_group_name is not None:
+            pulumi.set(__self__, "collection_group_name", collection_group_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encryption_config is not None:
+            pulumi.set(__self__, "encryption_config", encryption_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if standby_replicas is not None:
@@ -51,6 +66,24 @@ class CollectionArgs:
             pulumi.set(__self__, "tags", tags)
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="collectionGroupName")
+    def collection_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the collection group.
+
+        The name must meet the following criteria:
+        Unique to your account and AWS Region
+        Starts with a lowercase letter
+        Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
+        Contains between 3 and 32 characters
+        """
+        return pulumi.get(self, "collection_group_name")
+
+    @collection_group_name.setter
+    def collection_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "collection_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -63,6 +96,15 @@ class CollectionArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConfig")
+    def encryption_config(self) -> Optional[pulumi.Input['CollectionEncryptionConfigArgs']]:
+        return pulumi.get(self, "encryption_config")
+
+    @encryption_config.setter
+    def encryption_config(self, value: Optional[pulumi.Input['CollectionEncryptionConfigArgs']]):
+        pulumi.set(self, "encryption_config", value)
 
     @_builtins.property
     @pulumi.getter
@@ -125,7 +167,9 @@ class Collection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_config: Optional[pulumi.Input[Union['CollectionEncryptionConfigArgs', 'CollectionEncryptionConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  standby_replicas: Optional[pulumi.Input['CollectionStandbyReplicas']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
@@ -174,6 +218,13 @@ class Collection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] collection_group_name: The name of the collection group.
+               
+               The name must meet the following criteria:
+               Unique to your account and AWS Region
+               Starts with a lowercase letter
+               Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
+               Contains between 3 and 32 characters
         :param pulumi.Input[_builtins.str] description: The description of the collection
         :param pulumi.Input[_builtins.str] name: The name of the collection.
                
@@ -248,7 +299,9 @@ class Collection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_config: Optional[pulumi.Input[Union['CollectionEncryptionConfigArgs', 'CollectionEncryptionConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  standby_replicas: Optional[pulumi.Input['CollectionStandbyReplicas']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
@@ -262,7 +315,9 @@ class Collection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CollectionArgs.__new__(CollectionArgs)
 
+            __props__.__dict__["collection_group_name"] = collection_group_name
             __props__.__dict__["description"] = description
+            __props__.__dict__["encryption_config"] = encryption_config
             __props__.__dict__["name"] = name
             __props__.__dict__["standby_replicas"] = standby_replicas
             __props__.__dict__["tags"] = tags
@@ -272,7 +327,7 @@ class Collection(pulumi.CustomResource):
             __props__.__dict__["collection_endpoint"] = None
             __props__.__dict__["dashboard_endpoint"] = None
             __props__.__dict__["kms_key_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "standbyReplicas", "tags[*]", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["collectionGroupName", "encryptionConfig", "name", "standbyReplicas", "tags[*]", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Collection, __self__).__init__(
             'aws-native:opensearchserverless:Collection',
@@ -299,8 +354,10 @@ class Collection(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["collection_endpoint"] = None
+        __props__.__dict__["collection_group_name"] = None
         __props__.__dict__["dashboard_endpoint"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["encryption_config"] = None
         __props__.__dict__["kms_key_arn"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["standby_replicas"] = None
@@ -333,6 +390,20 @@ class Collection(pulumi.CustomResource):
         return pulumi.get(self, "collection_endpoint")
 
     @_builtins.property
+    @pulumi.getter(name="collectionGroupName")
+    def collection_group_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The name of the collection group.
+
+        The name must meet the following criteria:
+        Unique to your account and AWS Region
+        Starts with a lowercase letter
+        Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
+        Contains between 3 and 32 characters
+        """
+        return pulumi.get(self, "collection_group_name")
+
+    @_builtins.property
     @pulumi.getter(name="dashboardEndpoint")
     def dashboard_endpoint(self) -> pulumi.Output[_builtins.str]:
         """
@@ -347,6 +418,11 @@ class Collection(pulumi.CustomResource):
         The description of the collection
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConfig")
+    def encryption_config(self) -> pulumi.Output[Optional['outputs.CollectionEncryptionConfig']]:
+        return pulumi.get(self, "encryption_config")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")

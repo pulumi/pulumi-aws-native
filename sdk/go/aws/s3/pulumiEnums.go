@@ -601,7 +601,7 @@ func (o AccessPointNetworkOriginPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see [Using tags with S3 general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html) .
+// The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see [Using tags with S3 general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html).
 type BucketAbacStatus string
 
 const (
@@ -2393,6 +2393,7 @@ const (
 	BucketInventoryConfigurationOptionalFieldsItemChecksumAlgorithm            = BucketInventoryConfigurationOptionalFieldsItem("ChecksumAlgorithm")
 	BucketInventoryConfigurationOptionalFieldsItemObjectAccessControlList      = BucketInventoryConfigurationOptionalFieldsItem("ObjectAccessControlList")
 	BucketInventoryConfigurationOptionalFieldsItemObjectOwner                  = BucketInventoryConfigurationOptionalFieldsItem("ObjectOwner")
+	BucketInventoryConfigurationOptionalFieldsItemLifecycleExpirationDate      = BucketInventoryConfigurationOptionalFieldsItem("LifecycleExpirationDate")
 )
 
 func (BucketInventoryConfigurationOptionalFieldsItem) ElementType() reflect.Type {
@@ -2532,6 +2533,7 @@ func (o BucketInventoryConfigurationOptionalFieldsItemPtrOutput) ToStringPtrOutp
 //	BucketInventoryConfigurationOptionalFieldsItemChecksumAlgorithm
 //	BucketInventoryConfigurationOptionalFieldsItemObjectAccessControlList
 //	BucketInventoryConfigurationOptionalFieldsItemObjectOwner
+//	BucketInventoryConfigurationOptionalFieldsItemLifecycleExpirationDate
 type BucketInventoryConfigurationOptionalFieldsItemInput interface {
 	pulumi.Input
 

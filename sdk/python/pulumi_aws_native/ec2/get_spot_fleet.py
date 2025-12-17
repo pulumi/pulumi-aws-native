@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetSpotFleetResult:
-    def __init__(__self__, id=None, spot_fleet_request_config_data=None):
+    def __init__(__self__, id=None, spot_fleet_request_config_data=None, tags=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if spot_fleet_request_config_data and not isinstance(spot_fleet_request_config_data, dict):
             raise TypeError("Expected argument 'spot_fleet_request_config_data' to be a dict")
         pulumi.set(__self__, "spot_fleet_request_config_data", spot_fleet_request_config_data)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter
@@ -49,6 +53,14 @@ class GetSpotFleetResult:
         """
         return pulumi.get(self, "spot_fleet_request_config_data")
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags to specify in SpotFleetRequestConfigData
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetSpotFleetResult(GetSpotFleetResult):
     # pylint: disable=using-constant-test
@@ -57,7 +69,8 @@ class AwaitableGetSpotFleetResult(GetSpotFleetResult):
             yield self
         return GetSpotFleetResult(
             id=self.id,
-            spot_fleet_request_config_data=self.spot_fleet_request_config_data)
+            spot_fleet_request_config_data=self.spot_fleet_request_config_data,
+            tags=self.tags)
 
 
 def get_spot_fleet(id: Optional[_builtins.str] = None,
@@ -75,7 +88,8 @@ def get_spot_fleet(id: Optional[_builtins.str] = None,
 
     return AwaitableGetSpotFleetResult(
         id=pulumi.get(__ret__, 'id'),
-        spot_fleet_request_config_data=pulumi.get(__ret__, 'spot_fleet_request_config_data'))
+        spot_fleet_request_config_data=pulumi.get(__ret__, 'spot_fleet_request_config_data'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_spot_fleet_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpotFleetResult]:
     """
@@ -90,4 +104,5 @@ def get_spot_fleet_output(id: Optional[pulumi.Input[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getSpotFleet', __args__, opts=opts, typ=GetSpotFleetResult)
     return __ret__.apply(lambda __response__: GetSpotFleetResult(
         id=pulumi.get(__response__, 'id'),
-        spot_fleet_request_config_data=pulumi.get(__response__, 'spot_fleet_request_config_data')))
+        spot_fleet_request_config_data=pulumi.get(__response__, 'spot_fleet_request_config_data'),
+        tags=pulumi.get(__response__, 'tags')))

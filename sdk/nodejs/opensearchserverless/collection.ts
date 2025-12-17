@@ -94,6 +94,16 @@ export class Collection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly collectionEndpoint: pulumi.Output<string>;
     /**
+     * The name of the collection group.
+     *
+     * The name must meet the following criteria:
+     * Unique to your account and AWS Region
+     * Starts with a lowercase letter
+     * Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
+     * Contains between 3 and 32 characters
+     */
+    declare public readonly collectionGroupName: pulumi.Output<string | undefined>;
+    /**
      * The OpenSearch Dashboards endpoint for the collection.
      */
     declare public /*out*/ readonly dashboardEndpoint: pulumi.Output<string>;
@@ -101,6 +111,7 @@ export class Collection extends pulumi.CustomResource {
      * The description of the collection
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly encryptionConfig: pulumi.Output<outputs.opensearchserverless.CollectionEncryptionConfig | undefined>;
     /**
      * The ARN of the AWS KMS key used to encrypt the collection.
      */
@@ -139,7 +150,9 @@ export class Collection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["collectionGroupName"] = args?.collectionGroupName;
             resourceInputs["description"] = args?.description;
+            resourceInputs["encryptionConfig"] = args?.encryptionConfig;
             resourceInputs["name"] = args?.name;
             resourceInputs["standbyReplicas"] = args?.standbyReplicas;
             resourceInputs["tags"] = args?.tags;
@@ -153,8 +166,10 @@ export class Collection extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["collectionEndpoint"] = undefined /*out*/;
+            resourceInputs["collectionGroupName"] = undefined /*out*/;
             resourceInputs["dashboardEndpoint"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["encryptionConfig"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["standbyReplicas"] = undefined /*out*/;
@@ -162,7 +177,7 @@ export class Collection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name", "standbyReplicas", "tags[*]", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["collectionGroupName", "encryptionConfig", "name", "standbyReplicas", "tags[*]", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Collection.__pulumiType, name, resourceInputs, opts);
     }
@@ -173,9 +188,20 @@ export class Collection extends pulumi.CustomResource {
  */
 export interface CollectionArgs {
     /**
+     * The name of the collection group.
+     *
+     * The name must meet the following criteria:
+     * Unique to your account and AWS Region
+     * Starts with a lowercase letter
+     * Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
+     * Contains between 3 and 32 characters
+     */
+    collectionGroupName?: pulumi.Input<string>;
+    /**
      * The description of the collection
      */
     description?: pulumi.Input<string>;
+    encryptionConfig?: pulumi.Input<inputs.opensearchserverless.CollectionEncryptionConfigArgs>;
     /**
      * The name of the collection.
      *

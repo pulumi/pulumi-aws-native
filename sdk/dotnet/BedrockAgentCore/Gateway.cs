@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Output("gatewayUrl")]
         public Output<string> GatewayUrl { get; private set; } = null!;
 
+        [Output("interceptorConfigurations")]
+        public Output<ImmutableArray<Outputs.GatewayInterceptorConfiguration>> InterceptorConfigurations { get; private set; } = null!;
+
         /// <summary>
         /// The KMS key ARN for the gateway.
         /// </summary>
@@ -173,6 +176,14 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Input("exceptionLevel")]
         public Input<Pulumi.AwsNative.BedrockAgentCore.GatewayExceptionLevel>? ExceptionLevel { get; set; }
+
+        [Input("interceptorConfigurations")]
+        private InputList<Inputs.GatewayInterceptorConfigurationArgs>? _interceptorConfigurations;
+        public InputList<Inputs.GatewayInterceptorConfigurationArgs> InterceptorConfigurations
+        {
+            get => _interceptorConfigurations ?? (_interceptorConfigurations = new InputList<Inputs.GatewayInterceptorConfigurationArgs>());
+            set => _interceptorConfigurations = value;
+        }
 
         /// <summary>
         /// The KMS key ARN for the gateway.

@@ -89,7 +89,7 @@ class AccessPointNetworkOrigin(_builtins.str, Enum):
 @pulumi.type_token("aws-native:s3:BucketAbacStatus")
 class BucketAbacStatus(_builtins.str, Enum):
     """
-    The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see [Using tags with S3 general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html) .
+    The ABAC status of the general purpose bucket. When ABAC is enabled for the general purpose bucket, you can use tags to manage access to the general purpose buckets as well as for cost tracking purposes. When ABAC is disabled for the general purpose buckets, you can only use tags for cost tracking purposes. For more information, see [Using tags with S3 general purpose buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/buckets-tagging.html).
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
@@ -201,6 +201,7 @@ class BucketInventoryConfigurationOptionalFieldsItem(_builtins.str, Enum):
     CHECKSUM_ALGORITHM = "ChecksumAlgorithm"
     OBJECT_ACCESS_CONTROL_LIST = "ObjectAccessControlList"
     OBJECT_OWNER = "ObjectOwner"
+    LIFECYCLE_EXPIRATION_DATE = "LifecycleExpirationDate"
 
 
 @pulumi.type_token("aws-native:s3:BucketInventoryConfigurationScheduleFrequency")

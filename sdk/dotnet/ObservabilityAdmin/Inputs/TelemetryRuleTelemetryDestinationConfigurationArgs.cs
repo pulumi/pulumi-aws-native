@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
     /// </summary>
     public sealed class TelemetryRuleTelemetryDestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
+        /// </summary>
         [Input("cloudtrailParameters")]
         public Input<Inputs.TelemetryRuleCloudtrailParametersArgs>? CloudtrailParameters { get; set; }
 
@@ -30,6 +33,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
         [Input("destinationType")]
         public Input<Pulumi.AwsNative.ObservabilityAdmin.TelemetryRuleDestinationType>? DestinationType { get; set; }
 
+        /// <summary>
+        /// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
+        /// </summary>
         [Input("elbLoadBalancerLoggingParameters")]
         public Input<Inputs.TelemetryRuleElbLoadBalancerLoggingParametersArgs>? ElbLoadBalancerLoggingParameters { get; set; }
 
@@ -51,6 +57,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
         [Input("vpcFlowLogParameters")]
         public Input<Inputs.TelemetryRuleVpcFlowLogParametersArgs>? VpcFlowLogParameters { get; set; }
 
+        /// <summary>
+        /// Configuration parameters specific to WAF logging when WAF is the resource type.
+        /// </summary>
         [Input("wafLoggingParameters")]
         public Input<Inputs.TelemetryRuleWafLoggingParametersArgs>? WafLoggingParameters { get; set; }
 

@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
         [Input("applyNormalization")]
         public Input<bool>? ApplyNormalization { get; set; }
 
+        [Input("customerProfilesIntegrationConfig")]
+        public Input<Inputs.MatchingWorkflowCustomerProfilesIntegrationConfigArgs>? CustomerProfilesIntegrationConfig { get; set; }
+
         /// <summary>
         /// Customer KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
         /// </summary>
@@ -39,8 +42,8 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
         /// <summary>
         /// The S3 path to which Entity Resolution will write the output table
         /// </summary>
-        [Input("outputS3Path", required: true)]
-        public Input<string> OutputS3Path { get; set; } = null!;
+        [Input("outputS3Path")]
+        public Input<string>? OutputS3Path { get; set; }
 
         public MatchingWorkflowOutputSourceArgs()
         {

@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         public readonly ImmutableArray<string> AssociatedPortalArns;
         /// <summary>
+        /// The branding configuration that customizes the appearance of the web portal for end users. This includes a custom logo, favicon, wallpaper, localized strings, color theme, and an optional terms of service.
+        /// </summary>
+        public readonly Outputs.UserSettingsBrandingConfiguration? BrandingConfiguration;
+        /// <summary>
         /// The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
         /// </summary>
         public readonly Outputs.UserSettingsCookieSynchronizationConfiguration? CookieSynchronizationConfiguration;
@@ -130,6 +134,8 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
             ImmutableArray<string> associatedPortalArns,
 
+            Outputs.UserSettingsBrandingConfiguration? brandingConfiguration,
+
             Outputs.UserSettingsCookieSynchronizationConfiguration? cookieSynchronizationConfiguration,
 
             Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? copyAllowed,
@@ -158,6 +164,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         {
             AdditionalEncryptionContext = additionalEncryptionContext;
             AssociatedPortalArns = associatedPortalArns;
+            BrandingConfiguration = brandingConfiguration;
             CookieSynchronizationConfiguration = cookieSynchronizationConfiguration;
             CopyAllowed = copyAllowed;
             CustomerManagedKey = customerManagedKey;

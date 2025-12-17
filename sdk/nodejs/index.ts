@@ -128,6 +128,7 @@ import * as databrew from "./databrew";
 import * as datapipeline from "./datapipeline";
 import * as datasync from "./datasync";
 import * as datazone from "./datazone";
+import * as dax from "./dax";
 import * as deadline from "./deadline";
 import * as detective from "./detective";
 import * as devicefarm from "./devicefarm";
@@ -365,6 +366,7 @@ export {
     datapipeline,
     datasync,
     datazone,
+    dax,
     deadline,
     detective,
     devicefarm,

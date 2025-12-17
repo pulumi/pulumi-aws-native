@@ -85,6 +85,10 @@ export class ResolverEndpoint extends pulumi.CustomResource {
      */
     declare public readonly resolverEndpointType: pulumi.Output<enums.route53resolver.ResolverEndpointType | undefined>;
     /**
+     * Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
+     */
+    declare public readonly rniEnhancedMetricsEnabled: pulumi.Output<boolean | undefined>;
+    /**
      * The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.
      */
     declare public readonly securityGroupIds: pulumi.Output<string[]>;
@@ -92,6 +96,10 @@ export class ResolverEndpoint extends pulumi.CustomResource {
      * An array of key-value pairs to apply to this resource.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
+     */
+    declare public readonly targetNameServerMetricsEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ResolverEndpoint resource with the given unique name, arguments, and options.
@@ -120,8 +128,10 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             resourceInputs["preferredInstanceType"] = args?.preferredInstanceType;
             resourceInputs["protocols"] = args?.protocols;
             resourceInputs["resolverEndpointType"] = args?.resolverEndpointType;
+            resourceInputs["rniEnhancedMetricsEnabled"] = args?.rniEnhancedMetricsEnabled;
             resourceInputs["securityGroupIds"] = args?.securityGroupIds;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetNameServerMetricsEnabled"] = args?.targetNameServerMetricsEnabled;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["hostVpcId"] = undefined /*out*/;
             resourceInputs["ipAddressCount"] = undefined /*out*/;
@@ -138,8 +148,10 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             resourceInputs["protocols"] = undefined /*out*/;
             resourceInputs["resolverEndpointId"] = undefined /*out*/;
             resourceInputs["resolverEndpointType"] = undefined /*out*/;
+            resourceInputs["rniEnhancedMetricsEnabled"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetNameServerMetricsEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["direction", "outpostArn", "preferredInstanceType", "securityGroupIds[*]"] };
@@ -184,6 +196,10 @@ export interface ResolverEndpointArgs {
      */
     resolverEndpointType?: pulumi.Input<enums.route53resolver.ResolverEndpointType>;
     /**
+     * Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
+     */
+    rniEnhancedMetricsEnabled?: pulumi.Input<boolean>;
+    /**
      * The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.
      */
     securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
@@ -191,4 +207,8 @@ export interface ResolverEndpointArgs {
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
+     */
+    targetNameServerMetricsEnabled?: pulumi.Input<boolean>;
 }

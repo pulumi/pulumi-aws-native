@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class WorkspacePalettePrimary
     {
+        /// <summary>
+        /// The primary color used for active states.
+        /// </summary>
         public readonly string? Active;
+        /// <summary>
+        /// The text color that contrasts with the primary color for readability.
+        /// </summary>
         public readonly string? ContrastText;
+        /// <summary>
+        /// The default primary color used throughout the workspace.
+        /// </summary>
         public readonly string? Default;
 
         [OutputConstructor]

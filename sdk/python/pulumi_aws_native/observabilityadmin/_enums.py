@@ -83,6 +83,9 @@ class OrganizationTelemetryRuleDestinationType(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat")
 class OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat(_builtins.str, Enum):
+    """
+    The format for ELB access log entries (plain text or JSON format).
+    """
     PLAIN = "plain"
     JSON = "json"
 
@@ -180,6 +183,9 @@ class TelemetryRuleDestinationType(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:observabilityadmin:TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat")
 class TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat(_builtins.str, Enum):
+    """
+    The format for ELB access log entries (plain text or JSON format).
+    """
     PLAIN = "plain"
     JSON = "json"
 

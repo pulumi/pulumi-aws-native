@@ -22,6 +22,16 @@ export const ConnectorKafkaClusterEncryptionInTransitType = {
  */
 export type ConnectorKafkaClusterEncryptionInTransitType = (typeof ConnectorKafkaClusterEncryptionInTransitType)[keyof typeof ConnectorKafkaClusterEncryptionInTransitType];
 
+export const ConnectorNetworkType = {
+    Ipv4: "IPV4",
+    Dual: "DUAL",
+} as const;
+
+/**
+ * The network type of the Connector.
+ */
+export type ConnectorNetworkType = (typeof ConnectorNetworkType)[keyof typeof ConnectorNetworkType];
+
 export const CustomPluginContentType = {
     Jar: "JAR",
     Zip: "ZIP",

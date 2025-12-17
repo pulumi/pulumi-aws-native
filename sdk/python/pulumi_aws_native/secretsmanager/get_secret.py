@@ -104,7 +104,7 @@ class GetSecretResult:
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
         """
-        The exact string that identifies the third-party partner that holds the external secret. For more information, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) .
+        The exact string that identifies the third-party partner that holds the external secret. For more information, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html).
         """
         return pulumi.get(self, "type")
 

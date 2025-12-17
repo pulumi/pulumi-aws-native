@@ -1486,6 +1486,297 @@ type UserAccessLoggingSettingsTag struct {
 	Value string `pulumi:"value"`
 }
 
+type UserSettingsBrandingConfiguration struct {
+	// The color theme for components on the web portal. Choose `Light` if you upload a dark wallpaper, or `Dark` for a light wallpaper.
+	ColorTheme *UserSettingsColorTheme `pulumi:"colorTheme"`
+	// The favicon image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 100 KB in JPEG, PNG, or ICO format.
+	Favicon *string `pulumi:"favicon"`
+	// Read-only. Metadata for the favicon image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+	FaviconMetadata *UserSettingsImageMetadata `pulumi:"faviconMetadata"`
+	// A map of localized text strings for different languages, allowing the portal to display content in the user's preferred language.
+	LocalizedStrings map[string]UserSettingsLocalizedBrandingStrings `pulumi:"localizedStrings"`
+	// The logo image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 100 KB in JPEG, PNG, or ICO format.
+	Logo *string `pulumi:"logo"`
+	// Read-only. Metadata for the logo image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+	LogoMetadata *UserSettingsImageMetadata `pulumi:"logoMetadata"`
+	// The terms of service text in Markdown format that users must accept before accessing the portal.
+	TermsOfService *string `pulumi:"termsOfService"`
+	// The wallpaper image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 5 MB in JPEG or PNG format.
+	Wallpaper *string `pulumi:"wallpaper"`
+	// Read-only. Metadata for the wallpaper image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+	WallpaperMetadata *UserSettingsImageMetadata `pulumi:"wallpaperMetadata"`
+}
+
+// UserSettingsBrandingConfigurationInput is an input type that accepts UserSettingsBrandingConfigurationArgs and UserSettingsBrandingConfigurationOutput values.
+// You can construct a concrete instance of `UserSettingsBrandingConfigurationInput` via:
+//
+//	UserSettingsBrandingConfigurationArgs{...}
+type UserSettingsBrandingConfigurationInput interface {
+	pulumi.Input
+
+	ToUserSettingsBrandingConfigurationOutput() UserSettingsBrandingConfigurationOutput
+	ToUserSettingsBrandingConfigurationOutputWithContext(context.Context) UserSettingsBrandingConfigurationOutput
+}
+
+type UserSettingsBrandingConfigurationArgs struct {
+	// The color theme for components on the web portal. Choose `Light` if you upload a dark wallpaper, or `Dark` for a light wallpaper.
+	ColorTheme UserSettingsColorThemePtrInput `pulumi:"colorTheme"`
+	// The favicon image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 100 KB in JPEG, PNG, or ICO format.
+	Favicon pulumi.StringPtrInput `pulumi:"favicon"`
+	// Read-only. Metadata for the favicon image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+	FaviconMetadata UserSettingsImageMetadataPtrInput `pulumi:"faviconMetadata"`
+	// A map of localized text strings for different languages, allowing the portal to display content in the user's preferred language.
+	LocalizedStrings UserSettingsLocalizedBrandingStringsMapInput `pulumi:"localizedStrings"`
+	// The logo image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 100 KB in JPEG, PNG, or ICO format.
+	Logo pulumi.StringPtrInput `pulumi:"logo"`
+	// Read-only. Metadata for the logo image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+	LogoMetadata UserSettingsImageMetadataPtrInput `pulumi:"logoMetadata"`
+	// The terms of service text in Markdown format that users must accept before accessing the portal.
+	TermsOfService pulumi.StringPtrInput `pulumi:"termsOfService"`
+	// The wallpaper image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 5 MB in JPEG or PNG format.
+	Wallpaper pulumi.StringPtrInput `pulumi:"wallpaper"`
+	// Read-only. Metadata for the wallpaper image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+	WallpaperMetadata UserSettingsImageMetadataPtrInput `pulumi:"wallpaperMetadata"`
+}
+
+func (UserSettingsBrandingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsBrandingConfiguration)(nil)).Elem()
+}
+
+func (i UserSettingsBrandingConfigurationArgs) ToUserSettingsBrandingConfigurationOutput() UserSettingsBrandingConfigurationOutput {
+	return i.ToUserSettingsBrandingConfigurationOutputWithContext(context.Background())
+}
+
+func (i UserSettingsBrandingConfigurationArgs) ToUserSettingsBrandingConfigurationOutputWithContext(ctx context.Context) UserSettingsBrandingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsBrandingConfigurationOutput)
+}
+
+func (i UserSettingsBrandingConfigurationArgs) ToUserSettingsBrandingConfigurationPtrOutput() UserSettingsBrandingConfigurationPtrOutput {
+	return i.ToUserSettingsBrandingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i UserSettingsBrandingConfigurationArgs) ToUserSettingsBrandingConfigurationPtrOutputWithContext(ctx context.Context) UserSettingsBrandingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsBrandingConfigurationOutput).ToUserSettingsBrandingConfigurationPtrOutputWithContext(ctx)
+}
+
+// UserSettingsBrandingConfigurationPtrInput is an input type that accepts UserSettingsBrandingConfigurationArgs, UserSettingsBrandingConfigurationPtr and UserSettingsBrandingConfigurationPtrOutput values.
+// You can construct a concrete instance of `UserSettingsBrandingConfigurationPtrInput` via:
+//
+//	        UserSettingsBrandingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserSettingsBrandingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToUserSettingsBrandingConfigurationPtrOutput() UserSettingsBrandingConfigurationPtrOutput
+	ToUserSettingsBrandingConfigurationPtrOutputWithContext(context.Context) UserSettingsBrandingConfigurationPtrOutput
+}
+
+type userSettingsBrandingConfigurationPtrType UserSettingsBrandingConfigurationArgs
+
+func UserSettingsBrandingConfigurationPtr(v *UserSettingsBrandingConfigurationArgs) UserSettingsBrandingConfigurationPtrInput {
+	return (*userSettingsBrandingConfigurationPtrType)(v)
+}
+
+func (*userSettingsBrandingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserSettingsBrandingConfiguration)(nil)).Elem()
+}
+
+func (i *userSettingsBrandingConfigurationPtrType) ToUserSettingsBrandingConfigurationPtrOutput() UserSettingsBrandingConfigurationPtrOutput {
+	return i.ToUserSettingsBrandingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *userSettingsBrandingConfigurationPtrType) ToUserSettingsBrandingConfigurationPtrOutputWithContext(ctx context.Context) UserSettingsBrandingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsBrandingConfigurationPtrOutput)
+}
+
+type UserSettingsBrandingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsBrandingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsBrandingConfiguration)(nil)).Elem()
+}
+
+func (o UserSettingsBrandingConfigurationOutput) ToUserSettingsBrandingConfigurationOutput() UserSettingsBrandingConfigurationOutput {
+	return o
+}
+
+func (o UserSettingsBrandingConfigurationOutput) ToUserSettingsBrandingConfigurationOutputWithContext(ctx context.Context) UserSettingsBrandingConfigurationOutput {
+	return o
+}
+
+func (o UserSettingsBrandingConfigurationOutput) ToUserSettingsBrandingConfigurationPtrOutput() UserSettingsBrandingConfigurationPtrOutput {
+	return o.ToUserSettingsBrandingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsBrandingConfigurationOutput) ToUserSettingsBrandingConfigurationPtrOutputWithContext(ctx context.Context) UserSettingsBrandingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSettingsBrandingConfiguration) *UserSettingsBrandingConfiguration {
+		return &v
+	}).(UserSettingsBrandingConfigurationPtrOutput)
+}
+
+// The color theme for components on the web portal. Choose `Light` if you upload a dark wallpaper, or `Dark` for a light wallpaper.
+func (o UserSettingsBrandingConfigurationOutput) ColorTheme() UserSettingsColorThemePtrOutput {
+	return o.ApplyT(func(v UserSettingsBrandingConfiguration) *UserSettingsColorTheme { return v.ColorTheme }).(UserSettingsColorThemePtrOutput)
+}
+
+// The favicon image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 100 KB in JPEG, PNG, or ICO format.
+func (o UserSettingsBrandingConfigurationOutput) Favicon() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserSettingsBrandingConfiguration) *string { return v.Favicon }).(pulumi.StringPtrOutput)
+}
+
+// Read-only. Metadata for the favicon image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+func (o UserSettingsBrandingConfigurationOutput) FaviconMetadata() UserSettingsImageMetadataPtrOutput {
+	return o.ApplyT(func(v UserSettingsBrandingConfiguration) *UserSettingsImageMetadata { return v.FaviconMetadata }).(UserSettingsImageMetadataPtrOutput)
+}
+
+// A map of localized text strings for different languages, allowing the portal to display content in the user's preferred language.
+func (o UserSettingsBrandingConfigurationOutput) LocalizedStrings() UserSettingsLocalizedBrandingStringsMapOutput {
+	return o.ApplyT(func(v UserSettingsBrandingConfiguration) map[string]UserSettingsLocalizedBrandingStrings {
+		return v.LocalizedStrings
+	}).(UserSettingsLocalizedBrandingStringsMapOutput)
+}
+
+// The logo image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 100 KB in JPEG, PNG, or ICO format.
+func (o UserSettingsBrandingConfigurationOutput) Logo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserSettingsBrandingConfiguration) *string { return v.Logo }).(pulumi.StringPtrOutput)
+}
+
+// Read-only. Metadata for the logo image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+func (o UserSettingsBrandingConfigurationOutput) LogoMetadata() UserSettingsImageMetadataPtrOutput {
+	return o.ApplyT(func(v UserSettingsBrandingConfiguration) *UserSettingsImageMetadata { return v.LogoMetadata }).(UserSettingsImageMetadataPtrOutput)
+}
+
+// The terms of service text in Markdown format that users must accept before accessing the portal.
+func (o UserSettingsBrandingConfigurationOutput) TermsOfService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserSettingsBrandingConfiguration) *string { return v.TermsOfService }).(pulumi.StringPtrOutput)
+}
+
+// The wallpaper image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 5 MB in JPEG or PNG format.
+func (o UserSettingsBrandingConfigurationOutput) Wallpaper() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserSettingsBrandingConfiguration) *string { return v.Wallpaper }).(pulumi.StringPtrOutput)
+}
+
+// Read-only. Metadata for the wallpaper image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+func (o UserSettingsBrandingConfigurationOutput) WallpaperMetadata() UserSettingsImageMetadataPtrOutput {
+	return o.ApplyT(func(v UserSettingsBrandingConfiguration) *UserSettingsImageMetadata { return v.WallpaperMetadata }).(UserSettingsImageMetadataPtrOutput)
+}
+
+type UserSettingsBrandingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsBrandingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserSettingsBrandingConfiguration)(nil)).Elem()
+}
+
+func (o UserSettingsBrandingConfigurationPtrOutput) ToUserSettingsBrandingConfigurationPtrOutput() UserSettingsBrandingConfigurationPtrOutput {
+	return o
+}
+
+func (o UserSettingsBrandingConfigurationPtrOutput) ToUserSettingsBrandingConfigurationPtrOutputWithContext(ctx context.Context) UserSettingsBrandingConfigurationPtrOutput {
+	return o
+}
+
+func (o UserSettingsBrandingConfigurationPtrOutput) Elem() UserSettingsBrandingConfigurationOutput {
+	return o.ApplyT(func(v *UserSettingsBrandingConfiguration) UserSettingsBrandingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret UserSettingsBrandingConfiguration
+		return ret
+	}).(UserSettingsBrandingConfigurationOutput)
+}
+
+// The color theme for components on the web portal. Choose `Light` if you upload a dark wallpaper, or `Dark` for a light wallpaper.
+func (o UserSettingsBrandingConfigurationPtrOutput) ColorTheme() UserSettingsColorThemePtrOutput {
+	return o.ApplyT(func(v *UserSettingsBrandingConfiguration) *UserSettingsColorTheme {
+		if v == nil {
+			return nil
+		}
+		return v.ColorTheme
+	}).(UserSettingsColorThemePtrOutput)
+}
+
+// The favicon image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 100 KB in JPEG, PNG, or ICO format.
+func (o UserSettingsBrandingConfigurationPtrOutput) Favicon() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSettingsBrandingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Favicon
+	}).(pulumi.StringPtrOutput)
+}
+
+// Read-only. Metadata for the favicon image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+func (o UserSettingsBrandingConfigurationPtrOutput) FaviconMetadata() UserSettingsImageMetadataPtrOutput {
+	return o.ApplyT(func(v *UserSettingsBrandingConfiguration) *UserSettingsImageMetadata {
+		if v == nil {
+			return nil
+		}
+		return v.FaviconMetadata
+	}).(UserSettingsImageMetadataPtrOutput)
+}
+
+// A map of localized text strings for different languages, allowing the portal to display content in the user's preferred language.
+func (o UserSettingsBrandingConfigurationPtrOutput) LocalizedStrings() UserSettingsLocalizedBrandingStringsMapOutput {
+	return o.ApplyT(func(v *UserSettingsBrandingConfiguration) map[string]UserSettingsLocalizedBrandingStrings {
+		if v == nil {
+			return nil
+		}
+		return v.LocalizedStrings
+	}).(UserSettingsLocalizedBrandingStringsMapOutput)
+}
+
+// The logo image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 100 KB in JPEG, PNG, or ICO format.
+func (o UserSettingsBrandingConfigurationPtrOutput) Logo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSettingsBrandingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Logo
+	}).(pulumi.StringPtrOutput)
+}
+
+// Read-only. Metadata for the logo image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+func (o UserSettingsBrandingConfigurationPtrOutput) LogoMetadata() UserSettingsImageMetadataPtrOutput {
+	return o.ApplyT(func(v *UserSettingsBrandingConfiguration) *UserSettingsImageMetadata {
+		if v == nil {
+			return nil
+		}
+		return v.LogoMetadata
+	}).(UserSettingsImageMetadataPtrOutput)
+}
+
+// The terms of service text in Markdown format that users must accept before accessing the portal.
+func (o UserSettingsBrandingConfigurationPtrOutput) TermsOfService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSettingsBrandingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TermsOfService
+	}).(pulumi.StringPtrOutput)
+}
+
+// The wallpaper image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 5 MB in JPEG or PNG format.
+func (o UserSettingsBrandingConfigurationPtrOutput) Wallpaper() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSettingsBrandingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Wallpaper
+	}).(pulumi.StringPtrOutput)
+}
+
+// Read-only. Metadata for the wallpaper image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+func (o UserSettingsBrandingConfigurationPtrOutput) WallpaperMetadata() UserSettingsImageMetadataPtrOutput {
+	return o.ApplyT(func(v *UserSettingsBrandingConfiguration) *UserSettingsImageMetadata {
+		if v == nil {
+			return nil
+		}
+		return v.WallpaperMetadata
+	}).(UserSettingsImageMetadataPtrOutput)
+}
+
 type UserSettingsCookieSpecification struct {
 	// The domain of the cookie.
 	Domain string `pulumi:"domain"`
@@ -1761,6 +2052,341 @@ func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) Blocklist() Use
 	}).(UserSettingsCookieSpecificationArrayOutput)
 }
 
+type UserSettingsImageMetadata struct {
+	// The file extension of the image.
+	FileExtension string `pulumi:"fileExtension"`
+	// The timestamp when the image was last uploaded.
+	LastUploadTimestamp string `pulumi:"lastUploadTimestamp"`
+	// The MIME type of the image.
+	MimeType UserSettingsMimeType `pulumi:"mimeType"`
+}
+
+// UserSettingsImageMetadataInput is an input type that accepts UserSettingsImageMetadataArgs and UserSettingsImageMetadataOutput values.
+// You can construct a concrete instance of `UserSettingsImageMetadataInput` via:
+//
+//	UserSettingsImageMetadataArgs{...}
+type UserSettingsImageMetadataInput interface {
+	pulumi.Input
+
+	ToUserSettingsImageMetadataOutput() UserSettingsImageMetadataOutput
+	ToUserSettingsImageMetadataOutputWithContext(context.Context) UserSettingsImageMetadataOutput
+}
+
+type UserSettingsImageMetadataArgs struct {
+	// The file extension of the image.
+	FileExtension pulumi.StringInput `pulumi:"fileExtension"`
+	// The timestamp when the image was last uploaded.
+	LastUploadTimestamp pulumi.StringInput `pulumi:"lastUploadTimestamp"`
+	// The MIME type of the image.
+	MimeType UserSettingsMimeTypeInput `pulumi:"mimeType"`
+}
+
+func (UserSettingsImageMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsImageMetadata)(nil)).Elem()
+}
+
+func (i UserSettingsImageMetadataArgs) ToUserSettingsImageMetadataOutput() UserSettingsImageMetadataOutput {
+	return i.ToUserSettingsImageMetadataOutputWithContext(context.Background())
+}
+
+func (i UserSettingsImageMetadataArgs) ToUserSettingsImageMetadataOutputWithContext(ctx context.Context) UserSettingsImageMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsImageMetadataOutput)
+}
+
+func (i UserSettingsImageMetadataArgs) ToUserSettingsImageMetadataPtrOutput() UserSettingsImageMetadataPtrOutput {
+	return i.ToUserSettingsImageMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i UserSettingsImageMetadataArgs) ToUserSettingsImageMetadataPtrOutputWithContext(ctx context.Context) UserSettingsImageMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsImageMetadataOutput).ToUserSettingsImageMetadataPtrOutputWithContext(ctx)
+}
+
+// UserSettingsImageMetadataPtrInput is an input type that accepts UserSettingsImageMetadataArgs, UserSettingsImageMetadataPtr and UserSettingsImageMetadataPtrOutput values.
+// You can construct a concrete instance of `UserSettingsImageMetadataPtrInput` via:
+//
+//	        UserSettingsImageMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserSettingsImageMetadataPtrInput interface {
+	pulumi.Input
+
+	ToUserSettingsImageMetadataPtrOutput() UserSettingsImageMetadataPtrOutput
+	ToUserSettingsImageMetadataPtrOutputWithContext(context.Context) UserSettingsImageMetadataPtrOutput
+}
+
+type userSettingsImageMetadataPtrType UserSettingsImageMetadataArgs
+
+func UserSettingsImageMetadataPtr(v *UserSettingsImageMetadataArgs) UserSettingsImageMetadataPtrInput {
+	return (*userSettingsImageMetadataPtrType)(v)
+}
+
+func (*userSettingsImageMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserSettingsImageMetadata)(nil)).Elem()
+}
+
+func (i *userSettingsImageMetadataPtrType) ToUserSettingsImageMetadataPtrOutput() UserSettingsImageMetadataPtrOutput {
+	return i.ToUserSettingsImageMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *userSettingsImageMetadataPtrType) ToUserSettingsImageMetadataPtrOutputWithContext(ctx context.Context) UserSettingsImageMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsImageMetadataPtrOutput)
+}
+
+type UserSettingsImageMetadataOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsImageMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsImageMetadata)(nil)).Elem()
+}
+
+func (o UserSettingsImageMetadataOutput) ToUserSettingsImageMetadataOutput() UserSettingsImageMetadataOutput {
+	return o
+}
+
+func (o UserSettingsImageMetadataOutput) ToUserSettingsImageMetadataOutputWithContext(ctx context.Context) UserSettingsImageMetadataOutput {
+	return o
+}
+
+func (o UserSettingsImageMetadataOutput) ToUserSettingsImageMetadataPtrOutput() UserSettingsImageMetadataPtrOutput {
+	return o.ToUserSettingsImageMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsImageMetadataOutput) ToUserSettingsImageMetadataPtrOutputWithContext(ctx context.Context) UserSettingsImageMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSettingsImageMetadata) *UserSettingsImageMetadata {
+		return &v
+	}).(UserSettingsImageMetadataPtrOutput)
+}
+
+// The file extension of the image.
+func (o UserSettingsImageMetadataOutput) FileExtension() pulumi.StringOutput {
+	return o.ApplyT(func(v UserSettingsImageMetadata) string { return v.FileExtension }).(pulumi.StringOutput)
+}
+
+// The timestamp when the image was last uploaded.
+func (o UserSettingsImageMetadataOutput) LastUploadTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v UserSettingsImageMetadata) string { return v.LastUploadTimestamp }).(pulumi.StringOutput)
+}
+
+// The MIME type of the image.
+func (o UserSettingsImageMetadataOutput) MimeType() UserSettingsMimeTypeOutput {
+	return o.ApplyT(func(v UserSettingsImageMetadata) UserSettingsMimeType { return v.MimeType }).(UserSettingsMimeTypeOutput)
+}
+
+type UserSettingsImageMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsImageMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserSettingsImageMetadata)(nil)).Elem()
+}
+
+func (o UserSettingsImageMetadataPtrOutput) ToUserSettingsImageMetadataPtrOutput() UserSettingsImageMetadataPtrOutput {
+	return o
+}
+
+func (o UserSettingsImageMetadataPtrOutput) ToUserSettingsImageMetadataPtrOutputWithContext(ctx context.Context) UserSettingsImageMetadataPtrOutput {
+	return o
+}
+
+func (o UserSettingsImageMetadataPtrOutput) Elem() UserSettingsImageMetadataOutput {
+	return o.ApplyT(func(v *UserSettingsImageMetadata) UserSettingsImageMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret UserSettingsImageMetadata
+		return ret
+	}).(UserSettingsImageMetadataOutput)
+}
+
+// The file extension of the image.
+func (o UserSettingsImageMetadataPtrOutput) FileExtension() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSettingsImageMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileExtension
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp when the image was last uploaded.
+func (o UserSettingsImageMetadataPtrOutput) LastUploadTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserSettingsImageMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LastUploadTimestamp
+	}).(pulumi.StringPtrOutput)
+}
+
+// The MIME type of the image.
+func (o UserSettingsImageMetadataPtrOutput) MimeType() UserSettingsMimeTypePtrOutput {
+	return o.ApplyT(func(v *UserSettingsImageMetadata) *UserSettingsMimeType {
+		if v == nil {
+			return nil
+		}
+		return &v.MimeType
+	}).(UserSettingsMimeTypePtrOutput)
+}
+
+type UserSettingsLocalizedBrandingStrings struct {
+	// The text displayed in the browser tab title.
+	BrowserTabTitle string `pulumi:"browserTabTitle"`
+	// The text displayed on the contact button. This field is optional and defaults to "Contact us".
+	ContactButtonText *string `pulumi:"contactButtonText"`
+	// A contact link URL. The URL must start with `https://` or `mailto:` . If not provided, the contact button will be hidden from the web portal screen.
+	ContactLink *string `pulumi:"contactLink"`
+	// The text displayed during session loading. This field is optional and defaults to "Loading your session".
+	LoadingText *string `pulumi:"loadingText"`
+	// The text displayed on the login button. This field is optional and defaults to "Sign In".
+	LoginButtonText *string `pulumi:"loginButtonText"`
+	// The description text for the login section. This field is optional and defaults to "Sign in to your session".
+	LoginDescription *string `pulumi:"loginDescription"`
+	// The title text for the login section. This field is optional and defaults to "Sign In".
+	LoginTitle *string `pulumi:"loginTitle"`
+	// The welcome text displayed on the sign-in page.
+	WelcomeText string `pulumi:"welcomeText"`
+}
+
+// UserSettingsLocalizedBrandingStringsInput is an input type that accepts UserSettingsLocalizedBrandingStringsArgs and UserSettingsLocalizedBrandingStringsOutput values.
+// You can construct a concrete instance of `UserSettingsLocalizedBrandingStringsInput` via:
+//
+//	UserSettingsLocalizedBrandingStringsArgs{...}
+type UserSettingsLocalizedBrandingStringsInput interface {
+	pulumi.Input
+
+	ToUserSettingsLocalizedBrandingStringsOutput() UserSettingsLocalizedBrandingStringsOutput
+	ToUserSettingsLocalizedBrandingStringsOutputWithContext(context.Context) UserSettingsLocalizedBrandingStringsOutput
+}
+
+type UserSettingsLocalizedBrandingStringsArgs struct {
+	// The text displayed in the browser tab title.
+	BrowserTabTitle pulumi.StringInput `pulumi:"browserTabTitle"`
+	// The text displayed on the contact button. This field is optional and defaults to "Contact us".
+	ContactButtonText pulumi.StringPtrInput `pulumi:"contactButtonText"`
+	// A contact link URL. The URL must start with `https://` or `mailto:` . If not provided, the contact button will be hidden from the web portal screen.
+	ContactLink pulumi.StringPtrInput `pulumi:"contactLink"`
+	// The text displayed during session loading. This field is optional and defaults to "Loading your session".
+	LoadingText pulumi.StringPtrInput `pulumi:"loadingText"`
+	// The text displayed on the login button. This field is optional and defaults to "Sign In".
+	LoginButtonText pulumi.StringPtrInput `pulumi:"loginButtonText"`
+	// The description text for the login section. This field is optional and defaults to "Sign in to your session".
+	LoginDescription pulumi.StringPtrInput `pulumi:"loginDescription"`
+	// The title text for the login section. This field is optional and defaults to "Sign In".
+	LoginTitle pulumi.StringPtrInput `pulumi:"loginTitle"`
+	// The welcome text displayed on the sign-in page.
+	WelcomeText pulumi.StringInput `pulumi:"welcomeText"`
+}
+
+func (UserSettingsLocalizedBrandingStringsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsLocalizedBrandingStrings)(nil)).Elem()
+}
+
+func (i UserSettingsLocalizedBrandingStringsArgs) ToUserSettingsLocalizedBrandingStringsOutput() UserSettingsLocalizedBrandingStringsOutput {
+	return i.ToUserSettingsLocalizedBrandingStringsOutputWithContext(context.Background())
+}
+
+func (i UserSettingsLocalizedBrandingStringsArgs) ToUserSettingsLocalizedBrandingStringsOutputWithContext(ctx context.Context) UserSettingsLocalizedBrandingStringsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsLocalizedBrandingStringsOutput)
+}
+
+// UserSettingsLocalizedBrandingStringsMapInput is an input type that accepts UserSettingsLocalizedBrandingStringsMap and UserSettingsLocalizedBrandingStringsMapOutput values.
+// You can construct a concrete instance of `UserSettingsLocalizedBrandingStringsMapInput` via:
+//
+//	UserSettingsLocalizedBrandingStringsMap{ "key": UserSettingsLocalizedBrandingStringsArgs{...} }
+type UserSettingsLocalizedBrandingStringsMapInput interface {
+	pulumi.Input
+
+	ToUserSettingsLocalizedBrandingStringsMapOutput() UserSettingsLocalizedBrandingStringsMapOutput
+	ToUserSettingsLocalizedBrandingStringsMapOutputWithContext(context.Context) UserSettingsLocalizedBrandingStringsMapOutput
+}
+
+type UserSettingsLocalizedBrandingStringsMap map[string]UserSettingsLocalizedBrandingStringsInput
+
+func (UserSettingsLocalizedBrandingStringsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserSettingsLocalizedBrandingStrings)(nil)).Elem()
+}
+
+func (i UserSettingsLocalizedBrandingStringsMap) ToUserSettingsLocalizedBrandingStringsMapOutput() UserSettingsLocalizedBrandingStringsMapOutput {
+	return i.ToUserSettingsLocalizedBrandingStringsMapOutputWithContext(context.Background())
+}
+
+func (i UserSettingsLocalizedBrandingStringsMap) ToUserSettingsLocalizedBrandingStringsMapOutputWithContext(ctx context.Context) UserSettingsLocalizedBrandingStringsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsLocalizedBrandingStringsMapOutput)
+}
+
+type UserSettingsLocalizedBrandingStringsOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsLocalizedBrandingStringsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsLocalizedBrandingStrings)(nil)).Elem()
+}
+
+func (o UserSettingsLocalizedBrandingStringsOutput) ToUserSettingsLocalizedBrandingStringsOutput() UserSettingsLocalizedBrandingStringsOutput {
+	return o
+}
+
+func (o UserSettingsLocalizedBrandingStringsOutput) ToUserSettingsLocalizedBrandingStringsOutputWithContext(ctx context.Context) UserSettingsLocalizedBrandingStringsOutput {
+	return o
+}
+
+// The text displayed in the browser tab title.
+func (o UserSettingsLocalizedBrandingStringsOutput) BrowserTabTitle() pulumi.StringOutput {
+	return o.ApplyT(func(v UserSettingsLocalizedBrandingStrings) string { return v.BrowserTabTitle }).(pulumi.StringOutput)
+}
+
+// The text displayed on the contact button. This field is optional and defaults to "Contact us".
+func (o UserSettingsLocalizedBrandingStringsOutput) ContactButtonText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserSettingsLocalizedBrandingStrings) *string { return v.ContactButtonText }).(pulumi.StringPtrOutput)
+}
+
+// A contact link URL. The URL must start with `https://` or `mailto:` . If not provided, the contact button will be hidden from the web portal screen.
+func (o UserSettingsLocalizedBrandingStringsOutput) ContactLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserSettingsLocalizedBrandingStrings) *string { return v.ContactLink }).(pulumi.StringPtrOutput)
+}
+
+// The text displayed during session loading. This field is optional and defaults to "Loading your session".
+func (o UserSettingsLocalizedBrandingStringsOutput) LoadingText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserSettingsLocalizedBrandingStrings) *string { return v.LoadingText }).(pulumi.StringPtrOutput)
+}
+
+// The text displayed on the login button. This field is optional and defaults to "Sign In".
+func (o UserSettingsLocalizedBrandingStringsOutput) LoginButtonText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserSettingsLocalizedBrandingStrings) *string { return v.LoginButtonText }).(pulumi.StringPtrOutput)
+}
+
+// The description text for the login section. This field is optional and defaults to "Sign in to your session".
+func (o UserSettingsLocalizedBrandingStringsOutput) LoginDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserSettingsLocalizedBrandingStrings) *string { return v.LoginDescription }).(pulumi.StringPtrOutput)
+}
+
+// The title text for the login section. This field is optional and defaults to "Sign In".
+func (o UserSettingsLocalizedBrandingStringsOutput) LoginTitle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserSettingsLocalizedBrandingStrings) *string { return v.LoginTitle }).(pulumi.StringPtrOutput)
+}
+
+// The welcome text displayed on the sign-in page.
+func (o UserSettingsLocalizedBrandingStringsOutput) WelcomeText() pulumi.StringOutput {
+	return o.ApplyT(func(v UserSettingsLocalizedBrandingStrings) string { return v.WelcomeText }).(pulumi.StringOutput)
+}
+
+type UserSettingsLocalizedBrandingStringsMapOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsLocalizedBrandingStringsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserSettingsLocalizedBrandingStrings)(nil)).Elem()
+}
+
+func (o UserSettingsLocalizedBrandingStringsMapOutput) ToUserSettingsLocalizedBrandingStringsMapOutput() UserSettingsLocalizedBrandingStringsMapOutput {
+	return o
+}
+
+func (o UserSettingsLocalizedBrandingStringsMapOutput) ToUserSettingsLocalizedBrandingStringsMapOutputWithContext(ctx context.Context) UserSettingsLocalizedBrandingStringsMapOutput {
+	return o
+}
+
+func (o UserSettingsLocalizedBrandingStringsMapOutput) MapIndex(k pulumi.StringInput) UserSettingsLocalizedBrandingStringsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserSettingsLocalizedBrandingStrings {
+		return vs[0].(map[string]UserSettingsLocalizedBrandingStrings)[vs[1].(string)]
+	}).(UserSettingsLocalizedBrandingStringsOutput)
+}
+
 type UserSettingsTag struct {
 	// The key of the tag.
 	Key string `pulumi:"key"`
@@ -1982,10 +2608,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerS3LogConfigurationInput)(nil)).Elem(), SessionLoggerS3LogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerS3LogConfigurationPtrInput)(nil)).Elem(), SessionLoggerS3LogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerUnitInput)(nil)).Elem(), SessionLoggerUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsBrandingConfigurationInput)(nil)).Elem(), UserSettingsBrandingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsBrandingConfigurationPtrInput)(nil)).Elem(), UserSettingsBrandingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsCookieSpecificationInput)(nil)).Elem(), UserSettingsCookieSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsCookieSpecificationArrayInput)(nil)).Elem(), UserSettingsCookieSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsCookieSynchronizationConfigurationInput)(nil)).Elem(), UserSettingsCookieSynchronizationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsCookieSynchronizationConfigurationPtrInput)(nil)).Elem(), UserSettingsCookieSynchronizationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsImageMetadataInput)(nil)).Elem(), UserSettingsImageMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsImageMetadataPtrInput)(nil)).Elem(), UserSettingsImageMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsLocalizedBrandingStringsInput)(nil)).Elem(), UserSettingsLocalizedBrandingStringsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsLocalizedBrandingStringsMapInput)(nil)).Elem(), UserSettingsLocalizedBrandingStringsMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsToolbarConfigurationInput)(nil)).Elem(), UserSettingsToolbarConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsToolbarConfigurationPtrInput)(nil)).Elem(), UserSettingsToolbarConfigurationArgs{})
 	pulumi.RegisterOutputType(BrowserSettingsWebContentFilteringPolicyOutput{})
@@ -2009,10 +2641,16 @@ func init() {
 	pulumi.RegisterOutputType(SessionLoggerS3LogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SessionLoggerUnitOutput{})
 	pulumi.RegisterOutputType(SessionLoggerUnitPtrOutput{})
+	pulumi.RegisterOutputType(UserSettingsBrandingConfigurationOutput{})
+	pulumi.RegisterOutputType(UserSettingsBrandingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserSettingsCookieSpecificationOutput{})
 	pulumi.RegisterOutputType(UserSettingsCookieSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(UserSettingsCookieSynchronizationConfigurationOutput{})
 	pulumi.RegisterOutputType(UserSettingsCookieSynchronizationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(UserSettingsImageMetadataOutput{})
+	pulumi.RegisterOutputType(UserSettingsImageMetadataPtrOutput{})
+	pulumi.RegisterOutputType(UserSettingsLocalizedBrandingStringsOutput{})
+	pulumi.RegisterOutputType(UserSettingsLocalizedBrandingStringsMapOutput{})
 	pulumi.RegisterOutputType(UserSettingsToolbarConfigurationOutput{})
 	pulumi.RegisterOutputType(UserSettingsToolbarConfigurationPtrOutput{})
 }

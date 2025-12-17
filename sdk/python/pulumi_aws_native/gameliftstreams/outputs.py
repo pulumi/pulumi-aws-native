@@ -89,8 +89,12 @@ class StreamGroupLocationConfiguration(dict):
             suggest = "location_name"
         elif key == "alwaysOnCapacity":
             suggest = "always_on_capacity"
+        elif key == "maximumCapacity":
+            suggest = "maximum_capacity"
         elif key == "onDemandCapacity":
             suggest = "on_demand_capacity"
+        elif key == "targetIdleCapacity":
+            suggest = "target_idle_capacity"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in StreamGroupLocationConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -106,17 +110,23 @@ class StreamGroupLocationConfiguration(dict):
     def __init__(__self__, *,
                  location_name: _builtins.str,
                  always_on_capacity: Optional[_builtins.int] = None,
-                 on_demand_capacity: Optional[_builtins.int] = None):
+                 maximum_capacity: Optional[_builtins.int] = None,
+                 on_demand_capacity: Optional[_builtins.int] = None,
+                 target_idle_capacity: Optional[_builtins.int] = None):
         """
         :param _builtins.str location_name: A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions, quotas, and limitations](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
         :param _builtins.int always_on_capacity: The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session. Default is 1 (2 for high stream classes) when creating a stream group or adding a location.
-        :param _builtins.int on_demand_capacity: The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes). Default is 0 when creating a stream group or adding a location.
+        :param _builtins.int on_demand_capacity: This shape is deprecated.
         """
         pulumi.set(__self__, "location_name", location_name)
         if always_on_capacity is not None:
             pulumi.set(__self__, "always_on_capacity", always_on_capacity)
+        if maximum_capacity is not None:
+            pulumi.set(__self__, "maximum_capacity", maximum_capacity)
         if on_demand_capacity is not None:
             pulumi.set(__self__, "on_demand_capacity", on_demand_capacity)
+        if target_idle_capacity is not None:
+            pulumi.set(__self__, "target_idle_capacity", target_idle_capacity)
 
     @_builtins.property
     @pulumi.getter(name="locationName")
@@ -135,11 +145,21 @@ class StreamGroupLocationConfiguration(dict):
         return pulumi.get(self, "always_on_capacity")
 
     @_builtins.property
+    @pulumi.getter(name="maximumCapacity")
+    def maximum_capacity(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "maximum_capacity")
+
+    @_builtins.property
     @pulumi.getter(name="onDemandCapacity")
     def on_demand_capacity(self) -> Optional[_builtins.int]:
         """
-        The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes). Default is 0 when creating a stream group or adding a location.
+        This shape is deprecated.
         """
         return pulumi.get(self, "on_demand_capacity")
+
+    @_builtins.property
+    @pulumi.getter(name="targetIdleCapacity")
+    def target_idle_capacity(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "target_idle_capacity")
 
 

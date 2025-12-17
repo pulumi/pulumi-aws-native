@@ -35,6 +35,10 @@ func NewNotificationChannel(ctx *pulumi.Context,
 	if args.SnsTopicArn == nil {
 		return nil, errors.New("invalid value for required argument 'SnsTopicArn'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"snsTopicArn",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NotificationChannel
 	err := ctx.RegisterResource("aws-native:fms:NotificationChannel", name, args, &resource, opts...)

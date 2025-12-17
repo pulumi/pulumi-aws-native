@@ -42,6 +42,7 @@ class TableArgs:
         :param pulumi.Input['TableCompactionArgs'] compaction: Contains details about the compaction settings for an Iceberg table.
         :param pulumi.Input['TableIcebergMetadataArgs'] iceberg_metadata: Contains details about the metadata for an Iceberg table.
         :param pulumi.Input['TableSnapshotManagementArgs'] snapshot_management: Contains details about the Iceberg snapshot management settings for the table.
+        :param pulumi.Input['TableStorageClassConfigurationArgs'] storage_class_configuration: The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
         :param pulumi.Input[_builtins.str] table_name: The name for the table.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: User tags (key-value pairs) to associate with the table.
         :param pulumi.Input['TableWithoutMetadata'] without_metadata: Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to `IcebergMetadata` , and its only possible value is `Yes` .
@@ -139,6 +140,9 @@ class TableArgs:
     @_builtins.property
     @pulumi.getter(name="storageClassConfiguration")
     def storage_class_configuration(self) -> Optional[pulumi.Input['TableStorageClassConfigurationArgs']]:
+        """
+        The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
+        """
         return pulumi.get(self, "storage_class_configuration")
 
     @storage_class_configuration.setter
@@ -209,6 +213,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] namespace: The name of the namespace.
         :param pulumi.Input['TableOpenTableFormat'] open_table_format: The format of the table.
         :param pulumi.Input[Union['TableSnapshotManagementArgs', 'TableSnapshotManagementArgsDict']] snapshot_management: Contains details about the Iceberg snapshot management settings for the table.
+        :param pulumi.Input[Union['TableStorageClassConfigurationArgs', 'TableStorageClassConfigurationArgsDict']] storage_class_configuration: The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
         :param pulumi.Input[_builtins.str] table_bucket_arn: The Amazon Resource Name (ARN) of the table bucket to create the table in.
         :param pulumi.Input[_builtins.str] table_name: The name for the table.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: User tags (key-value pairs) to associate with the table.
@@ -358,6 +363,9 @@ class Table(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="storageClassConfiguration")
     def storage_class_configuration(self) -> pulumi.Output[Optional['outputs.TableStorageClassConfiguration']]:
+        """
+        The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
+        """
         return pulumi.get(self, "storage_class_configuration")
 
     @_builtins.property

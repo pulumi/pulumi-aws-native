@@ -25,6 +25,7 @@ class IndexArgs:
                  data_type: pulumi.Input['IndexDataType'],
                  dimension: pulumi.Input[_builtins.int],
                  distance_metric: pulumi.Input['IndexDistanceMetric'],
+                 encryption_configuration: Optional[pulumi.Input['IndexEncryptionConfigurationArgs']] = None,
                  index_name: Optional[pulumi.Input[_builtins.str]] = None,
                  metadata_configuration: Optional[pulumi.Input['IndexMetadataConfigurationArgs']] = None,
                  vector_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -39,6 +40,7 @@ class IndexArgs:
                
                - `cosine` - Measures the cosine of the angle between two vectors.
                - `euclidean` - Measures the straight-line distance between two points in multi-dimensional space. Lower values indicate greater similarity.
+        :param pulumi.Input['IndexEncryptionConfigurationArgs'] encryption_configuration: The encryption configuration for a vector index. By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.
         :param pulumi.Input[_builtins.str] index_name: The name of the vector index to create. The index name must be between 3 and 63 characters long and can contain only lowercase letters, numbers, hyphens (-), and dots (.). The index name must be unique within the vector bucket.
                
                If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the index name.
@@ -51,6 +53,8 @@ class IndexArgs:
         pulumi.set(__self__, "data_type", data_type)
         pulumi.set(__self__, "dimension", dimension)
         pulumi.set(__self__, "distance_metric", distance_metric)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if index_name is not None:
             pulumi.set(__self__, "index_name", index_name)
         if metadata_configuration is not None:
@@ -100,6 +104,18 @@ class IndexArgs:
     @distance_metric.setter
     def distance_metric(self, value: pulumi.Input['IndexDistanceMetric']):
         pulumi.set(self, "distance_metric", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional[pulumi.Input['IndexEncryptionConfigurationArgs']]:
+        """
+        The encryption configuration for a vector index. By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: Optional[pulumi.Input['IndexEncryptionConfigurationArgs']]):
+        pulumi.set(self, "encryption_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="indexName")
@@ -163,6 +179,7 @@ class Index(pulumi.CustomResource):
                  data_type: Optional[pulumi.Input['IndexDataType']] = None,
                  dimension: Optional[pulumi.Input[_builtins.int]] = None,
                  distance_metric: Optional[pulumi.Input['IndexDistanceMetric']] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['IndexEncryptionConfigurationArgs', 'IndexEncryptionConfigurationArgsDict']]] = None,
                  index_name: Optional[pulumi.Input[_builtins.str]] = None,
                  metadata_configuration: Optional[pulumi.Input[Union['IndexMetadataConfigurationArgs', 'IndexMetadataConfigurationArgsDict']]] = None,
                  vector_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -181,6 +198,7 @@ class Index(pulumi.CustomResource):
                
                - `cosine` - Measures the cosine of the angle between two vectors.
                - `euclidean` - Measures the straight-line distance between two points in multi-dimensional space. Lower values indicate greater similarity.
+        :param pulumi.Input[Union['IndexEncryptionConfigurationArgs', 'IndexEncryptionConfigurationArgsDict']] encryption_configuration: The encryption configuration for a vector index. By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.
         :param pulumi.Input[_builtins.str] index_name: The name of the vector index to create. The index name must be between 3 and 63 characters long and can contain only lowercase letters, numbers, hyphens (-), and dots (.). The index name must be unique within the vector bucket.
                
                If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the index name.
@@ -217,6 +235,7 @@ class Index(pulumi.CustomResource):
                  data_type: Optional[pulumi.Input['IndexDataType']] = None,
                  dimension: Optional[pulumi.Input[_builtins.int]] = None,
                  distance_metric: Optional[pulumi.Input['IndexDistanceMetric']] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['IndexEncryptionConfigurationArgs', 'IndexEncryptionConfigurationArgsDict']]] = None,
                  index_name: Optional[pulumi.Input[_builtins.str]] = None,
                  metadata_configuration: Optional[pulumi.Input[Union['IndexMetadataConfigurationArgs', 'IndexMetadataConfigurationArgsDict']]] = None,
                  vector_bucket_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -239,13 +258,14 @@ class Index(pulumi.CustomResource):
             if distance_metric is None and not opts.urn:
                 raise TypeError("Missing required property 'distance_metric'")
             __props__.__dict__["distance_metric"] = distance_metric
+            __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["index_name"] = index_name
             __props__.__dict__["metadata_configuration"] = metadata_configuration
             __props__.__dict__["vector_bucket_arn"] = vector_bucket_arn
             __props__.__dict__["vector_bucket_name"] = vector_bucket_name
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["index_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dataType", "dimension", "distanceMetric", "indexName", "metadataConfiguration", "vectorBucketArn", "vectorBucketName"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dataType", "dimension", "distanceMetric", "encryptionConfiguration", "indexName", "metadataConfiguration", "vectorBucketArn", "vectorBucketName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Index, __self__).__init__(
             'aws-native:s3vectors:Index',
@@ -273,6 +293,7 @@ class Index(pulumi.CustomResource):
         __props__.__dict__["data_type"] = None
         __props__.__dict__["dimension"] = None
         __props__.__dict__["distance_metric"] = None
+        __props__.__dict__["encryption_configuration"] = None
         __props__.__dict__["index_arn"] = None
         __props__.__dict__["index_name"] = None
         __props__.__dict__["metadata_configuration"] = None
@@ -318,6 +339,14 @@ class Index(pulumi.CustomResource):
         - `euclidean` - Measures the straight-line distance between two points in multi-dimensional space. Lower values indicate greater similarity.
         """
         return pulumi.get(self, "distance_metric")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> pulumi.Output[Optional['outputs.IndexEncryptionConfiguration']]:
+        """
+        The encryption configuration for a vector index. By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.
+        """
+        return pulumi.get(self, "encryption_configuration")
 
     @_builtins.property
     @pulumi.getter(name="indexArn")

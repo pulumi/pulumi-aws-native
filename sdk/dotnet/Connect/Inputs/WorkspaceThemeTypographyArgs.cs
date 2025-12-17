@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
     public sealed class WorkspaceThemeTypographyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The font family configuration for text in the workspace.
+        /// </summary>
         [Input("fontFamily")]
         public Input<Inputs.FontFamilyArgs>? FontFamily { get; set; }
 

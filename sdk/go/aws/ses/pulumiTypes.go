@@ -8299,6 +8299,114 @@ func (o TemplateTypePtrOutput) TextPart() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The resource to associate with the tenant
+type TenantResourceAssociation struct {
+	// The ARN of the resource to associate with the tenant
+	ResourceArn string `pulumi:"resourceArn"`
+}
+
+// TenantResourceAssociationInput is an input type that accepts TenantResourceAssociationArgs and TenantResourceAssociationOutput values.
+// You can construct a concrete instance of `TenantResourceAssociationInput` via:
+//
+//	TenantResourceAssociationArgs{...}
+type TenantResourceAssociationInput interface {
+	pulumi.Input
+
+	ToTenantResourceAssociationOutput() TenantResourceAssociationOutput
+	ToTenantResourceAssociationOutputWithContext(context.Context) TenantResourceAssociationOutput
+}
+
+// The resource to associate with the tenant
+type TenantResourceAssociationArgs struct {
+	// The ARN of the resource to associate with the tenant
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+}
+
+func (TenantResourceAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TenantResourceAssociation)(nil)).Elem()
+}
+
+func (i TenantResourceAssociationArgs) ToTenantResourceAssociationOutput() TenantResourceAssociationOutput {
+	return i.ToTenantResourceAssociationOutputWithContext(context.Background())
+}
+
+func (i TenantResourceAssociationArgs) ToTenantResourceAssociationOutputWithContext(ctx context.Context) TenantResourceAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TenantResourceAssociationOutput)
+}
+
+// TenantResourceAssociationArrayInput is an input type that accepts TenantResourceAssociationArray and TenantResourceAssociationArrayOutput values.
+// You can construct a concrete instance of `TenantResourceAssociationArrayInput` via:
+//
+//	TenantResourceAssociationArray{ TenantResourceAssociationArgs{...} }
+type TenantResourceAssociationArrayInput interface {
+	pulumi.Input
+
+	ToTenantResourceAssociationArrayOutput() TenantResourceAssociationArrayOutput
+	ToTenantResourceAssociationArrayOutputWithContext(context.Context) TenantResourceAssociationArrayOutput
+}
+
+type TenantResourceAssociationArray []TenantResourceAssociationInput
+
+func (TenantResourceAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TenantResourceAssociation)(nil)).Elem()
+}
+
+func (i TenantResourceAssociationArray) ToTenantResourceAssociationArrayOutput() TenantResourceAssociationArrayOutput {
+	return i.ToTenantResourceAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i TenantResourceAssociationArray) ToTenantResourceAssociationArrayOutputWithContext(ctx context.Context) TenantResourceAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TenantResourceAssociationArrayOutput)
+}
+
+// The resource to associate with the tenant
+type TenantResourceAssociationOutput struct{ *pulumi.OutputState }
+
+func (TenantResourceAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TenantResourceAssociation)(nil)).Elem()
+}
+
+func (o TenantResourceAssociationOutput) ToTenantResourceAssociationOutput() TenantResourceAssociationOutput {
+	return o
+}
+
+func (o TenantResourceAssociationOutput) ToTenantResourceAssociationOutputWithContext(ctx context.Context) TenantResourceAssociationOutput {
+	return o
+}
+
+// The ARN of the resource to associate with the tenant
+func (o TenantResourceAssociationOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TenantResourceAssociation) string { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+type TenantResourceAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (TenantResourceAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TenantResourceAssociation)(nil)).Elem()
+}
+
+func (o TenantResourceAssociationArrayOutput) ToTenantResourceAssociationArrayOutput() TenantResourceAssociationArrayOutput {
+	return o
+}
+
+func (o TenantResourceAssociationArrayOutput) ToTenantResourceAssociationArrayOutputWithContext(ctx context.Context) TenantResourceAssociationArrayOutput {
+	return o
+}
+
+func (o TenantResourceAssociationArrayOutput) Index(i pulumi.IntInput) TenantResourceAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TenantResourceAssociation {
+		return vs[0].([]TenantResourceAssociation)[vs[1].(int)]
+	}).(TenantResourceAssociationOutput)
+}
+
+// An object that defines the tags (keys and values) that you want to associate with the tenant.
+type TenantTag struct {
+	// The key of the key-value tag.
+	Key string `pulumi:"key"`
+	// The value of the key-value tag.
+	Value string `pulumi:"value"`
+}
+
 // Preferences regarding the Dashboard feature.
 type VdmAttributesDashboardAttributes struct {
 	// Whether emails sent from this account have engagement tracking enabled.
@@ -8708,6 +8816,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionEndpointRouteDetailsItemPropertiesArrayInput)(nil)).Elem(), MultiRegionEndpointRouteDetailsItemPropertiesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTypeInput)(nil)).Elem(), TemplateTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTypePtrInput)(nil)).Elem(), TemplateTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantResourceAssociationInput)(nil)).Elem(), TenantResourceAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TenantResourceAssociationArrayInput)(nil)).Elem(), TenantResourceAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VdmAttributesDashboardAttributesInput)(nil)).Elem(), VdmAttributesDashboardAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VdmAttributesDashboardAttributesPtrInput)(nil)).Elem(), VdmAttributesDashboardAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VdmAttributesGuardianAttributesInput)(nil)).Elem(), VdmAttributesGuardianAttributesArgs{})
@@ -8844,6 +8954,8 @@ func init() {
 	pulumi.RegisterOutputType(MultiRegionEndpointRouteDetailsItemPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(TemplateTypeOutput{})
 	pulumi.RegisterOutputType(TemplateTypePtrOutput{})
+	pulumi.RegisterOutputType(TenantResourceAssociationOutput{})
+	pulumi.RegisterOutputType(TenantResourceAssociationArrayOutput{})
 	pulumi.RegisterOutputType(VdmAttributesDashboardAttributesOutput{})
 	pulumi.RegisterOutputType(VdmAttributesDashboardAttributesPtrOutput{})
 	pulumi.RegisterOutputType(VdmAttributesGuardianAttributesOutput{})

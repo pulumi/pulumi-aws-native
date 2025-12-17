@@ -18,7 +18,7 @@ type Group struct {
 
 	// The Resource Group ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+	// The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *Resource Groups User Guide* .
 	//
 	// > You can include either a `Configuration` or a `ResourceQuery` , but not both.
 	Configuration GroupConfigurationItemArrayOutput `pulumi:"configuration"`
@@ -26,7 +26,7 @@ type Group struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the resource group
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*
+	// The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *Resource Groups User Guide*
 	//
 	// > - You can include either a `ResourceQuery` or a `Configuration` , but not both.
 	// > - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.
@@ -84,7 +84,7 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	// The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+	// The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *Resource Groups User Guide* .
 	//
 	// > You can include either a `Configuration` or a `ResourceQuery` , but not both.
 	Configuration []GroupConfigurationItem `pulumi:"configuration"`
@@ -92,7 +92,7 @@ type groupArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the resource group
 	Name *string `pulumi:"name"`
-	// The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*
+	// The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *Resource Groups User Guide*
 	//
 	// > - You can include either a `ResourceQuery` or a `Configuration` , but not both.
 	// > - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.
@@ -108,7 +108,7 @@ type groupArgs struct {
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	// The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+	// The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *Resource Groups User Guide* .
 	//
 	// > You can include either a `Configuration` or a `ResourceQuery` , but not both.
 	Configuration GroupConfigurationItemArrayInput
@@ -116,7 +116,7 @@ type GroupArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the resource group
 	Name pulumi.StringPtrInput
-	// The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*
+	// The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *Resource Groups User Guide*
 	//
 	// > - You can include either a `ResourceQuery` or a `Configuration` , but not both.
 	// > - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.
@@ -172,7 +172,7 @@ func (o GroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+// The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *Resource Groups User Guide* .
 //
 // > You can include either a `Configuration` or a `ResourceQuery` , but not both.
 func (o GroupOutput) Configuration() GroupConfigurationItemArrayOutput {
@@ -189,7 +189,7 @@ func (o GroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*
+// The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *Resource Groups User Guide*
 //
 // > - You can include either a `ResourceQuery` or a `Configuration` , but not both.
 // > - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.

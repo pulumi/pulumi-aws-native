@@ -23,21 +23,32 @@ func LookupDataTableAttribute(ctx *pulumi.Context, args *LookupDataTableAttribut
 }
 
 type LookupDataTableAttributeArgs struct {
-	AttributeId  string `pulumi:"attributeId"`
+	// The unique identifier for the attribute within the data table.
+	AttributeId string `pulumi:"attributeId"`
+	// The Amazon Resource Name (ARN) of the data table that contains this attribute.
 	DataTableArn string `pulumi:"dataTableArn"`
-	InstanceArn  string `pulumi:"instanceArn"`
+	// The Amazon Resource Name (ARN) of the instance.
+	InstanceArn string `pulumi:"instanceArn"`
 }
 
 type LookupDataTableAttributeResult struct {
-	AttributeId        *string                      `pulumi:"attributeId"`
-	Description        *string                      `pulumi:"description"`
-	LastModifiedRegion *string                      `pulumi:"lastModifiedRegion"`
-	LastModifiedTime   *float64                     `pulumi:"lastModifiedTime"`
-	LockVersion        *LockVersionProperties       `pulumi:"lockVersion"`
-	Name               *string                      `pulumi:"name"`
-	Primary            *bool                        `pulumi:"primary"`
-	Validation         *ValidationProperties        `pulumi:"validation"`
-	ValueType          *DataTableAttributeValueType `pulumi:"valueType"`
+	// The unique identifier for the attribute within the data table.
+	AttributeId *string `pulumi:"attributeId"`
+	// An optional description explaining the purpose and usage of this attribute.
+	Description *string `pulumi:"description"`
+	// The AWS Region where this attribute was last modified, used for region replication.
+	LastModifiedRegion *string `pulumi:"lastModifiedRegion"`
+	// The timestamp when this attribute was last modified.
+	LastModifiedTime *float64               `pulumi:"lastModifiedTime"`
+	LockVersion      *LockVersionProperties `pulumi:"lockVersion"`
+	// The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.
+	Name *string `pulumi:"name"`
+	// Boolean indicating whether this attribute is used as a primary key for record identification. Primary attributes must have unique value combinations and cannot contain expressions.
+	Primary *bool `pulumi:"primary"`
+	// The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
+	Validation *ValidationProperties `pulumi:"validation"`
+	// The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
+	ValueType *DataTableAttributeValueType `pulumi:"valueType"`
 }
 
 func LookupDataTableAttributeOutput(ctx *pulumi.Context, args LookupDataTableAttributeOutputArgs, opts ...pulumi.InvokeOption) LookupDataTableAttributeResultOutput {
@@ -50,9 +61,12 @@ func LookupDataTableAttributeOutput(ctx *pulumi.Context, args LookupDataTableAtt
 }
 
 type LookupDataTableAttributeOutputArgs struct {
-	AttributeId  pulumi.StringInput `pulumi:"attributeId"`
+	// The unique identifier for the attribute within the data table.
+	AttributeId pulumi.StringInput `pulumi:"attributeId"`
+	// The Amazon Resource Name (ARN) of the data table that contains this attribute.
 	DataTableArn pulumi.StringInput `pulumi:"dataTableArn"`
-	InstanceArn  pulumi.StringInput `pulumi:"instanceArn"`
+	// The Amazon Resource Name (ARN) of the instance.
+	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
 }
 
 func (LookupDataTableAttributeOutputArgs) ElementType() reflect.Type {
@@ -73,18 +87,22 @@ func (o LookupDataTableAttributeResultOutput) ToLookupDataTableAttributeResultOu
 	return o
 }
 
+// The unique identifier for the attribute within the data table.
 func (o LookupDataTableAttributeResultOutput) AttributeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataTableAttributeResult) *string { return v.AttributeId }).(pulumi.StringPtrOutput)
 }
 
+// An optional description explaining the purpose and usage of this attribute.
 func (o LookupDataTableAttributeResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataTableAttributeResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The AWS Region where this attribute was last modified, used for region replication.
 func (o LookupDataTableAttributeResultOutput) LastModifiedRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataTableAttributeResult) *string { return v.LastModifiedRegion }).(pulumi.StringPtrOutput)
 }
 
+// The timestamp when this attribute was last modified.
 func (o LookupDataTableAttributeResultOutput) LastModifiedTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupDataTableAttributeResult) *float64 { return v.LastModifiedTime }).(pulumi.Float64PtrOutput)
 }
@@ -93,18 +111,22 @@ func (o LookupDataTableAttributeResultOutput) LockVersion() LockVersionPropertie
 	return o.ApplyT(func(v LookupDataTableAttributeResult) *LockVersionProperties { return v.LockVersion }).(LockVersionPropertiesPtrOutput)
 }
 
+// The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.
 func (o LookupDataTableAttributeResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataTableAttributeResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Boolean indicating whether this attribute is used as a primary key for record identification. Primary attributes must have unique value combinations and cannot contain expressions.
 func (o LookupDataTableAttributeResultOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDataTableAttributeResult) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
+// The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
 func (o LookupDataTableAttributeResultOutput) Validation() ValidationPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupDataTableAttributeResult) *ValidationProperties { return v.Validation }).(ValidationPropertiesPtrOutput)
 }
 
+// The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
 func (o LookupDataTableAttributeResultOutput) ValueType() DataTableAttributeValueTypePtrOutput {
 	return o.ApplyT(func(v LookupDataTableAttributeResult) *DataTableAttributeValueType { return v.ValueType }).(DataTableAttributeValueTypePtrOutput)
 }

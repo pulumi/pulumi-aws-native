@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Config{}
 	case "aws-native:groundstation:DataflowEndpointGroup":
 		r = &DataflowEndpointGroup{}
+	case "aws-native:groundstation:DataflowEndpointGroupV2":
+		r = &DataflowEndpointGroupV2{}
 	case "aws-native:groundstation:MissionProfile":
 		r = &MissionProfile{}
 	default:

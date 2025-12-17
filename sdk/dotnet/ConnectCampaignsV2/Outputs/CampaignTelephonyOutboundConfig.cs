@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
         /// The Amazon Connect source phone number.
         /// </summary>
         public readonly string? ConnectSourcePhoneNumber;
+        /// <summary>
+        /// The ring timeout configuration for outbound calls. Specifies how long to wait for the call to be answered before timing out.
+        /// </summary>
         public readonly int? RingTimeout;
 
         [OutputConstructor]

@@ -605,6 +605,8 @@ class TransformerParseToOcsf(dict):
             suggest = "event_source"
         elif key == "ocsfVersion":
             suggest = "ocsf_version"
+        elif key == "mappingVersion":
+            suggest = "mapping_version"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TransformerParseToOcsf. Access the value via the '{suggest}' property getter instead.")
@@ -620,14 +622,18 @@ class TransformerParseToOcsf(dict):
     def __init__(__self__, *,
                  event_source: 'TransformerEventSource',
                  ocsf_version: 'TransformerOcsfVersion',
+                 mapping_version: Optional[_builtins.str] = None,
                  source: Optional[_builtins.str] = None):
         """
         :param 'TransformerEventSource' event_source: Specify the service or process that produces the log events that will be converted with this processor.
         :param 'TransformerOcsfVersion' ocsf_version: Specify which version of the OCSF schema to use for the transformed log events.
+        :param _builtins.str mapping_version: The version of the OCSF mapping to use for parsing log data.
         :param _builtins.str source: The path to the field in the log event that you want to parse. If you omit this value, the whole log message is parsed.
         """
         pulumi.set(__self__, "event_source", event_source)
         pulumi.set(__self__, "ocsf_version", ocsf_version)
+        if mapping_version is not None:
+            pulumi.set(__self__, "mapping_version", mapping_version)
         if source is not None:
             pulumi.set(__self__, "source", source)
 
@@ -646,6 +652,14 @@ class TransformerParseToOcsf(dict):
         Specify which version of the OCSF schema to use for the transformed log events.
         """
         return pulumi.get(self, "ocsf_version")
+
+    @_builtins.property
+    @pulumi.getter(name="mappingVersion")
+    def mapping_version(self) -> Optional[_builtins.str]:
+        """
+        The version of the OCSF mapping to use for parsing log data.
+        """
+        return pulumi.get(self, "mapping_version")
 
     @_builtins.property
     @pulumi.getter

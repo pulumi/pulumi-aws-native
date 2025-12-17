@@ -40,7 +40,8 @@ type LookupFunctionResult struct {
 	// The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
 	Architectures []FunctionArchitecturesItem `pulumi:"architectures"`
 	// The Amazon Resource Name (ARN) of the function.
-	Arn                    *string                         `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// Configuration for the capacity provider that manages compute resources for Lambda functions.
 	CapacityProviderConfig *FunctionCapacityProviderConfig `pulumi:"capacityProviderConfig"`
 	// The code for the function. You can define your function code in multiple ways:
 	//   +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
@@ -52,7 +53,8 @@ type LookupFunctionResult struct {
 	// A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
 	DeadLetterConfig *FunctionDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// A description of the function.
-	Description   *string                `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
 	DurableConfig *FunctionDurableConfig `pulumi:"durableConfig"`
 	// Environment variables that are accessible from function code during execution.
 	Environment *FunctionEnvironment `pulumi:"environment"`
@@ -60,8 +62,9 @@ type LookupFunctionResult struct {
 	EphemeralStorage *FunctionEphemeralStorage `pulumi:"ephemeralStorage"`
 	// Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function.
 	//  For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).
-	FileSystemConfigs     []FunctionFileSystemConfig `pulumi:"fileSystemConfigs"`
-	FunctionScalingConfig *FunctionScalingConfig     `pulumi:"functionScalingConfig"`
+	FileSystemConfigs []FunctionFileSystemConfig `pulumi:"fileSystemConfigs"`
+	// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+	FunctionScalingConfig *FunctionScalingConfig `pulumi:"functionScalingConfig"`
 	// The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
 	Handler *string `pulumi:"handler"`
 	// Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
@@ -149,6 +152,7 @@ func (o LookupFunctionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Configuration for the capacity provider that manages compute resources for Lambda functions.
 func (o LookupFunctionResultOutput) CapacityProviderConfig() FunctionCapacityProviderConfigPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionCapacityProviderConfig { return v.CapacityProviderConfig }).(FunctionCapacityProviderConfigPtrOutput)
 }
@@ -176,6 +180,7 @@ func (o LookupFunctionResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
 func (o LookupFunctionResultOutput) DurableConfig() FunctionDurableConfigPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionDurableConfig { return v.DurableConfig }).(FunctionDurableConfigPtrOutput)
 }
@@ -197,6 +202,7 @@ func (o LookupFunctionResultOutput) FileSystemConfigs() FunctionFileSystemConfig
 	return o.ApplyT(func(v LookupFunctionResult) []FunctionFileSystemConfig { return v.FileSystemConfigs }).(FunctionFileSystemConfigArrayOutput)
 }
 
+// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
 func (o LookupFunctionResultOutput) FunctionScalingConfig() FunctionScalingConfigPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionScalingConfig { return v.FunctionScalingConfig }).(FunctionScalingConfigPtrOutput)
 }

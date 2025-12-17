@@ -177,6 +177,9 @@ if not MYPY:
         The configuration of the telephony channel subtype.
         """
         whats_app: NotRequired[pulumi.Input['CampaignWhatsAppChannelSubtypeConfigArgsDict']]
+        """
+        The configuration of the WhatsApp channel subtype.
+        """
 elif False:
     CampaignChannelSubtypeConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -192,6 +195,7 @@ class CampaignChannelSubtypeConfigArgs:
         :param pulumi.Input['CampaignEmailChannelSubtypeConfigArgs'] email: The configuration of the email channel subtype.
         :param pulumi.Input['CampaignSmsChannelSubtypeConfigArgs'] sms: The configuration of the SMS channel subtype.
         :param pulumi.Input['CampaignTelephonyChannelSubtypeConfigArgs'] telephony: The configuration of the telephony channel subtype.
+        :param pulumi.Input['CampaignWhatsAppChannelSubtypeConfigArgs'] whats_app: The configuration of the WhatsApp channel subtype.
         """
         if email is not None:
             pulumi.set(__self__, "email", email)
@@ -241,6 +245,9 @@ class CampaignChannelSubtypeConfigArgs:
     @_builtins.property
     @pulumi.getter(name="whatsApp")
     def whats_app(self) -> Optional[pulumi.Input['CampaignWhatsAppChannelSubtypeConfigArgs']]:
+        """
+        The configuration of the WhatsApp channel subtype.
+        """
         return pulumi.get(self, "whats_app")
 
     @whats_app.setter
@@ -414,6 +421,9 @@ if not MYPY:
         The communication time configuration for the telephony channel subtype.
         """
         whats_app: NotRequired[pulumi.Input['CampaignTimeWindowArgsDict']]
+        """
+        The communication time configuration for the WhatsApp channel subtype.
+        """
 elif False:
     CampaignCommunicationTimeConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -431,6 +441,7 @@ class CampaignCommunicationTimeConfigArgs:
         :param pulumi.Input['CampaignTimeWindowArgs'] email: The communication time configuration for the email channel subtype.
         :param pulumi.Input['CampaignTimeWindowArgs'] sms: The communication time configuration for the SMS channel subtype.
         :param pulumi.Input['CampaignTimeWindowArgs'] telephony: The communication time configuration for the telephony channel subtype.
+        :param pulumi.Input['CampaignTimeWindowArgs'] whats_app: The communication time configuration for the WhatsApp channel subtype.
         """
         pulumi.set(__self__, "local_time_zone_config", local_time_zone_config)
         if email is not None:
@@ -493,6 +504,9 @@ class CampaignCommunicationTimeConfigArgs:
     @_builtins.property
     @pulumi.getter(name="whatsApp")
     def whats_app(self) -> Optional[pulumi.Input['CampaignTimeWindowArgs']]:
+        """
+        The communication time configuration for the WhatsApp channel subtype.
+        """
         return pulumi.get(self, "whats_app")
 
     @whats_app.setter
@@ -1499,6 +1513,9 @@ if not MYPY:
         The Amazon Connect source phone number.
         """
         ring_timeout: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The ring timeout configuration for outbound calls. Specifies how long to wait for the call to be answered before timing out.
+        """
 elif False:
     CampaignTelephonyOutboundConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1514,6 +1531,7 @@ class CampaignTelephonyOutboundConfigArgs:
         :param pulumi.Input[_builtins.str] connect_contact_flow_id: The identifier of the published Amazon Connect contact flow.
         :param pulumi.Input['CampaignAnswerMachineDetectionConfigArgs'] answer_machine_detection_config: The answering machine detection configuration.
         :param pulumi.Input[_builtins.str] connect_source_phone_number: The Amazon Connect source phone number.
+        :param pulumi.Input[_builtins.int] ring_timeout: The ring timeout configuration for outbound calls. Specifies how long to wait for the call to be answered before timing out.
         """
         pulumi.set(__self__, "connect_contact_flow_id", connect_contact_flow_id)
         if answer_machine_detection_config is not None:
@@ -1562,6 +1580,9 @@ class CampaignTelephonyOutboundConfigArgs:
     @_builtins.property
     @pulumi.getter(name="ringTimeout")
     def ring_timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The ring timeout configuration for outbound calls. Specifies how long to wait for the call to be answered before timing out.
+        """
         return pulumi.get(self, "ring_timeout")
 
     @ring_timeout.setter
@@ -1802,8 +1823,17 @@ if not MYPY:
         WhatsApp Channel Subtype config
         """
         default_outbound_config: pulumi.Input['CampaignWhatsAppOutboundConfigArgsDict']
+        """
+        The default WhatsApp outbound configuration of an outbound campaign.
+        """
         outbound_mode: pulumi.Input['CampaignWhatsAppOutboundModeArgsDict']
+        """
+        The outbound mode for WhatsApp of an outbound campaign.
+        """
         capacity: NotRequired[pulumi.Input[_builtins.float]]
+        """
+        The allocation of WhatsApp capacity between multiple running outbound campaigns.
+        """
 elif False:
     CampaignWhatsAppChannelSubtypeConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1815,6 +1845,9 @@ class CampaignWhatsAppChannelSubtypeConfigArgs:
                  capacity: Optional[pulumi.Input[_builtins.float]] = None):
         """
         WhatsApp Channel Subtype config
+        :param pulumi.Input['CampaignWhatsAppOutboundConfigArgs'] default_outbound_config: The default WhatsApp outbound configuration of an outbound campaign.
+        :param pulumi.Input['CampaignWhatsAppOutboundModeArgs'] outbound_mode: The outbound mode for WhatsApp of an outbound campaign.
+        :param pulumi.Input[_builtins.float] capacity: The allocation of WhatsApp capacity between multiple running outbound campaigns.
         """
         pulumi.set(__self__, "default_outbound_config", default_outbound_config)
         pulumi.set(__self__, "outbound_mode", outbound_mode)
@@ -1824,6 +1857,9 @@ class CampaignWhatsAppChannelSubtypeConfigArgs:
     @_builtins.property
     @pulumi.getter(name="defaultOutboundConfig")
     def default_outbound_config(self) -> pulumi.Input['CampaignWhatsAppOutboundConfigArgs']:
+        """
+        The default WhatsApp outbound configuration of an outbound campaign.
+        """
         return pulumi.get(self, "default_outbound_config")
 
     @default_outbound_config.setter
@@ -1833,6 +1869,9 @@ class CampaignWhatsAppChannelSubtypeConfigArgs:
     @_builtins.property
     @pulumi.getter(name="outboundMode")
     def outbound_mode(self) -> pulumi.Input['CampaignWhatsAppOutboundModeArgs']:
+        """
+        The outbound mode for WhatsApp of an outbound campaign.
+        """
         return pulumi.get(self, "outbound_mode")
 
     @outbound_mode.setter
@@ -1842,6 +1881,9 @@ class CampaignWhatsAppChannelSubtypeConfigArgs:
     @_builtins.property
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        The allocation of WhatsApp capacity between multiple running outbound campaigns.
+        """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
@@ -1855,7 +1897,13 @@ if not MYPY:
         Default WhatsApp outbound config
         """
         connect_source_phone_number_arn: pulumi.Input[_builtins.str]
+        """
+        The Amazon Resource Name (ARN) of the Amazon Connect source WhatsApp phone number.
+        """
         wisdom_template_arn: pulumi.Input[_builtins.str]
+        """
+        The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
+        """
 elif False:
     CampaignWhatsAppOutboundConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1866,6 +1914,8 @@ class CampaignWhatsAppOutboundConfigArgs:
                  wisdom_template_arn: pulumi.Input[_builtins.str]):
         """
         Default WhatsApp outbound config
+        :param pulumi.Input[_builtins.str] connect_source_phone_number_arn: The Amazon Resource Name (ARN) of the Amazon Connect source WhatsApp phone number.
+        :param pulumi.Input[_builtins.str] wisdom_template_arn: The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
         """
         pulumi.set(__self__, "connect_source_phone_number_arn", connect_source_phone_number_arn)
         pulumi.set(__self__, "wisdom_template_arn", wisdom_template_arn)
@@ -1873,6 +1923,9 @@ class CampaignWhatsAppOutboundConfigArgs:
     @_builtins.property
     @pulumi.getter(name="connectSourcePhoneNumberArn")
     def connect_source_phone_number_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Connect source WhatsApp phone number.
+        """
         return pulumi.get(self, "connect_source_phone_number_arn")
 
     @connect_source_phone_number_arn.setter
@@ -1882,6 +1935,9 @@ class CampaignWhatsAppOutboundConfigArgs:
     @_builtins.property
     @pulumi.getter(name="wisdomTemplateArn")
     def wisdom_template_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
+        """
         return pulumi.get(self, "wisdom_template_arn")
 
     @wisdom_template_arn.setter

@@ -2561,6 +2561,9 @@ if not MYPY:
         Sets modality processing for audio files. All modalities are enabled by default.
         """
         sensitive_data_configuration: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgsDict']]
+        """
+        Configuration for sensitive data detection and redaction for audio files.
+        """
 elif False:
     DataAutomationProjectAudioOverrideConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2573,6 +2576,7 @@ class DataAutomationProjectAudioOverrideConfigurationArgs:
         """
         :param pulumi.Input['DataAutomationProjectAudioLanguageConfigurationArgs'] language_configuration: The output and input language configuration for your audio.
         :param pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs'] modality_processing: Sets modality processing for audio files. All modalities are enabled by default.
+        :param pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs'] sensitive_data_configuration: Configuration for sensitive data detection and redaction for audio files.
         """
         if language_configuration is not None:
             pulumi.set(__self__, "language_configuration", language_configuration)
@@ -2608,6 +2612,9 @@ class DataAutomationProjectAudioOverrideConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="sensitiveDataConfiguration")
     def sensitive_data_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']]:
+        """
+        Configuration for sensitive data detection and redaction for audio files.
+        """
         return pulumi.get(self, "sensitive_data_configuration")
 
     @sensitive_data_configuration.setter
@@ -3070,6 +3077,9 @@ if not MYPY:
         Sets modality processing for document files. All modalities are enabled by default.
         """
         sensitive_data_configuration: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgsDict']]
+        """
+        Configuration for sensitive data detection and redaction for document files.
+        """
         splitter: NotRequired[pulumi.Input['DataAutomationProjectSplitterConfigurationArgsDict']]
         """
         Whether document splitter is enabled for a project.
@@ -3085,6 +3095,7 @@ class DataAutomationProjectDocumentOverrideConfigurationArgs:
                  splitter: Optional[pulumi.Input['DataAutomationProjectSplitterConfigurationArgs']] = None):
         """
         :param pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs'] modality_processing: Sets modality processing for document files. All modalities are enabled by default.
+        :param pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs'] sensitive_data_configuration: Configuration for sensitive data detection and redaction for document files.
         :param pulumi.Input['DataAutomationProjectSplitterConfigurationArgs'] splitter: Whether document splitter is enabled for a project.
         """
         if modality_processing is not None:
@@ -3109,6 +3120,9 @@ class DataAutomationProjectDocumentOverrideConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="sensitiveDataConfiguration")
     def sensitive_data_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']]:
+        """
+        Configuration for sensitive data detection and redaction for document files.
+        """
         return pulumi.get(self, "sensitive_data_configuration")
 
     @sensitive_data_configuration.setter
@@ -3370,6 +3384,9 @@ if not MYPY:
         Sets modality processing for image files. All modalities are enabled by default.
         """
         sensitive_data_configuration: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgsDict']]
+        """
+        Configuration for sensitive data detection and redaction for image files.
+        """
 elif False:
     DataAutomationProjectImageOverrideConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3380,6 +3397,7 @@ class DataAutomationProjectImageOverrideConfigurationArgs:
                  sensitive_data_configuration: Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']] = None):
         """
         :param pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs'] modality_processing: Sets modality processing for image files. All modalities are enabled by default.
+        :param pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs'] sensitive_data_configuration: Configuration for sensitive data detection and redaction for image files.
         """
         if modality_processing is not None:
             pulumi.set(__self__, "modality_processing", modality_processing)
@@ -3401,6 +3419,9 @@ class DataAutomationProjectImageOverrideConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="sensitiveDataConfiguration")
     def sensitive_data_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']]:
+        """
+        Configuration for sensitive data detection and redaction for image files.
+        """
         return pulumi.get(self, "sensitive_data_configuration")
 
     @sensitive_data_configuration.setter
@@ -3808,7 +3829,13 @@ class DataAutomationProjectOverrideConfigurationArgs:
 if not MYPY:
     class DataAutomationProjectPiiEntitiesConfigurationArgsDict(TypedDict):
         pii_entity_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectPiiEntityTypes']]]]
+        """
+        List of PII entity types to detect/redact in the output. Choose from specific entity types (such as ADDRESS, NAME, EMAIL, PHONE, US_SOCIAL_SECURITY_NUMBER) or specify ALL to detect all supported PII types. If not specified, defaults to ALL.
+        """
         redaction_mask_mode: NotRequired[pulumi.Input['DataAutomationProjectPiiRedactionMaskMode']]
+        """
+        Defines how detected PII entities are masked in redacted output files. Set to PII to replace all detected entities with a generic [PII] marker regardless of entity type. Set to ENTITY_TYPE to replace each detected entity with its specific type marker (for example, [NAME], [EMAIL], [ADDRESS]). This setting only applies when detectionMode is set to DETECTION_AND_REDACTION. If not specified, defaults to ENTITY_TYPE.
+        """
 elif False:
     DataAutomationProjectPiiEntitiesConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3817,6 +3844,10 @@ class DataAutomationProjectPiiEntitiesConfigurationArgs:
     def __init__(__self__, *,
                  pii_entity_types: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectPiiEntityTypes']]]] = None,
                  redaction_mask_mode: Optional[pulumi.Input['DataAutomationProjectPiiRedactionMaskMode']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectPiiEntityTypes']]] pii_entity_types: List of PII entity types to detect/redact in the output. Choose from specific entity types (such as ADDRESS, NAME, EMAIL, PHONE, US_SOCIAL_SECURITY_NUMBER) or specify ALL to detect all supported PII types. If not specified, defaults to ALL.
+        :param pulumi.Input['DataAutomationProjectPiiRedactionMaskMode'] redaction_mask_mode: Defines how detected PII entities are masked in redacted output files. Set to PII to replace all detected entities with a generic [PII] marker regardless of entity type. Set to ENTITY_TYPE to replace each detected entity with its specific type marker (for example, [NAME], [EMAIL], [ADDRESS]). This setting only applies when detectionMode is set to DETECTION_AND_REDACTION. If not specified, defaults to ENTITY_TYPE.
+        """
         if pii_entity_types is not None:
             pulumi.set(__self__, "pii_entity_types", pii_entity_types)
         if redaction_mask_mode is not None:
@@ -3825,6 +3856,9 @@ class DataAutomationProjectPiiEntitiesConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="piiEntityTypes")
     def pii_entity_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectPiiEntityTypes']]]]:
+        """
+        List of PII entity types to detect/redact in the output. Choose from specific entity types (such as ADDRESS, NAME, EMAIL, PHONE, US_SOCIAL_SECURITY_NUMBER) or specify ALL to detect all supported PII types. If not specified, defaults to ALL.
+        """
         return pulumi.get(self, "pii_entity_types")
 
     @pii_entity_types.setter
@@ -3834,6 +3868,9 @@ class DataAutomationProjectPiiEntitiesConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="redactionMaskMode")
     def redaction_mask_mode(self) -> Optional[pulumi.Input['DataAutomationProjectPiiRedactionMaskMode']]:
+        """
+        Defines how detected PII entities are masked in redacted output files. Set to PII to replace all detected entities with a generic [PII] marker regardless of entity type. Set to ENTITY_TYPE to replace each detected entity with its specific type marker (for example, [NAME], [EMAIL], [ADDRESS]). This setting only applies when detectionMode is set to DETECTION_AND_REDACTION. If not specified, defaults to ENTITY_TYPE.
+        """
         return pulumi.get(self, "redaction_mask_mode")
 
     @redaction_mask_mode.setter
@@ -3844,8 +3881,17 @@ class DataAutomationProjectPiiEntitiesConfigurationArgs:
 if not MYPY:
     class DataAutomationProjectSensitiveDataConfigurationArgsDict(TypedDict):
         detection_mode: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataDetectionMode']]
+        """
+        Specifies the mode for handling sensitive data detection. Set to DETECTION to only identify sensitive data without modifying content - this produces one output file per detection scope containing detection information with original unredacted content. Set to DETECTION_AND_REDACTION to both identify and mask sensitive data - this produces two output files per detection scope: one unredacted file with detection information and one redacted file with masking applied to sensitive content. For example, if detectionScope includes both STANDARD and CUSTOM with DETECTION_AND_REDACTION mode, four output files will be generated (two for standard output and two for custom output).
+        """
         detection_scope: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectSensitiveDataDetectionScope']]]]
+        """
+        Defines which BDA output types to apply sensitive data detection to. Specify STANDARD to detect sensitive data in standard output, CUSTOM to detect in custom output (blueprint-based extraction), or both to apply detection to both output types. If not specified, defaults to both STANDARD and CUSTOM. The number of output files generated depends on both the detection mode and the scopes selected - each scope specified will produce its own set of output files according to the detection mode configured.
+        """
         pii_entities_configuration: NotRequired[pulumi.Input['DataAutomationProjectPiiEntitiesConfigurationArgsDict']]
+        """
+        Configuration for detecting and redacting Personally Identifiable Information (PII) entities.
+        """
 elif False:
     DataAutomationProjectSensitiveDataConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3855,6 +3901,11 @@ class DataAutomationProjectSensitiveDataConfigurationArgs:
                  detection_mode: Optional[pulumi.Input['DataAutomationProjectSensitiveDataDetectionMode']] = None,
                  detection_scope: Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectSensitiveDataDetectionScope']]]] = None,
                  pii_entities_configuration: Optional[pulumi.Input['DataAutomationProjectPiiEntitiesConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['DataAutomationProjectSensitiveDataDetectionMode'] detection_mode: Specifies the mode for handling sensitive data detection. Set to DETECTION to only identify sensitive data without modifying content - this produces one output file per detection scope containing detection information with original unredacted content. Set to DETECTION_AND_REDACTION to both identify and mask sensitive data - this produces two output files per detection scope: one unredacted file with detection information and one redacted file with masking applied to sensitive content. For example, if detectionScope includes both STANDARD and CUSTOM with DETECTION_AND_REDACTION mode, four output files will be generated (two for standard output and two for custom output).
+        :param pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectSensitiveDataDetectionScope']]] detection_scope: Defines which BDA output types to apply sensitive data detection to. Specify STANDARD to detect sensitive data in standard output, CUSTOM to detect in custom output (blueprint-based extraction), or both to apply detection to both output types. If not specified, defaults to both STANDARD and CUSTOM. The number of output files generated depends on both the detection mode and the scopes selected - each scope specified will produce its own set of output files according to the detection mode configured.
+        :param pulumi.Input['DataAutomationProjectPiiEntitiesConfigurationArgs'] pii_entities_configuration: Configuration for detecting and redacting Personally Identifiable Information (PII) entities.
+        """
         if detection_mode is not None:
             pulumi.set(__self__, "detection_mode", detection_mode)
         if detection_scope is not None:
@@ -3865,6 +3916,9 @@ class DataAutomationProjectSensitiveDataConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="detectionMode")
     def detection_mode(self) -> Optional[pulumi.Input['DataAutomationProjectSensitiveDataDetectionMode']]:
+        """
+        Specifies the mode for handling sensitive data detection. Set to DETECTION to only identify sensitive data without modifying content - this produces one output file per detection scope containing detection information with original unredacted content. Set to DETECTION_AND_REDACTION to both identify and mask sensitive data - this produces two output files per detection scope: one unredacted file with detection information and one redacted file with masking applied to sensitive content. For example, if detectionScope includes both STANDARD and CUSTOM with DETECTION_AND_REDACTION mode, four output files will be generated (two for standard output and two for custom output).
+        """
         return pulumi.get(self, "detection_mode")
 
     @detection_mode.setter
@@ -3874,6 +3928,9 @@ class DataAutomationProjectSensitiveDataConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="detectionScope")
     def detection_scope(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAutomationProjectSensitiveDataDetectionScope']]]]:
+        """
+        Defines which BDA output types to apply sensitive data detection to. Specify STANDARD to detect sensitive data in standard output, CUSTOM to detect in custom output (blueprint-based extraction), or both to apply detection to both output types. If not specified, defaults to both STANDARD and CUSTOM. The number of output files generated depends on both the detection mode and the scopes selected - each scope specified will produce its own set of output files according to the detection mode configured.
+        """
         return pulumi.get(self, "detection_scope")
 
     @detection_scope.setter
@@ -3883,6 +3940,9 @@ class DataAutomationProjectSensitiveDataConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="piiEntitiesConfiguration")
     def pii_entities_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectPiiEntitiesConfigurationArgs']]:
+        """
+        Configuration for detecting and redacting Personally Identifiable Information (PII) entities.
+        """
         return pulumi.get(self, "pii_entities_configuration")
 
     @pii_entities_configuration.setter
@@ -4190,6 +4250,9 @@ if not MYPY:
         Sets modality processing for video files. All modalities are enabled by default.
         """
         sensitive_data_configuration: NotRequired[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgsDict']]
+        """
+        Configuration for sensitive data detection and redaction for video files.
+        """
 elif False:
     DataAutomationProjectVideoOverrideConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4200,6 +4263,7 @@ class DataAutomationProjectVideoOverrideConfigurationArgs:
                  sensitive_data_configuration: Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']] = None):
         """
         :param pulumi.Input['DataAutomationProjectModalityProcessingConfigurationArgs'] modality_processing: Sets modality processing for video files. All modalities are enabled by default.
+        :param pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs'] sensitive_data_configuration: Configuration for sensitive data detection and redaction for video files.
         """
         if modality_processing is not None:
             pulumi.set(__self__, "modality_processing", modality_processing)
@@ -4221,6 +4285,9 @@ class DataAutomationProjectVideoOverrideConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="sensitiveDataConfiguration")
     def sensitive_data_configuration(self) -> Optional[pulumi.Input['DataAutomationProjectSensitiveDataConfigurationArgs']]:
+        """
+        Configuration for sensitive data detection and redaction for video files.
+        """
         return pulumi.get(self, "sensitive_data_configuration")
 
     @sensitive_data_configuration.setter
@@ -11606,6 +11673,9 @@ if not MYPY:
         The vector configuration details for the Bedrock embeddings model.
         """
         audio: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseAudioConfigurationArgsDict']]]]
+        """
+        Configuration settings for processing audio content in multimodal knowledge bases.
+        """
         dimensions: NotRequired[pulumi.Input[_builtins.int]]
         """
         The dimensions details for the vector configuration used on the Bedrock embeddings model.
@@ -11615,6 +11685,9 @@ if not MYPY:
         The data type for the vectors when using a model to convert text into vector embeddings.
         """
         video: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgsDict']]]]
+        """
+        Configuration settings for processing video content in multimodal knowledge bases.
+        """
 elif False:
     KnowledgeBaseBedrockEmbeddingModelConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -11627,8 +11700,10 @@ class KnowledgeBaseBedrockEmbeddingModelConfigurationArgs:
                  video: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgs']]]] = None):
         """
         The vector configuration details for the Bedrock embeddings model.
+        :param pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseAudioConfigurationArgs']]] audio: Configuration settings for processing audio content in multimodal knowledge bases.
         :param pulumi.Input[_builtins.int] dimensions: The dimensions details for the vector configuration used on the Bedrock embeddings model.
         :param pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType'] embedding_data_type: The data type for the vectors when using a model to convert text into vector embeddings.
+        :param pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgs']]] video: Configuration settings for processing video content in multimodal knowledge bases.
         """
         if audio is not None:
             pulumi.set(__self__, "audio", audio)
@@ -11642,6 +11717,9 @@ class KnowledgeBaseBedrockEmbeddingModelConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def audio(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseAudioConfigurationArgs']]]]:
+        """
+        Configuration settings for processing audio content in multimodal knowledge bases.
+        """
         return pulumi.get(self, "audio")
 
     @audio.setter
@@ -11675,6 +11753,9 @@ class KnowledgeBaseBedrockEmbeddingModelConfigurationArgs:
     @_builtins.property
     @pulumi.getter
     def video(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgs']]]]:
+        """
+        Configuration settings for processing video content in multimodal knowledge bases.
+        """
         return pulumi.get(self, "video")
 
     @video.setter

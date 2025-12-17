@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     {
         [Input("piiEntityTypes")]
         private InputList<Pulumi.AwsNative.Bedrock.DataAutomationProjectPiiEntityTypes>? _piiEntityTypes;
+
+        /// <summary>
+        /// List of PII entity types to detect/redact in the output. Choose from specific entity types (such as ADDRESS, NAME, EMAIL, PHONE, US_SOCIAL_SECURITY_NUMBER) or specify ALL to detect all supported PII types. If not specified, defaults to ALL.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Bedrock.DataAutomationProjectPiiEntityTypes> PiiEntityTypes
         {
             get => _piiEntityTypes ?? (_piiEntityTypes = new InputList<Pulumi.AwsNative.Bedrock.DataAutomationProjectPiiEntityTypes>());
             set => _piiEntityTypes = value;
         }
 
+        /// <summary>
+        /// Defines how detected PII entities are masked in redacted output files. Set to PII to replace all detected entities with a generic [PII] marker regardless of entity type. Set to ENTITY_TYPE to replace each detected entity with its specific type marker (for example, [NAME], [EMAIL], [ADDRESS]). This setting only applies when detectionMode is set to DETECTION_AND_REDACTION. If not specified, defaults to ENTITY_TYPE.
+        /// </summary>
         [Input("redactionMaskMode")]
         public Input<Pulumi.AwsNative.Bedrock.DataAutomationProjectPiiRedactionMaskMode>? RedactionMaskMode { get; set; }
 

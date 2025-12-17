@@ -28,6 +28,7 @@ class GatewayArgs:
                  authorizer_configuration: Optional[pulumi.Input['GatewayAuthorizerConfigurationPropertiesArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  exception_level: Optional[pulumi.Input['GatewayExceptionLevel']] = None,
+                 interceptor_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayInterceptorConfigurationArgs']]]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  protocol_configuration: Optional[pulumi.Input['GatewayProtocolConfigurationPropertiesArgs']] = None,
@@ -52,6 +53,8 @@ class GatewayArgs:
             pulumi.set(__self__, "description", description)
         if exception_level is not None:
             pulumi.set(__self__, "exception_level", exception_level)
+        if interceptor_configurations is not None:
+            pulumi.set(__self__, "interceptor_configurations", interceptor_configurations)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if name is not None:
@@ -128,6 +131,15 @@ class GatewayArgs:
         pulumi.set(self, "exception_level", value)
 
     @_builtins.property
+    @pulumi.getter(name="interceptorConfigurations")
+    def interceptor_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GatewayInterceptorConfigurationArgs']]]]:
+        return pulumi.get(self, "interceptor_configurations")
+
+    @interceptor_configurations.setter
+    def interceptor_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayInterceptorConfigurationArgs']]]]):
+        pulumi.set(self, "interceptor_configurations", value)
+
+    @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -186,6 +198,7 @@ class Gateway(pulumi.CustomResource):
                  authorizer_type: Optional[pulumi.Input['GatewayAuthorizerType']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  exception_level: Optional[pulumi.Input['GatewayExceptionLevel']] = None,
+                 interceptor_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayInterceptorConfigurationArgs', 'GatewayInterceptorConfigurationArgsDict']]]]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  protocol_configuration: Optional[pulumi.Input[Union['GatewayProtocolConfigurationPropertiesArgs', 'GatewayProtocolConfigurationPropertiesArgsDict']]] = None,
@@ -235,6 +248,7 @@ class Gateway(pulumi.CustomResource):
                  authorizer_type: Optional[pulumi.Input['GatewayAuthorizerType']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  exception_level: Optional[pulumi.Input['GatewayExceptionLevel']] = None,
+                 interceptor_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayInterceptorConfigurationArgs', 'GatewayInterceptorConfigurationArgsDict']]]]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  protocol_configuration: Optional[pulumi.Input[Union['GatewayProtocolConfigurationPropertiesArgs', 'GatewayProtocolConfigurationPropertiesArgsDict']]] = None,
@@ -256,6 +270,7 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["authorizer_type"] = authorizer_type
             __props__.__dict__["description"] = description
             __props__.__dict__["exception_level"] = exception_level
+            __props__.__dict__["interceptor_configurations"] = interceptor_configurations
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["name"] = name
             __props__.__dict__["protocol_configuration"] = protocol_configuration
@@ -304,6 +319,7 @@ class Gateway(pulumi.CustomResource):
         __props__.__dict__["gateway_arn"] = None
         __props__.__dict__["gateway_identifier"] = None
         __props__.__dict__["gateway_url"] = None
+        __props__.__dict__["interceptor_configurations"] = None
         __props__.__dict__["kms_key_arn"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["protocol_configuration"] = None
@@ -373,6 +389,11 @@ class Gateway(pulumi.CustomResource):
         The gateway URL for the gateway.
         """
         return pulumi.get(self, "gateway_url")
+
+    @_builtins.property
+    @pulumi.getter(name="interceptorConfigurations")
+    def interceptor_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.GatewayInterceptorConfiguration']]]:
+        return pulumi.get(self, "interceptor_configurations")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")

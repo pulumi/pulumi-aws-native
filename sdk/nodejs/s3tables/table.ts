@@ -57,6 +57,9 @@ export class Table extends pulumi.CustomResource {
      * Contains details about the Iceberg snapshot management settings for the table.
      */
     declare public readonly snapshotManagement: pulumi.Output<outputs.s3tables.TableSnapshotManagement | undefined>;
+    /**
+     * The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
+     */
     declare public readonly storageClassConfiguration: pulumi.Output<outputs.s3tables.TableStorageClassConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the table.
@@ -166,6 +169,9 @@ export interface TableArgs {
      * Contains details about the Iceberg snapshot management settings for the table.
      */
     snapshotManagement?: pulumi.Input<inputs.s3tables.TableSnapshotManagementArgs>;
+    /**
+     * The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
+     */
     storageClassConfiguration?: pulumi.Input<inputs.s3tables.TableStorageClassConfigurationArgs>;
     /**
      * The Amazon Resource Name (ARN) of the table bucket to create the table in.

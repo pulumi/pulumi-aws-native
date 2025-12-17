@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -20,6 +21,8 @@ type SpotFleet struct {
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Describes the configuration of a Spot Fleet request.
 	SpotFleetRequestConfigData SpotFleetRequestConfigDataOutput `pulumi:"spotFleetRequestConfigData"`
+	// The tags to specify in SpotFleetRequestConfigData
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewSpotFleet registers a new resource with the given unique name, arguments, and options.
@@ -89,12 +92,16 @@ func (SpotFleetState) ElementType() reflect.Type {
 type spotFleetArgs struct {
 	// Describes the configuration of a Spot Fleet request.
 	SpotFleetRequestConfigData SpotFleetRequestConfigData `pulumi:"spotFleetRequestConfigData"`
+	// The tags to specify in SpotFleetRequestConfigData
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SpotFleet resource.
 type SpotFleetArgs struct {
 	// Describes the configuration of a Spot Fleet request.
 	SpotFleetRequestConfigData SpotFleetRequestConfigDataInput
+	// The tags to specify in SpotFleetRequestConfigData
+	Tags aws.TagArrayInput
 }
 
 func (SpotFleetArgs) ElementType() reflect.Type {
@@ -142,6 +149,11 @@ func (o SpotFleetOutput) AwsId() pulumi.StringOutput {
 // Describes the configuration of a Spot Fleet request.
 func (o SpotFleetOutput) SpotFleetRequestConfigData() SpotFleetRequestConfigDataOutput {
 	return o.ApplyT(func(v *SpotFleet) SpotFleetRequestConfigDataOutput { return v.SpotFleetRequestConfigData }).(SpotFleetRequestConfigDataOutput)
+}
+
+// The tags to specify in SpotFleetRequestConfigData
+func (o SpotFleetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *SpotFleet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Sets modality processing for document files. All modalities are enabled by default.
         /// </summary>
         public readonly Outputs.DataAutomationProjectModalityProcessingConfiguration? ModalityProcessing;
+        /// <summary>
+        /// Configuration for sensitive data detection and redaction for document files.
+        /// </summary>
         public readonly Outputs.DataAutomationProjectSensitiveDataConfiguration? SensitiveDataConfiguration;
         /// <summary>
         /// Whether document splitter is enabled for a project.

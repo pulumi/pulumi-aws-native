@@ -69,6 +69,37 @@ namespace Pulumi.AwsNative.S3Vectors
     }
 
     /// <summary>
+    /// Defines the server-side encryption type for index encryption configuration. Defaults to the parent vector bucket's encryption settings when unspecified.
+    /// </summary>
+    [EnumType]
+    public readonly struct IndexEncryptionConfigurationSseType : IEquatable<IndexEncryptionConfigurationSseType>
+    {
+        private readonly string _value;
+
+        private IndexEncryptionConfigurationSseType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IndexEncryptionConfigurationSseType Aes256 { get; } = new IndexEncryptionConfigurationSseType("AES256");
+        public static IndexEncryptionConfigurationSseType Awskms { get; } = new IndexEncryptionConfigurationSseType("aws:kms");
+
+        public static bool operator ==(IndexEncryptionConfigurationSseType left, IndexEncryptionConfigurationSseType right) => left.Equals(right);
+        public static bool operator !=(IndexEncryptionConfigurationSseType left, IndexEncryptionConfigurationSseType right) => !left.Equals(right);
+
+        public static explicit operator string(IndexEncryptionConfigurationSseType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IndexEncryptionConfigurationSseType other && Equals(other);
+        public bool Equals(IndexEncryptionConfigurationSseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The server-side encryption type to use for the encryption configuration of the vector bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically AES256.
     /// </summary>
     [EnumType]

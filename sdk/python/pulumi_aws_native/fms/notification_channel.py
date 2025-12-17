@@ -112,6 +112,8 @@ class NotificationChannel(pulumi.CustomResource):
             if sns_topic_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'sns_topic_arn'")
             __props__.__dict__["sns_topic_arn"] = sns_topic_arn
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["snsTopicArn"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(NotificationChannel, __self__).__init__(
             'aws-native:fms:NotificationChannel',
             resource_name,

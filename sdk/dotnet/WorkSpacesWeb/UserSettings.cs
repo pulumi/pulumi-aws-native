@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         public Output<ImmutableArray<string>> AssociatedPortalArns { get; private set; } = null!;
 
         /// <summary>
+        /// The branding configuration that customizes the appearance of the web portal for end users. This includes a custom logo, favicon, wallpaper, localized strings, color theme, and an optional terms of service.
+        /// </summary>
+        [Output("brandingConfiguration")]
+        public Output<Outputs.UserSettingsBrandingConfiguration?> BrandingConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
         /// </summary>
         [Output("cookieSynchronizationConfiguration")]
@@ -161,6 +167,12 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
             get => _additionalEncryptionContext ?? (_additionalEncryptionContext = new InputMap<string>());
             set => _additionalEncryptionContext = value;
         }
+
+        /// <summary>
+        /// The branding configuration that customizes the appearance of the web portal for end users. This includes a custom logo, favicon, wallpaper, localized strings, color theme, and an optional terms of service.
+        /// </summary>
+        [Input("brandingConfiguration")]
+        public Input<Inputs.UserSettingsBrandingConfigurationArgs>? BrandingConfiguration { get; set; }
 
         /// <summary>
         /// The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.

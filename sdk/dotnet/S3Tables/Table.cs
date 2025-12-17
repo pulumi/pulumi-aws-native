@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.S3Tables
         [Output("snapshotManagement")]
         public Output<Outputs.TableSnapshotManagement?> SnapshotManagement { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
+        /// </summary>
         [Output("storageClassConfiguration")]
         public Output<Outputs.TableStorageClassConfiguration?> StorageClassConfiguration { get; private set; } = null!;
 
@@ -173,6 +176,9 @@ namespace Pulumi.AwsNative.S3Tables
         [Input("snapshotManagement")]
         public Input<Inputs.TableSnapshotManagementArgs>? SnapshotManagement { get; set; }
 
+        /// <summary>
+        /// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
+        /// </summary>
         [Input("storageClassConfiguration")]
         public Input<Inputs.TableStorageClassConfigurationArgs>? StorageClassConfiguration { get; set; }
 

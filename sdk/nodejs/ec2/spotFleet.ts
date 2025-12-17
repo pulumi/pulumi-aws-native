@@ -45,6 +45,10 @@ export class SpotFleet extends pulumi.CustomResource {
      * Describes the configuration of a Spot Fleet request.
      */
     declare public readonly spotFleetRequestConfigData: pulumi.Output<outputs.ec2.SpotFleetRequestConfigData>;
+    /**
+     * The tags to specify in SpotFleetRequestConfigData
+     */
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a SpotFleet resource with the given unique name, arguments, and options.
@@ -61,10 +65,12 @@ export class SpotFleet extends pulumi.CustomResource {
                 throw new Error("Missing required property 'spotFleetRequestConfigData'");
             }
             resourceInputs["spotFleetRequestConfigData"] = args?.spotFleetRequestConfigData;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["spotFleetRequestConfigData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["spotFleetRequestConfigData.allocationStrategy", "spotFleetRequestConfigData.iamFleetRole", "spotFleetRequestConfigData.instanceInterruptionBehavior", "spotFleetRequestConfigData.instancePoolsToUseCount", "spotFleetRequestConfigData.launchSpecifications[*]", "spotFleetRequestConfigData.launchTemplateConfigs[*]", "spotFleetRequestConfigData.loadBalancersConfig", "spotFleetRequestConfigData.onDemandAllocationStrategy", "spotFleetRequestConfigData.onDemandMaxTotalPrice", "spotFleetRequestConfigData.onDemandTargetCapacity", "spotFleetRequestConfigData.replaceUnhealthyInstances", "spotFleetRequestConfigData.spotMaintenanceStrategies", "spotFleetRequestConfigData.spotMaxTotalPrice", "spotFleetRequestConfigData.spotPrice", "spotFleetRequestConfigData.tagSpecifications[*]", "spotFleetRequestConfigData.terminateInstancesWithExpiration", "spotFleetRequestConfigData.type", "spotFleetRequestConfigData.validFrom", "spotFleetRequestConfigData.validUntil"] };
@@ -81,4 +87,8 @@ export interface SpotFleetArgs {
      * Describes the configuration of a Spot Fleet request.
      */
     spotFleetRequestConfigData: pulumi.Input<inputs.ec2.SpotFleetRequestConfigDataArgs>;
+    /**
+     * The tags to specify in SpotFleetRequestConfigData
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

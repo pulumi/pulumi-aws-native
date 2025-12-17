@@ -33,6 +33,8 @@ type LookupUserSettingsResult struct {
 	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
 	// A list of web portal ARNs that this user settings resource is associated with.
 	AssociatedPortalArns []string `pulumi:"associatedPortalArns"`
+	// The branding configuration that customizes the appearance of the web portal for end users. This includes a custom logo, favicon, wallpaper, localized strings, color theme, and an optional terms of service.
+	BrandingConfiguration *UserSettingsBrandingConfiguration `pulumi:"brandingConfiguration"`
 	// The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
 	CookieSynchronizationConfiguration *UserSettingsCookieSynchronizationConfiguration `pulumi:"cookieSynchronizationConfiguration"`
 	// Specifies whether the user can copy text from the streaming session to the local device.
@@ -101,6 +103,11 @@ func (o LookupUserSettingsResultOutput) AdditionalEncryptionContext() pulumi.Str
 // A list of web portal ARNs that this user settings resource is associated with.
 func (o LookupUserSettingsResultOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserSettingsResult) []string { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
+}
+
+// The branding configuration that customizes the appearance of the web portal for end users. This includes a custom logo, favicon, wallpaper, localized strings, color theme, and an optional terms of service.
+func (o LookupUserSettingsResultOutput) BrandingConfiguration() UserSettingsBrandingConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupUserSettingsResult) *UserSettingsBrandingConfiguration { return v.BrandingConfiguration }).(UserSettingsBrandingConfigurationPtrOutput)
 }
 
 // The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.

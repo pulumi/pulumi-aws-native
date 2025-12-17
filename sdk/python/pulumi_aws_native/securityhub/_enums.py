@@ -321,7 +321,7 @@ class ConnectorV2ConnectorStatus(_builtins.str, Enum):
 @pulumi.type_token("aws-native:securityhub:DelegatedAdminStatus")
 class DelegatedAdminStatus(_builtins.str, Enum):
     """
-    Whether the delegated Security Hub administrator is set for the organization.
+    Whether the delegated Security Hub CSPM administrator is set for the organization.
     """
     ENABLED = "ENABLED"
     DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS"
@@ -430,9 +430,9 @@ class PolicyAssociationTargetType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:securityhub:SecurityControlParameterConfigurationValueType")
 class SecurityControlParameterConfigurationValueType(_builtins.str, Enum):
     """
-    Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior.
+    Identifies whether a control parameter uses a custom user-defined value or subscribes to the default AWS Security Hub CSPM behavior.
 
-    When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub ignores user-provided input for the `Value` field.
+    When `ValueType` is set equal to `DEFAULT` , the default behavior can be a specific Security Hub CSPM default value, or the default behavior can be to ignore a specific parameter. When `ValueType` is set equal to `DEFAULT` , Security Hub CSPM ignores user-provided input for the `Value` field.
 
     When `ValueType` is set equal to `CUSTOM` , the `Value` field can't be empty.
     """

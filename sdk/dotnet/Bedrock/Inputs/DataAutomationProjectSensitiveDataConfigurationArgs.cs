@@ -12,17 +12,27 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
 
     public sealed class DataAutomationProjectSensitiveDataConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the mode for handling sensitive data detection. Set to DETECTION to only identify sensitive data without modifying content - this produces one output file per detection scope containing detection information with original unredacted content. Set to DETECTION_AND_REDACTION to both identify and mask sensitive data - this produces two output files per detection scope: one unredacted file with detection information and one redacted file with masking applied to sensitive content. For example, if detectionScope includes both STANDARD and CUSTOM with DETECTION_AND_REDACTION mode, four output files will be generated (two for standard output and two for custom output).
+        /// </summary>
         [Input("detectionMode")]
         public Input<Pulumi.AwsNative.Bedrock.DataAutomationProjectSensitiveDataDetectionMode>? DetectionMode { get; set; }
 
         [Input("detectionScope")]
         private InputList<Pulumi.AwsNative.Bedrock.DataAutomationProjectSensitiveDataDetectionScope>? _detectionScope;
+
+        /// <summary>
+        /// Defines which BDA output types to apply sensitive data detection to. Specify STANDARD to detect sensitive data in standard output, CUSTOM to detect in custom output (blueprint-based extraction), or both to apply detection to both output types. If not specified, defaults to both STANDARD and CUSTOM. The number of output files generated depends on both the detection mode and the scopes selected - each scope specified will produce its own set of output files according to the detection mode configured.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Bedrock.DataAutomationProjectSensitiveDataDetectionScope> DetectionScope
         {
             get => _detectionScope ?? (_detectionScope = new InputList<Pulumi.AwsNative.Bedrock.DataAutomationProjectSensitiveDataDetectionScope>());
             set => _detectionScope = value;
         }
 
+        /// <summary>
+        /// Configuration for detecting and redacting Personally Identifiable Information (PII) entities.
+        /// </summary>
         [Input("piiEntitiesConfiguration")]
         public Input<Inputs.DataAutomationProjectPiiEntitiesConfigurationArgs>? PiiEntitiesConfiguration { get; set; }
 

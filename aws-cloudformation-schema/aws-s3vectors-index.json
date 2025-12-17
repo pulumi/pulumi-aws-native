@@ -24,6 +24,25 @@
       "type" : "string",
       "enum" : [ "cosine", "euclidean" ]
     },
+    "EncryptionConfiguration" : {
+      "type" : "object",
+      "description" : "The encryption configuration for the index.",
+      "properties" : {
+        "SseType" : {
+          "type" : "string",
+          "description" : "Defines the server-side encryption type for index encryption configuration. Defaults to the parent vector bucket's encryption settings when unspecified.",
+          "enum" : [ "AES256", "aws:kms" ]
+        },
+        "KmsKeyArn" : {
+          "type" : "string",
+          "description" : "AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if sseType is set to aws:kms",
+          "minLength" : 1,
+          "maxLength" : 2048,
+          "pattern" : "^(arn:aws[-a-z0-9]*:kms:[-a-z0-9]*:[0-9]{12}:key/.+)$"
+        }
+      },
+      "additionalProperties" : false
+    },
     "IndexArn" : {
       "description" : "The Amazon Resource Name (ARN) of the index",
       "type" : "string",
@@ -80,6 +99,9 @@
     "DistanceMetric" : {
       "$ref" : "#/definitions/DistanceMetric"
     },
+    "EncryptionConfiguration" : {
+      "$ref" : "#/definitions/EncryptionConfiguration"
+    },
     "IndexArn" : {
       "$ref" : "#/definitions/IndexArn"
     },
@@ -99,7 +121,7 @@
   "additionalProperties" : false,
   "required" : [ "DataType", "Dimension", "DistanceMetric" ],
   "readOnlyProperties" : [ "/properties/CreationTime", "/properties/IndexArn" ],
-  "createOnlyProperties" : [ "/properties/DataType", "/properties/Dimension", "/properties/DistanceMetric", "/properties/IndexName", "/properties/MetadataConfiguration", "/properties/VectorBucketArn", "/properties/VectorBucketName" ],
+  "createOnlyProperties" : [ "/properties/DataType", "/properties/Dimension", "/properties/DistanceMetric", "/properties/EncryptionConfiguration", "/properties/IndexName", "/properties/MetadataConfiguration", "/properties/VectorBucketArn", "/properties/VectorBucketName" ],
   "primaryIdentifier" : [ "/properties/IndexArn" ],
   "additionalIdentifiers" : [ [ "/properties/IndexName", "/properties/VectorBucketName" ] ],
   "tagging" : {
@@ -110,16 +132,16 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "s3vectors:GetIndex", "s3vectors:CreateIndex" ]
+      "permissions" : [ "s3vectors:GetIndex", "s3vectors:CreateIndex", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "read" : {
-      "permissions" : [ "s3vectors:GetIndex" ]
+      "permissions" : [ "s3vectors:GetIndex", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "delete" : {
-      "permissions" : [ "s3vectors:GetIndex", "s3vectors:DeleteIndex" ]
+      "permissions" : [ "s3vectors:GetIndex", "s3vectors:DeleteIndex", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "list" : {
-      "permissions" : [ "s3vectors:ListIndexes" ],
+      "permissions" : [ "s3vectors:ListIndexes", "kms:GenerateDataKey", "kms:Decrypt" ],
       "handlerSchema" : {
         "properties" : {
           "VectorBucketArn" : {

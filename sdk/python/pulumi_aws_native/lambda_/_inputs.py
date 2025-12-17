@@ -368,6 +368,9 @@ if not MYPY:
         The maximum number of EC2 instances that the capacity provider can scale up to.
         """
         scaling_mode: NotRequired[pulumi.Input['CapacityProviderScalingMode']]
+        """
+        The scaling mode that determines how the capacity provider responds to changes in demand.
+        """
         scaling_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTargetTrackingScalingPolicyArgsDict']]]]
         """
         A list of target tracking scaling policies for the capacity provider.
@@ -384,6 +387,7 @@ class CapacityProviderScalingConfigArgs:
         """
         The scaling configuration for the capacity provider.
         :param pulumi.Input[_builtins.int] max_v_cpu_count: The maximum number of EC2 instances that the capacity provider can scale up to.
+        :param pulumi.Input['CapacityProviderScalingMode'] scaling_mode: The scaling mode that determines how the capacity provider responds to changes in demand.
         :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderTargetTrackingScalingPolicyArgs']]] scaling_policies: A list of target tracking scaling policies for the capacity provider.
         """
         if max_v_cpu_count is not None:
@@ -408,6 +412,9 @@ class CapacityProviderScalingConfigArgs:
     @_builtins.property
     @pulumi.getter(name="scalingMode")
     def scaling_mode(self) -> Optional[pulumi.Input['CapacityProviderScalingMode']]:
+        """
+        The scaling mode that determines how the capacity provider responds to changes in demand.
+        """
         return pulumi.get(self, "scaling_mode")
 
     @scaling_mode.setter
@@ -433,6 +440,9 @@ if not MYPY:
         A target tracking scaling policy for the capacity provider.
         """
         predefined_metric_type: pulumi.Input['CapacityProviderPredefinedMetricType']
+        """
+        The predefined metric type to track for scaling decisions.
+        """
         target_value: pulumi.Input[_builtins.float]
         """
         The target value for the metric as a percentage (for example, 70.0 for 70%).
@@ -447,6 +457,7 @@ class CapacityProviderTargetTrackingScalingPolicyArgs:
                  target_value: pulumi.Input[_builtins.float]):
         """
         A target tracking scaling policy for the capacity provider.
+        :param pulumi.Input['CapacityProviderPredefinedMetricType'] predefined_metric_type: The predefined metric type to track for scaling decisions.
         :param pulumi.Input[_builtins.float] target_value: The target value for the metric as a percentage (for example, 70.0 for 70%).
         """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
@@ -455,6 +466,9 @@ class CapacityProviderTargetTrackingScalingPolicyArgs:
     @_builtins.property
     @pulumi.getter(name="predefinedMetricType")
     def predefined_metric_type(self) -> pulumi.Input['CapacityProviderPredefinedMetricType']:
+        """
+        The predefined metric type to track for scaling decisions.
+        """
         return pulumi.get(self, "predefined_metric_type")
 
     @predefined_metric_type.setter
@@ -1623,6 +1637,9 @@ class EventSourceMappingSourceAccessConfigurationArgs:
 if not MYPY:
     class FunctionCapacityProviderConfigArgsDict(TypedDict):
         lambda_managed_instances_capacity_provider_config: pulumi.Input['FunctionLambdaManagedInstancesCapacityProviderConfigArgsDict']
+        """
+        Configuration for Lambda-managed instances used by the capacity provider.
+        """
 elif False:
     FunctionCapacityProviderConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1630,11 +1647,17 @@ elif False:
 class FunctionCapacityProviderConfigArgs:
     def __init__(__self__, *,
                  lambda_managed_instances_capacity_provider_config: pulumi.Input['FunctionLambdaManagedInstancesCapacityProviderConfigArgs']):
+        """
+        :param pulumi.Input['FunctionLambdaManagedInstancesCapacityProviderConfigArgs'] lambda_managed_instances_capacity_provider_config: Configuration for Lambda-managed instances used by the capacity provider.
+        """
         pulumi.set(__self__, "lambda_managed_instances_capacity_provider_config", lambda_managed_instances_capacity_provider_config)
 
     @_builtins.property
     @pulumi.getter(name="lambdaManagedInstancesCapacityProviderConfig")
     def lambda_managed_instances_capacity_provider_config(self) -> pulumi.Input['FunctionLambdaManagedInstancesCapacityProviderConfigArgs']:
+        """
+        Configuration for Lambda-managed instances used by the capacity provider.
+        """
         return pulumi.get(self, "lambda_managed_instances_capacity_provider_config")
 
     @lambda_managed_instances_capacity_provider_config.setter

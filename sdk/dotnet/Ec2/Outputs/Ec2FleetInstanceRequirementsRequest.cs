@@ -219,6 +219,12 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly int? OnDemandMaxPricePercentageOverLowestPrice;
         /// <summary>
+        /// Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
+        /// 
+        /// Default: `false`
+        /// </summary>
+        public readonly bool? RequireEncryptionInTransit;
+        /// <summary>
         /// Indicates whether instance types must support hibernation for On-Demand Instances.
         /// 
         /// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
@@ -295,6 +301,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             int? onDemandMaxPricePercentageOverLowestPrice,
 
+            bool? requireEncryptionInTransit,
+
             bool? requireHibernateSupport,
 
             int? spotMaxPricePercentageOverLowestPrice,
@@ -324,6 +332,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             NetworkBandwidthGbps = networkBandwidthGbps;
             NetworkInterfaceCount = networkInterfaceCount;
             OnDemandMaxPricePercentageOverLowestPrice = onDemandMaxPricePercentageOverLowestPrice;
+            RequireEncryptionInTransit = requireEncryptionInTransit;
             RequireHibernateSupport = requireHibernateSupport;
             SpotMaxPricePercentageOverLowestPrice = spotMaxPricePercentageOverLowestPrice;
             TotalLocalStorageGb = totalLocalStorageGb;

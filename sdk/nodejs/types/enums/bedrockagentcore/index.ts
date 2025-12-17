@@ -54,6 +54,7 @@ export type CodeInterpreterCustomCodeInterpreterStatus = (typeof CodeInterpreter
 export const GatewayAuthorizerType = {
     CustomJwt: "CUSTOM_JWT",
     AwsIam: "AWS_IAM",
+    None: "NONE",
 } as const;
 
 export type GatewayAuthorizerType = (typeof GatewayAuthorizerType)[keyof typeof GatewayAuthorizerType];
@@ -63,6 +64,13 @@ export const GatewayExceptionLevel = {
 } as const;
 
 export type GatewayExceptionLevel = (typeof GatewayExceptionLevel)[keyof typeof GatewayExceptionLevel];
+
+export const GatewayInterceptionPoint = {
+    Request: "REQUEST",
+    Response: "RESPONSE",
+} as const;
+
+export type GatewayInterceptionPoint = (typeof GatewayInterceptionPoint)[keyof typeof GatewayInterceptionPoint];
 
 export const GatewayProtocolType = {
     Mcp: "MCP",

@@ -42,10 +42,14 @@ type ResolverEndpoint struct {
 	ResolverEndpointId pulumi.StringOutput `pulumi:"resolverEndpointId"`
 	// The Resolver endpoint IP address type.
 	ResolverEndpointType ResolverEndpointTypePtrOutput `pulumi:"resolverEndpointType"`
+	// Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
+	RniEnhancedMetricsEnabled pulumi.BoolPtrOutput `pulumi:"rniEnhancedMetricsEnabled"`
 	// The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
+	TargetNameServerMetricsEnabled pulumi.BoolPtrOutput `pulumi:"targetNameServerMetricsEnabled"`
 }
 
 // NewResolverEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -121,10 +125,14 @@ type resolverEndpointArgs struct {
 	Protocols []string `pulumi:"protocols"`
 	// The Resolver endpoint IP address type.
 	ResolverEndpointType *ResolverEndpointType `pulumi:"resolverEndpointType"`
+	// Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
+	RniEnhancedMetricsEnabled *bool `pulumi:"rniEnhancedMetricsEnabled"`
 	// The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
+	// Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
+	TargetNameServerMetricsEnabled *bool `pulumi:"targetNameServerMetricsEnabled"`
 }
 
 // The set of arguments for constructing a ResolverEndpoint resource.
@@ -146,10 +154,14 @@ type ResolverEndpointArgs struct {
 	Protocols pulumi.StringArrayInput
 	// The Resolver endpoint IP address type.
 	ResolverEndpointType ResolverEndpointTypePtrInput
+	// Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
+	RniEnhancedMetricsEnabled pulumi.BoolPtrInput
 	// The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.
 	SecurityGroupIds pulumi.StringArrayInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
+	// Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
+	TargetNameServerMetricsEnabled pulumi.BoolPtrInput
 }
 
 func (ResolverEndpointArgs) ElementType() reflect.Type {
@@ -247,6 +259,11 @@ func (o ResolverEndpointOutput) ResolverEndpointType() ResolverEndpointTypePtrOu
 	return o.ApplyT(func(v *ResolverEndpoint) ResolverEndpointTypePtrOutput { return v.ResolverEndpointType }).(ResolverEndpointTypePtrOutput)
 }
 
+// Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
+func (o ResolverEndpointOutput) RniEnhancedMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.BoolPtrOutput { return v.RniEnhancedMetricsEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.
 func (o ResolverEndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -255,6 +272,11 @@ func (o ResolverEndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 // An array of key-value pairs to apply to this resource.
 func (o ResolverEndpointOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
+func (o ResolverEndpointOutput) TargetNameServerMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.BoolPtrOutput { return v.TargetNameServerMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

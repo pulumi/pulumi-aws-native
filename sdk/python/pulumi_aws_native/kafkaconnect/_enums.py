@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'ConnectorKafkaClusterClientAuthenticationType',
     'ConnectorKafkaClusterEncryptionInTransitType',
+    'ConnectorNetworkType',
     'CustomPluginContentType',
 ]
 
@@ -29,6 +30,15 @@ class ConnectorKafkaClusterEncryptionInTransitType(_builtins.str, Enum):
     """
     PLAINTEXT = "PLAINTEXT"
     TLS = "TLS"
+
+
+@pulumi.type_token("aws-native:kafkaconnect:ConnectorNetworkType")
+class ConnectorNetworkType(_builtins.str, Enum):
+    """
+    The network type of the Connector.
+    """
+    IPV4 = "IPV4"
+    DUAL = "DUAL"
 
 
 @pulumi.type_token("aws-native:kafkaconnect:CustomPluginContentType")

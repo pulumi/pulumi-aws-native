@@ -36,6 +36,9 @@ export const ProfileResourceAssociation: typeof import("./profileResourceAssocia
 utilities.lazyLoad(exports, ["ProfileResourceAssociation"], () => require("./profileResourceAssociation"));
 
 
+// Export enums:
+export * from "../types/enums/route53profiles";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

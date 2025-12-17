@@ -26,10 +26,6 @@ export interface GetNotificationChannelResult {
      * The Amazon Resource Name (ARN) of the IAM role that allows Amazon  to record AWS Firewall Manager activity.
      */
     readonly snsRoleName?: string;
-    /**
-     * The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
-     */
-    readonly snsTopicArn?: string;
 }
 /**
  * Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.

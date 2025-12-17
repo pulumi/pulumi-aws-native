@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -22,12 +24,16 @@ __all__ = ['SpotFleetArgs', 'SpotFleet']
 @pulumi.input_type
 class SpotFleetArgs:
     def __init__(__self__, *,
-                 spot_fleet_request_config_data: pulumi.Input['SpotFleetRequestConfigDataArgs']):
+                 spot_fleet_request_config_data: pulumi.Input['SpotFleetRequestConfigDataArgs'],
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SpotFleet resource.
         :param pulumi.Input['SpotFleetRequestConfigDataArgs'] spot_fleet_request_config_data: Describes the configuration of a Spot Fleet request.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to specify in SpotFleetRequestConfigData
         """
         pulumi.set(__self__, "spot_fleet_request_config_data", spot_fleet_request_config_data)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="spotFleetRequestConfigData")
@@ -41,6 +47,18 @@ class SpotFleetArgs:
     def spot_fleet_request_config_data(self, value: pulumi.Input['SpotFleetRequestConfigDataArgs']):
         pulumi.set(self, "spot_fleet_request_config_data", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags to specify in SpotFleetRequestConfigData
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:ec2:SpotFleet")
 class SpotFleet(pulumi.CustomResource):
@@ -49,6 +67,7 @@ class SpotFleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  spot_fleet_request_config_data: Optional[pulumi.Input[Union['SpotFleetRequestConfigDataArgs', 'SpotFleetRequestConfigDataArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::SpotFleet
@@ -56,6 +75,7 @@ class SpotFleet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SpotFleetRequestConfigDataArgs', 'SpotFleetRequestConfigDataArgsDict']] spot_fleet_request_config_data: Describes the configuration of a Spot Fleet request.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to specify in SpotFleetRequestConfigData
         """
         ...
     @overload
@@ -82,6 +102,7 @@ class SpotFleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  spot_fleet_request_config_data: Optional[pulumi.Input[Union['SpotFleetRequestConfigDataArgs', 'SpotFleetRequestConfigDataArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -94,6 +115,7 @@ class SpotFleet(pulumi.CustomResource):
             if spot_fleet_request_config_data is None and not opts.urn:
                 raise TypeError("Missing required property 'spot_fleet_request_config_data'")
             __props__.__dict__["spot_fleet_request_config_data"] = spot_fleet_request_config_data
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["spotFleetRequestConfigData.allocationStrategy", "spotFleetRequestConfigData.iamFleetRole", "spotFleetRequestConfigData.instanceInterruptionBehavior", "spotFleetRequestConfigData.instancePoolsToUseCount", "spotFleetRequestConfigData.launchSpecifications[*]", "spotFleetRequestConfigData.launchTemplateConfigs[*]", "spotFleetRequestConfigData.loadBalancersConfig", "spotFleetRequestConfigData.onDemandAllocationStrategy", "spotFleetRequestConfigData.onDemandMaxTotalPrice", "spotFleetRequestConfigData.onDemandTargetCapacity", "spotFleetRequestConfigData.replaceUnhealthyInstances", "spotFleetRequestConfigData.spotMaintenanceStrategies", "spotFleetRequestConfigData.spotMaxTotalPrice", "spotFleetRequestConfigData.spotPrice", "spotFleetRequestConfigData.tagSpecifications[*]", "spotFleetRequestConfigData.terminateInstancesWithExpiration", "spotFleetRequestConfigData.type", "spotFleetRequestConfigData.validFrom", "spotFleetRequestConfigData.validUntil"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -121,6 +143,7 @@ class SpotFleet(pulumi.CustomResource):
 
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["spot_fleet_request_config_data"] = None
+        __props__.__dict__["tags"] = None
         return SpotFleet(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -138,4 +161,12 @@ class SpotFleet(pulumi.CustomResource):
         Describes the configuration of a Spot Fleet request.
         """
         return pulumi.get(self, "spot_fleet_request_config_data")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags to specify in SpotFleetRequestConfigData
+        """
+        return pulumi.get(self, "tags")
 

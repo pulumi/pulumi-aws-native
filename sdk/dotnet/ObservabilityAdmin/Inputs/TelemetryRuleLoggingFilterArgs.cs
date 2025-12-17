@@ -15,11 +15,18 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
     /// </summary>
     public sealed class TelemetryRuleLoggingFilterArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default action (KEEP or DROP) for log records that don't match any filter conditions.
+        /// </summary>
         [Input("defaultBehavior")]
         public Input<Pulumi.AwsNative.ObservabilityAdmin.TelemetryRuleFilterBehavior>? DefaultBehavior { get; set; }
 
         [Input("filters")]
         private InputList<Inputs.TelemetryRuleFilterArgs>? _filters;
+
+        /// <summary>
+        /// A list of filter conditions that determine log record handling behavior.
+        /// </summary>
         public InputList<Inputs.TelemetryRuleFilterArgs> Filters
         {
             get => _filters ?? (_filters = new InputList<Inputs.TelemetryRuleFilterArgs>());

@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetResolverEndpointResult:
-    def __init__(__self__, arn=None, host_vpc_id=None, ip_address_count=None, ip_addresses=None, name=None, protocols=None, resolver_endpoint_id=None, resolver_endpoint_type=None, tags=None):
+    def __init__(__self__, arn=None, host_vpc_id=None, ip_address_count=None, ip_addresses=None, name=None, protocols=None, resolver_endpoint_id=None, resolver_endpoint_type=None, rni_enhanced_metrics_enabled=None, tags=None, target_name_server_metrics_enabled=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -51,9 +51,15 @@ class GetResolverEndpointResult:
         if resolver_endpoint_type and not isinstance(resolver_endpoint_type, str):
             raise TypeError("Expected argument 'resolver_endpoint_type' to be a str")
         pulumi.set(__self__, "resolver_endpoint_type", resolver_endpoint_type)
+        if rni_enhanced_metrics_enabled and not isinstance(rni_enhanced_metrics_enabled, bool):
+            raise TypeError("Expected argument 'rni_enhanced_metrics_enabled' to be a bool")
+        pulumi.set(__self__, "rni_enhanced_metrics_enabled", rni_enhanced_metrics_enabled)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if target_name_server_metrics_enabled and not isinstance(target_name_server_metrics_enabled, bool):
+            raise TypeError("Expected argument 'target_name_server_metrics_enabled' to be a bool")
+        pulumi.set(__self__, "target_name_server_metrics_enabled", target_name_server_metrics_enabled)
 
     @_builtins.property
     @pulumi.getter
@@ -120,12 +126,28 @@ class GetResolverEndpointResult:
         return pulumi.get(self, "resolver_endpoint_type")
 
     @_builtins.property
+    @pulumi.getter(name="rniEnhancedMetricsEnabled")
+    def rni_enhanced_metrics_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
+        """
+        return pulumi.get(self, "rni_enhanced_metrics_enabled")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="targetNameServerMetricsEnabled")
+    def target_name_server_metrics_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
+        """
+        return pulumi.get(self, "target_name_server_metrics_enabled")
 
 
 class AwaitableGetResolverEndpointResult(GetResolverEndpointResult):
@@ -142,7 +164,9 @@ class AwaitableGetResolverEndpointResult(GetResolverEndpointResult):
             protocols=self.protocols,
             resolver_endpoint_id=self.resolver_endpoint_id,
             resolver_endpoint_type=self.resolver_endpoint_type,
-            tags=self.tags)
+            rni_enhanced_metrics_enabled=self.rni_enhanced_metrics_enabled,
+            tags=self.tags,
+            target_name_server_metrics_enabled=self.target_name_server_metrics_enabled)
 
 
 def get_resolver_endpoint(resolver_endpoint_id: Optional[_builtins.str] = None,
@@ -167,7 +191,9 @@ def get_resolver_endpoint(resolver_endpoint_id: Optional[_builtins.str] = None,
         protocols=pulumi.get(__ret__, 'protocols'),
         resolver_endpoint_id=pulumi.get(__ret__, 'resolver_endpoint_id'),
         resolver_endpoint_type=pulumi.get(__ret__, 'resolver_endpoint_type'),
-        tags=pulumi.get(__ret__, 'tags'))
+        rni_enhanced_metrics_enabled=pulumi.get(__ret__, 'rni_enhanced_metrics_enabled'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_name_server_metrics_enabled=pulumi.get(__ret__, 'target_name_server_metrics_enabled'))
 def get_resolver_endpoint_output(resolver_endpoint_id: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverEndpointResult]:
     """
@@ -189,4 +215,6 @@ def get_resolver_endpoint_output(resolver_endpoint_id: Optional[pulumi.Input[_bu
         protocols=pulumi.get(__response__, 'protocols'),
         resolver_endpoint_id=pulumi.get(__response__, 'resolver_endpoint_id'),
         resolver_endpoint_type=pulumi.get(__response__, 'resolver_endpoint_type'),
-        tags=pulumi.get(__response__, 'tags')))
+        rni_enhanced_metrics_enabled=pulumi.get(__response__, 'rni_enhanced_metrics_enabled'),
+        tags=pulumi.get(__response__, 'tags'),
+        target_name_server_metrics_enabled=pulumi.get(__response__, 'target_name_server_metrics_enabled')))

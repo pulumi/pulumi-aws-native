@@ -19,6 +19,12 @@ namespace Pulumi.AwsNative.Logs.Inputs
         public Input<Pulumi.AwsNative.Logs.TransformerEventSource> EventSource { get; set; } = null!;
 
         /// <summary>
+        /// The version of the OCSF mapping to use for parsing log data.
+        /// </summary>
+        [Input("mappingVersion")]
+        public Input<string>? MappingVersion { get; set; }
+
+        /// <summary>
         /// Specify which version of the OCSF schema to use for the transformed log events.
         /// </summary>
         [Input("ocsfVersion", required: true)]

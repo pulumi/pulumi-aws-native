@@ -149,6 +149,8 @@ if typing.TYPE_CHECKING:
     datasync = __datasync
     import pulumi_aws_native.datazone as __datazone
     datazone = __datazone
+    import pulumi_aws_native.dax as __dax
+    dax = __dax
     import pulumi_aws_native.deadline as __deadline
     deadline = __deadline
     import pulumi_aws_native.detective as __detective
@@ -555,6 +557,7 @@ else:
     datapipeline = _utilities.lazy_import('pulumi_aws_native.datapipeline')
     datasync = _utilities.lazy_import('pulumi_aws_native.datasync')
     datazone = _utilities.lazy_import('pulumi_aws_native.datazone')
+    dax = _utilities.lazy_import('pulumi_aws_native.dax')
     deadline = _utilities.lazy_import('pulumi_aws_native.deadline')
     detective = _utilities.lazy_import('pulumi_aws_native.detective')
     devicefarm = _utilities.lazy_import('pulumi_aws_native.devicefarm')
@@ -1504,6 +1507,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "dax",
+  "fqn": "pulumi_aws_native.dax",
+  "classes": {
+   "aws-native:dax:SubnetGroup": "SubnetGroup"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "deadline",
   "fqn": "pulumi_aws_native.deadline",
   "classes": {
@@ -2025,6 +2036,7 @@ _utilities.register(
   "classes": {
    "aws-native:groundstation:Config": "Config",
    "aws-native:groundstation:DataflowEndpointGroup": "DataflowEndpointGroup",
+   "aws-native:groundstation:DataflowEndpointGroupV2": "DataflowEndpointGroupV2",
    "aws-native:groundstation:MissionProfile": "MissionProfile"
   }
  },
@@ -3319,6 +3331,7 @@ _utilities.register(
    "aws-native:ses:MailManagerTrafficPolicy": "MailManagerTrafficPolicy",
    "aws-native:ses:MultiRegionEndpoint": "MultiRegionEndpoint",
    "aws-native:ses:Template": "Template",
+   "aws-native:ses:Tenant": "Tenant",
    "aws-native:ses:VdmAttributes": "VdmAttributes"
   }
  },
@@ -3391,6 +3404,8 @@ _utilities.register(
   "classes": {
    "aws-native:ssm:Association": "Association",
    "aws-native:ssm:Document": "Document",
+   "aws-native:ssm:MaintenanceWindowTarget": "MaintenanceWindowTarget",
+   "aws-native:ssm:MaintenanceWindowTask": "MaintenanceWindowTask",
    "aws-native:ssm:Parameter": "Parameter",
    "aws-native:ssm:PatchBaseline": "PatchBaseline",
    "aws-native:ssm:ResourceDataSync": "ResourceDataSync",

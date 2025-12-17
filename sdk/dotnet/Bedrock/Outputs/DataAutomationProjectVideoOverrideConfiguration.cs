@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Sets modality processing for video files. All modalities are enabled by default.
         /// </summary>
         public readonly Outputs.DataAutomationProjectModalityProcessingConfiguration? ModalityProcessing;
+        /// <summary>
+        /// Configuration for sensitive data detection and redaction for video files.
+        /// </summary>
         public readonly Outputs.DataAutomationProjectSensitiveDataConfiguration? SensitiveDataConfiguration;
 
         [OutputConstructor]

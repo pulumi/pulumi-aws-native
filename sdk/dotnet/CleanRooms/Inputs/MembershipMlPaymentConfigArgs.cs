@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
         [Input("modelTraining")]
         public Input<Inputs.MembershipModelTrainingPaymentConfigArgs>? ModelTraining { get; set; }
 
+        /// <summary>
+        /// The payment configuration for synthetic data generation for this machine learning membership.
+        /// </summary>
         [Input("syntheticDataGeneration")]
         public Input<Inputs.MembershipSyntheticDataGenerationPaymentConfigArgs>? SyntheticDataGeneration { get; set; }
 

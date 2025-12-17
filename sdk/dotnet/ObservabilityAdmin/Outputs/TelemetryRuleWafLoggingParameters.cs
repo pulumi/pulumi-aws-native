@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
     [OutputType]
     public sealed class TelemetryRuleWafLoggingParameters
     {
+        /// <summary>
+        /// The type of WAF logs to collect (currently supports WAF_LOGS).
+        /// </summary>
         public readonly Pulumi.AwsNative.ObservabilityAdmin.TelemetryRuleWafLogType? LogType;
+        /// <summary>
+        /// A filter configuration that determines which WAF log records to include or exclude.
+        /// </summary>
         public readonly Outputs.TelemetryRuleLoggingFilter? LoggingFilter;
         /// <summary>
         /// Fields not to be included in the logs.

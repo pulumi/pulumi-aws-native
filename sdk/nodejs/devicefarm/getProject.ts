@@ -33,6 +33,8 @@ export interface GetProjectResult {
      * Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
      */
     readonly defaultJobTimeoutMinutes?: number;
+    readonly environmentVariables?: outputs.devicefarm.ProjectEnvironmentVariable[];
+    readonly executionRoleArn?: string;
     /**
      * The project's name.
      */

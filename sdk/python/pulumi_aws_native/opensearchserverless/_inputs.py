@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CollectionEncryptionConfigArgs',
+    'CollectionEncryptionConfigArgsDict',
     'IndexPropertyMappingMethodPropertiesParametersPropertiesArgs',
     'IndexPropertyMappingMethodPropertiesParametersPropertiesArgsDict',
     'IndexPropertyMappingMethodPropertiesArgs',
@@ -37,6 +39,62 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class CollectionEncryptionConfigArgsDict(TypedDict):
+        """
+        The configuration to encrypt the collection
+        """
+        aws_owned_key: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        The configuration to encrypt the collection with AWS owned key
+        """
+        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ARN of the KMS key to encrypt the collection with
+        """
+elif False:
+    CollectionEncryptionConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CollectionEncryptionConfigArgs:
+    def __init__(__self__, *,
+                 aws_owned_key: Optional[pulumi.Input[_builtins.bool]] = None,
+                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The configuration to encrypt the collection
+        :param pulumi.Input[_builtins.bool] aws_owned_key: The configuration to encrypt the collection with AWS owned key
+        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key to encrypt the collection with
+        """
+        if aws_owned_key is not None:
+            pulumi.set(__self__, "aws_owned_key", aws_owned_key)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="awsOwnedKey")
+    def aws_owned_key(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        The configuration to encrypt the collection with AWS owned key
+        """
+        return pulumi.get(self, "aws_owned_key")
+
+    @aws_owned_key.setter
+    def aws_owned_key(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "aws_owned_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the KMS key to encrypt the collection with
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
 
 if not MYPY:
     class IndexPropertyMappingMethodPropertiesParametersPropertiesArgsDict(TypedDict):

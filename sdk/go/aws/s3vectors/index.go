@@ -31,6 +31,8 @@ type Index struct {
 	// - `cosine` - Measures the cosine of the angle between two vectors.
 	// - `euclidean` - Measures the straight-line distance between two points in multi-dimensional space. Lower values indicate greater similarity.
 	DistanceMetric IndexDistanceMetricOutput `pulumi:"distanceMetric"`
+	// The encryption configuration for a vector index. By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.
+	EncryptionConfiguration IndexEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// Returns the Amazon Resource Name (ARN) of the specified index.
 	//
 	// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
@@ -69,6 +71,7 @@ func NewIndex(ctx *pulumi.Context,
 		"dataType",
 		"dimension",
 		"distanceMetric",
+		"encryptionConfiguration",
 		"indexName",
 		"metadataConfiguration",
 		"vectorBucketArn",
@@ -119,6 +122,8 @@ type indexArgs struct {
 	// - `cosine` - Measures the cosine of the angle between two vectors.
 	// - `euclidean` - Measures the straight-line distance between two points in multi-dimensional space. Lower values indicate greater similarity.
 	DistanceMetric IndexDistanceMetric `pulumi:"distanceMetric"`
+	// The encryption configuration for a vector index. By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.
+	EncryptionConfiguration *IndexEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// The name of the vector index to create. The index name must be between 3 and 63 characters long and can contain only lowercase letters, numbers, hyphens (-), and dots (.). The index name must be unique within the vector bucket.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the index name.
@@ -146,6 +151,8 @@ type IndexArgs struct {
 	// - `cosine` - Measures the cosine of the angle between two vectors.
 	// - `euclidean` - Measures the straight-line distance between two points in multi-dimensional space. Lower values indicate greater similarity.
 	DistanceMetric IndexDistanceMetricInput
+	// The encryption configuration for a vector index. By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.
+	EncryptionConfiguration IndexEncryptionConfigurationPtrInput
 	// The name of the vector index to create. The index name must be between 3 and 63 characters long and can contain only lowercase letters, numbers, hyphens (-), and dots (.). The index name must be unique within the vector bucket.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the index name.
@@ -222,6 +229,11 @@ func (o IndexOutput) Dimension() pulumi.IntOutput {
 // - `euclidean` - Measures the straight-line distance between two points in multi-dimensional space. Lower values indicate greater similarity.
 func (o IndexOutput) DistanceMetric() IndexDistanceMetricOutput {
 	return o.ApplyT(func(v *Index) IndexDistanceMetricOutput { return v.DistanceMetric }).(IndexDistanceMetricOutput)
+}
+
+// The encryption configuration for a vector index. By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.
+func (o IndexOutput) EncryptionConfiguration() IndexEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v *Index) IndexEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(IndexEncryptionConfigurationPtrOutput)
 }
 
 // Returns the Amazon Resource Name (ARN) of the specified index.

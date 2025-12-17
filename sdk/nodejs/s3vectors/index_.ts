@@ -61,6 +61,10 @@ export class Index extends pulumi.CustomResource {
      */
     declare public readonly distanceMetric: pulumi.Output<enums.s3vectors.IndexDistanceMetric>;
     /**
+     * The encryption configuration for a vector index. By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.
+     */
+    declare public readonly encryptionConfiguration: pulumi.Output<outputs.s3vectors.IndexEncryptionConfiguration | undefined>;
+    /**
      * Returns the Amazon Resource Name (ARN) of the specified index.
      *
      * Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
@@ -110,6 +114,7 @@ export class Index extends pulumi.CustomResource {
             resourceInputs["dataType"] = args?.dataType;
             resourceInputs["dimension"] = args?.dimension;
             resourceInputs["distanceMetric"] = args?.distanceMetric;
+            resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
             resourceInputs["indexName"] = args?.indexName;
             resourceInputs["metadataConfiguration"] = args?.metadataConfiguration;
             resourceInputs["vectorBucketArn"] = args?.vectorBucketArn;
@@ -121,6 +126,7 @@ export class Index extends pulumi.CustomResource {
             resourceInputs["dataType"] = undefined /*out*/;
             resourceInputs["dimension"] = undefined /*out*/;
             resourceInputs["distanceMetric"] = undefined /*out*/;
+            resourceInputs["encryptionConfiguration"] = undefined /*out*/;
             resourceInputs["indexArn"] = undefined /*out*/;
             resourceInputs["indexName"] = undefined /*out*/;
             resourceInputs["metadataConfiguration"] = undefined /*out*/;
@@ -128,7 +134,7 @@ export class Index extends pulumi.CustomResource {
             resourceInputs["vectorBucketName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["dataType", "dimension", "distanceMetric", "indexName", "metadataConfiguration", "vectorBucketArn", "vectorBucketName"] };
+        const replaceOnChanges = { replaceOnChanges: ["dataType", "dimension", "distanceMetric", "encryptionConfiguration", "indexName", "metadataConfiguration", "vectorBucketArn", "vectorBucketName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Index.__pulumiType, name, resourceInputs, opts);
     }
@@ -155,6 +161,10 @@ export interface IndexArgs {
      * - `euclidean` - Measures the straight-line distance between two points in multi-dimensional space. Lower values indicate greater similarity.
      */
     distanceMetric: pulumi.Input<enums.s3vectors.IndexDistanceMetric>;
+    /**
+     * The encryption configuration for a vector index. By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.
+     */
+    encryptionConfiguration?: pulumi.Input<inputs.s3vectors.IndexEncryptionConfigurationArgs>;
     /**
      * The name of the vector index to create. The index name must be between 3 and 63 characters long and can contain only lowercase letters, numbers, hyphens (-), and dots (.). The index name must be unique within the vector bucket.
      *

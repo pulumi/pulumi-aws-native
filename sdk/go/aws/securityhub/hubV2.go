@@ -19,7 +19,7 @@ type HubV2 struct {
 	HubV2Arn pulumi.StringOutput `pulumi:"hubV2Arn"`
 	// The date and time when the service was enabled in the account.
 	SubscribedAt pulumi.StringOutput `pulumi:"subscribedAt"`
-	// The tags to add to the hub V2 resource when you enable Security Hub.
+	// The tags to add to the hub V2 resource when you enable Security Hub CSPM.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -63,13 +63,13 @@ func (HubV2State) ElementType() reflect.Type {
 }
 
 type hubV2Args struct {
-	// The tags to add to the hub V2 resource when you enable Security Hub.
+	// The tags to add to the hub V2 resource when you enable Security Hub CSPM.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a HubV2 resource.
 type HubV2Args struct {
-	// The tags to add to the hub V2 resource when you enable Security Hub.
+	// The tags to add to the hub V2 resource when you enable Security Hub CSPM.
 	Tags pulumi.StringMapInput
 }
 
@@ -120,7 +120,7 @@ func (o HubV2Output) SubscribedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *HubV2) pulumi.StringOutput { return v.SubscribedAt }).(pulumi.StringOutput)
 }
 
-// The tags to add to the hub V2 resource when you enable Security Hub.
+// The tags to add to the hub V2 resource when you enable Security Hub CSPM.
 func (o HubV2Output) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HubV2) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

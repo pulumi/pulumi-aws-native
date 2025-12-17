@@ -1690,8 +1690,9 @@ func (o OrganizationTelemetryRuleConditionArrayOutput) Index(i pulumi.IntInput) 
 // Telemetry parameters for ELB/NLB Load Balancer Logs
 type OrganizationTelemetryRuleElbLoadBalancerLoggingParameters struct {
 	// A delimiter to delineate log fields
-	FieldDelimiter *string                                                                `pulumi:"fieldDelimiter"`
-	OutputFormat   *OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat `pulumi:"outputFormat"`
+	FieldDelimiter *string `pulumi:"fieldDelimiter"`
+	// The format for ELB access log entries (plain text or JSON format).
+	OutputFormat *OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat `pulumi:"outputFormat"`
 }
 
 // OrganizationTelemetryRuleElbLoadBalancerLoggingParametersInput is an input type that accepts OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgs and OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutput values.
@@ -1708,8 +1709,9 @@ type OrganizationTelemetryRuleElbLoadBalancerLoggingParametersInput interface {
 // Telemetry parameters for ELB/NLB Load Balancer Logs
 type OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgs struct {
 	// A delimiter to delineate log fields
-	FieldDelimiter pulumi.StringPtrInput                                                         `pulumi:"fieldDelimiter"`
-	OutputFormat   OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormatPtrInput `pulumi:"outputFormat"`
+	FieldDelimiter pulumi.StringPtrInput `pulumi:"fieldDelimiter"`
+	// The format for ELB access log entries (plain text or JSON format).
+	OutputFormat OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormatPtrInput `pulumi:"outputFormat"`
 }
 
 func (OrganizationTelemetryRuleElbLoadBalancerLoggingParametersArgs) ElementType() reflect.Type {
@@ -1795,6 +1797,7 @@ func (o OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutput) FieldDe
 	return o.ApplyT(func(v OrganizationTelemetryRuleElbLoadBalancerLoggingParameters) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
 }
 
+// The format for ELB access log entries (plain text or JSON format).
 func (o OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutput) OutputFormat() OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormatPtrOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleElbLoadBalancerLoggingParameters) *OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat {
 		return v.OutputFormat
@@ -1835,6 +1838,7 @@ func (o OrganizationTelemetryRuleElbLoadBalancerLoggingParametersPtrOutput) Fiel
 	}).(pulumi.StringPtrOutput)
 }
 
+// The format for ELB access log entries (plain text or JSON format).
 func (o OrganizationTelemetryRuleElbLoadBalancerLoggingParametersPtrOutput) OutputFormat() OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormatPtrOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleElbLoadBalancerLoggingParameters) *OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat {
 		if v == nil {
@@ -2223,8 +2227,10 @@ func (o OrganizationTelemetryRuleLabelNameConditionPtrOutput) LabelName() pulumi
 
 // Default handling for logs that don't match any of the specified filtering conditions.
 type OrganizationTelemetryRuleLoggingFilter struct {
+	// The default action (KEEP or DROP) for log records that don't match any filter conditions.
 	DefaultBehavior *OrganizationTelemetryRuleFilterBehavior `pulumi:"defaultBehavior"`
-	Filters         []OrganizationTelemetryRuleFilter        `pulumi:"filters"`
+	// A list of filter conditions that determine log record handling behavior.
+	Filters []OrganizationTelemetryRuleFilter `pulumi:"filters"`
 }
 
 // OrganizationTelemetryRuleLoggingFilterInput is an input type that accepts OrganizationTelemetryRuleLoggingFilterArgs and OrganizationTelemetryRuleLoggingFilterOutput values.
@@ -2240,8 +2246,10 @@ type OrganizationTelemetryRuleLoggingFilterInput interface {
 
 // Default handling for logs that don't match any of the specified filtering conditions.
 type OrganizationTelemetryRuleLoggingFilterArgs struct {
+	// The default action (KEEP or DROP) for log records that don't match any filter conditions.
 	DefaultBehavior OrganizationTelemetryRuleFilterBehaviorPtrInput `pulumi:"defaultBehavior"`
-	Filters         OrganizationTelemetryRuleFilterArrayInput       `pulumi:"filters"`
+	// A list of filter conditions that determine log record handling behavior.
+	Filters OrganizationTelemetryRuleFilterArrayInput `pulumi:"filters"`
 }
 
 func (OrganizationTelemetryRuleLoggingFilterArgs) ElementType() reflect.Type {
@@ -2322,12 +2330,14 @@ func (o OrganizationTelemetryRuleLoggingFilterOutput) ToOrganizationTelemetryRul
 	}).(OrganizationTelemetryRuleLoggingFilterPtrOutput)
 }
 
+// The default action (KEEP or DROP) for log records that don't match any filter conditions.
 func (o OrganizationTelemetryRuleLoggingFilterOutput) DefaultBehavior() OrganizationTelemetryRuleFilterBehaviorPtrOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleLoggingFilter) *OrganizationTelemetryRuleFilterBehavior {
 		return v.DefaultBehavior
 	}).(OrganizationTelemetryRuleFilterBehaviorPtrOutput)
 }
 
+// A list of filter conditions that determine log record handling behavior.
 func (o OrganizationTelemetryRuleLoggingFilterOutput) Filters() OrganizationTelemetryRuleFilterArrayOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleLoggingFilter) []OrganizationTelemetryRuleFilter { return v.Filters }).(OrganizationTelemetryRuleFilterArrayOutput)
 }
@@ -2356,6 +2366,7 @@ func (o OrganizationTelemetryRuleLoggingFilterPtrOutput) Elem() OrganizationTele
 	}).(OrganizationTelemetryRuleLoggingFilterOutput)
 }
 
+// The default action (KEEP or DROP) for log records that don't match any filter conditions.
 func (o OrganizationTelemetryRuleLoggingFilterPtrOutput) DefaultBehavior() OrganizationTelemetryRuleFilterBehaviorPtrOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleLoggingFilter) *OrganizationTelemetryRuleFilterBehavior {
 		if v == nil {
@@ -2365,6 +2376,7 @@ func (o OrganizationTelemetryRuleLoggingFilterPtrOutput) DefaultBehavior() Organ
 	}).(OrganizationTelemetryRuleFilterBehaviorPtrOutput)
 }
 
+// A list of filter conditions that determine log record handling behavior.
 func (o OrganizationTelemetryRuleLoggingFilterPtrOutput) Filters() OrganizationTelemetryRuleFilterArrayOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleLoggingFilter) []OrganizationTelemetryRuleFilter {
 		if v == nil {
@@ -2524,16 +2536,19 @@ type OrganizationTelemetryRuleTag struct {
 
 // The destination configuration for telemetry data
 type OrganizationTelemetryRuleTelemetryDestinationConfiguration struct {
+	// Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
 	CloudtrailParameters *OrganizationTelemetryRuleCloudtrailParameters `pulumi:"cloudtrailParameters"`
 	// The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
 	DestinationPattern *string `pulumi:"destinationPattern"`
 	// The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
-	DestinationType                  *OrganizationTelemetryRuleDestinationType                  `pulumi:"destinationType"`
+	DestinationType *OrganizationTelemetryRuleDestinationType `pulumi:"destinationType"`
+	// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
 	ElbLoadBalancerLoggingParameters *OrganizationTelemetryRuleElbLoadBalancerLoggingParameters `pulumi:"elbLoadBalancerLoggingParameters"`
 	// The number of days to retain the telemetry data in the destination.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
 	VpcFlowLogParameters *OrganizationTelemetryRuleVpcFlowLogParameters `pulumi:"vpcFlowLogParameters"`
+	// Configuration parameters specific to WAF logging when WAF is the resource type.
 	WafLoggingParameters *OrganizationTelemetryRuleWafLoggingParameters `pulumi:"wafLoggingParameters"`
 }
 
@@ -2550,16 +2565,19 @@ type OrganizationTelemetryRuleTelemetryDestinationConfigurationInput interface {
 
 // The destination configuration for telemetry data
 type OrganizationTelemetryRuleTelemetryDestinationConfigurationArgs struct {
+	// Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
 	CloudtrailParameters OrganizationTelemetryRuleCloudtrailParametersPtrInput `pulumi:"cloudtrailParameters"`
 	// The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
 	DestinationPattern pulumi.StringPtrInput `pulumi:"destinationPattern"`
 	// The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
-	DestinationType                  OrganizationTelemetryRuleDestinationTypePtrInput                  `pulumi:"destinationType"`
+	DestinationType OrganizationTelemetryRuleDestinationTypePtrInput `pulumi:"destinationType"`
+	// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
 	ElbLoadBalancerLoggingParameters OrganizationTelemetryRuleElbLoadBalancerLoggingParametersPtrInput `pulumi:"elbLoadBalancerLoggingParameters"`
 	// The number of days to retain the telemetry data in the destination.
 	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
 	// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
 	VpcFlowLogParameters OrganizationTelemetryRuleVpcFlowLogParametersPtrInput `pulumi:"vpcFlowLogParameters"`
+	// Configuration parameters specific to WAF logging when WAF is the resource type.
 	WafLoggingParameters OrganizationTelemetryRuleWafLoggingParametersPtrInput `pulumi:"wafLoggingParameters"`
 }
 
@@ -2641,6 +2659,7 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) ToOrga
 	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput)
 }
 
+// Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
 func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) CloudtrailParameters() OrganizationTelemetryRuleCloudtrailParametersPtrOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryDestinationConfiguration) *OrganizationTelemetryRuleCloudtrailParameters {
 		return v.CloudtrailParameters
@@ -2661,6 +2680,7 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) Destin
 	}).(OrganizationTelemetryRuleDestinationTypePtrOutput)
 }
 
+// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
 func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) ElbLoadBalancerLoggingParameters() OrganizationTelemetryRuleElbLoadBalancerLoggingParametersPtrOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryDestinationConfiguration) *OrganizationTelemetryRuleElbLoadBalancerLoggingParameters {
 		return v.ElbLoadBalancerLoggingParameters
@@ -2679,6 +2699,7 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) VpcFlo
 	}).(OrganizationTelemetryRuleVpcFlowLogParametersPtrOutput)
 }
 
+// Configuration parameters specific to WAF logging when WAF is the resource type.
 func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput) WafLoggingParameters() OrganizationTelemetryRuleWafLoggingParametersPtrOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryDestinationConfiguration) *OrganizationTelemetryRuleWafLoggingParameters {
 		return v.WafLoggingParameters
@@ -2709,6 +2730,7 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) Ele
 	}).(OrganizationTelemetryRuleTelemetryDestinationConfigurationOutput)
 }
 
+// Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
 func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) CloudtrailParameters() OrganizationTelemetryRuleCloudtrailParametersPtrOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryDestinationConfiguration) *OrganizationTelemetryRuleCloudtrailParameters {
 		if v == nil {
@@ -2738,6 +2760,7 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) Des
 	}).(OrganizationTelemetryRuleDestinationTypePtrOutput)
 }
 
+// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
 func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) ElbLoadBalancerLoggingParameters() OrganizationTelemetryRuleElbLoadBalancerLoggingParametersPtrOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryDestinationConfiguration) *OrganizationTelemetryRuleElbLoadBalancerLoggingParameters {
 		if v == nil {
@@ -2767,6 +2790,7 @@ func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) Vpc
 	}).(OrganizationTelemetryRuleVpcFlowLogParametersPtrOutput)
 }
 
+// Configuration parameters specific to WAF logging when WAF is the resource type.
 func (o OrganizationTelemetryRuleTelemetryDestinationConfigurationPtrOutput) WafLoggingParameters() OrganizationTelemetryRuleWafLoggingParametersPtrOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryDestinationConfiguration) *OrganizationTelemetryRuleWafLoggingParameters {
 		if v == nil {
@@ -2785,7 +2809,8 @@ type OrganizationTelemetryRuleTelemetryRule struct {
 	// The organizational scope to which the rule applies, specified using accounts or organizational units.
 	Scope *string `pulumi:"scope"`
 	// Criteria for selecting which resources the rule applies to, such as resource tags.
-	SelectionCriteria    *string                                        `pulumi:"selectionCriteria"`
+	SelectionCriteria *string `pulumi:"selectionCriteria"`
+	// The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
 	TelemetrySourceTypes []OrganizationTelemetryRuleTelemetrySourceType `pulumi:"telemetrySourceTypes"`
 	// The type of telemetry to collect (Logs, Metrics, or Traces).
 	TelemetryType OrganizationTelemetryRuleTelemetryType `pulumi:"telemetryType"`
@@ -2811,7 +2836,8 @@ type OrganizationTelemetryRuleTelemetryRuleArgs struct {
 	// The organizational scope to which the rule applies, specified using accounts or organizational units.
 	Scope pulumi.StringPtrInput `pulumi:"scope"`
 	// Criteria for selecting which resources the rule applies to, such as resource tags.
-	SelectionCriteria    pulumi.StringPtrInput                                  `pulumi:"selectionCriteria"`
+	SelectionCriteria pulumi.StringPtrInput `pulumi:"selectionCriteria"`
+	// The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
 	TelemetrySourceTypes OrganizationTelemetryRuleTelemetrySourceTypeArrayInput `pulumi:"telemetrySourceTypes"`
 	// The type of telemetry to collect (Logs, Metrics, or Traces).
 	TelemetryType OrganizationTelemetryRuleTelemetryTypeInput `pulumi:"telemetryType"`
@@ -2868,6 +2894,7 @@ func (o OrganizationTelemetryRuleTelemetryRuleOutput) SelectionCriteria() pulumi
 	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryRule) *string { return v.SelectionCriteria }).(pulumi.StringPtrOutput)
 }
 
+// The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
 func (o OrganizationTelemetryRuleTelemetryRuleOutput) TelemetrySourceTypes() OrganizationTelemetryRuleTelemetrySourceTypeArrayOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleTelemetryRule) []OrganizationTelemetryRuleTelemetrySourceType {
 		return v.TelemetrySourceTypes
@@ -2945,6 +2972,7 @@ func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) SelectionCriteria() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
 func (o OrganizationTelemetryRuleTelemetryRulePtrOutput) TelemetrySourceTypes() OrganizationTelemetryRuleTelemetrySourceTypeArrayOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleTelemetryRule) []OrganizationTelemetryRuleTelemetrySourceType {
 		if v == nil {
@@ -3144,7 +3172,9 @@ func (o OrganizationTelemetryRuleVpcFlowLogParametersPtrOutput) TrafficType() pu
 
 // Telemetry parameters for WAF v2 Web ACL
 type OrganizationTelemetryRuleWafLoggingParameters struct {
-	LogType       *OrganizationTelemetryRuleWafLogType    `pulumi:"logType"`
+	// The type of WAF logs to collect (currently supports WAF_LOGS).
+	LogType *OrganizationTelemetryRuleWafLogType `pulumi:"logType"`
+	// A filter configuration that determines which WAF log records to include or exclude.
 	LoggingFilter *OrganizationTelemetryRuleLoggingFilter `pulumi:"loggingFilter"`
 	// Fields not to be included in the logs.
 	RedactedFields []OrganizationTelemetryRuleFieldToMatch `pulumi:"redactedFields"`
@@ -3163,7 +3193,9 @@ type OrganizationTelemetryRuleWafLoggingParametersInput interface {
 
 // Telemetry parameters for WAF v2 Web ACL
 type OrganizationTelemetryRuleWafLoggingParametersArgs struct {
-	LogType       OrganizationTelemetryRuleWafLogTypePtrInput    `pulumi:"logType"`
+	// The type of WAF logs to collect (currently supports WAF_LOGS).
+	LogType OrganizationTelemetryRuleWafLogTypePtrInput `pulumi:"logType"`
+	// A filter configuration that determines which WAF log records to include or exclude.
 	LoggingFilter OrganizationTelemetryRuleLoggingFilterPtrInput `pulumi:"loggingFilter"`
 	// Fields not to be included in the logs.
 	RedactedFields OrganizationTelemetryRuleFieldToMatchArrayInput `pulumi:"redactedFields"`
@@ -3247,12 +3279,14 @@ func (o OrganizationTelemetryRuleWafLoggingParametersOutput) ToOrganizationTelem
 	}).(OrganizationTelemetryRuleWafLoggingParametersPtrOutput)
 }
 
+// The type of WAF logs to collect (currently supports WAF_LOGS).
 func (o OrganizationTelemetryRuleWafLoggingParametersOutput) LogType() OrganizationTelemetryRuleWafLogTypePtrOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleWafLoggingParameters) *OrganizationTelemetryRuleWafLogType {
 		return v.LogType
 	}).(OrganizationTelemetryRuleWafLogTypePtrOutput)
 }
 
+// A filter configuration that determines which WAF log records to include or exclude.
 func (o OrganizationTelemetryRuleWafLoggingParametersOutput) LoggingFilter() OrganizationTelemetryRuleLoggingFilterPtrOutput {
 	return o.ApplyT(func(v OrganizationTelemetryRuleWafLoggingParameters) *OrganizationTelemetryRuleLoggingFilter {
 		return v.LoggingFilter
@@ -3290,6 +3324,7 @@ func (o OrganizationTelemetryRuleWafLoggingParametersPtrOutput) Elem() Organizat
 	}).(OrganizationTelemetryRuleWafLoggingParametersOutput)
 }
 
+// The type of WAF logs to collect (currently supports WAF_LOGS).
 func (o OrganizationTelemetryRuleWafLoggingParametersPtrOutput) LogType() OrganizationTelemetryRuleWafLogTypePtrOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleWafLoggingParameters) *OrganizationTelemetryRuleWafLogType {
 		if v == nil {
@@ -3299,6 +3334,7 @@ func (o OrganizationTelemetryRuleWafLoggingParametersPtrOutput) LogType() Organi
 	}).(OrganizationTelemetryRuleWafLogTypePtrOutput)
 }
 
+// A filter configuration that determines which WAF log records to include or exclude.
 func (o OrganizationTelemetryRuleWafLoggingParametersPtrOutput) LoggingFilter() OrganizationTelemetryRuleLoggingFilterPtrOutput {
 	return o.ApplyT(func(v *OrganizationTelemetryRuleWafLoggingParameters) *OrganizationTelemetryRuleLoggingFilter {
 		if v == nil {
@@ -3372,13 +3408,20 @@ func (o TelemetryPipelinesTagArrayOutput) Index(i pulumi.IntInput) TelemetryPipe
 }
 
 type TelemetryPipelinesTelemetryPipeline struct {
-	Arn                 *string                                           `pulumi:"arn"`
-	Configuration       *TelemetryPipelinesTelemetryPipelineConfiguration `pulumi:"configuration"`
-	CreatedTimeStamp    *float64                                          `pulumi:"createdTimeStamp"`
-	LastUpdateTimeStamp *float64                                          `pulumi:"lastUpdateTimeStamp"`
-	Name                *string                                           `pulumi:"name"`
-	Status              *TelemetryPipelinesTelemetryPipelineStatus        `pulumi:"status"`
-	StatusReason        *TelemetryPipelinesTelemetryPipelineStatusReason  `pulumi:"statusReason"`
+	// The Amazon Resource Name (ARN) of the telemetry pipeline.
+	Arn *string `pulumi:"arn"`
+	// The configuration that defines how the telemetry pipeline processes data.
+	Configuration *TelemetryPipelinesTelemetryPipelineConfiguration `pulumi:"configuration"`
+	// The timestamp when the telemetry pipeline was created.
+	CreatedTimeStamp *float64 `pulumi:"createdTimeStamp"`
+	// The timestamp when the telemetry pipeline was last updated.
+	LastUpdateTimeStamp *float64 `pulumi:"lastUpdateTimeStamp"`
+	// The name of the telemetry pipeline.
+	Name *string `pulumi:"name"`
+	// The current status of the telemetry pipeline.
+	Status *TelemetryPipelinesTelemetryPipelineStatus `pulumi:"status"`
+	// Additional information about the pipeline status, including reasons for failure states.
+	StatusReason *TelemetryPipelinesTelemetryPipelineStatusReason `pulumi:"statusReason"`
 	// An array of key-value pairs to apply to this resource
 	Tags []TelemetryPipelinesTag `pulumi:"tags"`
 }
@@ -3397,34 +3440,41 @@ func (o TelemetryPipelinesTelemetryPipelineOutput) ToTelemetryPipelinesTelemetry
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the telemetry pipeline.
 func (o TelemetryPipelinesTelemetryPipelineOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TelemetryPipelinesTelemetryPipeline) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The configuration that defines how the telemetry pipeline processes data.
 func (o TelemetryPipelinesTelemetryPipelineOutput) Configuration() TelemetryPipelinesTelemetryPipelineConfigurationPtrOutput {
 	return o.ApplyT(func(v TelemetryPipelinesTelemetryPipeline) *TelemetryPipelinesTelemetryPipelineConfiguration {
 		return v.Configuration
 	}).(TelemetryPipelinesTelemetryPipelineConfigurationPtrOutput)
 }
 
+// The timestamp when the telemetry pipeline was created.
 func (o TelemetryPipelinesTelemetryPipelineOutput) CreatedTimeStamp() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TelemetryPipelinesTelemetryPipeline) *float64 { return v.CreatedTimeStamp }).(pulumi.Float64PtrOutput)
 }
 
+// The timestamp when the telemetry pipeline was last updated.
 func (o TelemetryPipelinesTelemetryPipelineOutput) LastUpdateTimeStamp() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TelemetryPipelinesTelemetryPipeline) *float64 { return v.LastUpdateTimeStamp }).(pulumi.Float64PtrOutput)
 }
 
+// The name of the telemetry pipeline.
 func (o TelemetryPipelinesTelemetryPipelineOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TelemetryPipelinesTelemetryPipeline) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The current status of the telemetry pipeline.
 func (o TelemetryPipelinesTelemetryPipelineOutput) Status() TelemetryPipelinesTelemetryPipelineStatusPtrOutput {
 	return o.ApplyT(func(v TelemetryPipelinesTelemetryPipeline) *TelemetryPipelinesTelemetryPipelineStatus {
 		return v.Status
 	}).(TelemetryPipelinesTelemetryPipelineStatusPtrOutput)
 }
 
+// Additional information about the pipeline status, including reasons for failure states.
 func (o TelemetryPipelinesTelemetryPipelineOutput) StatusReason() TelemetryPipelinesTelemetryPipelineStatusReasonPtrOutput {
 	return o.ApplyT(func(v TelemetryPipelinesTelemetryPipeline) *TelemetryPipelinesTelemetryPipelineStatusReason {
 		return v.StatusReason
@@ -3460,6 +3510,7 @@ func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Elem() TelemetryPipelinesT
 	}).(TelemetryPipelinesTelemetryPipelineOutput)
 }
 
+// The Amazon Resource Name (ARN) of the telemetry pipeline.
 func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TelemetryPipelinesTelemetryPipeline) *string {
 		if v == nil {
@@ -3469,6 +3520,7 @@ func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Arn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration that defines how the telemetry pipeline processes data.
 func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Configuration() TelemetryPipelinesTelemetryPipelineConfigurationPtrOutput {
 	return o.ApplyT(func(v *TelemetryPipelinesTelemetryPipeline) *TelemetryPipelinesTelemetryPipelineConfiguration {
 		if v == nil {
@@ -3478,6 +3530,7 @@ func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Configuration() TelemetryP
 	}).(TelemetryPipelinesTelemetryPipelineConfigurationPtrOutput)
 }
 
+// The timestamp when the telemetry pipeline was created.
 func (o TelemetryPipelinesTelemetryPipelinePtrOutput) CreatedTimeStamp() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TelemetryPipelinesTelemetryPipeline) *float64 {
 		if v == nil {
@@ -3487,6 +3540,7 @@ func (o TelemetryPipelinesTelemetryPipelinePtrOutput) CreatedTimeStamp() pulumi.
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The timestamp when the telemetry pipeline was last updated.
 func (o TelemetryPipelinesTelemetryPipelinePtrOutput) LastUpdateTimeStamp() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TelemetryPipelinesTelemetryPipeline) *float64 {
 		if v == nil {
@@ -3496,6 +3550,7 @@ func (o TelemetryPipelinesTelemetryPipelinePtrOutput) LastUpdateTimeStamp() pulu
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The name of the telemetry pipeline.
 func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TelemetryPipelinesTelemetryPipeline) *string {
 		if v == nil {
@@ -3505,6 +3560,7 @@ func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Name() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The current status of the telemetry pipeline.
 func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Status() TelemetryPipelinesTelemetryPipelineStatusPtrOutput {
 	return o.ApplyT(func(v *TelemetryPipelinesTelemetryPipeline) *TelemetryPipelinesTelemetryPipelineStatus {
 		if v == nil {
@@ -3514,6 +3570,7 @@ func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Status() TelemetryPipeline
 	}).(TelemetryPipelinesTelemetryPipelineStatusPtrOutput)
 }
 
+// Additional information about the pipeline status, including reasons for failure states.
 func (o TelemetryPipelinesTelemetryPipelinePtrOutput) StatusReason() TelemetryPipelinesTelemetryPipelineStatusReasonPtrOutput {
 	return o.ApplyT(func(v *TelemetryPipelinesTelemetryPipeline) *TelemetryPipelinesTelemetryPipelineStatusReason {
 		if v == nil {
@@ -3534,6 +3591,7 @@ func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Tags() TelemetryPipelinesT
 }
 
 type TelemetryPipelinesTelemetryPipelineConfiguration struct {
+	// The pipeline configuration body that defines the data processing rules and transformations.
 	Body string `pulumi:"body"`
 }
 
@@ -3549,6 +3607,7 @@ type TelemetryPipelinesTelemetryPipelineConfigurationInput interface {
 }
 
 type TelemetryPipelinesTelemetryPipelineConfigurationArgs struct {
+	// The pipeline configuration body that defines the data processing rules and transformations.
 	Body pulumi.StringInput `pulumi:"body"`
 }
 
@@ -3578,6 +3637,7 @@ func (o TelemetryPipelinesTelemetryPipelineConfigurationOutput) ToTelemetryPipel
 	return o
 }
 
+// The pipeline configuration body that defines the data processing rules and transformations.
 func (o TelemetryPipelinesTelemetryPipelineConfigurationOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v TelemetryPipelinesTelemetryPipelineConfiguration) string { return v.Body }).(pulumi.StringOutput)
 }
@@ -3606,6 +3666,7 @@ func (o TelemetryPipelinesTelemetryPipelineConfigurationPtrOutput) Elem() Teleme
 	}).(TelemetryPipelinesTelemetryPipelineConfigurationOutput)
 }
 
+// The pipeline configuration body that defines the data processing rules and transformations.
 func (o TelemetryPipelinesTelemetryPipelineConfigurationPtrOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TelemetryPipelinesTelemetryPipelineConfiguration) *string {
 		if v == nil {
@@ -3616,6 +3677,7 @@ func (o TelemetryPipelinesTelemetryPipelineConfigurationPtrOutput) Body() pulumi
 }
 
 type TelemetryPipelinesTelemetryPipelineStatusReason struct {
+	// A description of the pipeline status reason, providing additional context about the current state.
 	Description *string `pulumi:"description"`
 }
 
@@ -3633,6 +3695,7 @@ func (o TelemetryPipelinesTelemetryPipelineStatusReasonOutput) ToTelemetryPipeli
 	return o
 }
 
+// A description of the pipeline status reason, providing additional context about the current state.
 func (o TelemetryPipelinesTelemetryPipelineStatusReasonOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TelemetryPipelinesTelemetryPipelineStatusReason) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -3661,6 +3724,7 @@ func (o TelemetryPipelinesTelemetryPipelineStatusReasonPtrOutput) Elem() Telemet
 	}).(TelemetryPipelinesTelemetryPipelineStatusReasonOutput)
 }
 
+// A description of the pipeline status reason, providing additional context about the current state.
 func (o TelemetryPipelinesTelemetryPipelineStatusReasonPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TelemetryPipelinesTelemetryPipelineStatusReason) *string {
 		if v == nil {
@@ -3677,7 +3741,8 @@ type TelemetryRuleType struct {
 	// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
 	ResourceType TelemetryRuleResourceType `pulumi:"resourceType"`
 	// Criteria for selecting which resources the rule applies to, such as resource tags.
-	SelectionCriteria    *string                            `pulumi:"selectionCriteria"`
+	SelectionCriteria *string `pulumi:"selectionCriteria"`
+	// The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
 	TelemetrySourceTypes []TelemetryRuleTelemetrySourceType `pulumi:"telemetrySourceTypes"`
 	// The type of telemetry to collect (Logs, Metrics, or Traces).
 	TelemetryType TelemetryRuleTelemetryType `pulumi:"telemetryType"`
@@ -3701,7 +3766,8 @@ type TelemetryRuleTypeArgs struct {
 	// The type of AWS resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL").
 	ResourceType TelemetryRuleResourceTypeInput `pulumi:"resourceType"`
 	// Criteria for selecting which resources the rule applies to, such as resource tags.
-	SelectionCriteria    pulumi.StringPtrInput                      `pulumi:"selectionCriteria"`
+	SelectionCriteria pulumi.StringPtrInput `pulumi:"selectionCriteria"`
+	// The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
 	TelemetrySourceTypes TelemetryRuleTelemetrySourceTypeArrayInput `pulumi:"telemetrySourceTypes"`
 	// The type of telemetry to collect (Logs, Metrics, or Traces).
 	TelemetryType TelemetryRuleTelemetryTypeInput `pulumi:"telemetryType"`
@@ -3751,6 +3817,7 @@ func (o TelemetryRuleTypeOutput) SelectionCriteria() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TelemetryRuleType) *string { return v.SelectionCriteria }).(pulumi.StringPtrOutput)
 }
 
+// The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
 func (o TelemetryRuleTypeOutput) TelemetrySourceTypes() TelemetryRuleTelemetrySourceTypeArrayOutput {
 	return o.ApplyT(func(v TelemetryRuleType) []TelemetryRuleTelemetrySourceType { return v.TelemetrySourceTypes }).(TelemetryRuleTelemetrySourceTypeArrayOutput)
 }
@@ -3814,6 +3881,7 @@ func (o TelemetryRuleTypePtrOutput) SelectionCriteria() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
 func (o TelemetryRuleTypePtrOutput) TelemetrySourceTypes() TelemetryRuleTelemetrySourceTypeArrayOutput {
 	return o.ApplyT(func(v *TelemetryRuleType) []TelemetryRuleTelemetrySourceType {
 		if v == nil {
@@ -4482,8 +4550,9 @@ func (o TelemetryRuleConditionArrayOutput) Index(i pulumi.IntInput) TelemetryRul
 // Telemetry parameters for ELB/NLB Load Balancer Logs
 type TelemetryRuleElbLoadBalancerLoggingParameters struct {
 	// A delimiter to delineate log fields
-	FieldDelimiter *string                                                    `pulumi:"fieldDelimiter"`
-	OutputFormat   *TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat `pulumi:"outputFormat"`
+	FieldDelimiter *string `pulumi:"fieldDelimiter"`
+	// The format for ELB access log entries (plain text or JSON format).
+	OutputFormat *TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat `pulumi:"outputFormat"`
 }
 
 // TelemetryRuleElbLoadBalancerLoggingParametersInput is an input type that accepts TelemetryRuleElbLoadBalancerLoggingParametersArgs and TelemetryRuleElbLoadBalancerLoggingParametersOutput values.
@@ -4500,8 +4569,9 @@ type TelemetryRuleElbLoadBalancerLoggingParametersInput interface {
 // Telemetry parameters for ELB/NLB Load Balancer Logs
 type TelemetryRuleElbLoadBalancerLoggingParametersArgs struct {
 	// A delimiter to delineate log fields
-	FieldDelimiter pulumi.StringPtrInput                                             `pulumi:"fieldDelimiter"`
-	OutputFormat   TelemetryRuleElbLoadBalancerLoggingParametersOutputFormatPtrInput `pulumi:"outputFormat"`
+	FieldDelimiter pulumi.StringPtrInput `pulumi:"fieldDelimiter"`
+	// The format for ELB access log entries (plain text or JSON format).
+	OutputFormat TelemetryRuleElbLoadBalancerLoggingParametersOutputFormatPtrInput `pulumi:"outputFormat"`
 }
 
 func (TelemetryRuleElbLoadBalancerLoggingParametersArgs) ElementType() reflect.Type {
@@ -4587,6 +4657,7 @@ func (o TelemetryRuleElbLoadBalancerLoggingParametersOutput) FieldDelimiter() pu
 	return o.ApplyT(func(v TelemetryRuleElbLoadBalancerLoggingParameters) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
 }
 
+// The format for ELB access log entries (plain text or JSON format).
 func (o TelemetryRuleElbLoadBalancerLoggingParametersOutput) OutputFormat() TelemetryRuleElbLoadBalancerLoggingParametersOutputFormatPtrOutput {
 	return o.ApplyT(func(v TelemetryRuleElbLoadBalancerLoggingParameters) *TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat {
 		return v.OutputFormat
@@ -4627,6 +4698,7 @@ func (o TelemetryRuleElbLoadBalancerLoggingParametersPtrOutput) FieldDelimiter()
 	}).(pulumi.StringPtrOutput)
 }
 
+// The format for ELB access log entries (plain text or JSON format).
 func (o TelemetryRuleElbLoadBalancerLoggingParametersPtrOutput) OutputFormat() TelemetryRuleElbLoadBalancerLoggingParametersOutputFormatPtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleElbLoadBalancerLoggingParameters) *TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat {
 		if v == nil {
@@ -5011,8 +5083,10 @@ func (o TelemetryRuleLabelNameConditionPtrOutput) LabelName() pulumi.StringPtrOu
 
 // Default handling for logs that don't match any of the specified filtering conditions.
 type TelemetryRuleLoggingFilter struct {
+	// The default action (KEEP or DROP) for log records that don't match any filter conditions.
 	DefaultBehavior *TelemetryRuleFilterBehavior `pulumi:"defaultBehavior"`
-	Filters         []TelemetryRuleFilter        `pulumi:"filters"`
+	// A list of filter conditions that determine log record handling behavior.
+	Filters []TelemetryRuleFilter `pulumi:"filters"`
 }
 
 // TelemetryRuleLoggingFilterInput is an input type that accepts TelemetryRuleLoggingFilterArgs and TelemetryRuleLoggingFilterOutput values.
@@ -5028,8 +5102,10 @@ type TelemetryRuleLoggingFilterInput interface {
 
 // Default handling for logs that don't match any of the specified filtering conditions.
 type TelemetryRuleLoggingFilterArgs struct {
+	// The default action (KEEP or DROP) for log records that don't match any filter conditions.
 	DefaultBehavior TelemetryRuleFilterBehaviorPtrInput `pulumi:"defaultBehavior"`
-	Filters         TelemetryRuleFilterArrayInput       `pulumi:"filters"`
+	// A list of filter conditions that determine log record handling behavior.
+	Filters TelemetryRuleFilterArrayInput `pulumi:"filters"`
 }
 
 func (TelemetryRuleLoggingFilterArgs) ElementType() reflect.Type {
@@ -5110,10 +5186,12 @@ func (o TelemetryRuleLoggingFilterOutput) ToTelemetryRuleLoggingFilterPtrOutputW
 	}).(TelemetryRuleLoggingFilterPtrOutput)
 }
 
+// The default action (KEEP or DROP) for log records that don't match any filter conditions.
 func (o TelemetryRuleLoggingFilterOutput) DefaultBehavior() TelemetryRuleFilterBehaviorPtrOutput {
 	return o.ApplyT(func(v TelemetryRuleLoggingFilter) *TelemetryRuleFilterBehavior { return v.DefaultBehavior }).(TelemetryRuleFilterBehaviorPtrOutput)
 }
 
+// A list of filter conditions that determine log record handling behavior.
 func (o TelemetryRuleLoggingFilterOutput) Filters() TelemetryRuleFilterArrayOutput {
 	return o.ApplyT(func(v TelemetryRuleLoggingFilter) []TelemetryRuleFilter { return v.Filters }).(TelemetryRuleFilterArrayOutput)
 }
@@ -5142,6 +5220,7 @@ func (o TelemetryRuleLoggingFilterPtrOutput) Elem() TelemetryRuleLoggingFilterOu
 	}).(TelemetryRuleLoggingFilterOutput)
 }
 
+// The default action (KEEP or DROP) for log records that don't match any filter conditions.
 func (o TelemetryRuleLoggingFilterPtrOutput) DefaultBehavior() TelemetryRuleFilterBehaviorPtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleLoggingFilter) *TelemetryRuleFilterBehavior {
 		if v == nil {
@@ -5151,6 +5230,7 @@ func (o TelemetryRuleLoggingFilterPtrOutput) DefaultBehavior() TelemetryRuleFilt
 	}).(TelemetryRuleFilterBehaviorPtrOutput)
 }
 
+// A list of filter conditions that determine log record handling behavior.
 func (o TelemetryRuleLoggingFilterPtrOutput) Filters() TelemetryRuleFilterArrayOutput {
 	return o.ApplyT(func(v *TelemetryRuleLoggingFilter) []TelemetryRuleFilter {
 		if v == nil {
@@ -5310,11 +5390,13 @@ type TelemetryRuleTag struct {
 
 // The destination configuration for telemetry data
 type TelemetryRuleTelemetryDestinationConfiguration struct {
+	// Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
 	CloudtrailParameters *TelemetryRuleCloudtrailParameters `pulumi:"cloudtrailParameters"`
 	// The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
 	DestinationPattern *string `pulumi:"destinationPattern"`
 	// The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
-	DestinationType                  *TelemetryRuleDestinationType                  `pulumi:"destinationType"`
+	DestinationType *TelemetryRuleDestinationType `pulumi:"destinationType"`
+	// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
 	ElbLoadBalancerLoggingParameters *TelemetryRuleElbLoadBalancerLoggingParameters `pulumi:"elbLoadBalancerLoggingParameters"`
 	// Parameters for BedrockAgentCore log delivery
 	LogDeliveryParameters *TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties `pulumi:"logDeliveryParameters"`
@@ -5322,6 +5404,7 @@ type TelemetryRuleTelemetryDestinationConfiguration struct {
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
 	VpcFlowLogParameters *TelemetryRuleVpcFlowLogParameters `pulumi:"vpcFlowLogParameters"`
+	// Configuration parameters specific to WAF logging when WAF is the resource type.
 	WafLoggingParameters *TelemetryRuleWafLoggingParameters `pulumi:"wafLoggingParameters"`
 }
 
@@ -5338,11 +5421,13 @@ type TelemetryRuleTelemetryDestinationConfigurationInput interface {
 
 // The destination configuration for telemetry data
 type TelemetryRuleTelemetryDestinationConfigurationArgs struct {
+	// Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
 	CloudtrailParameters TelemetryRuleCloudtrailParametersPtrInput `pulumi:"cloudtrailParameters"`
 	// The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
 	DestinationPattern pulumi.StringPtrInput `pulumi:"destinationPattern"`
 	// The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
-	DestinationType                  TelemetryRuleDestinationTypePtrInput                  `pulumi:"destinationType"`
+	DestinationType TelemetryRuleDestinationTypePtrInput `pulumi:"destinationType"`
+	// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
 	ElbLoadBalancerLoggingParameters TelemetryRuleElbLoadBalancerLoggingParametersPtrInput `pulumi:"elbLoadBalancerLoggingParameters"`
 	// Parameters for BedrockAgentCore log delivery
 	LogDeliveryParameters TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesPtrInput `pulumi:"logDeliveryParameters"`
@@ -5350,6 +5435,7 @@ type TelemetryRuleTelemetryDestinationConfigurationArgs struct {
 	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
 	// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
 	VpcFlowLogParameters TelemetryRuleVpcFlowLogParametersPtrInput `pulumi:"vpcFlowLogParameters"`
+	// Configuration parameters specific to WAF logging when WAF is the resource type.
 	WafLoggingParameters TelemetryRuleWafLoggingParametersPtrInput `pulumi:"wafLoggingParameters"`
 }
 
@@ -5431,6 +5517,7 @@ func (o TelemetryRuleTelemetryDestinationConfigurationOutput) ToTelemetryRuleTel
 	}).(TelemetryRuleTelemetryDestinationConfigurationPtrOutput)
 }
 
+// Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
 func (o TelemetryRuleTelemetryDestinationConfigurationOutput) CloudtrailParameters() TelemetryRuleCloudtrailParametersPtrOutput {
 	return o.ApplyT(func(v TelemetryRuleTelemetryDestinationConfiguration) *TelemetryRuleCloudtrailParameters {
 		return v.CloudtrailParameters
@@ -5449,6 +5536,7 @@ func (o TelemetryRuleTelemetryDestinationConfigurationOutput) DestinationType() 
 	}).(TelemetryRuleDestinationTypePtrOutput)
 }
 
+// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
 func (o TelemetryRuleTelemetryDestinationConfigurationOutput) ElbLoadBalancerLoggingParameters() TelemetryRuleElbLoadBalancerLoggingParametersPtrOutput {
 	return o.ApplyT(func(v TelemetryRuleTelemetryDestinationConfiguration) *TelemetryRuleElbLoadBalancerLoggingParameters {
 		return v.ElbLoadBalancerLoggingParameters
@@ -5474,6 +5562,7 @@ func (o TelemetryRuleTelemetryDestinationConfigurationOutput) VpcFlowLogParamete
 	}).(TelemetryRuleVpcFlowLogParametersPtrOutput)
 }
 
+// Configuration parameters specific to WAF logging when WAF is the resource type.
 func (o TelemetryRuleTelemetryDestinationConfigurationOutput) WafLoggingParameters() TelemetryRuleWafLoggingParametersPtrOutput {
 	return o.ApplyT(func(v TelemetryRuleTelemetryDestinationConfiguration) *TelemetryRuleWafLoggingParameters {
 		return v.WafLoggingParameters
@@ -5504,6 +5593,7 @@ func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) Elem() Telemetr
 	}).(TelemetryRuleTelemetryDestinationConfigurationOutput)
 }
 
+// Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
 func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) CloudtrailParameters() TelemetryRuleCloudtrailParametersPtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleTelemetryDestinationConfiguration) *TelemetryRuleCloudtrailParameters {
 		if v == nil {
@@ -5533,6 +5623,7 @@ func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) DestinationType
 	}).(TelemetryRuleDestinationTypePtrOutput)
 }
 
+// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
 func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) ElbLoadBalancerLoggingParameters() TelemetryRuleElbLoadBalancerLoggingParametersPtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleTelemetryDestinationConfiguration) *TelemetryRuleElbLoadBalancerLoggingParameters {
 		if v == nil {
@@ -5572,6 +5663,7 @@ func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) VpcFlowLogParam
 	}).(TelemetryRuleVpcFlowLogParametersPtrOutput)
 }
 
+// Configuration parameters specific to WAF logging when WAF is the resource type.
 func (o TelemetryRuleTelemetryDestinationConfigurationPtrOutput) WafLoggingParameters() TelemetryRuleWafLoggingParametersPtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleTelemetryDestinationConfiguration) *TelemetryRuleWafLoggingParameters {
 		if v == nil {
@@ -5903,7 +5995,9 @@ func (o TelemetryRuleVpcFlowLogParametersPtrOutput) TrafficType() pulumi.StringP
 
 // Telemetry parameters for WAF v2 Web ACL
 type TelemetryRuleWafLoggingParameters struct {
-	LogType       *TelemetryRuleWafLogType    `pulumi:"logType"`
+	// The type of WAF logs to collect (currently supports WAF_LOGS).
+	LogType *TelemetryRuleWafLogType `pulumi:"logType"`
+	// A filter configuration that determines which WAF log records to include or exclude.
 	LoggingFilter *TelemetryRuleLoggingFilter `pulumi:"loggingFilter"`
 	// Fields not to be included in the logs.
 	RedactedFields []TelemetryRuleFieldToMatch `pulumi:"redactedFields"`
@@ -5922,7 +6016,9 @@ type TelemetryRuleWafLoggingParametersInput interface {
 
 // Telemetry parameters for WAF v2 Web ACL
 type TelemetryRuleWafLoggingParametersArgs struct {
-	LogType       TelemetryRuleWafLogTypePtrInput    `pulumi:"logType"`
+	// The type of WAF logs to collect (currently supports WAF_LOGS).
+	LogType TelemetryRuleWafLogTypePtrInput `pulumi:"logType"`
+	// A filter configuration that determines which WAF log records to include or exclude.
 	LoggingFilter TelemetryRuleLoggingFilterPtrInput `pulumi:"loggingFilter"`
 	// Fields not to be included in the logs.
 	RedactedFields TelemetryRuleFieldToMatchArrayInput `pulumi:"redactedFields"`
@@ -6006,10 +6102,12 @@ func (o TelemetryRuleWafLoggingParametersOutput) ToTelemetryRuleWafLoggingParame
 	}).(TelemetryRuleWafLoggingParametersPtrOutput)
 }
 
+// The type of WAF logs to collect (currently supports WAF_LOGS).
 func (o TelemetryRuleWafLoggingParametersOutput) LogType() TelemetryRuleWafLogTypePtrOutput {
 	return o.ApplyT(func(v TelemetryRuleWafLoggingParameters) *TelemetryRuleWafLogType { return v.LogType }).(TelemetryRuleWafLogTypePtrOutput)
 }
 
+// A filter configuration that determines which WAF log records to include or exclude.
 func (o TelemetryRuleWafLoggingParametersOutput) LoggingFilter() TelemetryRuleLoggingFilterPtrOutput {
 	return o.ApplyT(func(v TelemetryRuleWafLoggingParameters) *TelemetryRuleLoggingFilter { return v.LoggingFilter }).(TelemetryRuleLoggingFilterPtrOutput)
 }
@@ -6043,6 +6141,7 @@ func (o TelemetryRuleWafLoggingParametersPtrOutput) Elem() TelemetryRuleWafLoggi
 	}).(TelemetryRuleWafLoggingParametersOutput)
 }
 
+// The type of WAF logs to collect (currently supports WAF_LOGS).
 func (o TelemetryRuleWafLoggingParametersPtrOutput) LogType() TelemetryRuleWafLogTypePtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleWafLoggingParameters) *TelemetryRuleWafLogType {
 		if v == nil {
@@ -6052,6 +6151,7 @@ func (o TelemetryRuleWafLoggingParametersPtrOutput) LogType() TelemetryRuleWafLo
 	}).(TelemetryRuleWafLogTypePtrOutput)
 }
 
+// A filter configuration that determines which WAF log records to include or exclude.
 func (o TelemetryRuleWafLoggingParametersPtrOutput) LoggingFilter() TelemetryRuleLoggingFilterPtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleWafLoggingParameters) *TelemetryRuleLoggingFilter {
 		if v == nil {

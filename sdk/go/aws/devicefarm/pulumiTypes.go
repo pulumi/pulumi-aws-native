@@ -152,6 +152,106 @@ type NetworkProfileTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ProjectEnvironmentVariable struct {
+	Name  string `pulumi:"name"`
+	Value string `pulumi:"value"`
+}
+
+// ProjectEnvironmentVariableInput is an input type that accepts ProjectEnvironmentVariableArgs and ProjectEnvironmentVariableOutput values.
+// You can construct a concrete instance of `ProjectEnvironmentVariableInput` via:
+//
+//	ProjectEnvironmentVariableArgs{...}
+type ProjectEnvironmentVariableInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentVariableOutput() ProjectEnvironmentVariableOutput
+	ToProjectEnvironmentVariableOutputWithContext(context.Context) ProjectEnvironmentVariableOutput
+}
+
+type ProjectEnvironmentVariableArgs struct {
+	Name  pulumi.StringInput `pulumi:"name"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ProjectEnvironmentVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectEnvironmentVariable)(nil)).Elem()
+}
+
+func (i ProjectEnvironmentVariableArgs) ToProjectEnvironmentVariableOutput() ProjectEnvironmentVariableOutput {
+	return i.ToProjectEnvironmentVariableOutputWithContext(context.Background())
+}
+
+func (i ProjectEnvironmentVariableArgs) ToProjectEnvironmentVariableOutputWithContext(ctx context.Context) ProjectEnvironmentVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentVariableOutput)
+}
+
+// ProjectEnvironmentVariableArrayInput is an input type that accepts ProjectEnvironmentVariableArray and ProjectEnvironmentVariableArrayOutput values.
+// You can construct a concrete instance of `ProjectEnvironmentVariableArrayInput` via:
+//
+//	ProjectEnvironmentVariableArray{ ProjectEnvironmentVariableArgs{...} }
+type ProjectEnvironmentVariableArrayInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentVariableArrayOutput() ProjectEnvironmentVariableArrayOutput
+	ToProjectEnvironmentVariableArrayOutputWithContext(context.Context) ProjectEnvironmentVariableArrayOutput
+}
+
+type ProjectEnvironmentVariableArray []ProjectEnvironmentVariableInput
+
+func (ProjectEnvironmentVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectEnvironmentVariable)(nil)).Elem()
+}
+
+func (i ProjectEnvironmentVariableArray) ToProjectEnvironmentVariableArrayOutput() ProjectEnvironmentVariableArrayOutput {
+	return i.ToProjectEnvironmentVariableArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectEnvironmentVariableArray) ToProjectEnvironmentVariableArrayOutputWithContext(ctx context.Context) ProjectEnvironmentVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentVariableArrayOutput)
+}
+
+type ProjectEnvironmentVariableOutput struct{ *pulumi.OutputState }
+
+func (ProjectEnvironmentVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectEnvironmentVariable)(nil)).Elem()
+}
+
+func (o ProjectEnvironmentVariableOutput) ToProjectEnvironmentVariableOutput() ProjectEnvironmentVariableOutput {
+	return o
+}
+
+func (o ProjectEnvironmentVariableOutput) ToProjectEnvironmentVariableOutputWithContext(ctx context.Context) ProjectEnvironmentVariableOutput {
+	return o
+}
+
+func (o ProjectEnvironmentVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectEnvironmentVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ProjectEnvironmentVariableOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ProjectEnvironmentVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectEnvironmentVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectEnvironmentVariable)(nil)).Elem()
+}
+
+func (o ProjectEnvironmentVariableArrayOutput) ToProjectEnvironmentVariableArrayOutput() ProjectEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o ProjectEnvironmentVariableArrayOutput) ToProjectEnvironmentVariableArrayOutputWithContext(ctx context.Context) ProjectEnvironmentVariableArrayOutput {
+	return o
+}
+
+func (o ProjectEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) ProjectEnvironmentVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectEnvironmentVariable {
+		return vs[0].([]ProjectEnvironmentVariable)[vs[1].(int)]
+	}).(ProjectEnvironmentVariableOutput)
+}
+
 type ProjectTag struct {
 	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
 	Key string `pulumi:"key"`
@@ -540,12 +640,16 @@ type VpceConfigurationTag struct {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolRuleInput)(nil)).Elem(), DevicePoolRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DevicePoolRuleArrayInput)(nil)).Elem(), DevicePoolRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentVariableInput)(nil)).Elem(), ProjectEnvironmentVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentVariableArrayInput)(nil)).Elem(), ProjectEnvironmentVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectVpcConfigInput)(nil)).Elem(), ProjectVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectVpcConfigPtrInput)(nil)).Elem(), ProjectVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TestGridProjectVpcConfigInput)(nil)).Elem(), TestGridProjectVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TestGridProjectVpcConfigPtrInput)(nil)).Elem(), TestGridProjectVpcConfigArgs{})
 	pulumi.RegisterOutputType(DevicePoolRuleOutput{})
 	pulumi.RegisterOutputType(DevicePoolRuleArrayOutput{})
+	pulumi.RegisterOutputType(ProjectEnvironmentVariableOutput{})
+	pulumi.RegisterOutputType(ProjectEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(ProjectVpcConfigOutput{})
 	pulumi.RegisterOutputType(ProjectVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(TestGridProjectVpcConfigOutput{})

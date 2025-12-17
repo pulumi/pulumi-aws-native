@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetProfileResult',
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetProfileResult:
-    def __init__(__self__, arn=None, client_token=None, id=None, tags=None):
+    def __init__(__self__, arn=None, client_token=None, id=None, share_status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -34,6 +35,9 @@ class GetProfileResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if share_status and not isinstance(share_status, str):
+            raise TypeError("Expected argument 'share_status' to be a str")
+        pulumi.set(__self__, "share_status", share_status)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -63,6 +67,14 @@ class GetProfileResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="shareStatus")
+    def share_status(self) -> Optional['ProfileShareStatus']:
+        """
+        The sharing status of the profile.
+        """
+        return pulumi.get(self, "share_status")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -80,6 +92,7 @@ class AwaitableGetProfileResult(GetProfileResult):
             arn=self.arn,
             client_token=self.client_token,
             id=self.id,
+            share_status=self.share_status,
             tags=self.tags)
 
 
@@ -100,6 +113,7 @@ def get_profile(id: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         client_token=pulumi.get(__ret__, 'client_token'),
         id=pulumi.get(__ret__, 'id'),
+        share_status=pulumi.get(__ret__, 'share_status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_profile_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfileResult]:
@@ -117,4 +131,5 @@ def get_profile_output(id: Optional[pulumi.Input[_builtins.str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         client_token=pulumi.get(__response__, 'client_token'),
         id=pulumi.get(__response__, 'id'),
+        share_status=pulumi.get(__response__, 'share_status'),
         tags=pulumi.get(__response__, 'tags')))

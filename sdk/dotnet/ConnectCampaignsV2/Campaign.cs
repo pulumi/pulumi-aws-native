@@ -75,6 +75,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of campaign.
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.ConnectCampaignsV2.CampaignType?> Type { get; private set; } = null!;
 
@@ -187,6 +190,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The type of campaign.
+        /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.ConnectCampaignsV2.CampaignType>? Type { get; set; }
 

@@ -29,6 +29,14 @@
       "type" : "string",
       "pattern" : "^arn:(aws|aws-us-gov|aws-cn):kms:.*:[0-9]+:.*$"
     },
+    "CustomerProfilesDomainArn" : {
+      "type" : "string",
+      "pattern" : "^arn:(aws|aws-us-gov|aws-cn):profile:[a-z]{2}-[a-z]{1,10}-[0-9]:[0-9]{12}:(domains/[a-zA-Z_0-9-]{1,255})$"
+    },
+    "CustomerProfilesObjectTypeArn" : {
+      "type" : "string",
+      "pattern" : "^arn:(aws|aws-us-gov|aws-cn):profile:[a-z]{2}-[a-z]{1,10}-[0-9]:[0-9]{12}:(domains/[a-zA-Z_0-9-]{1,255}/object-types/[a-zA-Z_0-9-]{1,255})$"
+    },
     "MatchingWorkflowArn" : {
       "description" : "The default MatchingWorkflow arn",
       "type" : "string",
@@ -83,9 +91,12 @@
         },
         "ApplyNormalization" : {
           "type" : "boolean"
+        },
+        "CustomerProfilesIntegrationConfig" : {
+          "$ref" : "#/definitions/CustomerProfilesIntegrationConfig"
         }
       },
-      "required" : [ "Output", "OutputS3Path" ],
+      "required" : [ "Output" ],
       "additionalProperties" : false
     },
     "OutputAttribute" : {
@@ -243,6 +254,19 @@
       "required" : [ "IntermediateS3Path" ],
       "additionalProperties" : false
     },
+    "CustomerProfilesIntegrationConfig" : {
+      "type" : "object",
+      "properties" : {
+        "DomainArn" : {
+          "$ref" : "#/definitions/CustomerProfilesDomainArn"
+        },
+        "ObjectTypeArn" : {
+          "$ref" : "#/definitions/CustomerProfilesObjectTypeArn"
+        }
+      },
+      "required" : [ "DomainArn", "ObjectTypeArn" ],
+      "additionalProperties" : false
+    },
     "Tag" : {
       "description" : "A key-value pair to associate with a resource",
       "type" : "object",
@@ -334,13 +358,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "entityresolution:CreateMatchingWorkflow", "entityresolution:GetMatchingWorkflow", "entityresolution:TagResource", "kms:CreateGrant", "kms:DescribeKey", "iam:PassRole", "events:PutRule", "events:DeleteRule", "events:PutTargets", "events:ListTargetsByRule" ]
+      "permissions" : [ "entityresolution:CreateMatchingWorkflow", "entityresolution:GetMatchingWorkflow", "entityresolution:TagResource", "kms:CreateGrant", "kms:DescribeKey", "iam:PassRole", "events:PutRule", "events:DeleteRule", "events:PutTargets", "events:ListTargetsByRule", "profile:PutIntegration" ]
     },
     "read" : {
       "permissions" : [ "entityresolution:GetMatchingWorkflow", "entityresolution:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "entityresolution:DeleteMatchingWorkflow", "entityresolution:GetMatchingWorkflow", "entityresolution:UntagResource", "events:PutRule", "events:DeleteRule", "events:PutTargets", "events:RemoveTargets", "events:ListTargetsByRule" ]
+      "permissions" : [ "entityresolution:DeleteMatchingWorkflow", "entityresolution:GetMatchingWorkflow", "entityresolution:UntagResource", "events:PutRule", "events:DeleteRule", "events:PutTargets", "events:RemoveTargets", "events:ListTargetsByRule", "profile:DeleteIntegration" ]
     },
     "list" : {
       "permissions" : [ "entityresolution:ListMatchingWorkflows" ]

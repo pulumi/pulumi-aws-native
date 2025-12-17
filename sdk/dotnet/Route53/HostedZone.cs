@@ -43,6 +43,9 @@ namespace Pulumi.AwsNative.Route53
         [Output("hostedZoneConfig")]
         public Output<Outputs.HostedZoneConfig?> HostedZoneConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The features configuration for the hosted zone, including accelerated recovery settings and status information.
+        /// </summary>
         [Output("hostedZoneFeatures")]
         public Output<Outputs.HostedZoneFeatures?> HostedZoneFeatures { get; private set; } = null!;
 
@@ -144,6 +147,9 @@ namespace Pulumi.AwsNative.Route53
         [Input("hostedZoneConfig")]
         public Input<Inputs.HostedZoneConfigArgs>? HostedZoneConfig { get; set; }
 
+        /// <summary>
+        /// The features configuration for the hosted zone, including accelerated recovery settings and status information.
+        /// </summary>
         [Input("hostedZoneFeatures")]
         public Input<Inputs.HostedZoneFeaturesArgs>? HostedZoneFeatures { get; set; }
 

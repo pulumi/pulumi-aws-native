@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         /// </summary>
         public readonly Outputs.ListenerRuleForwardConfig? ForwardConfig;
         /// <summary>
-        /// [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when `Type` is `jwt-validation` .
+        /// [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when ``Type`` is ``jwt-validation``.
         /// </summary>
         public readonly Outputs.ListenerRuleJwtValidationConfig? JwtValidationConfig;
         /// <summary>

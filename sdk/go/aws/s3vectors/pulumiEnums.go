@@ -340,6 +340,172 @@ func (in *indexDistanceMetricPtr) ToIndexDistanceMetricPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(IndexDistanceMetricPtrOutput)
 }
 
+// Defines the server-side encryption type for index encryption configuration. Defaults to the parent vector bucket's encryption settings when unspecified.
+type IndexEncryptionConfigurationSseType string
+
+const (
+	IndexEncryptionConfigurationSseTypeAes256 = IndexEncryptionConfigurationSseType("AES256")
+	IndexEncryptionConfigurationSseTypeAwskms = IndexEncryptionConfigurationSseType("aws:kms")
+)
+
+func (IndexEncryptionConfigurationSseType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexEncryptionConfigurationSseType)(nil)).Elem()
+}
+
+func (e IndexEncryptionConfigurationSseType) ToIndexEncryptionConfigurationSseTypeOutput() IndexEncryptionConfigurationSseTypeOutput {
+	return pulumi.ToOutput(e).(IndexEncryptionConfigurationSseTypeOutput)
+}
+
+func (e IndexEncryptionConfigurationSseType) ToIndexEncryptionConfigurationSseTypeOutputWithContext(ctx context.Context) IndexEncryptionConfigurationSseTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IndexEncryptionConfigurationSseTypeOutput)
+}
+
+func (e IndexEncryptionConfigurationSseType) ToIndexEncryptionConfigurationSseTypePtrOutput() IndexEncryptionConfigurationSseTypePtrOutput {
+	return e.ToIndexEncryptionConfigurationSseTypePtrOutputWithContext(context.Background())
+}
+
+func (e IndexEncryptionConfigurationSseType) ToIndexEncryptionConfigurationSseTypePtrOutputWithContext(ctx context.Context) IndexEncryptionConfigurationSseTypePtrOutput {
+	return IndexEncryptionConfigurationSseType(e).ToIndexEncryptionConfigurationSseTypeOutputWithContext(ctx).ToIndexEncryptionConfigurationSseTypePtrOutputWithContext(ctx)
+}
+
+func (e IndexEncryptionConfigurationSseType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IndexEncryptionConfigurationSseType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IndexEncryptionConfigurationSseType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IndexEncryptionConfigurationSseType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IndexEncryptionConfigurationSseTypeOutput struct{ *pulumi.OutputState }
+
+func (IndexEncryptionConfigurationSseTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexEncryptionConfigurationSseType)(nil)).Elem()
+}
+
+func (o IndexEncryptionConfigurationSseTypeOutput) ToIndexEncryptionConfigurationSseTypeOutput() IndexEncryptionConfigurationSseTypeOutput {
+	return o
+}
+
+func (o IndexEncryptionConfigurationSseTypeOutput) ToIndexEncryptionConfigurationSseTypeOutputWithContext(ctx context.Context) IndexEncryptionConfigurationSseTypeOutput {
+	return o
+}
+
+func (o IndexEncryptionConfigurationSseTypeOutput) ToIndexEncryptionConfigurationSseTypePtrOutput() IndexEncryptionConfigurationSseTypePtrOutput {
+	return o.ToIndexEncryptionConfigurationSseTypePtrOutputWithContext(context.Background())
+}
+
+func (o IndexEncryptionConfigurationSseTypeOutput) ToIndexEncryptionConfigurationSseTypePtrOutputWithContext(ctx context.Context) IndexEncryptionConfigurationSseTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexEncryptionConfigurationSseType) *IndexEncryptionConfigurationSseType {
+		return &v
+	}).(IndexEncryptionConfigurationSseTypePtrOutput)
+}
+
+func (o IndexEncryptionConfigurationSseTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IndexEncryptionConfigurationSseTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IndexEncryptionConfigurationSseType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IndexEncryptionConfigurationSseTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IndexEncryptionConfigurationSseTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IndexEncryptionConfigurationSseType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IndexEncryptionConfigurationSseTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IndexEncryptionConfigurationSseTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexEncryptionConfigurationSseType)(nil)).Elem()
+}
+
+func (o IndexEncryptionConfigurationSseTypePtrOutput) ToIndexEncryptionConfigurationSseTypePtrOutput() IndexEncryptionConfigurationSseTypePtrOutput {
+	return o
+}
+
+func (o IndexEncryptionConfigurationSseTypePtrOutput) ToIndexEncryptionConfigurationSseTypePtrOutputWithContext(ctx context.Context) IndexEncryptionConfigurationSseTypePtrOutput {
+	return o
+}
+
+func (o IndexEncryptionConfigurationSseTypePtrOutput) Elem() IndexEncryptionConfigurationSseTypeOutput {
+	return o.ApplyT(func(v *IndexEncryptionConfigurationSseType) IndexEncryptionConfigurationSseType {
+		if v != nil {
+			return *v
+		}
+		var ret IndexEncryptionConfigurationSseType
+		return ret
+	}).(IndexEncryptionConfigurationSseTypeOutput)
+}
+
+func (o IndexEncryptionConfigurationSseTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IndexEncryptionConfigurationSseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IndexEncryptionConfigurationSseType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IndexEncryptionConfigurationSseTypeInput is an input type that accepts values of the IndexEncryptionConfigurationSseType enum
+// A concrete instance of `IndexEncryptionConfigurationSseTypeInput` can be one of the following:
+//
+//	IndexEncryptionConfigurationSseTypeAes256
+//	IndexEncryptionConfigurationSseTypeAwskms
+type IndexEncryptionConfigurationSseTypeInput interface {
+	pulumi.Input
+
+	ToIndexEncryptionConfigurationSseTypeOutput() IndexEncryptionConfigurationSseTypeOutput
+	ToIndexEncryptionConfigurationSseTypeOutputWithContext(context.Context) IndexEncryptionConfigurationSseTypeOutput
+}
+
+var indexEncryptionConfigurationSseTypePtrType = reflect.TypeOf((**IndexEncryptionConfigurationSseType)(nil)).Elem()
+
+type IndexEncryptionConfigurationSseTypePtrInput interface {
+	pulumi.Input
+
+	ToIndexEncryptionConfigurationSseTypePtrOutput() IndexEncryptionConfigurationSseTypePtrOutput
+	ToIndexEncryptionConfigurationSseTypePtrOutputWithContext(context.Context) IndexEncryptionConfigurationSseTypePtrOutput
+}
+
+type indexEncryptionConfigurationSseTypePtr string
+
+func IndexEncryptionConfigurationSseTypePtr(v string) IndexEncryptionConfigurationSseTypePtrInput {
+	return (*indexEncryptionConfigurationSseTypePtr)(&v)
+}
+
+func (*indexEncryptionConfigurationSseTypePtr) ElementType() reflect.Type {
+	return indexEncryptionConfigurationSseTypePtrType
+}
+
+func (in *indexEncryptionConfigurationSseTypePtr) ToIndexEncryptionConfigurationSseTypePtrOutput() IndexEncryptionConfigurationSseTypePtrOutput {
+	return pulumi.ToOutput(in).(IndexEncryptionConfigurationSseTypePtrOutput)
+}
+
+func (in *indexEncryptionConfigurationSseTypePtr) ToIndexEncryptionConfigurationSseTypePtrOutputWithContext(ctx context.Context) IndexEncryptionConfigurationSseTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IndexEncryptionConfigurationSseTypePtrOutput)
+}
+
 // The server-side encryption type to use for the encryption configuration of the vector bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically AES256.
 type VectorBucketEncryptionConfigurationSseType string
 
@@ -511,12 +677,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexDataTypePtrInput)(nil)).Elem(), IndexDataType("float32"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexDistanceMetricInput)(nil)).Elem(), IndexDistanceMetric("cosine"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexDistanceMetricPtrInput)(nil)).Elem(), IndexDistanceMetric("cosine"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexEncryptionConfigurationSseTypeInput)(nil)).Elem(), IndexEncryptionConfigurationSseType("AES256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexEncryptionConfigurationSseTypePtrInput)(nil)).Elem(), IndexEncryptionConfigurationSseType("AES256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VectorBucketEncryptionConfigurationSseTypeInput)(nil)).Elem(), VectorBucketEncryptionConfigurationSseType("AES256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VectorBucketEncryptionConfigurationSseTypePtrInput)(nil)).Elem(), VectorBucketEncryptionConfigurationSseType("AES256"))
 	pulumi.RegisterOutputType(IndexDataTypeOutput{})
 	pulumi.RegisterOutputType(IndexDataTypePtrOutput{})
 	pulumi.RegisterOutputType(IndexDistanceMetricOutput{})
 	pulumi.RegisterOutputType(IndexDistanceMetricPtrOutput{})
+	pulumi.RegisterOutputType(IndexEncryptionConfigurationSseTypeOutput{})
+	pulumi.RegisterOutputType(IndexEncryptionConfigurationSseTypePtrOutput{})
 	pulumi.RegisterOutputType(VectorBucketEncryptionConfigurationSseTypeOutput{})
 	pulumi.RegisterOutputType(VectorBucketEncryptionConfigurationSseTypePtrOutput{})
 }

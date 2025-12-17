@@ -1190,10 +1190,17 @@ func (o BucketAnalyticsConfigurationArrayOutput) Index(i pulumi.IntInput) Bucket
 	}).(BucketAnalyticsConfigurationOutput)
 }
 
+// A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block “PutObject“, “CopyObject“, “PostObject“, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html).
+//
+//	This data type is used with the following actions:
+//	 +   [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html)
+//	 +   [GetBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html)
+//	 +   [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html)
+//
+//	 + Permissions You must have the s3:PutEncryptionConfiguration permission to block or unblock an encryption type for a bucket. You must have the s3:GetEncryptionConfiguration permission to view a bucket's encryption type.
 type BucketBlockedEncryptionTypes struct {
 	// The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.
-	//
-	// > Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+	//   Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html).
 	EncryptionType []BucketBlockedEncryptionTypeListItem `pulumi:"encryptionType"`
 }
 
@@ -1208,10 +1215,17 @@ type BucketBlockedEncryptionTypesInput interface {
 	ToBucketBlockedEncryptionTypesOutputWithContext(context.Context) BucketBlockedEncryptionTypesOutput
 }
 
+// A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block “PutObject“, “CopyObject“, “PostObject“, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html).
+//
+//	This data type is used with the following actions:
+//	 +   [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html)
+//	 +   [GetBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html)
+//	 +   [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html)
+//
+//	 + Permissions You must have the s3:PutEncryptionConfiguration permission to block or unblock an encryption type for a bucket. You must have the s3:GetEncryptionConfiguration permission to view a bucket's encryption type.
 type BucketBlockedEncryptionTypesArgs struct {
 	// The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.
-	//
-	// > Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+	//   Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html).
 	EncryptionType BucketBlockedEncryptionTypeListItemArrayInput `pulumi:"encryptionType"`
 }
 
@@ -1268,6 +1282,14 @@ func (i *bucketBlockedEncryptionTypesPtrType) ToBucketBlockedEncryptionTypesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BucketBlockedEncryptionTypesPtrOutput)
 }
 
+// A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block “PutObject“, “CopyObject“, “PostObject“, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html).
+//
+//	This data type is used with the following actions:
+//	 +   [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html)
+//	 +   [GetBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html)
+//	 +   [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html)
+//
+//	 + Permissions You must have the s3:PutEncryptionConfiguration permission to block or unblock an encryption type for a bucket. You must have the s3:GetEncryptionConfiguration permission to view a bucket's encryption type.
 type BucketBlockedEncryptionTypesOutput struct{ *pulumi.OutputState }
 
 func (BucketBlockedEncryptionTypesOutput) ElementType() reflect.Type {
@@ -1294,7 +1316,7 @@ func (o BucketBlockedEncryptionTypesOutput) ToBucketBlockedEncryptionTypesPtrOut
 
 // The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.
 //
-// > Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+//	Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html).
 func (o BucketBlockedEncryptionTypesOutput) EncryptionType() BucketBlockedEncryptionTypeListItemArrayOutput {
 	return o.ApplyT(func(v BucketBlockedEncryptionTypes) []BucketBlockedEncryptionTypeListItem { return v.EncryptionType }).(BucketBlockedEncryptionTypeListItemArrayOutput)
 }
@@ -1325,7 +1347,7 @@ func (o BucketBlockedEncryptionTypesPtrOutput) Elem() BucketBlockedEncryptionTyp
 
 // The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.
 //
-// > Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+//	Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html).
 func (o BucketBlockedEncryptionTypesPtrOutput) EncryptionType() BucketBlockedEncryptionTypeListItemArrayOutput {
 	return o.ApplyT(func(v *BucketBlockedEncryptionTypes) []BucketBlockedEncryptionTypeListItem {
 		if v == nil {
@@ -6306,7 +6328,7 @@ func (o BucketOwnershipControlsRuleArrayOutput) Index(i pulumi.IntInput) BucketO
 	}).(BucketOwnershipControlsRuleOutput)
 }
 
-// The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide*.
+// The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Bucket-level settings work alongside account-level settings (which may inherit from organization-level policies). For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide*.
 type BucketPublicAccessBlockConfiguration struct {
 	// Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes the following behavior:
 	//   +  PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.
@@ -6337,7 +6359,7 @@ type BucketPublicAccessBlockConfigurationInput interface {
 	ToBucketPublicAccessBlockConfigurationOutputWithContext(context.Context) BucketPublicAccessBlockConfigurationOutput
 }
 
-// The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide*.
+// The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Bucket-level settings work alongside account-level settings (which may inherit from organization-level policies). For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide*.
 type BucketPublicAccessBlockConfigurationArgs struct {
 	// Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes the following behavior:
 	//   +  PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.
@@ -6410,7 +6432,7 @@ func (i *bucketPublicAccessBlockConfigurationPtrType) ToBucketPublicAccessBlockC
 	return pulumi.ToOutputWithContext(ctx, i).(BucketPublicAccessBlockConfigurationPtrOutput)
 }
 
-// The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide*.
+// The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Bucket-level settings work alongside account-level settings (which may inherit from organization-level policies). For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide*.
 type BucketPublicAccessBlockConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketPublicAccessBlockConfigurationOutput) ElementType() reflect.Type {
@@ -9479,9 +9501,8 @@ func (o BucketServerSideEncryptionByDefaultPtrOutput) SseAlgorithm() BucketServe
 //   - *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
 //   - *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
 type BucketServerSideEncryptionRule struct {
-	// A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block `PutObject` , `CopyObject` , `PostObject` , multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html) .
-	//
-	// > Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+	// A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block ``PutObject``, ``CopyObject``, ``PostObject``, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html).
+	//   Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html).
 	BlockedEncryptionTypes *BucketBlockedEncryptionTypes `pulumi:"blockedEncryptionTypes"`
 	// Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the ``BucketKeyEnabled`` element to ``true`` causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
 	//  For more information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the *Amazon S3 User Guide*.
@@ -9505,9 +9526,8 @@ type BucketServerSideEncryptionRuleInput interface {
 //   - *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
 //   - *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
 type BucketServerSideEncryptionRuleArgs struct {
-	// A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block `PutObject` , `CopyObject` , `PostObject` , multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html) .
-	//
-	// > Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+	// A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block ``PutObject``, ``CopyObject``, ``PostObject``, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html).
+	//   Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html).
 	BlockedEncryptionTypes BucketBlockedEncryptionTypesPtrInput `pulumi:"blockedEncryptionTypes"`
 	// Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the ``BucketKeyEnabled`` element to ``true`` causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
 	//  For more information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the *Amazon S3 User Guide*.
@@ -9570,9 +9590,9 @@ func (o BucketServerSideEncryptionRuleOutput) ToBucketServerSideEncryptionRuleOu
 	return o
 }
 
-// A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block `PutObject` , `CopyObject` , `PostObject` , multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html) .
+// A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block “PutObject“, “CopyObject“, “PostObject“, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html).
 //
-// > Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+//	Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html).
 func (o BucketServerSideEncryptionRuleOutput) BlockedEncryptionTypes() BucketBlockedEncryptionTypesPtrOutput {
 	return o.ApplyT(func(v BucketServerSideEncryptionRule) *BucketBlockedEncryptionTypes { return v.BlockedEncryptionTypes }).(BucketBlockedEncryptionTypesPtrOutput)
 }
@@ -12846,7 +12866,8 @@ type StorageLensDataExport struct {
 	// This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
 	CloudWatchMetrics *StorageLensCloudWatchMetrics `pulumi:"cloudWatchMetrics"`
 	// This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
-	S3BucketDestination *StorageLensS3BucketDestination `pulumi:"s3BucketDestination"`
+	S3BucketDestination         *StorageLensS3BucketDestination `pulumi:"s3BucketDestination"`
+	StorageLensTableDestination *StorageLensTableDestination    `pulumi:"storageLensTableDestination"`
 }
 
 // StorageLensDataExportInput is an input type that accepts StorageLensDataExportArgs and StorageLensDataExportOutput values.
@@ -12865,7 +12886,8 @@ type StorageLensDataExportArgs struct {
 	// This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
 	CloudWatchMetrics StorageLensCloudWatchMetricsPtrInput `pulumi:"cloudWatchMetrics"`
 	// This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
-	S3BucketDestination StorageLensS3BucketDestinationPtrInput `pulumi:"s3BucketDestination"`
+	S3BucketDestination         StorageLensS3BucketDestinationPtrInput `pulumi:"s3BucketDestination"`
+	StorageLensTableDestination StorageLensTableDestinationPtrInput    `pulumi:"storageLensTableDestination"`
 }
 
 func (StorageLensDataExportArgs) ElementType() reflect.Type {
@@ -12956,6 +12978,10 @@ func (o StorageLensDataExportOutput) S3BucketDestination() StorageLensS3BucketDe
 	return o.ApplyT(func(v StorageLensDataExport) *StorageLensS3BucketDestination { return v.S3BucketDestination }).(StorageLensS3BucketDestinationPtrOutput)
 }
 
+func (o StorageLensDataExportOutput) StorageLensTableDestination() StorageLensTableDestinationPtrOutput {
+	return o.ApplyT(func(v StorageLensDataExport) *StorageLensTableDestination { return v.StorageLensTableDestination }).(StorageLensTableDestinationPtrOutput)
+}
+
 type StorageLensDataExportPtrOutput struct{ *pulumi.OutputState }
 
 func (StorageLensDataExportPtrOutput) ElementType() reflect.Type {
@@ -12998,6 +13024,15 @@ func (o StorageLensDataExportPtrOutput) S3BucketDestination() StorageLensS3Bucke
 		}
 		return v.S3BucketDestination
 	}).(StorageLensS3BucketDestinationPtrOutput)
+}
+
+func (o StorageLensDataExportPtrOutput) StorageLensTableDestination() StorageLensTableDestinationPtrOutput {
+	return o.ApplyT(func(v *StorageLensDataExport) *StorageLensTableDestination {
+		if v == nil {
+			return nil
+		}
+		return v.StorageLensTableDestination
+	}).(StorageLensTableDestinationPtrOutput)
 }
 
 // Enables detailed status codes metrics.
@@ -13263,7 +13298,8 @@ func (o StorageLensEncryptionPtrOutput) Elem() StorageLensEncryptionOutput {
 
 // Expanded Prefixes Data Export.
 type StorageLensExpandedPrefixesDataExport struct {
-	S3BucketDestination *StorageLensS3BucketDestination `pulumi:"s3BucketDestination"`
+	S3BucketDestination         *StorageLensS3BucketDestination `pulumi:"s3BucketDestination"`
+	StorageLensTableDestination *StorageLensTableDestination    `pulumi:"storageLensTableDestination"`
 }
 
 // StorageLensExpandedPrefixesDataExportInput is an input type that accepts StorageLensExpandedPrefixesDataExportArgs and StorageLensExpandedPrefixesDataExportOutput values.
@@ -13279,7 +13315,8 @@ type StorageLensExpandedPrefixesDataExportInput interface {
 
 // Expanded Prefixes Data Export.
 type StorageLensExpandedPrefixesDataExportArgs struct {
-	S3BucketDestination StorageLensS3BucketDestinationPtrInput `pulumi:"s3BucketDestination"`
+	S3BucketDestination         StorageLensS3BucketDestinationPtrInput `pulumi:"s3BucketDestination"`
+	StorageLensTableDestination StorageLensTableDestinationPtrInput    `pulumi:"storageLensTableDestination"`
 }
 
 func (StorageLensExpandedPrefixesDataExportArgs) ElementType() reflect.Type {
@@ -13366,6 +13403,12 @@ func (o StorageLensExpandedPrefixesDataExportOutput) S3BucketDestination() Stora
 	}).(StorageLensS3BucketDestinationPtrOutput)
 }
 
+func (o StorageLensExpandedPrefixesDataExportOutput) StorageLensTableDestination() StorageLensTableDestinationPtrOutput {
+	return o.ApplyT(func(v StorageLensExpandedPrefixesDataExport) *StorageLensTableDestination {
+		return v.StorageLensTableDestination
+	}).(StorageLensTableDestinationPtrOutput)
+}
+
 type StorageLensExpandedPrefixesDataExportPtrOutput struct{ *pulumi.OutputState }
 
 func (StorageLensExpandedPrefixesDataExportPtrOutput) ElementType() reflect.Type {
@@ -13397,6 +13440,15 @@ func (o StorageLensExpandedPrefixesDataExportPtrOutput) S3BucketDestination() St
 		}
 		return v.S3BucketDestination
 	}).(StorageLensS3BucketDestinationPtrOutput)
+}
+
+func (o StorageLensExpandedPrefixesDataExportPtrOutput) StorageLensTableDestination() StorageLensTableDestinationPtrOutput {
+	return o.ApplyT(func(v *StorageLensExpandedPrefixesDataExport) *StorageLensTableDestination {
+		if v == nil {
+			return nil
+		}
+		return v.StorageLensTableDestination
+	}).(StorageLensTableDestinationPtrOutput)
 }
 
 // The Storage Lens group will include objects that match all of the specified filter values.
@@ -15464,6 +15516,161 @@ func (o StorageLensSelectionCriteriaPtrOutput) MinStorageBytesPercentage() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
+// S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.
+type StorageLensTableDestination struct {
+	Encryption *StorageLensEncryption `pulumi:"encryption"`
+	// Specifies whether the export to S3 Tables is enabled or disabled.
+	IsEnabled bool `pulumi:"isEnabled"`
+}
+
+// StorageLensTableDestinationInput is an input type that accepts StorageLensTableDestinationArgs and StorageLensTableDestinationOutput values.
+// You can construct a concrete instance of `StorageLensTableDestinationInput` via:
+//
+//	StorageLensTableDestinationArgs{...}
+type StorageLensTableDestinationInput interface {
+	pulumi.Input
+
+	ToStorageLensTableDestinationOutput() StorageLensTableDestinationOutput
+	ToStorageLensTableDestinationOutputWithContext(context.Context) StorageLensTableDestinationOutput
+}
+
+// S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.
+type StorageLensTableDestinationArgs struct {
+	Encryption StorageLensEncryptionPtrInput `pulumi:"encryption"`
+	// Specifies whether the export to S3 Tables is enabled or disabled.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+}
+
+func (StorageLensTableDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensTableDestination)(nil)).Elem()
+}
+
+func (i StorageLensTableDestinationArgs) ToStorageLensTableDestinationOutput() StorageLensTableDestinationOutput {
+	return i.ToStorageLensTableDestinationOutputWithContext(context.Background())
+}
+
+func (i StorageLensTableDestinationArgs) ToStorageLensTableDestinationOutputWithContext(ctx context.Context) StorageLensTableDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensTableDestinationOutput)
+}
+
+func (i StorageLensTableDestinationArgs) ToStorageLensTableDestinationPtrOutput() StorageLensTableDestinationPtrOutput {
+	return i.ToStorageLensTableDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensTableDestinationArgs) ToStorageLensTableDestinationPtrOutputWithContext(ctx context.Context) StorageLensTableDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensTableDestinationOutput).ToStorageLensTableDestinationPtrOutputWithContext(ctx)
+}
+
+// StorageLensTableDestinationPtrInput is an input type that accepts StorageLensTableDestinationArgs, StorageLensTableDestinationPtr and StorageLensTableDestinationPtrOutput values.
+// You can construct a concrete instance of `StorageLensTableDestinationPtrInput` via:
+//
+//	        StorageLensTableDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensTableDestinationPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensTableDestinationPtrOutput() StorageLensTableDestinationPtrOutput
+	ToStorageLensTableDestinationPtrOutputWithContext(context.Context) StorageLensTableDestinationPtrOutput
+}
+
+type storageLensTableDestinationPtrType StorageLensTableDestinationArgs
+
+func StorageLensTableDestinationPtr(v *StorageLensTableDestinationArgs) StorageLensTableDestinationPtrInput {
+	return (*storageLensTableDestinationPtrType)(v)
+}
+
+func (*storageLensTableDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensTableDestination)(nil)).Elem()
+}
+
+func (i *storageLensTableDestinationPtrType) ToStorageLensTableDestinationPtrOutput() StorageLensTableDestinationPtrOutput {
+	return i.ToStorageLensTableDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensTableDestinationPtrType) ToStorageLensTableDestinationPtrOutputWithContext(ctx context.Context) StorageLensTableDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensTableDestinationPtrOutput)
+}
+
+// S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.
+type StorageLensTableDestinationOutput struct{ *pulumi.OutputState }
+
+func (StorageLensTableDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensTableDestination)(nil)).Elem()
+}
+
+func (o StorageLensTableDestinationOutput) ToStorageLensTableDestinationOutput() StorageLensTableDestinationOutput {
+	return o
+}
+
+func (o StorageLensTableDestinationOutput) ToStorageLensTableDestinationOutputWithContext(ctx context.Context) StorageLensTableDestinationOutput {
+	return o
+}
+
+func (o StorageLensTableDestinationOutput) ToStorageLensTableDestinationPtrOutput() StorageLensTableDestinationPtrOutput {
+	return o.ToStorageLensTableDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensTableDestinationOutput) ToStorageLensTableDestinationPtrOutputWithContext(ctx context.Context) StorageLensTableDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensTableDestination) *StorageLensTableDestination {
+		return &v
+	}).(StorageLensTableDestinationPtrOutput)
+}
+
+func (o StorageLensTableDestinationOutput) Encryption() StorageLensEncryptionPtrOutput {
+	return o.ApplyT(func(v StorageLensTableDestination) *StorageLensEncryption { return v.Encryption }).(StorageLensEncryptionPtrOutput)
+}
+
+// Specifies whether the export to S3 Tables is enabled or disabled.
+func (o StorageLensTableDestinationOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v StorageLensTableDestination) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+type StorageLensTableDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensTableDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensTableDestination)(nil)).Elem()
+}
+
+func (o StorageLensTableDestinationPtrOutput) ToStorageLensTableDestinationPtrOutput() StorageLensTableDestinationPtrOutput {
+	return o
+}
+
+func (o StorageLensTableDestinationPtrOutput) ToStorageLensTableDestinationPtrOutputWithContext(ctx context.Context) StorageLensTableDestinationPtrOutput {
+	return o
+}
+
+func (o StorageLensTableDestinationPtrOutput) Elem() StorageLensTableDestinationOutput {
+	return o.ApplyT(func(v *StorageLensTableDestination) StorageLensTableDestination {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensTableDestination
+		return ret
+	}).(StorageLensTableDestinationOutput)
+}
+
+func (o StorageLensTableDestinationPtrOutput) Encryption() StorageLensEncryptionPtrOutput {
+	return o.ApplyT(func(v *StorageLensTableDestination) *StorageLensEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.Encryption
+	}).(StorageLensEncryptionPtrOutput)
+}
+
+// Specifies whether the export to S3 Tables is enabled or disabled.
+func (o StorageLensTableDestinationPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageLensTableDestination) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type StorageLensTag struct {
 	// Name of the object key.
 	Key string `pulumi:"key"`
@@ -15663,6 +15870,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensS3BucketDestinationPtrInput)(nil)).Elem(), StorageLensS3BucketDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensSelectionCriteriaInput)(nil)).Elem(), StorageLensSelectionCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensSelectionCriteriaPtrInput)(nil)).Elem(), StorageLensSelectionCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensTableDestinationInput)(nil)).Elem(), StorageLensTableDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensTableDestinationPtrInput)(nil)).Elem(), StorageLensTableDestinationArgs{})
 	pulumi.RegisterOutputType(AccessGrantGranteeOutput{})
 	pulumi.RegisterOutputType(AccessGrantGranteePtrOutput{})
 	pulumi.RegisterOutputType(AccessGrantsLocationConfigurationOutput{})
@@ -15858,4 +16067,6 @@ func init() {
 	pulumi.RegisterOutputType(StorageLensS3BucketDestinationPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensSelectionCriteriaOutput{})
 	pulumi.RegisterOutputType(StorageLensSelectionCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensTableDestinationOutput{})
+	pulumi.RegisterOutputType(StorageLensTableDestinationPtrOutput{})
 }

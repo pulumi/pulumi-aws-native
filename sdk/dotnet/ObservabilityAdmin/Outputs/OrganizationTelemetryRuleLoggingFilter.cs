@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
     [OutputType]
     public sealed class OrganizationTelemetryRuleLoggingFilter
     {
+        /// <summary>
+        /// The default action (KEEP or DROP) for log records that don't match any filter conditions.
+        /// </summary>
         public readonly Pulumi.AwsNative.ObservabilityAdmin.OrganizationTelemetryRuleFilterBehavior? DefaultBehavior;
+        /// <summary>
+        /// A list of filter conditions that determine log record handling behavior.
+        /// </summary>
         public readonly ImmutableArray<Outputs.OrganizationTelemetryRuleFilter> Filters;
 
         [OutputConstructor]

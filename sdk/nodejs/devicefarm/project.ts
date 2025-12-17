@@ -45,6 +45,8 @@ export class Project extends pulumi.CustomResource {
      * Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
      */
     declare public readonly defaultJobTimeoutMinutes: pulumi.Output<number | undefined>;
+    declare public readonly environmentVariables: pulumi.Output<outputs.devicefarm.ProjectEnvironmentVariable[] | undefined>;
+    declare public readonly executionRoleArn: pulumi.Output<string | undefined>;
     /**
      * The project's name.
      */
@@ -70,6 +72,8 @@ export class Project extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["defaultJobTimeoutMinutes"] = args?.defaultJobTimeoutMinutes;
+            resourceInputs["environmentVariables"] = args?.environmentVariables;
+            resourceInputs["executionRoleArn"] = args?.executionRoleArn;
             resourceInputs["name"] = args?.name;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["vpcConfig"] = args?.vpcConfig;
@@ -77,6 +81,8 @@ export class Project extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultJobTimeoutMinutes"] = undefined /*out*/;
+            resourceInputs["environmentVariables"] = undefined /*out*/;
+            resourceInputs["executionRoleArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcConfig"] = undefined /*out*/;
@@ -94,6 +100,8 @@ export interface ProjectArgs {
      * Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
      */
     defaultJobTimeoutMinutes?: pulumi.Input<number>;
+    environmentVariables?: pulumi.Input<pulumi.Input<inputs.devicefarm.ProjectEnvironmentVariableArgs>[]>;
+    executionRoleArn?: pulumi.Input<string>;
     /**
      * The project's name.
      */

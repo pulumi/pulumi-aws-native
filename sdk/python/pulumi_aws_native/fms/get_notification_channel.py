@@ -23,13 +23,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetNotificationChannelResult:
-    def __init__(__self__, sns_role_name=None, sns_topic_arn=None):
+    def __init__(__self__, sns_role_name=None):
         if sns_role_name and not isinstance(sns_role_name, str):
             raise TypeError("Expected argument 'sns_role_name' to be a str")
         pulumi.set(__self__, "sns_role_name", sns_role_name)
-        if sns_topic_arn and not isinstance(sns_topic_arn, str):
-            raise TypeError("Expected argument 'sns_topic_arn' to be a str")
-        pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
 
     @_builtins.property
     @pulumi.getter(name="snsRoleName")
@@ -39,14 +36,6 @@ class GetNotificationChannelResult:
         """
         return pulumi.get(self, "sns_role_name")
 
-    @_builtins.property
-    @pulumi.getter(name="snsTopicArn")
-    def sns_topic_arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
-        """
-        return pulumi.get(self, "sns_topic_arn")
-
 
 class AwaitableGetNotificationChannelResult(GetNotificationChannelResult):
     # pylint: disable=using-constant-test
@@ -54,8 +43,7 @@ class AwaitableGetNotificationChannelResult(GetNotificationChannelResult):
         if False:
             yield self
         return GetNotificationChannelResult(
-            sns_role_name=self.sns_role_name,
-            sns_topic_arn=self.sns_topic_arn)
+            sns_role_name=self.sns_role_name)
 
 
 def get_notification_channel(sns_topic_arn: Optional[_builtins.str] = None,
@@ -72,8 +60,7 @@ def get_notification_channel(sns_topic_arn: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:fms:getNotificationChannel', __args__, opts=opts, typ=GetNotificationChannelResult).value
 
     return AwaitableGetNotificationChannelResult(
-        sns_role_name=pulumi.get(__ret__, 'sns_role_name'),
-        sns_topic_arn=pulumi.get(__ret__, 'sns_topic_arn'))
+        sns_role_name=pulumi.get(__ret__, 'sns_role_name'))
 def get_notification_channel_output(sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationChannelResult]:
     """
@@ -87,5 +74,4 @@ def get_notification_channel_output(sns_topic_arn: Optional[pulumi.Input[_builti
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:fms:getNotificationChannel', __args__, opts=opts, typ=GetNotificationChannelResult)
     return __ret__.apply(lambda __response__: GetNotificationChannelResult(
-        sns_role_name=pulumi.get(__response__, 'sns_role_name'),
-        sns_topic_arn=pulumi.get(__response__, 'sns_topic_arn')))
+        sns_role_name=pulumi.get(__response__, 'sns_role_name')))

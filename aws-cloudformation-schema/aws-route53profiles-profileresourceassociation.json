@@ -41,7 +41,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "route53profiles:AssociateResourceToProfile", "route53profiles:GetProfileResourceAssociation", "route53resolver:GetFirewallRuleGroup", "route53resolver:GetResolverRule", "route53:GetHostedZone", "route53resolver:GetResolverQueryLogConfig", "ec2:DescribeVpcEndpoints" ]
+      "permissions" : [ "route53profiles:AssociateResourceToProfile", "route53profiles:GetProfileResourceAssociation", "route53resolver:GetFirewallRuleGroup", "route53resolver:GetResolverRule", "route53:GetHostedZone", "route53profiles:ListProfileResourceAssociations", "route53resolver:GetResolverQueryLogConfig", "ec2:DescribeVpcEndpoints" ]
     },
     "read" : {
       "permissions" : [ "route53profiles:GetProfileResourceAssociation" ]

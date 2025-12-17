@@ -60,6 +60,9 @@ export const OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputForm
     Json: "json",
 } as const;
 
+/**
+ * The format for ELB access log entries (plain text or JSON format).
+ */
 export type OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat = (typeof OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat)[keyof typeof OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat];
 
 export const OrganizationTelemetryRuleFilterBehavior = {
@@ -167,6 +170,9 @@ export const TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat = {
     Json: "json",
 } as const;
 
+/**
+ * The format for ELB access log entries (plain text or JSON format).
+ */
 export type TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat = (typeof TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat)[keyof typeof TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat];
 
 export const TelemetryRuleFilterBehavior = {

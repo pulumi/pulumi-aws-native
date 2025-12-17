@@ -15,6 +15,7 @@ else:
 from .. import _utilities
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = ['ProfileArgs', 'Profile']
 
@@ -115,6 +116,7 @@ class Profile(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["client_token"] = None
+            __props__.__dict__["share_status"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Profile, __self__).__init__(
@@ -143,6 +145,7 @@ class Profile(pulumi.CustomResource):
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["client_token"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["share_status"] = None
         __props__.__dict__["tags"] = None
         return Profile(resource_name, opts=opts, __props__=__props__)
 
@@ -177,6 +180,14 @@ class Profile(pulumi.CustomResource):
         The name of the profile.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="shareStatus")
+    def share_status(self) -> pulumi.Output['ProfileShareStatus']:
+        """
+        The sharing status of the profile.
+        """
+        return pulumi.get(self, "share_status")
 
     @_builtins.property
     @pulumi.getter

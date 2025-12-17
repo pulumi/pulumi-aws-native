@@ -54,6 +54,10 @@ export class Profile extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * The sharing status of the profile.
+     */
+    declare public /*out*/ readonly shareStatus: pulumi.Output<enums.route53profiles.ProfileShareStatus>;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -74,11 +78,13 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clientToken"] = undefined /*out*/;
+            resourceInputs["shareStatus"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["clientToken"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["shareStatus"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.Route53Profiles
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// The sharing status of the profile.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Route53Profiles.ProfileShareStatus? ShareStatus;
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -88,11 +92,14 @@ namespace Pulumi.AwsNative.Route53Profiles
 
             string? id,
 
+            Pulumi.AwsNative.Route53Profiles.ProfileShareStatus? shareStatus,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             ClientToken = clientToken;
             Id = id;
+            ShareStatus = shareStatus;
             Tags = tags;
         }
     }

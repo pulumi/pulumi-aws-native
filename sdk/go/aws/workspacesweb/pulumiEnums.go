@@ -1777,6 +1777,171 @@ func (in *sessionLoggerLogFileFormatPtr) ToSessionLoggerLogFileFormatPtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(SessionLoggerLogFileFormatPtrOutput)
 }
 
+type UserSettingsColorTheme string
+
+const (
+	UserSettingsColorThemeLight = UserSettingsColorTheme("Light")
+	UserSettingsColorThemeDark  = UserSettingsColorTheme("Dark")
+)
+
+func (UserSettingsColorTheme) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsColorTheme)(nil)).Elem()
+}
+
+func (e UserSettingsColorTheme) ToUserSettingsColorThemeOutput() UserSettingsColorThemeOutput {
+	return pulumi.ToOutput(e).(UserSettingsColorThemeOutput)
+}
+
+func (e UserSettingsColorTheme) ToUserSettingsColorThemeOutputWithContext(ctx context.Context) UserSettingsColorThemeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserSettingsColorThemeOutput)
+}
+
+func (e UserSettingsColorTheme) ToUserSettingsColorThemePtrOutput() UserSettingsColorThemePtrOutput {
+	return e.ToUserSettingsColorThemePtrOutputWithContext(context.Background())
+}
+
+func (e UserSettingsColorTheme) ToUserSettingsColorThemePtrOutputWithContext(ctx context.Context) UserSettingsColorThemePtrOutput {
+	return UserSettingsColorTheme(e).ToUserSettingsColorThemeOutputWithContext(ctx).ToUserSettingsColorThemePtrOutputWithContext(ctx)
+}
+
+func (e UserSettingsColorTheme) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserSettingsColorTheme) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserSettingsColorTheme) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserSettingsColorTheme) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserSettingsColorThemeOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsColorThemeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsColorTheme)(nil)).Elem()
+}
+
+func (o UserSettingsColorThemeOutput) ToUserSettingsColorThemeOutput() UserSettingsColorThemeOutput {
+	return o
+}
+
+func (o UserSettingsColorThemeOutput) ToUserSettingsColorThemeOutputWithContext(ctx context.Context) UserSettingsColorThemeOutput {
+	return o
+}
+
+func (o UserSettingsColorThemeOutput) ToUserSettingsColorThemePtrOutput() UserSettingsColorThemePtrOutput {
+	return o.ToUserSettingsColorThemePtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsColorThemeOutput) ToUserSettingsColorThemePtrOutputWithContext(ctx context.Context) UserSettingsColorThemePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSettingsColorTheme) *UserSettingsColorTheme {
+		return &v
+	}).(UserSettingsColorThemePtrOutput)
+}
+
+func (o UserSettingsColorThemeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserSettingsColorThemeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserSettingsColorTheme) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserSettingsColorThemeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsColorThemeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserSettingsColorTheme) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserSettingsColorThemePtrOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsColorThemePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserSettingsColorTheme)(nil)).Elem()
+}
+
+func (o UserSettingsColorThemePtrOutput) ToUserSettingsColorThemePtrOutput() UserSettingsColorThemePtrOutput {
+	return o
+}
+
+func (o UserSettingsColorThemePtrOutput) ToUserSettingsColorThemePtrOutputWithContext(ctx context.Context) UserSettingsColorThemePtrOutput {
+	return o
+}
+
+func (o UserSettingsColorThemePtrOutput) Elem() UserSettingsColorThemeOutput {
+	return o.ApplyT(func(v *UserSettingsColorTheme) UserSettingsColorTheme {
+		if v != nil {
+			return *v
+		}
+		var ret UserSettingsColorTheme
+		return ret
+	}).(UserSettingsColorThemeOutput)
+}
+
+func (o UserSettingsColorThemePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsColorThemePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserSettingsColorTheme) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserSettingsColorThemeInput is an input type that accepts values of the UserSettingsColorTheme enum
+// A concrete instance of `UserSettingsColorThemeInput` can be one of the following:
+//
+//	UserSettingsColorThemeLight
+//	UserSettingsColorThemeDark
+type UserSettingsColorThemeInput interface {
+	pulumi.Input
+
+	ToUserSettingsColorThemeOutput() UserSettingsColorThemeOutput
+	ToUserSettingsColorThemeOutputWithContext(context.Context) UserSettingsColorThemeOutput
+}
+
+var userSettingsColorThemePtrType = reflect.TypeOf((**UserSettingsColorTheme)(nil)).Elem()
+
+type UserSettingsColorThemePtrInput interface {
+	pulumi.Input
+
+	ToUserSettingsColorThemePtrOutput() UserSettingsColorThemePtrOutput
+	ToUserSettingsColorThemePtrOutputWithContext(context.Context) UserSettingsColorThemePtrOutput
+}
+
+type userSettingsColorThemePtr string
+
+func UserSettingsColorThemePtr(v string) UserSettingsColorThemePtrInput {
+	return (*userSettingsColorThemePtr)(&v)
+}
+
+func (*userSettingsColorThemePtr) ElementType() reflect.Type {
+	return userSettingsColorThemePtrType
+}
+
+func (in *userSettingsColorThemePtr) ToUserSettingsColorThemePtrOutput() UserSettingsColorThemePtrOutput {
+	return pulumi.ToOutput(in).(UserSettingsColorThemePtrOutput)
+}
+
+func (in *userSettingsColorThemePtr) ToUserSettingsColorThemePtrOutputWithContext(ctx context.Context) UserSettingsColorThemePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserSettingsColorThemePtrOutput)
+}
+
 type UserSettingsEnabledType string
 
 const (
@@ -2117,6 +2282,173 @@ func (in *userSettingsMaxDisplayResolutionPtr) ToUserSettingsMaxDisplayResolutio
 
 func (in *userSettingsMaxDisplayResolutionPtr) ToUserSettingsMaxDisplayResolutionPtrOutputWithContext(ctx context.Context) UserSettingsMaxDisplayResolutionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UserSettingsMaxDisplayResolutionPtrOutput)
+}
+
+type UserSettingsMimeType string
+
+const (
+	UserSettingsMimeTypeImagepng   = UserSettingsMimeType("image/png")
+	UserSettingsMimeTypeImagejpeg  = UserSettingsMimeType("image/jpeg")
+	UserSettingsMimeTypeImagexIcon = UserSettingsMimeType("image/x-icon")
+)
+
+func (UserSettingsMimeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsMimeType)(nil)).Elem()
+}
+
+func (e UserSettingsMimeType) ToUserSettingsMimeTypeOutput() UserSettingsMimeTypeOutput {
+	return pulumi.ToOutput(e).(UserSettingsMimeTypeOutput)
+}
+
+func (e UserSettingsMimeType) ToUserSettingsMimeTypeOutputWithContext(ctx context.Context) UserSettingsMimeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserSettingsMimeTypeOutput)
+}
+
+func (e UserSettingsMimeType) ToUserSettingsMimeTypePtrOutput() UserSettingsMimeTypePtrOutput {
+	return e.ToUserSettingsMimeTypePtrOutputWithContext(context.Background())
+}
+
+func (e UserSettingsMimeType) ToUserSettingsMimeTypePtrOutputWithContext(ctx context.Context) UserSettingsMimeTypePtrOutput {
+	return UserSettingsMimeType(e).ToUserSettingsMimeTypeOutputWithContext(ctx).ToUserSettingsMimeTypePtrOutputWithContext(ctx)
+}
+
+func (e UserSettingsMimeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserSettingsMimeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserSettingsMimeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserSettingsMimeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserSettingsMimeTypeOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsMimeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserSettingsMimeType)(nil)).Elem()
+}
+
+func (o UserSettingsMimeTypeOutput) ToUserSettingsMimeTypeOutput() UserSettingsMimeTypeOutput {
+	return o
+}
+
+func (o UserSettingsMimeTypeOutput) ToUserSettingsMimeTypeOutputWithContext(ctx context.Context) UserSettingsMimeTypeOutput {
+	return o
+}
+
+func (o UserSettingsMimeTypeOutput) ToUserSettingsMimeTypePtrOutput() UserSettingsMimeTypePtrOutput {
+	return o.ToUserSettingsMimeTypePtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsMimeTypeOutput) ToUserSettingsMimeTypePtrOutputWithContext(ctx context.Context) UserSettingsMimeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSettingsMimeType) *UserSettingsMimeType {
+		return &v
+	}).(UserSettingsMimeTypePtrOutput)
+}
+
+func (o UserSettingsMimeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserSettingsMimeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserSettingsMimeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserSettingsMimeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsMimeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserSettingsMimeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserSettingsMimeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UserSettingsMimeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserSettingsMimeType)(nil)).Elem()
+}
+
+func (o UserSettingsMimeTypePtrOutput) ToUserSettingsMimeTypePtrOutput() UserSettingsMimeTypePtrOutput {
+	return o
+}
+
+func (o UserSettingsMimeTypePtrOutput) ToUserSettingsMimeTypePtrOutputWithContext(ctx context.Context) UserSettingsMimeTypePtrOutput {
+	return o
+}
+
+func (o UserSettingsMimeTypePtrOutput) Elem() UserSettingsMimeTypeOutput {
+	return o.ApplyT(func(v *UserSettingsMimeType) UserSettingsMimeType {
+		if v != nil {
+			return *v
+		}
+		var ret UserSettingsMimeType
+		return ret
+	}).(UserSettingsMimeTypeOutput)
+}
+
+func (o UserSettingsMimeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserSettingsMimeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserSettingsMimeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserSettingsMimeTypeInput is an input type that accepts values of the UserSettingsMimeType enum
+// A concrete instance of `UserSettingsMimeTypeInput` can be one of the following:
+//
+//	UserSettingsMimeTypeImagepng
+//	UserSettingsMimeTypeImagejpeg
+//	UserSettingsMimeTypeImagexIcon
+type UserSettingsMimeTypeInput interface {
+	pulumi.Input
+
+	ToUserSettingsMimeTypeOutput() UserSettingsMimeTypeOutput
+	ToUserSettingsMimeTypeOutputWithContext(context.Context) UserSettingsMimeTypeOutput
+}
+
+var userSettingsMimeTypePtrType = reflect.TypeOf((**UserSettingsMimeType)(nil)).Elem()
+
+type UserSettingsMimeTypePtrInput interface {
+	pulumi.Input
+
+	ToUserSettingsMimeTypePtrOutput() UserSettingsMimeTypePtrOutput
+	ToUserSettingsMimeTypePtrOutputWithContext(context.Context) UserSettingsMimeTypePtrOutput
+}
+
+type userSettingsMimeTypePtr string
+
+func UserSettingsMimeTypePtr(v string) UserSettingsMimeTypePtrInput {
+	return (*userSettingsMimeTypePtr)(&v)
+}
+
+func (*userSettingsMimeTypePtr) ElementType() reflect.Type {
+	return userSettingsMimeTypePtrType
+}
+
+func (in *userSettingsMimeTypePtr) ToUserSettingsMimeTypePtrOutput() UserSettingsMimeTypePtrOutput {
+	return pulumi.ToOutput(in).(UserSettingsMimeTypePtrOutput)
+}
+
+func (in *userSettingsMimeTypePtr) ToUserSettingsMimeTypePtrOutputWithContext(ctx context.Context) UserSettingsMimeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserSettingsMimeTypePtrOutput)
 }
 
 type UserSettingsToolbarItem string
@@ -2684,10 +3016,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerFolderStructurePtrInput)(nil)).Elem(), SessionLoggerFolderStructure("Flat"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerLogFileFormatInput)(nil)).Elem(), SessionLoggerLogFileFormat("JSONLines"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SessionLoggerLogFileFormatPtrInput)(nil)).Elem(), SessionLoggerLogFileFormat("JSONLines"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsColorThemeInput)(nil)).Elem(), UserSettingsColorTheme("Light"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsColorThemePtrInput)(nil)).Elem(), UserSettingsColorTheme("Light"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsEnabledTypeInput)(nil)).Elem(), UserSettingsEnabledType("Disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsEnabledTypePtrInput)(nil)).Elem(), UserSettingsEnabledType("Disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsMaxDisplayResolutionInput)(nil)).Elem(), UserSettingsMaxDisplayResolution("size4096X2160"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsMaxDisplayResolutionPtrInput)(nil)).Elem(), UserSettingsMaxDisplayResolution("size4096X2160"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsMimeTypeInput)(nil)).Elem(), UserSettingsMimeType("image/png"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsMimeTypePtrInput)(nil)).Elem(), UserSettingsMimeType("image/png"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsToolbarItemInput)(nil)).Elem(), UserSettingsToolbarItem("Windows"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsToolbarItemPtrInput)(nil)).Elem(), UserSettingsToolbarItem("Windows"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsToolbarItemArrayInput)(nil)).Elem(), UserSettingsToolbarItemArray{})
@@ -2719,10 +3055,14 @@ func init() {
 	pulumi.RegisterOutputType(SessionLoggerFolderStructurePtrOutput{})
 	pulumi.RegisterOutputType(SessionLoggerLogFileFormatOutput{})
 	pulumi.RegisterOutputType(SessionLoggerLogFileFormatPtrOutput{})
+	pulumi.RegisterOutputType(UserSettingsColorThemeOutput{})
+	pulumi.RegisterOutputType(UserSettingsColorThemePtrOutput{})
 	pulumi.RegisterOutputType(UserSettingsEnabledTypeOutput{})
 	pulumi.RegisterOutputType(UserSettingsEnabledTypePtrOutput{})
 	pulumi.RegisterOutputType(UserSettingsMaxDisplayResolutionOutput{})
 	pulumi.RegisterOutputType(UserSettingsMaxDisplayResolutionPtrOutput{})
+	pulumi.RegisterOutputType(UserSettingsMimeTypeOutput{})
+	pulumi.RegisterOutputType(UserSettingsMimeTypePtrOutput{})
 	pulumi.RegisterOutputType(UserSettingsToolbarItemOutput{})
 	pulumi.RegisterOutputType(UserSettingsToolbarItemPtrOutput{})
 	pulumi.RegisterOutputType(UserSettingsToolbarItemArrayOutput{})

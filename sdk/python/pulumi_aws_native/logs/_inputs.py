@@ -775,6 +775,10 @@ if not MYPY:
         """
         Specify which version of the OCSF schema to use for the transformed log events.
         """
+        mapping_version: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The version of the OCSF mapping to use for parsing log data.
+        """
         source: NotRequired[pulumi.Input[_builtins.str]]
         """
         The path to the field in the log event that you want to parse. If you omit this value, the whole log message is parsed.
@@ -787,14 +791,18 @@ class TransformerParseToOcsfArgs:
     def __init__(__self__, *,
                  event_source: pulumi.Input['TransformerEventSource'],
                  ocsf_version: pulumi.Input['TransformerOcsfVersion'],
+                 mapping_version: Optional[pulumi.Input[_builtins.str]] = None,
                  source: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input['TransformerEventSource'] event_source: Specify the service or process that produces the log events that will be converted with this processor.
         :param pulumi.Input['TransformerOcsfVersion'] ocsf_version: Specify which version of the OCSF schema to use for the transformed log events.
+        :param pulumi.Input[_builtins.str] mapping_version: The version of the OCSF mapping to use for parsing log data.
         :param pulumi.Input[_builtins.str] source: The path to the field in the log event that you want to parse. If you omit this value, the whole log message is parsed.
         """
         pulumi.set(__self__, "event_source", event_source)
         pulumi.set(__self__, "ocsf_version", ocsf_version)
+        if mapping_version is not None:
+            pulumi.set(__self__, "mapping_version", mapping_version)
         if source is not None:
             pulumi.set(__self__, "source", source)
 
@@ -821,6 +829,18 @@ class TransformerParseToOcsfArgs:
     @ocsf_version.setter
     def ocsf_version(self, value: pulumi.Input['TransformerOcsfVersion']):
         pulumi.set(self, "ocsf_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mappingVersion")
+    def mapping_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The version of the OCSF mapping to use for parsing log data.
+        """
+        return pulumi.get(self, "mapping_version")
+
+    @mapping_version.setter
+    def mapping_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "mapping_version", value)
 
     @_builtins.property
     @pulumi.getter

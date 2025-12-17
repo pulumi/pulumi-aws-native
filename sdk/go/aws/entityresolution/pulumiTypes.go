@@ -1915,6 +1915,154 @@ type IdNamespaceTag struct {
 	Value string `pulumi:"value"`
 }
 
+type MatchingWorkflowCustomerProfilesIntegrationConfig struct {
+	DomainArn     string `pulumi:"domainArn"`
+	ObjectTypeArn string `pulumi:"objectTypeArn"`
+}
+
+// MatchingWorkflowCustomerProfilesIntegrationConfigInput is an input type that accepts MatchingWorkflowCustomerProfilesIntegrationConfigArgs and MatchingWorkflowCustomerProfilesIntegrationConfigOutput values.
+// You can construct a concrete instance of `MatchingWorkflowCustomerProfilesIntegrationConfigInput` via:
+//
+//	MatchingWorkflowCustomerProfilesIntegrationConfigArgs{...}
+type MatchingWorkflowCustomerProfilesIntegrationConfigInput interface {
+	pulumi.Input
+
+	ToMatchingWorkflowCustomerProfilesIntegrationConfigOutput() MatchingWorkflowCustomerProfilesIntegrationConfigOutput
+	ToMatchingWorkflowCustomerProfilesIntegrationConfigOutputWithContext(context.Context) MatchingWorkflowCustomerProfilesIntegrationConfigOutput
+}
+
+type MatchingWorkflowCustomerProfilesIntegrationConfigArgs struct {
+	DomainArn     pulumi.StringInput `pulumi:"domainArn"`
+	ObjectTypeArn pulumi.StringInput `pulumi:"objectTypeArn"`
+}
+
+func (MatchingWorkflowCustomerProfilesIntegrationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchingWorkflowCustomerProfilesIntegrationConfig)(nil)).Elem()
+}
+
+func (i MatchingWorkflowCustomerProfilesIntegrationConfigArgs) ToMatchingWorkflowCustomerProfilesIntegrationConfigOutput() MatchingWorkflowCustomerProfilesIntegrationConfigOutput {
+	return i.ToMatchingWorkflowCustomerProfilesIntegrationConfigOutputWithContext(context.Background())
+}
+
+func (i MatchingWorkflowCustomerProfilesIntegrationConfigArgs) ToMatchingWorkflowCustomerProfilesIntegrationConfigOutputWithContext(ctx context.Context) MatchingWorkflowCustomerProfilesIntegrationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowCustomerProfilesIntegrationConfigOutput)
+}
+
+func (i MatchingWorkflowCustomerProfilesIntegrationConfigArgs) ToMatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput() MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput {
+	return i.ToMatchingWorkflowCustomerProfilesIntegrationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MatchingWorkflowCustomerProfilesIntegrationConfigArgs) ToMatchingWorkflowCustomerProfilesIntegrationConfigPtrOutputWithContext(ctx context.Context) MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowCustomerProfilesIntegrationConfigOutput).ToMatchingWorkflowCustomerProfilesIntegrationConfigPtrOutputWithContext(ctx)
+}
+
+// MatchingWorkflowCustomerProfilesIntegrationConfigPtrInput is an input type that accepts MatchingWorkflowCustomerProfilesIntegrationConfigArgs, MatchingWorkflowCustomerProfilesIntegrationConfigPtr and MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput values.
+// You can construct a concrete instance of `MatchingWorkflowCustomerProfilesIntegrationConfigPtrInput` via:
+//
+//	        MatchingWorkflowCustomerProfilesIntegrationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type MatchingWorkflowCustomerProfilesIntegrationConfigPtrInput interface {
+	pulumi.Input
+
+	ToMatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput() MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput
+	ToMatchingWorkflowCustomerProfilesIntegrationConfigPtrOutputWithContext(context.Context) MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput
+}
+
+type matchingWorkflowCustomerProfilesIntegrationConfigPtrType MatchingWorkflowCustomerProfilesIntegrationConfigArgs
+
+func MatchingWorkflowCustomerProfilesIntegrationConfigPtr(v *MatchingWorkflowCustomerProfilesIntegrationConfigArgs) MatchingWorkflowCustomerProfilesIntegrationConfigPtrInput {
+	return (*matchingWorkflowCustomerProfilesIntegrationConfigPtrType)(v)
+}
+
+func (*matchingWorkflowCustomerProfilesIntegrationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MatchingWorkflowCustomerProfilesIntegrationConfig)(nil)).Elem()
+}
+
+func (i *matchingWorkflowCustomerProfilesIntegrationConfigPtrType) ToMatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput() MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput {
+	return i.ToMatchingWorkflowCustomerProfilesIntegrationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *matchingWorkflowCustomerProfilesIntegrationConfigPtrType) ToMatchingWorkflowCustomerProfilesIntegrationConfigPtrOutputWithContext(ctx context.Context) MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput)
+}
+
+type MatchingWorkflowCustomerProfilesIntegrationConfigOutput struct{ *pulumi.OutputState }
+
+func (MatchingWorkflowCustomerProfilesIntegrationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchingWorkflowCustomerProfilesIntegrationConfig)(nil)).Elem()
+}
+
+func (o MatchingWorkflowCustomerProfilesIntegrationConfigOutput) ToMatchingWorkflowCustomerProfilesIntegrationConfigOutput() MatchingWorkflowCustomerProfilesIntegrationConfigOutput {
+	return o
+}
+
+func (o MatchingWorkflowCustomerProfilesIntegrationConfigOutput) ToMatchingWorkflowCustomerProfilesIntegrationConfigOutputWithContext(ctx context.Context) MatchingWorkflowCustomerProfilesIntegrationConfigOutput {
+	return o
+}
+
+func (o MatchingWorkflowCustomerProfilesIntegrationConfigOutput) ToMatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput() MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput {
+	return o.ToMatchingWorkflowCustomerProfilesIntegrationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MatchingWorkflowCustomerProfilesIntegrationConfigOutput) ToMatchingWorkflowCustomerProfilesIntegrationConfigPtrOutputWithContext(ctx context.Context) MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MatchingWorkflowCustomerProfilesIntegrationConfig) *MatchingWorkflowCustomerProfilesIntegrationConfig {
+		return &v
+	}).(MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput)
+}
+
+func (o MatchingWorkflowCustomerProfilesIntegrationConfigOutput) DomainArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MatchingWorkflowCustomerProfilesIntegrationConfig) string { return v.DomainArn }).(pulumi.StringOutput)
+}
+
+func (o MatchingWorkflowCustomerProfilesIntegrationConfigOutput) ObjectTypeArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MatchingWorkflowCustomerProfilesIntegrationConfig) string { return v.ObjectTypeArn }).(pulumi.StringOutput)
+}
+
+type MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MatchingWorkflowCustomerProfilesIntegrationConfig)(nil)).Elem()
+}
+
+func (o MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput) ToMatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput() MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput {
+	return o
+}
+
+func (o MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput) ToMatchingWorkflowCustomerProfilesIntegrationConfigPtrOutputWithContext(ctx context.Context) MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput {
+	return o
+}
+
+func (o MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput) Elem() MatchingWorkflowCustomerProfilesIntegrationConfigOutput {
+	return o.ApplyT(func(v *MatchingWorkflowCustomerProfilesIntegrationConfig) MatchingWorkflowCustomerProfilesIntegrationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MatchingWorkflowCustomerProfilesIntegrationConfig
+		return ret
+	}).(MatchingWorkflowCustomerProfilesIntegrationConfigOutput)
+}
+
+func (o MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput) DomainArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MatchingWorkflowCustomerProfilesIntegrationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput) ObjectTypeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MatchingWorkflowCustomerProfilesIntegrationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectTypeArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type MatchingWorkflowIncrementalRunConfig struct {
 	// The type of incremental run. The only valid value is `IMMEDIATE` . This appears as "Automatic" in the console.
 	//
@@ -2422,13 +2570,14 @@ func (o MatchingWorkflowOutputAttributeArrayOutput) Index(i pulumi.IntInput) Mat
 
 type MatchingWorkflowOutputSource struct {
 	// Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
-	ApplyNormalization *bool `pulumi:"applyNormalization"`
+	ApplyNormalization                *bool                                              `pulumi:"applyNormalization"`
+	CustomerProfilesIntegrationConfig *MatchingWorkflowCustomerProfilesIntegrationConfig `pulumi:"customerProfilesIntegrationConfig"`
 	// Customer KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
 	KmsArn *string `pulumi:"kmsArn"`
 	// A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
 	Output []MatchingWorkflowOutputAttribute `pulumi:"output"`
 	// The S3 path to which Entity Resolution will write the output table
-	OutputS3Path string `pulumi:"outputS3Path"`
+	OutputS3Path *string `pulumi:"outputS3Path"`
 }
 
 // MatchingWorkflowOutputSourceInput is an input type that accepts MatchingWorkflowOutputSourceArgs and MatchingWorkflowOutputSourceOutput values.
@@ -2444,13 +2593,14 @@ type MatchingWorkflowOutputSourceInput interface {
 
 type MatchingWorkflowOutputSourceArgs struct {
 	// Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
-	ApplyNormalization pulumi.BoolPtrInput `pulumi:"applyNormalization"`
+	ApplyNormalization                pulumi.BoolPtrInput                                       `pulumi:"applyNormalization"`
+	CustomerProfilesIntegrationConfig MatchingWorkflowCustomerProfilesIntegrationConfigPtrInput `pulumi:"customerProfilesIntegrationConfig"`
 	// Customer KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
 	KmsArn pulumi.StringPtrInput `pulumi:"kmsArn"`
 	// A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
 	Output MatchingWorkflowOutputAttributeArrayInput `pulumi:"output"`
 	// The S3 path to which Entity Resolution will write the output table
-	OutputS3Path pulumi.StringInput `pulumi:"outputS3Path"`
+	OutputS3Path pulumi.StringPtrInput `pulumi:"outputS3Path"`
 }
 
 func (MatchingWorkflowOutputSourceArgs) ElementType() reflect.Type {
@@ -2509,6 +2659,12 @@ func (o MatchingWorkflowOutputSourceOutput) ApplyNormalization() pulumi.BoolPtrO
 	return o.ApplyT(func(v MatchingWorkflowOutputSource) *bool { return v.ApplyNormalization }).(pulumi.BoolPtrOutput)
 }
 
+func (o MatchingWorkflowOutputSourceOutput) CustomerProfilesIntegrationConfig() MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput {
+	return o.ApplyT(func(v MatchingWorkflowOutputSource) *MatchingWorkflowCustomerProfilesIntegrationConfig {
+		return v.CustomerProfilesIntegrationConfig
+	}).(MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput)
+}
+
 // Customer KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
 func (o MatchingWorkflowOutputSourceOutput) KmsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MatchingWorkflowOutputSource) *string { return v.KmsArn }).(pulumi.StringPtrOutput)
@@ -2520,8 +2676,8 @@ func (o MatchingWorkflowOutputSourceOutput) Output() MatchingWorkflowOutputAttri
 }
 
 // The S3 path to which Entity Resolution will write the output table
-func (o MatchingWorkflowOutputSourceOutput) OutputS3Path() pulumi.StringOutput {
-	return o.ApplyT(func(v MatchingWorkflowOutputSource) string { return v.OutputS3Path }).(pulumi.StringOutput)
+func (o MatchingWorkflowOutputSourceOutput) OutputS3Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MatchingWorkflowOutputSource) *string { return v.OutputS3Path }).(pulumi.StringPtrOutput)
 }
 
 type MatchingWorkflowOutputSourceArrayOutput struct{ *pulumi.OutputState }
@@ -3645,6 +3801,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceNamespaceRuleBasedPropertiesPtrInput)(nil)).Elem(), IdNamespaceNamespaceRuleBasedPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceRuleInput)(nil)).Elem(), IdNamespaceRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceRuleArrayInput)(nil)).Elem(), IdNamespaceRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowCustomerProfilesIntegrationConfigInput)(nil)).Elem(), MatchingWorkflowCustomerProfilesIntegrationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowCustomerProfilesIntegrationConfigPtrInput)(nil)).Elem(), MatchingWorkflowCustomerProfilesIntegrationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowIncrementalRunConfigInput)(nil)).Elem(), MatchingWorkflowIncrementalRunConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowIncrementalRunConfigPtrInput)(nil)).Elem(), MatchingWorkflowIncrementalRunConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MatchingWorkflowInputSourceInput)(nil)).Elem(), MatchingWorkflowInputSourceArgs{})
@@ -3694,6 +3852,8 @@ func init() {
 	pulumi.RegisterOutputType(IdNamespaceNamespaceRuleBasedPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IdNamespaceRuleOutput{})
 	pulumi.RegisterOutputType(IdNamespaceRuleArrayOutput{})
+	pulumi.RegisterOutputType(MatchingWorkflowCustomerProfilesIntegrationConfigOutput{})
+	pulumi.RegisterOutputType(MatchingWorkflowCustomerProfilesIntegrationConfigPtrOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowIncrementalRunConfigOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowIncrementalRunConfigPtrOutput{})
 	pulumi.RegisterOutputType(MatchingWorkflowInputSourceOutput{})

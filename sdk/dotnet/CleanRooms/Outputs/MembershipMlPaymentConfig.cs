@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
         /// The payment responsibilities accepted by the member for model training.
         /// </summary>
         public readonly Outputs.MembershipModelTrainingPaymentConfig? ModelTraining;
+        /// <summary>
+        /// The payment configuration for synthetic data generation for this machine learning membership.
+        /// </summary>
         public readonly Outputs.MembershipSyntheticDataGenerationPaymentConfig? SyntheticDataGeneration;
 
         [OutputConstructor]

@@ -308,6 +308,14 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<int>? OnDemandMaxPricePercentageOverLowestPrice { get; set; }
 
         /// <summary>
+        /// Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
+        /// 
+        /// Default: `false`
+        /// </summary>
+        [Input("requireEncryptionInTransit")]
+        public Input<bool>? RequireEncryptionInTransit { get; set; }
+
+        /// <summary>
         /// Indicates whether instance types must support hibernation for On-Demand Instances.
         /// 
         /// This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .

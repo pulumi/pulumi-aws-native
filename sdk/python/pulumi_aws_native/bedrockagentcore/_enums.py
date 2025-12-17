@@ -13,6 +13,7 @@ __all__ = [
     'CodeInterpreterCustomCodeInterpreterStatus',
     'GatewayAuthorizerType',
     'GatewayExceptionLevel',
+    'GatewayInterceptionPoint',
     'GatewayProtocolType',
     'GatewaySearchType',
     'GatewayStatus',
@@ -86,11 +87,18 @@ class CodeInterpreterCustomCodeInterpreterStatus(_builtins.str, Enum):
 class GatewayAuthorizerType(_builtins.str, Enum):
     CUSTOM_JWT = "CUSTOM_JWT"
     AWS_IAM = "AWS_IAM"
+    NONE = "NONE"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayExceptionLevel")
 class GatewayExceptionLevel(_builtins.str, Enum):
     DEBUG = "DEBUG"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayInterceptionPoint")
+class GatewayInterceptionPoint(_builtins.str, Enum):
+    REQUEST = "REQUEST"
+    RESPONSE = "RESPONSE"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayProtocolType")

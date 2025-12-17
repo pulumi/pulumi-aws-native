@@ -105,6 +105,11 @@ export const getTemplate: typeof import("./getTemplate").getTemplate = null as a
 export const getTemplateOutput: typeof import("./getTemplate").getTemplateOutput = null as any;
 utilities.lazyLoad(exports, ["getTemplate","getTemplateOutput"], () => require("./getTemplate"));
 
+export { GetTenantArgs, GetTenantResult, GetTenantOutputArgs } from "./getTenant";
+export const getTenant: typeof import("./getTenant").getTenant = null as any;
+export const getTenantOutput: typeof import("./getTenant").getTenantOutput = null as any;
+utilities.lazyLoad(exports, ["getTenant","getTenantOutput"], () => require("./getTenant"));
+
 export { GetVdmAttributesArgs, GetVdmAttributesResult, GetVdmAttributesOutputArgs } from "./getVdmAttributes";
 export const getVdmAttributes: typeof import("./getVdmAttributes").getVdmAttributes = null as any;
 export const getVdmAttributesOutput: typeof import("./getVdmAttributes").getVdmAttributesOutput = null as any;
@@ -160,6 +165,11 @@ export type Template = import("./template").Template;
 export const Template: typeof import("./template").Template = null as any;
 utilities.lazyLoad(exports, ["Template"], () => require("./template"));
 
+export { TenantArgs } from "./tenant";
+export type Tenant = import("./tenant").Tenant;
+export const Tenant: typeof import("./tenant").Tenant = null as any;
+utilities.lazyLoad(exports, ["Tenant"], () => require("./tenant"));
+
 export { VdmAttributesArgs } from "./vdmAttributes";
 export type VdmAttributes = import("./vdmAttributes").VdmAttributes;
 export const VdmAttributes: typeof import("./vdmAttributes").VdmAttributes = null as any;
@@ -203,6 +213,8 @@ const _module = {
                 return new MultiRegionEndpoint(name, <any>undefined, { urn })
             case "aws-native:ses:Template":
                 return new Template(name, <any>undefined, { urn })
+            case "aws-native:ses:Tenant":
+                return new Tenant(name, <any>undefined, { urn })
             case "aws-native:ses:VdmAttributes":
                 return new VdmAttributes(name, <any>undefined, { urn })
             default:

@@ -1673,6 +1673,7 @@ type TransformerOcsfVersion string
 
 const (
 	TransformerOcsfVersionV11 = TransformerOcsfVersion("V1.1")
+	TransformerOcsfVersionV15 = TransformerOcsfVersion("V1.5")
 )
 
 func (TransformerOcsfVersion) ElementType() reflect.Type {
@@ -1798,6 +1799,7 @@ func (o TransformerOcsfVersionPtrOutput) ToStringPtrOutputWithContext(ctx contex
 // A concrete instance of `TransformerOcsfVersionInput` can be one of the following:
 //
 //	TransformerOcsfVersionV11
+//	TransformerOcsfVersionV15
 type TransformerOcsfVersionInput interface {
 	pulumi.Input
 

@@ -352,7 +352,7 @@ class Ec2Fleet(pulumi.CustomResource):
             __props__.__dict__["valid_from"] = valid_from
             __props__.__dict__["valid_until"] = valid_until
             __props__.__dict__["fleet_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["launchTemplateConfigs[*]", "onDemandOptions", "replaceUnhealthyInstances", "spotOptions", "tagSpecifications[*]", "terminateInstancesWithExpiration", "type", "validFrom", "validUntil"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["launchTemplateConfigs[*]", "onDemandOptions", "replaceUnhealthyInstances", "spotOptions", "tagSpecifications[*]", "targetCapacitySpecification.defaultTargetCapacityType", "targetCapacitySpecification.targetCapacityUnitType", "terminateInstancesWithExpiration", "type", "validFrom", "validUntil"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Ec2Fleet, __self__).__init__(
             'aws-native:ec2:Ec2Fleet',

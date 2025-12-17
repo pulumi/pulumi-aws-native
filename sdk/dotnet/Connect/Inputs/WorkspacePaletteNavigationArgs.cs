@@ -12,24 +12,45 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
     public sealed class WorkspacePaletteNavigationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The background color of the navigation area.
+        /// </summary>
         [Input("background")]
         public Input<string>? Background { get; set; }
 
+        /// <summary>
+        /// Whether to invert the colors of action buttons in the navigation area.
+        /// </summary>
         [Input("invertActionsColors")]
         public Input<bool>? InvertActionsColors { get; set; }
 
+        /// <summary>
+        /// The text color in the navigation area.
+        /// </summary>
         [Input("text")]
         public Input<string>? Text { get; set; }
 
+        /// <summary>
+        /// The text color for active navigation items.
+        /// </summary>
         [Input("textActive")]
         public Input<string>? TextActive { get; set; }
 
+        /// <summary>
+        /// The background color for active navigation items.
+        /// </summary>
         [Input("textBackgroundActive")]
         public Input<string>? TextBackgroundActive { get; set; }
 
+        /// <summary>
+        /// The background color when hovering over navigation text.
+        /// </summary>
         [Input("textBackgroundHover")]
         public Input<string>? TextBackgroundHover { get; set; }
 
+        /// <summary>
+        /// The text color when hovering over navigation items.
+        /// </summary>
         [Input("textHover")]
         public Input<string>? TextHover { get; set; }
 

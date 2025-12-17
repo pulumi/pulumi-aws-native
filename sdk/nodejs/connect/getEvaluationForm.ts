@@ -48,6 +48,9 @@ export interface GetEvaluationFormResult {
      *  *Maximum size*: 100
      */
     readonly items?: outputs.connect.EvaluationFormBaseItem[];
+    /**
+     * Configuration for language settings of this evaluation form.
+     */
     readonly languageConfiguration?: outputs.connect.EvaluationFormLanguageConfiguration;
     /**
      * A scoring strategy of the evaluation form.
@@ -62,6 +65,9 @@ export interface GetEvaluationFormResult {
      * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * Configuration that specifies the target for this evaluation form.
+     */
     readonly targetConfiguration?: outputs.connect.EvaluationFormTargetConfiguration;
     /**
      * A title of the evaluation form.

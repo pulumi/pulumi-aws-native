@@ -76,6 +76,12 @@ namespace Pulumi.AwsNative.KafkaConnect
         public Output<Outputs.ConnectorLogDelivery?> LogDelivery { get; private set; } = null!;
 
         /// <summary>
+        /// The network type of the Connector.
+        /// </summary>
+        [Output("networkType")]
+        public Output<Pulumi.AwsNative.KafkaConnect.ConnectorNetworkType?> NetworkType { get; private set; } = null!;
+
+        /// <summary>
         /// List of plugins to use with the connector.
         /// </summary>
         [Output("plugins")]
@@ -131,6 +137,7 @@ namespace Pulumi.AwsNative.KafkaConnect
                     "kafkaClusterEncryptionInTransit",
                     "kafkaConnectVersion",
                     "logDelivery",
+                    "networkType",
                     "plugins[*]",
                     "serviceExecutionRoleArn",
                     "workerConfiguration",
@@ -216,6 +223,12 @@ namespace Pulumi.AwsNative.KafkaConnect
         /// </summary>
         [Input("logDelivery")]
         public Input<Inputs.ConnectorLogDeliveryArgs>? LogDelivery { get; set; }
+
+        /// <summary>
+        /// The network type of the Connector.
+        /// </summary>
+        [Input("networkType")]
+        public Input<Pulumi.AwsNative.KafkaConnect.ConnectorNetworkType>? NetworkType { get; set; }
 
         [Input("plugins", required: true)]
         private InputList<Inputs.ConnectorPluginArgs>? _plugins;

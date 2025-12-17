@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
         /// Criteria for selecting which resources the rule applies to, such as resource tags.
         /// </summary>
         public readonly string? SelectionCriteria;
+        /// <summary>
+        /// The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.ObservabilityAdmin.TelemetryRuleTelemetrySourceType> TelemetrySourceTypes;
         /// <summary>
         /// The type of telemetry to collect (Logs, Metrics, or Traces).

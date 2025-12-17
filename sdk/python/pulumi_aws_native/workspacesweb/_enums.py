@@ -18,8 +18,10 @@ __all__ = [
     'SessionLoggerEvent',
     'SessionLoggerFolderStructure',
     'SessionLoggerLogFileFormat',
+    'UserSettingsColorTheme',
     'UserSettingsEnabledType',
     'UserSettingsMaxDisplayResolution',
+    'UserSettingsMimeType',
     'UserSettingsToolbarItem',
     'UserSettingsToolbarType',
     'UserSettingsVisualMode',
@@ -135,6 +137,12 @@ class SessionLoggerLogFileFormat(_builtins.str, Enum):
     JSON = "Json"
 
 
+@pulumi.type_token("aws-native:workspacesweb:UserSettingsColorTheme")
+class UserSettingsColorTheme(_builtins.str, Enum):
+    LIGHT = "Light"
+    DARK = "Dark"
+
+
 @pulumi.type_token("aws-native:workspacesweb:UserSettingsEnabledType")
 class UserSettingsEnabledType(_builtins.str, Enum):
     DISABLED = "Disabled"
@@ -151,6 +159,13 @@ class UserSettingsMaxDisplayResolution(_builtins.str, Enum):
     SIZE1280X720 = "size1280X720"
     SIZE1024X768 = "size1024X768"
     SIZE800X600 = "size800X600"
+
+
+@pulumi.type_token("aws-native:workspacesweb:UserSettingsMimeType")
+class UserSettingsMimeType(_builtins.str, Enum):
+    IMAGEPNG = "image/png"
+    IMAGEJPEG = "image/jpeg"
+    IMAGEX_ICON = "image/x-icon"
 
 
 @pulumi.type_token("aws-native:workspacesweb:UserSettingsToolbarItem")

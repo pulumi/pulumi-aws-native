@@ -165,6 +165,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The format for ELB access log entries (plain text or JSON format).
+    /// </summary>
     [EnumType]
     public readonly struct OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat : IEquatable<OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat>
     {
@@ -482,6 +485,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The format for ELB access log entries (plain text or JSON format).
+    /// </summary>
     [EnumType]
     public readonly struct TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat : IEquatable<TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat>
     {

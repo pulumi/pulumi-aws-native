@@ -20,7 +20,13 @@ export function getDataTableRecord(args: GetDataTableRecordArgs, opts?: pulumi.I
 }
 
 export interface GetDataTableRecordArgs {
+    /**
+     * The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
+     */
     dataTableArn: string;
+    /**
+     * The Amazon Resource Name (ARN) of the instance.
+     */
     instanceArn: string;
     recordId: string;
 }
@@ -42,7 +48,13 @@ export function getDataTableRecordOutput(args: GetDataTableRecordOutputArgs, opt
 }
 
 export interface GetDataTableRecordOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
+     */
     dataTableArn: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the instance.
+     */
     instanceArn: pulumi.Input<string>;
     recordId: pulumi.Input<string>;
 }

@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     /// </summary>
     public sealed class CampaignWhatsAppChannelSubtypeConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The allocation of WhatsApp capacity between multiple running outbound campaigns.
+        /// </summary>
         [Input("capacity")]
         public Input<double>? Capacity { get; set; }
 
+        /// <summary>
+        /// The default WhatsApp outbound configuration of an outbound campaign.
+        /// </summary>
         [Input("defaultOutboundConfig", required: true)]
         public Input<Inputs.CampaignWhatsAppOutboundConfigArgs> DefaultOutboundConfig { get; set; } = null!;
 
+        /// <summary>
+        /// The outbound mode for WhatsApp of an outbound campaign.
+        /// </summary>
         [Input("outboundMode", required: true)]
         public Input<Inputs.CampaignWhatsAppOutboundModeArgs> OutboundMode { get; set; } = null!;
 

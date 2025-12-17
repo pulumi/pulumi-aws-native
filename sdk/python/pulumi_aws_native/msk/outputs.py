@@ -384,7 +384,9 @@ class ClusterConnectivityInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "publicAccess":
+        if key == "networkType":
+            suggest = "network_type"
+        elif key == "publicAccess":
             suggest = "public_access"
         elif key == "vpcConnectivity":
             suggest = "vpc_connectivity"
@@ -401,16 +403,24 @@ class ClusterConnectivityInfo(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 network_type: Optional['ClusterNetworkType'] = None,
                  public_access: Optional['outputs.ClusterPublicAccess'] = None,
                  vpc_connectivity: Optional['outputs.ClusterVpcConnectivity'] = None):
         """
         :param 'ClusterPublicAccess' public_access: Access control settings for the cluster's brokers.
         :param 'ClusterVpcConnectivity' vpc_connectivity: VPC connection control settings for brokers.
         """
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if public_access is not None:
             pulumi.set(__self__, "public_access", public_access)
         if vpc_connectivity is not None:
             pulumi.set(__self__, "vpc_connectivity", vpc_connectivity)
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional['ClusterNetworkType']:
+        return pulumi.get(self, "network_type")
 
     @_builtins.property
     @pulumi.getter(name="publicAccess")

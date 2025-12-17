@@ -26,7 +26,8 @@ type Table struct {
 	// The format of the table.
 	OpenTableFormat TableOpenTableFormatOutput `pulumi:"openTableFormat"`
 	// Contains details about the Iceberg snapshot management settings for the table.
-	SnapshotManagement        TableSnapshotManagementPtrOutput        `pulumi:"snapshotManagement"`
+	SnapshotManagement TableSnapshotManagementPtrOutput `pulumi:"snapshotManagement"`
+	// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
 	StorageClassConfiguration TableStorageClassConfigurationPtrOutput `pulumi:"storageClassConfiguration"`
 	// The Amazon Resource Name (ARN) of the table.
 	TableArn pulumi.StringOutput `pulumi:"tableArn"`
@@ -110,7 +111,8 @@ type tableArgs struct {
 	// The format of the table.
 	OpenTableFormat TableOpenTableFormat `pulumi:"openTableFormat"`
 	// Contains details about the Iceberg snapshot management settings for the table.
-	SnapshotManagement        *TableSnapshotManagement        `pulumi:"snapshotManagement"`
+	SnapshotManagement *TableSnapshotManagement `pulumi:"snapshotManagement"`
+	// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
 	StorageClassConfiguration *TableStorageClassConfiguration `pulumi:"storageClassConfiguration"`
 	// The Amazon Resource Name (ARN) of the table bucket to create the table in.
 	TableBucketArn string `pulumi:"tableBucketArn"`
@@ -133,7 +135,8 @@ type TableArgs struct {
 	// The format of the table.
 	OpenTableFormat TableOpenTableFormatInput
 	// Contains details about the Iceberg snapshot management settings for the table.
-	SnapshotManagement        TableSnapshotManagementPtrInput
+	SnapshotManagement TableSnapshotManagementPtrInput
+	// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
 	StorageClassConfiguration TableStorageClassConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of the table bucket to create the table in.
 	TableBucketArn pulumi.StringInput
@@ -207,6 +210,7 @@ func (o TableOutput) SnapshotManagement() TableSnapshotManagementPtrOutput {
 	return o.ApplyT(func(v *Table) TableSnapshotManagementPtrOutput { return v.SnapshotManagement }).(TableSnapshotManagementPtrOutput)
 }
 
+// The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
 func (o TableOutput) StorageClassConfiguration() TableStorageClassConfigurationPtrOutput {
 	return o.ApplyT(func(v *Table) TableStorageClassConfigurationPtrOutput { return v.StorageClassConfiguration }).(TableStorageClassConfigurationPtrOutput)
 }

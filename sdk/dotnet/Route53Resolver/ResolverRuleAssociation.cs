@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     {
         /// <summary>
         /// The name of an association between a Resolver rule and a VPC.
+        ///  The name can be up to 64 characters long and can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), underscores (_), and spaces. The name cannot consist of only numbers.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
@@ -92,6 +93,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     {
         /// <summary>
         /// The name of an association between a Resolver rule and a VPC.
+        ///  The name can be up to 64 characters long and can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), underscores (_), and spaces. The name cannot consist of only numbers.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

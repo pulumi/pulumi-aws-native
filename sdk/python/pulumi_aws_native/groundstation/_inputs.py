@@ -64,6 +64,30 @@ __all__ = [
     'DataflowEndpointGroupSecurityDetailsArgsDict',
     'DataflowEndpointGroupSocketAddressArgs',
     'DataflowEndpointGroupSocketAddressArgsDict',
+    'DataflowEndpointGroupV2ConnectionDetailsArgs',
+    'DataflowEndpointGroupV2ConnectionDetailsArgsDict',
+    'DataflowEndpointGroupV2CreateEndpointDetailsArgs',
+    'DataflowEndpointGroupV2CreateEndpointDetailsArgsDict',
+    'DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs',
+    'DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgsDict',
+    'DataflowEndpointGroupV2DownlinkConnectionDetailsArgs',
+    'DataflowEndpointGroupV2DownlinkConnectionDetailsArgsDict',
+    'DataflowEndpointGroupV2DownlinkDataflowDetailsArgs',
+    'DataflowEndpointGroupV2DownlinkDataflowDetailsArgsDict',
+    'DataflowEndpointGroupV2IntegerRangeArgs',
+    'DataflowEndpointGroupV2IntegerRangeArgsDict',
+    'DataflowEndpointGroupV2RangedConnectionDetailsArgs',
+    'DataflowEndpointGroupV2RangedConnectionDetailsArgsDict',
+    'DataflowEndpointGroupV2RangedSocketAddressArgs',
+    'DataflowEndpointGroupV2RangedSocketAddressArgsDict',
+    'DataflowEndpointGroupV2SocketAddressArgs',
+    'DataflowEndpointGroupV2SocketAddressArgsDict',
+    'DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs',
+    'DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgsDict',
+    'DataflowEndpointGroupV2UplinkConnectionDetailsArgs',
+    'DataflowEndpointGroupV2UplinkConnectionDetailsArgsDict',
+    'DataflowEndpointGroupV2UplinkDataflowDetailsArgs',
+    'DataflowEndpointGroupV2UplinkDataflowDetailsArgsDict',
     'MissionProfileDataflowEdgeArgs',
     'MissionProfileDataflowEdgeArgsDict',
     'MissionProfileStreamsKmsKeyArgs',
@@ -1600,6 +1624,514 @@ class DataflowEndpointGroupSocketAddressArgs:
     @port.setter
     def port(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "port", value)
+
+
+if not MYPY:
+    class DataflowEndpointGroupV2ConnectionDetailsArgsDict(TypedDict):
+        """
+        Socket address of an uplink or downlink agent endpoint with an optional mtu.
+        """
+        socket_address: pulumi.Input['DataflowEndpointGroupV2SocketAddressArgsDict']
+        mtu: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+        """
+elif False:
+    DataflowEndpointGroupV2ConnectionDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowEndpointGroupV2ConnectionDetailsArgs:
+    def __init__(__self__, *,
+                 socket_address: pulumi.Input['DataflowEndpointGroupV2SocketAddressArgs'],
+                 mtu: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        Socket address of an uplink or downlink agent endpoint with an optional mtu.
+        :param pulumi.Input[_builtins.int] mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+        """
+        pulumi.set(__self__, "socket_address", socket_address)
+        if mtu is not None:
+            pulumi.set(__self__, "mtu", mtu)
+
+    @_builtins.property
+    @pulumi.getter(name="socketAddress")
+    def socket_address(self) -> pulumi.Input['DataflowEndpointGroupV2SocketAddressArgs']:
+        return pulumi.get(self, "socket_address")
+
+    @socket_address.setter
+    def socket_address(self, value: pulumi.Input['DataflowEndpointGroupV2SocketAddressArgs']):
+        pulumi.set(self, "socket_address", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def mtu(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+        """
+        return pulumi.get(self, "mtu")
+
+    @mtu.setter
+    def mtu(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "mtu", value)
+
+
+if not MYPY:
+    class DataflowEndpointGroupV2CreateEndpointDetailsArgsDict(TypedDict):
+        downlink_aws_ground_station_agent_endpoint: NotRequired[pulumi.Input['DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgsDict']]
+        uplink_aws_ground_station_agent_endpoint: NotRequired[pulumi.Input['DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgsDict']]
+elif False:
+    DataflowEndpointGroupV2CreateEndpointDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowEndpointGroupV2CreateEndpointDetailsArgs:
+    def __init__(__self__, *,
+                 downlink_aws_ground_station_agent_endpoint: Optional[pulumi.Input['DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs']] = None,
+                 uplink_aws_ground_station_agent_endpoint: Optional[pulumi.Input['DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs']] = None):
+        if downlink_aws_ground_station_agent_endpoint is not None:
+            pulumi.set(__self__, "downlink_aws_ground_station_agent_endpoint", downlink_aws_ground_station_agent_endpoint)
+        if uplink_aws_ground_station_agent_endpoint is not None:
+            pulumi.set(__self__, "uplink_aws_ground_station_agent_endpoint", uplink_aws_ground_station_agent_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="downlinkAwsGroundStationAgentEndpoint")
+    def downlink_aws_ground_station_agent_endpoint(self) -> Optional[pulumi.Input['DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs']]:
+        return pulumi.get(self, "downlink_aws_ground_station_agent_endpoint")
+
+    @downlink_aws_ground_station_agent_endpoint.setter
+    def downlink_aws_ground_station_agent_endpoint(self, value: Optional[pulumi.Input['DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs']]):
+        pulumi.set(self, "downlink_aws_ground_station_agent_endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="uplinkAwsGroundStationAgentEndpoint")
+    def uplink_aws_ground_station_agent_endpoint(self) -> Optional[pulumi.Input['DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs']]:
+        return pulumi.get(self, "uplink_aws_ground_station_agent_endpoint")
+
+    @uplink_aws_ground_station_agent_endpoint.setter
+    def uplink_aws_ground_station_agent_endpoint(self, value: Optional[pulumi.Input['DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs']]):
+        pulumi.set(self, "uplink_aws_ground_station_agent_endpoint", value)
+
+
+if not MYPY:
+    class DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgsDict(TypedDict):
+        """
+        Information about DownlinkAwsGroundStationAgentEndpoint used for create
+        """
+        dataflow_details: pulumi.Input['DataflowEndpointGroupV2DownlinkDataflowDetailsArgsDict']
+        name: pulumi.Input[_builtins.str]
+elif False:
+    DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs:
+    def __init__(__self__, *,
+                 dataflow_details: pulumi.Input['DataflowEndpointGroupV2DownlinkDataflowDetailsArgs'],
+                 name: pulumi.Input[_builtins.str]):
+        """
+        Information about DownlinkAwsGroundStationAgentEndpoint used for create
+        """
+        pulumi.set(__self__, "dataflow_details", dataflow_details)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="dataflowDetails")
+    def dataflow_details(self) -> pulumi.Input['DataflowEndpointGroupV2DownlinkDataflowDetailsArgs']:
+        return pulumi.get(self, "dataflow_details")
+
+    @dataflow_details.setter
+    def dataflow_details(self, value: pulumi.Input['DataflowEndpointGroupV2DownlinkDataflowDetailsArgs']):
+        pulumi.set(self, "dataflow_details", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class DataflowEndpointGroupV2DownlinkConnectionDetailsArgsDict(TypedDict):
+        """
+        Connection details for downlink, from ground station to agent, and customer to agent
+        """
+        agent_ip_and_port_address: pulumi.Input['DataflowEndpointGroupV2RangedConnectionDetailsArgsDict']
+        egress_address_and_port: pulumi.Input['DataflowEndpointGroupV2ConnectionDetailsArgsDict']
+elif False:
+    DataflowEndpointGroupV2DownlinkConnectionDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowEndpointGroupV2DownlinkConnectionDetailsArgs:
+    def __init__(__self__, *,
+                 agent_ip_and_port_address: pulumi.Input['DataflowEndpointGroupV2RangedConnectionDetailsArgs'],
+                 egress_address_and_port: pulumi.Input['DataflowEndpointGroupV2ConnectionDetailsArgs']):
+        """
+        Connection details for downlink, from ground station to agent, and customer to agent
+        """
+        pulumi.set(__self__, "agent_ip_and_port_address", agent_ip_and_port_address)
+        pulumi.set(__self__, "egress_address_and_port", egress_address_and_port)
+
+    @_builtins.property
+    @pulumi.getter(name="agentIpAndPortAddress")
+    def agent_ip_and_port_address(self) -> pulumi.Input['DataflowEndpointGroupV2RangedConnectionDetailsArgs']:
+        return pulumi.get(self, "agent_ip_and_port_address")
+
+    @agent_ip_and_port_address.setter
+    def agent_ip_and_port_address(self, value: pulumi.Input['DataflowEndpointGroupV2RangedConnectionDetailsArgs']):
+        pulumi.set(self, "agent_ip_and_port_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="egressAddressAndPort")
+    def egress_address_and_port(self) -> pulumi.Input['DataflowEndpointGroupV2ConnectionDetailsArgs']:
+        return pulumi.get(self, "egress_address_and_port")
+
+    @egress_address_and_port.setter
+    def egress_address_and_port(self, value: pulumi.Input['DataflowEndpointGroupV2ConnectionDetailsArgs']):
+        pulumi.set(self, "egress_address_and_port", value)
+
+
+if not MYPY:
+    class DataflowEndpointGroupV2DownlinkDataflowDetailsArgsDict(TypedDict):
+        """
+        Dataflow details for downlink
+        """
+        agent_connection_details: NotRequired[pulumi.Input['DataflowEndpointGroupV2DownlinkConnectionDetailsArgsDict']]
+elif False:
+    DataflowEndpointGroupV2DownlinkDataflowDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowEndpointGroupV2DownlinkDataflowDetailsArgs:
+    def __init__(__self__, *,
+                 agent_connection_details: Optional[pulumi.Input['DataflowEndpointGroupV2DownlinkConnectionDetailsArgs']] = None):
+        """
+        Dataflow details for downlink
+        """
+        if agent_connection_details is not None:
+            pulumi.set(__self__, "agent_connection_details", agent_connection_details)
+
+    @_builtins.property
+    @pulumi.getter(name="agentConnectionDetails")
+    def agent_connection_details(self) -> Optional[pulumi.Input['DataflowEndpointGroupV2DownlinkConnectionDetailsArgs']]:
+        return pulumi.get(self, "agent_connection_details")
+
+    @agent_connection_details.setter
+    def agent_connection_details(self, value: Optional[pulumi.Input['DataflowEndpointGroupV2DownlinkConnectionDetailsArgs']]):
+        pulumi.set(self, "agent_connection_details", value)
+
+
+if not MYPY:
+    class DataflowEndpointGroupV2IntegerRangeArgsDict(TypedDict):
+        """
+        An integer range that has a minimum and maximum value.
+        """
+        maximum: pulumi.Input[_builtins.int]
+        """
+        A maximum value.
+        """
+        minimum: pulumi.Input[_builtins.int]
+        """
+        A minimum value.
+        """
+elif False:
+    DataflowEndpointGroupV2IntegerRangeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowEndpointGroupV2IntegerRangeArgs:
+    def __init__(__self__, *,
+                 maximum: pulumi.Input[_builtins.int],
+                 minimum: pulumi.Input[_builtins.int]):
+        """
+        An integer range that has a minimum and maximum value.
+        :param pulumi.Input[_builtins.int] maximum: A maximum value.
+        :param pulumi.Input[_builtins.int] minimum: A minimum value.
+        """
+        pulumi.set(__self__, "maximum", maximum)
+        pulumi.set(__self__, "minimum", minimum)
+
+    @_builtins.property
+    @pulumi.getter
+    def maximum(self) -> pulumi.Input[_builtins.int]:
+        """
+        A maximum value.
+        """
+        return pulumi.get(self, "maximum")
+
+    @maximum.setter
+    def maximum(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "maximum", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def minimum(self) -> pulumi.Input[_builtins.int]:
+        """
+        A minimum value.
+        """
+        return pulumi.get(self, "minimum")
+
+    @minimum.setter
+    def minimum(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "minimum", value)
+
+
+if not MYPY:
+    class DataflowEndpointGroupV2RangedConnectionDetailsArgsDict(TypedDict):
+        """
+        Socket address of an uplink or downlink agent endpoint with a port range and an optional mtu.
+        """
+        socket_address: pulumi.Input['DataflowEndpointGroupV2RangedSocketAddressArgsDict']
+        mtu: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+        """
+elif False:
+    DataflowEndpointGroupV2RangedConnectionDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowEndpointGroupV2RangedConnectionDetailsArgs:
+    def __init__(__self__, *,
+                 socket_address: pulumi.Input['DataflowEndpointGroupV2RangedSocketAddressArgs'],
+                 mtu: Optional[pulumi.Input[_builtins.int]] = None):
+        """
+        Socket address of an uplink or downlink agent endpoint with a port range and an optional mtu.
+        :param pulumi.Input[_builtins.int] mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+        """
+        pulumi.set(__self__, "socket_address", socket_address)
+        if mtu is not None:
+            pulumi.set(__self__, "mtu", mtu)
+
+    @_builtins.property
+    @pulumi.getter(name="socketAddress")
+    def socket_address(self) -> pulumi.Input['DataflowEndpointGroupV2RangedSocketAddressArgs']:
+        return pulumi.get(self, "socket_address")
+
+    @socket_address.setter
+    def socket_address(self, value: pulumi.Input['DataflowEndpointGroupV2RangedSocketAddressArgs']):
+        pulumi.set(self, "socket_address", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def mtu(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+        """
+        return pulumi.get(self, "mtu")
+
+    @mtu.setter
+    def mtu(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "mtu", value)
+
+
+if not MYPY:
+    class DataflowEndpointGroupV2RangedSocketAddressArgsDict(TypedDict):
+        """
+        A socket address with a port range.
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        IPv4 socket address.
+        """
+        port_range: pulumi.Input['DataflowEndpointGroupV2IntegerRangeArgsDict']
+        """
+        Port range of a socket address.
+        """
+elif False:
+    DataflowEndpointGroupV2RangedSocketAddressArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowEndpointGroupV2RangedSocketAddressArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 port_range: pulumi.Input['DataflowEndpointGroupV2IntegerRangeArgs']):
+        """
+        A socket address with a port range.
+        :param pulumi.Input[_builtins.str] name: IPv4 socket address.
+        :param pulumi.Input['DataflowEndpointGroupV2IntegerRangeArgs'] port_range: Port range of a socket address.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "port_range", port_range)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        IPv4 socket address.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="portRange")
+    def port_range(self) -> pulumi.Input['DataflowEndpointGroupV2IntegerRangeArgs']:
+        """
+        Port range of a socket address.
+        """
+        return pulumi.get(self, "port_range")
+
+    @port_range.setter
+    def port_range(self, value: pulumi.Input['DataflowEndpointGroupV2IntegerRangeArgs']):
+        pulumi.set(self, "port_range", value)
+
+
+if not MYPY:
+    class DataflowEndpointGroupV2SocketAddressArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        IPv4 socket address.
+        """
+        port: pulumi.Input[_builtins.int]
+        """
+        Port of a socket address.
+        """
+elif False:
+    DataflowEndpointGroupV2SocketAddressArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowEndpointGroupV2SocketAddressArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 port: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.str] name: IPv4 socket address.
+        :param pulumi.Input[_builtins.int] port: Port of a socket address.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "port", port)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        IPv4 socket address.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[_builtins.int]:
+        """
+        Port of a socket address.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "port", value)
+
+
+if not MYPY:
+    class DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgsDict(TypedDict):
+        """
+        Information about UplinkAwsGroundStationAgentEndpoint used for create
+        """
+        dataflow_details: pulumi.Input['DataflowEndpointGroupV2UplinkDataflowDetailsArgsDict']
+        name: pulumi.Input[_builtins.str]
+elif False:
+    DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs:
+    def __init__(__self__, *,
+                 dataflow_details: pulumi.Input['DataflowEndpointGroupV2UplinkDataflowDetailsArgs'],
+                 name: pulumi.Input[_builtins.str]):
+        """
+        Information about UplinkAwsGroundStationAgentEndpoint used for create
+        """
+        pulumi.set(__self__, "dataflow_details", dataflow_details)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="dataflowDetails")
+    def dataflow_details(self) -> pulumi.Input['DataflowEndpointGroupV2UplinkDataflowDetailsArgs']:
+        return pulumi.get(self, "dataflow_details")
+
+    @dataflow_details.setter
+    def dataflow_details(self, value: pulumi.Input['DataflowEndpointGroupV2UplinkDataflowDetailsArgs']):
+        pulumi.set(self, "dataflow_details", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class DataflowEndpointGroupV2UplinkConnectionDetailsArgsDict(TypedDict):
+        """
+        Connection details for uplink, from ground station to agent, and customer to agent
+        """
+        agent_ip_and_port_address: pulumi.Input['DataflowEndpointGroupV2RangedConnectionDetailsArgsDict']
+        ingress_address_and_port: pulumi.Input['DataflowEndpointGroupV2ConnectionDetailsArgsDict']
+elif False:
+    DataflowEndpointGroupV2UplinkConnectionDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowEndpointGroupV2UplinkConnectionDetailsArgs:
+    def __init__(__self__, *,
+                 agent_ip_and_port_address: pulumi.Input['DataflowEndpointGroupV2RangedConnectionDetailsArgs'],
+                 ingress_address_and_port: pulumi.Input['DataflowEndpointGroupV2ConnectionDetailsArgs']):
+        """
+        Connection details for uplink, from ground station to agent, and customer to agent
+        """
+        pulumi.set(__self__, "agent_ip_and_port_address", agent_ip_and_port_address)
+        pulumi.set(__self__, "ingress_address_and_port", ingress_address_and_port)
+
+    @_builtins.property
+    @pulumi.getter(name="agentIpAndPortAddress")
+    def agent_ip_and_port_address(self) -> pulumi.Input['DataflowEndpointGroupV2RangedConnectionDetailsArgs']:
+        return pulumi.get(self, "agent_ip_and_port_address")
+
+    @agent_ip_and_port_address.setter
+    def agent_ip_and_port_address(self, value: pulumi.Input['DataflowEndpointGroupV2RangedConnectionDetailsArgs']):
+        pulumi.set(self, "agent_ip_and_port_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ingressAddressAndPort")
+    def ingress_address_and_port(self) -> pulumi.Input['DataflowEndpointGroupV2ConnectionDetailsArgs']:
+        return pulumi.get(self, "ingress_address_and_port")
+
+    @ingress_address_and_port.setter
+    def ingress_address_and_port(self, value: pulumi.Input['DataflowEndpointGroupV2ConnectionDetailsArgs']):
+        pulumi.set(self, "ingress_address_and_port", value)
+
+
+if not MYPY:
+    class DataflowEndpointGroupV2UplinkDataflowDetailsArgsDict(TypedDict):
+        """
+        Dataflow details for uplink
+        """
+        agent_connection_details: NotRequired[pulumi.Input['DataflowEndpointGroupV2UplinkConnectionDetailsArgsDict']]
+elif False:
+    DataflowEndpointGroupV2UplinkDataflowDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowEndpointGroupV2UplinkDataflowDetailsArgs:
+    def __init__(__self__, *,
+                 agent_connection_details: Optional[pulumi.Input['DataflowEndpointGroupV2UplinkConnectionDetailsArgs']] = None):
+        """
+        Dataflow details for uplink
+        """
+        if agent_connection_details is not None:
+            pulumi.set(__self__, "agent_connection_details", agent_connection_details)
+
+    @_builtins.property
+    @pulumi.getter(name="agentConnectionDetails")
+    def agent_connection_details(self) -> Optional[pulumi.Input['DataflowEndpointGroupV2UplinkConnectionDetailsArgs']]:
+        return pulumi.get(self, "agent_connection_details")
+
+    @agent_connection_details.setter
+    def agent_connection_details(self, value: Optional[pulumi.Input['DataflowEndpointGroupV2UplinkConnectionDetailsArgs']]):
+        pulumi.set(self, "agent_connection_details", value)
 
 
 if not MYPY:

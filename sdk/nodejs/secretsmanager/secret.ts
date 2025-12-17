@@ -153,7 +153,7 @@ export class Secret extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * The exact string that identifies the third-party partner that holds the external secret. For more information, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) .
+     * The exact string that identifies the third-party partner that holds the external secret. For more information, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html).
      */
     declare public readonly type: pulumi.Output<string | undefined>;
 
@@ -246,7 +246,7 @@ export interface SecretArgs {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * The exact string that identifies the third-party partner that holds the external secret. For more information, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) .
+     * The exact string that identifies the third-party partner that holds the external secret. For more information, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html).
      */
     type?: pulumi.Input<string>;
 }

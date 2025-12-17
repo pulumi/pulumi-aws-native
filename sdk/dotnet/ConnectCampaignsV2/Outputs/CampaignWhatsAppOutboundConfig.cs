@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignWhatsAppOutboundConfig
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Connect source WhatsApp phone number.
+        /// </summary>
         public readonly string ConnectSourcePhoneNumberArn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
+        /// </summary>
         public readonly string WisdomTemplateArn;
 
         [OutputConstructor]

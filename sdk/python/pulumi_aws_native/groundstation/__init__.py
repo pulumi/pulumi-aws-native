@@ -9,8 +9,10 @@ import typing
 from ._enums import *
 from .config import *
 from .dataflow_endpoint_group import *
+from .dataflow_endpoint_group_v2 import *
 from .get_config import *
 from .get_dataflow_endpoint_group import *
+from .get_dataflow_endpoint_group_v2 import *
 from .get_mission_profile import *
 from .mission_profile import *
 from ._inputs import *

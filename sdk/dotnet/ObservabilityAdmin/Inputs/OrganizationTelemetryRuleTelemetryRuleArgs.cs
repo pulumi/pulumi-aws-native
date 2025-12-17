@@ -41,6 +41,10 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
 
         [Input("telemetrySourceTypes")]
         private InputList<Pulumi.AwsNative.ObservabilityAdmin.OrganizationTelemetryRuleTelemetrySourceType>? _telemetrySourceTypes;
+
+        /// <summary>
+        /// The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
+        /// </summary>
         public InputList<Pulumi.AwsNative.ObservabilityAdmin.OrganizationTelemetryRuleTelemetrySourceType> TelemetrySourceTypes
         {
             get => _telemetrySourceTypes ?? (_telemetrySourceTypes = new InputList<Pulumi.AwsNative.ObservabilityAdmin.OrganizationTelemetryRuleTelemetrySourceType>());

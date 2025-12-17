@@ -27,6 +27,12 @@ namespace Pulumi.AwsNative.DeviceFarm
         [Output("defaultJobTimeoutMinutes")]
         public Output<int?> DefaultJobTimeoutMinutes { get; private set; } = null!;
 
+        [Output("environmentVariables")]
+        public Output<ImmutableArray<Outputs.ProjectEnvironmentVariable>> EnvironmentVariables { get; private set; } = null!;
+
+        [Output("executionRoleArn")]
+        public Output<string?> ExecutionRoleArn { get; private set; } = null!;
+
         /// <summary>
         /// The project's name.
         /// </summary>
@@ -95,6 +101,17 @@ namespace Pulumi.AwsNative.DeviceFarm
         /// </summary>
         [Input("defaultJobTimeoutMinutes")]
         public Input<int>? DefaultJobTimeoutMinutes { get; set; }
+
+        [Input("environmentVariables")]
+        private InputList<Inputs.ProjectEnvironmentVariableArgs>? _environmentVariables;
+        public InputList<Inputs.ProjectEnvironmentVariableArgs> EnvironmentVariables
+        {
+            get => _environmentVariables ?? (_environmentVariables = new InputList<Inputs.ProjectEnvironmentVariableArgs>());
+            set => _environmentVariables = value;
+        }
+
+        [Input("executionRoleArn")]
+        public Input<string>? ExecutionRoleArn { get; set; }
 
         /// <summary>
         /// The project's name.

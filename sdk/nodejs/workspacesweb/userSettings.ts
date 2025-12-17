@@ -46,6 +46,10 @@ export class UserSettings extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly associatedPortalArns: pulumi.Output<string[]>;
     /**
+     * The branding configuration that customizes the appearance of the web portal for end users. This includes a custom logo, favicon, wallpaper, localized strings, color theme, and an optional terms of service.
+     */
+    declare public readonly brandingConfiguration: pulumi.Output<outputs.workspacesweb.UserSettingsBrandingConfiguration | undefined>;
+    /**
      * The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
      */
     declare public readonly cookieSynchronizationConfiguration: pulumi.Output<outputs.workspacesweb.UserSettingsCookieSynchronizationConfiguration | undefined>;
@@ -125,6 +129,7 @@ export class UserSettings extends pulumi.CustomResource {
                 throw new Error("Missing required property 'uploadAllowed'");
             }
             resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
+            resourceInputs["brandingConfiguration"] = args?.brandingConfiguration;
             resourceInputs["cookieSynchronizationConfiguration"] = args?.cookieSynchronizationConfiguration;
             resourceInputs["copyAllowed"] = args?.copyAllowed;
             resourceInputs["customerManagedKey"] = args?.customerManagedKey;
@@ -142,6 +147,7 @@ export class UserSettings extends pulumi.CustomResource {
         } else {
             resourceInputs["additionalEncryptionContext"] = undefined /*out*/;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
+            resourceInputs["brandingConfiguration"] = undefined /*out*/;
             resourceInputs["cookieSynchronizationConfiguration"] = undefined /*out*/;
             resourceInputs["copyAllowed"] = undefined /*out*/;
             resourceInputs["customerManagedKey"] = undefined /*out*/;
@@ -169,6 +175,10 @@ export interface UserSettingsArgs {
      * The additional encryption context of the user settings.
      */
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The branding configuration that customizes the appearance of the web portal for end users. This includes a custom logo, favicon, wallpaper, localized strings, color theme, and an optional terms of service.
+     */
+    brandingConfiguration?: pulumi.Input<inputs.workspacesweb.UserSettingsBrandingConfigurationArgs>;
     /**
      * The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
      */

@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
         [Input("fieldDelimiter")]
         public Input<string>? FieldDelimiter { get; set; }
 
+        /// <summary>
+        /// The format for ELB access log entries (plain text or JSON format).
+        /// </summary>
         [Input("outputFormat")]
         public Input<Pulumi.AwsNative.ObservabilityAdmin.OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat>? OutputFormat { get; set; }
 

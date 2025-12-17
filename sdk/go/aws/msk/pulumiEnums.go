@@ -354,6 +354,171 @@ func (in *clusterEnhancedMonitoringPtr) ToClusterEnhancedMonitoringPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterEnhancedMonitoringPtrOutput)
 }
 
+type ClusterNetworkType string
+
+const (
+	ClusterNetworkTypeIpv4 = ClusterNetworkType("IPV4")
+	ClusterNetworkTypeDual = ClusterNetworkType("DUAL")
+)
+
+func (ClusterNetworkType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterNetworkType)(nil)).Elem()
+}
+
+func (e ClusterNetworkType) ToClusterNetworkTypeOutput() ClusterNetworkTypeOutput {
+	return pulumi.ToOutput(e).(ClusterNetworkTypeOutput)
+}
+
+func (e ClusterNetworkType) ToClusterNetworkTypeOutputWithContext(ctx context.Context) ClusterNetworkTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterNetworkTypeOutput)
+}
+
+func (e ClusterNetworkType) ToClusterNetworkTypePtrOutput() ClusterNetworkTypePtrOutput {
+	return e.ToClusterNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (e ClusterNetworkType) ToClusterNetworkTypePtrOutputWithContext(ctx context.Context) ClusterNetworkTypePtrOutput {
+	return ClusterNetworkType(e).ToClusterNetworkTypeOutputWithContext(ctx).ToClusterNetworkTypePtrOutputWithContext(ctx)
+}
+
+func (e ClusterNetworkType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterNetworkType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterNetworkType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterNetworkType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterNetworkTypeOutput struct{ *pulumi.OutputState }
+
+func (ClusterNetworkTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterNetworkType)(nil)).Elem()
+}
+
+func (o ClusterNetworkTypeOutput) ToClusterNetworkTypeOutput() ClusterNetworkTypeOutput {
+	return o
+}
+
+func (o ClusterNetworkTypeOutput) ToClusterNetworkTypeOutputWithContext(ctx context.Context) ClusterNetworkTypeOutput {
+	return o
+}
+
+func (o ClusterNetworkTypeOutput) ToClusterNetworkTypePtrOutput() ClusterNetworkTypePtrOutput {
+	return o.ToClusterNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterNetworkTypeOutput) ToClusterNetworkTypePtrOutputWithContext(ctx context.Context) ClusterNetworkTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterNetworkType) *ClusterNetworkType {
+		return &v
+	}).(ClusterNetworkTypePtrOutput)
+}
+
+func (o ClusterNetworkTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterNetworkTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterNetworkType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterNetworkTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterNetworkTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterNetworkType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterNetworkTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterNetworkTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterNetworkType)(nil)).Elem()
+}
+
+func (o ClusterNetworkTypePtrOutput) ToClusterNetworkTypePtrOutput() ClusterNetworkTypePtrOutput {
+	return o
+}
+
+func (o ClusterNetworkTypePtrOutput) ToClusterNetworkTypePtrOutputWithContext(ctx context.Context) ClusterNetworkTypePtrOutput {
+	return o
+}
+
+func (o ClusterNetworkTypePtrOutput) Elem() ClusterNetworkTypeOutput {
+	return o.ApplyT(func(v *ClusterNetworkType) ClusterNetworkType {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterNetworkType
+		return ret
+	}).(ClusterNetworkTypeOutput)
+}
+
+func (o ClusterNetworkTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterNetworkTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterNetworkType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterNetworkTypeInput is an input type that accepts values of the ClusterNetworkType enum
+// A concrete instance of `ClusterNetworkTypeInput` can be one of the following:
+//
+//	ClusterNetworkTypeIpv4
+//	ClusterNetworkTypeDual
+type ClusterNetworkTypeInput interface {
+	pulumi.Input
+
+	ToClusterNetworkTypeOutput() ClusterNetworkTypeOutput
+	ToClusterNetworkTypeOutputWithContext(context.Context) ClusterNetworkTypeOutput
+}
+
+var clusterNetworkTypePtrType = reflect.TypeOf((**ClusterNetworkType)(nil)).Elem()
+
+type ClusterNetworkTypePtrInput interface {
+	pulumi.Input
+
+	ToClusterNetworkTypePtrOutput() ClusterNetworkTypePtrOutput
+	ToClusterNetworkTypePtrOutputWithContext(context.Context) ClusterNetworkTypePtrOutput
+}
+
+type clusterNetworkTypePtr string
+
+func ClusterNetworkTypePtr(v string) ClusterNetworkTypePtrInput {
+	return (*clusterNetworkTypePtr)(&v)
+}
+
+func (*clusterNetworkTypePtr) ElementType() reflect.Type {
+	return clusterNetworkTypePtrType
+}
+
+func (in *clusterNetworkTypePtr) ToClusterNetworkTypePtrOutput() ClusterNetworkTypePtrOutput {
+	return pulumi.ToOutput(in).(ClusterNetworkTypePtrOutput)
+}
+
+func (in *clusterNetworkTypePtr) ToClusterNetworkTypePtrOutputWithContext(ctx context.Context) ClusterNetworkTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterNetworkTypePtrOutput)
+}
+
 type ClusterRebalancingStatus string
 
 const (
@@ -1362,6 +1527,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionInTransitClientBrokerPtrInput)(nil)).Elem(), ClusterEncryptionInTransitClientBroker("TLS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEnhancedMonitoringInput)(nil)).Elem(), ClusterEnhancedMonitoring("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEnhancedMonitoringPtrInput)(nil)).Elem(), ClusterEnhancedMonitoring("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkTypeInput)(nil)).Elem(), ClusterNetworkType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkTypePtrInput)(nil)).Elem(), ClusterNetworkType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRebalancingStatusInput)(nil)).Elem(), ClusterRebalancingStatus("PAUSED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRebalancingStatusPtrInput)(nil)).Elem(), ClusterRebalancingStatus("PAUSED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageModeInput)(nil)).Elem(), ClusterStorageMode("LOCAL"))
@@ -1378,6 +1545,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterEncryptionInTransitClientBrokerPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEnhancedMonitoringOutput{})
 	pulumi.RegisterOutputType(ClusterEnhancedMonitoringPtrOutput{})
+	pulumi.RegisterOutputType(ClusterNetworkTypeOutput{})
+	pulumi.RegisterOutputType(ClusterNetworkTypePtrOutput{})
 	pulumi.RegisterOutputType(ClusterRebalancingStatusOutput{})
 	pulumi.RegisterOutputType(ClusterRebalancingStatusPtrOutput{})
 	pulumi.RegisterOutputType(ClusterStorageModeOutput{})

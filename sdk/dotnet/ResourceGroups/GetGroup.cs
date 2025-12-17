@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.ResourceGroups
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *AWS Resource Groups User Guide* .
+        /// The service configuration currently associated with the resource group and in effect for the members of the resource group. A `Configuration` consists of one or more `ConfigurationItem` entries. For information about service configurations for resource groups and how to construct them, see [Service configurations for resource groups](https://docs.aws.amazon.com//ARG/latest/APIReference/about-slg.html) in the *Resource Groups User Guide* .
         /// 
         /// &gt; You can include either a `Configuration` or a `ResourceQuery` , but not both.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.ResourceGroups
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*
+        /// The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *Resource Groups User Guide*
         /// 
         /// &gt; - You can include either a `ResourceQuery` or a `Configuration` , but not both.
         /// &gt; - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.

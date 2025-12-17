@@ -22,7 +22,7 @@ class HubV2Args:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HubV2 resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags to add to the hub V2 resource when you enable Security Hub.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags to add to the hub V2 resource when you enable Security Hub CSPM.
         """
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -31,7 +31,7 @@ class HubV2Args:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        The tags to add to the hub V2 resource when you enable Security Hub.
+        The tags to add to the hub V2 resource when you enable Security Hub CSPM.
         """
         return pulumi.get(self, "tags")
 
@@ -53,7 +53,7 @@ class HubV2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags to add to the hub V2 resource when you enable Security Hub.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags to add to the hub V2 resource when you enable Security Hub CSPM.
         """
         ...
     @overload
@@ -139,7 +139,7 @@ class HubV2(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        The tags to add to the hub V2 resource when you enable Security Hub.
+        The tags to add to the hub V2 resource when you enable Security Hub CSPM.
         """
         return pulumi.get(self, "tags")
 

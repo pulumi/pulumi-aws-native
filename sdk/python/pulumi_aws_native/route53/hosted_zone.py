@@ -33,6 +33,7 @@ class HostedZoneArgs:
         The set of arguments for constructing a HostedZone resource.
         :param pulumi.Input['HostedZoneConfigArgs'] hosted_zone_config: A complex type that contains an optional comment.
                 If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
+        :param pulumi.Input['HostedZoneFeaturesArgs'] hosted_zone_features: The features configuration for the hosted zone, including accelerated recovery settings and status information.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] hosted_zone_tags: Adds, edits, or deletes tags for a health check or a hosted zone.
                 For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
         :param pulumi.Input[_builtins.str] name: The name of the domain. Specify a fully qualified domain name, for example, *www.example.com*. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats *www.example.com* (without a trailing dot) and *www.example.com.* (with a trailing dot) as identical.
@@ -77,6 +78,9 @@ class HostedZoneArgs:
     @_builtins.property
     @pulumi.getter(name="hostedZoneFeatures")
     def hosted_zone_features(self) -> Optional[pulumi.Input['HostedZoneFeaturesArgs']]:
+        """
+        The features configuration for the hosted zone, including accelerated recovery settings and status information.
+        """
         return pulumi.get(self, "hosted_zone_features")
 
     @hosted_zone_features.setter
@@ -177,6 +181,7 @@ class HostedZone(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['HostedZoneConfigArgs', 'HostedZoneConfigArgsDict']] hosted_zone_config: A complex type that contains an optional comment.
                 If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
+        :param pulumi.Input[Union['HostedZoneFeaturesArgs', 'HostedZoneFeaturesArgsDict']] hosted_zone_features: The features configuration for the hosted zone, including accelerated recovery settings and status information.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] hosted_zone_tags: Adds, edits, or deletes tags for a health check or a hosted zone.
                 For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
         :param pulumi.Input[_builtins.str] name: The name of the domain. Specify a fully qualified domain name, for example, *www.example.com*. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats *www.example.com* (without a trailing dot) and *www.example.com.* (with a trailing dot) as identical.
@@ -308,6 +313,9 @@ class HostedZone(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="hostedZoneFeatures")
     def hosted_zone_features(self) -> pulumi.Output[Optional['outputs.HostedZoneFeatures']]:
+        """
+        The features configuration for the hosted zone, including accelerated recovery settings and status information.
+        """
         return pulumi.get(self, "hosted_zone_features")
 
     @_builtins.property

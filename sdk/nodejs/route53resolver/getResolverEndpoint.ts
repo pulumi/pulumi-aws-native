@@ -58,9 +58,17 @@ export interface GetResolverEndpointResult {
      */
     readonly resolverEndpointType?: enums.route53resolver.ResolverEndpointType;
     /**
+     * Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
+     */
+    readonly rniEnhancedMetricsEnabled?: boolean;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
+     */
+    readonly targetNameServerMetricsEnabled?: boolean;
 }
 /**
  * Resource type definition for AWS::Route53Resolver::ResolverEndpoint

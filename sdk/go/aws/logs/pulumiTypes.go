@@ -1513,6 +1513,8 @@ func (o TransformerParseRoute53PtrOutput) Source() pulumi.StringPtrOutput {
 type TransformerParseToOcsf struct {
 	// Specify the service or process that produces the log events that will be converted with this processor.
 	EventSource TransformerEventSource `pulumi:"eventSource"`
+	// The version of the OCSF mapping to use for parsing log data.
+	MappingVersion *string `pulumi:"mappingVersion"`
 	// Specify which version of the OCSF schema to use for the transformed log events.
 	OcsfVersion TransformerOcsfVersion `pulumi:"ocsfVersion"`
 	// The path to the field in the log event that you want to parse. If you omit this value, the whole log message is parsed.
@@ -1533,6 +1535,8 @@ type TransformerParseToOcsfInput interface {
 type TransformerParseToOcsfArgs struct {
 	// Specify the service or process that produces the log events that will be converted with this processor.
 	EventSource TransformerEventSourceInput `pulumi:"eventSource"`
+	// The version of the OCSF mapping to use for parsing log data.
+	MappingVersion pulumi.StringPtrInput `pulumi:"mappingVersion"`
 	// Specify which version of the OCSF schema to use for the transformed log events.
 	OcsfVersion TransformerOcsfVersionInput `pulumi:"ocsfVersion"`
 	// The path to the field in the log event that you want to parse. If you omit this value, the whole log message is parsed.
@@ -1621,6 +1625,11 @@ func (o TransformerParseToOcsfOutput) EventSource() TransformerEventSourceOutput
 	return o.ApplyT(func(v TransformerParseToOcsf) TransformerEventSource { return v.EventSource }).(TransformerEventSourceOutput)
 }
 
+// The version of the OCSF mapping to use for parsing log data.
+func (o TransformerParseToOcsfOutput) MappingVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformerParseToOcsf) *string { return v.MappingVersion }).(pulumi.StringPtrOutput)
+}
+
 // Specify which version of the OCSF schema to use for the transformed log events.
 func (o TransformerParseToOcsfOutput) OcsfVersion() TransformerOcsfVersionOutput {
 	return o.ApplyT(func(v TransformerParseToOcsf) TransformerOcsfVersion { return v.OcsfVersion }).(TransformerOcsfVersionOutput)
@@ -1663,6 +1672,16 @@ func (o TransformerParseToOcsfPtrOutput) EventSource() TransformerEventSourcePtr
 		}
 		return &v.EventSource
 	}).(TransformerEventSourcePtrOutput)
+}
+
+// The version of the OCSF mapping to use for parsing log data.
+func (o TransformerParseToOcsfPtrOutput) MappingVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformerParseToOcsf) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MappingVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specify which version of the OCSF schema to use for the transformed log events.

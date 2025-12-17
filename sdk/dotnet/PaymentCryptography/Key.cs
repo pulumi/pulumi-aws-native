@@ -62,6 +62,11 @@ namespace Pulumi.AwsNative.PaymentCryptography
         [Output("keyState")]
         public Output<Pulumi.AwsNative.PaymentCryptography.KeyState> KeyState { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of AWS Regions to remove from the key's replication configuration.
+        /// 
+        /// The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.
+        /// </summary>
         [Output("replicationRegions")]
         public Output<ImmutableArray<string>> ReplicationRegions { get; private set; } = null!;
 
@@ -150,6 +155,12 @@ namespace Pulumi.AwsNative.PaymentCryptography
 
         [Input("replicationRegions")]
         private InputList<string>? _replicationRegions;
+
+        /// <summary>
+        /// The list of AWS Regions to remove from the key's replication configuration.
+        /// 
+        /// The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.
+        /// </summary>
         public InputList<string> ReplicationRegions
         {
             get => _replicationRegions ?? (_replicationRegions = new InputList<string>());

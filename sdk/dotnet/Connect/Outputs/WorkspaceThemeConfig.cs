@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class WorkspaceThemeConfig
     {
+        /// <summary>
+        /// The color palette configuration for the workspace theme.
+        /// </summary>
         public readonly Outputs.WorkspaceThemePalette? Palette;
+        /// <summary>
+        /// The typography configuration for the workspace theme.
+        /// </summary>
         public readonly Outputs.WorkspaceThemeTypography? Typography;
 
         [OutputConstructor]

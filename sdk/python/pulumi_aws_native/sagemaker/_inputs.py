@@ -1476,6 +1476,10 @@ if not MYPY:
         image_id: NotRequired[pulumi.Input[_builtins.str]]
         instance_storage_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgsDict']]]]
         kubernetes_config: NotRequired[pulumi.Input['ClusterKubernetesConfigArgsDict']]
+        min_instance_count: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
+        """
         on_start_deep_health_checks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]]
         override_vpc_config: NotRequired[pulumi.Input['ClusterVpcConfigArgsDict']]
         scheduled_update_config: NotRequired[pulumi.Input['ClusterScheduledUpdateConfigArgsDict']]
@@ -1503,6 +1507,7 @@ class ClusterInstanceGroupArgs:
                  image_id: Optional[pulumi.Input[_builtins.str]] = None,
                  instance_storage_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgs']]]] = None,
                  kubernetes_config: Optional[pulumi.Input['ClusterKubernetesConfigArgs']] = None,
+                 min_instance_count: Optional[pulumi.Input[_builtins.int]] = None,
                  on_start_deep_health_checks: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]] = None,
                  override_vpc_config: Optional[pulumi.Input['ClusterVpcConfigArgs']] = None,
                  scheduled_update_config: Optional[pulumi.Input['ClusterScheduledUpdateConfigArgs']] = None,
@@ -1512,6 +1517,7 @@ class ClusterInstanceGroupArgs:
         Details of an instance group in a SageMaker HyperPod cluster.
         :param pulumi.Input[_builtins.int] instance_count: The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
         :param pulumi.Input[_builtins.int] current_count: The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
+        :param pulumi.Input[_builtins.int] min_instance_count: The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
         :param pulumi.Input[_builtins.int] threads_per_core: The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
         :param pulumi.Input[_builtins.str] training_plan_arn: The Amazon Resource Name (ARN) of the training plan to use for this cluster instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
         """
@@ -1530,6 +1536,8 @@ class ClusterInstanceGroupArgs:
             pulumi.set(__self__, "instance_storage_configs", instance_storage_configs)
         if kubernetes_config is not None:
             pulumi.set(__self__, "kubernetes_config", kubernetes_config)
+        if min_instance_count is not None:
+            pulumi.set(__self__, "min_instance_count", min_instance_count)
         if on_start_deep_health_checks is not None:
             pulumi.set(__self__, "on_start_deep_health_checks", on_start_deep_health_checks)
         if override_vpc_config is not None:
@@ -1636,6 +1644,18 @@ class ClusterInstanceGroupArgs:
     @kubernetes_config.setter
     def kubernetes_config(self, value: Optional[pulumi.Input['ClusterKubernetesConfigArgs']]):
         pulumi.set(self, "kubernetes_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minInstanceCount")
+    def min_instance_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
+        """
+        return pulumi.get(self, "min_instance_count")
+
+    @min_instance_count.setter
+    def min_instance_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "min_instance_count", value)
 
     @_builtins.property
     @pulumi.getter(name="onStartDeepHealthChecks")

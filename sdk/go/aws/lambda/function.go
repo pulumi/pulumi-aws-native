@@ -368,7 +368,8 @@ type Function struct {
 	// The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
 	Architectures FunctionArchitecturesItemArrayOutput `pulumi:"architectures"`
 	// The Amazon Resource Name (ARN) of the function.
-	Arn                    pulumi.StringOutput                     `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Configuration for the capacity provider that manages compute resources for Lambda functions.
 	CapacityProviderConfig FunctionCapacityProviderConfigPtrOutput `pulumi:"capacityProviderConfig"`
 	// The code for the function. You can define your function code in multiple ways:
 	//   +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
@@ -380,7 +381,8 @@ type Function struct {
 	// A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
 	DeadLetterConfig FunctionDeadLetterConfigPtrOutput `pulumi:"deadLetterConfig"`
 	// A description of the function.
-	Description   pulumi.StringPtrOutput         `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
 	DurableConfig FunctionDurableConfigPtrOutput `pulumi:"durableConfig"`
 	// Environment variables that are accessible from function code during execution.
 	Environment FunctionEnvironmentPtrOutput `pulumi:"environment"`
@@ -391,7 +393,8 @@ type Function struct {
 	FileSystemConfigs FunctionFileSystemConfigArrayOutput `pulumi:"fileSystemConfigs"`
 	// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, CFN generates one.
 	//  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	FunctionName          pulumi.StringPtrOutput         `pulumi:"functionName"`
+	FunctionName pulumi.StringPtrOutput `pulumi:"functionName"`
+	// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
 	FunctionScalingConfig FunctionScalingConfigPtrOutput `pulumi:"functionScalingConfig"`
 	// The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
 	Handler pulumi.StringPtrOutput `pulumi:"handler"`
@@ -497,7 +500,8 @@ func (FunctionState) ElementType() reflect.Type {
 
 type functionArgs struct {
 	// The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
-	Architectures          []FunctionArchitecturesItem     `pulumi:"architectures"`
+	Architectures []FunctionArchitecturesItem `pulumi:"architectures"`
+	// Configuration for the capacity provider that manages compute resources for Lambda functions.
 	CapacityProviderConfig *FunctionCapacityProviderConfig `pulumi:"capacityProviderConfig"`
 	// The code for the function. You can define your function code in multiple ways:
 	//   +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
@@ -509,7 +513,8 @@ type functionArgs struct {
 	// A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
 	DeadLetterConfig *FunctionDeadLetterConfig `pulumi:"deadLetterConfig"`
 	// A description of the function.
-	Description   *string                `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
 	DurableConfig *FunctionDurableConfig `pulumi:"durableConfig"`
 	// Environment variables that are accessible from function code during execution.
 	Environment *FunctionEnvironment `pulumi:"environment"`
@@ -520,7 +525,8 @@ type functionArgs struct {
 	FileSystemConfigs []FunctionFileSystemConfig `pulumi:"fileSystemConfigs"`
 	// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, CFN generates one.
 	//  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	FunctionName          *string                `pulumi:"functionName"`
+	FunctionName *string `pulumi:"functionName"`
+	// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
 	FunctionScalingConfig *FunctionScalingConfig `pulumi:"functionScalingConfig"`
 	// The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
 	Handler *string `pulumi:"handler"`
@@ -575,7 +581,8 @@ type functionArgs struct {
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
 	// The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
-	Architectures          FunctionArchitecturesItemArrayInput
+	Architectures FunctionArchitecturesItemArrayInput
+	// Configuration for the capacity provider that manages compute resources for Lambda functions.
 	CapacityProviderConfig FunctionCapacityProviderConfigPtrInput
 	// The code for the function. You can define your function code in multiple ways:
 	//   +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
@@ -587,7 +594,8 @@ type FunctionArgs struct {
 	// A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
 	DeadLetterConfig FunctionDeadLetterConfigPtrInput
 	// A description of the function.
-	Description   pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
 	DurableConfig FunctionDurableConfigPtrInput
 	// Environment variables that are accessible from function code during execution.
 	Environment FunctionEnvironmentPtrInput
@@ -598,7 +606,8 @@ type FunctionArgs struct {
 	FileSystemConfigs FunctionFileSystemConfigArrayInput
 	// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, CFN generates one.
 	//  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-	FunctionName          pulumi.StringPtrInput
+	FunctionName pulumi.StringPtrInput
+	// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
 	FunctionScalingConfig FunctionScalingConfigPtrInput
 	// The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
 	Handler pulumi.StringPtrInput
@@ -697,6 +706,7 @@ func (o FunctionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Configuration for the capacity provider that manages compute resources for Lambda functions.
 func (o FunctionOutput) CapacityProviderConfig() FunctionCapacityProviderConfigPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionCapacityProviderConfigPtrOutput { return v.CapacityProviderConfig }).(FunctionCapacityProviderConfigPtrOutput)
 }
@@ -724,6 +734,7 @@ func (o FunctionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
 func (o FunctionOutput) DurableConfig() FunctionDurableConfigPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionDurableConfigPtrOutput { return v.DurableConfig }).(FunctionDurableConfigPtrOutput)
 }
@@ -752,6 +763,7 @@ func (o FunctionOutput) FunctionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.FunctionName }).(pulumi.StringPtrOutput)
 }
 
+// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
 func (o FunctionOutput) FunctionScalingConfig() FunctionScalingConfigPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionScalingConfigPtrOutput { return v.FunctionScalingConfig }).(FunctionScalingConfigPtrOutput)
 }

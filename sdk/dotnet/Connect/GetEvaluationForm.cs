@@ -86,6 +86,9 @@ namespace Pulumi.AwsNative.Connect
         ///  *Maximum size*: 100
         /// </summary>
         public readonly ImmutableArray<Outputs.EvaluationFormBaseItem> Items;
+        /// <summary>
+        /// Configuration for language settings of this evaluation form.
+        /// </summary>
         public readonly Outputs.EvaluationFormLanguageConfiguration? LanguageConfiguration;
         /// <summary>
         /// A scoring strategy of the evaluation form.
@@ -100,6 +103,9 @@ namespace Pulumi.AwsNative.Connect
         /// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// Configuration that specifies the target for this evaluation form.
+        /// </summary>
         public readonly Outputs.EvaluationFormTargetConfiguration? TargetConfiguration;
         /// <summary>
         /// A title of the evaluation form.

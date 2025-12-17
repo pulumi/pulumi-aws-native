@@ -32,6 +32,10 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly string InstanceType;
         public readonly Outputs.ClusterKubernetesConfig? KubernetesConfig;
         public readonly Outputs.ClusterLifeCycleConfig LifeCycleConfig;
+        /// <summary>
+        /// The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
+        /// </summary>
+        public readonly int? MinInstanceCount;
         public readonly ImmutableArray<Pulumi.AwsNative.SageMaker.ClusterDeepHealthCheckType> OnStartDeepHealthChecks;
         public readonly Outputs.ClusterVpcConfig? OverrideVpcConfig;
         public readonly Outputs.ClusterScheduledUpdateConfig? ScheduledUpdateConfig;
@@ -66,6 +70,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             Outputs.ClusterLifeCycleConfig lifeCycleConfig,
 
+            int? minInstanceCount,
+
             ImmutableArray<Pulumi.AwsNative.SageMaker.ClusterDeepHealthCheckType> onStartDeepHealthChecks,
 
             Outputs.ClusterVpcConfig? overrideVpcConfig,
@@ -86,6 +92,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             InstanceType = instanceType;
             KubernetesConfig = kubernetesConfig;
             LifeCycleConfig = lifeCycleConfig;
+            MinInstanceCount = minInstanceCount;
             OnStartDeepHealthChecks = onStartDeepHealthChecks;
             OverrideVpcConfig = overrideVpcConfig;
             ScheduledUpdateConfig = scheduledUpdateConfig;

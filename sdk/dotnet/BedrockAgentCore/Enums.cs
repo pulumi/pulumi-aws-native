@@ -152,6 +152,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
         public static GatewayAuthorizerType CustomJwt { get; } = new GatewayAuthorizerType("CUSTOM_JWT");
         public static GatewayAuthorizerType AwsIam { get; } = new GatewayAuthorizerType("AWS_IAM");
+        public static GatewayAuthorizerType None { get; } = new GatewayAuthorizerType("NONE");
 
         public static bool operator ==(GatewayAuthorizerType left, GatewayAuthorizerType right) => left.Equals(right);
         public static bool operator !=(GatewayAuthorizerType left, GatewayAuthorizerType right) => !left.Equals(right);
@@ -188,6 +189,34 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is GatewayExceptionLevel other && Equals(other);
         public bool Equals(GatewayExceptionLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GatewayInterceptionPoint : IEquatable<GatewayInterceptionPoint>
+    {
+        private readonly string _value;
+
+        private GatewayInterceptionPoint(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayInterceptionPoint Request { get; } = new GatewayInterceptionPoint("REQUEST");
+        public static GatewayInterceptionPoint Response { get; } = new GatewayInterceptionPoint("RESPONSE");
+
+        public static bool operator ==(GatewayInterceptionPoint left, GatewayInterceptionPoint right) => left.Equals(right);
+        public static bool operator !=(GatewayInterceptionPoint left, GatewayInterceptionPoint right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayInterceptionPoint value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayInterceptionPoint other && Equals(other);
+        public bool Equals(GatewayInterceptionPoint other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

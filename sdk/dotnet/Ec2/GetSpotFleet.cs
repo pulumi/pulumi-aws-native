@@ -71,15 +71,22 @@ namespace Pulumi.AwsNative.Ec2
         /// Describes the configuration of a Spot Fleet request.
         /// </summary>
         public readonly Outputs.SpotFleetRequestConfigData? SpotFleetRequestConfigData;
+        /// <summary>
+        /// The tags to specify in SpotFleetRequestConfigData
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetSpotFleetResult(
             string? id,
 
-            Outputs.SpotFleetRequestConfigData? spotFleetRequestConfigData)
+            Outputs.SpotFleetRequestConfigData? spotFleetRequestConfigData,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
             SpotFleetRequestConfigData = spotFleetRequestConfigData;
+            Tags = tags;
         }
     }
 }

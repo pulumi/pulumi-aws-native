@@ -41,7 +41,8 @@ type LookupEvaluationFormResult struct {
 	// Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
 	//  *Minimum size*: 1
 	//  *Maximum size*: 100
-	Items                 []EvaluationFormBaseItem             `pulumi:"items"`
+	Items []EvaluationFormBaseItem `pulumi:"items"`
+	// Configuration for language settings of this evaluation form.
 	LanguageConfiguration *EvaluationFormLanguageConfiguration `pulumi:"languageConfiguration"`
 	// A scoring strategy of the evaluation form.
 	ScoringStrategy *EvaluationFormScoringStrategy `pulumi:"scoringStrategy"`
@@ -49,7 +50,8 @@ type LookupEvaluationFormResult struct {
 	//  *Allowed values*: ``DRAFT`` | ``ACTIVE``
 	Status *EvaluationFormStatus `pulumi:"status"`
 	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
-	Tags                []aws.Tag                          `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// Configuration that specifies the target for this evaluation form.
 	TargetConfiguration *EvaluationFormTargetConfiguration `pulumi:"targetConfiguration"`
 	// A title of the evaluation form.
 	Title *string `pulumi:"title"`
@@ -119,6 +121,7 @@ func (o LookupEvaluationFormResultOutput) Items() EvaluationFormBaseItemArrayOut
 	return o.ApplyT(func(v LookupEvaluationFormResult) []EvaluationFormBaseItem { return v.Items }).(EvaluationFormBaseItemArrayOutput)
 }
 
+// Configuration for language settings of this evaluation form.
 func (o LookupEvaluationFormResultOutput) LanguageConfiguration() EvaluationFormLanguageConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupEvaluationFormResult) *EvaluationFormLanguageConfiguration {
 		return v.LanguageConfiguration
@@ -142,6 +145,7 @@ func (o LookupEvaluationFormResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupEvaluationFormResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Configuration that specifies the target for this evaluation form.
 func (o LookupEvaluationFormResultOutput) TargetConfiguration() EvaluationFormTargetConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupEvaluationFormResult) *EvaluationFormTargetConfiguration { return v.TargetConfiguration }).(EvaluationFormTargetConfigurationPtrOutput)
 }

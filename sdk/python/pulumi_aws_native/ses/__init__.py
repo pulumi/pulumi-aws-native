@@ -27,6 +27,7 @@ from .get_mail_manager_rule_set import *
 from .get_mail_manager_traffic_policy import *
 from .get_multi_region_endpoint import *
 from .get_template import *
+from .get_tenant import *
 from .get_vdm_attributes import *
 from .mail_manager_addon_instance import *
 from .mail_manager_addon_subscription import *
@@ -38,6 +39,7 @@ from .mail_manager_rule_set import *
 from .mail_manager_traffic_policy import *
 from .multi_region_endpoint import *
 from .template import *
+from .tenant import *
 from .vdm_attributes import *
 from ._inputs import *
 from . import outputs

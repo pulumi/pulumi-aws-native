@@ -1500,6 +1500,7 @@ class EvaluationFormQuestionTypeProperties(dict):
                  text: Optional['outputs.EvaluationFormTextQuestionProperties'] = None):
         """
         Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
+        :param 'EvaluationFormMultiSelectQuestionProperties' multi_select: Properties for multi-select question types.
         :param 'EvaluationFormNumericQuestionProperties' numeric: The properties of the numeric question.
         :param 'EvaluationFormSingleSelectQuestionProperties' single_select: The properties of the numeric question.
         :param 'EvaluationFormTextQuestionProperties' text: The properties of the text question.
@@ -1516,6 +1517,9 @@ class EvaluationFormQuestionTypeProperties(dict):
     @_builtins.property
     @pulumi.getter(name="multiSelect")
     def multi_select(self) -> Optional['outputs.EvaluationFormMultiSelectQuestionProperties']:
+        """
+        Properties for multi-select question types.
+        """
         return pulumi.get(self, "multi_select")
 
     @_builtins.property
@@ -2128,12 +2132,18 @@ class EvaluationFormTextQuestionProperties(dict):
 class FontFamily(dict):
     def __init__(__self__, *,
                  default: Optional['WorkspaceFontFamily'] = None):
+        """
+        :param 'WorkspaceFontFamily' default: The default font family to use in the workspace theme.
+        """
         if default is not None:
             pulumi.set(__self__, "default", default)
 
     @_builtins.property
     @pulumi.getter
     def default(self) -> Optional['WorkspaceFontFamily']:
+        """
+        The default font family to use in the workspace theme.
+        """
         return pulumi.get(self, "default")
 
 
@@ -5223,6 +5233,9 @@ class UserProficiency(dict):
 
 @pulumi.output_type
 class ValidationProperties(dict):
+    """
+    The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5263,6 +5276,19 @@ class ValidationProperties(dict):
                  min_values: Optional[_builtins.int] = None,
                  minimum: Optional[_builtins.float] = None,
                  multiple_of: Optional[_builtins.float] = None):
+        """
+        The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
+        :param 'ValidationPropertiesEnumProperties' enum: Defines enumeration constraints for attribute values. Can specify a list of allowed values and whether custom values are permitted beyond the enumerated list.
+        :param _builtins.float exclusive_maximum: The largest exclusive numeric value for NUMBER value type. Can be provided alongside Maximum where both operate independently. Must be greater than ExclusiveMinimum and Minimum. Applies to NUMBER and values within NUMBER_LIST.
+        :param _builtins.float exclusive_minimum: The smallest exclusive numeric value for NUMBER value type. Can be provided alongside Minimum where both operate independently. Must be less than ExclusiveMaximum and Maximum. Applies to NUMBER and values within NUMBER_LIST.
+        :param _builtins.int max_length: The maximum number of characters a text value can contain. Applies to TEXT value type and values within a TEXT_LIST. Must be greater than or equal to MinLength.
+        :param _builtins.int max_values: The maximum number of values in a list. Must be an integer greater than or equal to 0 and greater than or equal to MinValues. Applies to all list types.
+        :param _builtins.float maximum: The largest inclusive numeric value for NUMBER value type. Can be provided alongside ExclusiveMaximum where both operate independently. Must be greater than or equal to Minimum and greater than ExclusiveMinimum. Applies to NUMBER and values within NUMBER_LIST.
+        :param _builtins.int min_length: The minimum number of characters a text value can contain. Applies to TEXT value type and values within a TEXT_LIST. Must be less than or equal to MaxLength.
+        :param _builtins.int min_values: The minimum number of values in a list. Must be an integer greater than or equal to 0 and less than or equal to MaxValues. Applies to all list types.
+        :param _builtins.float minimum: The smallest inclusive numeric value for NUMBER value type. Cannot be provided when ExclusiveMinimum is also provided. Must be less than or equal to Maximum and less than ExclusiveMaximum. Applies to NUMBER and values within NUMBER_LIST.
+        :param _builtins.float multiple_of: Specifies that numeric values must be multiples of this number. Must be greater than 0. The result of dividing a value by this multiple must result in an integer. Applies to NUMBER and values within NUMBER_LIST.
+        """
         if enum is not None:
             pulumi.set(__self__, "enum", enum)
         if exclusive_maximum is not None:
@@ -5287,59 +5313,95 @@ class ValidationProperties(dict):
     @_builtins.property
     @pulumi.getter
     def enum(self) -> Optional['outputs.ValidationPropertiesEnumProperties']:
+        """
+        Defines enumeration constraints for attribute values. Can specify a list of allowed values and whether custom values are permitted beyond the enumerated list.
+        """
         return pulumi.get(self, "enum")
 
     @_builtins.property
     @pulumi.getter(name="exclusiveMaximum")
     def exclusive_maximum(self) -> Optional[_builtins.float]:
+        """
+        The largest exclusive numeric value for NUMBER value type. Can be provided alongside Maximum where both operate independently. Must be greater than ExclusiveMinimum and Minimum. Applies to NUMBER and values within NUMBER_LIST.
+        """
         return pulumi.get(self, "exclusive_maximum")
 
     @_builtins.property
     @pulumi.getter(name="exclusiveMinimum")
     def exclusive_minimum(self) -> Optional[_builtins.float]:
+        """
+        The smallest exclusive numeric value for NUMBER value type. Can be provided alongside Minimum where both operate independently. Must be less than ExclusiveMaximum and Maximum. Applies to NUMBER and values within NUMBER_LIST.
+        """
         return pulumi.get(self, "exclusive_minimum")
 
     @_builtins.property
     @pulumi.getter(name="maxLength")
     def max_length(self) -> Optional[_builtins.int]:
+        """
+        The maximum number of characters a text value can contain. Applies to TEXT value type and values within a TEXT_LIST. Must be greater than or equal to MinLength.
+        """
         return pulumi.get(self, "max_length")
 
     @_builtins.property
     @pulumi.getter(name="maxValues")
     def max_values(self) -> Optional[_builtins.int]:
+        """
+        The maximum number of values in a list. Must be an integer greater than or equal to 0 and greater than or equal to MinValues. Applies to all list types.
+        """
         return pulumi.get(self, "max_values")
 
     @_builtins.property
     @pulumi.getter
     def maximum(self) -> Optional[_builtins.float]:
+        """
+        The largest inclusive numeric value for NUMBER value type. Can be provided alongside ExclusiveMaximum where both operate independently. Must be greater than or equal to Minimum and greater than ExclusiveMinimum. Applies to NUMBER and values within NUMBER_LIST.
+        """
         return pulumi.get(self, "maximum")
 
     @_builtins.property
     @pulumi.getter(name="minLength")
     def min_length(self) -> Optional[_builtins.int]:
+        """
+        The minimum number of characters a text value can contain. Applies to TEXT value type and values within a TEXT_LIST. Must be less than or equal to MaxLength.
+        """
         return pulumi.get(self, "min_length")
 
     @_builtins.property
     @pulumi.getter(name="minValues")
     def min_values(self) -> Optional[_builtins.int]:
+        """
+        The minimum number of values in a list. Must be an integer greater than or equal to 0 and less than or equal to MaxValues. Applies to all list types.
+        """
         return pulumi.get(self, "min_values")
 
     @_builtins.property
     @pulumi.getter
     def minimum(self) -> Optional[_builtins.float]:
+        """
+        The smallest inclusive numeric value for NUMBER value type. Cannot be provided when ExclusiveMinimum is also provided. Must be less than or equal to Maximum and less than ExclusiveMaximum. Applies to NUMBER and values within NUMBER_LIST.
+        """
         return pulumi.get(self, "minimum")
 
     @_builtins.property
     @pulumi.getter(name="multipleOf")
     def multiple_of(self) -> Optional[_builtins.float]:
+        """
+        Specifies that numeric values must be multiples of this number. Must be greater than 0. The result of dividing a value by this multiple must result in an integer. Applies to NUMBER and values within NUMBER_LIST.
+        """
         return pulumi.get(self, "multiple_of")
 
 
 @pulumi.output_type
 class ValidationPropertiesEnumProperties(dict):
+    """
+    Defines enumeration constraints for attribute values. Can specify a list of allowed values and whether custom values are permitted beyond the enumerated list.
+    """
     def __init__(__self__, *,
                  strict: Optional[_builtins.bool] = None,
                  values: Optional[Sequence[_builtins.str]] = None):
+        """
+        Defines enumeration constraints for attribute values. Can specify a list of allowed values and whether custom values are permitted beyond the enumerated list.
+        """
         if strict is not None:
             pulumi.set(__self__, "strict", strict)
         if values is not None:
@@ -5401,6 +5463,10 @@ class WorkspaceMediaItem(dict):
     def __init__(__self__, *,
                  type: 'WorkspaceMediaType',
                  source: Optional[_builtins.str] = None):
+        """
+        :param 'WorkspaceMediaType' type: The type of media. Valid values are: `IMAGE_LOGO_FAVICON` and `IMAGE_LOGO_HORIZONTAL` .
+        :param _builtins.str source: The source URL or data for the media asset.
+        """
         pulumi.set(__self__, "type", type)
         if source is not None:
             pulumi.set(__self__, "source", source)
@@ -5408,11 +5474,17 @@ class WorkspaceMediaItem(dict):
     @_builtins.property
     @pulumi.getter
     def type(self) -> 'WorkspaceMediaType':
+        """
+        The type of media. Valid values are: `IMAGE_LOGO_FAVICON` and `IMAGE_LOGO_HORIZONTAL` .
+        """
         return pulumi.get(self, "type")
 
     @_builtins.property
     @pulumi.getter
     def source(self) -> Optional[_builtins.str]:
+        """
+        The source URL or data for the media asset.
+        """
         return pulumi.get(self, "source")
 
 
@@ -5515,6 +5587,11 @@ class WorkspacePaletteCanvas(dict):
                  active_background: Optional[_builtins.str] = None,
                  container_background: Optional[_builtins.str] = None,
                  page_background: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str active_background: The background color for active elements.
+        :param _builtins.str container_background: The background color for container elements.
+        :param _builtins.str page_background: The background color for page elements.
+        """
         if active_background is not None:
             pulumi.set(__self__, "active_background", active_background)
         if container_background is not None:
@@ -5525,16 +5602,25 @@ class WorkspacePaletteCanvas(dict):
     @_builtins.property
     @pulumi.getter(name="activeBackground")
     def active_background(self) -> Optional[_builtins.str]:
+        """
+        The background color for active elements.
+        """
         return pulumi.get(self, "active_background")
 
     @_builtins.property
     @pulumi.getter(name="containerBackground")
     def container_background(self) -> Optional[_builtins.str]:
+        """
+        The background color for container elements.
+        """
         return pulumi.get(self, "container_background")
 
     @_builtins.property
     @pulumi.getter(name="pageBackground")
     def page_background(self) -> Optional[_builtins.str]:
+        """
+        The background color for page elements.
+        """
         return pulumi.get(self, "page_background")
 
 
@@ -5564,6 +5650,12 @@ class WorkspacePaletteHeader(dict):
                  invert_actions_colors: Optional[_builtins.bool] = None,
                  text: Optional[_builtins.str] = None,
                  text_hover: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str background: The background color of the header.
+        :param _builtins.bool invert_actions_colors: Whether to invert the colors of action buttons in the header.
+        :param _builtins.str text: The text color in the header.
+        :param _builtins.str text_hover: The text color when hovering over header elements.
+        """
         if background is not None:
             pulumi.set(__self__, "background", background)
         if invert_actions_colors is not None:
@@ -5576,21 +5668,33 @@ class WorkspacePaletteHeader(dict):
     @_builtins.property
     @pulumi.getter
     def background(self) -> Optional[_builtins.str]:
+        """
+        The background color of the header.
+        """
         return pulumi.get(self, "background")
 
     @_builtins.property
     @pulumi.getter(name="invertActionsColors")
     def invert_actions_colors(self) -> Optional[_builtins.bool]:
+        """
+        Whether to invert the colors of action buttons in the header.
+        """
         return pulumi.get(self, "invert_actions_colors")
 
     @_builtins.property
     @pulumi.getter
     def text(self) -> Optional[_builtins.str]:
+        """
+        The text color in the header.
+        """
         return pulumi.get(self, "text")
 
     @_builtins.property
     @pulumi.getter(name="textHover")
     def text_hover(self) -> Optional[_builtins.str]:
+        """
+        The text color when hovering over header elements.
+        """
         return pulumi.get(self, "text_hover")
 
 
@@ -5629,6 +5733,15 @@ class WorkspacePaletteNavigation(dict):
                  text_background_active: Optional[_builtins.str] = None,
                  text_background_hover: Optional[_builtins.str] = None,
                  text_hover: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str background: The background color of the navigation area.
+        :param _builtins.bool invert_actions_colors: Whether to invert the colors of action buttons in the navigation area.
+        :param _builtins.str text: The text color in the navigation area.
+        :param _builtins.str text_active: The text color for active navigation items.
+        :param _builtins.str text_background_active: The background color for active navigation items.
+        :param _builtins.str text_background_hover: The background color when hovering over navigation text.
+        :param _builtins.str text_hover: The text color when hovering over navigation items.
+        """
         if background is not None:
             pulumi.set(__self__, "background", background)
         if invert_actions_colors is not None:
@@ -5647,36 +5760,57 @@ class WorkspacePaletteNavigation(dict):
     @_builtins.property
     @pulumi.getter
     def background(self) -> Optional[_builtins.str]:
+        """
+        The background color of the navigation area.
+        """
         return pulumi.get(self, "background")
 
     @_builtins.property
     @pulumi.getter(name="invertActionsColors")
     def invert_actions_colors(self) -> Optional[_builtins.bool]:
+        """
+        Whether to invert the colors of action buttons in the navigation area.
+        """
         return pulumi.get(self, "invert_actions_colors")
 
     @_builtins.property
     @pulumi.getter
     def text(self) -> Optional[_builtins.str]:
+        """
+        The text color in the navigation area.
+        """
         return pulumi.get(self, "text")
 
     @_builtins.property
     @pulumi.getter(name="textActive")
     def text_active(self) -> Optional[_builtins.str]:
+        """
+        The text color for active navigation items.
+        """
         return pulumi.get(self, "text_active")
 
     @_builtins.property
     @pulumi.getter(name="textBackgroundActive")
     def text_background_active(self) -> Optional[_builtins.str]:
+        """
+        The background color for active navigation items.
+        """
         return pulumi.get(self, "text_background_active")
 
     @_builtins.property
     @pulumi.getter(name="textBackgroundHover")
     def text_background_hover(self) -> Optional[_builtins.str]:
+        """
+        The background color when hovering over navigation text.
+        """
         return pulumi.get(self, "text_background_hover")
 
     @_builtins.property
     @pulumi.getter(name="textHover")
     def text_hover(self) -> Optional[_builtins.str]:
+        """
+        The text color when hovering over navigation items.
+        """
         return pulumi.get(self, "text_hover")
 
 
@@ -5703,6 +5837,11 @@ class WorkspacePalettePrimary(dict):
                  active: Optional[_builtins.str] = None,
                  contrast_text: Optional[_builtins.str] = None,
                  default: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str active: The primary color used for active states.
+        :param _builtins.str contrast_text: The text color that contrasts with the primary color for readability.
+        :param _builtins.str default: The default primary color used throughout the workspace.
+        """
         if active is not None:
             pulumi.set(__self__, "active", active)
         if contrast_text is not None:
@@ -5713,16 +5852,25 @@ class WorkspacePalettePrimary(dict):
     @_builtins.property
     @pulumi.getter
     def active(self) -> Optional[_builtins.str]:
+        """
+        The primary color used for active states.
+        """
         return pulumi.get(self, "active")
 
     @_builtins.property
     @pulumi.getter(name="contrastText")
     def contrast_text(self) -> Optional[_builtins.str]:
+        """
+        The text color that contrasts with the primary color for readability.
+        """
         return pulumi.get(self, "contrast_text")
 
     @_builtins.property
     @pulumi.getter
     def default(self) -> Optional[_builtins.str]:
+        """
+        The default primary color used throughout the workspace.
+        """
         return pulumi.get(self, "default")
 
 
@@ -5736,6 +5884,8 @@ class WorkspaceTheme(dict):
                  light: Optional['outputs.WorkspaceThemeConfig'] = None):
         """
         The theme configuration for the Connect workspace
+        :param 'WorkspaceThemeConfig' dark: The theme configuration for dark mode.
+        :param 'WorkspaceThemeConfig' light: The theme configuration for light mode.
         """
         if dark is not None:
             pulumi.set(__self__, "dark", dark)
@@ -5745,11 +5895,17 @@ class WorkspaceTheme(dict):
     @_builtins.property
     @pulumi.getter
     def dark(self) -> Optional['outputs.WorkspaceThemeConfig']:
+        """
+        The theme configuration for dark mode.
+        """
         return pulumi.get(self, "dark")
 
     @_builtins.property
     @pulumi.getter
     def light(self) -> Optional['outputs.WorkspaceThemeConfig']:
+        """
+        The theme configuration for light mode.
+        """
         return pulumi.get(self, "light")
 
 
@@ -5758,6 +5914,10 @@ class WorkspaceThemeConfig(dict):
     def __init__(__self__, *,
                  palette: Optional['outputs.WorkspaceThemePalette'] = None,
                  typography: Optional['outputs.WorkspaceThemeTypography'] = None):
+        """
+        :param 'WorkspaceThemePalette' palette: The color palette configuration for the workspace theme.
+        :param 'WorkspaceThemeTypography' typography: The typography configuration for the workspace theme.
+        """
         if palette is not None:
             pulumi.set(__self__, "palette", palette)
         if typography is not None:
@@ -5766,11 +5926,17 @@ class WorkspaceThemeConfig(dict):
     @_builtins.property
     @pulumi.getter
     def palette(self) -> Optional['outputs.WorkspaceThemePalette']:
+        """
+        The color palette configuration for the workspace theme.
+        """
         return pulumi.get(self, "palette")
 
     @_builtins.property
     @pulumi.getter
     def typography(self) -> Optional['outputs.WorkspaceThemeTypography']:
+        """
+        The typography configuration for the workspace theme.
+        """
         return pulumi.get(self, "typography")
 
 
@@ -5781,6 +5947,12 @@ class WorkspaceThemePalette(dict):
                  header: Optional['outputs.WorkspacePaletteHeader'] = None,
                  navigation: Optional['outputs.WorkspacePaletteNavigation'] = None,
                  primary: Optional['outputs.WorkspacePalettePrimary'] = None):
+        """
+        :param 'WorkspacePaletteCanvas' canvas: The color configuration for the canvas area.
+        :param 'WorkspacePaletteHeader' header: The color configuration for the header area.
+        :param 'WorkspacePaletteNavigation' navigation: The color configuration for the navigation area.
+        :param 'WorkspacePalettePrimary' primary: The primary color configuration used throughout the workspace.
+        """
         if canvas is not None:
             pulumi.set(__self__, "canvas", canvas)
         if header is not None:
@@ -5793,21 +5965,33 @@ class WorkspaceThemePalette(dict):
     @_builtins.property
     @pulumi.getter
     def canvas(self) -> Optional['outputs.WorkspacePaletteCanvas']:
+        """
+        The color configuration for the canvas area.
+        """
         return pulumi.get(self, "canvas")
 
     @_builtins.property
     @pulumi.getter
     def header(self) -> Optional['outputs.WorkspacePaletteHeader']:
+        """
+        The color configuration for the header area.
+        """
         return pulumi.get(self, "header")
 
     @_builtins.property
     @pulumi.getter
     def navigation(self) -> Optional['outputs.WorkspacePaletteNavigation']:
+        """
+        The color configuration for the navigation area.
+        """
         return pulumi.get(self, "navigation")
 
     @_builtins.property
     @pulumi.getter
     def primary(self) -> Optional['outputs.WorkspacePalettePrimary']:
+        """
+        The primary color configuration used throughout the workspace.
+        """
         return pulumi.get(self, "primary")
 
 
@@ -5832,12 +6016,18 @@ class WorkspaceThemeTypography(dict):
 
     def __init__(__self__, *,
                  font_family: Optional['outputs.FontFamily'] = None):
+        """
+        :param 'FontFamily' font_family: The font family configuration for text in the workspace.
+        """
         if font_family is not None:
             pulumi.set(__self__, "font_family", font_family)
 
     @_builtins.property
     @pulumi.getter(name="fontFamily")
     def font_family(self) -> Optional['outputs.FontFamily']:
+        """
+        The font family configuration for text in the workspace.
+        """
         return pulumi.get(self, "font_family")
 
 

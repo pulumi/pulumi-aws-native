@@ -37,6 +37,8 @@ type Connector struct {
 	KafkaConnectVersion pulumi.StringOutput `pulumi:"kafkaConnectVersion"`
 	// The settings for delivering connector logs to Amazon CloudWatch Logs.
 	LogDelivery ConnectorLogDeliveryPtrOutput `pulumi:"logDelivery"`
+	// The network type of the Connector.
+	NetworkType ConnectorNetworkTypePtrOutput `pulumi:"networkType"`
 	// List of plugins to use with the connector.
 	Plugins ConnectorPluginArrayOutput `pulumi:"plugins"`
 	// The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.
@@ -86,6 +88,7 @@ func NewConnector(ctx *pulumi.Context,
 		"kafkaClusterEncryptionInTransit",
 		"kafkaConnectVersion",
 		"logDelivery",
+		"networkType",
 		"plugins[*]",
 		"serviceExecutionRoleArn",
 		"workerConfiguration",
@@ -142,6 +145,8 @@ type connectorArgs struct {
 	KafkaConnectVersion string `pulumi:"kafkaConnectVersion"`
 	// The settings for delivering connector logs to Amazon CloudWatch Logs.
 	LogDelivery *ConnectorLogDelivery `pulumi:"logDelivery"`
+	// The network type of the Connector.
+	NetworkType *ConnectorNetworkType `pulumi:"networkType"`
 	// List of plugins to use with the connector.
 	Plugins []ConnectorPlugin `pulumi:"plugins"`
 	// The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.
@@ -172,6 +177,8 @@ type ConnectorArgs struct {
 	KafkaConnectVersion pulumi.StringInput
 	// The settings for delivering connector logs to Amazon CloudWatch Logs.
 	LogDelivery ConnectorLogDeliveryPtrInput
+	// The network type of the Connector.
+	NetworkType ConnectorNetworkTypePtrInput
 	// List of plugins to use with the connector.
 	Plugins ConnectorPluginArrayInput
 	// The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.
@@ -271,6 +278,11 @@ func (o ConnectorOutput) KafkaConnectVersion() pulumi.StringOutput {
 // The settings for delivering connector logs to Amazon CloudWatch Logs.
 func (o ConnectorOutput) LogDelivery() ConnectorLogDeliveryPtrOutput {
 	return o.ApplyT(func(v *Connector) ConnectorLogDeliveryPtrOutput { return v.LogDelivery }).(ConnectorLogDeliveryPtrOutput)
+}
+
+// The network type of the Connector.
+func (o ConnectorOutput) NetworkType() ConnectorNetworkTypePtrOutput {
+	return o.ApplyT(func(v *Connector) ConnectorNetworkTypePtrOutput { return v.NetworkType }).(ConnectorNetworkTypePtrOutput)
 }
 
 // List of plugins to use with the connector.

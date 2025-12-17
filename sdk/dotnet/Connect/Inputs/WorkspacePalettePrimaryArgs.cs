@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
     public sealed class WorkspacePalettePrimaryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The primary color used for active states.
+        /// </summary>
         [Input("active")]
         public Input<string>? Active { get; set; }
 
+        /// <summary>
+        /// The text color that contrasts with the primary color for readability.
+        /// </summary>
         [Input("contrastText")]
         public Input<string>? ContrastText { get; set; }
 
+        /// <summary>
+        /// The default primary color used throughout the workspace.
+        /// </summary>
         [Input("default")]
         public Input<string>? Default { get; set; }
 

@@ -54,7 +54,8 @@ type AnalysisTemplate struct {
 	// The source of the analysis template.
 	Source pulumi.AnyOutput `pulumi:"source"`
 	// The source metadata for the analysis template.
-	SourceMetadata          AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput  `pulumi:"sourceMetadata"`
+	SourceMetadata AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput `pulumi:"sourceMetadata"`
+	// The parameters used to generate synthetic data for this analysis template.
 	SyntheticDataParameters AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput `pulumi:"syntheticDataParameters"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -137,7 +138,8 @@ type analysisTemplateArgs struct {
 	// The source of the analysis template.
 	Source interface{} `pulumi:"source"`
 	// The source metadata for the analysis template.
-	SourceMetadata          *AnalysisTemplateAnalysisSourceMetadataProperties  `pulumi:"sourceMetadata"`
+	SourceMetadata *AnalysisTemplateAnalysisSourceMetadataProperties `pulumi:"sourceMetadata"`
+	// The parameters used to generate synthetic data for this analysis template.
 	SyntheticDataParameters *AnalysisTemplateSyntheticDataParametersProperties `pulumi:"syntheticDataParameters"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -162,7 +164,8 @@ type AnalysisTemplateArgs struct {
 	// The source of the analysis template.
 	Source pulumi.Input
 	// The source metadata for the analysis template.
-	SourceMetadata          AnalysisTemplateAnalysisSourceMetadataPropertiesPtrInput
+	SourceMetadata AnalysisTemplateAnalysisSourceMetadataPropertiesPtrInput
+	// The parameters used to generate synthetic data for this analysis template.
 	SyntheticDataParameters AnalysisTemplateSyntheticDataParametersPropertiesPtrInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
 	Tags aws.TagArrayInput
@@ -289,6 +292,7 @@ func (o AnalysisTemplateOutput) SourceMetadata() AnalysisTemplateAnalysisSourceM
 	}).(AnalysisTemplateAnalysisSourceMetadataPropertiesPtrOutput)
 }
 
+// The parameters used to generate synthetic data for this analysis template.
 func (o AnalysisTemplateOutput) SyntheticDataParameters() AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput {
 	return o.ApplyT(func(v *AnalysisTemplate) AnalysisTemplateSyntheticDataParametersPropertiesPtrOutput {
 		return v.SyntheticDataParameters

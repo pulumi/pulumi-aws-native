@@ -34,6 +34,10 @@ export interface GetUserSettingsResult {
      */
     readonly associatedPortalArns?: string[];
     /**
+     * The branding configuration that customizes the appearance of the web portal for end users. This includes a custom logo, favicon, wallpaper, localized strings, color theme, and an optional terms of service.
+     */
+    readonly brandingConfiguration?: outputs.workspacesweb.UserSettingsBrandingConfiguration;
+    /**
      * The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
      */
     readonly cookieSynchronizationConfiguration?: outputs.workspacesweb.UserSettingsCookieSynchronizationConfiguration;

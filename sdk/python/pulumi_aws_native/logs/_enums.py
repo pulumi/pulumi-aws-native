@@ -152,6 +152,7 @@ class TransformerEventSource(_builtins.str, Enum):
 @pulumi.type_token("aws-native:logs:TransformerOcsfVersion")
 class TransformerOcsfVersion(_builtins.str, Enum):
     V11 = "V1.1"
+    V15 = "V1.5"
 
 
 @pulumi.type_token("aws-native:logs:TransformerProcessorListToMapPropertiesFlattenedElement")

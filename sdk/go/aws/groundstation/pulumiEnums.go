@@ -1178,6 +1178,190 @@ func (in *dataflowEndpointGroupAuditResultsPtr) ToDataflowEndpointGroupAuditResu
 	return pulumi.ToOutputWithContext(ctx, in).(DataflowEndpointGroupAuditResultsPtrOutput)
 }
 
+// The status of AgentEndpoint.
+type DataflowEndpointGroupV2AgentStatus string
+
+const (
+	DataflowEndpointGroupV2AgentStatusSuccess  = DataflowEndpointGroupV2AgentStatus("SUCCESS")
+	DataflowEndpointGroupV2AgentStatusFailed   = DataflowEndpointGroupV2AgentStatus("FAILED")
+	DataflowEndpointGroupV2AgentStatusActive   = DataflowEndpointGroupV2AgentStatus("ACTIVE")
+	DataflowEndpointGroupV2AgentStatusInactive = DataflowEndpointGroupV2AgentStatus("INACTIVE")
+)
+
+type DataflowEndpointGroupV2AgentStatusOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2AgentStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2AgentStatus)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2AgentStatusOutput) ToDataflowEndpointGroupV2AgentStatusOutput() DataflowEndpointGroupV2AgentStatusOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2AgentStatusOutput) ToDataflowEndpointGroupV2AgentStatusOutputWithContext(ctx context.Context) DataflowEndpointGroupV2AgentStatusOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2AgentStatusOutput) ToDataflowEndpointGroupV2AgentStatusPtrOutput() DataflowEndpointGroupV2AgentStatusPtrOutput {
+	return o.ToDataflowEndpointGroupV2AgentStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupV2AgentStatusOutput) ToDataflowEndpointGroupV2AgentStatusPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2AgentStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupV2AgentStatus) *DataflowEndpointGroupV2AgentStatus {
+		return &v
+	}).(DataflowEndpointGroupV2AgentStatusPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2AgentStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupV2AgentStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataflowEndpointGroupV2AgentStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataflowEndpointGroupV2AgentStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupV2AgentStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataflowEndpointGroupV2AgentStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataflowEndpointGroupV2AgentStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2AgentStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2AgentStatus)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2AgentStatusPtrOutput) ToDataflowEndpointGroupV2AgentStatusPtrOutput() DataflowEndpointGroupV2AgentStatusPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2AgentStatusPtrOutput) ToDataflowEndpointGroupV2AgentStatusPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2AgentStatusPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2AgentStatusPtrOutput) Elem() DataflowEndpointGroupV2AgentStatusOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2AgentStatus) DataflowEndpointGroupV2AgentStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DataflowEndpointGroupV2AgentStatus
+		return ret
+	}).(DataflowEndpointGroupV2AgentStatusOutput)
+}
+
+func (o DataflowEndpointGroupV2AgentStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupV2AgentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataflowEndpointGroupV2AgentStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The results of the audit.
+type DataflowEndpointGroupV2AuditResults string
+
+const (
+	DataflowEndpointGroupV2AuditResultsHealthy   = DataflowEndpointGroupV2AuditResults("HEALTHY")
+	DataflowEndpointGroupV2AuditResultsUnhealthy = DataflowEndpointGroupV2AuditResults("UNHEALTHY")
+)
+
+type DataflowEndpointGroupV2AuditResultsOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2AuditResultsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2AuditResults)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2AuditResultsOutput) ToDataflowEndpointGroupV2AuditResultsOutput() DataflowEndpointGroupV2AuditResultsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2AuditResultsOutput) ToDataflowEndpointGroupV2AuditResultsOutputWithContext(ctx context.Context) DataflowEndpointGroupV2AuditResultsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2AuditResultsOutput) ToDataflowEndpointGroupV2AuditResultsPtrOutput() DataflowEndpointGroupV2AuditResultsPtrOutput {
+	return o.ToDataflowEndpointGroupV2AuditResultsPtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupV2AuditResultsOutput) ToDataflowEndpointGroupV2AuditResultsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2AuditResultsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupV2AuditResults) *DataflowEndpointGroupV2AuditResults {
+		return &v
+	}).(DataflowEndpointGroupV2AuditResultsPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2AuditResultsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupV2AuditResultsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataflowEndpointGroupV2AuditResults) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataflowEndpointGroupV2AuditResultsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupV2AuditResultsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataflowEndpointGroupV2AuditResults) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataflowEndpointGroupV2AuditResultsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2AuditResultsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2AuditResults)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2AuditResultsPtrOutput) ToDataflowEndpointGroupV2AuditResultsPtrOutput() DataflowEndpointGroupV2AuditResultsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2AuditResultsPtrOutput) ToDataflowEndpointGroupV2AuditResultsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2AuditResultsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2AuditResultsPtrOutput) Elem() DataflowEndpointGroupV2AuditResultsOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2AuditResults) DataflowEndpointGroupV2AuditResults {
+		if v != nil {
+			return *v
+		}
+		var ret DataflowEndpointGroupV2AuditResults
+		return ret
+	}).(DataflowEndpointGroupV2AuditResultsOutput)
+}
+
+func (o DataflowEndpointGroupV2AuditResultsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupV2AuditResultsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataflowEndpointGroupV2AuditResults) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigBandwidthUnitsInput)(nil)).Elem(), ConfigBandwidthUnits("GHz"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigBandwidthUnitsPtrInput)(nil)).Elem(), ConfigBandwidthUnits("GHz"))
@@ -1207,4 +1391,8 @@ func init() {
 	pulumi.RegisterOutputType(DataflowEndpointGroupAgentStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataflowEndpointGroupAuditResultsOutput{})
 	pulumi.RegisterOutputType(DataflowEndpointGroupAuditResultsPtrOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2AgentStatusOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2AgentStatusPtrOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2AuditResultsOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2AuditResultsPtrOutput{})
 }

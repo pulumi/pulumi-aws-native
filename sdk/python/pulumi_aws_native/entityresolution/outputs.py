@@ -30,6 +30,7 @@ __all__ = [
     'IdNamespaceNamespaceProviderProperties',
     'IdNamespaceNamespaceRuleBasedProperties',
     'IdNamespaceRule',
+    'MatchingWorkflowCustomerProfilesIntegrationConfig',
     'MatchingWorkflowIncrementalRunConfig',
     'MatchingWorkflowInputSource',
     'MatchingWorkflowIntermediateSourceConfiguration',
@@ -803,6 +804,44 @@ class IdNamespaceRule(dict):
 
 
 @pulumi.output_type
+class MatchingWorkflowCustomerProfilesIntegrationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainArn":
+            suggest = "domain_arn"
+        elif key == "objectTypeArn":
+            suggest = "object_type_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MatchingWorkflowCustomerProfilesIntegrationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MatchingWorkflowCustomerProfilesIntegrationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MatchingWorkflowCustomerProfilesIntegrationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_arn: _builtins.str,
+                 object_type_arn: _builtins.str):
+        pulumi.set(__self__, "domain_arn", domain_arn)
+        pulumi.set(__self__, "object_type_arn", object_type_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="domainArn")
+    def domain_arn(self) -> _builtins.str:
+        return pulumi.get(self, "domain_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="objectTypeArn")
+    def object_type_arn(self) -> _builtins.str:
+        return pulumi.get(self, "object_type_arn")
+
+
+@pulumi.output_type
 class MatchingWorkflowIncrementalRunConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -973,12 +1012,14 @@ class MatchingWorkflowOutputSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "outputS3Path":
-            suggest = "output_s3_path"
-        elif key == "applyNormalization":
+        if key == "applyNormalization":
             suggest = "apply_normalization"
+        elif key == "customerProfilesIntegrationConfig":
+            suggest = "customer_profiles_integration_config"
         elif key == "kmsArn":
             suggest = "kms_arn"
+        elif key == "outputS3Path":
+            suggest = "output_s3_path"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MatchingWorkflowOutputSource. Access the value via the '{suggest}' property getter instead.")
@@ -993,21 +1034,25 @@ class MatchingWorkflowOutputSource(dict):
 
     def __init__(__self__, *,
                  output: Sequence['outputs.MatchingWorkflowOutputAttribute'],
-                 output_s3_path: _builtins.str,
                  apply_normalization: Optional[_builtins.bool] = None,
-                 kms_arn: Optional[_builtins.str] = None):
+                 customer_profiles_integration_config: Optional['outputs.MatchingWorkflowCustomerProfilesIntegrationConfig'] = None,
+                 kms_arn: Optional[_builtins.str] = None,
+                 output_s3_path: Optional[_builtins.str] = None):
         """
         :param Sequence['MatchingWorkflowOutputAttribute'] output: A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
-        :param _builtins.str output_s3_path: The S3 path to which Entity Resolution will write the output table
         :param _builtins.bool apply_normalization: Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
         :param _builtins.str kms_arn: Customer KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
+        :param _builtins.str output_s3_path: The S3 path to which Entity Resolution will write the output table
         """
         pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "output_s3_path", output_s3_path)
         if apply_normalization is not None:
             pulumi.set(__self__, "apply_normalization", apply_normalization)
+        if customer_profiles_integration_config is not None:
+            pulumi.set(__self__, "customer_profiles_integration_config", customer_profiles_integration_config)
         if kms_arn is not None:
             pulumi.set(__self__, "kms_arn", kms_arn)
+        if output_s3_path is not None:
+            pulumi.set(__self__, "output_s3_path", output_s3_path)
 
     @_builtins.property
     @pulumi.getter
@@ -1018,14 +1063,6 @@ class MatchingWorkflowOutputSource(dict):
         return pulumi.get(self, "output")
 
     @_builtins.property
-    @pulumi.getter(name="outputS3Path")
-    def output_s3_path(self) -> _builtins.str:
-        """
-        The S3 path to which Entity Resolution will write the output table
-        """
-        return pulumi.get(self, "output_s3_path")
-
-    @_builtins.property
     @pulumi.getter(name="applyNormalization")
     def apply_normalization(self) -> Optional[_builtins.bool]:
         """
@@ -1034,12 +1071,25 @@ class MatchingWorkflowOutputSource(dict):
         return pulumi.get(self, "apply_normalization")
 
     @_builtins.property
+    @pulumi.getter(name="customerProfilesIntegrationConfig")
+    def customer_profiles_integration_config(self) -> Optional['outputs.MatchingWorkflowCustomerProfilesIntegrationConfig']:
+        return pulumi.get(self, "customer_profiles_integration_config")
+
+    @_builtins.property
     @pulumi.getter(name="kmsArn")
     def kms_arn(self) -> Optional[_builtins.str]:
         """
         Customer KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
         """
         return pulumi.get(self, "kms_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="outputS3Path")
+    def output_s3_path(self) -> Optional[_builtins.str]:
+        """
+        The S3 path to which Entity Resolution will write the output table
+        """
+        return pulumi.get(self, "output_s3_path")
 
 
 @pulumi.output_type

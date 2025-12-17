@@ -32,7 +32,9 @@ type LookupProjectResult struct {
 	// The Amazon Resource Name (ARN) of the project. See [Amazon resource names](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference guide* .
 	Arn *string `pulumi:"arn"`
 	// Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
-	DefaultJobTimeoutMinutes *int `pulumi:"defaultJobTimeoutMinutes"`
+	DefaultJobTimeoutMinutes *int                         `pulumi:"defaultJobTimeoutMinutes"`
+	EnvironmentVariables     []ProjectEnvironmentVariable `pulumi:"environmentVariables"`
+	ExecutionRoleArn         *string                      `pulumi:"executionRoleArn"`
 	// The project's name.
 	Name *string `pulumi:"name"`
 	// The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
@@ -81,6 +83,14 @@ func (o LookupProjectResultOutput) Arn() pulumi.StringPtrOutput {
 // Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
 func (o LookupProjectResultOutput) DefaultJobTimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *int { return v.DefaultJobTimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupProjectResultOutput) EnvironmentVariables() ProjectEnvironmentVariableArrayOutput {
+	return o.ApplyT(func(v LookupProjectResult) []ProjectEnvironmentVariable { return v.EnvironmentVariables }).(ProjectEnvironmentVariableArrayOutput)
+}
+
+func (o LookupProjectResultOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupProjectResult) *string { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The project's name.

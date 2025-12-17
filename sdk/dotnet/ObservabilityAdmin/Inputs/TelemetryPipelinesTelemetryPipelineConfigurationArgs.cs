@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
 
     public sealed class TelemetryPipelinesTelemetryPipelineConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The pipeline configuration body that defines the data processing rules and transformations.
+        /// </summary>
         [Input("body", required: true)]
         public Input<string> Body { get; set; } = null!;
 

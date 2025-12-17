@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class WorkspaceThemePalette
     {
+        /// <summary>
+        /// The color configuration for the canvas area.
+        /// </summary>
         public readonly Outputs.WorkspacePaletteCanvas? Canvas;
+        /// <summary>
+        /// The color configuration for the header area.
+        /// </summary>
         public readonly Outputs.WorkspacePaletteHeader? Header;
+        /// <summary>
+        /// The color configuration for the navigation area.
+        /// </summary>
         public readonly Outputs.WorkspacePaletteNavigation? Navigation;
+        /// <summary>
+        /// The primary color configuration used throughout the workspace.
+        /// </summary>
         public readonly Outputs.WorkspacePalettePrimary? Primary;
 
         [OutputConstructor]

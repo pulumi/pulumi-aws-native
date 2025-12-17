@@ -38,10 +38,16 @@ __all__ = [
     'SessionLoggerS3LogConfigurationArgsDict',
     'SessionLoggerUnitArgs',
     'SessionLoggerUnitArgsDict',
+    'UserSettingsBrandingConfigurationArgs',
+    'UserSettingsBrandingConfigurationArgsDict',
     'UserSettingsCookieSpecificationArgs',
     'UserSettingsCookieSpecificationArgsDict',
     'UserSettingsCookieSynchronizationConfigurationArgs',
     'UserSettingsCookieSynchronizationConfigurationArgsDict',
+    'UserSettingsImageMetadataArgs',
+    'UserSettingsImageMetadataArgsDict',
+    'UserSettingsLocalizedBrandingStringsArgs',
+    'UserSettingsLocalizedBrandingStringsArgsDict',
     'UserSettingsToolbarConfigurationArgs',
     'UserSettingsToolbarConfigurationArgsDict',
 ]
@@ -732,6 +738,198 @@ class SessionLoggerUnitArgs:
 
 
 if not MYPY:
+    class UserSettingsBrandingConfigurationArgsDict(TypedDict):
+        color_theme: NotRequired[pulumi.Input['UserSettingsColorTheme']]
+        """
+        The color theme for components on the web portal. Choose `Light` if you upload a dark wallpaper, or `Dark` for a light wallpaper.
+        """
+        favicon: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The favicon image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 100 KB in JPEG, PNG, or ICO format.
+        """
+        favicon_metadata: NotRequired[pulumi.Input['UserSettingsImageMetadataArgsDict']]
+        """
+        Read-only. Metadata for the favicon image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+        """
+        localized_strings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserSettingsLocalizedBrandingStringsArgsDict']]]]
+        """
+        A map of localized text strings for different languages, allowing the portal to display content in the user's preferred language.
+        """
+        logo: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The logo image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 100 KB in JPEG, PNG, or ICO format.
+        """
+        logo_metadata: NotRequired[pulumi.Input['UserSettingsImageMetadataArgsDict']]
+        """
+        Read-only. Metadata for the logo image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+        """
+        terms_of_service: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The terms of service text in Markdown format that users must accept before accessing the portal.
+        """
+        wallpaper: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The wallpaper image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 5 MB in JPEG or PNG format.
+        """
+        wallpaper_metadata: NotRequired[pulumi.Input['UserSettingsImageMetadataArgsDict']]
+        """
+        Read-only. Metadata for the wallpaper image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+        """
+elif False:
+    UserSettingsBrandingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserSettingsBrandingConfigurationArgs:
+    def __init__(__self__, *,
+                 color_theme: Optional[pulumi.Input['UserSettingsColorTheme']] = None,
+                 favicon: Optional[pulumi.Input[_builtins.str]] = None,
+                 favicon_metadata: Optional[pulumi.Input['UserSettingsImageMetadataArgs']] = None,
+                 localized_strings: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserSettingsLocalizedBrandingStringsArgs']]]] = None,
+                 logo: Optional[pulumi.Input[_builtins.str]] = None,
+                 logo_metadata: Optional[pulumi.Input['UserSettingsImageMetadataArgs']] = None,
+                 terms_of_service: Optional[pulumi.Input[_builtins.str]] = None,
+                 wallpaper: Optional[pulumi.Input[_builtins.str]] = None,
+                 wallpaper_metadata: Optional[pulumi.Input['UserSettingsImageMetadataArgs']] = None):
+        """
+        :param pulumi.Input['UserSettingsColorTheme'] color_theme: The color theme for components on the web portal. Choose `Light` if you upload a dark wallpaper, or `Dark` for a light wallpaper.
+        :param pulumi.Input[_builtins.str] favicon: The favicon image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 100 KB in JPEG, PNG, or ICO format.
+        :param pulumi.Input['UserSettingsImageMetadataArgs'] favicon_metadata: Read-only. Metadata for the favicon image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+        :param pulumi.Input[Mapping[str, pulumi.Input['UserSettingsLocalizedBrandingStringsArgs']]] localized_strings: A map of localized text strings for different languages, allowing the portal to display content in the user's preferred language.
+        :param pulumi.Input[_builtins.str] logo: The logo image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 100 KB in JPEG, PNG, or ICO format.
+        :param pulumi.Input['UserSettingsImageMetadataArgs'] logo_metadata: Read-only. Metadata for the logo image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+        :param pulumi.Input[_builtins.str] terms_of_service: The terms of service text in Markdown format that users must accept before accessing the portal.
+        :param pulumi.Input[_builtins.str] wallpaper: The wallpaper image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 5 MB in JPEG or PNG format.
+        :param pulumi.Input['UserSettingsImageMetadataArgs'] wallpaper_metadata: Read-only. Metadata for the wallpaper image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+        """
+        if color_theme is not None:
+            pulumi.set(__self__, "color_theme", color_theme)
+        if favicon is not None:
+            pulumi.set(__self__, "favicon", favicon)
+        if favicon_metadata is not None:
+            pulumi.set(__self__, "favicon_metadata", favicon_metadata)
+        if localized_strings is not None:
+            pulumi.set(__self__, "localized_strings", localized_strings)
+        if logo is not None:
+            pulumi.set(__self__, "logo", logo)
+        if logo_metadata is not None:
+            pulumi.set(__self__, "logo_metadata", logo_metadata)
+        if terms_of_service is not None:
+            pulumi.set(__self__, "terms_of_service", terms_of_service)
+        if wallpaper is not None:
+            pulumi.set(__self__, "wallpaper", wallpaper)
+        if wallpaper_metadata is not None:
+            pulumi.set(__self__, "wallpaper_metadata", wallpaper_metadata)
+
+    @_builtins.property
+    @pulumi.getter(name="colorTheme")
+    def color_theme(self) -> Optional[pulumi.Input['UserSettingsColorTheme']]:
+        """
+        The color theme for components on the web portal. Choose `Light` if you upload a dark wallpaper, or `Dark` for a light wallpaper.
+        """
+        return pulumi.get(self, "color_theme")
+
+    @color_theme.setter
+    def color_theme(self, value: Optional[pulumi.Input['UserSettingsColorTheme']]):
+        pulumi.set(self, "color_theme", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def favicon(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The favicon image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 100 KB in JPEG, PNG, or ICO format.
+        """
+        return pulumi.get(self, "favicon")
+
+    @favicon.setter
+    def favicon(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "favicon", value)
+
+    @_builtins.property
+    @pulumi.getter(name="faviconMetadata")
+    def favicon_metadata(self) -> Optional[pulumi.Input['UserSettingsImageMetadataArgs']]:
+        """
+        Read-only. Metadata for the favicon image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+        """
+        return pulumi.get(self, "favicon_metadata")
+
+    @favicon_metadata.setter
+    def favicon_metadata(self, value: Optional[pulumi.Input['UserSettingsImageMetadataArgs']]):
+        pulumi.set(self, "favicon_metadata", value)
+
+    @_builtins.property
+    @pulumi.getter(name="localizedStrings")
+    def localized_strings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserSettingsLocalizedBrandingStringsArgs']]]]:
+        """
+        A map of localized text strings for different languages, allowing the portal to display content in the user's preferred language.
+        """
+        return pulumi.get(self, "localized_strings")
+
+    @localized_strings.setter
+    def localized_strings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserSettingsLocalizedBrandingStringsArgs']]]]):
+        pulumi.set(self, "localized_strings", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def logo(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The logo image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 100 KB in JPEG, PNG, or ICO format.
+        """
+        return pulumi.get(self, "logo")
+
+    @logo.setter
+    def logo(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "logo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logoMetadata")
+    def logo_metadata(self) -> Optional[pulumi.Input['UserSettingsImageMetadataArgs']]:
+        """
+        Read-only. Metadata for the logo image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+        """
+        return pulumi.get(self, "logo_metadata")
+
+    @logo_metadata.setter
+    def logo_metadata(self, value: Optional[pulumi.Input['UserSettingsImageMetadataArgs']]):
+        pulumi.set(self, "logo_metadata", value)
+
+    @_builtins.property
+    @pulumi.getter(name="termsOfService")
+    def terms_of_service(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The terms of service text in Markdown format that users must accept before accessing the portal.
+        """
+        return pulumi.get(self, "terms_of_service")
+
+    @terms_of_service.setter
+    def terms_of_service(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "terms_of_service", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def wallpaper(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The wallpaper image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 5 MB in JPEG or PNG format.
+        """
+        return pulumi.get(self, "wallpaper")
+
+    @wallpaper.setter
+    def wallpaper(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "wallpaper", value)
+
+    @_builtins.property
+    @pulumi.getter(name="wallpaperMetadata")
+    def wallpaper_metadata(self) -> Optional[pulumi.Input['UserSettingsImageMetadataArgs']]:
+        """
+        Read-only. Metadata for the wallpaper image file, including the MIME type, file extension, and upload timestamp. This property is automatically populated by the service and cannot be specified in your template. It can be retrieved using the `Fn::GetAtt` intrinsic function.
+        """
+        return pulumi.get(self, "wallpaper_metadata")
+
+    @wallpaper_metadata.setter
+    def wallpaper_metadata(self, value: Optional[pulumi.Input['UserSettingsImageMetadataArgs']]):
+        pulumi.set(self, "wallpaper_metadata", value)
+
+
+if not MYPY:
     class UserSettingsCookieSpecificationArgsDict(TypedDict):
         domain: pulumi.Input[_builtins.str]
         """
@@ -851,6 +1049,245 @@ class UserSettingsCookieSynchronizationConfigurationArgs:
     @blocklist.setter
     def blocklist(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsCookieSpecificationArgs']]]]):
         pulumi.set(self, "blocklist", value)
+
+
+if not MYPY:
+    class UserSettingsImageMetadataArgsDict(TypedDict):
+        file_extension: pulumi.Input[_builtins.str]
+        """
+        The file extension of the image.
+        """
+        last_upload_timestamp: pulumi.Input[_builtins.str]
+        """
+        The timestamp when the image was last uploaded.
+        """
+        mime_type: pulumi.Input['UserSettingsMimeType']
+        """
+        The MIME type of the image.
+        """
+elif False:
+    UserSettingsImageMetadataArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserSettingsImageMetadataArgs:
+    def __init__(__self__, *,
+                 file_extension: pulumi.Input[_builtins.str],
+                 last_upload_timestamp: pulumi.Input[_builtins.str],
+                 mime_type: pulumi.Input['UserSettingsMimeType']):
+        """
+        :param pulumi.Input[_builtins.str] file_extension: The file extension of the image.
+        :param pulumi.Input[_builtins.str] last_upload_timestamp: The timestamp when the image was last uploaded.
+        :param pulumi.Input['UserSettingsMimeType'] mime_type: The MIME type of the image.
+        """
+        pulumi.set(__self__, "file_extension", file_extension)
+        pulumi.set(__self__, "last_upload_timestamp", last_upload_timestamp)
+        pulumi.set(__self__, "mime_type", mime_type)
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> pulumi.Input[_builtins.str]:
+        """
+        The file extension of the image.
+        """
+        return pulumi.get(self, "file_extension")
+
+    @file_extension.setter
+    def file_extension(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "file_extension", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastUploadTimestamp")
+    def last_upload_timestamp(self) -> pulumi.Input[_builtins.str]:
+        """
+        The timestamp when the image was last uploaded.
+        """
+        return pulumi.get(self, "last_upload_timestamp")
+
+    @last_upload_timestamp.setter
+    def last_upload_timestamp(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "last_upload_timestamp", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mimeType")
+    def mime_type(self) -> pulumi.Input['UserSettingsMimeType']:
+        """
+        The MIME type of the image.
+        """
+        return pulumi.get(self, "mime_type")
+
+    @mime_type.setter
+    def mime_type(self, value: pulumi.Input['UserSettingsMimeType']):
+        pulumi.set(self, "mime_type", value)
+
+
+if not MYPY:
+    class UserSettingsLocalizedBrandingStringsArgsDict(TypedDict):
+        browser_tab_title: pulumi.Input[_builtins.str]
+        """
+        The text displayed in the browser tab title.
+        """
+        welcome_text: pulumi.Input[_builtins.str]
+        """
+        The welcome text displayed on the sign-in page.
+        """
+        contact_button_text: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The text displayed on the contact button. This field is optional and defaults to "Contact us".
+        """
+        contact_link: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A contact link URL. The URL must start with `https://` or `mailto:` . If not provided, the contact button will be hidden from the web portal screen.
+        """
+        loading_text: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The text displayed during session loading. This field is optional and defaults to "Loading your session".
+        """
+        login_button_text: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The text displayed on the login button. This field is optional and defaults to "Sign In".
+        """
+        login_description: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The description text for the login section. This field is optional and defaults to "Sign in to your session".
+        """
+        login_title: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The title text for the login section. This field is optional and defaults to "Sign In".
+        """
+elif False:
+    UserSettingsLocalizedBrandingStringsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserSettingsLocalizedBrandingStringsArgs:
+    def __init__(__self__, *,
+                 browser_tab_title: pulumi.Input[_builtins.str],
+                 welcome_text: pulumi.Input[_builtins.str],
+                 contact_button_text: Optional[pulumi.Input[_builtins.str]] = None,
+                 contact_link: Optional[pulumi.Input[_builtins.str]] = None,
+                 loading_text: Optional[pulumi.Input[_builtins.str]] = None,
+                 login_button_text: Optional[pulumi.Input[_builtins.str]] = None,
+                 login_description: Optional[pulumi.Input[_builtins.str]] = None,
+                 login_title: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] browser_tab_title: The text displayed in the browser tab title.
+        :param pulumi.Input[_builtins.str] welcome_text: The welcome text displayed on the sign-in page.
+        :param pulumi.Input[_builtins.str] contact_button_text: The text displayed on the contact button. This field is optional and defaults to "Contact us".
+        :param pulumi.Input[_builtins.str] contact_link: A contact link URL. The URL must start with `https://` or `mailto:` . If not provided, the contact button will be hidden from the web portal screen.
+        :param pulumi.Input[_builtins.str] loading_text: The text displayed during session loading. This field is optional and defaults to "Loading your session".
+        :param pulumi.Input[_builtins.str] login_button_text: The text displayed on the login button. This field is optional and defaults to "Sign In".
+        :param pulumi.Input[_builtins.str] login_description: The description text for the login section. This field is optional and defaults to "Sign in to your session".
+        :param pulumi.Input[_builtins.str] login_title: The title text for the login section. This field is optional and defaults to "Sign In".
+        """
+        pulumi.set(__self__, "browser_tab_title", browser_tab_title)
+        pulumi.set(__self__, "welcome_text", welcome_text)
+        if contact_button_text is not None:
+            pulumi.set(__self__, "contact_button_text", contact_button_text)
+        if contact_link is not None:
+            pulumi.set(__self__, "contact_link", contact_link)
+        if loading_text is not None:
+            pulumi.set(__self__, "loading_text", loading_text)
+        if login_button_text is not None:
+            pulumi.set(__self__, "login_button_text", login_button_text)
+        if login_description is not None:
+            pulumi.set(__self__, "login_description", login_description)
+        if login_title is not None:
+            pulumi.set(__self__, "login_title", login_title)
+
+    @_builtins.property
+    @pulumi.getter(name="browserTabTitle")
+    def browser_tab_title(self) -> pulumi.Input[_builtins.str]:
+        """
+        The text displayed in the browser tab title.
+        """
+        return pulumi.get(self, "browser_tab_title")
+
+    @browser_tab_title.setter
+    def browser_tab_title(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "browser_tab_title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="welcomeText")
+    def welcome_text(self) -> pulumi.Input[_builtins.str]:
+        """
+        The welcome text displayed on the sign-in page.
+        """
+        return pulumi.get(self, "welcome_text")
+
+    @welcome_text.setter
+    def welcome_text(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "welcome_text", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contactButtonText")
+    def contact_button_text(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The text displayed on the contact button. This field is optional and defaults to "Contact us".
+        """
+        return pulumi.get(self, "contact_button_text")
+
+    @contact_button_text.setter
+    def contact_button_text(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "contact_button_text", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contactLink")
+    def contact_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A contact link URL. The URL must start with `https://` or `mailto:` . If not provided, the contact button will be hidden from the web portal screen.
+        """
+        return pulumi.get(self, "contact_link")
+
+    @contact_link.setter
+    def contact_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "contact_link", value)
+
+    @_builtins.property
+    @pulumi.getter(name="loadingText")
+    def loading_text(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The text displayed during session loading. This field is optional and defaults to "Loading your session".
+        """
+        return pulumi.get(self, "loading_text")
+
+    @loading_text.setter
+    def loading_text(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "loading_text", value)
+
+    @_builtins.property
+    @pulumi.getter(name="loginButtonText")
+    def login_button_text(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The text displayed on the login button. This field is optional and defaults to "Sign In".
+        """
+        return pulumi.get(self, "login_button_text")
+
+    @login_button_text.setter
+    def login_button_text(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "login_button_text", value)
+
+    @_builtins.property
+    @pulumi.getter(name="loginDescription")
+    def login_description(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The description text for the login section. This field is optional and defaults to "Sign in to your session".
+        """
+        return pulumi.get(self, "login_description")
+
+    @login_description.setter
+    def login_description(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "login_description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="loginTitle")
+    def login_title(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The title text for the login section. This field is optional and defaults to "Sign In".
+        """
+        return pulumi.get(self, "login_title")
+
+    @login_title.setter
+    def login_title(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "login_title", value)
 
 
 if not MYPY:

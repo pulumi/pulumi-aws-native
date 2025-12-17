@@ -68,6 +68,11 @@ export class Key extends pulumi.CustomResource {
      * The state of key that is being created or deleted.
      */
     declare public /*out*/ readonly keyState: pulumi.Output<enums.paymentcryptography.KeyState>;
+    /**
+     * The list of AWS Regions to remove from the key's replication configuration.
+     *
+     * The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.
+     */
     declare public readonly replicationRegions: pulumi.Output<string[] | undefined>;
     declare public /*out*/ readonly replicationStatus: pulumi.Output<{[key: string]: outputs.paymentcryptography.KeyReplicationStatusType}>;
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -144,6 +149,11 @@ export interface KeyArgs {
      * For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
      */
     keyCheckValueAlgorithm?: pulumi.Input<enums.paymentcryptography.KeyCheckValueAlgorithm>;
+    /**
+     * The list of AWS Regions to remove from the key's replication configuration.
+     *
+     * The key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal.
+     */
     replicationRegions?: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -29,7 +29,8 @@ type Gateway struct {
 	GatewayArn        pulumi.StringOutput `pulumi:"gatewayArn"`
 	GatewayIdentifier pulumi.StringOutput `pulumi:"gatewayIdentifier"`
 	// The gateway URL for the gateway.
-	GatewayUrl pulumi.StringOutput `pulumi:"gatewayUrl"`
+	GatewayUrl                pulumi.StringOutput                        `pulumi:"gatewayUrl"`
+	InterceptorConfigurations GatewayInterceptorConfigurationArrayOutput `pulumi:"interceptorConfigurations"`
 	// The KMS key ARN for the gateway.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// The name for the gateway.
@@ -104,7 +105,8 @@ type gatewayArgs struct {
 	// The description for the gateway.
 	Description *string `pulumi:"description"`
 	// The exception level for the gateway.
-	ExceptionLevel *GatewayExceptionLevel `pulumi:"exceptionLevel"`
+	ExceptionLevel            *GatewayExceptionLevel            `pulumi:"exceptionLevel"`
+	InterceptorConfigurations []GatewayInterceptorConfiguration `pulumi:"interceptorConfigurations"`
 	// The KMS key ARN for the gateway.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The name for the gateway.
@@ -126,7 +128,8 @@ type GatewayArgs struct {
 	// The description for the gateway.
 	Description pulumi.StringPtrInput
 	// The exception level for the gateway.
-	ExceptionLevel GatewayExceptionLevelPtrInput
+	ExceptionLevel            GatewayExceptionLevelPtrInput
+	InterceptorConfigurations GatewayInterceptorConfigurationArrayInput
 	// The KMS key ARN for the gateway.
 	KmsKeyArn pulumi.StringPtrInput
 	// The name for the gateway.
@@ -213,6 +216,10 @@ func (o GatewayOutput) GatewayIdentifier() pulumi.StringOutput {
 // The gateway URL for the gateway.
 func (o GatewayOutput) GatewayUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.GatewayUrl }).(pulumi.StringOutput)
+}
+
+func (o GatewayOutput) InterceptorConfigurations() GatewayInterceptorConfigurationArrayOutput {
+	return o.ApplyT(func(v *Gateway) GatewayInterceptorConfigurationArrayOutput { return v.InterceptorConfigurations }).(GatewayInterceptorConfigurationArrayOutput)
 }
 
 // The KMS key ARN for the gateway.

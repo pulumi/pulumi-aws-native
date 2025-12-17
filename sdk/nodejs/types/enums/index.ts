@@ -150,6 +150,7 @@ import * as resourceexplorer2 from "./resourceexplorer2";
 import * as resourcegroups from "./resourcegroups";
 import * as rolesanywhere from "./rolesanywhere";
 import * as route53 from "./route53";
+import * as route53profiles from "./route53profiles";
 import * as route53recoverycontrol from "./route53recoverycontrol";
 import * as route53resolver from "./route53resolver";
 import * as rtbfabric from "./rtbfabric";
@@ -339,6 +340,7 @@ export {
     resourcegroups,
     rolesanywhere,
     route53,
+    route53profiles,
     route53recoverycontrol,
     route53resolver,
     rtbfabric,

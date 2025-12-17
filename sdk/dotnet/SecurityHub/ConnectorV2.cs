@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.SecurityHub
         [Output("connectorStatus")]
         public Output<Pulumi.AwsNative.SecurityHub.ConnectorV2ConnectorStatus> ConnectorStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp when the V2 connector was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
@@ -48,9 +51,15 @@ namespace Pulumi.AwsNative.SecurityHub
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The most recent timestamp when the V2 connector was checked on health status.
+        /// </summary>
         [Output("lastCheckedAt")]
         public Output<string> LastCheckedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The most recent timestamp when the V2 connector was updated.
+        /// </summary>
         [Output("lastUpdatedAt")]
         public Output<string> LastUpdatedAt { get; private set; } = null!;
 
@@ -66,9 +75,15 @@ namespace Pulumi.AwsNative.SecurityHub
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The third-party provider detail for a service configuration.
+        /// </summary>
         [Output("provider")]
         public Output<Outputs.ConnectorV2Provider> Provider { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to add to the connectorV2 when you create.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -140,11 +155,18 @@ namespace Pulumi.AwsNative.SecurityHub
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The third-party provider detail for a service configuration.
+        /// </summary>
         [Input("provider", required: true)]
         public Input<Inputs.ConnectorV2ProviderArgs> Provider { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The tags to add to the connectorV2 when you create.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

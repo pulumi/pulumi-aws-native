@@ -122,6 +122,13 @@ export const SessionLoggerLogFileFormat = {
 
 export type SessionLoggerLogFileFormat = (typeof SessionLoggerLogFileFormat)[keyof typeof SessionLoggerLogFileFormat];
 
+export const UserSettingsColorTheme = {
+    Light: "Light",
+    Dark: "Dark",
+} as const;
+
+export type UserSettingsColorTheme = (typeof UserSettingsColorTheme)[keyof typeof UserSettingsColorTheme];
+
 export const UserSettingsEnabledType = {
     Disabled: "Disabled",
     Enabled: "Enabled",
@@ -141,6 +148,14 @@ export const UserSettingsMaxDisplayResolution = {
 } as const;
 
 export type UserSettingsMaxDisplayResolution = (typeof UserSettingsMaxDisplayResolution)[keyof typeof UserSettingsMaxDisplayResolution];
+
+export const UserSettingsMimeType = {
+    Imagepng: "image/png",
+    Imagejpeg: "image/jpeg",
+    ImagexIcon: "image/x-icon",
+} as const;
+
+export type UserSettingsMimeType = (typeof UserSettingsMimeType)[keyof typeof UserSettingsMimeType];
 
 export const UserSettingsToolbarItem = {
     Windows: "Windows",

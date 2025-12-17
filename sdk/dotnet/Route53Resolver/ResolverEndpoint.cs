@@ -85,6 +85,12 @@ namespace Pulumi.AwsNative.Route53Resolver
         public Output<Pulumi.AwsNative.Route53Resolver.ResolverEndpointType?> ResolverEndpointType { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
+        /// </summary>
+        [Output("rniEnhancedMetricsEnabled")]
+        public Output<bool?> RniEnhancedMetricsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.
         /// </summary>
         [Output("securityGroupIds")]
@@ -95,6 +101,12 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
+        /// </summary>
+        [Output("targetNameServerMetricsEnabled")]
+        public Output<bool?> TargetNameServerMetricsEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -205,6 +217,12 @@ namespace Pulumi.AwsNative.Route53Resolver
         [Input("resolverEndpointType")]
         public Input<Pulumi.AwsNative.Route53Resolver.ResolverEndpointType>? ResolverEndpointType { get; set; }
 
+        /// <summary>
+        /// Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
+        /// </summary>
+        [Input("rniEnhancedMetricsEnabled")]
+        public Input<bool>? RniEnhancedMetricsEnabled { get; set; }
+
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
 
@@ -228,6 +246,12 @@ namespace Pulumi.AwsNative.Route53Resolver
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
+        /// </summary>
+        [Input("targetNameServerMetricsEnabled")]
+        public Input<bool>? TargetNameServerMetricsEnabled { get; set; }
 
         public ResolverEndpointArgs()
         {

@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
         [Input("telephony")]
         public Input<Inputs.CampaignTimeWindowArgs>? Telephony { get; set; }
 
+        /// <summary>
+        /// The communication time configuration for the WhatsApp channel subtype.
+        /// </summary>
         [Input("whatsApp")]
         public Input<Inputs.CampaignTimeWindowArgs>? WhatsApp { get; set; }
 

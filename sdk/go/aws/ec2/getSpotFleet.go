@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,6 +33,8 @@ type LookupSpotFleetResult struct {
 	Id *string `pulumi:"id"`
 	// Describes the configuration of a Spot Fleet request.
 	SpotFleetRequestConfigData *SpotFleetRequestConfigData `pulumi:"spotFleetRequestConfigData"`
+	// The tags to specify in SpotFleetRequestConfigData
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSpotFleetOutput(ctx *pulumi.Context, args LookupSpotFleetOutputArgs, opts ...pulumi.InvokeOption) LookupSpotFleetResultOutput {
@@ -74,6 +77,11 @@ func (o LookupSpotFleetResultOutput) Id() pulumi.StringPtrOutput {
 // Describes the configuration of a Spot Fleet request.
 func (o LookupSpotFleetResultOutput) SpotFleetRequestConfigData() SpotFleetRequestConfigDataPtrOutput {
 	return o.ApplyT(func(v LookupSpotFleetResult) *SpotFleetRequestConfigData { return v.SpotFleetRequestConfigData }).(SpotFleetRequestConfigDataPtrOutput)
+}
+
+// The tags to specify in SpotFleetRequestConfigData
+func (o LookupSpotFleetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSpotFleetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

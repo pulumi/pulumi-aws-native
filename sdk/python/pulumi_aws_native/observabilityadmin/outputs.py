@@ -721,6 +721,7 @@ class OrganizationTelemetryRuleElbLoadBalancerLoggingParameters(dict):
         """
         Telemetry parameters for ELB/NLB Load Balancer Logs
         :param _builtins.str field_delimiter: A delimiter to delineate log fields
+        :param 'OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat' output_format: The format for ELB access log entries (plain text or JSON format).
         """
         if field_delimiter is not None:
             pulumi.set(__self__, "field_delimiter", field_delimiter)
@@ -738,6 +739,9 @@ class OrganizationTelemetryRuleElbLoadBalancerLoggingParameters(dict):
     @_builtins.property
     @pulumi.getter(name="outputFormat")
     def output_format(self) -> Optional['OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat']:
+        """
+        The format for ELB access log entries (plain text or JSON format).
+        """
         return pulumi.get(self, "output_format")
 
 
@@ -919,6 +923,8 @@ class OrganizationTelemetryRuleLoggingFilter(dict):
                  filters: Optional[Sequence['outputs.OrganizationTelemetryRuleFilter']] = None):
         """
         Default handling for logs that don't match any of the specified filtering conditions.
+        :param 'OrganizationTelemetryRuleFilterBehavior' default_behavior: The default action (KEEP or DROP) for log records that don't match any filter conditions.
+        :param Sequence['OrganizationTelemetryRuleFilter'] filters: A list of filter conditions that determine log record handling behavior.
         """
         if default_behavior is not None:
             pulumi.set(__self__, "default_behavior", default_behavior)
@@ -928,11 +934,17 @@ class OrganizationTelemetryRuleLoggingFilter(dict):
     @_builtins.property
     @pulumi.getter(name="defaultBehavior")
     def default_behavior(self) -> Optional['OrganizationTelemetryRuleFilterBehavior']:
+        """
+        The default action (KEEP or DROP) for log records that don't match any filter conditions.
+        """
         return pulumi.get(self, "default_behavior")
 
     @_builtins.property
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.OrganizationTelemetryRuleFilter']]:
+        """
+        A list of filter conditions that determine log record handling behavior.
+        """
         return pulumi.get(self, "filters")
 
 
@@ -1002,10 +1014,13 @@ class OrganizationTelemetryRuleTelemetryDestinationConfiguration(dict):
                  waf_logging_parameters: Optional['outputs.OrganizationTelemetryRuleWafLoggingParameters'] = None):
         """
         The destination configuration for telemetry data
+        :param 'OrganizationTelemetryRuleCloudtrailParameters' cloudtrail_parameters: Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
         :param _builtins.str destination_pattern: The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
         :param 'OrganizationTelemetryRuleDestinationType' destination_type: The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
+        :param 'OrganizationTelemetryRuleElbLoadBalancerLoggingParameters' elb_load_balancer_logging_parameters: Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
         :param _builtins.int retention_in_days: The number of days to retain the telemetry data in the destination.
         :param 'OrganizationTelemetryRuleVpcFlowLogParameters' vpc_flow_log_parameters: Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
+        :param 'OrganizationTelemetryRuleWafLoggingParameters' waf_logging_parameters: Configuration parameters specific to WAF logging when WAF is the resource type.
         """
         if cloudtrail_parameters is not None:
             pulumi.set(__self__, "cloudtrail_parameters", cloudtrail_parameters)
@@ -1025,6 +1040,9 @@ class OrganizationTelemetryRuleTelemetryDestinationConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="cloudtrailParameters")
     def cloudtrail_parameters(self) -> Optional['outputs.OrganizationTelemetryRuleCloudtrailParameters']:
+        """
+        Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
+        """
         return pulumi.get(self, "cloudtrail_parameters")
 
     @_builtins.property
@@ -1046,6 +1064,9 @@ class OrganizationTelemetryRuleTelemetryDestinationConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="elbLoadBalancerLoggingParameters")
     def elb_load_balancer_logging_parameters(self) -> Optional['outputs.OrganizationTelemetryRuleElbLoadBalancerLoggingParameters']:
+        """
+        Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
+        """
         return pulumi.get(self, "elb_load_balancer_logging_parameters")
 
     @_builtins.property
@@ -1067,6 +1088,9 @@ class OrganizationTelemetryRuleTelemetryDestinationConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="wafLoggingParameters")
     def waf_logging_parameters(self) -> Optional['outputs.OrganizationTelemetryRuleWafLoggingParameters']:
+        """
+        Configuration parameters specific to WAF logging when WAF is the resource type.
+        """
         return pulumi.get(self, "waf_logging_parameters")
 
 
@@ -1114,6 +1138,7 @@ class OrganizationTelemetryRuleTelemetryRule(dict):
         :param 'OrganizationTelemetryRuleTelemetryDestinationConfiguration' destination_configuration: Configuration specifying where and how the telemetry data should be delivered.
         :param _builtins.str scope: The organizational scope to which the rule applies, specified using accounts or organizational units.
         :param _builtins.str selection_criteria: Criteria for selecting which resources the rule applies to, such as resource tags.
+        :param Sequence['OrganizationTelemetryRuleTelemetrySourceType'] telemetry_source_types: The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
         """
         pulumi.set(__self__, "resource_type", resource_type)
         pulumi.set(__self__, "telemetry_type", telemetry_type)
@@ -1169,6 +1194,9 @@ class OrganizationTelemetryRuleTelemetryRule(dict):
     @_builtins.property
     @pulumi.getter(name="telemetrySourceTypes")
     def telemetry_source_types(self) -> Optional[Sequence['OrganizationTelemetryRuleTelemetrySourceType']]:
+        """
+        The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
+        """
         return pulumi.get(self, "telemetry_source_types")
 
 
@@ -1272,6 +1300,8 @@ class OrganizationTelemetryRuleWafLoggingParameters(dict):
                  redacted_fields: Optional[Sequence['outputs.OrganizationTelemetryRuleFieldToMatch']] = None):
         """
         Telemetry parameters for WAF v2 Web ACL
+        :param 'OrganizationTelemetryRuleWafLogType' log_type: The type of WAF logs to collect (currently supports WAF_LOGS).
+        :param 'OrganizationTelemetryRuleLoggingFilter' logging_filter: A filter configuration that determines which WAF log records to include or exclude.
         :param Sequence['OrganizationTelemetryRuleFieldToMatch'] redacted_fields: Fields not to be included in the logs.
         """
         if log_type is not None:
@@ -1284,11 +1314,17 @@ class OrganizationTelemetryRuleWafLoggingParameters(dict):
     @_builtins.property
     @pulumi.getter(name="logType")
     def log_type(self) -> Optional['OrganizationTelemetryRuleWafLogType']:
+        """
+        The type of WAF logs to collect (currently supports WAF_LOGS).
+        """
         return pulumi.get(self, "log_type")
 
     @_builtins.property
     @pulumi.getter(name="loggingFilter")
     def logging_filter(self) -> Optional['outputs.OrganizationTelemetryRuleLoggingFilter']:
+        """
+        A filter configuration that determines which WAF log records to include or exclude.
+        """
         return pulumi.get(self, "logging_filter")
 
     @_builtins.property
@@ -1366,6 +1402,13 @@ class TelemetryPipelinesTelemetryPipeline(dict):
                  status_reason: Optional['outputs.TelemetryPipelinesTelemetryPipelineStatusReason'] = None,
                  tags: Optional[Sequence['outputs.TelemetryPipelinesTag']] = None):
         """
+        :param _builtins.str arn: The Amazon Resource Name (ARN) of the telemetry pipeline.
+        :param 'TelemetryPipelinesTelemetryPipelineConfiguration' configuration: The configuration that defines how the telemetry pipeline processes data.
+        :param _builtins.float created_time_stamp: The timestamp when the telemetry pipeline was created.
+        :param _builtins.float last_update_time_stamp: The timestamp when the telemetry pipeline was last updated.
+        :param _builtins.str name: The name of the telemetry pipeline.
+        :param 'TelemetryPipelinesTelemetryPipelineStatus' status: The current status of the telemetry pipeline.
+        :param 'TelemetryPipelinesTelemetryPipelineStatusReason' status_reason: Additional information about the pipeline status, including reasons for failure states.
         :param Sequence['TelemetryPipelinesTag'] tags: An array of key-value pairs to apply to this resource
         """
         if arn is not None:
@@ -1388,36 +1431,57 @@ class TelemetryPipelinesTelemetryPipeline(dict):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the telemetry pipeline.
+        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> Optional['outputs.TelemetryPipelinesTelemetryPipelineConfiguration']:
+        """
+        The configuration that defines how the telemetry pipeline processes data.
+        """
         return pulumi.get(self, "configuration")
 
     @_builtins.property
     @pulumi.getter(name="createdTimeStamp")
     def created_time_stamp(self) -> Optional[_builtins.float]:
+        """
+        The timestamp when the telemetry pipeline was created.
+        """
         return pulumi.get(self, "created_time_stamp")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdateTimeStamp")
     def last_update_time_stamp(self) -> Optional[_builtins.float]:
+        """
+        The timestamp when the telemetry pipeline was last updated.
+        """
         return pulumi.get(self, "last_update_time_stamp")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the telemetry pipeline.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional['TelemetryPipelinesTelemetryPipelineStatus']:
+        """
+        The current status of the telemetry pipeline.
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> Optional['outputs.TelemetryPipelinesTelemetryPipelineStatusReason']:
+        """
+        Additional information about the pipeline status, including reasons for failure states.
+        """
         return pulumi.get(self, "status_reason")
 
     @_builtins.property
@@ -1433,11 +1497,17 @@ class TelemetryPipelinesTelemetryPipeline(dict):
 class TelemetryPipelinesTelemetryPipelineConfiguration(dict):
     def __init__(__self__, *,
                  body: _builtins.str):
+        """
+        :param _builtins.str body: The pipeline configuration body that defines the data processing rules and transformations.
+        """
         pulumi.set(__self__, "body", body)
 
     @_builtins.property
     @pulumi.getter
     def body(self) -> _builtins.str:
+        """
+        The pipeline configuration body that defines the data processing rules and transformations.
+        """
         return pulumi.get(self, "body")
 
 
@@ -1445,12 +1515,18 @@ class TelemetryPipelinesTelemetryPipelineConfiguration(dict):
 class TelemetryPipelinesTelemetryPipelineStatusReason(dict):
     def __init__(__self__, *,
                  description: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str description: A description of the pipeline status reason, providing additional context about the current state.
+        """
         if description is not None:
             pulumi.set(__self__, "description", description)
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
+        """
+        A description of the pipeline status reason, providing additional context about the current state.
+        """
         return pulumi.get(self, "description")
 
 
@@ -1496,6 +1572,7 @@ class TelemetryRule(dict):
         :param 'TelemetryRuleTelemetryType' telemetry_type: The type of telemetry to collect (Logs, Metrics, or Traces).
         :param 'TelemetryRuleTelemetryDestinationConfiguration' destination_configuration: Configuration specifying where and how the telemetry data should be delivered.
         :param _builtins.str selection_criteria: Criteria for selecting which resources the rule applies to, such as resource tags.
+        :param Sequence['TelemetryRuleTelemetrySourceType'] telemetry_source_types: The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
         """
         pulumi.set(__self__, "resource_type", resource_type)
         pulumi.set(__self__, "telemetry_type", telemetry_type)
@@ -1541,6 +1618,9 @@ class TelemetryRule(dict):
     @_builtins.property
     @pulumi.getter(name="telemetrySourceTypes")
     def telemetry_source_types(self) -> Optional[Sequence['TelemetryRuleTelemetrySourceType']]:
+        """
+        The specific telemetry source types to configure for the resource, such as VPC_FLOW_LOGS or EKS_AUDIT_LOGS. TelemetrySourceTypes must be correlated with the specific resource type.
+        """
         return pulumi.get(self, "telemetry_source_types")
 
 
@@ -1849,6 +1929,7 @@ class TelemetryRuleElbLoadBalancerLoggingParameters(dict):
         """
         Telemetry parameters for ELB/NLB Load Balancer Logs
         :param _builtins.str field_delimiter: A delimiter to delineate log fields
+        :param 'TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat' output_format: The format for ELB access log entries (plain text or JSON format).
         """
         if field_delimiter is not None:
             pulumi.set(__self__, "field_delimiter", field_delimiter)
@@ -1866,6 +1947,9 @@ class TelemetryRuleElbLoadBalancerLoggingParameters(dict):
     @_builtins.property
     @pulumi.getter(name="outputFormat")
     def output_format(self) -> Optional['TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat']:
+        """
+        The format for ELB access log entries (plain text or JSON format).
+        """
         return pulumi.get(self, "output_format")
 
 
@@ -2047,6 +2131,8 @@ class TelemetryRuleLoggingFilter(dict):
                  filters: Optional[Sequence['outputs.TelemetryRuleFilter']] = None):
         """
         Default handling for logs that don't match any of the specified filtering conditions.
+        :param 'TelemetryRuleFilterBehavior' default_behavior: The default action (KEEP or DROP) for log records that don't match any filter conditions.
+        :param Sequence['TelemetryRuleFilter'] filters: A list of filter conditions that determine log record handling behavior.
         """
         if default_behavior is not None:
             pulumi.set(__self__, "default_behavior", default_behavior)
@@ -2056,11 +2142,17 @@ class TelemetryRuleLoggingFilter(dict):
     @_builtins.property
     @pulumi.getter(name="defaultBehavior")
     def default_behavior(self) -> Optional['TelemetryRuleFilterBehavior']:
+        """
+        The default action (KEEP or DROP) for log records that don't match any filter conditions.
+        """
         return pulumi.get(self, "default_behavior")
 
     @_builtins.property
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.TelemetryRuleFilter']]:
+        """
+        A list of filter conditions that determine log record handling behavior.
+        """
         return pulumi.get(self, "filters")
 
 
@@ -2133,11 +2225,14 @@ class TelemetryRuleTelemetryDestinationConfiguration(dict):
                  waf_logging_parameters: Optional['outputs.TelemetryRuleWafLoggingParameters'] = None):
         """
         The destination configuration for telemetry data
+        :param 'TelemetryRuleCloudtrailParameters' cloudtrail_parameters: Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
         :param _builtins.str destination_pattern: The pattern used to generate the destination path or name, supporting macros like <resourceId> and <accountId>.
         :param 'TelemetryRuleDestinationType' destination_type: The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
+        :param 'TelemetryRuleElbLoadBalancerLoggingParameters' elb_load_balancer_logging_parameters: Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
         :param 'TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersProperties' log_delivery_parameters: Parameters for BedrockAgentCore log delivery
         :param _builtins.int retention_in_days: The number of days to retain the telemetry data in the destination.
         :param 'TelemetryRuleVpcFlowLogParameters' vpc_flow_log_parameters: Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
+        :param 'TelemetryRuleWafLoggingParameters' waf_logging_parameters: Configuration parameters specific to WAF logging when WAF is the resource type.
         """
         if cloudtrail_parameters is not None:
             pulumi.set(__self__, "cloudtrail_parameters", cloudtrail_parameters)
@@ -2159,6 +2254,9 @@ class TelemetryRuleTelemetryDestinationConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="cloudtrailParameters")
     def cloudtrail_parameters(self) -> Optional['outputs.TelemetryRuleCloudtrailParameters']:
+        """
+        Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
+        """
         return pulumi.get(self, "cloudtrail_parameters")
 
     @_builtins.property
@@ -2180,6 +2278,9 @@ class TelemetryRuleTelemetryDestinationConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="elbLoadBalancerLoggingParameters")
     def elb_load_balancer_logging_parameters(self) -> Optional['outputs.TelemetryRuleElbLoadBalancerLoggingParameters']:
+        """
+        Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
+        """
         return pulumi.get(self, "elb_load_balancer_logging_parameters")
 
     @_builtins.property
@@ -2209,6 +2310,9 @@ class TelemetryRuleTelemetryDestinationConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="wafLoggingParameters")
     def waf_logging_parameters(self) -> Optional['outputs.TelemetryRuleWafLoggingParameters']:
+        """
+        Configuration parameters specific to WAF logging when WAF is the resource type.
+        """
         return pulumi.get(self, "waf_logging_parameters")
 
 
@@ -2352,6 +2456,8 @@ class TelemetryRuleWafLoggingParameters(dict):
                  redacted_fields: Optional[Sequence['outputs.TelemetryRuleFieldToMatch']] = None):
         """
         Telemetry parameters for WAF v2 Web ACL
+        :param 'TelemetryRuleWafLogType' log_type: The type of WAF logs to collect (currently supports WAF_LOGS).
+        :param 'TelemetryRuleLoggingFilter' logging_filter: A filter configuration that determines which WAF log records to include or exclude.
         :param Sequence['TelemetryRuleFieldToMatch'] redacted_fields: Fields not to be included in the logs.
         """
         if log_type is not None:
@@ -2364,11 +2470,17 @@ class TelemetryRuleWafLoggingParameters(dict):
     @_builtins.property
     @pulumi.getter(name="logType")
     def log_type(self) -> Optional['TelemetryRuleWafLogType']:
+        """
+        The type of WAF logs to collect (currently supports WAF_LOGS).
+        """
         return pulumi.get(self, "log_type")
 
     @_builtins.property
     @pulumi.getter(name="loggingFilter")
     def logging_filter(self) -> Optional['outputs.TelemetryRuleLoggingFilter']:
+        """
+        A filter configuration that determines which WAF log records to include or exclude.
+        """
         return pulumi.get(self, "logging_filter")
 
     @_builtins.property

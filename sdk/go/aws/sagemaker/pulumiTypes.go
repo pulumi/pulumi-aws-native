@@ -2194,15 +2194,17 @@ type ClusterInstanceGroup struct {
 	ExecutionRole string  `pulumi:"executionRole"`
 	ImageId       *string `pulumi:"imageId"`
 	// The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
-	InstanceCount           int                            `pulumi:"instanceCount"`
-	InstanceGroupName       string                         `pulumi:"instanceGroupName"`
-	InstanceStorageConfigs  []ClusterInstanceStorageConfig `pulumi:"instanceStorageConfigs"`
-	InstanceType            string                         `pulumi:"instanceType"`
-	KubernetesConfig        *ClusterKubernetesConfig       `pulumi:"kubernetesConfig"`
-	LifeCycleConfig         ClusterLifeCycleConfig         `pulumi:"lifeCycleConfig"`
-	OnStartDeepHealthChecks []ClusterDeepHealthCheckType   `pulumi:"onStartDeepHealthChecks"`
-	OverrideVpcConfig       *ClusterVpcConfig              `pulumi:"overrideVpcConfig"`
-	ScheduledUpdateConfig   *ClusterScheduledUpdateConfig  `pulumi:"scheduledUpdateConfig"`
+	InstanceCount          int                            `pulumi:"instanceCount"`
+	InstanceGroupName      string                         `pulumi:"instanceGroupName"`
+	InstanceStorageConfigs []ClusterInstanceStorageConfig `pulumi:"instanceStorageConfigs"`
+	InstanceType           string                         `pulumi:"instanceType"`
+	KubernetesConfig       *ClusterKubernetesConfig       `pulumi:"kubernetesConfig"`
+	LifeCycleConfig        ClusterLifeCycleConfig         `pulumi:"lifeCycleConfig"`
+	// The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
+	MinInstanceCount        *int                          `pulumi:"minInstanceCount"`
+	OnStartDeepHealthChecks []ClusterDeepHealthCheckType  `pulumi:"onStartDeepHealthChecks"`
+	OverrideVpcConfig       *ClusterVpcConfig             `pulumi:"overrideVpcConfig"`
+	ScheduledUpdateConfig   *ClusterScheduledUpdateConfig `pulumi:"scheduledUpdateConfig"`
 	// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
 	ThreadsPerCore *int `pulumi:"threadsPerCore"`
 	// The Amazon Resource Name (ARN) of the training plan to use for this cluster instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
@@ -2228,15 +2230,17 @@ type ClusterInstanceGroupArgs struct {
 	ExecutionRole pulumi.StringInput    `pulumi:"executionRole"`
 	ImageId       pulumi.StringPtrInput `pulumi:"imageId"`
 	// The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
-	InstanceCount           pulumi.IntInput                        `pulumi:"instanceCount"`
-	InstanceGroupName       pulumi.StringInput                     `pulumi:"instanceGroupName"`
-	InstanceStorageConfigs  ClusterInstanceStorageConfigArrayInput `pulumi:"instanceStorageConfigs"`
-	InstanceType            pulumi.StringInput                     `pulumi:"instanceType"`
-	KubernetesConfig        ClusterKubernetesConfigPtrInput        `pulumi:"kubernetesConfig"`
-	LifeCycleConfig         ClusterLifeCycleConfigInput            `pulumi:"lifeCycleConfig"`
-	OnStartDeepHealthChecks ClusterDeepHealthCheckTypeArrayInput   `pulumi:"onStartDeepHealthChecks"`
-	OverrideVpcConfig       ClusterVpcConfigPtrInput               `pulumi:"overrideVpcConfig"`
-	ScheduledUpdateConfig   ClusterScheduledUpdateConfigPtrInput   `pulumi:"scheduledUpdateConfig"`
+	InstanceCount          pulumi.IntInput                        `pulumi:"instanceCount"`
+	InstanceGroupName      pulumi.StringInput                     `pulumi:"instanceGroupName"`
+	InstanceStorageConfigs ClusterInstanceStorageConfigArrayInput `pulumi:"instanceStorageConfigs"`
+	InstanceType           pulumi.StringInput                     `pulumi:"instanceType"`
+	KubernetesConfig       ClusterKubernetesConfigPtrInput        `pulumi:"kubernetesConfig"`
+	LifeCycleConfig        ClusterLifeCycleConfigInput            `pulumi:"lifeCycleConfig"`
+	// The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
+	MinInstanceCount        pulumi.IntPtrInput                   `pulumi:"minInstanceCount"`
+	OnStartDeepHealthChecks ClusterDeepHealthCheckTypeArrayInput `pulumi:"onStartDeepHealthChecks"`
+	OverrideVpcConfig       ClusterVpcConfigPtrInput             `pulumi:"overrideVpcConfig"`
+	ScheduledUpdateConfig   ClusterScheduledUpdateConfigPtrInput `pulumi:"scheduledUpdateConfig"`
 	// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
 	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
 	// The Amazon Resource Name (ARN) of the training plan to use for this cluster instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
@@ -2335,6 +2339,11 @@ func (o ClusterInstanceGroupOutput) KubernetesConfig() ClusterKubernetesConfigPt
 
 func (o ClusterInstanceGroupOutput) LifeCycleConfig() ClusterLifeCycleConfigOutput {
 	return o.ApplyT(func(v ClusterInstanceGroup) ClusterLifeCycleConfig { return v.LifeCycleConfig }).(ClusterLifeCycleConfigOutput)
+}
+
+// The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
+func (o ClusterInstanceGroupOutput) MinInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
 }
 
 func (o ClusterInstanceGroupOutput) OnStartDeepHealthChecks() ClusterDeepHealthCheckTypeArrayOutput {

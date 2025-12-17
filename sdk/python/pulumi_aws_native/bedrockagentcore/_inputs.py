@@ -34,6 +34,12 @@ __all__ = [
     'GatewayAuthorizerConfigurationPropertiesArgsDict',
     'GatewayCustomJwtAuthorizerConfigurationArgs',
     'GatewayCustomJwtAuthorizerConfigurationArgsDict',
+    'GatewayInterceptorConfigurationArgs',
+    'GatewayInterceptorConfigurationArgsDict',
+    'GatewayInterceptorInputConfigurationArgs',
+    'GatewayInterceptorInputConfigurationArgsDict',
+    'GatewayLambdaInterceptorConfigurationArgs',
+    'GatewayLambdaInterceptorConfigurationArgsDict',
     'GatewayMcpGatewayConfigurationArgs',
     'GatewayMcpGatewayConfigurationArgsDict',
     'GatewayProtocolConfigurationPropertiesArgs',
@@ -76,6 +82,8 @@ __all__ = [
     'GatewayTargetToolSchema0PropertiesArgsDict',
     'GatewayTargetToolSchema1PropertiesArgs',
     'GatewayTargetToolSchema1PropertiesArgsDict',
+    'InterceptorConfigurationPropertiesArgs',
+    'InterceptorConfigurationPropertiesArgsDict',
     'MemoryCustomConfigurationInputArgs',
     'MemoryCustomConfigurationInputArgsDict',
     'MemoryCustomMemoryStrategyArgs',
@@ -525,6 +533,97 @@ class GatewayCustomJwtAuthorizerConfigurationArgs:
     @allowed_clients.setter
     def allowed_clients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_clients", value)
+
+
+if not MYPY:
+    class GatewayInterceptorConfigurationArgsDict(TypedDict):
+        interception_points: pulumi.Input[Sequence[pulumi.Input['GatewayInterceptionPoint']]]
+        interceptor: pulumi.Input['InterceptorConfigurationPropertiesArgsDict']
+        input_configuration: NotRequired[pulumi.Input['GatewayInterceptorInputConfigurationArgsDict']]
+elif False:
+    GatewayInterceptorConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GatewayInterceptorConfigurationArgs:
+    def __init__(__self__, *,
+                 interception_points: pulumi.Input[Sequence[pulumi.Input['GatewayInterceptionPoint']]],
+                 interceptor: pulumi.Input['InterceptorConfigurationPropertiesArgs'],
+                 input_configuration: Optional[pulumi.Input['GatewayInterceptorInputConfigurationArgs']] = None):
+        pulumi.set(__self__, "interception_points", interception_points)
+        pulumi.set(__self__, "interceptor", interceptor)
+        if input_configuration is not None:
+            pulumi.set(__self__, "input_configuration", input_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="interceptionPoints")
+    def interception_points(self) -> pulumi.Input[Sequence[pulumi.Input['GatewayInterceptionPoint']]]:
+        return pulumi.get(self, "interception_points")
+
+    @interception_points.setter
+    def interception_points(self, value: pulumi.Input[Sequence[pulumi.Input['GatewayInterceptionPoint']]]):
+        pulumi.set(self, "interception_points", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def interceptor(self) -> pulumi.Input['InterceptorConfigurationPropertiesArgs']:
+        return pulumi.get(self, "interceptor")
+
+    @interceptor.setter
+    def interceptor(self, value: pulumi.Input['InterceptorConfigurationPropertiesArgs']):
+        pulumi.set(self, "interceptor", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inputConfiguration")
+    def input_configuration(self) -> Optional[pulumi.Input['GatewayInterceptorInputConfigurationArgs']]:
+        return pulumi.get(self, "input_configuration")
+
+    @input_configuration.setter
+    def input_configuration(self, value: Optional[pulumi.Input['GatewayInterceptorInputConfigurationArgs']]):
+        pulumi.set(self, "input_configuration", value)
+
+
+if not MYPY:
+    class GatewayInterceptorInputConfigurationArgsDict(TypedDict):
+        pass_request_headers: pulumi.Input[_builtins.bool]
+elif False:
+    GatewayInterceptorInputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GatewayInterceptorInputConfigurationArgs:
+    def __init__(__self__, *,
+                 pass_request_headers: pulumi.Input[_builtins.bool]):
+        pulumi.set(__self__, "pass_request_headers", pass_request_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="passRequestHeaders")
+    def pass_request_headers(self) -> pulumi.Input[_builtins.bool]:
+        return pulumi.get(self, "pass_request_headers")
+
+    @pass_request_headers.setter
+    def pass_request_headers(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "pass_request_headers", value)
+
+
+if not MYPY:
+    class GatewayLambdaInterceptorConfigurationArgsDict(TypedDict):
+        arn: pulumi.Input[_builtins.str]
+elif False:
+    GatewayLambdaInterceptorConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GatewayLambdaInterceptorConfigurationArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "arn", arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "arn", value)
 
 
 if not MYPY:
@@ -1222,6 +1321,28 @@ class GatewayTargetToolSchema1PropertiesArgs:
     @inline_payload.setter
     def inline_payload(self, value: pulumi.Input[Sequence[pulumi.Input['GatewayTargetToolDefinitionArgs']]]):
         pulumi.set(self, "inline_payload", value)
+
+
+if not MYPY:
+    class InterceptorConfigurationPropertiesArgsDict(TypedDict):
+        lambda_: pulumi.Input['GatewayLambdaInterceptorConfigurationArgsDict']
+elif False:
+    InterceptorConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InterceptorConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 lambda_: pulumi.Input['GatewayLambdaInterceptorConfigurationArgs']):
+        pulumi.set(__self__, "lambda_", lambda_)
+
+    @_builtins.property
+    @pulumi.getter(name="lambda")
+    def lambda_(self) -> pulumi.Input['GatewayLambdaInterceptorConfigurationArgs']:
+        return pulumi.get(self, "lambda_")
+
+    @lambda_.setter
+    def lambda_(self, value: pulumi.Input['GatewayLambdaInterceptorConfigurationArgs']):
+        pulumi.set(self, "lambda_", value)
 
 
 if not MYPY:

@@ -31,6 +31,13 @@ export const ClusterEnhancedMonitoring = {
  */
 export type ClusterEnhancedMonitoring = (typeof ClusterEnhancedMonitoring)[keyof typeof ClusterEnhancedMonitoring];
 
+export const ClusterNetworkType = {
+    Ipv4: "IPV4",
+    Dual: "DUAL",
+} as const;
+
+export type ClusterNetworkType = (typeof ClusterNetworkType)[keyof typeof ClusterNetworkType];
+
 export const ClusterRebalancingStatus = {
     Paused: "PAUSED",
     Active: "ACTIVE",

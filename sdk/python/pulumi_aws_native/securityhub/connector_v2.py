@@ -29,9 +29,11 @@ class ConnectorV2Args:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConnectorV2 resource.
+        :param pulumi.Input['ConnectorV2ProviderArgs'] provider: The third-party provider detail for a service configuration.
         :param pulumi.Input[_builtins.str] description: A description of the connector
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of KMS key used for the connector
         :param pulumi.Input[_builtins.str] name: The name of the connector
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags to add to the connectorV2 when you create.
         """
         pulumi.set(__self__, "provider", provider)
         if description is not None:
@@ -46,6 +48,9 @@ class ConnectorV2Args:
     @_builtins.property
     @pulumi.getter
     def provider(self) -> pulumi.Input['ConnectorV2ProviderArgs']:
+        """
+        The third-party provider detail for a service configuration.
+        """
         return pulumi.get(self, "provider")
 
     @provider.setter
@@ -91,6 +96,9 @@ class ConnectorV2Args:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        The tags to add to the connectorV2 when you create.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -118,6 +126,8 @@ class ConnectorV2(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the connector
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of KMS key used for the connector
         :param pulumi.Input[_builtins.str] name: The name of the connector
+        :param pulumi.Input[Union['ConnectorV2ProviderArgs', 'ConnectorV2ProviderArgsDict']] provider: The third-party provider detail for a service configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags to add to the connectorV2 when you create.
         """
         ...
     @overload
@@ -236,6 +246,9 @@ class ConnectorV2(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
+        """
+        The timestamp when the V2 connector was created.
+        """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
@@ -257,11 +270,17 @@ class ConnectorV2(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="lastCheckedAt")
     def last_checked_at(self) -> pulumi.Output[_builtins.str]:
+        """
+        The most recent timestamp when the V2 connector was checked on health status.
+        """
         return pulumi.get(self, "last_checked_at")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> pulumi.Output[_builtins.str]:
+        """
+        The most recent timestamp when the V2 connector was updated.
+        """
         return pulumi.get(self, "last_updated_at")
 
     @_builtins.property
@@ -283,10 +302,16 @@ class ConnectorV2(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def provider(self) -> pulumi.Output['outputs.ConnectorV2Provider']:
+        """
+        The third-party provider detail for a service configuration.
+        """
         return pulumi.get(self, "provider")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        The tags to add to the connectorV2 when you create.
+        """
         return pulumi.get(self, "tags")
 

@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'ClusterEncryptionInTransitClientBroker',
     'ClusterEnhancedMonitoring',
+    'ClusterNetworkType',
     'ClusterRebalancingStatus',
     'ClusterStorageMode',
     'ReplicatorReplicationInfoTargetCompressionType',
@@ -43,6 +44,12 @@ class ClusterEnhancedMonitoring(_builtins.str, Enum):
     PER_BROKER = "PER_BROKER"
     PER_TOPIC_PER_BROKER = "PER_TOPIC_PER_BROKER"
     PER_TOPIC_PER_PARTITION = "PER_TOPIC_PER_PARTITION"
+
+
+@pulumi.type_token("aws-native:msk:ClusterNetworkType")
+class ClusterNetworkType(_builtins.str, Enum):
+    IPV4 = "IPV4"
+    DUAL = "DUAL"
 
 
 @pulumi.type_token("aws-native:msk:ClusterRebalancingStatus")

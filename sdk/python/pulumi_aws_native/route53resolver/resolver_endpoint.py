@@ -32,7 +32,9 @@ class ResolverEndpointArgs:
                  preferred_instance_type: Optional[pulumi.Input[_builtins.str]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  resolver_endpoint_type: Optional[pulumi.Input['ResolverEndpointType']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 rni_enhanced_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 target_name_server_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ResolverEndpoint resource.
         :param pulumi.Input[_builtins.str] direction: Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
@@ -46,7 +48,9 @@ class ResolverEndpointArgs:
         :param pulumi.Input[_builtins.str] preferred_instance_type: The Amazon EC2 instance type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Protocols used for the endpoint. DoH-FIPS is applicable for inbound endpoints only.
         :param pulumi.Input['ResolverEndpointType'] resolver_endpoint_type: The Resolver endpoint IP address type.
+        :param pulumi.Input[_builtins.bool] rni_enhanced_metrics_enabled: Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[_builtins.bool] target_name_server_metrics_enabled: Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
         """
         pulumi.set(__self__, "direction", direction)
         pulumi.set(__self__, "ip_addresses", ip_addresses)
@@ -61,8 +65,12 @@ class ResolverEndpointArgs:
             pulumi.set(__self__, "protocols", protocols)
         if resolver_endpoint_type is not None:
             pulumi.set(__self__, "resolver_endpoint_type", resolver_endpoint_type)
+        if rni_enhanced_metrics_enabled is not None:
+            pulumi.set(__self__, "rni_enhanced_metrics_enabled", rni_enhanced_metrics_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if target_name_server_metrics_enabled is not None:
+            pulumi.set(__self__, "target_name_server_metrics_enabled", target_name_server_metrics_enabled)
 
     @_builtins.property
     @pulumi.getter
@@ -164,6 +172,18 @@ class ResolverEndpointArgs:
         pulumi.set(self, "resolver_endpoint_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="rniEnhancedMetricsEnabled")
+    def rni_enhanced_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
+        """
+        return pulumi.get(self, "rni_enhanced_metrics_enabled")
+
+    @rni_enhanced_metrics_enabled.setter
+    def rni_enhanced_metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "rni_enhanced_metrics_enabled", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -174,6 +194,18 @@ class ResolverEndpointArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetNameServerMetricsEnabled")
+    def target_name_server_metrics_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
+        """
+        return pulumi.get(self, "target_name_server_metrics_enabled")
+
+    @target_name_server_metrics_enabled.setter
+    def target_name_server_metrics_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "target_name_server_metrics_enabled", value)
 
 
 @pulumi.type_token("aws-native:route53resolver:ResolverEndpoint")
@@ -189,8 +221,10 @@ class ResolverEndpoint(pulumi.CustomResource):
                  preferred_instance_type: Optional[pulumi.Input[_builtins.str]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  resolver_endpoint_type: Optional[pulumi.Input['ResolverEndpointType']] = None,
+                 rni_enhanced_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_name_server_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::Route53Resolver::ResolverEndpoint
@@ -207,8 +241,10 @@ class ResolverEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] preferred_instance_type: The Amazon EC2 instance type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols: Protocols used for the endpoint. DoH-FIPS is applicable for inbound endpoints only.
         :param pulumi.Input['ResolverEndpointType'] resolver_endpoint_type: The Resolver endpoint IP address type.
+        :param pulumi.Input[_builtins.bool] rni_enhanced_metrics_enabled: Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[_builtins.bool] target_name_server_metrics_enabled: Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
         """
         ...
     @overload
@@ -241,8 +277,10 @@ class ResolverEndpoint(pulumi.CustomResource):
                  preferred_instance_type: Optional[pulumi.Input[_builtins.str]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  resolver_endpoint_type: Optional[pulumi.Input['ResolverEndpointType']] = None,
+                 rni_enhanced_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 target_name_server_metrics_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -263,10 +301,12 @@ class ResolverEndpoint(pulumi.CustomResource):
             __props__.__dict__["preferred_instance_type"] = preferred_instance_type
             __props__.__dict__["protocols"] = protocols
             __props__.__dict__["resolver_endpoint_type"] = resolver_endpoint_type
+            __props__.__dict__["rni_enhanced_metrics_enabled"] = rni_enhanced_metrics_enabled
             if security_group_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_ids'")
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["target_name_server_metrics_enabled"] = target_name_server_metrics_enabled
             __props__.__dict__["arn"] = None
             __props__.__dict__["host_vpc_id"] = None
             __props__.__dict__["ip_address_count"] = None
@@ -306,8 +346,10 @@ class ResolverEndpoint(pulumi.CustomResource):
         __props__.__dict__["protocols"] = None
         __props__.__dict__["resolver_endpoint_id"] = None
         __props__.__dict__["resolver_endpoint_type"] = None
+        __props__.__dict__["rni_enhanced_metrics_enabled"] = None
         __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["target_name_server_metrics_enabled"] = None
         return ResolverEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -402,6 +444,14 @@ class ResolverEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "resolver_endpoint_type")
 
     @_builtins.property
+    @pulumi.getter(name="rniEnhancedMetricsEnabled")
+    def rni_enhanced_metrics_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
+        """
+        return pulumi.get(self, "rni_enhanced_metrics_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
@@ -416,4 +466,12 @@ class ResolverEndpoint(pulumi.CustomResource):
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="targetNameServerMetricsEnabled")
+    def target_name_server_metrics_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
+        """
+        return pulumi.get(self, "target_name_server_metrics_enabled")
 

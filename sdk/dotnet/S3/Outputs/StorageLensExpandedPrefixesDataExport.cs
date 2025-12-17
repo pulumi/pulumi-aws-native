@@ -17,11 +17,16 @@ namespace Pulumi.AwsNative.S3.Outputs
     public sealed class StorageLensExpandedPrefixesDataExport
     {
         public readonly Outputs.StorageLensS3BucketDestination? S3BucketDestination;
+        public readonly Outputs.StorageLensTableDestination? StorageLensTableDestination;
 
         [OutputConstructor]
-        private StorageLensExpandedPrefixesDataExport(Outputs.StorageLensS3BucketDestination? s3BucketDestination)
+        private StorageLensExpandedPrefixesDataExport(
+            Outputs.StorageLensS3BucketDestination? s3BucketDestination,
+
+            Outputs.StorageLensTableDestination? storageLensTableDestination)
         {
             S3BucketDestination = s3BucketDestination;
+            StorageLensTableDestination = storageLensTableDestination;
         }
     }
 }

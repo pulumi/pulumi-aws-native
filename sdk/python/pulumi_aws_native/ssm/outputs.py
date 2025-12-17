@@ -22,6 +22,16 @@ __all__ = [
     'AssociationTarget',
     'DocumentAttachmentsSource',
     'DocumentRequires',
+    'MaintenanceWindowTargetTargets',
+    'MaintenanceWindowTaskCloudWatchOutputConfig',
+    'MaintenanceWindowTaskLoggingInfo',
+    'MaintenanceWindowTaskMaintenanceWindowAutomationParameters',
+    'MaintenanceWindowTaskMaintenanceWindowLambdaParameters',
+    'MaintenanceWindowTaskMaintenanceWindowRunCommandParameters',
+    'MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters',
+    'MaintenanceWindowTaskNotificationConfig',
+    'MaintenanceWindowTaskTarget',
+    'MaintenanceWindowTaskTaskInvocationParameters',
     'PatchBaselinePatchFilter',
     'PatchBaselinePatchFilterGroup',
     'PatchBaselinePatchSource',
@@ -237,6 +247,660 @@ class DocumentRequires(dict):
         The document version required by the current document.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class MaintenanceWindowTargetTargets(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str key: User-defined criteria for sending commands that target managed nodes that meet the criteria.
+        :param Sequence[_builtins.str] values: User-defined criteria that maps to Key.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        User-defined criteria for sending commands that target managed nodes that meet the criteria.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        User-defined criteria that maps to Key.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskCloudWatchOutputConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogGroupName":
+            suggest = "cloud_watch_log_group_name"
+        elif key == "cloudWatchOutputEnabled":
+            suggest = "cloud_watch_output_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskCloudWatchOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskCloudWatchOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskCloudWatchOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_log_group_name: Optional[_builtins.str] = None,
+                 cloud_watch_output_enabled: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str cloud_watch_log_group_name: The name of the CloudWatch log group where you want to send command output.
+        :param _builtins.bool cloud_watch_output_enabled: Enables Systems Manager to send command output to CloudWatch Logs.
+        """
+        if cloud_watch_log_group_name is not None:
+            pulumi.set(__self__, "cloud_watch_log_group_name", cloud_watch_log_group_name)
+        if cloud_watch_output_enabled is not None:
+            pulumi.set(__self__, "cloud_watch_output_enabled", cloud_watch_output_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLogGroupName")
+    def cloud_watch_log_group_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the CloudWatch log group where you want to send command output.
+        """
+        return pulumi.get(self, "cloud_watch_log_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchOutputEnabled")
+    def cloud_watch_output_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Enables Systems Manager to send command output to CloudWatch Logs.
+        """
+        return pulumi.get(self, "cloud_watch_output_enabled")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskLoggingInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Bucket":
+            suggest = "s3_bucket"
+        elif key == "s3Prefix":
+            suggest = "s3_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskLoggingInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskLoggingInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskLoggingInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region: _builtins.str,
+                 s3_bucket: _builtins.str,
+                 s3_prefix: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str region: The AWS Region where the S3 bucket is located.
+        :param _builtins.str s3_bucket: The name of an S3 bucket where execution logs are stored.
+        :param _builtins.str s3_prefix: The Amazon S3 bucket subfolder.
+        """
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        if s3_prefix is not None:
+            pulumi.set(__self__, "s3_prefix", s3_prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        The AWS Region where the S3 bucket is located.
+        """
+        return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> _builtins.str:
+        """
+        The name of an S3 bucket where execution logs are stored.
+        """
+        return pulumi.get(self, "s3_bucket")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Prefix")
+    def s3_prefix(self) -> Optional[_builtins.str]:
+        """
+        The Amazon S3 bucket subfolder.
+        """
+        return pulumi.get(self, "s3_prefix")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskMaintenanceWindowAutomationParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentVersion":
+            suggest = "document_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskMaintenanceWindowAutomationParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskMaintenanceWindowAutomationParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskMaintenanceWindowAutomationParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 document_version: Optional[_builtins.str] = None,
+                 parameters: Optional[Any] = None):
+        """
+        :param _builtins.str document_version: The version of an Automation runbook to use during task execution.
+        :param Any parameters: The parameters for the `AUTOMATION` type task.
+        """
+        if document_version is not None:
+            pulumi.set(__self__, "document_version", document_version)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="documentVersion")
+    def document_version(self) -> Optional[_builtins.str]:
+        """
+        The version of an Automation runbook to use during task execution.
+        """
+        return pulumi.get(self, "document_version")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        """
+        The parameters for the `AUTOMATION` type task.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskMaintenanceWindowLambdaParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientContext":
+            suggest = "client_context"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskMaintenanceWindowLambdaParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskMaintenanceWindowLambdaParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskMaintenanceWindowLambdaParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_context: Optional[_builtins.str] = None,
+                 payload: Optional[_builtins.str] = None,
+                 qualifier: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str client_context: Client-specific information to pass to the AWS Lambda function that you're invoking. You can then use the `context` variable to process the client information in your AWS Lambda function.
+        :param _builtins.str payload: JSON to provide to your AWS Lambda function as input.
+               
+               > Although `Type` is listed as "String" for this property, the payload content must be formatted as a Base64-encoded binary data object. 
+               
+               *Length Constraint:* 4096
+        :param _builtins.str qualifier: An AWS Lambda function version or alias name. If you specify a function version, the action uses the qualified function Amazon Resource Name (ARN) to invoke a specific Lambda function. If you specify an alias name, the action uses the alias ARN to invoke the Lambda function version that the alias points to.
+        """
+        if client_context is not None:
+            pulumi.set(__self__, "client_context", client_context)
+        if payload is not None:
+            pulumi.set(__self__, "payload", payload)
+        if qualifier is not None:
+            pulumi.set(__self__, "qualifier", qualifier)
+
+    @_builtins.property
+    @pulumi.getter(name="clientContext")
+    def client_context(self) -> Optional[_builtins.str]:
+        """
+        Client-specific information to pass to the AWS Lambda function that you're invoking. You can then use the `context` variable to process the client information in your AWS Lambda function.
+        """
+        return pulumi.get(self, "client_context")
+
+    @_builtins.property
+    @pulumi.getter
+    def payload(self) -> Optional[_builtins.str]:
+        """
+        JSON to provide to your AWS Lambda function as input.
+
+        > Although `Type` is listed as "String" for this property, the payload content must be formatted as a Base64-encoded binary data object. 
+
+        *Length Constraint:* 4096
+        """
+        return pulumi.get(self, "payload")
+
+    @_builtins.property
+    @pulumi.getter
+    def qualifier(self) -> Optional[_builtins.str]:
+        """
+        An AWS Lambda function version or alias name. If you specify a function version, the action uses the qualified function Amazon Resource Name (ARN) to invoke a specific Lambda function. If you specify an alias name, the action uses the alias ARN to invoke the Lambda function version that the alias points to.
+        """
+        return pulumi.get(self, "qualifier")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskMaintenanceWindowRunCommandParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchOutputConfig":
+            suggest = "cloud_watch_output_config"
+        elif key == "documentHash":
+            suggest = "document_hash"
+        elif key == "documentHashType":
+            suggest = "document_hash_type"
+        elif key == "documentVersion":
+            suggest = "document_version"
+        elif key == "notificationConfig":
+            suggest = "notification_config"
+        elif key == "outputS3BucketName":
+            suggest = "output_s3_bucket_name"
+        elif key == "outputS3KeyPrefix":
+            suggest = "output_s3_key_prefix"
+        elif key == "serviceRoleArn":
+            suggest = "service_role_arn"
+        elif key == "timeoutSeconds":
+            suggest = "timeout_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskMaintenanceWindowRunCommandParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskMaintenanceWindowRunCommandParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskMaintenanceWindowRunCommandParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_output_config: Optional['outputs.MaintenanceWindowTaskCloudWatchOutputConfig'] = None,
+                 comment: Optional[_builtins.str] = None,
+                 document_hash: Optional[_builtins.str] = None,
+                 document_hash_type: Optional[_builtins.str] = None,
+                 document_version: Optional[_builtins.str] = None,
+                 notification_config: Optional['outputs.MaintenanceWindowTaskNotificationConfig'] = None,
+                 output_s3_bucket_name: Optional[_builtins.str] = None,
+                 output_s3_key_prefix: Optional[_builtins.str] = None,
+                 parameters: Optional[Any] = None,
+                 service_role_arn: Optional[_builtins.str] = None,
+                 timeout_seconds: Optional[_builtins.int] = None):
+        """
+        :param 'MaintenanceWindowTaskCloudWatchOutputConfig' cloud_watch_output_config: Configuration options for sending command output to Amazon CloudWatch Logs.
+        :param _builtins.str comment: Information about the command or commands to run.
+        :param _builtins.str document_hash: The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
+        :param _builtins.str document_hash_type: The SHA-256 or SHA-1 hash type. SHA-1 hashes are deprecated.
+        :param _builtins.str document_version: The AWS Systems Manager document (SSM document) version to use in the request. You can specify `$DEFAULT` , `$LATEST` , or a specific version number. If you run commands by using the AWS CLI, then you must escape the first two options by using a backslash. If you specify a version number, then you don't need to use the backslash. For example:
+               
+               `--document-version "\\$DEFAULT"`
+               
+               `--document-version "\\$LATEST"`
+               
+               `--document-version "3"`
+        :param 'MaintenanceWindowTaskNotificationConfig' notification_config: Configurations for sending notifications about command status changes on a per-managed node basis.
+        :param _builtins.str output_s3_bucket_name: The name of the Amazon Simple Storage Service (Amazon S3) bucket.
+        :param _builtins.str output_s3_key_prefix: The S3 bucket subfolder.
+        :param Any parameters: The parameters for the `RUN_COMMAND` task execution.
+               
+               The supported parameters are the same as those for the `SendCommand` API call. For more information, see [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) in the *AWS Systems Manager API Reference* .
+        :param _builtins.str service_role_arn: The Amazon Resource Name (ARN) of the IAM service role for AWS Systems Manager to assume when running a maintenance window task. If you do not specify a service role ARN, Systems Manager uses a service-linked role in your account. If no appropriate service-linked role for Systems Manager exists in your account, it is created when you run `RegisterTaskWithMaintenanceWindow` .
+               
+               However, for an improved security posture, we strongly recommend creating a custom policy and custom service role for running your maintenance window tasks. The policy can be crafted to provide only the permissions needed for your particular maintenance window tasks. For more information, see [Setting up Maintenance Windows](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html) in the in the *AWS Systems Manager User Guide* .
+        :param _builtins.int timeout_seconds: If this time is reached and the command hasn't already started running, it doesn't run.
+        """
+        if cloud_watch_output_config is not None:
+            pulumi.set(__self__, "cloud_watch_output_config", cloud_watch_output_config)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if document_hash is not None:
+            pulumi.set(__self__, "document_hash", document_hash)
+        if document_hash_type is not None:
+            pulumi.set(__self__, "document_hash_type", document_hash_type)
+        if document_version is not None:
+            pulumi.set(__self__, "document_version", document_version)
+        if notification_config is not None:
+            pulumi.set(__self__, "notification_config", notification_config)
+        if output_s3_bucket_name is not None:
+            pulumi.set(__self__, "output_s3_bucket_name", output_s3_bucket_name)
+        if output_s3_key_prefix is not None:
+            pulumi.set(__self__, "output_s3_key_prefix", output_s3_key_prefix)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if service_role_arn is not None:
+            pulumi.set(__self__, "service_role_arn", service_role_arn)
+        if timeout_seconds is not None:
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchOutputConfig")
+    def cloud_watch_output_config(self) -> Optional['outputs.MaintenanceWindowTaskCloudWatchOutputConfig']:
+        """
+        Configuration options for sending command output to Amazon CloudWatch Logs.
+        """
+        return pulumi.get(self, "cloud_watch_output_config")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        """
+        Information about the command or commands to run.
+        """
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="documentHash")
+    def document_hash(self) -> Optional[_builtins.str]:
+        """
+        The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
+        """
+        return pulumi.get(self, "document_hash")
+
+    @_builtins.property
+    @pulumi.getter(name="documentHashType")
+    def document_hash_type(self) -> Optional[_builtins.str]:
+        """
+        The SHA-256 or SHA-1 hash type. SHA-1 hashes are deprecated.
+        """
+        return pulumi.get(self, "document_hash_type")
+
+    @_builtins.property
+    @pulumi.getter(name="documentVersion")
+    def document_version(self) -> Optional[_builtins.str]:
+        """
+        The AWS Systems Manager document (SSM document) version to use in the request. You can specify `$DEFAULT` , `$LATEST` , or a specific version number. If you run commands by using the AWS CLI, then you must escape the first two options by using a backslash. If you specify a version number, then you don't need to use the backslash. For example:
+
+        `--document-version "\\$DEFAULT"`
+
+        `--document-version "\\$LATEST"`
+
+        `--document-version "3"`
+        """
+        return pulumi.get(self, "document_version")
+
+    @_builtins.property
+    @pulumi.getter(name="notificationConfig")
+    def notification_config(self) -> Optional['outputs.MaintenanceWindowTaskNotificationConfig']:
+        """
+        Configurations for sending notifications about command status changes on a per-managed node basis.
+        """
+        return pulumi.get(self, "notification_config")
+
+    @_builtins.property
+    @pulumi.getter(name="outputS3BucketName")
+    def output_s3_bucket_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the Amazon Simple Storage Service (Amazon S3) bucket.
+        """
+        return pulumi.get(self, "output_s3_bucket_name")
+
+    @_builtins.property
+    @pulumi.getter(name="outputS3KeyPrefix")
+    def output_s3_key_prefix(self) -> Optional[_builtins.str]:
+        """
+        The S3 bucket subfolder.
+        """
+        return pulumi.get(self, "output_s3_key_prefix")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Any]:
+        """
+        The parameters for the `RUN_COMMAND` task execution.
+
+        The supported parameters are the same as those for the `SendCommand` API call. For more information, see [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) in the *AWS Systems Manager API Reference* .
+        """
+        return pulumi.get(self, "parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceRoleArn")
+    def service_role_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM service role for AWS Systems Manager to assume when running a maintenance window task. If you do not specify a service role ARN, Systems Manager uses a service-linked role in your account. If no appropriate service-linked role for Systems Manager exists in your account, it is created when you run `RegisterTaskWithMaintenanceWindow` .
+
+        However, for an improved security posture, we strongly recommend creating a custom policy and custom service role for running your maintenance window tasks. The policy can be crafted to provide only the permissions needed for your particular maintenance window tasks. For more information, see [Setting up Maintenance Windows](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html) in the in the *AWS Systems Manager User Guide* .
+        """
+        return pulumi.get(self, "service_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutSeconds")
+    def timeout_seconds(self) -> Optional[_builtins.int]:
+        """
+        If this time is reached and the command hasn't already started running, it doesn't run.
+        """
+        return pulumi.get(self, "timeout_seconds")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters(dict):
+    def __init__(__self__, *,
+                 input: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str input: The inputs for the `STEP_FUNCTIONS` task.
+        :param _builtins.str name: The name of the `STEP_FUNCTIONS` task.
+        """
+        if input is not None:
+            pulumi.set(__self__, "input", input)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def input(self) -> Optional[_builtins.str]:
+        """
+        The inputs for the `STEP_FUNCTIONS` task.
+        """
+        return pulumi.get(self, "input")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the `STEP_FUNCTIONS` task.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskNotificationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notificationArn":
+            suggest = "notification_arn"
+        elif key == "notificationEvents":
+            suggest = "notification_events"
+        elif key == "notificationType":
+            suggest = "notification_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskNotificationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskNotificationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskNotificationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 notification_arn: _builtins.str,
+                 notification_events: Optional[Sequence[_builtins.str]] = None,
+                 notification_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str notification_arn: An Amazon Resource Name (ARN) for an Amazon Simple Notification Service (Amazon SNS) topic. Run Command pushes notifications about command status changes to this topic.
+        :param Sequence[_builtins.str] notification_events: The different events that you can receive notifications for. These events include the following: `All` (events), `InProgress` , `Success` , `TimedOut` , `Cancelled` , `Failed` . To learn more about these events, see [Configuring Amazon SNS Notifications for AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html) in the *AWS Systems Manager User Guide* .
+        :param _builtins.str notification_type: The notification type.
+               
+               - `Command` : Receive notification when the status of a command changes.
+               - `Invocation` : For commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes.
+        """
+        pulumi.set(__self__, "notification_arn", notification_arn)
+        if notification_events is not None:
+            pulumi.set(__self__, "notification_events", notification_events)
+        if notification_type is not None:
+            pulumi.set(__self__, "notification_type", notification_type)
+
+    @_builtins.property
+    @pulumi.getter(name="notificationArn")
+    def notification_arn(self) -> _builtins.str:
+        """
+        An Amazon Resource Name (ARN) for an Amazon Simple Notification Service (Amazon SNS) topic. Run Command pushes notifications about command status changes to this topic.
+        """
+        return pulumi.get(self, "notification_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="notificationEvents")
+    def notification_events(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The different events that you can receive notifications for. These events include the following: `All` (events), `InProgress` , `Success` , `TimedOut` , `Cancelled` , `Failed` . To learn more about these events, see [Configuring Amazon SNS Notifications for AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html) in the *AWS Systems Manager User Guide* .
+        """
+        return pulumi.get(self, "notification_events")
+
+    @_builtins.property
+    @pulumi.getter(name="notificationType")
+    def notification_type(self) -> Optional[_builtins.str]:
+        """
+        The notification type.
+
+        - `Command` : Receive notification when the status of a command changes.
+        - `Invocation` : For commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes.
+        """
+        return pulumi.get(self, "notification_type")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskTarget(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str key: User-defined criteria for sending commands that target instances that meet the criteria. `Key` can be `InstanceIds` or `WindowTargetIds` . For more information about how to target instances within a maintenance window task, see [About 'register-task-with-maintenance-window' Options and Values](https://docs.aws.amazon.com/systems-manager/latest/userguide/register-tasks-options.html) in the *AWS Systems Manager User Guide* .
+        :param Sequence[_builtins.str] values: User-defined criteria that maps to `Key` . For example, if you specify `InstanceIds` , you can specify `i-1234567890abcdef0,i-9876543210abcdef0` to run a command on two EC2 instances. For more information about how to target instances within a maintenance window task, see [About 'register-task-with-maintenance-window' Options and Values](https://docs.aws.amazon.com/systems-manager/latest/userguide/register-tasks-options.html) in the *AWS Systems Manager User Guide* .
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        User-defined criteria for sending commands that target instances that meet the criteria. `Key` can be `InstanceIds` or `WindowTargetIds` . For more information about how to target instances within a maintenance window task, see [About 'register-task-with-maintenance-window' Options and Values](https://docs.aws.amazon.com/systems-manager/latest/userguide/register-tasks-options.html) in the *AWS Systems Manager User Guide* .
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        User-defined criteria that maps to `Key` . For example, if you specify `InstanceIds` , you can specify `i-1234567890abcdef0,i-9876543210abcdef0` to run a command on two EC2 instances. For more information about how to target instances within a maintenance window task, see [About 'register-task-with-maintenance-window' Options and Values](https://docs.aws.amazon.com/systems-manager/latest/userguide/register-tasks-options.html) in the *AWS Systems Manager User Guide* .
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class MaintenanceWindowTaskTaskInvocationParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maintenanceWindowAutomationParameters":
+            suggest = "maintenance_window_automation_parameters"
+        elif key == "maintenanceWindowLambdaParameters":
+            suggest = "maintenance_window_lambda_parameters"
+        elif key == "maintenanceWindowRunCommandParameters":
+            suggest = "maintenance_window_run_command_parameters"
+        elif key == "maintenanceWindowStepFunctionsParameters":
+            suggest = "maintenance_window_step_functions_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowTaskTaskInvocationParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowTaskTaskInvocationParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowTaskTaskInvocationParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maintenance_window_automation_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowAutomationParameters'] = None,
+                 maintenance_window_lambda_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowLambdaParameters'] = None,
+                 maintenance_window_run_command_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowRunCommandParameters'] = None,
+                 maintenance_window_step_functions_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters'] = None):
+        """
+        :param 'MaintenanceWindowTaskMaintenanceWindowAutomationParameters' maintenance_window_automation_parameters: The parameters for an `AUTOMATION` task type.
+        :param 'MaintenanceWindowTaskMaintenanceWindowLambdaParameters' maintenance_window_lambda_parameters: The parameters for a `LAMBDA` task type.
+        :param 'MaintenanceWindowTaskMaintenanceWindowRunCommandParameters' maintenance_window_run_command_parameters: The parameters for a `RUN_COMMAND` task type.
+        :param 'MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters' maintenance_window_step_functions_parameters: The parameters for a `STEP_FUNCTIONS` task type.
+        """
+        if maintenance_window_automation_parameters is not None:
+            pulumi.set(__self__, "maintenance_window_automation_parameters", maintenance_window_automation_parameters)
+        if maintenance_window_lambda_parameters is not None:
+            pulumi.set(__self__, "maintenance_window_lambda_parameters", maintenance_window_lambda_parameters)
+        if maintenance_window_run_command_parameters is not None:
+            pulumi.set(__self__, "maintenance_window_run_command_parameters", maintenance_window_run_command_parameters)
+        if maintenance_window_step_functions_parameters is not None:
+            pulumi.set(__self__, "maintenance_window_step_functions_parameters", maintenance_window_step_functions_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="maintenanceWindowAutomationParameters")
+    def maintenance_window_automation_parameters(self) -> Optional['outputs.MaintenanceWindowTaskMaintenanceWindowAutomationParameters']:
+        """
+        The parameters for an `AUTOMATION` task type.
+        """
+        return pulumi.get(self, "maintenance_window_automation_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="maintenanceWindowLambdaParameters")
+    def maintenance_window_lambda_parameters(self) -> Optional['outputs.MaintenanceWindowTaskMaintenanceWindowLambdaParameters']:
+        """
+        The parameters for a `LAMBDA` task type.
+        """
+        return pulumi.get(self, "maintenance_window_lambda_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="maintenanceWindowRunCommandParameters")
+    def maintenance_window_run_command_parameters(self) -> Optional['outputs.MaintenanceWindowTaskMaintenanceWindowRunCommandParameters']:
+        """
+        The parameters for a `RUN_COMMAND` task type.
+        """
+        return pulumi.get(self, "maintenance_window_run_command_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="maintenanceWindowStepFunctionsParameters")
+    def maintenance_window_step_functions_parameters(self) -> Optional['outputs.MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters']:
+        """
+        The parameters for a `STEP_FUNCTIONS` task type.
+        """
+        return pulumi.get(self, "maintenance_window_step_functions_parameters")
 
 
 @pulumi.output_type

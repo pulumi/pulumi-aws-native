@@ -140,6 +140,7 @@ export type TransformerEventSource = (typeof TransformerEventSource)[keyof typeo
 
 export const TransformerOcsfVersion = {
     V11: "V1.1",
+    V15: "V1.5",
 } as const;
 
 export type TransformerOcsfVersion = (typeof TransformerOcsfVersion)[keyof typeof TransformerOcsfVersion];

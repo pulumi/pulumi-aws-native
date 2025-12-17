@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 {
 
+    /// <summary>
+    /// Information about an additional claim to validate.
+    /// </summary>
     [OutputType]
     public sealed class ListenerRuleJwtValidationActionAdditionalClaim
     {
@@ -18,11 +21,11 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         /// </summary>
         public readonly string Format;
         /// <summary>
-        /// The name of the claim. You can't specify `exp` , `iss` , `nbf` , or `iat` because we validate them by default.
+        /// The name of the claim. You can't specify ``exp``, ``iss``, ``nbf``, or ``iat`` because we validate them by default.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is `space-separated-values` , the values can't include spaces.
+        /// The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is ``space-separated-values``, the values can't include spaces.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

@@ -27,6 +27,12 @@ namespace Pulumi.AwsNative.Ec2
         [Output("spotFleetRequestConfigData")]
         public Output<Outputs.SpotFleetRequestConfigData> SpotFleetRequestConfigData { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to specify in SpotFleetRequestConfigData
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a SpotFleet resource with the given unique name, arguments, and options.
@@ -99,6 +105,18 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("spotFleetRequestConfigData", required: true)]
         public Input<Inputs.SpotFleetRequestConfigDataArgs> SpotFleetRequestConfigData { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to specify in SpotFleetRequestConfigData
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public SpotFleetArgs()
         {

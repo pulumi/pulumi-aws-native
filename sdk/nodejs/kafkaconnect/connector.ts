@@ -78,6 +78,10 @@ export class Connector extends pulumi.CustomResource {
      */
     declare public readonly logDelivery: pulumi.Output<outputs.kafkaconnect.ConnectorLogDelivery | undefined>;
     /**
+     * The network type of the Connector.
+     */
+    declare public readonly networkType: pulumi.Output<enums.kafkaconnect.ConnectorNetworkType | undefined>;
+    /**
      * List of plugins to use with the connector.
      */
     declare public readonly plugins: pulumi.Output<outputs.kafkaconnect.ConnectorPlugin[]>;
@@ -138,6 +142,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["kafkaClusterEncryptionInTransit"] = args?.kafkaClusterEncryptionInTransit;
             resourceInputs["kafkaConnectVersion"] = args?.kafkaConnectVersion;
             resourceInputs["logDelivery"] = args?.logDelivery;
+            resourceInputs["networkType"] = args?.networkType;
             resourceInputs["plugins"] = args?.plugins;
             resourceInputs["serviceExecutionRoleArn"] = args?.serviceExecutionRoleArn;
             resourceInputs["tags"] = args?.tags;
@@ -154,13 +159,14 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["kafkaClusterEncryptionInTransit"] = undefined /*out*/;
             resourceInputs["kafkaConnectVersion"] = undefined /*out*/;
             resourceInputs["logDelivery"] = undefined /*out*/;
+            resourceInputs["networkType"] = undefined /*out*/;
             resourceInputs["plugins"] = undefined /*out*/;
             resourceInputs["serviceExecutionRoleArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["workerConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["connectorDescription", "connectorName", "kafkaCluster", "kafkaClusterClientAuthentication", "kafkaClusterEncryptionInTransit", "kafkaConnectVersion", "logDelivery", "plugins[*]", "serviceExecutionRoleArn", "workerConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["connectorDescription", "connectorName", "kafkaCluster", "kafkaClusterClientAuthentication", "kafkaClusterEncryptionInTransit", "kafkaConnectVersion", "logDelivery", "networkType", "plugins[*]", "serviceExecutionRoleArn", "workerConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Connector.__pulumiType, name, resourceInputs, opts);
     }
@@ -206,6 +212,10 @@ export interface ConnectorArgs {
      * The settings for delivering connector logs to Amazon CloudWatch Logs.
      */
     logDelivery?: pulumi.Input<inputs.kafkaconnect.ConnectorLogDeliveryArgs>;
+    /**
+     * The network type of the Connector.
+     */
+    networkType?: pulumi.Input<enums.kafkaconnect.ConnectorNetworkType>;
     /**
      * List of plugins to use with the connector.
      */

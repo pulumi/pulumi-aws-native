@@ -63,6 +63,7 @@ export class Gateway extends pulumi.CustomResource {
      * The gateway URL for the gateway.
      */
     declare public /*out*/ readonly gatewayUrl: pulumi.Output<string>;
+    declare public readonly interceptorConfigurations: pulumi.Output<outputs.bedrockagentcore.GatewayInterceptorConfiguration[] | undefined>;
     /**
      * The KMS key ARN for the gateway.
      */
@@ -119,6 +120,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["authorizerType"] = args?.authorizerType;
             resourceInputs["description"] = args?.description;
             resourceInputs["exceptionLevel"] = args?.exceptionLevel;
+            resourceInputs["interceptorConfigurations"] = args?.interceptorConfigurations;
             resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
             resourceInputs["name"] = args?.name;
             resourceInputs["protocolConfiguration"] = args?.protocolConfiguration;
@@ -142,6 +144,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["gatewayArn"] = undefined /*out*/;
             resourceInputs["gatewayIdentifier"] = undefined /*out*/;
             resourceInputs["gatewayUrl"] = undefined /*out*/;
+            resourceInputs["interceptorConfigurations"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["protocolConfiguration"] = undefined /*out*/;
@@ -175,6 +178,7 @@ export interface GatewayArgs {
      * The exception level for the gateway.
      */
     exceptionLevel?: pulumi.Input<enums.bedrockagentcore.GatewayExceptionLevel>;
+    interceptorConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.GatewayInterceptorConfigurationArgs>[]>;
     /**
      * The KMS key ARN for the gateway.
      */

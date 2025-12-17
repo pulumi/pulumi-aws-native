@@ -1197,6 +1197,296 @@ func (o GatewayCustomJwtAuthorizerConfigurationPtrOutput) DiscoveryUrl() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+type GatewayInterceptorConfiguration struct {
+	InputConfiguration *GatewayInterceptorInputConfiguration `pulumi:"inputConfiguration"`
+	InterceptionPoints []GatewayInterceptionPoint            `pulumi:"interceptionPoints"`
+	Interceptor        InterceptorConfigurationProperties    `pulumi:"interceptor"`
+}
+
+// GatewayInterceptorConfigurationInput is an input type that accepts GatewayInterceptorConfigurationArgs and GatewayInterceptorConfigurationOutput values.
+// You can construct a concrete instance of `GatewayInterceptorConfigurationInput` via:
+//
+//	GatewayInterceptorConfigurationArgs{...}
+type GatewayInterceptorConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayInterceptorConfigurationOutput() GatewayInterceptorConfigurationOutput
+	ToGatewayInterceptorConfigurationOutputWithContext(context.Context) GatewayInterceptorConfigurationOutput
+}
+
+type GatewayInterceptorConfigurationArgs struct {
+	InputConfiguration GatewayInterceptorInputConfigurationPtrInput `pulumi:"inputConfiguration"`
+	InterceptionPoints GatewayInterceptionPointArrayInput           `pulumi:"interceptionPoints"`
+	Interceptor        InterceptorConfigurationPropertiesInput      `pulumi:"interceptor"`
+}
+
+func (GatewayInterceptorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayInterceptorConfiguration)(nil)).Elem()
+}
+
+func (i GatewayInterceptorConfigurationArgs) ToGatewayInterceptorConfigurationOutput() GatewayInterceptorConfigurationOutput {
+	return i.ToGatewayInterceptorConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayInterceptorConfigurationArgs) ToGatewayInterceptorConfigurationOutputWithContext(ctx context.Context) GatewayInterceptorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayInterceptorConfigurationOutput)
+}
+
+// GatewayInterceptorConfigurationArrayInput is an input type that accepts GatewayInterceptorConfigurationArray and GatewayInterceptorConfigurationArrayOutput values.
+// You can construct a concrete instance of `GatewayInterceptorConfigurationArrayInput` via:
+//
+//	GatewayInterceptorConfigurationArray{ GatewayInterceptorConfigurationArgs{...} }
+type GatewayInterceptorConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGatewayInterceptorConfigurationArrayOutput() GatewayInterceptorConfigurationArrayOutput
+	ToGatewayInterceptorConfigurationArrayOutputWithContext(context.Context) GatewayInterceptorConfigurationArrayOutput
+}
+
+type GatewayInterceptorConfigurationArray []GatewayInterceptorConfigurationInput
+
+func (GatewayInterceptorConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayInterceptorConfiguration)(nil)).Elem()
+}
+
+func (i GatewayInterceptorConfigurationArray) ToGatewayInterceptorConfigurationArrayOutput() GatewayInterceptorConfigurationArrayOutput {
+	return i.ToGatewayInterceptorConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayInterceptorConfigurationArray) ToGatewayInterceptorConfigurationArrayOutputWithContext(ctx context.Context) GatewayInterceptorConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayInterceptorConfigurationArrayOutput)
+}
+
+type GatewayInterceptorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayInterceptorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayInterceptorConfiguration)(nil)).Elem()
+}
+
+func (o GatewayInterceptorConfigurationOutput) ToGatewayInterceptorConfigurationOutput() GatewayInterceptorConfigurationOutput {
+	return o
+}
+
+func (o GatewayInterceptorConfigurationOutput) ToGatewayInterceptorConfigurationOutputWithContext(ctx context.Context) GatewayInterceptorConfigurationOutput {
+	return o
+}
+
+func (o GatewayInterceptorConfigurationOutput) InputConfiguration() GatewayInterceptorInputConfigurationPtrOutput {
+	return o.ApplyT(func(v GatewayInterceptorConfiguration) *GatewayInterceptorInputConfiguration {
+		return v.InputConfiguration
+	}).(GatewayInterceptorInputConfigurationPtrOutput)
+}
+
+func (o GatewayInterceptorConfigurationOutput) InterceptionPoints() GatewayInterceptionPointArrayOutput {
+	return o.ApplyT(func(v GatewayInterceptorConfiguration) []GatewayInterceptionPoint { return v.InterceptionPoints }).(GatewayInterceptionPointArrayOutput)
+}
+
+func (o GatewayInterceptorConfigurationOutput) Interceptor() InterceptorConfigurationPropertiesOutput {
+	return o.ApplyT(func(v GatewayInterceptorConfiguration) InterceptorConfigurationProperties { return v.Interceptor }).(InterceptorConfigurationPropertiesOutput)
+}
+
+type GatewayInterceptorConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayInterceptorConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayInterceptorConfiguration)(nil)).Elem()
+}
+
+func (o GatewayInterceptorConfigurationArrayOutput) ToGatewayInterceptorConfigurationArrayOutput() GatewayInterceptorConfigurationArrayOutput {
+	return o
+}
+
+func (o GatewayInterceptorConfigurationArrayOutput) ToGatewayInterceptorConfigurationArrayOutputWithContext(ctx context.Context) GatewayInterceptorConfigurationArrayOutput {
+	return o
+}
+
+func (o GatewayInterceptorConfigurationArrayOutput) Index(i pulumi.IntInput) GatewayInterceptorConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayInterceptorConfiguration {
+		return vs[0].([]GatewayInterceptorConfiguration)[vs[1].(int)]
+	}).(GatewayInterceptorConfigurationOutput)
+}
+
+type GatewayInterceptorInputConfiguration struct {
+	PassRequestHeaders bool `pulumi:"passRequestHeaders"`
+}
+
+// GatewayInterceptorInputConfigurationInput is an input type that accepts GatewayInterceptorInputConfigurationArgs and GatewayInterceptorInputConfigurationOutput values.
+// You can construct a concrete instance of `GatewayInterceptorInputConfigurationInput` via:
+//
+//	GatewayInterceptorInputConfigurationArgs{...}
+type GatewayInterceptorInputConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayInterceptorInputConfigurationOutput() GatewayInterceptorInputConfigurationOutput
+	ToGatewayInterceptorInputConfigurationOutputWithContext(context.Context) GatewayInterceptorInputConfigurationOutput
+}
+
+type GatewayInterceptorInputConfigurationArgs struct {
+	PassRequestHeaders pulumi.BoolInput `pulumi:"passRequestHeaders"`
+}
+
+func (GatewayInterceptorInputConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayInterceptorInputConfiguration)(nil)).Elem()
+}
+
+func (i GatewayInterceptorInputConfigurationArgs) ToGatewayInterceptorInputConfigurationOutput() GatewayInterceptorInputConfigurationOutput {
+	return i.ToGatewayInterceptorInputConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayInterceptorInputConfigurationArgs) ToGatewayInterceptorInputConfigurationOutputWithContext(ctx context.Context) GatewayInterceptorInputConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayInterceptorInputConfigurationOutput)
+}
+
+func (i GatewayInterceptorInputConfigurationArgs) ToGatewayInterceptorInputConfigurationPtrOutput() GatewayInterceptorInputConfigurationPtrOutput {
+	return i.ToGatewayInterceptorInputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayInterceptorInputConfigurationArgs) ToGatewayInterceptorInputConfigurationPtrOutputWithContext(ctx context.Context) GatewayInterceptorInputConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayInterceptorInputConfigurationOutput).ToGatewayInterceptorInputConfigurationPtrOutputWithContext(ctx)
+}
+
+// GatewayInterceptorInputConfigurationPtrInput is an input type that accepts GatewayInterceptorInputConfigurationArgs, GatewayInterceptorInputConfigurationPtr and GatewayInterceptorInputConfigurationPtrOutput values.
+// You can construct a concrete instance of `GatewayInterceptorInputConfigurationPtrInput` via:
+//
+//	        GatewayInterceptorInputConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayInterceptorInputConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGatewayInterceptorInputConfigurationPtrOutput() GatewayInterceptorInputConfigurationPtrOutput
+	ToGatewayInterceptorInputConfigurationPtrOutputWithContext(context.Context) GatewayInterceptorInputConfigurationPtrOutput
+}
+
+type gatewayInterceptorInputConfigurationPtrType GatewayInterceptorInputConfigurationArgs
+
+func GatewayInterceptorInputConfigurationPtr(v *GatewayInterceptorInputConfigurationArgs) GatewayInterceptorInputConfigurationPtrInput {
+	return (*gatewayInterceptorInputConfigurationPtrType)(v)
+}
+
+func (*gatewayInterceptorInputConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayInterceptorInputConfiguration)(nil)).Elem()
+}
+
+func (i *gatewayInterceptorInputConfigurationPtrType) ToGatewayInterceptorInputConfigurationPtrOutput() GatewayInterceptorInputConfigurationPtrOutput {
+	return i.ToGatewayInterceptorInputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayInterceptorInputConfigurationPtrType) ToGatewayInterceptorInputConfigurationPtrOutputWithContext(ctx context.Context) GatewayInterceptorInputConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayInterceptorInputConfigurationPtrOutput)
+}
+
+type GatewayInterceptorInputConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayInterceptorInputConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayInterceptorInputConfiguration)(nil)).Elem()
+}
+
+func (o GatewayInterceptorInputConfigurationOutput) ToGatewayInterceptorInputConfigurationOutput() GatewayInterceptorInputConfigurationOutput {
+	return o
+}
+
+func (o GatewayInterceptorInputConfigurationOutput) ToGatewayInterceptorInputConfigurationOutputWithContext(ctx context.Context) GatewayInterceptorInputConfigurationOutput {
+	return o
+}
+
+func (o GatewayInterceptorInputConfigurationOutput) ToGatewayInterceptorInputConfigurationPtrOutput() GatewayInterceptorInputConfigurationPtrOutput {
+	return o.ToGatewayInterceptorInputConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayInterceptorInputConfigurationOutput) ToGatewayInterceptorInputConfigurationPtrOutputWithContext(ctx context.Context) GatewayInterceptorInputConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayInterceptorInputConfiguration) *GatewayInterceptorInputConfiguration {
+		return &v
+	}).(GatewayInterceptorInputConfigurationPtrOutput)
+}
+
+func (o GatewayInterceptorInputConfigurationOutput) PassRequestHeaders() pulumi.BoolOutput {
+	return o.ApplyT(func(v GatewayInterceptorInputConfiguration) bool { return v.PassRequestHeaders }).(pulumi.BoolOutput)
+}
+
+type GatewayInterceptorInputConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayInterceptorInputConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayInterceptorInputConfiguration)(nil)).Elem()
+}
+
+func (o GatewayInterceptorInputConfigurationPtrOutput) ToGatewayInterceptorInputConfigurationPtrOutput() GatewayInterceptorInputConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayInterceptorInputConfigurationPtrOutput) ToGatewayInterceptorInputConfigurationPtrOutputWithContext(ctx context.Context) GatewayInterceptorInputConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayInterceptorInputConfigurationPtrOutput) Elem() GatewayInterceptorInputConfigurationOutput {
+	return o.ApplyT(func(v *GatewayInterceptorInputConfiguration) GatewayInterceptorInputConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayInterceptorInputConfiguration
+		return ret
+	}).(GatewayInterceptorInputConfigurationOutput)
+}
+
+func (o GatewayInterceptorInputConfigurationPtrOutput) PassRequestHeaders() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GatewayInterceptorInputConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.PassRequestHeaders
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GatewayLambdaInterceptorConfiguration struct {
+	Arn string `pulumi:"arn"`
+}
+
+// GatewayLambdaInterceptorConfigurationInput is an input type that accepts GatewayLambdaInterceptorConfigurationArgs and GatewayLambdaInterceptorConfigurationOutput values.
+// You can construct a concrete instance of `GatewayLambdaInterceptorConfigurationInput` via:
+//
+//	GatewayLambdaInterceptorConfigurationArgs{...}
+type GatewayLambdaInterceptorConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayLambdaInterceptorConfigurationOutput() GatewayLambdaInterceptorConfigurationOutput
+	ToGatewayLambdaInterceptorConfigurationOutputWithContext(context.Context) GatewayLambdaInterceptorConfigurationOutput
+}
+
+type GatewayLambdaInterceptorConfigurationArgs struct {
+	Arn pulumi.StringInput `pulumi:"arn"`
+}
+
+func (GatewayLambdaInterceptorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayLambdaInterceptorConfiguration)(nil)).Elem()
+}
+
+func (i GatewayLambdaInterceptorConfigurationArgs) ToGatewayLambdaInterceptorConfigurationOutput() GatewayLambdaInterceptorConfigurationOutput {
+	return i.ToGatewayLambdaInterceptorConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayLambdaInterceptorConfigurationArgs) ToGatewayLambdaInterceptorConfigurationOutputWithContext(ctx context.Context) GatewayLambdaInterceptorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayLambdaInterceptorConfigurationOutput)
+}
+
+type GatewayLambdaInterceptorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayLambdaInterceptorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayLambdaInterceptorConfiguration)(nil)).Elem()
+}
+
+func (o GatewayLambdaInterceptorConfigurationOutput) ToGatewayLambdaInterceptorConfigurationOutput() GatewayLambdaInterceptorConfigurationOutput {
+	return o
+}
+
+func (o GatewayLambdaInterceptorConfigurationOutput) ToGatewayLambdaInterceptorConfigurationOutputWithContext(ctx context.Context) GatewayLambdaInterceptorConfigurationOutput {
+	return o
+}
+
+func (o GatewayLambdaInterceptorConfigurationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayLambdaInterceptorConfiguration) string { return v.Arn }).(pulumi.StringOutput)
+}
+
 type GatewayMcpGatewayConfiguration struct {
 	Instructions      *string            `pulumi:"instructions"`
 	SearchType        *GatewaySearchType `pulumi:"searchType"`
@@ -3643,6 +3933,59 @@ func (o GatewayWorkloadIdentityDetailsPtrOutput) WorkloadIdentityArn() pulumi.St
 		}
 		return &v.WorkloadIdentityArn
 	}).(pulumi.StringPtrOutput)
+}
+
+type InterceptorConfiguration0Properties struct {
+	Lambda GatewayLambdaInterceptorConfiguration `pulumi:"lambda"`
+}
+
+type InterceptorConfigurationProperties struct {
+	Lambda GatewayLambdaInterceptorConfiguration `pulumi:"lambda"`
+}
+
+// InterceptorConfigurationPropertiesInput is an input type that accepts InterceptorConfigurationPropertiesArgs and InterceptorConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `InterceptorConfigurationPropertiesInput` via:
+//
+//	InterceptorConfigurationPropertiesArgs{...}
+type InterceptorConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToInterceptorConfigurationPropertiesOutput() InterceptorConfigurationPropertiesOutput
+	ToInterceptorConfigurationPropertiesOutputWithContext(context.Context) InterceptorConfigurationPropertiesOutput
+}
+
+type InterceptorConfigurationPropertiesArgs struct {
+	Lambda GatewayLambdaInterceptorConfigurationInput `pulumi:"lambda"`
+}
+
+func (InterceptorConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InterceptorConfigurationProperties)(nil)).Elem()
+}
+
+func (i InterceptorConfigurationPropertiesArgs) ToInterceptorConfigurationPropertiesOutput() InterceptorConfigurationPropertiesOutput {
+	return i.ToInterceptorConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i InterceptorConfigurationPropertiesArgs) ToInterceptorConfigurationPropertiesOutputWithContext(ctx context.Context) InterceptorConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InterceptorConfigurationPropertiesOutput)
+}
+
+type InterceptorConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (InterceptorConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InterceptorConfigurationProperties)(nil)).Elem()
+}
+
+func (o InterceptorConfigurationPropertiesOutput) ToInterceptorConfigurationPropertiesOutput() InterceptorConfigurationPropertiesOutput {
+	return o
+}
+
+func (o InterceptorConfigurationPropertiesOutput) ToInterceptorConfigurationPropertiesOutputWithContext(ctx context.Context) InterceptorConfigurationPropertiesOutput {
+	return o
+}
+
+func (o InterceptorConfigurationPropertiesOutput) Lambda() GatewayLambdaInterceptorConfigurationOutput {
+	return o.ApplyT(func(v InterceptorConfigurationProperties) GatewayLambdaInterceptorConfiguration { return v.Lambda }).(GatewayLambdaInterceptorConfigurationOutput)
 }
 
 type MemoryCustomConfigurationInput struct {
@@ -8650,6 +8993,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizerConfigurationPropertiesPtrInput)(nil)).Elem(), GatewayAuthorizerConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayCustomJwtAuthorizerConfigurationInput)(nil)).Elem(), GatewayCustomJwtAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayCustomJwtAuthorizerConfigurationPtrInput)(nil)).Elem(), GatewayCustomJwtAuthorizerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptorConfigurationInput)(nil)).Elem(), GatewayInterceptorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptorConfigurationArrayInput)(nil)).Elem(), GatewayInterceptorConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptorInputConfigurationInput)(nil)).Elem(), GatewayInterceptorInputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptorInputConfigurationPtrInput)(nil)).Elem(), GatewayInterceptorInputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayLambdaInterceptorConfigurationInput)(nil)).Elem(), GatewayLambdaInterceptorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayMcpGatewayConfigurationInput)(nil)).Elem(), GatewayMcpGatewayConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayMcpGatewayConfigurationPtrInput)(nil)).Elem(), GatewayMcpGatewayConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayProtocolConfigurationPropertiesInput)(nil)).Elem(), GatewayProtocolConfigurationPropertiesArgs{})
@@ -8681,6 +9029,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetToolDefinitionArrayInput)(nil)).Elem(), GatewayTargetToolDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetToolSchema0PropertiesInput)(nil)).Elem(), GatewayTargetToolSchema0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetToolSchema1PropertiesInput)(nil)).Elem(), GatewayTargetToolSchema1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InterceptorConfigurationPropertiesInput)(nil)).Elem(), InterceptorConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomConfigurationInputInput)(nil)).Elem(), MemoryCustomConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomConfigurationInputPtrInput)(nil)).Elem(), MemoryCustomConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomMemoryStrategyInput)(nil)).Elem(), MemoryCustomMemoryStrategyArgs{})
@@ -8757,6 +9106,11 @@ func init() {
 	pulumi.RegisterOutputType(GatewayAuthorizerConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayCustomJwtAuthorizerConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayCustomJwtAuthorizerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayInterceptorConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayInterceptorConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GatewayInterceptorInputConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayInterceptorInputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(GatewayLambdaInterceptorConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayMcpGatewayConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayMcpGatewayConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayProtocolConfigurationPropertiesOutput{})
@@ -8802,6 +9156,7 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetToolSchema1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayWorkloadIdentityDetailsOutput{})
 	pulumi.RegisterOutputType(GatewayWorkloadIdentityDetailsPtrOutput{})
+	pulumi.RegisterOutputType(InterceptorConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(MemoryCustomConfigurationInputOutput{})
 	pulumi.RegisterOutputType(MemoryCustomConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(MemoryCustomMemoryStrategyOutput{})

@@ -14,6 +14,8 @@ __all__ = [
     'ConfigTrackingConfigAutotrack',
     'DataflowEndpointGroupAgentStatus',
     'DataflowEndpointGroupAuditResults',
+    'DataflowEndpointGroupV2AgentStatus',
+    'DataflowEndpointGroupV2AuditResults',
 ]
 
 
@@ -66,6 +68,26 @@ class DataflowEndpointGroupAgentStatus(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:groundstation:DataflowEndpointGroupAuditResults")
 class DataflowEndpointGroupAuditResults(_builtins.str, Enum):
+    """
+    The results of the audit.
+    """
+    HEALTHY = "HEALTHY"
+    UNHEALTHY = "UNHEALTHY"
+
+
+@pulumi.type_token("aws-native:groundstation:DataflowEndpointGroupV2AgentStatus")
+class DataflowEndpointGroupV2AgentStatus(_builtins.str, Enum):
+    """
+    The status of AgentEndpoint.
+    """
+    SUCCESS = "SUCCESS"
+    FAILED = "FAILED"
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
+
+
+@pulumi.type_token("aws-native:groundstation:DataflowEndpointGroupV2AuditResults")
+class DataflowEndpointGroupV2AuditResults(_builtins.str, Enum):
     """
     The results of the audit.
     """

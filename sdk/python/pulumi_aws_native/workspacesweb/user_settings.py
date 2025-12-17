@@ -30,6 +30,7 @@ class UserSettingsArgs:
                  print_allowed: pulumi.Input['UserSettingsEnabledType'],
                  upload_allowed: pulumi.Input['UserSettingsEnabledType'],
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 branding_configuration: Optional[pulumi.Input['UserSettingsBrandingConfigurationArgs']] = None,
                  cookie_synchronization_configuration: Optional[pulumi.Input['UserSettingsCookieSynchronizationConfigurationArgs']] = None,
                  customer_managed_key: Optional[pulumi.Input[_builtins.str]] = None,
                  deep_link_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
@@ -45,6 +46,7 @@ class UserSettingsArgs:
         :param pulumi.Input['UserSettingsEnabledType'] print_allowed: Specifies whether the user can print to the local device.
         :param pulumi.Input['UserSettingsEnabledType'] upload_allowed: Specifies whether the user can upload files from the local device to the streaming session.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: The additional encryption context of the user settings.
+        :param pulumi.Input['UserSettingsBrandingConfigurationArgs'] branding_configuration: The branding configuration that customizes the appearance of the web portal for end users. This includes a custom logo, favicon, wallpaper, localized strings, color theme, and an optional terms of service.
         :param pulumi.Input['UserSettingsCookieSynchronizationConfigurationArgs'] cookie_synchronization_configuration: The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
         :param pulumi.Input[_builtins.str] customer_managed_key: The customer managed key used to encrypt sensitive information in the user settings.
         :param pulumi.Input['UserSettingsEnabledType'] deep_link_allowed: Specifies whether the user can use deep links that open automatically when connecting to a session.
@@ -60,6 +62,8 @@ class UserSettingsArgs:
         pulumi.set(__self__, "upload_allowed", upload_allowed)
         if additional_encryption_context is not None:
             pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
+        if branding_configuration is not None:
+            pulumi.set(__self__, "branding_configuration", branding_configuration)
         if cookie_synchronization_configuration is not None:
             pulumi.set(__self__, "cookie_synchronization_configuration", cookie_synchronization_configuration)
         if customer_managed_key is not None:
@@ -146,6 +150,18 @@ class UserSettingsArgs:
     @additional_encryption_context.setter
     def additional_encryption_context(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_encryption_context", value)
+
+    @_builtins.property
+    @pulumi.getter(name="brandingConfiguration")
+    def branding_configuration(self) -> Optional[pulumi.Input['UserSettingsBrandingConfigurationArgs']]:
+        """
+        The branding configuration that customizes the appearance of the web portal for end users. This includes a custom logo, favicon, wallpaper, localized strings, color theme, and an optional terms of service.
+        """
+        return pulumi.get(self, "branding_configuration")
+
+    @branding_configuration.setter
+    def branding_configuration(self, value: Optional[pulumi.Input['UserSettingsBrandingConfigurationArgs']]):
+        pulumi.set(self, "branding_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="cookieSynchronizationConfiguration")
@@ -239,6 +255,7 @@ class UserSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 branding_configuration: Optional[pulumi.Input[Union['UserSettingsBrandingConfigurationArgs', 'UserSettingsBrandingConfigurationArgsDict']]] = None,
                  cookie_synchronization_configuration: Optional[pulumi.Input[Union['UserSettingsCookieSynchronizationConfigurationArgs', 'UserSettingsCookieSynchronizationConfigurationArgsDict']]] = None,
                  copy_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  customer_managed_key: Optional[pulumi.Input[_builtins.str]] = None,
@@ -258,6 +275,7 @@ class UserSettings(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: The additional encryption context of the user settings.
+        :param pulumi.Input[Union['UserSettingsBrandingConfigurationArgs', 'UserSettingsBrandingConfigurationArgsDict']] branding_configuration: The branding configuration that customizes the appearance of the web portal for end users. This includes a custom logo, favicon, wallpaper, localized strings, color theme, and an optional terms of service.
         :param pulumi.Input[Union['UserSettingsCookieSynchronizationConfigurationArgs', 'UserSettingsCookieSynchronizationConfigurationArgsDict']] cookie_synchronization_configuration: The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
         :param pulumi.Input['UserSettingsEnabledType'] copy_allowed: Specifies whether the user can copy text from the streaming session to the local device.
         :param pulumi.Input[_builtins.str] customer_managed_key: The customer managed key used to encrypt sensitive information in the user settings.
@@ -296,6 +314,7 @@ class UserSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 branding_configuration: Optional[pulumi.Input[Union['UserSettingsBrandingConfigurationArgs', 'UserSettingsBrandingConfigurationArgsDict']]] = None,
                  cookie_synchronization_configuration: Optional[pulumi.Input[Union['UserSettingsCookieSynchronizationConfigurationArgs', 'UserSettingsCookieSynchronizationConfigurationArgsDict']]] = None,
                  copy_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  customer_managed_key: Optional[pulumi.Input[_builtins.str]] = None,
@@ -318,6 +337,7 @@ class UserSettings(pulumi.CustomResource):
             __props__ = UserSettingsArgs.__new__(UserSettingsArgs)
 
             __props__.__dict__["additional_encryption_context"] = additional_encryption_context
+            __props__.__dict__["branding_configuration"] = branding_configuration
             __props__.__dict__["cookie_synchronization_configuration"] = cookie_synchronization_configuration
             if copy_allowed is None and not opts.urn:
                 raise TypeError("Missing required property 'copy_allowed'")
@@ -366,6 +386,7 @@ class UserSettings(pulumi.CustomResource):
 
         __props__.__dict__["additional_encryption_context"] = None
         __props__.__dict__["associated_portal_arns"] = None
+        __props__.__dict__["branding_configuration"] = None
         __props__.__dict__["cookie_synchronization_configuration"] = None
         __props__.__dict__["copy_allowed"] = None
         __props__.__dict__["customer_managed_key"] = None
@@ -396,6 +417,14 @@ class UserSettings(pulumi.CustomResource):
         A list of web portal ARNs that this user settings resource is associated with.
         """
         return pulumi.get(self, "associated_portal_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="brandingConfiguration")
+    def branding_configuration(self) -> pulumi.Output[Optional['outputs.UserSettingsBrandingConfiguration']]:
+        """
+        The branding configuration that customizes the appearance of the web portal for end users. This includes a custom logo, favicon, wallpaper, localized strings, color theme, and an optional terms of service.
+        """
+        return pulumi.get(self, "branding_configuration")
 
     @_builtins.property
     @pulumi.getter(name="cookieSynchronizationConfiguration")

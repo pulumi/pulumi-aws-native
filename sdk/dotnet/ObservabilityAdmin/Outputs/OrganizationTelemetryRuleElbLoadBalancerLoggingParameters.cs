@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
         /// A delimiter to delineate log fields
         /// </summary>
         public readonly string? FieldDelimiter;
+        /// <summary>
+        /// The format for ELB access log entries (plain text or JSON format).
+        /// </summary>
         public readonly Pulumi.AwsNative.ObservabilityAdmin.OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat? OutputFormat;
 
         [OutputConstructor]

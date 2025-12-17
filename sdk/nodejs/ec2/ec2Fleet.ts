@@ -148,7 +148,7 @@ export class Ec2Fleet extends pulumi.CustomResource {
             resourceInputs["validUntil"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["launchTemplateConfigs[*]", "onDemandOptions", "replaceUnhealthyInstances", "spotOptions", "tagSpecifications[*]", "terminateInstancesWithExpiration", "type", "validFrom", "validUntil"] };
+        const replaceOnChanges = { replaceOnChanges: ["launchTemplateConfigs[*]", "onDemandOptions", "replaceUnhealthyInstances", "spotOptions", "tagSpecifications[*]", "targetCapacitySpecification.defaultTargetCapacityType", "targetCapacitySpecification.targetCapacityUnitType", "terminateInstancesWithExpiration", "type", "validFrom", "validUntil"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Ec2Fleet.__pulumiType, name, resourceInputs, opts);
     }

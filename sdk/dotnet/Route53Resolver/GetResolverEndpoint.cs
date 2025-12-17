@@ -96,9 +96,17 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// </summary>
         public readonly Pulumi.AwsNative.Route53Resolver.ResolverEndpointType? ResolverEndpointType;
         /// <summary>
+        /// Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
+        /// </summary>
+        public readonly bool? RniEnhancedMetricsEnabled;
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
+        /// </summary>
+        public readonly bool? TargetNameServerMetricsEnabled;
 
         [OutputConstructor]
         private GetResolverEndpointResult(
@@ -118,7 +126,11 @@ namespace Pulumi.AwsNative.Route53Resolver
 
             Pulumi.AwsNative.Route53Resolver.ResolverEndpointType? resolverEndpointType,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            bool? rniEnhancedMetricsEnabled,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            bool? targetNameServerMetricsEnabled)
         {
             Arn = arn;
             HostVpcId = hostVpcId;
@@ -128,7 +140,9 @@ namespace Pulumi.AwsNative.Route53Resolver
             Protocols = protocols;
             ResolverEndpointId = resolverEndpointId;
             ResolverEndpointType = resolverEndpointType;
+            RniEnhancedMetricsEnabled = rniEnhancedMetricsEnabled;
             Tags = tags;
+            TargetNameServerMetricsEnabled = targetNameServerMetricsEnabled;
         }
     }
 }

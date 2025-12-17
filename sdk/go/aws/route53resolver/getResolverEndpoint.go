@@ -45,8 +45,12 @@ type LookupResolverEndpointResult struct {
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
 	// The Resolver endpoint IP address type.
 	ResolverEndpointType *ResolverEndpointType `pulumi:"resolverEndpointType"`
+	// Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
+	RniEnhancedMetricsEnabled *bool `pulumi:"rniEnhancedMetricsEnabled"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
+	// Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
+	TargetNameServerMetricsEnabled *bool `pulumi:"targetNameServerMetricsEnabled"`
 }
 
 func LookupResolverEndpointOutput(ctx *pulumi.Context, args LookupResolverEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupResolverEndpointResultOutput {
@@ -121,9 +125,19 @@ func (o LookupResolverEndpointResultOutput) ResolverEndpointType() ResolverEndpo
 	return o.ApplyT(func(v LookupResolverEndpointResult) *ResolverEndpointType { return v.ResolverEndpointType }).(ResolverEndpointTypePtrOutput)
 }
 
+// Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
+func (o LookupResolverEndpointResultOutput) RniEnhancedMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) *bool { return v.RniEnhancedMetricsEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // An array of key-value pairs to apply to this resource.
 func (o LookupResolverEndpointResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
+func (o LookupResolverEndpointResultOutput) TargetNameServerMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) *bool { return v.TargetNameServerMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

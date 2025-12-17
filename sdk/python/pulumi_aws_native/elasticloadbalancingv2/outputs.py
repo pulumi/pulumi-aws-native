@@ -112,7 +112,7 @@ class ListenerAction(dict):
         :param 'ListenerFixedResponseConfig' fixed_response_config: [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
         :param 'ListenerForwardConfig' forward_config: Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
                 If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
-        :param 'ListenerJwtValidationConfig' jwt_validation_config: [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when `Type` is `jwt-validation` .
+        :param 'ListenerJwtValidationConfig' jwt_validation_config: [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when ``Type`` is ``jwt-validation``.
         :param _builtins.int order: The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
         :param 'ListenerRedirectConfig' redirect_config: [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
         :param _builtins.str target_group_arn: The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to multiple target groups, you must use ``ForwardConfig`` instead.
@@ -180,7 +180,7 @@ class ListenerAction(dict):
     @pulumi.getter(name="jwtValidationConfig")
     def jwt_validation_config(self) -> Optional['outputs.ListenerJwtValidationConfig']:
         """
-        [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when `Type` is `jwt-validation` .
+        [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when ``Type`` is ``jwt-validation``.
         """
         return pulumi.get(self, "jwt_validation_config")
 
@@ -791,14 +791,18 @@ class ListenerForwardConfig(dict):
 
 @pulumi.output_type
 class ListenerJwtValidationActionAdditionalClaim(dict):
+    """
+    Information about an additional claim to validate.
+    """
     def __init__(__self__, *,
                  format: _builtins.str,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
+        Information about an additional claim to validate.
         :param _builtins.str format: The format of the claim value.
-        :param _builtins.str name: The name of the claim. You can't specify `exp` , `iss` , `nbf` , or `iat` because we validate them by default.
-        :param Sequence[_builtins.str] values: The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is `space-separated-values` , the values can't include spaces.
+        :param _builtins.str name: The name of the claim. You can't specify ``exp``, ``iss``, ``nbf``, or ``iat`` because we validate them by default.
+        :param Sequence[_builtins.str] values: The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is ``space-separated-values``, the values can't include spaces.
         """
         pulumi.set(__self__, "format", format)
         pulumi.set(__self__, "name", name)
@@ -816,7 +820,7 @@ class ListenerJwtValidationActionAdditionalClaim(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the claim. You can't specify `exp` , `iss` , `nbf` , or `iat` because we validate them by default.
+        The name of the claim. You can't specify ``exp``, ``iss``, ``nbf``, or ``iat`` because we validate them by default.
         """
         return pulumi.get(self, "name")
 
@@ -824,7 +828,7 @@ class ListenerJwtValidationActionAdditionalClaim(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is `space-separated-values` , the values can't include spaces.
+        The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is ``space-separated-values``, the values can't include spaces.
         """
         return pulumi.get(self, "values")
 
@@ -1124,7 +1128,7 @@ class ListenerRuleAction(dict):
         :param 'ListenerRuleFixedResponseConfig' fixed_response_config: [Application Load Balancer] Information for creating an action that returns a custom HTTP response. Specify only when ``Type`` is ``fixed-response``.
         :param 'ListenerRuleForwardConfig' forward_config: Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
                 If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
-        :param 'ListenerRuleJwtValidationConfig' jwt_validation_config: [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when `Type` is `jwt-validation` .
+        :param 'ListenerRuleJwtValidationConfig' jwt_validation_config: [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when ``Type`` is ``jwt-validation``.
         :param _builtins.int order: The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
         :param 'ListenerRuleRedirectConfig' redirect_config: [Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``.
         :param _builtins.str target_group_arn: The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to multiple target groups, you must use ``ForwardConfig`` instead.
@@ -1192,7 +1196,7 @@ class ListenerRuleAction(dict):
     @pulumi.getter(name="jwtValidationConfig")
     def jwt_validation_config(self) -> Optional['outputs.ListenerRuleJwtValidationConfig']:
         """
-        [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when `Type` is `jwt-validation` .
+        [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when ``Type`` is ``jwt-validation``.
         """
         return pulumi.get(self, "jwt_validation_config")
 
@@ -1827,14 +1831,18 @@ class ListenerRuleHttpRequestMethodConfig(dict):
 
 @pulumi.output_type
 class ListenerRuleJwtValidationActionAdditionalClaim(dict):
+    """
+    Information about an additional claim to validate.
+    """
     def __init__(__self__, *,
                  format: _builtins.str,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
+        Information about an additional claim to validate.
         :param _builtins.str format: The format of the claim value.
-        :param _builtins.str name: The name of the claim. You can't specify `exp` , `iss` , `nbf` , or `iat` because we validate them by default.
-        :param Sequence[_builtins.str] values: The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is `space-separated-values` , the values can't include spaces.
+        :param _builtins.str name: The name of the claim. You can't specify ``exp``, ``iss``, ``nbf``, or ``iat`` because we validate them by default.
+        :param Sequence[_builtins.str] values: The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is ``space-separated-values``, the values can't include spaces.
         """
         pulumi.set(__self__, "format", format)
         pulumi.set(__self__, "name", name)
@@ -1852,7 +1860,7 @@ class ListenerRuleJwtValidationActionAdditionalClaim(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the claim. You can't specify `exp` , `iss` , `nbf` , or `iat` because we validate them by default.
+        The name of the claim. You can't specify ``exp``, ``iss``, ``nbf``, or ``iat`` because we validate them by default.
         """
         return pulumi.get(self, "name")
 
@@ -1860,7 +1868,7 @@ class ListenerRuleJwtValidationActionAdditionalClaim(dict):
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is `space-separated-values` , the values can't include spaces.
+        The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is ``space-separated-values``, the values can't include spaces.
         """
         return pulumi.get(self, "values")
 
@@ -2679,6 +2687,9 @@ class LoadBalancerAttribute(dict):
                  +  ``connection_logs.s3.enabled`` - Indicates whether connection logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
                  +  ``connection_logs.s3.bucket`` - The name of the S3 bucket for the connection logs. This attribute is required if connection logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
                  +  ``connection_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the connection logs.
+                 +  ``health_check_logs.s3.enabled`` - Indicates whether health check logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
+                 +  ``health_check_logs.s3.bucket`` - The name of the S3 bucket for the health check logs. This attribute is required if health check logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
+                 +  ``health_check_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the health check logs.
                  +  ``routing.http.desync_mitigation_mode`` - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are ``monitor``, ``defensive``, and ``strictest``. The default is ``defensive``.
                  +  ``routing.http.drop_invalid_header_fields.enabled`` - Indicates whether HTTP headers with invalid header fields are removed by the load balancer (``true``) or routed to targets (``false``). The default is ``false``.
                  +  ``routing.http.preserve_host_header.enabled`` - Indicates whether the Application Load Balancer should preserve the ``Host`` header in the HTTP request and send it to the target without any change. The possible values are ``true`` and ``false``. The default is ``false``.
@@ -2724,6 +2735,9 @@ class LoadBalancerAttribute(dict):
           +  ``connection_logs.s3.enabled`` - Indicates whether connection logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
           +  ``connection_logs.s3.bucket`` - The name of the S3 bucket for the connection logs. This attribute is required if connection logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
           +  ``connection_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the connection logs.
+          +  ``health_check_logs.s3.enabled`` - Indicates whether health check logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
+          +  ``health_check_logs.s3.bucket`` - The name of the S3 bucket for the health check logs. This attribute is required if health check logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
+          +  ``health_check_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the health check logs.
           +  ``routing.http.desync_mitigation_mode`` - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are ``monitor``, ``defensive``, and ``strictest``. The default is ``defensive``.
           +  ``routing.http.drop_invalid_header_fields.enabled`` - Indicates whether HTTP headers with invalid header fields are removed by the load balancer (``true``) or routed to targets (``false``). The default is ``false``.
           +  ``routing.http.preserve_host_header.enabled`` - Indicates whether the Application Load Balancer should preserve the ``Host`` header in the HTTP request and send it to the target without any change. The possible values are ``true`` and ``false``. The default is ``false``.

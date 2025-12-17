@@ -35,6 +35,7 @@ class ConnectorArgs:
                  connector_description: Optional[pulumi.Input[_builtins.str]] = None,
                  connector_name: Optional[pulumi.Input[_builtins.str]] = None,
                  log_delivery: Optional[pulumi.Input['ConnectorLogDeliveryArgs']] = None,
+                 network_type: Optional[pulumi.Input['ConnectorNetworkType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  worker_configuration: Optional[pulumi.Input['ConnectorWorkerConfigurationArgs']] = None):
         """
@@ -50,6 +51,7 @@ class ConnectorArgs:
         :param pulumi.Input[_builtins.str] connector_description: A summary description of the connector.
         :param pulumi.Input[_builtins.str] connector_name: The name of the connector.
         :param pulumi.Input['ConnectorLogDeliveryArgs'] log_delivery: The settings for delivering connector logs to Amazon CloudWatch Logs.
+        :param pulumi.Input['ConnectorNetworkType'] network_type: The network type of the Connector.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A collection of tags associated with a resource
         :param pulumi.Input['ConnectorWorkerConfigurationArgs'] worker_configuration: The worker configurations that are in use with the connector.
         """
@@ -67,6 +69,8 @@ class ConnectorArgs:
             pulumi.set(__self__, "connector_name", connector_name)
         if log_delivery is not None:
             pulumi.set(__self__, "log_delivery", log_delivery)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if worker_configuration is not None:
@@ -205,6 +209,18 @@ class ConnectorArgs:
         pulumi.set(self, "log_delivery", value)
 
     @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input['ConnectorNetworkType']]:
+        """
+        The network type of the Connector.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input['ConnectorNetworkType']]):
+        pulumi.set(self, "network_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -244,6 +260,7 @@ class Connector(pulumi.CustomResource):
                  kafka_cluster_encryption_in_transit: Optional[pulumi.Input[Union['ConnectorKafkaClusterEncryptionInTransitArgs', 'ConnectorKafkaClusterEncryptionInTransitArgsDict']]] = None,
                  kafka_connect_version: Optional[pulumi.Input[_builtins.str]] = None,
                  log_delivery: Optional[pulumi.Input[Union['ConnectorLogDeliveryArgs', 'ConnectorLogDeliveryArgsDict']]] = None,
+                 network_type: Optional[pulumi.Input['ConnectorNetworkType']] = None,
                  plugins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict']]]]] = None,
                  service_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -263,6 +280,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[Union['ConnectorKafkaClusterEncryptionInTransitArgs', 'ConnectorKafkaClusterEncryptionInTransitArgsDict']] kafka_cluster_encryption_in_transit: Details of encryption in transit to the Apache Kafka cluster.
         :param pulumi.Input[_builtins.str] kafka_connect_version: The version of Kafka Connect. It has to be compatible with both the Kafka cluster's version and the plugins.
         :param pulumi.Input[Union['ConnectorLogDeliveryArgs', 'ConnectorLogDeliveryArgsDict']] log_delivery: The settings for delivering connector logs to Amazon CloudWatch Logs.
+        :param pulumi.Input['ConnectorNetworkType'] network_type: The network type of the Connector.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict']]]] plugins: List of plugins to use with the connector.
         :param pulumi.Input[_builtins.str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A collection of tags associated with a resource
@@ -301,6 +319,7 @@ class Connector(pulumi.CustomResource):
                  kafka_cluster_encryption_in_transit: Optional[pulumi.Input[Union['ConnectorKafkaClusterEncryptionInTransitArgs', 'ConnectorKafkaClusterEncryptionInTransitArgsDict']]] = None,
                  kafka_connect_version: Optional[pulumi.Input[_builtins.str]] = None,
                  log_delivery: Optional[pulumi.Input[Union['ConnectorLogDeliveryArgs', 'ConnectorLogDeliveryArgsDict']]] = None,
+                 network_type: Optional[pulumi.Input['ConnectorNetworkType']] = None,
                  plugins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict']]]]] = None,
                  service_execution_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -335,6 +354,7 @@ class Connector(pulumi.CustomResource):
                 raise TypeError("Missing required property 'kafka_connect_version'")
             __props__.__dict__["kafka_connect_version"] = kafka_connect_version
             __props__.__dict__["log_delivery"] = log_delivery
+            __props__.__dict__["network_type"] = network_type
             if plugins is None and not opts.urn:
                 raise TypeError("Missing required property 'plugins'")
             __props__.__dict__["plugins"] = plugins
@@ -344,7 +364,7 @@ class Connector(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["worker_configuration"] = worker_configuration
             __props__.__dict__["connector_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connectorDescription", "connectorName", "kafkaCluster", "kafkaClusterClientAuthentication", "kafkaClusterEncryptionInTransit", "kafkaConnectVersion", "logDelivery", "plugins[*]", "serviceExecutionRoleArn", "workerConfiguration"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connectorDescription", "connectorName", "kafkaCluster", "kafkaClusterClientAuthentication", "kafkaClusterEncryptionInTransit", "kafkaConnectVersion", "logDelivery", "networkType", "plugins[*]", "serviceExecutionRoleArn", "workerConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Connector, __self__).__init__(
             'aws-native:kafkaconnect:Connector',
@@ -378,6 +398,7 @@ class Connector(pulumi.CustomResource):
         __props__.__dict__["kafka_cluster_encryption_in_transit"] = None
         __props__.__dict__["kafka_connect_version"] = None
         __props__.__dict__["log_delivery"] = None
+        __props__.__dict__["network_type"] = None
         __props__.__dict__["plugins"] = None
         __props__.__dict__["service_execution_role_arn"] = None
         __props__.__dict__["tags"] = None
@@ -463,6 +484,14 @@ class Connector(pulumi.CustomResource):
         The settings for delivering connector logs to Amazon CloudWatch Logs.
         """
         return pulumi.get(self, "log_delivery")
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[Optional['ConnectorNetworkType']]:
+        """
+        The network type of the Connector.
+        """
+        return pulumi.get(self, "network_type")
 
     @_builtins.property
     @pulumi.getter

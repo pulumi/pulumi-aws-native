@@ -70,6 +70,37 @@ namespace Pulumi.AwsNative.KafkaConnect
     }
 
     /// <summary>
+    /// The network type of the Connector.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectorNetworkType : IEquatable<ConnectorNetworkType>
+    {
+        private readonly string _value;
+
+        private ConnectorNetworkType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectorNetworkType Ipv4 { get; } = new ConnectorNetworkType("IPV4");
+        public static ConnectorNetworkType Dual { get; } = new ConnectorNetworkType("DUAL");
+
+        public static bool operator ==(ConnectorNetworkType left, ConnectorNetworkType right) => left.Equals(right);
+        public static bool operator !=(ConnectorNetworkType left, ConnectorNetworkType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectorNetworkType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectorNetworkType other && Equals(other);
+        public bool Equals(ConnectorNetworkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the plugin file.
     /// </summary>
     [EnumType]

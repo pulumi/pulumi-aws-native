@@ -36,7 +36,8 @@ type Campaign struct {
 	// Contains source configuration.
 	Source CampaignSourcePtrOutput `pulumi:"source"`
 	// One or more tags.
-	Tags aws.TagArrayOutput    `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The type of campaign.
 	Type CampaignTypePtrOutput `pulumi:"type"`
 }
 
@@ -104,7 +105,8 @@ type campaignArgs struct {
 	// Contains source configuration.
 	Source *CampaignSource `pulumi:"source"`
 	// One or more tags.
-	Tags []aws.Tag     `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The type of campaign.
 	Type *CampaignType `pulumi:"type"`
 }
 
@@ -128,6 +130,7 @@ type CampaignArgs struct {
 	Source CampaignSourcePtrInput
 	// One or more tags.
 	Tags aws.TagArrayInput
+	// The type of campaign.
 	Type CampaignTypePtrInput
 }
 
@@ -218,6 +221,7 @@ func (o CampaignOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Campaign) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The type of campaign.
 func (o CampaignOutput) Type() CampaignTypePtrOutput {
 	return o.ApplyT(func(v *Campaign) CampaignTypePtrOutput { return v.Type }).(CampaignTypePtrOutput)
 }

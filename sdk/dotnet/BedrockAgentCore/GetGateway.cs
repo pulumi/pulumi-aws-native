@@ -83,6 +83,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// The gateway URL for the gateway.
         /// </summary>
         public readonly string? GatewayUrl;
+        public readonly ImmutableArray<Outputs.GatewayInterceptorConfiguration> InterceptorConfigurations;
         /// <summary>
         /// The KMS key ARN for the gateway.
         /// </summary>
@@ -133,6 +134,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             string? gatewayUrl,
 
+            ImmutableArray<Outputs.GatewayInterceptorConfiguration> interceptorConfigurations,
+
             string? kmsKeyArn,
 
             string? name,
@@ -161,6 +164,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             GatewayArn = gatewayArn;
             GatewayIdentifier = gatewayIdentifier;
             GatewayUrl = gatewayUrl;
+            InterceptorConfigurations = interceptorConfigurations;
             KmsKeyArn = kmsKeyArn;
             Name = name;
             ProtocolConfiguration = protocolConfiguration;

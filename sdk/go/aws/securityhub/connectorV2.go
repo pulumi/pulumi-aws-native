@@ -22,19 +22,24 @@ type ConnectorV2 struct {
 	ConnectorId pulumi.StringOutput `pulumi:"connectorId"`
 	// The status of the connector
 	ConnectorStatus ConnectorV2ConnectorStatusOutput `pulumi:"connectorStatus"`
-	CreatedAt       pulumi.StringOutput              `pulumi:"createdAt"`
+	// The timestamp when the V2 connector was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// A description of the connector
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ARN of KMS key used for the connector
-	KmsKeyArn     pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
-	LastCheckedAt pulumi.StringOutput    `pulumi:"lastCheckedAt"`
-	LastUpdatedAt pulumi.StringOutput    `pulumi:"lastUpdatedAt"`
+	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
+	// The most recent timestamp when the V2 connector was checked on health status.
+	LastCheckedAt pulumi.StringOutput `pulumi:"lastCheckedAt"`
+	// The most recent timestamp when the V2 connector was updated.
+	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
 	// The message of the connector status change
 	Message pulumi.StringOutput `pulumi:"message"`
 	// The name of the connector
-	Name     pulumi.StringOutput       `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The third-party provider detail for a service configuration.
 	Provider ConnectorV2ProviderOutput `pulumi:"provider"`
-	Tags     pulumi.StringMapOutput    `pulumi:"tags"`
+	// The tags to add to the connectorV2 when you create.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewConnectorV2 registers a new resource with the given unique name, arguments, and options.
@@ -90,9 +95,11 @@ type connectorV2Args struct {
 	// The ARN of KMS key used for the connector
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The name of the connector
-	Name     *string             `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The third-party provider detail for a service configuration.
 	Provider ConnectorV2Provider `pulumi:"provider"`
-	Tags     map[string]string   `pulumi:"tags"`
+	// The tags to add to the connectorV2 when you create.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConnectorV2 resource.
@@ -102,9 +109,11 @@ type ConnectorV2Args struct {
 	// The ARN of KMS key used for the connector
 	KmsKeyArn pulumi.StringPtrInput
 	// The name of the connector
-	Name     pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The third-party provider detail for a service configuration.
 	Provider ConnectorV2ProviderInput
-	Tags     pulumi.StringMapInput
+	// The tags to add to the connectorV2 when you create.
+	Tags pulumi.StringMapInput
 }
 
 func (ConnectorV2Args) ElementType() reflect.Type {
@@ -159,6 +168,7 @@ func (o ConnectorV2Output) ConnectorStatus() ConnectorV2ConnectorStatusOutput {
 	return o.ApplyT(func(v *ConnectorV2) ConnectorV2ConnectorStatusOutput { return v.ConnectorStatus }).(ConnectorV2ConnectorStatusOutput)
 }
 
+// The timestamp when the V2 connector was created.
 func (o ConnectorV2Output) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectorV2) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -173,10 +183,12 @@ func (o ConnectorV2Output) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorV2) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
+// The most recent timestamp when the V2 connector was checked on health status.
 func (o ConnectorV2Output) LastCheckedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectorV2) pulumi.StringOutput { return v.LastCheckedAt }).(pulumi.StringOutput)
 }
 
+// The most recent timestamp when the V2 connector was updated.
 func (o ConnectorV2Output) LastUpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectorV2) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
 }
@@ -191,10 +203,12 @@ func (o ConnectorV2Output) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectorV2) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The third-party provider detail for a service configuration.
 func (o ConnectorV2Output) Provider() ConnectorV2ProviderOutput {
 	return o.ApplyT(func(v *ConnectorV2) ConnectorV2ProviderOutput { return v.Provider }).(ConnectorV2ProviderOutput)
 }
 
+// The tags to add to the connectorV2 when you create.
 func (o ConnectorV2Output) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectorV2) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

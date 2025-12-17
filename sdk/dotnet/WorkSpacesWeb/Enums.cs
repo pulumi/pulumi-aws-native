@@ -359,6 +359,34 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     }
 
     [EnumType]
+    public readonly struct UserSettingsColorTheme : IEquatable<UserSettingsColorTheme>
+    {
+        private readonly string _value;
+
+        private UserSettingsColorTheme(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserSettingsColorTheme Light { get; } = new UserSettingsColorTheme("Light");
+        public static UserSettingsColorTheme Dark { get; } = new UserSettingsColorTheme("Dark");
+
+        public static bool operator ==(UserSettingsColorTheme left, UserSettingsColorTheme right) => left.Equals(right);
+        public static bool operator !=(UserSettingsColorTheme left, UserSettingsColorTheme right) => !left.Equals(right);
+
+        public static explicit operator string(UserSettingsColorTheme value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserSettingsColorTheme other && Equals(other);
+        public bool Equals(UserSettingsColorTheme other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct UserSettingsEnabledType : IEquatable<UserSettingsEnabledType>
     {
         private readonly string _value;
@@ -413,6 +441,35 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UserSettingsMaxDisplayResolution other && Equals(other);
         public bool Equals(UserSettingsMaxDisplayResolution other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct UserSettingsMimeType : IEquatable<UserSettingsMimeType>
+    {
+        private readonly string _value;
+
+        private UserSettingsMimeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserSettingsMimeType Imagepng { get; } = new UserSettingsMimeType("image/png");
+        public static UserSettingsMimeType Imagejpeg { get; } = new UserSettingsMimeType("image/jpeg");
+        public static UserSettingsMimeType ImagexIcon { get; } = new UserSettingsMimeType("image/x-icon");
+
+        public static bool operator ==(UserSettingsMimeType left, UserSettingsMimeType right) => left.Equals(right);
+        public static bool operator !=(UserSettingsMimeType left, UserSettingsMimeType right) => !left.Equals(right);
+
+        public static explicit operator string(UserSettingsMimeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserSettingsMimeType other && Equals(other);
+        public bool Equals(UserSettingsMimeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

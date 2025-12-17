@@ -27,6 +27,7 @@ class ResolverRuleAssociationArgs:
         :param pulumi.Input[_builtins.str] resolver_rule_id: The ID of the Resolver rule that you associated with the VPC that is specified by ``VPCId``.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC that you associated the Resolver rule with.
         :param pulumi.Input[_builtins.str] name: The name of an association between a Resolver rule and a VPC.
+                The name can be up to 64 characters long and can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), underscores (_), and spaces. The name cannot consist of only numbers.
         """
         pulumi.set(__self__, "resolver_rule_id", resolver_rule_id)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -62,6 +63,7 @@ class ResolverRuleAssociationArgs:
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of an association between a Resolver rule and a VPC.
+         The name can be up to 64 characters long and can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), underscores (_), and spaces. The name cannot consist of only numbers.
         """
         return pulumi.get(self, "name")
 
@@ -86,6 +88,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of an association between a Resolver rule and a VPC.
+                The name can be up to 64 characters long and can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), underscores (_), and spaces. The name cannot consist of only numbers.
         :param pulumi.Input[_builtins.str] resolver_rule_id: The ID of the Resolver rule that you associated with the VPC that is specified by ``VPCId``.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC that you associated the Resolver rule with.
         """
@@ -168,6 +171,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
     def name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The name of an association between a Resolver rule and a VPC.
+         The name can be up to 64 characters long and can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), underscores (_), and spaces. The name cannot consist of only numbers.
         """
         return pulumi.get(self, "name")
 

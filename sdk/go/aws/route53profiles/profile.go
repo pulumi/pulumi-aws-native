@@ -24,6 +24,8 @@ type Profile struct {
 	ClientToken pulumi.StringOutput `pulumi:"clientToken"`
 	// The name of the profile.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The sharing status of the profile.
+	ShareStatus ProfileShareStatusOutput `pulumi:"shareStatus"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -141,6 +143,11 @@ func (o ProfileOutput) ClientToken() pulumi.StringOutput {
 // The name of the profile.
 func (o ProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The sharing status of the profile.
+func (o ProfileOutput) ShareStatus() ProfileShareStatusOutput {
+	return o.ApplyT(func(v *Profile) ProfileShareStatusOutput { return v.ShareStatus }).(ProfileShareStatusOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

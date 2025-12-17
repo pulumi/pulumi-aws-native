@@ -212,6 +212,8 @@ __all__ = [
     'StorageLensS3BucketDestinationArgsDict',
     'StorageLensSelectionCriteriaArgs',
     'StorageLensSelectionCriteriaArgsDict',
+    'StorageLensTableDestinationArgs',
+    'StorageLensTableDestinationArgsDict',
 ]
 
 MYPY = False
@@ -644,11 +646,19 @@ class BucketAnalyticsConfigurationArgs:
 
 if not MYPY:
     class BucketBlockedEncryptionTypesArgsDict(TypedDict):
+        """
+        A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block ``PutObject``, ``CopyObject``, ``PostObject``, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html).
+         This data type is used with the following actions:
+          +   [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html) 
+          +   [GetBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html) 
+          +   [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html) 
+          
+          + Permissions You must have the s3:PutEncryptionConfiguration permission to block or unblock an encryption type for a bucket. You must have the s3:GetEncryptionConfiguration permission to view a bucket's encryption type.
+        """
         encryption_type: NotRequired[pulumi.Input[Sequence[pulumi.Input['BucketBlockedEncryptionTypeListItem']]]]
         """
         The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.
-
-        > Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+          Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html).
         """
 elif False:
     BucketBlockedEncryptionTypesArgsDict: TypeAlias = Mapping[str, Any]
@@ -658,9 +668,15 @@ class BucketBlockedEncryptionTypesArgs:
     def __init__(__self__, *,
                  encryption_type: Optional[pulumi.Input[Sequence[pulumi.Input['BucketBlockedEncryptionTypeListItem']]]] = None):
         """
+        A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block ``PutObject``, ``CopyObject``, ``PostObject``, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html).
+         This data type is used with the following actions:
+          +   [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html) 
+          +   [GetBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html) 
+          +   [DeleteBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketEncryption.html) 
+          
+          + Permissions You must have the s3:PutEncryptionConfiguration permission to block or unblock an encryption type for a bucket. You must have the s3:GetEncryptionConfiguration permission to view a bucket's encryption type.
         :param pulumi.Input[Sequence[pulumi.Input['BucketBlockedEncryptionTypeListItem']]] encryption_type: The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.
-               
-               > Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+                 Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html).
         """
         if encryption_type is not None:
             pulumi.set(__self__, "encryption_type", encryption_type)
@@ -670,8 +686,7 @@ class BucketBlockedEncryptionTypesArgs:
     def encryption_type(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketBlockedEncryptionTypeListItem']]]]:
         """
         The object encryption type that you want to block or unblock for an Amazon S3 general purpose bucket.
-
-        > Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+          Currently, this parameter only supports blocking or unblocking server side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html).
         """
         return pulumi.get(self, "encryption_type")
 
@@ -2802,7 +2817,7 @@ class BucketOwnershipControlsArgs:
 if not MYPY:
     class BucketPublicAccessBlockConfigurationArgsDict(TypedDict):
         """
-        The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide*.
+        The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Bucket-level settings work alongside account-level settings (which may inherit from organization-level policies). For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide*.
         """
         block_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
         """
@@ -2839,7 +2854,7 @@ class BucketPublicAccessBlockConfigurationArgs:
                  ignore_public_acls: Optional[pulumi.Input[_builtins.bool]] = None,
                  restrict_public_buckets: Optional[pulumi.Input[_builtins.bool]] = None):
         """
-        The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide*.
+        The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Bucket-level settings work alongside account-level settings (which may inherit from organization-level policies). For more information about when Amazon S3 considers a bucket or object public, see [The Meaning of "Public"](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status) in the *Amazon S3 User Guide*.
         :param pulumi.Input[_builtins.bool] block_public_acls: Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to ``TRUE`` causes the following behavior:
                  +  PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is public.
                  +  PUT Object calls fail if the request includes a public ACL.
@@ -4612,9 +4627,8 @@ if not MYPY:
         """
         blocked_encryption_types: NotRequired[pulumi.Input['BucketBlockedEncryptionTypesArgsDict']]
         """
-        A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block `PutObject` , `CopyObject` , `PostObject` , multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html) .
-
-        > Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+        A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block ``PutObject``, ``CopyObject``, ``PostObject``, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html).
+          Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html).
         """
         bucket_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
         """
@@ -4638,9 +4652,8 @@ class BucketServerSideEncryptionRuleArgs:
         Specifies the default server-side encryption configuration.
            +  *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
           +  *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.
-        :param pulumi.Input['BucketBlockedEncryptionTypesArgs'] blocked_encryption_types: A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block `PutObject` , `CopyObject` , `PostObject` , multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html) .
-               
-               > Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+        :param pulumi.Input['BucketBlockedEncryptionTypesArgs'] blocked_encryption_types: A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block ``PutObject``, ``CopyObject``, ``PostObject``, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html).
+                 Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html).
         :param pulumi.Input[_builtins.bool] bucket_key_enabled: Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the ``BucketKeyEnabled`` element to ``true`` causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
                 For more information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the *Amazon S3 User Guide*.
         :param pulumi.Input['BucketServerSideEncryptionByDefaultArgs'] server_side_encryption_by_default: Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
@@ -4656,9 +4669,8 @@ class BucketServerSideEncryptionRuleArgs:
     @pulumi.getter(name="blockedEncryptionTypes")
     def blocked_encryption_types(self) -> Optional[pulumi.Input['BucketBlockedEncryptionTypesArgs']]:
         """
-        A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block `PutObject` , `CopyObject` , `PostObject` , multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html) .
-
-        > Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) .
+        A bucket-level setting for Amazon S3 general purpose buckets used to prevent the upload of new objects encrypted with the specified server-side encryption type. For example, blocking an encryption type will block ``PutObject``, ``CopyObject``, ``PostObject``, multipart upload, and replication requests to the bucket for objects with the specified encryption type. However, you can continue to read and list any pre-existing objects already encrypted with the specified encryption type. For more information, see [Blocking or unblocking SSE-C for a general purpose bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/blocking-unblocking-s3-c-encryption-gpb.html).
+          Currently, this parameter only supports blocking or unblocking server-side encryption with customer-provided keys (SSE-C). For more information about SSE-C, see [Using server-side encryption with customer-provided keys (SSE-C)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html).
         """
         return pulumi.get(self, "blocked_encryption_types")
 
@@ -6160,6 +6172,7 @@ if not MYPY:
         """
         This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
         """
+        storage_lens_table_destination: NotRequired[pulumi.Input['StorageLensTableDestinationArgsDict']]
 elif False:
     StorageLensDataExportArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6167,7 +6180,8 @@ elif False:
 class StorageLensDataExportArgs:
     def __init__(__self__, *,
                  cloud_watch_metrics: Optional[pulumi.Input['StorageLensCloudWatchMetricsArgs']] = None,
-                 s3_bucket_destination: Optional[pulumi.Input['StorageLensS3BucketDestinationArgs']] = None):
+                 s3_bucket_destination: Optional[pulumi.Input['StorageLensS3BucketDestinationArgs']] = None,
+                 storage_lens_table_destination: Optional[pulumi.Input['StorageLensTableDestinationArgs']] = None):
         """
         Specifies how Amazon S3 Storage Lens metrics should be exported.
         :param pulumi.Input['StorageLensCloudWatchMetricsArgs'] cloud_watch_metrics: This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
@@ -6177,6 +6191,8 @@ class StorageLensDataExportArgs:
             pulumi.set(__self__, "cloud_watch_metrics", cloud_watch_metrics)
         if s3_bucket_destination is not None:
             pulumi.set(__self__, "s3_bucket_destination", s3_bucket_destination)
+        if storage_lens_table_destination is not None:
+            pulumi.set(__self__, "storage_lens_table_destination", storage_lens_table_destination)
 
     @_builtins.property
     @pulumi.getter(name="cloudWatchMetrics")
@@ -6201,6 +6217,15 @@ class StorageLensDataExportArgs:
     @s3_bucket_destination.setter
     def s3_bucket_destination(self, value: Optional[pulumi.Input['StorageLensS3BucketDestinationArgs']]):
         pulumi.set(self, "s3_bucket_destination", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageLensTableDestination")
+    def storage_lens_table_destination(self) -> Optional[pulumi.Input['StorageLensTableDestinationArgs']]:
+        return pulumi.get(self, "storage_lens_table_destination")
+
+    @storage_lens_table_destination.setter
+    def storage_lens_table_destination(self, value: Optional[pulumi.Input['StorageLensTableDestinationArgs']]):
+        pulumi.set(self, "storage_lens_table_destination", value)
 
 
 if not MYPY:
@@ -6263,18 +6288,22 @@ if not MYPY:
         Expanded Prefixes Data Export.
         """
         s3_bucket_destination: NotRequired[pulumi.Input['StorageLensS3BucketDestinationArgsDict']]
+        storage_lens_table_destination: NotRequired[pulumi.Input['StorageLensTableDestinationArgsDict']]
 elif False:
     StorageLensExpandedPrefixesDataExportArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StorageLensExpandedPrefixesDataExportArgs:
     def __init__(__self__, *,
-                 s3_bucket_destination: Optional[pulumi.Input['StorageLensS3BucketDestinationArgs']] = None):
+                 s3_bucket_destination: Optional[pulumi.Input['StorageLensS3BucketDestinationArgs']] = None,
+                 storage_lens_table_destination: Optional[pulumi.Input['StorageLensTableDestinationArgs']] = None):
         """
         Expanded Prefixes Data Export.
         """
         if s3_bucket_destination is not None:
             pulumi.set(__self__, "s3_bucket_destination", s3_bucket_destination)
+        if storage_lens_table_destination is not None:
+            pulumi.set(__self__, "storage_lens_table_destination", storage_lens_table_destination)
 
     @_builtins.property
     @pulumi.getter(name="s3BucketDestination")
@@ -6284,6 +6313,15 @@ class StorageLensExpandedPrefixesDataExportArgs:
     @s3_bucket_destination.setter
     def s3_bucket_destination(self, value: Optional[pulumi.Input['StorageLensS3BucketDestinationArgs']]):
         pulumi.set(self, "s3_bucket_destination", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageLensTableDestination")
+    def storage_lens_table_destination(self) -> Optional[pulumi.Input['StorageLensTableDestinationArgs']]:
+        return pulumi.get(self, "storage_lens_table_destination")
+
+    @storage_lens_table_destination.setter
+    def storage_lens_table_destination(self, value: Optional[pulumi.Input['StorageLensTableDestinationArgs']]):
+        pulumi.set(self, "storage_lens_table_destination", value)
 
 
 if not MYPY:
@@ -7205,5 +7243,53 @@ class StorageLensSelectionCriteriaArgs:
     @min_storage_bytes_percentage.setter
     def min_storage_bytes_percentage(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "min_storage_bytes_percentage", value)
+
+
+if not MYPY:
+    class StorageLensTableDestinationArgsDict(TypedDict):
+        """
+        S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.
+        """
+        is_enabled: pulumi.Input[_builtins.bool]
+        """
+        Specifies whether the export to S3 Tables is enabled or disabled.
+        """
+        encryption: NotRequired[pulumi.Input['StorageLensEncryptionArgsDict']]
+elif False:
+    StorageLensTableDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageLensTableDestinationArgs:
+    def __init__(__self__, *,
+                 is_enabled: pulumi.Input[_builtins.bool],
+                 encryption: Optional[pulumi.Input['StorageLensEncryptionArgs']] = None):
+        """
+        S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.
+        :param pulumi.Input[_builtins.bool] is_enabled: Specifies whether the export to S3 Tables is enabled or disabled.
+        """
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+
+    @_builtins.property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Specifies whether the export to S3 Tables is enabled or disabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "is_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['StorageLensEncryptionArgs']]:
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['StorageLensEncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
 
 

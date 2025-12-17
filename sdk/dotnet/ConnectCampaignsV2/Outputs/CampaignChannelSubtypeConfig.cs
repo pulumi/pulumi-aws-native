@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
         /// The configuration of the telephony channel subtype.
         /// </summary>
         public readonly Outputs.CampaignTelephonyChannelSubtypeConfig? Telephony;
+        /// <summary>
+        /// The configuration of the WhatsApp channel subtype.
+        /// </summary>
         public readonly Outputs.CampaignWhatsAppChannelSubtypeConfig? WhatsApp;
 
         [OutputConstructor]

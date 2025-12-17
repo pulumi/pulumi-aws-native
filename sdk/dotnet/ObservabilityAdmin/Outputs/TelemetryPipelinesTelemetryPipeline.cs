@@ -13,12 +13,33 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
     [OutputType]
     public sealed class TelemetryPipelinesTelemetryPipeline
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the telemetry pipeline.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The configuration that defines how the telemetry pipeline processes data.
+        /// </summary>
         public readonly Outputs.TelemetryPipelinesTelemetryPipelineConfiguration? Configuration;
+        /// <summary>
+        /// The timestamp when the telemetry pipeline was created.
+        /// </summary>
         public readonly double? CreatedTimeStamp;
+        /// <summary>
+        /// The timestamp when the telemetry pipeline was last updated.
+        /// </summary>
         public readonly double? LastUpdateTimeStamp;
+        /// <summary>
+        /// The name of the telemetry pipeline.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The current status of the telemetry pipeline.
+        /// </summary>
         public readonly Pulumi.AwsNative.ObservabilityAdmin.TelemetryPipelinesTelemetryPipelineStatus? Status;
+        /// <summary>
+        /// Additional information about the pipeline status, including reasons for failure states.
+        /// </summary>
         public readonly Outputs.TelemetryPipelinesTelemetryPipelineStatusReason? StatusReason;
         /// <summary>
         /// An array of key-value pairs to apply to this resource

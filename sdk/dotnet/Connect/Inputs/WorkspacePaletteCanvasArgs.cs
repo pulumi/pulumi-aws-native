@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
     public sealed class WorkspacePaletteCanvasArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The background color for active elements.
+        /// </summary>
         [Input("activeBackground")]
         public Input<string>? ActiveBackground { get; set; }
 
+        /// <summary>
+        /// The background color for container elements.
+        /// </summary>
         [Input("containerBackground")]
         public Input<string>? ContainerBackground { get; set; }
 
+        /// <summary>
+        /// The background color for page elements.
+        /// </summary>
         [Input("pageBackground")]
         public Input<string>? PageBackground { get; set; }
 

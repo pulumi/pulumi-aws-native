@@ -3958,6 +3958,2058 @@ type DataflowEndpointGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Socket address of an uplink or downlink agent endpoint with an optional mtu.
+type DataflowEndpointGroupV2ConnectionDetails struct {
+	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+	Mtu           *int                                 `pulumi:"mtu"`
+	SocketAddress DataflowEndpointGroupV2SocketAddress `pulumi:"socketAddress"`
+}
+
+// DataflowEndpointGroupV2ConnectionDetailsInput is an input type that accepts DataflowEndpointGroupV2ConnectionDetailsArgs and DataflowEndpointGroupV2ConnectionDetailsOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2ConnectionDetailsInput` via:
+//
+//	DataflowEndpointGroupV2ConnectionDetailsArgs{...}
+type DataflowEndpointGroupV2ConnectionDetailsInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2ConnectionDetailsOutput() DataflowEndpointGroupV2ConnectionDetailsOutput
+	ToDataflowEndpointGroupV2ConnectionDetailsOutputWithContext(context.Context) DataflowEndpointGroupV2ConnectionDetailsOutput
+}
+
+// Socket address of an uplink or downlink agent endpoint with an optional mtu.
+type DataflowEndpointGroupV2ConnectionDetailsArgs struct {
+	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+	Mtu           pulumi.IntPtrInput                        `pulumi:"mtu"`
+	SocketAddress DataflowEndpointGroupV2SocketAddressInput `pulumi:"socketAddress"`
+}
+
+func (DataflowEndpointGroupV2ConnectionDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2ConnectionDetails)(nil)).Elem()
+}
+
+func (i DataflowEndpointGroupV2ConnectionDetailsArgs) ToDataflowEndpointGroupV2ConnectionDetailsOutput() DataflowEndpointGroupV2ConnectionDetailsOutput {
+	return i.ToDataflowEndpointGroupV2ConnectionDetailsOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2ConnectionDetailsArgs) ToDataflowEndpointGroupV2ConnectionDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupV2ConnectionDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2ConnectionDetailsOutput)
+}
+
+func (i DataflowEndpointGroupV2ConnectionDetailsArgs) ToDataflowEndpointGroupV2ConnectionDetailsPtrOutput() DataflowEndpointGroupV2ConnectionDetailsPtrOutput {
+	return i.ToDataflowEndpointGroupV2ConnectionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2ConnectionDetailsArgs) ToDataflowEndpointGroupV2ConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2ConnectionDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2ConnectionDetailsOutput).ToDataflowEndpointGroupV2ConnectionDetailsPtrOutputWithContext(ctx)
+}
+
+// DataflowEndpointGroupV2ConnectionDetailsPtrInput is an input type that accepts DataflowEndpointGroupV2ConnectionDetailsArgs, DataflowEndpointGroupV2ConnectionDetailsPtr and DataflowEndpointGroupV2ConnectionDetailsPtrOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2ConnectionDetailsPtrInput` via:
+//
+//	        DataflowEndpointGroupV2ConnectionDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataflowEndpointGroupV2ConnectionDetailsPtrInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2ConnectionDetailsPtrOutput() DataflowEndpointGroupV2ConnectionDetailsPtrOutput
+	ToDataflowEndpointGroupV2ConnectionDetailsPtrOutputWithContext(context.Context) DataflowEndpointGroupV2ConnectionDetailsPtrOutput
+}
+
+type dataflowEndpointGroupV2ConnectionDetailsPtrType DataflowEndpointGroupV2ConnectionDetailsArgs
+
+func DataflowEndpointGroupV2ConnectionDetailsPtr(v *DataflowEndpointGroupV2ConnectionDetailsArgs) DataflowEndpointGroupV2ConnectionDetailsPtrInput {
+	return (*dataflowEndpointGroupV2ConnectionDetailsPtrType)(v)
+}
+
+func (*dataflowEndpointGroupV2ConnectionDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2ConnectionDetails)(nil)).Elem()
+}
+
+func (i *dataflowEndpointGroupV2ConnectionDetailsPtrType) ToDataflowEndpointGroupV2ConnectionDetailsPtrOutput() DataflowEndpointGroupV2ConnectionDetailsPtrOutput {
+	return i.ToDataflowEndpointGroupV2ConnectionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataflowEndpointGroupV2ConnectionDetailsPtrType) ToDataflowEndpointGroupV2ConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2ConnectionDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2ConnectionDetailsPtrOutput)
+}
+
+// Socket address of an uplink or downlink agent endpoint with an optional mtu.
+type DataflowEndpointGroupV2ConnectionDetailsOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2ConnectionDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2ConnectionDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2ConnectionDetailsOutput) ToDataflowEndpointGroupV2ConnectionDetailsOutput() DataflowEndpointGroupV2ConnectionDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2ConnectionDetailsOutput) ToDataflowEndpointGroupV2ConnectionDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupV2ConnectionDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2ConnectionDetailsOutput) ToDataflowEndpointGroupV2ConnectionDetailsPtrOutput() DataflowEndpointGroupV2ConnectionDetailsPtrOutput {
+	return o.ToDataflowEndpointGroupV2ConnectionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupV2ConnectionDetailsOutput) ToDataflowEndpointGroupV2ConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2ConnectionDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupV2ConnectionDetails) *DataflowEndpointGroupV2ConnectionDetails {
+		return &v
+	}).(DataflowEndpointGroupV2ConnectionDetailsPtrOutput)
+}
+
+// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+func (o DataflowEndpointGroupV2ConnectionDetailsOutput) Mtu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2ConnectionDetails) *int { return v.Mtu }).(pulumi.IntPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2ConnectionDetailsOutput) SocketAddress() DataflowEndpointGroupV2SocketAddressOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2ConnectionDetails) DataflowEndpointGroupV2SocketAddress {
+		return v.SocketAddress
+	}).(DataflowEndpointGroupV2SocketAddressOutput)
+}
+
+type DataflowEndpointGroupV2ConnectionDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2ConnectionDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2ConnectionDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2ConnectionDetailsPtrOutput) ToDataflowEndpointGroupV2ConnectionDetailsPtrOutput() DataflowEndpointGroupV2ConnectionDetailsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2ConnectionDetailsPtrOutput) ToDataflowEndpointGroupV2ConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2ConnectionDetailsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2ConnectionDetailsPtrOutput) Elem() DataflowEndpointGroupV2ConnectionDetailsOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2ConnectionDetails) DataflowEndpointGroupV2ConnectionDetails {
+		if v != nil {
+			return *v
+		}
+		var ret DataflowEndpointGroupV2ConnectionDetails
+		return ret
+	}).(DataflowEndpointGroupV2ConnectionDetailsOutput)
+}
+
+// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+func (o DataflowEndpointGroupV2ConnectionDetailsPtrOutput) Mtu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2ConnectionDetails) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Mtu
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2ConnectionDetailsPtrOutput) SocketAddress() DataflowEndpointGroupV2SocketAddressPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2ConnectionDetails) *DataflowEndpointGroupV2SocketAddress {
+		if v == nil {
+			return nil
+		}
+		return &v.SocketAddress
+	}).(DataflowEndpointGroupV2SocketAddressPtrOutput)
+}
+
+type DataflowEndpointGroupV2CreateEndpointDetails struct {
+	DownlinkAwsGroundStationAgentEndpoint *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint `pulumi:"downlinkAwsGroundStationAgentEndpoint"`
+	UplinkAwsGroundStationAgentEndpoint   *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint   `pulumi:"uplinkAwsGroundStationAgentEndpoint"`
+}
+
+// DataflowEndpointGroupV2CreateEndpointDetailsInput is an input type that accepts DataflowEndpointGroupV2CreateEndpointDetailsArgs and DataflowEndpointGroupV2CreateEndpointDetailsOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2CreateEndpointDetailsInput` via:
+//
+//	DataflowEndpointGroupV2CreateEndpointDetailsArgs{...}
+type DataflowEndpointGroupV2CreateEndpointDetailsInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2CreateEndpointDetailsOutput() DataflowEndpointGroupV2CreateEndpointDetailsOutput
+	ToDataflowEndpointGroupV2CreateEndpointDetailsOutputWithContext(context.Context) DataflowEndpointGroupV2CreateEndpointDetailsOutput
+}
+
+type DataflowEndpointGroupV2CreateEndpointDetailsArgs struct {
+	DownlinkAwsGroundStationAgentEndpoint DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrInput `pulumi:"downlinkAwsGroundStationAgentEndpoint"`
+	UplinkAwsGroundStationAgentEndpoint   DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrInput   `pulumi:"uplinkAwsGroundStationAgentEndpoint"`
+}
+
+func (DataflowEndpointGroupV2CreateEndpointDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2CreateEndpointDetails)(nil)).Elem()
+}
+
+func (i DataflowEndpointGroupV2CreateEndpointDetailsArgs) ToDataflowEndpointGroupV2CreateEndpointDetailsOutput() DataflowEndpointGroupV2CreateEndpointDetailsOutput {
+	return i.ToDataflowEndpointGroupV2CreateEndpointDetailsOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2CreateEndpointDetailsArgs) ToDataflowEndpointGroupV2CreateEndpointDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupV2CreateEndpointDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2CreateEndpointDetailsOutput)
+}
+
+// DataflowEndpointGroupV2CreateEndpointDetailsArrayInput is an input type that accepts DataflowEndpointGroupV2CreateEndpointDetailsArray and DataflowEndpointGroupV2CreateEndpointDetailsArrayOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2CreateEndpointDetailsArrayInput` via:
+//
+//	DataflowEndpointGroupV2CreateEndpointDetailsArray{ DataflowEndpointGroupV2CreateEndpointDetailsArgs{...} }
+type DataflowEndpointGroupV2CreateEndpointDetailsArrayInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2CreateEndpointDetailsArrayOutput() DataflowEndpointGroupV2CreateEndpointDetailsArrayOutput
+	ToDataflowEndpointGroupV2CreateEndpointDetailsArrayOutputWithContext(context.Context) DataflowEndpointGroupV2CreateEndpointDetailsArrayOutput
+}
+
+type DataflowEndpointGroupV2CreateEndpointDetailsArray []DataflowEndpointGroupV2CreateEndpointDetailsInput
+
+func (DataflowEndpointGroupV2CreateEndpointDetailsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataflowEndpointGroupV2CreateEndpointDetails)(nil)).Elem()
+}
+
+func (i DataflowEndpointGroupV2CreateEndpointDetailsArray) ToDataflowEndpointGroupV2CreateEndpointDetailsArrayOutput() DataflowEndpointGroupV2CreateEndpointDetailsArrayOutput {
+	return i.ToDataflowEndpointGroupV2CreateEndpointDetailsArrayOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2CreateEndpointDetailsArray) ToDataflowEndpointGroupV2CreateEndpointDetailsArrayOutputWithContext(ctx context.Context) DataflowEndpointGroupV2CreateEndpointDetailsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2CreateEndpointDetailsArrayOutput)
+}
+
+type DataflowEndpointGroupV2CreateEndpointDetailsOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2CreateEndpointDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2CreateEndpointDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2CreateEndpointDetailsOutput) ToDataflowEndpointGroupV2CreateEndpointDetailsOutput() DataflowEndpointGroupV2CreateEndpointDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2CreateEndpointDetailsOutput) ToDataflowEndpointGroupV2CreateEndpointDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupV2CreateEndpointDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2CreateEndpointDetailsOutput) DownlinkAwsGroundStationAgentEndpoint() DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2CreateEndpointDetails) *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint {
+		return v.DownlinkAwsGroundStationAgentEndpoint
+	}).(DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2CreateEndpointDetailsOutput) UplinkAwsGroundStationAgentEndpoint() DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2CreateEndpointDetails) *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint {
+		return v.UplinkAwsGroundStationAgentEndpoint
+	}).(DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput)
+}
+
+type DataflowEndpointGroupV2CreateEndpointDetailsArrayOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2CreateEndpointDetailsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataflowEndpointGroupV2CreateEndpointDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2CreateEndpointDetailsArrayOutput) ToDataflowEndpointGroupV2CreateEndpointDetailsArrayOutput() DataflowEndpointGroupV2CreateEndpointDetailsArrayOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2CreateEndpointDetailsArrayOutput) ToDataflowEndpointGroupV2CreateEndpointDetailsArrayOutputWithContext(ctx context.Context) DataflowEndpointGroupV2CreateEndpointDetailsArrayOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2CreateEndpointDetailsArrayOutput) Index(i pulumi.IntInput) DataflowEndpointGroupV2CreateEndpointDetailsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataflowEndpointGroupV2CreateEndpointDetails {
+		return vs[0].([]DataflowEndpointGroupV2CreateEndpointDetails)[vs[1].(int)]
+	}).(DataflowEndpointGroupV2CreateEndpointDetailsOutput)
+}
+
+// Information about DownlinkAwsGroundStationAgentEndpoint used for create
+type DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint struct {
+	DataflowDetails DataflowEndpointGroupV2DownlinkDataflowDetails `pulumi:"dataflowDetails"`
+	Name            string                                         `pulumi:"name"`
+}
+
+// DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointInput is an input type that accepts DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs and DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointInput` via:
+//
+//	DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs{...}
+type DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput() DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput
+	ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutputWithContext(context.Context) DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput
+}
+
+// Information about DownlinkAwsGroundStationAgentEndpoint used for create
+type DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs struct {
+	DataflowDetails DataflowEndpointGroupV2DownlinkDataflowDetailsInput `pulumi:"dataflowDetails"`
+	Name            pulumi.StringInput                                  `pulumi:"name"`
+}
+
+func (DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint)(nil)).Elem()
+}
+
+func (i DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs) ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput() DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput {
+	return i.ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs) ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutputWithContext(ctx context.Context) DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput)
+}
+
+func (i DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs) ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput() DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput {
+	return i.ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs) ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput).ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutputWithContext(ctx)
+}
+
+// DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrInput is an input type that accepts DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs, DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtr and DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrInput` via:
+//
+//	        DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput() DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput
+	ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutputWithContext(context.Context) DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput
+}
+
+type dataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrType DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs
+
+func DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtr(v *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs) DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrInput {
+	return (*dataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrType)(v)
+}
+
+func (*dataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint)(nil)).Elem()
+}
+
+func (i *dataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrType) ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput() DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput {
+	return i.ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *dataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrType) ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput)
+}
+
+// Information about DownlinkAwsGroundStationAgentEndpoint used for create
+type DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput) ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput() DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput) ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutputWithContext(ctx context.Context) DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput) ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput() DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput {
+	return o.ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput) ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint) *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint {
+		return &v
+	}).(DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput) DataflowDetails() DataflowEndpointGroupV2DownlinkDataflowDetailsOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint) DataflowEndpointGroupV2DownlinkDataflowDetails {
+		return v.DataflowDetails
+	}).(DataflowEndpointGroupV2DownlinkDataflowDetailsOutput)
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput) ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput() DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput) ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput) Elem() DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint) DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint
+		return ret
+	}).(DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput)
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput) DataflowDetails() DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint) *DataflowEndpointGroupV2DownlinkDataflowDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.DataflowDetails
+	}).(DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about DownlinkAwsGroundStationAgentEndpoint
+type DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails struct {
+	AgentStatus     *DataflowEndpointGroupV2AgentStatus            `pulumi:"agentStatus"`
+	AuditResults    *DataflowEndpointGroupV2AuditResults           `pulumi:"auditResults"`
+	DataflowDetails DataflowEndpointGroupV2DownlinkDataflowDetails `pulumi:"dataflowDetails"`
+	Name            string                                         `pulumi:"name"`
+}
+
+// Information about DownlinkAwsGroundStationAgentEndpoint
+type DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutput) ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutput() DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutput) ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutput) AgentStatus() DataflowEndpointGroupV2AgentStatusPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails) *DataflowEndpointGroupV2AgentStatus {
+		return v.AgentStatus
+	}).(DataflowEndpointGroupV2AgentStatusPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutput) AuditResults() DataflowEndpointGroupV2AuditResultsPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails) *DataflowEndpointGroupV2AuditResults {
+		return v.AuditResults
+	}).(DataflowEndpointGroupV2AuditResultsPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutput) DataflowDetails() DataflowEndpointGroupV2DownlinkDataflowDetailsOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails) DataflowEndpointGroupV2DownlinkDataflowDetails {
+		return v.DataflowDetails
+	}).(DataflowEndpointGroupV2DownlinkDataflowDetailsOutput)
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput) ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput() DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput) ToDataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput) Elem() DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails) DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails {
+		if v != nil {
+			return *v
+		}
+		var ret DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails
+		return ret
+	}).(DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutput)
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput) AgentStatus() DataflowEndpointGroupV2AgentStatusPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails) *DataflowEndpointGroupV2AgentStatus {
+		if v == nil {
+			return nil
+		}
+		return v.AgentStatus
+	}).(DataflowEndpointGroupV2AgentStatusPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput) AuditResults() DataflowEndpointGroupV2AuditResultsPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails) *DataflowEndpointGroupV2AuditResults {
+		if v == nil {
+			return nil
+		}
+		return v.AuditResults
+	}).(DataflowEndpointGroupV2AuditResultsPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput) DataflowDetails() DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails) *DataflowEndpointGroupV2DownlinkDataflowDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.DataflowDetails
+	}).(DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Connection details for downlink, from ground station to agent, and customer to agent
+type DataflowEndpointGroupV2DownlinkConnectionDetails struct {
+	AgentIpAndPortAddress DataflowEndpointGroupV2RangedConnectionDetails `pulumi:"agentIpAndPortAddress"`
+	EgressAddressAndPort  DataflowEndpointGroupV2ConnectionDetails       `pulumi:"egressAddressAndPort"`
+}
+
+// DataflowEndpointGroupV2DownlinkConnectionDetailsInput is an input type that accepts DataflowEndpointGroupV2DownlinkConnectionDetailsArgs and DataflowEndpointGroupV2DownlinkConnectionDetailsOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2DownlinkConnectionDetailsInput` via:
+//
+//	DataflowEndpointGroupV2DownlinkConnectionDetailsArgs{...}
+type DataflowEndpointGroupV2DownlinkConnectionDetailsInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2DownlinkConnectionDetailsOutput() DataflowEndpointGroupV2DownlinkConnectionDetailsOutput
+	ToDataflowEndpointGroupV2DownlinkConnectionDetailsOutputWithContext(context.Context) DataflowEndpointGroupV2DownlinkConnectionDetailsOutput
+}
+
+// Connection details for downlink, from ground station to agent, and customer to agent
+type DataflowEndpointGroupV2DownlinkConnectionDetailsArgs struct {
+	AgentIpAndPortAddress DataflowEndpointGroupV2RangedConnectionDetailsInput `pulumi:"agentIpAndPortAddress"`
+	EgressAddressAndPort  DataflowEndpointGroupV2ConnectionDetailsInput       `pulumi:"egressAddressAndPort"`
+}
+
+func (DataflowEndpointGroupV2DownlinkConnectionDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2DownlinkConnectionDetails)(nil)).Elem()
+}
+
+func (i DataflowEndpointGroupV2DownlinkConnectionDetailsArgs) ToDataflowEndpointGroupV2DownlinkConnectionDetailsOutput() DataflowEndpointGroupV2DownlinkConnectionDetailsOutput {
+	return i.ToDataflowEndpointGroupV2DownlinkConnectionDetailsOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2DownlinkConnectionDetailsArgs) ToDataflowEndpointGroupV2DownlinkConnectionDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupV2DownlinkConnectionDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2DownlinkConnectionDetailsOutput)
+}
+
+func (i DataflowEndpointGroupV2DownlinkConnectionDetailsArgs) ToDataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput() DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput {
+	return i.ToDataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2DownlinkConnectionDetailsArgs) ToDataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2DownlinkConnectionDetailsOutput).ToDataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutputWithContext(ctx)
+}
+
+// DataflowEndpointGroupV2DownlinkConnectionDetailsPtrInput is an input type that accepts DataflowEndpointGroupV2DownlinkConnectionDetailsArgs, DataflowEndpointGroupV2DownlinkConnectionDetailsPtr and DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2DownlinkConnectionDetailsPtrInput` via:
+//
+//	        DataflowEndpointGroupV2DownlinkConnectionDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataflowEndpointGroupV2DownlinkConnectionDetailsPtrInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput() DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput
+	ToDataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutputWithContext(context.Context) DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput
+}
+
+type dataflowEndpointGroupV2DownlinkConnectionDetailsPtrType DataflowEndpointGroupV2DownlinkConnectionDetailsArgs
+
+func DataflowEndpointGroupV2DownlinkConnectionDetailsPtr(v *DataflowEndpointGroupV2DownlinkConnectionDetailsArgs) DataflowEndpointGroupV2DownlinkConnectionDetailsPtrInput {
+	return (*dataflowEndpointGroupV2DownlinkConnectionDetailsPtrType)(v)
+}
+
+func (*dataflowEndpointGroupV2DownlinkConnectionDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2DownlinkConnectionDetails)(nil)).Elem()
+}
+
+func (i *dataflowEndpointGroupV2DownlinkConnectionDetailsPtrType) ToDataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput() DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput {
+	return i.ToDataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataflowEndpointGroupV2DownlinkConnectionDetailsPtrType) ToDataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput)
+}
+
+// Connection details for downlink, from ground station to agent, and customer to agent
+type DataflowEndpointGroupV2DownlinkConnectionDetailsOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2DownlinkConnectionDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2DownlinkConnectionDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2DownlinkConnectionDetailsOutput) ToDataflowEndpointGroupV2DownlinkConnectionDetailsOutput() DataflowEndpointGroupV2DownlinkConnectionDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2DownlinkConnectionDetailsOutput) ToDataflowEndpointGroupV2DownlinkConnectionDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupV2DownlinkConnectionDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2DownlinkConnectionDetailsOutput) ToDataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput() DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput {
+	return o.ToDataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupV2DownlinkConnectionDetailsOutput) ToDataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupV2DownlinkConnectionDetails) *DataflowEndpointGroupV2DownlinkConnectionDetails {
+		return &v
+	}).(DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2DownlinkConnectionDetailsOutput) AgentIpAndPortAddress() DataflowEndpointGroupV2RangedConnectionDetailsOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2DownlinkConnectionDetails) DataflowEndpointGroupV2RangedConnectionDetails {
+		return v.AgentIpAndPortAddress
+	}).(DataflowEndpointGroupV2RangedConnectionDetailsOutput)
+}
+
+func (o DataflowEndpointGroupV2DownlinkConnectionDetailsOutput) EgressAddressAndPort() DataflowEndpointGroupV2ConnectionDetailsOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2DownlinkConnectionDetails) DataflowEndpointGroupV2ConnectionDetails {
+		return v.EgressAddressAndPort
+	}).(DataflowEndpointGroupV2ConnectionDetailsOutput)
+}
+
+type DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2DownlinkConnectionDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput) ToDataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput() DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput) ToDataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput) Elem() DataflowEndpointGroupV2DownlinkConnectionDetailsOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkConnectionDetails) DataflowEndpointGroupV2DownlinkConnectionDetails {
+		if v != nil {
+			return *v
+		}
+		var ret DataflowEndpointGroupV2DownlinkConnectionDetails
+		return ret
+	}).(DataflowEndpointGroupV2DownlinkConnectionDetailsOutput)
+}
+
+func (o DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput) AgentIpAndPortAddress() DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkConnectionDetails) *DataflowEndpointGroupV2RangedConnectionDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.AgentIpAndPortAddress
+	}).(DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput) EgressAddressAndPort() DataflowEndpointGroupV2ConnectionDetailsPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkConnectionDetails) *DataflowEndpointGroupV2ConnectionDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.EgressAddressAndPort
+	}).(DataflowEndpointGroupV2ConnectionDetailsPtrOutput)
+}
+
+// Dataflow details for downlink
+type DataflowEndpointGroupV2DownlinkDataflowDetails struct {
+	AgentConnectionDetails *DataflowEndpointGroupV2DownlinkConnectionDetails `pulumi:"agentConnectionDetails"`
+}
+
+// DataflowEndpointGroupV2DownlinkDataflowDetailsInput is an input type that accepts DataflowEndpointGroupV2DownlinkDataflowDetailsArgs and DataflowEndpointGroupV2DownlinkDataflowDetailsOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2DownlinkDataflowDetailsInput` via:
+//
+//	DataflowEndpointGroupV2DownlinkDataflowDetailsArgs{...}
+type DataflowEndpointGroupV2DownlinkDataflowDetailsInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2DownlinkDataflowDetailsOutput() DataflowEndpointGroupV2DownlinkDataflowDetailsOutput
+	ToDataflowEndpointGroupV2DownlinkDataflowDetailsOutputWithContext(context.Context) DataflowEndpointGroupV2DownlinkDataflowDetailsOutput
+}
+
+// Dataflow details for downlink
+type DataflowEndpointGroupV2DownlinkDataflowDetailsArgs struct {
+	AgentConnectionDetails DataflowEndpointGroupV2DownlinkConnectionDetailsPtrInput `pulumi:"agentConnectionDetails"`
+}
+
+func (DataflowEndpointGroupV2DownlinkDataflowDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2DownlinkDataflowDetails)(nil)).Elem()
+}
+
+func (i DataflowEndpointGroupV2DownlinkDataflowDetailsArgs) ToDataflowEndpointGroupV2DownlinkDataflowDetailsOutput() DataflowEndpointGroupV2DownlinkDataflowDetailsOutput {
+	return i.ToDataflowEndpointGroupV2DownlinkDataflowDetailsOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2DownlinkDataflowDetailsArgs) ToDataflowEndpointGroupV2DownlinkDataflowDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupV2DownlinkDataflowDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2DownlinkDataflowDetailsOutput)
+}
+
+func (i DataflowEndpointGroupV2DownlinkDataflowDetailsArgs) ToDataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput() DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput {
+	return i.ToDataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2DownlinkDataflowDetailsArgs) ToDataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2DownlinkDataflowDetailsOutput).ToDataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutputWithContext(ctx)
+}
+
+// DataflowEndpointGroupV2DownlinkDataflowDetailsPtrInput is an input type that accepts DataflowEndpointGroupV2DownlinkDataflowDetailsArgs, DataflowEndpointGroupV2DownlinkDataflowDetailsPtr and DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2DownlinkDataflowDetailsPtrInput` via:
+//
+//	        DataflowEndpointGroupV2DownlinkDataflowDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataflowEndpointGroupV2DownlinkDataflowDetailsPtrInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput() DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput
+	ToDataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutputWithContext(context.Context) DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput
+}
+
+type dataflowEndpointGroupV2DownlinkDataflowDetailsPtrType DataflowEndpointGroupV2DownlinkDataflowDetailsArgs
+
+func DataflowEndpointGroupV2DownlinkDataflowDetailsPtr(v *DataflowEndpointGroupV2DownlinkDataflowDetailsArgs) DataflowEndpointGroupV2DownlinkDataflowDetailsPtrInput {
+	return (*dataflowEndpointGroupV2DownlinkDataflowDetailsPtrType)(v)
+}
+
+func (*dataflowEndpointGroupV2DownlinkDataflowDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2DownlinkDataflowDetails)(nil)).Elem()
+}
+
+func (i *dataflowEndpointGroupV2DownlinkDataflowDetailsPtrType) ToDataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput() DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput {
+	return i.ToDataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataflowEndpointGroupV2DownlinkDataflowDetailsPtrType) ToDataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput)
+}
+
+// Dataflow details for downlink
+type DataflowEndpointGroupV2DownlinkDataflowDetailsOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2DownlinkDataflowDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2DownlinkDataflowDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2DownlinkDataflowDetailsOutput) ToDataflowEndpointGroupV2DownlinkDataflowDetailsOutput() DataflowEndpointGroupV2DownlinkDataflowDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2DownlinkDataflowDetailsOutput) ToDataflowEndpointGroupV2DownlinkDataflowDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupV2DownlinkDataflowDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2DownlinkDataflowDetailsOutput) ToDataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput() DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput {
+	return o.ToDataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupV2DownlinkDataflowDetailsOutput) ToDataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupV2DownlinkDataflowDetails) *DataflowEndpointGroupV2DownlinkDataflowDetails {
+		return &v
+	}).(DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2DownlinkDataflowDetailsOutput) AgentConnectionDetails() DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2DownlinkDataflowDetails) *DataflowEndpointGroupV2DownlinkConnectionDetails {
+		return v.AgentConnectionDetails
+	}).(DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput)
+}
+
+type DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2DownlinkDataflowDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput) ToDataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput() DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput) ToDataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput) Elem() DataflowEndpointGroupV2DownlinkDataflowDetailsOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkDataflowDetails) DataflowEndpointGroupV2DownlinkDataflowDetails {
+		if v != nil {
+			return *v
+		}
+		var ret DataflowEndpointGroupV2DownlinkDataflowDetails
+		return ret
+	}).(DataflowEndpointGroupV2DownlinkDataflowDetailsOutput)
+}
+
+func (o DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput) AgentConnectionDetails() DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkDataflowDetails) *DataflowEndpointGroupV2DownlinkConnectionDetails {
+		if v == nil {
+			return nil
+		}
+		return v.AgentConnectionDetails
+	}).(DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput)
+}
+
+type DataflowEndpointGroupV2EndpointDetails struct {
+	DownlinkAwsGroundStationAgentEndpoint *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails `pulumi:"downlinkAwsGroundStationAgentEndpoint"`
+	UplinkAwsGroundStationAgentEndpoint   *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails   `pulumi:"uplinkAwsGroundStationAgentEndpoint"`
+}
+
+type DataflowEndpointGroupV2EndpointDetailsOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2EndpointDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2EndpointDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2EndpointDetailsOutput) ToDataflowEndpointGroupV2EndpointDetailsOutput() DataflowEndpointGroupV2EndpointDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2EndpointDetailsOutput) ToDataflowEndpointGroupV2EndpointDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupV2EndpointDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2EndpointDetailsOutput) DownlinkAwsGroundStationAgentEndpoint() DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2EndpointDetails) *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails {
+		return v.DownlinkAwsGroundStationAgentEndpoint
+	}).(DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2EndpointDetailsOutput) UplinkAwsGroundStationAgentEndpoint() DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2EndpointDetails) *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails {
+		return v.UplinkAwsGroundStationAgentEndpoint
+	}).(DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutput)
+}
+
+type DataflowEndpointGroupV2EndpointDetailsArrayOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2EndpointDetailsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataflowEndpointGroupV2EndpointDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2EndpointDetailsArrayOutput) ToDataflowEndpointGroupV2EndpointDetailsArrayOutput() DataflowEndpointGroupV2EndpointDetailsArrayOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2EndpointDetailsArrayOutput) ToDataflowEndpointGroupV2EndpointDetailsArrayOutputWithContext(ctx context.Context) DataflowEndpointGroupV2EndpointDetailsArrayOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2EndpointDetailsArrayOutput) Index(i pulumi.IntInput) DataflowEndpointGroupV2EndpointDetailsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataflowEndpointGroupV2EndpointDetails {
+		return vs[0].([]DataflowEndpointGroupV2EndpointDetails)[vs[1].(int)]
+	}).(DataflowEndpointGroupV2EndpointDetailsOutput)
+}
+
+// An integer range that has a minimum and maximum value.
+type DataflowEndpointGroupV2IntegerRange struct {
+	// A maximum value.
+	Maximum int `pulumi:"maximum"`
+	// A minimum value.
+	Minimum int `pulumi:"minimum"`
+}
+
+// DataflowEndpointGroupV2IntegerRangeInput is an input type that accepts DataflowEndpointGroupV2IntegerRangeArgs and DataflowEndpointGroupV2IntegerRangeOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2IntegerRangeInput` via:
+//
+//	DataflowEndpointGroupV2IntegerRangeArgs{...}
+type DataflowEndpointGroupV2IntegerRangeInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2IntegerRangeOutput() DataflowEndpointGroupV2IntegerRangeOutput
+	ToDataflowEndpointGroupV2IntegerRangeOutputWithContext(context.Context) DataflowEndpointGroupV2IntegerRangeOutput
+}
+
+// An integer range that has a minimum and maximum value.
+type DataflowEndpointGroupV2IntegerRangeArgs struct {
+	// A maximum value.
+	Maximum pulumi.IntInput `pulumi:"maximum"`
+	// A minimum value.
+	Minimum pulumi.IntInput `pulumi:"minimum"`
+}
+
+func (DataflowEndpointGroupV2IntegerRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2IntegerRange)(nil)).Elem()
+}
+
+func (i DataflowEndpointGroupV2IntegerRangeArgs) ToDataflowEndpointGroupV2IntegerRangeOutput() DataflowEndpointGroupV2IntegerRangeOutput {
+	return i.ToDataflowEndpointGroupV2IntegerRangeOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2IntegerRangeArgs) ToDataflowEndpointGroupV2IntegerRangeOutputWithContext(ctx context.Context) DataflowEndpointGroupV2IntegerRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2IntegerRangeOutput)
+}
+
+func (i DataflowEndpointGroupV2IntegerRangeArgs) ToDataflowEndpointGroupV2IntegerRangePtrOutput() DataflowEndpointGroupV2IntegerRangePtrOutput {
+	return i.ToDataflowEndpointGroupV2IntegerRangePtrOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2IntegerRangeArgs) ToDataflowEndpointGroupV2IntegerRangePtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2IntegerRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2IntegerRangeOutput).ToDataflowEndpointGroupV2IntegerRangePtrOutputWithContext(ctx)
+}
+
+// DataflowEndpointGroupV2IntegerRangePtrInput is an input type that accepts DataflowEndpointGroupV2IntegerRangeArgs, DataflowEndpointGroupV2IntegerRangePtr and DataflowEndpointGroupV2IntegerRangePtrOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2IntegerRangePtrInput` via:
+//
+//	        DataflowEndpointGroupV2IntegerRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataflowEndpointGroupV2IntegerRangePtrInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2IntegerRangePtrOutput() DataflowEndpointGroupV2IntegerRangePtrOutput
+	ToDataflowEndpointGroupV2IntegerRangePtrOutputWithContext(context.Context) DataflowEndpointGroupV2IntegerRangePtrOutput
+}
+
+type dataflowEndpointGroupV2IntegerRangePtrType DataflowEndpointGroupV2IntegerRangeArgs
+
+func DataflowEndpointGroupV2IntegerRangePtr(v *DataflowEndpointGroupV2IntegerRangeArgs) DataflowEndpointGroupV2IntegerRangePtrInput {
+	return (*dataflowEndpointGroupV2IntegerRangePtrType)(v)
+}
+
+func (*dataflowEndpointGroupV2IntegerRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2IntegerRange)(nil)).Elem()
+}
+
+func (i *dataflowEndpointGroupV2IntegerRangePtrType) ToDataflowEndpointGroupV2IntegerRangePtrOutput() DataflowEndpointGroupV2IntegerRangePtrOutput {
+	return i.ToDataflowEndpointGroupV2IntegerRangePtrOutputWithContext(context.Background())
+}
+
+func (i *dataflowEndpointGroupV2IntegerRangePtrType) ToDataflowEndpointGroupV2IntegerRangePtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2IntegerRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2IntegerRangePtrOutput)
+}
+
+// An integer range that has a minimum and maximum value.
+type DataflowEndpointGroupV2IntegerRangeOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2IntegerRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2IntegerRange)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2IntegerRangeOutput) ToDataflowEndpointGroupV2IntegerRangeOutput() DataflowEndpointGroupV2IntegerRangeOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2IntegerRangeOutput) ToDataflowEndpointGroupV2IntegerRangeOutputWithContext(ctx context.Context) DataflowEndpointGroupV2IntegerRangeOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2IntegerRangeOutput) ToDataflowEndpointGroupV2IntegerRangePtrOutput() DataflowEndpointGroupV2IntegerRangePtrOutput {
+	return o.ToDataflowEndpointGroupV2IntegerRangePtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupV2IntegerRangeOutput) ToDataflowEndpointGroupV2IntegerRangePtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2IntegerRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupV2IntegerRange) *DataflowEndpointGroupV2IntegerRange {
+		return &v
+	}).(DataflowEndpointGroupV2IntegerRangePtrOutput)
+}
+
+// A maximum value.
+func (o DataflowEndpointGroupV2IntegerRangeOutput) Maximum() pulumi.IntOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2IntegerRange) int { return v.Maximum }).(pulumi.IntOutput)
+}
+
+// A minimum value.
+func (o DataflowEndpointGroupV2IntegerRangeOutput) Minimum() pulumi.IntOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2IntegerRange) int { return v.Minimum }).(pulumi.IntOutput)
+}
+
+type DataflowEndpointGroupV2IntegerRangePtrOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2IntegerRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2IntegerRange)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2IntegerRangePtrOutput) ToDataflowEndpointGroupV2IntegerRangePtrOutput() DataflowEndpointGroupV2IntegerRangePtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2IntegerRangePtrOutput) ToDataflowEndpointGroupV2IntegerRangePtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2IntegerRangePtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2IntegerRangePtrOutput) Elem() DataflowEndpointGroupV2IntegerRangeOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2IntegerRange) DataflowEndpointGroupV2IntegerRange {
+		if v != nil {
+			return *v
+		}
+		var ret DataflowEndpointGroupV2IntegerRange
+		return ret
+	}).(DataflowEndpointGroupV2IntegerRangeOutput)
+}
+
+// A maximum value.
+func (o DataflowEndpointGroupV2IntegerRangePtrOutput) Maximum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2IntegerRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Maximum
+	}).(pulumi.IntPtrOutput)
+}
+
+// A minimum value.
+func (o DataflowEndpointGroupV2IntegerRangePtrOutput) Minimum() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2IntegerRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Minimum
+	}).(pulumi.IntPtrOutput)
+}
+
+// Socket address of an uplink or downlink agent endpoint with a port range and an optional mtu.
+type DataflowEndpointGroupV2RangedConnectionDetails struct {
+	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+	Mtu           *int                                       `pulumi:"mtu"`
+	SocketAddress DataflowEndpointGroupV2RangedSocketAddress `pulumi:"socketAddress"`
+}
+
+// DataflowEndpointGroupV2RangedConnectionDetailsInput is an input type that accepts DataflowEndpointGroupV2RangedConnectionDetailsArgs and DataflowEndpointGroupV2RangedConnectionDetailsOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2RangedConnectionDetailsInput` via:
+//
+//	DataflowEndpointGroupV2RangedConnectionDetailsArgs{...}
+type DataflowEndpointGroupV2RangedConnectionDetailsInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2RangedConnectionDetailsOutput() DataflowEndpointGroupV2RangedConnectionDetailsOutput
+	ToDataflowEndpointGroupV2RangedConnectionDetailsOutputWithContext(context.Context) DataflowEndpointGroupV2RangedConnectionDetailsOutput
+}
+
+// Socket address of an uplink or downlink agent endpoint with a port range and an optional mtu.
+type DataflowEndpointGroupV2RangedConnectionDetailsArgs struct {
+	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+	Mtu           pulumi.IntPtrInput                              `pulumi:"mtu"`
+	SocketAddress DataflowEndpointGroupV2RangedSocketAddressInput `pulumi:"socketAddress"`
+}
+
+func (DataflowEndpointGroupV2RangedConnectionDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2RangedConnectionDetails)(nil)).Elem()
+}
+
+func (i DataflowEndpointGroupV2RangedConnectionDetailsArgs) ToDataflowEndpointGroupV2RangedConnectionDetailsOutput() DataflowEndpointGroupV2RangedConnectionDetailsOutput {
+	return i.ToDataflowEndpointGroupV2RangedConnectionDetailsOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2RangedConnectionDetailsArgs) ToDataflowEndpointGroupV2RangedConnectionDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupV2RangedConnectionDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2RangedConnectionDetailsOutput)
+}
+
+func (i DataflowEndpointGroupV2RangedConnectionDetailsArgs) ToDataflowEndpointGroupV2RangedConnectionDetailsPtrOutput() DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput {
+	return i.ToDataflowEndpointGroupV2RangedConnectionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2RangedConnectionDetailsArgs) ToDataflowEndpointGroupV2RangedConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2RangedConnectionDetailsOutput).ToDataflowEndpointGroupV2RangedConnectionDetailsPtrOutputWithContext(ctx)
+}
+
+// DataflowEndpointGroupV2RangedConnectionDetailsPtrInput is an input type that accepts DataflowEndpointGroupV2RangedConnectionDetailsArgs, DataflowEndpointGroupV2RangedConnectionDetailsPtr and DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2RangedConnectionDetailsPtrInput` via:
+//
+//	        DataflowEndpointGroupV2RangedConnectionDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataflowEndpointGroupV2RangedConnectionDetailsPtrInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2RangedConnectionDetailsPtrOutput() DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput
+	ToDataflowEndpointGroupV2RangedConnectionDetailsPtrOutputWithContext(context.Context) DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput
+}
+
+type dataflowEndpointGroupV2RangedConnectionDetailsPtrType DataflowEndpointGroupV2RangedConnectionDetailsArgs
+
+func DataflowEndpointGroupV2RangedConnectionDetailsPtr(v *DataflowEndpointGroupV2RangedConnectionDetailsArgs) DataflowEndpointGroupV2RangedConnectionDetailsPtrInput {
+	return (*dataflowEndpointGroupV2RangedConnectionDetailsPtrType)(v)
+}
+
+func (*dataflowEndpointGroupV2RangedConnectionDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2RangedConnectionDetails)(nil)).Elem()
+}
+
+func (i *dataflowEndpointGroupV2RangedConnectionDetailsPtrType) ToDataflowEndpointGroupV2RangedConnectionDetailsPtrOutput() DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput {
+	return i.ToDataflowEndpointGroupV2RangedConnectionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataflowEndpointGroupV2RangedConnectionDetailsPtrType) ToDataflowEndpointGroupV2RangedConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput)
+}
+
+// Socket address of an uplink or downlink agent endpoint with a port range and an optional mtu.
+type DataflowEndpointGroupV2RangedConnectionDetailsOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2RangedConnectionDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2RangedConnectionDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2RangedConnectionDetailsOutput) ToDataflowEndpointGroupV2RangedConnectionDetailsOutput() DataflowEndpointGroupV2RangedConnectionDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2RangedConnectionDetailsOutput) ToDataflowEndpointGroupV2RangedConnectionDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupV2RangedConnectionDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2RangedConnectionDetailsOutput) ToDataflowEndpointGroupV2RangedConnectionDetailsPtrOutput() DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput {
+	return o.ToDataflowEndpointGroupV2RangedConnectionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupV2RangedConnectionDetailsOutput) ToDataflowEndpointGroupV2RangedConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupV2RangedConnectionDetails) *DataflowEndpointGroupV2RangedConnectionDetails {
+		return &v
+	}).(DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput)
+}
+
+// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+func (o DataflowEndpointGroupV2RangedConnectionDetailsOutput) Mtu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2RangedConnectionDetails) *int { return v.Mtu }).(pulumi.IntPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2RangedConnectionDetailsOutput) SocketAddress() DataflowEndpointGroupV2RangedSocketAddressOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2RangedConnectionDetails) DataflowEndpointGroupV2RangedSocketAddress {
+		return v.SocketAddress
+	}).(DataflowEndpointGroupV2RangedSocketAddressOutput)
+}
+
+type DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2RangedConnectionDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput) ToDataflowEndpointGroupV2RangedConnectionDetailsPtrOutput() DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput) ToDataflowEndpointGroupV2RangedConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput) Elem() DataflowEndpointGroupV2RangedConnectionDetailsOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2RangedConnectionDetails) DataflowEndpointGroupV2RangedConnectionDetails {
+		if v != nil {
+			return *v
+		}
+		var ret DataflowEndpointGroupV2RangedConnectionDetails
+		return ret
+	}).(DataflowEndpointGroupV2RangedConnectionDetailsOutput)
+}
+
+// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+func (o DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput) Mtu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2RangedConnectionDetails) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Mtu
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput) SocketAddress() DataflowEndpointGroupV2RangedSocketAddressPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2RangedConnectionDetails) *DataflowEndpointGroupV2RangedSocketAddress {
+		if v == nil {
+			return nil
+		}
+		return &v.SocketAddress
+	}).(DataflowEndpointGroupV2RangedSocketAddressPtrOutput)
+}
+
+// A socket address with a port range.
+type DataflowEndpointGroupV2RangedSocketAddress struct {
+	// IPv4 socket address.
+	Name string `pulumi:"name"`
+	// Port range of a socket address.
+	PortRange DataflowEndpointGroupV2IntegerRange `pulumi:"portRange"`
+}
+
+// DataflowEndpointGroupV2RangedSocketAddressInput is an input type that accepts DataflowEndpointGroupV2RangedSocketAddressArgs and DataflowEndpointGroupV2RangedSocketAddressOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2RangedSocketAddressInput` via:
+//
+//	DataflowEndpointGroupV2RangedSocketAddressArgs{...}
+type DataflowEndpointGroupV2RangedSocketAddressInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2RangedSocketAddressOutput() DataflowEndpointGroupV2RangedSocketAddressOutput
+	ToDataflowEndpointGroupV2RangedSocketAddressOutputWithContext(context.Context) DataflowEndpointGroupV2RangedSocketAddressOutput
+}
+
+// A socket address with a port range.
+type DataflowEndpointGroupV2RangedSocketAddressArgs struct {
+	// IPv4 socket address.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Port range of a socket address.
+	PortRange DataflowEndpointGroupV2IntegerRangeInput `pulumi:"portRange"`
+}
+
+func (DataflowEndpointGroupV2RangedSocketAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2RangedSocketAddress)(nil)).Elem()
+}
+
+func (i DataflowEndpointGroupV2RangedSocketAddressArgs) ToDataflowEndpointGroupV2RangedSocketAddressOutput() DataflowEndpointGroupV2RangedSocketAddressOutput {
+	return i.ToDataflowEndpointGroupV2RangedSocketAddressOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2RangedSocketAddressArgs) ToDataflowEndpointGroupV2RangedSocketAddressOutputWithContext(ctx context.Context) DataflowEndpointGroupV2RangedSocketAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2RangedSocketAddressOutput)
+}
+
+func (i DataflowEndpointGroupV2RangedSocketAddressArgs) ToDataflowEndpointGroupV2RangedSocketAddressPtrOutput() DataflowEndpointGroupV2RangedSocketAddressPtrOutput {
+	return i.ToDataflowEndpointGroupV2RangedSocketAddressPtrOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2RangedSocketAddressArgs) ToDataflowEndpointGroupV2RangedSocketAddressPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2RangedSocketAddressPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2RangedSocketAddressOutput).ToDataflowEndpointGroupV2RangedSocketAddressPtrOutputWithContext(ctx)
+}
+
+// DataflowEndpointGroupV2RangedSocketAddressPtrInput is an input type that accepts DataflowEndpointGroupV2RangedSocketAddressArgs, DataflowEndpointGroupV2RangedSocketAddressPtr and DataflowEndpointGroupV2RangedSocketAddressPtrOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2RangedSocketAddressPtrInput` via:
+//
+//	        DataflowEndpointGroupV2RangedSocketAddressArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataflowEndpointGroupV2RangedSocketAddressPtrInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2RangedSocketAddressPtrOutput() DataflowEndpointGroupV2RangedSocketAddressPtrOutput
+	ToDataflowEndpointGroupV2RangedSocketAddressPtrOutputWithContext(context.Context) DataflowEndpointGroupV2RangedSocketAddressPtrOutput
+}
+
+type dataflowEndpointGroupV2RangedSocketAddressPtrType DataflowEndpointGroupV2RangedSocketAddressArgs
+
+func DataflowEndpointGroupV2RangedSocketAddressPtr(v *DataflowEndpointGroupV2RangedSocketAddressArgs) DataflowEndpointGroupV2RangedSocketAddressPtrInput {
+	return (*dataflowEndpointGroupV2RangedSocketAddressPtrType)(v)
+}
+
+func (*dataflowEndpointGroupV2RangedSocketAddressPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2RangedSocketAddress)(nil)).Elem()
+}
+
+func (i *dataflowEndpointGroupV2RangedSocketAddressPtrType) ToDataflowEndpointGroupV2RangedSocketAddressPtrOutput() DataflowEndpointGroupV2RangedSocketAddressPtrOutput {
+	return i.ToDataflowEndpointGroupV2RangedSocketAddressPtrOutputWithContext(context.Background())
+}
+
+func (i *dataflowEndpointGroupV2RangedSocketAddressPtrType) ToDataflowEndpointGroupV2RangedSocketAddressPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2RangedSocketAddressPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2RangedSocketAddressPtrOutput)
+}
+
+// A socket address with a port range.
+type DataflowEndpointGroupV2RangedSocketAddressOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2RangedSocketAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2RangedSocketAddress)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2RangedSocketAddressOutput) ToDataflowEndpointGroupV2RangedSocketAddressOutput() DataflowEndpointGroupV2RangedSocketAddressOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2RangedSocketAddressOutput) ToDataflowEndpointGroupV2RangedSocketAddressOutputWithContext(ctx context.Context) DataflowEndpointGroupV2RangedSocketAddressOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2RangedSocketAddressOutput) ToDataflowEndpointGroupV2RangedSocketAddressPtrOutput() DataflowEndpointGroupV2RangedSocketAddressPtrOutput {
+	return o.ToDataflowEndpointGroupV2RangedSocketAddressPtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupV2RangedSocketAddressOutput) ToDataflowEndpointGroupV2RangedSocketAddressPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2RangedSocketAddressPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupV2RangedSocketAddress) *DataflowEndpointGroupV2RangedSocketAddress {
+		return &v
+	}).(DataflowEndpointGroupV2RangedSocketAddressPtrOutput)
+}
+
+// IPv4 socket address.
+func (o DataflowEndpointGroupV2RangedSocketAddressOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2RangedSocketAddress) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Port range of a socket address.
+func (o DataflowEndpointGroupV2RangedSocketAddressOutput) PortRange() DataflowEndpointGroupV2IntegerRangeOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2RangedSocketAddress) DataflowEndpointGroupV2IntegerRange {
+		return v.PortRange
+	}).(DataflowEndpointGroupV2IntegerRangeOutput)
+}
+
+type DataflowEndpointGroupV2RangedSocketAddressPtrOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2RangedSocketAddressPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2RangedSocketAddress)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2RangedSocketAddressPtrOutput) ToDataflowEndpointGroupV2RangedSocketAddressPtrOutput() DataflowEndpointGroupV2RangedSocketAddressPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2RangedSocketAddressPtrOutput) ToDataflowEndpointGroupV2RangedSocketAddressPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2RangedSocketAddressPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2RangedSocketAddressPtrOutput) Elem() DataflowEndpointGroupV2RangedSocketAddressOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2RangedSocketAddress) DataflowEndpointGroupV2RangedSocketAddress {
+		if v != nil {
+			return *v
+		}
+		var ret DataflowEndpointGroupV2RangedSocketAddress
+		return ret
+	}).(DataflowEndpointGroupV2RangedSocketAddressOutput)
+}
+
+// IPv4 socket address.
+func (o DataflowEndpointGroupV2RangedSocketAddressPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2RangedSocketAddress) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Port range of a socket address.
+func (o DataflowEndpointGroupV2RangedSocketAddressPtrOutput) PortRange() DataflowEndpointGroupV2IntegerRangePtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2RangedSocketAddress) *DataflowEndpointGroupV2IntegerRange {
+		if v == nil {
+			return nil
+		}
+		return &v.PortRange
+	}).(DataflowEndpointGroupV2IntegerRangePtrOutput)
+}
+
+type DataflowEndpointGroupV2SocketAddress struct {
+	// IPv4 socket address.
+	Name string `pulumi:"name"`
+	// Port of a socket address.
+	Port int `pulumi:"port"`
+}
+
+// DataflowEndpointGroupV2SocketAddressInput is an input type that accepts DataflowEndpointGroupV2SocketAddressArgs and DataflowEndpointGroupV2SocketAddressOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2SocketAddressInput` via:
+//
+//	DataflowEndpointGroupV2SocketAddressArgs{...}
+type DataflowEndpointGroupV2SocketAddressInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2SocketAddressOutput() DataflowEndpointGroupV2SocketAddressOutput
+	ToDataflowEndpointGroupV2SocketAddressOutputWithContext(context.Context) DataflowEndpointGroupV2SocketAddressOutput
+}
+
+type DataflowEndpointGroupV2SocketAddressArgs struct {
+	// IPv4 socket address.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Port of a socket address.
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (DataflowEndpointGroupV2SocketAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2SocketAddress)(nil)).Elem()
+}
+
+func (i DataflowEndpointGroupV2SocketAddressArgs) ToDataflowEndpointGroupV2SocketAddressOutput() DataflowEndpointGroupV2SocketAddressOutput {
+	return i.ToDataflowEndpointGroupV2SocketAddressOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2SocketAddressArgs) ToDataflowEndpointGroupV2SocketAddressOutputWithContext(ctx context.Context) DataflowEndpointGroupV2SocketAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2SocketAddressOutput)
+}
+
+func (i DataflowEndpointGroupV2SocketAddressArgs) ToDataflowEndpointGroupV2SocketAddressPtrOutput() DataflowEndpointGroupV2SocketAddressPtrOutput {
+	return i.ToDataflowEndpointGroupV2SocketAddressPtrOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2SocketAddressArgs) ToDataflowEndpointGroupV2SocketAddressPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2SocketAddressPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2SocketAddressOutput).ToDataflowEndpointGroupV2SocketAddressPtrOutputWithContext(ctx)
+}
+
+// DataflowEndpointGroupV2SocketAddressPtrInput is an input type that accepts DataflowEndpointGroupV2SocketAddressArgs, DataflowEndpointGroupV2SocketAddressPtr and DataflowEndpointGroupV2SocketAddressPtrOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2SocketAddressPtrInput` via:
+//
+//	        DataflowEndpointGroupV2SocketAddressArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataflowEndpointGroupV2SocketAddressPtrInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2SocketAddressPtrOutput() DataflowEndpointGroupV2SocketAddressPtrOutput
+	ToDataflowEndpointGroupV2SocketAddressPtrOutputWithContext(context.Context) DataflowEndpointGroupV2SocketAddressPtrOutput
+}
+
+type dataflowEndpointGroupV2SocketAddressPtrType DataflowEndpointGroupV2SocketAddressArgs
+
+func DataflowEndpointGroupV2SocketAddressPtr(v *DataflowEndpointGroupV2SocketAddressArgs) DataflowEndpointGroupV2SocketAddressPtrInput {
+	return (*dataflowEndpointGroupV2SocketAddressPtrType)(v)
+}
+
+func (*dataflowEndpointGroupV2SocketAddressPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2SocketAddress)(nil)).Elem()
+}
+
+func (i *dataflowEndpointGroupV2SocketAddressPtrType) ToDataflowEndpointGroupV2SocketAddressPtrOutput() DataflowEndpointGroupV2SocketAddressPtrOutput {
+	return i.ToDataflowEndpointGroupV2SocketAddressPtrOutputWithContext(context.Background())
+}
+
+func (i *dataflowEndpointGroupV2SocketAddressPtrType) ToDataflowEndpointGroupV2SocketAddressPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2SocketAddressPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2SocketAddressPtrOutput)
+}
+
+type DataflowEndpointGroupV2SocketAddressOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2SocketAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2SocketAddress)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2SocketAddressOutput) ToDataflowEndpointGroupV2SocketAddressOutput() DataflowEndpointGroupV2SocketAddressOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2SocketAddressOutput) ToDataflowEndpointGroupV2SocketAddressOutputWithContext(ctx context.Context) DataflowEndpointGroupV2SocketAddressOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2SocketAddressOutput) ToDataflowEndpointGroupV2SocketAddressPtrOutput() DataflowEndpointGroupV2SocketAddressPtrOutput {
+	return o.ToDataflowEndpointGroupV2SocketAddressPtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupV2SocketAddressOutput) ToDataflowEndpointGroupV2SocketAddressPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2SocketAddressPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupV2SocketAddress) *DataflowEndpointGroupV2SocketAddress {
+		return &v
+	}).(DataflowEndpointGroupV2SocketAddressPtrOutput)
+}
+
+// IPv4 socket address.
+func (o DataflowEndpointGroupV2SocketAddressOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2SocketAddress) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Port of a socket address.
+func (o DataflowEndpointGroupV2SocketAddressOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2SocketAddress) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type DataflowEndpointGroupV2SocketAddressPtrOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2SocketAddressPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2SocketAddress)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2SocketAddressPtrOutput) ToDataflowEndpointGroupV2SocketAddressPtrOutput() DataflowEndpointGroupV2SocketAddressPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2SocketAddressPtrOutput) ToDataflowEndpointGroupV2SocketAddressPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2SocketAddressPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2SocketAddressPtrOutput) Elem() DataflowEndpointGroupV2SocketAddressOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2SocketAddress) DataflowEndpointGroupV2SocketAddress {
+		if v != nil {
+			return *v
+		}
+		var ret DataflowEndpointGroupV2SocketAddress
+		return ret
+	}).(DataflowEndpointGroupV2SocketAddressOutput)
+}
+
+// IPv4 socket address.
+func (o DataflowEndpointGroupV2SocketAddressPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2SocketAddress) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Port of a socket address.
+func (o DataflowEndpointGroupV2SocketAddressPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2SocketAddress) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+type DataflowEndpointGroupV2Tag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// Information about UplinkAwsGroundStationAgentEndpoint used for create
+type DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint struct {
+	DataflowDetails DataflowEndpointGroupV2UplinkDataflowDetails `pulumi:"dataflowDetails"`
+	Name            string                                       `pulumi:"name"`
+}
+
+// DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointInput is an input type that accepts DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs and DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointInput` via:
+//
+//	DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs{...}
+type DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput() DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput
+	ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutputWithContext(context.Context) DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput
+}
+
+// Information about UplinkAwsGroundStationAgentEndpoint used for create
+type DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs struct {
+	DataflowDetails DataflowEndpointGroupV2UplinkDataflowDetailsInput `pulumi:"dataflowDetails"`
+	Name            pulumi.StringInput                                `pulumi:"name"`
+}
+
+func (DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint)(nil)).Elem()
+}
+
+func (i DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs) ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput() DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput {
+	return i.ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs) ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutputWithContext(ctx context.Context) DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput)
+}
+
+func (i DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs) ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput() DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput {
+	return i.ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs) ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput).ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutputWithContext(ctx)
+}
+
+// DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrInput is an input type that accepts DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs, DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtr and DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrInput` via:
+//
+//	        DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput() DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput
+	ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutputWithContext(context.Context) DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput
+}
+
+type dataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrType DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs
+
+func DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtr(v *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs) DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrInput {
+	return (*dataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrType)(v)
+}
+
+func (*dataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint)(nil)).Elem()
+}
+
+func (i *dataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrType) ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput() DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput {
+	return i.ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *dataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrType) ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput)
+}
+
+// Information about UplinkAwsGroundStationAgentEndpoint used for create
+type DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput) ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput() DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput) ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutputWithContext(ctx context.Context) DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput) ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput() DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput {
+	return o.ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput) ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint) *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint {
+		return &v
+	}).(DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput) DataflowDetails() DataflowEndpointGroupV2UplinkDataflowDetailsOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint) DataflowEndpointGroupV2UplinkDataflowDetails {
+		return v.DataflowDetails
+	}).(DataflowEndpointGroupV2UplinkDataflowDetailsOutput)
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput) ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput() DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput) ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput) Elem() DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint) DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint
+		return ret
+	}).(DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput)
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput) DataflowDetails() DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint) *DataflowEndpointGroupV2UplinkDataflowDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.DataflowDetails
+	}).(DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about UplinkAwsGroundStationAgentEndpoint
+type DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails struct {
+	AgentStatus     *DataflowEndpointGroupV2AgentStatus          `pulumi:"agentStatus"`
+	AuditResults    *DataflowEndpointGroupV2AuditResults         `pulumi:"auditResults"`
+	DataflowDetails DataflowEndpointGroupV2UplinkDataflowDetails `pulumi:"dataflowDetails"`
+	Name            string                                       `pulumi:"name"`
+}
+
+// Information about UplinkAwsGroundStationAgentEndpoint
+type DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutput) ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutput() DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutput) ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutput) AgentStatus() DataflowEndpointGroupV2AgentStatusPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails) *DataflowEndpointGroupV2AgentStatus {
+		return v.AgentStatus
+	}).(DataflowEndpointGroupV2AgentStatusPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutput) AuditResults() DataflowEndpointGroupV2AuditResultsPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails) *DataflowEndpointGroupV2AuditResults {
+		return v.AuditResults
+	}).(DataflowEndpointGroupV2AuditResultsPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutput) DataflowDetails() DataflowEndpointGroupV2UplinkDataflowDetailsOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails) DataflowEndpointGroupV2UplinkDataflowDetails {
+		return v.DataflowDetails
+	}).(DataflowEndpointGroupV2UplinkDataflowDetailsOutput)
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutput) ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutput() DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutput) ToDataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutput) Elem() DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails) DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails {
+		if v != nil {
+			return *v
+		}
+		var ret DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails
+		return ret
+	}).(DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutput)
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutput) AgentStatus() DataflowEndpointGroupV2AgentStatusPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails) *DataflowEndpointGroupV2AgentStatus {
+		if v == nil {
+			return nil
+		}
+		return v.AgentStatus
+	}).(DataflowEndpointGroupV2AgentStatusPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutput) AuditResults() DataflowEndpointGroupV2AuditResultsPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails) *DataflowEndpointGroupV2AuditResults {
+		if v == nil {
+			return nil
+		}
+		return v.AuditResults
+	}).(DataflowEndpointGroupV2AuditResultsPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutput) DataflowDetails() DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails) *DataflowEndpointGroupV2UplinkDataflowDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.DataflowDetails
+	}).(DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Connection details for uplink, from ground station to agent, and customer to agent
+type DataflowEndpointGroupV2UplinkConnectionDetails struct {
+	AgentIpAndPortAddress DataflowEndpointGroupV2RangedConnectionDetails `pulumi:"agentIpAndPortAddress"`
+	IngressAddressAndPort DataflowEndpointGroupV2ConnectionDetails       `pulumi:"ingressAddressAndPort"`
+}
+
+// DataflowEndpointGroupV2UplinkConnectionDetailsInput is an input type that accepts DataflowEndpointGroupV2UplinkConnectionDetailsArgs and DataflowEndpointGroupV2UplinkConnectionDetailsOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2UplinkConnectionDetailsInput` via:
+//
+//	DataflowEndpointGroupV2UplinkConnectionDetailsArgs{...}
+type DataflowEndpointGroupV2UplinkConnectionDetailsInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2UplinkConnectionDetailsOutput() DataflowEndpointGroupV2UplinkConnectionDetailsOutput
+	ToDataflowEndpointGroupV2UplinkConnectionDetailsOutputWithContext(context.Context) DataflowEndpointGroupV2UplinkConnectionDetailsOutput
+}
+
+// Connection details for uplink, from ground station to agent, and customer to agent
+type DataflowEndpointGroupV2UplinkConnectionDetailsArgs struct {
+	AgentIpAndPortAddress DataflowEndpointGroupV2RangedConnectionDetailsInput `pulumi:"agentIpAndPortAddress"`
+	IngressAddressAndPort DataflowEndpointGroupV2ConnectionDetailsInput       `pulumi:"ingressAddressAndPort"`
+}
+
+func (DataflowEndpointGroupV2UplinkConnectionDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2UplinkConnectionDetails)(nil)).Elem()
+}
+
+func (i DataflowEndpointGroupV2UplinkConnectionDetailsArgs) ToDataflowEndpointGroupV2UplinkConnectionDetailsOutput() DataflowEndpointGroupV2UplinkConnectionDetailsOutput {
+	return i.ToDataflowEndpointGroupV2UplinkConnectionDetailsOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2UplinkConnectionDetailsArgs) ToDataflowEndpointGroupV2UplinkConnectionDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupV2UplinkConnectionDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2UplinkConnectionDetailsOutput)
+}
+
+func (i DataflowEndpointGroupV2UplinkConnectionDetailsArgs) ToDataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput() DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput {
+	return i.ToDataflowEndpointGroupV2UplinkConnectionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2UplinkConnectionDetailsArgs) ToDataflowEndpointGroupV2UplinkConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2UplinkConnectionDetailsOutput).ToDataflowEndpointGroupV2UplinkConnectionDetailsPtrOutputWithContext(ctx)
+}
+
+// DataflowEndpointGroupV2UplinkConnectionDetailsPtrInput is an input type that accepts DataflowEndpointGroupV2UplinkConnectionDetailsArgs, DataflowEndpointGroupV2UplinkConnectionDetailsPtr and DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2UplinkConnectionDetailsPtrInput` via:
+//
+//	        DataflowEndpointGroupV2UplinkConnectionDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataflowEndpointGroupV2UplinkConnectionDetailsPtrInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput() DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput
+	ToDataflowEndpointGroupV2UplinkConnectionDetailsPtrOutputWithContext(context.Context) DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput
+}
+
+type dataflowEndpointGroupV2UplinkConnectionDetailsPtrType DataflowEndpointGroupV2UplinkConnectionDetailsArgs
+
+func DataflowEndpointGroupV2UplinkConnectionDetailsPtr(v *DataflowEndpointGroupV2UplinkConnectionDetailsArgs) DataflowEndpointGroupV2UplinkConnectionDetailsPtrInput {
+	return (*dataflowEndpointGroupV2UplinkConnectionDetailsPtrType)(v)
+}
+
+func (*dataflowEndpointGroupV2UplinkConnectionDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2UplinkConnectionDetails)(nil)).Elem()
+}
+
+func (i *dataflowEndpointGroupV2UplinkConnectionDetailsPtrType) ToDataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput() DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput {
+	return i.ToDataflowEndpointGroupV2UplinkConnectionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataflowEndpointGroupV2UplinkConnectionDetailsPtrType) ToDataflowEndpointGroupV2UplinkConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput)
+}
+
+// Connection details for uplink, from ground station to agent, and customer to agent
+type DataflowEndpointGroupV2UplinkConnectionDetailsOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2UplinkConnectionDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2UplinkConnectionDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2UplinkConnectionDetailsOutput) ToDataflowEndpointGroupV2UplinkConnectionDetailsOutput() DataflowEndpointGroupV2UplinkConnectionDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2UplinkConnectionDetailsOutput) ToDataflowEndpointGroupV2UplinkConnectionDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupV2UplinkConnectionDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2UplinkConnectionDetailsOutput) ToDataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput() DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput {
+	return o.ToDataflowEndpointGroupV2UplinkConnectionDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupV2UplinkConnectionDetailsOutput) ToDataflowEndpointGroupV2UplinkConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupV2UplinkConnectionDetails) *DataflowEndpointGroupV2UplinkConnectionDetails {
+		return &v
+	}).(DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2UplinkConnectionDetailsOutput) AgentIpAndPortAddress() DataflowEndpointGroupV2RangedConnectionDetailsOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2UplinkConnectionDetails) DataflowEndpointGroupV2RangedConnectionDetails {
+		return v.AgentIpAndPortAddress
+	}).(DataflowEndpointGroupV2RangedConnectionDetailsOutput)
+}
+
+func (o DataflowEndpointGroupV2UplinkConnectionDetailsOutput) IngressAddressAndPort() DataflowEndpointGroupV2ConnectionDetailsOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2UplinkConnectionDetails) DataflowEndpointGroupV2ConnectionDetails {
+		return v.IngressAddressAndPort
+	}).(DataflowEndpointGroupV2ConnectionDetailsOutput)
+}
+
+type DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2UplinkConnectionDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput) ToDataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput() DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput) ToDataflowEndpointGroupV2UplinkConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput) Elem() DataflowEndpointGroupV2UplinkConnectionDetailsOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkConnectionDetails) DataflowEndpointGroupV2UplinkConnectionDetails {
+		if v != nil {
+			return *v
+		}
+		var ret DataflowEndpointGroupV2UplinkConnectionDetails
+		return ret
+	}).(DataflowEndpointGroupV2UplinkConnectionDetailsOutput)
+}
+
+func (o DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput) AgentIpAndPortAddress() DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkConnectionDetails) *DataflowEndpointGroupV2RangedConnectionDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.AgentIpAndPortAddress
+	}).(DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput) IngressAddressAndPort() DataflowEndpointGroupV2ConnectionDetailsPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkConnectionDetails) *DataflowEndpointGroupV2ConnectionDetails {
+		if v == nil {
+			return nil
+		}
+		return &v.IngressAddressAndPort
+	}).(DataflowEndpointGroupV2ConnectionDetailsPtrOutput)
+}
+
+// Dataflow details for uplink
+type DataflowEndpointGroupV2UplinkDataflowDetails struct {
+	AgentConnectionDetails *DataflowEndpointGroupV2UplinkConnectionDetails `pulumi:"agentConnectionDetails"`
+}
+
+// DataflowEndpointGroupV2UplinkDataflowDetailsInput is an input type that accepts DataflowEndpointGroupV2UplinkDataflowDetailsArgs and DataflowEndpointGroupV2UplinkDataflowDetailsOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2UplinkDataflowDetailsInput` via:
+//
+//	DataflowEndpointGroupV2UplinkDataflowDetailsArgs{...}
+type DataflowEndpointGroupV2UplinkDataflowDetailsInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2UplinkDataflowDetailsOutput() DataflowEndpointGroupV2UplinkDataflowDetailsOutput
+	ToDataflowEndpointGroupV2UplinkDataflowDetailsOutputWithContext(context.Context) DataflowEndpointGroupV2UplinkDataflowDetailsOutput
+}
+
+// Dataflow details for uplink
+type DataflowEndpointGroupV2UplinkDataflowDetailsArgs struct {
+	AgentConnectionDetails DataflowEndpointGroupV2UplinkConnectionDetailsPtrInput `pulumi:"agentConnectionDetails"`
+}
+
+func (DataflowEndpointGroupV2UplinkDataflowDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2UplinkDataflowDetails)(nil)).Elem()
+}
+
+func (i DataflowEndpointGroupV2UplinkDataflowDetailsArgs) ToDataflowEndpointGroupV2UplinkDataflowDetailsOutput() DataflowEndpointGroupV2UplinkDataflowDetailsOutput {
+	return i.ToDataflowEndpointGroupV2UplinkDataflowDetailsOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2UplinkDataflowDetailsArgs) ToDataflowEndpointGroupV2UplinkDataflowDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupV2UplinkDataflowDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2UplinkDataflowDetailsOutput)
+}
+
+func (i DataflowEndpointGroupV2UplinkDataflowDetailsArgs) ToDataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput() DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput {
+	return i.ToDataflowEndpointGroupV2UplinkDataflowDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i DataflowEndpointGroupV2UplinkDataflowDetailsArgs) ToDataflowEndpointGroupV2UplinkDataflowDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2UplinkDataflowDetailsOutput).ToDataflowEndpointGroupV2UplinkDataflowDetailsPtrOutputWithContext(ctx)
+}
+
+// DataflowEndpointGroupV2UplinkDataflowDetailsPtrInput is an input type that accepts DataflowEndpointGroupV2UplinkDataflowDetailsArgs, DataflowEndpointGroupV2UplinkDataflowDetailsPtr and DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput values.
+// You can construct a concrete instance of `DataflowEndpointGroupV2UplinkDataflowDetailsPtrInput` via:
+//
+//	        DataflowEndpointGroupV2UplinkDataflowDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataflowEndpointGroupV2UplinkDataflowDetailsPtrInput interface {
+	pulumi.Input
+
+	ToDataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput() DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput
+	ToDataflowEndpointGroupV2UplinkDataflowDetailsPtrOutputWithContext(context.Context) DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput
+}
+
+type dataflowEndpointGroupV2UplinkDataflowDetailsPtrType DataflowEndpointGroupV2UplinkDataflowDetailsArgs
+
+func DataflowEndpointGroupV2UplinkDataflowDetailsPtr(v *DataflowEndpointGroupV2UplinkDataflowDetailsArgs) DataflowEndpointGroupV2UplinkDataflowDetailsPtrInput {
+	return (*dataflowEndpointGroupV2UplinkDataflowDetailsPtrType)(v)
+}
+
+func (*dataflowEndpointGroupV2UplinkDataflowDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2UplinkDataflowDetails)(nil)).Elem()
+}
+
+func (i *dataflowEndpointGroupV2UplinkDataflowDetailsPtrType) ToDataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput() DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput {
+	return i.ToDataflowEndpointGroupV2UplinkDataflowDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataflowEndpointGroupV2UplinkDataflowDetailsPtrType) ToDataflowEndpointGroupV2UplinkDataflowDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput)
+}
+
+// Dataflow details for uplink
+type DataflowEndpointGroupV2UplinkDataflowDetailsOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2UplinkDataflowDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataflowEndpointGroupV2UplinkDataflowDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2UplinkDataflowDetailsOutput) ToDataflowEndpointGroupV2UplinkDataflowDetailsOutput() DataflowEndpointGroupV2UplinkDataflowDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2UplinkDataflowDetailsOutput) ToDataflowEndpointGroupV2UplinkDataflowDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupV2UplinkDataflowDetailsOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2UplinkDataflowDetailsOutput) ToDataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput() DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput {
+	return o.ToDataflowEndpointGroupV2UplinkDataflowDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o DataflowEndpointGroupV2UplinkDataflowDetailsOutput) ToDataflowEndpointGroupV2UplinkDataflowDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupV2UplinkDataflowDetails) *DataflowEndpointGroupV2UplinkDataflowDetails {
+		return &v
+	}).(DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput)
+}
+
+func (o DataflowEndpointGroupV2UplinkDataflowDetailsOutput) AgentConnectionDetails() DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput {
+	return o.ApplyT(func(v DataflowEndpointGroupV2UplinkDataflowDetails) *DataflowEndpointGroupV2UplinkConnectionDetails {
+		return v.AgentConnectionDetails
+	}).(DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput)
+}
+
+type DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataflowEndpointGroupV2UplinkDataflowDetails)(nil)).Elem()
+}
+
+func (o DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput) ToDataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput() DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput) ToDataflowEndpointGroupV2UplinkDataflowDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput {
+	return o
+}
+
+func (o DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput) Elem() DataflowEndpointGroupV2UplinkDataflowDetailsOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkDataflowDetails) DataflowEndpointGroupV2UplinkDataflowDetails {
+		if v != nil {
+			return *v
+		}
+		var ret DataflowEndpointGroupV2UplinkDataflowDetails
+		return ret
+	}).(DataflowEndpointGroupV2UplinkDataflowDetailsOutput)
+}
+
+func (o DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput) AgentConnectionDetails() DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput {
+	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkDataflowDetails) *DataflowEndpointGroupV2UplinkConnectionDetails {
+		if v == nil {
+			return nil
+		}
+		return v.AgentConnectionDetails
+	}).(DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput)
+}
+
 type MissionProfileDataflowEdge struct {
 	// The ARN of the destination for this dataflow edge. For example, specify the ARN of a dataflow endpoint config for a downlink edge or an antenna uplink config for an uplink edge.
 	Destination *string `pulumi:"destination"`
@@ -4294,6 +6346,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupSecurityDetailsPtrInput)(nil)).Elem(), DataflowEndpointGroupSecurityDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupSocketAddressInput)(nil)).Elem(), DataflowEndpointGroupSocketAddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupSocketAddressPtrInput)(nil)).Elem(), DataflowEndpointGroupSocketAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2ConnectionDetailsInput)(nil)).Elem(), DataflowEndpointGroupV2ConnectionDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2ConnectionDetailsPtrInput)(nil)).Elem(), DataflowEndpointGroupV2ConnectionDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2CreateEndpointDetailsInput)(nil)).Elem(), DataflowEndpointGroupV2CreateEndpointDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2CreateEndpointDetailsArrayInput)(nil)).Elem(), DataflowEndpointGroupV2CreateEndpointDetailsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointInput)(nil)).Elem(), DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrInput)(nil)).Elem(), DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2DownlinkConnectionDetailsInput)(nil)).Elem(), DataflowEndpointGroupV2DownlinkConnectionDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2DownlinkConnectionDetailsPtrInput)(nil)).Elem(), DataflowEndpointGroupV2DownlinkConnectionDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2DownlinkDataflowDetailsInput)(nil)).Elem(), DataflowEndpointGroupV2DownlinkDataflowDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2DownlinkDataflowDetailsPtrInput)(nil)).Elem(), DataflowEndpointGroupV2DownlinkDataflowDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2IntegerRangeInput)(nil)).Elem(), DataflowEndpointGroupV2IntegerRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2IntegerRangePtrInput)(nil)).Elem(), DataflowEndpointGroupV2IntegerRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2RangedConnectionDetailsInput)(nil)).Elem(), DataflowEndpointGroupV2RangedConnectionDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2RangedConnectionDetailsPtrInput)(nil)).Elem(), DataflowEndpointGroupV2RangedConnectionDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2RangedSocketAddressInput)(nil)).Elem(), DataflowEndpointGroupV2RangedSocketAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2RangedSocketAddressPtrInput)(nil)).Elem(), DataflowEndpointGroupV2RangedSocketAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2SocketAddressInput)(nil)).Elem(), DataflowEndpointGroupV2SocketAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2SocketAddressPtrInput)(nil)).Elem(), DataflowEndpointGroupV2SocketAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointInput)(nil)).Elem(), DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrInput)(nil)).Elem(), DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2UplinkConnectionDetailsInput)(nil)).Elem(), DataflowEndpointGroupV2UplinkConnectionDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2UplinkConnectionDetailsPtrInput)(nil)).Elem(), DataflowEndpointGroupV2UplinkConnectionDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2UplinkDataflowDetailsInput)(nil)).Elem(), DataflowEndpointGroupV2UplinkDataflowDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataflowEndpointGroupV2UplinkDataflowDetailsPtrInput)(nil)).Elem(), DataflowEndpointGroupV2UplinkDataflowDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MissionProfileDataflowEdgeInput)(nil)).Elem(), MissionProfileDataflowEdgeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MissionProfileDataflowEdgeArrayInput)(nil)).Elem(), MissionProfileDataflowEdgeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MissionProfileStreamsKmsKeyInput)(nil)).Elem(), MissionProfileStreamsKmsKeyArgs{})
@@ -4346,6 +6422,36 @@ func init() {
 	pulumi.RegisterOutputType(DataflowEndpointGroupSecurityDetailsPtrOutput{})
 	pulumi.RegisterOutputType(DataflowEndpointGroupSocketAddressOutput{})
 	pulumi.RegisterOutputType(DataflowEndpointGroupSocketAddressPtrOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2ConnectionDetailsOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2ConnectionDetailsPtrOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2CreateEndpointDetailsOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2CreateEndpointDetailsArrayOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2DownlinkConnectionDetailsOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2DownlinkDataflowDetailsOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2EndpointDetailsOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2EndpointDetailsArrayOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2IntegerRangeOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2IntegerRangePtrOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2RangedConnectionDetailsOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2RangedSocketAddressOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2RangedSocketAddressPtrOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2SocketAddressOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2SocketAddressPtrOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2UplinkConnectionDetailsOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2UplinkDataflowDetailsOutput{})
+	pulumi.RegisterOutputType(DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput{})
 	pulumi.RegisterOutputType(MissionProfileDataflowEdgeOutput{})
 	pulumi.RegisterOutputType(MissionProfileDataflowEdgeArrayOutput{})
 	pulumi.RegisterOutputType(MissionProfileStreamsKmsKeyOutput{})

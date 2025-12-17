@@ -22,18 +22,18 @@ export function getDelegatedAdmin(args: GetDelegatedAdminArgs, opts?: pulumi.Inv
 
 export interface GetDelegatedAdminArgs {
     /**
-     * The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
+     * The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
      */
     delegatedAdminIdentifier: string;
 }
 
 export interface GetDelegatedAdminResult {
     /**
-     * The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
+     * The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
      */
     readonly delegatedAdminIdentifier?: string;
     /**
-     * Whether the delegated Security Hub administrator is set for the organization.
+     * Whether the delegated Security Hub CSPM administrator is set for the organization.
      */
     readonly status?: enums.securityhub.DelegatedAdminStatus;
 }
@@ -52,7 +52,7 @@ export function getDelegatedAdminOutput(args: GetDelegatedAdminOutputArgs, opts?
 
 export interface GetDelegatedAdminOutputArgs {
     /**
-     * The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
+     * The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
      */
     delegatedAdminIdentifier: pulumi.Input<string>;
 }

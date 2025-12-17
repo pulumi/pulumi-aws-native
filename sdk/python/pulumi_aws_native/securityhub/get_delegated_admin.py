@@ -36,7 +36,7 @@ class GetDelegatedAdminResult:
     @pulumi.getter(name="delegatedAdminIdentifier")
     def delegated_admin_identifier(self) -> Optional[_builtins.str]:
         """
-        The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
+        The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
         """
         return pulumi.get(self, "delegated_admin_identifier")
 
@@ -44,7 +44,7 @@ class GetDelegatedAdminResult:
     @pulumi.getter
     def status(self) -> Optional['DelegatedAdminStatus']:
         """
-        Whether the delegated Security Hub administrator is set for the organization.
+        Whether the delegated Security Hub CSPM administrator is set for the organization.
         """
         return pulumi.get(self, "status")
 
@@ -68,7 +68,7 @@ def get_delegated_admin(delegated_admin_identifier: Optional[_builtins.str] = No
      Tags aren't supported for this resource.
 
 
-    :param _builtins.str delegated_admin_identifier: The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
+    :param _builtins.str delegated_admin_identifier: The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
     """
     __args__ = dict()
     __args__['delegatedAdminIdentifier'] = delegated_admin_identifier
@@ -87,7 +87,7 @@ def get_delegated_admin_output(delegated_admin_identifier: Optional[pulumi.Input
      Tags aren't supported for this resource.
 
 
-    :param _builtins.str delegated_admin_identifier: The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
+    :param _builtins.str delegated_admin_identifier: The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
     """
     __args__ = dict()
     __args__['delegatedAdminIdentifier'] = delegated_admin_identifier

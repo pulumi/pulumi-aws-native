@@ -42,6 +42,9 @@ export class TableBucket extends pulumi.CustomResource {
      */
     declare public readonly encryptionConfiguration: pulumi.Output<outputs.s3tables.TableBucketEncryptionConfiguration | undefined>;
     declare public readonly metricsConfiguration: pulumi.Output<outputs.s3tables.TableBucketMetricsConfiguration | undefined>;
+    /**
+     * The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
+     */
     declare public readonly storageClassConfiguration: pulumi.Output<outputs.s3tables.TableBucketStorageClassConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the table bucket.
@@ -103,6 +106,9 @@ export interface TableBucketArgs {
      */
     encryptionConfiguration?: pulumi.Input<inputs.s3tables.TableBucketEncryptionConfigurationArgs>;
     metricsConfiguration?: pulumi.Input<inputs.s3tables.TableBucketMetricsConfigurationArgs>;
+    /**
+     * The configuration details for the storage class of tables or table buckets. This allows you to optimize storage costs by selecting the appropriate storage class based on your access patterns and performance requirements.
+     */
     storageClassConfiguration?: pulumi.Input<inputs.s3tables.TableBucketStorageClassConfigurationArgs>;
     /**
      * The name for the table bucket.

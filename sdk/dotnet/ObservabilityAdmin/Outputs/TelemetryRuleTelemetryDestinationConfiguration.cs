@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
     [OutputType]
     public sealed class TelemetryRuleTelemetryDestinationConfiguration
     {
+        /// <summary>
+        /// Configuration parameters specific to AWS CloudTrail when CloudTrail is the source type.
+        /// </summary>
         public readonly Outputs.TelemetryRuleCloudtrailParameters? CloudtrailParameters;
         /// <summary>
         /// The pattern used to generate the destination path or name, supporting macros like &lt;resourceId&gt; and &lt;accountId&gt;.
@@ -25,6 +28,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
         /// The type of destination for the telemetry data (e.g., "Amazon CloudWatch Logs", "S3").
         /// </summary>
         public readonly Pulumi.AwsNative.ObservabilityAdmin.TelemetryRuleDestinationType? DestinationType;
+        /// <summary>
+        /// Configuration parameters specific to ELB load balancer logging when ELB is the resource type.
+        /// </summary>
         public readonly Outputs.TelemetryRuleElbLoadBalancerLoggingParameters? ElbLoadBalancerLoggingParameters;
         /// <summary>
         /// Parameters for BedrockAgentCore log delivery
@@ -38,6 +44,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
         /// Configuration parameters specific to VPC Flow Logs when VPC is the resource type.
         /// </summary>
         public readonly Outputs.TelemetryRuleVpcFlowLogParameters? VpcFlowLogParameters;
+        /// <summary>
+        /// Configuration parameters specific to WAF logging when WAF is the resource type.
+        /// </summary>
         public readonly Outputs.TelemetryRuleWafLoggingParameters? WafLoggingParameters;
 
         [OutputConstructor]

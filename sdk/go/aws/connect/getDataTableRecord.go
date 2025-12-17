@@ -23,9 +23,11 @@ func LookupDataTableRecord(ctx *pulumi.Context, args *LookupDataTableRecordArgs,
 }
 
 type LookupDataTableRecordArgs struct {
+	// The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
 	DataTableArn string `pulumi:"dataTableArn"`
-	InstanceArn  string `pulumi:"instanceArn"`
-	RecordId     string `pulumi:"recordId"`
+	// The Amazon Resource Name (ARN) of the instance.
+	InstanceArn string `pulumi:"instanceArn"`
+	RecordId    string `pulumi:"recordId"`
 }
 
 type LookupDataTableRecordResult struct {
@@ -43,9 +45,11 @@ func LookupDataTableRecordOutput(ctx *pulumi.Context, args LookupDataTableRecord
 }
 
 type LookupDataTableRecordOutputArgs struct {
+	// The Amazon Resource Name (ARN) for the data table. Does not include version aliases.
 	DataTableArn pulumi.StringInput `pulumi:"dataTableArn"`
-	InstanceArn  pulumi.StringInput `pulumi:"instanceArn"`
-	RecordId     pulumi.StringInput `pulumi:"recordId"`
+	// The Amazon Resource Name (ARN) of the instance.
+	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
+	RecordId    pulumi.StringInput `pulumi:"recordId"`
 }
 
 func (LookupDataTableRecordOutputArgs) ElementType() reflect.Type {

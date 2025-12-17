@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.SecurityHub
         public Output<string> SubscribedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The tags to add to the hub V2 resource when you enable Security Hub.
+        /// The tags to add to the hub V2 resource when you enable Security Hub CSPM.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.SecurityHub
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags to add to the hub V2 resource when you enable Security Hub.
+        /// The tags to add to the hub V2 resource when you enable Security Hub CSPM.
         /// </summary>
         public InputMap<string> Tags
         {

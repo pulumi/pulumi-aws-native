@@ -59,6 +59,9 @@ export const DataTableAttributeValueType = {
     NumberList: "NUMBER_LIST",
 } as const;
 
+/**
+ * The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
+ */
 export type DataTableAttributeValueType = (typeof DataTableAttributeValueType)[keyof typeof DataTableAttributeValueType];
 
 export const DataTableStatus = {

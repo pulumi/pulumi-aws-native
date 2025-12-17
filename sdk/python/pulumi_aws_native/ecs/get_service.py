@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetServiceResult:
-    def __init__(__self__, availability_zone_rebalancing=None, capacity_provider_strategy=None, deployment_configuration=None, deployment_controller=None, desired_count=None, enable_ecs_managed_tags=None, enable_execute_command=None, health_check_grace_period_seconds=None, load_balancers=None, name=None, network_configuration=None, placement_constraints=None, placement_strategies=None, platform_version=None, propagate_tags=None, service_arn=None, service_registries=None, tags=None, task_definition=None, vpc_lattice_configurations=None):
+    def __init__(__self__, availability_zone_rebalancing=None, capacity_provider_strategy=None, deployment_configuration=None, deployment_controller=None, desired_count=None, enable_ecs_managed_tags=None, enable_execute_command=None, health_check_grace_period_seconds=None, launch_type=None, load_balancers=None, name=None, network_configuration=None, placement_constraints=None, placement_strategies=None, platform_version=None, propagate_tags=None, service_arn=None, service_registries=None, tags=None, task_definition=None, vpc_lattice_configurations=None):
         if availability_zone_rebalancing and not isinstance(availability_zone_rebalancing, str):
             raise TypeError("Expected argument 'availability_zone_rebalancing' to be a str")
         pulumi.set(__self__, "availability_zone_rebalancing", availability_zone_rebalancing)
@@ -51,6 +51,9 @@ class GetServiceResult:
         if health_check_grace_period_seconds and not isinstance(health_check_grace_period_seconds, int):
             raise TypeError("Expected argument 'health_check_grace_period_seconds' to be a int")
         pulumi.set(__self__, "health_check_grace_period_seconds", health_check_grace_period_seconds)
+        if launch_type and not isinstance(launch_type, str):
+            raise TypeError("Expected argument 'launch_type' to be a str")
+        pulumi.set(__self__, "launch_type", launch_type)
         if load_balancers and not isinstance(load_balancers, list):
             raise TypeError("Expected argument 'load_balancers' to be a list")
         pulumi.set(__self__, "load_balancers", load_balancers)
@@ -162,6 +165,15 @@ class GetServiceResult:
          If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
         """
         return pulumi.get(self, "health_check_grace_period_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="launchType")
+    def launch_type(self) -> Optional['ServiceLaunchType']:
+        """
+        The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+          If you want to use Managed Instances, you must use the ``capacityProviderStrategy`` request parameter
+        """
+        return pulumi.get(self, "launch_type")
 
     @_builtins.property
     @pulumi.getter(name="loadBalancers")
@@ -291,6 +303,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             enable_ecs_managed_tags=self.enable_ecs_managed_tags,
             enable_execute_command=self.enable_execute_command,
             health_check_grace_period_seconds=self.health_check_grace_period_seconds,
+            launch_type=self.launch_type,
             load_balancers=self.load_balancers,
             name=self.name,
             network_configuration=self.network_configuration,
@@ -354,6 +367,7 @@ def get_service(cluster: Optional[_builtins.str] = None,
         enable_ecs_managed_tags=pulumi.get(__ret__, 'enable_ecs_managed_tags'),
         enable_execute_command=pulumi.get(__ret__, 'enable_execute_command'),
         health_check_grace_period_seconds=pulumi.get(__ret__, 'health_check_grace_period_seconds'),
+        launch_type=pulumi.get(__ret__, 'launch_type'),
         load_balancers=pulumi.get(__ret__, 'load_balancers'),
         name=pulumi.get(__ret__, 'name'),
         network_configuration=pulumi.get(__ret__, 'network_configuration'),
@@ -414,6 +428,7 @@ def get_service_output(cluster: Optional[pulumi.Input[_builtins.str]] = None,
         enable_ecs_managed_tags=pulumi.get(__response__, 'enable_ecs_managed_tags'),
         enable_execute_command=pulumi.get(__response__, 'enable_execute_command'),
         health_check_grace_period_seconds=pulumi.get(__response__, 'health_check_grace_period_seconds'),
+        launch_type=pulumi.get(__response__, 'launch_type'),
         load_balancers=pulumi.get(__response__, 'load_balancers'),
         name=pulumi.get(__response__, 'name'),
         network_configuration=pulumi.get(__response__, 'network_configuration'),

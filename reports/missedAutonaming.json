@@ -2625,7 +2625,8 @@
     "cfTypeName": "AWS::Connect::DataTableRecord",
     "properties": {
       "dataTableArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) for the data table. Does not include version aliases."
       },
       "dataTableRecord": {
         "$ref": "#/types/aws-native:connect:DataTableRecordProperties",
@@ -2636,7 +2637,8 @@
         }
       },
       "instanceArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the instance."
       }
     }
   },
@@ -2703,7 +2705,8 @@
         "description": "Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.\n *Minimum size*: 1\n *Maximum size*: 100"
       },
       "languageConfiguration": {
-        "$ref": "#/types/aws-native:connect:EvaluationFormLanguageConfiguration"
+        "$ref": "#/types/aws-native:connect:EvaluationFormLanguageConfiguration",
+        "description": "Configuration for language settings of this evaluation form."
       },
       "scoringStrategy": {
         "$ref": "#/types/aws-native:connect:EvaluationFormScoringStrategy",
@@ -2721,7 +2724,8 @@
         "description": "The tags used to organize, track, or control access for this resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }."
       },
       "targetConfiguration": {
-        "$ref": "#/types/aws-native:connect:EvaluationFormTargetConfiguration"
+        "$ref": "#/types/aws-native:connect:EvaluationFormTargetConfiguration",
+        "description": "Configuration that specifies the target for this evaluation form."
       },
       "title": {
         "type": "string",
@@ -3093,11 +3097,11 @@
       },
       "cmkSecretConfig": {
         "$ref": "#/types/aws-native:datasync:LocationAzureBlobCmkSecretConfig",
-        "description": "Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .\n\n\u003e You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request."
+        "description": "Specifies configuration information for a DataSync-managed secret, such as an authentication token, secret key, password, or Kerberos keytab that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .\n\n\u003e You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request."
       },
       "customSecretConfig": {
         "$ref": "#/types/aws-native:datasync:LocationAzureBlobCustomSecretConfig",
-        "description": "Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.\n\n\u003e You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request."
+        "description": "Specifies configuration information for a customer-managed Secrets Manager secret where a storage location credentials is stored in Secrets Manager as plain text (for authentication token, secret key, or password) or as binary (for Kerberos keytab). This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.\n\n\u003e You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request."
       },
       "subdirectory": {
         "type": "string",
@@ -3390,11 +3394,11 @@
       },
       "cmkSecretConfig": {
         "$ref": "#/types/aws-native:datasync:LocationObjectStorageCmkSecretConfig",
-        "description": "Specifies configuration information for a DataSync-managed secret, which includes the `SecretKey` that DataSync uses to access a specific object storage location, with a customer-managed AWS KMS key .\n\nWhen you include this paramater as part of a `CreateLocationObjectStorage` request, you provide only the KMS key ARN. DataSync uses this KMS key together with the value you specify for the `SecretKey` parameter to create a DataSync-managed secret to store the location access credentials.\n\nMake sure the DataSync has permission to access the KMS key that you specify.\n\n\u003e You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request."
+        "description": "Specifies configuration information for a DataSync-managed secret, which includes the `SecretKey` that DataSync uses to access a specific object storage location, with a customer-managed AWS KMS key .\n\nWhen you include this parameter as part of a `CreateLocationObjectStorage` request, you provide only the KMS key ARN. DataSync uses this KMS key together with the value you specify for the `SecretKey` parameter to create a DataSync-managed secret to store the location access credentials.\n\nMake sure that DataSync has permission to access the KMS key that you specify.\n\n\u003e You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request."
       },
       "customSecretConfig": {
         "$ref": "#/types/aws-native:datasync:LocationObjectStorageCustomSecretConfig",
-        "description": "Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.\n\n\u003e You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request."
+        "description": "Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text, in Secrets Manager. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.\n\n\u003e You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request."
       },
       "secretKey": {
         "type": "string",
@@ -3473,11 +3477,11 @@
       },
       "cmkSecretConfig": {
         "$ref": "#/types/aws-native:datasync:LocationSmbCmkSecretConfig",
-        "description": "Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .\n\n\u003e You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request."
+        "description": "Specifies configuration information for a DataSync-managed secret, such as an authentication token, secret key, password, or Kerberos keytab that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .\n\n\u003e You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request."
       },
       "customSecretConfig": {
         "$ref": "#/types/aws-native:datasync:LocationSmbCustomSecretConfig",
-        "description": "Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.\n\n\u003e You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request."
+        "description": "Specifies configuration information for a customer-managed Secrets Manager secret where a storage location credentials is stored in Secrets Manager as plain text (for authentication token, secret key, or password) or as binary (for Kerberos keytab). This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.\n\n\u003e You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request."
       },
       "dnsIpAddresses": {
         "type": "array",
@@ -6049,6 +6053,13 @@
       "spotFleetRequestConfigData": {
         "$ref": "#/types/aws-native:ec2:SpotFleetRequestConfigData",
         "description": "Describes the configuration of a Spot Fleet request."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags to specify in SpotFleetRequestConfigData"
       }
     }
   },
@@ -8332,7 +8343,7 @@
       },
       "protocol": {
         "type": "string",
-        "description": "The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer."
+        "description": "The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, TCP_UDP, QUIC, and TCP_QUIC. You can’t specify the UDP, TCP_UDP, QUIC, or TCP_QUIC protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer."
       },
       "sslPolicy": {
         "type": "string",
@@ -9060,6 +9071,31 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "Tags assigned to a resource."
+      }
+    }
+  },
+  "aws-native:groundstation:DataflowEndpointGroupV2": {
+    "cfTypeName": "AWS::GroundStation::DataflowEndpointGroupV2",
+    "properties": {
+      "contactPostPassDurationSeconds": {
+        "type": "integer",
+        "description": "Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state."
+      },
+      "contactPrePassDurationSeconds": {
+        "type": "integer",
+        "description": "Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state."
+      },
+      "endpoints": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:groundstation:DataflowEndpointGroupV2CreateEndpointDetails"
+        }
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
       }
     }
   },
@@ -12068,7 +12104,8 @@
         "type": "array",
         "items": {
           "type": "string"
-        }
+        },
+        "description": "The list of AWS Regions to remove from the key's replication configuration.\n\nThe key will no longer be available for cryptographic operations in these regions after removal. Ensure no active operations depend on the key in these regions before removal."
       },
       "tags": {
         "type": "array",
@@ -14570,7 +14607,7 @@
         "additionalProperties": {
           "type": "string"
         },
-        "description": "The tags to add to the hub V2 resource when you enable Security Hub."
+        "description": "The tags to add to the hub V2 resource when you enable Security Hub CSPM."
       }
     }
   },
@@ -16840,6 +16877,10 @@
           "type": "string"
         },
         "description": "The additional encryption context of the user settings."
+      },
+      "brandingConfiguration": {
+        "$ref": "#/types/aws-native:workspacesweb:UserSettingsBrandingConfiguration",
+        "description": "The branding configuration that customizes the appearance of the web portal for end users. This includes a custom logo, favicon, wallpaper, localized strings, color theme, and an optional terms of service."
       },
       "cookieSynchronizationConfiguration": {
         "$ref": "#/types/aws-native:workspacesweb:UserSettingsCookieSynchronizationConfiguration",

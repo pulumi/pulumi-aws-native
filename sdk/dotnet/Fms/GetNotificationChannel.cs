@@ -67,19 +67,11 @@ namespace Pulumi.AwsNative.Fms
         /// The Amazon Resource Name (ARN) of the IAM role that allows Amazon  to record AWS Firewall Manager activity.
         /// </summary>
         public readonly string? SnsRoleName;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the SNS topic that collects notifications from AWS Firewall Manager .
-        /// </summary>
-        public readonly string? SnsTopicArn;
 
         [OutputConstructor]
-        private GetNotificationChannelResult(
-            string? snsRoleName,
-
-            string? snsTopicArn)
+        private GetNotificationChannelResult(string? snsRoleName)
         {
             SnsRoleName = snsRoleName;
-            SnsTopicArn = snsTopicArn;
         }
     }
 }

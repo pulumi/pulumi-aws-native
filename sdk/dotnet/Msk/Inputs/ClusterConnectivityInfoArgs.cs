@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Msk.Inputs
 
     public sealed class ClusterConnectivityInfoArgs : global::Pulumi.ResourceArgs
     {
+        [Input("networkType")]
+        public Input<Pulumi.AwsNative.Msk.ClusterNetworkType>? NetworkType { get; set; }
+
         /// <summary>
         /// Access control settings for the cluster's brokers.
         /// </summary>

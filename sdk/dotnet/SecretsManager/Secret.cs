@@ -171,7 +171,7 @@ namespace Pulumi.AwsNative.SecretsManager
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The exact string that identifies the third-party partner that holds the external secret. For more information, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) .
+        /// The exact string that identifies the third-party partner that holds the external secret. For more information, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html).
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -298,7 +298,7 @@ namespace Pulumi.AwsNative.SecretsManager
         }
 
         /// <summary>
-        /// The exact string that identifies the third-party partner that holds the external secret. For more information, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html) .
+        /// The exact string that identifies the third-party partner that holds the external secret. For more information, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html).
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

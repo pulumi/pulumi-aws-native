@@ -17,6 +17,7 @@ from ._enums import *
 
 __all__ = [
     'DevicePoolRule',
+    'ProjectEnvironmentVariable',
     'ProjectVpcConfig',
     'TestGridProjectVpcConfig',
 ]
@@ -65,6 +66,25 @@ class DevicePoolRule(dict):
         """
         The rule's value.
         """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProjectEnvironmentVariable(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
         return pulumi.get(self, "value")
 
 

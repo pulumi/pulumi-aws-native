@@ -35,6 +35,8 @@ type LookupProfileResult struct {
 	ClientToken *string `pulumi:"clientToken"`
 	// The ID of the profile.
 	Id *string `pulumi:"id"`
+	// The sharing status of the profile.
+	ShareStatus *ProfileShareStatus `pulumi:"shareStatus"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -84,6 +86,11 @@ func (o LookupProfileResultOutput) ClientToken() pulumi.StringPtrOutput {
 // The ID of the profile.
 func (o LookupProfileResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProfileResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The sharing status of the profile.
+func (o LookupProfileResultOutput) ShareStatus() ProfileShareStatusPtrOutput {
+	return o.ApplyT(func(v LookupProfileResult) *ProfileShareStatus { return v.ShareStatus }).(ProfileShareStatusPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

@@ -109,6 +109,9 @@ namespace Pulumi.AwsNative.CleanRooms
         [Output("sourceMetadata")]
         public Output<Outputs.AnalysisTemplateAnalysisSourceMetadataProperties?> SourceMetadata { get; private set; } = null!;
 
+        /// <summary>
+        /// The parameters used to generate synthetic data for this analysis template.
+        /// </summary>
         [Output("syntheticDataParameters")]
         public Output<Outputs.AnalysisTemplateSyntheticDataParametersProperties?> SyntheticDataParameters { get; private set; } = null!;
 
@@ -234,6 +237,9 @@ namespace Pulumi.AwsNative.CleanRooms
         [Input("sourceMetadata")]
         public Input<Inputs.AnalysisTemplateAnalysisSourceMetadataPropertiesArgs>? SourceMetadata { get; set; }
 
+        /// <summary>
+        /// The parameters used to generate synthetic data for this analysis template.
+        /// </summary>
         [Input("syntheticDataParameters")]
         public Input<Inputs.AnalysisTemplateSyntheticDataParametersPropertiesArgs>? SyntheticDataParameters { get; set; }
 

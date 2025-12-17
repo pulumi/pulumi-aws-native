@@ -48,6 +48,7 @@ export interface GetGatewayResult {
      * The gateway URL for the gateway.
      */
     readonly gatewayUrl?: string;
+    readonly interceptorConfigurations?: outputs.bedrockagentcore.GatewayInterceptorConfiguration[];
     /**
      * The KMS key ARN for the gateway.
      */

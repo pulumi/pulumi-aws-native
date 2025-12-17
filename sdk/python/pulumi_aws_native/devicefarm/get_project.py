@@ -25,13 +25,19 @@ __all__ = [
 
 @pulumi.output_type
 class GetProjectResult:
-    def __init__(__self__, arn=None, default_job_timeout_minutes=None, name=None, tags=None, vpc_config=None):
+    def __init__(__self__, arn=None, default_job_timeout_minutes=None, environment_variables=None, execution_role_arn=None, name=None, tags=None, vpc_config=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if default_job_timeout_minutes and not isinstance(default_job_timeout_minutes, int):
             raise TypeError("Expected argument 'default_job_timeout_minutes' to be a int")
         pulumi.set(__self__, "default_job_timeout_minutes", default_job_timeout_minutes)
+        if environment_variables and not isinstance(environment_variables, list):
+            raise TypeError("Expected argument 'environment_variables' to be a list")
+        pulumi.set(__self__, "environment_variables", environment_variables)
+        if execution_role_arn and not isinstance(execution_role_arn, str):
+            raise TypeError("Expected argument 'execution_role_arn' to be a str")
+        pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -57,6 +63,16 @@ class GetProjectResult:
         Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
         """
         return pulumi.get(self, "default_job_timeout_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[Sequence['outputs.ProjectEnvironmentVariable']]:
+        return pulumi.get(self, "environment_variables")
+
+    @_builtins.property
+    @pulumi.getter(name="executionRoleArn")
+    def execution_role_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "execution_role_arn")
 
     @_builtins.property
     @pulumi.getter
@@ -91,6 +107,8 @@ class AwaitableGetProjectResult(GetProjectResult):
         return GetProjectResult(
             arn=self.arn,
             default_job_timeout_minutes=self.default_job_timeout_minutes,
+            environment_variables=self.environment_variables,
+            execution_role_arn=self.execution_role_arn,
             name=self.name,
             tags=self.tags,
             vpc_config=self.vpc_config)
@@ -112,6 +130,8 @@ def get_project(arn: Optional[_builtins.str] = None,
     return AwaitableGetProjectResult(
         arn=pulumi.get(__ret__, 'arn'),
         default_job_timeout_minutes=pulumi.get(__ret__, 'default_job_timeout_minutes'),
+        environment_variables=pulumi.get(__ret__, 'environment_variables'),
+        execution_role_arn=pulumi.get(__ret__, 'execution_role_arn'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_config=pulumi.get(__ret__, 'vpc_config'))
@@ -130,6 +150,8 @@ def get_project_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetProjectResult(
         arn=pulumi.get(__response__, 'arn'),
         default_job_timeout_minutes=pulumi.get(__response__, 'default_job_timeout_minutes'),
+        environment_variables=pulumi.get(__response__, 'environment_variables'),
+        execution_role_arn=pulumi.get(__response__, 'execution_role_arn'),
         name=pulumi.get(__response__, 'name'),
         tags=pulumi.get(__response__, 'tags'),
         vpc_config=pulumi.get(__response__, 'vpc_config')))

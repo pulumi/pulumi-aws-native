@@ -61,6 +61,9 @@ export interface GetCampaignResult {
      * One or more tags.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The type of campaign.
+     */
     readonly type?: enums.connectcampaignsv2.CampaignType;
 }
 /**

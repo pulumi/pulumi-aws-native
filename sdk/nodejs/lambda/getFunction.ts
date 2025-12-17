@@ -40,6 +40,9 @@ export interface GetFunctionResult {
      * The Amazon Resource Name (ARN) of the function.
      */
     readonly arn?: string;
+    /**
+     * Configuration for the capacity provider that manages compute resources for Lambda functions.
+     */
     readonly capacityProviderConfig?: outputs.lambda.FunctionCapacityProviderConfig;
     /**
      * The code for the function. You can define your function code in multiple ways:
@@ -60,6 +63,9 @@ export interface GetFunctionResult {
      * A description of the function.
      */
     readonly description?: string;
+    /**
+     * Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+     */
     readonly durableConfig?: outputs.lambda.FunctionDurableConfig;
     /**
      * Environment variables that are accessible from function code during execution.
@@ -74,6 +80,9 @@ export interface GetFunctionResult {
      *  For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).
      */
     readonly fileSystemConfigs?: outputs.lambda.FunctionFileSystemConfig[];
+    /**
+     * Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+     */
     readonly functionScalingConfig?: outputs.lambda.FunctionScalingConfig;
     /**
      * The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).

@@ -16,10 +16,65 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'IndexEncryptionConfiguration',
     'IndexMetadataConfiguration',
     'VectorBucketEncryptionConfiguration',
     'VectorBucketPolicyPolicy',
 ]
+
+@pulumi.output_type
+class IndexEncryptionConfiguration(dict):
+    """
+    The encryption configuration for the index.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+        elif key == "sseType":
+            suggest = "sse_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_arn: Optional[_builtins.str] = None,
+                 sse_type: Optional['IndexEncryptionConfigurationSseType'] = None):
+        """
+        The encryption configuration for the index.
+        :param _builtins.str kms_key_arn: AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if sseType is set to aws:kms
+        :param 'IndexEncryptionConfigurationSseType' sse_type: Defines the server-side encryption type for index encryption configuration. Defaults to the parent vector bucket's encryption settings when unspecified.
+        """
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if sse_type is not None:
+            pulumi.set(__self__, "sse_type", sse_type)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
+        """
+        AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if sseType is set to aws:kms
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="sseType")
+    def sse_type(self) -> Optional['IndexEncryptionConfigurationSseType']:
+        """
+        Defines the server-side encryption type for index encryption configuration. Defaults to the parent vector bucket's encryption settings when unspecified.
+        """
+        return pulumi.get(self, "sse_type")
+
 
 @pulumi.output_type
 class IndexMetadataConfiguration(dict):

@@ -104,6 +104,18 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         public Output<string> CollectionEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the collection group.
+        /// 
+        /// The name must meet the following criteria:
+        /// Unique to your account and AWS Region
+        /// Starts with a lowercase letter
+        /// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
+        /// Contains between 3 and 32 characters
+        /// </summary>
+        [Output("collectionGroupName")]
+        public Output<string?> CollectionGroupName { get; private set; } = null!;
+
+        /// <summary>
         /// The OpenSearch Dashboards endpoint for the collection.
         /// </summary>
         [Output("dashboardEndpoint")]
@@ -114,6 +126,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        [Output("encryptionConfig")]
+        public Output<Outputs.CollectionEncryptionConfig?> EncryptionConfig { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the AWS KMS key used to encrypt the collection.
@@ -176,6 +191,8 @@ namespace Pulumi.AwsNative.OpenSearchServerless
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "collectionGroupName",
+                    "encryptionConfig",
                     "name",
                     "standbyReplicas",
                     "tags[*]",
@@ -204,10 +221,25 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     public sealed class CollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the collection group.
+        /// 
+        /// The name must meet the following criteria:
+        /// Unique to your account and AWS Region
+        /// Starts with a lowercase letter
+        /// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
+        /// Contains between 3 and 32 characters
+        /// </summary>
+        [Input("collectionGroupName")]
+        public Input<string>? CollectionGroupName { get; set; }
+
+        /// <summary>
         /// The description of the collection
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("encryptionConfig")]
+        public Input<Inputs.CollectionEncryptionConfigArgs>? EncryptionConfig { get; set; }
 
         /// <summary>
         /// The name of the collection.

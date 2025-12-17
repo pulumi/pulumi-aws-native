@@ -64,3 +64,25 @@ export const DataflowEndpointGroupAuditResults = {
  * The results of the audit.
  */
 export type DataflowEndpointGroupAuditResults = (typeof DataflowEndpointGroupAuditResults)[keyof typeof DataflowEndpointGroupAuditResults];
+
+export const DataflowEndpointGroupV2AgentStatus = {
+    Success: "SUCCESS",
+    Failed: "FAILED",
+    Active: "ACTIVE",
+    Inactive: "INACTIVE",
+} as const;
+
+/**
+ * The status of AgentEndpoint.
+ */
+export type DataflowEndpointGroupV2AgentStatus = (typeof DataflowEndpointGroupV2AgentStatus)[keyof typeof DataflowEndpointGroupV2AgentStatus];
+
+export const DataflowEndpointGroupV2AuditResults = {
+    Healthy: "HEALTHY",
+    Unhealthy: "UNHEALTHY",
+} as const;
+
+/**
+ * The results of the audit.
+ */
+export type DataflowEndpointGroupV2AuditResults = (typeof DataflowEndpointGroupV2AuditResults)[keyof typeof DataflowEndpointGroupV2AuditResults];

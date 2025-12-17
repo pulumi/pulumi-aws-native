@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     [OutputType]
     public sealed class CapacityProviderTargetTrackingScalingPolicy
     {
+        /// <summary>
+        /// The predefined metric type to track for scaling decisions.
+        /// </summary>
         public readonly Pulumi.AwsNative.Lambda.CapacityProviderPredefinedMetricType PredefinedMetricType;
         /// <summary>
         /// The target value for the metric as a percentage (for example, 70.0 for 70%).

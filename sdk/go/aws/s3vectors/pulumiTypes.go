@@ -13,6 +13,165 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// The encryption configuration for the index.
+type IndexEncryptionConfiguration struct {
+	// AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if sseType is set to aws:kms
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// Defines the server-side encryption type for index encryption configuration. Defaults to the parent vector bucket's encryption settings when unspecified.
+	SseType *IndexEncryptionConfigurationSseType `pulumi:"sseType"`
+}
+
+// IndexEncryptionConfigurationInput is an input type that accepts IndexEncryptionConfigurationArgs and IndexEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `IndexEncryptionConfigurationInput` via:
+//
+//	IndexEncryptionConfigurationArgs{...}
+type IndexEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToIndexEncryptionConfigurationOutput() IndexEncryptionConfigurationOutput
+	ToIndexEncryptionConfigurationOutputWithContext(context.Context) IndexEncryptionConfigurationOutput
+}
+
+// The encryption configuration for the index.
+type IndexEncryptionConfigurationArgs struct {
+	// AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if sseType is set to aws:kms
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// Defines the server-side encryption type for index encryption configuration. Defaults to the parent vector bucket's encryption settings when unspecified.
+	SseType IndexEncryptionConfigurationSseTypePtrInput `pulumi:"sseType"`
+}
+
+func (IndexEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i IndexEncryptionConfigurationArgs) ToIndexEncryptionConfigurationOutput() IndexEncryptionConfigurationOutput {
+	return i.ToIndexEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i IndexEncryptionConfigurationArgs) ToIndexEncryptionConfigurationOutputWithContext(ctx context.Context) IndexEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexEncryptionConfigurationOutput)
+}
+
+func (i IndexEncryptionConfigurationArgs) ToIndexEncryptionConfigurationPtrOutput() IndexEncryptionConfigurationPtrOutput {
+	return i.ToIndexEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i IndexEncryptionConfigurationArgs) ToIndexEncryptionConfigurationPtrOutputWithContext(ctx context.Context) IndexEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexEncryptionConfigurationOutput).ToIndexEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// IndexEncryptionConfigurationPtrInput is an input type that accepts IndexEncryptionConfigurationArgs, IndexEncryptionConfigurationPtr and IndexEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `IndexEncryptionConfigurationPtrInput` via:
+//
+//	        IndexEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type IndexEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToIndexEncryptionConfigurationPtrOutput() IndexEncryptionConfigurationPtrOutput
+	ToIndexEncryptionConfigurationPtrOutputWithContext(context.Context) IndexEncryptionConfigurationPtrOutput
+}
+
+type indexEncryptionConfigurationPtrType IndexEncryptionConfigurationArgs
+
+func IndexEncryptionConfigurationPtr(v *IndexEncryptionConfigurationArgs) IndexEncryptionConfigurationPtrInput {
+	return (*indexEncryptionConfigurationPtrType)(v)
+}
+
+func (*indexEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *indexEncryptionConfigurationPtrType) ToIndexEncryptionConfigurationPtrOutput() IndexEncryptionConfigurationPtrOutput {
+	return i.ToIndexEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *indexEncryptionConfigurationPtrType) ToIndexEncryptionConfigurationPtrOutputWithContext(ctx context.Context) IndexEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexEncryptionConfigurationPtrOutput)
+}
+
+// The encryption configuration for the index.
+type IndexEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IndexEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o IndexEncryptionConfigurationOutput) ToIndexEncryptionConfigurationOutput() IndexEncryptionConfigurationOutput {
+	return o
+}
+
+func (o IndexEncryptionConfigurationOutput) ToIndexEncryptionConfigurationOutputWithContext(ctx context.Context) IndexEncryptionConfigurationOutput {
+	return o
+}
+
+func (o IndexEncryptionConfigurationOutput) ToIndexEncryptionConfigurationPtrOutput() IndexEncryptionConfigurationPtrOutput {
+	return o.ToIndexEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o IndexEncryptionConfigurationOutput) ToIndexEncryptionConfigurationPtrOutputWithContext(ctx context.Context) IndexEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexEncryptionConfiguration) *IndexEncryptionConfiguration {
+		return &v
+	}).(IndexEncryptionConfigurationPtrOutput)
+}
+
+// AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if sseType is set to aws:kms
+func (o IndexEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexEncryptionConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// Defines the server-side encryption type for index encryption configuration. Defaults to the parent vector bucket's encryption settings when unspecified.
+func (o IndexEncryptionConfigurationOutput) SseType() IndexEncryptionConfigurationSseTypePtrOutput {
+	return o.ApplyT(func(v IndexEncryptionConfiguration) *IndexEncryptionConfigurationSseType { return v.SseType }).(IndexEncryptionConfigurationSseTypePtrOutput)
+}
+
+type IndexEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IndexEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o IndexEncryptionConfigurationPtrOutput) ToIndexEncryptionConfigurationPtrOutput() IndexEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o IndexEncryptionConfigurationPtrOutput) ToIndexEncryptionConfigurationPtrOutputWithContext(ctx context.Context) IndexEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o IndexEncryptionConfigurationPtrOutput) Elem() IndexEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *IndexEncryptionConfiguration) IndexEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IndexEncryptionConfiguration
+		return ret
+	}).(IndexEncryptionConfigurationOutput)
+}
+
+// AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if sseType is set to aws:kms
+func (o IndexEncryptionConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IndexEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the server-side encryption type for index encryption configuration. Defaults to the parent vector bucket's encryption settings when unspecified.
+func (o IndexEncryptionConfigurationPtrOutput) SseType() IndexEncryptionConfigurationSseTypePtrOutput {
+	return o.ApplyT(func(v *IndexEncryptionConfiguration) *IndexEncryptionConfigurationSseType {
+		if v == nil {
+			return nil
+		}
+		return v.SseType
+	}).(IndexEncryptionConfigurationSseTypePtrOutput)
+}
+
 // The metadata configuration for the vector index.
 type IndexMetadataConfiguration struct {
 	// Non-filterable metadata keys allow you to enrich vectors with additional context during storage and retrieval. Unlike default metadata keys, these keys cannot be used as query filters. Non-filterable metadata keys can be retrieved but cannot be searched, queried, or filtered. You can access non-filterable metadata keys of your vectors after finding the vectors.
@@ -385,11 +544,15 @@ func (o VectorBucketPolicyPolicyPtrOutput) Elem() VectorBucketPolicyPolicyOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexEncryptionConfigurationInput)(nil)).Elem(), IndexEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexEncryptionConfigurationPtrInput)(nil)).Elem(), IndexEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexMetadataConfigurationInput)(nil)).Elem(), IndexMetadataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexMetadataConfigurationPtrInput)(nil)).Elem(), IndexMetadataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VectorBucketEncryptionConfigurationInput)(nil)).Elem(), VectorBucketEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VectorBucketEncryptionConfigurationPtrInput)(nil)).Elem(), VectorBucketEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VectorBucketPolicyPolicyInput)(nil)).Elem(), VectorBucketPolicyPolicyArgs{})
+	pulumi.RegisterOutputType(IndexEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(IndexEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IndexMetadataConfigurationOutput{})
 	pulumi.RegisterOutputType(IndexMetadataConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VectorBucketEncryptionConfigurationOutput{})

@@ -2271,6 +2271,12 @@ if not MYPY:
 
         Default: `20`
         """
+        require_encryption_in_transit: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
+
+        Default: `false`
+        """
         require_hibernate_support: NotRequired[pulumi.Input[_builtins.bool]]
         """
         Indicates whether instance types must support hibernation for On-Demand Instances.
@@ -2330,6 +2336,7 @@ class Ec2FleetInstanceRequirementsRequestArgs:
                  network_bandwidth_gbps: Optional[pulumi.Input['Ec2FleetNetworkBandwidthGbpsRequestArgs']] = None,
                  network_interface_count: Optional[pulumi.Input['Ec2FleetNetworkInterfaceCountRequestArgs']] = None,
                  on_demand_max_price_percentage_over_lowest_price: Optional[pulumi.Input[_builtins.int]] = None,
+                 require_encryption_in_transit: Optional[pulumi.Input[_builtins.bool]] = None,
                  require_hibernate_support: Optional[pulumi.Input[_builtins.bool]] = None,
                  spot_max_price_percentage_over_lowest_price: Optional[pulumi.Input[_builtins.int]] = None,
                  total_local_storage_gb: Optional[pulumi.Input['Ec2FleetTotalLocalStorageGbRequestArgs']] = None,
@@ -2477,6 +2484,9 @@ class Ec2FleetInstanceRequirementsRequestArgs:
                > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price. 
                
                Default: `20`
+        :param pulumi.Input[_builtins.bool] require_encryption_in_transit: Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
+               
+               Default: `false`
         :param pulumi.Input[_builtins.bool] require_hibernate_support: Indicates whether instance types must support hibernation for On-Demand Instances.
                
                This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
@@ -2540,6 +2550,8 @@ class Ec2FleetInstanceRequirementsRequestArgs:
             pulumi.set(__self__, "network_interface_count", network_interface_count)
         if on_demand_max_price_percentage_over_lowest_price is not None:
             pulumi.set(__self__, "on_demand_max_price_percentage_over_lowest_price", on_demand_max_price_percentage_over_lowest_price)
+        if require_encryption_in_transit is not None:
+            pulumi.set(__self__, "require_encryption_in_transit", require_encryption_in_transit)
         if require_hibernate_support is not None:
             pulumi.set(__self__, "require_hibernate_support", require_hibernate_support)
         if spot_max_price_percentage_over_lowest_price is not None:
@@ -2921,6 +2933,20 @@ class Ec2FleetInstanceRequirementsRequestArgs:
     @on_demand_max_price_percentage_over_lowest_price.setter
     def on_demand_max_price_percentage_over_lowest_price(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "on_demand_max_price_percentage_over_lowest_price", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requireEncryptionInTransit")
+    def require_encryption_in_transit(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
+
+        Default: `false`
+        """
+        return pulumi.get(self, "require_encryption_in_transit")
+
+    @require_encryption_in_transit.setter
+    def require_encryption_in_transit(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "require_encryption_in_transit", value)
 
     @_builtins.property
     @pulumi.getter(name="requireHibernateSupport")
@@ -13478,6 +13504,12 @@ if not MYPY:
 
         Default: `20`
         """
+        require_encryption_in_transit: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
+
+        Default: `false`
+        """
         require_hibernate_support: NotRequired[pulumi.Input[_builtins.bool]]
         """
         Indicates whether instance types must support hibernation for On-Demand Instances.
@@ -13537,6 +13569,7 @@ class SpotFleetInstanceRequirementsRequestArgs:
                  network_bandwidth_gbps: Optional[pulumi.Input['SpotFleetNetworkBandwidthGbpsRequestArgs']] = None,
                  network_interface_count: Optional[pulumi.Input['SpotFleetNetworkInterfaceCountRequestArgs']] = None,
                  on_demand_max_price_percentage_over_lowest_price: Optional[pulumi.Input[_builtins.int]] = None,
+                 require_encryption_in_transit: Optional[pulumi.Input[_builtins.bool]] = None,
                  require_hibernate_support: Optional[pulumi.Input[_builtins.bool]] = None,
                  spot_max_price_percentage_over_lowest_price: Optional[pulumi.Input[_builtins.int]] = None,
                  total_local_storage_gb: Optional[pulumi.Input['SpotFleetTotalLocalStorageGbRequestArgs']] = None,
@@ -13684,6 +13717,9 @@ class SpotFleetInstanceRequirementsRequestArgs:
                > If you set `TargetCapacityUnitType` to `vcpu` or `memory-mib` , the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price. 
                
                Default: `20`
+        :param pulumi.Input[_builtins.bool] require_encryption_in_transit: Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
+               
+               Default: `false`
         :param pulumi.Input[_builtins.bool] require_hibernate_support: Indicates whether instance types must support hibernation for On-Demand Instances.
                
                This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) .
@@ -13747,6 +13783,8 @@ class SpotFleetInstanceRequirementsRequestArgs:
             pulumi.set(__self__, "network_interface_count", network_interface_count)
         if on_demand_max_price_percentage_over_lowest_price is not None:
             pulumi.set(__self__, "on_demand_max_price_percentage_over_lowest_price", on_demand_max_price_percentage_over_lowest_price)
+        if require_encryption_in_transit is not None:
+            pulumi.set(__self__, "require_encryption_in_transit", require_encryption_in_transit)
         if require_hibernate_support is not None:
             pulumi.set(__self__, "require_hibernate_support", require_hibernate_support)
         if spot_max_price_percentage_over_lowest_price is not None:
@@ -14128,6 +14166,20 @@ class SpotFleetInstanceRequirementsRequestArgs:
     @on_demand_max_price_percentage_over_lowest_price.setter
     def on_demand_max_price_percentage_over_lowest_price(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "on_demand_max_price_percentage_over_lowest_price", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requireEncryptionInTransit")
+    def require_encryption_in_transit(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Specifies whether instance types must support encrypting in-transit traffic between instances. For more information, including the supported instance types, see [Encryption in transit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html#encryption-transit) in the *Amazon EC2 User Guide* .
+
+        Default: `false`
+        """
+        return pulumi.get(self, "require_encryption_in_transit")
+
+    @require_encryption_in_transit.setter
+    def require_encryption_in_transit(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "require_encryption_in_transit", value)
 
     @_builtins.property
     @pulumi.getter(name="requireHibernateSupport")

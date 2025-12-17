@@ -56,6 +56,12 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("lifeCycleConfig", required: true)]
         public Input<Inputs.ClusterLifeCycleConfigArgs> LifeCycleConfig { get; set; } = null!;
 
+        /// <summary>
+        /// The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
+        /// </summary>
+        [Input("minInstanceCount")]
+        public Input<int>? MinInstanceCount { get; set; }
+
         [Input("onStartDeepHealthChecks")]
         private InputList<Pulumi.AwsNative.SageMaker.ClusterDeepHealthCheckType>? _onStartDeepHealthChecks;
         public InputList<Pulumi.AwsNative.SageMaker.ClusterDeepHealthCheckType> OnStartDeepHealthChecks

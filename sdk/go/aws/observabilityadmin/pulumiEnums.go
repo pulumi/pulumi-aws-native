@@ -846,6 +846,7 @@ func (in *organizationTelemetryRuleDestinationTypePtr) ToOrganizationTelemetryRu
 	return pulumi.ToOutputWithContext(ctx, in).(OrganizationTelemetryRuleDestinationTypePtrOutput)
 }
 
+// The format for ELB access log entries (plain text or JSON format).
 type OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat string
 
 const (
@@ -2496,6 +2497,7 @@ func (in *telemetryRuleDestinationTypePtr) ToTelemetryRuleDestinationTypePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(TelemetryRuleDestinationTypePtrOutput)
 }
 
+// The format for ELB access log entries (plain text or JSON format).
 type TelemetryRuleElbLoadBalancerLoggingParametersOutputFormat string
 
 const (

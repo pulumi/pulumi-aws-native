@@ -21,6 +21,16 @@ export const IndexDistanceMetric = {
  */
 export type IndexDistanceMetric = (typeof IndexDistanceMetric)[keyof typeof IndexDistanceMetric];
 
+export const IndexEncryptionConfigurationSseType = {
+    Aes256: "AES256",
+    Awskms: "aws:kms",
+} as const;
+
+/**
+ * Defines the server-side encryption type for index encryption configuration. Defaults to the parent vector bucket's encryption settings when unspecified.
+ */
+export type IndexEncryptionConfigurationSseType = (typeof IndexEncryptionConfigurationSseType)[keyof typeof IndexEncryptionConfigurationSseType];
+
 export const VectorBucketEncryptionConfigurationSseType = {
     Aes256: "AES256",
     Awskms: "aws:kms",

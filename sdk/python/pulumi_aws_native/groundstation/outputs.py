@@ -41,6 +41,21 @@ __all__ = [
     'DataflowEndpointGroupRangedSocketAddress',
     'DataflowEndpointGroupSecurityDetails',
     'DataflowEndpointGroupSocketAddress',
+    'DataflowEndpointGroupV2ConnectionDetails',
+    'DataflowEndpointGroupV2CreateEndpointDetails',
+    'DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint',
+    'DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails',
+    'DataflowEndpointGroupV2DownlinkConnectionDetails',
+    'DataflowEndpointGroupV2DownlinkDataflowDetails',
+    'DataflowEndpointGroupV2EndpointDetails',
+    'DataflowEndpointGroupV2IntegerRange',
+    'DataflowEndpointGroupV2RangedConnectionDetails',
+    'DataflowEndpointGroupV2RangedSocketAddress',
+    'DataflowEndpointGroupV2SocketAddress',
+    'DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint',
+    'DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails',
+    'DataflowEndpointGroupV2UplinkConnectionDetails',
+    'DataflowEndpointGroupV2UplinkDataflowDetails',
     'MissionProfileDataflowEdge',
     'MissionProfileStreamsKmsKey',
 ]
@@ -1292,6 +1307,660 @@ class DataflowEndpointGroupSocketAddress(dict):
         The port of the endpoint, such as `55888` .
         """
         return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class DataflowEndpointGroupV2ConnectionDetails(dict):
+    """
+    Socket address of an uplink or downlink agent endpoint with an optional mtu.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "socketAddress":
+            suggest = "socket_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointGroupV2ConnectionDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowEndpointGroupV2ConnectionDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowEndpointGroupV2ConnectionDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 socket_address: 'outputs.DataflowEndpointGroupV2SocketAddress',
+                 mtu: Optional[_builtins.int] = None):
+        """
+        Socket address of an uplink or downlink agent endpoint with an optional mtu.
+        :param _builtins.int mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+        """
+        pulumi.set(__self__, "socket_address", socket_address)
+        if mtu is not None:
+            pulumi.set(__self__, "mtu", mtu)
+
+    @_builtins.property
+    @pulumi.getter(name="socketAddress")
+    def socket_address(self) -> 'outputs.DataflowEndpointGroupV2SocketAddress':
+        return pulumi.get(self, "socket_address")
+
+    @_builtins.property
+    @pulumi.getter
+    def mtu(self) -> Optional[_builtins.int]:
+        """
+        Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+        """
+        return pulumi.get(self, "mtu")
+
+
+@pulumi.output_type
+class DataflowEndpointGroupV2CreateEndpointDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "downlinkAwsGroundStationAgentEndpoint":
+            suggest = "downlink_aws_ground_station_agent_endpoint"
+        elif key == "uplinkAwsGroundStationAgentEndpoint":
+            suggest = "uplink_aws_ground_station_agent_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointGroupV2CreateEndpointDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowEndpointGroupV2CreateEndpointDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowEndpointGroupV2CreateEndpointDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 downlink_aws_ground_station_agent_endpoint: Optional['outputs.DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint'] = None,
+                 uplink_aws_ground_station_agent_endpoint: Optional['outputs.DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint'] = None):
+        if downlink_aws_ground_station_agent_endpoint is not None:
+            pulumi.set(__self__, "downlink_aws_ground_station_agent_endpoint", downlink_aws_ground_station_agent_endpoint)
+        if uplink_aws_ground_station_agent_endpoint is not None:
+            pulumi.set(__self__, "uplink_aws_ground_station_agent_endpoint", uplink_aws_ground_station_agent_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="downlinkAwsGroundStationAgentEndpoint")
+    def downlink_aws_ground_station_agent_endpoint(self) -> Optional['outputs.DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint']:
+        return pulumi.get(self, "downlink_aws_ground_station_agent_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="uplinkAwsGroundStationAgentEndpoint")
+    def uplink_aws_ground_station_agent_endpoint(self) -> Optional['outputs.DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint']:
+        return pulumi.get(self, "uplink_aws_ground_station_agent_endpoint")
+
+
+@pulumi.output_type
+class DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint(dict):
+    """
+    Information about DownlinkAwsGroundStationAgentEndpoint used for create
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataflowDetails":
+            suggest = "dataflow_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dataflow_details: 'outputs.DataflowEndpointGroupV2DownlinkDataflowDetails',
+                 name: _builtins.str):
+        """
+        Information about DownlinkAwsGroundStationAgentEndpoint used for create
+        """
+        pulumi.set(__self__, "dataflow_details", dataflow_details)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="dataflowDetails")
+    def dataflow_details(self) -> 'outputs.DataflowEndpointGroupV2DownlinkDataflowDetails':
+        return pulumi.get(self, "dataflow_details")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails(dict):
+    """
+    Information about DownlinkAwsGroundStationAgentEndpoint
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataflowDetails":
+            suggest = "dataflow_details"
+        elif key == "agentStatus":
+            suggest = "agent_status"
+        elif key == "auditResults":
+            suggest = "audit_results"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dataflow_details: 'outputs.DataflowEndpointGroupV2DownlinkDataflowDetails',
+                 name: _builtins.str,
+                 agent_status: Optional['DataflowEndpointGroupV2AgentStatus'] = None,
+                 audit_results: Optional['DataflowEndpointGroupV2AuditResults'] = None):
+        """
+        Information about DownlinkAwsGroundStationAgentEndpoint
+        """
+        pulumi.set(__self__, "dataflow_details", dataflow_details)
+        pulumi.set(__self__, "name", name)
+        if agent_status is not None:
+            pulumi.set(__self__, "agent_status", agent_status)
+        if audit_results is not None:
+            pulumi.set(__self__, "audit_results", audit_results)
+
+    @_builtins.property
+    @pulumi.getter(name="dataflowDetails")
+    def dataflow_details(self) -> 'outputs.DataflowEndpointGroupV2DownlinkDataflowDetails':
+        return pulumi.get(self, "dataflow_details")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="agentStatus")
+    def agent_status(self) -> Optional['DataflowEndpointGroupV2AgentStatus']:
+        return pulumi.get(self, "agent_status")
+
+    @_builtins.property
+    @pulumi.getter(name="auditResults")
+    def audit_results(self) -> Optional['DataflowEndpointGroupV2AuditResults']:
+        return pulumi.get(self, "audit_results")
+
+
+@pulumi.output_type
+class DataflowEndpointGroupV2DownlinkConnectionDetails(dict):
+    """
+    Connection details for downlink, from ground station to agent, and customer to agent
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentIpAndPortAddress":
+            suggest = "agent_ip_and_port_address"
+        elif key == "egressAddressAndPort":
+            suggest = "egress_address_and_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointGroupV2DownlinkConnectionDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowEndpointGroupV2DownlinkConnectionDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowEndpointGroupV2DownlinkConnectionDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_ip_and_port_address: 'outputs.DataflowEndpointGroupV2RangedConnectionDetails',
+                 egress_address_and_port: 'outputs.DataflowEndpointGroupV2ConnectionDetails'):
+        """
+        Connection details for downlink, from ground station to agent, and customer to agent
+        """
+        pulumi.set(__self__, "agent_ip_and_port_address", agent_ip_and_port_address)
+        pulumi.set(__self__, "egress_address_and_port", egress_address_and_port)
+
+    @_builtins.property
+    @pulumi.getter(name="agentIpAndPortAddress")
+    def agent_ip_and_port_address(self) -> 'outputs.DataflowEndpointGroupV2RangedConnectionDetails':
+        return pulumi.get(self, "agent_ip_and_port_address")
+
+    @_builtins.property
+    @pulumi.getter(name="egressAddressAndPort")
+    def egress_address_and_port(self) -> 'outputs.DataflowEndpointGroupV2ConnectionDetails':
+        return pulumi.get(self, "egress_address_and_port")
+
+
+@pulumi.output_type
+class DataflowEndpointGroupV2DownlinkDataflowDetails(dict):
+    """
+    Dataflow details for downlink
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentConnectionDetails":
+            suggest = "agent_connection_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointGroupV2DownlinkDataflowDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowEndpointGroupV2DownlinkDataflowDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowEndpointGroupV2DownlinkDataflowDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_connection_details: Optional['outputs.DataflowEndpointGroupV2DownlinkConnectionDetails'] = None):
+        """
+        Dataflow details for downlink
+        """
+        if agent_connection_details is not None:
+            pulumi.set(__self__, "agent_connection_details", agent_connection_details)
+
+    @_builtins.property
+    @pulumi.getter(name="agentConnectionDetails")
+    def agent_connection_details(self) -> Optional['outputs.DataflowEndpointGroupV2DownlinkConnectionDetails']:
+        return pulumi.get(self, "agent_connection_details")
+
+
+@pulumi.output_type
+class DataflowEndpointGroupV2EndpointDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "downlinkAwsGroundStationAgentEndpoint":
+            suggest = "downlink_aws_ground_station_agent_endpoint"
+        elif key == "uplinkAwsGroundStationAgentEndpoint":
+            suggest = "uplink_aws_ground_station_agent_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointGroupV2EndpointDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowEndpointGroupV2EndpointDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowEndpointGroupV2EndpointDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 downlink_aws_ground_station_agent_endpoint: Optional['outputs.DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails'] = None,
+                 uplink_aws_ground_station_agent_endpoint: Optional['outputs.DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails'] = None):
+        if downlink_aws_ground_station_agent_endpoint is not None:
+            pulumi.set(__self__, "downlink_aws_ground_station_agent_endpoint", downlink_aws_ground_station_agent_endpoint)
+        if uplink_aws_ground_station_agent_endpoint is not None:
+            pulumi.set(__self__, "uplink_aws_ground_station_agent_endpoint", uplink_aws_ground_station_agent_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="downlinkAwsGroundStationAgentEndpoint")
+    def downlink_aws_ground_station_agent_endpoint(self) -> Optional['outputs.DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails']:
+        return pulumi.get(self, "downlink_aws_ground_station_agent_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="uplinkAwsGroundStationAgentEndpoint")
+    def uplink_aws_ground_station_agent_endpoint(self) -> Optional['outputs.DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails']:
+        return pulumi.get(self, "uplink_aws_ground_station_agent_endpoint")
+
+
+@pulumi.output_type
+class DataflowEndpointGroupV2IntegerRange(dict):
+    """
+    An integer range that has a minimum and maximum value.
+    """
+    def __init__(__self__, *,
+                 maximum: _builtins.int,
+                 minimum: _builtins.int):
+        """
+        An integer range that has a minimum and maximum value.
+        :param _builtins.int maximum: A maximum value.
+        :param _builtins.int minimum: A minimum value.
+        """
+        pulumi.set(__self__, "maximum", maximum)
+        pulumi.set(__self__, "minimum", minimum)
+
+    @_builtins.property
+    @pulumi.getter
+    def maximum(self) -> _builtins.int:
+        """
+        A maximum value.
+        """
+        return pulumi.get(self, "maximum")
+
+    @_builtins.property
+    @pulumi.getter
+    def minimum(self) -> _builtins.int:
+        """
+        A minimum value.
+        """
+        return pulumi.get(self, "minimum")
+
+
+@pulumi.output_type
+class DataflowEndpointGroupV2RangedConnectionDetails(dict):
+    """
+    Socket address of an uplink or downlink agent endpoint with a port range and an optional mtu.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "socketAddress":
+            suggest = "socket_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointGroupV2RangedConnectionDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowEndpointGroupV2RangedConnectionDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowEndpointGroupV2RangedConnectionDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 socket_address: 'outputs.DataflowEndpointGroupV2RangedSocketAddress',
+                 mtu: Optional[_builtins.int] = None):
+        """
+        Socket address of an uplink or downlink agent endpoint with a port range and an optional mtu.
+        :param _builtins.int mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+        """
+        pulumi.set(__self__, "socket_address", socket_address)
+        if mtu is not None:
+            pulumi.set(__self__, "mtu", mtu)
+
+    @_builtins.property
+    @pulumi.getter(name="socketAddress")
+    def socket_address(self) -> 'outputs.DataflowEndpointGroupV2RangedSocketAddress':
+        return pulumi.get(self, "socket_address")
+
+    @_builtins.property
+    @pulumi.getter
+    def mtu(self) -> Optional[_builtins.int]:
+        """
+        Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
+        """
+        return pulumi.get(self, "mtu")
+
+
+@pulumi.output_type
+class DataflowEndpointGroupV2RangedSocketAddress(dict):
+    """
+    A socket address with a port range.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "portRange":
+            suggest = "port_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointGroupV2RangedSocketAddress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowEndpointGroupV2RangedSocketAddress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowEndpointGroupV2RangedSocketAddress.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 port_range: 'outputs.DataflowEndpointGroupV2IntegerRange'):
+        """
+        A socket address with a port range.
+        :param _builtins.str name: IPv4 socket address.
+        :param 'DataflowEndpointGroupV2IntegerRange' port_range: Port range of a socket address.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "port_range", port_range)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        IPv4 socket address.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="portRange")
+    def port_range(self) -> 'outputs.DataflowEndpointGroupV2IntegerRange':
+        """
+        Port range of a socket address.
+        """
+        return pulumi.get(self, "port_range")
+
+
+@pulumi.output_type
+class DataflowEndpointGroupV2SocketAddress(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 port: _builtins.int):
+        """
+        :param _builtins.str name: IPv4 socket address.
+        :param _builtins.int port: Port of a socket address.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "port", port)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        IPv4 socket address.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> _builtins.int:
+        """
+        Port of a socket address.
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint(dict):
+    """
+    Information about UplinkAwsGroundStationAgentEndpoint used for create
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataflowDetails":
+            suggest = "dataflow_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dataflow_details: 'outputs.DataflowEndpointGroupV2UplinkDataflowDetails',
+                 name: _builtins.str):
+        """
+        Information about UplinkAwsGroundStationAgentEndpoint used for create
+        """
+        pulumi.set(__self__, "dataflow_details", dataflow_details)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="dataflowDetails")
+    def dataflow_details(self) -> 'outputs.DataflowEndpointGroupV2UplinkDataflowDetails':
+        return pulumi.get(self, "dataflow_details")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails(dict):
+    """
+    Information about UplinkAwsGroundStationAgentEndpoint
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataflowDetails":
+            suggest = "dataflow_details"
+        elif key == "agentStatus":
+            suggest = "agent_status"
+        elif key == "auditResults":
+            suggest = "audit_results"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dataflow_details: 'outputs.DataflowEndpointGroupV2UplinkDataflowDetails',
+                 name: _builtins.str,
+                 agent_status: Optional['DataflowEndpointGroupV2AgentStatus'] = None,
+                 audit_results: Optional['DataflowEndpointGroupV2AuditResults'] = None):
+        """
+        Information about UplinkAwsGroundStationAgentEndpoint
+        """
+        pulumi.set(__self__, "dataflow_details", dataflow_details)
+        pulumi.set(__self__, "name", name)
+        if agent_status is not None:
+            pulumi.set(__self__, "agent_status", agent_status)
+        if audit_results is not None:
+            pulumi.set(__self__, "audit_results", audit_results)
+
+    @_builtins.property
+    @pulumi.getter(name="dataflowDetails")
+    def dataflow_details(self) -> 'outputs.DataflowEndpointGroupV2UplinkDataflowDetails':
+        return pulumi.get(self, "dataflow_details")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="agentStatus")
+    def agent_status(self) -> Optional['DataflowEndpointGroupV2AgentStatus']:
+        return pulumi.get(self, "agent_status")
+
+    @_builtins.property
+    @pulumi.getter(name="auditResults")
+    def audit_results(self) -> Optional['DataflowEndpointGroupV2AuditResults']:
+        return pulumi.get(self, "audit_results")
+
+
+@pulumi.output_type
+class DataflowEndpointGroupV2UplinkConnectionDetails(dict):
+    """
+    Connection details for uplink, from ground station to agent, and customer to agent
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentIpAndPortAddress":
+            suggest = "agent_ip_and_port_address"
+        elif key == "ingressAddressAndPort":
+            suggest = "ingress_address_and_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointGroupV2UplinkConnectionDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowEndpointGroupV2UplinkConnectionDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowEndpointGroupV2UplinkConnectionDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_ip_and_port_address: 'outputs.DataflowEndpointGroupV2RangedConnectionDetails',
+                 ingress_address_and_port: 'outputs.DataflowEndpointGroupV2ConnectionDetails'):
+        """
+        Connection details for uplink, from ground station to agent, and customer to agent
+        """
+        pulumi.set(__self__, "agent_ip_and_port_address", agent_ip_and_port_address)
+        pulumi.set(__self__, "ingress_address_and_port", ingress_address_and_port)
+
+    @_builtins.property
+    @pulumi.getter(name="agentIpAndPortAddress")
+    def agent_ip_and_port_address(self) -> 'outputs.DataflowEndpointGroupV2RangedConnectionDetails':
+        return pulumi.get(self, "agent_ip_and_port_address")
+
+    @_builtins.property
+    @pulumi.getter(name="ingressAddressAndPort")
+    def ingress_address_and_port(self) -> 'outputs.DataflowEndpointGroupV2ConnectionDetails':
+        return pulumi.get(self, "ingress_address_and_port")
+
+
+@pulumi.output_type
+class DataflowEndpointGroupV2UplinkDataflowDetails(dict):
+    """
+    Dataflow details for uplink
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentConnectionDetails":
+            suggest = "agent_connection_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataflowEndpointGroupV2UplinkDataflowDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataflowEndpointGroupV2UplinkDataflowDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataflowEndpointGroupV2UplinkDataflowDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_connection_details: Optional['outputs.DataflowEndpointGroupV2UplinkConnectionDetails'] = None):
+        """
+        Dataflow details for uplink
+        """
+        if agent_connection_details is not None:
+            pulumi.set(__self__, "agent_connection_details", agent_connection_details)
+
+    @_builtins.property
+    @pulumi.getter(name="agentConnectionDetails")
+    def agent_connection_details(self) -> Optional['outputs.DataflowEndpointGroupV2UplinkConnectionDetails']:
+        return pulumi.get(self, "agent_connection_details")
 
 
 @pulumi.output_type

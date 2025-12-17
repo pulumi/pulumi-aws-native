@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.Msk.Outputs
     [OutputType]
     public sealed class ClusterConnectivityInfo
     {
+        public readonly Pulumi.AwsNative.Msk.ClusterNetworkType? NetworkType;
         /// <summary>
         /// Access control settings for the cluster's brokers.
         /// </summary>
@@ -24,10 +25,13 @@ namespace Pulumi.AwsNative.Msk.Outputs
 
         [OutputConstructor]
         private ClusterConnectivityInfo(
+            Pulumi.AwsNative.Msk.ClusterNetworkType? networkType,
+
             Outputs.ClusterPublicAccess? publicAccess,
 
             Outputs.ClusterVpcConnectivity? vpcConnectivity)
         {
+            NetworkType = networkType;
             PublicAccess = publicAccess;
             VpcConnectivity = vpcConnectivity;
         }

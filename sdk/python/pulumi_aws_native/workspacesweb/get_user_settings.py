@@ -26,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserSettingsResult:
-    def __init__(__self__, additional_encryption_context=None, associated_portal_arns=None, cookie_synchronization_configuration=None, copy_allowed=None, customer_managed_key=None, deep_link_allowed=None, disconnect_timeout_in_minutes=None, download_allowed=None, idle_disconnect_timeout_in_minutes=None, paste_allowed=None, print_allowed=None, tags=None, toolbar_configuration=None, upload_allowed=None, user_settings_arn=None):
+    def __init__(__self__, additional_encryption_context=None, associated_portal_arns=None, branding_configuration=None, cookie_synchronization_configuration=None, copy_allowed=None, customer_managed_key=None, deep_link_allowed=None, disconnect_timeout_in_minutes=None, download_allowed=None, idle_disconnect_timeout_in_minutes=None, paste_allowed=None, print_allowed=None, tags=None, toolbar_configuration=None, upload_allowed=None, user_settings_arn=None):
         if additional_encryption_context and not isinstance(additional_encryption_context, dict):
             raise TypeError("Expected argument 'additional_encryption_context' to be a dict")
         pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
         if associated_portal_arns and not isinstance(associated_portal_arns, list):
             raise TypeError("Expected argument 'associated_portal_arns' to be a list")
         pulumi.set(__self__, "associated_portal_arns", associated_portal_arns)
+        if branding_configuration and not isinstance(branding_configuration, dict):
+            raise TypeError("Expected argument 'branding_configuration' to be a dict")
+        pulumi.set(__self__, "branding_configuration", branding_configuration)
         if cookie_synchronization_configuration and not isinstance(cookie_synchronization_configuration, dict):
             raise TypeError("Expected argument 'cookie_synchronization_configuration' to be a dict")
         pulumi.set(__self__, "cookie_synchronization_configuration", cookie_synchronization_configuration)
@@ -88,6 +91,14 @@ class GetUserSettingsResult:
         A list of web portal ARNs that this user settings resource is associated with.
         """
         return pulumi.get(self, "associated_portal_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="brandingConfiguration")
+    def branding_configuration(self) -> Optional['outputs.UserSettingsBrandingConfiguration']:
+        """
+        The branding configuration that customizes the appearance of the web portal for end users. This includes a custom logo, favicon, wallpaper, localized strings, color theme, and an optional terms of service.
+        """
+        return pulumi.get(self, "branding_configuration")
 
     @_builtins.property
     @pulumi.getter(name="cookieSynchronizationConfiguration")
@@ -202,6 +213,7 @@ class AwaitableGetUserSettingsResult(GetUserSettingsResult):
         return GetUserSettingsResult(
             additional_encryption_context=self.additional_encryption_context,
             associated_portal_arns=self.associated_portal_arns,
+            branding_configuration=self.branding_configuration,
             cookie_synchronization_configuration=self.cookie_synchronization_configuration,
             copy_allowed=self.copy_allowed,
             customer_managed_key=self.customer_managed_key,
@@ -233,6 +245,7 @@ def get_user_settings(user_settings_arn: Optional[_builtins.str] = None,
     return AwaitableGetUserSettingsResult(
         additional_encryption_context=pulumi.get(__ret__, 'additional_encryption_context'),
         associated_portal_arns=pulumi.get(__ret__, 'associated_portal_arns'),
+        branding_configuration=pulumi.get(__ret__, 'branding_configuration'),
         cookie_synchronization_configuration=pulumi.get(__ret__, 'cookie_synchronization_configuration'),
         copy_allowed=pulumi.get(__ret__, 'copy_allowed'),
         customer_managed_key=pulumi.get(__ret__, 'customer_managed_key'),
@@ -261,6 +274,7 @@ def get_user_settings_output(user_settings_arn: Optional[pulumi.Input[_builtins.
     return __ret__.apply(lambda __response__: GetUserSettingsResult(
         additional_encryption_context=pulumi.get(__response__, 'additional_encryption_context'),
         associated_portal_arns=pulumi.get(__response__, 'associated_portal_arns'),
+        branding_configuration=pulumi.get(__response__, 'branding_configuration'),
         cookie_synchronization_configuration=pulumi.get(__response__, 'cookie_synchronization_configuration'),
         copy_allowed=pulumi.get(__response__, 'copy_allowed'),
         customer_managed_key=pulumi.get(__response__, 'customer_managed_key'),

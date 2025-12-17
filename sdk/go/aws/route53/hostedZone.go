@@ -36,7 +36,8 @@ type HostedZone struct {
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// A complex type that contains an optional comment.
 	//  If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
-	HostedZoneConfig   HostedZoneConfigPtrOutput   `pulumi:"hostedZoneConfig"`
+	HostedZoneConfig HostedZoneConfigPtrOutput `pulumi:"hostedZoneConfig"`
+	// The features configuration for the hosted zone, including accelerated recovery settings and status information.
 	HostedZoneFeatures HostedZoneFeaturesPtrOutput `pulumi:"hostedZoneFeatures"`
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
 	//  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
@@ -108,7 +109,8 @@ func (HostedZoneState) ElementType() reflect.Type {
 type hostedZoneArgs struct {
 	// A complex type that contains an optional comment.
 	//  If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
-	HostedZoneConfig   *HostedZoneConfig   `pulumi:"hostedZoneConfig"`
+	HostedZoneConfig *HostedZoneConfig `pulumi:"hostedZoneConfig"`
+	// The features configuration for the hosted zone, including accelerated recovery settings and status information.
 	HostedZoneFeatures *HostedZoneFeatures `pulumi:"hostedZoneFeatures"`
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
 	//  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
@@ -134,7 +136,8 @@ type hostedZoneArgs struct {
 type HostedZoneArgs struct {
 	// A complex type that contains an optional comment.
 	//  If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
-	HostedZoneConfig   HostedZoneConfigPtrInput
+	HostedZoneConfig HostedZoneConfigPtrInput
+	// The features configuration for the hosted zone, including accelerated recovery settings and status information.
 	HostedZoneFeatures HostedZoneFeaturesPtrInput
 	// Adds, edits, or deletes tags for a health check or a hosted zone.
 	//  For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
@@ -205,6 +208,7 @@ func (o HostedZoneOutput) HostedZoneConfig() HostedZoneConfigPtrOutput {
 	return o.ApplyT(func(v *HostedZone) HostedZoneConfigPtrOutput { return v.HostedZoneConfig }).(HostedZoneConfigPtrOutput)
 }
 
+// The features configuration for the hosted zone, including accelerated recovery settings and status information.
 func (o HostedZoneOutput) HostedZoneFeatures() HostedZoneFeaturesPtrOutput {
 	return o.ApplyT(func(v *HostedZone) HostedZoneFeaturesPtrOutput { return v.HostedZoneFeatures }).(HostedZoneFeaturesPtrOutput)
 }

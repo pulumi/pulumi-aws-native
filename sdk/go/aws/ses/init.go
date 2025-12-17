@@ -51,6 +51,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MultiRegionEndpoint{}
 	case "aws-native:ses:Template":
 		r = &Template{}
+	case "aws-native:ses:Tenant":
+		r = &Tenant{}
 	case "aws-native:ses:VdmAttributes":
 		r = &VdmAttributes{}
 	default:

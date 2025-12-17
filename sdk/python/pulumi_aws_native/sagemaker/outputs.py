@@ -1102,6 +1102,8 @@ class ClusterInstanceGroup(dict):
             suggest = "instance_storage_configs"
         elif key == "kubernetesConfig":
             suggest = "kubernetes_config"
+        elif key == "minInstanceCount":
+            suggest = "min_instance_count"
         elif key == "onStartDeepHealthChecks":
             suggest = "on_start_deep_health_checks"
         elif key == "overrideVpcConfig":
@@ -1135,6 +1137,7 @@ class ClusterInstanceGroup(dict):
                  image_id: Optional[_builtins.str] = None,
                  instance_storage_configs: Optional[Sequence['outputs.ClusterInstanceStorageConfig']] = None,
                  kubernetes_config: Optional['outputs.ClusterKubernetesConfig'] = None,
+                 min_instance_count: Optional[_builtins.int] = None,
                  on_start_deep_health_checks: Optional[Sequence['ClusterDeepHealthCheckType']] = None,
                  override_vpc_config: Optional['outputs.ClusterVpcConfig'] = None,
                  scheduled_update_config: Optional['outputs.ClusterScheduledUpdateConfig'] = None,
@@ -1144,6 +1147,7 @@ class ClusterInstanceGroup(dict):
         Details of an instance group in a SageMaker HyperPod cluster.
         :param _builtins.int instance_count: The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
         :param _builtins.int current_count: The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
+        :param _builtins.int min_instance_count: The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
         :param _builtins.int threads_per_core: The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
         :param _builtins.str training_plan_arn: The Amazon Resource Name (ARN) of the training plan to use for this cluster instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
         """
@@ -1162,6 +1166,8 @@ class ClusterInstanceGroup(dict):
             pulumi.set(__self__, "instance_storage_configs", instance_storage_configs)
         if kubernetes_config is not None:
             pulumi.set(__self__, "kubernetes_config", kubernetes_config)
+        if min_instance_count is not None:
+            pulumi.set(__self__, "min_instance_count", min_instance_count)
         if on_start_deep_health_checks is not None:
             pulumi.set(__self__, "on_start_deep_health_checks", on_start_deep_health_checks)
         if override_vpc_config is not None:
@@ -1228,6 +1234,14 @@ class ClusterInstanceGroup(dict):
     @pulumi.getter(name="kubernetesConfig")
     def kubernetes_config(self) -> Optional['outputs.ClusterKubernetesConfig']:
         return pulumi.get(self, "kubernetes_config")
+
+    @_builtins.property
+    @pulumi.getter(name="minInstanceCount")
+    def min_instance_count(self) -> Optional[_builtins.int]:
+        """
+        The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
+        """
+        return pulumi.get(self, "min_instance_count")
 
     @_builtins.property
     @pulumi.getter(name="onStartDeepHealthChecks")

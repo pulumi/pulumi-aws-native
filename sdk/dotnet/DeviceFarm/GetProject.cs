@@ -71,6 +71,8 @@ namespace Pulumi.AwsNative.DeviceFarm
         /// Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
         /// </summary>
         public readonly int? DefaultJobTimeoutMinutes;
+        public readonly ImmutableArray<Outputs.ProjectEnvironmentVariable> EnvironmentVariables;
+        public readonly string? ExecutionRoleArn;
         /// <summary>
         /// The project's name.
         /// </summary>
@@ -90,6 +92,10 @@ namespace Pulumi.AwsNative.DeviceFarm
 
             int? defaultJobTimeoutMinutes,
 
+            ImmutableArray<Outputs.ProjectEnvironmentVariable> environmentVariables,
+
+            string? executionRoleArn,
+
             string? name,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
@@ -98,6 +104,8 @@ namespace Pulumi.AwsNative.DeviceFarm
         {
             Arn = arn;
             DefaultJobTimeoutMinutes = defaultJobTimeoutMinutes;
+            EnvironmentVariables = environmentVariables;
+            ExecutionRoleArn = executionRoleArn;
             Name = name;
             Tags = tags;
             VpcConfig = vpcConfig;

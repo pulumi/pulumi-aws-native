@@ -21,10 +21,12 @@ namespace Pulumi.AwsNative.GameLiftStreams.Outputs
         /// A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions, quotas, and limitations](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
         /// </summary>
         public readonly string LocationName;
+        public readonly int? MaximumCapacity;
         /// <summary>
-        /// The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes). Default is 0 when creating a stream group or adding a location.
+        /// This shape is deprecated.
         /// </summary>
         public readonly int? OnDemandCapacity;
+        public readonly int? TargetIdleCapacity;
 
         [OutputConstructor]
         private StreamGroupLocationConfiguration(
@@ -32,11 +34,17 @@ namespace Pulumi.AwsNative.GameLiftStreams.Outputs
 
             string locationName,
 
-            int? onDemandCapacity)
+            int? maximumCapacity,
+
+            int? onDemandCapacity,
+
+            int? targetIdleCapacity)
         {
             AlwaysOnCapacity = alwaysOnCapacity;
             LocationName = locationName;
+            MaximumCapacity = maximumCapacity;
             OnDemandCapacity = onDemandCapacity;
+            TargetIdleCapacity = targetIdleCapacity;
         }
     }
 }

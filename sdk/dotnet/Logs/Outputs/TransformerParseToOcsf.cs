@@ -18,6 +18,10 @@ namespace Pulumi.AwsNative.Logs.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.Logs.TransformerEventSource EventSource;
         /// <summary>
+        /// The version of the OCSF mapping to use for parsing log data.
+        /// </summary>
+        public readonly string? MappingVersion;
+        /// <summary>
         /// Specify which version of the OCSF schema to use for the transformed log events.
         /// </summary>
         public readonly Pulumi.AwsNative.Logs.TransformerOcsfVersion OcsfVersion;
@@ -30,11 +34,14 @@ namespace Pulumi.AwsNative.Logs.Outputs
         private TransformerParseToOcsf(
             Pulumi.AwsNative.Logs.TransformerEventSource eventSource,
 
+            string? mappingVersion,
+
             Pulumi.AwsNative.Logs.TransformerOcsfVersion ocsfVersion,
 
             string? source)
         {
             EventSource = eventSource;
+            MappingVersion = mappingVersion;
             OcsfVersion = ocsfVersion;
             Source = source;
         }

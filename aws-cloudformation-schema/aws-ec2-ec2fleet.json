@@ -1,14 +1,20 @@
 {
-  "sourceUrl" : "https://github.com/aws-cloudformation",
   "tagging" : {
     "taggable" : false
   },
+  "typeName" : "AWS::EC2::EC2Fleet",
+  "readOnlyProperties" : [ "/properties/FleetId" ],
+  "description" : "Resource Type definition for AWS::EC2::EC2Fleet",
+  "createOnlyProperties" : [ "/properties/LaunchTemplateConfigs", "/properties/OnDemandOptions", "/properties/ReplaceUnhealthyInstances", "/properties/SpotOptions", "/properties/TagSpecifications", "/properties/TerminateInstancesWithExpiration", "/properties/Type", "/properties/ValidFrom", "/properties/ValidUntil", "/properties/TargetCapacitySpecification/TargetCapacityUnitType", "/properties/TargetCapacitySpecification/DefaultTargetCapacityType" ],
+  "primaryIdentifier" : [ "/properties/FleetId" ],
+  "required" : [ "TargetCapacitySpecification", "LaunchTemplateConfigs" ],
+  "sourceUrl" : "https://github.com/aws-cloudformation",
   "handlers" : {
     "read" : {
       "permissions" : [ "ec2:DescribeFleets" ]
     },
     "create" : {
-      "permissions" : [ "ec2:CreateFleet", "ec2:DescribeFleets" ]
+      "permissions" : [ "ec2:CreateFleet", "ec2:DescribeFleets", "ec2:CreateTags", "ec2:RunInstances", "iam:PassRole", "ec2:DescribeCapacityReservations" ]
     },
     "update" : {
       "permissions" : [ "ec2:ModifyFleet", "ec2:DescribeFleets" ]
@@ -24,15 +30,11 @@
       }
     },
     "delete" : {
-      "permissions" : [ "ec2:DescribeFleets", "ec2:DeleteFleets" ]
+      "permissions" : [ "ec2:DescribeFleets", "ec2:DeleteFleets", "ec2:TerminateInstances" ]
     }
   },
-  "typeName" : "AWS::EC2::EC2Fleet",
-  "readOnlyProperties" : [ "/properties/FleetId" ],
-  "description" : "Resource Type definition for AWS::EC2::EC2Fleet",
-  "createOnlyProperties" : [ "/properties/LaunchTemplateConfigs", "/properties/OnDemandOptions", "/properties/ReplaceUnhealthyInstances", "/properties/SpotOptions", "/properties/TagSpecifications", "/properties/TerminateInstancesWithExpiration", "/properties/Type", "/properties/ValidFrom", "/properties/ValidUntil" ],
+  "writeOnlyProperties" : [ "/properties/LaunchTemplateConfigs/*/Overrides/*/Placement/HostResourceGroupArn", "/properties/LaunchTemplateConfigs/*/Overrides/*/Placement/Affinity", "/properties/LaunchTemplateConfigs/*/Overrides/*/Placement/SpreadDomain", "/properties/LaunchTemplateConfigs/*/Overrides/*/Placement/AvailabilityZone", "/properties/LaunchTemplateConfigs/*/Overrides/*/Placement/PartitionNumber", "/properties/LaunchTemplateConfigs/*/Overrides/*/Placement/HostId", "/properties/LaunchTemplateConfigs/*/Overrides/*/Placement/Tenancy" ],
   "additionalProperties" : false,
-  "primaryIdentifier" : [ "/properties/FleetId" ],
   "definitions" : {
     "TargetCapacitySpecificationRequest" : {
       "additionalProperties" : false,
@@ -384,6 +386,9 @@
             "enum" : [ "current", "previous" ]
           }
         },
+        "RequireEncryptionInTransit" : {
+          "type" : "boolean"
+        },
         "MemoryGiBPerVCpu" : {
           "$ref" : "#/definitions/MemoryGiBPerVCpuRequest"
         },
@@ -592,7 +597,6 @@
       "required" : [ "Value", "Key" ]
     }
   },
-  "required" : [ "TargetCapacitySpecification", "LaunchTemplateConfigs" ],
   "properties" : {
     "Context" : {
       "type" : "string"

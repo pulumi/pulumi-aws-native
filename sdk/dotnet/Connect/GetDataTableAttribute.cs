@@ -33,12 +33,21 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class GetDataTableAttributeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier for the attribute within the data table.
+        /// </summary>
         [Input("attributeId", required: true)]
         public string AttributeId { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the data table that contains this attribute.
+        /// </summary>
         [Input("dataTableArn", required: true)]
         public string DataTableArn { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance.
+        /// </summary>
         [Input("instanceArn", required: true)]
         public string InstanceArn { get; set; } = null!;
 
@@ -50,12 +59,21 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class GetDataTableAttributeInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier for the attribute within the data table.
+        /// </summary>
         [Input("attributeId", required: true)]
         public Input<string> AttributeId { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the data table that contains this attribute.
+        /// </summary>
         [Input("dataTableArn", required: true)]
         public Input<string> DataTableArn { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the instance.
+        /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
@@ -69,14 +87,38 @@ namespace Pulumi.AwsNative.Connect
     [OutputType]
     public sealed class GetDataTableAttributeResult
     {
+        /// <summary>
+        /// The unique identifier for the attribute within the data table.
+        /// </summary>
         public readonly string? AttributeId;
+        /// <summary>
+        /// An optional description explaining the purpose and usage of this attribute.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The AWS Region where this attribute was last modified, used for region replication.
+        /// </summary>
         public readonly string? LastModifiedRegion;
+        /// <summary>
+        /// The timestamp when this attribute was last modified.
+        /// </summary>
         public readonly double? LastModifiedTime;
         public readonly Outputs.LockVersionProperties? LockVersion;
+        /// <summary>
+        /// The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Boolean indicating whether this attribute is used as a primary key for record identification. Primary attributes must have unique value combinations and cannot contain expressions.
+        /// </summary>
         public readonly bool? Primary;
+        /// <summary>
+        /// The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
+        /// </summary>
         public readonly Outputs.ValidationProperties? Validation;
+        /// <summary>
+        /// The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
+        /// </summary>
         public readonly Pulumi.AwsNative.Connect.DataTableAttributeValueType? ValueType;
 
         [OutputConstructor]

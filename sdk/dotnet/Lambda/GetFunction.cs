@@ -91,6 +91,9 @@ namespace Pulumi.AwsNative.Lambda
         /// The Amazon Resource Name (ARN) of the function.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Configuration for the capacity provider that manages compute resources for Lambda functions.
+        /// </summary>
         public readonly Outputs.FunctionCapacityProviderConfig? CapacityProviderConfig;
         /// <summary>
         /// The code for the function. You can define your function code in multiple ways:
@@ -111,6 +114,9 @@ namespace Pulumi.AwsNative.Lambda
         /// A description of the function.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+        /// </summary>
         public readonly Outputs.FunctionDurableConfig? DurableConfig;
         /// <summary>
         /// Environment variables that are accessible from function code during execution.
@@ -125,6 +131,9 @@ namespace Pulumi.AwsNative.Lambda
         ///  For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).
         /// </summary>
         public readonly ImmutableArray<Outputs.FunctionFileSystemConfig> FileSystemConfigs;
+        /// <summary>
+        /// Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+        /// </summary>
         public readonly Outputs.FunctionScalingConfig? FunctionScalingConfig;
         /// <summary>
         /// The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).

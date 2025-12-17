@@ -60,6 +60,9 @@ export class EvaluationForm extends pulumi.CustomResource {
      *  *Maximum size*: 100
      */
     declare public readonly items: pulumi.Output<outputs.connect.EvaluationFormBaseItem[]>;
+    /**
+     * Configuration for language settings of this evaluation form.
+     */
     declare public readonly languageConfiguration: pulumi.Output<outputs.connect.EvaluationFormLanguageConfiguration | undefined>;
     /**
      * A scoring strategy of the evaluation form.
@@ -74,6 +77,9 @@ export class EvaluationForm extends pulumi.CustomResource {
      * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Configuration that specifies the target for this evaluation form.
+     */
     declare public readonly targetConfiguration: pulumi.Output<outputs.connect.EvaluationFormTargetConfiguration | undefined>;
     /**
      * A title of the evaluation form.
@@ -155,6 +161,9 @@ export interface EvaluationFormArgs {
      *  *Maximum size*: 100
      */
     items: pulumi.Input<pulumi.Input<inputs.connect.EvaluationFormBaseItemArgs>[]>;
+    /**
+     * Configuration for language settings of this evaluation form.
+     */
     languageConfiguration?: pulumi.Input<inputs.connect.EvaluationFormLanguageConfigurationArgs>;
     /**
      * A scoring strategy of the evaluation form.
@@ -169,6 +178,9 @@ export interface EvaluationFormArgs {
      * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Configuration that specifies the target for this evaluation form.
+     */
     targetConfiguration?: pulumi.Input<inputs.connect.EvaluationFormTargetConfigurationArgs>;
     /**
      * A title of the evaluation form.

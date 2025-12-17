@@ -33,6 +33,10 @@ export interface GetSpotFleetResult {
      * Describes the configuration of a Spot Fleet request.
      */
     readonly spotFleetRequestConfigData?: outputs.ec2.SpotFleetRequestConfigData;
+    /**
+     * The tags to specify in SpotFleetRequestConfigData
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource Type definition for AWS::EC2::SpotFleet

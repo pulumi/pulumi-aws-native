@@ -925,6 +925,7 @@ func (o ClusterConfigurationInfoPtrOutput) Revision() pulumi.IntPtrOutput {
 }
 
 type ClusterConnectivityInfo struct {
+	NetworkType *ClusterNetworkType `pulumi:"networkType"`
 	// Access control settings for the cluster's brokers.
 	PublicAccess *ClusterPublicAccess `pulumi:"publicAccess"`
 	// VPC connection control settings for brokers.
@@ -943,6 +944,7 @@ type ClusterConnectivityInfoInput interface {
 }
 
 type ClusterConnectivityInfoArgs struct {
+	NetworkType ClusterNetworkTypePtrInput `pulumi:"networkType"`
 	// Access control settings for the cluster's brokers.
 	PublicAccess ClusterPublicAccessPtrInput `pulumi:"publicAccess"`
 	// VPC connection control settings for brokers.
@@ -1026,6 +1028,10 @@ func (o ClusterConnectivityInfoOutput) ToClusterConnectivityInfoPtrOutputWithCon
 	}).(ClusterConnectivityInfoPtrOutput)
 }
 
+func (o ClusterConnectivityInfoOutput) NetworkType() ClusterNetworkTypePtrOutput {
+	return o.ApplyT(func(v ClusterConnectivityInfo) *ClusterNetworkType { return v.NetworkType }).(ClusterNetworkTypePtrOutput)
+}
+
 // Access control settings for the cluster's brokers.
 func (o ClusterConnectivityInfoOutput) PublicAccess() ClusterPublicAccessPtrOutput {
 	return o.ApplyT(func(v ClusterConnectivityInfo) *ClusterPublicAccess { return v.PublicAccess }).(ClusterPublicAccessPtrOutput)
@@ -1058,6 +1064,15 @@ func (o ClusterConnectivityInfoPtrOutput) Elem() ClusterConnectivityInfoOutput {
 		var ret ClusterConnectivityInfo
 		return ret
 	}).(ClusterConnectivityInfoOutput)
+}
+
+func (o ClusterConnectivityInfoPtrOutput) NetworkType() ClusterNetworkTypePtrOutput {
+	return o.ApplyT(func(v *ClusterConnectivityInfo) *ClusterNetworkType {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkType
+	}).(ClusterNetworkTypePtrOutput)
 }
 
 // Access control settings for the cluster's brokers.

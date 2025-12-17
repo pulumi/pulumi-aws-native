@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
         [Input("telephony")]
         public Input<Inputs.CampaignTelephonyChannelSubtypeConfigArgs>? Telephony { get; set; }
 
+        /// <summary>
+        /// The configuration of the WhatsApp channel subtype.
+        /// </summary>
         [Input("whatsApp")]
         public Input<Inputs.CampaignWhatsAppChannelSubtypeConfigArgs>? WhatsApp { get; set; }
 

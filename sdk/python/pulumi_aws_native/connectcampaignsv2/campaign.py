@@ -45,6 +45,7 @@ class CampaignArgs:
         :param pulumi.Input['CampaignScheduleArgs'] schedule: Contains the schedule configuration.
         :param pulumi.Input['CampaignSourceArgs'] source: Contains source configuration.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
+        :param pulumi.Input['CampaignType'] type: The type of campaign.
         """
         pulumi.set(__self__, "connect_instance_id", connect_instance_id)
         if channel_subtype_config is not None:
@@ -177,6 +178,9 @@ class CampaignArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input['CampaignType']]:
+        """
+        The type of campaign.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -215,6 +219,7 @@ class Campaign(pulumi.CustomResource):
         :param pulumi.Input[Union['CampaignScheduleArgs', 'CampaignScheduleArgsDict']] schedule: Contains the schedule configuration.
         :param pulumi.Input[Union['CampaignSourceArgs', 'CampaignSourceArgsDict']] source: Contains source configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
+        :param pulumi.Input['CampaignType'] type: The type of campaign.
         """
         ...
     @overload
@@ -392,5 +397,8 @@ class Campaign(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional['CampaignType']]:
+        """
+        The type of campaign.
+        """
         return pulumi.get(self, "type")
 

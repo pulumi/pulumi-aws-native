@@ -43,10 +43,10 @@ class LocationSmbArgs:
         The set of arguments for constructing a LocationSmb resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
         :param pulumi.Input['LocationSmbAuthenticationType'] authentication_type: The authentication mode used to determine identity of user.
-        :param pulumi.Input['LocationSmbCmkSecretConfigArgs'] cmk_secret_config: Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+        :param pulumi.Input['LocationSmbCmkSecretConfigArgs'] cmk_secret_config: Specifies configuration information for a DataSync-managed secret, such as an authentication token, secret key, password, or Kerberos keytab that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
                
                > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
-        :param pulumi.Input['LocationSmbCustomSecretConfigArgs'] custom_secret_config: Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+        :param pulumi.Input['LocationSmbCustomSecretConfigArgs'] custom_secret_config: Specifies configuration information for a customer-managed Secrets Manager secret where a storage location credentials is stored in Secrets Manager as plain text (for authentication token, secret key, or password) or as binary (for Kerberos keytab). This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
                
                > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_ip_addresses: Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
@@ -119,7 +119,7 @@ class LocationSmbArgs:
     @pulumi.getter(name="cmkSecretConfig")
     def cmk_secret_config(self) -> Optional[pulumi.Input['LocationSmbCmkSecretConfigArgs']]:
         """
-        Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+        Specifies configuration information for a DataSync-managed secret, such as an authentication token, secret key, password, or Kerberos keytab that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
 
         > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
         """
@@ -133,7 +133,7 @@ class LocationSmbArgs:
     @pulumi.getter(name="customSecretConfig")
     def custom_secret_config(self) -> Optional[pulumi.Input['LocationSmbCustomSecretConfigArgs']]:
         """
-        Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+        Specifies configuration information for a customer-managed Secrets Manager secret where a storage location credentials is stored in Secrets Manager as plain text (for authentication token, secret key, or password) or as binary (for Kerberos keytab). This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
 
         > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
         """
@@ -305,10 +305,10 @@ class LocationSmb(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
         :param pulumi.Input['LocationSmbAuthenticationType'] authentication_type: The authentication mode used to determine identity of user.
-        :param pulumi.Input[Union['LocationSmbCmkSecretConfigArgs', 'LocationSmbCmkSecretConfigArgsDict']] cmk_secret_config: Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+        :param pulumi.Input[Union['LocationSmbCmkSecretConfigArgs', 'LocationSmbCmkSecretConfigArgsDict']] cmk_secret_config: Specifies configuration information for a DataSync-managed secret, such as an authentication token, secret key, password, or Kerberos keytab that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
                
                > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
-        :param pulumi.Input[Union['LocationSmbCustomSecretConfigArgs', 'LocationSmbCustomSecretConfigArgsDict']] custom_secret_config: Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+        :param pulumi.Input[Union['LocationSmbCustomSecretConfigArgs', 'LocationSmbCustomSecretConfigArgsDict']] custom_secret_config: Specifies configuration information for a customer-managed Secrets Manager secret where a storage location credentials is stored in Secrets Manager as plain text (for authentication token, secret key, or password) or as binary (for Kerberos keytab). This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
                
                > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_ip_addresses: Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
@@ -453,7 +453,7 @@ class LocationSmb(pulumi.CustomResource):
     @pulumi.getter(name="cmkSecretConfig")
     def cmk_secret_config(self) -> pulumi.Output[Optional['outputs.LocationSmbCmkSecretConfig']]:
         """
-        Specifies configuration information for a DataSync-managed secret, such as an authentication token or secret key that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+        Specifies configuration information for a DataSync-managed secret, such as an authentication token, secret key, password, or Kerberos keytab that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
 
         > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
         """
@@ -463,7 +463,7 @@ class LocationSmb(pulumi.CustomResource):
     @pulumi.getter(name="customSecretConfig")
     def custom_secret_config(self) -> pulumi.Output[Optional['outputs.LocationSmbCustomSecretConfig']]:
         """
-        Specifies configuration information for a customer-managed Secrets Manager secret where a storage location authentication token or secret key is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+        Specifies configuration information for a customer-managed Secrets Manager secret where a storage location credentials is stored in Secrets Manager as plain text (for authentication token, secret key, or password) or as binary (for Kerberos keytab). This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
 
         > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
         """

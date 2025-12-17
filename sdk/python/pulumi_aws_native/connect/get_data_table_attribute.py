@@ -57,21 +57,33 @@ class GetDataTableAttributeResult:
     @_builtins.property
     @pulumi.getter(name="attributeId")
     def attribute_id(self) -> Optional[_builtins.str]:
+        """
+        The unique identifier for the attribute within the data table.
+        """
         return pulumi.get(self, "attribute_id")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
+        """
+        An optional description explaining the purpose and usage of this attribute.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedRegion")
     def last_modified_region(self) -> Optional[_builtins.str]:
+        """
+        The AWS Region where this attribute was last modified, used for region replication.
+        """
         return pulumi.get(self, "last_modified_region")
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> Optional[_builtins.float]:
+        """
+        The timestamp when this attribute was last modified.
+        """
         return pulumi.get(self, "last_modified_time")
 
     @_builtins.property
@@ -82,21 +94,33 @@ class GetDataTableAttributeResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
+        """
+        The human-readable name of the attribute. Must be unique within the data table and conform to Connect naming standards.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def primary(self) -> Optional[_builtins.bool]:
+        """
+        Boolean indicating whether this attribute is used as a primary key for record identification. Primary attributes must have unique value combinations and cannot contain expressions.
+        """
         return pulumi.get(self, "primary")
 
     @_builtins.property
     @pulumi.getter
     def validation(self) -> Optional['outputs.ValidationProperties']:
+        """
+        The validation rules applied to values of this attribute. Based on JSON Schema Draft 2020-12 with additional Connect-specific validations for data integrity.
+        """
         return pulumi.get(self, "validation")
 
     @_builtins.property
     @pulumi.getter(name="valueType")
     def value_type(self) -> Optional['DataTableAttributeValueType']:
+        """
+        The type of value allowed for this attribute. Must be one of TEXT, TEXT_LIST, NUMBER, NUMBER_LIST, or BOOLEAN. Determines how values are validated and processed.
+        """
         return pulumi.get(self, "value_type")
 
 
@@ -123,6 +147,11 @@ def get_data_table_attribute(attribute_id: Optional[_builtins.str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataTableAttributeResult:
     """
     Resource Type definition for AWS::Connect::DataTableAttribute
+
+
+    :param _builtins.str attribute_id: The unique identifier for the attribute within the data table.
+    :param _builtins.str data_table_arn: The Amazon Resource Name (ARN) of the data table that contains this attribute.
+    :param _builtins.str instance_arn: The Amazon Resource Name (ARN) of the instance.
     """
     __args__ = dict()
     __args__['attributeId'] = attribute_id
@@ -147,6 +176,11 @@ def get_data_table_attribute_output(attribute_id: Optional[pulumi.Input[_builtin
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataTableAttributeResult]:
     """
     Resource Type definition for AWS::Connect::DataTableAttribute
+
+
+    :param _builtins.str attribute_id: The unique identifier for the attribute within the data table.
+    :param _builtins.str data_table_arn: The Amazon Resource Name (ARN) of the data table that contains this attribute.
+    :param _builtins.str instance_arn: The Amazon Resource Name (ARN) of the instance.
     """
     __args__ = dict()
     __args__['attributeId'] = attribute_id

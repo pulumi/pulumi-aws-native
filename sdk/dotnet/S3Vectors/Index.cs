@@ -47,6 +47,12 @@ namespace Pulumi.AwsNative.S3Vectors
         public Output<Pulumi.AwsNative.S3Vectors.IndexDistanceMetric> DistanceMetric { get; private set; } = null!;
 
         /// <summary>
+        /// The encryption configuration for a vector index. By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.
+        /// </summary>
+        [Output("encryptionConfiguration")]
+        public Output<Outputs.IndexEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Returns the Amazon Resource Name (ARN) of the specified index.
         /// 
         /// Example: `arn:aws:s3vectors:us-east-1:123456789012:bucket/amzn-s3-demo-vector-bucket/index/my-index`
@@ -110,6 +116,7 @@ namespace Pulumi.AwsNative.S3Vectors
                     "dataType",
                     "dimension",
                     "distanceMetric",
+                    "encryptionConfiguration",
                     "indexName",
                     "metadataConfiguration",
                     "vectorBucketArn",
@@ -159,6 +166,12 @@ namespace Pulumi.AwsNative.S3Vectors
         /// </summary>
         [Input("distanceMetric", required: true)]
         public Input<Pulumi.AwsNative.S3Vectors.IndexDistanceMetric> DistanceMetric { get; set; } = null!;
+
+        /// <summary>
+        /// The encryption configuration for a vector index. By default, if you don't specify, all new vectors in the vector index will use the encryption configuration of the vector bucket.
+        /// </summary>
+        [Input("encryptionConfiguration")]
+        public Input<Inputs.IndexEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
         /// <summary>
         /// The name of the vector index to create. The index name must be between 3 and 63 characters long and can contain only lowercase letters, numbers, hyphens (-), and dots (.). The index name must be unique within the vector bucket.

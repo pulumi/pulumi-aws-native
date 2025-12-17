@@ -24,7 +24,7 @@ type ListenerAction struct {
 	// Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
 	//  If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
 	ForwardConfig *ListenerForwardConfig `pulumi:"forwardConfig"`
-	// [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when `Type` is `jwt-validation` .
+	// [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when ``Type`` is ``jwt-validation``.
 	JwtValidationConfig *ListenerJwtValidationConfig `pulumi:"jwtValidationConfig"`
 	// The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
 	Order *int `pulumi:"order"`
@@ -58,7 +58,7 @@ type ListenerActionArgs struct {
 	// Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
 	//  If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
 	ForwardConfig ListenerForwardConfigPtrInput `pulumi:"forwardConfig"`
-	// [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when `Type` is `jwt-validation` .
+	// [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when ``Type`` is ``jwt-validation``.
 	JwtValidationConfig ListenerJwtValidationConfigPtrInput `pulumi:"jwtValidationConfig"`
 	// The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
 	Order pulumi.IntPtrInput `pulumi:"order"`
@@ -144,7 +144,7 @@ func (o ListenerActionOutput) ForwardConfig() ListenerForwardConfigPtrOutput {
 	return o.ApplyT(func(v ListenerAction) *ListenerForwardConfig { return v.ForwardConfig }).(ListenerForwardConfigPtrOutput)
 }
 
-// [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when `Type` is `jwt-validation` .
+// [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when “Type“ is “jwt-validation“.
 func (o ListenerActionOutput) JwtValidationConfig() ListenerJwtValidationConfigPtrOutput {
 	return o.ApplyT(func(v ListenerAction) *ListenerJwtValidationConfig { return v.JwtValidationConfig }).(ListenerJwtValidationConfigPtrOutput)
 }
@@ -1477,12 +1477,13 @@ func (o ListenerForwardConfigPtrOutput) TargetGroups() ListenerTargetGroupTupleA
 	}).(ListenerTargetGroupTupleArrayOutput)
 }
 
+// Information about an additional claim to validate.
 type ListenerJwtValidationActionAdditionalClaim struct {
 	// The format of the claim value.
 	Format string `pulumi:"format"`
-	// The name of the claim. You can't specify `exp` , `iss` , `nbf` , or `iat` because we validate them by default.
+	// The name of the claim. You can't specify ``exp``, ``iss``, ``nbf``, or ``iat`` because we validate them by default.
 	Name string `pulumi:"name"`
-	// The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is `space-separated-values` , the values can't include spaces.
+	// The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is ``space-separated-values``, the values can't include spaces.
 	Values []string `pulumi:"values"`
 }
 
@@ -1497,12 +1498,13 @@ type ListenerJwtValidationActionAdditionalClaimInput interface {
 	ToListenerJwtValidationActionAdditionalClaimOutputWithContext(context.Context) ListenerJwtValidationActionAdditionalClaimOutput
 }
 
+// Information about an additional claim to validate.
 type ListenerJwtValidationActionAdditionalClaimArgs struct {
 	// The format of the claim value.
 	Format pulumi.StringInput `pulumi:"format"`
-	// The name of the claim. You can't specify `exp` , `iss` , `nbf` , or `iat` because we validate them by default.
+	// The name of the claim. You can't specify ``exp``, ``iss``, ``nbf``, or ``iat`` because we validate them by default.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is `space-separated-values` , the values can't include spaces.
+	// The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is ``space-separated-values``, the values can't include spaces.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1543,6 +1545,7 @@ func (i ListenerJwtValidationActionAdditionalClaimArray) ToListenerJwtValidation
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerJwtValidationActionAdditionalClaimArrayOutput)
 }
 
+// Information about an additional claim to validate.
 type ListenerJwtValidationActionAdditionalClaimOutput struct{ *pulumi.OutputState }
 
 func (ListenerJwtValidationActionAdditionalClaimOutput) ElementType() reflect.Type {
@@ -1562,12 +1565,12 @@ func (o ListenerJwtValidationActionAdditionalClaimOutput) Format() pulumi.String
 	return o.ApplyT(func(v ListenerJwtValidationActionAdditionalClaim) string { return v.Format }).(pulumi.StringOutput)
 }
 
-// The name of the claim. You can't specify `exp` , `iss` , `nbf` , or `iat` because we validate them by default.
+// The name of the claim. You can't specify “exp“, “iss“, “nbf“, or “iat“ because we validate them by default.
 func (o ListenerJwtValidationActionAdditionalClaimOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerJwtValidationActionAdditionalClaim) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is `space-separated-values` , the values can't include spaces.
+// The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is “space-separated-values“, the values can't include spaces.
 func (o ListenerJwtValidationActionAdditionalClaimOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerJwtValidationActionAdditionalClaim) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2230,7 +2233,7 @@ type ListenerRuleAction struct {
 	// Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
 	//  If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
 	ForwardConfig *ListenerRuleForwardConfig `pulumi:"forwardConfig"`
-	// [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when `Type` is `jwt-validation` .
+	// [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when ``Type`` is ``jwt-validation``.
 	JwtValidationConfig *ListenerRuleJwtValidationConfig `pulumi:"jwtValidationConfig"`
 	// The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
 	Order *int `pulumi:"order"`
@@ -2264,7 +2267,7 @@ type ListenerRuleActionArgs struct {
 	// Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
 	//  If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
 	ForwardConfig ListenerRuleForwardConfigPtrInput `pulumi:"forwardConfig"`
-	// [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when `Type` is `jwt-validation` .
+	// [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when ``Type`` is ``jwt-validation``.
 	JwtValidationConfig ListenerRuleJwtValidationConfigPtrInput `pulumi:"jwtValidationConfig"`
 	// The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
 	Order pulumi.IntPtrInput `pulumi:"order"`
@@ -2350,7 +2353,7 @@ func (o ListenerRuleActionOutput) ForwardConfig() ListenerRuleForwardConfigPtrOu
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleForwardConfig { return v.ForwardConfig }).(ListenerRuleForwardConfigPtrOutput)
 }
 
-// [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when `Type` is `jwt-validation` .
+// [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when “Type“ is “jwt-validation“.
 func (o ListenerRuleActionOutput) JwtValidationConfig() ListenerRuleJwtValidationConfigPtrOutput {
 	return o.ApplyT(func(v ListenerRuleAction) *ListenerRuleJwtValidationConfig { return v.JwtValidationConfig }).(ListenerRuleJwtValidationConfigPtrOutput)
 }
@@ -3911,12 +3914,13 @@ func (o ListenerRuleHttpRequestMethodConfigPtrOutput) Values() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
+// Information about an additional claim to validate.
 type ListenerRuleJwtValidationActionAdditionalClaim struct {
 	// The format of the claim value.
 	Format string `pulumi:"format"`
-	// The name of the claim. You can't specify `exp` , `iss` , `nbf` , or `iat` because we validate them by default.
+	// The name of the claim. You can't specify ``exp``, ``iss``, ``nbf``, or ``iat`` because we validate them by default.
 	Name string `pulumi:"name"`
-	// The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is `space-separated-values` , the values can't include spaces.
+	// The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is ``space-separated-values``, the values can't include spaces.
 	Values []string `pulumi:"values"`
 }
 
@@ -3931,12 +3935,13 @@ type ListenerRuleJwtValidationActionAdditionalClaimInput interface {
 	ToListenerRuleJwtValidationActionAdditionalClaimOutputWithContext(context.Context) ListenerRuleJwtValidationActionAdditionalClaimOutput
 }
 
+// Information about an additional claim to validate.
 type ListenerRuleJwtValidationActionAdditionalClaimArgs struct {
 	// The format of the claim value.
 	Format pulumi.StringInput `pulumi:"format"`
-	// The name of the claim. You can't specify `exp` , `iss` , `nbf` , or `iat` because we validate them by default.
+	// The name of the claim. You can't specify ``exp``, ``iss``, ``nbf``, or ``iat`` because we validate them by default.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is `space-separated-values` , the values can't include spaces.
+	// The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is ``space-separated-values``, the values can't include spaces.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3977,6 +3982,7 @@ func (i ListenerRuleJwtValidationActionAdditionalClaimArray) ToListenerRuleJwtVa
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleJwtValidationActionAdditionalClaimArrayOutput)
 }
 
+// Information about an additional claim to validate.
 type ListenerRuleJwtValidationActionAdditionalClaimOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleJwtValidationActionAdditionalClaimOutput) ElementType() reflect.Type {
@@ -3996,12 +4002,12 @@ func (o ListenerRuleJwtValidationActionAdditionalClaimOutput) Format() pulumi.St
 	return o.ApplyT(func(v ListenerRuleJwtValidationActionAdditionalClaim) string { return v.Format }).(pulumi.StringOutput)
 }
 
-// The name of the claim. You can't specify `exp` , `iss` , `nbf` , or `iat` because we validate them by default.
+// The name of the claim. You can't specify “exp“, “iss“, “nbf“, or “iat“ because we validate them by default.
 func (o ListenerRuleJwtValidationActionAdditionalClaimOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerRuleJwtValidationActionAdditionalClaim) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is `space-separated-values` , the values can't include spaces.
+// The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is “space-separated-values“, the values can't include spaces.
 func (o ListenerRuleJwtValidationActionAdditionalClaimOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleJwtValidationActionAdditionalClaim) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -6163,6 +6169,9 @@ type LoadBalancerAttribute struct {
 	//   +  ``connection_logs.s3.enabled`` - Indicates whether connection logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
 	//   +  ``connection_logs.s3.bucket`` - The name of the S3 bucket for the connection logs. This attribute is required if connection logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
 	//   +  ``connection_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the connection logs.
+	//   +  ``health_check_logs.s3.enabled`` - Indicates whether health check logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
+	//   +  ``health_check_logs.s3.bucket`` - The name of the S3 bucket for the health check logs. This attribute is required if health check logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
+	//   +  ``health_check_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the health check logs.
 	//   +  ``routing.http.desync_mitigation_mode`` - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are ``monitor``, ``defensive``, and ``strictest``. The default is ``defensive``.
 	//   +  ``routing.http.drop_invalid_header_fields.enabled`` - Indicates whether HTTP headers with invalid header fields are removed by the load balancer (``true``) or routed to targets (``false``). The default is ``false``.
 	//   +  ``routing.http.preserve_host_header.enabled`` - Indicates whether the Application Load Balancer should preserve the ``Host`` header in the HTTP request and send it to the target without any change. The possible values are ``true`` and ``false``. The default is ``false``.
@@ -6215,6 +6224,9 @@ type LoadBalancerAttributeArgs struct {
 	//   +  ``connection_logs.s3.enabled`` - Indicates whether connection logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
 	//   +  ``connection_logs.s3.bucket`` - The name of the S3 bucket for the connection logs. This attribute is required if connection logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
 	//   +  ``connection_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the connection logs.
+	//   +  ``health_check_logs.s3.enabled`` - Indicates whether health check logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
+	//   +  ``health_check_logs.s3.bucket`` - The name of the S3 bucket for the health check logs. This attribute is required if health check logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
+	//   +  ``health_check_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the health check logs.
 	//   +  ``routing.http.desync_mitigation_mode`` - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are ``monitor``, ``defensive``, and ``strictest``. The default is ``defensive``.
 	//   +  ``routing.http.drop_invalid_header_fields.enabled`` - Indicates whether HTTP headers with invalid header fields are removed by the load balancer (``true``) or routed to targets (``false``). The default is ``false``.
 	//   +  ``routing.http.preserve_host_header.enabled`` - Indicates whether the Application Load Balancer should preserve the ``Host`` header in the HTTP request and send it to the target without any change. The possible values are ``true`` and ``false``. The default is ``false``.
@@ -6307,6 +6319,9 @@ func (o LoadBalancerAttributeOutput) ToLoadBalancerAttributeOutputWithContext(ct
 //	 +  ``connection_logs.s3.enabled`` - Indicates whether connection logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
 //	 +  ``connection_logs.s3.bucket`` - The name of the S3 bucket for the connection logs. This attribute is required if connection logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
 //	 +  ``connection_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the connection logs.
+//	 +  ``health_check_logs.s3.enabled`` - Indicates whether health check logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
+//	 +  ``health_check_logs.s3.bucket`` - The name of the S3 bucket for the health check logs. This attribute is required if health check logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
+//	 +  ``health_check_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the health check logs.
 //	 +  ``routing.http.desync_mitigation_mode`` - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are ``monitor``, ``defensive``, and ``strictest``. The default is ``defensive``.
 //	 +  ``routing.http.drop_invalid_header_fields.enabled`` - Indicates whether HTTP headers with invalid header fields are removed by the load balancer (``true``) or routed to targets (``false``). The default is ``false``.
 //	 +  ``routing.http.preserve_host_header.enabled`` - Indicates whether the Application Load Balancer should preserve the ``Host`` header in the HTTP request and send it to the target without any change. The possible values are ``true`` and ``false``. The default is ``false``.

@@ -212,6 +212,8 @@ __all__ = [
     'MultiRegionEndpointRouteDetailsItemPropertiesArgsDict',
     'TemplateArgs',
     'TemplateArgsDict',
+    'TenantResourceAssociationArgs',
+    'TenantResourceAssociationArgsDict',
     'VdmAttributesDashboardAttributesArgs',
     'VdmAttributesDashboardAttributesArgsDict',
     'VdmAttributesGuardianAttributesArgs',
@@ -3680,6 +3682,41 @@ class TemplateArgs:
     @text_part.setter
     def text_part(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "text_part", value)
+
+
+if not MYPY:
+    class TenantResourceAssociationArgsDict(TypedDict):
+        """
+        The resource to associate with the tenant
+        """
+        resource_arn: pulumi.Input[_builtins.str]
+        """
+        The ARN of the resource to associate with the tenant
+        """
+elif False:
+    TenantResourceAssociationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TenantResourceAssociationArgs:
+    def __init__(__self__, *,
+                 resource_arn: pulumi.Input[_builtins.str]):
+        """
+        The resource to associate with the tenant
+        :param pulumi.Input[_builtins.str] resource_arn: The ARN of the resource to associate with the tenant
+        """
+        pulumi.set(__self__, "resource_arn", resource_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the resource to associate with the tenant
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_arn", value)
 
 
 if not MYPY:

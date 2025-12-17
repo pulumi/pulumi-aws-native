@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
     [OutputType]
     public sealed class TelemetryPipelinesTelemetryPipelineConfiguration
     {
+        /// <summary>
+        /// The pipeline configuration body that defines the data processing rules and transformations.
+        /// </summary>
         public readonly string Body;
 
         [OutputConstructor]

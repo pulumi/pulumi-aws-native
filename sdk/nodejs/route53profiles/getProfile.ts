@@ -38,6 +38,10 @@ export interface GetProfileResult {
      */
     readonly id?: string;
     /**
+     * The sharing status of the profile.
+     */
+    readonly shareStatus?: enums.route53profiles.ProfileShareStatus;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];

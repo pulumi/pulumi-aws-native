@@ -252,6 +252,14 @@ class KeyReplicationStatusType(dict):
     def __init__(__self__, *,
                  status: 'KeyReplicationState',
                  status_message: Optional[_builtins.str] = None):
+        """
+        :param 'KeyReplicationState' status: The current status of key replication in this AWS Region .
+               
+               This field indicates whether the key replication is in progress, completed successfully, or has encountered an error. Possible values include states such as `SYNCRHONIZED` , `IN_PROGRESS` , `DELETE_IN_PROGRESS` , or `FAILED` . This provides visibility into the replication process for monitoring and troubleshooting purposes.
+        :param _builtins.str status_message: A message that provides additional information about the current replication status of the key.
+               
+               This field contains details about any issues or progress updates related to key replication operations. It may include information about replication failures, synchronization status, or other operational details.
+        """
         pulumi.set(__self__, "status", status)
         if status_message is not None:
             pulumi.set(__self__, "status_message", status_message)
@@ -259,11 +267,21 @@ class KeyReplicationStatusType(dict):
     @_builtins.property
     @pulumi.getter
     def status(self) -> 'KeyReplicationState':
+        """
+        The current status of key replication in this AWS Region .
+
+        This field indicates whether the key replication is in progress, completed successfully, or has encountered an error. Possible values include states such as `SYNCRHONIZED` , `IN_PROGRESS` , `DELETE_IN_PROGRESS` , or `FAILED` . This provides visibility into the replication process for monitoring and troubleshooting purposes.
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> Optional[_builtins.str]:
+        """
+        A message that provides additional information about the current replication status of the key.
+
+        This field contains details about any issues or progress updates related to key replication operations. It may include information about replication failures, synchronization status, or other operational details.
+        """
         return pulumi.get(self, "status_message")
 
 

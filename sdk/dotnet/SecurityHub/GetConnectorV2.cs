@@ -75,18 +75,33 @@ namespace Pulumi.AwsNative.SecurityHub
         /// The status of the connector
         /// </summary>
         public readonly Pulumi.AwsNative.SecurityHub.ConnectorV2ConnectorStatus? ConnectorStatus;
+        /// <summary>
+        /// The timestamp when the V2 connector was created.
+        /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
         /// A description of the connector
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The most recent timestamp when the V2 connector was checked on health status.
+        /// </summary>
         public readonly string? LastCheckedAt;
+        /// <summary>
+        /// The most recent timestamp when the V2 connector was updated.
+        /// </summary>
         public readonly string? LastUpdatedAt;
         /// <summary>
         /// The message of the connector status change
         /// </summary>
         public readonly string? Message;
+        /// <summary>
+        /// The third-party provider detail for a service configuration.
+        /// </summary>
         public readonly Outputs.ConnectorV2Provider? Provider;
+        /// <summary>
+        /// The tags to add to the connectorV2 when you create.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]

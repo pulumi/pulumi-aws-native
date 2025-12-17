@@ -31,7 +31,7 @@ export interface GetHubV2Result {
      */
     readonly subscribedAt?: string;
     /**
-     * The tags to add to the hub V2 resource when you enable Security Hub.
+     * The tags to add to the hub V2 resource when you enable Security Hub CSPM.
      */
     readonly tags?: {[key: string]: string};
 }

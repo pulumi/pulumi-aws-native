@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
         /// The communication time configuration for the telephony channel subtype.
         /// </summary>
         public readonly Outputs.CampaignTimeWindow? Telephony;
+        /// <summary>
+        /// The communication time configuration for the WhatsApp channel subtype.
+        /// </summary>
         public readonly Outputs.CampaignTimeWindow? WhatsApp;
 
         [OutputConstructor]

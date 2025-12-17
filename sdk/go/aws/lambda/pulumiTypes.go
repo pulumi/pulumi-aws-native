@@ -638,8 +638,9 @@ func (o CapacityProviderPermissionsConfigOutput) CapacityProviderOperatorRoleArn
 // The scaling configuration for the capacity provider.
 type CapacityProviderScalingConfig struct {
 	// The maximum number of EC2 instances that the capacity provider can scale up to.
-	MaxVCpuCount *int                         `pulumi:"maxVCpuCount"`
-	ScalingMode  *CapacityProviderScalingMode `pulumi:"scalingMode"`
+	MaxVCpuCount *int `pulumi:"maxVCpuCount"`
+	// The scaling mode that determines how the capacity provider responds to changes in demand.
+	ScalingMode *CapacityProviderScalingMode `pulumi:"scalingMode"`
 	// A list of target tracking scaling policies for the capacity provider.
 	ScalingPolicies []CapacityProviderTargetTrackingScalingPolicy `pulumi:"scalingPolicies"`
 }
@@ -658,8 +659,9 @@ type CapacityProviderScalingConfigInput interface {
 // The scaling configuration for the capacity provider.
 type CapacityProviderScalingConfigArgs struct {
 	// The maximum number of EC2 instances that the capacity provider can scale up to.
-	MaxVCpuCount pulumi.IntPtrInput                  `pulumi:"maxVCpuCount"`
-	ScalingMode  CapacityProviderScalingModePtrInput `pulumi:"scalingMode"`
+	MaxVCpuCount pulumi.IntPtrInput `pulumi:"maxVCpuCount"`
+	// The scaling mode that determines how the capacity provider responds to changes in demand.
+	ScalingMode CapacityProviderScalingModePtrInput `pulumi:"scalingMode"`
 	// A list of target tracking scaling policies for the capacity provider.
 	ScalingPolicies CapacityProviderTargetTrackingScalingPolicyArrayInput `pulumi:"scalingPolicies"`
 }
@@ -747,6 +749,7 @@ func (o CapacityProviderScalingConfigOutput) MaxVCpuCount() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v CapacityProviderScalingConfig) *int { return v.MaxVCpuCount }).(pulumi.IntPtrOutput)
 }
 
+// The scaling mode that determines how the capacity provider responds to changes in demand.
 func (o CapacityProviderScalingConfigOutput) ScalingMode() CapacityProviderScalingModePtrOutput {
 	return o.ApplyT(func(v CapacityProviderScalingConfig) *CapacityProviderScalingMode { return v.ScalingMode }).(CapacityProviderScalingModePtrOutput)
 }
@@ -792,6 +795,7 @@ func (o CapacityProviderScalingConfigPtrOutput) MaxVCpuCount() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+// The scaling mode that determines how the capacity provider responds to changes in demand.
 func (o CapacityProviderScalingConfigPtrOutput) ScalingMode() CapacityProviderScalingModePtrOutput {
 	return o.ApplyT(func(v *CapacityProviderScalingConfig) *CapacityProviderScalingMode {
 		if v == nil {
@@ -821,6 +825,7 @@ type CapacityProviderTag struct {
 
 // A target tracking scaling policy for the capacity provider.
 type CapacityProviderTargetTrackingScalingPolicy struct {
+	// The predefined metric type to track for scaling decisions.
 	PredefinedMetricType CapacityProviderPredefinedMetricType `pulumi:"predefinedMetricType"`
 	// The target value for the metric as a percentage (for example, 70.0 for 70%).
 	TargetValue float64 `pulumi:"targetValue"`
@@ -839,6 +844,7 @@ type CapacityProviderTargetTrackingScalingPolicyInput interface {
 
 // A target tracking scaling policy for the capacity provider.
 type CapacityProviderTargetTrackingScalingPolicyArgs struct {
+	// The predefined metric type to track for scaling decisions.
 	PredefinedMetricType CapacityProviderPredefinedMetricTypeInput `pulumi:"predefinedMetricType"`
 	// The target value for the metric as a percentage (for example, 70.0 for 70%).
 	TargetValue pulumi.Float64Input `pulumi:"targetValue"`
@@ -896,6 +902,7 @@ func (o CapacityProviderTargetTrackingScalingPolicyOutput) ToCapacityProviderTar
 	return o
 }
 
+// The predefined metric type to track for scaling decisions.
 func (o CapacityProviderTargetTrackingScalingPolicyOutput) PredefinedMetricType() CapacityProviderPredefinedMetricTypeOutput {
 	return o.ApplyT(func(v CapacityProviderTargetTrackingScalingPolicy) CapacityProviderPredefinedMetricType {
 		return v.PredefinedMetricType
@@ -4188,6 +4195,7 @@ type EventSourceMappingTag struct {
 }
 
 type FunctionCapacityProviderConfig struct {
+	// Configuration for Lambda-managed instances used by the capacity provider.
 	LambdaManagedInstancesCapacityProviderConfig FunctionLambdaManagedInstancesCapacityProviderConfig `pulumi:"lambdaManagedInstancesCapacityProviderConfig"`
 }
 
@@ -4203,6 +4211,7 @@ type FunctionCapacityProviderConfigInput interface {
 }
 
 type FunctionCapacityProviderConfigArgs struct {
+	// Configuration for Lambda-managed instances used by the capacity provider.
 	LambdaManagedInstancesCapacityProviderConfig FunctionLambdaManagedInstancesCapacityProviderConfigInput `pulumi:"lambdaManagedInstancesCapacityProviderConfig"`
 }
 
@@ -4283,6 +4292,7 @@ func (o FunctionCapacityProviderConfigOutput) ToFunctionCapacityProviderConfigPt
 	}).(FunctionCapacityProviderConfigPtrOutput)
 }
 
+// Configuration for Lambda-managed instances used by the capacity provider.
 func (o FunctionCapacityProviderConfigOutput) LambdaManagedInstancesCapacityProviderConfig() FunctionLambdaManagedInstancesCapacityProviderConfigOutput {
 	return o.ApplyT(func(v FunctionCapacityProviderConfig) FunctionLambdaManagedInstancesCapacityProviderConfig {
 		return v.LambdaManagedInstancesCapacityProviderConfig
@@ -4313,6 +4323,7 @@ func (o FunctionCapacityProviderConfigPtrOutput) Elem() FunctionCapacityProvider
 	}).(FunctionCapacityProviderConfigOutput)
 }
 
+// Configuration for Lambda-managed instances used by the capacity provider.
 func (o FunctionCapacityProviderConfigPtrOutput) LambdaManagedInstancesCapacityProviderConfig() FunctionLambdaManagedInstancesCapacityProviderConfigPtrOutput {
 	return o.ApplyT(func(v *FunctionCapacityProviderConfig) *FunctionLambdaManagedInstancesCapacityProviderConfig {
 		if v == nil {

@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'IndexDataType',
     'IndexDistanceMetric',
+    'IndexEncryptionConfigurationSseType',
     'VectorBucketEncryptionConfigurationSseType',
 ]
 
@@ -28,6 +29,15 @@ class IndexDistanceMetric(_builtins.str, Enum):
     """
     COSINE = "cosine"
     EUCLIDEAN = "euclidean"
+
+
+@pulumi.type_token("aws-native:s3vectors:IndexEncryptionConfigurationSseType")
+class IndexEncryptionConfigurationSseType(_builtins.str, Enum):
+    """
+    Defines the server-side encryption type for index encryption configuration. Defaults to the parent vector bucket's encryption settings when unspecified.
+    """
+    AES256 = "AES256"
+    AWSKMS = "aws:kms"
 
 
 @pulumi.type_token("aws-native:s3vectors:VectorBucketEncryptionConfigurationSseType")

@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGatewayResult:
-    def __init__(__self__, authorizer_configuration=None, authorizer_type=None, created_at=None, description=None, exception_level=None, gateway_arn=None, gateway_identifier=None, gateway_url=None, kms_key_arn=None, name=None, protocol_configuration=None, protocol_type=None, role_arn=None, status=None, status_reasons=None, tags=None, updated_at=None, workload_identity_details=None):
+    def __init__(__self__, authorizer_configuration=None, authorizer_type=None, created_at=None, description=None, exception_level=None, gateway_arn=None, gateway_identifier=None, gateway_url=None, interceptor_configurations=None, kms_key_arn=None, name=None, protocol_configuration=None, protocol_type=None, role_arn=None, status=None, status_reasons=None, tags=None, updated_at=None, workload_identity_details=None):
         if authorizer_configuration and not isinstance(authorizer_configuration, dict):
             raise TypeError("Expected argument 'authorizer_configuration' to be a dict")
         pulumi.set(__self__, "authorizer_configuration", authorizer_configuration)
@@ -50,6 +50,9 @@ class GetGatewayResult:
         if gateway_url and not isinstance(gateway_url, str):
             raise TypeError("Expected argument 'gateway_url' to be a str")
         pulumi.set(__self__, "gateway_url", gateway_url)
+        if interceptor_configurations and not isinstance(interceptor_configurations, list):
+            raise TypeError("Expected argument 'interceptor_configurations' to be a list")
+        pulumi.set(__self__, "interceptor_configurations", interceptor_configurations)
         if kms_key_arn and not isinstance(kms_key_arn, str):
             raise TypeError("Expected argument 'kms_key_arn' to be a str")
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
@@ -140,6 +143,11 @@ class GetGatewayResult:
         return pulumi.get(self, "gateway_url")
 
     @_builtins.property
+    @pulumi.getter(name="interceptorConfigurations")
+    def interceptor_configurations(self) -> Optional[Sequence['outputs.GatewayInterceptorConfiguration']]:
+        return pulumi.get(self, "interceptor_configurations")
+
+    @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[_builtins.str]:
         """
@@ -225,6 +233,7 @@ class AwaitableGetGatewayResult(GetGatewayResult):
             gateway_arn=self.gateway_arn,
             gateway_identifier=self.gateway_identifier,
             gateway_url=self.gateway_url,
+            interceptor_configurations=self.interceptor_configurations,
             kms_key_arn=self.kms_key_arn,
             name=self.name,
             protocol_configuration=self.protocol_configuration,
@@ -256,6 +265,7 @@ def get_gateway(gateway_identifier: Optional[_builtins.str] = None,
         gateway_arn=pulumi.get(__ret__, 'gateway_arn'),
         gateway_identifier=pulumi.get(__ret__, 'gateway_identifier'),
         gateway_url=pulumi.get(__ret__, 'gateway_url'),
+        interceptor_configurations=pulumi.get(__ret__, 'interceptor_configurations'),
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         name=pulumi.get(__ret__, 'name'),
         protocol_configuration=pulumi.get(__ret__, 'protocol_configuration'),
@@ -284,6 +294,7 @@ def get_gateway_output(gateway_identifier: Optional[pulumi.Input[_builtins.str]]
         gateway_arn=pulumi.get(__response__, 'gateway_arn'),
         gateway_identifier=pulumi.get(__response__, 'gateway_identifier'),
         gateway_url=pulumi.get(__response__, 'gateway_url'),
+        interceptor_configurations=pulumi.get(__response__, 'interceptor_configurations'),
         kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
         name=pulumi.get(__response__, 'name'),
         protocol_configuration=pulumi.get(__response__, 'protocol_configuration'),

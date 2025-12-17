@@ -27,14 +27,14 @@ func LookupDelegatedAdmin(ctx *pulumi.Context, args *LookupDelegatedAdminArgs, o
 }
 
 type LookupDelegatedAdminArgs struct {
-	// The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
+	// The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
 	DelegatedAdminIdentifier string `pulumi:"delegatedAdminIdentifier"`
 }
 
 type LookupDelegatedAdminResult struct {
-	// The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
+	// The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
 	DelegatedAdminIdentifier *string `pulumi:"delegatedAdminIdentifier"`
-	// Whether the delegated Security Hub administrator is set for the organization.
+	// Whether the delegated Security Hub CSPM administrator is set for the organization.
 	Status *DelegatedAdminStatus `pulumi:"status"`
 }
 
@@ -48,7 +48,7 @@ func LookupDelegatedAdminOutput(ctx *pulumi.Context, args LookupDelegatedAdminOu
 }
 
 type LookupDelegatedAdminOutputArgs struct {
-	// The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
+	// The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
 	DelegatedAdminIdentifier pulumi.StringInput `pulumi:"delegatedAdminIdentifier"`
 }
 
@@ -70,12 +70,12 @@ func (o LookupDelegatedAdminResultOutput) ToLookupDelegatedAdminResultOutputWith
 	return o
 }
 
-// The ID of the delegated Security Hub administrator account, in the format of `accountID/Region` .
+// The ID of the delegated Security Hub CSPM administrator account, in the format of `accountID/Region` .
 func (o LookupDelegatedAdminResultOutput) DelegatedAdminIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDelegatedAdminResult) *string { return v.DelegatedAdminIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// Whether the delegated Security Hub administrator is set for the organization.
+// Whether the delegated Security Hub CSPM administrator is set for the organization.
 func (o LookupDelegatedAdminResultOutput) Status() DelegatedAdminStatusPtrOutput {
 	return o.ApplyT(func(v LookupDelegatedAdminResult) *DelegatedAdminStatus { return v.Status }).(DelegatedAdminStatusPtrOutput)
 }

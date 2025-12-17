@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
     /// </summary>
     public sealed class OrganizationTelemetryRuleWafLoggingParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of WAF logs to collect (currently supports WAF_LOGS).
+        /// </summary>
         [Input("logType")]
         public Input<Pulumi.AwsNative.ObservabilityAdmin.OrganizationTelemetryRuleWafLogType>? LogType { get; set; }
 
+        /// <summary>
+        /// A filter configuration that determines which WAF log records to include or exclude.
+        /// </summary>
         [Input("loggingFilter")]
         public Input<Inputs.OrganizationTelemetryRuleLoggingFilterArgs>? LoggingFilter { get; set; }
 

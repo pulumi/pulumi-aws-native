@@ -77,6 +77,9 @@ export class Campaign extends pulumi.CustomResource {
      * One or more tags.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The type of campaign.
+     */
     declare public readonly type: pulumi.Output<enums.connectcampaignsv2.CampaignType | undefined>;
 
     /**
@@ -164,5 +167,8 @@ export interface CampaignArgs {
      * One or more tags.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The type of campaign.
+     */
     type?: pulumi.Input<enums.connectcampaignsv2.CampaignType>;
 }

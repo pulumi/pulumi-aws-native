@@ -83,6 +83,9 @@ type LookupServiceResult struct {
 	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
 	//  If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
 	HealthCheckGracePeriodSeconds *int `pulumi:"healthCheckGracePeriodSeconds"`
+	// The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+	//   If you want to use Managed Instances, you must use the ``capacityProviderStrategy`` request parameter
+	LaunchType *ServiceLaunchType `pulumi:"launchType"`
 	// A list of load balancer objects to associate with the service. If you specify the ``Role`` property, ``LoadBalancers`` must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.
 	//   To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
 	LoadBalancers []ServiceLoadBalancer `pulumi:"loadBalancers"`
@@ -214,6 +217,13 @@ func (o LookupServiceResultOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
 //	If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.
 func (o LookupServiceResultOutput) HealthCheckGracePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *int { return v.HealthCheckGracePeriodSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+//
+//	If you want to use Managed Instances, you must use the ``capacityProviderStrategy`` request parameter
+func (o LookupServiceResultOutput) LaunchType() ServiceLaunchTypePtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *ServiceLaunchType { return v.LaunchType }).(ServiceLaunchTypePtrOutput)
 }
 
 // A list of load balancer objects to associate with the service. If you specify the “Role“ property, “LoadBalancers“ must be specified as well. For information about the number of load balancers that you can specify per service, see [Service Load Balancing](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html) in the *Amazon Elastic Container Service Developer Guide*.

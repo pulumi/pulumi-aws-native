@@ -4562,8 +4562,9 @@ type DataAutomationProjectAudioOverrideConfiguration struct {
 	// The output and input language configuration for your audio.
 	LanguageConfiguration *DataAutomationProjectAudioLanguageConfiguration `pulumi:"languageConfiguration"`
 	// Sets modality processing for audio files. All modalities are enabled by default.
-	ModalityProcessing         *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
-	SensitiveDataConfiguration *DataAutomationProjectSensitiveDataConfiguration      `pulumi:"sensitiveDataConfiguration"`
+	ModalityProcessing *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
+	// Configuration for sensitive data detection and redaction for audio files.
+	SensitiveDataConfiguration *DataAutomationProjectSensitiveDataConfiguration `pulumi:"sensitiveDataConfiguration"`
 }
 
 // DataAutomationProjectAudioOverrideConfigurationInput is an input type that accepts DataAutomationProjectAudioOverrideConfigurationArgs and DataAutomationProjectAudioOverrideConfigurationOutput values.
@@ -4581,8 +4582,9 @@ type DataAutomationProjectAudioOverrideConfigurationArgs struct {
 	// The output and input language configuration for your audio.
 	LanguageConfiguration DataAutomationProjectAudioLanguageConfigurationPtrInput `pulumi:"languageConfiguration"`
 	// Sets modality processing for audio files. All modalities are enabled by default.
-	ModalityProcessing         DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
-	SensitiveDataConfiguration DataAutomationProjectSensitiveDataConfigurationPtrInput      `pulumi:"sensitiveDataConfiguration"`
+	ModalityProcessing DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
+	// Configuration for sensitive data detection and redaction for audio files.
+	SensitiveDataConfiguration DataAutomationProjectSensitiveDataConfigurationPtrInput `pulumi:"sensitiveDataConfiguration"`
 }
 
 func (DataAutomationProjectAudioOverrideConfigurationArgs) ElementType() reflect.Type {
@@ -4676,6 +4678,7 @@ func (o DataAutomationProjectAudioOverrideConfigurationOutput) ModalityProcessin
 	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
 }
 
+// Configuration for sensitive data detection and redaction for audio files.
 func (o DataAutomationProjectAudioOverrideConfigurationOutput) SensitiveDataConfiguration() DataAutomationProjectSensitiveDataConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectAudioOverrideConfiguration) *DataAutomationProjectSensitiveDataConfiguration {
 		return v.SensitiveDataConfiguration
@@ -4726,6 +4729,7 @@ func (o DataAutomationProjectAudioOverrideConfigurationPtrOutput) ModalityProces
 	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
 }
 
+// Configuration for sensitive data detection and redaction for audio files.
 func (o DataAutomationProjectAudioOverrideConfigurationPtrOutput) SensitiveDataConfiguration() DataAutomationProjectSensitiveDataConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectAudioOverrideConfiguration) *DataAutomationProjectSensitiveDataConfiguration {
 		if v == nil {
@@ -6308,8 +6312,9 @@ func (o DataAutomationProjectDocumentOutputTextFormatPtrOutput) Types() DataAuto
 
 type DataAutomationProjectDocumentOverrideConfiguration struct {
 	// Sets modality processing for document files. All modalities are enabled by default.
-	ModalityProcessing         *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
-	SensitiveDataConfiguration *DataAutomationProjectSensitiveDataConfiguration      `pulumi:"sensitiveDataConfiguration"`
+	ModalityProcessing *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
+	// Configuration for sensitive data detection and redaction for document files.
+	SensitiveDataConfiguration *DataAutomationProjectSensitiveDataConfiguration `pulumi:"sensitiveDataConfiguration"`
 	// Whether document splitter is enabled for a project.
 	Splitter *DataAutomationProjectSplitterConfiguration `pulumi:"splitter"`
 }
@@ -6327,8 +6332,9 @@ type DataAutomationProjectDocumentOverrideConfigurationInput interface {
 
 type DataAutomationProjectDocumentOverrideConfigurationArgs struct {
 	// Sets modality processing for document files. All modalities are enabled by default.
-	ModalityProcessing         DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
-	SensitiveDataConfiguration DataAutomationProjectSensitiveDataConfigurationPtrInput      `pulumi:"sensitiveDataConfiguration"`
+	ModalityProcessing DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
+	// Configuration for sensitive data detection and redaction for document files.
+	SensitiveDataConfiguration DataAutomationProjectSensitiveDataConfigurationPtrInput `pulumi:"sensitiveDataConfiguration"`
 	// Whether document splitter is enabled for a project.
 	Splitter DataAutomationProjectSplitterConfigurationPtrInput `pulumi:"splitter"`
 }
@@ -6417,6 +6423,7 @@ func (o DataAutomationProjectDocumentOverrideConfigurationOutput) ModalityProces
 	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
 }
 
+// Configuration for sensitive data detection and redaction for document files.
 func (o DataAutomationProjectDocumentOverrideConfigurationOutput) SensitiveDataConfiguration() DataAutomationProjectSensitiveDataConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectDocumentOverrideConfiguration) *DataAutomationProjectSensitiveDataConfiguration {
 		return v.SensitiveDataConfiguration
@@ -6464,6 +6471,7 @@ func (o DataAutomationProjectDocumentOverrideConfigurationPtrOutput) ModalityPro
 	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
 }
 
+// Configuration for sensitive data detection and redaction for document files.
 func (o DataAutomationProjectDocumentOverrideConfigurationPtrOutput) SensitiveDataConfiguration() DataAutomationProjectSensitiveDataConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectDocumentOverrideConfiguration) *DataAutomationProjectSensitiveDataConfiguration {
 		if v == nil {
@@ -7260,8 +7268,9 @@ func (o DataAutomationProjectImageExtractionCategoryPtrOutput) Types() DataAutom
 
 type DataAutomationProjectImageOverrideConfiguration struct {
 	// Sets modality processing for image files. All modalities are enabled by default.
-	ModalityProcessing         *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
-	SensitiveDataConfiguration *DataAutomationProjectSensitiveDataConfiguration      `pulumi:"sensitiveDataConfiguration"`
+	ModalityProcessing *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
+	// Configuration for sensitive data detection and redaction for image files.
+	SensitiveDataConfiguration *DataAutomationProjectSensitiveDataConfiguration `pulumi:"sensitiveDataConfiguration"`
 }
 
 // DataAutomationProjectImageOverrideConfigurationInput is an input type that accepts DataAutomationProjectImageOverrideConfigurationArgs and DataAutomationProjectImageOverrideConfigurationOutput values.
@@ -7277,8 +7286,9 @@ type DataAutomationProjectImageOverrideConfigurationInput interface {
 
 type DataAutomationProjectImageOverrideConfigurationArgs struct {
 	// Sets modality processing for image files. All modalities are enabled by default.
-	ModalityProcessing         DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
-	SensitiveDataConfiguration DataAutomationProjectSensitiveDataConfigurationPtrInput      `pulumi:"sensitiveDataConfiguration"`
+	ModalityProcessing DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
+	// Configuration for sensitive data detection and redaction for image files.
+	SensitiveDataConfiguration DataAutomationProjectSensitiveDataConfigurationPtrInput `pulumi:"sensitiveDataConfiguration"`
 }
 
 func (DataAutomationProjectImageOverrideConfigurationArgs) ElementType() reflect.Type {
@@ -7365,6 +7375,7 @@ func (o DataAutomationProjectImageOverrideConfigurationOutput) ModalityProcessin
 	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
 }
 
+// Configuration for sensitive data detection and redaction for image files.
 func (o DataAutomationProjectImageOverrideConfigurationOutput) SensitiveDataConfiguration() DataAutomationProjectSensitiveDataConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectImageOverrideConfiguration) *DataAutomationProjectSensitiveDataConfiguration {
 		return v.SensitiveDataConfiguration
@@ -7405,6 +7416,7 @@ func (o DataAutomationProjectImageOverrideConfigurationPtrOutput) ModalityProces
 	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
 }
 
+// Configuration for sensitive data detection and redaction for image files.
 func (o DataAutomationProjectImageOverrideConfigurationPtrOutput) SensitiveDataConfiguration() DataAutomationProjectSensitiveDataConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectImageOverrideConfiguration) *DataAutomationProjectSensitiveDataConfiguration {
 		if v == nil {
@@ -8465,7 +8477,9 @@ func (o DataAutomationProjectOverrideConfigurationPtrOutput) Video() DataAutomat
 }
 
 type DataAutomationProjectPiiEntitiesConfiguration struct {
-	PiiEntityTypes    []DataAutomationProjectPiiEntityTypes      `pulumi:"piiEntityTypes"`
+	// List of PII entity types to detect/redact in the output. Choose from specific entity types (such as ADDRESS, NAME, EMAIL, PHONE, US_SOCIAL_SECURITY_NUMBER) or specify ALL to detect all supported PII types. If not specified, defaults to ALL.
+	PiiEntityTypes []DataAutomationProjectPiiEntityTypes `pulumi:"piiEntityTypes"`
+	// Defines how detected PII entities are masked in redacted output files. Set to PII to replace all detected entities with a generic [PII] marker regardless of entity type. Set to ENTITY_TYPE to replace each detected entity with its specific type marker (for example, [NAME], [EMAIL], [ADDRESS]). This setting only applies when detectionMode is set to DETECTION_AND_REDACTION. If not specified, defaults to ENTITY_TYPE.
 	RedactionMaskMode *DataAutomationProjectPiiRedactionMaskMode `pulumi:"redactionMaskMode"`
 }
 
@@ -8481,7 +8495,9 @@ type DataAutomationProjectPiiEntitiesConfigurationInput interface {
 }
 
 type DataAutomationProjectPiiEntitiesConfigurationArgs struct {
-	PiiEntityTypes    DataAutomationProjectPiiEntityTypesArrayInput     `pulumi:"piiEntityTypes"`
+	// List of PII entity types to detect/redact in the output. Choose from specific entity types (such as ADDRESS, NAME, EMAIL, PHONE, US_SOCIAL_SECURITY_NUMBER) or specify ALL to detect all supported PII types. If not specified, defaults to ALL.
+	PiiEntityTypes DataAutomationProjectPiiEntityTypesArrayInput `pulumi:"piiEntityTypes"`
+	// Defines how detected PII entities are masked in redacted output files. Set to PII to replace all detected entities with a generic [PII] marker regardless of entity type. Set to ENTITY_TYPE to replace each detected entity with its specific type marker (for example, [NAME], [EMAIL], [ADDRESS]). This setting only applies when detectionMode is set to DETECTION_AND_REDACTION. If not specified, defaults to ENTITY_TYPE.
 	RedactionMaskMode DataAutomationProjectPiiRedactionMaskModePtrInput `pulumi:"redactionMaskMode"`
 }
 
@@ -8562,12 +8578,14 @@ func (o DataAutomationProjectPiiEntitiesConfigurationOutput) ToDataAutomationPro
 	}).(DataAutomationProjectPiiEntitiesConfigurationPtrOutput)
 }
 
+// List of PII entity types to detect/redact in the output. Choose from specific entity types (such as ADDRESS, NAME, EMAIL, PHONE, US_SOCIAL_SECURITY_NUMBER) or specify ALL to detect all supported PII types. If not specified, defaults to ALL.
 func (o DataAutomationProjectPiiEntitiesConfigurationOutput) PiiEntityTypes() DataAutomationProjectPiiEntityTypesArrayOutput {
 	return o.ApplyT(func(v DataAutomationProjectPiiEntitiesConfiguration) []DataAutomationProjectPiiEntityTypes {
 		return v.PiiEntityTypes
 	}).(DataAutomationProjectPiiEntityTypesArrayOutput)
 }
 
+// Defines how detected PII entities are masked in redacted output files. Set to PII to replace all detected entities with a generic [PII] marker regardless of entity type. Set to ENTITY_TYPE to replace each detected entity with its specific type marker (for example, [NAME], [EMAIL], [ADDRESS]). This setting only applies when detectionMode is set to DETECTION_AND_REDACTION. If not specified, defaults to ENTITY_TYPE.
 func (o DataAutomationProjectPiiEntitiesConfigurationOutput) RedactionMaskMode() DataAutomationProjectPiiRedactionMaskModePtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectPiiEntitiesConfiguration) *DataAutomationProjectPiiRedactionMaskMode {
 		return v.RedactionMaskMode
@@ -8598,6 +8616,7 @@ func (o DataAutomationProjectPiiEntitiesConfigurationPtrOutput) Elem() DataAutom
 	}).(DataAutomationProjectPiiEntitiesConfigurationOutput)
 }
 
+// List of PII entity types to detect/redact in the output. Choose from specific entity types (such as ADDRESS, NAME, EMAIL, PHONE, US_SOCIAL_SECURITY_NUMBER) or specify ALL to detect all supported PII types. If not specified, defaults to ALL.
 func (o DataAutomationProjectPiiEntitiesConfigurationPtrOutput) PiiEntityTypes() DataAutomationProjectPiiEntityTypesArrayOutput {
 	return o.ApplyT(func(v *DataAutomationProjectPiiEntitiesConfiguration) []DataAutomationProjectPiiEntityTypes {
 		if v == nil {
@@ -8607,6 +8626,7 @@ func (o DataAutomationProjectPiiEntitiesConfigurationPtrOutput) PiiEntityTypes()
 	}).(DataAutomationProjectPiiEntityTypesArrayOutput)
 }
 
+// Defines how detected PII entities are masked in redacted output files. Set to PII to replace all detected entities with a generic [PII] marker regardless of entity type. Set to ENTITY_TYPE to replace each detected entity with its specific type marker (for example, [NAME], [EMAIL], [ADDRESS]). This setting only applies when detectionMode is set to DETECTION_AND_REDACTION. If not specified, defaults to ENTITY_TYPE.
 func (o DataAutomationProjectPiiEntitiesConfigurationPtrOutput) RedactionMaskMode() DataAutomationProjectPiiRedactionMaskModePtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectPiiEntitiesConfiguration) *DataAutomationProjectPiiRedactionMaskMode {
 		if v == nil {
@@ -8617,9 +8637,12 @@ func (o DataAutomationProjectPiiEntitiesConfigurationPtrOutput) RedactionMaskMod
 }
 
 type DataAutomationProjectSensitiveDataConfiguration struct {
-	DetectionMode            *DataAutomationProjectSensitiveDataDetectionMode   `pulumi:"detectionMode"`
-	DetectionScope           []DataAutomationProjectSensitiveDataDetectionScope `pulumi:"detectionScope"`
-	PiiEntitiesConfiguration *DataAutomationProjectPiiEntitiesConfiguration     `pulumi:"piiEntitiesConfiguration"`
+	// Specifies the mode for handling sensitive data detection. Set to DETECTION to only identify sensitive data without modifying content - this produces one output file per detection scope containing detection information with original unredacted content. Set to DETECTION_AND_REDACTION to both identify and mask sensitive data - this produces two output files per detection scope: one unredacted file with detection information and one redacted file with masking applied to sensitive content. For example, if detectionScope includes both STANDARD and CUSTOM with DETECTION_AND_REDACTION mode, four output files will be generated (two for standard output and two for custom output).
+	DetectionMode *DataAutomationProjectSensitiveDataDetectionMode `pulumi:"detectionMode"`
+	// Defines which BDA output types to apply sensitive data detection to. Specify STANDARD to detect sensitive data in standard output, CUSTOM to detect in custom output (blueprint-based extraction), or both to apply detection to both output types. If not specified, defaults to both STANDARD and CUSTOM. The number of output files generated depends on both the detection mode and the scopes selected - each scope specified will produce its own set of output files according to the detection mode configured.
+	DetectionScope []DataAutomationProjectSensitiveDataDetectionScope `pulumi:"detectionScope"`
+	// Configuration for detecting and redacting Personally Identifiable Information (PII) entities.
+	PiiEntitiesConfiguration *DataAutomationProjectPiiEntitiesConfiguration `pulumi:"piiEntitiesConfiguration"`
 }
 
 // DataAutomationProjectSensitiveDataConfigurationInput is an input type that accepts DataAutomationProjectSensitiveDataConfigurationArgs and DataAutomationProjectSensitiveDataConfigurationOutput values.
@@ -8634,9 +8657,12 @@ type DataAutomationProjectSensitiveDataConfigurationInput interface {
 }
 
 type DataAutomationProjectSensitiveDataConfigurationArgs struct {
-	DetectionMode            DataAutomationProjectSensitiveDataDetectionModePtrInput    `pulumi:"detectionMode"`
-	DetectionScope           DataAutomationProjectSensitiveDataDetectionScopeArrayInput `pulumi:"detectionScope"`
-	PiiEntitiesConfiguration DataAutomationProjectPiiEntitiesConfigurationPtrInput      `pulumi:"piiEntitiesConfiguration"`
+	// Specifies the mode for handling sensitive data detection. Set to DETECTION to only identify sensitive data without modifying content - this produces one output file per detection scope containing detection information with original unredacted content. Set to DETECTION_AND_REDACTION to both identify and mask sensitive data - this produces two output files per detection scope: one unredacted file with detection information and one redacted file with masking applied to sensitive content. For example, if detectionScope includes both STANDARD and CUSTOM with DETECTION_AND_REDACTION mode, four output files will be generated (two for standard output and two for custom output).
+	DetectionMode DataAutomationProjectSensitiveDataDetectionModePtrInput `pulumi:"detectionMode"`
+	// Defines which BDA output types to apply sensitive data detection to. Specify STANDARD to detect sensitive data in standard output, CUSTOM to detect in custom output (blueprint-based extraction), or both to apply detection to both output types. If not specified, defaults to both STANDARD and CUSTOM. The number of output files generated depends on both the detection mode and the scopes selected - each scope specified will produce its own set of output files according to the detection mode configured.
+	DetectionScope DataAutomationProjectSensitiveDataDetectionScopeArrayInput `pulumi:"detectionScope"`
+	// Configuration for detecting and redacting Personally Identifiable Information (PII) entities.
+	PiiEntitiesConfiguration DataAutomationProjectPiiEntitiesConfigurationPtrInput `pulumi:"piiEntitiesConfiguration"`
 }
 
 func (DataAutomationProjectSensitiveDataConfigurationArgs) ElementType() reflect.Type {
@@ -8716,18 +8742,21 @@ func (o DataAutomationProjectSensitiveDataConfigurationOutput) ToDataAutomationP
 	}).(DataAutomationProjectSensitiveDataConfigurationPtrOutput)
 }
 
+// Specifies the mode for handling sensitive data detection. Set to DETECTION to only identify sensitive data without modifying content - this produces one output file per detection scope containing detection information with original unredacted content. Set to DETECTION_AND_REDACTION to both identify and mask sensitive data - this produces two output files per detection scope: one unredacted file with detection information and one redacted file with masking applied to sensitive content. For example, if detectionScope includes both STANDARD and CUSTOM with DETECTION_AND_REDACTION mode, four output files will be generated (two for standard output and two for custom output).
 func (o DataAutomationProjectSensitiveDataConfigurationOutput) DetectionMode() DataAutomationProjectSensitiveDataDetectionModePtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectSensitiveDataConfiguration) *DataAutomationProjectSensitiveDataDetectionMode {
 		return v.DetectionMode
 	}).(DataAutomationProjectSensitiveDataDetectionModePtrOutput)
 }
 
+// Defines which BDA output types to apply sensitive data detection to. Specify STANDARD to detect sensitive data in standard output, CUSTOM to detect in custom output (blueprint-based extraction), or both to apply detection to both output types. If not specified, defaults to both STANDARD and CUSTOM. The number of output files generated depends on both the detection mode and the scopes selected - each scope specified will produce its own set of output files according to the detection mode configured.
 func (o DataAutomationProjectSensitiveDataConfigurationOutput) DetectionScope() DataAutomationProjectSensitiveDataDetectionScopeArrayOutput {
 	return o.ApplyT(func(v DataAutomationProjectSensitiveDataConfiguration) []DataAutomationProjectSensitiveDataDetectionScope {
 		return v.DetectionScope
 	}).(DataAutomationProjectSensitiveDataDetectionScopeArrayOutput)
 }
 
+// Configuration for detecting and redacting Personally Identifiable Information (PII) entities.
 func (o DataAutomationProjectSensitiveDataConfigurationOutput) PiiEntitiesConfiguration() DataAutomationProjectPiiEntitiesConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectSensitiveDataConfiguration) *DataAutomationProjectPiiEntitiesConfiguration {
 		return v.PiiEntitiesConfiguration
@@ -8758,6 +8787,7 @@ func (o DataAutomationProjectSensitiveDataConfigurationPtrOutput) Elem() DataAut
 	}).(DataAutomationProjectSensitiveDataConfigurationOutput)
 }
 
+// Specifies the mode for handling sensitive data detection. Set to DETECTION to only identify sensitive data without modifying content - this produces one output file per detection scope containing detection information with original unredacted content. Set to DETECTION_AND_REDACTION to both identify and mask sensitive data - this produces two output files per detection scope: one unredacted file with detection information and one redacted file with masking applied to sensitive content. For example, if detectionScope includes both STANDARD and CUSTOM with DETECTION_AND_REDACTION mode, four output files will be generated (two for standard output and two for custom output).
 func (o DataAutomationProjectSensitiveDataConfigurationPtrOutput) DetectionMode() DataAutomationProjectSensitiveDataDetectionModePtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectSensitiveDataConfiguration) *DataAutomationProjectSensitiveDataDetectionMode {
 		if v == nil {
@@ -8767,6 +8797,7 @@ func (o DataAutomationProjectSensitiveDataConfigurationPtrOutput) DetectionMode(
 	}).(DataAutomationProjectSensitiveDataDetectionModePtrOutput)
 }
 
+// Defines which BDA output types to apply sensitive data detection to. Specify STANDARD to detect sensitive data in standard output, CUSTOM to detect in custom output (blueprint-based extraction), or both to apply detection to both output types. If not specified, defaults to both STANDARD and CUSTOM. The number of output files generated depends on both the detection mode and the scopes selected - each scope specified will produce its own set of output files according to the detection mode configured.
 func (o DataAutomationProjectSensitiveDataConfigurationPtrOutput) DetectionScope() DataAutomationProjectSensitiveDataDetectionScopeArrayOutput {
 	return o.ApplyT(func(v *DataAutomationProjectSensitiveDataConfiguration) []DataAutomationProjectSensitiveDataDetectionScope {
 		if v == nil {
@@ -8776,6 +8807,7 @@ func (o DataAutomationProjectSensitiveDataConfigurationPtrOutput) DetectionScope
 	}).(DataAutomationProjectSensitiveDataDetectionScopeArrayOutput)
 }
 
+// Configuration for detecting and redacting Personally Identifiable Information (PII) entities.
 func (o DataAutomationProjectSensitiveDataConfigurationPtrOutput) PiiEntitiesConfiguration() DataAutomationProjectPiiEntitiesConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectSensitiveDataConfiguration) *DataAutomationProjectPiiEntitiesConfiguration {
 		if v == nil {
@@ -9731,8 +9763,9 @@ func (o DataAutomationProjectVideoExtractionCategoryPtrOutput) Types() DataAutom
 
 type DataAutomationProjectVideoOverrideConfiguration struct {
 	// Sets modality processing for video files. All modalities are enabled by default.
-	ModalityProcessing         *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
-	SensitiveDataConfiguration *DataAutomationProjectSensitiveDataConfiguration      `pulumi:"sensitiveDataConfiguration"`
+	ModalityProcessing *DataAutomationProjectModalityProcessingConfiguration `pulumi:"modalityProcessing"`
+	// Configuration for sensitive data detection and redaction for video files.
+	SensitiveDataConfiguration *DataAutomationProjectSensitiveDataConfiguration `pulumi:"sensitiveDataConfiguration"`
 }
 
 // DataAutomationProjectVideoOverrideConfigurationInput is an input type that accepts DataAutomationProjectVideoOverrideConfigurationArgs and DataAutomationProjectVideoOverrideConfigurationOutput values.
@@ -9748,8 +9781,9 @@ type DataAutomationProjectVideoOverrideConfigurationInput interface {
 
 type DataAutomationProjectVideoOverrideConfigurationArgs struct {
 	// Sets modality processing for video files. All modalities are enabled by default.
-	ModalityProcessing         DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
-	SensitiveDataConfiguration DataAutomationProjectSensitiveDataConfigurationPtrInput      `pulumi:"sensitiveDataConfiguration"`
+	ModalityProcessing DataAutomationProjectModalityProcessingConfigurationPtrInput `pulumi:"modalityProcessing"`
+	// Configuration for sensitive data detection and redaction for video files.
+	SensitiveDataConfiguration DataAutomationProjectSensitiveDataConfigurationPtrInput `pulumi:"sensitiveDataConfiguration"`
 }
 
 func (DataAutomationProjectVideoOverrideConfigurationArgs) ElementType() reflect.Type {
@@ -9836,6 +9870,7 @@ func (o DataAutomationProjectVideoOverrideConfigurationOutput) ModalityProcessin
 	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
 }
 
+// Configuration for sensitive data detection and redaction for video files.
 func (o DataAutomationProjectVideoOverrideConfigurationOutput) SensitiveDataConfiguration() DataAutomationProjectSensitiveDataConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAutomationProjectVideoOverrideConfiguration) *DataAutomationProjectSensitiveDataConfiguration {
 		return v.SensitiveDataConfiguration
@@ -9876,6 +9911,7 @@ func (o DataAutomationProjectVideoOverrideConfigurationPtrOutput) ModalityProces
 	}).(DataAutomationProjectModalityProcessingConfigurationPtrOutput)
 }
 
+// Configuration for sensitive data detection and redaction for video files.
 func (o DataAutomationProjectVideoOverrideConfigurationPtrOutput) SensitiveDataConfiguration() DataAutomationProjectSensitiveDataConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataAutomationProjectVideoOverrideConfiguration) *DataAutomationProjectSensitiveDataConfiguration {
 		if v == nil {
@@ -34277,12 +34313,14 @@ func (o KnowledgeBaseAudioSegmentationConfigurationOutput) FixedLengthDuration()
 
 // The vector configuration details for the Bedrock embeddings model.
 type KnowledgeBaseBedrockEmbeddingModelConfiguration struct {
+	// Configuration settings for processing audio content in multimodal knowledge bases.
 	Audio []KnowledgeBaseAudioConfiguration `pulumi:"audio"`
 	// The dimensions details for the vector configuration used on the Bedrock embeddings model.
 	Dimensions *int `pulumi:"dimensions"`
 	// The data type for the vectors when using a model to convert text into vector embeddings.
 	EmbeddingDataType *KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType `pulumi:"embeddingDataType"`
-	Video             []KnowledgeBaseVideoConfiguration                                 `pulumi:"video"`
+	// Configuration settings for processing video content in multimodal knowledge bases.
+	Video []KnowledgeBaseVideoConfiguration `pulumi:"video"`
 }
 
 // KnowledgeBaseBedrockEmbeddingModelConfigurationInput is an input type that accepts KnowledgeBaseBedrockEmbeddingModelConfigurationArgs and KnowledgeBaseBedrockEmbeddingModelConfigurationOutput values.
@@ -34298,12 +34336,14 @@ type KnowledgeBaseBedrockEmbeddingModelConfigurationInput interface {
 
 // The vector configuration details for the Bedrock embeddings model.
 type KnowledgeBaseBedrockEmbeddingModelConfigurationArgs struct {
+	// Configuration settings for processing audio content in multimodal knowledge bases.
 	Audio KnowledgeBaseAudioConfigurationArrayInput `pulumi:"audio"`
 	// The dimensions details for the vector configuration used on the Bedrock embeddings model.
 	Dimensions pulumi.IntPtrInput `pulumi:"dimensions"`
 	// The data type for the vectors when using a model to convert text into vector embeddings.
 	EmbeddingDataType KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrInput `pulumi:"embeddingDataType"`
-	Video             KnowledgeBaseVideoConfigurationArrayInput                                `pulumi:"video"`
+	// Configuration settings for processing video content in multimodal knowledge bases.
+	Video KnowledgeBaseVideoConfigurationArrayInput `pulumi:"video"`
 }
 
 func (KnowledgeBaseBedrockEmbeddingModelConfigurationArgs) ElementType() reflect.Type {
@@ -34384,6 +34424,7 @@ func (o KnowledgeBaseBedrockEmbeddingModelConfigurationOutput) ToKnowledgeBaseBe
 	}).(KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput)
 }
 
+// Configuration settings for processing audio content in multimodal knowledge bases.
 func (o KnowledgeBaseBedrockEmbeddingModelConfigurationOutput) Audio() KnowledgeBaseAudioConfigurationArrayOutput {
 	return o.ApplyT(func(v KnowledgeBaseBedrockEmbeddingModelConfiguration) []KnowledgeBaseAudioConfiguration {
 		return v.Audio
@@ -34402,6 +34443,7 @@ func (o KnowledgeBaseBedrockEmbeddingModelConfigurationOutput) EmbeddingDataType
 	}).(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput)
 }
 
+// Configuration settings for processing video content in multimodal knowledge bases.
 func (o KnowledgeBaseBedrockEmbeddingModelConfigurationOutput) Video() KnowledgeBaseVideoConfigurationArrayOutput {
 	return o.ApplyT(func(v KnowledgeBaseBedrockEmbeddingModelConfiguration) []KnowledgeBaseVideoConfiguration {
 		return v.Video
@@ -34432,6 +34474,7 @@ func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) Elem() Knowled
 	}).(KnowledgeBaseBedrockEmbeddingModelConfigurationOutput)
 }
 
+// Configuration settings for processing audio content in multimodal knowledge bases.
 func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) Audio() KnowledgeBaseAudioConfigurationArrayOutput {
 	return o.ApplyT(func(v *KnowledgeBaseBedrockEmbeddingModelConfiguration) []KnowledgeBaseAudioConfiguration {
 		if v == nil {
@@ -34461,6 +34504,7 @@ func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) EmbeddingDataT
 	}).(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput)
 }
 
+// Configuration settings for processing video content in multimodal knowledge bases.
 func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) Video() KnowledgeBaseVideoConfigurationArrayOutput {
 	return o.ApplyT(func(v *KnowledgeBaseBedrockEmbeddingModelConfiguration) []KnowledgeBaseVideoConfiguration {
 		if v == nil {

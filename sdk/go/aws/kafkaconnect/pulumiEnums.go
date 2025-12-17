@@ -342,6 +342,172 @@ func (in *connectorKafkaClusterEncryptionInTransitTypePtr) ToConnectorKafkaClust
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectorKafkaClusterEncryptionInTransitTypePtrOutput)
 }
 
+// The network type of the Connector.
+type ConnectorNetworkType string
+
+const (
+	ConnectorNetworkTypeIpv4 = ConnectorNetworkType("IPV4")
+	ConnectorNetworkTypeDual = ConnectorNetworkType("DUAL")
+)
+
+func (ConnectorNetworkType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorNetworkType)(nil)).Elem()
+}
+
+func (e ConnectorNetworkType) ToConnectorNetworkTypeOutput() ConnectorNetworkTypeOutput {
+	return pulumi.ToOutput(e).(ConnectorNetworkTypeOutput)
+}
+
+func (e ConnectorNetworkType) ToConnectorNetworkTypeOutputWithContext(ctx context.Context) ConnectorNetworkTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectorNetworkTypeOutput)
+}
+
+func (e ConnectorNetworkType) ToConnectorNetworkTypePtrOutput() ConnectorNetworkTypePtrOutput {
+	return e.ToConnectorNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorNetworkType) ToConnectorNetworkTypePtrOutputWithContext(ctx context.Context) ConnectorNetworkTypePtrOutput {
+	return ConnectorNetworkType(e).ToConnectorNetworkTypeOutputWithContext(ctx).ToConnectorNetworkTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectorNetworkType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorNetworkType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectorNetworkType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectorNetworkType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectorNetworkTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectorNetworkTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectorNetworkType)(nil)).Elem()
+}
+
+func (o ConnectorNetworkTypeOutput) ToConnectorNetworkTypeOutput() ConnectorNetworkTypeOutput {
+	return o
+}
+
+func (o ConnectorNetworkTypeOutput) ToConnectorNetworkTypeOutputWithContext(ctx context.Context) ConnectorNetworkTypeOutput {
+	return o
+}
+
+func (o ConnectorNetworkTypeOutput) ToConnectorNetworkTypePtrOutput() ConnectorNetworkTypePtrOutput {
+	return o.ToConnectorNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorNetworkTypeOutput) ToConnectorNetworkTypePtrOutputWithContext(ctx context.Context) ConnectorNetworkTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorNetworkType) *ConnectorNetworkType {
+		return &v
+	}).(ConnectorNetworkTypePtrOutput)
+}
+
+func (o ConnectorNetworkTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectorNetworkTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorNetworkType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectorNetworkTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorNetworkTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectorNetworkType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectorNetworkTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectorNetworkTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectorNetworkType)(nil)).Elem()
+}
+
+func (o ConnectorNetworkTypePtrOutput) ToConnectorNetworkTypePtrOutput() ConnectorNetworkTypePtrOutput {
+	return o
+}
+
+func (o ConnectorNetworkTypePtrOutput) ToConnectorNetworkTypePtrOutputWithContext(ctx context.Context) ConnectorNetworkTypePtrOutput {
+	return o
+}
+
+func (o ConnectorNetworkTypePtrOutput) Elem() ConnectorNetworkTypeOutput {
+	return o.ApplyT(func(v *ConnectorNetworkType) ConnectorNetworkType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectorNetworkType
+		return ret
+	}).(ConnectorNetworkTypeOutput)
+}
+
+func (o ConnectorNetworkTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectorNetworkTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectorNetworkType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectorNetworkTypeInput is an input type that accepts values of the ConnectorNetworkType enum
+// A concrete instance of `ConnectorNetworkTypeInput` can be one of the following:
+//
+//	ConnectorNetworkTypeIpv4
+//	ConnectorNetworkTypeDual
+type ConnectorNetworkTypeInput interface {
+	pulumi.Input
+
+	ToConnectorNetworkTypeOutput() ConnectorNetworkTypeOutput
+	ToConnectorNetworkTypeOutputWithContext(context.Context) ConnectorNetworkTypeOutput
+}
+
+var connectorNetworkTypePtrType = reflect.TypeOf((**ConnectorNetworkType)(nil)).Elem()
+
+type ConnectorNetworkTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectorNetworkTypePtrOutput() ConnectorNetworkTypePtrOutput
+	ToConnectorNetworkTypePtrOutputWithContext(context.Context) ConnectorNetworkTypePtrOutput
+}
+
+type connectorNetworkTypePtr string
+
+func ConnectorNetworkTypePtr(v string) ConnectorNetworkTypePtrInput {
+	return (*connectorNetworkTypePtr)(&v)
+}
+
+func (*connectorNetworkTypePtr) ElementType() reflect.Type {
+	return connectorNetworkTypePtrType
+}
+
+func (in *connectorNetworkTypePtr) ToConnectorNetworkTypePtrOutput() ConnectorNetworkTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectorNetworkTypePtrOutput)
+}
+
+func (in *connectorNetworkTypePtr) ToConnectorNetworkTypePtrOutputWithContext(ctx context.Context) ConnectorNetworkTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectorNetworkTypePtrOutput)
+}
+
 // The type of the plugin file.
 type CustomPluginContentType string
 
@@ -513,12 +679,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorKafkaClusterClientAuthenticationTypePtrInput)(nil)).Elem(), ConnectorKafkaClusterClientAuthenticationType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorKafkaClusterEncryptionInTransitTypeInput)(nil)).Elem(), ConnectorKafkaClusterEncryptionInTransitType("PLAINTEXT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorKafkaClusterEncryptionInTransitTypePtrInput)(nil)).Elem(), ConnectorKafkaClusterEncryptionInTransitType("PLAINTEXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorNetworkTypeInput)(nil)).Elem(), ConnectorNetworkType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorNetworkTypePtrInput)(nil)).Elem(), ConnectorNetworkType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomPluginContentTypeInput)(nil)).Elem(), CustomPluginContentType("JAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomPluginContentTypePtrInput)(nil)).Elem(), CustomPluginContentType("JAR"))
 	pulumi.RegisterOutputType(ConnectorKafkaClusterClientAuthenticationTypeOutput{})
 	pulumi.RegisterOutputType(ConnectorKafkaClusterClientAuthenticationTypePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorKafkaClusterEncryptionInTransitTypeOutput{})
 	pulumi.RegisterOutputType(ConnectorKafkaClusterEncryptionInTransitTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectorNetworkTypeOutput{})
+	pulumi.RegisterOutputType(ConnectorNetworkTypePtrOutput{})
 	pulumi.RegisterOutputType(CustomPluginContentTypeOutput{})
 	pulumi.RegisterOutputType(CustomPluginContentTypePtrOutput{})
 }

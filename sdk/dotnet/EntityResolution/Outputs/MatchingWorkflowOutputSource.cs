@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
         /// Normalizes the attributes defined in the schema in the input data. For example, if an attribute has an `AttributeType` of `PHONE_NUMBER` , and the data in the input table is in a format of 1234567890, AWS Entity Resolution will normalize this field in the output to (123)-456-7890.
         /// </summary>
         public readonly bool? ApplyNormalization;
+        public readonly Outputs.MatchingWorkflowCustomerProfilesIntegrationConfig? CustomerProfilesIntegrationConfig;
         /// <summary>
         /// Customer KMS ARN for encryption at rest. If not provided, system will use an AWS Entity Resolution managed KMS key.
         /// </summary>
@@ -28,19 +29,22 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
         /// <summary>
         /// The S3 path to which Entity Resolution will write the output table
         /// </summary>
-        public readonly string OutputS3Path;
+        public readonly string? OutputS3Path;
 
         [OutputConstructor]
         private MatchingWorkflowOutputSource(
             bool? applyNormalization,
 
+            Outputs.MatchingWorkflowCustomerProfilesIntegrationConfig? customerProfilesIntegrationConfig,
+
             string? kmsArn,
 
             ImmutableArray<Outputs.MatchingWorkflowOutputAttribute> output,
 
-            string outputS3Path)
+            string? outputS3Path)
         {
             ApplyNormalization = applyNormalization;
+            CustomerProfilesIntegrationConfig = customerProfilesIntegrationConfig;
             KmsArn = kmsArn;
             Output = output;
             OutputS3Path = outputS3Path;

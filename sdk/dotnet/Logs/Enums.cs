@@ -364,6 +364,7 @@ namespace Pulumi.AwsNative.Logs
         }
 
         public static TransformerOcsfVersion V11 { get; } = new TransformerOcsfVersion("V1.1");
+        public static TransformerOcsfVersion V15 { get; } = new TransformerOcsfVersion("V1.5");
 
         public static bool operator ==(TransformerOcsfVersion left, TransformerOcsfVersion right) => left.Equals(right);
         public static bool operator !=(TransformerOcsfVersion left, TransformerOcsfVersion right) => !left.Equals(right);

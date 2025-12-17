@@ -539,6 +539,7 @@ type GatewayAuthorizerType string
 const (
 	GatewayAuthorizerTypeCustomJwt = GatewayAuthorizerType("CUSTOM_JWT")
 	GatewayAuthorizerTypeAwsIam    = GatewayAuthorizerType("AWS_IAM")
+	GatewayAuthorizerTypeNone      = GatewayAuthorizerType("NONE")
 )
 
 func (GatewayAuthorizerType) ElementType() reflect.Type {
@@ -665,6 +666,7 @@ func (o GatewayAuthorizerTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 //
 //	GatewayAuthorizerTypeCustomJwt
 //	GatewayAuthorizerTypeAwsIam
+//	GatewayAuthorizerTypeNone
 type GatewayAuthorizerTypeInput interface {
 	pulumi.Input
 
@@ -860,6 +862,216 @@ func (in *gatewayExceptionLevelPtr) ToGatewayExceptionLevelPtrOutput() GatewayEx
 
 func (in *gatewayExceptionLevelPtr) ToGatewayExceptionLevelPtrOutputWithContext(ctx context.Context) GatewayExceptionLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GatewayExceptionLevelPtrOutput)
+}
+
+type GatewayInterceptionPoint string
+
+const (
+	GatewayInterceptionPointRequest  = GatewayInterceptionPoint("REQUEST")
+	GatewayInterceptionPointResponse = GatewayInterceptionPoint("RESPONSE")
+)
+
+func (GatewayInterceptionPoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayInterceptionPoint)(nil)).Elem()
+}
+
+func (e GatewayInterceptionPoint) ToGatewayInterceptionPointOutput() GatewayInterceptionPointOutput {
+	return pulumi.ToOutput(e).(GatewayInterceptionPointOutput)
+}
+
+func (e GatewayInterceptionPoint) ToGatewayInterceptionPointOutputWithContext(ctx context.Context) GatewayInterceptionPointOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GatewayInterceptionPointOutput)
+}
+
+func (e GatewayInterceptionPoint) ToGatewayInterceptionPointPtrOutput() GatewayInterceptionPointPtrOutput {
+	return e.ToGatewayInterceptionPointPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayInterceptionPoint) ToGatewayInterceptionPointPtrOutputWithContext(ctx context.Context) GatewayInterceptionPointPtrOutput {
+	return GatewayInterceptionPoint(e).ToGatewayInterceptionPointOutputWithContext(ctx).ToGatewayInterceptionPointPtrOutputWithContext(ctx)
+}
+
+func (e GatewayInterceptionPoint) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayInterceptionPoint) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayInterceptionPoint) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayInterceptionPoint) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GatewayInterceptionPointOutput struct{ *pulumi.OutputState }
+
+func (GatewayInterceptionPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayInterceptionPoint)(nil)).Elem()
+}
+
+func (o GatewayInterceptionPointOutput) ToGatewayInterceptionPointOutput() GatewayInterceptionPointOutput {
+	return o
+}
+
+func (o GatewayInterceptionPointOutput) ToGatewayInterceptionPointOutputWithContext(ctx context.Context) GatewayInterceptionPointOutput {
+	return o
+}
+
+func (o GatewayInterceptionPointOutput) ToGatewayInterceptionPointPtrOutput() GatewayInterceptionPointPtrOutput {
+	return o.ToGatewayInterceptionPointPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayInterceptionPointOutput) ToGatewayInterceptionPointPtrOutputWithContext(ctx context.Context) GatewayInterceptionPointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayInterceptionPoint) *GatewayInterceptionPoint {
+		return &v
+	}).(GatewayInterceptionPointPtrOutput)
+}
+
+func (o GatewayInterceptionPointOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GatewayInterceptionPointOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayInterceptionPoint) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GatewayInterceptionPointOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayInterceptionPointOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayInterceptionPoint) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayInterceptionPointPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayInterceptionPointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayInterceptionPoint)(nil)).Elem()
+}
+
+func (o GatewayInterceptionPointPtrOutput) ToGatewayInterceptionPointPtrOutput() GatewayInterceptionPointPtrOutput {
+	return o
+}
+
+func (o GatewayInterceptionPointPtrOutput) ToGatewayInterceptionPointPtrOutputWithContext(ctx context.Context) GatewayInterceptionPointPtrOutput {
+	return o
+}
+
+func (o GatewayInterceptionPointPtrOutput) Elem() GatewayInterceptionPointOutput {
+	return o.ApplyT(func(v *GatewayInterceptionPoint) GatewayInterceptionPoint {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayInterceptionPoint
+		return ret
+	}).(GatewayInterceptionPointOutput)
+}
+
+func (o GatewayInterceptionPointPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayInterceptionPointPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayInterceptionPoint) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GatewayInterceptionPointInput is an input type that accepts values of the GatewayInterceptionPoint enum
+// A concrete instance of `GatewayInterceptionPointInput` can be one of the following:
+//
+//	GatewayInterceptionPointRequest
+//	GatewayInterceptionPointResponse
+type GatewayInterceptionPointInput interface {
+	pulumi.Input
+
+	ToGatewayInterceptionPointOutput() GatewayInterceptionPointOutput
+	ToGatewayInterceptionPointOutputWithContext(context.Context) GatewayInterceptionPointOutput
+}
+
+var gatewayInterceptionPointPtrType = reflect.TypeOf((**GatewayInterceptionPoint)(nil)).Elem()
+
+type GatewayInterceptionPointPtrInput interface {
+	pulumi.Input
+
+	ToGatewayInterceptionPointPtrOutput() GatewayInterceptionPointPtrOutput
+	ToGatewayInterceptionPointPtrOutputWithContext(context.Context) GatewayInterceptionPointPtrOutput
+}
+
+type gatewayInterceptionPointPtr string
+
+func GatewayInterceptionPointPtr(v string) GatewayInterceptionPointPtrInput {
+	return (*gatewayInterceptionPointPtr)(&v)
+}
+
+func (*gatewayInterceptionPointPtr) ElementType() reflect.Type {
+	return gatewayInterceptionPointPtrType
+}
+
+func (in *gatewayInterceptionPointPtr) ToGatewayInterceptionPointPtrOutput() GatewayInterceptionPointPtrOutput {
+	return pulumi.ToOutput(in).(GatewayInterceptionPointPtrOutput)
+}
+
+func (in *gatewayInterceptionPointPtr) ToGatewayInterceptionPointPtrOutputWithContext(ctx context.Context) GatewayInterceptionPointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GatewayInterceptionPointPtrOutput)
+}
+
+// GatewayInterceptionPointArrayInput is an input type that accepts GatewayInterceptionPointArray and GatewayInterceptionPointArrayOutput values.
+// You can construct a concrete instance of `GatewayInterceptionPointArrayInput` via:
+//
+//	GatewayInterceptionPointArray{ GatewayInterceptionPointArgs{...} }
+type GatewayInterceptionPointArrayInput interface {
+	pulumi.Input
+
+	ToGatewayInterceptionPointArrayOutput() GatewayInterceptionPointArrayOutput
+	ToGatewayInterceptionPointArrayOutputWithContext(context.Context) GatewayInterceptionPointArrayOutput
+}
+
+type GatewayInterceptionPointArray []GatewayInterceptionPoint
+
+func (GatewayInterceptionPointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayInterceptionPoint)(nil)).Elem()
+}
+
+func (i GatewayInterceptionPointArray) ToGatewayInterceptionPointArrayOutput() GatewayInterceptionPointArrayOutput {
+	return i.ToGatewayInterceptionPointArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayInterceptionPointArray) ToGatewayInterceptionPointArrayOutputWithContext(ctx context.Context) GatewayInterceptionPointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayInterceptionPointArrayOutput)
+}
+
+type GatewayInterceptionPointArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayInterceptionPointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayInterceptionPoint)(nil)).Elem()
+}
+
+func (o GatewayInterceptionPointArrayOutput) ToGatewayInterceptionPointArrayOutput() GatewayInterceptionPointArrayOutput {
+	return o
+}
+
+func (o GatewayInterceptionPointArrayOutput) ToGatewayInterceptionPointArrayOutputWithContext(ctx context.Context) GatewayInterceptionPointArrayOutput {
+	return o
+}
+
+func (o GatewayInterceptionPointArrayOutput) Index(i pulumi.IntInput) GatewayInterceptionPointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayInterceptionPoint {
+		return vs[0].([]GatewayInterceptionPoint)[vs[1].(int)]
+	}).(GatewayInterceptionPointOutput)
 }
 
 type GatewayProtocolType string
@@ -4036,6 +4248,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizerTypePtrInput)(nil)).Elem(), GatewayAuthorizerType("CUSTOM_JWT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayExceptionLevelInput)(nil)).Elem(), GatewayExceptionLevel("DEBUG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayExceptionLevelPtrInput)(nil)).Elem(), GatewayExceptionLevel("DEBUG"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptionPointInput)(nil)).Elem(), GatewayInterceptionPoint("REQUEST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptionPointPtrInput)(nil)).Elem(), GatewayInterceptionPoint("REQUEST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptionPointArrayInput)(nil)).Elem(), GatewayInterceptionPointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayProtocolTypeInput)(nil)).Elem(), GatewayProtocolType("MCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayProtocolTypePtrInput)(nil)).Elem(), GatewayProtocolType("MCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySearchTypeInput)(nil)).Elem(), GatewaySearchType("SEMANTIC"))
@@ -4080,6 +4295,9 @@ func init() {
 	pulumi.RegisterOutputType(GatewayAuthorizerTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayExceptionLevelOutput{})
 	pulumi.RegisterOutputType(GatewayExceptionLevelPtrOutput{})
+	pulumi.RegisterOutputType(GatewayInterceptionPointOutput{})
+	pulumi.RegisterOutputType(GatewayInterceptionPointPtrOutput{})
+	pulumi.RegisterOutputType(GatewayInterceptionPointArrayOutput{})
 	pulumi.RegisterOutputType(GatewayProtocolTypeOutput{})
 	pulumi.RegisterOutputType(GatewayProtocolTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewaySearchTypeOutput{})

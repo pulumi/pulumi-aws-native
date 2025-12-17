@@ -301,7 +301,8 @@ type CampaignChannelSubtypeConfig struct {
 	Sms *CampaignSmsChannelSubtypeConfig `pulumi:"sms"`
 	// The configuration of the telephony channel subtype.
 	Telephony *CampaignTelephonyChannelSubtypeConfig `pulumi:"telephony"`
-	WhatsApp  *CampaignWhatsAppChannelSubtypeConfig  `pulumi:"whatsApp"`
+	// The configuration of the WhatsApp channel subtype.
+	WhatsApp *CampaignWhatsAppChannelSubtypeConfig `pulumi:"whatsApp"`
 }
 
 // CampaignChannelSubtypeConfigInput is an input type that accepts CampaignChannelSubtypeConfigArgs and CampaignChannelSubtypeConfigOutput values.
@@ -323,7 +324,8 @@ type CampaignChannelSubtypeConfigArgs struct {
 	Sms CampaignSmsChannelSubtypeConfigPtrInput `pulumi:"sms"`
 	// The configuration of the telephony channel subtype.
 	Telephony CampaignTelephonyChannelSubtypeConfigPtrInput `pulumi:"telephony"`
-	WhatsApp  CampaignWhatsAppChannelSubtypeConfigPtrInput  `pulumi:"whatsApp"`
+	// The configuration of the WhatsApp channel subtype.
+	WhatsApp CampaignWhatsAppChannelSubtypeConfigPtrInput `pulumi:"whatsApp"`
 }
 
 func (CampaignChannelSubtypeConfigArgs) ElementType() reflect.Type {
@@ -419,6 +421,7 @@ func (o CampaignChannelSubtypeConfigOutput) Telephony() CampaignTelephonyChannel
 	return o.ApplyT(func(v CampaignChannelSubtypeConfig) *CampaignTelephonyChannelSubtypeConfig { return v.Telephony }).(CampaignTelephonyChannelSubtypeConfigPtrOutput)
 }
 
+// The configuration of the WhatsApp channel subtype.
 func (o CampaignChannelSubtypeConfigOutput) WhatsApp() CampaignWhatsAppChannelSubtypeConfigPtrOutput {
 	return o.ApplyT(func(v CampaignChannelSubtypeConfig) *CampaignWhatsAppChannelSubtypeConfig { return v.WhatsApp }).(CampaignWhatsAppChannelSubtypeConfigPtrOutput)
 }
@@ -477,6 +480,7 @@ func (o CampaignChannelSubtypeConfigPtrOutput) Telephony() CampaignTelephonyChan
 	}).(CampaignTelephonyChannelSubtypeConfigPtrOutput)
 }
 
+// The configuration of the WhatsApp channel subtype.
 func (o CampaignChannelSubtypeConfigPtrOutput) WhatsApp() CampaignWhatsAppChannelSubtypeConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignChannelSubtypeConfig) *CampaignWhatsAppChannelSubtypeConfig {
 		if v == nil {
@@ -906,7 +910,8 @@ type CampaignCommunicationTimeConfig struct {
 	Sms *CampaignTimeWindow `pulumi:"sms"`
 	// The communication time configuration for the telephony channel subtype.
 	Telephony *CampaignTimeWindow `pulumi:"telephony"`
-	WhatsApp  *CampaignTimeWindow `pulumi:"whatsApp"`
+	// The communication time configuration for the WhatsApp channel subtype.
+	WhatsApp *CampaignTimeWindow `pulumi:"whatsApp"`
 }
 
 // CampaignCommunicationTimeConfigInput is an input type that accepts CampaignCommunicationTimeConfigArgs and CampaignCommunicationTimeConfigOutput values.
@@ -930,7 +935,8 @@ type CampaignCommunicationTimeConfigArgs struct {
 	Sms CampaignTimeWindowPtrInput `pulumi:"sms"`
 	// The communication time configuration for the telephony channel subtype.
 	Telephony CampaignTimeWindowPtrInput `pulumi:"telephony"`
-	WhatsApp  CampaignTimeWindowPtrInput `pulumi:"whatsApp"`
+	// The communication time configuration for the WhatsApp channel subtype.
+	WhatsApp CampaignTimeWindowPtrInput `pulumi:"whatsApp"`
 }
 
 func (CampaignCommunicationTimeConfigArgs) ElementType() reflect.Type {
@@ -1031,6 +1037,7 @@ func (o CampaignCommunicationTimeConfigOutput) Telephony() CampaignTimeWindowPtr
 	return o.ApplyT(func(v CampaignCommunicationTimeConfig) *CampaignTimeWindow { return v.Telephony }).(CampaignTimeWindowPtrOutput)
 }
 
+// The communication time configuration for the WhatsApp channel subtype.
 func (o CampaignCommunicationTimeConfigOutput) WhatsApp() CampaignTimeWindowPtrOutput {
 	return o.ApplyT(func(v CampaignCommunicationTimeConfig) *CampaignTimeWindow { return v.WhatsApp }).(CampaignTimeWindowPtrOutput)
 }
@@ -1099,6 +1106,7 @@ func (o CampaignCommunicationTimeConfigPtrOutput) Telephony() CampaignTimeWindow
 	}).(CampaignTimeWindowPtrOutput)
 }
 
+// The communication time configuration for the WhatsApp channel subtype.
 func (o CampaignCommunicationTimeConfigPtrOutput) WhatsApp() CampaignTimeWindowPtrOutput {
 	return o.ApplyT(func(v *CampaignCommunicationTimeConfig) *CampaignTimeWindow {
 		if v == nil {
@@ -3886,7 +3894,8 @@ type CampaignTelephonyOutboundConfig struct {
 	ConnectContactFlowId string `pulumi:"connectContactFlowId"`
 	// The Amazon Connect source phone number.
 	ConnectSourcePhoneNumber *string `pulumi:"connectSourcePhoneNumber"`
-	RingTimeout              *int    `pulumi:"ringTimeout"`
+	// The ring timeout configuration for outbound calls. Specifies how long to wait for the call to be answered before timing out.
+	RingTimeout *int `pulumi:"ringTimeout"`
 }
 
 // CampaignTelephonyOutboundConfigInput is an input type that accepts CampaignTelephonyOutboundConfigArgs and CampaignTelephonyOutboundConfigOutput values.
@@ -3908,7 +3917,8 @@ type CampaignTelephonyOutboundConfigArgs struct {
 	ConnectContactFlowId pulumi.StringInput `pulumi:"connectContactFlowId"`
 	// The Amazon Connect source phone number.
 	ConnectSourcePhoneNumber pulumi.StringPtrInput `pulumi:"connectSourcePhoneNumber"`
-	RingTimeout              pulumi.IntPtrInput    `pulumi:"ringTimeout"`
+	// The ring timeout configuration for outbound calls. Specifies how long to wait for the call to be answered before timing out.
+	RingTimeout pulumi.IntPtrInput `pulumi:"ringTimeout"`
 }
 
 func (CampaignTelephonyOutboundConfigArgs) ElementType() reflect.Type {
@@ -4006,6 +4016,7 @@ func (o CampaignTelephonyOutboundConfigOutput) ConnectSourcePhoneNumber() pulumi
 	return o.ApplyT(func(v CampaignTelephonyOutboundConfig) *string { return v.ConnectSourcePhoneNumber }).(pulumi.StringPtrOutput)
 }
 
+// The ring timeout configuration for outbound calls. Specifies how long to wait for the call to be answered before timing out.
 func (o CampaignTelephonyOutboundConfigOutput) RingTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CampaignTelephonyOutboundConfig) *int { return v.RingTimeout }).(pulumi.IntPtrOutput)
 }
@@ -4064,6 +4075,7 @@ func (o CampaignTelephonyOutboundConfigPtrOutput) ConnectSourcePhoneNumber() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ring timeout configuration for outbound calls. Specifies how long to wait for the call to be answered before timing out.
 func (o CampaignTelephonyOutboundConfigPtrOutput) RingTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CampaignTelephonyOutboundConfig) *int {
 		if v == nil {
@@ -4674,9 +4686,12 @@ func (o CampaignTimeoutConfigPtrOutput) DurationInSeconds() pulumi.IntPtrOutput 
 
 // WhatsApp Channel Subtype config
 type CampaignWhatsAppChannelSubtypeConfig struct {
-	Capacity              *float64                       `pulumi:"capacity"`
+	// The allocation of WhatsApp capacity between multiple running outbound campaigns.
+	Capacity *float64 `pulumi:"capacity"`
+	// The default WhatsApp outbound configuration of an outbound campaign.
 	DefaultOutboundConfig CampaignWhatsAppOutboundConfig `pulumi:"defaultOutboundConfig"`
-	OutboundMode          CampaignWhatsAppOutboundMode   `pulumi:"outboundMode"`
+	// The outbound mode for WhatsApp of an outbound campaign.
+	OutboundMode CampaignWhatsAppOutboundMode `pulumi:"outboundMode"`
 }
 
 // CampaignWhatsAppChannelSubtypeConfigInput is an input type that accepts CampaignWhatsAppChannelSubtypeConfigArgs and CampaignWhatsAppChannelSubtypeConfigOutput values.
@@ -4692,9 +4707,12 @@ type CampaignWhatsAppChannelSubtypeConfigInput interface {
 
 // WhatsApp Channel Subtype config
 type CampaignWhatsAppChannelSubtypeConfigArgs struct {
-	Capacity              pulumi.Float64PtrInput              `pulumi:"capacity"`
+	// The allocation of WhatsApp capacity between multiple running outbound campaigns.
+	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
+	// The default WhatsApp outbound configuration of an outbound campaign.
 	DefaultOutboundConfig CampaignWhatsAppOutboundConfigInput `pulumi:"defaultOutboundConfig"`
-	OutboundMode          CampaignWhatsAppOutboundModeInput   `pulumi:"outboundMode"`
+	// The outbound mode for WhatsApp of an outbound campaign.
+	OutboundMode CampaignWhatsAppOutboundModeInput `pulumi:"outboundMode"`
 }
 
 func (CampaignWhatsAppChannelSubtypeConfigArgs) ElementType() reflect.Type {
@@ -4775,16 +4793,19 @@ func (o CampaignWhatsAppChannelSubtypeConfigOutput) ToCampaignWhatsAppChannelSub
 	}).(CampaignWhatsAppChannelSubtypeConfigPtrOutput)
 }
 
+// The allocation of WhatsApp capacity between multiple running outbound campaigns.
 func (o CampaignWhatsAppChannelSubtypeConfigOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CampaignWhatsAppChannelSubtypeConfig) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
+// The default WhatsApp outbound configuration of an outbound campaign.
 func (o CampaignWhatsAppChannelSubtypeConfigOutput) DefaultOutboundConfig() CampaignWhatsAppOutboundConfigOutput {
 	return o.ApplyT(func(v CampaignWhatsAppChannelSubtypeConfig) CampaignWhatsAppOutboundConfig {
 		return v.DefaultOutboundConfig
 	}).(CampaignWhatsAppOutboundConfigOutput)
 }
 
+// The outbound mode for WhatsApp of an outbound campaign.
 func (o CampaignWhatsAppChannelSubtypeConfigOutput) OutboundMode() CampaignWhatsAppOutboundModeOutput {
 	return o.ApplyT(func(v CampaignWhatsAppChannelSubtypeConfig) CampaignWhatsAppOutboundMode { return v.OutboundMode }).(CampaignWhatsAppOutboundModeOutput)
 }
@@ -4813,6 +4834,7 @@ func (o CampaignWhatsAppChannelSubtypeConfigPtrOutput) Elem() CampaignWhatsAppCh
 	}).(CampaignWhatsAppChannelSubtypeConfigOutput)
 }
 
+// The allocation of WhatsApp capacity between multiple running outbound campaigns.
 func (o CampaignWhatsAppChannelSubtypeConfigPtrOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CampaignWhatsAppChannelSubtypeConfig) *float64 {
 		if v == nil {
@@ -4822,6 +4844,7 @@ func (o CampaignWhatsAppChannelSubtypeConfigPtrOutput) Capacity() pulumi.Float64
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The default WhatsApp outbound configuration of an outbound campaign.
 func (o CampaignWhatsAppChannelSubtypeConfigPtrOutput) DefaultOutboundConfig() CampaignWhatsAppOutboundConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignWhatsAppChannelSubtypeConfig) *CampaignWhatsAppOutboundConfig {
 		if v == nil {
@@ -4831,6 +4854,7 @@ func (o CampaignWhatsAppChannelSubtypeConfigPtrOutput) DefaultOutboundConfig() C
 	}).(CampaignWhatsAppOutboundConfigPtrOutput)
 }
 
+// The outbound mode for WhatsApp of an outbound campaign.
 func (o CampaignWhatsAppChannelSubtypeConfigPtrOutput) OutboundMode() CampaignWhatsAppOutboundModePtrOutput {
 	return o.ApplyT(func(v *CampaignWhatsAppChannelSubtypeConfig) *CampaignWhatsAppOutboundMode {
 		if v == nil {
@@ -4842,8 +4866,10 @@ func (o CampaignWhatsAppChannelSubtypeConfigPtrOutput) OutboundMode() CampaignWh
 
 // Default WhatsApp outbound config
 type CampaignWhatsAppOutboundConfig struct {
+	// The Amazon Resource Name (ARN) of the Amazon Connect source WhatsApp phone number.
 	ConnectSourcePhoneNumberArn string `pulumi:"connectSourcePhoneNumberArn"`
-	WisdomTemplateArn           string `pulumi:"wisdomTemplateArn"`
+	// The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
+	WisdomTemplateArn string `pulumi:"wisdomTemplateArn"`
 }
 
 // CampaignWhatsAppOutboundConfigInput is an input type that accepts CampaignWhatsAppOutboundConfigArgs and CampaignWhatsAppOutboundConfigOutput values.
@@ -4859,8 +4885,10 @@ type CampaignWhatsAppOutboundConfigInput interface {
 
 // Default WhatsApp outbound config
 type CampaignWhatsAppOutboundConfigArgs struct {
+	// The Amazon Resource Name (ARN) of the Amazon Connect source WhatsApp phone number.
 	ConnectSourcePhoneNumberArn pulumi.StringInput `pulumi:"connectSourcePhoneNumberArn"`
-	WisdomTemplateArn           pulumi.StringInput `pulumi:"wisdomTemplateArn"`
+	// The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
+	WisdomTemplateArn pulumi.StringInput `pulumi:"wisdomTemplateArn"`
 }
 
 func (CampaignWhatsAppOutboundConfigArgs) ElementType() reflect.Type {
@@ -4941,10 +4969,12 @@ func (o CampaignWhatsAppOutboundConfigOutput) ToCampaignWhatsAppOutboundConfigPt
 	}).(CampaignWhatsAppOutboundConfigPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Connect source WhatsApp phone number.
 func (o CampaignWhatsAppOutboundConfigOutput) ConnectSourcePhoneNumberArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CampaignWhatsAppOutboundConfig) string { return v.ConnectSourcePhoneNumberArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
 func (o CampaignWhatsAppOutboundConfigOutput) WisdomTemplateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CampaignWhatsAppOutboundConfig) string { return v.WisdomTemplateArn }).(pulumi.StringOutput)
 }
@@ -4973,6 +5003,7 @@ func (o CampaignWhatsAppOutboundConfigPtrOutput) Elem() CampaignWhatsAppOutbound
 	}).(CampaignWhatsAppOutboundConfigOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Connect source WhatsApp phone number.
 func (o CampaignWhatsAppOutboundConfigPtrOutput) ConnectSourcePhoneNumberArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CampaignWhatsAppOutboundConfig) *string {
 		if v == nil {
@@ -4982,6 +5013,7 @@ func (o CampaignWhatsAppOutboundConfigPtrOutput) ConnectSourcePhoneNumberArn() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
 func (o CampaignWhatsAppOutboundConfigPtrOutput) WisdomTemplateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CampaignWhatsAppOutboundConfig) *string {
 		if v == nil {

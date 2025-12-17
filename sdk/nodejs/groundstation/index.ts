@@ -15,6 +15,11 @@ export type DataflowEndpointGroup = import("./dataflowEndpointGroup").DataflowEn
 export const DataflowEndpointGroup: typeof import("./dataflowEndpointGroup").DataflowEndpointGroup = null as any;
 utilities.lazyLoad(exports, ["DataflowEndpointGroup"], () => require("./dataflowEndpointGroup"));
 
+export { DataflowEndpointGroupV2Args } from "./dataflowEndpointGroupV2";
+export type DataflowEndpointGroupV2 = import("./dataflowEndpointGroupV2").DataflowEndpointGroupV2;
+export const DataflowEndpointGroupV2: typeof import("./dataflowEndpointGroupV2").DataflowEndpointGroupV2 = null as any;
+utilities.lazyLoad(exports, ["DataflowEndpointGroupV2"], () => require("./dataflowEndpointGroupV2"));
+
 export { GetConfigArgs, GetConfigResult, GetConfigOutputArgs } from "./getConfig";
 export const getConfig: typeof import("./getConfig").getConfig = null as any;
 export const getConfigOutput: typeof import("./getConfig").getConfigOutput = null as any;
@@ -24,6 +29,11 @@ export { GetDataflowEndpointGroupArgs, GetDataflowEndpointGroupResult, GetDatafl
 export const getDataflowEndpointGroup: typeof import("./getDataflowEndpointGroup").getDataflowEndpointGroup = null as any;
 export const getDataflowEndpointGroupOutput: typeof import("./getDataflowEndpointGroup").getDataflowEndpointGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getDataflowEndpointGroup","getDataflowEndpointGroupOutput"], () => require("./getDataflowEndpointGroup"));
+
+export { GetDataflowEndpointGroupV2Args, GetDataflowEndpointGroupV2Result, GetDataflowEndpointGroupV2OutputArgs } from "./getDataflowEndpointGroupV2";
+export const getDataflowEndpointGroupV2: typeof import("./getDataflowEndpointGroupV2").getDataflowEndpointGroupV2 = null as any;
+export const getDataflowEndpointGroupV2Output: typeof import("./getDataflowEndpointGroupV2").getDataflowEndpointGroupV2Output = null as any;
+utilities.lazyLoad(exports, ["getDataflowEndpointGroupV2","getDataflowEndpointGroupV2Output"], () => require("./getDataflowEndpointGroupV2"));
 
 export { GetMissionProfileArgs, GetMissionProfileResult, GetMissionProfileOutputArgs } from "./getMissionProfile";
 export const getMissionProfile: typeof import("./getMissionProfile").getMissionProfile = null as any;
@@ -47,6 +57,8 @@ const _module = {
                 return new Config(name, <any>undefined, { urn })
             case "aws-native:groundstation:DataflowEndpointGroup":
                 return new DataflowEndpointGroup(name, <any>undefined, { urn })
+            case "aws-native:groundstation:DataflowEndpointGroupV2":
+                return new DataflowEndpointGroupV2(name, <any>undefined, { urn })
             case "aws-native:groundstation:MissionProfile":
                 return new MissionProfile(name, <any>undefined, { urn })
             default:

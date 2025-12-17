@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         [Input("maxVCpuCount")]
         public Input<int>? MaxVCpuCount { get; set; }
 
+        /// <summary>
+        /// The scaling mode that determines how the capacity provider responds to changes in demand.
+        /// </summary>
         [Input("scalingMode")]
         public Input<Pulumi.AwsNative.Lambda.CapacityProviderScalingMode>? ScalingMode { get; set; }
 

@@ -267,6 +267,9 @@ export class Function extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the function.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * Configuration for the capacity provider that manages compute resources for Lambda functions.
+     */
     declare public readonly capacityProviderConfig: pulumi.Output<outputs.lambda.FunctionCapacityProviderConfig | undefined>;
     /**
      * The code for the function. You can define your function code in multiple ways:
@@ -287,6 +290,9 @@ export class Function extends pulumi.CustomResource {
      * A description of the function.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+     */
     declare public readonly durableConfig: pulumi.Output<outputs.lambda.FunctionDurableConfig | undefined>;
     /**
      * Environment variables that are accessible from function code during execution.
@@ -306,6 +312,9 @@ export class Function extends pulumi.CustomResource {
      *  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
     declare public readonly functionName: pulumi.Output<string | undefined>;
+    /**
+     * Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+     */
     declare public readonly functionScalingConfig: pulumi.Output<outputs.lambda.FunctionScalingConfig | undefined>;
     /**
      * The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
@@ -493,6 +502,9 @@ export interface FunctionArgs {
      * The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
      */
     architectures?: pulumi.Input<pulumi.Input<enums.lambda.FunctionArchitecturesItem>[]>;
+    /**
+     * Configuration for the capacity provider that manages compute resources for Lambda functions.
+     */
     capacityProviderConfig?: pulumi.Input<inputs.lambda.FunctionCapacityProviderConfigArgs>;
     /**
      * The code for the function. You can define your function code in multiple ways:
@@ -513,6 +525,9 @@ export interface FunctionArgs {
      * A description of the function.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) , including execution timeout and retention period for execution history.
+     */
     durableConfig?: pulumi.Input<inputs.lambda.FunctionDurableConfigArgs>;
     /**
      * Environment variables that are accessible from function code during execution.
@@ -532,6 +547,9 @@ export interface FunctionArgs {
      *  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
     functionName?: pulumi.Input<string>;
+    /**
+     * Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+     */
     functionScalingConfig?: pulumi.Input<inputs.lambda.FunctionScalingConfigArgs>;
     /**
      * The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).

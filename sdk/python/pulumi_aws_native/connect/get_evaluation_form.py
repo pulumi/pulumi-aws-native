@@ -107,6 +107,9 @@ class GetEvaluationFormResult:
     @_builtins.property
     @pulumi.getter(name="languageConfiguration")
     def language_configuration(self) -> Optional['outputs.EvaluationFormLanguageConfiguration']:
+        """
+        Configuration for language settings of this evaluation form.
+        """
         return pulumi.get(self, "language_configuration")
 
     @_builtins.property
@@ -137,6 +140,9 @@ class GetEvaluationFormResult:
     @_builtins.property
     @pulumi.getter(name="targetConfiguration")
     def target_configuration(self) -> Optional['outputs.EvaluationFormTargetConfiguration']:
+        """
+        Configuration that specifies the target for this evaluation form.
+        """
         return pulumi.get(self, "target_configuration")
 
     @_builtins.property

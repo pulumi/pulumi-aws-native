@@ -13,10 +13,10 @@
       "permissions" : [ "s3:GetStorageLensConfiguration", "s3:GetStorageLensConfigurationTagging" ]
     },
     "create" : {
-      "permissions" : [ "s3:PutStorageLensConfiguration", "s3:PutStorageLensConfigurationTagging", "s3:GetStorageLensConfiguration", "s3:GetStorageLensConfigurationTagging", "organizations:DescribeOrganization", "organizations:ListAccounts", "organizations:ListAWSServiceAccessForOrganization", "organizations:ListDelegatedAdministrators", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "s3:PutStorageLensConfiguration", "s3:PutStorageLensConfigurationTagging", "s3:GetStorageLensConfiguration", "s3:GetStorageLensConfigurationTagging", "s3tables:CreateTableBucket", "s3tables:PutTableBucketPolicy", "organizations:DescribeOrganization", "organizations:ListAccounts", "organizations:ListAWSServiceAccessForOrganization", "organizations:ListDelegatedAdministrators", "iam:CreateServiceLinkedRole" ]
     },
     "update" : {
-      "permissions" : [ "s3:PutStorageLensConfiguration", "s3:PutStorageLensConfigurationTagging", "s3:GetStorageLensConfiguration", "s3:GetStorageLensConfigurationTagging", "organizations:DescribeOrganization", "organizations:ListAccounts", "organizations:ListAWSServiceAccessForOrganization", "organizations:ListDelegatedAdministrators", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "s3:PutStorageLensConfiguration", "s3:PutStorageLensConfigurationTagging", "s3:GetStorageLensConfiguration", "s3:GetStorageLensConfigurationTagging", "s3tables:CreateTableBucket", "s3tables:PutTableBucketPolicy", "organizations:DescribeOrganization", "organizations:ListAccounts", "organizations:ListAWSServiceAccessForOrganization", "organizations:ListDelegatedAdministrators", "iam:CreateServiceLinkedRole" ]
     },
     "list" : {
       "permissions" : [ "s3:ListStorageLensConfigurations" ]
@@ -252,6 +252,9 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "StorageLensTableDestination" : {
+          "$ref" : "#/definitions/StorageLensTableDestination"
+        },
         "S3BucketDestination" : {
           "$ref" : "#/definitions/S3BucketDestination"
         },
@@ -313,6 +316,21 @@
           "$ref" : "#/definitions/StorageLensGroupSelectionCriteria"
         }
       }
+    },
+    "StorageLensTableDestination" : {
+      "description" : "S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "IsEnabled" : {
+          "description" : "Specifies whether the export to S3 Tables is enabled or disabled.",
+          "type" : "boolean"
+        },
+        "Encryption" : {
+          "$ref" : "#/definitions/Encryption"
+        }
+      },
+      "required" : [ "IsEnabled" ]
     },
     "ActivityMetrics" : {
       "description" : "Enables activity metrics.",
@@ -414,6 +432,9 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "StorageLensTableDestination" : {
+          "$ref" : "#/definitions/StorageLensTableDestination"
+        },
         "S3BucketDestination" : {
           "$ref" : "#/definitions/S3BucketDestination"
         }

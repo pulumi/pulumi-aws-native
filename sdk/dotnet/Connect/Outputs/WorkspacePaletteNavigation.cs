@@ -13,12 +13,33 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class WorkspacePaletteNavigation
     {
+        /// <summary>
+        /// The background color of the navigation area.
+        /// </summary>
         public readonly string? Background;
+        /// <summary>
+        /// Whether to invert the colors of action buttons in the navigation area.
+        /// </summary>
         public readonly bool? InvertActionsColors;
+        /// <summary>
+        /// The text color in the navigation area.
+        /// </summary>
         public readonly string? Text;
+        /// <summary>
+        /// The text color for active navigation items.
+        /// </summary>
         public readonly string? TextActive;
+        /// <summary>
+        /// The background color for active navigation items.
+        /// </summary>
         public readonly string? TextBackgroundActive;
+        /// <summary>
+        /// The background color when hovering over navigation text.
+        /// </summary>
         public readonly string? TextBackgroundHover;
+        /// <summary>
+        /// The text color when hovering over navigation items.
+        /// </summary>
         public readonly string? TextHover;
 
         [OutputConstructor]

@@ -40,7 +40,8 @@ type LookupGatewayResult struct {
 	GatewayArn        *string `pulumi:"gatewayArn"`
 	GatewayIdentifier *string `pulumi:"gatewayIdentifier"`
 	// The gateway URL for the gateway.
-	GatewayUrl *string `pulumi:"gatewayUrl"`
+	GatewayUrl                *string                           `pulumi:"gatewayUrl"`
+	InterceptorConfigurations []GatewayInterceptorConfiguration `pulumi:"interceptorConfigurations"`
 	// The KMS key ARN for the gateway.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The name for the gateway.
@@ -129,6 +130,10 @@ func (o LookupGatewayResultOutput) GatewayIdentifier() pulumi.StringPtrOutput {
 // The gateway URL for the gateway.
 func (o LookupGatewayResultOutput) GatewayUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResult) *string { return v.GatewayUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupGatewayResultOutput) InterceptorConfigurations() GatewayInterceptorConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupGatewayResult) []GatewayInterceptorConfiguration { return v.InterceptorConfigurations }).(GatewayInterceptorConfigurationArrayOutput)
 }
 
 // The KMS key ARN for the gateway.

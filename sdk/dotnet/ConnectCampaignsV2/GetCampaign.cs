@@ -99,6 +99,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
         /// One or more tags.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The type of campaign.
+        /// </summary>
         public readonly Pulumi.AwsNative.ConnectCampaignsV2.CampaignType? Type;
 
         [OutputConstructor]

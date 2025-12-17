@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     /// </summary>
     public sealed class CampaignWhatsAppOutboundConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Connect source WhatsApp phone number.
+        /// </summary>
         [Input("connectSourcePhoneNumberArn", required: true)]
         public Input<string> ConnectSourcePhoneNumberArn { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
+        /// </summary>
         [Input("wisdomTemplateArn", required: true)]
         public Input<string> WisdomTemplateArn { get; set; } = null!;
 

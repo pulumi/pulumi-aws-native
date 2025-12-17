@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         /// The maximum number of EC2 instances that the capacity provider can scale up to.
         /// </summary>
         public readonly int? MaxVCpuCount;
+        /// <summary>
+        /// The scaling mode that determines how the capacity provider responds to changes in demand.
+        /// </summary>
         public readonly Pulumi.AwsNative.Lambda.CapacityProviderScalingMode? ScalingMode;
         /// <summary>
         /// A list of target tracking scaling policies for the capacity provider.

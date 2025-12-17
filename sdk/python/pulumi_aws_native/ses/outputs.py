@@ -115,6 +115,7 @@ __all__ = [
     'MultiRegionEndpointDetails',
     'MultiRegionEndpointRouteDetailsItemProperties',
     'Template',
+    'TenantResourceAssociation',
     'VdmAttributesDashboardAttributes',
     'VdmAttributesGuardianAttributes',
 ]
@@ -3281,6 +3282,45 @@ class Template(dict):
         The email body that is visible to recipients whose email clients do not display HTML content.
         """
         return pulumi.get(self, "text_part")
+
+
+@pulumi.output_type
+class TenantResourceAssociation(dict):
+    """
+    The resource to associate with the tenant
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TenantResourceAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TenantResourceAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TenantResourceAssociation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_arn: _builtins.str):
+        """
+        The resource to associate with the tenant
+        :param _builtins.str resource_arn: The ARN of the resource to associate with the tenant
+        """
+        pulumi.set(__self__, "resource_arn", resource_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> _builtins.str:
+        """
+        The ARN of the resource to associate with the tenant
+        """
+        return pulumi.get(self, "resource_arn")
 
 
 @pulumi.output_type

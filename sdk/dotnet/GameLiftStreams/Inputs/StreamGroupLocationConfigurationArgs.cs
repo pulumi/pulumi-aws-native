@@ -24,11 +24,17 @@ namespace Pulumi.AwsNative.GameLiftStreams.Inputs
         [Input("locationName", required: true)]
         public Input<string> LocationName { get; set; } = null!;
 
+        [Input("maximumCapacity")]
+        public Input<int>? MaximumCapacity { get; set; }
+
         /// <summary>
-        /// The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes). Default is 0 when creating a stream group or adding a location.
+        /// This shape is deprecated.
         /// </summary>
         [Input("onDemandCapacity")]
         public Input<int>? OnDemandCapacity { get; set; }
+
+        [Input("targetIdleCapacity")]
+        public Input<int>? TargetIdleCapacity { get; set; }
 
         public StreamGroupLocationConfigurationArgs()
         {

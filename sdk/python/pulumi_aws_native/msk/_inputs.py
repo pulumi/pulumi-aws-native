@@ -534,6 +534,7 @@ class ClusterConfigurationInfoArgs:
 
 if not MYPY:
     class ClusterConnectivityInfoArgsDict(TypedDict):
+        network_type: NotRequired[pulumi.Input['ClusterNetworkType']]
         public_access: NotRequired[pulumi.Input['ClusterPublicAccessArgsDict']]
         """
         Access control settings for the cluster's brokers.
@@ -548,16 +549,28 @@ elif False:
 @pulumi.input_type
 class ClusterConnectivityInfoArgs:
     def __init__(__self__, *,
+                 network_type: Optional[pulumi.Input['ClusterNetworkType']] = None,
                  public_access: Optional[pulumi.Input['ClusterPublicAccessArgs']] = None,
                  vpc_connectivity: Optional[pulumi.Input['ClusterVpcConnectivityArgs']] = None):
         """
         :param pulumi.Input['ClusterPublicAccessArgs'] public_access: Access control settings for the cluster's brokers.
         :param pulumi.Input['ClusterVpcConnectivityArgs'] vpc_connectivity: VPC connection control settings for brokers.
         """
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if public_access is not None:
             pulumi.set(__self__, "public_access", public_access)
         if vpc_connectivity is not None:
             pulumi.set(__self__, "vpc_connectivity", vpc_connectivity)
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input['ClusterNetworkType']]:
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input['ClusterNetworkType']]):
+        pulumi.set(self, "network_type", value)
 
     @_builtins.property
     @pulumi.getter(name="publicAccess")

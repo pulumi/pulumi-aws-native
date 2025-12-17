@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
     public sealed class WorkspacePaletteHeaderArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The background color of the header.
+        /// </summary>
         [Input("background")]
         public Input<string>? Background { get; set; }
 
+        /// <summary>
+        /// Whether to invert the colors of action buttons in the header.
+        /// </summary>
         [Input("invertActionsColors")]
         public Input<bool>? InvertActionsColors { get; set; }
 
+        /// <summary>
+        /// The text color in the header.
+        /// </summary>
         [Input("text")]
         public Input<string>? Text { get; set; }
 
+        /// <summary>
+        /// The text color when hovering over header elements.
+        /// </summary>
         [Input("textHover")]
         public Input<string>? TextHover { get; set; }
 

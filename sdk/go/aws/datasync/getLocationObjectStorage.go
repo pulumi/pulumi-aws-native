@@ -35,13 +35,13 @@ type LookupLocationObjectStorageResult struct {
 	AgentArns []string `pulumi:"agentArns"`
 	// Specifies configuration information for a DataSync-managed secret, which includes the `SecretKey` that DataSync uses to access a specific object storage location, with a customer-managed AWS KMS key .
 	//
-	// When you include this paramater as part of a `CreateLocationObjectStorage` request, you provide only the KMS key ARN. DataSync uses this KMS key together with the value you specify for the `SecretKey` parameter to create a DataSync-managed secret to store the location access credentials.
+	// When you include this parameter as part of a `CreateLocationObjectStorage` request, you provide only the KMS key ARN. DataSync uses this KMS key together with the value you specify for the `SecretKey` parameter to create a DataSync-managed secret to store the location access credentials.
 	//
-	// Make sure the DataSync has permission to access the KMS key that you specify.
+	// Make sure that DataSync has permission to access the KMS key that you specify.
 	//
 	// > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
 	CmkSecretConfig *LocationObjectStorageCmkSecretConfig `pulumi:"cmkSecretConfig"`
-	// Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+	// Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text, in Secrets Manager. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
 	//
 	// > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
 	CustomSecretConfig *LocationObjectStorageCustomSecretConfig `pulumi:"customSecretConfig"`
@@ -104,9 +104,9 @@ func (o LookupLocationObjectStorageResultOutput) AgentArns() pulumi.StringArrayO
 
 // Specifies configuration information for a DataSync-managed secret, which includes the `SecretKey` that DataSync uses to access a specific object storage location, with a customer-managed AWS KMS key .
 //
-// When you include this paramater as part of a `CreateLocationObjectStorage` request, you provide only the KMS key ARN. DataSync uses this KMS key together with the value you specify for the `SecretKey` parameter to create a DataSync-managed secret to store the location access credentials.
+// When you include this parameter as part of a `CreateLocationObjectStorage` request, you provide only the KMS key ARN. DataSync uses this KMS key together with the value you specify for the `SecretKey` parameter to create a DataSync-managed secret to store the location access credentials.
 //
-// Make sure the DataSync has permission to access the KMS key that you specify.
+// Make sure that DataSync has permission to access the KMS key that you specify.
 //
 // > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
 func (o LookupLocationObjectStorageResultOutput) CmkSecretConfig() LocationObjectStorageCmkSecretConfigPtrOutput {
@@ -115,7 +115,7 @@ func (o LookupLocationObjectStorageResultOutput) CmkSecretConfig() LocationObjec
 	}).(LocationObjectStorageCmkSecretConfigPtrOutput)
 }
 
-// Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+// Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text, in Secrets Manager. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
 //
 // > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
 func (o LookupLocationObjectStorageResultOutput) CustomSecretConfig() LocationObjectStorageCustomSecretConfigPtrOutput {

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     [OutputType]
     public sealed class CollaborationSyntheticDataGenerationPaymentConfig
     {
+        /// <summary>
+        /// Indicates who is responsible for paying for synthetic data generation.
+        /// </summary>
         public readonly bool IsResponsible;
 
         [OutputConstructor]

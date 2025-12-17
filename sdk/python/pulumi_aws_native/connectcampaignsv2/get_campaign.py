@@ -133,6 +133,9 @@ class GetCampaignResult:
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional['CampaignType']:
+        """
+        The type of campaign.
+        """
         return pulumi.get(self, "type")
 
 

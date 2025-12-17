@@ -135,6 +135,8 @@ namespace Pulumi.AwsNative.Ec2
                     "replaceUnhealthyInstances",
                     "spotOptions",
                     "tagSpecifications[*]",
+                    "targetCapacitySpecification.defaultTargetCapacityType",
+                    "targetCapacitySpecification.targetCapacityUnitType",
                     "terminateInstancesWithExpiration",
                     "type",
                     "validFrom",
