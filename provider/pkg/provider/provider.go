@@ -807,127 +807,6 @@ func engineAutonaming(req *pulumirpc.CheckRequest) autonaming.EngineAutoNamingCo
 	return engineAutonaming
 }
 
-// preserveAWSManagedInputs ensures that inputs for AWS-managed property transitions
-// are not updated during refresh. This handles cases where AWS transitions a property
-// to a managed state that the user cannot change back.
-//
-// For example, EFS fileSystemProtection.replicationOverwriteProtection transitions from
-// DISABLED to REPLICATING when the filesystem becomes a replication destination. AWS
-// rejects any attempt to change this value while replication is active. By preserving
-// the user's original input value, we avoid creating a diff that would fail on update.
-func preserveAWSManagedInputs(resourceToken string, newInputs, originalInputs resource.PropertyMap) resource.PropertyMap {
-	// EFS FileSystem: handle multiple AWS-managed properties
-	if resourceToken == "aws-native:efs:FileSystem" {
-		newInputs = preserveEFSReplicationProtection(newInputs, originalInputs)
-		newInputs = filterAWSManagedTags(newInputs, originalInputs)
-		newInputs = filterUnspecifiedReplicationConfig(newInputs, originalInputs)
-	}
-	return newInputs
-}
-
-// filterAWSManagedTags removes AWS-managed tags (aws:* prefix) from inputs that weren't
-// in the original inputs. AWS adds these tags automatically (e.g., aws:elasticfilesystem:default-backup)
-// and users cannot remove them, so we shouldn't include them in inputs after refresh.
-func filterAWSManagedTags(newInputs, originalInputs resource.PropertyMap) resource.PropertyMap {
-	newTags, hasNewTags := newInputs["fileSystemTags"]
-	if !hasNewTags || !newTags.IsArray() {
-		return newInputs
-	}
-
-	// Get original tags to preserve user-specified aws:* tags (if any)
-	originalTagKeys := make(map[string]bool)
-	if origTags, hasOrig := originalInputs["fileSystemTags"]; hasOrig && origTags.IsArray() {
-		for _, tag := range origTags.ArrayValue() {
-			if tag.IsObject() {
-				if key, ok := tag.ObjectValue()["key"]; ok && key.IsString() {
-					originalTagKeys[key.StringValue()] = true
-				}
-			}
-		}
-	}
-
-	// Filter out aws:* prefixed tags that weren't in original inputs
-	filteredTags := []resource.PropertyValue{}
-	for _, tag := range newTags.ArrayValue() {
-		if tag.IsObject() {
-			if key, ok := tag.ObjectValue()["key"]; ok && key.IsString() {
-				keyStr := key.StringValue()
-				// Keep the tag if it doesn't have aws: prefix OR if user originally specified it
-				if !strings.HasPrefix(keyStr, "aws:") || originalTagKeys[keyStr] {
-					filteredTags = append(filteredTags, tag)
-				}
-			}
-		}
-	}
-
-	// If all tags were filtered, remove the property entirely
-	if len(filteredTags) == 0 {
-		result := newInputs.Copy()
-		delete(result, "fileSystemTags")
-		return result
-	}
-
-	result := newInputs.Copy()
-	result["fileSystemTags"] = resource.NewArrayProperty(filteredTags)
-	return result
-}
-
-// filterUnspecifiedReplicationConfig removes replicationConfiguration from inputs if
-// the user didn't originally specify it. AWS adds this to destination filesystems
-// to show they are replication targets, but if the user didn't specify it,
-// we shouldn't try to manage it.
-func filterUnspecifiedReplicationConfig(newInputs, originalInputs resource.PropertyMap) resource.PropertyMap {
-	_, hasNewConfig := newInputs["replicationConfiguration"]
-	if !hasNewConfig {
-		return newInputs
-	}
-
-	// If user originally specified replicationConfiguration, keep it
-	if _, hasOrigConfig := originalInputs["replicationConfiguration"]; hasOrigConfig {
-		return newInputs
-	}
-
-	// User didn't specify replicationConfiguration - remove it from inputs
-	result := newInputs.Copy()
-	delete(result, "replicationConfiguration")
-	return result
-}
-
-// preserveEFSReplicationProtection preserves the user's original replicationOverwriteProtection
-// value when AWS has transitioned it to REPLICATING.
-func preserveEFSReplicationProtection(newInputs, originalInputs resource.PropertyMap) resource.PropertyMap {
-	newFsp, hasNewFsp := newInputs["fileSystemProtection"]
-	if !hasNewFsp || !newFsp.IsObject() {
-		return newInputs
-	}
-
-	newFspObj := newFsp.ObjectValue()
-	newRop, hasNewRop := newFspObj["replicationOverwriteProtection"]
-	if !hasNewRop || !newRop.IsString() || newRop.StringValue() != "REPLICATING" {
-		return newInputs
-	}
-
-	// AWS has set replicationOverwriteProtection to REPLICATING.
-	// Preserve the user's original value if they had one.
-	origFsp, hasOrigFsp := originalInputs["fileSystemProtection"]
-	if !hasOrigFsp || !origFsp.IsObject() {
-		return newInputs
-	}
-
-	origFspObj := origFsp.ObjectValue()
-	origRop, hasOrigRop := origFspObj["replicationOverwriteProtection"]
-	if !hasOrigRop {
-		return newInputs
-	}
-
-	// Restore the user's original value
-	result := newInputs.Copy()
-	resultFspObj := newFspObj.Copy()
-	resultFspObj["replicationOverwriteProtection"] = origRop
-	result["fileSystemProtection"] = resource.NewObjectProperty(resultFspObj)
-	return result
-}
-
 func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pulumirpc.DiffResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Diff(%s)", p.name, urn)
@@ -1180,14 +1059,12 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 			// 3. Calculate the difference between two projections. This should give us actual significant changes
 			// that happened in AWS between the last resource update and its current state.
 			diff := oldInputProjection.Diff(newInputProjection)
-			// 4. Apply this difference to the actual inputs (not a projection) that we have in state.
+			// 4. Suppress AWS-managed changes from the diff. This removes:
+			//    - aws:* prefixed tags that AWS adds automatically (users cannot manage these)
+			//    - Resource-specific state transitions (e.g., EFS replication protection)
+			diff = resources.SuppressAWSManagedDiffs(resourceToken, &spec, diff, inputs)
+			// 5. Apply this difference to the actual inputs (not a projection) that we have in state.
 			newInputs = resources.ApplyDiff(inputs, diff)
-
-			// 5. Preserve user's original input for AWS-managed property transitions.
-			// When AWS transitions fileSystemProtection.replicationOverwriteProtection to REPLICATING,
-			// we should NOT update the inputs to reflect this AWS-managed state. Instead, preserve
-			// the user's original value so that subsequent `pulumi up` won't see a diff.
-			newInputs = preserveAWSManagedInputs(resourceToken, newInputs, inputs)
 		}
 
 		newState = resources.CheckpointObject(newInputs, rawState)
