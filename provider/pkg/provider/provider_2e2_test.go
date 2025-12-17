@@ -79,7 +79,7 @@ const (
 func TestEfsReplicationProtection(t *testing.T) {
 	// Skip: takes ~45 min to run. Manual testing only.
 	// Run with: go test -v -timeout 45m -run TestEfsReplicationProtection ./pkg/provider
-	// t.Skip("Manual test: EFS replication takes ~45 minutes")
+	t.Skip("Manual test: EFS replication takes ~45 minutes")
 
 	skipIfShort(t)
 
@@ -91,6 +91,8 @@ func TestEfsReplicationProtection(t *testing.T) {
 		opttest.Env("PULUMI_DEBUG_GRPC", "true"),
 		opttest.LocalProviderPath("aws-native", filepath.Join("..", "..", "..", "bin")),
 	)
+	// Cleanup: Using aws:efs:ReplicationConfiguration sidecar resource means Pulumi
+	// handles deletion order correctly - replication is deleted before file systems.
 	defer pt.Destroy(t)
 
 	// This test sets up actual EFS replication to verify the REPLICATING enum value

@@ -3,6 +3,7 @@ runtime: yaml
 description: Test EFS FileSystem replication where destination transitions to REPLICATING state
 
 resources:
+  # AWS Native providers for EFS file systems
   eastNativeProvider:
     type: pulumi:providers:aws-native
     properties:
@@ -12,6 +13,12 @@ resources:
     type: pulumi:providers:aws-native
     properties:
       region: us-west-2
+
+  # Classic AWS provider for ReplicationConfiguration (handles cleanup order correctly)
+  eastAwsProvider:
+    type: pulumi:providers:aws
+    properties:
+      region: us-east-1
 
   # Destination filesystem - created first, will transition to REPLICATING when replication starts
   efsDestination:
@@ -25,7 +32,7 @@ resources:
     options:
       provider: ${westNativeProvider}
 
-  # Source filesystem with inline replicationConfiguration (not sidecar resource)
+  # Source filesystem - NO inline replicationConfiguration (use sidecar resource instead)
   efsSource:
     type: aws-native:efs:FileSystem
     properties:
@@ -34,14 +41,24 @@ resources:
       encrypted: true
       fileSystemProtection:
         replicationOverwriteProtection: ENABLED
-      # Use inline replicationConfiguration instead of sidecar resource
-      replicationConfiguration:
-        destinations:
-          - region: us-west-2
-            fileSystemId: ${efsDestination.id}
     options:
       provider: ${eastNativeProvider}
       dependsOn:
+        - ${efsDestination}
+
+  # Sidecar ReplicationConfiguration resource using classic AWS provider.
+  # This allows Pulumi to delete replication BEFORE the file systems during destroy.
+  efsReplication:
+    type: aws:efs:ReplicationConfiguration
+    properties:
+      sourceFileSystemId: ${efsSource.id}
+      destination:
+        fileSystemId: ${efsDestination.id}
+        region: us-west-2
+    options:
+      provider: ${eastAwsProvider}
+      dependsOn:
+        - ${efsSource}
         - ${efsDestination}
 
 outputs:
