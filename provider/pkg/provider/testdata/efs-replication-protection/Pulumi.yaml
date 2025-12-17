@@ -31,6 +31,11 @@ resources:
         replicationOverwriteProtection: DISABLED
     options:
       provider: ${westNativeProvider}
+      # Ignore replicationConfiguration - AWS adds this to destination filesystems to show
+      # the replication relationship. Since we manage replication via the sidecar resource
+      # (efsReplication), we don't want Pulumi to try to reconcile this read-only property.
+      ignoreChanges:
+        - replicationConfiguration
 
   # Source filesystem - NO inline replicationConfiguration (use sidecar resource instead)
   efsSource:
