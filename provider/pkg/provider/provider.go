@@ -1059,7 +1059,11 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 			// 3. Calculate the difference between two projections. This should give us actual significant changes
 			// that happened in AWS between the last resource update and its current state.
 			diff := oldInputProjection.Diff(newInputProjection)
-			// 4. Apply this difference to the actual inputs (not a projection) that we have in state.
+			// 4. Suppress AWS-managed changes from the diff. This removes:
+			//    - aws:* prefixed tags that AWS adds automatically (users cannot manage these)
+			//    - Resource-specific state transitions (e.g., EFS replication protection)
+			diff = resources.SuppressAWSManagedDiffs(resourceToken, &spec, diff, inputs)
+			// 5. Apply this difference to the actual inputs (not a projection) that we have in state.
 			newInputs = resources.ApplyDiff(inputs, diff)
 		}
 
