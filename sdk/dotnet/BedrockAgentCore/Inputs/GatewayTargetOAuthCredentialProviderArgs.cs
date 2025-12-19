@@ -20,6 +20,15 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
             set => _customParameters = value;
         }
 
+        /// <summary>
+        /// Return URL for OAuth callback.
+        /// </summary>
+        [Input("defaultReturnUrl")]
+        public Input<string>? DefaultReturnUrl { get; set; }
+
+        [Input("grantType")]
+        public Input<Pulumi.AwsNative.BedrockAgentCore.GatewayTargetOAuthGrantType>? GrantType { get; set; }
+
         [Input("providerArn", required: true)]
         public Input<string> ProviderArn { get; set; } = null!;
 

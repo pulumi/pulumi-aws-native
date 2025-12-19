@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A Bot Alias enables you to change the version of a bot without updating applications that use the bot
+ * Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot
  */
 export function getBotAlias(args: GetBotAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetBotAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,6 +51,10 @@ export interface GetBotAliasResult {
      */
     readonly botAliasStatus?: enums.lex.BotAliasStatus;
     /**
+     * A list of tags to add to the bot alias.
+     */
+    readonly botAliasTags?: outputs.Tag[];
+    /**
      * The version of the bot that the bot alias references.
      */
     readonly botVersion?: string;
@@ -68,7 +72,7 @@ export interface GetBotAliasResult {
     readonly sentimentAnalysisSettings?: outputs.lex.SentimentAnalysisSettingsProperties;
 }
 /**
- * A Bot Alias enables you to change the version of a bot without updating applications that use the bot
+ * Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot
  */
 export function getBotAliasOutput(args: GetBotAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBotAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

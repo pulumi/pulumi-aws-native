@@ -13,16 +13,20 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotSpecifications
     {
-        public readonly string SlotTypeId;
+        public readonly string? SlotTypeId;
+        public readonly string? SlotTypeName;
         public readonly Outputs.BotSubSlotValueElicitationSetting ValueElicitationSetting;
 
         [OutputConstructor]
         private BotSpecifications(
-            string slotTypeId,
+            string? slotTypeId,
+
+            string? slotTypeName,
 
             Outputs.BotSubSlotValueElicitationSetting valueElicitationSetting)
         {
             SlotTypeId = slotTypeId;
+            SlotTypeName = slotTypeName;
             ValueElicitationSetting = valueElicitationSetting;
         }
     }

@@ -38,6 +38,8 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// One or more slot types defined for the locale.
         /// </summary>
         public readonly ImmutableArray<Outputs.BotSlotType> SlotTypes;
+        public readonly Pulumi.AwsNative.Lex.BotSpeechDetectionSensitivity? SpeechDetectionSensitivity;
+        public readonly Outputs.BotUnifiedSpeechSettings? UnifiedSpeechSettings;
         /// <summary>
         /// Defines settings for using an Amazon Polly voice to communicate with a user.
         /// 
@@ -66,6 +68,10 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
             ImmutableArray<Outputs.BotSlotType> slotTypes,
 
+            Pulumi.AwsNative.Lex.BotSpeechDetectionSensitivity? speechDetectionSensitivity,
+
+            Outputs.BotUnifiedSpeechSettings? unifiedSpeechSettings,
+
             Outputs.BotVoiceSettings? voiceSettings)
         {
             CustomVocabulary = customVocabulary;
@@ -75,6 +81,8 @@ namespace Pulumi.AwsNative.Lex.Outputs
             LocaleId = localeId;
             NluConfidenceThreshold = nluConfidenceThreshold;
             SlotTypes = slotTypes;
+            SpeechDetectionSensitivity = speechDetectionSensitivity;
+            UnifiedSpeechSettings = unifiedSpeechSettings;
             VoiceSettings = voiceSettings;
         }
     }

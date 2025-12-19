@@ -15,13 +15,14 @@ namespace Pulumi.AwsNative.Lex.Outputs
     {
         public readonly Outputs.BotBedrockAgentIntentConfiguration? BedrockAgentIntentConfiguration;
         /// <summary>
-        /// Description of thr intent.
+        /// Resource Type definition for the intent.
         /// </summary>
         public readonly string? Description;
         /// <summary>
         /// Specifies that Amazon Lex invokes the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction.
         /// </summary>
         public readonly Outputs.BotDialogCodeHookSetting? DialogCodeHook;
+        public readonly string? DisplayName;
         /// <summary>
         /// Specifies that Amazon Lex invokes the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user.
         /// </summary>
@@ -81,6 +82,8 @@ namespace Pulumi.AwsNative.Lex.Outputs
 
             Outputs.BotDialogCodeHookSetting? dialogCodeHook,
 
+            string? displayName,
+
             Outputs.BotFulfillmentCodeHookSetting? fulfillmentCodeHook,
 
             Outputs.BotInitialResponseSetting? initialResponseSetting,
@@ -112,6 +115,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
             BedrockAgentIntentConfiguration = bedrockAgentIntentConfiguration;
             Description = description;
             DialogCodeHook = dialogCodeHook;
+            DisplayName = displayName;
             FulfillmentCodeHook = fulfillmentCodeHook;
             InitialResponseSetting = initialResponseSetting;
             InputContexts = inputContexts;

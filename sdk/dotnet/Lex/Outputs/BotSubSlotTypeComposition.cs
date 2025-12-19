@@ -20,16 +20,20 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// <summary>
         /// The unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
         /// </summary>
-        public readonly string SlotTypeId;
+        public readonly string? SlotTypeId;
+        public readonly string? SlotTypeName;
 
         [OutputConstructor]
         private BotSubSlotTypeComposition(
             string name,
 
-            string slotTypeId)
+            string? slotTypeId,
+
+            string? slotTypeName)
         {
             Name = name;
             SlotTypeId = slotTypeId;
+            SlotTypeName = slotTypeName;
         }
     }
 }

@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Lex
     public static class GetBotAlias
     {
         /// <summary>
-        /// A Bot Alias enables you to change the version of a bot without updating applications that use the bot
+        /// Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot
         /// </summary>
         public static Task<GetBotAliasResult> InvokeAsync(GetBotAliasArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBotAliasResult>("aws-native:lex:getBotAlias", args ?? new GetBotAliasArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A Bot Alias enables you to change the version of a bot without updating applications that use the bot
+        /// Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot
         /// </summary>
         public static Output<GetBotAliasResult> Invoke(GetBotAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotAliasResult>("aws-native:lex:getBotAlias", args ?? new GetBotAliasInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A Bot Alias enables you to change the version of a bot without updating applications that use the bot
+        /// Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot
         /// </summary>
         public static Output<GetBotAliasResult> Invoke(GetBotAliasInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotAliasResult>("aws-native:lex:getBotAlias", args ?? new GetBotAliasInvokeArgs(), options.WithDefaults());
@@ -96,6 +96,10 @@ namespace Pulumi.AwsNative.Lex
         /// </summary>
         public readonly Pulumi.AwsNative.Lex.BotAliasStatus? BotAliasStatus;
         /// <summary>
+        /// A list of tags to add to the bot alias.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> BotAliasTags;
+        /// <summary>
         /// The version of the bot that the bot alias references.
         /// </summary>
         public readonly string? BotVersion;
@@ -124,6 +128,8 @@ namespace Pulumi.AwsNative.Lex
 
             Pulumi.AwsNative.Lex.BotAliasStatus? botAliasStatus,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> botAliasTags,
+
             string? botVersion,
 
             Outputs.BotAliasConversationLogSettings? conversationLogSettings,
@@ -137,6 +143,7 @@ namespace Pulumi.AwsNative.Lex
             BotAliasLocaleSettings = botAliasLocaleSettings;
             BotAliasName = botAliasName;
             BotAliasStatus = botAliasStatus;
+            BotAliasTags = botAliasTags;
             BotVersion = botVersion;
             ConversationLogSettings = conversationLogSettings;
             Description = description;

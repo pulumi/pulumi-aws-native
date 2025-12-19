@@ -2124,8 +2124,9 @@ func (o EvaluationFormItemEnablementSourceValueArrayOutput) Index(i pulumi.IntIn
 	}).(EvaluationFormItemEnablementSourceValueOutput)
 }
 
+// Language configuration for an evaluation form.
 type EvaluationFormLanguageConfiguration struct {
-	// The language of the form
+	// The language for the evaluation form.
 	FormLanguage *EvaluationFormLanguageConfigurationFormLanguage `pulumi:"formLanguage"`
 }
 
@@ -2140,8 +2141,9 @@ type EvaluationFormLanguageConfigurationInput interface {
 	ToEvaluationFormLanguageConfigurationOutputWithContext(context.Context) EvaluationFormLanguageConfigurationOutput
 }
 
+// Language configuration for an evaluation form.
 type EvaluationFormLanguageConfigurationArgs struct {
-	// The language of the form
+	// The language for the evaluation form.
 	FormLanguage EvaluationFormLanguageConfigurationFormLanguagePtrInput `pulumi:"formLanguage"`
 }
 
@@ -2198,6 +2200,7 @@ func (i *evaluationFormLanguageConfigurationPtrType) ToEvaluationFormLanguageCon
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormLanguageConfigurationPtrOutput)
 }
 
+// Language configuration for an evaluation form.
 type EvaluationFormLanguageConfigurationOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormLanguageConfigurationOutput) ElementType() reflect.Type {
@@ -2222,7 +2225,7 @@ func (o EvaluationFormLanguageConfigurationOutput) ToEvaluationFormLanguageConfi
 	}).(EvaluationFormLanguageConfigurationPtrOutput)
 }
 
-// The language of the form
+// The language for the evaluation form.
 func (o EvaluationFormLanguageConfigurationOutput) FormLanguage() EvaluationFormLanguageConfigurationFormLanguagePtrOutput {
 	return o.ApplyT(func(v EvaluationFormLanguageConfiguration) *EvaluationFormLanguageConfigurationFormLanguage {
 		return v.FormLanguage
@@ -2253,7 +2256,7 @@ func (o EvaluationFormLanguageConfigurationPtrOutput) Elem() EvaluationFormLangu
 	}).(EvaluationFormLanguageConfigurationOutput)
 }
 
-// The language of the form
+// The language for the evaluation form.
 func (o EvaluationFormLanguageConfigurationPtrOutput) FormLanguage() EvaluationFormLanguageConfigurationFormLanguagePtrOutput {
 	return o.ApplyT(func(v *EvaluationFormLanguageConfiguration) *EvaluationFormLanguageConfigurationFormLanguage {
 		if v == nil {
@@ -2263,12 +2266,12 @@ func (o EvaluationFormLanguageConfigurationPtrOutput) FormLanguage() EvaluationF
 	}).(EvaluationFormLanguageConfigurationFormLanguagePtrOutput)
 }
 
+// Automation configuration for multi-select questions.
 type EvaluationFormMultiSelectQuestionAutomation struct {
-	// The source of automation answer of the question.
 	AnswerSource *EvaluationFormQuestionAutomationAnswerSource `pulumi:"answerSource"`
-	// The option reference identifiers of the default answers.
+	// Reference IDs of default options.
 	DefaultOptionRefIds []string `pulumi:"defaultOptionRefIds"`
-	// The answer options for the automation.
+	// Automation options for the multi-select question.
 	Options []EvaluationFormMultiSelectQuestionAutomationOption `pulumi:"options"`
 }
 
@@ -2283,12 +2286,12 @@ type EvaluationFormMultiSelectQuestionAutomationInput interface {
 	ToEvaluationFormMultiSelectQuestionAutomationOutputWithContext(context.Context) EvaluationFormMultiSelectQuestionAutomationOutput
 }
 
+// Automation configuration for multi-select questions.
 type EvaluationFormMultiSelectQuestionAutomationArgs struct {
-	// The source of automation answer of the question.
 	AnswerSource EvaluationFormQuestionAutomationAnswerSourcePtrInput `pulumi:"answerSource"`
-	// The option reference identifiers of the default answers.
+	// Reference IDs of default options.
 	DefaultOptionRefIds pulumi.StringArrayInput `pulumi:"defaultOptionRefIds"`
-	// The answer options for the automation.
+	// Automation options for the multi-select question.
 	Options EvaluationFormMultiSelectQuestionAutomationOptionArrayInput `pulumi:"options"`
 }
 
@@ -2345,6 +2348,7 @@ func (i *evaluationFormMultiSelectQuestionAutomationPtrType) ToEvaluationFormMul
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormMultiSelectQuestionAutomationPtrOutput)
 }
 
+// Automation configuration for multi-select questions.
 type EvaluationFormMultiSelectQuestionAutomationOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormMultiSelectQuestionAutomationOutput) ElementType() reflect.Type {
@@ -2369,19 +2373,18 @@ func (o EvaluationFormMultiSelectQuestionAutomationOutput) ToEvaluationFormMulti
 	}).(EvaluationFormMultiSelectQuestionAutomationPtrOutput)
 }
 
-// The source of automation answer of the question.
 func (o EvaluationFormMultiSelectQuestionAutomationOutput) AnswerSource() EvaluationFormQuestionAutomationAnswerSourcePtrOutput {
 	return o.ApplyT(func(v EvaluationFormMultiSelectQuestionAutomation) *EvaluationFormQuestionAutomationAnswerSource {
 		return v.AnswerSource
 	}).(EvaluationFormQuestionAutomationAnswerSourcePtrOutput)
 }
 
-// The option reference identifiers of the default answers.
+// Reference IDs of default options.
 func (o EvaluationFormMultiSelectQuestionAutomationOutput) DefaultOptionRefIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EvaluationFormMultiSelectQuestionAutomation) []string { return v.DefaultOptionRefIds }).(pulumi.StringArrayOutput)
 }
 
-// The answer options for the automation.
+// Automation options for the multi-select question.
 func (o EvaluationFormMultiSelectQuestionAutomationOutput) Options() EvaluationFormMultiSelectQuestionAutomationOptionArrayOutput {
 	return o.ApplyT(func(v EvaluationFormMultiSelectQuestionAutomation) []EvaluationFormMultiSelectQuestionAutomationOption {
 		return v.Options
@@ -2412,7 +2415,6 @@ func (o EvaluationFormMultiSelectQuestionAutomationPtrOutput) Elem() EvaluationF
 	}).(EvaluationFormMultiSelectQuestionAutomationOutput)
 }
 
-// The source of automation answer of the question.
 func (o EvaluationFormMultiSelectQuestionAutomationPtrOutput) AnswerSource() EvaluationFormQuestionAutomationAnswerSourcePtrOutput {
 	return o.ApplyT(func(v *EvaluationFormMultiSelectQuestionAutomation) *EvaluationFormQuestionAutomationAnswerSource {
 		if v == nil {
@@ -2422,7 +2424,7 @@ func (o EvaluationFormMultiSelectQuestionAutomationPtrOutput) AnswerSource() Eva
 	}).(EvaluationFormQuestionAutomationAnswerSourcePtrOutput)
 }
 
-// The option reference identifiers of the default answers.
+// Reference IDs of default options.
 func (o EvaluationFormMultiSelectQuestionAutomationPtrOutput) DefaultOptionRefIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EvaluationFormMultiSelectQuestionAutomation) []string {
 		if v == nil {
@@ -2432,7 +2434,7 @@ func (o EvaluationFormMultiSelectQuestionAutomationPtrOutput) DefaultOptionRefId
 	}).(pulumi.StringArrayOutput)
 }
 
-// The answer options for the automation.
+// Automation options for the multi-select question.
 func (o EvaluationFormMultiSelectQuestionAutomationPtrOutput) Options() EvaluationFormMultiSelectQuestionAutomationOptionArrayOutput {
 	return o.ApplyT(func(v *EvaluationFormMultiSelectQuestionAutomation) []EvaluationFormMultiSelectQuestionAutomationOption {
 		if v == nil {
@@ -2442,8 +2444,9 @@ func (o EvaluationFormMultiSelectQuestionAutomationPtrOutput) Options() Evaluati
 	}).(EvaluationFormMultiSelectQuestionAutomationOptionArrayOutput)
 }
 
+// An automation option for a multi-select question.
 type EvaluationFormMultiSelectQuestionAutomationOption struct {
-	// The automation option based on Rules categories.
+	// Rule category configuration for this automation option.
 	RuleCategory EvaluationFormMultiSelectQuestionRuleCategoryAutomation `pulumi:"ruleCategory"`
 }
 
@@ -2458,8 +2461,9 @@ type EvaluationFormMultiSelectQuestionAutomationOptionInput interface {
 	ToEvaluationFormMultiSelectQuestionAutomationOptionOutputWithContext(context.Context) EvaluationFormMultiSelectQuestionAutomationOptionOutput
 }
 
+// An automation option for a multi-select question.
 type EvaluationFormMultiSelectQuestionAutomationOptionArgs struct {
-	// The automation option based on Rules categories.
+	// Rule category configuration for this automation option.
 	RuleCategory EvaluationFormMultiSelectQuestionRuleCategoryAutomationInput `pulumi:"ruleCategory"`
 }
 
@@ -2500,6 +2504,7 @@ func (i EvaluationFormMultiSelectQuestionAutomationOptionArray) ToEvaluationForm
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormMultiSelectQuestionAutomationOptionArrayOutput)
 }
 
+// An automation option for a multi-select question.
 type EvaluationFormMultiSelectQuestionAutomationOptionOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormMultiSelectQuestionAutomationOptionOutput) ElementType() reflect.Type {
@@ -2514,7 +2519,7 @@ func (o EvaluationFormMultiSelectQuestionAutomationOptionOutput) ToEvaluationFor
 	return o
 }
 
-// The automation option based on Rules categories.
+// Rule category configuration for this automation option.
 func (o EvaluationFormMultiSelectQuestionAutomationOptionOutput) RuleCategory() EvaluationFormMultiSelectQuestionRuleCategoryAutomationOutput {
 	return o.ApplyT(func(v EvaluationFormMultiSelectQuestionAutomationOption) EvaluationFormMultiSelectQuestionRuleCategoryAutomation {
 		return v.RuleCategory
@@ -2541,10 +2546,11 @@ func (o EvaluationFormMultiSelectQuestionAutomationOptionArrayOutput) Index(i pu
 	}).(EvaluationFormMultiSelectQuestionAutomationOptionOutput)
 }
 
+// An option for a multi-select question in an evaluation form.
 type EvaluationFormMultiSelectQuestionOption struct {
-	// The identifier used to reference the option.
+	// Reference identifier for this option.
 	RefId string `pulumi:"refId"`
-	// The title of the option.
+	// Display text for this option.
 	Text string `pulumi:"text"`
 }
 
@@ -2559,10 +2565,11 @@ type EvaluationFormMultiSelectQuestionOptionInput interface {
 	ToEvaluationFormMultiSelectQuestionOptionOutputWithContext(context.Context) EvaluationFormMultiSelectQuestionOptionOutput
 }
 
+// An option for a multi-select question in an evaluation form.
 type EvaluationFormMultiSelectQuestionOptionArgs struct {
-	// The identifier used to reference the option.
+	// Reference identifier for this option.
 	RefId pulumi.StringInput `pulumi:"refId"`
-	// The title of the option.
+	// Display text for this option.
 	Text pulumi.StringInput `pulumi:"text"`
 }
 
@@ -2603,6 +2610,7 @@ func (i EvaluationFormMultiSelectQuestionOptionArray) ToEvaluationFormMultiSelec
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormMultiSelectQuestionOptionArrayOutput)
 }
 
+// An option for a multi-select question in an evaluation form.
 type EvaluationFormMultiSelectQuestionOptionOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormMultiSelectQuestionOptionOutput) ElementType() reflect.Type {
@@ -2617,12 +2625,12 @@ func (o EvaluationFormMultiSelectQuestionOptionOutput) ToEvaluationFormMultiSele
 	return o
 }
 
-// The identifier used to reference the option.
+// Reference identifier for this option.
 func (o EvaluationFormMultiSelectQuestionOptionOutput) RefId() pulumi.StringOutput {
 	return o.ApplyT(func(v EvaluationFormMultiSelectQuestionOption) string { return v.RefId }).(pulumi.StringOutput)
 }
 
-// The title of the option.
+// Display text for this option.
 func (o EvaluationFormMultiSelectQuestionOptionOutput) Text() pulumi.StringOutput {
 	return o.ApplyT(func(v EvaluationFormMultiSelectQuestionOption) string { return v.Text }).(pulumi.StringOutput)
 }
@@ -2647,12 +2655,13 @@ func (o EvaluationFormMultiSelectQuestionOptionArrayOutput) Index(i pulumi.IntIn
 	}).(EvaluationFormMultiSelectQuestionOptionOutput)
 }
 
+// Properties for a multi-select question in an evaluation form.
 type EvaluationFormMultiSelectQuestionProperties struct {
-	// The automation properties for the multi-select question.
+	// Automation configuration for this multi-select question.
 	Automation *EvaluationFormMultiSelectQuestionAutomation `pulumi:"automation"`
-	// The display mode of the multi-select question.
+	// Display format for the multi-select question.
 	DisplayAs *EvaluationFormMultiSelectQuestionPropertiesDisplayAs `pulumi:"displayAs"`
-	// The list of options for the question.
+	// Options available for this multi-select question.
 	Options []EvaluationFormMultiSelectQuestionOption `pulumi:"options"`
 }
 
@@ -2667,12 +2676,13 @@ type EvaluationFormMultiSelectQuestionPropertiesInput interface {
 	ToEvaluationFormMultiSelectQuestionPropertiesOutputWithContext(context.Context) EvaluationFormMultiSelectQuestionPropertiesOutput
 }
 
+// Properties for a multi-select question in an evaluation form.
 type EvaluationFormMultiSelectQuestionPropertiesArgs struct {
-	// The automation properties for the multi-select question.
+	// Automation configuration for this multi-select question.
 	Automation EvaluationFormMultiSelectQuestionAutomationPtrInput `pulumi:"automation"`
-	// The display mode of the multi-select question.
+	// Display format for the multi-select question.
 	DisplayAs EvaluationFormMultiSelectQuestionPropertiesDisplayAsPtrInput `pulumi:"displayAs"`
-	// The list of options for the question.
+	// Options available for this multi-select question.
 	Options EvaluationFormMultiSelectQuestionOptionArrayInput `pulumi:"options"`
 }
 
@@ -2729,6 +2739,7 @@ func (i *evaluationFormMultiSelectQuestionPropertiesPtrType) ToEvaluationFormMul
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormMultiSelectQuestionPropertiesPtrOutput)
 }
 
+// Properties for a multi-select question in an evaluation form.
 type EvaluationFormMultiSelectQuestionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormMultiSelectQuestionPropertiesOutput) ElementType() reflect.Type {
@@ -2753,21 +2764,21 @@ func (o EvaluationFormMultiSelectQuestionPropertiesOutput) ToEvaluationFormMulti
 	}).(EvaluationFormMultiSelectQuestionPropertiesPtrOutput)
 }
 
-// The automation properties for the multi-select question.
+// Automation configuration for this multi-select question.
 func (o EvaluationFormMultiSelectQuestionPropertiesOutput) Automation() EvaluationFormMultiSelectQuestionAutomationPtrOutput {
 	return o.ApplyT(func(v EvaluationFormMultiSelectQuestionProperties) *EvaluationFormMultiSelectQuestionAutomation {
 		return v.Automation
 	}).(EvaluationFormMultiSelectQuestionAutomationPtrOutput)
 }
 
-// The display mode of the multi-select question.
+// Display format for the multi-select question.
 func (o EvaluationFormMultiSelectQuestionPropertiesOutput) DisplayAs() EvaluationFormMultiSelectQuestionPropertiesDisplayAsPtrOutput {
 	return o.ApplyT(func(v EvaluationFormMultiSelectQuestionProperties) *EvaluationFormMultiSelectQuestionPropertiesDisplayAs {
 		return v.DisplayAs
 	}).(EvaluationFormMultiSelectQuestionPropertiesDisplayAsPtrOutput)
 }
 
-// The list of options for the question.
+// Options available for this multi-select question.
 func (o EvaluationFormMultiSelectQuestionPropertiesOutput) Options() EvaluationFormMultiSelectQuestionOptionArrayOutput {
 	return o.ApplyT(func(v EvaluationFormMultiSelectQuestionProperties) []EvaluationFormMultiSelectQuestionOption {
 		return v.Options
@@ -2798,7 +2809,7 @@ func (o EvaluationFormMultiSelectQuestionPropertiesPtrOutput) Elem() EvaluationF
 	}).(EvaluationFormMultiSelectQuestionPropertiesOutput)
 }
 
-// The automation properties for the multi-select question.
+// Automation configuration for this multi-select question.
 func (o EvaluationFormMultiSelectQuestionPropertiesPtrOutput) Automation() EvaluationFormMultiSelectQuestionAutomationPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormMultiSelectQuestionProperties) *EvaluationFormMultiSelectQuestionAutomation {
 		if v == nil {
@@ -2808,7 +2819,7 @@ func (o EvaluationFormMultiSelectQuestionPropertiesPtrOutput) Automation() Evalu
 	}).(EvaluationFormMultiSelectQuestionAutomationPtrOutput)
 }
 
-// The display mode of the multi-select question.
+// Display format for the multi-select question.
 func (o EvaluationFormMultiSelectQuestionPropertiesPtrOutput) DisplayAs() EvaluationFormMultiSelectQuestionPropertiesDisplayAsPtrOutput {
 	return o.ApplyT(func(v *EvaluationFormMultiSelectQuestionProperties) *EvaluationFormMultiSelectQuestionPropertiesDisplayAs {
 		if v == nil {
@@ -2818,7 +2829,7 @@ func (o EvaluationFormMultiSelectQuestionPropertiesPtrOutput) DisplayAs() Evalua
 	}).(EvaluationFormMultiSelectQuestionPropertiesDisplayAsPtrOutput)
 }
 
-// The list of options for the question.
+// Options available for this multi-select question.
 func (o EvaluationFormMultiSelectQuestionPropertiesPtrOutput) Options() EvaluationFormMultiSelectQuestionOptionArrayOutput {
 	return o.ApplyT(func(v *EvaluationFormMultiSelectQuestionProperties) []EvaluationFormMultiSelectQuestionOption {
 		if v == nil {
@@ -2828,12 +2839,13 @@ func (o EvaluationFormMultiSelectQuestionPropertiesPtrOutput) Options() Evaluati
 	}).(EvaluationFormMultiSelectQuestionOptionArrayOutput)
 }
 
+// Automation rule for multi-select questions based on rule categories.
 type EvaluationFormMultiSelectQuestionRuleCategoryAutomation struct {
-	// The category name as defined in Rules.
+	// The category name for this automation rule.
 	Category string `pulumi:"category"`
-	// The automation condition applied on contact categories.
+	// The condition for this automation rule.
 	Condition EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition `pulumi:"condition"`
-	// The option identifiers referencing the options to be selected when the automation option is triggered.
+	// Reference IDs of options for this automation rule.
 	OptionRefIds []string `pulumi:"optionRefIds"`
 }
 
@@ -2848,12 +2860,13 @@ type EvaluationFormMultiSelectQuestionRuleCategoryAutomationInput interface {
 	ToEvaluationFormMultiSelectQuestionRuleCategoryAutomationOutputWithContext(context.Context) EvaluationFormMultiSelectQuestionRuleCategoryAutomationOutput
 }
 
+// Automation rule for multi-select questions based on rule categories.
 type EvaluationFormMultiSelectQuestionRuleCategoryAutomationArgs struct {
-	// The category name as defined in Rules.
+	// The category name for this automation rule.
 	Category pulumi.StringInput `pulumi:"category"`
-	// The automation condition applied on contact categories.
+	// The condition for this automation rule.
 	Condition EvaluationFormMultiSelectQuestionRuleCategoryAutomationConditionInput `pulumi:"condition"`
-	// The option identifiers referencing the options to be selected when the automation option is triggered.
+	// Reference IDs of options for this automation rule.
 	OptionRefIds pulumi.StringArrayInput `pulumi:"optionRefIds"`
 }
 
@@ -2869,6 +2882,7 @@ func (i EvaluationFormMultiSelectQuestionRuleCategoryAutomationArgs) ToEvaluatio
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormMultiSelectQuestionRuleCategoryAutomationOutput)
 }
 
+// Automation rule for multi-select questions based on rule categories.
 type EvaluationFormMultiSelectQuestionRuleCategoryAutomationOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormMultiSelectQuestionRuleCategoryAutomationOutput) ElementType() reflect.Type {
@@ -2883,19 +2897,19 @@ func (o EvaluationFormMultiSelectQuestionRuleCategoryAutomationOutput) ToEvaluat
 	return o
 }
 
-// The category name as defined in Rules.
+// The category name for this automation rule.
 func (o EvaluationFormMultiSelectQuestionRuleCategoryAutomationOutput) Category() pulumi.StringOutput {
 	return o.ApplyT(func(v EvaluationFormMultiSelectQuestionRuleCategoryAutomation) string { return v.Category }).(pulumi.StringOutput)
 }
 
-// The automation condition applied on contact categories.
+// The condition for this automation rule.
 func (o EvaluationFormMultiSelectQuestionRuleCategoryAutomationOutput) Condition() EvaluationFormMultiSelectQuestionRuleCategoryAutomationConditionOutput {
 	return o.ApplyT(func(v EvaluationFormMultiSelectQuestionRuleCategoryAutomation) EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition {
 		return v.Condition
 	}).(EvaluationFormMultiSelectQuestionRuleCategoryAutomationConditionOutput)
 }
 
-// The option identifiers referencing the options to be selected when the automation option is triggered.
+// Reference IDs of options for this automation rule.
 func (o EvaluationFormMultiSelectQuestionRuleCategoryAutomationOutput) OptionRefIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EvaluationFormMultiSelectQuestionRuleCategoryAutomation) []string { return v.OptionRefIds }).(pulumi.StringArrayOutput)
 }
@@ -5378,8 +5392,9 @@ type EvaluationFormTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Configuration that specifies the target for an evaluation form.
 type EvaluationFormTargetConfiguration struct {
-	// The interaction type of a contact
+	// The contact interaction type for this evaluation form.
 	ContactInteractionType EvaluationFormTargetConfigurationContactInteractionType `pulumi:"contactInteractionType"`
 }
 
@@ -5394,8 +5409,9 @@ type EvaluationFormTargetConfigurationInput interface {
 	ToEvaluationFormTargetConfigurationOutputWithContext(context.Context) EvaluationFormTargetConfigurationOutput
 }
 
+// Configuration that specifies the target for an evaluation form.
 type EvaluationFormTargetConfigurationArgs struct {
-	// The interaction type of a contact
+	// The contact interaction type for this evaluation form.
 	ContactInteractionType EvaluationFormTargetConfigurationContactInteractionTypeInput `pulumi:"contactInteractionType"`
 }
 
@@ -5452,6 +5468,7 @@ func (i *evaluationFormTargetConfigurationPtrType) ToEvaluationFormTargetConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormTargetConfigurationPtrOutput)
 }
 
+// Configuration that specifies the target for an evaluation form.
 type EvaluationFormTargetConfigurationOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormTargetConfigurationOutput) ElementType() reflect.Type {
@@ -5476,7 +5493,7 @@ func (o EvaluationFormTargetConfigurationOutput) ToEvaluationFormTargetConfigura
 	}).(EvaluationFormTargetConfigurationPtrOutput)
 }
 
-// The interaction type of a contact
+// The contact interaction type for this evaluation form.
 func (o EvaluationFormTargetConfigurationOutput) ContactInteractionType() EvaluationFormTargetConfigurationContactInteractionTypeOutput {
 	return o.ApplyT(func(v EvaluationFormTargetConfiguration) EvaluationFormTargetConfigurationContactInteractionType {
 		return v.ContactInteractionType
@@ -5507,7 +5524,7 @@ func (o EvaluationFormTargetConfigurationPtrOutput) Elem() EvaluationFormTargetC
 	}).(EvaluationFormTargetConfigurationOutput)
 }
 
-// The interaction type of a contact
+// The contact interaction type for this evaluation form.
 func (o EvaluationFormTargetConfigurationPtrOutput) ContactInteractionType() EvaluationFormTargetConfigurationContactInteractionTypePtrOutput {
 	return o.ApplyT(func(v *EvaluationFormTargetConfiguration) *EvaluationFormTargetConfigurationContactInteractionType {
 		if v == nil {
@@ -5799,6 +5816,142 @@ func (o EvaluationFormTextQuestionPropertiesPtrOutput) Automation() EvaluationFo
 		}
 		return v.Automation
 	}).(EvaluationFormTextQuestionAutomationPtrOutput)
+}
+
+// Defines the external invocation configuration of the flow module resource
+type ExternalInvocationConfigurationProperties struct {
+	Enabled bool `pulumi:"enabled"`
+}
+
+// ExternalInvocationConfigurationPropertiesInput is an input type that accepts ExternalInvocationConfigurationPropertiesArgs and ExternalInvocationConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `ExternalInvocationConfigurationPropertiesInput` via:
+//
+//	ExternalInvocationConfigurationPropertiesArgs{...}
+type ExternalInvocationConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToExternalInvocationConfigurationPropertiesOutput() ExternalInvocationConfigurationPropertiesOutput
+	ToExternalInvocationConfigurationPropertiesOutputWithContext(context.Context) ExternalInvocationConfigurationPropertiesOutput
+}
+
+// Defines the external invocation configuration of the flow module resource
+type ExternalInvocationConfigurationPropertiesArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ExternalInvocationConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalInvocationConfigurationProperties)(nil)).Elem()
+}
+
+func (i ExternalInvocationConfigurationPropertiesArgs) ToExternalInvocationConfigurationPropertiesOutput() ExternalInvocationConfigurationPropertiesOutput {
+	return i.ToExternalInvocationConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i ExternalInvocationConfigurationPropertiesArgs) ToExternalInvocationConfigurationPropertiesOutputWithContext(ctx context.Context) ExternalInvocationConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalInvocationConfigurationPropertiesOutput)
+}
+
+func (i ExternalInvocationConfigurationPropertiesArgs) ToExternalInvocationConfigurationPropertiesPtrOutput() ExternalInvocationConfigurationPropertiesPtrOutput {
+	return i.ToExternalInvocationConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ExternalInvocationConfigurationPropertiesArgs) ToExternalInvocationConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ExternalInvocationConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalInvocationConfigurationPropertiesOutput).ToExternalInvocationConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// ExternalInvocationConfigurationPropertiesPtrInput is an input type that accepts ExternalInvocationConfigurationPropertiesArgs, ExternalInvocationConfigurationPropertiesPtr and ExternalInvocationConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `ExternalInvocationConfigurationPropertiesPtrInput` via:
+//
+//	        ExternalInvocationConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExternalInvocationConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToExternalInvocationConfigurationPropertiesPtrOutput() ExternalInvocationConfigurationPropertiesPtrOutput
+	ToExternalInvocationConfigurationPropertiesPtrOutputWithContext(context.Context) ExternalInvocationConfigurationPropertiesPtrOutput
+}
+
+type externalInvocationConfigurationPropertiesPtrType ExternalInvocationConfigurationPropertiesArgs
+
+func ExternalInvocationConfigurationPropertiesPtr(v *ExternalInvocationConfigurationPropertiesArgs) ExternalInvocationConfigurationPropertiesPtrInput {
+	return (*externalInvocationConfigurationPropertiesPtrType)(v)
+}
+
+func (*externalInvocationConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExternalInvocationConfigurationProperties)(nil)).Elem()
+}
+
+func (i *externalInvocationConfigurationPropertiesPtrType) ToExternalInvocationConfigurationPropertiesPtrOutput() ExternalInvocationConfigurationPropertiesPtrOutput {
+	return i.ToExternalInvocationConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *externalInvocationConfigurationPropertiesPtrType) ToExternalInvocationConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ExternalInvocationConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalInvocationConfigurationPropertiesPtrOutput)
+}
+
+// Defines the external invocation configuration of the flow module resource
+type ExternalInvocationConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ExternalInvocationConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalInvocationConfigurationProperties)(nil)).Elem()
+}
+
+func (o ExternalInvocationConfigurationPropertiesOutput) ToExternalInvocationConfigurationPropertiesOutput() ExternalInvocationConfigurationPropertiesOutput {
+	return o
+}
+
+func (o ExternalInvocationConfigurationPropertiesOutput) ToExternalInvocationConfigurationPropertiesOutputWithContext(ctx context.Context) ExternalInvocationConfigurationPropertiesOutput {
+	return o
+}
+
+func (o ExternalInvocationConfigurationPropertiesOutput) ToExternalInvocationConfigurationPropertiesPtrOutput() ExternalInvocationConfigurationPropertiesPtrOutput {
+	return o.ToExternalInvocationConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ExternalInvocationConfigurationPropertiesOutput) ToExternalInvocationConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ExternalInvocationConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExternalInvocationConfigurationProperties) *ExternalInvocationConfigurationProperties {
+		return &v
+	}).(ExternalInvocationConfigurationPropertiesPtrOutput)
+}
+
+func (o ExternalInvocationConfigurationPropertiesOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ExternalInvocationConfigurationProperties) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ExternalInvocationConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ExternalInvocationConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExternalInvocationConfigurationProperties)(nil)).Elem()
+}
+
+func (o ExternalInvocationConfigurationPropertiesPtrOutput) ToExternalInvocationConfigurationPropertiesPtrOutput() ExternalInvocationConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o ExternalInvocationConfigurationPropertiesPtrOutput) ToExternalInvocationConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ExternalInvocationConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o ExternalInvocationConfigurationPropertiesPtrOutput) Elem() ExternalInvocationConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *ExternalInvocationConfigurationProperties) ExternalInvocationConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ExternalInvocationConfigurationProperties
+		return ret
+	}).(ExternalInvocationConfigurationPropertiesOutput)
+}
+
+func (o ExternalInvocationConfigurationPropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExternalInvocationConfigurationProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type FontFamily struct {
@@ -6205,10 +6358,12 @@ type HoursOfOperationOverride struct {
 	// The date until the hours of operation override is effective.
 	EffectiveTill string `pulumi:"effectiveTill"`
 	// The identifier for the hours of operation override.
-	HoursOfOperationOverrideId *string                          `pulumi:"hoursOfOperationOverrideId"`
-	OverrideConfig             []HoursOfOperationOverrideConfig `pulumi:"overrideConfig"`
-	OverrideDescription        *string                          `pulumi:"overrideDescription"`
-	OverrideName               string                           `pulumi:"overrideName"`
+	HoursOfOperationOverrideId *string                           `pulumi:"hoursOfOperationOverrideId"`
+	OverrideConfig             []HoursOfOperationOverrideConfig  `pulumi:"overrideConfig"`
+	OverrideDescription        *string                           `pulumi:"overrideDescription"`
+	OverrideName               string                            `pulumi:"overrideName"`
+	OverrideType               *HoursOfOperationOverrideType     `pulumi:"overrideType"`
+	RecurrenceConfig           *HoursOfOperationRecurrenceConfig `pulumi:"recurrenceConfig"`
 }
 
 // HoursOfOperationOverrideInput is an input type that accepts HoursOfOperationOverrideArgs and HoursOfOperationOverrideOutput values.
@@ -6233,6 +6388,8 @@ type HoursOfOperationOverrideArgs struct {
 	OverrideConfig             HoursOfOperationOverrideConfigArrayInput `pulumi:"overrideConfig"`
 	OverrideDescription        pulumi.StringPtrInput                    `pulumi:"overrideDescription"`
 	OverrideName               pulumi.StringInput                       `pulumi:"overrideName"`
+	OverrideType               HoursOfOperationOverrideTypePtrInput     `pulumi:"overrideType"`
+	RecurrenceConfig           HoursOfOperationRecurrenceConfigPtrInput `pulumi:"recurrenceConfig"`
 }
 
 func (HoursOfOperationOverrideArgs) ElementType() reflect.Type {
@@ -6312,6 +6469,14 @@ func (o HoursOfOperationOverrideOutput) OverrideDescription() pulumi.StringPtrOu
 
 func (o HoursOfOperationOverrideOutput) OverrideName() pulumi.StringOutput {
 	return o.ApplyT(func(v HoursOfOperationOverride) string { return v.OverrideName }).(pulumi.StringOutput)
+}
+
+func (o HoursOfOperationOverrideOutput) OverrideType() HoursOfOperationOverrideTypePtrOutput {
+	return o.ApplyT(func(v HoursOfOperationOverride) *HoursOfOperationOverrideType { return v.OverrideType }).(HoursOfOperationOverrideTypePtrOutput)
+}
+
+func (o HoursOfOperationOverrideOutput) RecurrenceConfig() HoursOfOperationRecurrenceConfigPtrOutput {
+	return o.ApplyT(func(v HoursOfOperationOverride) *HoursOfOperationRecurrenceConfig { return v.RecurrenceConfig }).(HoursOfOperationRecurrenceConfigPtrOutput)
 }
 
 type HoursOfOperationOverrideArrayOutput struct{ *pulumi.OutputState }
@@ -6516,6 +6681,338 @@ func (o HoursOfOperationOverrideTimeSliceOutput) Minutes() pulumi.IntOutput {
 	return o.ApplyT(func(v HoursOfOperationOverrideTimeSlice) int { return v.Minutes }).(pulumi.IntOutput)
 }
 
+// Configuration for recurring hours of operation overrides.
+type HoursOfOperationRecurrenceConfig struct {
+	RecurrencePattern HoursOfOperationRecurrencePattern `pulumi:"recurrencePattern"`
+}
+
+// HoursOfOperationRecurrenceConfigInput is an input type that accepts HoursOfOperationRecurrenceConfigArgs and HoursOfOperationRecurrenceConfigOutput values.
+// You can construct a concrete instance of `HoursOfOperationRecurrenceConfigInput` via:
+//
+//	HoursOfOperationRecurrenceConfigArgs{...}
+type HoursOfOperationRecurrenceConfigInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationRecurrenceConfigOutput() HoursOfOperationRecurrenceConfigOutput
+	ToHoursOfOperationRecurrenceConfigOutputWithContext(context.Context) HoursOfOperationRecurrenceConfigOutput
+}
+
+// Configuration for recurring hours of operation overrides.
+type HoursOfOperationRecurrenceConfigArgs struct {
+	RecurrencePattern HoursOfOperationRecurrencePatternInput `pulumi:"recurrencePattern"`
+}
+
+func (HoursOfOperationRecurrenceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationRecurrenceConfig)(nil)).Elem()
+}
+
+func (i HoursOfOperationRecurrenceConfigArgs) ToHoursOfOperationRecurrenceConfigOutput() HoursOfOperationRecurrenceConfigOutput {
+	return i.ToHoursOfOperationRecurrenceConfigOutputWithContext(context.Background())
+}
+
+func (i HoursOfOperationRecurrenceConfigArgs) ToHoursOfOperationRecurrenceConfigOutputWithContext(ctx context.Context) HoursOfOperationRecurrenceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationRecurrenceConfigOutput)
+}
+
+func (i HoursOfOperationRecurrenceConfigArgs) ToHoursOfOperationRecurrenceConfigPtrOutput() HoursOfOperationRecurrenceConfigPtrOutput {
+	return i.ToHoursOfOperationRecurrenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i HoursOfOperationRecurrenceConfigArgs) ToHoursOfOperationRecurrenceConfigPtrOutputWithContext(ctx context.Context) HoursOfOperationRecurrenceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationRecurrenceConfigOutput).ToHoursOfOperationRecurrenceConfigPtrOutputWithContext(ctx)
+}
+
+// HoursOfOperationRecurrenceConfigPtrInput is an input type that accepts HoursOfOperationRecurrenceConfigArgs, HoursOfOperationRecurrenceConfigPtr and HoursOfOperationRecurrenceConfigPtrOutput values.
+// You can construct a concrete instance of `HoursOfOperationRecurrenceConfigPtrInput` via:
+//
+//	        HoursOfOperationRecurrenceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type HoursOfOperationRecurrenceConfigPtrInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationRecurrenceConfigPtrOutput() HoursOfOperationRecurrenceConfigPtrOutput
+	ToHoursOfOperationRecurrenceConfigPtrOutputWithContext(context.Context) HoursOfOperationRecurrenceConfigPtrOutput
+}
+
+type hoursOfOperationRecurrenceConfigPtrType HoursOfOperationRecurrenceConfigArgs
+
+func HoursOfOperationRecurrenceConfigPtr(v *HoursOfOperationRecurrenceConfigArgs) HoursOfOperationRecurrenceConfigPtrInput {
+	return (*hoursOfOperationRecurrenceConfigPtrType)(v)
+}
+
+func (*hoursOfOperationRecurrenceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HoursOfOperationRecurrenceConfig)(nil)).Elem()
+}
+
+func (i *hoursOfOperationRecurrenceConfigPtrType) ToHoursOfOperationRecurrenceConfigPtrOutput() HoursOfOperationRecurrenceConfigPtrOutput {
+	return i.ToHoursOfOperationRecurrenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *hoursOfOperationRecurrenceConfigPtrType) ToHoursOfOperationRecurrenceConfigPtrOutputWithContext(ctx context.Context) HoursOfOperationRecurrenceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationRecurrenceConfigPtrOutput)
+}
+
+// Configuration for recurring hours of operation overrides.
+type HoursOfOperationRecurrenceConfigOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationRecurrenceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationRecurrenceConfig)(nil)).Elem()
+}
+
+func (o HoursOfOperationRecurrenceConfigOutput) ToHoursOfOperationRecurrenceConfigOutput() HoursOfOperationRecurrenceConfigOutput {
+	return o
+}
+
+func (o HoursOfOperationRecurrenceConfigOutput) ToHoursOfOperationRecurrenceConfigOutputWithContext(ctx context.Context) HoursOfOperationRecurrenceConfigOutput {
+	return o
+}
+
+func (o HoursOfOperationRecurrenceConfigOutput) ToHoursOfOperationRecurrenceConfigPtrOutput() HoursOfOperationRecurrenceConfigPtrOutput {
+	return o.ToHoursOfOperationRecurrenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o HoursOfOperationRecurrenceConfigOutput) ToHoursOfOperationRecurrenceConfigPtrOutputWithContext(ctx context.Context) HoursOfOperationRecurrenceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HoursOfOperationRecurrenceConfig) *HoursOfOperationRecurrenceConfig {
+		return &v
+	}).(HoursOfOperationRecurrenceConfigPtrOutput)
+}
+
+func (o HoursOfOperationRecurrenceConfigOutput) RecurrencePattern() HoursOfOperationRecurrencePatternOutput {
+	return o.ApplyT(func(v HoursOfOperationRecurrenceConfig) HoursOfOperationRecurrencePattern { return v.RecurrencePattern }).(HoursOfOperationRecurrencePatternOutput)
+}
+
+type HoursOfOperationRecurrenceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationRecurrenceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HoursOfOperationRecurrenceConfig)(nil)).Elem()
+}
+
+func (o HoursOfOperationRecurrenceConfigPtrOutput) ToHoursOfOperationRecurrenceConfigPtrOutput() HoursOfOperationRecurrenceConfigPtrOutput {
+	return o
+}
+
+func (o HoursOfOperationRecurrenceConfigPtrOutput) ToHoursOfOperationRecurrenceConfigPtrOutputWithContext(ctx context.Context) HoursOfOperationRecurrenceConfigPtrOutput {
+	return o
+}
+
+func (o HoursOfOperationRecurrenceConfigPtrOutput) Elem() HoursOfOperationRecurrenceConfigOutput {
+	return o.ApplyT(func(v *HoursOfOperationRecurrenceConfig) HoursOfOperationRecurrenceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret HoursOfOperationRecurrenceConfig
+		return ret
+	}).(HoursOfOperationRecurrenceConfigOutput)
+}
+
+func (o HoursOfOperationRecurrenceConfigPtrOutput) RecurrencePattern() HoursOfOperationRecurrencePatternPtrOutput {
+	return o.ApplyT(func(v *HoursOfOperationRecurrenceConfig) *HoursOfOperationRecurrencePattern {
+		if v == nil {
+			return nil
+		}
+		return &v.RecurrencePattern
+	}).(HoursOfOperationRecurrencePatternPtrOutput)
+}
+
+// Pattern for recurring hours of operation overrides.
+type HoursOfOperationRecurrencePattern struct {
+	ByMonth             []int                                `pulumi:"byMonth"`
+	ByMonthDay          []int                                `pulumi:"byMonthDay"`
+	ByWeekdayOccurrence []int                                `pulumi:"byWeekdayOccurrence"`
+	Frequency           *HoursOfOperationRecurrenceFrequency `pulumi:"frequency"`
+	Interval            *int                                 `pulumi:"interval"`
+}
+
+// HoursOfOperationRecurrencePatternInput is an input type that accepts HoursOfOperationRecurrencePatternArgs and HoursOfOperationRecurrencePatternOutput values.
+// You can construct a concrete instance of `HoursOfOperationRecurrencePatternInput` via:
+//
+//	HoursOfOperationRecurrencePatternArgs{...}
+type HoursOfOperationRecurrencePatternInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationRecurrencePatternOutput() HoursOfOperationRecurrencePatternOutput
+	ToHoursOfOperationRecurrencePatternOutputWithContext(context.Context) HoursOfOperationRecurrencePatternOutput
+}
+
+// Pattern for recurring hours of operation overrides.
+type HoursOfOperationRecurrencePatternArgs struct {
+	ByMonth             pulumi.IntArrayInput                        `pulumi:"byMonth"`
+	ByMonthDay          pulumi.IntArrayInput                        `pulumi:"byMonthDay"`
+	ByWeekdayOccurrence pulumi.IntArrayInput                        `pulumi:"byWeekdayOccurrence"`
+	Frequency           HoursOfOperationRecurrenceFrequencyPtrInput `pulumi:"frequency"`
+	Interval            pulumi.IntPtrInput                          `pulumi:"interval"`
+}
+
+func (HoursOfOperationRecurrencePatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationRecurrencePattern)(nil)).Elem()
+}
+
+func (i HoursOfOperationRecurrencePatternArgs) ToHoursOfOperationRecurrencePatternOutput() HoursOfOperationRecurrencePatternOutput {
+	return i.ToHoursOfOperationRecurrencePatternOutputWithContext(context.Background())
+}
+
+func (i HoursOfOperationRecurrencePatternArgs) ToHoursOfOperationRecurrencePatternOutputWithContext(ctx context.Context) HoursOfOperationRecurrencePatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationRecurrencePatternOutput)
+}
+
+func (i HoursOfOperationRecurrencePatternArgs) ToHoursOfOperationRecurrencePatternPtrOutput() HoursOfOperationRecurrencePatternPtrOutput {
+	return i.ToHoursOfOperationRecurrencePatternPtrOutputWithContext(context.Background())
+}
+
+func (i HoursOfOperationRecurrencePatternArgs) ToHoursOfOperationRecurrencePatternPtrOutputWithContext(ctx context.Context) HoursOfOperationRecurrencePatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationRecurrencePatternOutput).ToHoursOfOperationRecurrencePatternPtrOutputWithContext(ctx)
+}
+
+// HoursOfOperationRecurrencePatternPtrInput is an input type that accepts HoursOfOperationRecurrencePatternArgs, HoursOfOperationRecurrencePatternPtr and HoursOfOperationRecurrencePatternPtrOutput values.
+// You can construct a concrete instance of `HoursOfOperationRecurrencePatternPtrInput` via:
+//
+//	        HoursOfOperationRecurrencePatternArgs{...}
+//
+//	or:
+//
+//	        nil
+type HoursOfOperationRecurrencePatternPtrInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationRecurrencePatternPtrOutput() HoursOfOperationRecurrencePatternPtrOutput
+	ToHoursOfOperationRecurrencePatternPtrOutputWithContext(context.Context) HoursOfOperationRecurrencePatternPtrOutput
+}
+
+type hoursOfOperationRecurrencePatternPtrType HoursOfOperationRecurrencePatternArgs
+
+func HoursOfOperationRecurrencePatternPtr(v *HoursOfOperationRecurrencePatternArgs) HoursOfOperationRecurrencePatternPtrInput {
+	return (*hoursOfOperationRecurrencePatternPtrType)(v)
+}
+
+func (*hoursOfOperationRecurrencePatternPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HoursOfOperationRecurrencePattern)(nil)).Elem()
+}
+
+func (i *hoursOfOperationRecurrencePatternPtrType) ToHoursOfOperationRecurrencePatternPtrOutput() HoursOfOperationRecurrencePatternPtrOutput {
+	return i.ToHoursOfOperationRecurrencePatternPtrOutputWithContext(context.Background())
+}
+
+func (i *hoursOfOperationRecurrencePatternPtrType) ToHoursOfOperationRecurrencePatternPtrOutputWithContext(ctx context.Context) HoursOfOperationRecurrencePatternPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationRecurrencePatternPtrOutput)
+}
+
+// Pattern for recurring hours of operation overrides.
+type HoursOfOperationRecurrencePatternOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationRecurrencePatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationRecurrencePattern)(nil)).Elem()
+}
+
+func (o HoursOfOperationRecurrencePatternOutput) ToHoursOfOperationRecurrencePatternOutput() HoursOfOperationRecurrencePatternOutput {
+	return o
+}
+
+func (o HoursOfOperationRecurrencePatternOutput) ToHoursOfOperationRecurrencePatternOutputWithContext(ctx context.Context) HoursOfOperationRecurrencePatternOutput {
+	return o
+}
+
+func (o HoursOfOperationRecurrencePatternOutput) ToHoursOfOperationRecurrencePatternPtrOutput() HoursOfOperationRecurrencePatternPtrOutput {
+	return o.ToHoursOfOperationRecurrencePatternPtrOutputWithContext(context.Background())
+}
+
+func (o HoursOfOperationRecurrencePatternOutput) ToHoursOfOperationRecurrencePatternPtrOutputWithContext(ctx context.Context) HoursOfOperationRecurrencePatternPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HoursOfOperationRecurrencePattern) *HoursOfOperationRecurrencePattern {
+		return &v
+	}).(HoursOfOperationRecurrencePatternPtrOutput)
+}
+
+func (o HoursOfOperationRecurrencePatternOutput) ByMonth() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v HoursOfOperationRecurrencePattern) []int { return v.ByMonth }).(pulumi.IntArrayOutput)
+}
+
+func (o HoursOfOperationRecurrencePatternOutput) ByMonthDay() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v HoursOfOperationRecurrencePattern) []int { return v.ByMonthDay }).(pulumi.IntArrayOutput)
+}
+
+func (o HoursOfOperationRecurrencePatternOutput) ByWeekdayOccurrence() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v HoursOfOperationRecurrencePattern) []int { return v.ByWeekdayOccurrence }).(pulumi.IntArrayOutput)
+}
+
+func (o HoursOfOperationRecurrencePatternOutput) Frequency() HoursOfOperationRecurrenceFrequencyPtrOutput {
+	return o.ApplyT(func(v HoursOfOperationRecurrencePattern) *HoursOfOperationRecurrenceFrequency { return v.Frequency }).(HoursOfOperationRecurrenceFrequencyPtrOutput)
+}
+
+func (o HoursOfOperationRecurrencePatternOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HoursOfOperationRecurrencePattern) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type HoursOfOperationRecurrencePatternPtrOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationRecurrencePatternPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HoursOfOperationRecurrencePattern)(nil)).Elem()
+}
+
+func (o HoursOfOperationRecurrencePatternPtrOutput) ToHoursOfOperationRecurrencePatternPtrOutput() HoursOfOperationRecurrencePatternPtrOutput {
+	return o
+}
+
+func (o HoursOfOperationRecurrencePatternPtrOutput) ToHoursOfOperationRecurrencePatternPtrOutputWithContext(ctx context.Context) HoursOfOperationRecurrencePatternPtrOutput {
+	return o
+}
+
+func (o HoursOfOperationRecurrencePatternPtrOutput) Elem() HoursOfOperationRecurrencePatternOutput {
+	return o.ApplyT(func(v *HoursOfOperationRecurrencePattern) HoursOfOperationRecurrencePattern {
+		if v != nil {
+			return *v
+		}
+		var ret HoursOfOperationRecurrencePattern
+		return ret
+	}).(HoursOfOperationRecurrencePatternOutput)
+}
+
+func (o HoursOfOperationRecurrencePatternPtrOutput) ByMonth() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *HoursOfOperationRecurrencePattern) []int {
+		if v == nil {
+			return nil
+		}
+		return v.ByMonth
+	}).(pulumi.IntArrayOutput)
+}
+
+func (o HoursOfOperationRecurrencePatternPtrOutput) ByMonthDay() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *HoursOfOperationRecurrencePattern) []int {
+		if v == nil {
+			return nil
+		}
+		return v.ByMonthDay
+	}).(pulumi.IntArrayOutput)
+}
+
+func (o HoursOfOperationRecurrencePatternPtrOutput) ByWeekdayOccurrence() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *HoursOfOperationRecurrencePattern) []int {
+		if v == nil {
+			return nil
+		}
+		return v.ByWeekdayOccurrence
+	}).(pulumi.IntArrayOutput)
+}
+
+func (o HoursOfOperationRecurrencePatternPtrOutput) Frequency() HoursOfOperationRecurrenceFrequencyPtrOutput {
+	return o.ApplyT(func(v *HoursOfOperationRecurrencePattern) *HoursOfOperationRecurrenceFrequency {
+		if v == nil {
+			return nil
+		}
+		return v.Frequency
+	}).(HoursOfOperationRecurrenceFrequencyPtrOutput)
+}
+
+func (o HoursOfOperationRecurrencePatternPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HoursOfOperationRecurrencePattern) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type HoursOfOperationTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -6586,6 +7083,115 @@ func (o HoursOfOperationTimeSliceOutput) Hours() pulumi.IntOutput {
 // The minutes.
 func (o HoursOfOperationTimeSliceOutput) Minutes() pulumi.IntOutput {
 	return o.ApplyT(func(v HoursOfOperationTimeSlice) int { return v.Minutes }).(pulumi.IntOutput)
+}
+
+// Identifier for hours of operation.
+type HoursOfOperationsIdentifier struct {
+	// The identifier for the hours of operation.
+	Id string `pulumi:"id"`
+	// The name of the hours of operation.
+	Name *string `pulumi:"name"`
+}
+
+// HoursOfOperationsIdentifierInput is an input type that accepts HoursOfOperationsIdentifierArgs and HoursOfOperationsIdentifierOutput values.
+// You can construct a concrete instance of `HoursOfOperationsIdentifierInput` via:
+//
+//	HoursOfOperationsIdentifierArgs{...}
+type HoursOfOperationsIdentifierInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationsIdentifierOutput() HoursOfOperationsIdentifierOutput
+	ToHoursOfOperationsIdentifierOutputWithContext(context.Context) HoursOfOperationsIdentifierOutput
+}
+
+// Identifier for hours of operation.
+type HoursOfOperationsIdentifierArgs struct {
+	// The identifier for the hours of operation.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the hours of operation.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (HoursOfOperationsIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationsIdentifier)(nil)).Elem()
+}
+
+func (i HoursOfOperationsIdentifierArgs) ToHoursOfOperationsIdentifierOutput() HoursOfOperationsIdentifierOutput {
+	return i.ToHoursOfOperationsIdentifierOutputWithContext(context.Background())
+}
+
+func (i HoursOfOperationsIdentifierArgs) ToHoursOfOperationsIdentifierOutputWithContext(ctx context.Context) HoursOfOperationsIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationsIdentifierOutput)
+}
+
+// HoursOfOperationsIdentifierArrayInput is an input type that accepts HoursOfOperationsIdentifierArray and HoursOfOperationsIdentifierArrayOutput values.
+// You can construct a concrete instance of `HoursOfOperationsIdentifierArrayInput` via:
+//
+//	HoursOfOperationsIdentifierArray{ HoursOfOperationsIdentifierArgs{...} }
+type HoursOfOperationsIdentifierArrayInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationsIdentifierArrayOutput() HoursOfOperationsIdentifierArrayOutput
+	ToHoursOfOperationsIdentifierArrayOutputWithContext(context.Context) HoursOfOperationsIdentifierArrayOutput
+}
+
+type HoursOfOperationsIdentifierArray []HoursOfOperationsIdentifierInput
+
+func (HoursOfOperationsIdentifierArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HoursOfOperationsIdentifier)(nil)).Elem()
+}
+
+func (i HoursOfOperationsIdentifierArray) ToHoursOfOperationsIdentifierArrayOutput() HoursOfOperationsIdentifierArrayOutput {
+	return i.ToHoursOfOperationsIdentifierArrayOutputWithContext(context.Background())
+}
+
+func (i HoursOfOperationsIdentifierArray) ToHoursOfOperationsIdentifierArrayOutputWithContext(ctx context.Context) HoursOfOperationsIdentifierArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationsIdentifierArrayOutput)
+}
+
+// Identifier for hours of operation.
+type HoursOfOperationsIdentifierOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationsIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationsIdentifier)(nil)).Elem()
+}
+
+func (o HoursOfOperationsIdentifierOutput) ToHoursOfOperationsIdentifierOutput() HoursOfOperationsIdentifierOutput {
+	return o
+}
+
+func (o HoursOfOperationsIdentifierOutput) ToHoursOfOperationsIdentifierOutputWithContext(ctx context.Context) HoursOfOperationsIdentifierOutput {
+	return o
+}
+
+// The identifier for the hours of operation.
+func (o HoursOfOperationsIdentifierOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v HoursOfOperationsIdentifier) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the hours of operation.
+func (o HoursOfOperationsIdentifierOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HoursOfOperationsIdentifier) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type HoursOfOperationsIdentifierArrayOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationsIdentifierArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HoursOfOperationsIdentifier)(nil)).Elem()
+}
+
+func (o HoursOfOperationsIdentifierArrayOutput) ToHoursOfOperationsIdentifierArrayOutput() HoursOfOperationsIdentifierArrayOutput {
+	return o
+}
+
+func (o HoursOfOperationsIdentifierArrayOutput) ToHoursOfOperationsIdentifierArrayOutputWithContext(ctx context.Context) HoursOfOperationsIdentifierArrayOutput {
+	return o
+}
+
+func (o HoursOfOperationsIdentifierArrayOutput) Index(i pulumi.IntInput) HoursOfOperationsIdentifierOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HoursOfOperationsIdentifier {
+		return vs[0].([]HoursOfOperationsIdentifier)[vs[1].(int)]
+	}).(HoursOfOperationsIdentifierOutput)
 }
 
 type InstanceAttributes struct {
@@ -15933,6 +16539,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormTextQuestionAutomationPtrInput)(nil)).Elem(), EvaluationFormTextQuestionAutomationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormTextQuestionPropertiesInput)(nil)).Elem(), EvaluationFormTextQuestionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormTextQuestionPropertiesPtrInput)(nil)).Elem(), EvaluationFormTextQuestionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalInvocationConfigurationPropertiesInput)(nil)).Elem(), ExternalInvocationConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalInvocationConfigurationPropertiesPtrInput)(nil)).Elem(), ExternalInvocationConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FontFamilyInput)(nil)).Elem(), FontFamilyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FontFamilyPtrInput)(nil)).Elem(), FontFamilyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GranularAccessControlConfigurationPropertiesInput)(nil)).Elem(), GranularAccessControlConfigurationPropertiesArgs{})
@@ -15944,7 +16552,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationOverrideConfigInput)(nil)).Elem(), HoursOfOperationOverrideConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationOverrideConfigArrayInput)(nil)).Elem(), HoursOfOperationOverrideConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationOverrideTimeSliceInput)(nil)).Elem(), HoursOfOperationOverrideTimeSliceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationRecurrenceConfigInput)(nil)).Elem(), HoursOfOperationRecurrenceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationRecurrenceConfigPtrInput)(nil)).Elem(), HoursOfOperationRecurrenceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationRecurrencePatternInput)(nil)).Elem(), HoursOfOperationRecurrencePatternArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationRecurrencePatternPtrInput)(nil)).Elem(), HoursOfOperationRecurrencePatternArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationTimeSliceInput)(nil)).Elem(), HoursOfOperationTimeSliceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationsIdentifierInput)(nil)).Elem(), HoursOfOperationsIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationsIdentifierArrayInput)(nil)).Elem(), HoursOfOperationsIdentifierArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAttributesInput)(nil)).Elem(), InstanceAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigEncryptionConfigInput)(nil)).Elem(), InstanceStorageConfigEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigEncryptionConfigPtrInput)(nil)).Elem(), InstanceStorageConfigEncryptionConfigArgs{})
@@ -16138,6 +16752,8 @@ func init() {
 	pulumi.RegisterOutputType(EvaluationFormTextQuestionAutomationPtrOutput{})
 	pulumi.RegisterOutputType(EvaluationFormTextQuestionPropertiesOutput{})
 	pulumi.RegisterOutputType(EvaluationFormTextQuestionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ExternalInvocationConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(ExternalInvocationConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FontFamilyOutput{})
 	pulumi.RegisterOutputType(FontFamilyPtrOutput{})
 	pulumi.RegisterOutputType(GranularAccessControlConfigurationPropertiesOutput{})
@@ -16149,7 +16765,13 @@ func init() {
 	pulumi.RegisterOutputType(HoursOfOperationOverrideConfigOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationOverrideConfigArrayOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationOverrideTimeSliceOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationRecurrenceConfigOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationRecurrenceConfigPtrOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationRecurrencePatternOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationRecurrencePatternPtrOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationTimeSliceOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationsIdentifierOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationsIdentifierArrayOutput{})
 	pulumi.RegisterOutputType(InstanceAttributesOutput{})
 	pulumi.RegisterOutputType(InstanceAttributesPtrOutput{})
 	pulumi.RegisterOutputType(InstanceStorageConfigEncryptionConfigOutput{})

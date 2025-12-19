@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public Input<string>? KeyPrefix { get; set; }
 
         /// <summary>
-        /// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+        /// The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

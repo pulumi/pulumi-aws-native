@@ -31,6 +31,8 @@ namespace Pulumi.AwsNative.Connect.Outputs
         public readonly ImmutableArray<Outputs.HoursOfOperationOverrideConfig> OverrideConfig;
         public readonly string? OverrideDescription;
         public readonly string OverrideName;
+        public readonly Pulumi.AwsNative.Connect.HoursOfOperationOverrideType? OverrideType;
+        public readonly Outputs.HoursOfOperationRecurrenceConfig? RecurrenceConfig;
 
         [OutputConstructor]
         private HoursOfOperationOverride(
@@ -44,7 +46,11 @@ namespace Pulumi.AwsNative.Connect.Outputs
 
             string? overrideDescription,
 
-            string overrideName)
+            string overrideName,
+
+            Pulumi.AwsNative.Connect.HoursOfOperationOverrideType? overrideType,
+
+            Outputs.HoursOfOperationRecurrenceConfig? recurrenceConfig)
         {
             EffectiveFrom = effectiveFrom;
             EffectiveTill = effectiveTill;
@@ -52,6 +58,8 @@ namespace Pulumi.AwsNative.Connect.Outputs
             OverrideConfig = overrideConfig;
             OverrideDescription = overrideDescription;
             OverrideName = overrideName;
+            OverrideType = overrideType;
+            RecurrenceConfig = recurrenceConfig;
         }
     }
 }

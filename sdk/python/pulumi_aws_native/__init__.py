@@ -85,6 +85,8 @@ if typing.TYPE_CHECKING:
     billing = __billing
     import pulumi_aws_native.budgets as __budgets
     budgets = __budgets
+    import pulumi_aws_native.cases as __cases
+    cases = __cases
     import pulumi_aws_native.cassandra as __cassandra
     cassandra = __cassandra
     import pulumi_aws_native.ce as __ce
@@ -525,6 +527,7 @@ else:
     bedrockagentcore = _utilities.lazy_import('pulumi_aws_native.bedrockagentcore')
     billing = _utilities.lazy_import('pulumi_aws_native.billing')
     budgets = _utilities.lazy_import('pulumi_aws_native.budgets')
+    cases = _utilities.lazy_import('pulumi_aws_native.cases')
     cassandra = _utilities.lazy_import('pulumi_aws_native.cassandra')
     ce = _utilities.lazy_import('pulumi_aws_native.ce')
     certificatemanager = _utilities.lazy_import('pulumi_aws_native.certificatemanager')
@@ -1104,6 +1107,18 @@ _utilities.register(
   "fqn": "pulumi_aws_native.budgets",
   "classes": {
    "aws-native:budgets:BudgetsAction": "BudgetsAction"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "cases",
+  "fqn": "pulumi_aws_native.cases",
+  "classes": {
+   "aws-native:cases:CaseRule": "CaseRule",
+   "aws-native:cases:Domain": "Domain",
+   "aws-native:cases:Field": "Field",
+   "aws-native:cases:Layout": "Layout",
+   "aws-native:cases:Template": "Template"
   }
  },
  {
@@ -2711,6 +2726,7 @@ _utilities.register(
   "classes": {
    "aws-native:observabilityadmin:OrganizationCentralizationRule": "OrganizationCentralizationRule",
    "aws-native:observabilityadmin:OrganizationTelemetryRule": "OrganizationTelemetryRule",
+   "aws-native:observabilityadmin:S3TableIntegration": "S3TableIntegration",
    "aws-native:observabilityadmin:TelemetryPipelines": "TelemetryPipelines",
    "aws-native:observabilityadmin:TelemetryRule": "TelemetryRule"
   }

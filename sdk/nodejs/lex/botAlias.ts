@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A Bot Alias enables you to change the version of a bot without updating applications that use the bot
+ * Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot
  */
 export class BotAlias extends pulumi.CustomResource {
     /**
@@ -60,7 +60,7 @@ export class BotAlias extends pulumi.CustomResource {
     /**
      * A list of tags to add to the bot alias.
      */
-    declare public readonly botAliasTags: pulumi.Output<outputs.lex.BotAliasTag[] | undefined>;
+    declare public readonly botAliasTags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The unique identifier of the bot.
      */
@@ -142,7 +142,7 @@ export interface BotAliasArgs {
     /**
      * A list of tags to add to the bot alias.
      */
-    botAliasTags?: pulumi.Input<pulumi.Input<inputs.lex.BotAliasTagArgs>[]>;
+    botAliasTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The unique identifier of the bot.
      */

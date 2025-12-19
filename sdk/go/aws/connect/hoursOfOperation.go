@@ -67,6 +67,8 @@ import (
 type HoursOfOperation struct {
 	pulumi.CustomResourceState
 
+	// List of child hours of operations.
+	ChildHoursOfOperations HoursOfOperationsIdentifierArrayOutput `pulumi:"childHoursOfOperations"`
 	// Configuration information for the hours of operation: day, start time, and end time.
 	Config HoursOfOperationConfigArrayOutput `pulumi:"config"`
 	// The description of the hours of operation.
@@ -79,6 +81,8 @@ type HoursOfOperation struct {
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 	// The name of the hours of operation.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// List of parent hours of operations.
+	ParentHoursOfOperations HoursOfOperationsIdentifierArrayOutput `pulumi:"parentHoursOfOperations"`
 	// One or more tags.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The time zone of the hours of operation.
@@ -134,6 +138,8 @@ func (HoursOfOperationState) ElementType() reflect.Type {
 }
 
 type hoursOfOperationArgs struct {
+	// List of child hours of operations.
+	ChildHoursOfOperations []HoursOfOperationsIdentifier `pulumi:"childHoursOfOperations"`
 	// Configuration information for the hours of operation: day, start time, and end time.
 	Config []HoursOfOperationConfig `pulumi:"config"`
 	// The description of the hours of operation.
@@ -144,6 +150,8 @@ type hoursOfOperationArgs struct {
 	InstanceArn string `pulumi:"instanceArn"`
 	// The name of the hours of operation.
 	Name *string `pulumi:"name"`
+	// List of parent hours of operations.
+	ParentHoursOfOperations []HoursOfOperationsIdentifier `pulumi:"parentHoursOfOperations"`
 	// One or more tags.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The time zone of the hours of operation.
@@ -152,6 +160,8 @@ type hoursOfOperationArgs struct {
 
 // The set of arguments for constructing a HoursOfOperation resource.
 type HoursOfOperationArgs struct {
+	// List of child hours of operations.
+	ChildHoursOfOperations HoursOfOperationsIdentifierArrayInput
 	// Configuration information for the hours of operation: day, start time, and end time.
 	Config HoursOfOperationConfigArrayInput
 	// The description of the hours of operation.
@@ -162,6 +172,8 @@ type HoursOfOperationArgs struct {
 	InstanceArn pulumi.StringInput
 	// The name of the hours of operation.
 	Name pulumi.StringPtrInput
+	// List of parent hours of operations.
+	ParentHoursOfOperations HoursOfOperationsIdentifierArrayInput
 	// One or more tags.
 	Tags aws.TagArrayInput
 	// The time zone of the hours of operation.
@@ -205,6 +217,11 @@ func (o HoursOfOperationOutput) ToHoursOfOperationOutputWithContext(ctx context.
 	return o
 }
 
+// List of child hours of operations.
+func (o HoursOfOperationOutput) ChildHoursOfOperations() HoursOfOperationsIdentifierArrayOutput {
+	return o.ApplyT(func(v *HoursOfOperation) HoursOfOperationsIdentifierArrayOutput { return v.ChildHoursOfOperations }).(HoursOfOperationsIdentifierArrayOutput)
+}
+
 // Configuration information for the hours of operation: day, start time, and end time.
 func (o HoursOfOperationOutput) Config() HoursOfOperationConfigArrayOutput {
 	return o.ApplyT(func(v *HoursOfOperation) HoursOfOperationConfigArrayOutput { return v.Config }).(HoursOfOperationConfigArrayOutput)
@@ -233,6 +250,11 @@ func (o HoursOfOperationOutput) InstanceArn() pulumi.StringOutput {
 // The name of the hours of operation.
 func (o HoursOfOperationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of parent hours of operations.
+func (o HoursOfOperationOutput) ParentHoursOfOperations() HoursOfOperationsIdentifierArrayOutput {
+	return o.ApplyT(func(v *HoursOfOperation) HoursOfOperationsIdentifierArrayOutput { return v.ParentHoursOfOperations }).(HoursOfOperationsIdentifierArrayOutput)
 }
 
 // One or more tags.

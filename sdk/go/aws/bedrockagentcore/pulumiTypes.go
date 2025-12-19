@@ -3022,8 +3022,11 @@ func (o GatewayTargetMcpTargetConfiguration3PropertiesPtrOutput) McpServer() Gat
 
 type GatewayTargetOAuthCredentialProvider struct {
 	CustomParameters map[string]string `pulumi:"customParameters"`
-	ProviderArn      string            `pulumi:"providerArn"`
-	Scopes           []string          `pulumi:"scopes"`
+	// Return URL for OAuth callback.
+	DefaultReturnUrl *string                      `pulumi:"defaultReturnUrl"`
+	GrantType        *GatewayTargetOAuthGrantType `pulumi:"grantType"`
+	ProviderArn      string                       `pulumi:"providerArn"`
+	Scopes           []string                     `pulumi:"scopes"`
 }
 
 // GatewayTargetOAuthCredentialProviderInput is an input type that accepts GatewayTargetOAuthCredentialProviderArgs and GatewayTargetOAuthCredentialProviderOutput values.
@@ -3038,9 +3041,12 @@ type GatewayTargetOAuthCredentialProviderInput interface {
 }
 
 type GatewayTargetOAuthCredentialProviderArgs struct {
-	CustomParameters pulumi.StringMapInput   `pulumi:"customParameters"`
-	ProviderArn      pulumi.StringInput      `pulumi:"providerArn"`
-	Scopes           pulumi.StringArrayInput `pulumi:"scopes"`
+	CustomParameters pulumi.StringMapInput `pulumi:"customParameters"`
+	// Return URL for OAuth callback.
+	DefaultReturnUrl pulumi.StringPtrInput               `pulumi:"defaultReturnUrl"`
+	GrantType        GatewayTargetOAuthGrantTypePtrInput `pulumi:"grantType"`
+	ProviderArn      pulumi.StringInput                  `pulumi:"providerArn"`
+	Scopes           pulumi.StringArrayInput             `pulumi:"scopes"`
 }
 
 func (GatewayTargetOAuthCredentialProviderArgs) ElementType() reflect.Type {
@@ -3124,6 +3130,15 @@ func (o GatewayTargetOAuthCredentialProviderOutput) CustomParameters() pulumi.St
 	return o.ApplyT(func(v GatewayTargetOAuthCredentialProvider) map[string]string { return v.CustomParameters }).(pulumi.StringMapOutput)
 }
 
+// Return URL for OAuth callback.
+func (o GatewayTargetOAuthCredentialProviderOutput) DefaultReturnUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayTargetOAuthCredentialProvider) *string { return v.DefaultReturnUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetOAuthCredentialProviderOutput) GrantType() GatewayTargetOAuthGrantTypePtrOutput {
+	return o.ApplyT(func(v GatewayTargetOAuthCredentialProvider) *GatewayTargetOAuthGrantType { return v.GrantType }).(GatewayTargetOAuthGrantTypePtrOutput)
+}
+
 func (o GatewayTargetOAuthCredentialProviderOutput) ProviderArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayTargetOAuthCredentialProvider) string { return v.ProviderArn }).(pulumi.StringOutput)
 }
@@ -3163,6 +3178,25 @@ func (o GatewayTargetOAuthCredentialProviderPtrOutput) CustomParameters() pulumi
 		}
 		return v.CustomParameters
 	}).(pulumi.StringMapOutput)
+}
+
+// Return URL for OAuth callback.
+func (o GatewayTargetOAuthCredentialProviderPtrOutput) DefaultReturnUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayTargetOAuthCredentialProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultReturnUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayTargetOAuthCredentialProviderPtrOutput) GrantType() GatewayTargetOAuthGrantTypePtrOutput {
+	return o.ApplyT(func(v *GatewayTargetOAuthCredentialProvider) *GatewayTargetOAuthGrantType {
+		if v == nil {
+			return nil
+		}
+		return v.GrantType
+	}).(GatewayTargetOAuthGrantTypePtrOutput)
 }
 
 func (o GatewayTargetOAuthCredentialProviderPtrOutput) ProviderArn() pulumi.StringPtrOutput {

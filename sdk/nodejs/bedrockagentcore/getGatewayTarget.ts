@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::BedrockAgentCore::GatewayTarget Resource Type
+ * Resource Type definition for AWS::BedrockAgentCore::GatewayTarget
  */
 export function getGatewayTarget(args: GetGatewayTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -70,7 +70,7 @@ export interface GetGatewayTargetResult {
     readonly updatedAt?: string;
 }
 /**
- * Definition of AWS::BedrockAgentCore::GatewayTarget Resource Type
+ * Resource Type definition for AWS::BedrockAgentCore::GatewayTarget
  */
 export function getGatewayTargetOutput(args: GetGatewayTargetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetBotResult',
@@ -24,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetBotResult:
-    def __init__(__self__, arn=None, data_privacy=None, description=None, error_log_settings=None, id=None, idle_session_ttl_in_seconds=None, name=None, role_arn=None, test_bot_alias_settings=None):
+    def __init__(__self__, arn=None, bot_tags=None, data_privacy=None, description=None, error_log_settings=None, id=None, idle_session_ttl_in_seconds=None, name=None, role_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if bot_tags and not isinstance(bot_tags, list):
+            raise TypeError("Expected argument 'bot_tags' to be a list")
+        pulumi.set(__self__, "bot_tags", bot_tags)
         if data_privacy and not isinstance(data_privacy, dict):
             raise TypeError("Expected argument 'data_privacy' to be a dict")
         pulumi.set(__self__, "data_privacy", data_privacy)
@@ -49,9 +53,6 @@ class GetBotResult:
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
-        if test_bot_alias_settings and not isinstance(test_bot_alias_settings, dict):
-            raise TypeError("Expected argument 'test_bot_alias_settings' to be a dict")
-        pulumi.set(__self__, "test_bot_alias_settings", test_bot_alias_settings)
 
     @_builtins.property
     @pulumi.getter
@@ -60,6 +61,14 @@ class GetBotResult:
         The Amazon Resource Name (ARN) of the bot.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="botTags")
+    def bot_tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
+        """
+        return pulumi.get(self, "bot_tags")
 
     @_builtins.property
     @pulumi.getter(name="dataPrivacy")
@@ -118,14 +127,6 @@ class GetBotResult:
         """
         return pulumi.get(self, "role_arn")
 
-    @_builtins.property
-    @pulumi.getter(name="testBotAliasSettings")
-    def test_bot_alias_settings(self) -> Optional['outputs.BotTestBotAliasSettings']:
-        """
-        Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
-        """
-        return pulumi.get(self, "test_bot_alias_settings")
-
 
 class AwaitableGetBotResult(GetBotResult):
     # pylint: disable=using-constant-test
@@ -134,20 +135,20 @@ class AwaitableGetBotResult(GetBotResult):
             yield self
         return GetBotResult(
             arn=self.arn,
+            bot_tags=self.bot_tags,
             data_privacy=self.data_privacy,
             description=self.description,
             error_log_settings=self.error_log_settings,
             id=self.id,
             idle_session_ttl_in_seconds=self.idle_session_ttl_in_seconds,
             name=self.name,
-            role_arn=self.role_arn,
-            test_bot_alias_settings=self.test_bot_alias_settings)
+            role_arn=self.role_arn)
 
 
 def get_bot(id: Optional[_builtins.str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotResult:
     """
-    Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
+    Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
 
 
     :param _builtins.str id: The unique identifier of the bot.
@@ -159,18 +160,18 @@ def get_bot(id: Optional[_builtins.str] = None,
 
     return AwaitableGetBotResult(
         arn=pulumi.get(__ret__, 'arn'),
+        bot_tags=pulumi.get(__ret__, 'bot_tags'),
         data_privacy=pulumi.get(__ret__, 'data_privacy'),
         description=pulumi.get(__ret__, 'description'),
         error_log_settings=pulumi.get(__ret__, 'error_log_settings'),
         id=pulumi.get(__ret__, 'id'),
         idle_session_ttl_in_seconds=pulumi.get(__ret__, 'idle_session_ttl_in_seconds'),
         name=pulumi.get(__ret__, 'name'),
-        role_arn=pulumi.get(__ret__, 'role_arn'),
-        test_bot_alias_settings=pulumi.get(__ret__, 'test_bot_alias_settings'))
+        role_arn=pulumi.get(__ret__, 'role_arn'))
 def get_bot_output(id: Optional[pulumi.Input[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBotResult]:
     """
-    Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
+    Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
 
 
     :param _builtins.str id: The unique identifier of the bot.
@@ -181,11 +182,11 @@ def get_bot_output(id: Optional[pulumi.Input[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:lex:getBot', __args__, opts=opts, typ=GetBotResult)
     return __ret__.apply(lambda __response__: GetBotResult(
         arn=pulumi.get(__response__, 'arn'),
+        bot_tags=pulumi.get(__response__, 'bot_tags'),
         data_privacy=pulumi.get(__response__, 'data_privacy'),
         description=pulumi.get(__response__, 'description'),
         error_log_settings=pulumi.get(__response__, 'error_log_settings'),
         id=pulumi.get(__response__, 'id'),
         idle_session_ttl_in_seconds=pulumi.get(__response__, 'idle_session_ttl_in_seconds'),
         name=pulumi.get(__response__, 'name'),
-        role_arn=pulumi.get(__response__, 'role_arn'),
-        test_bot_alias_settings=pulumi.get(__response__, 'test_bot_alias_settings')))
+        role_arn=pulumi.get(__response__, 'role_arn')))

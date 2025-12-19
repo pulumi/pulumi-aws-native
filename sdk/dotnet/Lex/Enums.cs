@@ -128,6 +128,34 @@ namespace Pulumi.AwsNative.Lex
     }
 
     [EnumType]
+    public readonly struct BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode : IEquatable<BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode>
+    {
+        private readonly string _value;
+
+        private BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode Primary { get; } = new BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode("Primary");
+        public static BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode Fallback { get; } = new BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode("Fallback");
+
+        public static bool operator ==(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode left, BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode right) => left.Equals(right);
+        public static bool operator !=(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode left, BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode right) => !left.Equals(right);
+
+        public static explicit operator string(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode other && Equals(other);
+        public bool Equals(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct BotMessageSelectionStrategy : IEquatable<BotMessageSelectionStrategy>
     {
         private readonly string _value;
@@ -264,6 +292,35 @@ namespace Pulumi.AwsNative.Lex
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is BotSlotValueResolutionStrategy other && Equals(other);
         public bool Equals(BotSlotValueResolutionStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct BotSpeechDetectionSensitivity : IEquatable<BotSpeechDetectionSensitivity>
+    {
+        private readonly string _value;
+
+        private BotSpeechDetectionSensitivity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BotSpeechDetectionSensitivity Default { get; } = new BotSpeechDetectionSensitivity("Default");
+        public static BotSpeechDetectionSensitivity HighNoiseTolerance { get; } = new BotSpeechDetectionSensitivity("HighNoiseTolerance");
+        public static BotSpeechDetectionSensitivity MaximumNoiseTolerance { get; } = new BotSpeechDetectionSensitivity("MaximumNoiseTolerance");
+
+        public static bool operator ==(BotSpeechDetectionSensitivity left, BotSpeechDetectionSensitivity right) => left.Equals(right);
+        public static bool operator !=(BotSpeechDetectionSensitivity left, BotSpeechDetectionSensitivity right) => !left.Equals(right);
+
+        public static explicit operator string(BotSpeechDetectionSensitivity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BotSpeechDetectionSensitivity other && Equals(other);
+        public bool Equals(BotSpeechDetectionSensitivity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -28,7 +30,7 @@ class BotArgs:
                  auto_build_bot_locales: Optional[pulumi.Input[_builtins.bool]] = None,
                  bot_file_s3_location: Optional[pulumi.Input['BotS3LocationArgs']] = None,
                  bot_locales: Optional[pulumi.Input[Sequence[pulumi.Input['BotLocaleArgs']]]] = None,
-                 bot_tags: Optional[pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]]] = None,
+                 bot_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  error_log_settings: Optional[pulumi.Input['ErrorLogSettingsPropertiesArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -47,7 +49,7 @@ class BotArgs:
         :param pulumi.Input[_builtins.bool] auto_build_bot_locales: Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
         :param pulumi.Input['BotS3LocationArgs'] bot_file_s3_location: The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
         :param pulumi.Input[Sequence[pulumi.Input['BotLocaleArgs']]] bot_locales: A list of locales for the bot.
-        :param pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]] bot_tags: A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] bot_tags: A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
         :param pulumi.Input[_builtins.str] description: The description of the version.
         :param pulumi.Input[_builtins.str] name: The name of the bot locale.
         :param pulumi.Input['BotTestBotAliasSettingsArgs'] test_bot_alias_settings: Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
@@ -155,14 +157,14 @@ class BotArgs:
 
     @_builtins.property
     @pulumi.getter(name="botTags")
-    def bot_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]]]:
+    def bot_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
         """
         return pulumi.get(self, "bot_tags")
 
     @bot_tags.setter
-    def bot_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]]]):
+    def bot_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "bot_tags", value)
 
     @_builtins.property
@@ -241,7 +243,7 @@ class Bot(pulumi.CustomResource):
                  auto_build_bot_locales: Optional[pulumi.Input[_builtins.bool]] = None,
                  bot_file_s3_location: Optional[pulumi.Input[Union['BotS3LocationArgs', 'BotS3LocationArgsDict']]] = None,
                  bot_locales: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotLocaleArgs', 'BotLocaleArgsDict']]]]] = None,
-                 bot_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotTagArgs', 'BotTagArgsDict']]]]] = None,
+                 bot_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  data_privacy: Optional[pulumi.Input[Union['DataPrivacyPropertiesArgs', 'DataPrivacyPropertiesArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  error_log_settings: Optional[pulumi.Input[Union['ErrorLogSettingsPropertiesArgs', 'ErrorLogSettingsPropertiesArgsDict']]] = None,
@@ -253,14 +255,14 @@ class Bot(pulumi.CustomResource):
                  test_bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotTagArgs', 'BotTagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
+        Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_build_bot_locales: Indicates whether Amazon Lex V2 should automatically build the locales for the bot after a change.
         :param pulumi.Input[Union['BotS3LocationArgs', 'BotS3LocationArgsDict']] bot_file_s3_location: The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
         :param pulumi.Input[Sequence[pulumi.Input[Union['BotLocaleArgs', 'BotLocaleArgsDict']]]] bot_locales: A list of locales for the bot.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BotTagArgs', 'BotTagArgsDict']]]] bot_tags: A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] bot_tags: A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
         :param pulumi.Input[Union['DataPrivacyPropertiesArgs', 'DataPrivacyPropertiesArgsDict']] data_privacy: By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
         :param pulumi.Input[_builtins.str] description: The description of the version.
         :param pulumi.Input[_builtins.int] idle_session_ttl_in_seconds: The time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot.
@@ -280,7 +282,7 @@ class Bot(pulumi.CustomResource):
                  args: BotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
+        Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
 
         :param str resource_name: The name of the resource.
         :param BotArgs args: The arguments to use to populate this resource's properties.
@@ -300,7 +302,7 @@ class Bot(pulumi.CustomResource):
                  auto_build_bot_locales: Optional[pulumi.Input[_builtins.bool]] = None,
                  bot_file_s3_location: Optional[pulumi.Input[Union['BotS3LocationArgs', 'BotS3LocationArgsDict']]] = None,
                  bot_locales: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotLocaleArgs', 'BotLocaleArgsDict']]]]] = None,
-                 bot_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotTagArgs', 'BotTagArgsDict']]]]] = None,
+                 bot_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  data_privacy: Optional[pulumi.Input[Union['DataPrivacyPropertiesArgs', 'DataPrivacyPropertiesArgsDict']]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  error_log_settings: Optional[pulumi.Input[Union['ErrorLogSettingsPropertiesArgs', 'ErrorLogSettingsPropertiesArgsDict']]] = None,
@@ -421,7 +423,7 @@ class Bot(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="botTags")
-    def bot_tags(self) -> pulumi.Output[Optional[Sequence['outputs.BotTag']]]:
+    def bot_tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
         """

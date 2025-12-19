@@ -348,6 +348,171 @@ func (in *capacityProviderAutoScalingGroupProviderManagedTerminationProtectionPt
 	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput)
 }
 
+type CapacityProviderInstanceLaunchTemplateCapacityOptionType string
+
+const (
+	CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOnDemand = CapacityProviderInstanceLaunchTemplateCapacityOptionType("ON_DEMAND")
+	CapacityProviderInstanceLaunchTemplateCapacityOptionTypeSpot     = CapacityProviderInstanceLaunchTemplateCapacityOptionType("SPOT")
+)
+
+func (CapacityProviderInstanceLaunchTemplateCapacityOptionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderInstanceLaunchTemplateCapacityOptionType)(nil)).Elem()
+}
+
+func (e CapacityProviderInstanceLaunchTemplateCapacityOptionType) ToCapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput() CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput {
+	return pulumi.ToOutput(e).(CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput)
+}
+
+func (e CapacityProviderInstanceLaunchTemplateCapacityOptionType) ToCapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutputWithContext(ctx context.Context) CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput)
+}
+
+func (e CapacityProviderInstanceLaunchTemplateCapacityOptionType) ToCapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput() CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput {
+	return e.ToCapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderInstanceLaunchTemplateCapacityOptionType) ToCapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutputWithContext(ctx context.Context) CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput {
+	return CapacityProviderInstanceLaunchTemplateCapacityOptionType(e).ToCapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutputWithContext(ctx).ToCapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutputWithContext(ctx)
+}
+
+func (e CapacityProviderInstanceLaunchTemplateCapacityOptionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderInstanceLaunchTemplateCapacityOptionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderInstanceLaunchTemplateCapacityOptionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderInstanceLaunchTemplateCapacityOptionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderInstanceLaunchTemplateCapacityOptionType)(nil)).Elem()
+}
+
+func (o CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput) ToCapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput() CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput) ToCapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutputWithContext(ctx context.Context) CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput) ToCapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput() CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput {
+	return o.ToCapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput) ToCapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutputWithContext(ctx context.Context) CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderInstanceLaunchTemplateCapacityOptionType) *CapacityProviderInstanceLaunchTemplateCapacityOptionType {
+		return &v
+	}).(CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput)
+}
+
+func (o CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderInstanceLaunchTemplateCapacityOptionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderInstanceLaunchTemplateCapacityOptionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderInstanceLaunchTemplateCapacityOptionType)(nil)).Elem()
+}
+
+func (o CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput) ToCapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput() CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput) ToCapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutputWithContext(ctx context.Context) CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput {
+	return o
+}
+
+func (o CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput) Elem() CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceLaunchTemplateCapacityOptionType) CapacityProviderInstanceLaunchTemplateCapacityOptionType {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderInstanceLaunchTemplateCapacityOptionType
+		return ret
+	}).(CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput)
+}
+
+func (o CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityProviderInstanceLaunchTemplateCapacityOptionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapacityProviderInstanceLaunchTemplateCapacityOptionTypeInput is an input type that accepts values of the CapacityProviderInstanceLaunchTemplateCapacityOptionType enum
+// A concrete instance of `CapacityProviderInstanceLaunchTemplateCapacityOptionTypeInput` can be one of the following:
+//
+//	CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOnDemand
+//	CapacityProviderInstanceLaunchTemplateCapacityOptionTypeSpot
+type CapacityProviderInstanceLaunchTemplateCapacityOptionTypeInput interface {
+	pulumi.Input
+
+	ToCapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput() CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput
+	ToCapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutputWithContext(context.Context) CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput
+}
+
+var capacityProviderInstanceLaunchTemplateCapacityOptionTypePtrType = reflect.TypeOf((**CapacityProviderInstanceLaunchTemplateCapacityOptionType)(nil)).Elem()
+
+type CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput() CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput
+	ToCapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutputWithContext(context.Context) CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput
+}
+
+type capacityProviderInstanceLaunchTemplateCapacityOptionTypePtr string
+
+func CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtr(v string) CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrInput {
+	return (*capacityProviderInstanceLaunchTemplateCapacityOptionTypePtr)(&v)
+}
+
+func (*capacityProviderInstanceLaunchTemplateCapacityOptionTypePtr) ElementType() reflect.Type {
+	return capacityProviderInstanceLaunchTemplateCapacityOptionTypePtrType
+}
+
+func (in *capacityProviderInstanceLaunchTemplateCapacityOptionTypePtr) ToCapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput() CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput {
+	return pulumi.ToOutput(in).(CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput)
+}
+
+func (in *capacityProviderInstanceLaunchTemplateCapacityOptionTypePtr) ToCapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutputWithContext(ctx context.Context) CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput)
+}
+
 type CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem string
 
 const (
@@ -6617,6 +6782,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedDrainingPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedDraining("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedTerminationProtection("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedTerminationProtection("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceLaunchTemplateCapacityOptionTypeInput)(nil)).Elem(), CapacityProviderInstanceLaunchTemplateCapacityOptionType("ON_DEMAND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrInput)(nil)).Elem(), CapacityProviderInstanceLaunchTemplateCapacityOptionType("ON_DEMAND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItemInput)(nil)).Elem(), CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItemPtrInput)(nil)).Elem(), CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput)(nil)).Elem(), CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItemArray{})
@@ -6696,6 +6863,8 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderInstanceLaunchTemplateCapacityOptionTypeOutput{})
+	pulumi.RegisterOutputType(CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItemOutput{})
 	pulumi.RegisterOutputType(CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItemPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutput{})

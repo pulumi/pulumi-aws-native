@@ -69,6 +69,10 @@ export class HoursOfOperation extends pulumi.CustomResource {
     }
 
     /**
+     * List of child hours of operations.
+     */
+    declare public readonly childHoursOfOperations: pulumi.Output<outputs.connect.HoursOfOperationsIdentifier[] | undefined>;
+    /**
      * Configuration information for the hours of operation: day, start time, and end time.
      */
     declare public readonly config: pulumi.Output<outputs.connect.HoursOfOperationConfig[]>;
@@ -92,6 +96,10 @@ export class HoursOfOperation extends pulumi.CustomResource {
      * The name of the hours of operation.
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * List of parent hours of operations.
+     */
+    declare public readonly parentHoursOfOperations: pulumi.Output<outputs.connect.HoursOfOperationsIdentifier[] | undefined>;
     /**
      * One or more tags.
      */
@@ -121,21 +129,25 @@ export class HoursOfOperation extends pulumi.CustomResource {
             if (args?.timeZone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeZone'");
             }
+            resourceInputs["childHoursOfOperations"] = args?.childHoursOfOperations;
             resourceInputs["config"] = args?.config;
             resourceInputs["description"] = args?.description;
             resourceInputs["hoursOfOperationOverrides"] = args?.hoursOfOperationOverrides;
             resourceInputs["instanceArn"] = args?.instanceArn;
             resourceInputs["name"] = args?.name;
+            resourceInputs["parentHoursOfOperations"] = args?.parentHoursOfOperations;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["timeZone"] = args?.timeZone;
             resourceInputs["hoursOfOperationArn"] = undefined /*out*/;
         } else {
+            resourceInputs["childHoursOfOperations"] = undefined /*out*/;
             resourceInputs["config"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["hoursOfOperationArn"] = undefined /*out*/;
             resourceInputs["hoursOfOperationOverrides"] = undefined /*out*/;
             resourceInputs["instanceArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parentHoursOfOperations"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeZone"] = undefined /*out*/;
         }
@@ -148,6 +160,10 @@ export class HoursOfOperation extends pulumi.CustomResource {
  * The set of arguments for constructing a HoursOfOperation resource.
  */
 export interface HoursOfOperationArgs {
+    /**
+     * List of child hours of operations.
+     */
+    childHoursOfOperations?: pulumi.Input<pulumi.Input<inputs.connect.HoursOfOperationsIdentifierArgs>[]>;
     /**
      * Configuration information for the hours of operation: day, start time, and end time.
      */
@@ -168,6 +184,10 @@ export interface HoursOfOperationArgs {
      * The name of the hours of operation.
      */
     name?: pulumi.Input<string>;
+    /**
+     * List of parent hours of operations.
+     */
+    parentHoursOfOperations?: pulumi.Input<pulumi.Input<inputs.connect.HoursOfOperationsIdentifierArgs>[]>;
     /**
      * One or more tags.
      */

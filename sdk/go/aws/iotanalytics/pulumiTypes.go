@@ -18,7 +18,7 @@ type ChannelCustomerManagedS3 struct {
 	Bucket string `pulumi:"bucket"`
 	// (Optional) The prefix used to create the keys of the channel data objects. Each object in an S3 bucket has a key that is its unique identifier within the bucket (each object in a bucket has exactly one key). The prefix must end with a forward slash (/).
 	KeyPrefix *string `pulumi:"keyPrefix"`
-	// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+	// The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -38,7 +38,7 @@ type ChannelCustomerManagedS3Args struct {
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// (Optional) The prefix used to create the keys of the channel data objects. Each object in an S3 bucket has a key that is its unique identifier within the bucket (each object in a bucket has exactly one key). The prefix must end with a forward slash (/).
 	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
-	// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+	// The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -129,7 +129,7 @@ func (o ChannelCustomerManagedS3Output) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelCustomerManagedS3) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+// The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
 func (o ChannelCustomerManagedS3Output) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelCustomerManagedS3) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -178,7 +178,7 @@ func (o ChannelCustomerManagedS3PtrOutput) KeyPrefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+// The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
 func (o ChannelCustomerManagedS3PtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelCustomerManagedS3) *string {
 		if v == nil {
@@ -465,7 +465,7 @@ func (o ChannelServiceManagedS3PtrOutput) Elem() ChannelServiceManagedS3Output {
 type ChannelStorage struct {
 	// Used to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the `retentionPeriod` parameter is ignored. You can't change the choice of S3 storage after the data store is created.
 	CustomerManagedS3 *ChannelCustomerManagedS3 `pulumi:"customerManagedS3"`
-	// Used to store channel data in an S3 bucket managed by AWS IoT Analytics . You can't change the choice of S3 storage after the data store is created.
+	// Used to store channel data in an S3 bucket managed by ITA . You can't change the choice of S3 storage after the data store is created.
 	ServiceManagedS3 *ChannelServiceManagedS3 `pulumi:"serviceManagedS3"`
 }
 
@@ -483,7 +483,7 @@ type ChannelStorageInput interface {
 type ChannelStorageArgs struct {
 	// Used to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the `retentionPeriod` parameter is ignored. You can't change the choice of S3 storage after the data store is created.
 	CustomerManagedS3 ChannelCustomerManagedS3PtrInput `pulumi:"customerManagedS3"`
-	// Used to store channel data in an S3 bucket managed by AWS IoT Analytics . You can't change the choice of S3 storage after the data store is created.
+	// Used to store channel data in an S3 bucket managed by ITA . You can't change the choice of S3 storage after the data store is created.
 	ServiceManagedS3 ChannelServiceManagedS3PtrInput `pulumi:"serviceManagedS3"`
 }
 
@@ -569,7 +569,7 @@ func (o ChannelStorageOutput) CustomerManagedS3() ChannelCustomerManagedS3PtrOut
 	return o.ApplyT(func(v ChannelStorage) *ChannelCustomerManagedS3 { return v.CustomerManagedS3 }).(ChannelCustomerManagedS3PtrOutput)
 }
 
-// Used to store channel data in an S3 bucket managed by AWS IoT Analytics . You can't change the choice of S3 storage after the data store is created.
+// Used to store channel data in an S3 bucket managed by ITA . You can't change the choice of S3 storage after the data store is created.
 func (o ChannelStorageOutput) ServiceManagedS3() ChannelServiceManagedS3PtrOutput {
 	return o.ApplyT(func(v ChannelStorage) *ChannelServiceManagedS3 { return v.ServiceManagedS3 }).(ChannelServiceManagedS3PtrOutput)
 }
@@ -608,7 +608,7 @@ func (o ChannelStoragePtrOutput) CustomerManagedS3() ChannelCustomerManagedS3Ptr
 	}).(ChannelCustomerManagedS3PtrOutput)
 }
 
-// Used to store channel data in an S3 bucket managed by AWS IoT Analytics . You can't change the choice of S3 storage after the data store is created.
+// Used to store channel data in an S3 bucket managed by ITA . You can't change the choice of S3 storage after the data store is created.
 func (o ChannelStoragePtrOutput) ServiceManagedS3() ChannelServiceManagedS3PtrOutput {
 	return o.ApplyT(func(v *ChannelStorage) *ChannelServiceManagedS3 {
 		if v == nil {
@@ -1399,7 +1399,7 @@ func (o DatasetDeltaTimePtrOutput) TimeExpression() pulumi.StringPtrOutput {
 }
 
 type DatasetDeltaTimeSessionWindowConfiguration struct {
-	// A time interval. You can use `timeoutInMinutes` so that AWS IoT Analytics can batch up late data notifications that have been generated since the last execution. AWS IoT Analytics sends one batch of notifications to Amazon CloudWatch Events at one time.
+	// A time interval. You can use `timeoutInMinutes` so that ITA can batch up late data notifications that have been generated since the last execution. ITA sends one batch of notifications to Amazon CloudWatch Events at one time.
 	//
 	// For more information about how to write a timestamp expression, see [Date and Time Functions and Operators](https://docs.aws.amazon.com/https://prestodb.io/docs/current/functions/datetime.html) , in the *Presto 0.172 Documentation* .
 	TimeoutInMinutes int `pulumi:"timeoutInMinutes"`
@@ -1417,7 +1417,7 @@ type DatasetDeltaTimeSessionWindowConfigurationInput interface {
 }
 
 type DatasetDeltaTimeSessionWindowConfigurationArgs struct {
-	// A time interval. You can use `timeoutInMinutes` so that AWS IoT Analytics can batch up late data notifications that have been generated since the last execution. AWS IoT Analytics sends one batch of notifications to Amazon CloudWatch Events at one time.
+	// A time interval. You can use `timeoutInMinutes` so that ITA can batch up late data notifications that have been generated since the last execution. ITA sends one batch of notifications to Amazon CloudWatch Events at one time.
 	//
 	// For more information about how to write a timestamp expression, see [Date and Time Functions and Operators](https://docs.aws.amazon.com/https://prestodb.io/docs/current/functions/datetime.html) , in the *Presto 0.172 Documentation* .
 	TimeoutInMinutes pulumi.IntInput `pulumi:"timeoutInMinutes"`
@@ -1500,7 +1500,7 @@ func (o DatasetDeltaTimeSessionWindowConfigurationOutput) ToDatasetDeltaTimeSess
 	}).(DatasetDeltaTimeSessionWindowConfigurationPtrOutput)
 }
 
-// A time interval. You can use `timeoutInMinutes` so that AWS IoT Analytics can batch up late data notifications that have been generated since the last execution. AWS IoT Analytics sends one batch of notifications to Amazon CloudWatch Events at one time.
+// A time interval. You can use `timeoutInMinutes` so that ITA can batch up late data notifications that have been generated since the last execution. ITA sends one batch of notifications to Amazon CloudWatch Events at one time.
 //
 // For more information about how to write a timestamp expression, see [Date and Time Functions and Operators](https://docs.aws.amazon.com/https://prestodb.io/docs/current/functions/datetime.html) , in the *Presto 0.172 Documentation* .
 func (o DatasetDeltaTimeSessionWindowConfigurationOutput) TimeoutInMinutes() pulumi.IntOutput {
@@ -1531,7 +1531,7 @@ func (o DatasetDeltaTimeSessionWindowConfigurationPtrOutput) Elem() DatasetDelta
 	}).(DatasetDeltaTimeSessionWindowConfigurationOutput)
 }
 
-// A time interval. You can use `timeoutInMinutes` so that AWS IoT Analytics can batch up late data notifications that have been generated since the last execution. AWS IoT Analytics sends one batch of notifications to Amazon CloudWatch Events at one time.
+// A time interval. You can use `timeoutInMinutes` so that ITA can batch up late data notifications that have been generated since the last execution. ITA sends one batch of notifications to Amazon CloudWatch Events at one time.
 //
 // For more information about how to write a timestamp expression, see [Date and Time Functions and Operators](https://docs.aws.amazon.com/https://prestodb.io/docs/current/functions/datetime.html) , in the *Presto 0.172 Documentation* .
 func (o DatasetDeltaTimeSessionWindowConfigurationPtrOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
@@ -1799,7 +1799,7 @@ func (o DatasetGlueConfigurationPtrOutput) TableName() pulumi.StringPtrOutput {
 type DatasetIotEventsDestinationConfiguration struct {
 	// The name of the AWS IoT Events input to which dataset contents are delivered.
 	InputName string `pulumi:"inputName"`
-	// The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
+	// The ARN of the role that grants ITA permission to deliver dataset contents to an AWS IoT Events input.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -1817,7 +1817,7 @@ type DatasetIotEventsDestinationConfigurationInput interface {
 type DatasetIotEventsDestinationConfigurationArgs struct {
 	// The name of the AWS IoT Events input to which dataset contents are delivered.
 	InputName pulumi.StringInput `pulumi:"inputName"`
-	// The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
+	// The ARN of the role that grants ITA permission to deliver dataset contents to an AWS IoT Events input.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -1903,7 +1903,7 @@ func (o DatasetIotEventsDestinationConfigurationOutput) InputName() pulumi.Strin
 	return o.ApplyT(func(v DatasetIotEventsDestinationConfiguration) string { return v.InputName }).(pulumi.StringOutput)
 }
 
-// The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
+// The ARN of the role that grants ITA permission to deliver dataset contents to an AWS IoT Events input.
 func (o DatasetIotEventsDestinationConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetIotEventsDestinationConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -1942,7 +1942,7 @@ func (o DatasetIotEventsDestinationConfigurationPtrOutput) InputName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
+// The ARN of the role that grants ITA permission to deliver dataset contents to an AWS IoT Events input.
 func (o DatasetIotEventsDestinationConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetIotEventsDestinationConfiguration) *string {
 		if v == nil {
@@ -2734,7 +2734,7 @@ type DatasetS3DestinationConfiguration struct {
 	//
 	// > If you don't use `!{iotanalytics:versionId}` to specify the key, you might get duplicate keys. For example, you might have two dataset contents with the same `scheduleTime` but different `versionId` s. This means that one dataset content overwrites the other.
 	Key string `pulumi:"key"`
-	// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 and AWS Glue resources.
+	// The ARN of the role that grants ITA permission to interact with your Amazon S3 and AWS Glue resources.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -2766,7 +2766,7 @@ type DatasetS3DestinationConfigurationArgs struct {
 	//
 	// > If you don't use `!{iotanalytics:versionId}` to specify the key, you might get duplicate keys. For example, you might have two dataset contents with the same `scheduleTime` but different `versionId` s. This means that one dataset content overwrites the other.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 and AWS Glue resources.
+	// The ARN of the role that grants ITA permission to interact with your Amazon S3 and AWS Glue resources.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -2872,7 +2872,7 @@ func (o DatasetS3DestinationConfigurationOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetS3DestinationConfiguration) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 and AWS Glue resources.
+// The ARN of the role that grants ITA permission to interact with your Amazon S3 and AWS Glue resources.
 func (o DatasetS3DestinationConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetS3DestinationConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -2941,7 +2941,7 @@ func (o DatasetS3DestinationConfigurationPtrOutput) Key() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 and AWS Glue resources.
+// The ARN of the role that grants ITA permission to interact with your Amazon S3 and AWS Glue resources.
 func (o DatasetS3DestinationConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetS3DestinationConfiguration) *string {
 		if v == nil {
@@ -3738,7 +3738,7 @@ type DatastoreCustomerManagedS3 struct {
 	Bucket string `pulumi:"bucket"`
 	// (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
 	KeyPrefix *string `pulumi:"keyPrefix"`
-	// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+	// The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -3758,7 +3758,7 @@ type DatastoreCustomerManagedS3Args struct {
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
 	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
-	// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+	// The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -3849,7 +3849,7 @@ func (o DatastoreCustomerManagedS3Output) KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatastoreCustomerManagedS3) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+// The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
 func (o DatastoreCustomerManagedS3Output) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DatastoreCustomerManagedS3) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -3898,7 +3898,7 @@ func (o DatastoreCustomerManagedS3PtrOutput) KeyPrefix() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+// The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
 func (o DatastoreCustomerManagedS3PtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatastoreCustomerManagedS3) *string {
 		if v == nil {
@@ -5281,7 +5281,7 @@ type DatastoreStorage struct {
 	CustomerManagedS3 *DatastoreCustomerManagedS3 `pulumi:"customerManagedS3"`
 	// Use this to store data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
 	IotSiteWiseMultiLayerStorage *DatastoreIotSiteWiseMultiLayerStorage `pulumi:"iotSiteWiseMultiLayerStorage"`
-	// Use this to store data store data in an S3 bucket managed by the AWS IoT Analytics service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
+	// Use this to store data store data in an S3 bucket managed by the  service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
 	ServiceManagedS3 *DatastoreServiceManagedS3 `pulumi:"serviceManagedS3"`
 }
 
@@ -5301,7 +5301,7 @@ type DatastoreStorageArgs struct {
 	CustomerManagedS3 DatastoreCustomerManagedS3PtrInput `pulumi:"customerManagedS3"`
 	// Use this to store data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
 	IotSiteWiseMultiLayerStorage DatastoreIotSiteWiseMultiLayerStoragePtrInput `pulumi:"iotSiteWiseMultiLayerStorage"`
-	// Use this to store data store data in an S3 bucket managed by the AWS IoT Analytics service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
+	// Use this to store data store data in an S3 bucket managed by the  service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
 	ServiceManagedS3 DatastoreServiceManagedS3PtrInput `pulumi:"serviceManagedS3"`
 }
 
@@ -5392,7 +5392,7 @@ func (o DatastoreStorageOutput) IotSiteWiseMultiLayerStorage() DatastoreIotSiteW
 	return o.ApplyT(func(v DatastoreStorage) *DatastoreIotSiteWiseMultiLayerStorage { return v.IotSiteWiseMultiLayerStorage }).(DatastoreIotSiteWiseMultiLayerStoragePtrOutput)
 }
 
-// Use this to store data store data in an S3 bucket managed by the AWS IoT Analytics service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
+// Use this to store data store data in an S3 bucket managed by the  service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
 func (o DatastoreStorageOutput) ServiceManagedS3() DatastoreServiceManagedS3PtrOutput {
 	return o.ApplyT(func(v DatastoreStorage) *DatastoreServiceManagedS3 { return v.ServiceManagedS3 }).(DatastoreServiceManagedS3PtrOutput)
 }
@@ -5441,7 +5441,7 @@ func (o DatastoreStoragePtrOutput) IotSiteWiseMultiLayerStorage() DatastoreIotSi
 	}).(DatastoreIotSiteWiseMultiLayerStoragePtrOutput)
 }
 
-// Use this to store data store data in an S3 bucket managed by the AWS IoT Analytics service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
+// Use this to store data store data in an S3 bucket managed by the  service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
 func (o DatastoreStoragePtrOutput) ServiceManagedS3() DatastoreServiceManagedS3PtrOutput {
 	return o.ApplyT(func(v *DatastoreStorage) *DatastoreServiceManagedS3 {
 		if v == nil {

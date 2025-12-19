@@ -43,6 +43,7 @@ export type ReplicationConfigurationFilterType = (typeof ReplicationConfiguratio
 export const RepositoryCreationTemplateAppliedForItem = {
     Replication: "REPLICATION",
     PullThroughCache: "PULL_THROUGH_CACHE",
+    CreateOnPush: "CREATE_ON_PUSH",
 } as const;
 
 /**

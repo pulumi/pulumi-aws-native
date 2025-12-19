@@ -35,10 +35,14 @@ type LookupContactFlowModuleResult struct {
 	Content *string `pulumi:"content"`
 	// The description of the contact flow module.
 	Description *string `pulumi:"description"`
+	// Defines the external invocation configuration of the flow module resource
+	ExternalInvocationConfiguration *ExternalInvocationConfigurationProperties `pulumi:"externalInvocationConfiguration"`
 	// The identifier of the Amazon Connect instance (ARN).
 	InstanceArn *string `pulumi:"instanceArn"`
 	// The name of the contact flow module.
 	Name *string `pulumi:"name"`
+	// The schema of the settings for contact flow module in JSON Schema V4 format.
+	Settings *string `pulumi:"settings"`
 	// The state of the contact flow module.
 	State *string `pulumi:"state"`
 	// The status of the contact flow module.
@@ -94,6 +98,13 @@ func (o LookupContactFlowModuleResultOutput) Description() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupContactFlowModuleResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Defines the external invocation configuration of the flow module resource
+func (o LookupContactFlowModuleResultOutput) ExternalInvocationConfiguration() ExternalInvocationConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupContactFlowModuleResult) *ExternalInvocationConfigurationProperties {
+		return v.ExternalInvocationConfiguration
+	}).(ExternalInvocationConfigurationPropertiesPtrOutput)
+}
+
 // The identifier of the Amazon Connect instance (ARN).
 func (o LookupContactFlowModuleResultOutput) InstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupContactFlowModuleResult) *string { return v.InstanceArn }).(pulumi.StringPtrOutput)
@@ -102,6 +113,11 @@ func (o LookupContactFlowModuleResultOutput) InstanceArn() pulumi.StringPtrOutpu
 // The name of the contact flow module.
 func (o LookupContactFlowModuleResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupContactFlowModuleResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The schema of the settings for contact flow module in JSON Schema V4 format.
+func (o LookupContactFlowModuleResultOutput) Settings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContactFlowModuleResult) *string { return v.Settings }).(pulumi.StringPtrOutput)
 }
 
 // The state of the contact flow module.

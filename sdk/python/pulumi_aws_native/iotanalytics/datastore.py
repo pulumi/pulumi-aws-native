@@ -34,7 +34,7 @@ class DatastoreArgs:
         :param pulumi.Input[_builtins.str] datastore_name: The name of the data store.
         :param pulumi.Input['DatastorePartitionsArgs'] datastore_partitions: Information about the partition dimensions in a data store.
         :param pulumi.Input['DatastoreStorageArgs'] datastore_storage: Where data store data is stored.
-        :param pulumi.Input['DatastoreFileFormatConfigurationArgs'] file_format_configuration: Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+        :param pulumi.Input['DatastoreFileFormatConfigurationArgs'] file_format_configuration: Contains the configuration information of file formats. ITA data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
                
                The default file format is JSON. You can specify only one format.
                
@@ -97,7 +97,7 @@ class DatastoreArgs:
     @pulumi.getter(name="fileFormatConfiguration")
     def file_format_configuration(self) -> Optional[pulumi.Input['DatastoreFileFormatConfigurationArgs']]:
         """
-        Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+        Contains the configuration information of file formats. ITA data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
 
         The default file format is JSON. You can specify only one format.
 
@@ -225,7 +225,7 @@ class Datastore(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] datastore_name: The name of the data store.
         :param pulumi.Input[Union['DatastorePartitionsArgs', 'DatastorePartitionsArgsDict']] datastore_partitions: Information about the partition dimensions in a data store.
         :param pulumi.Input[Union['DatastoreStorageArgs', 'DatastoreStorageArgsDict']] datastore_storage: Where data store data is stored.
-        :param pulumi.Input[Union['DatastoreFileFormatConfigurationArgs', 'DatastoreFileFormatConfigurationArgsDict']] file_format_configuration: Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+        :param pulumi.Input[Union['DatastoreFileFormatConfigurationArgs', 'DatastoreFileFormatConfigurationArgsDict']] file_format_configuration: Contains the configuration information of file formats. ITA data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
                
                The default file format is JSON. You can specify only one format.
                
@@ -415,7 +415,7 @@ class Datastore(pulumi.CustomResource):
     @pulumi.getter(name="fileFormatConfiguration")
     def file_format_configuration(self) -> pulumi.Output[Optional['outputs.DatastoreFileFormatConfiguration']]:
         """
-        Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+        Contains the configuration information of file formats. ITA data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
 
         The default file format is JSON. You can specify only one format.
 

@@ -10,19 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Outputs
 {
 
+    /// <summary>
+    /// Properties for a multi-select question in an evaluation form.
+    /// </summary>
     [OutputType]
     public sealed class EvaluationFormMultiSelectQuestionProperties
     {
         /// <summary>
-        /// The automation properties for the multi-select question.
+        /// Automation configuration for this multi-select question.
         /// </summary>
         public readonly Outputs.EvaluationFormMultiSelectQuestionAutomation? Automation;
         /// <summary>
-        /// The display mode of the multi-select question.
+        /// Display format for the multi-select question.
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.EvaluationFormMultiSelectQuestionPropertiesDisplayAs? DisplayAs;
         /// <summary>
-        /// The list of options for the question.
+        /// Options available for this multi-select question.
         /// </summary>
         public readonly ImmutableArray<Outputs.EvaluationFormMultiSelectQuestionOption> Options;
 

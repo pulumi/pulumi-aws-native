@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Lex
     public static class GetBot
     {
         /// <summary>
-        /// Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
+        /// Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
         /// </summary>
         public static Task<GetBotResult> InvokeAsync(GetBotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("aws-native:lex:getBot", args ?? new GetBotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
+        /// Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
         /// </summary>
         public static Output<GetBotResult> Invoke(GetBotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotResult>("aws-native:lex:getBot", args ?? new GetBotInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
+        /// Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
         /// </summary>
         public static Output<GetBotResult> Invoke(GetBotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotResult>("aws-native:lex:getBot", args ?? new GetBotInvokeArgs(), options.WithDefaults());
@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.Lex
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> BotTags;
+        /// <summary>
         /// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
         /// </summary>
         public readonly Outputs.DataPrivacyProperties? DataPrivacy;
@@ -96,14 +100,12 @@ namespace Pulumi.AwsNative.Lex
         /// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
         /// </summary>
         public readonly string? RoleArn;
-        /// <summary>
-        /// Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
-        /// </summary>
-        public readonly Outputs.BotTestBotAliasSettings? TestBotAliasSettings;
 
         [OutputConstructor]
         private GetBotResult(
             string? arn,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> botTags,
 
             Outputs.DataPrivacyProperties? dataPrivacy,
 
@@ -117,11 +119,10 @@ namespace Pulumi.AwsNative.Lex
 
             string? name,
 
-            string? roleArn,
-
-            Outputs.BotTestBotAliasSettings? testBotAliasSettings)
+            string? roleArn)
         {
             Arn = arn;
+            BotTags = botTags;
             DataPrivacy = dataPrivacy;
             Description = description;
             ErrorLogSettings = errorLogSettings;
@@ -129,7 +130,6 @@ namespace Pulumi.AwsNative.Lex
             IdleSessionTtlInSeconds = idleSessionTtlInSeconds;
             Name = name;
             RoleArn = roleArn;
-            TestBotAliasSettings = testBotAliasSettings;
         }
     }
 }

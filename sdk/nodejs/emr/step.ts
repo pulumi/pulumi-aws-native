@@ -46,6 +46,10 @@ export class Step extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
+     * The KMS key ARN to encrypt the logs published to the given Amazon S3 destination. When omitted, EMR falls back to cluster-level logging behavior.
+     */
+    declare public readonly encryptionKeyArn: pulumi.Output<string | undefined>;
+    /**
      * The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
      */
     declare public readonly hadoopJarStep: pulumi.Output<outputs.emr.StepHadoopJarStepConfig>;
@@ -53,6 +57,10 @@ export class Step extends pulumi.CustomResource {
      * A string that uniquely identifies the cluster (job flow).
      */
     declare public readonly jobFlowId: pulumi.Output<string>;
+    /**
+     * The Amazon S3 destination URI for log publishing. When omitted, EMR falls back to cluster-level logging behavior.
+     */
+    declare public readonly logUri: pulumi.Output<string | undefined>;
     /**
      * The name of the cluster step.
      */
@@ -79,19 +87,23 @@ export class Step extends pulumi.CustomResource {
                 throw new Error("Missing required property 'jobFlowId'");
             }
             resourceInputs["actionOnFailure"] = args?.actionOnFailure;
+            resourceInputs["encryptionKeyArn"] = args?.encryptionKeyArn;
             resourceInputs["hadoopJarStep"] = args?.hadoopJarStep;
             resourceInputs["jobFlowId"] = args?.jobFlowId;
+            resourceInputs["logUri"] = args?.logUri;
             resourceInputs["name"] = args?.name;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["actionOnFailure"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["encryptionKeyArn"] = undefined /*out*/;
             resourceInputs["hadoopJarStep"] = undefined /*out*/;
             resourceInputs["jobFlowId"] = undefined /*out*/;
+            resourceInputs["logUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["actionOnFailure", "hadoopJarStep", "jobFlowId", "name"] };
+        const replaceOnChanges = { replaceOnChanges: ["actionOnFailure", "encryptionKeyArn", "hadoopJarStep", "jobFlowId", "logUri", "name"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Step.__pulumiType, name, resourceInputs, opts);
     }
@@ -106,6 +118,10 @@ export interface StepArgs {
      */
     actionOnFailure: pulumi.Input<string>;
     /**
+     * The KMS key ARN to encrypt the logs published to the given Amazon S3 destination. When omitted, EMR falls back to cluster-level logging behavior.
+     */
+    encryptionKeyArn?: pulumi.Input<string>;
+    /**
      * The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
      */
     hadoopJarStep: pulumi.Input<inputs.emr.StepHadoopJarStepConfigArgs>;
@@ -113,6 +129,10 @@ export interface StepArgs {
      * A string that uniquely identifies the cluster (job flow).
      */
     jobFlowId: pulumi.Input<string>;
+    /**
+     * The Amazon S3 destination URI for log publishing. When omitted, EMR falls back to cluster-level logging behavior.
+     */
+    logUri?: pulumi.Input<string>;
     /**
      * The name of the cluster step.
      */

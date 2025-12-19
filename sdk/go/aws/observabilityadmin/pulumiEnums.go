@@ -2065,6 +2065,172 @@ func (in *organizationTelemetryRuleWafLogTypePtr) ToOrganizationTelemetryRuleWaf
 	return pulumi.ToOutputWithContext(ctx, in).(OrganizationTelemetryRuleWafLogTypePtrOutput)
 }
 
+// The server-side encryption algorithm used to encrypt the S3 Table(s) data
+type S3TableIntegrationEncryptionConfigSseAlgorithm string
+
+const (
+	S3TableIntegrationEncryptionConfigSseAlgorithmAes256 = S3TableIntegrationEncryptionConfigSseAlgorithm("AES256")
+	S3TableIntegrationEncryptionConfigSseAlgorithmAwskms = S3TableIntegrationEncryptionConfigSseAlgorithm("aws:kms")
+)
+
+func (S3TableIntegrationEncryptionConfigSseAlgorithm) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3TableIntegrationEncryptionConfigSseAlgorithm)(nil)).Elem()
+}
+
+func (e S3TableIntegrationEncryptionConfigSseAlgorithm) ToS3TableIntegrationEncryptionConfigSseAlgorithmOutput() S3TableIntegrationEncryptionConfigSseAlgorithmOutput {
+	return pulumi.ToOutput(e).(S3TableIntegrationEncryptionConfigSseAlgorithmOutput)
+}
+
+func (e S3TableIntegrationEncryptionConfigSseAlgorithm) ToS3TableIntegrationEncryptionConfigSseAlgorithmOutputWithContext(ctx context.Context) S3TableIntegrationEncryptionConfigSseAlgorithmOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(S3TableIntegrationEncryptionConfigSseAlgorithmOutput)
+}
+
+func (e S3TableIntegrationEncryptionConfigSseAlgorithm) ToS3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput() S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput {
+	return e.ToS3TableIntegrationEncryptionConfigSseAlgorithmPtrOutputWithContext(context.Background())
+}
+
+func (e S3TableIntegrationEncryptionConfigSseAlgorithm) ToS3TableIntegrationEncryptionConfigSseAlgorithmPtrOutputWithContext(ctx context.Context) S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput {
+	return S3TableIntegrationEncryptionConfigSseAlgorithm(e).ToS3TableIntegrationEncryptionConfigSseAlgorithmOutputWithContext(ctx).ToS3TableIntegrationEncryptionConfigSseAlgorithmPtrOutputWithContext(ctx)
+}
+
+func (e S3TableIntegrationEncryptionConfigSseAlgorithm) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e S3TableIntegrationEncryptionConfigSseAlgorithm) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e S3TableIntegrationEncryptionConfigSseAlgorithm) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e S3TableIntegrationEncryptionConfigSseAlgorithm) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type S3TableIntegrationEncryptionConfigSseAlgorithmOutput struct{ *pulumi.OutputState }
+
+func (S3TableIntegrationEncryptionConfigSseAlgorithmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3TableIntegrationEncryptionConfigSseAlgorithm)(nil)).Elem()
+}
+
+func (o S3TableIntegrationEncryptionConfigSseAlgorithmOutput) ToS3TableIntegrationEncryptionConfigSseAlgorithmOutput() S3TableIntegrationEncryptionConfigSseAlgorithmOutput {
+	return o
+}
+
+func (o S3TableIntegrationEncryptionConfigSseAlgorithmOutput) ToS3TableIntegrationEncryptionConfigSseAlgorithmOutputWithContext(ctx context.Context) S3TableIntegrationEncryptionConfigSseAlgorithmOutput {
+	return o
+}
+
+func (o S3TableIntegrationEncryptionConfigSseAlgorithmOutput) ToS3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput() S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput {
+	return o.ToS3TableIntegrationEncryptionConfigSseAlgorithmPtrOutputWithContext(context.Background())
+}
+
+func (o S3TableIntegrationEncryptionConfigSseAlgorithmOutput) ToS3TableIntegrationEncryptionConfigSseAlgorithmPtrOutputWithContext(ctx context.Context) S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3TableIntegrationEncryptionConfigSseAlgorithm) *S3TableIntegrationEncryptionConfigSseAlgorithm {
+		return &v
+	}).(S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput)
+}
+
+func (o S3TableIntegrationEncryptionConfigSseAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o S3TableIntegrationEncryptionConfigSseAlgorithmOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e S3TableIntegrationEncryptionConfigSseAlgorithm) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o S3TableIntegrationEncryptionConfigSseAlgorithmOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o S3TableIntegrationEncryptionConfigSseAlgorithmOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e S3TableIntegrationEncryptionConfigSseAlgorithm) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput struct{ *pulumi.OutputState }
+
+func (S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3TableIntegrationEncryptionConfigSseAlgorithm)(nil)).Elem()
+}
+
+func (o S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput) ToS3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput() S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput {
+	return o
+}
+
+func (o S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput) ToS3TableIntegrationEncryptionConfigSseAlgorithmPtrOutputWithContext(ctx context.Context) S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput {
+	return o
+}
+
+func (o S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput) Elem() S3TableIntegrationEncryptionConfigSseAlgorithmOutput {
+	return o.ApplyT(func(v *S3TableIntegrationEncryptionConfigSseAlgorithm) S3TableIntegrationEncryptionConfigSseAlgorithm {
+		if v != nil {
+			return *v
+		}
+		var ret S3TableIntegrationEncryptionConfigSseAlgorithm
+		return ret
+	}).(S3TableIntegrationEncryptionConfigSseAlgorithmOutput)
+}
+
+func (o S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *S3TableIntegrationEncryptionConfigSseAlgorithm) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3TableIntegrationEncryptionConfigSseAlgorithmInput is an input type that accepts values of the S3TableIntegrationEncryptionConfigSseAlgorithm enum
+// A concrete instance of `S3TableIntegrationEncryptionConfigSseAlgorithmInput` can be one of the following:
+//
+//	S3TableIntegrationEncryptionConfigSseAlgorithmAes256
+//	S3TableIntegrationEncryptionConfigSseAlgorithmAwskms
+type S3TableIntegrationEncryptionConfigSseAlgorithmInput interface {
+	pulumi.Input
+
+	ToS3TableIntegrationEncryptionConfigSseAlgorithmOutput() S3TableIntegrationEncryptionConfigSseAlgorithmOutput
+	ToS3TableIntegrationEncryptionConfigSseAlgorithmOutputWithContext(context.Context) S3TableIntegrationEncryptionConfigSseAlgorithmOutput
+}
+
+var s3tableIntegrationEncryptionConfigSseAlgorithmPtrType = reflect.TypeOf((**S3TableIntegrationEncryptionConfigSseAlgorithm)(nil)).Elem()
+
+type S3TableIntegrationEncryptionConfigSseAlgorithmPtrInput interface {
+	pulumi.Input
+
+	ToS3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput() S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput
+	ToS3TableIntegrationEncryptionConfigSseAlgorithmPtrOutputWithContext(context.Context) S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput
+}
+
+type s3tableIntegrationEncryptionConfigSseAlgorithmPtr string
+
+func S3TableIntegrationEncryptionConfigSseAlgorithmPtr(v string) S3TableIntegrationEncryptionConfigSseAlgorithmPtrInput {
+	return (*s3tableIntegrationEncryptionConfigSseAlgorithmPtr)(&v)
+}
+
+func (*s3tableIntegrationEncryptionConfigSseAlgorithmPtr) ElementType() reflect.Type {
+	return s3tableIntegrationEncryptionConfigSseAlgorithmPtrType
+}
+
+func (in *s3tableIntegrationEncryptionConfigSseAlgorithmPtr) ToS3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput() S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput {
+	return pulumi.ToOutput(in).(S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput)
+}
+
+func (in *s3tableIntegrationEncryptionConfigSseAlgorithmPtr) ToS3TableIntegrationEncryptionConfigSseAlgorithmPtrOutputWithContext(ctx context.Context) S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput)
+}
+
 type TelemetryPipelinesTelemetryPipelineStatus string
 
 const (
@@ -3960,6 +4126,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleTelemetryTypePtrInput)(nil)).Elem(), OrganizationTelemetryRuleTelemetryType("Logs"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleWafLogTypeInput)(nil)).Elem(), OrganizationTelemetryRuleWafLogType("WAF_LOGS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleWafLogTypePtrInput)(nil)).Elem(), OrganizationTelemetryRuleWafLogType("WAF_LOGS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*S3TableIntegrationEncryptionConfigSseAlgorithmInput)(nil)).Elem(), S3TableIntegrationEncryptionConfigSseAlgorithm("AES256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*S3TableIntegrationEncryptionConfigSseAlgorithmPtrInput)(nil)).Elem(), S3TableIntegrationEncryptionConfigSseAlgorithm("AES256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleActionInput)(nil)).Elem(), TelemetryRuleAction("ALLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleActionPtrInput)(nil)).Elem(), TelemetryRuleAction("ALLOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleDestinationTypeInput)(nil)).Elem(), TelemetryRuleDestinationType("cloud-watch-logs"))
@@ -4007,6 +4175,8 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleTelemetryTypePtrOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleWafLogTypeOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleWafLogTypePtrOutput{})
+	pulumi.RegisterOutputType(S3TableIntegrationEncryptionConfigSseAlgorithmOutput{})
+	pulumi.RegisterOutputType(S3TableIntegrationEncryptionConfigSseAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryPipelinesTelemetryPipelineStatusOutput{})
 	pulumi.RegisterOutputType(TelemetryPipelinesTelemetryPipelineStatusPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleActionOutput{})

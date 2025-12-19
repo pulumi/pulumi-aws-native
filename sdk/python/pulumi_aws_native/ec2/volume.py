@@ -38,16 +38,15 @@ class VolumeArgs:
                  volume_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Volume resource.
-        :param pulumi.Input[_builtins.bool] auto_enable_io: Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
+        :param pulumi.Input[_builtins.bool] auto_enable_io: Indicates whether the volume is auto-enabled for I/O operations. By default, EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
         :param pulumi.Input[_builtins.str] availability_zone: The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
                 Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
-        :param pulumi.Input[_builtins.str] availability_zone_id: The ID of the Availability Zone in which to create the volume. For example, `use1-az1` .
-               
-               Either `AvailabilityZone` or `AvailabilityZoneId` must be specified, but not both.
-               
-               If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
-        :param pulumi.Input[_builtins.bool] encrypted: Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.
-                Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances).
+                If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
+        :param pulumi.Input[_builtins.str] availability_zone_id: The ID of the Availability Zone in which to create the volume. For example, ``use1-az1``.
+                Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
+                If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
+        :param pulumi.Input[_builtins.bool] encrypted: Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new, from a snapshot, or from an existing volume), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.
+                If you are creating a volume copy, omit this parameter. The volume is automatically encrypted with the same KMS key as the source volume. You can't copy unencrypted volumes.
         :param pulumi.Input[_builtins.int] iops: The number of I/O operations per second (IOPS) to provision for the volume. Required for ``io1`` and ``io2`` volumes. Optional for ``gp3`` volumes. Omit for all other volume types. 
                 Valid ranges:
                  +  gp3: ``3,000``(*default*)``- 80,000`` IOPS
@@ -62,18 +61,24 @@ class VolumeArgs:
                  +  Key alias. Specify the alias for the key, prefixed with ``alias/``. For example, for a key with the alias ``my_cmk``, use ``alias/my_cmk``. Or to specify the aws-managed-key, use ``alias/aws/ebs``.
                  +  Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
                  +  Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
+                 
+                If you are creating a volume copy, omit this parameter. The volume is automatically encrypted with the same KMS key as the source volume. You can't copy unencrypted volumes.
         :param pulumi.Input[_builtins.bool] multi_attach_enabled: Indicates whether Amazon EBS Multi-Attach is enabled.
                 CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
-        :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
-        :param pulumi.Input[_builtins.int] size: The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size, and you can specify a volume size that is equal to or larger than the snapshot size.
-                Valid sizes:
+        :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the volume.
+                If you intend to use a volume with an instance running on an outpost, then you must create the volume on the same outpost as the instance. You can't use a volume created in an AWS Region with an instance on an AWS outpost, or the other way around.
+        :param pulumi.Input[_builtins.int] size: The size of the volume, in GiBs.
+                 +  Required for new empty volumes.
+                 +  Optional for volumes created from snapshots and volume copies. In this case, the size defaults to the size of the snapshot or source volume. You can optionally specify a size that is equal to or larger than the size of the source snapshot or volume.
+                 
+                Supported volume sizes:
                  +  gp2: ``1 - 16,384`` GiB
                  +  gp3: ``1 - 65,536`` GiB
                  +  io1: ``4 - 16,384`` GiB
                  +  io2: ``4 - 65,536`` GiB
                  +  st1 and sc1: ``125 - 16,384`` GiB
                  +  standard: ``1 - 1024`` GiB
-        :param pulumi.Input[_builtins.str] snapshot_id: The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
+        :param pulumi.Input[_builtins.str] snapshot_id: The snapshot from which to create the volume. Only specify to create a volume from a snapshot. To create a new empty volume, omit this parameter and specify a value for ``Size`` instead. To create a volume copy, omit this parameter and specify ``SourceVolumeId`` instead.
         :param pulumi.Input[_builtins.str] source_volume_id: The ID of the source EBS volume to copy. When specified, the volume is created as an exact copy of the specified volume. Only specify to create a volume copy. To create a new empty volume or to create a volume from a snapshot, omit this parameter,
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to apply to the volume during creation.
         :param pulumi.Input[_builtins.int] throughput: The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
@@ -94,7 +99,8 @@ class VolumeArgs:
                  +  Cold HDD: ``sc1``
                  +  Magnetic: ``standard``
                  
-                For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html).
+                 Throughput Optimized HDD (``st1``) and Cold HDD (``sc1``) volumes can't be used as boot volumes.
+                 For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide*.
                 Default: ``gp2``
         """
         if auto_enable_io is not None:
@@ -132,7 +138,7 @@ class VolumeArgs:
     @pulumi.getter(name="autoEnableIo")
     def auto_enable_io(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
+        Indicates whether the volume is auto-enabled for I/O operations. By default, EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
         """
         return pulumi.get(self, "auto_enable_io")
 
@@ -146,6 +152,7 @@ class VolumeArgs:
         """
         The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
          Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
+         If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -157,11 +164,9 @@ class VolumeArgs:
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ID of the Availability Zone in which to create the volume. For example, `use1-az1` .
-
-        Either `AvailabilityZone` or `AvailabilityZoneId` must be specified, but not both.
-
-        If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
+        The ID of the Availability Zone in which to create the volume. For example, ``use1-az1``.
+         Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
+         If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
         """
         return pulumi.get(self, "availability_zone_id")
 
@@ -173,8 +178,8 @@ class VolumeArgs:
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.
-         Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances).
+        Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new, from a snapshot, or from an existing volume), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.
+         If you are creating a volume copy, omit this parameter. The volume is automatically encrypted with the same KMS key as the source volume. You can't copy unencrypted volumes.
         """
         return pulumi.get(self, "encrypted")
 
@@ -211,6 +216,8 @@ class VolumeArgs:
           +  Key alias. Specify the alias for the key, prefixed with ``alias/``. For example, for a key with the alias ``my_cmk``, use ``alias/my_cmk``. Or to specify the aws-managed-key, use ``alias/aws/ebs``.
           +  Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
           +  Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
+          
+         If you are creating a volume copy, omit this parameter. The volume is automatically encrypted with the same KMS key as the source volume. You can't copy unencrypted volumes.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -235,7 +242,8 @@ class VolumeArgs:
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Outpost.
+        The Amazon Resource Name (ARN) of the Outpost on which to create the volume.
+         If you intend to use a volume with an instance running on an outpost, then you must create the volume on the same outpost as the instance. You can't use a volume created in an AWS Region with an instance on an AWS outpost, or the other way around.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -247,8 +255,11 @@ class VolumeArgs:
     @pulumi.getter
     def size(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size, and you can specify a volume size that is equal to or larger than the snapshot size.
-         Valid sizes:
+        The size of the volume, in GiBs.
+          +  Required for new empty volumes.
+          +  Optional for volumes created from snapshots and volume copies. In this case, the size defaults to the size of the snapshot or source volume. You can optionally specify a size that is equal to or larger than the size of the source snapshot or volume.
+          
+         Supported volume sizes:
           +  gp2: ``1 - 16,384`` GiB
           +  gp3: ``1 - 65,536`` GiB
           +  io1: ``4 - 16,384`` GiB
@@ -266,7 +277,7 @@ class VolumeArgs:
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
+        The snapshot from which to create the volume. Only specify to create a volume from a snapshot. To create a new empty volume, omit this parameter and specify a value for ``Size`` instead. To create a volume copy, omit this parameter and specify ``SourceVolumeId`` instead.
         """
         return pulumi.get(self, "snapshot_id")
 
@@ -342,7 +353,8 @@ class VolumeArgs:
           +  Cold HDD: ``sc1``
           +  Magnetic: ``standard``
           
-         For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html).
+          Throughput Optimized HDD (``st1``) and Cold HDD (``sc1``) volumes can't be used as boot volumes.
+          For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide*.
          Default: ``gp2``
         """
         return pulumi.get(self, "volume_type")
@@ -393,16 +405,15 @@ class Volume(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] auto_enable_io: Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
+        :param pulumi.Input[_builtins.bool] auto_enable_io: Indicates whether the volume is auto-enabled for I/O operations. By default, EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
         :param pulumi.Input[_builtins.str] availability_zone: The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
                 Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
-        :param pulumi.Input[_builtins.str] availability_zone_id: The ID of the Availability Zone in which to create the volume. For example, `use1-az1` .
-               
-               Either `AvailabilityZone` or `AvailabilityZoneId` must be specified, but not both.
-               
-               If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
-        :param pulumi.Input[_builtins.bool] encrypted: Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.
-                Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances).
+                If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
+        :param pulumi.Input[_builtins.str] availability_zone_id: The ID of the Availability Zone in which to create the volume. For example, ``use1-az1``.
+                Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
+                If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
+        :param pulumi.Input[_builtins.bool] encrypted: Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new, from a snapshot, or from an existing volume), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.
+                If you are creating a volume copy, omit this parameter. The volume is automatically encrypted with the same KMS key as the source volume. You can't copy unencrypted volumes.
         :param pulumi.Input[_builtins.int] iops: The number of I/O operations per second (IOPS) to provision for the volume. Required for ``io1`` and ``io2`` volumes. Optional for ``gp3`` volumes. Omit for all other volume types. 
                 Valid ranges:
                  +  gp3: ``3,000``(*default*)``- 80,000`` IOPS
@@ -417,18 +428,24 @@ class Volume(pulumi.CustomResource):
                  +  Key alias. Specify the alias for the key, prefixed with ``alias/``. For example, for a key with the alias ``my_cmk``, use ``alias/my_cmk``. Or to specify the aws-managed-key, use ``alias/aws/ebs``.
                  +  Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
                  +  Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
+                 
+                If you are creating a volume copy, omit this parameter. The volume is automatically encrypted with the same KMS key as the source volume. You can't copy unencrypted volumes.
         :param pulumi.Input[_builtins.bool] multi_attach_enabled: Indicates whether Amazon EBS Multi-Attach is enabled.
                 CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
-        :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
-        :param pulumi.Input[_builtins.int] size: The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size, and you can specify a volume size that is equal to or larger than the snapshot size.
-                Valid sizes:
+        :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the volume.
+                If you intend to use a volume with an instance running on an outpost, then you must create the volume on the same outpost as the instance. You can't use a volume created in an AWS Region with an instance on an AWS outpost, or the other way around.
+        :param pulumi.Input[_builtins.int] size: The size of the volume, in GiBs.
+                 +  Required for new empty volumes.
+                 +  Optional for volumes created from snapshots and volume copies. In this case, the size defaults to the size of the snapshot or source volume. You can optionally specify a size that is equal to or larger than the size of the source snapshot or volume.
+                 
+                Supported volume sizes:
                  +  gp2: ``1 - 16,384`` GiB
                  +  gp3: ``1 - 65,536`` GiB
                  +  io1: ``4 - 16,384`` GiB
                  +  io2: ``4 - 65,536`` GiB
                  +  st1 and sc1: ``125 - 16,384`` GiB
                  +  standard: ``1 - 1024`` GiB
-        :param pulumi.Input[_builtins.str] snapshot_id: The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
+        :param pulumi.Input[_builtins.str] snapshot_id: The snapshot from which to create the volume. Only specify to create a volume from a snapshot. To create a new empty volume, omit this parameter and specify a value for ``Size`` instead. To create a volume copy, omit this parameter and specify ``SourceVolumeId`` instead.
         :param pulumi.Input[_builtins.str] source_volume_id: The ID of the source EBS volume to copy. When specified, the volume is created as an exact copy of the specified volume. Only specify to create a volume copy. To create a new empty volume or to create a volume from a snapshot, omit this parameter,
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to apply to the volume during creation.
         :param pulumi.Input[_builtins.int] throughput: The throughput to provision for a volume, with a maximum of 1,000 MiB/s.
@@ -449,7 +466,8 @@ class Volume(pulumi.CustomResource):
                  +  Cold HDD: ``sc1``
                  +  Magnetic: ``standard``
                  
-                For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html).
+                 Throughput Optimized HDD (``st1``) and Cold HDD (``sc1``) volumes can't be used as boot volumes.
+                 For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide*.
                 Default: ``gp2``
         """
         ...
@@ -574,7 +592,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="autoEnableIo")
     def auto_enable_io(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
+        Indicates whether the volume is auto-enabled for I/O operations. By default, EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O.
         """
         return pulumi.get(self, "auto_enable_io")
 
@@ -584,6 +602,7 @@ class Volume(pulumi.CustomResource):
         """
         The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
          Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
+         If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -591,11 +610,9 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The ID of the Availability Zone in which to create the volume. For example, `use1-az1` .
-
-        Either `AvailabilityZone` or `AvailabilityZoneId` must be specified, but not both.
-
-        If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
+        The ID of the Availability Zone in which to create the volume. For example, ``use1-az1``.
+         Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
+         If you are creating a volume copy, omit this parameter. The volume copy is created in the same Availability Zone as the source volume.
         """
         return pulumi.get(self, "availability_zone_id")
 
@@ -603,8 +620,8 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def encrypted(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.
-         Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption. For more information, see [Supported instance types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances).
+        Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new, from a snapshot, or from an existing volume), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.
+         If you are creating a volume copy, omit this parameter. The volume is automatically encrypted with the same KMS key as the source volume. You can't copy unencrypted volumes.
         """
         return pulumi.get(self, "encrypted")
 
@@ -633,6 +650,8 @@ class Volume(pulumi.CustomResource):
           +  Key alias. Specify the alias for the key, prefixed with ``alias/``. For example, for a key with the alias ``my_cmk``, use ``alias/my_cmk``. Or to specify the aws-managed-key, use ``alias/aws/ebs``.
           +  Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.
           +  Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.
+          
+         If you are creating a volume copy, omit this parameter. The volume is automatically encrypted with the same KMS key as the source volume. You can't copy unencrypted volumes.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -649,7 +668,8 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Outpost.
+        The Amazon Resource Name (ARN) of the Outpost on which to create the volume.
+         If you intend to use a volume with an instance running on an outpost, then you must create the volume on the same outpost as the instance. You can't use a volume created in an AWS Region with an instance on an AWS outpost, or the other way around.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -657,8 +677,11 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def size(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size, and you can specify a volume size that is equal to or larger than the snapshot size.
-         Valid sizes:
+        The size of the volume, in GiBs.
+          +  Required for new empty volumes.
+          +  Optional for volumes created from snapshots and volume copies. In this case, the size defaults to the size of the snapshot or source volume. You can optionally specify a size that is equal to or larger than the size of the source snapshot or volume.
+          
+         Supported volume sizes:
           +  gp2: ``1 - 16,384`` GiB
           +  gp3: ``1 - 65,536`` GiB
           +  io1: ``4 - 16,384`` GiB
@@ -672,7 +695,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.
+        The snapshot from which to create the volume. Only specify to create a volume from a snapshot. To create a new empty volume, omit this parameter and specify a value for ``Size`` instead. To create a volume copy, omit this parameter and specify ``SourceVolumeId`` instead.
         """
         return pulumi.get(self, "snapshot_id")
 
@@ -736,7 +759,8 @@ class Volume(pulumi.CustomResource):
           +  Cold HDD: ``sc1``
           +  Magnetic: ``standard``
           
-         For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html).
+          Throughput Optimized HDD (``st1``) and Cold HDD (``sc1``) volumes can't be used as boot volumes.
+          For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide*.
          Default: ``gp2``
         """
         return pulumi.get(self, "volume_type")

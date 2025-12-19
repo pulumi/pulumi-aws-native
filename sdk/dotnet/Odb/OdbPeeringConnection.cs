@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Odb
     public partial class OdbPeeringConnection : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The additional CIDR blocks for the ODB peering connection.
+        /// </summary>
+        [Output("additionalPeerNetworkCidrs")]
+        public Output<ImmutableArray<string>> AdditionalPeerNetworkCidrs { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the ODB peering connection.
         /// </summary>
         [Output("displayName")]
@@ -50,6 +56,12 @@ namespace Pulumi.AwsNative.Odb
         /// </summary>
         [Output("peerNetworkArn")]
         public Output<string> PeerNetworkArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The CIDR blocks for the ODB peering connection.
+        /// </summary>
+        [Output("peerNetworkCidrs")]
+        public Output<ImmutableArray<string>> PeerNetworkCidrs { get; private set; } = null!;
 
         /// <summary>
         /// The unique identifier of the peer network.
@@ -88,7 +100,6 @@ namespace Pulumi.AwsNative.Odb
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "displayName",
                     "odbNetworkId",
                     "peerNetworkId",
                 },
@@ -114,6 +125,18 @@ namespace Pulumi.AwsNative.Odb
 
     public sealed class OdbPeeringConnectionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalPeerNetworkCidrs")]
+        private InputList<string>? _additionalPeerNetworkCidrs;
+
+        /// <summary>
+        /// The additional CIDR blocks for the ODB peering connection.
+        /// </summary>
+        public InputList<string> AdditionalPeerNetworkCidrs
+        {
+            get => _additionalPeerNetworkCidrs ?? (_additionalPeerNetworkCidrs = new InputList<string>());
+            set => _additionalPeerNetworkCidrs = value;
+        }
+
         /// <summary>
         /// The name of the ODB peering connection.
         /// </summary>

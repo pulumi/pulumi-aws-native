@@ -76,6 +76,34 @@ namespace Pulumi.AwsNative.Ecs
     }
 
     [EnumType]
+    public readonly struct CapacityProviderInstanceLaunchTemplateCapacityOptionType : IEquatable<CapacityProviderInstanceLaunchTemplateCapacityOptionType>
+    {
+        private readonly string _value;
+
+        private CapacityProviderInstanceLaunchTemplateCapacityOptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderInstanceLaunchTemplateCapacityOptionType OnDemand { get; } = new CapacityProviderInstanceLaunchTemplateCapacityOptionType("ON_DEMAND");
+        public static CapacityProviderInstanceLaunchTemplateCapacityOptionType Spot { get; } = new CapacityProviderInstanceLaunchTemplateCapacityOptionType("SPOT");
+
+        public static bool operator ==(CapacityProviderInstanceLaunchTemplateCapacityOptionType left, CapacityProviderInstanceLaunchTemplateCapacityOptionType right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderInstanceLaunchTemplateCapacityOptionType left, CapacityProviderInstanceLaunchTemplateCapacityOptionType right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderInstanceLaunchTemplateCapacityOptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderInstanceLaunchTemplateCapacityOptionType other && Equals(other);
+        public bool Equals(CapacityProviderInstanceLaunchTemplateCapacityOptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem : IEquatable<CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem>
     {
         private readonly string _value;

@@ -135,7 +135,7 @@ if not MYPY:
         """
         always_on_capacity: NotRequired[pulumi.Input[_builtins.int]]
         """
-        The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session. Default is 1 (2 for high stream classes) when creating a stream group or adding a location.
+        This setting, if non-zero, indicates minimum streaming capacity which is allocated to you and is never released back to the service. You pay for this base level of capacity at all times, whether used or idle.
         """
         maximum_capacity: NotRequired[pulumi.Input[_builtins.int]]
         on_demand_capacity: NotRequired[pulumi.Input[_builtins.int]]
@@ -156,7 +156,7 @@ class StreamGroupLocationConfigurationArgs:
                  target_idle_capacity: Optional[pulumi.Input[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] location_name: A location's name. For example, `us-east-1` . For a complete list of locations that Amazon GameLift Streams supports, refer to [Regions, quotas, and limitations](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html) in the *Amazon GameLift Streams Developer Guide* .
-        :param pulumi.Input[_builtins.int] always_on_capacity: The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session. Default is 1 (2 for high stream classes) when creating a stream group or adding a location.
+        :param pulumi.Input[_builtins.int] always_on_capacity: This setting, if non-zero, indicates minimum streaming capacity which is allocated to you and is never released back to the service. You pay for this base level of capacity at all times, whether used or idle.
         :param pulumi.Input[_builtins.int] on_demand_capacity: This shape is deprecated.
         """
         pulumi.set(__self__, "location_name", location_name)
@@ -185,7 +185,7 @@ class StreamGroupLocationConfigurationArgs:
     @pulumi.getter(name="alwaysOnCapacity")
     def always_on_capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The streaming capacity that is allocated and ready to handle stream requests without delay. You pay for this capacity whether it's in use or not. Best for quickest time from streaming request to streaming session. Default is 1 (2 for high stream classes) when creating a stream group or adding a location.
+        This setting, if non-zero, indicates minimum streaming capacity which is allocated to you and is never released back to the service. You pay for this base level of capacity at all times, whether used or idle.
         """
         return pulumi.get(self, "always_on_capacity")
 

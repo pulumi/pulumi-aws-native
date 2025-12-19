@@ -16,6 +16,8 @@ import (
 type OdbPeeringConnection struct {
 	pulumi.CustomResourceState
 
+	// The additional CIDR blocks for the ODB peering connection.
+	AdditionalPeerNetworkCidrs pulumi.StringArrayOutput `pulumi:"additionalPeerNetworkCidrs"`
 	// The name of the ODB peering connection.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The Amazon Resource Name (ARN) of the ODB network.
@@ -28,6 +30,8 @@ type OdbPeeringConnection struct {
 	OdbPeeringConnectionId pulumi.StringOutput `pulumi:"odbPeeringConnectionId"`
 	// The Amazon Resource Name (ARN) of the peer network.
 	PeerNetworkArn pulumi.StringOutput `pulumi:"peerNetworkArn"`
+	// The CIDR blocks for the ODB peering connection.
+	PeerNetworkCidrs pulumi.StringArrayOutput `pulumi:"peerNetworkCidrs"`
 	// The unique identifier of the peer network.
 	PeerNetworkId pulumi.StringPtrOutput `pulumi:"peerNetworkId"`
 	// Tags to assign to the Odb peering connection.
@@ -42,7 +46,6 @@ func NewOdbPeeringConnection(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"displayName",
 		"odbNetworkId",
 		"peerNetworkId",
 	})
@@ -80,6 +83,8 @@ func (OdbPeeringConnectionState) ElementType() reflect.Type {
 }
 
 type odbPeeringConnectionArgs struct {
+	// The additional CIDR blocks for the ODB peering connection.
+	AdditionalPeerNetworkCidrs []string `pulumi:"additionalPeerNetworkCidrs"`
 	// The name of the ODB peering connection.
 	DisplayName *string `pulumi:"displayName"`
 	// The unique identifier of the ODB network.
@@ -92,6 +97,8 @@ type odbPeeringConnectionArgs struct {
 
 // The set of arguments for constructing a OdbPeeringConnection resource.
 type OdbPeeringConnectionArgs struct {
+	// The additional CIDR blocks for the ODB peering connection.
+	AdditionalPeerNetworkCidrs pulumi.StringArrayInput
 	// The name of the ODB peering connection.
 	DisplayName pulumi.StringPtrInput
 	// The unique identifier of the ODB network.
@@ -139,6 +146,11 @@ func (o OdbPeeringConnectionOutput) ToOdbPeeringConnectionOutputWithContext(ctx 
 	return o
 }
 
+// The additional CIDR blocks for the ODB peering connection.
+func (o OdbPeeringConnectionOutput) AdditionalPeerNetworkCidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OdbPeeringConnection) pulumi.StringArrayOutput { return v.AdditionalPeerNetworkCidrs }).(pulumi.StringArrayOutput)
+}
+
 // The name of the ODB peering connection.
 func (o OdbPeeringConnectionOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OdbPeeringConnection) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
@@ -167,6 +179,11 @@ func (o OdbPeeringConnectionOutput) OdbPeeringConnectionId() pulumi.StringOutput
 // The Amazon Resource Name (ARN) of the peer network.
 func (o OdbPeeringConnectionOutput) PeerNetworkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OdbPeeringConnection) pulumi.StringOutput { return v.PeerNetworkArn }).(pulumi.StringOutput)
+}
+
+// The CIDR blocks for the ODB peering connection.
+func (o OdbPeeringConnectionOutput) PeerNetworkCidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OdbPeeringConnection) pulumi.StringArrayOutput { return v.PeerNetworkCidrs }).(pulumi.StringArrayOutput)
 }
 
 // The unique identifier of the peer network.

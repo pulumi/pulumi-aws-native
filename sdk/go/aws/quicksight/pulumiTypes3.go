@@ -13,6 +13,387 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateGridLayoutScreenCanvasSizeOptions struct {
+	// String based length that is composed of value and unit in px
+	OptimizedViewPortWidth *string `pulumi:"optimizedViewPortWidth"`
+	// This value determines the layout behavior when the viewport is resized.
+	//
+	// - `FIXED` : A fixed width will be used when optimizing the layout. In the Quick Sight console, this option is called `Classic` .
+	// - `RESPONSIVE` : The width of the canvas will be responsive and optimized to the view port. In the Quick Sight console, this option is called `Tiled` .
+	ResizeOption TemplateResizeOption `pulumi:"resizeOption"`
+}
+
+// TemplateGridLayoutScreenCanvasSizeOptionsInput is an input type that accepts TemplateGridLayoutScreenCanvasSizeOptionsArgs and TemplateGridLayoutScreenCanvasSizeOptionsOutput values.
+// You can construct a concrete instance of `TemplateGridLayoutScreenCanvasSizeOptionsInput` via:
+//
+//	TemplateGridLayoutScreenCanvasSizeOptionsArgs{...}
+type TemplateGridLayoutScreenCanvasSizeOptionsInput interface {
+	pulumi.Input
+
+	ToTemplateGridLayoutScreenCanvasSizeOptionsOutput() TemplateGridLayoutScreenCanvasSizeOptionsOutput
+	ToTemplateGridLayoutScreenCanvasSizeOptionsOutputWithContext(context.Context) TemplateGridLayoutScreenCanvasSizeOptionsOutput
+}
+
+type TemplateGridLayoutScreenCanvasSizeOptionsArgs struct {
+	// String based length that is composed of value and unit in px
+	OptimizedViewPortWidth pulumi.StringPtrInput `pulumi:"optimizedViewPortWidth"`
+	// This value determines the layout behavior when the viewport is resized.
+	//
+	// - `FIXED` : A fixed width will be used when optimizing the layout. In the Quick Sight console, this option is called `Classic` .
+	// - `RESPONSIVE` : The width of the canvas will be responsive and optimized to the view port. In the Quick Sight console, this option is called `Tiled` .
+	ResizeOption TemplateResizeOptionInput `pulumi:"resizeOption"`
+}
+
+func (TemplateGridLayoutScreenCanvasSizeOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGridLayoutScreenCanvasSizeOptions)(nil)).Elem()
+}
+
+func (i TemplateGridLayoutScreenCanvasSizeOptionsArgs) ToTemplateGridLayoutScreenCanvasSizeOptionsOutput() TemplateGridLayoutScreenCanvasSizeOptionsOutput {
+	return i.ToTemplateGridLayoutScreenCanvasSizeOptionsOutputWithContext(context.Background())
+}
+
+func (i TemplateGridLayoutScreenCanvasSizeOptionsArgs) ToTemplateGridLayoutScreenCanvasSizeOptionsOutputWithContext(ctx context.Context) TemplateGridLayoutScreenCanvasSizeOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGridLayoutScreenCanvasSizeOptionsOutput)
+}
+
+func (i TemplateGridLayoutScreenCanvasSizeOptionsArgs) ToTemplateGridLayoutScreenCanvasSizeOptionsPtrOutput() TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput {
+	return i.ToTemplateGridLayoutScreenCanvasSizeOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGridLayoutScreenCanvasSizeOptionsArgs) ToTemplateGridLayoutScreenCanvasSizeOptionsPtrOutputWithContext(ctx context.Context) TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGridLayoutScreenCanvasSizeOptionsOutput).ToTemplateGridLayoutScreenCanvasSizeOptionsPtrOutputWithContext(ctx)
+}
+
+// TemplateGridLayoutScreenCanvasSizeOptionsPtrInput is an input type that accepts TemplateGridLayoutScreenCanvasSizeOptionsArgs, TemplateGridLayoutScreenCanvasSizeOptionsPtr and TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput values.
+// You can construct a concrete instance of `TemplateGridLayoutScreenCanvasSizeOptionsPtrInput` via:
+//
+//	        TemplateGridLayoutScreenCanvasSizeOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGridLayoutScreenCanvasSizeOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGridLayoutScreenCanvasSizeOptionsPtrOutput() TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput
+	ToTemplateGridLayoutScreenCanvasSizeOptionsPtrOutputWithContext(context.Context) TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput
+}
+
+type templateGridLayoutScreenCanvasSizeOptionsPtrType TemplateGridLayoutScreenCanvasSizeOptionsArgs
+
+func TemplateGridLayoutScreenCanvasSizeOptionsPtr(v *TemplateGridLayoutScreenCanvasSizeOptionsArgs) TemplateGridLayoutScreenCanvasSizeOptionsPtrInput {
+	return (*templateGridLayoutScreenCanvasSizeOptionsPtrType)(v)
+}
+
+func (*templateGridLayoutScreenCanvasSizeOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGridLayoutScreenCanvasSizeOptions)(nil)).Elem()
+}
+
+func (i *templateGridLayoutScreenCanvasSizeOptionsPtrType) ToTemplateGridLayoutScreenCanvasSizeOptionsPtrOutput() TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput {
+	return i.ToTemplateGridLayoutScreenCanvasSizeOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGridLayoutScreenCanvasSizeOptionsPtrType) ToTemplateGridLayoutScreenCanvasSizeOptionsPtrOutputWithContext(ctx context.Context) TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput)
+}
+
+type TemplateGridLayoutScreenCanvasSizeOptionsOutput struct{ *pulumi.OutputState }
+
+func (TemplateGridLayoutScreenCanvasSizeOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGridLayoutScreenCanvasSizeOptions)(nil)).Elem()
+}
+
+func (o TemplateGridLayoutScreenCanvasSizeOptionsOutput) ToTemplateGridLayoutScreenCanvasSizeOptionsOutput() TemplateGridLayoutScreenCanvasSizeOptionsOutput {
+	return o
+}
+
+func (o TemplateGridLayoutScreenCanvasSizeOptionsOutput) ToTemplateGridLayoutScreenCanvasSizeOptionsOutputWithContext(ctx context.Context) TemplateGridLayoutScreenCanvasSizeOptionsOutput {
+	return o
+}
+
+func (o TemplateGridLayoutScreenCanvasSizeOptionsOutput) ToTemplateGridLayoutScreenCanvasSizeOptionsPtrOutput() TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput {
+	return o.ToTemplateGridLayoutScreenCanvasSizeOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGridLayoutScreenCanvasSizeOptionsOutput) ToTemplateGridLayoutScreenCanvasSizeOptionsPtrOutputWithContext(ctx context.Context) TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGridLayoutScreenCanvasSizeOptions) *TemplateGridLayoutScreenCanvasSizeOptions {
+		return &v
+	}).(TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput)
+}
+
+// String based length that is composed of value and unit in px
+func (o TemplateGridLayoutScreenCanvasSizeOptionsOutput) OptimizedViewPortWidth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateGridLayoutScreenCanvasSizeOptions) *string { return v.OptimizedViewPortWidth }).(pulumi.StringPtrOutput)
+}
+
+// This value determines the layout behavior when the viewport is resized.
+//
+// - `FIXED` : A fixed width will be used when optimizing the layout. In the Quick Sight console, this option is called `Classic` .
+// - `RESPONSIVE` : The width of the canvas will be responsive and optimized to the view port. In the Quick Sight console, this option is called `Tiled` .
+func (o TemplateGridLayoutScreenCanvasSizeOptionsOutput) ResizeOption() TemplateResizeOptionOutput {
+	return o.ApplyT(func(v TemplateGridLayoutScreenCanvasSizeOptions) TemplateResizeOption { return v.ResizeOption }).(TemplateResizeOptionOutput)
+}
+
+type TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGridLayoutScreenCanvasSizeOptions)(nil)).Elem()
+}
+
+func (o TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput) ToTemplateGridLayoutScreenCanvasSizeOptionsPtrOutput() TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput) ToTemplateGridLayoutScreenCanvasSizeOptionsPtrOutputWithContext(ctx context.Context) TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput {
+	return o
+}
+
+func (o TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput) Elem() TemplateGridLayoutScreenCanvasSizeOptionsOutput {
+	return o.ApplyT(func(v *TemplateGridLayoutScreenCanvasSizeOptions) TemplateGridLayoutScreenCanvasSizeOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGridLayoutScreenCanvasSizeOptions
+		return ret
+	}).(TemplateGridLayoutScreenCanvasSizeOptionsOutput)
+}
+
+// String based length that is composed of value and unit in px
+func (o TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput) OptimizedViewPortWidth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateGridLayoutScreenCanvasSizeOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OptimizedViewPortWidth
+	}).(pulumi.StringPtrOutput)
+}
+
+// This value determines the layout behavior when the viewport is resized.
+//
+// - `FIXED` : A fixed width will be used when optimizing the layout. In the Quick Sight console, this option is called `Classic` .
+// - `RESPONSIVE` : The width of the canvas will be responsive and optimized to the view port. In the Quick Sight console, this option is called `Tiled` .
+func (o TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput) ResizeOption() TemplateResizeOptionPtrOutput {
+	return o.ApplyT(func(v *TemplateGridLayoutScreenCanvasSizeOptions) *TemplateResizeOption {
+		if v == nil {
+			return nil
+		}
+		return &v.ResizeOption
+	}).(TemplateResizeOptionPtrOutput)
+}
+
+type TemplateGrowthRateComputation struct {
+	// The ID for a computation.
+	ComputationId string `pulumi:"computationId"`
+	// The name of a computation.
+	Name *string `pulumi:"name"`
+	// The period size setup of a growth rate computation.
+	PeriodSize *float64 `pulumi:"periodSize"`
+	// The time field that is used in a computation.
+	Time *TemplateDimensionField `pulumi:"time"`
+	// The value field that is used in a computation.
+	Value *TemplateMeasureField `pulumi:"value"`
+}
+
+// TemplateGrowthRateComputationInput is an input type that accepts TemplateGrowthRateComputationArgs and TemplateGrowthRateComputationOutput values.
+// You can construct a concrete instance of `TemplateGrowthRateComputationInput` via:
+//
+//	TemplateGrowthRateComputationArgs{...}
+type TemplateGrowthRateComputationInput interface {
+	pulumi.Input
+
+	ToTemplateGrowthRateComputationOutput() TemplateGrowthRateComputationOutput
+	ToTemplateGrowthRateComputationOutputWithContext(context.Context) TemplateGrowthRateComputationOutput
+}
+
+type TemplateGrowthRateComputationArgs struct {
+	// The ID for a computation.
+	ComputationId pulumi.StringInput `pulumi:"computationId"`
+	// The name of a computation.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The period size setup of a growth rate computation.
+	PeriodSize pulumi.Float64PtrInput `pulumi:"periodSize"`
+	// The time field that is used in a computation.
+	Time TemplateDimensionFieldPtrInput `pulumi:"time"`
+	// The value field that is used in a computation.
+	Value TemplateMeasureFieldPtrInput `pulumi:"value"`
+}
+
+func (TemplateGrowthRateComputationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGrowthRateComputation)(nil)).Elem()
+}
+
+func (i TemplateGrowthRateComputationArgs) ToTemplateGrowthRateComputationOutput() TemplateGrowthRateComputationOutput {
+	return i.ToTemplateGrowthRateComputationOutputWithContext(context.Background())
+}
+
+func (i TemplateGrowthRateComputationArgs) ToTemplateGrowthRateComputationOutputWithContext(ctx context.Context) TemplateGrowthRateComputationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGrowthRateComputationOutput)
+}
+
+func (i TemplateGrowthRateComputationArgs) ToTemplateGrowthRateComputationPtrOutput() TemplateGrowthRateComputationPtrOutput {
+	return i.ToTemplateGrowthRateComputationPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateGrowthRateComputationArgs) ToTemplateGrowthRateComputationPtrOutputWithContext(ctx context.Context) TemplateGrowthRateComputationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGrowthRateComputationOutput).ToTemplateGrowthRateComputationPtrOutputWithContext(ctx)
+}
+
+// TemplateGrowthRateComputationPtrInput is an input type that accepts TemplateGrowthRateComputationArgs, TemplateGrowthRateComputationPtr and TemplateGrowthRateComputationPtrOutput values.
+// You can construct a concrete instance of `TemplateGrowthRateComputationPtrInput` via:
+//
+//	        TemplateGrowthRateComputationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateGrowthRateComputationPtrInput interface {
+	pulumi.Input
+
+	ToTemplateGrowthRateComputationPtrOutput() TemplateGrowthRateComputationPtrOutput
+	ToTemplateGrowthRateComputationPtrOutputWithContext(context.Context) TemplateGrowthRateComputationPtrOutput
+}
+
+type templateGrowthRateComputationPtrType TemplateGrowthRateComputationArgs
+
+func TemplateGrowthRateComputationPtr(v *TemplateGrowthRateComputationArgs) TemplateGrowthRateComputationPtrInput {
+	return (*templateGrowthRateComputationPtrType)(v)
+}
+
+func (*templateGrowthRateComputationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGrowthRateComputation)(nil)).Elem()
+}
+
+func (i *templateGrowthRateComputationPtrType) ToTemplateGrowthRateComputationPtrOutput() TemplateGrowthRateComputationPtrOutput {
+	return i.ToTemplateGrowthRateComputationPtrOutputWithContext(context.Background())
+}
+
+func (i *templateGrowthRateComputationPtrType) ToTemplateGrowthRateComputationPtrOutputWithContext(ctx context.Context) TemplateGrowthRateComputationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateGrowthRateComputationPtrOutput)
+}
+
+type TemplateGrowthRateComputationOutput struct{ *pulumi.OutputState }
+
+func (TemplateGrowthRateComputationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateGrowthRateComputation)(nil)).Elem()
+}
+
+func (o TemplateGrowthRateComputationOutput) ToTemplateGrowthRateComputationOutput() TemplateGrowthRateComputationOutput {
+	return o
+}
+
+func (o TemplateGrowthRateComputationOutput) ToTemplateGrowthRateComputationOutputWithContext(ctx context.Context) TemplateGrowthRateComputationOutput {
+	return o
+}
+
+func (o TemplateGrowthRateComputationOutput) ToTemplateGrowthRateComputationPtrOutput() TemplateGrowthRateComputationPtrOutput {
+	return o.ToTemplateGrowthRateComputationPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateGrowthRateComputationOutput) ToTemplateGrowthRateComputationPtrOutputWithContext(ctx context.Context) TemplateGrowthRateComputationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateGrowthRateComputation) *TemplateGrowthRateComputation {
+		return &v
+	}).(TemplateGrowthRateComputationPtrOutput)
+}
+
+// The ID for a computation.
+func (o TemplateGrowthRateComputationOutput) ComputationId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateGrowthRateComputation) string { return v.ComputationId }).(pulumi.StringOutput)
+}
+
+// The name of a computation.
+func (o TemplateGrowthRateComputationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateGrowthRateComputation) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The period size setup of a growth rate computation.
+func (o TemplateGrowthRateComputationOutput) PeriodSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TemplateGrowthRateComputation) *float64 { return v.PeriodSize }).(pulumi.Float64PtrOutput)
+}
+
+// The time field that is used in a computation.
+func (o TemplateGrowthRateComputationOutput) Time() TemplateDimensionFieldPtrOutput {
+	return o.ApplyT(func(v TemplateGrowthRateComputation) *TemplateDimensionField { return v.Time }).(TemplateDimensionFieldPtrOutput)
+}
+
+// The value field that is used in a computation.
+func (o TemplateGrowthRateComputationOutput) Value() TemplateMeasureFieldPtrOutput {
+	return o.ApplyT(func(v TemplateGrowthRateComputation) *TemplateMeasureField { return v.Value }).(TemplateMeasureFieldPtrOutput)
+}
+
+type TemplateGrowthRateComputationPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGrowthRateComputationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGrowthRateComputation)(nil)).Elem()
+}
+
+func (o TemplateGrowthRateComputationPtrOutput) ToTemplateGrowthRateComputationPtrOutput() TemplateGrowthRateComputationPtrOutput {
+	return o
+}
+
+func (o TemplateGrowthRateComputationPtrOutput) ToTemplateGrowthRateComputationPtrOutputWithContext(ctx context.Context) TemplateGrowthRateComputationPtrOutput {
+	return o
+}
+
+func (o TemplateGrowthRateComputationPtrOutput) Elem() TemplateGrowthRateComputationOutput {
+	return o.ApplyT(func(v *TemplateGrowthRateComputation) TemplateGrowthRateComputation {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGrowthRateComputation
+		return ret
+	}).(TemplateGrowthRateComputationOutput)
+}
+
+// The ID for a computation.
+func (o TemplateGrowthRateComputationPtrOutput) ComputationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateGrowthRateComputation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ComputationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of a computation.
+func (o TemplateGrowthRateComputationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateGrowthRateComputation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The period size setup of a growth rate computation.
+func (o TemplateGrowthRateComputationPtrOutput) PeriodSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplateGrowthRateComputation) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.PeriodSize
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The time field that is used in a computation.
+func (o TemplateGrowthRateComputationPtrOutput) Time() TemplateDimensionFieldPtrOutput {
+	return o.ApplyT(func(v *TemplateGrowthRateComputation) *TemplateDimensionField {
+		if v == nil {
+			return nil
+		}
+		return v.Time
+	}).(TemplateDimensionFieldPtrOutput)
+}
+
+// The value field that is used in a computation.
+func (o TemplateGrowthRateComputationPtrOutput) Value() TemplateMeasureFieldPtrOutput {
+	return o.ApplyT(func(v *TemplateGrowthRateComputation) *TemplateMeasureField {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(TemplateMeasureFieldPtrOutput)
+}
+
 type TemplateHeaderFooterSectionConfiguration struct {
 	// The layout configuration of the header or footer section.
 	Layout TemplateSectionLayoutConfiguration `pulumi:"layout"`
@@ -58955,6 +59336,10 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGridLayoutScreenCanvasSizeOptionsInput)(nil)).Elem(), TemplateGridLayoutScreenCanvasSizeOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGridLayoutScreenCanvasSizeOptionsPtrInput)(nil)).Elem(), TemplateGridLayoutScreenCanvasSizeOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGrowthRateComputationInput)(nil)).Elem(), TemplateGrowthRateComputationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateGrowthRateComputationPtrInput)(nil)).Elem(), TemplateGrowthRateComputationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateHeaderFooterSectionConfigurationInput)(nil)).Elem(), TemplateHeaderFooterSectionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateHeaderFooterSectionConfigurationArrayInput)(nil)).Elem(), TemplateHeaderFooterSectionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateHeatMapAggregatedFieldWellsInput)(nil)).Elem(), TemplateHeatMapAggregatedFieldWellsArgs{})
@@ -59608,6 +59993,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateGridLayoutScreenCanvasSizeOptionsOutput{})
+	pulumi.RegisterOutputType(TemplateGridLayoutScreenCanvasSizeOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TemplateGrowthRateComputationOutput{})
+	pulumi.RegisterOutputType(TemplateGrowthRateComputationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateHeaderFooterSectionConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateHeaderFooterSectionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(TemplateHeatMapAggregatedFieldWellsOutput{})

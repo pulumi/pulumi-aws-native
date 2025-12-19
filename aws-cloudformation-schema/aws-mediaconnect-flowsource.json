@@ -175,13 +175,13 @@
       "permissions" : [ "mediaconnect:CreateFlow", "mediaconnect:DescribeFlow", "mediaconnect:AddFlowSources", "iam:PassRole" ]
     },
     "read" : {
-      "permissions" : [ "mediaconnect:DescribeFlow" ]
+      "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:ListFlows" ]
     },
     "update" : {
       "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:UpdateFlowSource" ]
     },
     "delete" : {
-      "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:RemoveFlowSource" ]
+      "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:ListFlows", "mediaconnect:RemoveFlowSource" ]
     },
     "list" : {
       "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:ListFlows" ]

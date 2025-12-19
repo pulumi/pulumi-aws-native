@@ -28,6 +28,13 @@ export const CapacityProviderAutoScalingGroupProviderManagedTerminationProtectio
  */
 export type CapacityProviderAutoScalingGroupProviderManagedTerminationProtection = (typeof CapacityProviderAutoScalingGroupProviderManagedTerminationProtection)[keyof typeof CapacityProviderAutoScalingGroupProviderManagedTerminationProtection];
 
+export const CapacityProviderInstanceLaunchTemplateCapacityOptionType = {
+    OnDemand: "ON_DEMAND",
+    Spot: "SPOT",
+} as const;
+
+export type CapacityProviderInstanceLaunchTemplateCapacityOptionType = (typeof CapacityProviderInstanceLaunchTemplateCapacityOptionType)[keyof typeof CapacityProviderInstanceLaunchTemplateCapacityOptionType];
+
 export const CapacityProviderInstanceRequirementsRequestAcceleratorManufacturersItem = {
     AmazonWebServices: "amazon-web-services",
     Amd: "amd",

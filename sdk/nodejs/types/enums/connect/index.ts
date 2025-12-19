@@ -152,7 +152,7 @@ export const EvaluationFormLanguageConfigurationFormLanguage = {
 } as const;
 
 /**
- * The language of the form
+ * The language for the evaluation form.
  */
 export type EvaluationFormLanguageConfigurationFormLanguage = (typeof EvaluationFormLanguageConfigurationFormLanguage)[keyof typeof EvaluationFormLanguageConfigurationFormLanguage];
 
@@ -162,7 +162,7 @@ export const EvaluationFormMultiSelectQuestionPropertiesDisplayAs = {
 } as const;
 
 /**
- * The display mode of the multi-select question.
+ * Display format for the multi-select question.
  */
 export type EvaluationFormMultiSelectQuestionPropertiesDisplayAs = (typeof EvaluationFormMultiSelectQuestionPropertiesDisplayAs)[keyof typeof EvaluationFormMultiSelectQuestionPropertiesDisplayAs];
 
@@ -172,7 +172,7 @@ export const EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition = 
 } as const;
 
 /**
- * The automation condition applied on contact categories.
+ * The condition for this automation rule.
  */
 export type EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition = (typeof EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition)[keyof typeof EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition];
 
@@ -283,7 +283,7 @@ export const EvaluationFormTargetConfigurationContactInteractionType = {
 } as const;
 
 /**
- * The interaction type of a contact
+ * The contact interaction type for this evaluation form.
  */
 export type EvaluationFormTargetConfigurationContactInteractionType = (typeof EvaluationFormTargetConfigurationContactInteractionType)[keyof typeof EvaluationFormTargetConfigurationContactInteractionType];
 
@@ -316,6 +316,28 @@ export const HoursOfOperationOverrideConfigDay = {
  * The day that the hours of operation override applies to.
  */
 export type HoursOfOperationOverrideConfigDay = (typeof HoursOfOperationOverrideConfigDay)[keyof typeof HoursOfOperationOverrideConfigDay];
+
+export const HoursOfOperationOverrideType = {
+    Standard: "STANDARD",
+    Open: "OPEN",
+    Closed: "CLOSED",
+} as const;
+
+/**
+ * The type of hours of operation override.
+ */
+export type HoursOfOperationOverrideType = (typeof HoursOfOperationOverrideType)[keyof typeof HoursOfOperationOverrideType];
+
+export const HoursOfOperationRecurrenceFrequency = {
+    Weekly: "WEEKLY",
+    Monthly: "MONTHLY",
+    Yearly: "YEARLY",
+} as const;
+
+/**
+ * The frequency of recurrence for hours of operation overrides.
+ */
+export type HoursOfOperationRecurrenceFrequency = (typeof HoursOfOperationRecurrenceFrequency)[keyof typeof HoursOfOperationRecurrenceFrequency];
 
 export const InstanceIdentityManagementType = {
     Saml: "SAML",

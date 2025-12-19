@@ -1292,6 +1292,9 @@ class VpnConnectionPreSharedKeyStorage(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:ec2:VpnConnectionTunnelBandwidth")
 class VpnConnectionTunnelBandwidth(_builtins.str, Enum):
+    """
+    The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` .
+    """
     STANDARD = "standard"
     LARGE = "large"
 

@@ -26,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetHoursOfOperationResult:
-    def __init__(__self__, config=None, description=None, hours_of_operation_arn=None, hours_of_operation_overrides=None, instance_arn=None, name=None, tags=None, time_zone=None):
+    def __init__(__self__, child_hours_of_operations=None, config=None, description=None, hours_of_operation_arn=None, hours_of_operation_overrides=None, instance_arn=None, name=None, parent_hours_of_operations=None, tags=None, time_zone=None):
+        if child_hours_of_operations and not isinstance(child_hours_of_operations, list):
+            raise TypeError("Expected argument 'child_hours_of_operations' to be a list")
+        pulumi.set(__self__, "child_hours_of_operations", child_hours_of_operations)
         if config and not isinstance(config, list):
             raise TypeError("Expected argument 'config' to be a list")
         pulumi.set(__self__, "config", config)
@@ -45,12 +48,23 @@ class GetHoursOfOperationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if parent_hours_of_operations and not isinstance(parent_hours_of_operations, list):
+            raise TypeError("Expected argument 'parent_hours_of_operations' to be a list")
+        pulumi.set(__self__, "parent_hours_of_operations", parent_hours_of_operations)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
         if time_zone and not isinstance(time_zone, str):
             raise TypeError("Expected argument 'time_zone' to be a str")
         pulumi.set(__self__, "time_zone", time_zone)
+
+    @_builtins.property
+    @pulumi.getter(name="childHoursOfOperations")
+    def child_hours_of_operations(self) -> Optional[Sequence['outputs.HoursOfOperationsIdentifier']]:
+        """
+        List of child hours of operations.
+        """
+        return pulumi.get(self, "child_hours_of_operations")
 
     @_builtins.property
     @pulumi.getter
@@ -101,6 +115,14 @@ class GetHoursOfOperationResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="parentHoursOfOperations")
+    def parent_hours_of_operations(self) -> Optional[Sequence['outputs.HoursOfOperationsIdentifier']]:
+        """
+        List of parent hours of operations.
+        """
+        return pulumi.get(self, "parent_hours_of_operations")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -123,12 +145,14 @@ class AwaitableGetHoursOfOperationResult(GetHoursOfOperationResult):
         if False:
             yield self
         return GetHoursOfOperationResult(
+            child_hours_of_operations=self.child_hours_of_operations,
             config=self.config,
             description=self.description,
             hours_of_operation_arn=self.hours_of_operation_arn,
             hours_of_operation_overrides=self.hours_of_operation_overrides,
             instance_arn=self.instance_arn,
             name=self.name,
+            parent_hours_of_operations=self.parent_hours_of_operations,
             tags=self.tags,
             time_zone=self.time_zone)
 
@@ -147,12 +171,14 @@ def get_hours_of_operation(hours_of_operation_arn: Optional[_builtins.str] = Non
     __ret__ = pulumi.runtime.invoke('aws-native:connect:getHoursOfOperation', __args__, opts=opts, typ=GetHoursOfOperationResult).value
 
     return AwaitableGetHoursOfOperationResult(
+        child_hours_of_operations=pulumi.get(__ret__, 'child_hours_of_operations'),
         config=pulumi.get(__ret__, 'config'),
         description=pulumi.get(__ret__, 'description'),
         hours_of_operation_arn=pulumi.get(__ret__, 'hours_of_operation_arn'),
         hours_of_operation_overrides=pulumi.get(__ret__, 'hours_of_operation_overrides'),
         instance_arn=pulumi.get(__ret__, 'instance_arn'),
         name=pulumi.get(__ret__, 'name'),
+        parent_hours_of_operations=pulumi.get(__ret__, 'parent_hours_of_operations'),
         tags=pulumi.get(__ret__, 'tags'),
         time_zone=pulumi.get(__ret__, 'time_zone'))
 def get_hours_of_operation_output(hours_of_operation_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -168,11 +194,13 @@ def get_hours_of_operation_output(hours_of_operation_arn: Optional[pulumi.Input[
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getHoursOfOperation', __args__, opts=opts, typ=GetHoursOfOperationResult)
     return __ret__.apply(lambda __response__: GetHoursOfOperationResult(
+        child_hours_of_operations=pulumi.get(__response__, 'child_hours_of_operations'),
         config=pulumi.get(__response__, 'config'),
         description=pulumi.get(__response__, 'description'),
         hours_of_operation_arn=pulumi.get(__response__, 'hours_of_operation_arn'),
         hours_of_operation_overrides=pulumi.get(__response__, 'hours_of_operation_overrides'),
         instance_arn=pulumi.get(__response__, 'instance_arn'),
         name=pulumi.get(__response__, 'name'),
+        parent_hours_of_operations=pulumi.get(__response__, 'parent_hours_of_operations'),
         tags=pulumi.get(__response__, 'tags'),
         time_zone=pulumi.get(__response__, 'time_zone')))

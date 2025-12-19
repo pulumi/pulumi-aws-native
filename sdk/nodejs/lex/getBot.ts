@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
+ * Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
  */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -29,6 +29,10 @@ export interface GetBotResult {
      * The Amazon Resource Name (ARN) of the bot.
      */
     readonly arn?: string;
+    /**
+     * A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
+     */
+    readonly botTags?: outputs.Tag[];
     /**
      * By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
      */
@@ -58,13 +62,9 @@ export interface GetBotResult {
      * The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
      */
     readonly roleArn?: string;
-    /**
-     * Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
-     */
-    readonly testBotAliasSettings?: outputs.lex.BotTestBotAliasSettings;
 }
 /**
- * Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
+ * Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
  */
 export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

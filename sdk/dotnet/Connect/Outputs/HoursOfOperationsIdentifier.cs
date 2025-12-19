@@ -7,32 +7,32 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Lex.Outputs
+namespace Pulumi.AwsNative.Connect.Outputs
 {
 
     /// <summary>
-    /// A label for tagging Lex resources
+    /// Identifier for hours of operation.
     /// </summary>
     [OutputType]
-    public sealed class BotAliasTag
+    public sealed class HoursOfOperationsIdentifier
     {
         /// <summary>
-        /// A string used to identify this tag
+        /// The identifier for the hours of operation.
         /// </summary>
-        public readonly string Key;
+        public readonly string Id;
         /// <summary>
-        /// A string containing the value for the tag
+        /// The name of the hours of operation.
         /// </summary>
-        public readonly string Value;
+        public readonly string? Name;
 
         [OutputConstructor]
-        private BotAliasTag(
-            string key,
+        private HoursOfOperationsIdentifier(
+            string id,
 
-            string value)
+            string? name)
         {
-            Key = key;
-            Value = value;
+            Id = id;
+            Name = name;
         }
     }
 }

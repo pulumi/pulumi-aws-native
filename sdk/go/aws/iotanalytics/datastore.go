@@ -155,7 +155,7 @@ type Datastore struct {
 	DatastorePartitions DatastorePartitionsPtrOutput `pulumi:"datastorePartitions"`
 	// Where data store data is stored.
 	DatastoreStorage DatastoreStoragePtrOutput `pulumi:"datastoreStorage"`
-	// Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+	// Contains the configuration information of file formats. ITA data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
 	//
 	// The default file format is JSON. You can specify only one format.
 	//
@@ -219,7 +219,7 @@ type datastoreArgs struct {
 	DatastorePartitions *DatastorePartitions `pulumi:"datastorePartitions"`
 	// Where data store data is stored.
 	DatastoreStorage *DatastoreStorage `pulumi:"datastoreStorage"`
-	// Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+	// Contains the configuration information of file formats. ITA data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
 	//
 	// The default file format is JSON. You can specify only one format.
 	//
@@ -241,7 +241,7 @@ type DatastoreArgs struct {
 	DatastorePartitions DatastorePartitionsPtrInput
 	// Where data store data is stored.
 	DatastoreStorage DatastoreStoragePtrInput
-	// Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+	// Contains the configuration information of file formats. ITA data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
 	//
 	// The default file format is JSON. You can specify only one format.
 	//
@@ -311,7 +311,7 @@ func (o DatastoreOutput) DatastoreStorage() DatastoreStoragePtrOutput {
 	return o.ApplyT(func(v *Datastore) DatastoreStoragePtrOutput { return v.DatastoreStorage }).(DatastoreStoragePtrOutput)
 }
 
-// Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+// Contains the configuration information of file formats. ITA data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
 //
 // The default file format is JSON. You can specify only one format.
 //

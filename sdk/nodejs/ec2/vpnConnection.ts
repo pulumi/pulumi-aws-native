@@ -98,6 +98,9 @@ export class VpnConnection extends pulumi.CustomResource {
      *  Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``.
      */
     declare public readonly transportTransitGatewayAttachmentId: pulumi.Output<string | undefined>;
+    /**
+     * The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` .
+     */
     declare public readonly tunnelBandwidth: pulumi.Output<enums.ec2.VpnConnectionTunnelBandwidth | undefined>;
     /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
@@ -108,6 +111,9 @@ export class VpnConnection extends pulumi.CustomResource {
      * The type of VPN connection.
      */
     declare public readonly type: pulumi.Output<string>;
+    /**
+     * The ID of the VPN connection.
+     */
     declare public readonly vpnConcentratorId: pulumi.Output<string | undefined>;
     /**
      * The ID of the VPN connection.
@@ -249,6 +255,9 @@ export interface VpnConnectionArgs {
      *  Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``.
      */
     transportTransitGatewayAttachmentId?: pulumi.Input<string>;
+    /**
+     * The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` .
+     */
     tunnelBandwidth?: pulumi.Input<enums.ec2.VpnConnectionTunnelBandwidth>;
     /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
@@ -259,6 +268,9 @@ export interface VpnConnectionArgs {
      * The type of VPN connection.
      */
     type: pulumi.Input<string>;
+    /**
+     * The ID of the VPN connection.
+     */
     vpnConcentratorId?: pulumi.Input<string>;
     /**
      * The ID of the virtual private gateway at the AWS side of the VPN connection.

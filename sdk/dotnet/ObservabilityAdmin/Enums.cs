@@ -388,6 +388,37 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The server-side encryption algorithm used to encrypt the S3 Table(s) data
+    /// </summary>
+    [EnumType]
+    public readonly struct S3TableIntegrationEncryptionConfigSseAlgorithm : IEquatable<S3TableIntegrationEncryptionConfigSseAlgorithm>
+    {
+        private readonly string _value;
+
+        private S3TableIntegrationEncryptionConfigSseAlgorithm(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static S3TableIntegrationEncryptionConfigSseAlgorithm Aes256 { get; } = new S3TableIntegrationEncryptionConfigSseAlgorithm("AES256");
+        public static S3TableIntegrationEncryptionConfigSseAlgorithm Awskms { get; } = new S3TableIntegrationEncryptionConfigSseAlgorithm("aws:kms");
+
+        public static bool operator ==(S3TableIntegrationEncryptionConfigSseAlgorithm left, S3TableIntegrationEncryptionConfigSseAlgorithm right) => left.Equals(right);
+        public static bool operator !=(S3TableIntegrationEncryptionConfigSseAlgorithm left, S3TableIntegrationEncryptionConfigSseAlgorithm right) => !left.Equals(right);
+
+        public static explicit operator string(S3TableIntegrationEncryptionConfigSseAlgorithm value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is S3TableIntegrationEncryptionConfigSseAlgorithm other && Equals(other);
+        public bool Equals(S3TableIntegrationEncryptionConfigSseAlgorithm other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct TelemetryPipelinesTelemetryPipelineStatus : IEquatable<TelemetryPipelinesTelemetryPipelineStatus>
     {

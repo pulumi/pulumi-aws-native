@@ -166,7 +166,7 @@ def get_gateway_target(gateway_identifier: Optional[_builtins.str] = None,
                        target_id: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayTargetResult:
     """
-    Definition of AWS::BedrockAgentCore::GatewayTarget Resource Type
+    Resource Type definition for AWS::BedrockAgentCore::GatewayTarget
 
 
     :param _builtins.str gateway_identifier: The gateway ID for the gateway target.
@@ -194,7 +194,7 @@ def get_gateway_target_output(gateway_identifier: Optional[pulumi.Input[_builtin
                               target_id: Optional[pulumi.Input[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayTargetResult]:
     """
-    Definition of AWS::BedrockAgentCore::GatewayTarget Resource Type
+    Resource Type definition for AWS::BedrockAgentCore::GatewayTarget
 
 
     :param _builtins.str gateway_identifier: The gateway ID for the gateway target.

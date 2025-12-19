@@ -10,10 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
+    /// <summary>
+    /// Configuration that specifies the target for an evaluation form.
+    /// </summary>
     public sealed class EvaluationFormTargetConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The interaction type of a contact
+        /// The contact interaction type for this evaluation form.
         /// </summary>
         [Input("contactInteractionType", required: true)]
         public Input<Pulumi.AwsNative.Connect.EvaluationFormTargetConfigurationContactInteractionType> ContactInteractionType { get; set; } = null!;

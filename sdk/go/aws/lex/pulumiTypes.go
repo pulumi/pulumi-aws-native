@@ -1068,107 +1068,6 @@ type BotAliasTag struct {
 	Value string `pulumi:"value"`
 }
 
-// BotAliasTagInput is an input type that accepts BotAliasTagArgs and BotAliasTagOutput values.
-// You can construct a concrete instance of `BotAliasTagInput` via:
-//
-//	BotAliasTagArgs{...}
-type BotAliasTagInput interface {
-	pulumi.Input
-
-	ToBotAliasTagOutput() BotAliasTagOutput
-	ToBotAliasTagOutputWithContext(context.Context) BotAliasTagOutput
-}
-
-// A label for tagging Lex resources
-type BotAliasTagArgs struct {
-	// A string used to identify this tag
-	Key pulumi.StringInput `pulumi:"key"`
-	// A string containing the value for the tag
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (BotAliasTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotAliasTag)(nil)).Elem()
-}
-
-func (i BotAliasTagArgs) ToBotAliasTagOutput() BotAliasTagOutput {
-	return i.ToBotAliasTagOutputWithContext(context.Background())
-}
-
-func (i BotAliasTagArgs) ToBotAliasTagOutputWithContext(ctx context.Context) BotAliasTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotAliasTagOutput)
-}
-
-// BotAliasTagArrayInput is an input type that accepts BotAliasTagArray and BotAliasTagArrayOutput values.
-// You can construct a concrete instance of `BotAliasTagArrayInput` via:
-//
-//	BotAliasTagArray{ BotAliasTagArgs{...} }
-type BotAliasTagArrayInput interface {
-	pulumi.Input
-
-	ToBotAliasTagArrayOutput() BotAliasTagArrayOutput
-	ToBotAliasTagArrayOutputWithContext(context.Context) BotAliasTagArrayOutput
-}
-
-type BotAliasTagArray []BotAliasTagInput
-
-func (BotAliasTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BotAliasTag)(nil)).Elem()
-}
-
-func (i BotAliasTagArray) ToBotAliasTagArrayOutput() BotAliasTagArrayOutput {
-	return i.ToBotAliasTagArrayOutputWithContext(context.Background())
-}
-
-func (i BotAliasTagArray) ToBotAliasTagArrayOutputWithContext(ctx context.Context) BotAliasTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotAliasTagArrayOutput)
-}
-
-// A label for tagging Lex resources
-type BotAliasTagOutput struct{ *pulumi.OutputState }
-
-func (BotAliasTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotAliasTag)(nil)).Elem()
-}
-
-func (o BotAliasTagOutput) ToBotAliasTagOutput() BotAliasTagOutput {
-	return o
-}
-
-func (o BotAliasTagOutput) ToBotAliasTagOutputWithContext(ctx context.Context) BotAliasTagOutput {
-	return o
-}
-
-// A string used to identify this tag
-func (o BotAliasTagOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v BotAliasTag) string { return v.Key }).(pulumi.StringOutput)
-}
-
-// A string containing the value for the tag
-func (o BotAliasTagOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v BotAliasTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type BotAliasTagArrayOutput struct{ *pulumi.OutputState }
-
-func (BotAliasTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BotAliasTag)(nil)).Elem()
-}
-
-func (o BotAliasTagArrayOutput) ToBotAliasTagArrayOutput() BotAliasTagArrayOutput {
-	return o
-}
-
-func (o BotAliasTagArrayOutput) ToBotAliasTagArrayOutputWithContext(ctx context.Context) BotAliasTagArrayOutput {
-	return o
-}
-
-func (o BotAliasTagArrayOutput) Index(i pulumi.IntInput) BotAliasTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotAliasTag {
-		return vs[0].([]BotAliasTag)[vs[1].(int)]
-	}).(BotAliasTagOutput)
-}
-
 // Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
 type BotAliasTextLogDestination struct {
 	CloudWatch BotAliasCloudWatchLogGroupLogDestination `pulumi:"cloudWatch"`
@@ -6622,7 +6521,9 @@ func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesPtrOutput) SlotResolutio
 }
 
 type BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties struct {
-	Enabled bool `pulumi:"enabled"`
+	AssistedNluMode              *BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode `pulumi:"assistedNluMode"`
+	Enabled                      bool                                                                                                  `pulumi:"enabled"`
+	IntentDisambiguationSettings *BotIntentDisambiguationSettings                                                                      `pulumi:"intentDisambiguationSettings"`
 }
 
 // BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesInput is an input type that accepts BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs and BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput values.
@@ -6637,7 +6538,9 @@ type BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecification
 }
 
 type BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs struct {
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	AssistedNluMode              BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrInput `pulumi:"assistedNluMode"`
+	Enabled                      pulumi.BoolInput                                                                                             `pulumi:"enabled"`
+	IntentDisambiguationSettings BotIntentDisambiguationSettingsPtrInput                                                                      `pulumi:"intentDisambiguationSettings"`
 }
 
 func (BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs) ElementType() reflect.Type {
@@ -6717,10 +6620,22 @@ func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificat
 	}).(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput)
 }
 
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput) AssistedNluMode() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput {
+	return o.ApplyT(func(v BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties) *BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode {
+		return v.AssistedNluMode
+	}).(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput)
+}
+
 func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties) bool {
 		return v.Enabled
 	}).(pulumi.BoolOutput)
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput) IntentDisambiguationSettings() BotIntentDisambiguationSettingsPtrOutput {
+	return o.ApplyT(func(v BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties) *BotIntentDisambiguationSettings {
+		return v.IntentDisambiguationSettings
+	}).(BotIntentDisambiguationSettingsPtrOutput)
 }
 
 type BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -6747,6 +6662,15 @@ func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificat
 	}).(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesOutput)
 }
 
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput) AssistedNluMode() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties) *BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode {
+		if v == nil {
+			return nil
+		}
+		return v.AssistedNluMode
+	}).(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput)
+}
+
 func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties) *bool {
 		if v == nil {
@@ -6754,6 +6678,15 @@ func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificat
 		}
 		return &v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesPtrOutput) IntentDisambiguationSettings() BotIntentDisambiguationSettingsPtrOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties) *BotIntentDisambiguationSettings {
+		if v == nil {
+			return nil
+		}
+		return v.IntentDisambiguationSettings
+	}).(BotIntentDisambiguationSettingsPtrOutput)
 }
 
 type BotGenerativeAiSettingsRuntimeSettingsPropertiesSlotResolutionImprovementSpecificationProperties struct {
@@ -7688,10 +7621,11 @@ func (o BotInputContextArrayOutput) Index(i pulumi.IntInput) BotInputContextOutp
 
 type BotIntent struct {
 	BedrockAgentIntentConfiguration *BotBedrockAgentIntentConfiguration `pulumi:"bedrockAgentIntentConfiguration"`
-	// Description of thr intent.
+	// Resource Type definition for the intent.
 	Description *string `pulumi:"description"`
 	// Specifies that Amazon Lex invokes the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction.
 	DialogCodeHook *BotDialogCodeHookSetting `pulumi:"dialogCodeHook"`
+	DisplayName    *string                   `pulumi:"displayName"`
 	// Specifies that Amazon Lex invokes the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user.
 	FulfillmentCodeHook *BotFulfillmentCodeHookSetting `pulumi:"fulfillmentCodeHook"`
 	// Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
@@ -7733,10 +7667,11 @@ type BotIntentInput interface {
 
 type BotIntentArgs struct {
 	BedrockAgentIntentConfiguration BotBedrockAgentIntentConfigurationPtrInput `pulumi:"bedrockAgentIntentConfiguration"`
-	// Description of thr intent.
+	// Resource Type definition for the intent.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Specifies that Amazon Lex invokes the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction.
 	DialogCodeHook BotDialogCodeHookSettingPtrInput `pulumi:"dialogCodeHook"`
+	DisplayName    pulumi.StringPtrInput            `pulumi:"displayName"`
 	// Specifies that Amazon Lex invokes the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user.
 	FulfillmentCodeHook BotFulfillmentCodeHookSettingPtrInput `pulumi:"fulfillmentCodeHook"`
 	// Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
@@ -7820,7 +7755,7 @@ func (o BotIntentOutput) BedrockAgentIntentConfiguration() BotBedrockAgentIntent
 	return o.ApplyT(func(v BotIntent) *BotBedrockAgentIntentConfiguration { return v.BedrockAgentIntentConfiguration }).(BotBedrockAgentIntentConfigurationPtrOutput)
 }
 
-// Description of thr intent.
+// Resource Type definition for the intent.
 func (o BotIntentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotIntent) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -7828,6 +7763,10 @@ func (o BotIntentOutput) Description() pulumi.StringPtrOutput {
 // Specifies that Amazon Lex invokes the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction.
 func (o BotIntentOutput) DialogCodeHook() BotDialogCodeHookSettingPtrOutput {
 	return o.ApplyT(func(v BotIntent) *BotDialogCodeHookSetting { return v.DialogCodeHook }).(BotDialogCodeHookSettingPtrOutput)
+}
+
+func (o BotIntentOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotIntent) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
 // Specifies that Amazon Lex invokes the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user.
@@ -8487,6 +8426,169 @@ func (o BotIntentConfirmationSettingPtrOutput) PromptSpecification() BotPromptSp
 	}).(BotPromptSpecificationPtrOutput)
 }
 
+type BotIntentDisambiguationSettings struct {
+	CustomDisambiguationMessage *string `pulumi:"customDisambiguationMessage"`
+	Enabled                     bool    `pulumi:"enabled"`
+	MaxDisambiguationIntents    *int    `pulumi:"maxDisambiguationIntents"`
+}
+
+// BotIntentDisambiguationSettingsInput is an input type that accepts BotIntentDisambiguationSettingsArgs and BotIntentDisambiguationSettingsOutput values.
+// You can construct a concrete instance of `BotIntentDisambiguationSettingsInput` via:
+//
+//	BotIntentDisambiguationSettingsArgs{...}
+type BotIntentDisambiguationSettingsInput interface {
+	pulumi.Input
+
+	ToBotIntentDisambiguationSettingsOutput() BotIntentDisambiguationSettingsOutput
+	ToBotIntentDisambiguationSettingsOutputWithContext(context.Context) BotIntentDisambiguationSettingsOutput
+}
+
+type BotIntentDisambiguationSettingsArgs struct {
+	CustomDisambiguationMessage pulumi.StringPtrInput `pulumi:"customDisambiguationMessage"`
+	Enabled                     pulumi.BoolInput      `pulumi:"enabled"`
+	MaxDisambiguationIntents    pulumi.IntPtrInput    `pulumi:"maxDisambiguationIntents"`
+}
+
+func (BotIntentDisambiguationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotIntentDisambiguationSettings)(nil)).Elem()
+}
+
+func (i BotIntentDisambiguationSettingsArgs) ToBotIntentDisambiguationSettingsOutput() BotIntentDisambiguationSettingsOutput {
+	return i.ToBotIntentDisambiguationSettingsOutputWithContext(context.Background())
+}
+
+func (i BotIntentDisambiguationSettingsArgs) ToBotIntentDisambiguationSettingsOutputWithContext(ctx context.Context) BotIntentDisambiguationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotIntentDisambiguationSettingsOutput)
+}
+
+func (i BotIntentDisambiguationSettingsArgs) ToBotIntentDisambiguationSettingsPtrOutput() BotIntentDisambiguationSettingsPtrOutput {
+	return i.ToBotIntentDisambiguationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i BotIntentDisambiguationSettingsArgs) ToBotIntentDisambiguationSettingsPtrOutputWithContext(ctx context.Context) BotIntentDisambiguationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotIntentDisambiguationSettingsOutput).ToBotIntentDisambiguationSettingsPtrOutputWithContext(ctx)
+}
+
+// BotIntentDisambiguationSettingsPtrInput is an input type that accepts BotIntentDisambiguationSettingsArgs, BotIntentDisambiguationSettingsPtr and BotIntentDisambiguationSettingsPtrOutput values.
+// You can construct a concrete instance of `BotIntentDisambiguationSettingsPtrInput` via:
+//
+//	        BotIntentDisambiguationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotIntentDisambiguationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToBotIntentDisambiguationSettingsPtrOutput() BotIntentDisambiguationSettingsPtrOutput
+	ToBotIntentDisambiguationSettingsPtrOutputWithContext(context.Context) BotIntentDisambiguationSettingsPtrOutput
+}
+
+type botIntentDisambiguationSettingsPtrType BotIntentDisambiguationSettingsArgs
+
+func BotIntentDisambiguationSettingsPtr(v *BotIntentDisambiguationSettingsArgs) BotIntentDisambiguationSettingsPtrInput {
+	return (*botIntentDisambiguationSettingsPtrType)(v)
+}
+
+func (*botIntentDisambiguationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotIntentDisambiguationSettings)(nil)).Elem()
+}
+
+func (i *botIntentDisambiguationSettingsPtrType) ToBotIntentDisambiguationSettingsPtrOutput() BotIntentDisambiguationSettingsPtrOutput {
+	return i.ToBotIntentDisambiguationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *botIntentDisambiguationSettingsPtrType) ToBotIntentDisambiguationSettingsPtrOutputWithContext(ctx context.Context) BotIntentDisambiguationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotIntentDisambiguationSettingsPtrOutput)
+}
+
+type BotIntentDisambiguationSettingsOutput struct{ *pulumi.OutputState }
+
+func (BotIntentDisambiguationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotIntentDisambiguationSettings)(nil)).Elem()
+}
+
+func (o BotIntentDisambiguationSettingsOutput) ToBotIntentDisambiguationSettingsOutput() BotIntentDisambiguationSettingsOutput {
+	return o
+}
+
+func (o BotIntentDisambiguationSettingsOutput) ToBotIntentDisambiguationSettingsOutputWithContext(ctx context.Context) BotIntentDisambiguationSettingsOutput {
+	return o
+}
+
+func (o BotIntentDisambiguationSettingsOutput) ToBotIntentDisambiguationSettingsPtrOutput() BotIntentDisambiguationSettingsPtrOutput {
+	return o.ToBotIntentDisambiguationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o BotIntentDisambiguationSettingsOutput) ToBotIntentDisambiguationSettingsPtrOutputWithContext(ctx context.Context) BotIntentDisambiguationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotIntentDisambiguationSettings) *BotIntentDisambiguationSettings {
+		return &v
+	}).(BotIntentDisambiguationSettingsPtrOutput)
+}
+
+func (o BotIntentDisambiguationSettingsOutput) CustomDisambiguationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotIntentDisambiguationSettings) *string { return v.CustomDisambiguationMessage }).(pulumi.StringPtrOutput)
+}
+
+func (o BotIntentDisambiguationSettingsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v BotIntentDisambiguationSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o BotIntentDisambiguationSettingsOutput) MaxDisambiguationIntents() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BotIntentDisambiguationSettings) *int { return v.MaxDisambiguationIntents }).(pulumi.IntPtrOutput)
+}
+
+type BotIntentDisambiguationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (BotIntentDisambiguationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotIntentDisambiguationSettings)(nil)).Elem()
+}
+
+func (o BotIntentDisambiguationSettingsPtrOutput) ToBotIntentDisambiguationSettingsPtrOutput() BotIntentDisambiguationSettingsPtrOutput {
+	return o
+}
+
+func (o BotIntentDisambiguationSettingsPtrOutput) ToBotIntentDisambiguationSettingsPtrOutputWithContext(ctx context.Context) BotIntentDisambiguationSettingsPtrOutput {
+	return o
+}
+
+func (o BotIntentDisambiguationSettingsPtrOutput) Elem() BotIntentDisambiguationSettingsOutput {
+	return o.ApplyT(func(v *BotIntentDisambiguationSettings) BotIntentDisambiguationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret BotIntentDisambiguationSettings
+		return ret
+	}).(BotIntentDisambiguationSettingsOutput)
+}
+
+func (o BotIntentDisambiguationSettingsPtrOutput) CustomDisambiguationMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotIntentDisambiguationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomDisambiguationMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BotIntentDisambiguationSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BotIntentDisambiguationSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o BotIntentDisambiguationSettingsPtrOutput) MaxDisambiguationIntents() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BotIntentDisambiguationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxDisambiguationIntents
+	}).(pulumi.IntPtrOutput)
+}
+
 type BotIntentOverride struct {
 	// The name of the intent. Only required when you're switching intents.
 	Name *string `pulumi:"name"`
@@ -8836,7 +8938,9 @@ type BotLocale struct {
 	// Determines the threshold where Amazon Lex will insert the `AMAZON.FallbackIntent` , `AMAZON.KendraSearchIntent` , or both when returning alternative intents. You must configure an `AMAZON.FallbackIntent` . `AMAZON.KendraSearchIntent` is only inserted if it is configured for the bot.
 	NluConfidenceThreshold float64 `pulumi:"nluConfidenceThreshold"`
 	// One or more slot types defined for the locale.
-	SlotTypes []BotSlotType `pulumi:"slotTypes"`
+	SlotTypes                  []BotSlotType                  `pulumi:"slotTypes"`
+	SpeechDetectionSensitivity *BotSpeechDetectionSensitivity `pulumi:"speechDetectionSensitivity"`
+	UnifiedSpeechSettings      *BotUnifiedSpeechSettings      `pulumi:"unifiedSpeechSettings"`
 	// Defines settings for using an Amazon Polly voice to communicate with a user.
 	//
 	// Valid values include:
@@ -8872,7 +8976,9 @@ type BotLocaleArgs struct {
 	// Determines the threshold where Amazon Lex will insert the `AMAZON.FallbackIntent` , `AMAZON.KendraSearchIntent` , or both when returning alternative intents. You must configure an `AMAZON.FallbackIntent` . `AMAZON.KendraSearchIntent` is only inserted if it is configured for the bot.
 	NluConfidenceThreshold pulumi.Float64Input `pulumi:"nluConfidenceThreshold"`
 	// One or more slot types defined for the locale.
-	SlotTypes BotSlotTypeArrayInput `pulumi:"slotTypes"`
+	SlotTypes                  BotSlotTypeArrayInput                 `pulumi:"slotTypes"`
+	SpeechDetectionSensitivity BotSpeechDetectionSensitivityPtrInput `pulumi:"speechDetectionSensitivity"`
+	UnifiedSpeechSettings      BotUnifiedSpeechSettingsPtrInput      `pulumi:"unifiedSpeechSettings"`
 	// Defines settings for using an Amazon Polly voice to communicate with a user.
 	//
 	// Valid values include:
@@ -8967,6 +9073,14 @@ func (o BotLocaleOutput) NluConfidenceThreshold() pulumi.Float64Output {
 // One or more slot types defined for the locale.
 func (o BotLocaleOutput) SlotTypes() BotSlotTypeArrayOutput {
 	return o.ApplyT(func(v BotLocale) []BotSlotType { return v.SlotTypes }).(BotSlotTypeArrayOutput)
+}
+
+func (o BotLocaleOutput) SpeechDetectionSensitivity() BotSpeechDetectionSensitivityPtrOutput {
+	return o.ApplyT(func(v BotLocale) *BotSpeechDetectionSensitivity { return v.SpeechDetectionSensitivity }).(BotSpeechDetectionSensitivityPtrOutput)
+}
+
+func (o BotLocaleOutput) UnifiedSpeechSettings() BotUnifiedSpeechSettingsPtrOutput {
+	return o.ApplyT(func(v BotLocale) *BotUnifiedSpeechSettings { return v.UnifiedSpeechSettings }).(BotUnifiedSpeechSettingsPtrOutput)
 }
 
 // Defines settings for using an Amazon Polly voice to communicate with a user.
@@ -14924,7 +15038,8 @@ func (o BotSlotValueSelectionSettingPtrOutput) ResolutionStrategy() BotSlotValue
 }
 
 type BotSpecifications struct {
-	SlotTypeId              string                            `pulumi:"slotTypeId"`
+	SlotTypeId              *string                           `pulumi:"slotTypeId"`
+	SlotTypeName            *string                           `pulumi:"slotTypeName"`
 	ValueElicitationSetting BotSubSlotValueElicitationSetting `pulumi:"valueElicitationSetting"`
 }
 
@@ -14940,7 +15055,8 @@ type BotSpecificationsInput interface {
 }
 
 type BotSpecificationsArgs struct {
-	SlotTypeId              pulumi.StringInput                     `pulumi:"slotTypeId"`
+	SlotTypeId              pulumi.StringPtrInput                  `pulumi:"slotTypeId"`
+	SlotTypeName            pulumi.StringPtrInput                  `pulumi:"slotTypeName"`
 	ValueElicitationSetting BotSubSlotValueElicitationSettingInput `pulumi:"valueElicitationSetting"`
 }
 
@@ -14995,8 +15111,12 @@ func (o BotSpecificationsOutput) ToBotSpecificationsOutputWithContext(ctx contex
 	return o
 }
 
-func (o BotSpecificationsOutput) SlotTypeId() pulumi.StringOutput {
-	return o.ApplyT(func(v BotSpecifications) string { return v.SlotTypeId }).(pulumi.StringOutput)
+func (o BotSpecificationsOutput) SlotTypeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotSpecifications) *string { return v.SlotTypeId }).(pulumi.StringPtrOutput)
+}
+
+func (o BotSpecificationsOutput) SlotTypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotSpecifications) *string { return v.SlotTypeName }).(pulumi.StringPtrOutput)
 }
 
 func (o BotSpecificationsOutput) ValueElicitationSetting() BotSubSlotValueElicitationSettingOutput {
@@ -15510,7 +15630,8 @@ type BotSubSlotTypeComposition struct {
 	// Name of a constituent sub slot inside a composite slot.
 	Name string `pulumi:"name"`
 	// The unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
-	SlotTypeId string `pulumi:"slotTypeId"`
+	SlotTypeId   *string `pulumi:"slotTypeId"`
+	SlotTypeName *string `pulumi:"slotTypeName"`
 }
 
 // BotSubSlotTypeCompositionInput is an input type that accepts BotSubSlotTypeCompositionArgs and BotSubSlotTypeCompositionOutput values.
@@ -15528,7 +15649,8 @@ type BotSubSlotTypeCompositionArgs struct {
 	// Name of a constituent sub slot inside a composite slot.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
-	SlotTypeId pulumi.StringInput `pulumi:"slotTypeId"`
+	SlotTypeId   pulumi.StringPtrInput `pulumi:"slotTypeId"`
+	SlotTypeName pulumi.StringPtrInput `pulumi:"slotTypeName"`
 }
 
 func (BotSubSlotTypeCompositionArgs) ElementType() reflect.Type {
@@ -15588,8 +15710,12 @@ func (o BotSubSlotTypeCompositionOutput) Name() pulumi.StringOutput {
 }
 
 // The unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
-func (o BotSubSlotTypeCompositionOutput) SlotTypeId() pulumi.StringOutput {
-	return o.ApplyT(func(v BotSubSlotTypeComposition) string { return v.SlotTypeId }).(pulumi.StringOutput)
+func (o BotSubSlotTypeCompositionOutput) SlotTypeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotSubSlotTypeComposition) *string { return v.SlotTypeId }).(pulumi.StringPtrOutput)
+}
+
+func (o BotSubSlotTypeCompositionOutput) SlotTypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotSubSlotTypeComposition) *string { return v.SlotTypeName }).(pulumi.StringPtrOutput)
 }
 
 type BotSubSlotTypeCompositionArrayOutput struct{ *pulumi.OutputState }
@@ -16395,6 +16521,289 @@ func (o BotTextLogSettingArrayOutput) Index(i pulumi.IntInput) BotTextLogSetting
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotTextLogSetting {
 		return vs[0].([]BotTextLogSetting)[vs[1].(int)]
 	}).(BotTextLogSettingOutput)
+}
+
+type BotUnifiedSpeechSettings struct {
+	SpeechFoundationModel BotUnifiedSpeechSettingsSpeechFoundationModelProperties `pulumi:"speechFoundationModel"`
+}
+
+// BotUnifiedSpeechSettingsInput is an input type that accepts BotUnifiedSpeechSettingsArgs and BotUnifiedSpeechSettingsOutput values.
+// You can construct a concrete instance of `BotUnifiedSpeechSettingsInput` via:
+//
+//	BotUnifiedSpeechSettingsArgs{...}
+type BotUnifiedSpeechSettingsInput interface {
+	pulumi.Input
+
+	ToBotUnifiedSpeechSettingsOutput() BotUnifiedSpeechSettingsOutput
+	ToBotUnifiedSpeechSettingsOutputWithContext(context.Context) BotUnifiedSpeechSettingsOutput
+}
+
+type BotUnifiedSpeechSettingsArgs struct {
+	SpeechFoundationModel BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesInput `pulumi:"speechFoundationModel"`
+}
+
+func (BotUnifiedSpeechSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotUnifiedSpeechSettings)(nil)).Elem()
+}
+
+func (i BotUnifiedSpeechSettingsArgs) ToBotUnifiedSpeechSettingsOutput() BotUnifiedSpeechSettingsOutput {
+	return i.ToBotUnifiedSpeechSettingsOutputWithContext(context.Background())
+}
+
+func (i BotUnifiedSpeechSettingsArgs) ToBotUnifiedSpeechSettingsOutputWithContext(ctx context.Context) BotUnifiedSpeechSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotUnifiedSpeechSettingsOutput)
+}
+
+func (i BotUnifiedSpeechSettingsArgs) ToBotUnifiedSpeechSettingsPtrOutput() BotUnifiedSpeechSettingsPtrOutput {
+	return i.ToBotUnifiedSpeechSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i BotUnifiedSpeechSettingsArgs) ToBotUnifiedSpeechSettingsPtrOutputWithContext(ctx context.Context) BotUnifiedSpeechSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotUnifiedSpeechSettingsOutput).ToBotUnifiedSpeechSettingsPtrOutputWithContext(ctx)
+}
+
+// BotUnifiedSpeechSettingsPtrInput is an input type that accepts BotUnifiedSpeechSettingsArgs, BotUnifiedSpeechSettingsPtr and BotUnifiedSpeechSettingsPtrOutput values.
+// You can construct a concrete instance of `BotUnifiedSpeechSettingsPtrInput` via:
+//
+//	        BotUnifiedSpeechSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotUnifiedSpeechSettingsPtrInput interface {
+	pulumi.Input
+
+	ToBotUnifiedSpeechSettingsPtrOutput() BotUnifiedSpeechSettingsPtrOutput
+	ToBotUnifiedSpeechSettingsPtrOutputWithContext(context.Context) BotUnifiedSpeechSettingsPtrOutput
+}
+
+type botUnifiedSpeechSettingsPtrType BotUnifiedSpeechSettingsArgs
+
+func BotUnifiedSpeechSettingsPtr(v *BotUnifiedSpeechSettingsArgs) BotUnifiedSpeechSettingsPtrInput {
+	return (*botUnifiedSpeechSettingsPtrType)(v)
+}
+
+func (*botUnifiedSpeechSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotUnifiedSpeechSettings)(nil)).Elem()
+}
+
+func (i *botUnifiedSpeechSettingsPtrType) ToBotUnifiedSpeechSettingsPtrOutput() BotUnifiedSpeechSettingsPtrOutput {
+	return i.ToBotUnifiedSpeechSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *botUnifiedSpeechSettingsPtrType) ToBotUnifiedSpeechSettingsPtrOutputWithContext(ctx context.Context) BotUnifiedSpeechSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotUnifiedSpeechSettingsPtrOutput)
+}
+
+type BotUnifiedSpeechSettingsOutput struct{ *pulumi.OutputState }
+
+func (BotUnifiedSpeechSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotUnifiedSpeechSettings)(nil)).Elem()
+}
+
+func (o BotUnifiedSpeechSettingsOutput) ToBotUnifiedSpeechSettingsOutput() BotUnifiedSpeechSettingsOutput {
+	return o
+}
+
+func (o BotUnifiedSpeechSettingsOutput) ToBotUnifiedSpeechSettingsOutputWithContext(ctx context.Context) BotUnifiedSpeechSettingsOutput {
+	return o
+}
+
+func (o BotUnifiedSpeechSettingsOutput) ToBotUnifiedSpeechSettingsPtrOutput() BotUnifiedSpeechSettingsPtrOutput {
+	return o.ToBotUnifiedSpeechSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o BotUnifiedSpeechSettingsOutput) ToBotUnifiedSpeechSettingsPtrOutputWithContext(ctx context.Context) BotUnifiedSpeechSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotUnifiedSpeechSettings) *BotUnifiedSpeechSettings {
+		return &v
+	}).(BotUnifiedSpeechSettingsPtrOutput)
+}
+
+func (o BotUnifiedSpeechSettingsOutput) SpeechFoundationModel() BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput {
+	return o.ApplyT(func(v BotUnifiedSpeechSettings) BotUnifiedSpeechSettingsSpeechFoundationModelProperties {
+		return v.SpeechFoundationModel
+	}).(BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput)
+}
+
+type BotUnifiedSpeechSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (BotUnifiedSpeechSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotUnifiedSpeechSettings)(nil)).Elem()
+}
+
+func (o BotUnifiedSpeechSettingsPtrOutput) ToBotUnifiedSpeechSettingsPtrOutput() BotUnifiedSpeechSettingsPtrOutput {
+	return o
+}
+
+func (o BotUnifiedSpeechSettingsPtrOutput) ToBotUnifiedSpeechSettingsPtrOutputWithContext(ctx context.Context) BotUnifiedSpeechSettingsPtrOutput {
+	return o
+}
+
+func (o BotUnifiedSpeechSettingsPtrOutput) Elem() BotUnifiedSpeechSettingsOutput {
+	return o.ApplyT(func(v *BotUnifiedSpeechSettings) BotUnifiedSpeechSettings {
+		if v != nil {
+			return *v
+		}
+		var ret BotUnifiedSpeechSettings
+		return ret
+	}).(BotUnifiedSpeechSettingsOutput)
+}
+
+func (o BotUnifiedSpeechSettingsPtrOutput) SpeechFoundationModel() BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput {
+	return o.ApplyT(func(v *BotUnifiedSpeechSettings) *BotUnifiedSpeechSettingsSpeechFoundationModelProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.SpeechFoundationModel
+	}).(BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput)
+}
+
+type BotUnifiedSpeechSettingsSpeechFoundationModelProperties struct {
+	ModelArn string  `pulumi:"modelArn"`
+	VoiceId  *string `pulumi:"voiceId"`
+}
+
+// BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesInput is an input type that accepts BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgs and BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput values.
+// You can construct a concrete instance of `BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesInput` via:
+//
+//	BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgs{...}
+type BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesInput interface {
+	pulumi.Input
+
+	ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput() BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput
+	ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutputWithContext(context.Context) BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput
+}
+
+type BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgs struct {
+	ModelArn pulumi.StringInput    `pulumi:"modelArn"`
+	VoiceId  pulumi.StringPtrInput `pulumi:"voiceId"`
+}
+
+func (BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotUnifiedSpeechSettingsSpeechFoundationModelProperties)(nil)).Elem()
+}
+
+func (i BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgs) ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput() BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput {
+	return i.ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutputWithContext(context.Background())
+}
+
+func (i BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgs) ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutputWithContext(ctx context.Context) BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput)
+}
+
+func (i BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgs) ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput() BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput {
+	return i.ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgs) ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutputWithContext(ctx context.Context) BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput).ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutputWithContext(ctx)
+}
+
+// BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrInput is an input type that accepts BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgs, BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtr and BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput values.
+// You can construct a concrete instance of `BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrInput` via:
+//
+//	        BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput() BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput
+	ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutputWithContext(context.Context) BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput
+}
+
+type botUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrType BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgs
+
+func BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtr(v *BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgs) BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrInput {
+	return (*botUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrType)(v)
+}
+
+func (*botUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotUnifiedSpeechSettingsSpeechFoundationModelProperties)(nil)).Elem()
+}
+
+func (i *botUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrType) ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput() BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput {
+	return i.ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *botUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrType) ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutputWithContext(ctx context.Context) BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput)
+}
+
+type BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput struct{ *pulumi.OutputState }
+
+func (BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotUnifiedSpeechSettingsSpeechFoundationModelProperties)(nil)).Elem()
+}
+
+func (o BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput) ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput() BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput {
+	return o
+}
+
+func (o BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput) ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutputWithContext(ctx context.Context) BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput {
+	return o
+}
+
+func (o BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput) ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput() BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput {
+	return o.ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput) ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutputWithContext(ctx context.Context) BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotUnifiedSpeechSettingsSpeechFoundationModelProperties) *BotUnifiedSpeechSettingsSpeechFoundationModelProperties {
+		return &v
+	}).(BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput)
+}
+
+func (o BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput) ModelArn() pulumi.StringOutput {
+	return o.ApplyT(func(v BotUnifiedSpeechSettingsSpeechFoundationModelProperties) string { return v.ModelArn }).(pulumi.StringOutput)
+}
+
+func (o BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput) VoiceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotUnifiedSpeechSettingsSpeechFoundationModelProperties) *string { return v.VoiceId }).(pulumi.StringPtrOutput)
+}
+
+type BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotUnifiedSpeechSettingsSpeechFoundationModelProperties)(nil)).Elem()
+}
+
+func (o BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput) ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput() BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput {
+	return o
+}
+
+func (o BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput) ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutputWithContext(ctx context.Context) BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput {
+	return o
+}
+
+func (o BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput) Elem() BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput {
+	return o.ApplyT(func(v *BotUnifiedSpeechSettingsSpeechFoundationModelProperties) BotUnifiedSpeechSettingsSpeechFoundationModelProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BotUnifiedSpeechSettingsSpeechFoundationModelProperties
+		return ret
+	}).(BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput)
+}
+
+func (o BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput) ModelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotUnifiedSpeechSettingsSpeechFoundationModelProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput) VoiceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotUnifiedSpeechSettingsSpeechFoundationModelProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VoiceId
+	}).(pulumi.StringPtrOutput)
 }
 
 // The version of a bot used for a bot locale.
@@ -17358,8 +17767,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasLocaleSettingsItemInput)(nil)).Elem(), BotAliasLocaleSettingsItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasLocaleSettingsItemArrayInput)(nil)).Elem(), BotAliasLocaleSettingsItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasS3BucketLogDestinationInput)(nil)).Elem(), BotAliasS3BucketLogDestinationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasTagInput)(nil)).Elem(), BotAliasTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasTagArrayInput)(nil)).Elem(), BotAliasTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasTextLogDestinationInput)(nil)).Elem(), BotAliasTextLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasTextLogSettingInput)(nil)).Elem(), BotAliasTextLogSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasTextLogSettingArrayInput)(nil)).Elem(), BotAliasTextLogSettingArray{})
@@ -17453,6 +17860,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotIntentClosingSettingPtrInput)(nil)).Elem(), BotIntentClosingSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotIntentConfirmationSettingInput)(nil)).Elem(), BotIntentConfirmationSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotIntentConfirmationSettingPtrInput)(nil)).Elem(), BotIntentConfirmationSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotIntentDisambiguationSettingsInput)(nil)).Elem(), BotIntentDisambiguationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotIntentDisambiguationSettingsPtrInput)(nil)).Elem(), BotIntentDisambiguationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotIntentOverrideInput)(nil)).Elem(), BotIntentOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotIntentOverridePtrInput)(nil)).Elem(), BotIntentOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotKendraConfigurationInput)(nil)).Elem(), BotKendraConfigurationArgs{})
@@ -17558,6 +17967,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotTextLogDestinationInput)(nil)).Elem(), BotTextLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotTextLogSettingInput)(nil)).Elem(), BotTextLogSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotTextLogSettingArrayInput)(nil)).Elem(), BotTextLogSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotUnifiedSpeechSettingsInput)(nil)).Elem(), BotUnifiedSpeechSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotUnifiedSpeechSettingsPtrInput)(nil)).Elem(), BotUnifiedSpeechSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesInput)(nil)).Elem(), BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrInput)(nil)).Elem(), BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotVersionLocaleDetailsInput)(nil)).Elem(), BotVersionLocaleDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotVersionLocaleSpecificationInput)(nil)).Elem(), BotVersionLocaleSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotVersionLocaleSpecificationArrayInput)(nil)).Elem(), BotVersionLocaleSpecificationArray{})
@@ -17587,8 +18000,6 @@ func init() {
 	pulumi.RegisterOutputType(BotAliasLocaleSettingsItemOutput{})
 	pulumi.RegisterOutputType(BotAliasLocaleSettingsItemArrayOutput{})
 	pulumi.RegisterOutputType(BotAliasS3BucketLogDestinationOutput{})
-	pulumi.RegisterOutputType(BotAliasTagOutput{})
-	pulumi.RegisterOutputType(BotAliasTagArrayOutput{})
 	pulumi.RegisterOutputType(BotAliasTextLogDestinationOutput{})
 	pulumi.RegisterOutputType(BotAliasTextLogSettingOutput{})
 	pulumi.RegisterOutputType(BotAliasTextLogSettingArrayOutput{})
@@ -17682,6 +18093,8 @@ func init() {
 	pulumi.RegisterOutputType(BotIntentClosingSettingPtrOutput{})
 	pulumi.RegisterOutputType(BotIntentConfirmationSettingOutput{})
 	pulumi.RegisterOutputType(BotIntentConfirmationSettingPtrOutput{})
+	pulumi.RegisterOutputType(BotIntentDisambiguationSettingsOutput{})
+	pulumi.RegisterOutputType(BotIntentDisambiguationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BotIntentOverrideOutput{})
 	pulumi.RegisterOutputType(BotIntentOverridePtrOutput{})
 	pulumi.RegisterOutputType(BotKendraConfigurationOutput{})
@@ -17787,6 +18200,10 @@ func init() {
 	pulumi.RegisterOutputType(BotTextLogDestinationOutput{})
 	pulumi.RegisterOutputType(BotTextLogSettingOutput{})
 	pulumi.RegisterOutputType(BotTextLogSettingArrayOutput{})
+	pulumi.RegisterOutputType(BotUnifiedSpeechSettingsOutput{})
+	pulumi.RegisterOutputType(BotUnifiedSpeechSettingsPtrOutput{})
+	pulumi.RegisterOutputType(BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput{})
+	pulumi.RegisterOutputType(BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(BotVersionLocaleDetailsOutput{})
 	pulumi.RegisterOutputType(BotVersionLocaleSpecificationOutput{})
 	pulumi.RegisterOutputType(BotVersionLocaleSpecificationArrayOutput{})

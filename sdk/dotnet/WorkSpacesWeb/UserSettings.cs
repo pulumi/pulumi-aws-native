@@ -111,6 +111,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         [Output("userSettingsArn")]
         public Output<string> UserSettingsArn { get; private set; } = null!;
 
+        [Output("webAuthnAllowed")]
+        public Output<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType?> WebAuthnAllowed { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a UserSettings resource with the given unique name, arguments, and options.
@@ -251,6 +254,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         [Input("uploadAllowed", required: true)]
         public Input<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType> UploadAllowed { get; set; } = null!;
+
+        [Input("webAuthnAllowed")]
+        public Input<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType>? WebAuthnAllowed { get; set; }
 
         public UserSettingsArgs()
         {

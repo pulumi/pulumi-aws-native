@@ -314,6 +314,9 @@
     },
     "DeepLinkAllowed" : {
       "$ref" : "#/definitions/EnabledType"
+    },
+    "WebAuthnAllowed" : {
+      "$ref" : "#/definitions/EnabledType"
     }
   },
   "required" : [ "CopyAllowed", "DownloadAllowed", "PasteAllowed", "PrintAllowed", "UploadAllowed" ],

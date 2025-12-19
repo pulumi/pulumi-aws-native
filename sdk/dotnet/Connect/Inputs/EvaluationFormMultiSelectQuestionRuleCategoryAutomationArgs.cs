@@ -10,16 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
+    /// <summary>
+    /// Automation rule for multi-select questions based on rule categories.
+    /// </summary>
     public sealed class EvaluationFormMultiSelectQuestionRuleCategoryAutomationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The category name as defined in Rules.
+        /// The category name for this automation rule.
         /// </summary>
         [Input("category", required: true)]
         public Input<string> Category { get; set; } = null!;
 
         /// <summary>
-        /// The automation condition applied on contact categories.
+        /// The condition for this automation rule.
         /// </summary>
         [Input("condition", required: true)]
         public Input<Pulumi.AwsNative.Connect.EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition> Condition { get; set; } = null!;
@@ -28,7 +31,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
         private InputList<string>? _optionRefIds;
 
         /// <summary>
-        /// The option identifiers referencing the options to be selected when the automation option is triggered.
+        /// Reference IDs of options for this automation rule.
         /// </summary>
         public InputList<string> OptionRefIds
         {

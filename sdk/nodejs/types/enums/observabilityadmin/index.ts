@@ -131,6 +131,16 @@ export const OrganizationTelemetryRuleWafLogType = {
  */
 export type OrganizationTelemetryRuleWafLogType = (typeof OrganizationTelemetryRuleWafLogType)[keyof typeof OrganizationTelemetryRuleWafLogType];
 
+export const S3TableIntegrationEncryptionConfigSseAlgorithm = {
+    Aes256: "AES256",
+    Awskms: "aws:kms",
+} as const;
+
+/**
+ * The server-side encryption algorithm used to encrypt the S3 Table(s) data
+ */
+export type S3TableIntegrationEncryptionConfigSseAlgorithm = (typeof S3TableIntegrationEncryptionConfigSseAlgorithm)[keyof typeof S3TableIntegrationEncryptionConfigSseAlgorithm];
+
 export const TelemetryPipelinesTelemetryPipelineStatus = {
     Creating: "CREATING",
     Active: "ACTIVE",

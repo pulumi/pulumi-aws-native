@@ -44,7 +44,7 @@ type LookupDatasetResult struct {
 	Tags []aws.Tag `pulumi:"tags"`
 	// The `DatasetTrigger` objects that specify when the dataset is automatically updated.
 	Triggers []DatasetTrigger `pulumi:"triggers"`
-	// Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of AWS IoT Analytics datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *AWS IoT Analytics User Guide* .
+	// Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of ITA datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *ITA User Guide* .
 	VersioningConfiguration *DatasetVersioningConfiguration `pulumi:"versioningConfiguration"`
 }
 
@@ -116,7 +116,7 @@ func (o LookupDatasetResultOutput) Triggers() DatasetTriggerArrayOutput {
 	return o.ApplyT(func(v LookupDatasetResult) []DatasetTrigger { return v.Triggers }).(DatasetTriggerArrayOutput)
 }
 
-// Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of AWS IoT Analytics datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *AWS IoT Analytics User Guide* .
+// Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of ITA datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *ITA User Guide* .
 func (o LookupDatasetResultOutput) VersioningConfiguration() DatasetVersioningConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDatasetResult) *DatasetVersioningConfiguration { return v.VersioningConfiguration }).(DatasetVersioningConfigurationPtrOutput)
 }

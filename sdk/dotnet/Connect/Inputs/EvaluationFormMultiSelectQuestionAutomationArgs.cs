@@ -10,11 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
+    /// <summary>
+    /// Automation configuration for multi-select questions.
+    /// </summary>
     public sealed class EvaluationFormMultiSelectQuestionAutomationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The source of automation answer of the question.
-        /// </summary>
         [Input("answerSource")]
         public Input<Inputs.EvaluationFormQuestionAutomationAnswerSourceArgs>? AnswerSource { get; set; }
 
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
         private InputList<string>? _defaultOptionRefIds;
 
         /// <summary>
-        /// The option reference identifiers of the default answers.
+        /// Reference IDs of default options.
         /// </summary>
         public InputList<string> DefaultOptionRefIds
         {
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
         private InputList<Inputs.EvaluationFormMultiSelectQuestionAutomationOptionArgs>? _options;
 
         /// <summary>
-        /// The answer options for the automation.
+        /// Automation options for the multi-select question.
         /// </summary>
         public InputList<Inputs.EvaluationFormMultiSelectQuestionAutomationOptionArgs> Options
         {

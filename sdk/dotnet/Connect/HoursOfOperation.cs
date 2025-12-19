@@ -64,6 +64,12 @@ namespace Pulumi.AwsNative.Connect
     public partial class HoursOfOperation : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// List of child hours of operations.
+        /// </summary>
+        [Output("childHoursOfOperations")]
+        public Output<ImmutableArray<Outputs.HoursOfOperationsIdentifier>> ChildHoursOfOperations { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration information for the hours of operation: day, start time, and end time.
         /// </summary>
         [Output("config")]
@@ -98,6 +104,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// List of parent hours of operations.
+        /// </summary>
+        [Output("parentHoursOfOperations")]
+        public Output<ImmutableArray<Outputs.HoursOfOperationsIdentifier>> ParentHoursOfOperations { get; private set; } = null!;
 
         /// <summary>
         /// One or more tags.
@@ -156,6 +168,18 @@ namespace Pulumi.AwsNative.Connect
 
     public sealed class HoursOfOperationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("childHoursOfOperations")]
+        private InputList<Inputs.HoursOfOperationsIdentifierArgs>? _childHoursOfOperations;
+
+        /// <summary>
+        /// List of child hours of operations.
+        /// </summary>
+        public InputList<Inputs.HoursOfOperationsIdentifierArgs> ChildHoursOfOperations
+        {
+            get => _childHoursOfOperations ?? (_childHoursOfOperations = new InputList<Inputs.HoursOfOperationsIdentifierArgs>());
+            set => _childHoursOfOperations = value;
+        }
+
         [Input("config", required: true)]
         private InputList<Inputs.HoursOfOperationConfigArgs>? _config;
 
@@ -197,6 +221,18 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("parentHoursOfOperations")]
+        private InputList<Inputs.HoursOfOperationsIdentifierArgs>? _parentHoursOfOperations;
+
+        /// <summary>
+        /// List of parent hours of operations.
+        /// </summary>
+        public InputList<Inputs.HoursOfOperationsIdentifierArgs> ParentHoursOfOperations
+        {
+            get => _parentHoursOfOperations ?? (_parentHoursOfOperations = new InputList<Inputs.HoursOfOperationsIdentifierArgs>());
+            set => _parentHoursOfOperations = value;
+        }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

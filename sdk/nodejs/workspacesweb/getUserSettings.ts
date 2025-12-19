@@ -89,6 +89,7 @@ export interface GetUserSettingsResult {
      * The ARN of the user settings.
      */
     readonly userSettingsArn?: string;
+    readonly webAuthnAllowed?: enums.workspacesweb.UserSettingsEnabledType;
 }
 /**
  * Definition of AWS::WorkSpacesWeb::UserSettings Resource Type

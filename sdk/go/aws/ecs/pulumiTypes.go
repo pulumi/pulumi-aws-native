@@ -706,6 +706,7 @@ func (o CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.I
 }
 
 type CapacityProviderInstanceLaunchTemplate struct {
+	CapacityOptionType *CapacityProviderInstanceLaunchTemplateCapacityOptionType `pulumi:"capacityOptionType"`
 	// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.
 	//
 	// For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-instance-profile.html) in the *Amazon ECS Developer Guide* .
@@ -737,6 +738,7 @@ type CapacityProviderInstanceLaunchTemplateInput interface {
 }
 
 type CapacityProviderInstanceLaunchTemplateArgs struct {
+	CapacityOptionType CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrInput `pulumi:"capacityOptionType"`
 	// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.
 	//
 	// For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-instance-profile.html) in the *Amazon ECS Developer Guide* .
@@ -833,6 +835,12 @@ func (o CapacityProviderInstanceLaunchTemplateOutput) ToCapacityProviderInstance
 	}).(CapacityProviderInstanceLaunchTemplatePtrOutput)
 }
 
+func (o CapacityProviderInstanceLaunchTemplateOutput) CapacityOptionType() CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput {
+	return o.ApplyT(func(v CapacityProviderInstanceLaunchTemplate) *CapacityProviderInstanceLaunchTemplateCapacityOptionType {
+		return v.CapacityOptionType
+	}).(CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.
 //
 // For more information, see [Amazon ECS instance profile for Managed Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-instance-profile.html) in the *Amazon ECS Developer Guide* .
@@ -895,6 +903,15 @@ func (o CapacityProviderInstanceLaunchTemplatePtrOutput) Elem() CapacityProvider
 		var ret CapacityProviderInstanceLaunchTemplate
 		return ret
 	}).(CapacityProviderInstanceLaunchTemplateOutput)
+}
+
+func (o CapacityProviderInstanceLaunchTemplatePtrOutput) CapacityOptionType() CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput {
+	return o.ApplyT(func(v *CapacityProviderInstanceLaunchTemplate) *CapacityProviderInstanceLaunchTemplateCapacityOptionType {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityOptionType
+	}).(CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.

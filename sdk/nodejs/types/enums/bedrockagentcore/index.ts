@@ -110,6 +110,13 @@ export const GatewayTargetCredentialProviderType = {
 
 export type GatewayTargetCredentialProviderType = (typeof GatewayTargetCredentialProviderType)[keyof typeof GatewayTargetCredentialProviderType];
 
+export const GatewayTargetOAuthGrantType = {
+    AuthorizationCode: "AUTHORIZATION_CODE",
+    ClientCredentials: "CLIENT_CREDENTIALS",
+} as const;
+
+export type GatewayTargetOAuthGrantType = (typeof GatewayTargetOAuthGrantType)[keyof typeof GatewayTargetOAuthGrantType];
+
 export const GatewayTargetSchemaType = {
     String: "string",
     Number: "number",

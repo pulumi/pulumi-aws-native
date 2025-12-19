@@ -676,6 +676,7 @@ type RepositoryCreationTemplateAppliedForItem string
 const (
 	RepositoryCreationTemplateAppliedForItemReplication      = RepositoryCreationTemplateAppliedForItem("REPLICATION")
 	RepositoryCreationTemplateAppliedForItemPullThroughCache = RepositoryCreationTemplateAppliedForItem("PULL_THROUGH_CACHE")
+	RepositoryCreationTemplateAppliedForItemCreateOnPush     = RepositoryCreationTemplateAppliedForItem("CREATE_ON_PUSH")
 )
 
 func (RepositoryCreationTemplateAppliedForItem) ElementType() reflect.Type {
@@ -802,6 +803,7 @@ func (o RepositoryCreationTemplateAppliedForItemPtrOutput) ToStringPtrOutputWith
 //
 //	RepositoryCreationTemplateAppliedForItemReplication
 //	RepositoryCreationTemplateAppliedForItemPullThroughCache
+//	RepositoryCreationTemplateAppliedForItemCreateOnPush
 type RepositoryCreationTemplateAppliedForItemInput interface {
 	pulumi.Input
 

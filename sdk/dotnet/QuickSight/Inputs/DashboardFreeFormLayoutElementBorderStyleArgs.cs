@@ -24,6 +24,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? Visibility { get; set; }
 
+        /// <summary>
+        /// String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+        /// </summary>
+        [Input("width")]
+        public Input<string>? Width { get; set; }
+
         public DashboardFreeFormLayoutElementBorderStyleArgs()
         {
         }

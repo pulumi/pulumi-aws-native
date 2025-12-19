@@ -60,10 +60,14 @@ type ContactFlowModule struct {
 	Content pulumi.StringOutput `pulumi:"content"`
 	// The description of the contact flow module.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Defines the external invocation configuration of the flow module resource
+	ExternalInvocationConfiguration ExternalInvocationConfigurationPropertiesPtrOutput `pulumi:"externalInvocationConfiguration"`
 	// The identifier of the Amazon Connect instance (ARN).
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 	// The name of the contact flow module.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The schema of the settings for contact flow module in JSON Schema V4 format.
+	Settings pulumi.StringPtrOutput `pulumi:"settings"`
 	// The state of the contact flow module.
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// The status of the contact flow module.
@@ -122,10 +126,14 @@ type contactFlowModuleArgs struct {
 	Content string `pulumi:"content"`
 	// The description of the contact flow module.
 	Description *string `pulumi:"description"`
+	// Defines the external invocation configuration of the flow module resource
+	ExternalInvocationConfiguration *ExternalInvocationConfigurationProperties `pulumi:"externalInvocationConfiguration"`
 	// The identifier of the Amazon Connect instance (ARN).
 	InstanceArn string `pulumi:"instanceArn"`
 	// The name of the contact flow module.
 	Name *string `pulumi:"name"`
+	// The schema of the settings for contact flow module in JSON Schema V4 format.
+	Settings *string `pulumi:"settings"`
 	// The state of the contact flow module.
 	State *string `pulumi:"state"`
 	// One or more tags.
@@ -138,10 +146,14 @@ type ContactFlowModuleArgs struct {
 	Content pulumi.StringInput
 	// The description of the contact flow module.
 	Description pulumi.StringPtrInput
+	// Defines the external invocation configuration of the flow module resource
+	ExternalInvocationConfiguration ExternalInvocationConfigurationPropertiesPtrInput
 	// The identifier of the Amazon Connect instance (ARN).
 	InstanceArn pulumi.StringInput
 	// The name of the contact flow module.
 	Name pulumi.StringPtrInput
+	// The schema of the settings for contact flow module in JSON Schema V4 format.
+	Settings pulumi.StringPtrInput
 	// The state of the contact flow module.
 	State pulumi.StringPtrInput
 	// One or more tags.
@@ -200,6 +212,13 @@ func (o ContactFlowModuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Defines the external invocation configuration of the flow module resource
+func (o ContactFlowModuleOutput) ExternalInvocationConfiguration() ExternalInvocationConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *ContactFlowModule) ExternalInvocationConfigurationPropertiesPtrOutput {
+		return v.ExternalInvocationConfiguration
+	}).(ExternalInvocationConfigurationPropertiesPtrOutput)
+}
+
 // The identifier of the Amazon Connect instance (ARN).
 func (o ContactFlowModuleOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
@@ -208,6 +227,11 @@ func (o ContactFlowModuleOutput) InstanceArn() pulumi.StringOutput {
 // The name of the contact flow module.
 func (o ContactFlowModuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The schema of the settings for contact flow module in JSON Schema V4 format.
+func (o ContactFlowModuleOutput) Settings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringPtrOutput { return v.Settings }).(pulumi.StringPtrOutput)
 }
 
 // The state of the contact flow module.

@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Emr
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
+        /// The KMS key ARN to encrypt the logs published to the given Amazon S3 destination. When omitted, EMR falls back to cluster-level logging behavior.
+        /// </summary>
+        [Output("encryptionKeyArn")]
+        public Output<string?> EncryptionKeyArn { get; private set; } = null!;
+
+        /// <summary>
         /// The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
         /// </summary>
         [Output("hadoopJarStep")]
@@ -38,6 +44,12 @@ namespace Pulumi.AwsNative.Emr
         /// </summary>
         [Output("jobFlowId")]
         public Output<string> JobFlowId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon S3 destination URI for log publishing. When omitted, EMR falls back to cluster-level logging behavior.
+        /// </summary>
+        [Output("logUri")]
+        public Output<string?> LogUri { get; private set; } = null!;
 
         /// <summary>
         /// The name of the cluster step.
@@ -71,8 +83,10 @@ namespace Pulumi.AwsNative.Emr
                 ReplaceOnChanges =
                 {
                     "actionOnFailure",
+                    "encryptionKeyArn",
                     "hadoopJarStep",
                     "jobFlowId",
+                    "logUri",
                     "name",
                 },
             };
@@ -104,6 +118,12 @@ namespace Pulumi.AwsNative.Emr
         public Input<string> ActionOnFailure { get; set; } = null!;
 
         /// <summary>
+        /// The KMS key ARN to encrypt the logs published to the given Amazon S3 destination. When omitted, EMR falls back to cluster-level logging behavior.
+        /// </summary>
+        [Input("encryptionKeyArn")]
+        public Input<string>? EncryptionKeyArn { get; set; }
+
+        /// <summary>
         /// The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
         /// </summary>
         [Input("hadoopJarStep", required: true)]
@@ -114,6 +134,12 @@ namespace Pulumi.AwsNative.Emr
         /// </summary>
         [Input("jobFlowId", required: true)]
         public Input<string> JobFlowId { get; set; } = null!;
+
+        /// <summary>
+        /// The Amazon S3 destination URI for log publishing. When omitted, EMR falls back to cluster-level logging behavior.
+        /// </summary>
+        [Input("logUri")]
+        public Input<string>? LogUri { get; set; }
 
         /// <summary>
         /// The name of the cluster step.

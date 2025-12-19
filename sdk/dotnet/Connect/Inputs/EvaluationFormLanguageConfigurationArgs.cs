@@ -10,10 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
+    /// <summary>
+    /// Language configuration for an evaluation form.
+    /// </summary>
     public sealed class EvaluationFormLanguageConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The language of the form
+        /// The language for the evaluation form.
         /// </summary>
         [Input("formLanguage")]
         public Input<Pulumi.AwsNative.Connect.EvaluationFormLanguageConfigurationFormLanguage>? FormLanguage { get; set; }

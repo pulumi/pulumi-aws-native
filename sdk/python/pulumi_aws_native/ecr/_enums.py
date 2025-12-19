@@ -63,6 +63,7 @@ class RepositoryCreationTemplateAppliedForItem(_builtins.str, Enum):
     """
     REPLICATION = "REPLICATION"
     PULL_THROUGH_CACHE = "PULL_THROUGH_CACHE"
+    CREATE_ON_PUSH = "CREATE_ON_PUSH"
 
 
 @pulumi.type_token("aws-native:ecr:RepositoryCreationTemplateEncryptionType")

@@ -609,6 +609,171 @@ func (in *botDialogActionTypePtr) ToBotDialogActionTypePtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(BotDialogActionTypePtrOutput)
 }
 
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode string
+
+const (
+	BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePrimary  = BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode("Primary")
+	BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeFallback = BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode("Fallback")
+)
+
+func (BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode)(nil)).Elem()
+}
+
+func (e BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput {
+	return pulumi.ToOutput(e).(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput)
+}
+
+func (e BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput)
+}
+
+func (e BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput {
+	return e.ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutputWithContext(context.Background())
+}
+
+func (e BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput {
+	return BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode(e).ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutputWithContext(ctx).ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutputWithContext(ctx)
+}
+
+func (e BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput struct{ *pulumi.OutputState }
+
+func (BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode)(nil)).Elem()
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput {
+	return o.ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutputWithContext(context.Background())
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode) *BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode {
+		return &v
+	}).(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput)
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput struct{ *pulumi.OutputState }
+
+func (BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode)(nil)).Elem()
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput {
+	return o
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput) Elem() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput {
+	return o.ApplyT(func(v *BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode) BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode {
+		if v != nil {
+			return *v
+		}
+		var ret BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode
+		return ret
+	}).(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput)
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeInput is an input type that accepts values of the BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode enum
+// A concrete instance of `BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeInput` can be one of the following:
+//
+//	BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePrimary
+//	BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeFallback
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeInput interface {
+	pulumi.Input
+
+	ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput
+	ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutputWithContext(context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput
+}
+
+var botGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrType = reflect.TypeOf((**BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode)(nil)).Elem()
+
+type BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrInput interface {
+	pulumi.Input
+
+	ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput
+	ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutputWithContext(context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput
+}
+
+type botGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtr string
+
+func BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtr(v string) BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrInput {
+	return (*botGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtr)(&v)
+}
+
+func (*botGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtr) ElementType() reflect.Type {
+	return botGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrType
+}
+
+func (in *botGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtr) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput() BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput {
+	return pulumi.ToOutput(in).(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput)
+}
+
+func (in *botGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtr) ToBotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutputWithContext(ctx context.Context) BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput)
+}
+
 type BotMessageSelectionStrategy string
 
 const (
@@ -1437,6 +1602,173 @@ func (in *botSlotValueResolutionStrategyPtr) ToBotSlotValueResolutionStrategyPtr
 	return pulumi.ToOutputWithContext(ctx, in).(BotSlotValueResolutionStrategyPtrOutput)
 }
 
+type BotSpeechDetectionSensitivity string
+
+const (
+	BotSpeechDetectionSensitivityDefault               = BotSpeechDetectionSensitivity("Default")
+	BotSpeechDetectionSensitivityHighNoiseTolerance    = BotSpeechDetectionSensitivity("HighNoiseTolerance")
+	BotSpeechDetectionSensitivityMaximumNoiseTolerance = BotSpeechDetectionSensitivity("MaximumNoiseTolerance")
+)
+
+func (BotSpeechDetectionSensitivity) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotSpeechDetectionSensitivity)(nil)).Elem()
+}
+
+func (e BotSpeechDetectionSensitivity) ToBotSpeechDetectionSensitivityOutput() BotSpeechDetectionSensitivityOutput {
+	return pulumi.ToOutput(e).(BotSpeechDetectionSensitivityOutput)
+}
+
+func (e BotSpeechDetectionSensitivity) ToBotSpeechDetectionSensitivityOutputWithContext(ctx context.Context) BotSpeechDetectionSensitivityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BotSpeechDetectionSensitivityOutput)
+}
+
+func (e BotSpeechDetectionSensitivity) ToBotSpeechDetectionSensitivityPtrOutput() BotSpeechDetectionSensitivityPtrOutput {
+	return e.ToBotSpeechDetectionSensitivityPtrOutputWithContext(context.Background())
+}
+
+func (e BotSpeechDetectionSensitivity) ToBotSpeechDetectionSensitivityPtrOutputWithContext(ctx context.Context) BotSpeechDetectionSensitivityPtrOutput {
+	return BotSpeechDetectionSensitivity(e).ToBotSpeechDetectionSensitivityOutputWithContext(ctx).ToBotSpeechDetectionSensitivityPtrOutputWithContext(ctx)
+}
+
+func (e BotSpeechDetectionSensitivity) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BotSpeechDetectionSensitivity) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BotSpeechDetectionSensitivity) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BotSpeechDetectionSensitivity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BotSpeechDetectionSensitivityOutput struct{ *pulumi.OutputState }
+
+func (BotSpeechDetectionSensitivityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotSpeechDetectionSensitivity)(nil)).Elem()
+}
+
+func (o BotSpeechDetectionSensitivityOutput) ToBotSpeechDetectionSensitivityOutput() BotSpeechDetectionSensitivityOutput {
+	return o
+}
+
+func (o BotSpeechDetectionSensitivityOutput) ToBotSpeechDetectionSensitivityOutputWithContext(ctx context.Context) BotSpeechDetectionSensitivityOutput {
+	return o
+}
+
+func (o BotSpeechDetectionSensitivityOutput) ToBotSpeechDetectionSensitivityPtrOutput() BotSpeechDetectionSensitivityPtrOutput {
+	return o.ToBotSpeechDetectionSensitivityPtrOutputWithContext(context.Background())
+}
+
+func (o BotSpeechDetectionSensitivityOutput) ToBotSpeechDetectionSensitivityPtrOutputWithContext(ctx context.Context) BotSpeechDetectionSensitivityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotSpeechDetectionSensitivity) *BotSpeechDetectionSensitivity {
+		return &v
+	}).(BotSpeechDetectionSensitivityPtrOutput)
+}
+
+func (o BotSpeechDetectionSensitivityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BotSpeechDetectionSensitivityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BotSpeechDetectionSensitivity) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BotSpeechDetectionSensitivityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BotSpeechDetectionSensitivityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BotSpeechDetectionSensitivity) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BotSpeechDetectionSensitivityPtrOutput struct{ *pulumi.OutputState }
+
+func (BotSpeechDetectionSensitivityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotSpeechDetectionSensitivity)(nil)).Elem()
+}
+
+func (o BotSpeechDetectionSensitivityPtrOutput) ToBotSpeechDetectionSensitivityPtrOutput() BotSpeechDetectionSensitivityPtrOutput {
+	return o
+}
+
+func (o BotSpeechDetectionSensitivityPtrOutput) ToBotSpeechDetectionSensitivityPtrOutputWithContext(ctx context.Context) BotSpeechDetectionSensitivityPtrOutput {
+	return o
+}
+
+func (o BotSpeechDetectionSensitivityPtrOutput) Elem() BotSpeechDetectionSensitivityOutput {
+	return o.ApplyT(func(v *BotSpeechDetectionSensitivity) BotSpeechDetectionSensitivity {
+		if v != nil {
+			return *v
+		}
+		var ret BotSpeechDetectionSensitivity
+		return ret
+	}).(BotSpeechDetectionSensitivityOutput)
+}
+
+func (o BotSpeechDetectionSensitivityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BotSpeechDetectionSensitivityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BotSpeechDetectionSensitivity) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BotSpeechDetectionSensitivityInput is an input type that accepts values of the BotSpeechDetectionSensitivity enum
+// A concrete instance of `BotSpeechDetectionSensitivityInput` can be one of the following:
+//
+//	BotSpeechDetectionSensitivityDefault
+//	BotSpeechDetectionSensitivityHighNoiseTolerance
+//	BotSpeechDetectionSensitivityMaximumNoiseTolerance
+type BotSpeechDetectionSensitivityInput interface {
+	pulumi.Input
+
+	ToBotSpeechDetectionSensitivityOutput() BotSpeechDetectionSensitivityOutput
+	ToBotSpeechDetectionSensitivityOutputWithContext(context.Context) BotSpeechDetectionSensitivityOutput
+}
+
+var botSpeechDetectionSensitivityPtrType = reflect.TypeOf((**BotSpeechDetectionSensitivity)(nil)).Elem()
+
+type BotSpeechDetectionSensitivityPtrInput interface {
+	pulumi.Input
+
+	ToBotSpeechDetectionSensitivityPtrOutput() BotSpeechDetectionSensitivityPtrOutput
+	ToBotSpeechDetectionSensitivityPtrOutputWithContext(context.Context) BotSpeechDetectionSensitivityPtrOutput
+}
+
+type botSpeechDetectionSensitivityPtr string
+
+func BotSpeechDetectionSensitivityPtr(v string) BotSpeechDetectionSensitivityPtrInput {
+	return (*botSpeechDetectionSensitivityPtr)(&v)
+}
+
+func (*botSpeechDetectionSensitivityPtr) ElementType() reflect.Type {
+	return botSpeechDetectionSensitivityPtrType
+}
+
+func (in *botSpeechDetectionSensitivityPtr) ToBotSpeechDetectionSensitivityPtrOutput() BotSpeechDetectionSensitivityPtrOutput {
+	return pulumi.ToOutput(in).(BotSpeechDetectionSensitivityPtrOutput)
+}
+
+func (in *botSpeechDetectionSensitivityPtr) ToBotSpeechDetectionSensitivityPtrOutputWithContext(ctx context.Context) BotSpeechDetectionSensitivityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BotSpeechDetectionSensitivityPtrOutput)
+}
+
 // Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the [`engine` parameter of the `SynthesizeSpeech` operation](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine) in the *Amazon Polly developer guide* .
 //
 // If you do not specify a value, the default is `standard` .
@@ -1616,6 +1948,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotBedrockModelSpecificationBedrockTraceStatusPtrInput)(nil)).Elem(), BotBedrockModelSpecificationBedrockTraceStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotDialogActionTypeInput)(nil)).Elem(), BotDialogActionType("CloseIntent"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotDialogActionTypePtrInput)(nil)).Elem(), BotDialogActionType("CloseIntent"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeInput)(nil)).Elem(), BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode("Primary"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrInput)(nil)).Elem(), BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode("Primary"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotMessageSelectionStrategyInput)(nil)).Elem(), BotMessageSelectionStrategy("Random"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotMessageSelectionStrategyPtrInput)(nil)).Elem(), BotMessageSelectionStrategy("Random"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotObfuscationSettingObfuscationSettingTypeInput)(nil)).Elem(), BotObfuscationSettingObfuscationSettingType("None"))
@@ -1626,6 +1960,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotShapePtrInput)(nil)).Elem(), BotSlotShape("Scalar"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotValueResolutionStrategyInput)(nil)).Elem(), BotSlotValueResolutionStrategy("ORIGINAL_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotSlotValueResolutionStrategyPtrInput)(nil)).Elem(), BotSlotValueResolutionStrategy("ORIGINAL_VALUE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BotSpeechDetectionSensitivityInput)(nil)).Elem(), BotSpeechDetectionSensitivity("Default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BotSpeechDetectionSensitivityPtrInput)(nil)).Elem(), BotSpeechDetectionSensitivity("Default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotVoiceSettingsEngineInput)(nil)).Elem(), BotVoiceSettingsEngine("standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BotVoiceSettingsEnginePtrInput)(nil)).Elem(), BotVoiceSettingsEngine("standard"))
 	pulumi.RegisterOutputType(BotAliasStatusOutput{})
@@ -1636,6 +1972,8 @@ func init() {
 	pulumi.RegisterOutputType(BotBedrockModelSpecificationBedrockTraceStatusPtrOutput{})
 	pulumi.RegisterOutputType(BotDialogActionTypeOutput{})
 	pulumi.RegisterOutputType(BotDialogActionTypePtrOutput{})
+	pulumi.RegisterOutputType(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModeOutput{})
+	pulumi.RegisterOutputType(BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluModePtrOutput{})
 	pulumi.RegisterOutputType(BotMessageSelectionStrategyOutput{})
 	pulumi.RegisterOutputType(BotMessageSelectionStrategyPtrOutput{})
 	pulumi.RegisterOutputType(BotObfuscationSettingObfuscationSettingTypeOutput{})
@@ -1646,6 +1984,8 @@ func init() {
 	pulumi.RegisterOutputType(BotSlotShapePtrOutput{})
 	pulumi.RegisterOutputType(BotSlotValueResolutionStrategyOutput{})
 	pulumi.RegisterOutputType(BotSlotValueResolutionStrategyPtrOutput{})
+	pulumi.RegisterOutputType(BotSpeechDetectionSensitivityOutput{})
+	pulumi.RegisterOutputType(BotSpeechDetectionSensitivityPtrOutput{})
 	pulumi.RegisterOutputType(BotVoiceSettingsEngineOutput{})
 	pulumi.RegisterOutputType(BotVoiceSettingsEnginePtrOutput{})
 }

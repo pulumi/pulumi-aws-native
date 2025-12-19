@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Defines the external invocation configuration of the flow module resource
+        /// </summary>
+        public readonly Outputs.ExternalInvocationConfigurationProperties? ExternalInvocationConfiguration;
+        /// <summary>
         /// The identifier of the Amazon Connect instance (ARN).
         /// </summary>
         public readonly string? InstanceArn;
@@ -83,6 +87,10 @@ namespace Pulumi.AwsNative.Connect
         /// The name of the contact flow module.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The schema of the settings for contact flow module in JSON Schema V4 format.
+        /// </summary>
+        public readonly string? Settings;
         /// <summary>
         /// The state of the contact flow module.
         /// </summary>
@@ -104,9 +112,13 @@ namespace Pulumi.AwsNative.Connect
 
             string? description,
 
+            Outputs.ExternalInvocationConfigurationProperties? externalInvocationConfiguration,
+
             string? instanceArn,
 
             string? name,
+
+            string? settings,
 
             string? state,
 
@@ -117,8 +129,10 @@ namespace Pulumi.AwsNative.Connect
             ContactFlowModuleArn = contactFlowModuleArn;
             Content = content;
             Description = description;
+            ExternalInvocationConfiguration = externalInvocationConfiguration;
             InstanceArn = instanceArn;
             Name = name;
+            Settings = settings;
             State = state;
             Status = status;
             Tags = tags;

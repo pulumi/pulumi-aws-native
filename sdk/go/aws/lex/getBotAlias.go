@@ -7,11 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Bot Alias enables you to change the version of a bot without updating applications that use the bot
+// Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot
 func LookupBotAlias(ctx *pulumi.Context, args *LookupBotAliasArgs, opts ...pulumi.InvokeOption) (*LookupBotAliasResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBotAliasResult
@@ -40,6 +41,8 @@ type LookupBotAliasResult struct {
 	BotAliasName *string `pulumi:"botAliasName"`
 	// The current status of the bot alias. When the status is Available the alias is ready for use with your bot.
 	BotAliasStatus *BotAliasStatus `pulumi:"botAliasStatus"`
+	// A list of tags to add to the bot alias.
+	BotAliasTags []aws.Tag `pulumi:"botAliasTags"`
 	// The version of the bot that the bot alias references.
 	BotVersion *string `pulumi:"botVersion"`
 	// Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
@@ -107,6 +110,11 @@ func (o LookupBotAliasResultOutput) BotAliasName() pulumi.StringPtrOutput {
 // The current status of the bot alias. When the status is Available the alias is ready for use with your bot.
 func (o LookupBotAliasResultOutput) BotAliasStatus() BotAliasStatusPtrOutput {
 	return o.ApplyT(func(v LookupBotAliasResult) *BotAliasStatus { return v.BotAliasStatus }).(BotAliasStatusPtrOutput)
+}
+
+// A list of tags to add to the bot alias.
+func (o LookupBotAliasResultOutput) BotAliasTags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupBotAliasResult) []aws.Tag { return v.BotAliasTags }).(aws.TagArrayOutput)
 }
 
 // The version of the bot that the bot alias references.

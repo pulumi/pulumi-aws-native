@@ -1826,6 +1826,171 @@ func (in *gatewayTargetCredentialProviderTypePtr) ToGatewayTargetCredentialProvi
 	return pulumi.ToOutputWithContext(ctx, in).(GatewayTargetCredentialProviderTypePtrOutput)
 }
 
+type GatewayTargetOAuthGrantType string
+
+const (
+	GatewayTargetOAuthGrantTypeAuthorizationCode = GatewayTargetOAuthGrantType("AUTHORIZATION_CODE")
+	GatewayTargetOAuthGrantTypeClientCredentials = GatewayTargetOAuthGrantType("CLIENT_CREDENTIALS")
+)
+
+func (GatewayTargetOAuthGrantType) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetOAuthGrantType)(nil)).Elem()
+}
+
+func (e GatewayTargetOAuthGrantType) ToGatewayTargetOAuthGrantTypeOutput() GatewayTargetOAuthGrantTypeOutput {
+	return pulumi.ToOutput(e).(GatewayTargetOAuthGrantTypeOutput)
+}
+
+func (e GatewayTargetOAuthGrantType) ToGatewayTargetOAuthGrantTypeOutputWithContext(ctx context.Context) GatewayTargetOAuthGrantTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GatewayTargetOAuthGrantTypeOutput)
+}
+
+func (e GatewayTargetOAuthGrantType) ToGatewayTargetOAuthGrantTypePtrOutput() GatewayTargetOAuthGrantTypePtrOutput {
+	return e.ToGatewayTargetOAuthGrantTypePtrOutputWithContext(context.Background())
+}
+
+func (e GatewayTargetOAuthGrantType) ToGatewayTargetOAuthGrantTypePtrOutputWithContext(ctx context.Context) GatewayTargetOAuthGrantTypePtrOutput {
+	return GatewayTargetOAuthGrantType(e).ToGatewayTargetOAuthGrantTypeOutputWithContext(ctx).ToGatewayTargetOAuthGrantTypePtrOutputWithContext(ctx)
+}
+
+func (e GatewayTargetOAuthGrantType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayTargetOAuthGrantType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayTargetOAuthGrantType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayTargetOAuthGrantType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GatewayTargetOAuthGrantTypeOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetOAuthGrantTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetOAuthGrantType)(nil)).Elem()
+}
+
+func (o GatewayTargetOAuthGrantTypeOutput) ToGatewayTargetOAuthGrantTypeOutput() GatewayTargetOAuthGrantTypeOutput {
+	return o
+}
+
+func (o GatewayTargetOAuthGrantTypeOutput) ToGatewayTargetOAuthGrantTypeOutputWithContext(ctx context.Context) GatewayTargetOAuthGrantTypeOutput {
+	return o
+}
+
+func (o GatewayTargetOAuthGrantTypeOutput) ToGatewayTargetOAuthGrantTypePtrOutput() GatewayTargetOAuthGrantTypePtrOutput {
+	return o.ToGatewayTargetOAuthGrantTypePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetOAuthGrantTypeOutput) ToGatewayTargetOAuthGrantTypePtrOutputWithContext(ctx context.Context) GatewayTargetOAuthGrantTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetOAuthGrantType) *GatewayTargetOAuthGrantType {
+		return &v
+	}).(GatewayTargetOAuthGrantTypePtrOutput)
+}
+
+func (o GatewayTargetOAuthGrantTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetOAuthGrantTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayTargetOAuthGrantType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GatewayTargetOAuthGrantTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetOAuthGrantTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayTargetOAuthGrantType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayTargetOAuthGrantTypePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetOAuthGrantTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetOAuthGrantType)(nil)).Elem()
+}
+
+func (o GatewayTargetOAuthGrantTypePtrOutput) ToGatewayTargetOAuthGrantTypePtrOutput() GatewayTargetOAuthGrantTypePtrOutput {
+	return o
+}
+
+func (o GatewayTargetOAuthGrantTypePtrOutput) ToGatewayTargetOAuthGrantTypePtrOutputWithContext(ctx context.Context) GatewayTargetOAuthGrantTypePtrOutput {
+	return o
+}
+
+func (o GatewayTargetOAuthGrantTypePtrOutput) Elem() GatewayTargetOAuthGrantTypeOutput {
+	return o.ApplyT(func(v *GatewayTargetOAuthGrantType) GatewayTargetOAuthGrantType {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetOAuthGrantType
+		return ret
+	}).(GatewayTargetOAuthGrantTypeOutput)
+}
+
+func (o GatewayTargetOAuthGrantTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetOAuthGrantTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayTargetOAuthGrantType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GatewayTargetOAuthGrantTypeInput is an input type that accepts values of the GatewayTargetOAuthGrantType enum
+// A concrete instance of `GatewayTargetOAuthGrantTypeInput` can be one of the following:
+//
+//	GatewayTargetOAuthGrantTypeAuthorizationCode
+//	GatewayTargetOAuthGrantTypeClientCredentials
+type GatewayTargetOAuthGrantTypeInput interface {
+	pulumi.Input
+
+	ToGatewayTargetOAuthGrantTypeOutput() GatewayTargetOAuthGrantTypeOutput
+	ToGatewayTargetOAuthGrantTypeOutputWithContext(context.Context) GatewayTargetOAuthGrantTypeOutput
+}
+
+var gatewayTargetOAuthGrantTypePtrType = reflect.TypeOf((**GatewayTargetOAuthGrantType)(nil)).Elem()
+
+type GatewayTargetOAuthGrantTypePtrInput interface {
+	pulumi.Input
+
+	ToGatewayTargetOAuthGrantTypePtrOutput() GatewayTargetOAuthGrantTypePtrOutput
+	ToGatewayTargetOAuthGrantTypePtrOutputWithContext(context.Context) GatewayTargetOAuthGrantTypePtrOutput
+}
+
+type gatewayTargetOAuthGrantTypePtr string
+
+func GatewayTargetOAuthGrantTypePtr(v string) GatewayTargetOAuthGrantTypePtrInput {
+	return (*gatewayTargetOAuthGrantTypePtr)(&v)
+}
+
+func (*gatewayTargetOAuthGrantTypePtr) ElementType() reflect.Type {
+	return gatewayTargetOAuthGrantTypePtrType
+}
+
+func (in *gatewayTargetOAuthGrantTypePtr) ToGatewayTargetOAuthGrantTypePtrOutput() GatewayTargetOAuthGrantTypePtrOutput {
+	return pulumi.ToOutput(in).(GatewayTargetOAuthGrantTypePtrOutput)
+}
+
+func (in *gatewayTargetOAuthGrantTypePtr) ToGatewayTargetOAuthGrantTypePtrOutputWithContext(ctx context.Context) GatewayTargetOAuthGrantTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GatewayTargetOAuthGrantTypePtrOutput)
+}
+
 type GatewayTargetSchemaType string
 
 const (
@@ -4259,6 +4424,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetApiKeyCredentialLocationPtrInput)(nil)).Elem(), GatewayTargetApiKeyCredentialLocation("HEADER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProviderTypeInput)(nil)).Elem(), GatewayTargetCredentialProviderType("GATEWAY_IAM_ROLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetCredentialProviderTypePtrInput)(nil)).Elem(), GatewayTargetCredentialProviderType("GATEWAY_IAM_ROLE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthGrantTypeInput)(nil)).Elem(), GatewayTargetOAuthGrantType("AUTHORIZATION_CODE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthGrantTypePtrInput)(nil)).Elem(), GatewayTargetOAuthGrantType("AUTHORIZATION_CODE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaTypeInput)(nil)).Elem(), GatewayTargetSchemaType("string"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaTypePtrInput)(nil)).Elem(), GatewayTargetSchemaType("string"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomMemoryStrategyStatusInput)(nil)).Elem(), MemoryCustomMemoryStrategyStatus("CREATING"))
@@ -4308,6 +4475,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetApiKeyCredentialLocationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetCredentialProviderTypeOutput{})
 	pulumi.RegisterOutputType(GatewayTargetCredentialProviderTypePtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetOAuthGrantTypeOutput{})
+	pulumi.RegisterOutputType(GatewayTargetOAuthGrantTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetSchemaTypeOutput{})
 	pulumi.RegisterOutputType(GatewayTargetSchemaTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetTargetStatusOutput{})

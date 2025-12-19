@@ -65,7 +65,7 @@ class GetDatastoreResult:
     @pulumi.getter(name="fileFormatConfiguration")
     def file_format_configuration(self) -> Optional['outputs.DatastoreFileFormatConfiguration']:
         """
-        Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+        Contains the configuration information of file formats. ITA data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
 
         The default file format is JSON. You can specify only one format.
 

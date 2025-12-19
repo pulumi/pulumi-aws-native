@@ -38,6 +38,10 @@ export interface GetContactFlowModuleResult {
      */
     readonly description?: string;
     /**
+     * Defines the external invocation configuration of the flow module resource
+     */
+    readonly externalInvocationConfiguration?: outputs.connect.ExternalInvocationConfigurationProperties;
+    /**
      * The identifier of the Amazon Connect instance (ARN).
      */
     readonly instanceArn?: string;
@@ -45,6 +49,10 @@ export interface GetContactFlowModuleResult {
      * The name of the contact flow module.
      */
     readonly name?: string;
+    /**
+     * The schema of the settings for contact flow module in JSON Schema V4 format.
+     */
+    readonly settings?: string;
     /**
      * The state of the contact flow module.
      */

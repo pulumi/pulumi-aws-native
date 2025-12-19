@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
+ * Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
  */
 export class Bot extends pulumi.CustomResource {
     /**
@@ -60,7 +60,7 @@ export class Bot extends pulumi.CustomResource {
     /**
      * A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
      */
-    declare public readonly botTags: pulumi.Output<outputs.lex.BotTag[] | undefined>;
+    declare public readonly botTags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
      */
@@ -172,7 +172,7 @@ export interface BotArgs {
     /**
      * A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
      */
-    botTags?: pulumi.Input<pulumi.Input<inputs.lex.BotTagArgs>[]>;
+    botTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
      */

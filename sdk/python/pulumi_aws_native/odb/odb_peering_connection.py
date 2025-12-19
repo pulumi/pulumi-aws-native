@@ -21,17 +21,21 @@ __all__ = ['OdbPeeringConnectionArgs', 'OdbPeeringConnection']
 @pulumi.input_type
 class OdbPeeringConnectionArgs:
     def __init__(__self__, *,
+                 additional_peer_network_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  odb_network_id: Optional[pulumi.Input[_builtins.str]] = None,
                  peer_network_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a OdbPeeringConnection resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_peer_network_cidrs: The additional CIDR blocks for the ODB peering connection.
         :param pulumi.Input[_builtins.str] display_name: The name of the ODB peering connection.
         :param pulumi.Input[_builtins.str] odb_network_id: The unique identifier of the ODB network.
         :param pulumi.Input[_builtins.str] peer_network_id: The unique identifier of the peer network.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags to assign to the Odb peering connection.
         """
+        if additional_peer_network_cidrs is not None:
+            pulumi.set(__self__, "additional_peer_network_cidrs", additional_peer_network_cidrs)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if odb_network_id is not None:
@@ -40,6 +44,18 @@ class OdbPeeringConnectionArgs:
             pulumi.set(__self__, "peer_network_id", peer_network_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalPeerNetworkCidrs")
+    def additional_peer_network_cidrs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The additional CIDR blocks for the ODB peering connection.
+        """
+        return pulumi.get(self, "additional_peer_network_cidrs")
+
+    @additional_peer_network_cidrs.setter
+    def additional_peer_network_cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "additional_peer_network_cidrs", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -96,6 +112,7 @@ class OdbPeeringConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_peer_network_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  odb_network_id: Optional[pulumi.Input[_builtins.str]] = None,
                  peer_network_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -106,6 +123,7 @@ class OdbPeeringConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_peer_network_cidrs: The additional CIDR blocks for the ODB peering connection.
         :param pulumi.Input[_builtins.str] display_name: The name of the ODB peering connection.
         :param pulumi.Input[_builtins.str] odb_network_id: The unique identifier of the ODB network.
         :param pulumi.Input[_builtins.str] peer_network_id: The unique identifier of the peer network.
@@ -135,6 +153,7 @@ class OdbPeeringConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_peer_network_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
                  odb_network_id: Optional[pulumi.Input[_builtins.str]] = None,
                  peer_network_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -148,6 +167,7 @@ class OdbPeeringConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OdbPeeringConnectionArgs.__new__(OdbPeeringConnectionArgs)
 
+            __props__.__dict__["additional_peer_network_cidrs"] = additional_peer_network_cidrs
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["odb_network_id"] = odb_network_id
             __props__.__dict__["peer_network_id"] = peer_network_id
@@ -156,7 +176,8 @@ class OdbPeeringConnection(pulumi.CustomResource):
             __props__.__dict__["odb_peering_connection_arn"] = None
             __props__.__dict__["odb_peering_connection_id"] = None
             __props__.__dict__["peer_network_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["displayName", "odbNetworkId", "peerNetworkId"])
+            __props__.__dict__["peer_network_cidrs"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["odbNetworkId", "peerNetworkId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(OdbPeeringConnection, __self__).__init__(
             'aws-native:odb:OdbPeeringConnection',
@@ -180,15 +201,25 @@ class OdbPeeringConnection(pulumi.CustomResource):
 
         __props__ = OdbPeeringConnectionArgs.__new__(OdbPeeringConnectionArgs)
 
+        __props__.__dict__["additional_peer_network_cidrs"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["odb_network_arn"] = None
         __props__.__dict__["odb_network_id"] = None
         __props__.__dict__["odb_peering_connection_arn"] = None
         __props__.__dict__["odb_peering_connection_id"] = None
         __props__.__dict__["peer_network_arn"] = None
+        __props__.__dict__["peer_network_cidrs"] = None
         __props__.__dict__["peer_network_id"] = None
         __props__.__dict__["tags"] = None
         return OdbPeeringConnection(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalPeerNetworkCidrs")
+    def additional_peer_network_cidrs(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        The additional CIDR blocks for the ODB peering connection.
+        """
+        return pulumi.get(self, "additional_peer_network_cidrs")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -237,6 +268,14 @@ class OdbPeeringConnection(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the peer network.
         """
         return pulumi.get(self, "peer_network_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="peerNetworkCidrs")
+    def peer_network_cidrs(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        The CIDR blocks for the ODB peering connection.
+        """
+        return pulumi.get(self, "peer_network_cidrs")
 
     @_builtins.property
     @pulumi.getter(name="peerNetworkId")

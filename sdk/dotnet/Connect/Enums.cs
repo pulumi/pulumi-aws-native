@@ -421,7 +421,7 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
-    /// The language of the form
+    /// The language for the evaluation form.
     /// </summary>
     [EnumType]
     public readonly struct EvaluationFormLanguageConfigurationFormLanguage : IEquatable<EvaluationFormLanguageConfigurationFormLanguage>
@@ -456,7 +456,7 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
-    /// The display mode of the multi-select question.
+    /// Display format for the multi-select question.
     /// </summary>
     [EnumType]
     public readonly struct EvaluationFormMultiSelectQuestionPropertiesDisplayAs : IEquatable<EvaluationFormMultiSelectQuestionPropertiesDisplayAs>
@@ -487,7 +487,7 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
-    /// The automation condition applied on contact categories.
+    /// The condition for this automation rule.
     /// </summary>
     [EnumType]
     public readonly struct EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition : IEquatable<EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition>
@@ -787,7 +787,7 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
-    /// The interaction type of a contact
+    /// The contact interaction type for this evaluation form.
     /// </summary>
     [EnumType]
     public readonly struct EvaluationFormTargetConfigurationContactInteractionType : IEquatable<EvaluationFormTargetConfigurationContactInteractionType>
@@ -882,6 +882,70 @@ namespace Pulumi.AwsNative.Connect
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is HoursOfOperationOverrideConfigDay other && Equals(other);
         public bool Equals(HoursOfOperationOverrideConfigDay other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of hours of operation override.
+    /// </summary>
+    [EnumType]
+    public readonly struct HoursOfOperationOverrideType : IEquatable<HoursOfOperationOverrideType>
+    {
+        private readonly string _value;
+
+        private HoursOfOperationOverrideType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HoursOfOperationOverrideType Standard { get; } = new HoursOfOperationOverrideType("STANDARD");
+        public static HoursOfOperationOverrideType Open { get; } = new HoursOfOperationOverrideType("OPEN");
+        public static HoursOfOperationOverrideType Closed { get; } = new HoursOfOperationOverrideType("CLOSED");
+
+        public static bool operator ==(HoursOfOperationOverrideType left, HoursOfOperationOverrideType right) => left.Equals(right);
+        public static bool operator !=(HoursOfOperationOverrideType left, HoursOfOperationOverrideType right) => !left.Equals(right);
+
+        public static explicit operator string(HoursOfOperationOverrideType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HoursOfOperationOverrideType other && Equals(other);
+        public bool Equals(HoursOfOperationOverrideType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The frequency of recurrence for hours of operation overrides.
+    /// </summary>
+    [EnumType]
+    public readonly struct HoursOfOperationRecurrenceFrequency : IEquatable<HoursOfOperationRecurrenceFrequency>
+    {
+        private readonly string _value;
+
+        private HoursOfOperationRecurrenceFrequency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HoursOfOperationRecurrenceFrequency Weekly { get; } = new HoursOfOperationRecurrenceFrequency("WEEKLY");
+        public static HoursOfOperationRecurrenceFrequency Monthly { get; } = new HoursOfOperationRecurrenceFrequency("MONTHLY");
+        public static HoursOfOperationRecurrenceFrequency Yearly { get; } = new HoursOfOperationRecurrenceFrequency("YEARLY");
+
+        public static bool operator ==(HoursOfOperationRecurrenceFrequency left, HoursOfOperationRecurrenceFrequency right) => left.Equals(right);
+        public static bool operator !=(HoursOfOperationRecurrenceFrequency left, HoursOfOperationRecurrenceFrequency right) => !left.Equals(right);
+
+        public static explicit operator string(HoursOfOperationRecurrenceFrequency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HoursOfOperationRecurrenceFrequency other && Equals(other);
+        public bool Equals(HoursOfOperationRecurrenceFrequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

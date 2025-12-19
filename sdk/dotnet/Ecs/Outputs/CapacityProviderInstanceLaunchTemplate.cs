@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     [OutputType]
     public sealed class CapacityProviderInstanceLaunchTemplate
     {
+        public readonly Pulumi.AwsNative.Ecs.CapacityProviderInstanceLaunchTemplateCapacityOptionType? CapacityOptionType;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.
         /// 
@@ -43,6 +44,8 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 
         [OutputConstructor]
         private CapacityProviderInstanceLaunchTemplate(
+            Pulumi.AwsNative.Ecs.CapacityProviderInstanceLaunchTemplateCapacityOptionType? capacityOptionType,
+
             string ec2InstanceProfileArn,
 
             Outputs.CapacityProviderInstanceRequirementsRequest? instanceRequirements,
@@ -53,6 +56,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 
             Outputs.CapacityProviderManagedInstancesStorageConfiguration? storageConfiguration)
         {
+            CapacityOptionType = capacityOptionType;
             Ec2InstanceProfileArn = ec2InstanceProfileArn;
             InstanceRequirements = instanceRequirements;
             Monitoring = monitoring;

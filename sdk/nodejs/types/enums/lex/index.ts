@@ -38,6 +38,13 @@ export const BotDialogActionType = {
 
 export type BotDialogActionType = (typeof BotDialogActionType)[keyof typeof BotDialogActionType];
 
+export const BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode = {
+    Primary: "Primary",
+    Fallback: "Fallback",
+} as const;
+
+export type BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode = (typeof BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode)[keyof typeof BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode];
+
 export const BotMessageSelectionStrategy = {
     Random: "Random",
     Ordered: "Ordered",
@@ -76,6 +83,14 @@ export const BotSlotValueResolutionStrategy = {
 } as const;
 
 export type BotSlotValueResolutionStrategy = (typeof BotSlotValueResolutionStrategy)[keyof typeof BotSlotValueResolutionStrategy];
+
+export const BotSpeechDetectionSensitivity = {
+    Default: "Default",
+    HighNoiseTolerance: "HighNoiseTolerance",
+    MaximumNoiseTolerance: "MaximumNoiseTolerance",
+} as const;
+
+export type BotSpeechDetectionSensitivity = (typeof BotSpeechDetectionSensitivity)[keyof typeof BotSpeechDetectionSensitivity];
 
 export const BotVoiceSettingsEngine = {
     Standard: "standard",

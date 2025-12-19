@@ -368,6 +368,34 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     }
 
     [EnumType]
+    public readonly struct GatewayTargetOAuthGrantType : IEquatable<GatewayTargetOAuthGrantType>
+    {
+        private readonly string _value;
+
+        private GatewayTargetOAuthGrantType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayTargetOAuthGrantType AuthorizationCode { get; } = new GatewayTargetOAuthGrantType("AUTHORIZATION_CODE");
+        public static GatewayTargetOAuthGrantType ClientCredentials { get; } = new GatewayTargetOAuthGrantType("CLIENT_CREDENTIALS");
+
+        public static bool operator ==(GatewayTargetOAuthGrantType left, GatewayTargetOAuthGrantType right) => left.Equals(right);
+        public static bool operator !=(GatewayTargetOAuthGrantType left, GatewayTargetOAuthGrantType right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayTargetOAuthGrantType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayTargetOAuthGrantType other && Equals(other);
+        public bool Equals(GatewayTargetOAuthGrantType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct GatewayTargetSchemaType : IEquatable<GatewayTargetSchemaType>
     {
         private readonly string _value;

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Definition of AWS::BedrockAgentCore::GatewayTarget Resource Type
+// Resource Type definition for AWS::BedrockAgentCore::GatewayTarget
 type GatewayTarget struct {
 	pulumi.CustomResourceState
 

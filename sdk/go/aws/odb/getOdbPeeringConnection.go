@@ -29,6 +29,8 @@ type LookupOdbPeeringConnectionArgs struct {
 }
 
 type LookupOdbPeeringConnectionResult struct {
+	// The name of the ODB peering connection.
+	DisplayName *string `pulumi:"displayName"`
 	// The Amazon Resource Name (ARN) of the ODB network.
 	OdbNetworkArn *string `pulumi:"odbNetworkArn"`
 	// The Amazon Resource Name (ARN) of the ODB peering connection.
@@ -37,6 +39,8 @@ type LookupOdbPeeringConnectionResult struct {
 	OdbPeeringConnectionId *string `pulumi:"odbPeeringConnectionId"`
 	// The Amazon Resource Name (ARN) of the peer network.
 	PeerNetworkArn *string `pulumi:"peerNetworkArn"`
+	// The CIDR blocks for the ODB peering connection.
+	PeerNetworkCidrs []string `pulumi:"peerNetworkCidrs"`
 	// Tags to assign to the Odb peering connection.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -73,6 +77,11 @@ func (o LookupOdbPeeringConnectionResultOutput) ToLookupOdbPeeringConnectionResu
 	return o
 }
 
+// The name of the ODB peering connection.
+func (o LookupOdbPeeringConnectionResultOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOdbPeeringConnectionResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the ODB network.
 func (o LookupOdbPeeringConnectionResultOutput) OdbNetworkArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOdbPeeringConnectionResult) *string { return v.OdbNetworkArn }).(pulumi.StringPtrOutput)
@@ -91,6 +100,11 @@ func (o LookupOdbPeeringConnectionResultOutput) OdbPeeringConnectionId() pulumi.
 // The Amazon Resource Name (ARN) of the peer network.
 func (o LookupOdbPeeringConnectionResultOutput) PeerNetworkArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOdbPeeringConnectionResult) *string { return v.PeerNetworkArn }).(pulumi.StringPtrOutput)
+}
+
+// The CIDR blocks for the ODB peering connection.
+func (o LookupOdbPeeringConnectionResultOutput) PeerNetworkCidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupOdbPeeringConnectionResult) []string { return v.PeerNetworkCidrs }).(pulumi.StringArrayOutput)
 }
 
 // Tags to assign to the Odb peering connection.

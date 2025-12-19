@@ -43,7 +43,7 @@ class DatasetArgs:
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         :param pulumi.Input[Sequence[pulumi.Input['DatasetTriggerArgs']]] triggers: The `DatasetTrigger` objects that specify when the dataset is automatically updated.
-        :param pulumi.Input['DatasetVersioningConfigurationArgs'] versioning_configuration: Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of AWS IoT Analytics datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *AWS IoT Analytics User Guide* .
+        :param pulumi.Input['DatasetVersioningConfigurationArgs'] versioning_configuration: Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of ITA datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *ITA User Guide* .
         """
         pulumi.set(__self__, "actions", actions)
         if content_delivery_rules is not None:
@@ -151,7 +151,7 @@ class DatasetArgs:
     @pulumi.getter(name="versioningConfiguration")
     def versioning_configuration(self) -> Optional[pulumi.Input['DatasetVersioningConfigurationArgs']]:
         """
-        Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of AWS IoT Analytics datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *AWS IoT Analytics User Guide* .
+        Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of ITA datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *ITA User Guide* .
         """
         return pulumi.get(self, "versioning_configuration")
 
@@ -315,7 +315,7 @@ class Dataset(pulumi.CustomResource):
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetTriggerArgs', 'DatasetTriggerArgsDict']]]] triggers: The `DatasetTrigger` objects that specify when the dataset is automatically updated.
-        :param pulumi.Input[Union['DatasetVersioningConfigurationArgs', 'DatasetVersioningConfigurationArgsDict']] versioning_configuration: Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of AWS IoT Analytics datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *AWS IoT Analytics User Guide* .
+        :param pulumi.Input[Union['DatasetVersioningConfigurationArgs', 'DatasetVersioningConfigurationArgsDict']] versioning_configuration: Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of ITA datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *ITA User Guide* .
         """
         ...
     @overload
@@ -597,7 +597,7 @@ class Dataset(pulumi.CustomResource):
     @pulumi.getter(name="versioningConfiguration")
     def versioning_configuration(self) -> pulumi.Output[Optional['outputs.DatasetVersioningConfiguration']]:
         """
-        Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of AWS IoT Analytics datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *AWS IoT Analytics User Guide* .
+        Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of ITA datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *ITA User Guide* .
         """
         return pulumi.get(self, "versioning_configuration")
 

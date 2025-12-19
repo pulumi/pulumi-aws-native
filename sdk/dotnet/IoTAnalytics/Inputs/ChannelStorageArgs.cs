@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public Input<Inputs.ChannelCustomerManagedS3Args>? CustomerManagedS3 { get; set; }
 
         /// <summary>
-        /// Used to store channel data in an S3 bucket managed by AWS IoT Analytics . You can't change the choice of S3 storage after the data store is created.
+        /// Used to store channel data in an S3 bucket managed by ITA . You can't change the choice of S3 storage after the data store is created.
         /// </summary>
         [Input("serviceManagedS3")]
         public Input<Inputs.ChannelServiceManagedS3Args>? ServiceManagedS3 { get; set; }

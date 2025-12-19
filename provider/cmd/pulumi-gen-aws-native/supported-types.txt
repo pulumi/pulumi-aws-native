@@ -157,6 +157,11 @@ AWS::Budgets::BudgetsAction
 AWS::CE::AnomalyMonitor
 AWS::CE::AnomalySubscription
 AWS::CE::CostCategory
+AWS::Cases::CaseRule
+AWS::Cases::Domain
+AWS::Cases::Field
+AWS::Cases::Layout
+AWS::Cases::Template
 AWS::Cassandra::Keyspace
 AWS::Cassandra::Table
 AWS::Cassandra::Type
@@ -894,6 +899,7 @@ AWS::Oam::Link
 AWS::Oam::Sink
 AWS::ObservabilityAdmin::OrganizationCentralizationRule
 AWS::ObservabilityAdmin::OrganizationTelemetryRule
+AWS::ObservabilityAdmin::S3TableIntegration
 AWS::ObservabilityAdmin::TelemetryPipelines
 AWS::ObservabilityAdmin::TelemetryRule
 AWS::Omics::AnnotationStore

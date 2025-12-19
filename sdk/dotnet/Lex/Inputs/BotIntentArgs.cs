@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public Input<Inputs.BotBedrockAgentIntentConfigurationArgs>? BedrockAgentIntentConfiguration { get; set; }
 
         /// <summary>
-        /// Description of thr intent.
+        /// Resource Type definition for the intent.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -26,6 +26,9 @@ namespace Pulumi.AwsNative.Lex.Inputs
         /// </summary>
         [Input("dialogCodeHook")]
         public Input<Inputs.BotDialogCodeHookSettingArgs>? DialogCodeHook { get; set; }
+
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
 
         /// <summary>
         /// Specifies that Amazon Lex invokes the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user.

@@ -127,6 +127,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// The ARN of the user settings.
         /// </summary>
         public readonly string? UserSettingsArn;
+        public readonly Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? WebAuthnAllowed;
 
         [OutputConstructor]
         private GetUserSettingsResult(
@@ -160,7 +161,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
             Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? uploadAllowed,
 
-            string? userSettingsArn)
+            string? userSettingsArn,
+
+            Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? webAuthnAllowed)
         {
             AdditionalEncryptionContext = additionalEncryptionContext;
             AssociatedPortalArns = associatedPortalArns;
@@ -178,6 +181,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
             ToolbarConfiguration = toolbarConfiguration;
             UploadAllowed = uploadAllowed;
             UserSettingsArn = userSettingsArn;
+            WebAuthnAllowed = webAuthnAllowed;
         }
     }
 }

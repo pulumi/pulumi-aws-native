@@ -121,7 +121,7 @@ export class Datastore extends pulumi.CustomResource {
      */
     declare public readonly datastoreStorage: pulumi.Output<outputs.iotanalytics.DatastoreStorage | undefined>;
     /**
-     * Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+     * Contains the configuration information of file formats. ITA data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
      *
      * The default file format is JSON. You can specify only one format.
      *
@@ -190,7 +190,7 @@ export interface DatastoreArgs {
      */
     datastoreStorage?: pulumi.Input<inputs.iotanalytics.DatastoreStorageArgs>;
     /**
-     * Contains the configuration information of file formats. AWS IoT Analytics data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+     * Contains the configuration information of file formats. ITA data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
      *
      * The default file format is JSON. You can specify only one format.
      *

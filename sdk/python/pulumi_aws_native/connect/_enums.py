@@ -34,6 +34,8 @@ __all__ = [
     'EvaluationFormTargetConfigurationContactInteractionType',
     'HoursOfOperationConfigDay',
     'HoursOfOperationOverrideConfigDay',
+    'HoursOfOperationOverrideType',
+    'HoursOfOperationRecurrenceFrequency',
     'InstanceIdentityManagementType',
     'InstanceStatus',
     'InstanceStorageConfigEncryptionType',
@@ -192,7 +194,7 @@ class EvaluationFormItemEnablementSourceValueType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:connect:EvaluationFormLanguageConfigurationFormLanguage")
 class EvaluationFormLanguageConfigurationFormLanguage(_builtins.str, Enum):
     """
-    The language of the form
+    The language for the evaluation form.
     """
     DE_DE = "de-DE"
     EN_US = "en-US"
@@ -205,7 +207,7 @@ class EvaluationFormLanguageConfigurationFormLanguage(_builtins.str, Enum):
 @pulumi.type_token("aws-native:connect:EvaluationFormMultiSelectQuestionPropertiesDisplayAs")
 class EvaluationFormMultiSelectQuestionPropertiesDisplayAs(_builtins.str, Enum):
     """
-    The display mode of the multi-select question.
+    Display format for the multi-select question.
     """
     DROPDOWN = "DROPDOWN"
     CHECKBOX = "CHECKBOX"
@@ -214,7 +216,7 @@ class EvaluationFormMultiSelectQuestionPropertiesDisplayAs(_builtins.str, Enum):
 @pulumi.type_token("aws-native:connect:EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition")
 class EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition(_builtins.str, Enum):
     """
-    The automation condition applied on contact categories.
+    The condition for this automation rule.
     """
     PRESENT = "PRESENT"
     NOT_PRESENT = "NOT_PRESENT"
@@ -316,7 +318,7 @@ class EvaluationFormStatus(_builtins.str, Enum):
 @pulumi.type_token("aws-native:connect:EvaluationFormTargetConfigurationContactInteractionType")
 class EvaluationFormTargetConfigurationContactInteractionType(_builtins.str, Enum):
     """
-    The interaction type of a contact
+    The contact interaction type for this evaluation form.
     """
     AGENT = "AGENT"
     AUTOMATED = "AUTOMATED"
@@ -348,6 +350,26 @@ class HoursOfOperationOverrideConfigDay(_builtins.str, Enum):
     THURSDAY = "THURSDAY"
     FRIDAY = "FRIDAY"
     SATURDAY = "SATURDAY"
+
+
+@pulumi.type_token("aws-native:connect:HoursOfOperationOverrideType")
+class HoursOfOperationOverrideType(_builtins.str, Enum):
+    """
+    The type of hours of operation override.
+    """
+    STANDARD = "STANDARD"
+    OPEN = "OPEN"
+    CLOSED = "CLOSED"
+
+
+@pulumi.type_token("aws-native:connect:HoursOfOperationRecurrenceFrequency")
+class HoursOfOperationRecurrenceFrequency(_builtins.str, Enum):
+    """
+    The frequency of recurrence for hours of operation overrides.
+    """
+    WEEKLY = "WEEKLY"
+    MONTHLY = "MONTHLY"
+    YEARLY = "YEARLY"
 
 
 @pulumi.type_token("aws-native:connect:InstanceIdentityManagementType")

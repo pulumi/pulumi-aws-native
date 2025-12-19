@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetOdbPeeringConnectionResult:
-    def __init__(__self__, odb_network_arn=None, odb_peering_connection_arn=None, odb_peering_connection_id=None, peer_network_arn=None, tags=None):
+    def __init__(__self__, display_name=None, odb_network_arn=None, odb_peering_connection_arn=None, odb_peering_connection_id=None, peer_network_arn=None, peer_network_cidrs=None, tags=None):
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
         if odb_network_arn and not isinstance(odb_network_arn, str):
             raise TypeError("Expected argument 'odb_network_arn' to be a str")
         pulumi.set(__self__, "odb_network_arn", odb_network_arn)
@@ -37,9 +40,20 @@ class GetOdbPeeringConnectionResult:
         if peer_network_arn and not isinstance(peer_network_arn, str):
             raise TypeError("Expected argument 'peer_network_arn' to be a str")
         pulumi.set(__self__, "peer_network_arn", peer_network_arn)
+        if peer_network_cidrs and not isinstance(peer_network_cidrs, list):
+            raise TypeError("Expected argument 'peer_network_cidrs' to be a list")
+        pulumi.set(__self__, "peer_network_cidrs", peer_network_cidrs)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the ODB peering connection.
+        """
+        return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter(name="odbNetworkArn")
@@ -74,6 +88,14 @@ class GetOdbPeeringConnectionResult:
         return pulumi.get(self, "peer_network_arn")
 
     @_builtins.property
+    @pulumi.getter(name="peerNetworkCidrs")
+    def peer_network_cidrs(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The CIDR blocks for the ODB peering connection.
+        """
+        return pulumi.get(self, "peer_network_cidrs")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -88,10 +110,12 @@ class AwaitableGetOdbPeeringConnectionResult(GetOdbPeeringConnectionResult):
         if False:
             yield self
         return GetOdbPeeringConnectionResult(
+            display_name=self.display_name,
             odb_network_arn=self.odb_network_arn,
             odb_peering_connection_arn=self.odb_peering_connection_arn,
             odb_peering_connection_id=self.odb_peering_connection_id,
             peer_network_arn=self.peer_network_arn,
+            peer_network_cidrs=self.peer_network_cidrs,
             tags=self.tags)
 
 
@@ -109,10 +133,12 @@ def get_odb_peering_connection(odb_peering_connection_arn: Optional[_builtins.st
     __ret__ = pulumi.runtime.invoke('aws-native:odb:getOdbPeeringConnection', __args__, opts=opts, typ=GetOdbPeeringConnectionResult).value
 
     return AwaitableGetOdbPeeringConnectionResult(
+        display_name=pulumi.get(__ret__, 'display_name'),
         odb_network_arn=pulumi.get(__ret__, 'odb_network_arn'),
         odb_peering_connection_arn=pulumi.get(__ret__, 'odb_peering_connection_arn'),
         odb_peering_connection_id=pulumi.get(__ret__, 'odb_peering_connection_id'),
         peer_network_arn=pulumi.get(__ret__, 'peer_network_arn'),
+        peer_network_cidrs=pulumi.get(__ret__, 'peer_network_cidrs'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_odb_peering_connection_output(odb_peering_connection_arn: Optional[pulumi.Input[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOdbPeeringConnectionResult]:
@@ -127,8 +153,10 @@ def get_odb_peering_connection_output(odb_peering_connection_arn: Optional[pulum
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:odb:getOdbPeeringConnection', __args__, opts=opts, typ=GetOdbPeeringConnectionResult)
     return __ret__.apply(lambda __response__: GetOdbPeeringConnectionResult(
+        display_name=pulumi.get(__response__, 'display_name'),
         odb_network_arn=pulumi.get(__response__, 'odb_network_arn'),
         odb_peering_connection_arn=pulumi.get(__response__, 'odb_peering_connection_arn'),
         odb_peering_connection_id=pulumi.get(__response__, 'odb_peering_connection_id'),
         peer_network_arn=pulumi.get(__response__, 'peer_network_arn'),
+        peer_network_cidrs=pulumi.get(__response__, 'peer_network_cidrs'),
         tags=pulumi.get(__response__, 'tags')))

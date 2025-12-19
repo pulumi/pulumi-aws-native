@@ -505,6 +505,7 @@ if not MYPY:
         """
         The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity.
         """
+        capacity_option_type: NotRequired[pulumi.Input['CapacityProviderInstanceLaunchTemplateCapacityOptionType']]
         instance_requirements: NotRequired[pulumi.Input['CapacityProviderInstanceRequirementsRequestArgsDict']]
         """
         The instance requirements. You can specify:
@@ -530,6 +531,7 @@ class CapacityProviderInstanceLaunchTemplateArgs:
     def __init__(__self__, *,
                  ec2_instance_profile_arn: pulumi.Input[_builtins.str],
                  network_configuration: pulumi.Input['CapacityProviderManagedInstancesNetworkConfigurationArgs'],
+                 capacity_option_type: Optional[pulumi.Input['CapacityProviderInstanceLaunchTemplateCapacityOptionType']] = None,
                  instance_requirements: Optional[pulumi.Input['CapacityProviderInstanceRequirementsRequestArgs']] = None,
                  monitoring: Optional[pulumi.Input['CapacityProviderManagedInstancesMonitoringOptions']] = None,
                  storage_configuration: Optional[pulumi.Input['CapacityProviderManagedInstancesStorageConfigurationArgs']] = None):
@@ -549,6 +551,8 @@ class CapacityProviderInstanceLaunchTemplateArgs:
         """
         pulumi.set(__self__, "ec2_instance_profile_arn", ec2_instance_profile_arn)
         pulumi.set(__self__, "network_configuration", network_configuration)
+        if capacity_option_type is not None:
+            pulumi.set(__self__, "capacity_option_type", capacity_option_type)
         if instance_requirements is not None:
             pulumi.set(__self__, "instance_requirements", instance_requirements)
         if monitoring is not None:
@@ -581,6 +585,15 @@ class CapacityProviderInstanceLaunchTemplateArgs:
     @network_configuration.setter
     def network_configuration(self, value: pulumi.Input['CapacityProviderManagedInstancesNetworkConfigurationArgs']):
         pulumi.set(self, "network_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityOptionType")
+    def capacity_option_type(self) -> Optional[pulumi.Input['CapacityProviderInstanceLaunchTemplateCapacityOptionType']]:
+        return pulumi.get(self, "capacity_option_type")
+
+    @capacity_option_type.setter
+    def capacity_option_type(self, value: Optional[pulumi.Input['CapacityProviderInstanceLaunchTemplateCapacityOptionType']]):
+        pulumi.set(self, "capacity_option_type", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceRequirements")

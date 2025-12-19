@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetBotAliasResult:
-    def __init__(__self__, arn=None, bot_alias_id=None, bot_alias_locale_settings=None, bot_alias_name=None, bot_alias_status=None, bot_version=None, conversation_log_settings=None, description=None, sentiment_analysis_settings=None):
+    def __init__(__self__, arn=None, bot_alias_id=None, bot_alias_locale_settings=None, bot_alias_name=None, bot_alias_status=None, bot_alias_tags=None, bot_version=None, conversation_log_settings=None, description=None, sentiment_analysis_settings=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -41,6 +42,9 @@ class GetBotAliasResult:
         if bot_alias_status and not isinstance(bot_alias_status, str):
             raise TypeError("Expected argument 'bot_alias_status' to be a str")
         pulumi.set(__self__, "bot_alias_status", bot_alias_status)
+        if bot_alias_tags and not isinstance(bot_alias_tags, list):
+            raise TypeError("Expected argument 'bot_alias_tags' to be a list")
+        pulumi.set(__self__, "bot_alias_tags", bot_alias_tags)
         if bot_version and not isinstance(bot_version, str):
             raise TypeError("Expected argument 'bot_version' to be a str")
         pulumi.set(__self__, "bot_version", bot_version)
@@ -95,6 +99,14 @@ class GetBotAliasResult:
         return pulumi.get(self, "bot_alias_status")
 
     @_builtins.property
+    @pulumi.getter(name="botAliasTags")
+    def bot_alias_tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of tags to add to the bot alias.
+        """
+        return pulumi.get(self, "bot_alias_tags")
+
+    @_builtins.property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> Optional[_builtins.str]:
         """
@@ -138,6 +150,7 @@ class AwaitableGetBotAliasResult(GetBotAliasResult):
             bot_alias_locale_settings=self.bot_alias_locale_settings,
             bot_alias_name=self.bot_alias_name,
             bot_alias_status=self.bot_alias_status,
+            bot_alias_tags=self.bot_alias_tags,
             bot_version=self.bot_version,
             conversation_log_settings=self.conversation_log_settings,
             description=self.description,
@@ -148,7 +161,7 @@ def get_bot_alias(bot_alias_id: Optional[_builtins.str] = None,
                   bot_id: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotAliasResult:
     """
-    A Bot Alias enables you to change the version of a bot without updating applications that use the bot
+    Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot
 
 
     :param _builtins.str bot_alias_id: The unique identifier of the bot alias.
@@ -166,6 +179,7 @@ def get_bot_alias(bot_alias_id: Optional[_builtins.str] = None,
         bot_alias_locale_settings=pulumi.get(__ret__, 'bot_alias_locale_settings'),
         bot_alias_name=pulumi.get(__ret__, 'bot_alias_name'),
         bot_alias_status=pulumi.get(__ret__, 'bot_alias_status'),
+        bot_alias_tags=pulumi.get(__ret__, 'bot_alias_tags'),
         bot_version=pulumi.get(__ret__, 'bot_version'),
         conversation_log_settings=pulumi.get(__ret__, 'conversation_log_settings'),
         description=pulumi.get(__ret__, 'description'),
@@ -174,7 +188,7 @@ def get_bot_alias_output(bot_alias_id: Optional[pulumi.Input[_builtins.str]] = N
                          bot_id: Optional[pulumi.Input[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBotAliasResult]:
     """
-    A Bot Alias enables you to change the version of a bot without updating applications that use the bot
+    Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot
 
 
     :param _builtins.str bot_alias_id: The unique identifier of the bot alias.
@@ -191,6 +205,7 @@ def get_bot_alias_output(bot_alias_id: Optional[pulumi.Input[_builtins.str]] = N
         bot_alias_locale_settings=pulumi.get(__response__, 'bot_alias_locale_settings'),
         bot_alias_name=pulumi.get(__response__, 'bot_alias_name'),
         bot_alias_status=pulumi.get(__response__, 'bot_alias_status'),
+        bot_alias_tags=pulumi.get(__response__, 'bot_alias_tags'),
         bot_version=pulumi.get(__response__, 'bot_version'),
         conversation_log_settings=pulumi.get(__response__, 'conversation_log_settings'),
         description=pulumi.get(__response__, 'description'),

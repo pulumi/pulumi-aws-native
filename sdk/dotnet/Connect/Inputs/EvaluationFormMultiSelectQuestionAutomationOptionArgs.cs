@@ -10,10 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
+    /// <summary>
+    /// An automation option for a multi-select question.
+    /// </summary>
     public sealed class EvaluationFormMultiSelectQuestionAutomationOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The automation option based on Rules categories.
+        /// Rule category configuration for this automation option.
         /// </summary>
         [Input("ruleCategory", required: true)]
         public Input<Inputs.EvaluationFormMultiSelectQuestionRuleCategoryAutomationArgs> RuleCategory { get; set; } = null!;

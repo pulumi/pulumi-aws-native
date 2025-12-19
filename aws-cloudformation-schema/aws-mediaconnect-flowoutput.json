@@ -287,13 +287,13 @@
       "permissions" : [ "iam:PassRole", "mediaconnect:AddFlowOutputs" ]
     },
     "read" : {
-      "permissions" : [ "mediaconnect:DescribeFlow" ]
+      "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:ListFlows" ]
     },
     "update" : {
       "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:UpdateFlowOutput" ]
     },
     "delete" : {
-      "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:RemoveFlowOutput" ]
+      "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:ListFlows", "mediaconnect:RemoveFlowOutput" ]
     },
     "list" : {
       "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:ListFlows" ]

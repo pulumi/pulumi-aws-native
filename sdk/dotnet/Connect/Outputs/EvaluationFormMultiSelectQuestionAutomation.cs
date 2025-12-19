@@ -10,19 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Outputs
 {
 
+    /// <summary>
+    /// Automation configuration for multi-select questions.
+    /// </summary>
     [OutputType]
     public sealed class EvaluationFormMultiSelectQuestionAutomation
     {
-        /// <summary>
-        /// The source of automation answer of the question.
-        /// </summary>
         public readonly Outputs.EvaluationFormQuestionAutomationAnswerSource? AnswerSource;
         /// <summary>
-        /// The option reference identifiers of the default answers.
+        /// Reference IDs of default options.
         /// </summary>
         public readonly ImmutableArray<string> DefaultOptionRefIds;
         /// <summary>
-        /// The answer options for the automation.
+        /// Automation options for the multi-select question.
         /// </summary>
         public readonly ImmutableArray<Outputs.EvaluationFormMultiSelectQuestionAutomationOption> Options;
 

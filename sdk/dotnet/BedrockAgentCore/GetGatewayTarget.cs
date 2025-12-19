@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     public static class GetGatewayTarget
     {
         /// <summary>
-        /// Definition of AWS::BedrockAgentCore::GatewayTarget Resource Type
+        /// Resource Type definition for AWS::BedrockAgentCore::GatewayTarget
         /// </summary>
         public static Task<GetGatewayTargetResult> InvokeAsync(GetGatewayTargetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayTargetResult>("aws-native:bedrockagentcore:getGatewayTarget", args ?? new GetGatewayTargetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::BedrockAgentCore::GatewayTarget Resource Type
+        /// Resource Type definition for AWS::BedrockAgentCore::GatewayTarget
         /// </summary>
         public static Output<GetGatewayTargetResult> Invoke(GetGatewayTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayTargetResult>("aws-native:bedrockagentcore:getGatewayTarget", args ?? new GetGatewayTargetInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Definition of AWS::BedrockAgentCore::GatewayTarget Resource Type
+        /// Resource Type definition for AWS::BedrockAgentCore::GatewayTarget
         /// </summary>
         public static Output<GetGatewayTargetResult> Invoke(GetGatewayTargetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayTargetResult>("aws-native:bedrockagentcore:getGatewayTarget", args ?? new GetGatewayTargetInvokeArgs(), options.WithDefaults());

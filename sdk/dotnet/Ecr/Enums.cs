@@ -144,6 +144,7 @@ namespace Pulumi.AwsNative.Ecr
 
         public static RepositoryCreationTemplateAppliedForItem Replication { get; } = new RepositoryCreationTemplateAppliedForItem("REPLICATION");
         public static RepositoryCreationTemplateAppliedForItem PullThroughCache { get; } = new RepositoryCreationTemplateAppliedForItem("PULL_THROUGH_CACHE");
+        public static RepositoryCreationTemplateAppliedForItem CreateOnPush { get; } = new RepositoryCreationTemplateAppliedForItem("CREATE_ON_PUSH");
 
         public static bool operator ==(RepositoryCreationTemplateAppliedForItem left, RepositoryCreationTemplateAppliedForItem right) => left.Equals(right);
         public static bool operator !=(RepositoryCreationTemplateAppliedForItem left, RepositoryCreationTemplateAppliedForItem right) => !left.Equals(right);

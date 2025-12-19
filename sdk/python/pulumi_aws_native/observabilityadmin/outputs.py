@@ -39,6 +39,8 @@ __all__ = [
     'OrganizationTelemetryRuleTelemetryRule',
     'OrganizationTelemetryRuleVpcFlowLogParameters',
     'OrganizationTelemetryRuleWafLoggingParameters',
+    'S3TableIntegrationEncryptionConfig',
+    'S3TableIntegrationLogSource',
     'TelemetryPipelinesTag',
     'TelemetryPipelinesTelemetryPipeline',
     'TelemetryPipelinesTelemetryPipelineConfiguration',
@@ -1334,6 +1336,104 @@ class OrganizationTelemetryRuleWafLoggingParameters(dict):
         Fields not to be included in the logs.
         """
         return pulumi.get(self, "redacted_fields")
+
+
+@pulumi.output_type
+class S3TableIntegrationEncryptionConfig(dict):
+    """
+    Encryption configuration for the S3 Table Integration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sseAlgorithm":
+            suggest = "sse_algorithm"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in S3TableIntegrationEncryptionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        S3TableIntegrationEncryptionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        S3TableIntegrationEncryptionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sse_algorithm: 'S3TableIntegrationEncryptionConfigSseAlgorithm',
+                 kms_key_arn: Optional[_builtins.str] = None):
+        """
+        Encryption configuration for the S3 Table Integration
+        :param 'S3TableIntegrationEncryptionConfigSseAlgorithm' sse_algorithm: The server-side encryption algorithm used to encrypt the S3 Table(s) data
+        :param _builtins.str kms_key_arn: The ARN of the KMS key used to encrypt the S3 Table Integration
+        """
+        pulumi.set(__self__, "sse_algorithm", sse_algorithm)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="sseAlgorithm")
+    def sse_algorithm(self) -> 'S3TableIntegrationEncryptionConfigSseAlgorithm':
+        """
+        The server-side encryption algorithm used to encrypt the S3 Table(s) data
+        """
+        return pulumi.get(self, "sse_algorithm")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the KMS key used to encrypt the S3 Table Integration
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+
+@pulumi.output_type
+class S3TableIntegrationLogSource(dict):
+    """
+    CloudWatch Logs data source to associate with the S3 Table Integration
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 type: _builtins.str,
+                 identifier: Optional[_builtins.str] = None):
+        """
+        CloudWatch Logs data source to associate with the S3 Table Integration
+        :param _builtins.str name: The name of the CloudWatch Logs data source
+        :param _builtins.str type: The type of the CloudWatch Logs data source
+        :param _builtins.str identifier: The ID of the CloudWatch Logs data source association
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the CloudWatch Logs data source
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The type of the CloudWatch Logs data source
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def identifier(self) -> Optional[_builtins.str]:
+        """
+        The ID of the CloudWatch Logs data source association
+        """
+        return pulumi.get(self, "identifier")
 
 
 @pulumi.output_type

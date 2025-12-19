@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 and AWS Glue resources.
+        /// The ARN of the role that grants ITA permission to interact with your Amazon S3 and AWS Glue resources.
         /// </summary>
         public readonly string RoleArn;
 

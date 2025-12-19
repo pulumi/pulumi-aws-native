@@ -8,11 +8,12 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A Bot Alias enables you to change the version of a bot without updating applications that use the bot
+// Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot
 type BotAlias struct {
 	pulumi.CustomResourceState
 
@@ -27,7 +28,7 @@ type BotAlias struct {
 	// The current status of the bot alias. When the status is Available the alias is ready for use with your bot.
 	BotAliasStatus BotAliasStatusOutput `pulumi:"botAliasStatus"`
 	// A list of tags to add to the bot alias.
-	BotAliasTags BotAliasTagArrayOutput `pulumi:"botAliasTags"`
+	BotAliasTags aws.TagArrayOutput `pulumi:"botAliasTags"`
 	// The unique identifier of the bot.
 	BotId pulumi.StringOutput `pulumi:"botId"`
 	// The version of the bot that the bot alias references.
@@ -92,7 +93,7 @@ type botAliasArgs struct {
 	// The name of the bot alias.
 	BotAliasName *string `pulumi:"botAliasName"`
 	// A list of tags to add to the bot alias.
-	BotAliasTags []BotAliasTag `pulumi:"botAliasTags"`
+	BotAliasTags []aws.Tag `pulumi:"botAliasTags"`
 	// The unique identifier of the bot.
 	BotId string `pulumi:"botId"`
 	// The version of the bot that the bot alias references.
@@ -112,7 +113,7 @@ type BotAliasArgs struct {
 	// The name of the bot alias.
 	BotAliasName pulumi.StringPtrInput
 	// A list of tags to add to the bot alias.
-	BotAliasTags BotAliasTagArrayInput
+	BotAliasTags aws.TagArrayInput
 	// The unique identifier of the bot.
 	BotId pulumi.StringInput
 	// The version of the bot that the bot alias references.
@@ -188,8 +189,8 @@ func (o BotAliasOutput) BotAliasStatus() BotAliasStatusOutput {
 }
 
 // A list of tags to add to the bot alias.
-func (o BotAliasOutput) BotAliasTags() BotAliasTagArrayOutput {
-	return o.ApplyT(func(v *BotAlias) BotAliasTagArrayOutput { return v.BotAliasTags }).(BotAliasTagArrayOutput)
+func (o BotAliasOutput) BotAliasTags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *BotAlias) aws.TagArrayOutput { return v.BotAliasTags }).(aws.TagArrayOutput)
 }
 
 // The unique identifier of the bot.

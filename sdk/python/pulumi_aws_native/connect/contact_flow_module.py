@@ -13,8 +13,10 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._inputs import *
 
 __all__ = ['ContactFlowModuleArgs', 'ContactFlowModule']
 
@@ -24,7 +26,9 @@ class ContactFlowModuleArgs:
                  content: pulumi.Input[_builtins.str],
                  instance_arn: pulumi.Input[_builtins.str],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_invocation_configuration: Optional[pulumi.Input['ExternalInvocationConfigurationPropertiesArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 settings: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -32,7 +36,9 @@ class ContactFlowModuleArgs:
         :param pulumi.Input[_builtins.str] content: The content of the contact flow module in JSON format.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance (ARN).
         :param pulumi.Input[_builtins.str] description: The description of the contact flow module.
+        :param pulumi.Input['ExternalInvocationConfigurationPropertiesArgs'] external_invocation_configuration: Defines the external invocation configuration of the flow module resource
         :param pulumi.Input[_builtins.str] name: The name of the contact flow module.
+        :param pulumi.Input[_builtins.str] settings: The schema of the settings for contact flow module in JSON Schema V4 format.
         :param pulumi.Input[_builtins.str] state: The state of the contact flow module.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
         """
@@ -40,8 +46,12 @@ class ContactFlowModuleArgs:
         pulumi.set(__self__, "instance_arn", instance_arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if external_invocation_configuration is not None:
+            pulumi.set(__self__, "external_invocation_configuration", external_invocation_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if tags is not None:
@@ -84,6 +94,18 @@ class ContactFlowModuleArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="externalInvocationConfiguration")
+    def external_invocation_configuration(self) -> Optional[pulumi.Input['ExternalInvocationConfigurationPropertiesArgs']]:
+        """
+        Defines the external invocation configuration of the flow module resource
+        """
+        return pulumi.get(self, "external_invocation_configuration")
+
+    @external_invocation_configuration.setter
+    def external_invocation_configuration(self, value: Optional[pulumi.Input['ExternalInvocationConfigurationPropertiesArgs']]):
+        pulumi.set(self, "external_invocation_configuration", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -94,6 +116,18 @@ class ContactFlowModuleArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def settings(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The schema of the settings for contact flow module in JSON Schema V4 format.
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "settings", value)
 
     @_builtins.property
     @pulumi.getter
@@ -128,8 +162,10 @@ class ContactFlowModule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_invocation_configuration: Optional[pulumi.Input[Union['ExternalInvocationConfigurationPropertiesArgs', 'ExternalInvocationConfigurationPropertiesArgsDict']]] = None,
                  instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 settings: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -159,8 +195,10 @@ class ContactFlowModule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content: The content of the contact flow module in JSON format.
         :param pulumi.Input[_builtins.str] description: The description of the contact flow module.
+        :param pulumi.Input[Union['ExternalInvocationConfigurationPropertiesArgs', 'ExternalInvocationConfigurationPropertiesArgsDict']] external_invocation_configuration: Defines the external invocation configuration of the flow module resource
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance (ARN).
         :param pulumi.Input[_builtins.str] name: The name of the contact flow module.
+        :param pulumi.Input[_builtins.str] settings: The schema of the settings for contact flow module in JSON Schema V4 format.
         :param pulumi.Input[_builtins.str] state: The state of the contact flow module.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
         """
@@ -209,8 +247,10 @@ class ContactFlowModule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_invocation_configuration: Optional[pulumi.Input[Union['ExternalInvocationConfigurationPropertiesArgs', 'ExternalInvocationConfigurationPropertiesArgsDict']]] = None,
                  instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 settings: Optional[pulumi.Input[_builtins.str]] = None,
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -226,10 +266,12 @@ class ContactFlowModule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'content'")
             __props__.__dict__["content"] = content
             __props__.__dict__["description"] = description
+            __props__.__dict__["external_invocation_configuration"] = external_invocation_configuration
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
             __props__.__dict__["name"] = name
+            __props__.__dict__["settings"] = settings
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
             __props__.__dict__["contact_flow_module_arn"] = None
@@ -259,8 +301,10 @@ class ContactFlowModule(pulumi.CustomResource):
         __props__.__dict__["contact_flow_module_arn"] = None
         __props__.__dict__["content"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["external_invocation_configuration"] = None
         __props__.__dict__["instance_arn"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["settings"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
@@ -291,6 +335,14 @@ class ContactFlowModule(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @_builtins.property
+    @pulumi.getter(name="externalInvocationConfiguration")
+    def external_invocation_configuration(self) -> pulumi.Output[Optional['outputs.ExternalInvocationConfigurationProperties']]:
+        """
+        Defines the external invocation configuration of the flow module resource
+        """
+        return pulumi.get(self, "external_invocation_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[_builtins.str]:
         """
@@ -305,6 +357,14 @@ class ContactFlowModule(pulumi.CustomResource):
         The name of the contact flow module.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def settings(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The schema of the settings for contact flow module in JSON Schema V4 format.
+        """
+        return pulumi.get(self, "settings")
 
     @_builtins.property
     @pulumi.getter

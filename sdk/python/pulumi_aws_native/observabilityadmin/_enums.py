@@ -19,6 +19,7 @@ __all__ = [
     'OrganizationTelemetryRuleTelemetrySourceType',
     'OrganizationTelemetryRuleTelemetryType',
     'OrganizationTelemetryRuleWafLogType',
+    'S3TableIntegrationEncryptionConfigSseAlgorithm',
     'TelemetryPipelinesTelemetryPipelineStatus',
     'TelemetryRuleAction',
     'TelemetryRuleDestinationType',
@@ -148,6 +149,15 @@ class OrganizationTelemetryRuleWafLogType(_builtins.str, Enum):
     The type of logs to generate for WAF.
     """
     WAF_LOGS = "WAF_LOGS"
+
+
+@pulumi.type_token("aws-native:observabilityadmin:S3TableIntegrationEncryptionConfigSseAlgorithm")
+class S3TableIntegrationEncryptionConfigSseAlgorithm(_builtins.str, Enum):
+    """
+    The server-side encryption algorithm used to encrypt the S3 Table(s) data
+    """
+    AES256 = "AES256"
+    AWSKMS = "aws:kms"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:TelemetryPipelinesTelemetryPipelineStatus")

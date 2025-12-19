@@ -118,7 +118,7 @@ class GatewayTarget(pulumi.CustomResource):
                  target_configuration: Optional[pulumi.Input[Union['GatewayTargetTargetConfigurationPropertiesArgs', 'GatewayTargetTargetConfigurationPropertiesArgsDict']]] = None,
                  __props__=None):
         """
-        Definition of AWS::BedrockAgentCore::GatewayTarget Resource Type
+        Resource Type definition for AWS::BedrockAgentCore::GatewayTarget
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,7 +135,7 @@ class GatewayTarget(pulumi.CustomResource):
                  args: GatewayTargetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Definition of AWS::BedrockAgentCore::GatewayTarget Resource Type
+        Resource Type definition for AWS::BedrockAgentCore::GatewayTarget
 
         :param str resource_name: The name of the resource.
         :param GatewayTargetArgs args: The arguments to use to populate this resource's properties.

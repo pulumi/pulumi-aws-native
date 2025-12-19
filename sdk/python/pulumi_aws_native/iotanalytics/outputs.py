@@ -98,7 +98,7 @@ class ChannelCustomerManagedS3(dict):
                  key_prefix: Optional[_builtins.str] = None):
         """
         :param _builtins.str bucket: The name of the S3 bucket in which channel data is stored.
-        :param _builtins.str role_arn: The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+        :param _builtins.str role_arn: The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
         :param _builtins.str key_prefix: (Optional) The prefix used to create the keys of the channel data objects. Each object in an S3 bucket has a key that is its unique identifier within the bucket (each object in a bucket has exactly one key). The prefix must end with a forward slash (/).
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -118,7 +118,7 @@ class ChannelCustomerManagedS3(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
         """
-        The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+        The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
         """
         return pulumi.get(self, "role_arn")
 
@@ -211,7 +211,7 @@ class ChannelStorage(dict):
                  service_managed_s3: Optional['outputs.ChannelServiceManagedS3'] = None):
         """
         :param 'ChannelCustomerManagedS3' customer_managed_s3: Used to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the `retentionPeriod` parameter is ignored. You can't change the choice of S3 storage after the data store is created.
-        :param 'ChannelServiceManagedS3' service_managed_s3: Used to store channel data in an S3 bucket managed by AWS IoT Analytics . You can't change the choice of S3 storage after the data store is created.
+        :param 'ChannelServiceManagedS3' service_managed_s3: Used to store channel data in an S3 bucket managed by ITA . You can't change the choice of S3 storage after the data store is created.
         """
         if customer_managed_s3 is not None:
             pulumi.set(__self__, "customer_managed_s3", customer_managed_s3)
@@ -230,7 +230,7 @@ class ChannelStorage(dict):
     @pulumi.getter(name="serviceManagedS3")
     def service_managed_s3(self) -> Optional['outputs.ChannelServiceManagedS3']:
         """
-        Used to store channel data in an S3 bucket managed by AWS IoT Analytics . You can't change the choice of S3 storage after the data store is created.
+        Used to store channel data in an S3 bucket managed by ITA . You can't change the choice of S3 storage after the data store is created.
         """
         return pulumi.get(self, "service_managed_s3")
 
@@ -571,7 +571,7 @@ class DatasetDeltaTimeSessionWindowConfiguration(dict):
     def __init__(__self__, *,
                  timeout_in_minutes: _builtins.int):
         """
-        :param _builtins.int timeout_in_minutes: A time interval. You can use `timeoutInMinutes` so that AWS IoT Analytics can batch up late data notifications that have been generated since the last execution. AWS IoT Analytics sends one batch of notifications to Amazon CloudWatch Events at one time.
+        :param _builtins.int timeout_in_minutes: A time interval. You can use `timeoutInMinutes` so that ITA can batch up late data notifications that have been generated since the last execution. ITA sends one batch of notifications to Amazon CloudWatch Events at one time.
                
                For more information about how to write a timestamp expression, see [Date and Time Functions and Operators](https://docs.aws.amazon.com/https://prestodb.io/docs/current/functions/datetime.html) , in the *Presto 0.172 Documentation* .
         """
@@ -581,7 +581,7 @@ class DatasetDeltaTimeSessionWindowConfiguration(dict):
     @pulumi.getter(name="timeoutInMinutes")
     def timeout_in_minutes(self) -> _builtins.int:
         """
-        A time interval. You can use `timeoutInMinutes` so that AWS IoT Analytics can batch up late data notifications that have been generated since the last execution. AWS IoT Analytics sends one batch of notifications to Amazon CloudWatch Events at one time.
+        A time interval. You can use `timeoutInMinutes` so that ITA can batch up late data notifications that have been generated since the last execution. ITA sends one batch of notifications to Amazon CloudWatch Events at one time.
 
         For more information about how to write a timestamp expression, see [Date and Time Functions and Operators](https://docs.aws.amazon.com/https://prestodb.io/docs/current/functions/datetime.html) , in the *Presto 0.172 Documentation* .
         """
@@ -698,7 +698,7 @@ class DatasetIotEventsDestinationConfiguration(dict):
                  role_arn: _builtins.str):
         """
         :param _builtins.str input_name: The name of the AWS IoT Events input to which dataset contents are delivered.
-        :param _builtins.str role_arn: The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
+        :param _builtins.str role_arn: The ARN of the role that grants ITA permission to deliver dataset contents to an AWS IoT Events input.
         """
         pulumi.set(__self__, "input_name", input_name)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -715,7 +715,7 @@ class DatasetIotEventsDestinationConfiguration(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
         """
-        The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
+        The ARN of the role that grants ITA permission to deliver dataset contents to an AWS IoT Events input.
         """
         return pulumi.get(self, "role_arn")
 
@@ -1022,7 +1022,7 @@ class DatasetS3DestinationConfiguration(dict):
                The following example creates a unique key for a CSV file: `dataset/mydataset/!{iotanalytics:scheduleTime}/!{iotanalytics:versionId}.csv`
                
                > If you don't use `!{iotanalytics:versionId}` to specify the key, you might get duplicate keys. For example, you might have two dataset contents with the same `scheduleTime` but different `versionId` s. This means that one dataset content overwrites the other.
-        :param _builtins.str role_arn: The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 and AWS Glue resources.
+        :param _builtins.str role_arn: The ARN of the role that grants ITA permission to interact with your Amazon S3 and AWS Glue resources.
         :param 'DatasetGlueConfiguration' glue_configuration: Configuration information for coordination with AWS Glue , a fully managed extract, transform and load (ETL) service.
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -1061,7 +1061,7 @@ class DatasetS3DestinationConfiguration(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
         """
-        The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 and AWS Glue resources.
+        The ARN of the role that grants ITA permission to interact with your Amazon S3 and AWS Glue resources.
         """
         return pulumi.get(self, "role_arn")
 
@@ -1387,7 +1387,7 @@ class DatastoreCustomerManagedS3(dict):
                  key_prefix: Optional[_builtins.str] = None):
         """
         :param _builtins.str bucket: The name of the Amazon S3 bucket where your data is stored.
-        :param _builtins.str role_arn: The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+        :param _builtins.str role_arn: The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
         :param _builtins.str key_prefix: (Optional) The prefix used to create the keys of the data store data objects. Each object in an Amazon S3 bucket has a key that is its unique identifier in the bucket. Each object in a bucket has exactly one key. The prefix must end with a forward slash (/).
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -1407,7 +1407,7 @@ class DatastoreCustomerManagedS3(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
         """
-        The ARN of the role that grants AWS IoT Analytics permission to interact with your Amazon S3 resources.
+        The ARN of the role that grants ITA permission to interact with your Amazon S3 resources.
         """
         return pulumi.get(self, "role_arn")
 
@@ -1769,7 +1769,7 @@ class DatastoreStorage(dict):
         """
         :param 'DatastoreCustomerManagedS3' customer_managed_s3: Use this to store data store data in an S3 bucket that you manage. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
         :param 'DatastoreIotSiteWiseMultiLayerStorage' iot_site_wise_multi_layer_storage: Use this to store data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
-        :param 'DatastoreServiceManagedS3' service_managed_s3: Use this to store data store data in an S3 bucket managed by the AWS IoT Analytics service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
+        :param 'DatastoreServiceManagedS3' service_managed_s3: Use this to store data store data in an S3 bucket managed by the  service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
         """
         if customer_managed_s3 is not None:
             pulumi.set(__self__, "customer_managed_s3", customer_managed_s3)
@@ -1798,7 +1798,7 @@ class DatastoreStorage(dict):
     @pulumi.getter(name="serviceManagedS3")
     def service_managed_s3(self) -> Optional['outputs.DatastoreServiceManagedS3']:
         """
-        Use this to store data store data in an S3 bucket managed by the AWS IoT Analytics service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
+        Use this to store data store data in an S3 bucket managed by the  service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
         """
         return pulumi.get(self, "service_managed_s3")
 

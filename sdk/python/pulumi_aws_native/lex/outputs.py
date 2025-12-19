@@ -27,7 +27,6 @@ __all__ = [
     'BotAliasLocaleSettings',
     'BotAliasLocaleSettingsItem',
     'BotAliasS3BucketLogDestination',
-    'BotAliasTag',
     'BotAliasTextLogDestination',
     'BotAliasTextLogSetting',
     'BotAllowedInputTypes',
@@ -77,6 +76,7 @@ __all__ = [
     'BotIntent',
     'BotIntentClosingSetting',
     'BotIntentConfirmationSetting',
+    'BotIntentDisambiguationSettings',
     'BotIntentOverride',
     'BotKendraConfiguration',
     'BotLocale',
@@ -131,6 +131,8 @@ __all__ = [
     'BotTextInputSpecification',
     'BotTextLogDestination',
     'BotTextLogSetting',
+    'BotUnifiedSpeechSettings',
+    'BotUnifiedSpeechSettingsSpeechFoundationModelProperties',
     'BotVersionLocaleDetails',
     'BotVersionLocaleSpecification',
     'BotVoiceSettings',
@@ -585,39 +587,6 @@ class BotAliasS3BucketLogDestination(dict):
         The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
         """
         return pulumi.get(self, "kms_key_arn")
-
-
-@pulumi.output_type
-class BotAliasTag(dict):
-    """
-    A label for tagging Lex resources
-    """
-    def __init__(__self__, *,
-                 key: _builtins.str,
-                 value: _builtins.str):
-        """
-        A label for tagging Lex resources
-        :param _builtins.str key: A string used to identify this tag
-        :param _builtins.str value: A string containing the value for the tag
-        """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def key(self) -> _builtins.str:
-        """
-        A string used to identify this tag
-        """
-        return pulumi.get(self, "key")
-
-    @_builtins.property
-    @pulumi.getter
-    def value(self) -> _builtins.str:
-        """
-        A string containing the value for the tag
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2331,14 +2300,49 @@ class BotGenerativeAiSettingsRuntimeSettingsProperties(dict):
 
 @pulumi.output_type
 class BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assistedNluMode":
+            suggest = "assisted_nlu_mode"
+        elif key == "intentDisambiguationSettings":
+            suggest = "intent_disambiguation_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 enabled: _builtins.bool):
+                 enabled: _builtins.bool,
+                 assisted_nlu_mode: Optional['BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode'] = None,
+                 intent_disambiguation_settings: Optional['outputs.BotIntentDisambiguationSettings'] = None):
         pulumi.set(__self__, "enabled", enabled)
+        if assisted_nlu_mode is not None:
+            pulumi.set(__self__, "assisted_nlu_mode", assisted_nlu_mode)
+        if intent_disambiguation_settings is not None:
+            pulumi.set(__self__, "intent_disambiguation_settings", intent_disambiguation_settings)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
         return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="assistedNluMode")
+    def assisted_nlu_mode(self) -> Optional['BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode']:
+        return pulumi.get(self, "assisted_nlu_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="intentDisambiguationSettings")
+    def intent_disambiguation_settings(self) -> Optional['outputs.BotIntentDisambiguationSettings']:
+        return pulumi.get(self, "intent_disambiguation_settings")
 
 
 @pulumi.output_type
@@ -2609,6 +2613,8 @@ class BotIntent(dict):
             suggest = "bedrock_agent_intent_configuration"
         elif key == "dialogCodeHook":
             suggest = "dialog_code_hook"
+        elif key == "displayName":
+            suggest = "display_name"
         elif key == "fulfillmentCodeHook":
             suggest = "fulfillment_code_hook"
         elif key == "initialResponseSetting":
@@ -2650,6 +2656,7 @@ class BotIntent(dict):
                  bedrock_agent_intent_configuration: Optional['outputs.BotBedrockAgentIntentConfiguration'] = None,
                  description: Optional[_builtins.str] = None,
                  dialog_code_hook: Optional['outputs.BotDialogCodeHookSetting'] = None,
+                 display_name: Optional[_builtins.str] = None,
                  fulfillment_code_hook: Optional['outputs.BotFulfillmentCodeHookSetting'] = None,
                  initial_response_setting: Optional['outputs.BotInitialResponseSetting'] = None,
                  input_contexts: Optional[Sequence['outputs.BotInputContext']] = None,
@@ -2665,7 +2672,7 @@ class BotIntent(dict):
                  slots: Optional[Sequence['outputs.BotSlot']] = None):
         """
         :param _builtins.str name: The name of the intent. Intent names must be unique within the locale that contains the intent and can't match the name of any built-in intent.
-        :param _builtins.str description: Description of thr intent.
+        :param _builtins.str description: Resource Type definition for the intent.
         :param 'BotDialogCodeHookSetting' dialog_code_hook: Specifies that Amazon Lex invokes the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction.
         :param 'BotFulfillmentCodeHookSetting' fulfillment_code_hook: Specifies that Amazon Lex invokes the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user.
         :param 'BotInitialResponseSetting' initial_response_setting: Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
@@ -2686,6 +2693,8 @@ class BotIntent(dict):
             pulumi.set(__self__, "description", description)
         if dialog_code_hook is not None:
             pulumi.set(__self__, "dialog_code_hook", dialog_code_hook)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
         if fulfillment_code_hook is not None:
             pulumi.set(__self__, "fulfillment_code_hook", fulfillment_code_hook)
         if initial_response_setting is not None:
@@ -2730,7 +2739,7 @@ class BotIntent(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
-        Description of thr intent.
+        Resource Type definition for the intent.
         """
         return pulumi.get(self, "description")
 
@@ -2741,6 +2750,11 @@ class BotIntent(dict):
         Specifies that Amazon Lex invokes the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction.
         """
         return pulumi.get(self, "dialog_code_hook")
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "display_name")
 
     @_builtins.property
     @pulumi.getter(name="fulfillmentCodeHook")
@@ -3125,6 +3139,53 @@ class BotIntentConfirmationSetting(dict):
 
 
 @pulumi.output_type
+class BotIntentDisambiguationSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customDisambiguationMessage":
+            suggest = "custom_disambiguation_message"
+        elif key == "maxDisambiguationIntents":
+            suggest = "max_disambiguation_intents"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotIntentDisambiguationSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotIntentDisambiguationSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotIntentDisambiguationSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 custom_disambiguation_message: Optional[_builtins.str] = None,
+                 max_disambiguation_intents: Optional[_builtins.int] = None):
+        pulumi.set(__self__, "enabled", enabled)
+        if custom_disambiguation_message is not None:
+            pulumi.set(__self__, "custom_disambiguation_message", custom_disambiguation_message)
+        if max_disambiguation_intents is not None:
+            pulumi.set(__self__, "max_disambiguation_intents", max_disambiguation_intents)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="customDisambiguationMessage")
+    def custom_disambiguation_message(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "custom_disambiguation_message")
+
+    @_builtins.property
+    @pulumi.getter(name="maxDisambiguationIntents")
+    def max_disambiguation_intents(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "max_disambiguation_intents")
+
+
+@pulumi.output_type
 class BotIntentOverride(dict):
     def __init__(__self__, *,
                  name: Optional[_builtins.str] = None,
@@ -3233,6 +3294,10 @@ class BotLocale(dict):
             suggest = "generative_ai_settings"
         elif key == "slotTypes":
             suggest = "slot_types"
+        elif key == "speechDetectionSensitivity":
+            suggest = "speech_detection_sensitivity"
+        elif key == "unifiedSpeechSettings":
+            suggest = "unified_speech_settings"
         elif key == "voiceSettings":
             suggest = "voice_settings"
 
@@ -3255,6 +3320,8 @@ class BotLocale(dict):
                  generative_ai_settings: Optional['outputs.BotGenerativeAiSettings'] = None,
                  intents: Optional[Sequence['outputs.BotIntent']] = None,
                  slot_types: Optional[Sequence['outputs.BotSlotType']] = None,
+                 speech_detection_sensitivity: Optional['BotSpeechDetectionSensitivity'] = None,
+                 unified_speech_settings: Optional['outputs.BotUnifiedSpeechSettings'] = None,
                  voice_settings: Optional['outputs.BotVoiceSettings'] = None):
         """
         :param _builtins.str locale_id: The identifier of the language and locale that the bot will be used in. The string must match one of the supported locales.
@@ -3284,6 +3351,10 @@ class BotLocale(dict):
             pulumi.set(__self__, "intents", intents)
         if slot_types is not None:
             pulumi.set(__self__, "slot_types", slot_types)
+        if speech_detection_sensitivity is not None:
+            pulumi.set(__self__, "speech_detection_sensitivity", speech_detection_sensitivity)
+        if unified_speech_settings is not None:
+            pulumi.set(__self__, "unified_speech_settings", unified_speech_settings)
         if voice_settings is not None:
             pulumi.set(__self__, "voice_settings", voice_settings)
 
@@ -3339,6 +3410,16 @@ class BotLocale(dict):
         One or more slot types defined for the locale.
         """
         return pulumi.get(self, "slot_types")
+
+    @_builtins.property
+    @pulumi.getter(name="speechDetectionSensitivity")
+    def speech_detection_sensitivity(self) -> Optional['BotSpeechDetectionSensitivity']:
+        return pulumi.get(self, "speech_detection_sensitivity")
+
+    @_builtins.property
+    @pulumi.getter(name="unifiedSpeechSettings")
+    def unified_speech_settings(self) -> Optional['outputs.BotUnifiedSpeechSettings']:
+        return pulumi.get(self, "unified_speech_settings")
 
     @_builtins.property
     @pulumi.getter(name="voiceSettings")
@@ -5560,10 +5641,12 @@ class BotSpecifications(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "slotTypeId":
-            suggest = "slot_type_id"
-        elif key == "valueElicitationSetting":
+        if key == "valueElicitationSetting":
             suggest = "value_elicitation_setting"
+        elif key == "slotTypeId":
+            suggest = "slot_type_id"
+        elif key == "slotTypeName":
+            suggest = "slot_type_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BotSpecifications. Access the value via the '{suggest}' property getter instead.")
@@ -5577,20 +5660,29 @@ class BotSpecifications(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 slot_type_id: _builtins.str,
-                 value_elicitation_setting: 'outputs.BotSubSlotValueElicitationSetting'):
-        pulumi.set(__self__, "slot_type_id", slot_type_id)
+                 value_elicitation_setting: 'outputs.BotSubSlotValueElicitationSetting',
+                 slot_type_id: Optional[_builtins.str] = None,
+                 slot_type_name: Optional[_builtins.str] = None):
         pulumi.set(__self__, "value_elicitation_setting", value_elicitation_setting)
-
-    @_builtins.property
-    @pulumi.getter(name="slotTypeId")
-    def slot_type_id(self) -> _builtins.str:
-        return pulumi.get(self, "slot_type_id")
+        if slot_type_id is not None:
+            pulumi.set(__self__, "slot_type_id", slot_type_id)
+        if slot_type_name is not None:
+            pulumi.set(__self__, "slot_type_name", slot_type_name)
 
     @_builtins.property
     @pulumi.getter(name="valueElicitationSetting")
     def value_elicitation_setting(self) -> 'outputs.BotSubSlotValueElicitationSetting':
         return pulumi.get(self, "value_elicitation_setting")
+
+    @_builtins.property
+    @pulumi.getter(name="slotTypeId")
+    def slot_type_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "slot_type_id")
+
+    @_builtins.property
+    @pulumi.getter(name="slotTypeName")
+    def slot_type_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "slot_type_name")
 
 
 @pulumi.output_type
@@ -5735,6 +5827,8 @@ class BotSubSlotTypeComposition(dict):
         suggest = None
         if key == "slotTypeId":
             suggest = "slot_type_id"
+        elif key == "slotTypeName":
+            suggest = "slot_type_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BotSubSlotTypeComposition. Access the value via the '{suggest}' property getter instead.")
@@ -5749,13 +5843,17 @@ class BotSubSlotTypeComposition(dict):
 
     def __init__(__self__, *,
                  name: _builtins.str,
-                 slot_type_id: _builtins.str):
+                 slot_type_id: Optional[_builtins.str] = None,
+                 slot_type_name: Optional[_builtins.str] = None):
         """
         :param _builtins.str name: Name of a constituent sub slot inside a composite slot.
         :param _builtins.str slot_type_id: The unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "slot_type_id", slot_type_id)
+        if slot_type_id is not None:
+            pulumi.set(__self__, "slot_type_id", slot_type_id)
+        if slot_type_name is not None:
+            pulumi.set(__self__, "slot_type_name", slot_type_name)
 
     @_builtins.property
     @pulumi.getter
@@ -5767,11 +5865,16 @@ class BotSubSlotTypeComposition(dict):
 
     @_builtins.property
     @pulumi.getter(name="slotTypeId")
-    def slot_type_id(self) -> _builtins.str:
+    def slot_type_id(self) -> Optional[_builtins.str]:
         """
         The unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
         """
         return pulumi.get(self, "slot_type_id")
+
+    @_builtins.property
+    @pulumi.getter(name="slotTypeName")
+    def slot_type_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "slot_type_name")
 
 
 @pulumi.output_type
@@ -6039,6 +6142,74 @@ class BotTextLogSetting(dict):
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class BotUnifiedSpeechSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "speechFoundationModel":
+            suggest = "speech_foundation_model"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotUnifiedSpeechSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotUnifiedSpeechSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotUnifiedSpeechSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 speech_foundation_model: 'outputs.BotUnifiedSpeechSettingsSpeechFoundationModelProperties'):
+        pulumi.set(__self__, "speech_foundation_model", speech_foundation_model)
+
+    @_builtins.property
+    @pulumi.getter(name="speechFoundationModel")
+    def speech_foundation_model(self) -> 'outputs.BotUnifiedSpeechSettingsSpeechFoundationModelProperties':
+        return pulumi.get(self, "speech_foundation_model")
+
+
+@pulumi.output_type
+class BotUnifiedSpeechSettingsSpeechFoundationModelProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelArn":
+            suggest = "model_arn"
+        elif key == "voiceId":
+            suggest = "voice_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotUnifiedSpeechSettingsSpeechFoundationModelProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotUnifiedSpeechSettingsSpeechFoundationModelProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotUnifiedSpeechSettingsSpeechFoundationModelProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_arn: _builtins.str,
+                 voice_id: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "model_arn", model_arn)
+        if voice_id is not None:
+            pulumi.set(__self__, "voice_id", voice_id)
+
+    @_builtins.property
+    @pulumi.getter(name="modelArn")
+    def model_arn(self) -> _builtins.str:
+        return pulumi.get(self, "model_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="voiceId")
+    def voice_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "voice_id")
 
 
 @pulumi.output_type

@@ -3354,6 +3354,198 @@ func (o OrganizationTelemetryRuleWafLoggingParametersPtrOutput) RedactedFields()
 	}).(OrganizationTelemetryRuleFieldToMatchArrayOutput)
 }
 
+// Encryption configuration for the S3 Table Integration
+type S3TableIntegrationEncryptionConfig struct {
+	// The ARN of the KMS key used to encrypt the S3 Table Integration
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The server-side encryption algorithm used to encrypt the S3 Table(s) data
+	SseAlgorithm S3TableIntegrationEncryptionConfigSseAlgorithm `pulumi:"sseAlgorithm"`
+}
+
+// S3TableIntegrationEncryptionConfigInput is an input type that accepts S3TableIntegrationEncryptionConfigArgs and S3TableIntegrationEncryptionConfigOutput values.
+// You can construct a concrete instance of `S3TableIntegrationEncryptionConfigInput` via:
+//
+//	S3TableIntegrationEncryptionConfigArgs{...}
+type S3TableIntegrationEncryptionConfigInput interface {
+	pulumi.Input
+
+	ToS3TableIntegrationEncryptionConfigOutput() S3TableIntegrationEncryptionConfigOutput
+	ToS3TableIntegrationEncryptionConfigOutputWithContext(context.Context) S3TableIntegrationEncryptionConfigOutput
+}
+
+// Encryption configuration for the S3 Table Integration
+type S3TableIntegrationEncryptionConfigArgs struct {
+	// The ARN of the KMS key used to encrypt the S3 Table Integration
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// The server-side encryption algorithm used to encrypt the S3 Table(s) data
+	SseAlgorithm S3TableIntegrationEncryptionConfigSseAlgorithmInput `pulumi:"sseAlgorithm"`
+}
+
+func (S3TableIntegrationEncryptionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3TableIntegrationEncryptionConfig)(nil)).Elem()
+}
+
+func (i S3TableIntegrationEncryptionConfigArgs) ToS3TableIntegrationEncryptionConfigOutput() S3TableIntegrationEncryptionConfigOutput {
+	return i.ToS3TableIntegrationEncryptionConfigOutputWithContext(context.Background())
+}
+
+func (i S3TableIntegrationEncryptionConfigArgs) ToS3TableIntegrationEncryptionConfigOutputWithContext(ctx context.Context) S3TableIntegrationEncryptionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3TableIntegrationEncryptionConfigOutput)
+}
+
+// Encryption configuration for the S3 Table Integration
+type S3TableIntegrationEncryptionConfigOutput struct{ *pulumi.OutputState }
+
+func (S3TableIntegrationEncryptionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3TableIntegrationEncryptionConfig)(nil)).Elem()
+}
+
+func (o S3TableIntegrationEncryptionConfigOutput) ToS3TableIntegrationEncryptionConfigOutput() S3TableIntegrationEncryptionConfigOutput {
+	return o
+}
+
+func (o S3TableIntegrationEncryptionConfigOutput) ToS3TableIntegrationEncryptionConfigOutputWithContext(ctx context.Context) S3TableIntegrationEncryptionConfigOutput {
+	return o
+}
+
+// The ARN of the KMS key used to encrypt the S3 Table Integration
+func (o S3TableIntegrationEncryptionConfigOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v S3TableIntegrationEncryptionConfig) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// The server-side encryption algorithm used to encrypt the S3 Table(s) data
+func (o S3TableIntegrationEncryptionConfigOutput) SseAlgorithm() S3TableIntegrationEncryptionConfigSseAlgorithmOutput {
+	return o.ApplyT(func(v S3TableIntegrationEncryptionConfig) S3TableIntegrationEncryptionConfigSseAlgorithm {
+		return v.SseAlgorithm
+	}).(S3TableIntegrationEncryptionConfigSseAlgorithmOutput)
+}
+
+// CloudWatch Logs data source to associate with the S3 Table Integration
+type S3TableIntegrationLogSource struct {
+	// The ID of the CloudWatch Logs data source association
+	Identifier *string `pulumi:"identifier"`
+	// The name of the CloudWatch Logs data source
+	Name string `pulumi:"name"`
+	// The type of the CloudWatch Logs data source
+	Type string `pulumi:"type"`
+}
+
+// S3TableIntegrationLogSourceInput is an input type that accepts S3TableIntegrationLogSourceArgs and S3TableIntegrationLogSourceOutput values.
+// You can construct a concrete instance of `S3TableIntegrationLogSourceInput` via:
+//
+//	S3TableIntegrationLogSourceArgs{...}
+type S3TableIntegrationLogSourceInput interface {
+	pulumi.Input
+
+	ToS3TableIntegrationLogSourceOutput() S3TableIntegrationLogSourceOutput
+	ToS3TableIntegrationLogSourceOutputWithContext(context.Context) S3TableIntegrationLogSourceOutput
+}
+
+// CloudWatch Logs data source to associate with the S3 Table Integration
+type S3TableIntegrationLogSourceArgs struct {
+	// The ID of the CloudWatch Logs data source association
+	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
+	// The name of the CloudWatch Logs data source
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of the CloudWatch Logs data source
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (S3TableIntegrationLogSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3TableIntegrationLogSource)(nil)).Elem()
+}
+
+func (i S3TableIntegrationLogSourceArgs) ToS3TableIntegrationLogSourceOutput() S3TableIntegrationLogSourceOutput {
+	return i.ToS3TableIntegrationLogSourceOutputWithContext(context.Background())
+}
+
+func (i S3TableIntegrationLogSourceArgs) ToS3TableIntegrationLogSourceOutputWithContext(ctx context.Context) S3TableIntegrationLogSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3TableIntegrationLogSourceOutput)
+}
+
+// S3TableIntegrationLogSourceArrayInput is an input type that accepts S3TableIntegrationLogSourceArray and S3TableIntegrationLogSourceArrayOutput values.
+// You can construct a concrete instance of `S3TableIntegrationLogSourceArrayInput` via:
+//
+//	S3TableIntegrationLogSourceArray{ S3TableIntegrationLogSourceArgs{...} }
+type S3TableIntegrationLogSourceArrayInput interface {
+	pulumi.Input
+
+	ToS3TableIntegrationLogSourceArrayOutput() S3TableIntegrationLogSourceArrayOutput
+	ToS3TableIntegrationLogSourceArrayOutputWithContext(context.Context) S3TableIntegrationLogSourceArrayOutput
+}
+
+type S3TableIntegrationLogSourceArray []S3TableIntegrationLogSourceInput
+
+func (S3TableIntegrationLogSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]S3TableIntegrationLogSource)(nil)).Elem()
+}
+
+func (i S3TableIntegrationLogSourceArray) ToS3TableIntegrationLogSourceArrayOutput() S3TableIntegrationLogSourceArrayOutput {
+	return i.ToS3TableIntegrationLogSourceArrayOutputWithContext(context.Background())
+}
+
+func (i S3TableIntegrationLogSourceArray) ToS3TableIntegrationLogSourceArrayOutputWithContext(ctx context.Context) S3TableIntegrationLogSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3TableIntegrationLogSourceArrayOutput)
+}
+
+// CloudWatch Logs data source to associate with the S3 Table Integration
+type S3TableIntegrationLogSourceOutput struct{ *pulumi.OutputState }
+
+func (S3TableIntegrationLogSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3TableIntegrationLogSource)(nil)).Elem()
+}
+
+func (o S3TableIntegrationLogSourceOutput) ToS3TableIntegrationLogSourceOutput() S3TableIntegrationLogSourceOutput {
+	return o
+}
+
+func (o S3TableIntegrationLogSourceOutput) ToS3TableIntegrationLogSourceOutputWithContext(ctx context.Context) S3TableIntegrationLogSourceOutput {
+	return o
+}
+
+// The ID of the CloudWatch Logs data source association
+func (o S3TableIntegrationLogSourceOutput) Identifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v S3TableIntegrationLogSource) *string { return v.Identifier }).(pulumi.StringPtrOutput)
+}
+
+// The name of the CloudWatch Logs data source
+func (o S3TableIntegrationLogSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v S3TableIntegrationLogSource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the CloudWatch Logs data source
+func (o S3TableIntegrationLogSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v S3TableIntegrationLogSource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type S3TableIntegrationLogSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (S3TableIntegrationLogSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]S3TableIntegrationLogSource)(nil)).Elem()
+}
+
+func (o S3TableIntegrationLogSourceArrayOutput) ToS3TableIntegrationLogSourceArrayOutput() S3TableIntegrationLogSourceArrayOutput {
+	return o
+}
+
+func (o S3TableIntegrationLogSourceArrayOutput) ToS3TableIntegrationLogSourceArrayOutputWithContext(ctx context.Context) S3TableIntegrationLogSourceArrayOutput {
+	return o
+}
+
+func (o S3TableIntegrationLogSourceArrayOutput) Index(i pulumi.IntInput) S3TableIntegrationLogSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) S3TableIntegrationLogSource {
+		return vs[0].([]S3TableIntegrationLogSource)[vs[1].(int)]
+	}).(S3TableIntegrationLogSourceOutput)
+}
+
+// A key-value pair to associate with a resource
+type S3TableIntegrationTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 // A key-value pair to associate with a resource
 type TelemetryPipelinesTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -6212,6 +6404,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleVpcFlowLogParametersPtrInput)(nil)).Elem(), OrganizationTelemetryRuleVpcFlowLogParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleWafLoggingParametersInput)(nil)).Elem(), OrganizationTelemetryRuleWafLoggingParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleWafLoggingParametersPtrInput)(nil)).Elem(), OrganizationTelemetryRuleWafLoggingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3TableIntegrationEncryptionConfigInput)(nil)).Elem(), S3TableIntegrationEncryptionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3TableIntegrationLogSourceInput)(nil)).Elem(), S3TableIntegrationLogSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3TableIntegrationLogSourceArrayInput)(nil)).Elem(), S3TableIntegrationLogSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryPipelinesTelemetryPipelineConfigurationInput)(nil)).Elem(), TelemetryPipelinesTelemetryPipelineConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleTypeInput)(nil)).Elem(), TelemetryRuleTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleActionConditionInput)(nil)).Elem(), TelemetryRuleActionConditionArgs{})
@@ -6288,6 +6483,9 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleVpcFlowLogParametersPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleWafLoggingParametersOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleWafLoggingParametersPtrOutput{})
+	pulumi.RegisterOutputType(S3TableIntegrationEncryptionConfigOutput{})
+	pulumi.RegisterOutputType(S3TableIntegrationLogSourceOutput{})
+	pulumi.RegisterOutputType(S3TableIntegrationLogSourceArrayOutput{})
 	pulumi.RegisterOutputType(TelemetryPipelinesTagOutput{})
 	pulumi.RegisterOutputType(TelemetryPipelinesTagArrayOutput{})
 	pulumi.RegisterOutputType(TelemetryPipelinesTelemetryPipelineOutput{})

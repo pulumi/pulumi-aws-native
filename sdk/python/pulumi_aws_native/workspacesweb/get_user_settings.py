@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserSettingsResult:
-    def __init__(__self__, additional_encryption_context=None, associated_portal_arns=None, branding_configuration=None, cookie_synchronization_configuration=None, copy_allowed=None, customer_managed_key=None, deep_link_allowed=None, disconnect_timeout_in_minutes=None, download_allowed=None, idle_disconnect_timeout_in_minutes=None, paste_allowed=None, print_allowed=None, tags=None, toolbar_configuration=None, upload_allowed=None, user_settings_arn=None):
+    def __init__(__self__, additional_encryption_context=None, associated_portal_arns=None, branding_configuration=None, cookie_synchronization_configuration=None, copy_allowed=None, customer_managed_key=None, deep_link_allowed=None, disconnect_timeout_in_minutes=None, download_allowed=None, idle_disconnect_timeout_in_minutes=None, paste_allowed=None, print_allowed=None, tags=None, toolbar_configuration=None, upload_allowed=None, user_settings_arn=None, web_authn_allowed=None):
         if additional_encryption_context and not isinstance(additional_encryption_context, dict):
             raise TypeError("Expected argument 'additional_encryption_context' to be a dict")
         pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
@@ -75,6 +75,9 @@ class GetUserSettingsResult:
         if user_settings_arn and not isinstance(user_settings_arn, str):
             raise TypeError("Expected argument 'user_settings_arn' to be a str")
         pulumi.set(__self__, "user_settings_arn", user_settings_arn)
+        if web_authn_allowed and not isinstance(web_authn_allowed, str):
+            raise TypeError("Expected argument 'web_authn_allowed' to be a str")
+        pulumi.set(__self__, "web_authn_allowed", web_authn_allowed)
 
     @_builtins.property
     @pulumi.getter(name="additionalEncryptionContext")
@@ -204,6 +207,11 @@ class GetUserSettingsResult:
         """
         return pulumi.get(self, "user_settings_arn")
 
+    @_builtins.property
+    @pulumi.getter(name="webAuthnAllowed")
+    def web_authn_allowed(self) -> Optional['UserSettingsEnabledType']:
+        return pulumi.get(self, "web_authn_allowed")
+
 
 class AwaitableGetUserSettingsResult(GetUserSettingsResult):
     # pylint: disable=using-constant-test
@@ -226,7 +234,8 @@ class AwaitableGetUserSettingsResult(GetUserSettingsResult):
             tags=self.tags,
             toolbar_configuration=self.toolbar_configuration,
             upload_allowed=self.upload_allowed,
-            user_settings_arn=self.user_settings_arn)
+            user_settings_arn=self.user_settings_arn,
+            web_authn_allowed=self.web_authn_allowed)
 
 
 def get_user_settings(user_settings_arn: Optional[_builtins.str] = None,
@@ -258,7 +267,8 @@ def get_user_settings(user_settings_arn: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         toolbar_configuration=pulumi.get(__ret__, 'toolbar_configuration'),
         upload_allowed=pulumi.get(__ret__, 'upload_allowed'),
-        user_settings_arn=pulumi.get(__ret__, 'user_settings_arn'))
+        user_settings_arn=pulumi.get(__ret__, 'user_settings_arn'),
+        web_authn_allowed=pulumi.get(__ret__, 'web_authn_allowed'))
 def get_user_settings_output(user_settings_arn: Optional[pulumi.Input[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserSettingsResult]:
     """
@@ -287,4 +297,5 @@ def get_user_settings_output(user_settings_arn: Optional[pulumi.Input[_builtins.
         tags=pulumi.get(__response__, 'tags'),
         toolbar_configuration=pulumi.get(__response__, 'toolbar_configuration'),
         upload_allowed=pulumi.get(__response__, 'upload_allowed'),
-        user_settings_arn=pulumi.get(__response__, 'user_settings_arn')))
+        user_settings_arn=pulumi.get(__response__, 'user_settings_arn'),
+        web_authn_allowed=pulumi.get(__response__, 'web_authn_allowed')))

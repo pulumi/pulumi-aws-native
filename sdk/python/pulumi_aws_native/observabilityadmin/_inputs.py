@@ -60,6 +60,10 @@ __all__ = [
     'OrganizationTelemetryRuleVpcFlowLogParametersArgsDict',
     'OrganizationTelemetryRuleWafLoggingParametersArgs',
     'OrganizationTelemetryRuleWafLoggingParametersArgsDict',
+    'S3TableIntegrationEncryptionConfigArgs',
+    'S3TableIntegrationEncryptionConfigArgsDict',
+    'S3TableIntegrationLogSourceArgs',
+    'S3TableIntegrationLogSourceArgsDict',
     'TelemetryPipelinesTelemetryPipelineConfigurationArgs',
     'TelemetryPipelinesTelemetryPipelineConfigurationArgsDict',
     'TelemetryRuleActionConditionArgs',
@@ -1598,6 +1602,135 @@ class OrganizationTelemetryRuleWafLoggingParametersArgs:
     @redacted_fields.setter
     def redacted_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationTelemetryRuleFieldToMatchArgs']]]]):
         pulumi.set(self, "redacted_fields", value)
+
+
+if not MYPY:
+    class S3TableIntegrationEncryptionConfigArgsDict(TypedDict):
+        """
+        Encryption configuration for the S3 Table Integration
+        """
+        sse_algorithm: pulumi.Input['S3TableIntegrationEncryptionConfigSseAlgorithm']
+        """
+        The server-side encryption algorithm used to encrypt the S3 Table(s) data
+        """
+        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ARN of the KMS key used to encrypt the S3 Table Integration
+        """
+elif False:
+    S3TableIntegrationEncryptionConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class S3TableIntegrationEncryptionConfigArgs:
+    def __init__(__self__, *,
+                 sse_algorithm: pulumi.Input['S3TableIntegrationEncryptionConfigSseAlgorithm'],
+                 kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Encryption configuration for the S3 Table Integration
+        :param pulumi.Input['S3TableIntegrationEncryptionConfigSseAlgorithm'] sse_algorithm: The server-side encryption algorithm used to encrypt the S3 Table(s) data
+        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt the S3 Table Integration
+        """
+        pulumi.set(__self__, "sse_algorithm", sse_algorithm)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="sseAlgorithm")
+    def sse_algorithm(self) -> pulumi.Input['S3TableIntegrationEncryptionConfigSseAlgorithm']:
+        """
+        The server-side encryption algorithm used to encrypt the S3 Table(s) data
+        """
+        return pulumi.get(self, "sse_algorithm")
+
+    @sse_algorithm.setter
+    def sse_algorithm(self, value: pulumi.Input['S3TableIntegrationEncryptionConfigSseAlgorithm']):
+        pulumi.set(self, "sse_algorithm", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARN of the KMS key used to encrypt the S3 Table Integration
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+
+if not MYPY:
+    class S3TableIntegrationLogSourceArgsDict(TypedDict):
+        """
+        CloudWatch Logs data source to associate with the S3 Table Integration
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        The name of the CloudWatch Logs data source
+        """
+        type: pulumi.Input[_builtins.str]
+        """
+        The type of the CloudWatch Logs data source
+        """
+        identifier: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ID of the CloudWatch Logs data source association
+        """
+elif False:
+    S3TableIntegrationLogSourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class S3TableIntegrationLogSourceArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str],
+                 identifier: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        CloudWatch Logs data source to associate with the S3 Table Integration
+        :param pulumi.Input[_builtins.str] name: The name of the CloudWatch Logs data source
+        :param pulumi.Input[_builtins.str] type: The type of the CloudWatch Logs data source
+        :param pulumi.Input[_builtins.str] identifier: The ID of the CloudWatch Logs data source association
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the CloudWatch Logs data source
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of the CloudWatch Logs data source
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the CloudWatch Logs data source association
+        """
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "identifier", value)
 
 
 if not MYPY:

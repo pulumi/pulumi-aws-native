@@ -38,6 +38,10 @@ export class OdbPeeringConnection extends pulumi.CustomResource {
     }
 
     /**
+     * The additional CIDR blocks for the ODB peering connection.
+     */
+    declare public readonly additionalPeerNetworkCidrs: pulumi.Output<string[] | undefined>;
+    /**
      * The name of the ODB peering connection.
      */
     declare public readonly displayName: pulumi.Output<string | undefined>;
@@ -62,6 +66,10 @@ export class OdbPeeringConnection extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly peerNetworkArn: pulumi.Output<string>;
     /**
+     * The CIDR blocks for the ODB peering connection.
+     */
+    declare public /*out*/ readonly peerNetworkCidrs: pulumi.Output<string[]>;
+    /**
      * The unique identifier of the peer network.
      */
     declare public readonly peerNetworkId: pulumi.Output<string | undefined>;
@@ -81,6 +89,7 @@ export class OdbPeeringConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["additionalPeerNetworkCidrs"] = args?.additionalPeerNetworkCidrs;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["odbNetworkId"] = args?.odbNetworkId;
             resourceInputs["peerNetworkId"] = args?.peerNetworkId;
@@ -89,18 +98,21 @@ export class OdbPeeringConnection extends pulumi.CustomResource {
             resourceInputs["odbPeeringConnectionArn"] = undefined /*out*/;
             resourceInputs["odbPeeringConnectionId"] = undefined /*out*/;
             resourceInputs["peerNetworkArn"] = undefined /*out*/;
+            resourceInputs["peerNetworkCidrs"] = undefined /*out*/;
         } else {
+            resourceInputs["additionalPeerNetworkCidrs"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["odbNetworkArn"] = undefined /*out*/;
             resourceInputs["odbNetworkId"] = undefined /*out*/;
             resourceInputs["odbPeeringConnectionArn"] = undefined /*out*/;
             resourceInputs["odbPeeringConnectionId"] = undefined /*out*/;
             resourceInputs["peerNetworkArn"] = undefined /*out*/;
+            resourceInputs["peerNetworkCidrs"] = undefined /*out*/;
             resourceInputs["peerNetworkId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["displayName", "odbNetworkId", "peerNetworkId"] };
+        const replaceOnChanges = { replaceOnChanges: ["odbNetworkId", "peerNetworkId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(OdbPeeringConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -110,6 +122,10 @@ export class OdbPeeringConnection extends pulumi.CustomResource {
  * The set of arguments for constructing a OdbPeeringConnection resource.
  */
 export interface OdbPeeringConnectionArgs {
+    /**
+     * The additional CIDR blocks for the ODB peering connection.
+     */
+    additionalPeerNetworkCidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the ODB peering connection.
      */

@@ -24,17 +24,25 @@ class StepArgs:
                  action_on_failure: pulumi.Input[_builtins.str],
                  hadoop_jar_step: pulumi.Input['StepHadoopJarStepConfigArgs'],
                  job_flow_id: pulumi.Input[_builtins.str],
+                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Step resource.
         :param pulumi.Input[_builtins.str] action_on_failure: This specifies what action to take when the cluster step fails. Possible values are CANCEL_AND_WAIT and CONTINUE.
         :param pulumi.Input['StepHadoopJarStepConfigArgs'] hadoop_jar_step: The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
         :param pulumi.Input[_builtins.str] job_flow_id: A string that uniquely identifies the cluster (job flow).
+        :param pulumi.Input[_builtins.str] encryption_key_arn: The KMS key ARN to encrypt the logs published to the given Amazon S3 destination. When omitted, EMR falls back to cluster-level logging behavior.
+        :param pulumi.Input[_builtins.str] log_uri: The Amazon S3 destination URI for log publishing. When omitted, EMR falls back to cluster-level logging behavior.
         :param pulumi.Input[_builtins.str] name: The name of the cluster step.
         """
         pulumi.set(__self__, "action_on_failure", action_on_failure)
         pulumi.set(__self__, "hadoop_jar_step", hadoop_jar_step)
         pulumi.set(__self__, "job_flow_id", job_flow_id)
+        if encryption_key_arn is not None:
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+        if log_uri is not None:
+            pulumi.set(__self__, "log_uri", log_uri)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -75,6 +83,30 @@ class StepArgs:
         pulumi.set(self, "job_flow_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The KMS key ARN to encrypt the logs published to the given Amazon S3 destination. When omitted, EMR falls back to cluster-level logging behavior.
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @encryption_key_arn.setter
+    def encryption_key_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "encryption_key_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logUri")
+    def log_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Amazon S3 destination URI for log publishing. When omitted, EMR falls back to cluster-level logging behavior.
+        """
+        return pulumi.get(self, "log_uri")
+
+    @log_uri.setter
+    def log_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "log_uri", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -94,8 +126,10 @@ class Step(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_on_failure: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  hadoop_jar_step: Optional[pulumi.Input[Union['StepHadoopJarStepConfigArgs', 'StepHadoopJarStepConfigArgsDict']]] = None,
                  job_flow_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
@@ -104,8 +138,10 @@ class Step(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action_on_failure: This specifies what action to take when the cluster step fails. Possible values are CANCEL_AND_WAIT and CONTINUE.
+        :param pulumi.Input[_builtins.str] encryption_key_arn: The KMS key ARN to encrypt the logs published to the given Amazon S3 destination. When omitted, EMR falls back to cluster-level logging behavior.
         :param pulumi.Input[Union['StepHadoopJarStepConfigArgs', 'StepHadoopJarStepConfigArgsDict']] hadoop_jar_step: The HadoopJarStepConfig property type specifies a job flow step consisting of a JAR file whose main function will be executed. The main function submits a job for the cluster to execute as a step on the master node, and then waits for the job to finish or fail before executing subsequent steps.
         :param pulumi.Input[_builtins.str] job_flow_id: A string that uniquely identifies the cluster (job flow).
+        :param pulumi.Input[_builtins.str] log_uri: The Amazon S3 destination URI for log publishing. When omitted, EMR falls back to cluster-level logging behavior.
         :param pulumi.Input[_builtins.str] name: The name of the cluster step.
         """
         ...
@@ -133,8 +169,10 @@ class Step(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_on_failure: Optional[pulumi.Input[_builtins.str]] = None,
+                 encryption_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  hadoop_jar_step: Optional[pulumi.Input[Union['StepHadoopJarStepConfigArgs', 'StepHadoopJarStepConfigArgsDict']]] = None,
                  job_flow_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -148,15 +186,17 @@ class Step(pulumi.CustomResource):
             if action_on_failure is None and not opts.urn:
                 raise TypeError("Missing required property 'action_on_failure'")
             __props__.__dict__["action_on_failure"] = action_on_failure
+            __props__.__dict__["encryption_key_arn"] = encryption_key_arn
             if hadoop_jar_step is None and not opts.urn:
                 raise TypeError("Missing required property 'hadoop_jar_step'")
             __props__.__dict__["hadoop_jar_step"] = hadoop_jar_step
             if job_flow_id is None and not opts.urn:
                 raise TypeError("Missing required property 'job_flow_id'")
             __props__.__dict__["job_flow_id"] = job_flow_id
+            __props__.__dict__["log_uri"] = log_uri
             __props__.__dict__["name"] = name
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["actionOnFailure", "hadoopJarStep", "jobFlowId", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["actionOnFailure", "encryptionKeyArn", "hadoopJarStep", "jobFlowId", "logUri", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Step, __self__).__init__(
             'aws-native:emr:Step',
@@ -182,8 +222,10 @@ class Step(pulumi.CustomResource):
 
         __props__.__dict__["action_on_failure"] = None
         __props__.__dict__["aws_id"] = None
+        __props__.__dict__["encryption_key_arn"] = None
         __props__.__dict__["hadoop_jar_step"] = None
         __props__.__dict__["job_flow_id"] = None
+        __props__.__dict__["log_uri"] = None
         __props__.__dict__["name"] = None
         return Step(resource_name, opts=opts, __props__=__props__)
 
@@ -204,6 +246,14 @@ class Step(pulumi.CustomResource):
         return pulumi.get(self, "aws_id")
 
     @_builtins.property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The KMS key ARN to encrypt the logs published to the given Amazon S3 destination. When omitted, EMR falls back to cluster-level logging behavior.
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @_builtins.property
     @pulumi.getter(name="hadoopJarStep")
     def hadoop_jar_step(self) -> pulumi.Output['outputs.StepHadoopJarStepConfig']:
         """
@@ -218,6 +268,14 @@ class Step(pulumi.CustomResource):
         A string that uniquely identifies the cluster (job flow).
         """
         return pulumi.get(self, "job_flow_id")
+
+    @_builtins.property
+    @pulumi.getter(name="logUri")
+    def log_uri(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Amazon S3 destination URI for log publishing. When omitted, EMR falls back to cluster-level logging behavior.
+        """
+        return pulumi.get(self, "log_uri")
 
     @_builtins.property
     @pulumi.getter

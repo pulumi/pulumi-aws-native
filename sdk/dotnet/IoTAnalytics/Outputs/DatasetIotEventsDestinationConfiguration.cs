@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
         /// </summary>
         public readonly string InputName;
         /// <summary>
-        /// The ARN of the role that grants AWS IoT Analytics permission to deliver dataset contents to an AWS IoT Events input.
+        /// The ARN of the role that grants ITA permission to deliver dataset contents to an AWS IoT Events input.
         /// </summary>
         public readonly string RoleArn;
 

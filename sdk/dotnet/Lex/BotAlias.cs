@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex
 {
     /// <summary>
-    /// A Bot Alias enables you to change the version of a bot without updating applications that use the bot
+    /// Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot
     /// </summary>
     [AwsNativeResourceType("aws-native:lex:BotAlias")]
     public partial class BotAlias : global::Pulumi.CustomResource
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Lex
         /// A list of tags to add to the bot alias.
         /// </summary>
         [Output("botAliasTags")]
-        public Output<ImmutableArray<Outputs.BotAliasTag>> BotAliasTags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> BotAliasTags { get; private set; } = null!;
 
         /// <summary>
         /// The unique identifier of the bot.
@@ -149,14 +149,14 @@ namespace Pulumi.AwsNative.Lex
         public Input<string>? BotAliasName { get; set; }
 
         [Input("botAliasTags")]
-        private InputList<Inputs.BotAliasTagArgs>? _botAliasTags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _botAliasTags;
 
         /// <summary>
         /// A list of tags to add to the bot alias.
         /// </summary>
-        public InputList<Inputs.BotAliasTagArgs> BotAliasTags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> BotAliasTags
         {
-            get => _botAliasTags ?? (_botAliasTags = new InputList<Inputs.BotAliasTagArgs>());
+            get => _botAliasTags ?? (_botAliasTags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _botAliasTags = value;
         }
 

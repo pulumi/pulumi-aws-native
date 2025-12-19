@@ -320,6 +320,8 @@ class CapacityProviderInstanceLaunchTemplate(dict):
             suggest = "ec2_instance_profile_arn"
         elif key == "networkConfiguration":
             suggest = "network_configuration"
+        elif key == "capacityOptionType":
+            suggest = "capacity_option_type"
         elif key == "instanceRequirements":
             suggest = "instance_requirements"
         elif key == "storageConfiguration":
@@ -339,6 +341,7 @@ class CapacityProviderInstanceLaunchTemplate(dict):
     def __init__(__self__, *,
                  ec2_instance_profile_arn: _builtins.str,
                  network_configuration: 'outputs.CapacityProviderManagedInstancesNetworkConfiguration',
+                 capacity_option_type: Optional['CapacityProviderInstanceLaunchTemplateCapacityOptionType'] = None,
                  instance_requirements: Optional['outputs.CapacityProviderInstanceRequirementsRequest'] = None,
                  monitoring: Optional['CapacityProviderManagedInstancesMonitoringOptions'] = None,
                  storage_configuration: Optional['outputs.CapacityProviderManagedInstancesStorageConfiguration'] = None):
@@ -358,6 +361,8 @@ class CapacityProviderInstanceLaunchTemplate(dict):
         """
         pulumi.set(__self__, "ec2_instance_profile_arn", ec2_instance_profile_arn)
         pulumi.set(__self__, "network_configuration", network_configuration)
+        if capacity_option_type is not None:
+            pulumi.set(__self__, "capacity_option_type", capacity_option_type)
         if instance_requirements is not None:
             pulumi.set(__self__, "instance_requirements", instance_requirements)
         if monitoring is not None:
@@ -382,6 +387,11 @@ class CapacityProviderInstanceLaunchTemplate(dict):
         The network configuration for Amazon ECS Managed Instances. This specifies the subnets and security groups that instances use for network connectivity.
         """
         return pulumi.get(self, "network_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="capacityOptionType")
+    def capacity_option_type(self) -> Optional['CapacityProviderInstanceLaunchTemplateCapacityOptionType']:
+        return pulumi.get(self, "capacity_option_type")
 
     @_builtins.property
     @pulumi.getter(name="instanceRequirements")

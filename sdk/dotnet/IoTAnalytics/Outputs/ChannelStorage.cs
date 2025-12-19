@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
         /// </summary>
         public readonly Outputs.ChannelCustomerManagedS3? CustomerManagedS3;
         /// <summary>
-        /// Used to store channel data in an S3 bucket managed by AWS IoT Analytics . You can't change the choice of S3 storage after the data store is created.
+        /// Used to store channel data in an S3 bucket managed by ITA . You can't change the choice of S3 storage after the data store is created.
         /// </summary>
         public readonly Outputs.ChannelServiceManagedS3? ServiceManagedS3;
 

@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 
 __all__ = [
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetContactFlowModuleResult:
-    def __init__(__self__, contact_flow_module_arn=None, content=None, description=None, instance_arn=None, name=None, state=None, status=None, tags=None):
+    def __init__(__self__, contact_flow_module_arn=None, content=None, description=None, external_invocation_configuration=None, instance_arn=None, name=None, settings=None, state=None, status=None, tags=None):
         if contact_flow_module_arn and not isinstance(contact_flow_module_arn, str):
             raise TypeError("Expected argument 'contact_flow_module_arn' to be a str")
         pulumi.set(__self__, "contact_flow_module_arn", contact_flow_module_arn)
@@ -34,12 +35,18 @@ class GetContactFlowModuleResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if external_invocation_configuration and not isinstance(external_invocation_configuration, dict):
+            raise TypeError("Expected argument 'external_invocation_configuration' to be a dict")
+        pulumi.set(__self__, "external_invocation_configuration", external_invocation_configuration)
         if instance_arn and not isinstance(instance_arn, str):
             raise TypeError("Expected argument 'instance_arn' to be a str")
         pulumi.set(__self__, "instance_arn", instance_arn)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if settings and not isinstance(settings, str):
+            raise TypeError("Expected argument 'settings' to be a str")
+        pulumi.set(__self__, "settings", settings)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -75,6 +82,14 @@ class GetContactFlowModuleResult:
         return pulumi.get(self, "description")
 
     @_builtins.property
+    @pulumi.getter(name="externalInvocationConfiguration")
+    def external_invocation_configuration(self) -> Optional['outputs.ExternalInvocationConfigurationProperties']:
+        """
+        Defines the external invocation configuration of the flow module resource
+        """
+        return pulumi.get(self, "external_invocation_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> Optional[_builtins.str]:
         """
@@ -89,6 +104,14 @@ class GetContactFlowModuleResult:
         The name of the contact flow module.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def settings(self) -> Optional[_builtins.str]:
+        """
+        The schema of the settings for contact flow module in JSON Schema V4 format.
+        """
+        return pulumi.get(self, "settings")
 
     @_builtins.property
     @pulumi.getter
@@ -124,8 +147,10 @@ class AwaitableGetContactFlowModuleResult(GetContactFlowModuleResult):
             contact_flow_module_arn=self.contact_flow_module_arn,
             content=self.content,
             description=self.description,
+            external_invocation_configuration=self.external_invocation_configuration,
             instance_arn=self.instance_arn,
             name=self.name,
+            settings=self.settings,
             state=self.state,
             status=self.status,
             tags=self.tags)
@@ -148,8 +173,10 @@ def get_contact_flow_module(contact_flow_module_arn: Optional[_builtins.str] = N
         contact_flow_module_arn=pulumi.get(__ret__, 'contact_flow_module_arn'),
         content=pulumi.get(__ret__, 'content'),
         description=pulumi.get(__ret__, 'description'),
+        external_invocation_configuration=pulumi.get(__ret__, 'external_invocation_configuration'),
         instance_arn=pulumi.get(__ret__, 'instance_arn'),
         name=pulumi.get(__ret__, 'name'),
+        settings=pulumi.get(__ret__, 'settings'),
         state=pulumi.get(__ret__, 'state'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -169,8 +196,10 @@ def get_contact_flow_module_output(contact_flow_module_arn: Optional[pulumi.Inpu
         contact_flow_module_arn=pulumi.get(__response__, 'contact_flow_module_arn'),
         content=pulumi.get(__response__, 'content'),
         description=pulumi.get(__response__, 'description'),
+        external_invocation_configuration=pulumi.get(__response__, 'external_invocation_configuration'),
         instance_arn=pulumi.get(__response__, 'instance_arn'),
         name=pulumi.get(__response__, 'name'),
+        settings=pulumi.get(__response__, 'settings'),
         state=pulumi.get(__response__, 'state'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

@@ -9,10 +9,12 @@ import typing
 from ._enums import *
 from .get_organization_centralization_rule import *
 from .get_organization_telemetry_rule import *
+from .get_s3_table_integration import *
 from .get_telemetry_pipelines import *
 from .get_telemetry_rule import *
 from .organization_centralization_rule import *
 from .organization_telemetry_rule import *
+from .s3_table_integration import *
 from .telemetry_pipelines import *
 from .telemetry_rule import *
 from ._inputs import *

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex
 {
     /// <summary>
-    /// Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
+    /// Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
     /// </summary>
     [AwsNativeResourceType("aws-native:lex:Bot")]
     public partial class Bot : global::Pulumi.CustomResource
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Lex
         /// A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
         /// </summary>
         [Output("botTags")]
-        public Output<ImmutableArray<Outputs.BotTag>> BotTags { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> BotTags { get; private set; } = null!;
 
         /// <summary>
         /// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
@@ -173,14 +173,14 @@ namespace Pulumi.AwsNative.Lex
         }
 
         [Input("botTags")]
-        private InputList<Inputs.BotTagArgs>? _botTags;
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _botTags;
 
         /// <summary>
         /// A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
         /// </summary>
-        public InputList<Inputs.BotTagArgs> BotTags
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> BotTags
         {
-            get => _botTags ?? (_botTags = new InputList<Inputs.BotTagArgs>());
+            get => _botTags ?? (_botTags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _botTags = value;
         }
 

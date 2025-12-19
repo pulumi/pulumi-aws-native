@@ -21,8 +21,11 @@ namespace Pulumi.AwsNative.Lex.Inputs
         /// <summary>
         /// The unique identifier assigned to a slot type. This refers to either a built-in slot type or the unique slotTypeId of a custom slot type.
         /// </summary>
-        [Input("slotTypeId", required: true)]
-        public Input<string> SlotTypeId { get; set; } = null!;
+        [Input("slotTypeId")]
+        public Input<string>? SlotTypeId { get; set; }
+
+        [Input("slotTypeName")]
+        public Input<string>? SlotTypeName { get; set; }
 
         public BotSubSlotTypeCompositionArgs()
         {

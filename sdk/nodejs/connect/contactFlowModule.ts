@@ -70,6 +70,10 @@ export class ContactFlowModule extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
+     * Defines the external invocation configuration of the flow module resource
+     */
+    declare public readonly externalInvocationConfiguration: pulumi.Output<outputs.connect.ExternalInvocationConfigurationProperties | undefined>;
+    /**
      * The identifier of the Amazon Connect instance (ARN).
      */
     declare public readonly instanceArn: pulumi.Output<string>;
@@ -77,6 +81,10 @@ export class ContactFlowModule extends pulumi.CustomResource {
      * The name of the contact flow module.
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * The schema of the settings for contact flow module in JSON Schema V4 format.
+     */
+    declare public readonly settings: pulumi.Output<string | undefined>;
     /**
      * The state of the contact flow module.
      */
@@ -109,8 +117,10 @@ export class ContactFlowModule extends pulumi.CustomResource {
             }
             resourceInputs["content"] = args?.content;
             resourceInputs["description"] = args?.description;
+            resourceInputs["externalInvocationConfiguration"] = args?.externalInvocationConfiguration;
             resourceInputs["instanceArn"] = args?.instanceArn;
             resourceInputs["name"] = args?.name;
+            resourceInputs["settings"] = args?.settings;
             resourceInputs["state"] = args?.state;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["contactFlowModuleArn"] = undefined /*out*/;
@@ -119,8 +129,10 @@ export class ContactFlowModule extends pulumi.CustomResource {
             resourceInputs["contactFlowModuleArn"] = undefined /*out*/;
             resourceInputs["content"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["externalInvocationConfiguration"] = undefined /*out*/;
             resourceInputs["instanceArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["settings"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -143,6 +155,10 @@ export interface ContactFlowModuleArgs {
      */
     description?: pulumi.Input<string>;
     /**
+     * Defines the external invocation configuration of the flow module resource
+     */
+    externalInvocationConfiguration?: pulumi.Input<inputs.connect.ExternalInvocationConfigurationPropertiesArgs>;
+    /**
      * The identifier of the Amazon Connect instance (ARN).
      */
     instanceArn: pulumi.Input<string>;
@@ -150,6 +166,10 @@ export interface ContactFlowModuleArgs {
      * The name of the contact flow module.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The schema of the settings for contact flow module in JSON Schema V4 format.
+     */
+    settings?: pulumi.Input<string>;
     /**
      * The state of the contact flow module.
      */

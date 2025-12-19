@@ -96,6 +96,7 @@ import * as bedrock from "./bedrock";
 import * as bedrockagentcore from "./bedrockagentcore";
 import * as billing from "./billing";
 import * as budgets from "./budgets";
+import * as cases from "./cases";
 import * as cassandra from "./cassandra";
 import * as ce from "./ce";
 import * as certificatemanager from "./certificatemanager";
@@ -334,6 +335,7 @@ export {
     bedrockagentcore,
     billing,
     budgets,
+    cases,
     cassandra,
     ce,
     certificatemanager,

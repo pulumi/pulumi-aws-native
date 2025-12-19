@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
         /// </summary>
         public readonly Outputs.DatastoreIotSiteWiseMultiLayerStorage? IotSiteWiseMultiLayerStorage;
         /// <summary>
-        /// Use this to store data store data in an S3 bucket managed by the AWS IoT Analytics service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
+        /// Use this to store data store data in an S3 bucket managed by the  service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
         /// </summary>
         public readonly Outputs.DatastoreServiceManagedS3? ServiceManagedS3;
 

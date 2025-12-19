@@ -29,6 +29,8 @@ type LookupHoursOfOperationArgs struct {
 }
 
 type LookupHoursOfOperationResult struct {
+	// List of child hours of operations.
+	ChildHoursOfOperations []HoursOfOperationsIdentifier `pulumi:"childHoursOfOperations"`
 	// Configuration information for the hours of operation: day, start time, and end time.
 	Config []HoursOfOperationConfig `pulumi:"config"`
 	// The description of the hours of operation.
@@ -41,6 +43,8 @@ type LookupHoursOfOperationResult struct {
 	InstanceArn *string `pulumi:"instanceArn"`
 	// The name of the hours of operation.
 	Name *string `pulumi:"name"`
+	// List of parent hours of operations.
+	ParentHoursOfOperations []HoursOfOperationsIdentifier `pulumi:"parentHoursOfOperations"`
 	// One or more tags.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The time zone of the hours of operation.
@@ -79,6 +83,11 @@ func (o LookupHoursOfOperationResultOutput) ToLookupHoursOfOperationResultOutput
 	return o
 }
 
+// List of child hours of operations.
+func (o LookupHoursOfOperationResultOutput) ChildHoursOfOperations() HoursOfOperationsIdentifierArrayOutput {
+	return o.ApplyT(func(v LookupHoursOfOperationResult) []HoursOfOperationsIdentifier { return v.ChildHoursOfOperations }).(HoursOfOperationsIdentifierArrayOutput)
+}
+
 // Configuration information for the hours of operation: day, start time, and end time.
 func (o LookupHoursOfOperationResultOutput) Config() HoursOfOperationConfigArrayOutput {
 	return o.ApplyT(func(v LookupHoursOfOperationResult) []HoursOfOperationConfig { return v.Config }).(HoursOfOperationConfigArrayOutput)
@@ -107,6 +116,11 @@ func (o LookupHoursOfOperationResultOutput) InstanceArn() pulumi.StringPtrOutput
 // The name of the hours of operation.
 func (o LookupHoursOfOperationResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHoursOfOperationResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// List of parent hours of operations.
+func (o LookupHoursOfOperationResultOutput) ParentHoursOfOperations() HoursOfOperationsIdentifierArrayOutput {
+	return o.ApplyT(func(v LookupHoursOfOperationResult) []HoursOfOperationsIdentifier { return v.ParentHoursOfOperations }).(HoursOfOperationsIdentifierArrayOutput)
 }
 
 // One or more tags.

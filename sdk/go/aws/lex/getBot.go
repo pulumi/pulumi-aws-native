@@ -7,11 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
+// Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
 func LookupBot(ctx *pulumi.Context, args *LookupBotArgs, opts ...pulumi.InvokeOption) (*LookupBotResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBotResult
@@ -30,6 +31,8 @@ type LookupBotArgs struct {
 type LookupBotResult struct {
 	// The Amazon Resource Name (ARN) of the bot.
 	Arn *string `pulumi:"arn"`
+	// A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
+	BotTags []aws.Tag `pulumi:"botTags"`
 	// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
 	DataPrivacy *DataPrivacyProperties `pulumi:"dataPrivacy"`
 	// The description of the version.
@@ -47,8 +50,6 @@ type LookupBotResult struct {
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
 	RoleArn *string `pulumi:"roleArn"`
-	// Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
-	TestBotAliasSettings *BotTestBotAliasSettings `pulumi:"testBotAliasSettings"`
 }
 
 func LookupBotOutput(ctx *pulumi.Context, args LookupBotOutputArgs, opts ...pulumi.InvokeOption) LookupBotResultOutput {
@@ -88,6 +89,11 @@ func (o LookupBotResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBotResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
+func (o LookupBotResultOutput) BotTags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupBotResult) []aws.Tag { return v.BotTags }).(aws.TagArrayOutput)
+}
+
 // By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
 func (o LookupBotResultOutput) DataPrivacy() DataPrivacyPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupBotResult) *DataPrivacyProperties { return v.DataPrivacy }).(DataPrivacyPropertiesPtrOutput)
@@ -124,11 +130,6 @@ func (o LookupBotResultOutput) Name() pulumi.StringPtrOutput {
 // The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
 func (o LookupBotResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBotResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
-}
-
-// Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
-func (o LookupBotResultOutput) TestBotAliasSettings() BotTestBotAliasSettingsPtrOutput {
-	return o.ApplyT(func(v LookupBotResult) *BotTestBotAliasSettings { return v.TestBotAliasSettings }).(BotTestBotAliasSettingsPtrOutput)
 }
 
 func init() {

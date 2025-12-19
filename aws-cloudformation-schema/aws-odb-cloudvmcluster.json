@@ -323,7 +323,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "odb:CreateCloudVmCluster", "odb:TagResource", "odb:GetCloudVmCluster", "odb:ListCloudVmClusters", "odb:ListTagsForResource", "sts:GetCallerIdentity", "ec2:DescribeAvailabilityZones", "odb:ListDbNodes", "odb:GetDbNode", "odb:CreateDbNode" ],
+      "permissions" : [ "iam:CreateServiceLinkedRole", "odb:CreateCloudVmCluster", "odb:TagResource", "odb:GetCloudVmCluster", "odb:ListCloudVmClusters", "odb:ListTagsForResource", "sts:GetCallerIdentity", "ec2:DescribeAvailabilityZones", "odb:ListDbNodes", "odb:GetDbNode", "odb:CreateDbNode" ],
       "timeoutInMinutes" : 2160
     },
     "read" : {

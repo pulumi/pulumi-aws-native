@@ -67,8 +67,10 @@ class VpnConnectionArgs:
                 You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         :param pulumi.Input[_builtins.str] transport_transit_gateway_attachment_id: The transit gateway attachment ID to use for the VPN tunnel.
                 Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``.
+        :param pulumi.Input['VpnConnectionTunnelBandwidth'] tunnel_bandwidth: The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` .
         :param pulumi.Input[_builtins.str] tunnel_inside_ip_version: Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
                 Default: ``ipv4``
+        :param pulumi.Input[_builtins.str] vpn_concentrator_id: The ID of the VPN connection.
         :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the virtual private gateway at the AWS side of the VPN connection.
                 You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]] vpn_tunnel_options_specifications: The tunnel options for the VPN connection.
@@ -277,6 +279,9 @@ class VpnConnectionArgs:
     @_builtins.property
     @pulumi.getter(name="tunnelBandwidth")
     def tunnel_bandwidth(self) -> Optional[pulumi.Input['VpnConnectionTunnelBandwidth']]:
+        """
+        The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` .
+        """
         return pulumi.get(self, "tunnel_bandwidth")
 
     @tunnel_bandwidth.setter
@@ -299,6 +304,9 @@ class VpnConnectionArgs:
     @_builtins.property
     @pulumi.getter(name="vpnConcentratorId")
     def vpn_concentrator_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ID of the VPN connection.
+        """
         return pulumi.get(self, "vpn_concentrator_id")
 
     @vpn_concentrator_id.setter
@@ -386,9 +394,11 @@ class VpnConnection(pulumi.CustomResource):
                 You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         :param pulumi.Input[_builtins.str] transport_transit_gateway_attachment_id: The transit gateway attachment ID to use for the VPN tunnel.
                 Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``.
+        :param pulumi.Input['VpnConnectionTunnelBandwidth'] tunnel_bandwidth: The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` .
         :param pulumi.Input[_builtins.str] tunnel_inside_ip_version: Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
                 Default: ``ipv4``
         :param pulumi.Input[_builtins.str] type: The type of VPN connection.
+        :param pulumi.Input[_builtins.str] vpn_concentrator_id: The ID of the VPN connection.
         :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the virtual private gateway at the AWS side of the VPN connection.
                 You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpnConnectionVpnTunnelOptionsSpecificationArgs', 'VpnConnectionVpnTunnelOptionsSpecificationArgsDict']]]] vpn_tunnel_options_specifications: The tunnel options for the VPN connection.
@@ -624,6 +634,9 @@ class VpnConnection(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="tunnelBandwidth")
     def tunnel_bandwidth(self) -> pulumi.Output[Optional['VpnConnectionTunnelBandwidth']]:
+        """
+        The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` .
+        """
         return pulumi.get(self, "tunnel_bandwidth")
 
     @_builtins.property
@@ -646,6 +659,9 @@ class VpnConnection(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="vpnConcentratorId")
     def vpn_concentrator_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The ID of the VPN connection.
+        """
         return pulumi.get(self, "vpn_concentrator_id")
 
     @_builtins.property

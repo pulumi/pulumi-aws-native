@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.Odb
     public sealed class GetOdbPeeringConnectionResult
     {
         /// <summary>
+        /// The name of the ODB peering connection.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the ODB network.
         /// </summary>
         public readonly string? OdbNetworkArn;
@@ -80,12 +84,18 @@ namespace Pulumi.AwsNative.Odb
         /// </summary>
         public readonly string? PeerNetworkArn;
         /// <summary>
+        /// The CIDR blocks for the ODB peering connection.
+        /// </summary>
+        public readonly ImmutableArray<string> PeerNetworkCidrs;
+        /// <summary>
         /// Tags to assign to the Odb peering connection.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetOdbPeeringConnectionResult(
+            string? displayName,
+
             string? odbNetworkArn,
 
             string? odbPeeringConnectionArn,
@@ -94,12 +104,16 @@ namespace Pulumi.AwsNative.Odb
 
             string? peerNetworkArn,
 
+            ImmutableArray<string> peerNetworkCidrs,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            DisplayName = displayName;
             OdbNetworkArn = odbNetworkArn;
             OdbPeeringConnectionArn = odbPeeringConnectionArn;
             OdbPeeringConnectionId = odbPeeringConnectionId;
             PeerNetworkArn = peerNetworkArn;
+            PeerNetworkCidrs = peerNetworkCidrs;
             Tags = tags;
         }
     }

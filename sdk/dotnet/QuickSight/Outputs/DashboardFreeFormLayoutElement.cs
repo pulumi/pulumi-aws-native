@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The background style configuration of a free-form layout element.
         /// </summary>
         public readonly Outputs.DashboardFreeFormLayoutElementBackgroundStyle? BackgroundStyle;
+        public readonly string? BorderRadius;
         /// <summary>
         /// The border style configuration of a free-form layout element.
         /// </summary>
@@ -37,6 +38,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The loading animation configuration of a free-form layout element.
         /// </summary>
         public readonly Outputs.DashboardLoadingAnimation? LoadingAnimation;
+        public readonly string? Padding;
         /// <summary>
         /// The rendering rules that determine when an element should be displayed within a free-form layout.
         /// </summary>
@@ -66,6 +68,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private DashboardFreeFormLayoutElement(
             Outputs.DashboardFreeFormLayoutElementBackgroundStyle? backgroundStyle,
 
+            string? borderRadius,
+
             Outputs.DashboardFreeFormLayoutElementBorderStyle? borderStyle,
 
             string elementId,
@@ -75,6 +79,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             string height,
 
             Outputs.DashboardLoadingAnimation? loadingAnimation,
+
+            string? padding,
 
             ImmutableArray<Outputs.DashboardSheetElementRenderingRule> renderingRules,
 
@@ -89,11 +95,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             string yAxisLocation)
         {
             BackgroundStyle = backgroundStyle;
+            BorderRadius = borderRadius;
             BorderStyle = borderStyle;
             ElementId = elementId;
             ElementType = elementType;
             Height = height;
             LoadingAnimation = loadingAnimation;
+            Padding = padding;
             RenderingRules = renderingRules;
             SelectedBorderStyle = selectedBorderStyle;
             Visibility = visibility;

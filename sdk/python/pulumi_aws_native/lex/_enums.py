@@ -11,11 +11,13 @@ __all__ = [
     'BotAudioRecognitionStrategy',
     'BotBedrockModelSpecificationBedrockTraceStatus',
     'BotDialogActionType',
+    'BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode',
     'BotMessageSelectionStrategy',
     'BotObfuscationSettingObfuscationSettingType',
     'BotSlotConstraint',
     'BotSlotShape',
     'BotSlotValueResolutionStrategy',
+    'BotSpeechDetectionSensitivity',
     'BotVoiceSettingsEngine',
 ]
 
@@ -52,6 +54,12 @@ class BotDialogActionType(_builtins.str, Enum):
     INVOKE_DIALOG_CODE_HOOK = "InvokeDialogCodeHook"
 
 
+@pulumi.type_token("aws-native:lex:BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode")
+class BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode(_builtins.str, Enum):
+    PRIMARY = "Primary"
+    FALLBACK = "Fallback"
+
+
 @pulumi.type_token("aws-native:lex:BotMessageSelectionStrategy")
 class BotMessageSelectionStrategy(_builtins.str, Enum):
     RANDOM = "Random"
@@ -84,6 +92,13 @@ class BotSlotValueResolutionStrategy(_builtins.str, Enum):
     ORIGINAL_VALUE = "ORIGINAL_VALUE"
     TOP_RESOLUTION = "TOP_RESOLUTION"
     CONCATENATION = "CONCATENATION"
+
+
+@pulumi.type_token("aws-native:lex:BotSpeechDetectionSensitivity")
+class BotSpeechDetectionSensitivity(_builtins.str, Enum):
+    DEFAULT = "Default"
+    HIGH_NOISE_TOLERANCE = "HighNoiseTolerance"
+    MAXIMUM_NOISE_TOLERANCE = "MaximumNoiseTolerance"
 
 
 @pulumi.type_token("aws-native:lex:BotVoiceSettingsEngine")

@@ -27,29 +27,37 @@ class HoursOfOperationArgs:
                  config: pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]],
                  instance_arn: pulumi.Input[_builtins.str],
                  time_zone: pulumi.Input[_builtins.str],
+                 child_hours_of_operations: Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationsIdentifierArgs']]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  hours_of_operation_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationOverrideArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 parent_hours_of_operations: Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationsIdentifierArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a HoursOfOperation resource.
         :param pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]] config: Configuration information for the hours of operation: day, start time, and end time.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[_builtins.str] time_zone: The time zone of the hours of operation.
+        :param pulumi.Input[Sequence[pulumi.Input['HoursOfOperationsIdentifierArgs']]] child_hours_of_operations: List of child hours of operations.
         :param pulumi.Input[_builtins.str] description: The description of the hours of operation.
         :param pulumi.Input[Sequence[pulumi.Input['HoursOfOperationOverrideArgs']]] hours_of_operation_overrides: One or more hours of operation overrides assigned to an hour of operation.
         :param pulumi.Input[_builtins.str] name: The name of the hours of operation.
+        :param pulumi.Input[Sequence[pulumi.Input['HoursOfOperationsIdentifierArgs']]] parent_hours_of_operations: List of parent hours of operations.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
         """
         pulumi.set(__self__, "config", config)
         pulumi.set(__self__, "instance_arn", instance_arn)
         pulumi.set(__self__, "time_zone", time_zone)
+        if child_hours_of_operations is not None:
+            pulumi.set(__self__, "child_hours_of_operations", child_hours_of_operations)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if hours_of_operation_overrides is not None:
             pulumi.set(__self__, "hours_of_operation_overrides", hours_of_operation_overrides)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if parent_hours_of_operations is not None:
+            pulumi.set(__self__, "parent_hours_of_operations", parent_hours_of_operations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -90,6 +98,18 @@ class HoursOfOperationArgs:
         pulumi.set(self, "time_zone", value)
 
     @_builtins.property
+    @pulumi.getter(name="childHoursOfOperations")
+    def child_hours_of_operations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationsIdentifierArgs']]]]:
+        """
+        List of child hours of operations.
+        """
+        return pulumi.get(self, "child_hours_of_operations")
+
+    @child_hours_of_operations.setter
+    def child_hours_of_operations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationsIdentifierArgs']]]]):
+        pulumi.set(self, "child_hours_of_operations", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -126,6 +146,18 @@ class HoursOfOperationArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="parentHoursOfOperations")
+    def parent_hours_of_operations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationsIdentifierArgs']]]]:
+        """
+        List of parent hours of operations.
+        """
+        return pulumi.get(self, "parent_hours_of_operations")
+
+    @parent_hours_of_operations.setter
+    def parent_hours_of_operations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationsIdentifierArgs']]]]):
+        pulumi.set(self, "parent_hours_of_operations", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -144,11 +176,13 @@ class HoursOfOperation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 child_hours_of_operations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationsIdentifierArgs', 'HoursOfOperationsIdentifierArgsDict']]]]] = None,
                  config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationConfigArgs', 'HoursOfOperationConfigArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  hours_of_operation_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationOverrideArgs', 'HoursOfOperationOverrideArgsDict']]]]] = None,
                  instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 parent_hours_of_operations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationsIdentifierArgs', 'HoursOfOperationsIdentifierArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -187,11 +221,13 @@ class HoursOfOperation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationsIdentifierArgs', 'HoursOfOperationsIdentifierArgsDict']]]] child_hours_of_operations: List of child hours of operations.
         :param pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationConfigArgs', 'HoursOfOperationConfigArgsDict']]]] config: Configuration information for the hours of operation: day, start time, and end time.
         :param pulumi.Input[_builtins.str] description: The description of the hours of operation.
         :param pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationOverrideArgs', 'HoursOfOperationOverrideArgsDict']]]] hours_of_operation_overrides: One or more hours of operation overrides assigned to an hour of operation.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[_builtins.str] name: The name of the hours of operation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationsIdentifierArgs', 'HoursOfOperationsIdentifierArgsDict']]]] parent_hours_of_operations: List of parent hours of operations.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
         :param pulumi.Input[_builtins.str] time_zone: The time zone of the hours of operation.
         """
@@ -249,11 +285,13 @@ class HoursOfOperation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 child_hours_of_operations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationsIdentifierArgs', 'HoursOfOperationsIdentifierArgsDict']]]]] = None,
                  config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationConfigArgs', 'HoursOfOperationConfigArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  hours_of_operation_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationOverrideArgs', 'HoursOfOperationOverrideArgsDict']]]]] = None,
                  instance_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                 parent_hours_of_operations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationsIdentifierArgs', 'HoursOfOperationsIdentifierArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
@@ -265,6 +303,7 @@ class HoursOfOperation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HoursOfOperationArgs.__new__(HoursOfOperationArgs)
 
+            __props__.__dict__["child_hours_of_operations"] = child_hours_of_operations
             if config is None and not opts.urn:
                 raise TypeError("Missing required property 'config'")
             __props__.__dict__["config"] = config
@@ -274,6 +313,7 @@ class HoursOfOperation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
             __props__.__dict__["name"] = name
+            __props__.__dict__["parent_hours_of_operations"] = parent_hours_of_operations
             __props__.__dict__["tags"] = tags
             if time_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'time_zone'")
@@ -301,15 +341,25 @@ class HoursOfOperation(pulumi.CustomResource):
 
         __props__ = HoursOfOperationArgs.__new__(HoursOfOperationArgs)
 
+        __props__.__dict__["child_hours_of_operations"] = None
         __props__.__dict__["config"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["hours_of_operation_arn"] = None
         __props__.__dict__["hours_of_operation_overrides"] = None
         __props__.__dict__["instance_arn"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["parent_hours_of_operations"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["time_zone"] = None
         return HoursOfOperation(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="childHoursOfOperations")
+    def child_hours_of_operations(self) -> pulumi.Output[Optional[Sequence['outputs.HoursOfOperationsIdentifier']]]:
+        """
+        List of child hours of operations.
+        """
+        return pulumi.get(self, "child_hours_of_operations")
 
     @_builtins.property
     @pulumi.getter
@@ -358,6 +408,14 @@ class HoursOfOperation(pulumi.CustomResource):
         The name of the hours of operation.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="parentHoursOfOperations")
+    def parent_hours_of_operations(self) -> pulumi.Output[Optional[Sequence['outputs.HoursOfOperationsIdentifier']]]:
+        """
+        List of parent hours of operations.
+        """
+        return pulumi.get(self, "parent_hours_of_operations")
 
     @_builtins.property
     @pulumi.getter

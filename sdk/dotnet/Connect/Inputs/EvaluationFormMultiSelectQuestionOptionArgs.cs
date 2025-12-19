@@ -10,16 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
+    /// <summary>
+    /// An option for a multi-select question in an evaluation form.
+    /// </summary>
     public sealed class EvaluationFormMultiSelectQuestionOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identifier used to reference the option.
+        /// Reference identifier for this option.
         /// </summary>
         [Input("refId", required: true)]
         public Input<string> RefId { get; set; } = null!;
 
         /// <summary>
-        /// The title of the option.
+        /// Display text for this option.
         /// </summary>
         [Input("text", required: true)]
         public Input<string> Text { get; set; } = null!;

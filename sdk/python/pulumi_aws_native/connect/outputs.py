@@ -55,13 +55,17 @@ __all__ = [
     'EvaluationFormTargetConfiguration',
     'EvaluationFormTextQuestionAutomation',
     'EvaluationFormTextQuestionProperties',
+    'ExternalInvocationConfigurationProperties',
     'FontFamily',
     'GranularAccessControlConfigurationProperties',
     'HoursOfOperationConfig',
     'HoursOfOperationOverride',
     'HoursOfOperationOverrideConfig',
     'HoursOfOperationOverrideTimeSlice',
+    'HoursOfOperationRecurrenceConfig',
+    'HoursOfOperationRecurrencePattern',
     'HoursOfOperationTimeSlice',
+    'HoursOfOperationsIdentifier',
     'InstanceAttributes',
     'InstanceStorageConfigEncryptionConfig',
     'InstanceStorageConfigKinesisFirehoseConfig',
@@ -751,6 +755,9 @@ class EvaluationFormItemEnablementSourceValue(dict):
 
 @pulumi.output_type
 class EvaluationFormLanguageConfiguration(dict):
+    """
+    Language configuration for an evaluation form.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -771,7 +778,8 @@ class EvaluationFormLanguageConfiguration(dict):
     def __init__(__self__, *,
                  form_language: Optional['EvaluationFormLanguageConfigurationFormLanguage'] = None):
         """
-        :param 'EvaluationFormLanguageConfigurationFormLanguage' form_language: The language of the form
+        Language configuration for an evaluation form.
+        :param 'EvaluationFormLanguageConfigurationFormLanguage' form_language: The language for the evaluation form.
         """
         if form_language is not None:
             pulumi.set(__self__, "form_language", form_language)
@@ -780,13 +788,16 @@ class EvaluationFormLanguageConfiguration(dict):
     @pulumi.getter(name="formLanguage")
     def form_language(self) -> Optional['EvaluationFormLanguageConfigurationFormLanguage']:
         """
-        The language of the form
+        The language for the evaluation form.
         """
         return pulumi.get(self, "form_language")
 
 
 @pulumi.output_type
 class EvaluationFormMultiSelectQuestionAutomation(dict):
+    """
+    Automation configuration for multi-select questions.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -811,9 +822,9 @@ class EvaluationFormMultiSelectQuestionAutomation(dict):
                  answer_source: Optional['outputs.EvaluationFormQuestionAutomationAnswerSource'] = None,
                  default_option_ref_ids: Optional[Sequence[_builtins.str]] = None):
         """
-        :param Sequence['EvaluationFormMultiSelectQuestionAutomationOption'] options: The answer options for the automation.
-        :param 'EvaluationFormQuestionAutomationAnswerSource' answer_source: The source of automation answer of the question.
-        :param Sequence[_builtins.str] default_option_ref_ids: The option reference identifiers of the default answers.
+        Automation configuration for multi-select questions.
+        :param Sequence['EvaluationFormMultiSelectQuestionAutomationOption'] options: Automation options for the multi-select question.
+        :param Sequence[_builtins.str] default_option_ref_ids: Reference IDs of default options.
         """
         pulumi.set(__self__, "options", options)
         if answer_source is not None:
@@ -825,29 +836,29 @@ class EvaluationFormMultiSelectQuestionAutomation(dict):
     @pulumi.getter
     def options(self) -> Sequence['outputs.EvaluationFormMultiSelectQuestionAutomationOption']:
         """
-        The answer options for the automation.
+        Automation options for the multi-select question.
         """
         return pulumi.get(self, "options")
 
     @_builtins.property
     @pulumi.getter(name="answerSource")
     def answer_source(self) -> Optional['outputs.EvaluationFormQuestionAutomationAnswerSource']:
-        """
-        The source of automation answer of the question.
-        """
         return pulumi.get(self, "answer_source")
 
     @_builtins.property
     @pulumi.getter(name="defaultOptionRefIds")
     def default_option_ref_ids(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The option reference identifiers of the default answers.
+        Reference IDs of default options.
         """
         return pulumi.get(self, "default_option_ref_ids")
 
 
 @pulumi.output_type
 class EvaluationFormMultiSelectQuestionAutomationOption(dict):
+    """
+    An automation option for a multi-select question.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -868,7 +879,8 @@ class EvaluationFormMultiSelectQuestionAutomationOption(dict):
     def __init__(__self__, *,
                  rule_category: 'outputs.EvaluationFormMultiSelectQuestionRuleCategoryAutomation'):
         """
-        :param 'EvaluationFormMultiSelectQuestionRuleCategoryAutomation' rule_category: The automation option based on Rules categories.
+        An automation option for a multi-select question.
+        :param 'EvaluationFormMultiSelectQuestionRuleCategoryAutomation' rule_category: Rule category configuration for this automation option.
         """
         pulumi.set(__self__, "rule_category", rule_category)
 
@@ -876,13 +888,16 @@ class EvaluationFormMultiSelectQuestionAutomationOption(dict):
     @pulumi.getter(name="ruleCategory")
     def rule_category(self) -> 'outputs.EvaluationFormMultiSelectQuestionRuleCategoryAutomation':
         """
-        The automation option based on Rules categories.
+        Rule category configuration for this automation option.
         """
         return pulumi.get(self, "rule_category")
 
 
 @pulumi.output_type
 class EvaluationFormMultiSelectQuestionOption(dict):
+    """
+    An option for a multi-select question in an evaluation form.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -904,8 +919,9 @@ class EvaluationFormMultiSelectQuestionOption(dict):
                  ref_id: _builtins.str,
                  text: _builtins.str):
         """
-        :param _builtins.str ref_id: The identifier used to reference the option.
-        :param _builtins.str text: The title of the option.
+        An option for a multi-select question in an evaluation form.
+        :param _builtins.str ref_id: Reference identifier for this option.
+        :param _builtins.str text: Display text for this option.
         """
         pulumi.set(__self__, "ref_id", ref_id)
         pulumi.set(__self__, "text", text)
@@ -914,7 +930,7 @@ class EvaluationFormMultiSelectQuestionOption(dict):
     @pulumi.getter(name="refId")
     def ref_id(self) -> _builtins.str:
         """
-        The identifier used to reference the option.
+        Reference identifier for this option.
         """
         return pulumi.get(self, "ref_id")
 
@@ -922,13 +938,16 @@ class EvaluationFormMultiSelectQuestionOption(dict):
     @pulumi.getter
     def text(self) -> _builtins.str:
         """
-        The title of the option.
+        Display text for this option.
         """
         return pulumi.get(self, "text")
 
 
 @pulumi.output_type
 class EvaluationFormMultiSelectQuestionProperties(dict):
+    """
+    Properties for a multi-select question in an evaluation form.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -951,9 +970,10 @@ class EvaluationFormMultiSelectQuestionProperties(dict):
                  automation: Optional['outputs.EvaluationFormMultiSelectQuestionAutomation'] = None,
                  display_as: Optional['EvaluationFormMultiSelectQuestionPropertiesDisplayAs'] = None):
         """
-        :param Sequence['EvaluationFormMultiSelectQuestionOption'] options: The list of options for the question.
-        :param 'EvaluationFormMultiSelectQuestionAutomation' automation: The automation properties for the multi-select question.
-        :param 'EvaluationFormMultiSelectQuestionPropertiesDisplayAs' display_as: The display mode of the multi-select question.
+        Properties for a multi-select question in an evaluation form.
+        :param Sequence['EvaluationFormMultiSelectQuestionOption'] options: Options available for this multi-select question.
+        :param 'EvaluationFormMultiSelectQuestionAutomation' automation: Automation configuration for this multi-select question.
+        :param 'EvaluationFormMultiSelectQuestionPropertiesDisplayAs' display_as: Display format for the multi-select question.
         """
         pulumi.set(__self__, "options", options)
         if automation is not None:
@@ -965,7 +985,7 @@ class EvaluationFormMultiSelectQuestionProperties(dict):
     @pulumi.getter
     def options(self) -> Sequence['outputs.EvaluationFormMultiSelectQuestionOption']:
         """
-        The list of options for the question.
+        Options available for this multi-select question.
         """
         return pulumi.get(self, "options")
 
@@ -973,7 +993,7 @@ class EvaluationFormMultiSelectQuestionProperties(dict):
     @pulumi.getter
     def automation(self) -> Optional['outputs.EvaluationFormMultiSelectQuestionAutomation']:
         """
-        The automation properties for the multi-select question.
+        Automation configuration for this multi-select question.
         """
         return pulumi.get(self, "automation")
 
@@ -981,13 +1001,16 @@ class EvaluationFormMultiSelectQuestionProperties(dict):
     @pulumi.getter(name="displayAs")
     def display_as(self) -> Optional['EvaluationFormMultiSelectQuestionPropertiesDisplayAs']:
         """
-        The display mode of the multi-select question.
+        Display format for the multi-select question.
         """
         return pulumi.get(self, "display_as")
 
 
 @pulumi.output_type
 class EvaluationFormMultiSelectQuestionRuleCategoryAutomation(dict):
+    """
+    Automation rule for multi-select questions based on rule categories.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1010,9 +1033,10 @@ class EvaluationFormMultiSelectQuestionRuleCategoryAutomation(dict):
                  condition: 'EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition',
                  option_ref_ids: Sequence[_builtins.str]):
         """
-        :param _builtins.str category: The category name as defined in Rules.
-        :param 'EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition' condition: The automation condition applied on contact categories.
-        :param Sequence[_builtins.str] option_ref_ids: The option identifiers referencing the options to be selected when the automation option is triggered.
+        Automation rule for multi-select questions based on rule categories.
+        :param _builtins.str category: The category name for this automation rule.
+        :param 'EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition' condition: The condition for this automation rule.
+        :param Sequence[_builtins.str] option_ref_ids: Reference IDs of options for this automation rule.
         """
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "condition", condition)
@@ -1022,7 +1046,7 @@ class EvaluationFormMultiSelectQuestionRuleCategoryAutomation(dict):
     @pulumi.getter
     def category(self) -> _builtins.str:
         """
-        The category name as defined in Rules.
+        The category name for this automation rule.
         """
         return pulumi.get(self, "category")
 
@@ -1030,7 +1054,7 @@ class EvaluationFormMultiSelectQuestionRuleCategoryAutomation(dict):
     @pulumi.getter
     def condition(self) -> 'EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition':
         """
-        The automation condition applied on contact categories.
+        The condition for this automation rule.
         """
         return pulumi.get(self, "condition")
 
@@ -1038,7 +1062,7 @@ class EvaluationFormMultiSelectQuestionRuleCategoryAutomation(dict):
     @pulumi.getter(name="optionRefIds")
     def option_ref_ids(self) -> Sequence[_builtins.str]:
         """
-        The option identifiers referencing the options to be selected when the automation option is triggered.
+        Reference IDs of options for this automation rule.
         """
         return pulumi.get(self, "option_ref_ids")
 
@@ -2032,6 +2056,9 @@ class EvaluationFormSingleSelectQuestionRuleCategoryAutomation(dict):
 
 @pulumi.output_type
 class EvaluationFormTargetConfiguration(dict):
+    """
+    Configuration that specifies the target for an evaluation form.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2052,7 +2079,8 @@ class EvaluationFormTargetConfiguration(dict):
     def __init__(__self__, *,
                  contact_interaction_type: 'EvaluationFormTargetConfigurationContactInteractionType'):
         """
-        :param 'EvaluationFormTargetConfigurationContactInteractionType' contact_interaction_type: The interaction type of a contact
+        Configuration that specifies the target for an evaluation form.
+        :param 'EvaluationFormTargetConfigurationContactInteractionType' contact_interaction_type: The contact interaction type for this evaluation form.
         """
         pulumi.set(__self__, "contact_interaction_type", contact_interaction_type)
 
@@ -2060,7 +2088,7 @@ class EvaluationFormTargetConfiguration(dict):
     @pulumi.getter(name="contactInteractionType")
     def contact_interaction_type(self) -> 'EvaluationFormTargetConfigurationContactInteractionType':
         """
-        The interaction type of a contact
+        The contact interaction type for this evaluation form.
         """
         return pulumi.get(self, "contact_interaction_type")
 
@@ -2126,6 +2154,24 @@ class EvaluationFormTextQuestionProperties(dict):
         The automation properties of the text question.
         """
         return pulumi.get(self, "automation")
+
+
+@pulumi.output_type
+class ExternalInvocationConfigurationProperties(dict):
+    """
+    Defines the external invocation configuration of the flow module resource
+    """
+    def __init__(__self__, *,
+                 enabled: _builtins.bool):
+        """
+        Defines the external invocation configuration of the flow module resource
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -2270,6 +2316,10 @@ class HoursOfOperationOverride(dict):
             suggest = "hours_of_operation_override_id"
         elif key == "overrideDescription":
             suggest = "override_description"
+        elif key == "overrideType":
+            suggest = "override_type"
+        elif key == "recurrenceConfig":
+            suggest = "recurrence_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in HoursOfOperationOverride. Access the value via the '{suggest}' property getter instead.")
@@ -2288,7 +2338,9 @@ class HoursOfOperationOverride(dict):
                  override_config: Sequence['outputs.HoursOfOperationOverrideConfig'],
                  override_name: _builtins.str,
                  hours_of_operation_override_id: Optional[_builtins.str] = None,
-                 override_description: Optional[_builtins.str] = None):
+                 override_description: Optional[_builtins.str] = None,
+                 override_type: Optional['HoursOfOperationOverrideType'] = None,
+                 recurrence_config: Optional['outputs.HoursOfOperationRecurrenceConfig'] = None):
         """
         Overrides attached to the hours of operation.
         :param _builtins.str effective_from: The date from which the hours of operation override would be effective.
@@ -2303,6 +2355,10 @@ class HoursOfOperationOverride(dict):
             pulumi.set(__self__, "hours_of_operation_override_id", hours_of_operation_override_id)
         if override_description is not None:
             pulumi.set(__self__, "override_description", override_description)
+        if override_type is not None:
+            pulumi.set(__self__, "override_type", override_type)
+        if recurrence_config is not None:
+            pulumi.set(__self__, "recurrence_config", recurrence_config)
 
     @_builtins.property
     @pulumi.getter(name="effectiveFrom")
@@ -2342,6 +2398,16 @@ class HoursOfOperationOverride(dict):
     @pulumi.getter(name="overrideDescription")
     def override_description(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "override_description")
+
+    @_builtins.property
+    @pulumi.getter(name="overrideType")
+    def override_type(self) -> Optional['HoursOfOperationOverrideType']:
+        return pulumi.get(self, "override_type")
+
+    @_builtins.property
+    @pulumi.getter(name="recurrenceConfig")
+    def recurrence_config(self) -> Optional['outputs.HoursOfOperationRecurrenceConfig']:
+        return pulumi.get(self, "recurrence_config")
 
 
 @pulumi.output_type
@@ -2441,6 +2507,113 @@ class HoursOfOperationOverrideTimeSlice(dict):
 
 
 @pulumi.output_type
+class HoursOfOperationRecurrenceConfig(dict):
+    """
+    Configuration for recurring hours of operation overrides.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recurrencePattern":
+            suggest = "recurrence_pattern"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HoursOfOperationRecurrenceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HoursOfOperationRecurrenceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HoursOfOperationRecurrenceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 recurrence_pattern: 'outputs.HoursOfOperationRecurrencePattern'):
+        """
+        Configuration for recurring hours of operation overrides.
+        """
+        pulumi.set(__self__, "recurrence_pattern", recurrence_pattern)
+
+    @_builtins.property
+    @pulumi.getter(name="recurrencePattern")
+    def recurrence_pattern(self) -> 'outputs.HoursOfOperationRecurrencePattern':
+        return pulumi.get(self, "recurrence_pattern")
+
+
+@pulumi.output_type
+class HoursOfOperationRecurrencePattern(dict):
+    """
+    Pattern for recurring hours of operation overrides.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "byMonth":
+            suggest = "by_month"
+        elif key == "byMonthDay":
+            suggest = "by_month_day"
+        elif key == "byWeekdayOccurrence":
+            suggest = "by_weekday_occurrence"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HoursOfOperationRecurrencePattern. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HoursOfOperationRecurrencePattern.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HoursOfOperationRecurrencePattern.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 by_month: Optional[Sequence[_builtins.int]] = None,
+                 by_month_day: Optional[Sequence[_builtins.int]] = None,
+                 by_weekday_occurrence: Optional[Sequence[_builtins.int]] = None,
+                 frequency: Optional['HoursOfOperationRecurrenceFrequency'] = None,
+                 interval: Optional[_builtins.int] = None):
+        """
+        Pattern for recurring hours of operation overrides.
+        """
+        if by_month is not None:
+            pulumi.set(__self__, "by_month", by_month)
+        if by_month_day is not None:
+            pulumi.set(__self__, "by_month_day", by_month_day)
+        if by_weekday_occurrence is not None:
+            pulumi.set(__self__, "by_weekday_occurrence", by_weekday_occurrence)
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @_builtins.property
+    @pulumi.getter(name="byMonth")
+    def by_month(self) -> Optional[Sequence[_builtins.int]]:
+        return pulumi.get(self, "by_month")
+
+    @_builtins.property
+    @pulumi.getter(name="byMonthDay")
+    def by_month_day(self) -> Optional[Sequence[_builtins.int]]:
+        return pulumi.get(self, "by_month_day")
+
+    @_builtins.property
+    @pulumi.getter(name="byWeekdayOccurrence")
+    def by_weekday_occurrence(self) -> Optional[Sequence[_builtins.int]]:
+        return pulumi.get(self, "by_weekday_occurrence")
+
+    @_builtins.property
+    @pulumi.getter
+    def frequency(self) -> Optional['HoursOfOperationRecurrenceFrequency']:
+        return pulumi.get(self, "frequency")
+
+    @_builtins.property
+    @pulumi.getter
+    def interval(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
 class HoursOfOperationTimeSlice(dict):
     """
     The start time or end time for an hours of operation.
@@ -2471,6 +2644,40 @@ class HoursOfOperationTimeSlice(dict):
         The minutes.
         """
         return pulumi.get(self, "minutes")
+
+
+@pulumi.output_type
+class HoursOfOperationsIdentifier(dict):
+    """
+    Identifier for hours of operation.
+    """
+    def __init__(__self__, *,
+                 id: _builtins.str,
+                 name: Optional[_builtins.str] = None):
+        """
+        Identifier for hours of operation.
+        :param _builtins.str id: The identifier for the hours of operation.
+        :param _builtins.str name: The name of the hours of operation.
+        """
+        pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The identifier for the hours of operation.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the hours of operation.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

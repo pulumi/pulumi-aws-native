@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Definition of AWS::BedrockAgentCore::GatewayTarget Resource Type
+ * Resource Type definition for AWS::BedrockAgentCore::GatewayTarget
  */
 export class GatewayTarget extends pulumi.CustomResource {
     /**

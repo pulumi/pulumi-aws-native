@@ -60,7 +60,8 @@ type LookupUserSettingsResult struct {
 	// Specifies whether the user can upload files from the local device to the streaming session.
 	UploadAllowed *UserSettingsEnabledType `pulumi:"uploadAllowed"`
 	// The ARN of the user settings.
-	UserSettingsArn *string `pulumi:"userSettingsArn"`
+	UserSettingsArn *string                  `pulumi:"userSettingsArn"`
+	WebAuthnAllowed *UserSettingsEnabledType `pulumi:"webAuthnAllowed"`
 }
 
 func LookupUserSettingsOutput(ctx *pulumi.Context, args LookupUserSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupUserSettingsResultOutput {
@@ -175,6 +176,10 @@ func (o LookupUserSettingsResultOutput) UploadAllowed() UserSettingsEnabledTypeP
 // The ARN of the user settings.
 func (o LookupUserSettingsResultOutput) UserSettingsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserSettingsResult) *string { return v.UserSettingsArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupUserSettingsResultOutput) WebAuthnAllowed() UserSettingsEnabledTypePtrOutput {
+	return o.ApplyT(func(v LookupUserSettingsResult) *UserSettingsEnabledType { return v.WebAuthnAllowed }).(UserSettingsEnabledTypePtrOutput)
 }
 
 func init() {

@@ -63,6 +63,12 @@ namespace Pulumi.AwsNative.Lex.Inputs
             set => _slotTypes = value;
         }
 
+        [Input("speechDetectionSensitivity")]
+        public Input<Pulumi.AwsNative.Lex.BotSpeechDetectionSensitivity>? SpeechDetectionSensitivity { get; set; }
+
+        [Input("unifiedSpeechSettings")]
+        public Input<Inputs.BotUnifiedSpeechSettingsArgs>? UnifiedSpeechSettings { get; set; }
+
         /// <summary>
         /// Defines settings for using an Amazon Polly voice to communicate with a user.
         /// 

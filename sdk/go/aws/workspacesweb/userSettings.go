@@ -48,7 +48,8 @@ type UserSettings struct {
 	// Specifies whether the user can upload files from the local device to the streaming session.
 	UploadAllowed UserSettingsEnabledTypeOutput `pulumi:"uploadAllowed"`
 	// The ARN of the user settings.
-	UserSettingsArn pulumi.StringOutput `pulumi:"userSettingsArn"`
+	UserSettingsArn pulumi.StringOutput              `pulumi:"userSettingsArn"`
+	WebAuthnAllowed UserSettingsEnabledTypePtrOutput `pulumi:"webAuthnAllowed"`
 }
 
 // NewUserSettings registers a new resource with the given unique name, arguments, and options.
@@ -133,7 +134,8 @@ type userSettingsArgs struct {
 	// The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
 	ToolbarConfiguration *UserSettingsToolbarConfiguration `pulumi:"toolbarConfiguration"`
 	// Specifies whether the user can upload files from the local device to the streaming session.
-	UploadAllowed UserSettingsEnabledType `pulumi:"uploadAllowed"`
+	UploadAllowed   UserSettingsEnabledType  `pulumi:"uploadAllowed"`
+	WebAuthnAllowed *UserSettingsEnabledType `pulumi:"webAuthnAllowed"`
 }
 
 // The set of arguments for constructing a UserSettings resource.
@@ -165,7 +167,8 @@ type UserSettingsArgs struct {
 	// The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
 	ToolbarConfiguration UserSettingsToolbarConfigurationPtrInput
 	// Specifies whether the user can upload files from the local device to the streaming session.
-	UploadAllowed UserSettingsEnabledTypeInput
+	UploadAllowed   UserSettingsEnabledTypeInput
+	WebAuthnAllowed UserSettingsEnabledTypePtrInput
 }
 
 func (UserSettingsArgs) ElementType() reflect.Type {
@@ -285,6 +288,10 @@ func (o UserSettingsOutput) UploadAllowed() UserSettingsEnabledTypeOutput {
 // The ARN of the user settings.
 func (o UserSettingsOutput) UserSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserSettings) pulumi.StringOutput { return v.UserSettingsArn }).(pulumi.StringOutput)
+}
+
+func (o UserSettingsOutput) WebAuthnAllowed() UserSettingsEnabledTypePtrOutput {
+	return o.ApplyT(func(v *UserSettings) UserSettingsEnabledTypePtrOutput { return v.WebAuthnAllowed }).(UserSettingsEnabledTypePtrOutput)
 }
 
 func init() {

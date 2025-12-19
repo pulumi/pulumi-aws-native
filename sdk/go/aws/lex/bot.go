@@ -8,11 +8,12 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
+// Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
 type Bot struct {
 	pulumi.CustomResourceState
 
@@ -27,7 +28,7 @@ type Bot struct {
 	// A list of locales for the bot.
 	BotLocales BotLocaleArrayOutput `pulumi:"botLocales"`
 	// A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
-	BotTags BotTagArrayOutput `pulumi:"botTags"`
+	BotTags aws.TagArrayOutput `pulumi:"botTags"`
 	// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
 	DataPrivacy DataPrivacyPropertiesOutput `pulumi:"dataPrivacy"`
 	// The description of the version.
@@ -106,7 +107,7 @@ type botArgs struct {
 	// A list of locales for the bot.
 	BotLocales []BotLocale `pulumi:"botLocales"`
 	// A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
-	BotTags []BotTag `pulumi:"botTags"`
+	BotTags []aws.Tag `pulumi:"botTags"`
 	// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
 	DataPrivacy DataPrivacyProperties `pulumi:"dataPrivacy"`
 	// The description of the version.
@@ -138,7 +139,7 @@ type BotArgs struct {
 	// A list of locales for the bot.
 	BotLocales BotLocaleArrayInput
 	// A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
-	BotTags BotTagArrayInput
+	BotTags aws.TagArrayInput
 	// By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.
 	DataPrivacy DataPrivacyPropertiesInput
 	// The description of the version.
@@ -224,8 +225,8 @@ func (o BotOutput) BotLocales() BotLocaleArrayOutput {
 }
 
 // A list of tags to add to the bot. You can only add tags when you import a bot. You can't use the `UpdateBot` operation to update tags. To update tags, use the `TagResource` operation.
-func (o BotOutput) BotTags() BotTagArrayOutput {
-	return o.ApplyT(func(v *Bot) BotTagArrayOutput { return v.BotTags }).(BotTagArrayOutput)
+func (o BotOutput) BotTags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *Bot) aws.TagArrayOutput { return v.BotTags }).(aws.TagArrayOutput)
 }
 
 // By default, data stored by Amazon Lex is encrypted. The `DataPrivacy` structure provides settings that determine how Amazon Lex handles special cases of securing the data for your bot.

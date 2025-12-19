@@ -12,8 +12,14 @@ namespace Pulumi.AwsNative.Lex.Inputs
 
     public sealed class BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("assistedNluMode")]
+        public Input<Pulumi.AwsNative.Lex.BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode>? AssistedNluMode { get; set; }
+
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
+
+        [Input("intentDisambiguationSettings")]
+        public Input<Inputs.BotIntentDisambiguationSettingsArgs>? IntentDisambiguationSettings { get; set; }
 
         public BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesArgs()
         {

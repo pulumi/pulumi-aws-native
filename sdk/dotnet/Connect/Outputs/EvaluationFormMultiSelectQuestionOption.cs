@@ -10,15 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Outputs
 {
 
+    /// <summary>
+    /// An option for a multi-select question in an evaluation form.
+    /// </summary>
     [OutputType]
     public sealed class EvaluationFormMultiSelectQuestionOption
     {
         /// <summary>
-        /// The identifier used to reference the option.
+        /// Reference identifier for this option.
         /// </summary>
         public readonly string RefId;
         /// <summary>
-        /// The title of the option.
+        /// Display text for this option.
         /// </summary>
         public readonly string Text;
 

@@ -1046,6 +1046,11 @@ if not MYPY:
         provider_arn: pulumi.Input[_builtins.str]
         scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
         custom_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+        default_return_url: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Return URL for OAuth callback.
+        """
+        grant_type: NotRequired[pulumi.Input['GatewayTargetOAuthGrantType']]
 elif False:
     GatewayTargetOAuthCredentialProviderArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1054,11 +1059,20 @@ class GatewayTargetOAuthCredentialProviderArgs:
     def __init__(__self__, *,
                  provider_arn: pulumi.Input[_builtins.str],
                  scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 custom_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 custom_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 default_return_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 grant_type: Optional[pulumi.Input['GatewayTargetOAuthGrantType']] = None):
+        """
+        :param pulumi.Input[_builtins.str] default_return_url: Return URL for OAuth callback.
+        """
         pulumi.set(__self__, "provider_arn", provider_arn)
         pulumi.set(__self__, "scopes", scopes)
         if custom_parameters is not None:
             pulumi.set(__self__, "custom_parameters", custom_parameters)
+        if default_return_url is not None:
+            pulumi.set(__self__, "default_return_url", default_return_url)
+        if grant_type is not None:
+            pulumi.set(__self__, "grant_type", grant_type)
 
     @_builtins.property
     @pulumi.getter(name="providerArn")
@@ -1086,6 +1100,27 @@ class GatewayTargetOAuthCredentialProviderArgs:
     @custom_parameters.setter
     def custom_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "custom_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultReturnUrl")
+    def default_return_url(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Return URL for OAuth callback.
+        """
+        return pulumi.get(self, "default_return_url")
+
+    @default_return_url.setter
+    def default_return_url(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default_return_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="grantType")
+    def grant_type(self) -> Optional[pulumi.Input['GatewayTargetOAuthGrantType']]:
+        return pulumi.get(self, "grant_type")
+
+    @grant_type.setter
+    def grant_type(self, value: Optional[pulumi.Input['GatewayTargetOAuthGrantType']]):
+        pulumi.set(self, "grant_type", value)
 
 
 if not MYPY:

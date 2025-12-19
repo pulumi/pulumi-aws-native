@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.Connect
     public sealed class GetHoursOfOperationResult
     {
         /// <summary>
+        /// List of child hours of operations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.HoursOfOperationsIdentifier> ChildHoursOfOperations;
+        /// <summary>
         /// Configuration information for the hours of operation: day, start time, and end time.
         /// </summary>
         public readonly ImmutableArray<Outputs.HoursOfOperationConfig> Config;
@@ -88,6 +92,10 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// List of parent hours of operations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.HoursOfOperationsIdentifier> ParentHoursOfOperations;
+        /// <summary>
         /// One or more tags.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -98,6 +106,8 @@ namespace Pulumi.AwsNative.Connect
 
         [OutputConstructor]
         private GetHoursOfOperationResult(
+            ImmutableArray<Outputs.HoursOfOperationsIdentifier> childHoursOfOperations,
+
             ImmutableArray<Outputs.HoursOfOperationConfig> config,
 
             string? description,
@@ -110,16 +120,20 @@ namespace Pulumi.AwsNative.Connect
 
             string? name,
 
+            ImmutableArray<Outputs.HoursOfOperationsIdentifier> parentHoursOfOperations,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? timeZone)
         {
+            ChildHoursOfOperations = childHoursOfOperations;
             Config = config;
             Description = description;
             HoursOfOperationArn = hoursOfOperationArn;
             HoursOfOperationOverrides = hoursOfOperationOverrides;
             InstanceArn = instanceArn;
             Name = name;
+            ParentHoursOfOperations = parentHoursOfOperations;
             Tags = tags;
             TimeZone = timeZone;
         }

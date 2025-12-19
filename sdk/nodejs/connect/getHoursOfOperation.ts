@@ -26,6 +26,10 @@ export interface GetHoursOfOperationArgs {
 
 export interface GetHoursOfOperationResult {
     /**
+     * List of child hours of operations.
+     */
+    readonly childHoursOfOperations?: outputs.connect.HoursOfOperationsIdentifier[];
+    /**
      * Configuration information for the hours of operation: day, start time, and end time.
      */
     readonly config?: outputs.connect.HoursOfOperationConfig[];
@@ -49,6 +53,10 @@ export interface GetHoursOfOperationResult {
      * The name of the hours of operation.
      */
     readonly name?: string;
+    /**
+     * List of parent hours of operations.
+     */
+    readonly parentHoursOfOperations?: outputs.connect.HoursOfOperationsIdentifier[];
     /**
      * One or more tags.
      */

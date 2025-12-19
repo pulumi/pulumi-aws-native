@@ -47,6 +47,12 @@ namespace Pulumi.AwsNative.Connect.Inputs
         [Input("overrideName", required: true)]
         public Input<string> OverrideName { get; set; } = null!;
 
+        [Input("overrideType")]
+        public Input<Pulumi.AwsNative.Connect.HoursOfOperationOverrideType>? OverrideType { get; set; }
+
+        [Input("recurrenceConfig")]
+        public Input<Inputs.HoursOfOperationRecurrenceConfigArgs>? RecurrenceConfig { get; set; }
+
         public HoursOfOperationOverrideArgs()
         {
         }

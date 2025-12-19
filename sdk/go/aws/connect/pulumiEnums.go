@@ -2188,7 +2188,7 @@ func (in *evaluationFormItemEnablementSourceValueTypePtr) ToEvaluationFormItemEn
 	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormItemEnablementSourceValueTypePtrOutput)
 }
 
-// The language of the form
+// The language for the evaluation form.
 type EvaluationFormLanguageConfigurationFormLanguage string
 
 const (
@@ -2362,7 +2362,7 @@ func (in *evaluationFormLanguageConfigurationFormLanguagePtr) ToEvaluationFormLa
 	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormLanguageConfigurationFormLanguagePtrOutput)
 }
 
-// The display mode of the multi-select question.
+// Display format for the multi-select question.
 type EvaluationFormMultiSelectQuestionPropertiesDisplayAs string
 
 const (
@@ -2528,7 +2528,7 @@ func (in *evaluationFormMultiSelectQuestionPropertiesDisplayAsPtr) ToEvaluationF
 	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormMultiSelectQuestionPropertiesDisplayAsPtrOutput)
 }
 
-// The automation condition applied on contact categories.
+// The condition for this automation rule.
 type EvaluationFormMultiSelectQuestionRuleCategoryAutomationCondition string
 
 const (
@@ -4063,7 +4063,7 @@ func (in *evaluationFormStatusPtr) ToEvaluationFormStatusPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(EvaluationFormStatusPtrOutput)
 }
 
-// The interaction type of a contact
+// The contact interaction type for this evaluation form.
 type EvaluationFormTargetConfigurationContactInteractionType string
 
 const (
@@ -4579,6 +4579,342 @@ func (in *hoursOfOperationOverrideConfigDayPtr) ToHoursOfOperationOverrideConfig
 
 func (in *hoursOfOperationOverrideConfigDayPtr) ToHoursOfOperationOverrideConfigDayPtrOutputWithContext(ctx context.Context) HoursOfOperationOverrideConfigDayPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(HoursOfOperationOverrideConfigDayPtrOutput)
+}
+
+// The type of hours of operation override.
+type HoursOfOperationOverrideType string
+
+const (
+	HoursOfOperationOverrideTypeStandard = HoursOfOperationOverrideType("STANDARD")
+	HoursOfOperationOverrideTypeOpen     = HoursOfOperationOverrideType("OPEN")
+	HoursOfOperationOverrideTypeClosed   = HoursOfOperationOverrideType("CLOSED")
+)
+
+func (HoursOfOperationOverrideType) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationOverrideType)(nil)).Elem()
+}
+
+func (e HoursOfOperationOverrideType) ToHoursOfOperationOverrideTypeOutput() HoursOfOperationOverrideTypeOutput {
+	return pulumi.ToOutput(e).(HoursOfOperationOverrideTypeOutput)
+}
+
+func (e HoursOfOperationOverrideType) ToHoursOfOperationOverrideTypeOutputWithContext(ctx context.Context) HoursOfOperationOverrideTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HoursOfOperationOverrideTypeOutput)
+}
+
+func (e HoursOfOperationOverrideType) ToHoursOfOperationOverrideTypePtrOutput() HoursOfOperationOverrideTypePtrOutput {
+	return e.ToHoursOfOperationOverrideTypePtrOutputWithContext(context.Background())
+}
+
+func (e HoursOfOperationOverrideType) ToHoursOfOperationOverrideTypePtrOutputWithContext(ctx context.Context) HoursOfOperationOverrideTypePtrOutput {
+	return HoursOfOperationOverrideType(e).ToHoursOfOperationOverrideTypeOutputWithContext(ctx).ToHoursOfOperationOverrideTypePtrOutputWithContext(ctx)
+}
+
+func (e HoursOfOperationOverrideType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HoursOfOperationOverrideType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HoursOfOperationOverrideType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HoursOfOperationOverrideType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HoursOfOperationOverrideTypeOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationOverrideTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationOverrideType)(nil)).Elem()
+}
+
+func (o HoursOfOperationOverrideTypeOutput) ToHoursOfOperationOverrideTypeOutput() HoursOfOperationOverrideTypeOutput {
+	return o
+}
+
+func (o HoursOfOperationOverrideTypeOutput) ToHoursOfOperationOverrideTypeOutputWithContext(ctx context.Context) HoursOfOperationOverrideTypeOutput {
+	return o
+}
+
+func (o HoursOfOperationOverrideTypeOutput) ToHoursOfOperationOverrideTypePtrOutput() HoursOfOperationOverrideTypePtrOutput {
+	return o.ToHoursOfOperationOverrideTypePtrOutputWithContext(context.Background())
+}
+
+func (o HoursOfOperationOverrideTypeOutput) ToHoursOfOperationOverrideTypePtrOutputWithContext(ctx context.Context) HoursOfOperationOverrideTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HoursOfOperationOverrideType) *HoursOfOperationOverrideType {
+		return &v
+	}).(HoursOfOperationOverrideTypePtrOutput)
+}
+
+func (o HoursOfOperationOverrideTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HoursOfOperationOverrideTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HoursOfOperationOverrideType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HoursOfOperationOverrideTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HoursOfOperationOverrideTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HoursOfOperationOverrideType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HoursOfOperationOverrideTypePtrOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationOverrideTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HoursOfOperationOverrideType)(nil)).Elem()
+}
+
+func (o HoursOfOperationOverrideTypePtrOutput) ToHoursOfOperationOverrideTypePtrOutput() HoursOfOperationOverrideTypePtrOutput {
+	return o
+}
+
+func (o HoursOfOperationOverrideTypePtrOutput) ToHoursOfOperationOverrideTypePtrOutputWithContext(ctx context.Context) HoursOfOperationOverrideTypePtrOutput {
+	return o
+}
+
+func (o HoursOfOperationOverrideTypePtrOutput) Elem() HoursOfOperationOverrideTypeOutput {
+	return o.ApplyT(func(v *HoursOfOperationOverrideType) HoursOfOperationOverrideType {
+		if v != nil {
+			return *v
+		}
+		var ret HoursOfOperationOverrideType
+		return ret
+	}).(HoursOfOperationOverrideTypeOutput)
+}
+
+func (o HoursOfOperationOverrideTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HoursOfOperationOverrideTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HoursOfOperationOverrideType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HoursOfOperationOverrideTypeInput is an input type that accepts values of the HoursOfOperationOverrideType enum
+// A concrete instance of `HoursOfOperationOverrideTypeInput` can be one of the following:
+//
+//	HoursOfOperationOverrideTypeStandard
+//	HoursOfOperationOverrideTypeOpen
+//	HoursOfOperationOverrideTypeClosed
+type HoursOfOperationOverrideTypeInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationOverrideTypeOutput() HoursOfOperationOverrideTypeOutput
+	ToHoursOfOperationOverrideTypeOutputWithContext(context.Context) HoursOfOperationOverrideTypeOutput
+}
+
+var hoursOfOperationOverrideTypePtrType = reflect.TypeOf((**HoursOfOperationOverrideType)(nil)).Elem()
+
+type HoursOfOperationOverrideTypePtrInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationOverrideTypePtrOutput() HoursOfOperationOverrideTypePtrOutput
+	ToHoursOfOperationOverrideTypePtrOutputWithContext(context.Context) HoursOfOperationOverrideTypePtrOutput
+}
+
+type hoursOfOperationOverrideTypePtr string
+
+func HoursOfOperationOverrideTypePtr(v string) HoursOfOperationOverrideTypePtrInput {
+	return (*hoursOfOperationOverrideTypePtr)(&v)
+}
+
+func (*hoursOfOperationOverrideTypePtr) ElementType() reflect.Type {
+	return hoursOfOperationOverrideTypePtrType
+}
+
+func (in *hoursOfOperationOverrideTypePtr) ToHoursOfOperationOverrideTypePtrOutput() HoursOfOperationOverrideTypePtrOutput {
+	return pulumi.ToOutput(in).(HoursOfOperationOverrideTypePtrOutput)
+}
+
+func (in *hoursOfOperationOverrideTypePtr) ToHoursOfOperationOverrideTypePtrOutputWithContext(ctx context.Context) HoursOfOperationOverrideTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HoursOfOperationOverrideTypePtrOutput)
+}
+
+// The frequency of recurrence for hours of operation overrides.
+type HoursOfOperationRecurrenceFrequency string
+
+const (
+	HoursOfOperationRecurrenceFrequencyWeekly  = HoursOfOperationRecurrenceFrequency("WEEKLY")
+	HoursOfOperationRecurrenceFrequencyMonthly = HoursOfOperationRecurrenceFrequency("MONTHLY")
+	HoursOfOperationRecurrenceFrequencyYearly  = HoursOfOperationRecurrenceFrequency("YEARLY")
+)
+
+func (HoursOfOperationRecurrenceFrequency) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationRecurrenceFrequency)(nil)).Elem()
+}
+
+func (e HoursOfOperationRecurrenceFrequency) ToHoursOfOperationRecurrenceFrequencyOutput() HoursOfOperationRecurrenceFrequencyOutput {
+	return pulumi.ToOutput(e).(HoursOfOperationRecurrenceFrequencyOutput)
+}
+
+func (e HoursOfOperationRecurrenceFrequency) ToHoursOfOperationRecurrenceFrequencyOutputWithContext(ctx context.Context) HoursOfOperationRecurrenceFrequencyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HoursOfOperationRecurrenceFrequencyOutput)
+}
+
+func (e HoursOfOperationRecurrenceFrequency) ToHoursOfOperationRecurrenceFrequencyPtrOutput() HoursOfOperationRecurrenceFrequencyPtrOutput {
+	return e.ToHoursOfOperationRecurrenceFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (e HoursOfOperationRecurrenceFrequency) ToHoursOfOperationRecurrenceFrequencyPtrOutputWithContext(ctx context.Context) HoursOfOperationRecurrenceFrequencyPtrOutput {
+	return HoursOfOperationRecurrenceFrequency(e).ToHoursOfOperationRecurrenceFrequencyOutputWithContext(ctx).ToHoursOfOperationRecurrenceFrequencyPtrOutputWithContext(ctx)
+}
+
+func (e HoursOfOperationRecurrenceFrequency) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HoursOfOperationRecurrenceFrequency) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HoursOfOperationRecurrenceFrequency) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HoursOfOperationRecurrenceFrequency) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HoursOfOperationRecurrenceFrequencyOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationRecurrenceFrequencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationRecurrenceFrequency)(nil)).Elem()
+}
+
+func (o HoursOfOperationRecurrenceFrequencyOutput) ToHoursOfOperationRecurrenceFrequencyOutput() HoursOfOperationRecurrenceFrequencyOutput {
+	return o
+}
+
+func (o HoursOfOperationRecurrenceFrequencyOutput) ToHoursOfOperationRecurrenceFrequencyOutputWithContext(ctx context.Context) HoursOfOperationRecurrenceFrequencyOutput {
+	return o
+}
+
+func (o HoursOfOperationRecurrenceFrequencyOutput) ToHoursOfOperationRecurrenceFrequencyPtrOutput() HoursOfOperationRecurrenceFrequencyPtrOutput {
+	return o.ToHoursOfOperationRecurrenceFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (o HoursOfOperationRecurrenceFrequencyOutput) ToHoursOfOperationRecurrenceFrequencyPtrOutputWithContext(ctx context.Context) HoursOfOperationRecurrenceFrequencyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HoursOfOperationRecurrenceFrequency) *HoursOfOperationRecurrenceFrequency {
+		return &v
+	}).(HoursOfOperationRecurrenceFrequencyPtrOutput)
+}
+
+func (o HoursOfOperationRecurrenceFrequencyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HoursOfOperationRecurrenceFrequencyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HoursOfOperationRecurrenceFrequency) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HoursOfOperationRecurrenceFrequencyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HoursOfOperationRecurrenceFrequencyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HoursOfOperationRecurrenceFrequency) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HoursOfOperationRecurrenceFrequencyPtrOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationRecurrenceFrequencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HoursOfOperationRecurrenceFrequency)(nil)).Elem()
+}
+
+func (o HoursOfOperationRecurrenceFrequencyPtrOutput) ToHoursOfOperationRecurrenceFrequencyPtrOutput() HoursOfOperationRecurrenceFrequencyPtrOutput {
+	return o
+}
+
+func (o HoursOfOperationRecurrenceFrequencyPtrOutput) ToHoursOfOperationRecurrenceFrequencyPtrOutputWithContext(ctx context.Context) HoursOfOperationRecurrenceFrequencyPtrOutput {
+	return o
+}
+
+func (o HoursOfOperationRecurrenceFrequencyPtrOutput) Elem() HoursOfOperationRecurrenceFrequencyOutput {
+	return o.ApplyT(func(v *HoursOfOperationRecurrenceFrequency) HoursOfOperationRecurrenceFrequency {
+		if v != nil {
+			return *v
+		}
+		var ret HoursOfOperationRecurrenceFrequency
+		return ret
+	}).(HoursOfOperationRecurrenceFrequencyOutput)
+}
+
+func (o HoursOfOperationRecurrenceFrequencyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HoursOfOperationRecurrenceFrequencyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HoursOfOperationRecurrenceFrequency) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HoursOfOperationRecurrenceFrequencyInput is an input type that accepts values of the HoursOfOperationRecurrenceFrequency enum
+// A concrete instance of `HoursOfOperationRecurrenceFrequencyInput` can be one of the following:
+//
+//	HoursOfOperationRecurrenceFrequencyWeekly
+//	HoursOfOperationRecurrenceFrequencyMonthly
+//	HoursOfOperationRecurrenceFrequencyYearly
+type HoursOfOperationRecurrenceFrequencyInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationRecurrenceFrequencyOutput() HoursOfOperationRecurrenceFrequencyOutput
+	ToHoursOfOperationRecurrenceFrequencyOutputWithContext(context.Context) HoursOfOperationRecurrenceFrequencyOutput
+}
+
+var hoursOfOperationRecurrenceFrequencyPtrType = reflect.TypeOf((**HoursOfOperationRecurrenceFrequency)(nil)).Elem()
+
+type HoursOfOperationRecurrenceFrequencyPtrInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationRecurrenceFrequencyPtrOutput() HoursOfOperationRecurrenceFrequencyPtrOutput
+	ToHoursOfOperationRecurrenceFrequencyPtrOutputWithContext(context.Context) HoursOfOperationRecurrenceFrequencyPtrOutput
+}
+
+type hoursOfOperationRecurrenceFrequencyPtr string
+
+func HoursOfOperationRecurrenceFrequencyPtr(v string) HoursOfOperationRecurrenceFrequencyPtrInput {
+	return (*hoursOfOperationRecurrenceFrequencyPtr)(&v)
+}
+
+func (*hoursOfOperationRecurrenceFrequencyPtr) ElementType() reflect.Type {
+	return hoursOfOperationRecurrenceFrequencyPtrType
+}
+
+func (in *hoursOfOperationRecurrenceFrequencyPtr) ToHoursOfOperationRecurrenceFrequencyPtrOutput() HoursOfOperationRecurrenceFrequencyPtrOutput {
+	return pulumi.ToOutput(in).(HoursOfOperationRecurrenceFrequencyPtrOutput)
+}
+
+func (in *hoursOfOperationRecurrenceFrequencyPtr) ToHoursOfOperationRecurrenceFrequencyPtrOutputWithContext(ctx context.Context) HoursOfOperationRecurrenceFrequencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HoursOfOperationRecurrenceFrequencyPtrOutput)
 }
 
 // Specifies the type of directory integration for new instance.
@@ -8651,6 +8987,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigDayPtrInput)(nil)).Elem(), HoursOfOperationConfigDay("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationOverrideConfigDayInput)(nil)).Elem(), HoursOfOperationOverrideConfigDay("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationOverrideConfigDayPtrInput)(nil)).Elem(), HoursOfOperationOverrideConfigDay("SUNDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationOverrideTypeInput)(nil)).Elem(), HoursOfOperationOverrideType("STANDARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationOverrideTypePtrInput)(nil)).Elem(), HoursOfOperationOverrideType("STANDARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationRecurrenceFrequencyInput)(nil)).Elem(), HoursOfOperationRecurrenceFrequency("WEEKLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationRecurrenceFrequencyPtrInput)(nil)).Elem(), HoursOfOperationRecurrenceFrequency("WEEKLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceIdentityManagementTypeInput)(nil)).Elem(), InstanceIdentityManagementType("SAML"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceIdentityManagementTypePtrInput)(nil)).Elem(), InstanceIdentityManagementType("SAML"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigEncryptionTypeInput)(nil)).Elem(), InstanceStorageConfigEncryptionType("KMS"))
@@ -8749,6 +9089,10 @@ func init() {
 	pulumi.RegisterOutputType(HoursOfOperationConfigDayPtrOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationOverrideConfigDayOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationOverrideConfigDayPtrOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationOverrideTypeOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationOverrideTypePtrOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationRecurrenceFrequencyOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationRecurrenceFrequencyPtrOutput{})
 	pulumi.RegisterOutputType(InstanceIdentityManagementTypeOutput{})
 	pulumi.RegisterOutputType(InstanceIdentityManagementTypePtrOutput{})
 	pulumi.RegisterOutputType(InstanceStatusOutput{})

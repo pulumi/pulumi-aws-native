@@ -65,6 +65,12 @@ namespace Pulumi.AwsNative.Connect
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Defines the external invocation configuration of the flow module resource
+        /// </summary>
+        [Output("externalInvocationConfiguration")]
+        public Output<Outputs.ExternalInvocationConfigurationProperties?> ExternalInvocationConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The identifier of the Amazon Connect instance (ARN).
         /// </summary>
         [Output("instanceArn")]
@@ -75,6 +81,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The schema of the settings for contact flow module in JSON Schema V4 format.
+        /// </summary>
+        [Output("settings")]
+        public Output<string?> Settings { get; private set; } = null!;
 
         /// <summary>
         /// The state of the contact flow module.
@@ -152,6 +164,12 @@ namespace Pulumi.AwsNative.Connect
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Defines the external invocation configuration of the flow module resource
+        /// </summary>
+        [Input("externalInvocationConfiguration")]
+        public Input<Inputs.ExternalInvocationConfigurationPropertiesArgs>? ExternalInvocationConfiguration { get; set; }
+
+        /// <summary>
         /// The identifier of the Amazon Connect instance (ARN).
         /// </summary>
         [Input("instanceArn", required: true)]
@@ -162,6 +180,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The schema of the settings for contact flow module in JSON Schema V4 format.
+        /// </summary>
+        [Input("settings")]
+        public Input<string>? Settings { get; set; }
 
         /// <summary>
         /// The state of the contact flow module.

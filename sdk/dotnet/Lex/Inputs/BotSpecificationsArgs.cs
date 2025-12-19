@@ -12,8 +12,11 @@ namespace Pulumi.AwsNative.Lex.Inputs
 
     public sealed class BotSpecificationsArgs : global::Pulumi.ResourceArgs
     {
-        [Input("slotTypeId", required: true)]
-        public Input<string> SlotTypeId { get; set; } = null!;
+        [Input("slotTypeId")]
+        public Input<string>? SlotTypeId { get; set; }
+
+        [Input("slotTypeName")]
+        public Input<string>? SlotTypeName { get; set; }
 
         [Input("valueElicitationSetting", required: true)]
         public Input<Inputs.BotSubSlotValueElicitationSettingArgs> ValueElicitationSetting { get; set; } = null!;

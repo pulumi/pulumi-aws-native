@@ -101,6 +101,7 @@ export class UserSettings extends pulumi.CustomResource {
      * The ARN of the user settings.
      */
     declare public /*out*/ readonly userSettingsArn: pulumi.Output<string>;
+    declare public readonly webAuthnAllowed: pulumi.Output<enums.workspacesweb.UserSettingsEnabledType | undefined>;
 
     /**
      * Create a UserSettings resource with the given unique name, arguments, and options.
@@ -142,6 +143,7 @@ export class UserSettings extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["toolbarConfiguration"] = args?.toolbarConfiguration;
             resourceInputs["uploadAllowed"] = args?.uploadAllowed;
+            resourceInputs["webAuthnAllowed"] = args?.webAuthnAllowed;
             resourceInputs["associatedPortalArns"] = undefined /*out*/;
             resourceInputs["userSettingsArn"] = undefined /*out*/;
         } else {
@@ -161,6 +163,7 @@ export class UserSettings extends pulumi.CustomResource {
             resourceInputs["toolbarConfiguration"] = undefined /*out*/;
             resourceInputs["uploadAllowed"] = undefined /*out*/;
             resourceInputs["userSettingsArn"] = undefined /*out*/;
+            resourceInputs["webAuthnAllowed"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserSettings.__pulumiType, name, resourceInputs, opts);
@@ -227,4 +230,5 @@ export interface UserSettingsArgs {
      * Specifies whether the user can upload files from the local device to the streaming session.
      */
     uploadAllowed: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType>;
+    webAuthnAllowed?: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType>;
 }

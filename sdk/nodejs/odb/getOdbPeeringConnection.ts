@@ -26,6 +26,10 @@ export interface GetOdbPeeringConnectionArgs {
 
 export interface GetOdbPeeringConnectionResult {
     /**
+     * The name of the ODB peering connection.
+     */
+    readonly displayName?: string;
+    /**
      * The Amazon Resource Name (ARN) of the ODB network.
      */
     readonly odbNetworkArn?: string;
@@ -41,6 +45,10 @@ export interface GetOdbPeeringConnectionResult {
      * The Amazon Resource Name (ARN) of the peer network.
      */
     readonly peerNetworkArn?: string;
+    /**
+     * The CIDR blocks for the ODB peering connection.
+     */
+    readonly peerNetworkCidrs?: string[];
     /**
      * Tags to assign to the Odb peering connection.
      */

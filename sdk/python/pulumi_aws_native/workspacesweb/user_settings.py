@@ -37,7 +37,8 @@ class UserSettingsArgs:
                  disconnect_timeout_in_minutes: Optional[pulumi.Input[_builtins.float]] = None,
                  idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[_builtins.float]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 toolbar_configuration: Optional[pulumi.Input['UserSettingsToolbarConfigurationArgs']] = None):
+                 toolbar_configuration: Optional[pulumi.Input['UserSettingsToolbarConfigurationArgs']] = None,
+                 web_authn_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None):
         """
         The set of arguments for constructing a UserSettings resource.
         :param pulumi.Input['UserSettingsEnabledType'] copy_allowed: Specifies whether the user can copy text from the streaming session to the local device.
@@ -78,6 +79,8 @@ class UserSettingsArgs:
             pulumi.set(__self__, "tags", tags)
         if toolbar_configuration is not None:
             pulumi.set(__self__, "toolbar_configuration", toolbar_configuration)
+        if web_authn_allowed is not None:
+            pulumi.set(__self__, "web_authn_allowed", web_authn_allowed)
 
     @_builtins.property
     @pulumi.getter(name="copyAllowed")
@@ -247,6 +250,15 @@ class UserSettingsArgs:
     def toolbar_configuration(self, value: Optional[pulumi.Input['UserSettingsToolbarConfigurationArgs']]):
         pulumi.set(self, "toolbar_configuration", value)
 
+    @_builtins.property
+    @pulumi.getter(name="webAuthnAllowed")
+    def web_authn_allowed(self) -> Optional[pulumi.Input['UserSettingsEnabledType']]:
+        return pulumi.get(self, "web_authn_allowed")
+
+    @web_authn_allowed.setter
+    def web_authn_allowed(self, value: Optional[pulumi.Input['UserSettingsEnabledType']]):
+        pulumi.set(self, "web_authn_allowed", value)
+
 
 @pulumi.type_token("aws-native:workspacesweb:UserSettings")
 class UserSettings(pulumi.CustomResource):
@@ -268,6 +280,7 @@ class UserSettings(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  toolbar_configuration: Optional[pulumi.Input[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']]] = None,
                  upload_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
+                 web_authn_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  __props__=None):
         """
         Definition of AWS::WorkSpacesWeb::UserSettings Resource Type
@@ -327,6 +340,7 @@ class UserSettings(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  toolbar_configuration: Optional[pulumi.Input[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']]] = None,
                  upload_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
+                 web_authn_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -360,6 +374,7 @@ class UserSettings(pulumi.CustomResource):
             if upload_allowed is None and not opts.urn:
                 raise TypeError("Missing required property 'upload_allowed'")
             __props__.__dict__["upload_allowed"] = upload_allowed
+            __props__.__dict__["web_authn_allowed"] = web_authn_allowed
             __props__.__dict__["associated_portal_arns"] = None
             __props__.__dict__["user_settings_arn"] = None
         super(UserSettings, __self__).__init__(
@@ -400,6 +415,7 @@ class UserSettings(pulumi.CustomResource):
         __props__.__dict__["toolbar_configuration"] = None
         __props__.__dict__["upload_allowed"] = None
         __props__.__dict__["user_settings_arn"] = None
+        __props__.__dict__["web_authn_allowed"] = None
         return UserSettings(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -529,4 +545,9 @@ class UserSettings(pulumi.CustomResource):
         The ARN of the user settings.
         """
         return pulumi.get(self, "user_settings_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="webAuthnAllowed")
+    def web_authn_allowed(self) -> pulumi.Output[Optional['UserSettingsEnabledType']]:
+        return pulumi.get(self, "web_authn_allowed")
 

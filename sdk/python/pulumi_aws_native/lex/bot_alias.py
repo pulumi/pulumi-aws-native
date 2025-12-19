@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -25,7 +27,7 @@ class BotAliasArgs:
                  bot_id: pulumi.Input[_builtins.str],
                  bot_alias_locale_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasLocaleSettingsItemArgs']]]] = None,
                  bot_alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasTagArgs']]]] = None,
+                 bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  bot_version: Optional[pulumi.Input[_builtins.str]] = None,
                  conversation_log_settings: Optional[pulumi.Input['BotAliasConversationLogSettingsArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
@@ -35,7 +37,7 @@ class BotAliasArgs:
         :param pulumi.Input[_builtins.str] bot_id: The unique identifier of the bot.
         :param pulumi.Input[Sequence[pulumi.Input['BotAliasLocaleSettingsItemArgs']]] bot_alias_locale_settings: Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
         :param pulumi.Input[_builtins.str] bot_alias_name: The name of the bot alias.
-        :param pulumi.Input[Sequence[pulumi.Input['BotAliasTagArgs']]] bot_alias_tags: A list of tags to add to the bot alias.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] bot_alias_tags: A list of tags to add to the bot alias.
         :param pulumi.Input[_builtins.str] bot_version: The version of the bot that the bot alias references.
         :param pulumi.Input['BotAliasConversationLogSettingsArgs'] conversation_log_settings: Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
         :param pulumi.Input[_builtins.str] description: The description of the bot alias.
@@ -95,14 +97,14 @@ class BotAliasArgs:
 
     @_builtins.property
     @pulumi.getter(name="botAliasTags")
-    def bot_alias_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasTagArgs']]]]:
+    def bot_alias_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of tags to add to the bot alias.
         """
         return pulumi.get(self, "bot_alias_tags")
 
     @bot_alias_tags.setter
-    def bot_alias_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasTagArgs']]]]):
+    def bot_alias_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "bot_alias_tags", value)
 
     @_builtins.property
@@ -162,7 +164,7 @@ class BotAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_alias_locale_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotAliasLocaleSettingsItemArgs', 'BotAliasLocaleSettingsItemArgsDict']]]]] = None,
                  bot_alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotAliasTagArgs', 'BotAliasTagArgsDict']]]]] = None,
+                 bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  bot_id: Optional[pulumi.Input[_builtins.str]] = None,
                  bot_version: Optional[pulumi.Input[_builtins.str]] = None,
                  conversation_log_settings: Optional[pulumi.Input[Union['BotAliasConversationLogSettingsArgs', 'BotAliasConversationLogSettingsArgsDict']]] = None,
@@ -170,13 +172,13 @@ class BotAlias(pulumi.CustomResource):
                  sentiment_analysis_settings: Optional[pulumi.Input[Union['SentimentAnalysisSettingsPropertiesArgs', 'SentimentAnalysisSettingsPropertiesArgsDict']]] = None,
                  __props__=None):
         """
-        A Bot Alias enables you to change the version of a bot without updating applications that use the bot
+        Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BotAliasLocaleSettingsItemArgs', 'BotAliasLocaleSettingsItemArgsDict']]]] bot_alias_locale_settings: Specifies settings that are unique to a locale. For example, you can use different Lambda function depending on the bot's locale.
         :param pulumi.Input[_builtins.str] bot_alias_name: The name of the bot alias.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BotAliasTagArgs', 'BotAliasTagArgsDict']]]] bot_alias_tags: A list of tags to add to the bot alias.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] bot_alias_tags: A list of tags to add to the bot alias.
         :param pulumi.Input[_builtins.str] bot_id: The unique identifier of the bot.
         :param pulumi.Input[_builtins.str] bot_version: The version of the bot that the bot alias references.
         :param pulumi.Input[Union['BotAliasConversationLogSettingsArgs', 'BotAliasConversationLogSettingsArgsDict']] conversation_log_settings: Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
@@ -190,7 +192,7 @@ class BotAlias(pulumi.CustomResource):
                  args: BotAliasArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A Bot Alias enables you to change the version of a bot without updating applications that use the bot
+        Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot
 
         :param str resource_name: The name of the resource.
         :param BotAliasArgs args: The arguments to use to populate this resource's properties.
@@ -209,7 +211,7 @@ class BotAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_alias_locale_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotAliasLocaleSettingsItemArgs', 'BotAliasLocaleSettingsItemArgsDict']]]]] = None,
                  bot_alias_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotAliasTagArgs', 'BotAliasTagArgsDict']]]]] = None,
+                 bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  bot_id: Optional[pulumi.Input[_builtins.str]] = None,
                  bot_version: Optional[pulumi.Input[_builtins.str]] = None,
                  conversation_log_settings: Optional[pulumi.Input[Union['BotAliasConversationLogSettingsArgs', 'BotAliasConversationLogSettingsArgsDict']]] = None,
@@ -316,7 +318,7 @@ class BotAlias(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="botAliasTags")
-    def bot_alias_tags(self) -> pulumi.Output[Optional[Sequence['outputs.BotAliasTag']]]:
+    def bot_alias_tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
         A list of tags to add to the bot alias.
         """

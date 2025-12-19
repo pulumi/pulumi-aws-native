@@ -13,12 +13,21 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties
     {
+        public readonly Pulumi.AwsNative.Lex.BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode? AssistedNluMode;
         public readonly bool Enabled;
+        public readonly Outputs.BotIntentDisambiguationSettings? IntentDisambiguationSettings;
 
         [OutputConstructor]
-        private BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties(bool enabled)
+        private BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationProperties(
+            Pulumi.AwsNative.Lex.BotGenerativeAiSettingsRuntimeSettingsPropertiesNluImprovementSpecificationPropertiesAssistedNluMode? assistedNluMode,
+
+            bool enabled,
+
+            Outputs.BotIntentDisambiguationSettings? intentDisambiguationSettings)
         {
+            AssistedNluMode = assistedNluMode;
             Enabled = enabled;
+            IntentDisambiguationSettings = intentDisambiguationSettings;
         }
     }
 }
