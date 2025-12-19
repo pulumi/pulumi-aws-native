@@ -94,3 +94,5 @@ jobs:
       id: auto-merge
       # enable auto-merge so PR merges after required checks
       run: gh pr merge --merge --auto ${{ steps.create-pr.outputs.pull-request-number }}
+      env:
+        GH_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
