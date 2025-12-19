@@ -53,7 +53,7 @@
     "AppliedForItem" : {
       "type" : "string",
       "description" : "Enumerable Strings representing the repository creation scenarios that the template will apply towards.",
-      "enum" : [ "REPLICATION", "PULL_THROUGH_CACHE" ]
+      "enum" : [ "REPLICATION", "PULL_THROUGH_CACHE", "CREATE_ON_PUSH" ]
     },
     "ImageTagMutabilityExclusionFilter" : {
       "type" : "object",

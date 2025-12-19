@@ -100,13 +100,13 @@
       "permissions" : [ "iam:PassRole", "mediaconnect:GrantFlowEntitlements" ]
     },
     "read" : {
-      "permissions" : [ "mediaconnect:DescribeFlow" ]
+      "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:ListFlows" ]
     },
     "update" : {
       "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:UpdateFlowEntitlement" ]
     },
     "delete" : {
-      "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:RevokeFlowEntitlement" ]
+      "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:ListFlows", "mediaconnect:RevokeFlowEntitlement" ]
     },
     "list" : {
       "permissions" : [ "mediaconnect:DescribeFlow", "mediaconnect:ListFlows" ]
