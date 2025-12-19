@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource type definition for AWS::DAX::SubnetGroup
+ * Resource Type definition for AWS::DAX::SubnetGroup
  */
 export class SubnetGroup extends pulumi.CustomResource {
     /**
@@ -34,6 +34,7 @@ export class SubnetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubnetGroup.__pulumiType;
     }
 
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The description of the subnet group.
      */
@@ -64,7 +65,9 @@ export class SubnetGroup extends pulumi.CustomResource {
             resourceInputs["description"] = args?.description;
             resourceInputs["subnetGroupName"] = args?.subnetGroupName;
             resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["subnetGroupName"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;

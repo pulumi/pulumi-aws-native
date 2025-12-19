@@ -4369,56 +4369,161 @@ func (o AiPromptAiPromptTemplateConfigurationPtrOutput) Elem() AiPromptAiPromptT
 	}).(AiPromptAiPromptTemplateConfigurationOutput)
 }
 
-type AssistantAssociationAssociationData struct {
-	// The identifier of the knowledge base.
+type AssistantAssociationAssociationData0Properties struct {
 	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`
 }
 
-// AssistantAssociationAssociationDataInput is an input type that accepts AssistantAssociationAssociationDataArgs and AssistantAssociationAssociationDataOutput values.
-// You can construct a concrete instance of `AssistantAssociationAssociationDataInput` via:
+// AssistantAssociationAssociationData0PropertiesInput is an input type that accepts AssistantAssociationAssociationData0PropertiesArgs and AssistantAssociationAssociationData0PropertiesOutput values.
+// You can construct a concrete instance of `AssistantAssociationAssociationData0PropertiesInput` via:
 //
-//	AssistantAssociationAssociationDataArgs{...}
-type AssistantAssociationAssociationDataInput interface {
+//	AssistantAssociationAssociationData0PropertiesArgs{...}
+type AssistantAssociationAssociationData0PropertiesInput interface {
 	pulumi.Input
 
-	ToAssistantAssociationAssociationDataOutput() AssistantAssociationAssociationDataOutput
-	ToAssistantAssociationAssociationDataOutputWithContext(context.Context) AssistantAssociationAssociationDataOutput
+	ToAssistantAssociationAssociationData0PropertiesOutput() AssistantAssociationAssociationData0PropertiesOutput
+	ToAssistantAssociationAssociationData0PropertiesOutputWithContext(context.Context) AssistantAssociationAssociationData0PropertiesOutput
 }
 
-type AssistantAssociationAssociationDataArgs struct {
-	// The identifier of the knowledge base.
+type AssistantAssociationAssociationData0PropertiesArgs struct {
 	KnowledgeBaseId pulumi.StringInput `pulumi:"knowledgeBaseId"`
 }
 
-func (AssistantAssociationAssociationDataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssistantAssociationAssociationData)(nil)).Elem()
+func (AssistantAssociationAssociationData0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssistantAssociationAssociationData0Properties)(nil)).Elem()
 }
 
-func (i AssistantAssociationAssociationDataArgs) ToAssistantAssociationAssociationDataOutput() AssistantAssociationAssociationDataOutput {
-	return i.ToAssistantAssociationAssociationDataOutputWithContext(context.Background())
+func (i AssistantAssociationAssociationData0PropertiesArgs) ToAssistantAssociationAssociationData0PropertiesOutput() AssistantAssociationAssociationData0PropertiesOutput {
+	return i.ToAssistantAssociationAssociationData0PropertiesOutputWithContext(context.Background())
 }
 
-func (i AssistantAssociationAssociationDataArgs) ToAssistantAssociationAssociationDataOutputWithContext(ctx context.Context) AssistantAssociationAssociationDataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssistantAssociationAssociationDataOutput)
+func (i AssistantAssociationAssociationData0PropertiesArgs) ToAssistantAssociationAssociationData0PropertiesOutputWithContext(ctx context.Context) AssistantAssociationAssociationData0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssistantAssociationAssociationData0PropertiesOutput)
 }
 
-type AssistantAssociationAssociationDataOutput struct{ *pulumi.OutputState }
+type AssistantAssociationAssociationData0PropertiesOutput struct{ *pulumi.OutputState }
 
-func (AssistantAssociationAssociationDataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssistantAssociationAssociationData)(nil)).Elem()
+func (AssistantAssociationAssociationData0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssistantAssociationAssociationData0Properties)(nil)).Elem()
 }
 
-func (o AssistantAssociationAssociationDataOutput) ToAssistantAssociationAssociationDataOutput() AssistantAssociationAssociationDataOutput {
+func (o AssistantAssociationAssociationData0PropertiesOutput) ToAssistantAssociationAssociationData0PropertiesOutput() AssistantAssociationAssociationData0PropertiesOutput {
 	return o
 }
 
-func (o AssistantAssociationAssociationDataOutput) ToAssistantAssociationAssociationDataOutputWithContext(ctx context.Context) AssistantAssociationAssociationDataOutput {
+func (o AssistantAssociationAssociationData0PropertiesOutput) ToAssistantAssociationAssociationData0PropertiesOutputWithContext(ctx context.Context) AssistantAssociationAssociationData0PropertiesOutput {
 	return o
 }
 
-// The identifier of the knowledge base.
-func (o AssistantAssociationAssociationDataOutput) KnowledgeBaseId() pulumi.StringOutput {
-	return o.ApplyT(func(v AssistantAssociationAssociationData) string { return v.KnowledgeBaseId }).(pulumi.StringOutput)
+func (o AssistantAssociationAssociationData0PropertiesOutput) KnowledgeBaseId() pulumi.StringOutput {
+	return o.ApplyT(func(v AssistantAssociationAssociationData0Properties) string { return v.KnowledgeBaseId }).(pulumi.StringOutput)
+}
+
+type AssistantAssociationAssociationData1Properties struct {
+	ExternalBedrockKnowledgeBaseConfig AssistantAssociationExternalBedrockKnowledgeBaseConfig `pulumi:"externalBedrockKnowledgeBaseConfig"`
+}
+
+// AssistantAssociationAssociationData1PropertiesInput is an input type that accepts AssistantAssociationAssociationData1PropertiesArgs and AssistantAssociationAssociationData1PropertiesOutput values.
+// You can construct a concrete instance of `AssistantAssociationAssociationData1PropertiesInput` via:
+//
+//	AssistantAssociationAssociationData1PropertiesArgs{...}
+type AssistantAssociationAssociationData1PropertiesInput interface {
+	pulumi.Input
+
+	ToAssistantAssociationAssociationData1PropertiesOutput() AssistantAssociationAssociationData1PropertiesOutput
+	ToAssistantAssociationAssociationData1PropertiesOutputWithContext(context.Context) AssistantAssociationAssociationData1PropertiesOutput
+}
+
+type AssistantAssociationAssociationData1PropertiesArgs struct {
+	ExternalBedrockKnowledgeBaseConfig AssistantAssociationExternalBedrockKnowledgeBaseConfigInput `pulumi:"externalBedrockKnowledgeBaseConfig"`
+}
+
+func (AssistantAssociationAssociationData1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssistantAssociationAssociationData1Properties)(nil)).Elem()
+}
+
+func (i AssistantAssociationAssociationData1PropertiesArgs) ToAssistantAssociationAssociationData1PropertiesOutput() AssistantAssociationAssociationData1PropertiesOutput {
+	return i.ToAssistantAssociationAssociationData1PropertiesOutputWithContext(context.Background())
+}
+
+func (i AssistantAssociationAssociationData1PropertiesArgs) ToAssistantAssociationAssociationData1PropertiesOutputWithContext(ctx context.Context) AssistantAssociationAssociationData1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssistantAssociationAssociationData1PropertiesOutput)
+}
+
+type AssistantAssociationAssociationData1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (AssistantAssociationAssociationData1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssistantAssociationAssociationData1Properties)(nil)).Elem()
+}
+
+func (o AssistantAssociationAssociationData1PropertiesOutput) ToAssistantAssociationAssociationData1PropertiesOutput() AssistantAssociationAssociationData1PropertiesOutput {
+	return o
+}
+
+func (o AssistantAssociationAssociationData1PropertiesOutput) ToAssistantAssociationAssociationData1PropertiesOutputWithContext(ctx context.Context) AssistantAssociationAssociationData1PropertiesOutput {
+	return o
+}
+
+func (o AssistantAssociationAssociationData1PropertiesOutput) ExternalBedrockKnowledgeBaseConfig() AssistantAssociationExternalBedrockKnowledgeBaseConfigOutput {
+	return o.ApplyT(func(v AssistantAssociationAssociationData1Properties) AssistantAssociationExternalBedrockKnowledgeBaseConfig {
+		return v.ExternalBedrockKnowledgeBaseConfig
+	}).(AssistantAssociationExternalBedrockKnowledgeBaseConfigOutput)
+}
+
+type AssistantAssociationExternalBedrockKnowledgeBaseConfig struct {
+	AccessRoleArn           string `pulumi:"accessRoleArn"`
+	BedrockKnowledgeBaseArn string `pulumi:"bedrockKnowledgeBaseArn"`
+}
+
+// AssistantAssociationExternalBedrockKnowledgeBaseConfigInput is an input type that accepts AssistantAssociationExternalBedrockKnowledgeBaseConfigArgs and AssistantAssociationExternalBedrockKnowledgeBaseConfigOutput values.
+// You can construct a concrete instance of `AssistantAssociationExternalBedrockKnowledgeBaseConfigInput` via:
+//
+//	AssistantAssociationExternalBedrockKnowledgeBaseConfigArgs{...}
+type AssistantAssociationExternalBedrockKnowledgeBaseConfigInput interface {
+	pulumi.Input
+
+	ToAssistantAssociationExternalBedrockKnowledgeBaseConfigOutput() AssistantAssociationExternalBedrockKnowledgeBaseConfigOutput
+	ToAssistantAssociationExternalBedrockKnowledgeBaseConfigOutputWithContext(context.Context) AssistantAssociationExternalBedrockKnowledgeBaseConfigOutput
+}
+
+type AssistantAssociationExternalBedrockKnowledgeBaseConfigArgs struct {
+	AccessRoleArn           pulumi.StringInput `pulumi:"accessRoleArn"`
+	BedrockKnowledgeBaseArn pulumi.StringInput `pulumi:"bedrockKnowledgeBaseArn"`
+}
+
+func (AssistantAssociationExternalBedrockKnowledgeBaseConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssistantAssociationExternalBedrockKnowledgeBaseConfig)(nil)).Elem()
+}
+
+func (i AssistantAssociationExternalBedrockKnowledgeBaseConfigArgs) ToAssistantAssociationExternalBedrockKnowledgeBaseConfigOutput() AssistantAssociationExternalBedrockKnowledgeBaseConfigOutput {
+	return i.ToAssistantAssociationExternalBedrockKnowledgeBaseConfigOutputWithContext(context.Background())
+}
+
+func (i AssistantAssociationExternalBedrockKnowledgeBaseConfigArgs) ToAssistantAssociationExternalBedrockKnowledgeBaseConfigOutputWithContext(ctx context.Context) AssistantAssociationExternalBedrockKnowledgeBaseConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssistantAssociationExternalBedrockKnowledgeBaseConfigOutput)
+}
+
+type AssistantAssociationExternalBedrockKnowledgeBaseConfigOutput struct{ *pulumi.OutputState }
+
+func (AssistantAssociationExternalBedrockKnowledgeBaseConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssistantAssociationExternalBedrockKnowledgeBaseConfig)(nil)).Elem()
+}
+
+func (o AssistantAssociationExternalBedrockKnowledgeBaseConfigOutput) ToAssistantAssociationExternalBedrockKnowledgeBaseConfigOutput() AssistantAssociationExternalBedrockKnowledgeBaseConfigOutput {
+	return o
+}
+
+func (o AssistantAssociationExternalBedrockKnowledgeBaseConfigOutput) ToAssistantAssociationExternalBedrockKnowledgeBaseConfigOutputWithContext(ctx context.Context) AssistantAssociationExternalBedrockKnowledgeBaseConfigOutput {
+	return o
+}
+
+func (o AssistantAssociationExternalBedrockKnowledgeBaseConfigOutput) AccessRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AssistantAssociationExternalBedrockKnowledgeBaseConfig) string { return v.AccessRoleArn }).(pulumi.StringOutput)
+}
+
+func (o AssistantAssociationExternalBedrockKnowledgeBaseConfigOutput) BedrockKnowledgeBaseArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AssistantAssociationExternalBedrockKnowledgeBaseConfig) string {
+		return v.BedrockKnowledgeBaseArn
+	}).(pulumi.StringOutput)
 }
 
 type AssistantAssociationTag struct {
@@ -10960,7 +11065,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailWordConfigInput)(nil)).Elem(), AiGuardrailGuardrailWordConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailWordConfigArrayInput)(nil)).Elem(), AiGuardrailGuardrailWordConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptAiPromptTemplateConfigurationInput)(nil)).Elem(), AiPromptAiPromptTemplateConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationAssociationDataInput)(nil)).Elem(), AssistantAssociationAssociationDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationAssociationData0PropertiesInput)(nil)).Elem(), AssistantAssociationAssociationData0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationAssociationData1PropertiesInput)(nil)).Elem(), AssistantAssociationAssociationData1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationExternalBedrockKnowledgeBaseConfigInput)(nil)).Elem(), AssistantAssociationExternalBedrockKnowledgeBaseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantServerSideEncryptionConfigurationInput)(nil)).Elem(), AssistantServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantServerSideEncryptionConfigurationPtrInput)(nil)).Elem(), AssistantServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseAppIntegrationsConfigurationInput)(nil)).Elem(), KnowledgeBaseAppIntegrationsConfigurationArgs{})
@@ -11098,7 +11205,9 @@ func init() {
 	pulumi.RegisterOutputType(AiGuardrailGuardrailWordConfigArrayOutput{})
 	pulumi.RegisterOutputType(AiPromptAiPromptTemplateConfigurationOutput{})
 	pulumi.RegisterOutputType(AiPromptAiPromptTemplateConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(AssistantAssociationAssociationDataOutput{})
+	pulumi.RegisterOutputType(AssistantAssociationAssociationData0PropertiesOutput{})
+	pulumi.RegisterOutputType(AssistantAssociationAssociationData1PropertiesOutput{})
+	pulumi.RegisterOutputType(AssistantAssociationExternalBedrockKnowledgeBaseConfigOutput{})
 	pulumi.RegisterOutputType(AssistantServerSideEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(AssistantServerSideEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseAppIntegrationsConfigurationOutput{})

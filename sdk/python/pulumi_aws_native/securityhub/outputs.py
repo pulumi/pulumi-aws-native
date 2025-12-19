@@ -2629,11 +2629,11 @@ class ConfigurationPolicySecurityHubPolicy(dict):
 @pulumi.output_type
 class ConnectorV2Provider(dict):
     """
-    The provider configuration of the connector
+    The third-party provider configuration for the connector
     """
     def __init__(__self__):
         """
-        The provider configuration of the connector
+        The third-party provider configuration for the connector
         """
         pass
 

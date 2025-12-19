@@ -5,20 +5,17 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource type definition for AWS::DAX::SubnetGroup
+ * Resource Type definition for AWS::DAX::SubnetGroup
  */
 export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:dax:getSubnetGroup", {
-        "subnetGroupName": args.subnetGroupName,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetSubnetGroupArgs {
-    /**
-     * The name of the subnet group.
-     */
-    subnetGroupName: string;
+    id: string;
 }
 
 export interface GetSubnetGroupResult {
@@ -26,24 +23,22 @@ export interface GetSubnetGroupResult {
      * The description of the subnet group.
      */
     readonly description?: string;
+    readonly id?: string;
     /**
      * A list of VPC subnet IDs for the subnet group.
      */
     readonly subnetIds?: string[];
 }
 /**
- * Resource type definition for AWS::DAX::SubnetGroup
+ * Resource Type definition for AWS::DAX::SubnetGroup
  */
 export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubnetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:dax:getSubnetGroup", {
-        "subnetGroupName": args.subnetGroupName,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetSubnetGroupOutputArgs {
-    /**
-     * The name of the subnet group.
-     */
-    subnetGroupName: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

@@ -51,7 +51,9 @@ __all__ = [
     'AiGuardrailGuardrailTopicConfig',
     'AiGuardrailGuardrailWordConfig',
     'AiPromptAiPromptTemplateConfiguration',
-    'AssistantAssociationAssociationData',
+    'AssistantAssociationAssociationData0Properties',
+    'AssistantAssociationAssociationData1Properties',
+    'AssistantAssociationExternalBedrockKnowledgeBaseConfig',
     'AssistantServerSideEncryptionConfiguration',
     'KnowledgeBaseAppIntegrationsConfiguration',
     'KnowledgeBaseBedrockFoundationModelConfiguration',
@@ -1660,7 +1662,7 @@ class AiPromptAiPromptTemplateConfiguration(dict):
 
 
 @pulumi.output_type
-class AssistantAssociationAssociationData(dict):
+class AssistantAssociationAssociationData0Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1668,30 +1670,91 @@ class AssistantAssociationAssociationData(dict):
             suggest = "knowledge_base_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AssistantAssociationAssociationData. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in AssistantAssociationAssociationData0Properties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        AssistantAssociationAssociationData.__key_warning(key)
+        AssistantAssociationAssociationData0Properties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        AssistantAssociationAssociationData.__key_warning(key)
+        AssistantAssociationAssociationData0Properties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  knowledge_base_id: _builtins.str):
-        """
-        :param _builtins.str knowledge_base_id: The identifier of the knowledge base.
-        """
         pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
 
     @_builtins.property
     @pulumi.getter(name="knowledgeBaseId")
     def knowledge_base_id(self) -> _builtins.str:
-        """
-        The identifier of the knowledge base.
-        """
         return pulumi.get(self, "knowledge_base_id")
+
+
+@pulumi.output_type
+class AssistantAssociationAssociationData1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalBedrockKnowledgeBaseConfig":
+            suggest = "external_bedrock_knowledge_base_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssistantAssociationAssociationData1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssistantAssociationAssociationData1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssistantAssociationAssociationData1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_bedrock_knowledge_base_config: 'outputs.AssistantAssociationExternalBedrockKnowledgeBaseConfig'):
+        pulumi.set(__self__, "external_bedrock_knowledge_base_config", external_bedrock_knowledge_base_config)
+
+    @_builtins.property
+    @pulumi.getter(name="externalBedrockKnowledgeBaseConfig")
+    def external_bedrock_knowledge_base_config(self) -> 'outputs.AssistantAssociationExternalBedrockKnowledgeBaseConfig':
+        return pulumi.get(self, "external_bedrock_knowledge_base_config")
+
+
+@pulumi.output_type
+class AssistantAssociationExternalBedrockKnowledgeBaseConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessRoleArn":
+            suggest = "access_role_arn"
+        elif key == "bedrockKnowledgeBaseArn":
+            suggest = "bedrock_knowledge_base_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AssistantAssociationExternalBedrockKnowledgeBaseConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AssistantAssociationExternalBedrockKnowledgeBaseConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AssistantAssociationExternalBedrockKnowledgeBaseConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_role_arn: _builtins.str,
+                 bedrock_knowledge_base_arn: _builtins.str):
+        pulumi.set(__self__, "access_role_arn", access_role_arn)
+        pulumi.set(__self__, "bedrock_knowledge_base_arn", bedrock_knowledge_base_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="accessRoleArn")
+    def access_role_arn(self) -> _builtins.str:
+        return pulumi.get(self, "access_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="bedrockKnowledgeBaseArn")
+    def bedrock_knowledge_base_arn(self) -> _builtins.str:
+        return pulumi.get(self, "bedrock_knowledge_base_arn")
 
 
 @pulumi.output_type

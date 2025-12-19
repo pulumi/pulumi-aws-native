@@ -154,12 +154,16 @@ export const AiPromptAiPromptType = {
     EmailOverview: "EMAIL_OVERVIEW",
     EmailGenerativeAnswer: "EMAIL_GENERATIVE_ANSWER",
     EmailQueryReformulation: "EMAIL_QUERY_REFORMULATION",
+    Orchestration: "ORCHESTRATION",
+    NoteTaking: "NOTE_TAKING",
+    CaseSummarization: "CASE_SUMMARIZATION",
 } as const;
 
 export type AiPromptAiPromptType = (typeof AiPromptAiPromptType)[keyof typeof AiPromptAiPromptType];
 
 export const AssistantAssociationAssociationType = {
     KnowledgeBase: "KNOWLEDGE_BASE",
+    ExternalBedrockKnowledgeBase: "EXTERNAL_BEDROCK_KNOWLEDGE_BASE",
 } as const;
 
 export type AssistantAssociationAssociationType = (typeof AssistantAssociationAssociationType)[keyof typeof AssistantAssociationAssociationType];

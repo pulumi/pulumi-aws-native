@@ -84,8 +84,12 @@ __all__ = [
     'AiGuardrailGuardrailWordConfigArgsDict',
     'AiPromptAiPromptTemplateConfigurationArgs',
     'AiPromptAiPromptTemplateConfigurationArgsDict',
-    'AssistantAssociationAssociationDataArgs',
-    'AssistantAssociationAssociationDataArgsDict',
+    'AssistantAssociationAssociationData0PropertiesArgs',
+    'AssistantAssociationAssociationData0PropertiesArgsDict',
+    'AssistantAssociationAssociationData1PropertiesArgs',
+    'AssistantAssociationAssociationData1PropertiesArgsDict',
+    'AssistantAssociationExternalBedrockKnowledgeBaseConfigArgs',
+    'AssistantAssociationExternalBedrockKnowledgeBaseConfigArgsDict',
     'AssistantServerSideEncryptionConfigurationArgs',
     'AssistantServerSideEncryptionConfigurationArgsDict',
     'KnowledgeBaseAppIntegrationsConfigurationArgs',
@@ -1949,34 +1953,81 @@ class AiPromptAiPromptTemplateConfigurationArgs:
 
 
 if not MYPY:
-    class AssistantAssociationAssociationDataArgsDict(TypedDict):
+    class AssistantAssociationAssociationData0PropertiesArgsDict(TypedDict):
         knowledge_base_id: pulumi.Input[_builtins.str]
-        """
-        The identifier of the knowledge base.
-        """
 elif False:
-    AssistantAssociationAssociationDataArgsDict: TypeAlias = Mapping[str, Any]
+    AssistantAssociationAssociationData0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class AssistantAssociationAssociationDataArgs:
+class AssistantAssociationAssociationData0PropertiesArgs:
     def __init__(__self__, *,
                  knowledge_base_id: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] knowledge_base_id: The identifier of the knowledge base.
-        """
         pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
 
     @_builtins.property
     @pulumi.getter(name="knowledgeBaseId")
     def knowledge_base_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier of the knowledge base.
-        """
         return pulumi.get(self, "knowledge_base_id")
 
     @knowledge_base_id.setter
     def knowledge_base_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "knowledge_base_id", value)
+
+
+if not MYPY:
+    class AssistantAssociationAssociationData1PropertiesArgsDict(TypedDict):
+        external_bedrock_knowledge_base_config: pulumi.Input['AssistantAssociationExternalBedrockKnowledgeBaseConfigArgsDict']
+elif False:
+    AssistantAssociationAssociationData1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AssistantAssociationAssociationData1PropertiesArgs:
+    def __init__(__self__, *,
+                 external_bedrock_knowledge_base_config: pulumi.Input['AssistantAssociationExternalBedrockKnowledgeBaseConfigArgs']):
+        pulumi.set(__self__, "external_bedrock_knowledge_base_config", external_bedrock_knowledge_base_config)
+
+    @_builtins.property
+    @pulumi.getter(name="externalBedrockKnowledgeBaseConfig")
+    def external_bedrock_knowledge_base_config(self) -> pulumi.Input['AssistantAssociationExternalBedrockKnowledgeBaseConfigArgs']:
+        return pulumi.get(self, "external_bedrock_knowledge_base_config")
+
+    @external_bedrock_knowledge_base_config.setter
+    def external_bedrock_knowledge_base_config(self, value: pulumi.Input['AssistantAssociationExternalBedrockKnowledgeBaseConfigArgs']):
+        pulumi.set(self, "external_bedrock_knowledge_base_config", value)
+
+
+if not MYPY:
+    class AssistantAssociationExternalBedrockKnowledgeBaseConfigArgsDict(TypedDict):
+        access_role_arn: pulumi.Input[_builtins.str]
+        bedrock_knowledge_base_arn: pulumi.Input[_builtins.str]
+elif False:
+    AssistantAssociationExternalBedrockKnowledgeBaseConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AssistantAssociationExternalBedrockKnowledgeBaseConfigArgs:
+    def __init__(__self__, *,
+                 access_role_arn: pulumi.Input[_builtins.str],
+                 bedrock_knowledge_base_arn: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "access_role_arn", access_role_arn)
+        pulumi.set(__self__, "bedrock_knowledge_base_arn", bedrock_knowledge_base_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="accessRoleArn")
+    def access_role_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "access_role_arn")
+
+    @access_role_arn.setter
+    def access_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bedrockKnowledgeBaseArn")
+    def bedrock_knowledge_base_arn(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "bedrock_knowledge_base_arn")
+
+    @bedrock_knowledge_base_arn.setter
+    def bedrock_knowledge_base_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bedrock_knowledge_base_arn", value)
 
 
 if not MYPY:
