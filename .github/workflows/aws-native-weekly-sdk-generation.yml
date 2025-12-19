@@ -66,17 +66,6 @@ jobs:
         environment: logins/pulumi-ci
     - name: Cleanup SDK Folder
       run: make clean
-    - name: Preparing Git Branch
-      run: >
-        git config --local user.email "bot@pulumi.com"
-
-        git config --local user.name "pulumi-bot"
-
-        git checkout -b generate-sdk/${{ github.run_id }}-${{ github.run_number }}
-    - name: Commit Empty SDK
-      run: |-
-        git add . 
-        git commit -m "Preparing the SDK folder for regeneration"
     - name: Discovery
       run: make discovery
     - name: Build codegen binaries
@@ -87,20 +76,13 @@ jobs:
       id: vars
       run: echo commit-hash="$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
       working-directory: aws-cloudformation-user-guide
-    - name: Commit changes
-      run: >-
-        git add sdk
-
-        git commit -m "Regenerating SDKs based on aws-cloudformation-user-guide @ ${{ steps.vars.outputs.commit-hash }}" || echo "ignore commit failure, may be empty"
-
-        git add .
-
-        git commit -m "Regenerating based on aws-cloudformation-user-guide @ ${{ steps.vars.outputs.commit-hash }}" || echo "ignore commit failure, may be empty"
     - name: Create PR
       id: create-pr
       uses: peter-evans/create-pull-request@v8
       with:
         base: master
+        committer: pulumi-bot <bot@pulumi.com>
+        commit-message: Regenerating SDKs based on aws-cloudformation-user-guide @ ${{ steps.vars.outputs.commit-hash }}
         labels: needs-release/minor
         token: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
         body: "*Automated PR*"
