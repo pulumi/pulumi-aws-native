@@ -88,7 +88,7 @@ jobs:
         title: Automated SDK generation @ aws-cloudformation-user-guide ${{
           steps.vars.outputs.commit-hash }}
         author: pulumi-bot <bot@pulumi.com>
-        branch: create-pull-requeset/generate-sdk
+        branch: create-pull-request/generate-sdk
     - name: Enable auto-merge
       id: auto-merge
       # enable auto-merge so PR merges after required checks
