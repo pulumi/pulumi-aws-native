@@ -4,6 +4,7 @@ on:
     # run 4:35 AM UTC on Mondays
   - cron: 35 4 * * 1
   workflow_dispatch: {}
+  pull_request: {}
 env:
   PROVIDER: aws-native
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
