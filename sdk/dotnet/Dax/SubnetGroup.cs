@@ -10,11 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Dax
 {
     /// <summary>
-    /// Resource type definition for AWS::DAX::SubnetGroup
+    /// Resource Type definition for AWS::DAX::SubnetGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:dax:SubnetGroup")]
     public partial class SubnetGroup : global::Pulumi.CustomResource
     {
+        [Output("awsId")]
+        public Output<string> AwsId { get; private set; } = null!;
+
         /// <summary>
         /// The description of the subnet group.
         /// </summary>

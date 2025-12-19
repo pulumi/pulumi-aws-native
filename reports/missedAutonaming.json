@@ -16498,7 +16498,14 @@
         "description": "The identifier of the Wisdom assistant."
       },
       "association": {
-        "$ref": "#/types/aws-native:wisdom:AssistantAssociationAssociationData",
+        "oneOf": [
+          {
+            "$ref": "#/types/aws-native:wisdom:AssistantAssociationAssociationData0Properties"
+          },
+          {
+            "$ref": "#/types/aws-native:wisdom:AssistantAssociationAssociationData1Properties"
+          }
+        ],
         "description": "The identifier of the associated resource."
       },
       "associationType": {

@@ -12,10 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource type definition for AWS::DAX::SubnetGroup
+// Resource Type definition for AWS::DAX::SubnetGroup
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The description of the subnet group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the subnet group.
@@ -124,6 +125,10 @@ func (o SubnetGroupOutput) ToSubnetGroupOutput() SubnetGroupOutput {
 
 func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) SubnetGroupOutput {
 	return o
+}
+
+func (o SubnetGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
 // The description of the subnet group.

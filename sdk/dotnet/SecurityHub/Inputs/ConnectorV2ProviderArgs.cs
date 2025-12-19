@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
 {
 
     /// <summary>
-    /// The provider configuration of the connector
+    /// The third-party provider configuration for the connector
     /// </summary>
     public sealed class ConnectorV2ProviderArgs : global::Pulumi.ResourceArgs
     {

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource type definition for AWS::DAX::SubnetGroup
+// Resource Type definition for AWS::DAX::SubnetGroup
 func LookupSubnetGroup(ctx *pulumi.Context, args *LookupSubnetGroupArgs, opts ...pulumi.InvokeOption) (*LookupSubnetGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSubnetGroupResult
@@ -23,13 +23,13 @@ func LookupSubnetGroup(ctx *pulumi.Context, args *LookupSubnetGroupArgs, opts ..
 }
 
 type LookupSubnetGroupArgs struct {
-	// The name of the subnet group.
-	SubnetGroupName string `pulumi:"subnetGroupName"`
+	Id string `pulumi:"id"`
 }
 
 type LookupSubnetGroupResult struct {
 	// The description of the subnet group.
 	Description *string `pulumi:"description"`
+	Id          *string `pulumi:"id"`
 	// A list of VPC subnet IDs for the subnet group.
 	SubnetIds []string `pulumi:"subnetIds"`
 }
@@ -44,8 +44,7 @@ func LookupSubnetGroupOutput(ctx *pulumi.Context, args LookupSubnetGroupOutputAr
 }
 
 type LookupSubnetGroupOutputArgs struct {
-	// The name of the subnet group.
-	SubnetGroupName pulumi.StringInput `pulumi:"subnetGroupName"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupSubnetGroupOutputArgs) ElementType() reflect.Type {
@@ -69,6 +68,10 @@ func (o LookupSubnetGroupResultOutput) ToLookupSubnetGroupResultOutputWithContex
 // The description of the subnet group.
 func (o LookupSubnetGroupResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupSubnetGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSubnetGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // A list of VPC subnet IDs for the subnet group.

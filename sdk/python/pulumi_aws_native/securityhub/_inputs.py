@@ -3467,7 +3467,7 @@ class ConfigurationPolicySecurityHubPolicyArgs:
 if not MYPY:
     class ConnectorV2ProviderArgsDict(TypedDict):
         """
-        The provider configuration of the connector
+        The third-party provider configuration for the connector
         """
         pass
 elif False:
@@ -3477,7 +3477,7 @@ elif False:
 class ConnectorV2ProviderArgs:
     def __init__(__self__):
         """
-        The provider configuration of the connector
+        The third-party provider configuration for the connector
         """
         pass
 

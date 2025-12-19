@@ -5476,7 +5476,7 @@ func (o ConfigurationPolicySecurityHubPolicyPtrOutput) ServiceEnabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The provider configuration of the connector
+// The third-party provider configuration for the connector
 type ConnectorV2Provider struct {
 }
 
@@ -5491,7 +5491,7 @@ type ConnectorV2ProviderInput interface {
 	ToConnectorV2ProviderOutputWithContext(context.Context) ConnectorV2ProviderOutput
 }
 
-// The provider configuration of the connector
+// The third-party provider configuration for the connector
 type ConnectorV2ProviderArgs struct {
 }
 
@@ -5507,7 +5507,7 @@ func (i ConnectorV2ProviderArgs) ToConnectorV2ProviderOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorV2ProviderOutput)
 }
 
-// The provider configuration of the connector
+// The third-party provider configuration for the connector
 type ConnectorV2ProviderOutput struct{ *pulumi.OutputState }
 
 func (ConnectorV2ProviderOutput) ElementType() reflect.Type {

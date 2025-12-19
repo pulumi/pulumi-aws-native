@@ -82,7 +82,7 @@ class SubnetGroup(pulumi.CustomResource):
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource type definition for AWS::DAX::SubnetGroup
+        Resource Type definition for AWS::DAX::SubnetGroup
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -97,7 +97,7 @@ class SubnetGroup(pulumi.CustomResource):
                  args: SubnetGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource type definition for AWS::DAX::SubnetGroup
+        Resource Type definition for AWS::DAX::SubnetGroup
 
         :param str resource_name: The name of the resource.
         :param SubnetGroupArgs args: The arguments to use to populate this resource's properties.
@@ -131,6 +131,7 @@ class SubnetGroup(pulumi.CustomResource):
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["subnetGroupName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SubnetGroup, __self__).__init__(
@@ -155,10 +156,16 @@ class SubnetGroup(pulumi.CustomResource):
 
         __props__ = SubnetGroupArgs.__new__(SubnetGroupArgs)
 
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["subnet_group_name"] = None
         __props__.__dict__["subnet_ids"] = None
         return SubnetGroup(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "aws_id")
 
     @_builtins.property
     @pulumi.getter

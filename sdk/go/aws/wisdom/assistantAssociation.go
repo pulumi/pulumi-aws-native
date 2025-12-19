@@ -26,7 +26,7 @@ type AssistantAssociation struct {
 	// The identifier of the Wisdom assistant.
 	AssistantId pulumi.StringOutput `pulumi:"assistantId"`
 	// The identifier of the associated resource.
-	Association AssistantAssociationAssociationDataOutput `pulumi:"association"`
+	Association pulumi.AnyOutput `pulumi:"association"`
 	// The type of association.
 	AssociationType AssistantAssociationAssociationTypeOutput `pulumi:"associationType"`
 	// The tags used to organize, track, or control access for this resource.
@@ -92,7 +92,7 @@ type assistantAssociationArgs struct {
 	// The identifier of the Wisdom assistant.
 	AssistantId string `pulumi:"assistantId"`
 	// The identifier of the associated resource.
-	Association AssistantAssociationAssociationData `pulumi:"association"`
+	Association interface{} `pulumi:"association"`
 	// The type of association.
 	AssociationType AssistantAssociationAssociationType `pulumi:"associationType"`
 	// The tags used to organize, track, or control access for this resource.
@@ -104,7 +104,7 @@ type AssistantAssociationArgs struct {
 	// The identifier of the Wisdom assistant.
 	AssistantId pulumi.StringInput
 	// The identifier of the associated resource.
-	Association AssistantAssociationAssociationDataInput
+	Association pulumi.Input
 	// The type of association.
 	AssociationType AssistantAssociationAssociationTypeInput
 	// The tags used to organize, track, or control access for this resource.
@@ -169,8 +169,8 @@ func (o AssistantAssociationOutput) AssistantId() pulumi.StringOutput {
 }
 
 // The identifier of the associated resource.
-func (o AssistantAssociationOutput) Association() AssistantAssociationAssociationDataOutput {
-	return o.ApplyT(func(v *AssistantAssociation) AssistantAssociationAssociationDataOutput { return v.Association }).(AssistantAssociationAssociationDataOutput)
+func (o AssistantAssociationOutput) Association() pulumi.AnyOutput {
+	return o.ApplyT(func(v *AssistantAssociation) pulumi.AnyOutput { return v.Association }).(pulumi.AnyOutput)
 }
 
 // The type of association.

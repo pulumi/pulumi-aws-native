@@ -173,11 +173,15 @@ class AiPromptAiPromptType(_builtins.str, Enum):
     EMAIL_OVERVIEW = "EMAIL_OVERVIEW"
     EMAIL_GENERATIVE_ANSWER = "EMAIL_GENERATIVE_ANSWER"
     EMAIL_QUERY_REFORMULATION = "EMAIL_QUERY_REFORMULATION"
+    ORCHESTRATION = "ORCHESTRATION"
+    NOTE_TAKING = "NOTE_TAKING"
+    CASE_SUMMARIZATION = "CASE_SUMMARIZATION"
 
 
 @pulumi.type_token("aws-native:wisdom:AssistantAssociationAssociationType")
 class AssistantAssociationAssociationType(_builtins.str, Enum):
     KNOWLEDGE_BASE = "KNOWLEDGE_BASE"
+    EXTERNAL_BEDROCK_KNOWLEDGE_BASE = "EXTERNAL_BEDROCK_KNOWLEDGE_BASE"
 
 
 @pulumi.type_token("aws-native:wisdom:AssistantType")

@@ -420,6 +420,9 @@ namespace Pulumi.AwsNative.Wisdom
         public static AiPromptAiPromptType EmailOverview { get; } = new AiPromptAiPromptType("EMAIL_OVERVIEW");
         public static AiPromptAiPromptType EmailGenerativeAnswer { get; } = new AiPromptAiPromptType("EMAIL_GENERATIVE_ANSWER");
         public static AiPromptAiPromptType EmailQueryReformulation { get; } = new AiPromptAiPromptType("EMAIL_QUERY_REFORMULATION");
+        public static AiPromptAiPromptType Orchestration { get; } = new AiPromptAiPromptType("ORCHESTRATION");
+        public static AiPromptAiPromptType NoteTaking { get; } = new AiPromptAiPromptType("NOTE_TAKING");
+        public static AiPromptAiPromptType CaseSummarization { get; } = new AiPromptAiPromptType("CASE_SUMMARIZATION");
 
         public static bool operator ==(AiPromptAiPromptType left, AiPromptAiPromptType right) => left.Equals(right);
         public static bool operator !=(AiPromptAiPromptType left, AiPromptAiPromptType right) => !left.Equals(right);
@@ -447,6 +450,7 @@ namespace Pulumi.AwsNative.Wisdom
         }
 
         public static AssistantAssociationAssociationType KnowledgeBase { get; } = new AssistantAssociationAssociationType("KNOWLEDGE_BASE");
+        public static AssistantAssociationAssociationType ExternalBedrockKnowledgeBase { get; } = new AssistantAssociationAssociationType("EXTERNAL_BEDROCK_KNOWLEDGE_BASE");
 
         public static bool operator ==(AssistantAssociationAssociationType left, AssistantAssociationAssociationType right) => left.Equals(right);
         public static bool operator !=(AssistantAssociationAssociationType left, AssistantAssociationAssociationType right) => !left.Equals(right);

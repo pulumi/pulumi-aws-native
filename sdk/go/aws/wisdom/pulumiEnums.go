@@ -2083,6 +2083,9 @@ const (
 	AiPromptAiPromptTypeEmailOverview               = AiPromptAiPromptType("EMAIL_OVERVIEW")
 	AiPromptAiPromptTypeEmailGenerativeAnswer       = AiPromptAiPromptType("EMAIL_GENERATIVE_ANSWER")
 	AiPromptAiPromptTypeEmailQueryReformulation     = AiPromptAiPromptType("EMAIL_QUERY_REFORMULATION")
+	AiPromptAiPromptTypeOrchestration               = AiPromptAiPromptType("ORCHESTRATION")
+	AiPromptAiPromptTypeNoteTaking                  = AiPromptAiPromptType("NOTE_TAKING")
+	AiPromptAiPromptTypeCaseSummarization           = AiPromptAiPromptType("CASE_SUMMARIZATION")
 )
 
 func (AiPromptAiPromptType) ElementType() reflect.Type {
@@ -2216,6 +2219,9 @@ func (o AiPromptAiPromptTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 //	AiPromptAiPromptTypeEmailOverview
 //	AiPromptAiPromptTypeEmailGenerativeAnswer
 //	AiPromptAiPromptTypeEmailQueryReformulation
+//	AiPromptAiPromptTypeOrchestration
+//	AiPromptAiPromptTypeNoteTaking
+//	AiPromptAiPromptTypeCaseSummarization
 type AiPromptAiPromptTypeInput interface {
 	pulumi.Input
 
@@ -2253,7 +2259,8 @@ func (in *aiPromptAiPromptTypePtr) ToAiPromptAiPromptTypePtrOutputWithContext(ct
 type AssistantAssociationAssociationType string
 
 const (
-	AssistantAssociationAssociationTypeKnowledgeBase = AssistantAssociationAssociationType("KNOWLEDGE_BASE")
+	AssistantAssociationAssociationTypeKnowledgeBase                = AssistantAssociationAssociationType("KNOWLEDGE_BASE")
+	AssistantAssociationAssociationTypeExternalBedrockKnowledgeBase = AssistantAssociationAssociationType("EXTERNAL_BEDROCK_KNOWLEDGE_BASE")
 )
 
 func (AssistantAssociationAssociationType) ElementType() reflect.Type {
@@ -2379,6 +2386,7 @@ func (o AssistantAssociationAssociationTypePtrOutput) ToStringPtrOutputWithConte
 // A concrete instance of `AssistantAssociationAssociationTypeInput` can be one of the following:
 //
 //	AssistantAssociationAssociationTypeKnowledgeBase
+//	AssistantAssociationAssociationTypeExternalBedrockKnowledgeBase
 type AssistantAssociationAssociationTypeInput interface {
 	pulumi.Input
 

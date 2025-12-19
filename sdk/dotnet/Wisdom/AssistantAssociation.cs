@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Wisdom
         /// The identifier of the associated resource.
         /// </summary>
         [Output("association")]
-        public Output<Outputs.AssistantAssociationAssociationData> Association { get; private set; } = null!;
+        public Output<Union<Outputs.AssistantAssociationAssociationData0Properties, Outputs.AssistantAssociationAssociationData1Properties>> Association { get; private set; } = null!;
 
         /// <summary>
         /// The type of association.
@@ -119,7 +119,7 @@ namespace Pulumi.AwsNative.Wisdom
         /// The identifier of the associated resource.
         /// </summary>
         [Input("association", required: true)]
-        public Input<Inputs.AssistantAssociationAssociationDataArgs> Association { get; set; } = null!;
+        public InputUnion<Inputs.AssistantAssociationAssociationData0PropertiesArgs, Inputs.AssistantAssociationAssociationData1PropertiesArgs> Association { get; set; } = null!;
 
         /// <summary>
         /// The type of association.

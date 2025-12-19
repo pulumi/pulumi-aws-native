@@ -56,7 +56,7 @@ export class AssistantAssociation extends pulumi.CustomResource {
     /**
      * The identifier of the associated resource.
      */
-    declare public readonly association: pulumi.Output<outputs.wisdom.AssistantAssociationAssociationData>;
+    declare public readonly association: pulumi.Output<outputs.wisdom.AssistantAssociationAssociationData0Properties | outputs.wisdom.AssistantAssociationAssociationData1Properties>;
     /**
      * The type of association.
      */
@@ -120,7 +120,7 @@ export interface AssistantAssociationArgs {
     /**
      * The identifier of the associated resource.
      */
-    association: pulumi.Input<inputs.wisdom.AssistantAssociationAssociationDataArgs>;
+    association: pulumi.Input<inputs.wisdom.AssistantAssociationAssociationData0PropertiesArgs | inputs.wisdom.AssistantAssociationAssociationData1PropertiesArgs>;
     /**
      * The type of association.
      */

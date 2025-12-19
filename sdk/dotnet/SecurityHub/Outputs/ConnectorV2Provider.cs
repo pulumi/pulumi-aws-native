@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
 {
 
     /// <summary>
-    /// The provider configuration of the connector
+    /// The third-party provider configuration for the connector
     /// </summary>
     [OutputType]
     public sealed class ConnectorV2Provider

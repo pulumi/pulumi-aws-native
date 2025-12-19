@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Dax
     public static class GetSubnetGroup
     {
         /// <summary>
-        /// Resource type definition for AWS::DAX::SubnetGroup
+        /// Resource Type definition for AWS::DAX::SubnetGroup
         /// </summary>
         public static Task<GetSubnetGroupResult> InvokeAsync(GetSubnetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetGroupResult>("aws-native:dax:getSubnetGroup", args ?? new GetSubnetGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource type definition for AWS::DAX::SubnetGroup
+        /// Resource Type definition for AWS::DAX::SubnetGroup
         /// </summary>
         public static Output<GetSubnetGroupResult> Invoke(GetSubnetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws-native:dax:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource type definition for AWS::DAX::SubnetGroup
+        /// Resource Type definition for AWS::DAX::SubnetGroup
         /// </summary>
         public static Output<GetSubnetGroupResult> Invoke(GetSubnetGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws-native:dax:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithDefaults());
@@ -33,11 +33,8 @@ namespace Pulumi.AwsNative.Dax
 
     public sealed class GetSubnetGroupArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the subnet group.
-        /// </summary>
-        [Input("subnetGroupName", required: true)]
-        public string SubnetGroupName { get; set; } = null!;
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetSubnetGroupArgs()
         {
@@ -47,11 +44,8 @@ namespace Pulumi.AwsNative.Dax
 
     public sealed class GetSubnetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the subnet group.
-        /// </summary>
-        [Input("subnetGroupName", required: true)]
-        public Input<string> SubnetGroupName { get; set; } = null!;
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetSubnetGroupInvokeArgs()
         {
@@ -67,6 +61,7 @@ namespace Pulumi.AwsNative.Dax
         /// The description of the subnet group.
         /// </summary>
         public readonly string? Description;
+        public readonly string? Id;
         /// <summary>
         /// A list of VPC subnet IDs for the subnet group.
         /// </summary>
@@ -76,9 +71,12 @@ namespace Pulumi.AwsNative.Dax
         private GetSubnetGroupResult(
             string? description,
 
+            string? id,
+
             ImmutableArray<string> subnetIds)
         {
             Description = description;
+            Id = id;
             SubnetIds = subnetIds;
         }
     }
