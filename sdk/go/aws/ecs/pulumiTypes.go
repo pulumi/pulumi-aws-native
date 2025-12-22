@@ -706,6 +706,16 @@ func (o CapacityProviderBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.I
 }
 
 type CapacityProviderInstanceLaunchTemplate struct {
+	// The capacity option type. This determines whether Amazon ECS launches On-Demand or Spot Instances for your managed instance capacity provider.
+	//
+	// Valid values are:
+	//
+	// - `ON_DEMAND` - Launches standard On-Demand Instances. On-Demand Instances provide predictable pricing and availability.
+	// - `SPOT` - Launches Spot Instances that use spare Amazon EC2 capacity at reduced cost. Spot Instances can be interrupted by Amazon EC2 with a two-minute notification when the capacity is needed back.
+	//
+	// The default is On-Demand
+	//
+	// For more information about Amazon EC2 capacity options, see [Instance purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the *Amazon EC2 User Guide* .
 	CapacityOptionType *CapacityProviderInstanceLaunchTemplateCapacityOptionType `pulumi:"capacityOptionType"`
 	// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.
 	//
@@ -738,6 +748,16 @@ type CapacityProviderInstanceLaunchTemplateInput interface {
 }
 
 type CapacityProviderInstanceLaunchTemplateArgs struct {
+	// The capacity option type. This determines whether Amazon ECS launches On-Demand or Spot Instances for your managed instance capacity provider.
+	//
+	// Valid values are:
+	//
+	// - `ON_DEMAND` - Launches standard On-Demand Instances. On-Demand Instances provide predictable pricing and availability.
+	// - `SPOT` - Launches Spot Instances that use spare Amazon EC2 capacity at reduced cost. Spot Instances can be interrupted by Amazon EC2 with a two-minute notification when the capacity is needed back.
+	//
+	// The default is On-Demand
+	//
+	// For more information about Amazon EC2 capacity options, see [Instance purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the *Amazon EC2 User Guide* .
 	CapacityOptionType CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrInput `pulumi:"capacityOptionType"`
 	// The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access AWS services and resources.
 	//
@@ -835,6 +855,16 @@ func (o CapacityProviderInstanceLaunchTemplateOutput) ToCapacityProviderInstance
 	}).(CapacityProviderInstanceLaunchTemplatePtrOutput)
 }
 
+// The capacity option type. This determines whether Amazon ECS launches On-Demand or Spot Instances for your managed instance capacity provider.
+//
+// Valid values are:
+//
+// - `ON_DEMAND` - Launches standard On-Demand Instances. On-Demand Instances provide predictable pricing and availability.
+// - `SPOT` - Launches Spot Instances that use spare Amazon EC2 capacity at reduced cost. Spot Instances can be interrupted by Amazon EC2 with a two-minute notification when the capacity is needed back.
+//
+// # The default is On-Demand
+//
+// For more information about Amazon EC2 capacity options, see [Instance purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the *Amazon EC2 User Guide* .
 func (o CapacityProviderInstanceLaunchTemplateOutput) CapacityOptionType() CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceLaunchTemplate) *CapacityProviderInstanceLaunchTemplateCapacityOptionType {
 		return v.CapacityOptionType
@@ -905,6 +935,16 @@ func (o CapacityProviderInstanceLaunchTemplatePtrOutput) Elem() CapacityProvider
 	}).(CapacityProviderInstanceLaunchTemplateOutput)
 }
 
+// The capacity option type. This determines whether Amazon ECS launches On-Demand or Spot Instances for your managed instance capacity provider.
+//
+// Valid values are:
+//
+// - `ON_DEMAND` - Launches standard On-Demand Instances. On-Demand Instances provide predictable pricing and availability.
+// - `SPOT` - Launches Spot Instances that use spare Amazon EC2 capacity at reduced cost. Spot Instances can be interrupted by Amazon EC2 with a two-minute notification when the capacity is needed back.
+//
+// # The default is On-Demand
+//
+// For more information about Amazon EC2 capacity options, see [Instance purchasing options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html) in the *Amazon EC2 User Guide* .
 func (o CapacityProviderInstanceLaunchTemplatePtrOutput) CapacityOptionType() CapacityProviderInstanceLaunchTemplateCapacityOptionTypePtrOutput {
 	return o.ApplyT(func(v *CapacityProviderInstanceLaunchTemplate) *CapacityProviderInstanceLaunchTemplateCapacityOptionType {
 		if v == nil {

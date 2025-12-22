@@ -77,6 +77,7 @@ __all__ = [
     'TopicRuleAssetPropertyTimestamp',
     'TopicRuleAssetPropertyValue',
     'TopicRuleAssetPropertyVariant',
+    'TopicRuleBatchConfig',
     'TopicRuleCloudwatchAlarmAction',
     'TopicRuleCloudwatchLogsAction',
     'TopicRuleCloudwatchMetricAction',
@@ -3612,6 +3613,56 @@ class TopicRuleAssetPropertyVariant(dict):
 
 
 @pulumi.output_type
+class TopicRuleBatchConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxBatchOpenMs":
+            suggest = "max_batch_open_ms"
+        elif key == "maxBatchSize":
+            suggest = "max_batch_size"
+        elif key == "maxBatchSizeBytes":
+            suggest = "max_batch_size_bytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleBatchConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleBatchConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleBatchConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_batch_open_ms: Optional[_builtins.int] = None,
+                 max_batch_size: Optional[_builtins.int] = None,
+                 max_batch_size_bytes: Optional[_builtins.int] = None):
+        if max_batch_open_ms is not None:
+            pulumi.set(__self__, "max_batch_open_ms", max_batch_open_ms)
+        if max_batch_size is not None:
+            pulumi.set(__self__, "max_batch_size", max_batch_size)
+        if max_batch_size_bytes is not None:
+            pulumi.set(__self__, "max_batch_size_bytes", max_batch_size_bytes)
+
+    @_builtins.property
+    @pulumi.getter(name="maxBatchOpenMs")
+    def max_batch_open_ms(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "max_batch_open_ms")
+
+    @_builtins.property
+    @pulumi.getter(name="maxBatchSize")
+    def max_batch_size(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "max_batch_size")
+
+    @_builtins.property
+    @pulumi.getter(name="maxBatchSizeBytes")
+    def max_batch_size_bytes(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "max_batch_size_bytes")
+
+
+@pulumi.output_type
 class TopicRuleCloudwatchAlarmAction(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4326,8 +4377,12 @@ class TopicRuleHttpAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "confirmationUrl":
+        if key == "batchConfig":
+            suggest = "batch_config"
+        elif key == "confirmationUrl":
             suggest = "confirmation_url"
+        elif key == "enableBatching":
+            suggest = "enable_batching"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TopicRuleHttpAction. Access the value via the '{suggest}' property getter instead.")
@@ -4343,7 +4398,9 @@ class TopicRuleHttpAction(dict):
     def __init__(__self__, *,
                  url: _builtins.str,
                  auth: Optional['outputs.TopicRuleHttpAuthorization'] = None,
+                 batch_config: Optional['outputs.TopicRuleBatchConfig'] = None,
                  confirmation_url: Optional[_builtins.str] = None,
+                 enable_batching: Optional[_builtins.bool] = None,
                  headers: Optional[Sequence['outputs.TopicRuleHttpActionHeader']] = None):
         """
         :param _builtins.str url: The endpoint URL. If substitution templates are used in the URL, you must also specify a `confirmationUrl` . If this is a new destination, a new `TopicRuleDestination` is created if possible.
@@ -4354,8 +4411,12 @@ class TopicRuleHttpAction(dict):
         pulumi.set(__self__, "url", url)
         if auth is not None:
             pulumi.set(__self__, "auth", auth)
+        if batch_config is not None:
+            pulumi.set(__self__, "batch_config", batch_config)
         if confirmation_url is not None:
             pulumi.set(__self__, "confirmation_url", confirmation_url)
+        if enable_batching is not None:
+            pulumi.set(__self__, "enable_batching", enable_batching)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
 
@@ -4376,12 +4437,22 @@ class TopicRuleHttpAction(dict):
         return pulumi.get(self, "auth")
 
     @_builtins.property
+    @pulumi.getter(name="batchConfig")
+    def batch_config(self) -> Optional['outputs.TopicRuleBatchConfig']:
+        return pulumi.get(self, "batch_config")
+
+    @_builtins.property
     @pulumi.getter(name="confirmationUrl")
     def confirmation_url(self) -> Optional[_builtins.str]:
         """
         The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
         """
         return pulumi.get(self, "confirmation_url")
+
+    @_builtins.property
+    @pulumi.getter(name="enableBatching")
+    def enable_batching(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enable_batching")
 
     @_builtins.property
     @pulumi.getter

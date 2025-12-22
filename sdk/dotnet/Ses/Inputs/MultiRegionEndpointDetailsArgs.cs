@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Ses.Inputs
     {
         [Input("routeDetails", required: true)]
         private InputList<Inputs.MultiRegionEndpointRouteDetailsItemPropertiesArgs>? _routeDetails;
+
+        /// <summary>
+        /// A list of route configuration details. Must contain exactly one route configuration.
+        /// </summary>
         public InputList<Inputs.MultiRegionEndpointRouteDetailsItemPropertiesArgs> RouteDetails
         {
             get => _routeDetails ?? (_routeDetails = new InputList<Inputs.MultiRegionEndpointRouteDetailsItemPropertiesArgs>());

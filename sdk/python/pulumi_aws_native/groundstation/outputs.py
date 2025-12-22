@@ -1336,6 +1336,7 @@ class DataflowEndpointGroupV2ConnectionDetails(dict):
                  mtu: Optional[_builtins.int] = None):
         """
         Socket address of an uplink or downlink agent endpoint with an optional mtu.
+        :param 'DataflowEndpointGroupV2SocketAddress' socket_address: A socket address.
         :param _builtins.int mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
         """
         pulumi.set(__self__, "socket_address", socket_address)
@@ -1345,6 +1346,9 @@ class DataflowEndpointGroupV2ConnectionDetails(dict):
     @_builtins.property
     @pulumi.getter(name="socketAddress")
     def socket_address(self) -> 'outputs.DataflowEndpointGroupV2SocketAddress':
+        """
+        A socket address.
+        """
         return pulumi.get(self, "socket_address")
 
     @_builtins.property
@@ -1380,6 +1384,10 @@ class DataflowEndpointGroupV2CreateEndpointDetails(dict):
     def __init__(__self__, *,
                  downlink_aws_ground_station_agent_endpoint: Optional['outputs.DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint'] = None,
                  uplink_aws_ground_station_agent_endpoint: Optional['outputs.DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint'] = None):
+        """
+        :param 'DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint' downlink_aws_ground_station_agent_endpoint: Definition for a downlink agent endpoint
+        :param 'DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint' uplink_aws_ground_station_agent_endpoint: Definition for an uplink agent endpoint
+        """
         if downlink_aws_ground_station_agent_endpoint is not None:
             pulumi.set(__self__, "downlink_aws_ground_station_agent_endpoint", downlink_aws_ground_station_agent_endpoint)
         if uplink_aws_ground_station_agent_endpoint is not None:
@@ -1388,11 +1396,17 @@ class DataflowEndpointGroupV2CreateEndpointDetails(dict):
     @_builtins.property
     @pulumi.getter(name="downlinkAwsGroundStationAgentEndpoint")
     def downlink_aws_ground_station_agent_endpoint(self) -> Optional['outputs.DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint']:
+        """
+        Definition for a downlink agent endpoint
+        """
         return pulumi.get(self, "downlink_aws_ground_station_agent_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="uplinkAwsGroundStationAgentEndpoint")
     def uplink_aws_ground_station_agent_endpoint(self) -> Optional['outputs.DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint']:
+        """
+        Definition for an uplink agent endpoint
+        """
         return pulumi.get(self, "uplink_aws_ground_station_agent_endpoint")
 
 
@@ -1423,6 +1437,8 @@ class DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint(dict):
                  name: _builtins.str):
         """
         Information about DownlinkAwsGroundStationAgentEndpoint used for create
+        :param 'DataflowEndpointGroupV2DownlinkDataflowDetails' dataflow_details: Dataflow details for the downlink endpoint
+        :param _builtins.str name: Downlink dataflow endpoint name
         """
         pulumi.set(__self__, "dataflow_details", dataflow_details)
         pulumi.set(__self__, "name", name)
@@ -1430,11 +1446,17 @@ class DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint(dict):
     @_builtins.property
     @pulumi.getter(name="dataflowDetails")
     def dataflow_details(self) -> 'outputs.DataflowEndpointGroupV2DownlinkDataflowDetails':
+        """
+        Dataflow details for the downlink endpoint
+        """
         return pulumi.get(self, "dataflow_details")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        Downlink dataflow endpoint name
+        """
         return pulumi.get(self, "name")
 
 
@@ -1471,6 +1493,10 @@ class DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails(dict):
                  audit_results: Optional['DataflowEndpointGroupV2AuditResults'] = None):
         """
         Information about DownlinkAwsGroundStationAgentEndpoint
+        :param 'DataflowEndpointGroupV2DownlinkDataflowDetails' dataflow_details: Dataflow details for the downlink endpoint
+        :param _builtins.str name: Downlink dataflow endpoint name
+        :param 'DataflowEndpointGroupV2AgentStatus' agent_status: Status of the agent associated with the downlink dataflow endpoint
+        :param 'DataflowEndpointGroupV2AuditResults' audit_results: Health audit results for the downlink dataflow endpoint
         """
         pulumi.set(__self__, "dataflow_details", dataflow_details)
         pulumi.set(__self__, "name", name)
@@ -1482,21 +1508,33 @@ class DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails(dict):
     @_builtins.property
     @pulumi.getter(name="dataflowDetails")
     def dataflow_details(self) -> 'outputs.DataflowEndpointGroupV2DownlinkDataflowDetails':
+        """
+        Dataflow details for the downlink endpoint
+        """
         return pulumi.get(self, "dataflow_details")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        Downlink dataflow endpoint name
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="agentStatus")
     def agent_status(self) -> Optional['DataflowEndpointGroupV2AgentStatus']:
+        """
+        Status of the agent associated with the downlink dataflow endpoint
+        """
         return pulumi.get(self, "agent_status")
 
     @_builtins.property
     @pulumi.getter(name="auditResults")
     def audit_results(self) -> Optional['DataflowEndpointGroupV2AuditResults']:
+        """
+        Health audit results for the downlink dataflow endpoint
+        """
         return pulumi.get(self, "audit_results")
 
 
@@ -1529,6 +1567,8 @@ class DataflowEndpointGroupV2DownlinkConnectionDetails(dict):
                  egress_address_and_port: 'outputs.DataflowEndpointGroupV2ConnectionDetails'):
         """
         Connection details for downlink, from ground station to agent, and customer to agent
+        :param 'DataflowEndpointGroupV2RangedConnectionDetails' agent_ip_and_port_address: Agent IP and port address for the downlink connection.
+        :param 'DataflowEndpointGroupV2ConnectionDetails' egress_address_and_port: Egress address and port for the downlink connection.
         """
         pulumi.set(__self__, "agent_ip_and_port_address", agent_ip_and_port_address)
         pulumi.set(__self__, "egress_address_and_port", egress_address_and_port)
@@ -1536,11 +1576,17 @@ class DataflowEndpointGroupV2DownlinkConnectionDetails(dict):
     @_builtins.property
     @pulumi.getter(name="agentIpAndPortAddress")
     def agent_ip_and_port_address(self) -> 'outputs.DataflowEndpointGroupV2RangedConnectionDetails':
+        """
+        Agent IP and port address for the downlink connection.
+        """
         return pulumi.get(self, "agent_ip_and_port_address")
 
     @_builtins.property
     @pulumi.getter(name="egressAddressAndPort")
     def egress_address_and_port(self) -> 'outputs.DataflowEndpointGroupV2ConnectionDetails':
+        """
+        Egress address and port for the downlink connection.
+        """
         return pulumi.get(self, "egress_address_and_port")
 
 
@@ -1570,6 +1616,7 @@ class DataflowEndpointGroupV2DownlinkDataflowDetails(dict):
                  agent_connection_details: Optional['outputs.DataflowEndpointGroupV2DownlinkConnectionDetails'] = None):
         """
         Dataflow details for downlink
+        :param 'DataflowEndpointGroupV2DownlinkConnectionDetails' agent_connection_details: Downlink connection details for customer to Agent and Agent to Ground Station
         """
         if agent_connection_details is not None:
             pulumi.set(__self__, "agent_connection_details", agent_connection_details)
@@ -1577,6 +1624,9 @@ class DataflowEndpointGroupV2DownlinkDataflowDetails(dict):
     @_builtins.property
     @pulumi.getter(name="agentConnectionDetails")
     def agent_connection_details(self) -> Optional['outputs.DataflowEndpointGroupV2DownlinkConnectionDetails']:
+        """
+        Downlink connection details for customer to Agent and Agent to Ground Station
+        """
         return pulumi.get(self, "agent_connection_details")
 
 
@@ -1604,6 +1654,10 @@ class DataflowEndpointGroupV2EndpointDetails(dict):
     def __init__(__self__, *,
                  downlink_aws_ground_station_agent_endpoint: Optional['outputs.DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails'] = None,
                  uplink_aws_ground_station_agent_endpoint: Optional['outputs.DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails'] = None):
+        """
+        :param 'DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails' downlink_aws_ground_station_agent_endpoint: Definition for a downlink agent endpoint
+        :param 'DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails' uplink_aws_ground_station_agent_endpoint: Definition for an uplink agent endpoint
+        """
         if downlink_aws_ground_station_agent_endpoint is not None:
             pulumi.set(__self__, "downlink_aws_ground_station_agent_endpoint", downlink_aws_ground_station_agent_endpoint)
         if uplink_aws_ground_station_agent_endpoint is not None:
@@ -1612,11 +1666,17 @@ class DataflowEndpointGroupV2EndpointDetails(dict):
     @_builtins.property
     @pulumi.getter(name="downlinkAwsGroundStationAgentEndpoint")
     def downlink_aws_ground_station_agent_endpoint(self) -> Optional['outputs.DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails']:
+        """
+        Definition for a downlink agent endpoint
+        """
         return pulumi.get(self, "downlink_aws_ground_station_agent_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="uplinkAwsGroundStationAgentEndpoint")
     def uplink_aws_ground_station_agent_endpoint(self) -> Optional['outputs.DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails']:
+        """
+        Definition for an uplink agent endpoint
+        """
         return pulumi.get(self, "uplink_aws_ground_station_agent_endpoint")
 
 
@@ -1680,6 +1740,7 @@ class DataflowEndpointGroupV2RangedConnectionDetails(dict):
                  mtu: Optional[_builtins.int] = None):
         """
         Socket address of an uplink or downlink agent endpoint with a port range and an optional mtu.
+        :param 'DataflowEndpointGroupV2RangedSocketAddress' socket_address: A ranged socket address.
         :param _builtins.int mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
         """
         pulumi.set(__self__, "socket_address", socket_address)
@@ -1689,6 +1750,9 @@ class DataflowEndpointGroupV2RangedConnectionDetails(dict):
     @_builtins.property
     @pulumi.getter(name="socketAddress")
     def socket_address(self) -> 'outputs.DataflowEndpointGroupV2RangedSocketAddress':
+        """
+        A ranged socket address.
+        """
         return pulumi.get(self, "socket_address")
 
     @_builtins.property
@@ -1806,6 +1870,8 @@ class DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint(dict):
                  name: _builtins.str):
         """
         Information about UplinkAwsGroundStationAgentEndpoint used for create
+        :param 'DataflowEndpointGroupV2UplinkDataflowDetails' dataflow_details: Dataflow details for the uplink endpoint
+        :param _builtins.str name: Uplink dataflow endpoint name
         """
         pulumi.set(__self__, "dataflow_details", dataflow_details)
         pulumi.set(__self__, "name", name)
@@ -1813,11 +1879,17 @@ class DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint(dict):
     @_builtins.property
     @pulumi.getter(name="dataflowDetails")
     def dataflow_details(self) -> 'outputs.DataflowEndpointGroupV2UplinkDataflowDetails':
+        """
+        Dataflow details for the uplink endpoint
+        """
         return pulumi.get(self, "dataflow_details")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        Uplink dataflow endpoint name
+        """
         return pulumi.get(self, "name")
 
 
@@ -1854,6 +1926,10 @@ class DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails(dict):
                  audit_results: Optional['DataflowEndpointGroupV2AuditResults'] = None):
         """
         Information about UplinkAwsGroundStationAgentEndpoint
+        :param 'DataflowEndpointGroupV2UplinkDataflowDetails' dataflow_details: Dataflow details for the uplink endpoint
+        :param _builtins.str name: Uplink dataflow endpoint name
+        :param 'DataflowEndpointGroupV2AgentStatus' agent_status: Status of the agent associated with the uplink dataflow endpoint
+        :param 'DataflowEndpointGroupV2AuditResults' audit_results: Health audit results for the uplink dataflow endpoint
         """
         pulumi.set(__self__, "dataflow_details", dataflow_details)
         pulumi.set(__self__, "name", name)
@@ -1865,21 +1941,33 @@ class DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails(dict):
     @_builtins.property
     @pulumi.getter(name="dataflowDetails")
     def dataflow_details(self) -> 'outputs.DataflowEndpointGroupV2UplinkDataflowDetails':
+        """
+        Dataflow details for the uplink endpoint
+        """
         return pulumi.get(self, "dataflow_details")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        Uplink dataflow endpoint name
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter(name="agentStatus")
     def agent_status(self) -> Optional['DataflowEndpointGroupV2AgentStatus']:
+        """
+        Status of the agent associated with the uplink dataflow endpoint
+        """
         return pulumi.get(self, "agent_status")
 
     @_builtins.property
     @pulumi.getter(name="auditResults")
     def audit_results(self) -> Optional['DataflowEndpointGroupV2AuditResults']:
+        """
+        Health audit results for the uplink dataflow endpoint
+        """
         return pulumi.get(self, "audit_results")
 
 
@@ -1912,6 +2000,8 @@ class DataflowEndpointGroupV2UplinkConnectionDetails(dict):
                  ingress_address_and_port: 'outputs.DataflowEndpointGroupV2ConnectionDetails'):
         """
         Connection details for uplink, from ground station to agent, and customer to agent
+        :param 'DataflowEndpointGroupV2RangedConnectionDetails' agent_ip_and_port_address: Agent IP and port address for the uplink connection.
+        :param 'DataflowEndpointGroupV2ConnectionDetails' ingress_address_and_port: Ingress address and port for the uplink connection.
         """
         pulumi.set(__self__, "agent_ip_and_port_address", agent_ip_and_port_address)
         pulumi.set(__self__, "ingress_address_and_port", ingress_address_and_port)
@@ -1919,11 +2009,17 @@ class DataflowEndpointGroupV2UplinkConnectionDetails(dict):
     @_builtins.property
     @pulumi.getter(name="agentIpAndPortAddress")
     def agent_ip_and_port_address(self) -> 'outputs.DataflowEndpointGroupV2RangedConnectionDetails':
+        """
+        Agent IP and port address for the uplink connection.
+        """
         return pulumi.get(self, "agent_ip_and_port_address")
 
     @_builtins.property
     @pulumi.getter(name="ingressAddressAndPort")
     def ingress_address_and_port(self) -> 'outputs.DataflowEndpointGroupV2ConnectionDetails':
+        """
+        Ingress address and port for the uplink connection.
+        """
         return pulumi.get(self, "ingress_address_and_port")
 
 
@@ -1953,6 +2049,7 @@ class DataflowEndpointGroupV2UplinkDataflowDetails(dict):
                  agent_connection_details: Optional['outputs.DataflowEndpointGroupV2UplinkConnectionDetails'] = None):
         """
         Dataflow details for uplink
+        :param 'DataflowEndpointGroupV2UplinkConnectionDetails' agent_connection_details: Uplink connection details for customer to Agent and Agent to Ground Station
         """
         if agent_connection_details is not None:
             pulumi.set(__self__, "agent_connection_details", agent_connection_details)
@@ -1960,6 +2057,9 @@ class DataflowEndpointGroupV2UplinkDataflowDetails(dict):
     @_builtins.property
     @pulumi.getter(name="agentConnectionDetails")
     def agent_connection_details(self) -> Optional['outputs.DataflowEndpointGroupV2UplinkConnectionDetails']:
+        """
+        Uplink connection details for customer to Agent and Agent to Ground Station
+        """
         return pulumi.get(self, "agent_connection_details")
 
 

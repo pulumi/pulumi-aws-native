@@ -47,8 +47,17 @@ export class DataflowEndpointGroupV2 extends pulumi.CustomResource {
      * Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
      */
     declare public readonly contactPrePassDurationSeconds: pulumi.Output<number | undefined>;
+    /**
+     * Information about the endpoint details.
+     */
     declare public /*out*/ readonly endpointDetails: pulumi.Output<outputs.groundstation.DataflowEndpointGroupV2EndpointDetails[]>;
+    /**
+     * List of endpoints for the dataflow endpoint group.
+     */
     declare public readonly endpoints: pulumi.Output<outputs.groundstation.DataflowEndpointGroupV2CreateEndpointDetails[] | undefined>;
+    /**
+     * Tags assigned to a resource.
+     */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -97,6 +106,12 @@ export interface DataflowEndpointGroupV2Args {
      * Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
      */
     contactPrePassDurationSeconds?: pulumi.Input<number>;
+    /**
+     * List of endpoints for the dataflow endpoint group.
+     */
     endpoints?: pulumi.Input<pulumi.Input<inputs.groundstation.DataflowEndpointGroupV2CreateEndpointDetailsArgs>[]>;
+    /**
+     * Tags assigned to a resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

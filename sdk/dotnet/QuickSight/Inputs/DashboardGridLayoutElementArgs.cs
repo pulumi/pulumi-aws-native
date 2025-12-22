@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardGridLayoutElementArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The background style configuration of a grid layout element.
+        /// </summary>
         [Input("backgroundStyle")]
         public Input<Inputs.DashboardGridLayoutElementBackgroundStyleArgs>? BackgroundStyle { get; set; }
 
+        /// <summary>
+        /// The border radius of a grid layout element.
+        /// </summary>
         [Input("borderRadius")]
         public Input<string>? BorderRadius { get; set; }
 
+        /// <summary>
+        /// The border style configuration of a grid layout element.
+        /// </summary>
         [Input("borderStyle")]
         public Input<Inputs.DashboardGridLayoutElementBorderStyleArgs>? BorderStyle { get; set; }
 
@@ -48,6 +57,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("loadingAnimation")]
         public Input<Inputs.DashboardLoadingAnimationArgs>? LoadingAnimation { get; set; }
 
+        /// <summary>
+        /// The padding of a grid layout element.
+        /// </summary>
         [Input("padding")]
         public Input<string>? Padding { get; set; }
 
@@ -63,6 +75,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("rowSpan", required: true)]
         public Input<double> RowSpan { get; set; } = null!;
 
+        /// <summary>
+        /// The border style configuration of a grid layout element. This border style is used when the element is selected.
+        /// </summary>
         [Input("selectedBorderStyle")]
         public Input<Inputs.DashboardGridLayoutElementBorderStyleArgs>? SelectedBorderStyle { get; set; }
 

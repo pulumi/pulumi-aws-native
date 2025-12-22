@@ -3545,6 +3545,9 @@ if not MYPY:
         Contains details of a multi-region endpoint (global-endpoint) being created.
         """
         route_details: pulumi.Input[Sequence[pulumi.Input['MultiRegionEndpointRouteDetailsItemPropertiesArgsDict']]]
+        """
+        A list of route configuration details. Must contain exactly one route configuration.
+        """
 elif False:
     MultiRegionEndpointDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3554,12 +3557,16 @@ class MultiRegionEndpointDetailsArgs:
                  route_details: pulumi.Input[Sequence[pulumi.Input['MultiRegionEndpointRouteDetailsItemPropertiesArgs']]]):
         """
         Contains details of a multi-region endpoint (global-endpoint) being created.
+        :param pulumi.Input[Sequence[pulumi.Input['MultiRegionEndpointRouteDetailsItemPropertiesArgs']]] route_details: A list of route configuration details. Must contain exactly one route configuration.
         """
         pulumi.set(__self__, "route_details", route_details)
 
     @_builtins.property
     @pulumi.getter(name="routeDetails")
     def route_details(self) -> pulumi.Input[Sequence[pulumi.Input['MultiRegionEndpointRouteDetailsItemPropertiesArgs']]]:
+        """
+        A list of route configuration details. Must contain exactly one route configuration.
+        """
         return pulumi.get(self, "route_details")
 
     @route_details.setter

@@ -3961,7 +3961,8 @@ type DataflowEndpointGroupTag struct {
 // Socket address of an uplink or downlink agent endpoint with an optional mtu.
 type DataflowEndpointGroupV2ConnectionDetails struct {
 	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
-	Mtu           *int                                 `pulumi:"mtu"`
+	Mtu *int `pulumi:"mtu"`
+	// A socket address.
 	SocketAddress DataflowEndpointGroupV2SocketAddress `pulumi:"socketAddress"`
 }
 
@@ -3979,7 +3980,8 @@ type DataflowEndpointGroupV2ConnectionDetailsInput interface {
 // Socket address of an uplink or downlink agent endpoint with an optional mtu.
 type DataflowEndpointGroupV2ConnectionDetailsArgs struct {
 	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
-	Mtu           pulumi.IntPtrInput                        `pulumi:"mtu"`
+	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
+	// A socket address.
 	SocketAddress DataflowEndpointGroupV2SocketAddressInput `pulumi:"socketAddress"`
 }
 
@@ -4066,6 +4068,7 @@ func (o DataflowEndpointGroupV2ConnectionDetailsOutput) Mtu() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v DataflowEndpointGroupV2ConnectionDetails) *int { return v.Mtu }).(pulumi.IntPtrOutput)
 }
 
+// A socket address.
 func (o DataflowEndpointGroupV2ConnectionDetailsOutput) SocketAddress() DataflowEndpointGroupV2SocketAddressOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2ConnectionDetails) DataflowEndpointGroupV2SocketAddress {
 		return v.SocketAddress
@@ -4106,6 +4109,7 @@ func (o DataflowEndpointGroupV2ConnectionDetailsPtrOutput) Mtu() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+// A socket address.
 func (o DataflowEndpointGroupV2ConnectionDetailsPtrOutput) SocketAddress() DataflowEndpointGroupV2SocketAddressPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupV2ConnectionDetails) *DataflowEndpointGroupV2SocketAddress {
 		if v == nil {
@@ -4116,8 +4120,10 @@ func (o DataflowEndpointGroupV2ConnectionDetailsPtrOutput) SocketAddress() Dataf
 }
 
 type DataflowEndpointGroupV2CreateEndpointDetails struct {
+	// Definition for a downlink agent endpoint
 	DownlinkAwsGroundStationAgentEndpoint *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint `pulumi:"downlinkAwsGroundStationAgentEndpoint"`
-	UplinkAwsGroundStationAgentEndpoint   *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint   `pulumi:"uplinkAwsGroundStationAgentEndpoint"`
+	// Definition for an uplink agent endpoint
+	UplinkAwsGroundStationAgentEndpoint *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint `pulumi:"uplinkAwsGroundStationAgentEndpoint"`
 }
 
 // DataflowEndpointGroupV2CreateEndpointDetailsInput is an input type that accepts DataflowEndpointGroupV2CreateEndpointDetailsArgs and DataflowEndpointGroupV2CreateEndpointDetailsOutput values.
@@ -4132,8 +4138,10 @@ type DataflowEndpointGroupV2CreateEndpointDetailsInput interface {
 }
 
 type DataflowEndpointGroupV2CreateEndpointDetailsArgs struct {
+	// Definition for a downlink agent endpoint
 	DownlinkAwsGroundStationAgentEndpoint DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrInput `pulumi:"downlinkAwsGroundStationAgentEndpoint"`
-	UplinkAwsGroundStationAgentEndpoint   DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrInput   `pulumi:"uplinkAwsGroundStationAgentEndpoint"`
+	// Definition for an uplink agent endpoint
+	UplinkAwsGroundStationAgentEndpoint DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrInput `pulumi:"uplinkAwsGroundStationAgentEndpoint"`
 }
 
 func (DataflowEndpointGroupV2CreateEndpointDetailsArgs) ElementType() reflect.Type {
@@ -4187,12 +4195,14 @@ func (o DataflowEndpointGroupV2CreateEndpointDetailsOutput) ToDataflowEndpointGr
 	return o
 }
 
+// Definition for a downlink agent endpoint
 func (o DataflowEndpointGroupV2CreateEndpointDetailsOutput) DownlinkAwsGroundStationAgentEndpoint() DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2CreateEndpointDetails) *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint {
 		return v.DownlinkAwsGroundStationAgentEndpoint
 	}).(DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput)
 }
 
+// Definition for an uplink agent endpoint
 func (o DataflowEndpointGroupV2CreateEndpointDetailsOutput) UplinkAwsGroundStationAgentEndpoint() DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2CreateEndpointDetails) *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint {
 		return v.UplinkAwsGroundStationAgentEndpoint
@@ -4221,8 +4231,10 @@ func (o DataflowEndpointGroupV2CreateEndpointDetailsArrayOutput) Index(i pulumi.
 
 // Information about DownlinkAwsGroundStationAgentEndpoint used for create
 type DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint struct {
+	// Dataflow details for the downlink endpoint
 	DataflowDetails DataflowEndpointGroupV2DownlinkDataflowDetails `pulumi:"dataflowDetails"`
-	Name            string                                         `pulumi:"name"`
+	// Downlink dataflow endpoint name
+	Name string `pulumi:"name"`
 }
 
 // DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointInput is an input type that accepts DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs and DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput values.
@@ -4238,8 +4250,10 @@ type DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointInput interface
 
 // Information about DownlinkAwsGroundStationAgentEndpoint used for create
 type DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs struct {
+	// Dataflow details for the downlink endpoint
 	DataflowDetails DataflowEndpointGroupV2DownlinkDataflowDetailsInput `pulumi:"dataflowDetails"`
-	Name            pulumi.StringInput                                  `pulumi:"name"`
+	// Downlink dataflow endpoint name
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs) ElementType() reflect.Type {
@@ -4320,12 +4334,14 @@ func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput) ToDa
 	}).(DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput)
 }
 
+// Dataflow details for the downlink endpoint
 func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput) DataflowDetails() DataflowEndpointGroupV2DownlinkDataflowDetailsOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint) DataflowEndpointGroupV2DownlinkDataflowDetails {
 		return v.DataflowDetails
 	}).(DataflowEndpointGroupV2DownlinkDataflowDetailsOutput)
 }
 
+// Downlink dataflow endpoint name
 func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4354,6 +4370,7 @@ func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput) E
 	}).(DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointOutput)
 }
 
+// Dataflow details for the downlink endpoint
 func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput) DataflowDetails() DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint) *DataflowEndpointGroupV2DownlinkDataflowDetails {
 		if v == nil {
@@ -4363,6 +4380,7 @@ func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput) D
 	}).(DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput)
 }
 
+// Downlink dataflow endpoint name
 func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpoint) *string {
 		if v == nil {
@@ -4374,10 +4392,14 @@ func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointPtrOutput) N
 
 // Information about DownlinkAwsGroundStationAgentEndpoint
 type DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails struct {
-	AgentStatus     *DataflowEndpointGroupV2AgentStatus            `pulumi:"agentStatus"`
-	AuditResults    *DataflowEndpointGroupV2AuditResults           `pulumi:"auditResults"`
+	// Status of the agent associated with the downlink dataflow endpoint
+	AgentStatus *DataflowEndpointGroupV2AgentStatus `pulumi:"agentStatus"`
+	// Health audit results for the downlink dataflow endpoint
+	AuditResults *DataflowEndpointGroupV2AuditResults `pulumi:"auditResults"`
+	// Dataflow details for the downlink endpoint
 	DataflowDetails DataflowEndpointGroupV2DownlinkDataflowDetails `pulumi:"dataflowDetails"`
-	Name            string                                         `pulumi:"name"`
+	// Downlink dataflow endpoint name
+	Name string `pulumi:"name"`
 }
 
 // Information about DownlinkAwsGroundStationAgentEndpoint
@@ -4395,24 +4417,28 @@ func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutpu
 	return o
 }
 
+// Status of the agent associated with the downlink dataflow endpoint
 func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutput) AgentStatus() DataflowEndpointGroupV2AgentStatusPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails) *DataflowEndpointGroupV2AgentStatus {
 		return v.AgentStatus
 	}).(DataflowEndpointGroupV2AgentStatusPtrOutput)
 }
 
+// Health audit results for the downlink dataflow endpoint
 func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutput) AuditResults() DataflowEndpointGroupV2AuditResultsPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails) *DataflowEndpointGroupV2AuditResults {
 		return v.AuditResults
 	}).(DataflowEndpointGroupV2AuditResultsPtrOutput)
 }
 
+// Dataflow details for the downlink endpoint
 func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutput) DataflowDetails() DataflowEndpointGroupV2DownlinkDataflowDetailsOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails) DataflowEndpointGroupV2DownlinkDataflowDetails {
 		return v.DataflowDetails
 	}).(DataflowEndpointGroupV2DownlinkDataflowDetailsOutput)
 }
 
+// Downlink dataflow endpoint name
 func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4441,6 +4467,7 @@ func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOu
 	}).(DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsOutput)
 }
 
+// Status of the agent associated with the downlink dataflow endpoint
 func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput) AgentStatus() DataflowEndpointGroupV2AgentStatusPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails) *DataflowEndpointGroupV2AgentStatus {
 		if v == nil {
@@ -4450,6 +4477,7 @@ func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOu
 	}).(DataflowEndpointGroupV2AgentStatusPtrOutput)
 }
 
+// Health audit results for the downlink dataflow endpoint
 func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput) AuditResults() DataflowEndpointGroupV2AuditResultsPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails) *DataflowEndpointGroupV2AuditResults {
 		if v == nil {
@@ -4459,6 +4487,7 @@ func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOu
 	}).(DataflowEndpointGroupV2AuditResultsPtrOutput)
 }
 
+// Dataflow details for the downlink endpoint
 func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput) DataflowDetails() DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails) *DataflowEndpointGroupV2DownlinkDataflowDetails {
 		if v == nil {
@@ -4468,6 +4497,7 @@ func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOu
 	}).(DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput)
 }
 
+// Downlink dataflow endpoint name
 func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails) *string {
 		if v == nil {
@@ -4479,8 +4509,10 @@ func (o DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOu
 
 // Connection details for downlink, from ground station to agent, and customer to agent
 type DataflowEndpointGroupV2DownlinkConnectionDetails struct {
+	// Agent IP and port address for the downlink connection.
 	AgentIpAndPortAddress DataflowEndpointGroupV2RangedConnectionDetails `pulumi:"agentIpAndPortAddress"`
-	EgressAddressAndPort  DataflowEndpointGroupV2ConnectionDetails       `pulumi:"egressAddressAndPort"`
+	// Egress address and port for the downlink connection.
+	EgressAddressAndPort DataflowEndpointGroupV2ConnectionDetails `pulumi:"egressAddressAndPort"`
 }
 
 // DataflowEndpointGroupV2DownlinkConnectionDetailsInput is an input type that accepts DataflowEndpointGroupV2DownlinkConnectionDetailsArgs and DataflowEndpointGroupV2DownlinkConnectionDetailsOutput values.
@@ -4496,8 +4528,10 @@ type DataflowEndpointGroupV2DownlinkConnectionDetailsInput interface {
 
 // Connection details for downlink, from ground station to agent, and customer to agent
 type DataflowEndpointGroupV2DownlinkConnectionDetailsArgs struct {
+	// Agent IP and port address for the downlink connection.
 	AgentIpAndPortAddress DataflowEndpointGroupV2RangedConnectionDetailsInput `pulumi:"agentIpAndPortAddress"`
-	EgressAddressAndPort  DataflowEndpointGroupV2ConnectionDetailsInput       `pulumi:"egressAddressAndPort"`
+	// Egress address and port for the downlink connection.
+	EgressAddressAndPort DataflowEndpointGroupV2ConnectionDetailsInput `pulumi:"egressAddressAndPort"`
 }
 
 func (DataflowEndpointGroupV2DownlinkConnectionDetailsArgs) ElementType() reflect.Type {
@@ -4578,12 +4612,14 @@ func (o DataflowEndpointGroupV2DownlinkConnectionDetailsOutput) ToDataflowEndpoi
 	}).(DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput)
 }
 
+// Agent IP and port address for the downlink connection.
 func (o DataflowEndpointGroupV2DownlinkConnectionDetailsOutput) AgentIpAndPortAddress() DataflowEndpointGroupV2RangedConnectionDetailsOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2DownlinkConnectionDetails) DataflowEndpointGroupV2RangedConnectionDetails {
 		return v.AgentIpAndPortAddress
 	}).(DataflowEndpointGroupV2RangedConnectionDetailsOutput)
 }
 
+// Egress address and port for the downlink connection.
 func (o DataflowEndpointGroupV2DownlinkConnectionDetailsOutput) EgressAddressAndPort() DataflowEndpointGroupV2ConnectionDetailsOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2DownlinkConnectionDetails) DataflowEndpointGroupV2ConnectionDetails {
 		return v.EgressAddressAndPort
@@ -4614,6 +4650,7 @@ func (o DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput) Elem() Datafl
 	}).(DataflowEndpointGroupV2DownlinkConnectionDetailsOutput)
 }
 
+// Agent IP and port address for the downlink connection.
 func (o DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput) AgentIpAndPortAddress() DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkConnectionDetails) *DataflowEndpointGroupV2RangedConnectionDetails {
 		if v == nil {
@@ -4623,6 +4660,7 @@ func (o DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput) AgentIpAndPor
 	}).(DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput)
 }
 
+// Egress address and port for the downlink connection.
 func (o DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput) EgressAddressAndPort() DataflowEndpointGroupV2ConnectionDetailsPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkConnectionDetails) *DataflowEndpointGroupV2ConnectionDetails {
 		if v == nil {
@@ -4634,6 +4672,7 @@ func (o DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput) EgressAddress
 
 // Dataflow details for downlink
 type DataflowEndpointGroupV2DownlinkDataflowDetails struct {
+	// Downlink connection details for customer to Agent and Agent to Ground Station
 	AgentConnectionDetails *DataflowEndpointGroupV2DownlinkConnectionDetails `pulumi:"agentConnectionDetails"`
 }
 
@@ -4650,6 +4689,7 @@ type DataflowEndpointGroupV2DownlinkDataflowDetailsInput interface {
 
 // Dataflow details for downlink
 type DataflowEndpointGroupV2DownlinkDataflowDetailsArgs struct {
+	// Downlink connection details for customer to Agent and Agent to Ground Station
 	AgentConnectionDetails DataflowEndpointGroupV2DownlinkConnectionDetailsPtrInput `pulumi:"agentConnectionDetails"`
 }
 
@@ -4731,6 +4771,7 @@ func (o DataflowEndpointGroupV2DownlinkDataflowDetailsOutput) ToDataflowEndpoint
 	}).(DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput)
 }
 
+// Downlink connection details for customer to Agent and Agent to Ground Station
 func (o DataflowEndpointGroupV2DownlinkDataflowDetailsOutput) AgentConnectionDetails() DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2DownlinkDataflowDetails) *DataflowEndpointGroupV2DownlinkConnectionDetails {
 		return v.AgentConnectionDetails
@@ -4761,6 +4802,7 @@ func (o DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput) Elem() Dataflow
 	}).(DataflowEndpointGroupV2DownlinkDataflowDetailsOutput)
 }
 
+// Downlink connection details for customer to Agent and Agent to Ground Station
 func (o DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput) AgentConnectionDetails() DataflowEndpointGroupV2DownlinkConnectionDetailsPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupV2DownlinkDataflowDetails) *DataflowEndpointGroupV2DownlinkConnectionDetails {
 		if v == nil {
@@ -4771,8 +4813,10 @@ func (o DataflowEndpointGroupV2DownlinkDataflowDetailsPtrOutput) AgentConnection
 }
 
 type DataflowEndpointGroupV2EndpointDetails struct {
+	// Definition for a downlink agent endpoint
 	DownlinkAwsGroundStationAgentEndpoint *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails `pulumi:"downlinkAwsGroundStationAgentEndpoint"`
-	UplinkAwsGroundStationAgentEndpoint   *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails   `pulumi:"uplinkAwsGroundStationAgentEndpoint"`
+	// Definition for an uplink agent endpoint
+	UplinkAwsGroundStationAgentEndpoint *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails `pulumi:"uplinkAwsGroundStationAgentEndpoint"`
 }
 
 type DataflowEndpointGroupV2EndpointDetailsOutput struct{ *pulumi.OutputState }
@@ -4789,12 +4833,14 @@ func (o DataflowEndpointGroupV2EndpointDetailsOutput) ToDataflowEndpointGroupV2E
 	return o
 }
 
+// Definition for a downlink agent endpoint
 func (o DataflowEndpointGroupV2EndpointDetailsOutput) DownlinkAwsGroundStationAgentEndpoint() DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2EndpointDetails) *DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails {
 		return v.DownlinkAwsGroundStationAgentEndpoint
 	}).(DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetailsPtrOutput)
 }
 
+// Definition for an uplink agent endpoint
 func (o DataflowEndpointGroupV2EndpointDetailsOutput) UplinkAwsGroundStationAgentEndpoint() DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2EndpointDetails) *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails {
 		return v.UplinkAwsGroundStationAgentEndpoint
@@ -4983,7 +5029,8 @@ func (o DataflowEndpointGroupV2IntegerRangePtrOutput) Minimum() pulumi.IntPtrOut
 // Socket address of an uplink or downlink agent endpoint with a port range and an optional mtu.
 type DataflowEndpointGroupV2RangedConnectionDetails struct {
 	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
-	Mtu           *int                                       `pulumi:"mtu"`
+	Mtu *int `pulumi:"mtu"`
+	// A ranged socket address.
 	SocketAddress DataflowEndpointGroupV2RangedSocketAddress `pulumi:"socketAddress"`
 }
 
@@ -5001,7 +5048,8 @@ type DataflowEndpointGroupV2RangedConnectionDetailsInput interface {
 // Socket address of an uplink or downlink agent endpoint with a port range and an optional mtu.
 type DataflowEndpointGroupV2RangedConnectionDetailsArgs struct {
 	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
-	Mtu           pulumi.IntPtrInput                              `pulumi:"mtu"`
+	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
+	// A ranged socket address.
 	SocketAddress DataflowEndpointGroupV2RangedSocketAddressInput `pulumi:"socketAddress"`
 }
 
@@ -5088,6 +5136,7 @@ func (o DataflowEndpointGroupV2RangedConnectionDetailsOutput) Mtu() pulumi.IntPt
 	return o.ApplyT(func(v DataflowEndpointGroupV2RangedConnectionDetails) *int { return v.Mtu }).(pulumi.IntPtrOutput)
 }
 
+// A ranged socket address.
 func (o DataflowEndpointGroupV2RangedConnectionDetailsOutput) SocketAddress() DataflowEndpointGroupV2RangedSocketAddressOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2RangedConnectionDetails) DataflowEndpointGroupV2RangedSocketAddress {
 		return v.SocketAddress
@@ -5128,6 +5177,7 @@ func (o DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput) Mtu() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
+// A ranged socket address.
 func (o DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput) SocketAddress() DataflowEndpointGroupV2RangedSocketAddressPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupV2RangedConnectionDetails) *DataflowEndpointGroupV2RangedSocketAddress {
 		if v == nil {
@@ -5455,14 +5505,18 @@ func (o DataflowEndpointGroupV2SocketAddressPtrOutput) Port() pulumi.IntPtrOutpu
 }
 
 type DataflowEndpointGroupV2Tag struct {
-	Key   string `pulumi:"key"`
+	// Name of the object key.
+	Key string `pulumi:"key"`
+	// Value of the tag.
 	Value string `pulumi:"value"`
 }
 
 // Information about UplinkAwsGroundStationAgentEndpoint used for create
 type DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint struct {
+	// Dataflow details for the uplink endpoint
 	DataflowDetails DataflowEndpointGroupV2UplinkDataflowDetails `pulumi:"dataflowDetails"`
-	Name            string                                       `pulumi:"name"`
+	// Uplink dataflow endpoint name
+	Name string `pulumi:"name"`
 }
 
 // DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointInput is an input type that accepts DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs and DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput values.
@@ -5478,8 +5532,10 @@ type DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointInput interface {
 
 // Information about UplinkAwsGroundStationAgentEndpoint used for create
 type DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs struct {
+	// Dataflow details for the uplink endpoint
 	DataflowDetails DataflowEndpointGroupV2UplinkDataflowDetailsInput `pulumi:"dataflowDetails"`
-	Name            pulumi.StringInput                                `pulumi:"name"`
+	// Uplink dataflow endpoint name
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs) ElementType() reflect.Type {
@@ -5560,12 +5616,14 @@ func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput) ToData
 	}).(DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput)
 }
 
+// Dataflow details for the uplink endpoint
 func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput) DataflowDetails() DataflowEndpointGroupV2UplinkDataflowDetailsOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint) DataflowEndpointGroupV2UplinkDataflowDetails {
 		return v.DataflowDetails
 	}).(DataflowEndpointGroupV2UplinkDataflowDetailsOutput)
 }
 
+// Uplink dataflow endpoint name
 func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5594,6 +5652,7 @@ func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput) Ele
 	}).(DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointOutput)
 }
 
+// Dataflow details for the uplink endpoint
 func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput) DataflowDetails() DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint) *DataflowEndpointGroupV2UplinkDataflowDetails {
 		if v == nil {
@@ -5603,6 +5662,7 @@ func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput) Dat
 	}).(DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput)
 }
 
+// Uplink dataflow endpoint name
 func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpoint) *string {
 		if v == nil {
@@ -5614,10 +5674,14 @@ func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointPtrOutput) Nam
 
 // Information about UplinkAwsGroundStationAgentEndpoint
 type DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails struct {
-	AgentStatus     *DataflowEndpointGroupV2AgentStatus          `pulumi:"agentStatus"`
-	AuditResults    *DataflowEndpointGroupV2AuditResults         `pulumi:"auditResults"`
+	// Status of the agent associated with the uplink dataflow endpoint
+	AgentStatus *DataflowEndpointGroupV2AgentStatus `pulumi:"agentStatus"`
+	// Health audit results for the uplink dataflow endpoint
+	AuditResults *DataflowEndpointGroupV2AuditResults `pulumi:"auditResults"`
+	// Dataflow details for the uplink endpoint
 	DataflowDetails DataflowEndpointGroupV2UplinkDataflowDetails `pulumi:"dataflowDetails"`
-	Name            string                                       `pulumi:"name"`
+	// Uplink dataflow endpoint name
+	Name string `pulumi:"name"`
 }
 
 // Information about UplinkAwsGroundStationAgentEndpoint
@@ -5635,24 +5699,28 @@ func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutput)
 	return o
 }
 
+// Status of the agent associated with the uplink dataflow endpoint
 func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutput) AgentStatus() DataflowEndpointGroupV2AgentStatusPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails) *DataflowEndpointGroupV2AgentStatus {
 		return v.AgentStatus
 	}).(DataflowEndpointGroupV2AgentStatusPtrOutput)
 }
 
+// Health audit results for the uplink dataflow endpoint
 func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutput) AuditResults() DataflowEndpointGroupV2AuditResultsPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails) *DataflowEndpointGroupV2AuditResults {
 		return v.AuditResults
 	}).(DataflowEndpointGroupV2AuditResultsPtrOutput)
 }
 
+// Dataflow details for the uplink endpoint
 func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutput) DataflowDetails() DataflowEndpointGroupV2UplinkDataflowDetailsOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails) DataflowEndpointGroupV2UplinkDataflowDetails {
 		return v.DataflowDetails
 	}).(DataflowEndpointGroupV2UplinkDataflowDetailsOutput)
 }
 
+// Uplink dataflow endpoint name
 func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5681,6 +5749,7 @@ func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutp
 	}).(DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsOutput)
 }
 
+// Status of the agent associated with the uplink dataflow endpoint
 func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutput) AgentStatus() DataflowEndpointGroupV2AgentStatusPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails) *DataflowEndpointGroupV2AgentStatus {
 		if v == nil {
@@ -5690,6 +5759,7 @@ func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutp
 	}).(DataflowEndpointGroupV2AgentStatusPtrOutput)
 }
 
+// Health audit results for the uplink dataflow endpoint
 func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutput) AuditResults() DataflowEndpointGroupV2AuditResultsPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails) *DataflowEndpointGroupV2AuditResults {
 		if v == nil {
@@ -5699,6 +5769,7 @@ func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutp
 	}).(DataflowEndpointGroupV2AuditResultsPtrOutput)
 }
 
+// Dataflow details for the uplink endpoint
 func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutput) DataflowDetails() DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails) *DataflowEndpointGroupV2UplinkDataflowDetails {
 		if v == nil {
@@ -5708,6 +5779,7 @@ func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutp
 	}).(DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput)
 }
 
+// Uplink dataflow endpoint name
 func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails) *string {
 		if v == nil {
@@ -5719,8 +5791,10 @@ func (o DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetailsPtrOutp
 
 // Connection details for uplink, from ground station to agent, and customer to agent
 type DataflowEndpointGroupV2UplinkConnectionDetails struct {
+	// Agent IP and port address for the uplink connection.
 	AgentIpAndPortAddress DataflowEndpointGroupV2RangedConnectionDetails `pulumi:"agentIpAndPortAddress"`
-	IngressAddressAndPort DataflowEndpointGroupV2ConnectionDetails       `pulumi:"ingressAddressAndPort"`
+	// Ingress address and port for the uplink connection.
+	IngressAddressAndPort DataflowEndpointGroupV2ConnectionDetails `pulumi:"ingressAddressAndPort"`
 }
 
 // DataflowEndpointGroupV2UplinkConnectionDetailsInput is an input type that accepts DataflowEndpointGroupV2UplinkConnectionDetailsArgs and DataflowEndpointGroupV2UplinkConnectionDetailsOutput values.
@@ -5736,8 +5810,10 @@ type DataflowEndpointGroupV2UplinkConnectionDetailsInput interface {
 
 // Connection details for uplink, from ground station to agent, and customer to agent
 type DataflowEndpointGroupV2UplinkConnectionDetailsArgs struct {
+	// Agent IP and port address for the uplink connection.
 	AgentIpAndPortAddress DataflowEndpointGroupV2RangedConnectionDetailsInput `pulumi:"agentIpAndPortAddress"`
-	IngressAddressAndPort DataflowEndpointGroupV2ConnectionDetailsInput       `pulumi:"ingressAddressAndPort"`
+	// Ingress address and port for the uplink connection.
+	IngressAddressAndPort DataflowEndpointGroupV2ConnectionDetailsInput `pulumi:"ingressAddressAndPort"`
 }
 
 func (DataflowEndpointGroupV2UplinkConnectionDetailsArgs) ElementType() reflect.Type {
@@ -5818,12 +5894,14 @@ func (o DataflowEndpointGroupV2UplinkConnectionDetailsOutput) ToDataflowEndpoint
 	}).(DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput)
 }
 
+// Agent IP and port address for the uplink connection.
 func (o DataflowEndpointGroupV2UplinkConnectionDetailsOutput) AgentIpAndPortAddress() DataflowEndpointGroupV2RangedConnectionDetailsOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2UplinkConnectionDetails) DataflowEndpointGroupV2RangedConnectionDetails {
 		return v.AgentIpAndPortAddress
 	}).(DataflowEndpointGroupV2RangedConnectionDetailsOutput)
 }
 
+// Ingress address and port for the uplink connection.
 func (o DataflowEndpointGroupV2UplinkConnectionDetailsOutput) IngressAddressAndPort() DataflowEndpointGroupV2ConnectionDetailsOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2UplinkConnectionDetails) DataflowEndpointGroupV2ConnectionDetails {
 		return v.IngressAddressAndPort
@@ -5854,6 +5932,7 @@ func (o DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput) Elem() Dataflow
 	}).(DataflowEndpointGroupV2UplinkConnectionDetailsOutput)
 }
 
+// Agent IP and port address for the uplink connection.
 func (o DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput) AgentIpAndPortAddress() DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkConnectionDetails) *DataflowEndpointGroupV2RangedConnectionDetails {
 		if v == nil {
@@ -5863,6 +5942,7 @@ func (o DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput) AgentIpAndPortA
 	}).(DataflowEndpointGroupV2RangedConnectionDetailsPtrOutput)
 }
 
+// Ingress address and port for the uplink connection.
 func (o DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput) IngressAddressAndPort() DataflowEndpointGroupV2ConnectionDetailsPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkConnectionDetails) *DataflowEndpointGroupV2ConnectionDetails {
 		if v == nil {
@@ -5874,6 +5954,7 @@ func (o DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput) IngressAddressA
 
 // Dataflow details for uplink
 type DataflowEndpointGroupV2UplinkDataflowDetails struct {
+	// Uplink connection details for customer to Agent and Agent to Ground Station
 	AgentConnectionDetails *DataflowEndpointGroupV2UplinkConnectionDetails `pulumi:"agentConnectionDetails"`
 }
 
@@ -5890,6 +5971,7 @@ type DataflowEndpointGroupV2UplinkDataflowDetailsInput interface {
 
 // Dataflow details for uplink
 type DataflowEndpointGroupV2UplinkDataflowDetailsArgs struct {
+	// Uplink connection details for customer to Agent and Agent to Ground Station
 	AgentConnectionDetails DataflowEndpointGroupV2UplinkConnectionDetailsPtrInput `pulumi:"agentConnectionDetails"`
 }
 
@@ -5971,6 +6053,7 @@ func (o DataflowEndpointGroupV2UplinkDataflowDetailsOutput) ToDataflowEndpointGr
 	}).(DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput)
 }
 
+// Uplink connection details for customer to Agent and Agent to Ground Station
 func (o DataflowEndpointGroupV2UplinkDataflowDetailsOutput) AgentConnectionDetails() DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupV2UplinkDataflowDetails) *DataflowEndpointGroupV2UplinkConnectionDetails {
 		return v.AgentConnectionDetails
@@ -6001,6 +6084,7 @@ func (o DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput) Elem() DataflowEn
 	}).(DataflowEndpointGroupV2UplinkDataflowDetailsOutput)
 }
 
+// Uplink connection details for customer to Agent and Agent to Ground Station
 func (o DataflowEndpointGroupV2UplinkDataflowDetailsPtrOutput) AgentConnectionDetails() DataflowEndpointGroupV2UplinkConnectionDetailsPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupV2UplinkDataflowDetails) *DataflowEndpointGroupV2UplinkConnectionDetails {
 		if v == nil {

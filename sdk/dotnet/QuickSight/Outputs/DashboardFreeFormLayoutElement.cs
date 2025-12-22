@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The background style configuration of a free-form layout element.
         /// </summary>
         public readonly Outputs.DashboardFreeFormLayoutElementBackgroundStyle? BackgroundStyle;
+        /// <summary>
+        /// The border radius of a free-form layout element.
+        /// </summary>
         public readonly string? BorderRadius;
         /// <summary>
         /// The border style configuration of a free-form layout element.
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The loading animation configuration of a free-form layout element.
         /// </summary>
         public readonly Outputs.DashboardLoadingAnimation? LoadingAnimation;
+        /// <summary>
+        /// The padding of a free-form layout element.
+        /// </summary>
         public readonly string? Padding;
         /// <summary>
         /// The rendering rules that determine when an element should be displayed within a free-form layout.

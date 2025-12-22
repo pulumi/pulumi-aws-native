@@ -13,7 +13,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     public sealed class SpotFleetLaunchTemplateOverridesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Availability Zone in which to launch the instances.
+        /// The Availability Zone in which to launch the instances. For example, `us-east-2a` .
+        /// 
+        /// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }

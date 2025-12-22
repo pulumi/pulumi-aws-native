@@ -15,21 +15,36 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
     [AwsNativeResourceType("aws-native:observabilityadmin:TelemetryPipelines")]
     public partial class TelemetryPipelines : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the created telemetry pipeline.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
+        /// </summary>
         [Output("configuration")]
         public Output<Outputs.TelemetryPipelinesTelemetryPipelineConfiguration> Configuration { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the telemetry pipeline to create. The name must be unique within your account.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         [Output("pipeline")]
         public Output<Outputs.TelemetryPipelinesTelemetryPipeline> Pipeline { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the telemetry pipeline.
+        /// </summary>
         [Output("pipelineIdentifier")]
         public Output<string> PipelineIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The current status of the telemetry pipeline.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.ObservabilityAdmin.TelemetryPipelinesTelemetryPipelineStatus> Status { get; private set; } = null!;
 
@@ -91,9 +106,15 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
 
     public sealed class TelemetryPipelinesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
+        /// </summary>
         [Input("configuration", required: true)]
         public Input<Inputs.TelemetryPipelinesTelemetryPipelineConfigurationArgs> Configuration { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the telemetry pipeline to create. The name must be unique within your account.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

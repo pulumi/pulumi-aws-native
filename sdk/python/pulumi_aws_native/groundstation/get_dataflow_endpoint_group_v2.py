@@ -48,6 +48,9 @@ class GetDataflowEndpointGroupV2Result:
     @_builtins.property
     @pulumi.getter(name="endpointDetails")
     def endpoint_details(self) -> Optional[Sequence['outputs.DataflowEndpointGroupV2EndpointDetails']]:
+        """
+        Information about the endpoint details.
+        """
         return pulumi.get(self, "endpoint_details")
 
     @_builtins.property
@@ -58,6 +61,9 @@ class GetDataflowEndpointGroupV2Result:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        Tags assigned to a resource.
+        """
         return pulumi.get(self, "tags")
 
 

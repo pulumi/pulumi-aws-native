@@ -54,6 +54,9 @@ export class ExpressGatewayService extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     declare public /*out*/ readonly ecsManagedResourceArns: pulumi.Output<outputs.ecs.ExpressGatewayServiceEcsManagedResourceArns>;
+    /**
+     * The Endpoint of the express service.
+     */
     declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * The ARN of the task execution role for the service revision.

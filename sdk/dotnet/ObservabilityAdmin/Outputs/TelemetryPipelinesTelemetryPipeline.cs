@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// The configuration that defines how the telemetry pipeline processes data.
+        /// The configuration that defines how the telemetry pipeline processes data. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
         /// </summary>
         public readonly Outputs.TelemetryPipelinesTelemetryPipelineConfiguration? Configuration;
         /// <summary>

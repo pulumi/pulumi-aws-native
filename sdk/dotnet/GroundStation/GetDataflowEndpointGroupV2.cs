@@ -58,8 +58,14 @@ namespace Pulumi.AwsNative.GroundStation
     public sealed class GetDataflowEndpointGroupV2Result
     {
         public readonly string? Arn;
+        /// <summary>
+        /// Information about the endpoint details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataflowEndpointGroupV2EndpointDetails> EndpointDetails;
         public readonly string? Id;
+        /// <summary>
+        /// Tags assigned to a resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

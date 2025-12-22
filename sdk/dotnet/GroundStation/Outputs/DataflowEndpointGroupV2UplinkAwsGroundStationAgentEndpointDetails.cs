@@ -16,9 +16,21 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails
     {
+        /// <summary>
+        /// Status of the agent associated with the uplink dataflow endpoint
+        /// </summary>
         public readonly Pulumi.AwsNative.GroundStation.DataflowEndpointGroupV2AgentStatus? AgentStatus;
+        /// <summary>
+        /// Health audit results for the uplink dataflow endpoint
+        /// </summary>
         public readonly Pulumi.AwsNative.GroundStation.DataflowEndpointGroupV2AuditResults? AuditResults;
+        /// <summary>
+        /// Dataflow details for the uplink endpoint
+        /// </summary>
         public readonly Outputs.DataflowEndpointGroupV2UplinkDataflowDetails DataflowDetails;
+        /// <summary>
+        /// Uplink dataflow endpoint name
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

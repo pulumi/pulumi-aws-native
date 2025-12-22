@@ -1503,7 +1503,7 @@ class TelemetryPipelinesTelemetryPipeline(dict):
                  tags: Optional[Sequence['outputs.TelemetryPipelinesTag']] = None):
         """
         :param _builtins.str arn: The Amazon Resource Name (ARN) of the telemetry pipeline.
-        :param 'TelemetryPipelinesTelemetryPipelineConfiguration' configuration: The configuration that defines how the telemetry pipeline processes data.
+        :param 'TelemetryPipelinesTelemetryPipelineConfiguration' configuration: The configuration that defines how the telemetry pipeline processes data. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
         :param _builtins.float created_time_stamp: The timestamp when the telemetry pipeline was created.
         :param _builtins.float last_update_time_stamp: The timestamp when the telemetry pipeline was last updated.
         :param _builtins.str name: The name of the telemetry pipeline.
@@ -1540,7 +1540,7 @@ class TelemetryPipelinesTelemetryPipeline(dict):
     @pulumi.getter
     def configuration(self) -> Optional['outputs.TelemetryPipelinesTelemetryPipelineConfiguration']:
         """
-        The configuration that defines how the telemetry pipeline processes data.
+        The configuration that defines how the telemetry pipeline processes data. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
         """
         return pulumi.get(self, "configuration")
 

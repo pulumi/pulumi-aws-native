@@ -3602,7 +3602,7 @@ func (o TelemetryPipelinesTagArrayOutput) Index(i pulumi.IntInput) TelemetryPipe
 type TelemetryPipelinesTelemetryPipeline struct {
 	// The Amazon Resource Name (ARN) of the telemetry pipeline.
 	Arn *string `pulumi:"arn"`
-	// The configuration that defines how the telemetry pipeline processes data.
+	// The configuration that defines how the telemetry pipeline processes data. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
 	Configuration *TelemetryPipelinesTelemetryPipelineConfiguration `pulumi:"configuration"`
 	// The timestamp when the telemetry pipeline was created.
 	CreatedTimeStamp *float64 `pulumi:"createdTimeStamp"`
@@ -3637,7 +3637,7 @@ func (o TelemetryPipelinesTelemetryPipelineOutput) Arn() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v TelemetryPipelinesTelemetryPipeline) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// The configuration that defines how the telemetry pipeline processes data.
+// The configuration that defines how the telemetry pipeline processes data. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
 func (o TelemetryPipelinesTelemetryPipelineOutput) Configuration() TelemetryPipelinesTelemetryPipelineConfigurationPtrOutput {
 	return o.ApplyT(func(v TelemetryPipelinesTelemetryPipeline) *TelemetryPipelinesTelemetryPipelineConfiguration {
 		return v.Configuration
@@ -3712,7 +3712,7 @@ func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Arn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration that defines how the telemetry pipeline processes data.
+// The configuration that defines how the telemetry pipeline processes data. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
 func (o TelemetryPipelinesTelemetryPipelinePtrOutput) Configuration() TelemetryPipelinesTelemetryPipelineConfigurationPtrOutput {
 	return o.ApplyT(func(v *TelemetryPipelinesTelemetryPipeline) *TelemetryPipelinesTelemetryPipelineConfiguration {
 		if v == nil {

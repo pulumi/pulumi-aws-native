@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Lex.Inputs
 
     public sealed class BotUnifiedSpeechSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The foundation model configuration to use for unified speech processing capabilities.
+        /// </summary>
         [Input("speechFoundationModel", required: true)]
         public Input<Inputs.BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgs> SpeechFoundationModel { get; set; } = null!;
 

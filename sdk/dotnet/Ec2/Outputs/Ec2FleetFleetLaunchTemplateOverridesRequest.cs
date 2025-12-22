@@ -14,7 +14,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     public sealed class Ec2FleetFleetLaunchTemplateOverridesRequest
     {
         /// <summary>
-        /// The Availability Zone in which to launch the instances.
+        /// The Availability Zone in which to launch the instances. For example, `us-east-2a` .
+        /// 
+        /// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
         /// </summary>
         public readonly string? AvailabilityZone;
         /// <summary>

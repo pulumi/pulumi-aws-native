@@ -9697,6 +9697,169 @@ func (o TopicRuleAssetPropertyVariantOutput) StringValue() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v TopicRuleAssetPropertyVariant) *string { return v.StringValue }).(pulumi.StringPtrOutput)
 }
 
+type TopicRuleBatchConfig struct {
+	MaxBatchOpenMs    *int `pulumi:"maxBatchOpenMs"`
+	MaxBatchSize      *int `pulumi:"maxBatchSize"`
+	MaxBatchSizeBytes *int `pulumi:"maxBatchSizeBytes"`
+}
+
+// TopicRuleBatchConfigInput is an input type that accepts TopicRuleBatchConfigArgs and TopicRuleBatchConfigOutput values.
+// You can construct a concrete instance of `TopicRuleBatchConfigInput` via:
+//
+//	TopicRuleBatchConfigArgs{...}
+type TopicRuleBatchConfigInput interface {
+	pulumi.Input
+
+	ToTopicRuleBatchConfigOutput() TopicRuleBatchConfigOutput
+	ToTopicRuleBatchConfigOutputWithContext(context.Context) TopicRuleBatchConfigOutput
+}
+
+type TopicRuleBatchConfigArgs struct {
+	MaxBatchOpenMs    pulumi.IntPtrInput `pulumi:"maxBatchOpenMs"`
+	MaxBatchSize      pulumi.IntPtrInput `pulumi:"maxBatchSize"`
+	MaxBatchSizeBytes pulumi.IntPtrInput `pulumi:"maxBatchSizeBytes"`
+}
+
+func (TopicRuleBatchConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleBatchConfig)(nil)).Elem()
+}
+
+func (i TopicRuleBatchConfigArgs) ToTopicRuleBatchConfigOutput() TopicRuleBatchConfigOutput {
+	return i.ToTopicRuleBatchConfigOutputWithContext(context.Background())
+}
+
+func (i TopicRuleBatchConfigArgs) ToTopicRuleBatchConfigOutputWithContext(ctx context.Context) TopicRuleBatchConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleBatchConfigOutput)
+}
+
+func (i TopicRuleBatchConfigArgs) ToTopicRuleBatchConfigPtrOutput() TopicRuleBatchConfigPtrOutput {
+	return i.ToTopicRuleBatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleBatchConfigArgs) ToTopicRuleBatchConfigPtrOutputWithContext(ctx context.Context) TopicRuleBatchConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleBatchConfigOutput).ToTopicRuleBatchConfigPtrOutputWithContext(ctx)
+}
+
+// TopicRuleBatchConfigPtrInput is an input type that accepts TopicRuleBatchConfigArgs, TopicRuleBatchConfigPtr and TopicRuleBatchConfigPtrOutput values.
+// You can construct a concrete instance of `TopicRuleBatchConfigPtrInput` via:
+//
+//	        TopicRuleBatchConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TopicRuleBatchConfigPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleBatchConfigPtrOutput() TopicRuleBatchConfigPtrOutput
+	ToTopicRuleBatchConfigPtrOutputWithContext(context.Context) TopicRuleBatchConfigPtrOutput
+}
+
+type topicRuleBatchConfigPtrType TopicRuleBatchConfigArgs
+
+func TopicRuleBatchConfigPtr(v *TopicRuleBatchConfigArgs) TopicRuleBatchConfigPtrInput {
+	return (*topicRuleBatchConfigPtrType)(v)
+}
+
+func (*topicRuleBatchConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleBatchConfig)(nil)).Elem()
+}
+
+func (i *topicRuleBatchConfigPtrType) ToTopicRuleBatchConfigPtrOutput() TopicRuleBatchConfigPtrOutput {
+	return i.ToTopicRuleBatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleBatchConfigPtrType) ToTopicRuleBatchConfigPtrOutputWithContext(ctx context.Context) TopicRuleBatchConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleBatchConfigPtrOutput)
+}
+
+type TopicRuleBatchConfigOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleBatchConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleBatchConfig)(nil)).Elem()
+}
+
+func (o TopicRuleBatchConfigOutput) ToTopicRuleBatchConfigOutput() TopicRuleBatchConfigOutput {
+	return o
+}
+
+func (o TopicRuleBatchConfigOutput) ToTopicRuleBatchConfigOutputWithContext(ctx context.Context) TopicRuleBatchConfigOutput {
+	return o
+}
+
+func (o TopicRuleBatchConfigOutput) ToTopicRuleBatchConfigPtrOutput() TopicRuleBatchConfigPtrOutput {
+	return o.ToTopicRuleBatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleBatchConfigOutput) ToTopicRuleBatchConfigPtrOutputWithContext(ctx context.Context) TopicRuleBatchConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleBatchConfig) *TopicRuleBatchConfig {
+		return &v
+	}).(TopicRuleBatchConfigPtrOutput)
+}
+
+func (o TopicRuleBatchConfigOutput) MaxBatchOpenMs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TopicRuleBatchConfig) *int { return v.MaxBatchOpenMs }).(pulumi.IntPtrOutput)
+}
+
+func (o TopicRuleBatchConfigOutput) MaxBatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TopicRuleBatchConfig) *int { return v.MaxBatchSize }).(pulumi.IntPtrOutput)
+}
+
+func (o TopicRuleBatchConfigOutput) MaxBatchSizeBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TopicRuleBatchConfig) *int { return v.MaxBatchSizeBytes }).(pulumi.IntPtrOutput)
+}
+
+type TopicRuleBatchConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleBatchConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleBatchConfig)(nil)).Elem()
+}
+
+func (o TopicRuleBatchConfigPtrOutput) ToTopicRuleBatchConfigPtrOutput() TopicRuleBatchConfigPtrOutput {
+	return o
+}
+
+func (o TopicRuleBatchConfigPtrOutput) ToTopicRuleBatchConfigPtrOutputWithContext(ctx context.Context) TopicRuleBatchConfigPtrOutput {
+	return o
+}
+
+func (o TopicRuleBatchConfigPtrOutput) Elem() TopicRuleBatchConfigOutput {
+	return o.ApplyT(func(v *TopicRuleBatchConfig) TopicRuleBatchConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleBatchConfig
+		return ret
+	}).(TopicRuleBatchConfigOutput)
+}
+
+func (o TopicRuleBatchConfigPtrOutput) MaxBatchOpenMs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TopicRuleBatchConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxBatchOpenMs
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o TopicRuleBatchConfigPtrOutput) MaxBatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TopicRuleBatchConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxBatchSize
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o TopicRuleBatchConfigPtrOutput) MaxBatchSizeBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TopicRuleBatchConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxBatchSizeBytes
+	}).(pulumi.IntPtrOutput)
+}
+
 type TopicRuleCloudwatchAlarmAction struct {
 	// The CloudWatch alarm name.
 	AlarmName string `pulumi:"alarmName"`
@@ -11507,9 +11670,11 @@ func (o TopicRuleFirehoseActionPtrOutput) Separator() pulumi.StringPtrOutput {
 
 type TopicRuleHttpAction struct {
 	// The authentication method to use when sending data to an HTTPS endpoint.
-	Auth *TopicRuleHttpAuthorization `pulumi:"auth"`
+	Auth        *TopicRuleHttpAuthorization `pulumi:"auth"`
+	BatchConfig *TopicRuleBatchConfig       `pulumi:"batchConfig"`
 	// The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
 	ConfirmationUrl *string `pulumi:"confirmationUrl"`
+	EnableBatching  *bool   `pulumi:"enableBatching"`
 	// The HTTP headers to send with the message data.
 	Headers []TopicRuleHttpActionHeader `pulumi:"headers"`
 	// The endpoint URL. If substitution templates are used in the URL, you must also specify a `confirmationUrl` . If this is a new destination, a new `TopicRuleDestination` is created if possible.
@@ -11529,9 +11694,11 @@ type TopicRuleHttpActionInput interface {
 
 type TopicRuleHttpActionArgs struct {
 	// The authentication method to use when sending data to an HTTPS endpoint.
-	Auth TopicRuleHttpAuthorizationPtrInput `pulumi:"auth"`
+	Auth        TopicRuleHttpAuthorizationPtrInput `pulumi:"auth"`
+	BatchConfig TopicRuleBatchConfigPtrInput       `pulumi:"batchConfig"`
 	// The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
 	ConfirmationUrl pulumi.StringPtrInput `pulumi:"confirmationUrl"`
+	EnableBatching  pulumi.BoolPtrInput   `pulumi:"enableBatching"`
 	// The HTTP headers to send with the message data.
 	Headers TopicRuleHttpActionHeaderArrayInput `pulumi:"headers"`
 	// The endpoint URL. If substitution templates are used in the URL, you must also specify a `confirmationUrl` . If this is a new destination, a new `TopicRuleDestination` is created if possible.
@@ -11620,9 +11787,17 @@ func (o TopicRuleHttpActionOutput) Auth() TopicRuleHttpAuthorizationPtrOutput {
 	return o.ApplyT(func(v TopicRuleHttpAction) *TopicRuleHttpAuthorization { return v.Auth }).(TopicRuleHttpAuthorizationPtrOutput)
 }
 
+func (o TopicRuleHttpActionOutput) BatchConfig() TopicRuleBatchConfigPtrOutput {
+	return o.ApplyT(func(v TopicRuleHttpAction) *TopicRuleBatchConfig { return v.BatchConfig }).(TopicRuleBatchConfigPtrOutput)
+}
+
 // The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
 func (o TopicRuleHttpActionOutput) ConfirmationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleHttpAction) *string { return v.ConfirmationUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleHttpActionOutput) EnableBatching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicRuleHttpAction) *bool { return v.EnableBatching }).(pulumi.BoolPtrOutput)
 }
 
 // The HTTP headers to send with the message data.
@@ -11669,6 +11844,15 @@ func (o TopicRuleHttpActionPtrOutput) Auth() TopicRuleHttpAuthorizationPtrOutput
 	}).(TopicRuleHttpAuthorizationPtrOutput)
 }
 
+func (o TopicRuleHttpActionPtrOutput) BatchConfig() TopicRuleBatchConfigPtrOutput {
+	return o.ApplyT(func(v *TopicRuleHttpAction) *TopicRuleBatchConfig {
+		if v == nil {
+			return nil
+		}
+		return v.BatchConfig
+	}).(TopicRuleBatchConfigPtrOutput)
+}
+
 // The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
 func (o TopicRuleHttpActionPtrOutput) ConfirmationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleHttpAction) *string {
@@ -11677,6 +11861,15 @@ func (o TopicRuleHttpActionPtrOutput) ConfirmationUrl() pulumi.StringPtrOutput {
 		}
 		return v.ConfirmationUrl
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleHttpActionPtrOutput) EnableBatching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TopicRuleHttpAction) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableBatching
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The HTTP headers to send with the message data.
@@ -16317,6 +16510,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleAssetPropertyValueInput)(nil)).Elem(), TopicRuleAssetPropertyValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleAssetPropertyValueArrayInput)(nil)).Elem(), TopicRuleAssetPropertyValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleAssetPropertyVariantInput)(nil)).Elem(), TopicRuleAssetPropertyVariantArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleBatchConfigInput)(nil)).Elem(), TopicRuleBatchConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleBatchConfigPtrInput)(nil)).Elem(), TopicRuleBatchConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchAlarmActionInput)(nil)).Elem(), TopicRuleCloudwatchAlarmActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchAlarmActionPtrInput)(nil)).Elem(), TopicRuleCloudwatchAlarmActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchLogsActionInput)(nil)).Elem(), TopicRuleCloudwatchLogsActionArgs{})
@@ -16507,6 +16702,8 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleAssetPropertyValueOutput{})
 	pulumi.RegisterOutputType(TopicRuleAssetPropertyValueArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleAssetPropertyVariantOutput{})
+	pulumi.RegisterOutputType(TopicRuleBatchConfigOutput{})
+	pulumi.RegisterOutputType(TopicRuleBatchConfigPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleCloudwatchAlarmActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleCloudwatchAlarmActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleCloudwatchLogsActionOutput{})

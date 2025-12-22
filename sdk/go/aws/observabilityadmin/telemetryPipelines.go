@@ -17,13 +17,18 @@ import (
 type TelemetryPipelines struct {
 	pulumi.CustomResourceState
 
-	Arn                pulumi.StringOutput                                    `pulumi:"arn"`
-	Configuration      TelemetryPipelinesTelemetryPipelineConfigurationOutput `pulumi:"configuration"`
-	Name               pulumi.StringPtrOutput                                 `pulumi:"name"`
-	Pipeline           TelemetryPipelinesTelemetryPipelineOutput              `pulumi:"pipeline"`
-	PipelineIdentifier pulumi.StringOutput                                    `pulumi:"pipelineIdentifier"`
-	Status             TelemetryPipelinesTelemetryPipelineStatusOutput        `pulumi:"status"`
-	StatusReason       TelemetryPipelinesTelemetryPipelineStatusReasonOutput  `pulumi:"statusReason"`
+	// The Amazon Resource Name (ARN) of the created telemetry pipeline.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
+	Configuration TelemetryPipelinesTelemetryPipelineConfigurationOutput `pulumi:"configuration"`
+	// The name of the telemetry pipeline to create. The name must be unique within your account.
+	Name     pulumi.StringPtrOutput                    `pulumi:"name"`
+	Pipeline TelemetryPipelinesTelemetryPipelineOutput `pulumi:"pipeline"`
+	// The Amazon Resource Name (ARN) of the telemetry pipeline.
+	PipelineIdentifier pulumi.StringOutput `pulumi:"pipelineIdentifier"`
+	// The current status of the telemetry pipeline.
+	Status       TelemetryPipelinesTelemetryPipelineStatusOutput       `pulumi:"status"`
+	StatusReason TelemetryPipelinesTelemetryPipelineStatusReasonOutput `pulumi:"statusReason"`
 	// An array of key-value pairs to apply to this resource
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -75,16 +80,20 @@ func (TelemetryPipelinesState) ElementType() reflect.Type {
 }
 
 type telemetryPipelinesArgs struct {
+	// The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
 	Configuration TelemetryPipelinesTelemetryPipelineConfiguration `pulumi:"configuration"`
-	Name          *string                                          `pulumi:"name"`
+	// The name of the telemetry pipeline to create. The name must be unique within your account.
+	Name *string `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TelemetryPipelines resource.
 type TelemetryPipelinesArgs struct {
+	// The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
 	Configuration TelemetryPipelinesTelemetryPipelineConfigurationInput
-	Name          pulumi.StringPtrInput
+	// The name of the telemetry pipeline to create. The name must be unique within your account.
+	Name pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource
 	Tags aws.TagArrayInput
 }
@@ -126,16 +135,19 @@ func (o TelemetryPipelinesOutput) ToTelemetryPipelinesOutputWithContext(ctx cont
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the created telemetry pipeline.
 func (o TelemetryPipelinesOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TelemetryPipelines) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
 func (o TelemetryPipelinesOutput) Configuration() TelemetryPipelinesTelemetryPipelineConfigurationOutput {
 	return o.ApplyT(func(v *TelemetryPipelines) TelemetryPipelinesTelemetryPipelineConfigurationOutput {
 		return v.Configuration
 	}).(TelemetryPipelinesTelemetryPipelineConfigurationOutput)
 }
 
+// The name of the telemetry pipeline to create. The name must be unique within your account.
 func (o TelemetryPipelinesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TelemetryPipelines) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -144,10 +156,12 @@ func (o TelemetryPipelinesOutput) Pipeline() TelemetryPipelinesTelemetryPipeline
 	return o.ApplyT(func(v *TelemetryPipelines) TelemetryPipelinesTelemetryPipelineOutput { return v.Pipeline }).(TelemetryPipelinesTelemetryPipelineOutput)
 }
 
+// The Amazon Resource Name (ARN) of the telemetry pipeline.
 func (o TelemetryPipelinesOutput) PipelineIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *TelemetryPipelines) pulumi.StringOutput { return v.PipelineIdentifier }).(pulumi.StringOutput)
 }
 
+// The current status of the telemetry pipeline.
 func (o TelemetryPipelinesOutput) Status() TelemetryPipelinesTelemetryPipelineStatusOutput {
 	return o.ApplyT(func(v *TelemetryPipelines) TelemetryPipelinesTelemetryPipelineStatusOutput { return v.Status }).(TelemetryPipelinesTelemetryPipelineStatusOutput)
 }

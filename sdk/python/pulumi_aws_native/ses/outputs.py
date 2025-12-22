@@ -3182,12 +3182,16 @@ class MultiRegionEndpointDetails(dict):
                  route_details: Sequence['outputs.MultiRegionEndpointRouteDetailsItemProperties']):
         """
         Contains details of a multi-region endpoint (global-endpoint) being created.
+        :param Sequence['MultiRegionEndpointRouteDetailsItemProperties'] route_details: A list of route configuration details. Must contain exactly one route configuration.
         """
         pulumi.set(__self__, "route_details", route_details)
 
     @_builtins.property
     @pulumi.getter(name="routeDetails")
     def route_details(self) -> Sequence['outputs.MultiRegionEndpointRouteDetailsItemProperties']:
+        """
+        A list of route configuration details. Must contain exactly one route configuration.
+        """
         return pulumi.get(self, "route_details")
 
 

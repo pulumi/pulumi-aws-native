@@ -72,6 +72,9 @@ class GetExpressGatewayServiceResult:
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> Optional[_builtins.str]:
+        """
+        The Endpoint of the express service.
+        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property

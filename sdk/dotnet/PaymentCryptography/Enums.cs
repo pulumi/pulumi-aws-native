@@ -273,6 +273,7 @@ namespace Pulumi.AwsNative.PaymentCryptography
         public static KeyUsage Tr31k0KeyEncryptionKey { get; } = new KeyUsage("TR31_K0_KEY_ENCRYPTION_KEY");
         public static KeyUsage Tr31k1KeyBlockProtectionKey { get; } = new KeyUsage("TR31_K1_KEY_BLOCK_PROTECTION_KEY");
         public static KeyUsage Tr31k3AsymmetricKeyForKeyAgreement { get; } = new KeyUsage("TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT");
+        public static KeyUsage Tr31m0Iso16609MacKey { get; } = new KeyUsage("TR31_M0_ISO_16609_MAC_KEY");
         public static KeyUsage Tr31m3Iso97973MacKey { get; } = new KeyUsage("TR31_M3_ISO_9797_3_MAC_KEY");
         public static KeyUsage Tr31m1Iso97971MacKey { get; } = new KeyUsage("TR31_M1_ISO_9797_1_MAC_KEY");
         public static KeyUsage Tr31m6Iso97975CmacKey { get; } = new KeyUsage("TR31_M6_ISO_9797_5_CMAC_KEY");

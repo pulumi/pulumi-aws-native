@@ -34,6 +34,9 @@ export interface GetExpressGatewayServiceResult {
      */
     readonly createdAt?: string;
     readonly ecsManagedResourceArns?: outputs.ecs.ExpressGatewayServiceEcsManagedResourceArns;
+    /**
+     * The Endpoint of the express service.
+     */
     readonly endpoint?: string;
     /**
      * The ARN that identifies the Express service.

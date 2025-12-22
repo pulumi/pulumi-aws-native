@@ -28,10 +28,12 @@ type LookupDataflowEndpointGroupV2Args struct {
 }
 
 type LookupDataflowEndpointGroupV2Result struct {
-	Arn             *string                                  `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// Information about the endpoint details.
 	EndpointDetails []DataflowEndpointGroupV2EndpointDetails `pulumi:"endpointDetails"`
 	Id              *string                                  `pulumi:"id"`
-	Tags            []aws.Tag                                `pulumi:"tags"`
+	// Tags assigned to a resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDataflowEndpointGroupV2Output(ctx *pulumi.Context, args LookupDataflowEndpointGroupV2OutputArgs, opts ...pulumi.InvokeOption) LookupDataflowEndpointGroupV2ResultOutput {
@@ -69,6 +71,7 @@ func (o LookupDataflowEndpointGroupV2ResultOutput) Arn() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupDataflowEndpointGroupV2Result) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Information about the endpoint details.
 func (o LookupDataflowEndpointGroupV2ResultOutput) EndpointDetails() DataflowEndpointGroupV2EndpointDetailsArrayOutput {
 	return o.ApplyT(func(v LookupDataflowEndpointGroupV2Result) []DataflowEndpointGroupV2EndpointDetails {
 		return v.EndpointDetails
@@ -79,6 +82,7 @@ func (o LookupDataflowEndpointGroupV2ResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataflowEndpointGroupV2Result) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Tags assigned to a resource.
 func (o LookupDataflowEndpointGroupV2ResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDataflowEndpointGroupV2Result) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -2678,6 +2678,9 @@ if not MYPY:
         Defines the external invocation configuration of the flow module resource
         """
         enabled: pulumi.Input[_builtins.bool]
+        """
+        Enable external invocation.
+        """
 elif False:
     ExternalInvocationConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2687,12 +2690,16 @@ class ExternalInvocationConfigurationPropertiesArgs:
                  enabled: pulumi.Input[_builtins.bool]):
         """
         Defines the external invocation configuration of the flow module resource
+        :param pulumi.Input[_builtins.bool] enabled: Enable external invocation.
         """
         pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Enable external invocation.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter

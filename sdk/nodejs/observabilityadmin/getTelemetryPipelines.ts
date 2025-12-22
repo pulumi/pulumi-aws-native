@@ -18,14 +18,29 @@ export function getTelemetryPipelines(args: GetTelemetryPipelinesArgs, opts?: pu
 }
 
 export interface GetTelemetryPipelinesArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the telemetry pipeline.
+     */
     pipelineIdentifier: string;
 }
 
 export interface GetTelemetryPipelinesResult {
+    /**
+     * The Amazon Resource Name (ARN) of the created telemetry pipeline.
+     */
     readonly arn?: string;
+    /**
+     * The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
+     */
     readonly configuration?: outputs.observabilityadmin.TelemetryPipelinesTelemetryPipelineConfiguration;
     readonly pipeline?: outputs.observabilityadmin.TelemetryPipelinesTelemetryPipeline;
+    /**
+     * The Amazon Resource Name (ARN) of the telemetry pipeline.
+     */
     readonly pipelineIdentifier?: string;
+    /**
+     * The current status of the telemetry pipeline.
+     */
     readonly status?: enums.observabilityadmin.TelemetryPipelinesTelemetryPipelineStatus;
     readonly statusReason?: outputs.observabilityadmin.TelemetryPipelinesTelemetryPipelineStatusReason;
     /**
@@ -44,5 +59,8 @@ export function getTelemetryPipelinesOutput(args: GetTelemetryPipelinesOutputArg
 }
 
 export interface GetTelemetryPipelinesOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the telemetry pipeline.
+     */
     pipelineIdentifier: pulumi.Input<string>;
 }

@@ -26,7 +26,8 @@ type ExpressGatewayService struct {
 	// The Unix timestamp for when the Express service was created.
 	CreatedAt              pulumi.StringOutput                               `pulumi:"createdAt"`
 	EcsManagedResourceArns ExpressGatewayServiceEcsManagedResourceArnsOutput `pulumi:"ecsManagedResourceArns"`
-	Endpoint               pulumi.StringOutput                               `pulumi:"endpoint"`
+	// The Endpoint of the express service.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// The ARN of the task execution role for the service revision.
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
 	// The health check path for this service revision.
@@ -230,6 +231,7 @@ func (o ExpressGatewayServiceOutput) EcsManagedResourceArns() ExpressGatewayServ
 	}).(ExpressGatewayServiceEcsManagedResourceArnsOutput)
 }
 
+// The Endpoint of the express service.
 func (o ExpressGatewayServiceOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }

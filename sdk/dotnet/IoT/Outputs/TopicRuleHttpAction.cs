@@ -17,10 +17,12 @@ namespace Pulumi.AwsNative.IoT.Outputs
         /// The authentication method to use when sending data to an HTTPS endpoint.
         /// </summary>
         public readonly Outputs.TopicRuleHttpAuthorization? Auth;
+        public readonly Outputs.TopicRuleBatchConfig? BatchConfig;
         /// <summary>
         /// The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
         /// </summary>
         public readonly string? ConfirmationUrl;
+        public readonly bool? EnableBatching;
         /// <summary>
         /// The HTTP headers to send with the message data.
         /// </summary>
@@ -34,14 +36,20 @@ namespace Pulumi.AwsNative.IoT.Outputs
         private TopicRuleHttpAction(
             Outputs.TopicRuleHttpAuthorization? auth,
 
+            Outputs.TopicRuleBatchConfig? batchConfig,
+
             string? confirmationUrl,
+
+            bool? enableBatching,
 
             ImmutableArray<Outputs.TopicRuleHttpActionHeader> headers,
 
             string url)
         {
             Auth = auth;
+            BatchConfig = batchConfig;
             ConfirmationUrl = confirmationUrl;
+            EnableBatching = enableBatching;
             Headers = headers;
             Url = url;
         }

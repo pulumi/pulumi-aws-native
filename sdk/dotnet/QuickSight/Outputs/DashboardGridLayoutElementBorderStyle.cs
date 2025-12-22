@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGridLayoutElementBorderStyle
     {
+        /// <summary>
+        /// The border color of a grid layout element.
+        /// </summary>
         public readonly string? Color;
+        /// <summary>
+        /// The border visibility of a grid layout element.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? Visibility;
         /// <summary>
         /// String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)

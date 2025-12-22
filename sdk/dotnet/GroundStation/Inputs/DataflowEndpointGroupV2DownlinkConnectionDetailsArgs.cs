@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
     /// </summary>
     public sealed class DataflowEndpointGroupV2DownlinkConnectionDetailsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Agent IP and port address for the downlink connection.
+        /// </summary>
         [Input("agentIpAndPortAddress", required: true)]
         public Input<Inputs.DataflowEndpointGroupV2RangedConnectionDetailsArgs> AgentIpAndPortAddress { get; set; } = null!;
 
+        /// <summary>
+        /// Egress address and port for the downlink connection.
+        /// </summary>
         [Input("egressAddressAndPort", required: true)]
         public Input<Inputs.DataflowEndpointGroupV2ConnectionDetailsArgs> EgressAddressAndPort { get; set; } = null!;
 

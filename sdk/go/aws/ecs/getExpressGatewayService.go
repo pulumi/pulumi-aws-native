@@ -33,7 +33,8 @@ type LookupExpressGatewayServiceResult struct {
 	// The Unix timestamp for when the Express service was created.
 	CreatedAt              *string                                      `pulumi:"createdAt"`
 	EcsManagedResourceArns *ExpressGatewayServiceEcsManagedResourceArns `pulumi:"ecsManagedResourceArns"`
-	Endpoint               *string                                      `pulumi:"endpoint"`
+	// The Endpoint of the express service.
+	Endpoint *string `pulumi:"endpoint"`
 	// The ARN that identifies the Express service.
 	ServiceArn *string                      `pulumi:"serviceArn"`
 	Status     *ExpressGatewayServiceStatus `pulumi:"status"`
@@ -91,6 +92,7 @@ func (o LookupExpressGatewayServiceResultOutput) EcsManagedResourceArns() Expres
 	}).(ExpressGatewayServiceEcsManagedResourceArnsPtrOutput)
 }
 
+// The Endpoint of the express service.
 func (o LookupExpressGatewayServiceResultOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExpressGatewayServiceResult) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }

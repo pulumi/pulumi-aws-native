@@ -1414,7 +1414,9 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
                  subnet_id: Optional[_builtins.str] = None,
                  weighted_capacity: Optional[_builtins.float] = None):
         """
-        :param _builtins.str availability_zone: The Availability Zone in which to launch the instances.
+        :param _builtins.str availability_zone: The Availability Zone in which to launch the instances. For example, `us-east-2a` .
+               
+               Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
         :param Sequence['Ec2FleetBlockDeviceMapping'] block_device_mappings: The block device mappings, which define the EBS volumes and instance store volumes to attach to the instance at launch.
                
                Supported only for fleets of type `instant` .
@@ -1471,7 +1473,9 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[_builtins.str]:
         """
-        The Availability Zone in which to launch the instances.
+        The Availability Zone in which to launch the instances. For example, `us-east-2a` .
+
+        Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -13444,7 +13448,9 @@ class SpotFleetLaunchTemplateOverrides(dict):
                  subnet_id: Optional[_builtins.str] = None,
                  weighted_capacity: Optional[_builtins.float] = None):
         """
-        :param _builtins.str availability_zone: The Availability Zone in which to launch the instances.
+        :param _builtins.str availability_zone: The Availability Zone in which to launch the instances. For example, `us-east-2a` .
+               
+               Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
         :param 'SpotFleetInstanceRequirementsRequest' instance_requirements: The instance requirements. When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.
                
                > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
@@ -13485,7 +13491,9 @@ class SpotFleetLaunchTemplateOverrides(dict):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[_builtins.str]:
         """
-        The Availability Zone in which to launch the instances.
+        The Availability Zone in which to launch the instances. For example, `us-east-2a` .
+
+        Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
         """
         return pulumi.get(self, "availability_zone")
 

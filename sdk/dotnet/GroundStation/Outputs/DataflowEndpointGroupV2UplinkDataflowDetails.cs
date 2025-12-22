@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class DataflowEndpointGroupV2UplinkDataflowDetails
     {
+        /// <summary>
+        /// Uplink connection details for customer to Agent and Agent to Ground Station
+        /// </summary>
         public readonly Outputs.DataflowEndpointGroupV2UplinkConnectionDetails? AgentConnectionDetails;
 
         [OutputConstructor]
