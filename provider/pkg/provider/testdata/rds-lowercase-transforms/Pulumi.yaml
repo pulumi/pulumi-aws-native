@@ -1,0 +1,78 @@
+name: rds-lowercase-transforms
+runtime: yaml
+description: Test RDS DBCluster lowercase propertyTransforms
+
+config:
+  clusterSuffix:
+    type: string
+    default: "test"
+
+resources:
+  # Create a DB subnet group (required for Aurora)
+  dbSubnetGroup:
+    type: aws-native:rds:DbSubnetGroup
+    properties:
+      # Use UPPERCASE to test the $lowercase transform
+      dbSubnetGroupName: RDS-TRANSFORM-TEST-${clusterSuffix}
+      dbSubnetGroupDescription: Test subnet group for RDS propertyTransform testing
+      subnetIds:
+        - ${subnet1.id}
+        - ${subnet2.id}
+
+  # VPC for the RDS cluster
+  vpc:
+    type: aws-native:ec2:Vpc
+    properties:
+      cidrBlock: 10.0.0.0/16
+      enableDnsHostnames: true
+      enableDnsSupport: true
+
+  # Subnets in different AZs (required for Aurora)
+  subnet1:
+    type: aws-native:ec2:Subnet
+    properties:
+      vpcId: ${vpc.id}
+      cidrBlock: 10.0.1.0/24
+      availabilityZone: us-west-2a
+
+  subnet2:
+    type: aws-native:ec2:Subnet
+    properties:
+      vpcId: ${vpc.id}
+      cidrBlock: 10.0.2.0/24
+      availabilityZone: us-west-2b
+
+  # Aurora Serverless v2 cluster with UPPERCASE identifiers
+  # Note: engine must be lowercase (AWS requirement), but identifiers can be UPPERCASE
+  # AWS will normalize identifiers to lowercase, which propertyTransforms handle
+  dbCluster:
+    type: aws-native:rds:DbCluster
+    properties:
+      # Engine must be lowercase (AWS requirement)
+      engine: aurora-mysql
+      engineMode: provisioned
+      # Use UPPERCASE to test the $lowercase(DBClusterIdentifier) transform
+      # AWS will normalize this to lowercase
+      dbClusterIdentifier: RDS-TRANSFORM-CLUSTER-${clusterSuffix}
+      masterUsername: admin
+      manageMasterUserPassword: true
+      # dbSubnetGroupName comes from the subnet group output (already lowercase from AWS)
+      dbSubnetGroupName: ${dbSubnetGroup.dbSubnetGroupName}
+      serverlessV2ScalingConfiguration:
+        minCapacity: 0.5
+        maxCapacity: 2
+      # Note: AWS Native doesn't have skipFinalSnapshot - CloudFormation handles this differently
+      # deletionProtection defaults to false
+    options:
+      dependsOn:
+        - ${dbSubnetGroup}
+
+outputs:
+  # The engine should be returned lowercase by AWS
+  engine: ${dbCluster.engine}
+  # The cluster ID should be returned lowercase by AWS
+  dbClusterIdentifier: ${dbCluster.dbClusterIdentifier}
+  # The subnet group name should be returned lowercase by AWS
+  dbSubnetGroupName: ${dbSubnetGroup.dbSubnetGroupName}
+  # Full cluster for debugging
+  clusterArn: ${dbCluster.dbClusterArn}

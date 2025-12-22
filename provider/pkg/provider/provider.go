@@ -104,7 +104,8 @@ type cfnProvider struct {
 	forbiddenAccountIds []string
 	defaultTags         map[string]string
 
-	pulumiSchema []byte
+	pulumiSchema   []byte
+	transformCache *resources.TransformCache
 
 	cfn    *cloudformation.Client
 	ccc    client.CloudControlClient
@@ -127,12 +128,13 @@ func NewAwsNativeProvider(host *provider.HostClient, name, version string,
 	}
 
 	return &cfnProvider{
-		host:         host,
-		canceler:     makeCancellationContext(),
-		name:         name,
-		version:      version,
-		resourceMap:  resourceMap,
-		pulumiSchema: pulumiSchema,
+		host:           host,
+		canceler:       makeCancellationContext(),
+		name:           name,
+		version:        version,
+		resourceMap:    resourceMap,
+		pulumiSchema:   pulumiSchema,
+		transformCache: resources.NewTransformCache(),
 	}, nil
 }
 
@@ -841,6 +843,17 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 		return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_NONE}, nil
 	}
 
+	// Apply propertyTransform-based diff suppression for semantically equivalent values.
+	// This handles cases where AWS returns normalized values (e.g., lowercase identifiers,
+	// REPLICATING instead of DISABLED for EFS replication) that should not trigger updates.
+	resourceToken := string(urn.Type())
+	if spec, hasSpec := p.resourceMap.Resources[resourceToken]; hasSpec {
+		diff = resources.SuppressAWSManagedDiffs(resourceToken, &spec, diff, oldInputs, p.transformCache)
+		if diff == nil || (len(diff.Adds) == 0 && len(diff.Updates) == 0 && len(diff.Deletes) == 0) {
+			return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_NONE}, nil
+		}
+	}
+
 	return &pulumirpc.DiffResponse{
 		Changes:             pulumirpc.DiffResponse_DIFF_UNKNOWN,
 		DeleteBeforeReplace: true,
@@ -1062,7 +1075,7 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 			// 4. Suppress AWS-managed changes from the diff. This removes:
 			//    - aws:* prefixed tags that AWS adds automatically (users cannot manage these)
 			//    - Resource-specific state transitions (e.g., EFS replication protection)
-			diff = resources.SuppressAWSManagedDiffs(resourceToken, &spec, diff, inputs)
+			diff = resources.SuppressAWSManagedDiffs(resourceToken, &spec, diff, inputs, p.transformCache)
 			// 5. Apply this difference to the actual inputs (not a projection) that we have in state.
 			newInputs = resources.ApplyDiff(inputs, diff)
 		}
