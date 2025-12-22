@@ -9091,13 +9091,15 @@
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:groundstation:DataflowEndpointGroupV2CreateEndpointDetails"
-        }
+        },
+        "description": "List of endpoints for the dataflow endpoint group."
       },
       "tags": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
-        }
+        },
+        "description": "Tags assigned to a resource."
       }
     }
   },
