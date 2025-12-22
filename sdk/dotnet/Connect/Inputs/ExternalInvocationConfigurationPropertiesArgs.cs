@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class ExternalInvocationConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enable external invocation.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

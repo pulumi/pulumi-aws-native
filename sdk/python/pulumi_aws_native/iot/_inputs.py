@@ -132,6 +132,8 @@ __all__ = [
     'TopicRuleAssetPropertyValueArgsDict',
     'TopicRuleAssetPropertyVariantArgs',
     'TopicRuleAssetPropertyVariantArgsDict',
+    'TopicRuleBatchConfigArgs',
+    'TopicRuleBatchConfigArgsDict',
     'TopicRuleCloudwatchAlarmActionArgs',
     'TopicRuleCloudwatchAlarmActionArgsDict',
     'TopicRuleCloudwatchLogsActionArgs',
@@ -4281,6 +4283,55 @@ class TopicRuleAssetPropertyVariantArgs:
 
 
 if not MYPY:
+    class TopicRuleBatchConfigArgsDict(TypedDict):
+        max_batch_open_ms: NotRequired[pulumi.Input[_builtins.int]]
+        max_batch_size: NotRequired[pulumi.Input[_builtins.int]]
+        max_batch_size_bytes: NotRequired[pulumi.Input[_builtins.int]]
+elif False:
+    TopicRuleBatchConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TopicRuleBatchConfigArgs:
+    def __init__(__self__, *,
+                 max_batch_open_ms: Optional[pulumi.Input[_builtins.int]] = None,
+                 max_batch_size: Optional[pulumi.Input[_builtins.int]] = None,
+                 max_batch_size_bytes: Optional[pulumi.Input[_builtins.int]] = None):
+        if max_batch_open_ms is not None:
+            pulumi.set(__self__, "max_batch_open_ms", max_batch_open_ms)
+        if max_batch_size is not None:
+            pulumi.set(__self__, "max_batch_size", max_batch_size)
+        if max_batch_size_bytes is not None:
+            pulumi.set(__self__, "max_batch_size_bytes", max_batch_size_bytes)
+
+    @_builtins.property
+    @pulumi.getter(name="maxBatchOpenMs")
+    def max_batch_open_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "max_batch_open_ms")
+
+    @max_batch_open_ms.setter
+    def max_batch_open_ms(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_batch_open_ms", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxBatchSize")
+    def max_batch_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "max_batch_size")
+
+    @max_batch_size.setter
+    def max_batch_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_batch_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxBatchSizeBytes")
+    def max_batch_size_bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+        return pulumi.get(self, "max_batch_size_bytes")
+
+    @max_batch_size_bytes.setter
+    def max_batch_size_bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "max_batch_size_bytes", value)
+
+
+if not MYPY:
     class TopicRuleCloudwatchAlarmActionArgsDict(TypedDict):
         alarm_name: pulumi.Input[_builtins.str]
         """
@@ -5204,10 +5255,12 @@ if not MYPY:
         """
         The authentication method to use when sending data to an HTTPS endpoint.
         """
+        batch_config: NotRequired[pulumi.Input['TopicRuleBatchConfigArgsDict']]
         confirmation_url: NotRequired[pulumi.Input[_builtins.str]]
         """
         The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
         """
+        enable_batching: NotRequired[pulumi.Input[_builtins.bool]]
         headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpActionHeaderArgsDict']]]]
         """
         The HTTP headers to send with the message data.
@@ -5220,7 +5273,9 @@ class TopicRuleHttpActionArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[_builtins.str],
                  auth: Optional[pulumi.Input['TopicRuleHttpAuthorizationArgs']] = None,
+                 batch_config: Optional[pulumi.Input['TopicRuleBatchConfigArgs']] = None,
                  confirmation_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_batching: Optional[pulumi.Input[_builtins.bool]] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpActionHeaderArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] url: The endpoint URL. If substitution templates are used in the URL, you must also specify a `confirmationUrl` . If this is a new destination, a new `TopicRuleDestination` is created if possible.
@@ -5231,8 +5286,12 @@ class TopicRuleHttpActionArgs:
         pulumi.set(__self__, "url", url)
         if auth is not None:
             pulumi.set(__self__, "auth", auth)
+        if batch_config is not None:
+            pulumi.set(__self__, "batch_config", batch_config)
         if confirmation_url is not None:
             pulumi.set(__self__, "confirmation_url", confirmation_url)
+        if enable_batching is not None:
+            pulumi.set(__self__, "enable_batching", enable_batching)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
 
@@ -5261,6 +5320,15 @@ class TopicRuleHttpActionArgs:
         pulumi.set(self, "auth", value)
 
     @_builtins.property
+    @pulumi.getter(name="batchConfig")
+    def batch_config(self) -> Optional[pulumi.Input['TopicRuleBatchConfigArgs']]:
+        return pulumi.get(self, "batch_config")
+
+    @batch_config.setter
+    def batch_config(self, value: Optional[pulumi.Input['TopicRuleBatchConfigArgs']]):
+        pulumi.set(self, "batch_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="confirmationUrl")
     def confirmation_url(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -5271,6 +5339,15 @@ class TopicRuleHttpActionArgs:
     @confirmation_url.setter
     def confirmation_url(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "confirmation_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enableBatching")
+    def enable_batching(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "enable_batching")
+
+    @enable_batching.setter
+    def enable_batching(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enable_batching", value)
 
     @_builtins.property
     @pulumi.getter

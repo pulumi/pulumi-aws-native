@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
 
     public sealed class DataflowEndpointGroupV2CreateEndpointDetailsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Definition for a downlink agent endpoint
+        /// </summary>
         [Input("downlinkAwsGroundStationAgentEndpoint")]
         public Input<Inputs.DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointArgs>? DownlinkAwsGroundStationAgentEndpoint { get; set; }
 
+        /// <summary>
+        /// Definition for an uplink agent endpoint
+        /// </summary>
         [Input("uplinkAwsGroundStationAgentEndpoint")]
         public Input<Inputs.DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointArgs>? UplinkAwsGroundStationAgentEndpoint { get; set; }
 

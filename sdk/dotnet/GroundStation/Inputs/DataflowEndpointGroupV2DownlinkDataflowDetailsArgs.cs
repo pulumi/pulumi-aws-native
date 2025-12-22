@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
     /// </summary>
     public sealed class DataflowEndpointGroupV2DownlinkDataflowDetailsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Downlink connection details for customer to Agent and Agent to Ground Station
+        /// </summary>
         [Input("agentConnectionDetails")]
         public Input<Inputs.DataflowEndpointGroupV2DownlinkConnectionDetailsArgs>? AgentConnectionDetails { get; set; }
 

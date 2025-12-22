@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class DataflowEndpointGroupV2EndpointDetails
     {
+        /// <summary>
+        /// Definition for a downlink agent endpoint
+        /// </summary>
         public readonly Outputs.DataflowEndpointGroupV2DownlinkAwsGroundStationAgentEndpointDetails? DownlinkAwsGroundStationAgentEndpoint;
+        /// <summary>
+        /// Definition for an uplink agent endpoint
+        /// </summary>
         public readonly Outputs.DataflowEndpointGroupV2UplinkAwsGroundStationAgentEndpointDetails? UplinkAwsGroundStationAgentEndpoint;
 
         [OutputConstructor]

@@ -72,6 +72,9 @@ namespace Pulumi.AwsNative.Ecs
         /// </summary>
         public readonly string? CreatedAt;
         public readonly Outputs.ExpressGatewayServiceEcsManagedResourceArns? EcsManagedResourceArns;
+        /// <summary>
+        /// The Endpoint of the express service.
+        /// </summary>
         public readonly string? Endpoint;
         /// <summary>
         /// The ARN that identifies the Express service.

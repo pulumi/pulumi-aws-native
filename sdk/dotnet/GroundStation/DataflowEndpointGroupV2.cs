@@ -33,12 +33,21 @@ namespace Pulumi.AwsNative.GroundStation
         [Output("contactPrePassDurationSeconds")]
         public Output<int?> ContactPrePassDurationSeconds { get; private set; } = null!;
 
+        /// <summary>
+        /// Information about the endpoint details.
+        /// </summary>
         [Output("endpointDetails")]
         public Output<ImmutableArray<Outputs.DataflowEndpointGroupV2EndpointDetails>> EndpointDetails { get; private set; } = null!;
 
+        /// <summary>
+        /// List of endpoints for the dataflow endpoint group.
+        /// </summary>
         [Output("endpoints")]
         public Output<ImmutableArray<Outputs.DataflowEndpointGroupV2CreateEndpointDetails>> Endpoints { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags assigned to a resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -107,6 +116,10 @@ namespace Pulumi.AwsNative.GroundStation
 
         [Input("endpoints")]
         private InputList<Inputs.DataflowEndpointGroupV2CreateEndpointDetailsArgs>? _endpoints;
+
+        /// <summary>
+        /// List of endpoints for the dataflow endpoint group.
+        /// </summary>
         public InputList<Inputs.DataflowEndpointGroupV2CreateEndpointDetailsArgs> Endpoints
         {
             get => _endpoints ?? (_endpoints = new InputList<Inputs.DataflowEndpointGroupV2CreateEndpointDetailsArgs>());
@@ -115,6 +128,10 @@ namespace Pulumi.AwsNative.GroundStation
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// Tags assigned to a resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

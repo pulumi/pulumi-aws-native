@@ -37,11 +37,26 @@ export class TelemetryPipelines extends pulumi.CustomResource {
         return obj['__pulumiType'] === TelemetryPipelines.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the created telemetry pipeline.
+     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
+     */
     declare public readonly configuration: pulumi.Output<outputs.observabilityadmin.TelemetryPipelinesTelemetryPipelineConfiguration>;
+    /**
+     * The name of the telemetry pipeline to create. The name must be unique within your account.
+     */
     declare public readonly name: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly pipeline: pulumi.Output<outputs.observabilityadmin.TelemetryPipelinesTelemetryPipeline>;
+    /**
+     * The Amazon Resource Name (ARN) of the telemetry pipeline.
+     */
     declare public /*out*/ readonly pipelineIdentifier: pulumi.Output<string>;
+    /**
+     * The current status of the telemetry pipeline.
+     */
     declare public /*out*/ readonly status: pulumi.Output<enums.observabilityadmin.TelemetryPipelinesTelemetryPipelineStatus>;
     declare public /*out*/ readonly statusReason: pulumi.Output<outputs.observabilityadmin.TelemetryPipelinesTelemetryPipelineStatusReason>;
     /**
@@ -92,7 +107,13 @@ export class TelemetryPipelines extends pulumi.CustomResource {
  * The set of arguments for constructing a TelemetryPipelines resource.
  */
 export interface TelemetryPipelinesArgs {
+    /**
+     * The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
+     */
     configuration: pulumi.Input<inputs.observabilityadmin.TelemetryPipelinesTelemetryPipelineConfigurationArgs>;
+    /**
+     * The name of the telemetry pipeline to create. The name must be unique within your account.
+     */
     name?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource

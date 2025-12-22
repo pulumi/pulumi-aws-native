@@ -7948,6 +7948,7 @@ type MailManagerTrafficPolicyTag struct {
 
 // Contains details of a multi-region endpoint (global-endpoint) being created.
 type MultiRegionEndpointDetails struct {
+	// A list of route configuration details. Must contain exactly one route configuration.
 	RouteDetails []MultiRegionEndpointRouteDetailsItemProperties `pulumi:"routeDetails"`
 }
 
@@ -7964,6 +7965,7 @@ type MultiRegionEndpointDetailsInput interface {
 
 // Contains details of a multi-region endpoint (global-endpoint) being created.
 type MultiRegionEndpointDetailsArgs struct {
+	// A list of route configuration details. Must contain exactly one route configuration.
 	RouteDetails MultiRegionEndpointRouteDetailsItemPropertiesArrayInput `pulumi:"routeDetails"`
 }
 
@@ -7994,6 +7996,7 @@ func (o MultiRegionEndpointDetailsOutput) ToMultiRegionEndpointDetailsOutputWith
 	return o
 }
 
+// A list of route configuration details. Must contain exactly one route configuration.
 func (o MultiRegionEndpointDetailsOutput) RouteDetails() MultiRegionEndpointRouteDetailsItemPropertiesArrayOutput {
 	return o.ApplyT(func(v MultiRegionEndpointDetails) []MultiRegionEndpointRouteDetailsItemProperties {
 		return v.RouteDetails

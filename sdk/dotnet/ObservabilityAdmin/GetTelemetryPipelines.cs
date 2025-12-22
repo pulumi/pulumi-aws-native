@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
 
     public sealed class GetTelemetryPipelinesArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the telemetry pipeline.
+        /// </summary>
         [Input("pipelineIdentifier", required: true)]
         public string PipelineIdentifier { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
 
     public sealed class GetTelemetryPipelinesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the telemetry pipeline.
+        /// </summary>
         [Input("pipelineIdentifier", required: true)]
         public Input<string> PipelineIdentifier { get; set; } = null!;
 
@@ -57,10 +63,22 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
     [OutputType]
     public sealed class GetTelemetryPipelinesResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the created telemetry pipeline.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
+        /// </summary>
         public readonly Outputs.TelemetryPipelinesTelemetryPipelineConfiguration? Configuration;
         public readonly Outputs.TelemetryPipelinesTelemetryPipeline? Pipeline;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the telemetry pipeline.
+        /// </summary>
         public readonly string? PipelineIdentifier;
+        /// <summary>
+        /// The current status of the telemetry pipeline.
+        /// </summary>
         public readonly Pulumi.AwsNative.ObservabilityAdmin.TelemetryPipelinesTelemetryPipelineStatus? Status;
         public readonly Outputs.TelemetryPipelinesTelemetryPipelineStatusReason? StatusReason;
         /// <summary>

@@ -2165,12 +2165,16 @@ class ExternalInvocationConfigurationProperties(dict):
                  enabled: _builtins.bool):
         """
         Defines the external invocation configuration of the flow module resource
+        :param _builtins.bool enabled: Enable external invocation.
         """
         pulumi.set(__self__, "enabled", enabled)
 
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
+        """
+        Enable external invocation.
+        """
         return pulumi.get(self, "enabled")
 
 

@@ -23,8 +23,14 @@ export interface GetDataflowEndpointGroupV2Args {
 
 export interface GetDataflowEndpointGroupV2Result {
     readonly arn?: string;
+    /**
+     * Information about the endpoint details.
+     */
     readonly endpointDetails?: outputs.groundstation.DataflowEndpointGroupV2EndpointDetails[];
     readonly id?: string;
+    /**
+     * Tags assigned to a resource.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

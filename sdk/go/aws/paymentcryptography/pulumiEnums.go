@@ -1031,6 +1031,7 @@ const (
 	KeyUsageTr31k0KeyEncryptionKey                 = KeyUsage("TR31_K0_KEY_ENCRYPTION_KEY")
 	KeyUsageTr31k1KeyBlockProtectionKey            = KeyUsage("TR31_K1_KEY_BLOCK_PROTECTION_KEY")
 	KeyUsageTr31k3AsymmetricKeyForKeyAgreement     = KeyUsage("TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT")
+	KeyUsageTr31m0Iso16609MacKey                   = KeyUsage("TR31_M0_ISO_16609_MAC_KEY")
 	KeyUsageTr31m3Iso97973MacKey                   = KeyUsage("TR31_M3_ISO_9797_3_MAC_KEY")
 	KeyUsageTr31m1Iso97971MacKey                   = KeyUsage("TR31_M1_ISO_9797_1_MAC_KEY")
 	KeyUsageTr31m6Iso97975CmacKey                  = KeyUsage("TR31_M6_ISO_9797_5_CMAC_KEY")
@@ -1178,6 +1179,7 @@ func (o KeyUsagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 //	KeyUsageTr31k0KeyEncryptionKey
 //	KeyUsageTr31k1KeyBlockProtectionKey
 //	KeyUsageTr31k3AsymmetricKeyForKeyAgreement
+//	KeyUsageTr31m0Iso16609MacKey
 //	KeyUsageTr31m3Iso97973MacKey
 //	KeyUsageTr31m1Iso97971MacKey
 //	KeyUsageTr31m6Iso97975CmacKey

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Lex.Outputs
     [OutputType]
     public sealed class BotUnifiedSpeechSettings
     {
+        /// <summary>
+        /// The foundation model configuration to use for unified speech processing capabilities.
+        /// </summary>
         public readonly Outputs.BotUnifiedSpeechSettingsSpeechFoundationModelProperties SpeechFoundationModel;
 
         [OutputConstructor]

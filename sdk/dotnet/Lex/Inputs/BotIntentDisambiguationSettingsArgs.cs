@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Lex.Inputs
 
     public sealed class BotIntentDisambiguationSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Provides a custom message that will be displayed before presenting the disambiguation options to users. This message helps set the context for users and can be customized to match your bot's tone and brand. If not specified, a default message will be used.
+        /// </summary>
         [Input("customDisambiguationMessage")]
         public Input<string>? CustomDisambiguationMessage { get; set; }
 
+        /// <summary>
+        /// Determines whether the Intent Disambiguation feature is enabled. When set to `true` , Amazon Lex will present disambiguation options to users when multiple intents could match their input, with the default being `false` .
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the maximum number of intent options (2-5) to present to users when disambiguation is needed. This setting determines how many intent options will be shown to users when the system detects ambiguous input. The default value is 3.
+        /// </summary>
         [Input("maxDisambiguationIntents")]
         public Input<int>? MaxDisambiguationIntents { get; set; }
 

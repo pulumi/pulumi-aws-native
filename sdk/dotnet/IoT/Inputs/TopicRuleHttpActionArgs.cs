@@ -18,11 +18,17 @@ namespace Pulumi.AwsNative.IoT.Inputs
         [Input("auth")]
         public Input<Inputs.TopicRuleHttpAuthorizationArgs>? Auth { get; set; }
 
+        [Input("batchConfig")]
+        public Input<Inputs.TopicRuleBatchConfigArgs>? BatchConfig { get; set; }
+
         /// <summary>
         /// The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
         /// </summary>
         [Input("confirmationUrl")]
         public Input<string>? ConfirmationUrl { get; set; }
+
+        [Input("enableBatching")]
+        public Input<bool>? EnableBatching { get; set; }
 
         [Input("headers")]
         private InputList<Inputs.TopicRuleHttpActionHeaderArgs>? _headers;

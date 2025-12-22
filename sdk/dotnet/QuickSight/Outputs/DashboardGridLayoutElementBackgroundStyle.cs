@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGridLayoutElementBackgroundStyle
     {
+        /// <summary>
+        /// The background color of a grid layout element.
+        /// </summary>
         public readonly string? Color;
+        /// <summary>
+        /// The background visibility of a grid layout element.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? Visibility;
 
         [OutputConstructor]

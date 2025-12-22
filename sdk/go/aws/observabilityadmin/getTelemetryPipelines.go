@@ -24,16 +24,21 @@ func LookupTelemetryPipelines(ctx *pulumi.Context, args *LookupTelemetryPipeline
 }
 
 type LookupTelemetryPipelinesArgs struct {
+	// The Amazon Resource Name (ARN) of the telemetry pipeline.
 	PipelineIdentifier string `pulumi:"pipelineIdentifier"`
 }
 
 type LookupTelemetryPipelinesResult struct {
-	Arn                *string                                           `pulumi:"arn"`
-	Configuration      *TelemetryPipelinesTelemetryPipelineConfiguration `pulumi:"configuration"`
-	Pipeline           *TelemetryPipelinesTelemetryPipeline              `pulumi:"pipeline"`
-	PipelineIdentifier *string                                           `pulumi:"pipelineIdentifier"`
-	Status             *TelemetryPipelinesTelemetryPipelineStatus        `pulumi:"status"`
-	StatusReason       *TelemetryPipelinesTelemetryPipelineStatusReason  `pulumi:"statusReason"`
+	// The Amazon Resource Name (ARN) of the created telemetry pipeline.
+	Arn *string `pulumi:"arn"`
+	// The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
+	Configuration *TelemetryPipelinesTelemetryPipelineConfiguration `pulumi:"configuration"`
+	Pipeline      *TelemetryPipelinesTelemetryPipeline              `pulumi:"pipeline"`
+	// The Amazon Resource Name (ARN) of the telemetry pipeline.
+	PipelineIdentifier *string `pulumi:"pipelineIdentifier"`
+	// The current status of the telemetry pipeline.
+	Status       *TelemetryPipelinesTelemetryPipelineStatus       `pulumi:"status"`
+	StatusReason *TelemetryPipelinesTelemetryPipelineStatusReason `pulumi:"statusReason"`
 	// An array of key-value pairs to apply to this resource
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -48,6 +53,7 @@ func LookupTelemetryPipelinesOutput(ctx *pulumi.Context, args LookupTelemetryPip
 }
 
 type LookupTelemetryPipelinesOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the telemetry pipeline.
 	PipelineIdentifier pulumi.StringInput `pulumi:"pipelineIdentifier"`
 }
 
@@ -69,10 +75,12 @@ func (o LookupTelemetryPipelinesResultOutput) ToLookupTelemetryPipelinesResultOu
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the created telemetry pipeline.
 func (o LookupTelemetryPipelinesResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTelemetryPipelinesResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
 func (o LookupTelemetryPipelinesResultOutput) Configuration() TelemetryPipelinesTelemetryPipelineConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupTelemetryPipelinesResult) *TelemetryPipelinesTelemetryPipelineConfiguration {
 		return v.Configuration
@@ -83,10 +91,12 @@ func (o LookupTelemetryPipelinesResultOutput) Pipeline() TelemetryPipelinesTelem
 	return o.ApplyT(func(v LookupTelemetryPipelinesResult) *TelemetryPipelinesTelemetryPipeline { return v.Pipeline }).(TelemetryPipelinesTelemetryPipelinePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the telemetry pipeline.
 func (o LookupTelemetryPipelinesResultOutput) PipelineIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTelemetryPipelinesResult) *string { return v.PipelineIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The current status of the telemetry pipeline.
 func (o LookupTelemetryPipelinesResultOutput) Status() TelemetryPipelinesTelemetryPipelineStatusPtrOutput {
 	return o.ApplyT(func(v LookupTelemetryPipelinesResult) *TelemetryPipelinesTelemetryPipelineStatus { return v.Status }).(TelemetryPipelinesTelemetryPipelineStatusPtrOutput)
 }

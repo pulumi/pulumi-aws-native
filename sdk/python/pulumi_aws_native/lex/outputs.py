@@ -3163,6 +3163,11 @@ class BotIntentDisambiguationSettings(dict):
                  enabled: _builtins.bool,
                  custom_disambiguation_message: Optional[_builtins.str] = None,
                  max_disambiguation_intents: Optional[_builtins.int] = None):
+        """
+        :param _builtins.bool enabled: Determines whether the Intent Disambiguation feature is enabled. When set to `true` , Amazon Lex will present disambiguation options to users when multiple intents could match their input, with the default being `false` .
+        :param _builtins.str custom_disambiguation_message: Provides a custom message that will be displayed before presenting the disambiguation options to users. This message helps set the context for users and can be customized to match your bot's tone and brand. If not specified, a default message will be used.
+        :param _builtins.int max_disambiguation_intents: Specifies the maximum number of intent options (2-5) to present to users when disambiguation is needed. This setting determines how many intent options will be shown to users when the system detects ambiguous input. The default value is 3.
+        """
         pulumi.set(__self__, "enabled", enabled)
         if custom_disambiguation_message is not None:
             pulumi.set(__self__, "custom_disambiguation_message", custom_disambiguation_message)
@@ -3172,16 +3177,25 @@ class BotIntentDisambiguationSettings(dict):
     @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
+        """
+        Determines whether the Intent Disambiguation feature is enabled. When set to `true` , Amazon Lex will present disambiguation options to users when multiple intents could match their input, with the default being `false` .
+        """
         return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter(name="customDisambiguationMessage")
     def custom_disambiguation_message(self) -> Optional[_builtins.str]:
+        """
+        Provides a custom message that will be displayed before presenting the disambiguation options to users. This message helps set the context for users and can be customized to match your bot's tone and brand. If not specified, a default message will be used.
+        """
         return pulumi.get(self, "custom_disambiguation_message")
 
     @_builtins.property
     @pulumi.getter(name="maxDisambiguationIntents")
     def max_disambiguation_intents(self) -> Optional[_builtins.int]:
+        """
+        Specifies the maximum number of intent options (2-5) to present to users when disambiguation is needed. This setting determines how many intent options will be shown to users when the system detects ambiguous input. The default value is 3.
+        """
         return pulumi.get(self, "max_disambiguation_intents")
 
 
@@ -6165,16 +6179,25 @@ class BotUnifiedSpeechSettings(dict):
 
     def __init__(__self__, *,
                  speech_foundation_model: 'outputs.BotUnifiedSpeechSettingsSpeechFoundationModelProperties'):
+        """
+        :param 'BotUnifiedSpeechSettingsSpeechFoundationModelProperties' speech_foundation_model: The foundation model configuration to use for unified speech processing capabilities.
+        """
         pulumi.set(__self__, "speech_foundation_model", speech_foundation_model)
 
     @_builtins.property
     @pulumi.getter(name="speechFoundationModel")
     def speech_foundation_model(self) -> 'outputs.BotUnifiedSpeechSettingsSpeechFoundationModelProperties':
+        """
+        The foundation model configuration to use for unified speech processing capabilities.
+        """
         return pulumi.get(self, "speech_foundation_model")
 
 
 @pulumi.output_type
 class BotUnifiedSpeechSettingsSpeechFoundationModelProperties(dict):
+    """
+    The foundation model configuration to use for unified speech processing capabilities.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6197,6 +6220,9 @@ class BotUnifiedSpeechSettingsSpeechFoundationModelProperties(dict):
     def __init__(__self__, *,
                  model_arn: _builtins.str,
                  voice_id: Optional[_builtins.str] = None):
+        """
+        The foundation model configuration to use for unified speech processing capabilities.
+        """
         pulumi.set(__self__, "model_arn", model_arn)
         if voice_id is not None:
             pulumi.set(__self__, "voice_id", voice_id)

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGridLayoutElement
     {
+        /// <summary>
+        /// The background style configuration of a grid layout element.
+        /// </summary>
         public readonly Outputs.DashboardGridLayoutElementBackgroundStyle? BackgroundStyle;
+        /// <summary>
+        /// The border radius of a grid layout element.
+        /// </summary>
         public readonly string? BorderRadius;
+        /// <summary>
+        /// The border style configuration of a grid layout element.
+        /// </summary>
         public readonly Outputs.DashboardGridLayoutElementBorderStyle? BorderStyle;
         /// <summary>
         /// The column index for the upper left corner of an element.
@@ -33,6 +42,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardLayoutElementType ElementType;
         public readonly Outputs.DashboardLoadingAnimation? LoadingAnimation;
+        /// <summary>
+        /// The padding of a grid layout element.
+        /// </summary>
         public readonly string? Padding;
         /// <summary>
         /// The row index for the upper left corner of an element.
@@ -42,6 +54,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The height of a grid element expressed as a number of grid rows.
         /// </summary>
         public readonly double RowSpan;
+        /// <summary>
+        /// The border style configuration of a grid layout element. This border style is used when the element is selected.
+        /// </summary>
         public readonly Outputs.DashboardGridLayoutElementBorderStyle? SelectedBorderStyle;
 
         [OutputConstructor]

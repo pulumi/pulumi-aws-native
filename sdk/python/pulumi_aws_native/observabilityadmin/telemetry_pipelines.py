@@ -29,6 +29,8 @@ class TelemetryPipelinesArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TelemetryPipelines resource.
+        :param pulumi.Input['TelemetryPipelinesTelemetryPipelineConfigurationArgs'] configuration: The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
+        :param pulumi.Input[_builtins.str] name: The name of the telemetry pipeline to create. The name must be unique within your account.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource
         """
         pulumi.set(__self__, "configuration", configuration)
@@ -40,6 +42,9 @@ class TelemetryPipelinesArgs:
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> pulumi.Input['TelemetryPipelinesTelemetryPipelineConfigurationArgs']:
+        """
+        The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -49,6 +54,9 @@ class TelemetryPipelinesArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the telemetry pipeline to create. The name must be unique within your account.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -83,6 +91,8 @@ class TelemetryPipelines(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['TelemetryPipelinesTelemetryPipelineConfigurationArgs', 'TelemetryPipelinesTelemetryPipelineConfigurationArgsDict']] configuration: The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
+        :param pulumi.Input[_builtins.str] name: The name of the telemetry pipeline to create. The name must be unique within your account.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource
         """
         ...
@@ -168,16 +178,25 @@ class TelemetryPipelines(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the created telemetry pipeline.
+        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> pulumi.Output['outputs.TelemetryPipelinesTelemetryPipelineConfiguration']:
+        """
+        The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
+        """
         return pulumi.get(self, "configuration")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The name of the telemetry pipeline to create. The name must be unique within your account.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -188,11 +207,17 @@ class TelemetryPipelines(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="pipelineIdentifier")
     def pipeline_identifier(self) -> pulumi.Output[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the telemetry pipeline.
+        """
         return pulumi.get(self, "pipeline_identifier")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output['TelemetryPipelinesTelemetryPipelineStatus']:
+        """
+        The current status of the telemetry pipeline.
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property

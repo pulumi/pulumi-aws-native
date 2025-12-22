@@ -42,6 +42,9 @@ namespace Pulumi.AwsNative.Ecs
         [Output("ecsManagedResourceArns")]
         public Output<Outputs.ExpressGatewayServiceEcsManagedResourceArns> EcsManagedResourceArns { get; private set; } = null!;
 
+        /// <summary>
+        /// The Endpoint of the express service.
+        /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
 

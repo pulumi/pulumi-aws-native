@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class ExternalInvocationConfigurationProperties
     {
+        /// <summary>
+        /// Enable external invocation.
+        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

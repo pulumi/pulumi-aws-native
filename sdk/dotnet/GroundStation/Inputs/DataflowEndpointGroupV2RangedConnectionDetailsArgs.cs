@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         [Input("mtu")]
         public Input<int>? Mtu { get; set; }
 
+        /// <summary>
+        /// A ranged socket address.
+        /// </summary>
         [Input("socketAddress", required: true)]
         public Input<Inputs.DataflowEndpointGroupV2RangedSocketAddressArgs> SocketAddress { get; set; } = null!;
 

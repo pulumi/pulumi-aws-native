@@ -1709,7 +1709,9 @@ if not MYPY:
     class Ec2FleetFleetLaunchTemplateOverridesRequestArgsDict(TypedDict):
         availability_zone: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The Availability Zone in which to launch the instances.
+        The Availability Zone in which to launch the instances. For example, `us-east-2a` .
+
+        Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
         """
         block_device_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetBlockDeviceMappingArgsDict']]]]
         """
@@ -1783,7 +1785,9 @@ class Ec2FleetFleetLaunchTemplateOverridesRequestArgs:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  weighted_capacity: Optional[pulumi.Input[_builtins.float]] = None):
         """
-        :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to launch the instances.
+        :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to launch the instances. For example, `us-east-2a` .
+               
+               Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
         :param pulumi.Input[Sequence[pulumi.Input['Ec2FleetBlockDeviceMappingArgs']]] block_device_mappings: The block device mappings, which define the EBS volumes and instance store volumes to attach to the instance at launch.
                
                Supported only for fleets of type `instant` .
@@ -1840,7 +1844,9 @@ class Ec2FleetFleetLaunchTemplateOverridesRequestArgs:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Availability Zone in which to launch the instances.
+        The Availability Zone in which to launch the instances. For example, `us-east-2a` .
+
+        Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -14715,7 +14721,9 @@ if not MYPY:
     class SpotFleetLaunchTemplateOverridesArgsDict(TypedDict):
         availability_zone: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The Availability Zone in which to launch the instances.
+        The Availability Zone in which to launch the instances. For example, `us-east-2a` .
+
+        Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
         """
         instance_requirements: NotRequired[pulumi.Input['SpotFleetInstanceRequirementsRequestArgsDict']]
         """
@@ -14769,7 +14777,9 @@ class SpotFleetLaunchTemplateOverridesArgs:
                  subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  weighted_capacity: Optional[pulumi.Input[_builtins.float]] = None):
         """
-        :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to launch the instances.
+        :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone in which to launch the instances. For example, `us-east-2a` .
+               
+               Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
         :param pulumi.Input['SpotFleetInstanceRequirementsRequestArgs'] instance_requirements: The instance requirements. When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.
                
                > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
@@ -14810,7 +14820,9 @@ class SpotFleetLaunchTemplateOverridesArgs:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The Availability Zone in which to launch the instances.
+        The Availability Zone in which to launch the instances. For example, `us-east-2a` .
+
+        Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
         """
         return pulumi.get(self, "availability_zone")
 

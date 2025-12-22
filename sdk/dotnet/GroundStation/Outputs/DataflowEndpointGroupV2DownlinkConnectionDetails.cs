@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     [OutputType]
     public sealed class DataflowEndpointGroupV2DownlinkConnectionDetails
     {
+        /// <summary>
+        /// Agent IP and port address for the downlink connection.
+        /// </summary>
         public readonly Outputs.DataflowEndpointGroupV2RangedConnectionDetails AgentIpAndPortAddress;
+        /// <summary>
+        /// Egress address and port for the downlink connection.
+        /// </summary>
         public readonly Outputs.DataflowEndpointGroupV2ConnectionDetails EgressAddressAndPort;
 
         [OutputConstructor]

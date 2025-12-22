@@ -8427,9 +8427,12 @@ func (o BotIntentConfirmationSettingPtrOutput) PromptSpecification() BotPromptSp
 }
 
 type BotIntentDisambiguationSettings struct {
+	// Provides a custom message that will be displayed before presenting the disambiguation options to users. This message helps set the context for users and can be customized to match your bot's tone and brand. If not specified, a default message will be used.
 	CustomDisambiguationMessage *string `pulumi:"customDisambiguationMessage"`
-	Enabled                     bool    `pulumi:"enabled"`
-	MaxDisambiguationIntents    *int    `pulumi:"maxDisambiguationIntents"`
+	// Determines whether the Intent Disambiguation feature is enabled. When set to `true` , Amazon Lex will present disambiguation options to users when multiple intents could match their input, with the default being `false` .
+	Enabled bool `pulumi:"enabled"`
+	// Specifies the maximum number of intent options (2-5) to present to users when disambiguation is needed. This setting determines how many intent options will be shown to users when the system detects ambiguous input. The default value is 3.
+	MaxDisambiguationIntents *int `pulumi:"maxDisambiguationIntents"`
 }
 
 // BotIntentDisambiguationSettingsInput is an input type that accepts BotIntentDisambiguationSettingsArgs and BotIntentDisambiguationSettingsOutput values.
@@ -8444,9 +8447,12 @@ type BotIntentDisambiguationSettingsInput interface {
 }
 
 type BotIntentDisambiguationSettingsArgs struct {
+	// Provides a custom message that will be displayed before presenting the disambiguation options to users. This message helps set the context for users and can be customized to match your bot's tone and brand. If not specified, a default message will be used.
 	CustomDisambiguationMessage pulumi.StringPtrInput `pulumi:"customDisambiguationMessage"`
-	Enabled                     pulumi.BoolInput      `pulumi:"enabled"`
-	MaxDisambiguationIntents    pulumi.IntPtrInput    `pulumi:"maxDisambiguationIntents"`
+	// Determines whether the Intent Disambiguation feature is enabled. When set to `true` , Amazon Lex will present disambiguation options to users when multiple intents could match their input, with the default being `false` .
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Specifies the maximum number of intent options (2-5) to present to users when disambiguation is needed. This setting determines how many intent options will be shown to users when the system detects ambiguous input. The default value is 3.
+	MaxDisambiguationIntents pulumi.IntPtrInput `pulumi:"maxDisambiguationIntents"`
 }
 
 func (BotIntentDisambiguationSettingsArgs) ElementType() reflect.Type {
@@ -8526,14 +8532,17 @@ func (o BotIntentDisambiguationSettingsOutput) ToBotIntentDisambiguationSettings
 	}).(BotIntentDisambiguationSettingsPtrOutput)
 }
 
+// Provides a custom message that will be displayed before presenting the disambiguation options to users. This message helps set the context for users and can be customized to match your bot's tone and brand. If not specified, a default message will be used.
 func (o BotIntentDisambiguationSettingsOutput) CustomDisambiguationMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotIntentDisambiguationSettings) *string { return v.CustomDisambiguationMessage }).(pulumi.StringPtrOutput)
 }
 
+// Determines whether the Intent Disambiguation feature is enabled. When set to `true` , Amazon Lex will present disambiguation options to users when multiple intents could match their input, with the default being `false` .
 func (o BotIntentDisambiguationSettingsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BotIntentDisambiguationSettings) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Specifies the maximum number of intent options (2-5) to present to users when disambiguation is needed. This setting determines how many intent options will be shown to users when the system detects ambiguous input. The default value is 3.
 func (o BotIntentDisambiguationSettingsOutput) MaxDisambiguationIntents() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BotIntentDisambiguationSettings) *int { return v.MaxDisambiguationIntents }).(pulumi.IntPtrOutput)
 }
@@ -8562,6 +8571,7 @@ func (o BotIntentDisambiguationSettingsPtrOutput) Elem() BotIntentDisambiguation
 	}).(BotIntentDisambiguationSettingsOutput)
 }
 
+// Provides a custom message that will be displayed before presenting the disambiguation options to users. This message helps set the context for users and can be customized to match your bot's tone and brand. If not specified, a default message will be used.
 func (o BotIntentDisambiguationSettingsPtrOutput) CustomDisambiguationMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotIntentDisambiguationSettings) *string {
 		if v == nil {
@@ -8571,6 +8581,7 @@ func (o BotIntentDisambiguationSettingsPtrOutput) CustomDisambiguationMessage() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Determines whether the Intent Disambiguation feature is enabled. When set to `true` , Amazon Lex will present disambiguation options to users when multiple intents could match their input, with the default being `false` .
 func (o BotIntentDisambiguationSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BotIntentDisambiguationSettings) *bool {
 		if v == nil {
@@ -8580,6 +8591,7 @@ func (o BotIntentDisambiguationSettingsPtrOutput) Enabled() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the maximum number of intent options (2-5) to present to users when disambiguation is needed. This setting determines how many intent options will be shown to users when the system detects ambiguous input. The default value is 3.
 func (o BotIntentDisambiguationSettingsPtrOutput) MaxDisambiguationIntents() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BotIntentDisambiguationSettings) *int {
 		if v == nil {
@@ -16524,6 +16536,7 @@ func (o BotTextLogSettingArrayOutput) Index(i pulumi.IntInput) BotTextLogSetting
 }
 
 type BotUnifiedSpeechSettings struct {
+	// The foundation model configuration to use for unified speech processing capabilities.
 	SpeechFoundationModel BotUnifiedSpeechSettingsSpeechFoundationModelProperties `pulumi:"speechFoundationModel"`
 }
 
@@ -16539,6 +16552,7 @@ type BotUnifiedSpeechSettingsInput interface {
 }
 
 type BotUnifiedSpeechSettingsArgs struct {
+	// The foundation model configuration to use for unified speech processing capabilities.
 	SpeechFoundationModel BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesInput `pulumi:"speechFoundationModel"`
 }
 
@@ -16619,6 +16633,7 @@ func (o BotUnifiedSpeechSettingsOutput) ToBotUnifiedSpeechSettingsPtrOutputWithC
 	}).(BotUnifiedSpeechSettingsPtrOutput)
 }
 
+// The foundation model configuration to use for unified speech processing capabilities.
 func (o BotUnifiedSpeechSettingsOutput) SpeechFoundationModel() BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput {
 	return o.ApplyT(func(v BotUnifiedSpeechSettings) BotUnifiedSpeechSettingsSpeechFoundationModelProperties {
 		return v.SpeechFoundationModel
@@ -16649,6 +16664,7 @@ func (o BotUnifiedSpeechSettingsPtrOutput) Elem() BotUnifiedSpeechSettingsOutput
 	}).(BotUnifiedSpeechSettingsOutput)
 }
 
+// The foundation model configuration to use for unified speech processing capabilities.
 func (o BotUnifiedSpeechSettingsPtrOutput) SpeechFoundationModel() BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput {
 	return o.ApplyT(func(v *BotUnifiedSpeechSettings) *BotUnifiedSpeechSettingsSpeechFoundationModelProperties {
 		if v == nil {
@@ -16658,6 +16674,7 @@ func (o BotUnifiedSpeechSettingsPtrOutput) SpeechFoundationModel() BotUnifiedSpe
 	}).(BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput)
 }
 
+// The foundation model configuration to use for unified speech processing capabilities.
 type BotUnifiedSpeechSettingsSpeechFoundationModelProperties struct {
 	ModelArn string  `pulumi:"modelArn"`
 	VoiceId  *string `pulumi:"voiceId"`
@@ -16674,6 +16691,7 @@ type BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesInput interface {
 	ToBotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutputWithContext(context.Context) BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput
 }
 
+// The foundation model configuration to use for unified speech processing capabilities.
 type BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesArgs struct {
 	ModelArn pulumi.StringInput    `pulumi:"modelArn"`
 	VoiceId  pulumi.StringPtrInput `pulumi:"voiceId"`
@@ -16732,6 +16750,7 @@ func (i *botUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrType) ToBotUn
 	return pulumi.ToOutputWithContext(ctx, i).(BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesPtrOutput)
 }
 
+// The foundation model configuration to use for unified speech processing capabilities.
 type BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput struct{ *pulumi.OutputState }
 
 func (BotUnifiedSpeechSettingsSpeechFoundationModelPropertiesOutput) ElementType() reflect.Type {

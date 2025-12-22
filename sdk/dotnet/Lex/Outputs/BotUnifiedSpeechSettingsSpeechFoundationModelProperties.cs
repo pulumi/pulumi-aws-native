@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lex.Outputs
 {
 
+    /// <summary>
+    /// The foundation model configuration to use for unified speech processing capabilities.
+    /// </summary>
     [OutputType]
     public sealed class BotUnifiedSpeechSettingsSpeechFoundationModelProperties
     {

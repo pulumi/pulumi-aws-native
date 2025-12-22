@@ -52,11 +52,17 @@ class GetTelemetryPipelinesResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the created telemetry pipeline.
+        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter
     def configuration(self) -> Optional['outputs.TelemetryPipelinesTelemetryPipelineConfiguration']:
+        """
+        The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
+        """
         return pulumi.get(self, "configuration")
 
     @_builtins.property
@@ -67,11 +73,17 @@ class GetTelemetryPipelinesResult:
     @_builtins.property
     @pulumi.getter(name="pipelineIdentifier")
     def pipeline_identifier(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the telemetry pipeline.
+        """
         return pulumi.get(self, "pipeline_identifier")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional['TelemetryPipelinesTelemetryPipelineStatus']:
+        """
+        The current status of the telemetry pipeline.
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property
@@ -107,6 +119,9 @@ def get_telemetry_pipelines(pipeline_identifier: Optional[_builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTelemetryPipelinesResult:
     """
     Resource Type definition for AWS::ObservabilityAdmin::TelemetryPipelines
+
+
+    :param _builtins.str pipeline_identifier: The Amazon Resource Name (ARN) of the telemetry pipeline.
     """
     __args__ = dict()
     __args__['pipelineIdentifier'] = pipeline_identifier
@@ -125,6 +140,9 @@ def get_telemetry_pipelines_output(pipeline_identifier: Optional[pulumi.Input[_b
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTelemetryPipelinesResult]:
     """
     Resource Type definition for AWS::ObservabilityAdmin::TelemetryPipelines
+
+
+    :param _builtins.str pipeline_identifier: The Amazon Resource Name (ARN) of the telemetry pipeline.
     """
     __args__ = dict()
     __args__['pipelineIdentifier'] = pipeline_identifier

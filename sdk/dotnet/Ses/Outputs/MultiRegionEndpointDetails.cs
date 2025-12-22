@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Ses.Outputs
     [OutputType]
     public sealed class MultiRegionEndpointDetails
     {
+        /// <summary>
+        /// A list of route configuration details. Must contain exactly one route configuration.
+        /// </summary>
         public readonly ImmutableArray<Outputs.MultiRegionEndpointRouteDetailsItemProperties> RouteDetails;
 
         [OutputConstructor]
