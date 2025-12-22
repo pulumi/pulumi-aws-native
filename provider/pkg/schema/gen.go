@@ -856,6 +856,62 @@ func readPropSdkNames(resourceSpec *jsschema.Schema, listName string) codegen.St
 	return output
 }
 
+// readPropertyTransforms extracts propertyTransform specifications from CloudFormation schema.
+// These define JSONata expressions for normalizing property values during drift detection.
+//
+// CloudFormation paths like "/properties/SecurityGroupEgress/*/FromPort" are converted to
+// SDK paths like "securityGroupEgress/*/fromPort".
+func readPropertyTransforms(resourceSpec *jsschema.Schema) map[string]string {
+	if resourceSpec == nil {
+		return nil
+	}
+
+	propTransform, ok := resourceSpec.Extras["propertyTransform"]
+	if !ok {
+		return nil
+	}
+
+	transformMap, ok := propTransform.(map[string]interface{})
+	if !ok {
+		return nil
+	}
+
+	result := make(map[string]string, len(transformMap))
+	for cfnPath, expr := range transformMap {
+		exprStr, ok := expr.(string)
+		if !ok {
+			continue
+		}
+
+		// Convert CFN path to SDK path
+		// "/properties/SecurityGroupEgress/*/FromPort" -> "securityGroupEgress/*/fromPort"
+		sdkPath := cfnPathToSdkPath(cfnPath)
+		if sdkPath != "" {
+			result[sdkPath] = exprStr
+		}
+	}
+
+	if len(result) == 0 {
+		return nil
+	}
+	return result
+}
+
+// cfnPathToSdkPath converts a CloudFormation property path to SDK naming convention.
+// Input:  "/properties/SecurityGroupEgress/*/FromPort"
+// Output: "securityGroupEgress/*/fromPort"
+func cfnPathToSdkPath(cfnPath string) string {
+	// Remove /properties/ prefix
+	path := strings.TrimPrefix(cfnPath, "/properties/")
+	if path == cfnPath {
+		// Path didn't have expected prefix, skip it
+		return ""
+	}
+
+	// Use the ResourceProperty type which handles nested paths with / and /*/ delimiters
+	return ResourceProperty(path).ToSdkName()
+}
+
 // gatherResourceType builds the schema for the resource type in the context.
 func (ctx *cfSchemaContext) gatherResourceType() error {
 	resourceTypeName := typeName(ctx.cfTypeName)
@@ -945,19 +1001,20 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 	ctx.pkg.Resources[ctx.resourceToken] = resourceSpec
 
 	ctx.metadata.Resources[ctx.resourceToken] = metadata.CloudAPIResource{
-		CfType:            ctx.cfTypeName,
-		Inputs:            inputProperties,
-		Outputs:           properties,
-		CreateOnly:        createOnlyProperties.SortedValues(),
-		Required:          requiredInputs.SortedValues(),
-		AutoNamingSpec:    autoNamingSpec,
-		WriteOnly:         writeOnlyProperties.SortedValues(),
-		ReadOnly:          readPropSdkNames(ctx.resourceSpec, "readOnlyProperties").SortedValues(),
-		IrreversibleNames: irreversibleNames,
-		TagsProperty:      naming.ToSdkName(tagsProp),
-		TagsStyle:         tagsStyle,
-		PrimaryIdentifier: ctx.gatherResourcePrimaryIdentifier(),
-		ListHandlerSchema: ctx.gatherListHandlerSchema(),
+		CfType:             ctx.cfTypeName,
+		Inputs:             inputProperties,
+		Outputs:            properties,
+		CreateOnly:         createOnlyProperties.SortedValues(),
+		Required:           requiredInputs.SortedValues(),
+		AutoNamingSpec:     autoNamingSpec,
+		WriteOnly:          writeOnlyProperties.SortedValues(),
+		ReadOnly:           readPropSdkNames(ctx.resourceSpec, "readOnlyProperties").SortedValues(),
+		IrreversibleNames:  irreversibleNames,
+		TagsProperty:       naming.ToSdkName(tagsProp),
+		TagsStyle:          tagsStyle,
+		PrimaryIdentifier:  ctx.gatherResourcePrimaryIdentifier(),
+		ListHandlerSchema:  ctx.gatherListHandlerSchema(),
+		PropertyTransforms: readPropertyTransforms(ctx.resourceSpec),
 	}
 	return nil
 }
