@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     [OutputType]
     public sealed class AutoScalingGroupInstanceLifecyclePolicy
     {
+        /// <summary>
+        /// Specifies the conditions that trigger instance retention behavior. These triggers determine when instances should move to a `Retained` state instead of automatic termination. This allows you to maintain control over instance management when lifecycles transition and operations fail.
+        /// </summary>
         public readonly Outputs.AutoScalingGroupRetentionTriggers? RetentionTriggers;
 
         [OutputConstructor]

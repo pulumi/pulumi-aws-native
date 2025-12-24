@@ -48,7 +48,8 @@ type UserSettings struct {
 	// Specifies whether the user can upload files from the local device to the streaming session.
 	UploadAllowed UserSettingsEnabledTypeOutput `pulumi:"uploadAllowed"`
 	// The ARN of the user settings.
-	UserSettingsArn pulumi.StringOutput              `pulumi:"userSettingsArn"`
+	UserSettingsArn pulumi.StringOutput `pulumi:"userSettingsArn"`
+	// Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
 	WebAuthnAllowed UserSettingsEnabledTypePtrOutput `pulumi:"webAuthnAllowed"`
 }
 
@@ -134,7 +135,8 @@ type userSettingsArgs struct {
 	// The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
 	ToolbarConfiguration *UserSettingsToolbarConfiguration `pulumi:"toolbarConfiguration"`
 	// Specifies whether the user can upload files from the local device to the streaming session.
-	UploadAllowed   UserSettingsEnabledType  `pulumi:"uploadAllowed"`
+	UploadAllowed UserSettingsEnabledType `pulumi:"uploadAllowed"`
+	// Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
 	WebAuthnAllowed *UserSettingsEnabledType `pulumi:"webAuthnAllowed"`
 }
 
@@ -167,7 +169,8 @@ type UserSettingsArgs struct {
 	// The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
 	ToolbarConfiguration UserSettingsToolbarConfigurationPtrInput
 	// Specifies whether the user can upload files from the local device to the streaming session.
-	UploadAllowed   UserSettingsEnabledTypeInput
+	UploadAllowed UserSettingsEnabledTypeInput
+	// Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
 	WebAuthnAllowed UserSettingsEnabledTypePtrInput
 }
 
@@ -290,6 +293,7 @@ func (o UserSettingsOutput) UserSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserSettings) pulumi.StringOutput { return v.UserSettingsArn }).(pulumi.StringOutput)
 }
 
+// Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
 func (o UserSettingsOutput) WebAuthnAllowed() UserSettingsEnabledTypePtrOutput {
 	return o.ApplyT(func(v *UserSettings) UserSettingsEnabledTypePtrOutput { return v.WebAuthnAllowed }).(UserSettingsEnabledTypePtrOutput)
 }

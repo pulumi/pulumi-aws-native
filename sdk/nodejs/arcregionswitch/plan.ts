@@ -79,6 +79,7 @@ export class Plan extends pulumi.CustomResource {
      * The AWS Regions for a plan.
      */
     declare public readonly regions: pulumi.Output<string[]>;
+    declare public readonly reportConfiguration: pulumi.Output<outputs.arcregionswitch.PlanReportConfiguration | undefined>;
     declare public /*out*/ readonly route53HealthChecks: pulumi.Output<outputs.arcregionswitch.Route53HealthChecksProperties>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -125,6 +126,7 @@ export class Plan extends pulumi.CustomResource {
             resourceInputs["recoveryApproach"] = args?.recoveryApproach;
             resourceInputs["recoveryTimeObjectiveMinutes"] = args?.recoveryTimeObjectiveMinutes;
             resourceInputs["regions"] = args?.regions;
+            resourceInputs["reportConfiguration"] = args?.reportConfiguration;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["triggers"] = args?.triggers;
             resourceInputs["workflows"] = args?.workflows;
@@ -147,6 +149,7 @@ export class Plan extends pulumi.CustomResource {
             resourceInputs["recoveryApproach"] = undefined /*out*/;
             resourceInputs["recoveryTimeObjectiveMinutes"] = undefined /*out*/;
             resourceInputs["regions"] = undefined /*out*/;
+            resourceInputs["reportConfiguration"] = undefined /*out*/;
             resourceInputs["route53HealthChecks"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["triggers"] = undefined /*out*/;
@@ -196,6 +199,7 @@ export interface PlanArgs {
      * The AWS Regions for a plan.
      */
     regions: pulumi.Input<pulumi.Input<string>[]>;
+    reportConfiguration?: pulumi.Input<inputs.arcregionswitch.PlanReportConfigurationArgs>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The triggers for a plan.

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecr
 {
     /// <summary>
-    /// Resource Type definition for AWS::ECR::PullTimeUpdateExclusion controls the exclusion configuration for ecr image pull time update.
+    /// The ARN of the IAM principal to remove from the pull time update exclusion list.
     /// </summary>
     [AwsNativeResourceType("aws-native:ecr:PullTimeUpdateExclusion")]
     public partial class PullTimeUpdateExclusion : global::Pulumi.CustomResource

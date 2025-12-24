@@ -49,6 +49,9 @@ export class Domain extends pulumi.CustomResource {
      * The unique identifier of the Cases domain.
      */
     declare public /*out*/ readonly domainId: pulumi.Output<string>;
+    /**
+     * The status of the Cases domain.
+     */
     declare public /*out*/ readonly domainStatus: pulumi.Output<enums.cases.DomainStatus>;
     /**
      * The name for your Cases domain. It must be unique for your AWS account.

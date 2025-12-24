@@ -21,8 +21,9 @@ type Domain struct {
 	// The Amazon Resource Name (ARN) for the Cases domain.
 	DomainArn pulumi.StringOutput `pulumi:"domainArn"`
 	// The unique identifier of the Cases domain.
-	DomainId     pulumi.StringOutput `pulumi:"domainId"`
-	DomainStatus DomainStatusOutput  `pulumi:"domainStatus"`
+	DomainId pulumi.StringOutput `pulumi:"domainId"`
+	// The status of the Cases domain.
+	DomainStatus DomainStatusOutput `pulumi:"domainStatus"`
 	// The name for your Cases domain. It must be unique for your AWS account.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The tags that you attach to this domain.
@@ -139,6 +140,7 @@ func (o DomainOutput) DomainId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainId }).(pulumi.StringOutput)
 }
 
+// The status of the Cases domain.
 func (o DomainOutput) DomainStatus() DomainStatusOutput {
 	return o.ApplyT(func(v *Domain) DomainStatusOutput { return v.DomainStatus }).(DomainStatusOutput)
 }

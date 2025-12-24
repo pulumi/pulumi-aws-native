@@ -127,6 +127,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// The ARN of the user settings.
         /// </summary>
         public readonly string? UserSettingsArn;
+        /// <summary>
+        /// Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
+        /// </summary>
         public readonly Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? WebAuthnAllowed;
 
         [OutputConstructor]

@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Cases
         [Output("domainId")]
         public Output<string> DomainId { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the Cases domain.
+        /// </summary>
         [Output("domainStatus")]
         public Output<Pulumi.AwsNative.Cases.DomainStatus> DomainStatus { get; private set; } = null!;
 

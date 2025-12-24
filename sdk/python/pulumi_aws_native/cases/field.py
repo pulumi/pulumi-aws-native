@@ -29,9 +29,11 @@ class FieldArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Field resource.
+        :param pulumi.Input['FieldType'] type: Type of the field.
         :param pulumi.Input[_builtins.str] description: A description explaining the purpose and usage of this field in cases. Helps agents and administrators understand what information should be captured in this field.
         :param pulumi.Input[_builtins.str] domain_id: The unique identifier of the Cases domain.
         :param pulumi.Input[_builtins.str] name: The display name of the field as it appears to agents in the case interface. Should be descriptive and user-friendly (e.g., 'Customer Priority Level', 'Issue Category').
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "type", type)
         if description is not None:
@@ -46,6 +48,9 @@ class FieldArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input['FieldType']:
+        """
+        Type of the field.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -91,6 +96,9 @@ class FieldArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -118,6 +126,8 @@ class Field(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description explaining the purpose and usage of this field in cases. Helps agents and administrators understand what information should be captured in this field.
         :param pulumi.Input[_builtins.str] domain_id: The unique identifier of the Cases domain.
         :param pulumi.Input[_builtins.str] name: The display name of the field as it appears to agents in the case interface. Should be descriptive and user-friendly (e.g., 'Customer Priority Level', 'Issue Category').
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input['FieldType'] type: Type of the field.
         """
         ...
     @overload
@@ -272,10 +282,16 @@ class Field(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Output['FieldType']:
+        """
+        Type of the field.
+        """
         return pulumi.get(self, "type")
 

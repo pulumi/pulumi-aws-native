@@ -101,6 +101,9 @@ export class UserSettings extends pulumi.CustomResource {
      * The ARN of the user settings.
      */
     declare public /*out*/ readonly userSettingsArn: pulumi.Output<string>;
+    /**
+     * Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
+     */
     declare public readonly webAuthnAllowed: pulumi.Output<enums.workspacesweb.UserSettingsEnabledType | undefined>;
 
     /**
@@ -230,5 +233,8 @@ export interface UserSettingsArgs {
      * Specifies whether the user can upload files from the local device to the streaming session.
      */
     uploadAllowed: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType>;
+    /**
+     * Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
+     */
     webAuthnAllowed?: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType>;
 }

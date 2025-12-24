@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGatewayV2
 {
     /// <summary>
-    /// An example resource schema demonstrating some basic constructs and validation rules.
+    /// Resource Type definition for AWS::ApiGatewayV2::Integration
     /// </summary>
     [AwsNativeResourceType("aws-native:apigatewayv2:Integration")]
     public partial class Integration : global::Pulumi.CustomResource

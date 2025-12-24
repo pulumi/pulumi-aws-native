@@ -75,6 +75,9 @@ namespace Pulumi.AwsNative.Cases
         /// The unique identifier of the Cases domain.
         /// </summary>
         public readonly string? DomainId;
+        /// <summary>
+        /// The status of the Cases domain.
+        /// </summary>
         public readonly Pulumi.AwsNative.Cases.DomainStatus? DomainStatus;
         /// <summary>
         /// The tags that you attach to this domain.

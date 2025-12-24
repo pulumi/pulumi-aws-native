@@ -30,6 +30,7 @@ class CaseRuleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CaseRule resource.
+        :param pulumi.Input[Union['CaseRuleDetails0PropertiesArgs', 'CaseRuleDetails1PropertiesArgs']] rule: Represents what rule type should take place, under what conditions.
         :param pulumi.Input[_builtins.str] description: A description explaining the purpose and behavior of this case rule. Helps administrators understand when and why this rule applies to case fields.
         :param pulumi.Input[_builtins.str] domain_id: The unique identifier of the Cases domain.
         :param pulumi.Input[_builtins.str] name: A descriptive name for the case rule. Must be unique within the domain and should clearly indicate the rule's purpose (e.g., 'Priority Field Required for Urgent Cases').
@@ -48,6 +49,9 @@ class CaseRuleArgs:
     @_builtins.property
     @pulumi.getter
     def rule(self) -> pulumi.Input[Union['CaseRuleDetails0PropertiesArgs', 'CaseRuleDetails1PropertiesArgs']]:
+        """
+        Represents what rule type should take place, under what conditions.
+        """
         return pulumi.get(self, "rule")
 
     @rule.setter
@@ -123,6 +127,7 @@ class CaseRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description explaining the purpose and behavior of this case rule. Helps administrators understand when and why this rule applies to case fields.
         :param pulumi.Input[_builtins.str] domain_id: The unique identifier of the Cases domain.
         :param pulumi.Input[_builtins.str] name: A descriptive name for the case rule. Must be unique within the domain and should clearly indicate the rule's purpose (e.g., 'Priority Field Required for Urgent Cases').
+        :param pulumi.Input[Union[Union['CaseRuleDetails0PropertiesArgs', 'CaseRuleDetails0PropertiesArgsDict'], Union['CaseRuleDetails1PropertiesArgs', 'CaseRuleDetails1PropertiesArgsDict']]] rule: Represents what rule type should take place, under what conditions.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags that you attach to this case rule.
         """
         ...
@@ -268,6 +273,9 @@ class CaseRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def rule(self) -> pulumi.Output[Any]:
+        """
+        Represents what rule type should take place, under what conditions.
+        """
         return pulumi.get(self, "rule")
 
     @_builtins.property

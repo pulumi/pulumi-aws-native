@@ -111,6 +111,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         [Output("userSettingsArn")]
         public Output<string> UserSettingsArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
+        /// </summary>
         [Output("webAuthnAllowed")]
         public Output<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType?> WebAuthnAllowed { get; private set; } = null!;
 
@@ -255,6 +258,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         [Input("uploadAllowed", required: true)]
         public Input<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType> UploadAllowed { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
+        /// </summary>
         [Input("webAuthnAllowed")]
         public Input<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType>? WebAuthnAllowed { get; set; }
 

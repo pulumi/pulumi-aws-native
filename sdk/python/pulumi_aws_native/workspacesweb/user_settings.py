@@ -55,6 +55,7 @@ class UserSettingsArgs:
         :param pulumi.Input[_builtins.float] idle_disconnect_timeout_in_minutes: The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the user settings resource. A tag is a key-value pair.
         :param pulumi.Input['UserSettingsToolbarConfigurationArgs'] toolbar_configuration: The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
+        :param pulumi.Input['UserSettingsEnabledType'] web_authn_allowed: Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
         """
         pulumi.set(__self__, "copy_allowed", copy_allowed)
         pulumi.set(__self__, "download_allowed", download_allowed)
@@ -253,6 +254,9 @@ class UserSettingsArgs:
     @_builtins.property
     @pulumi.getter(name="webAuthnAllowed")
     def web_authn_allowed(self) -> Optional[pulumi.Input['UserSettingsEnabledType']]:
+        """
+        Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
+        """
         return pulumi.get(self, "web_authn_allowed")
 
     @web_authn_allowed.setter
@@ -301,6 +305,7 @@ class UserSettings(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the user settings resource. A tag is a key-value pair.
         :param pulumi.Input[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']] toolbar_configuration: The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
         :param pulumi.Input['UserSettingsEnabledType'] upload_allowed: Specifies whether the user can upload files from the local device to the streaming session.
+        :param pulumi.Input['UserSettingsEnabledType'] web_authn_allowed: Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
         """
         ...
     @overload
@@ -549,5 +554,8 @@ class UserSettings(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="webAuthnAllowed")
     def web_authn_allowed(self) -> pulumi.Output[Optional['UserSettingsEnabledType']]:
+        """
+        Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
+        """
         return pulumi.get(self, "web_authn_allowed")
 

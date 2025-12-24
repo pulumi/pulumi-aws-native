@@ -94,6 +94,9 @@ export interface GetAutoScalingGroupResult {
      *  Only specify ``EC2`` if you must clear a value that was previously set.
      */
     readonly healthCheckType?: string;
+    /**
+     * The instance lifecycle policy for the Auto Scaling group.
+     */
     readonly instanceLifecyclePolicy?: outputs.autoscaling.AutoScalingGroupInstanceLifecyclePolicy;
     /**
      * An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.

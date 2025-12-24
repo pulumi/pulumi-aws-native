@@ -115,6 +115,9 @@ export class AutoScalingGroup extends pulumi.CustomResource {
      *  If you specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``LaunchConfigurationName``, don't specify ``InstanceId``.
      */
     declare public readonly instanceId: pulumi.Output<string | undefined>;
+    /**
+     * The instance lifecycle policy for the Auto Scaling group.
+     */
     declare public readonly instanceLifecyclePolicy: pulumi.Output<outputs.autoscaling.AutoScalingGroupInstanceLifecyclePolicy | undefined>;
     /**
      * An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
@@ -380,6 +383,9 @@ export interface AutoScalingGroupArgs {
      *  If you specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``LaunchConfigurationName``, don't specify ``InstanceId``.
      */
     instanceId?: pulumi.Input<string>;
+    /**
+     * The instance lifecycle policy for the Auto Scaling group.
+     */
     instanceLifecyclePolicy?: pulumi.Input<inputs.autoscaling.AutoScalingGroupInstanceLifecyclePolicyArgs>;
     /**
      * An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
