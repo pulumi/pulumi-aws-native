@@ -168,7 +168,7 @@ jobs:
 
         git stash pop
 
-        git add sdk provider/cmd/aws-native/schema.json
+        git add sdk provider/cmd/pulumi-resource-aws-native/schema.json
 
         git reset sdk/python/*/pulumi-plugin.json \
             sdk/python/pyproject.toml \
@@ -331,7 +331,7 @@ jobs:
 
         git stash pop
 
-        git add sdk provider/cmd/aws-native/schema.json
+        git add sdk provider/cmd/pulumi-resource-aws-native/schema.json
 
         git reset sdk/python/*/pulumi-plugin.json \
             sdk/python/pyproject.toml \
