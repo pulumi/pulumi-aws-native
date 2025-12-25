@@ -21,6 +21,15 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
     /// </summary>
     public sealed class AutoScalingGroupLaunchTemplateOverridesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the Amazon Machine Image (AMI) to use for instances launched with this override. When using Instance Refresh with `ReplaceRootVolume` strategy, this specifies the AMI for root volume replacement operations.
+        /// 
+        /// For `ReplaceRootVolume` operations:
+        /// 
+        /// - All overrides in the `MixedInstancesPolicy` must specify an ImageId
+        /// - The AMI must contain only a single root volume
+        /// - Root volume replacement doesn't support multi-volume AMIs
+        /// </summary>
         [Input("imageId")]
         public Input<string>? ImageId { get; set; }
 

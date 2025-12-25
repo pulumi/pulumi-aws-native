@@ -325,7 +325,7 @@ class ExpressGatewayService(pulumi.CustomResource):
             __props__.__dict__["service_arn"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster", "infrastructureRoleArn", "scalingTarget", "serviceName", "tags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster", "infrastructureRoleArn", "serviceName", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ExpressGatewayService, __self__).__init__(
             'aws-native:ecs:ExpressGatewayService',

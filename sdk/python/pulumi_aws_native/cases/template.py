@@ -36,9 +36,11 @@ class TemplateArgs:
         The set of arguments for constructing a Template resource.
         :param pulumi.Input[_builtins.str] description: A description explaining the purpose and use case for this template. Should indicate what types of cases this template is designed for and any specific workflow it supports.
         :param pulumi.Input[_builtins.str] domain_id: The unique identifier of the Cases domain.
+        :param pulumi.Input['TemplateLayoutConfigurationArgs'] layout_configuration: Object to store configuration of layouts associated to the template.
         :param pulumi.Input[_builtins.str] name: A name for the template. It must be unique per domain.
         :param pulumi.Input[Sequence[pulumi.Input['TemplateRequiredFieldArgs']]] required_fields: A list of fields that must contain a value for a case to be successfully created with this template.
         :param pulumi.Input[Sequence[pulumi.Input['TemplateRuleArgs']]] rules: A list of case rules (also known as case field conditions) on a template.
+        :param pulumi.Input['TemplateStatus'] status: The status of the template.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags that you attach to this template.
         """
         if description is not None:
@@ -85,6 +87,9 @@ class TemplateArgs:
     @_builtins.property
     @pulumi.getter(name="layoutConfiguration")
     def layout_configuration(self) -> Optional[pulumi.Input['TemplateLayoutConfigurationArgs']]:
+        """
+        Object to store configuration of layouts associated to the template.
+        """
         return pulumi.get(self, "layout_configuration")
 
     @layout_configuration.setter
@@ -130,6 +135,9 @@ class TemplateArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input['TemplateStatus']]:
+        """
+        The status of the template.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -171,9 +179,11 @@ class Template(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description explaining the purpose and use case for this template. Should indicate what types of cases this template is designed for and any specific workflow it supports.
         :param pulumi.Input[_builtins.str] domain_id: The unique identifier of the Cases domain.
+        :param pulumi.Input[Union['TemplateLayoutConfigurationArgs', 'TemplateLayoutConfigurationArgsDict']] layout_configuration: Object to store configuration of layouts associated to the template.
         :param pulumi.Input[_builtins.str] name: A name for the template. It must be unique per domain.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TemplateRequiredFieldArgs', 'TemplateRequiredFieldArgsDict']]]] required_fields: A list of fields that must contain a value for a case to be successfully created with this template.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TemplateRuleArgs', 'TemplateRuleArgsDict']]]] rules: A list of case rules (also known as case field conditions) on a template.
+        :param pulumi.Input['TemplateStatus'] status: The status of the template.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags that you attach to this template.
         """
         ...
@@ -302,6 +312,9 @@ class Template(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="layoutConfiguration")
     def layout_configuration(self) -> pulumi.Output[Optional['outputs.TemplateLayoutConfiguration']]:
+        """
+        Object to store configuration of layouts associated to the template.
+        """
         return pulumi.get(self, "layout_configuration")
 
     @_builtins.property
@@ -331,6 +344,9 @@ class Template(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional['TemplateStatus']]:
+        """
+        The status of the template.
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property

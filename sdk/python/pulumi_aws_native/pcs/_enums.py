@@ -24,7 +24,7 @@ __all__ = [
 @pulumi.type_token("aws-native:pcs:ClusterAccountingMode")
 class ClusterAccountingMode(_builtins.str, Enum):
     """
-    The default value is `STANDARD`. A value of `STANDARD` means that Slurm accounting is enabled.
+    The default value is `NONE`. A value of `STANDARD` means that Slurm accounting is enabled.
     """
     STANDARD = "STANDARD"
     NONE = "NONE"
@@ -70,7 +70,7 @@ class ClusterSize(_builtins.str, Enum):
 @pulumi.type_token("aws-native:pcs:ClusterSlurmRestMode")
 class ClusterSlurmRestMode(_builtins.str, Enum):
     """
-    The default value is `STANDARD`. A value of `STANDARD` means that Slurm Rest is enabled.
+    The default value is `NONE`. A value of `STANDARD` means that Slurm Rest is enabled.
     """
     STANDARD = "STANDARD"
     NONE = "NONE"

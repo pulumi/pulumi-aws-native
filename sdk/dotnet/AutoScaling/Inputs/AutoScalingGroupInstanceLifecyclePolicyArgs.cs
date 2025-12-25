@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
 
     public sealed class AutoScalingGroupInstanceLifecyclePolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the conditions that trigger instance retention behavior. These triggers determine when instances should move to a `Retained` state instead of automatic termination. This allows you to maintain control over instance management when lifecycles transition and operations fail.
+        /// </summary>
         [Input("retentionTriggers")]
         public Input<Inputs.AutoScalingGroupRetentionTriggersArgs>? RetentionTriggers { get; set; }
 

@@ -38,6 +38,7 @@ type Plan struct {
 	RecoveryTimeObjectiveMinutes pulumi.Float64PtrOutput `pulumi:"recoveryTimeObjectiveMinutes"`
 	// The AWS Regions for a plan.
 	Regions             pulumi.StringArrayOutput            `pulumi:"regions"`
+	ReportConfiguration PlanReportConfigurationPtrOutput    `pulumi:"reportConfiguration"`
 	Route53HealthChecks Route53HealthChecksPropertiesOutput `pulumi:"route53HealthChecks"`
 	Tags                pulumi.StringMapOutput              `pulumi:"tags"`
 	// The triggers for a plan.
@@ -122,8 +123,9 @@ type planArgs struct {
 	// The recovery time objective for a plan.
 	RecoveryTimeObjectiveMinutes *float64 `pulumi:"recoveryTimeObjectiveMinutes"`
 	// The AWS Regions for a plan.
-	Regions []string          `pulumi:"regions"`
-	Tags    map[string]string `pulumi:"tags"`
+	Regions             []string                 `pulumi:"regions"`
+	ReportConfiguration *PlanReportConfiguration `pulumi:"reportConfiguration"`
+	Tags                map[string]string        `pulumi:"tags"`
 	// The triggers for a plan.
 	Triggers []PlanTrigger `pulumi:"triggers"`
 	// The workflows for a plan.
@@ -147,8 +149,9 @@ type PlanArgs struct {
 	// The recovery time objective for a plan.
 	RecoveryTimeObjectiveMinutes pulumi.Float64PtrInput
 	// The AWS Regions for a plan.
-	Regions pulumi.StringArrayInput
-	Tags    pulumi.StringMapInput
+	Regions             pulumi.StringArrayInput
+	ReportConfiguration PlanReportConfigurationPtrInput
+	Tags                pulumi.StringMapInput
 	// The triggers for a plan.
 	Triggers PlanTriggerArrayInput
 	// The workflows for a plan.
@@ -248,6 +251,10 @@ func (o PlanOutput) RecoveryTimeObjectiveMinutes() pulumi.Float64PtrOutput {
 // The AWS Regions for a plan.
 func (o PlanOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringArrayOutput { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+func (o PlanOutput) ReportConfiguration() PlanReportConfigurationPtrOutput {
+	return o.ApplyT(func(v *Plan) PlanReportConfigurationPtrOutput { return v.ReportConfiguration }).(PlanReportConfigurationPtrOutput)
 }
 
 func (o PlanOutput) Route53HealthChecks() Route53HealthChecksPropertiesOutput {

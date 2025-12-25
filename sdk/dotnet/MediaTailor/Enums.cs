@@ -240,6 +240,68 @@ namespace Pulumi.AwsNative.MediaTailor
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The compression type of the request sent to the Ad Decision Server URL. Only the POST HTTP Method permits compression other than NONE.
+    /// </summary>
+    [EnumType]
+    public readonly struct PlaybackConfigurationHttpRequestCompressRequest : IEquatable<PlaybackConfigurationHttpRequestCompressRequest>
+    {
+        private readonly string _value;
+
+        private PlaybackConfigurationHttpRequestCompressRequest(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PlaybackConfigurationHttpRequestCompressRequest None { get; } = new PlaybackConfigurationHttpRequestCompressRequest("NONE");
+        public static PlaybackConfigurationHttpRequestCompressRequest Gzip { get; } = new PlaybackConfigurationHttpRequestCompressRequest("GZIP");
+
+        public static bool operator ==(PlaybackConfigurationHttpRequestCompressRequest left, PlaybackConfigurationHttpRequestCompressRequest right) => left.Equals(right);
+        public static bool operator !=(PlaybackConfigurationHttpRequestCompressRequest left, PlaybackConfigurationHttpRequestCompressRequest right) => !left.Equals(right);
+
+        public static explicit operator string(PlaybackConfigurationHttpRequestCompressRequest value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlaybackConfigurationHttpRequestCompressRequest other && Equals(other);
+        public bool Equals(PlaybackConfigurationHttpRequestCompressRequest other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Supported HTTP Methods for the request to the Ad Decision Server URL.
+    /// </summary>
+    [EnumType]
+    public readonly struct PlaybackConfigurationHttpRequestHttpMethod : IEquatable<PlaybackConfigurationHttpRequestHttpMethod>
+    {
+        private readonly string _value;
+
+        private PlaybackConfigurationHttpRequestHttpMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PlaybackConfigurationHttpRequestHttpMethod Get { get; } = new PlaybackConfigurationHttpRequestHttpMethod("GET");
+        public static PlaybackConfigurationHttpRequestHttpMethod Post { get; } = new PlaybackConfigurationHttpRequestHttpMethod("POST");
+
+        public static bool operator ==(PlaybackConfigurationHttpRequestHttpMethod left, PlaybackConfigurationHttpRequestHttpMethod right) => left.Equals(right);
+        public static bool operator !=(PlaybackConfigurationHttpRequestHttpMethod left, PlaybackConfigurationHttpRequestHttpMethod right) => !left.Equals(right);
+
+        public static explicit operator string(PlaybackConfigurationHttpRequestHttpMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlaybackConfigurationHttpRequestHttpMethod other && Equals(other);
+        public bool Equals(PlaybackConfigurationHttpRequestHttpMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct PlaybackConfigurationInsertionMode : IEquatable<PlaybackConfigurationInsertionMode>
     {

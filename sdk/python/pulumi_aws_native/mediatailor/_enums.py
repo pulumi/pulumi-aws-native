@@ -15,6 +15,8 @@ __all__ = [
     'PlaybackConfigurationAvailSuppressionFillPolicy',
     'PlaybackConfigurationAvailSuppressionMode',
     'PlaybackConfigurationDashConfigurationOriginManifestType',
+    'PlaybackConfigurationHttpRequestCompressRequest',
+    'PlaybackConfigurationHttpRequestHttpMethod',
     'PlaybackConfigurationInsertionMode',
     'PlaybackConfigurationStreamingMediaFileConditioning',
     'SourceLocationAccessType',
@@ -77,6 +79,24 @@ class PlaybackConfigurationDashConfigurationOriginManifestType(_builtins.str, En
     """
     SINGLE_PERIOD = "SINGLE_PERIOD"
     MULTI_PERIOD = "MULTI_PERIOD"
+
+
+@pulumi.type_token("aws-native:mediatailor:PlaybackConfigurationHttpRequestCompressRequest")
+class PlaybackConfigurationHttpRequestCompressRequest(_builtins.str, Enum):
+    """
+    The compression type of the request sent to the Ad Decision Server URL. Only the POST HTTP Method permits compression other than NONE.
+    """
+    NONE = "NONE"
+    GZIP = "GZIP"
+
+
+@pulumi.type_token("aws-native:mediatailor:PlaybackConfigurationHttpRequestHttpMethod")
+class PlaybackConfigurationHttpRequestHttpMethod(_builtins.str, Enum):
+    """
+    Supported HTTP Methods for the request to the Ad Decision Server URL.
+    """
+    GET = "GET"
+    POST = "POST"
 
 
 @pulumi.type_token("aws-native:mediatailor:PlaybackConfigurationInsertionMode")

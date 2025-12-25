@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The default value is `STANDARD`. A value of `STANDARD` means that Slurm accounting is enabled.
+// The default value is `NONE`. A value of `STANDARD` means that Slurm accounting is enabled.
 type ClusterAccountingMode string
 
 const (
@@ -608,7 +608,7 @@ func (in *clusterSizePtr) ToClusterSizePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterSizePtrOutput)
 }
 
-// The default value is `STANDARD`. A value of `STANDARD` means that Slurm Rest is enabled.
+// The default value is `NONE`. A value of `STANDARD` means that Slurm Rest is enabled.
 type ClusterSlurmRestMode string
 
 const (

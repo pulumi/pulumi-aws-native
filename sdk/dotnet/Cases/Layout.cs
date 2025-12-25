@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Cases
     [AwsNativeResourceType("aws-native:cases:Layout")]
     public partial class Layout : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Object to store union of different versions of layout content.
+        /// </summary>
         [Output("content")]
         public Output<Outputs.LayoutContentProperties> Content { get; private set; } = null!;
 
@@ -54,6 +57,9 @@ namespace Pulumi.AwsNative.Cases
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -106,6 +112,9 @@ namespace Pulumi.AwsNative.Cases
 
     public sealed class LayoutArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Object to store union of different versions of layout content.
+        /// </summary>
         [Input("content", required: true)]
         public Input<Inputs.LayoutContentPropertiesArgs> Content { get; set; } = null!;
 
@@ -123,6 +132,10 @@ namespace Pulumi.AwsNative.Cases
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

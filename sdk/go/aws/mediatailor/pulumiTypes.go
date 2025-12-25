@@ -1205,6 +1205,144 @@ func (o PlaybackConfigurationAdConditioningConfigurationPtrOutput) StreamingMedi
 	}).(PlaybackConfigurationStreamingMediaFileConditioningPtrOutput)
 }
 
+// The configuration for the request to the specified Ad Decision Server URL.
+type PlaybackConfigurationAdDecisionServerConfiguration struct {
+	HttpRequest PlaybackConfigurationHttpRequest `pulumi:"httpRequest"`
+}
+
+// PlaybackConfigurationAdDecisionServerConfigurationInput is an input type that accepts PlaybackConfigurationAdDecisionServerConfigurationArgs and PlaybackConfigurationAdDecisionServerConfigurationOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationAdDecisionServerConfigurationInput` via:
+//
+//	PlaybackConfigurationAdDecisionServerConfigurationArgs{...}
+type PlaybackConfigurationAdDecisionServerConfigurationInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationAdDecisionServerConfigurationOutput() PlaybackConfigurationAdDecisionServerConfigurationOutput
+	ToPlaybackConfigurationAdDecisionServerConfigurationOutputWithContext(context.Context) PlaybackConfigurationAdDecisionServerConfigurationOutput
+}
+
+// The configuration for the request to the specified Ad Decision Server URL.
+type PlaybackConfigurationAdDecisionServerConfigurationArgs struct {
+	HttpRequest PlaybackConfigurationHttpRequestInput `pulumi:"httpRequest"`
+}
+
+func (PlaybackConfigurationAdDecisionServerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationAdDecisionServerConfiguration)(nil)).Elem()
+}
+
+func (i PlaybackConfigurationAdDecisionServerConfigurationArgs) ToPlaybackConfigurationAdDecisionServerConfigurationOutput() PlaybackConfigurationAdDecisionServerConfigurationOutput {
+	return i.ToPlaybackConfigurationAdDecisionServerConfigurationOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationAdDecisionServerConfigurationArgs) ToPlaybackConfigurationAdDecisionServerConfigurationOutputWithContext(ctx context.Context) PlaybackConfigurationAdDecisionServerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAdDecisionServerConfigurationOutput)
+}
+
+func (i PlaybackConfigurationAdDecisionServerConfigurationArgs) ToPlaybackConfigurationAdDecisionServerConfigurationPtrOutput() PlaybackConfigurationAdDecisionServerConfigurationPtrOutput {
+	return i.ToPlaybackConfigurationAdDecisionServerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationAdDecisionServerConfigurationArgs) ToPlaybackConfigurationAdDecisionServerConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdDecisionServerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAdDecisionServerConfigurationOutput).ToPlaybackConfigurationAdDecisionServerConfigurationPtrOutputWithContext(ctx)
+}
+
+// PlaybackConfigurationAdDecisionServerConfigurationPtrInput is an input type that accepts PlaybackConfigurationAdDecisionServerConfigurationArgs, PlaybackConfigurationAdDecisionServerConfigurationPtr and PlaybackConfigurationAdDecisionServerConfigurationPtrOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationAdDecisionServerConfigurationPtrInput` via:
+//
+//	        PlaybackConfigurationAdDecisionServerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlaybackConfigurationAdDecisionServerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationAdDecisionServerConfigurationPtrOutput() PlaybackConfigurationAdDecisionServerConfigurationPtrOutput
+	ToPlaybackConfigurationAdDecisionServerConfigurationPtrOutputWithContext(context.Context) PlaybackConfigurationAdDecisionServerConfigurationPtrOutput
+}
+
+type playbackConfigurationAdDecisionServerConfigurationPtrType PlaybackConfigurationAdDecisionServerConfigurationArgs
+
+func PlaybackConfigurationAdDecisionServerConfigurationPtr(v *PlaybackConfigurationAdDecisionServerConfigurationArgs) PlaybackConfigurationAdDecisionServerConfigurationPtrInput {
+	return (*playbackConfigurationAdDecisionServerConfigurationPtrType)(v)
+}
+
+func (*playbackConfigurationAdDecisionServerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationAdDecisionServerConfiguration)(nil)).Elem()
+}
+
+func (i *playbackConfigurationAdDecisionServerConfigurationPtrType) ToPlaybackConfigurationAdDecisionServerConfigurationPtrOutput() PlaybackConfigurationAdDecisionServerConfigurationPtrOutput {
+	return i.ToPlaybackConfigurationAdDecisionServerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *playbackConfigurationAdDecisionServerConfigurationPtrType) ToPlaybackConfigurationAdDecisionServerConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdDecisionServerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationAdDecisionServerConfigurationPtrOutput)
+}
+
+// The configuration for the request to the specified Ad Decision Server URL.
+type PlaybackConfigurationAdDecisionServerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationAdDecisionServerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationAdDecisionServerConfiguration)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationAdDecisionServerConfigurationOutput) ToPlaybackConfigurationAdDecisionServerConfigurationOutput() PlaybackConfigurationAdDecisionServerConfigurationOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAdDecisionServerConfigurationOutput) ToPlaybackConfigurationAdDecisionServerConfigurationOutputWithContext(ctx context.Context) PlaybackConfigurationAdDecisionServerConfigurationOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAdDecisionServerConfigurationOutput) ToPlaybackConfigurationAdDecisionServerConfigurationPtrOutput() PlaybackConfigurationAdDecisionServerConfigurationPtrOutput {
+	return o.ToPlaybackConfigurationAdDecisionServerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationAdDecisionServerConfigurationOutput) ToPlaybackConfigurationAdDecisionServerConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdDecisionServerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationAdDecisionServerConfiguration) *PlaybackConfigurationAdDecisionServerConfiguration {
+		return &v
+	}).(PlaybackConfigurationAdDecisionServerConfigurationPtrOutput)
+}
+
+func (o PlaybackConfigurationAdDecisionServerConfigurationOutput) HttpRequest() PlaybackConfigurationHttpRequestOutput {
+	return o.ApplyT(func(v PlaybackConfigurationAdDecisionServerConfiguration) PlaybackConfigurationHttpRequest {
+		return v.HttpRequest
+	}).(PlaybackConfigurationHttpRequestOutput)
+}
+
+type PlaybackConfigurationAdDecisionServerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationAdDecisionServerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationAdDecisionServerConfiguration)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationAdDecisionServerConfigurationPtrOutput) ToPlaybackConfigurationAdDecisionServerConfigurationPtrOutput() PlaybackConfigurationAdDecisionServerConfigurationPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAdDecisionServerConfigurationPtrOutput) ToPlaybackConfigurationAdDecisionServerConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAdDecisionServerConfigurationPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAdDecisionServerConfigurationPtrOutput) Elem() PlaybackConfigurationAdDecisionServerConfigurationOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationAdDecisionServerConfiguration) PlaybackConfigurationAdDecisionServerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationAdDecisionServerConfiguration
+		return ret
+	}).(PlaybackConfigurationAdDecisionServerConfigurationOutput)
+}
+
+func (o PlaybackConfigurationAdDecisionServerConfigurationPtrOutput) HttpRequest() PlaybackConfigurationHttpRequestPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationAdDecisionServerConfiguration) *PlaybackConfigurationHttpRequest {
+		if v == nil {
+			return nil
+		}
+		return &v.HttpRequest
+	}).(PlaybackConfigurationHttpRequestPtrOutput)
+}
+
 // For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
 type PlaybackConfigurationAdMarkerPassthrough struct {
 	// Enables ad marker passthrough for your configuration.
@@ -2316,6 +2454,203 @@ func (o PlaybackConfigurationHlsConfigurationPtrOutput) ManifestEndpointPrefix()
 		}
 		return v.ManifestEndpointPrefix
 	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration for the request to the Ad Decision Server URL.
+type PlaybackConfigurationHttpRequest struct {
+	// The body of the request to the Ad Decision Server URL. The maximum length is 100,000 characters.
+	Body *string `pulumi:"body"`
+	// The compression type of the request sent to the Ad Decision Server URL. Only the POST HTTP Method permits compression other than NONE.
+	CompressRequest *PlaybackConfigurationHttpRequestCompressRequest `pulumi:"compressRequest"`
+	Headers         map[string]string                                `pulumi:"headers"`
+	// Supported HTTP Methods for the request to the Ad Decision Server URL.
+	HttpMethod *PlaybackConfigurationHttpRequestHttpMethod `pulumi:"httpMethod"`
+}
+
+// PlaybackConfigurationHttpRequestInput is an input type that accepts PlaybackConfigurationHttpRequestArgs and PlaybackConfigurationHttpRequestOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationHttpRequestInput` via:
+//
+//	PlaybackConfigurationHttpRequestArgs{...}
+type PlaybackConfigurationHttpRequestInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationHttpRequestOutput() PlaybackConfigurationHttpRequestOutput
+	ToPlaybackConfigurationHttpRequestOutputWithContext(context.Context) PlaybackConfigurationHttpRequestOutput
+}
+
+// The configuration for the request to the Ad Decision Server URL.
+type PlaybackConfigurationHttpRequestArgs struct {
+	// The body of the request to the Ad Decision Server URL. The maximum length is 100,000 characters.
+	Body pulumi.StringPtrInput `pulumi:"body"`
+	// The compression type of the request sent to the Ad Decision Server URL. Only the POST HTTP Method permits compression other than NONE.
+	CompressRequest PlaybackConfigurationHttpRequestCompressRequestPtrInput `pulumi:"compressRequest"`
+	Headers         pulumi.StringMapInput                                   `pulumi:"headers"`
+	// Supported HTTP Methods for the request to the Ad Decision Server URL.
+	HttpMethod PlaybackConfigurationHttpRequestHttpMethodPtrInput `pulumi:"httpMethod"`
+}
+
+func (PlaybackConfigurationHttpRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationHttpRequest)(nil)).Elem()
+}
+
+func (i PlaybackConfigurationHttpRequestArgs) ToPlaybackConfigurationHttpRequestOutput() PlaybackConfigurationHttpRequestOutput {
+	return i.ToPlaybackConfigurationHttpRequestOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationHttpRequestArgs) ToPlaybackConfigurationHttpRequestOutputWithContext(ctx context.Context) PlaybackConfigurationHttpRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationHttpRequestOutput)
+}
+
+func (i PlaybackConfigurationHttpRequestArgs) ToPlaybackConfigurationHttpRequestPtrOutput() PlaybackConfigurationHttpRequestPtrOutput {
+	return i.ToPlaybackConfigurationHttpRequestPtrOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationHttpRequestArgs) ToPlaybackConfigurationHttpRequestPtrOutputWithContext(ctx context.Context) PlaybackConfigurationHttpRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationHttpRequestOutput).ToPlaybackConfigurationHttpRequestPtrOutputWithContext(ctx)
+}
+
+// PlaybackConfigurationHttpRequestPtrInput is an input type that accepts PlaybackConfigurationHttpRequestArgs, PlaybackConfigurationHttpRequestPtr and PlaybackConfigurationHttpRequestPtrOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationHttpRequestPtrInput` via:
+//
+//	        PlaybackConfigurationHttpRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlaybackConfigurationHttpRequestPtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationHttpRequestPtrOutput() PlaybackConfigurationHttpRequestPtrOutput
+	ToPlaybackConfigurationHttpRequestPtrOutputWithContext(context.Context) PlaybackConfigurationHttpRequestPtrOutput
+}
+
+type playbackConfigurationHttpRequestPtrType PlaybackConfigurationHttpRequestArgs
+
+func PlaybackConfigurationHttpRequestPtr(v *PlaybackConfigurationHttpRequestArgs) PlaybackConfigurationHttpRequestPtrInput {
+	return (*playbackConfigurationHttpRequestPtrType)(v)
+}
+
+func (*playbackConfigurationHttpRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationHttpRequest)(nil)).Elem()
+}
+
+func (i *playbackConfigurationHttpRequestPtrType) ToPlaybackConfigurationHttpRequestPtrOutput() PlaybackConfigurationHttpRequestPtrOutput {
+	return i.ToPlaybackConfigurationHttpRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *playbackConfigurationHttpRequestPtrType) ToPlaybackConfigurationHttpRequestPtrOutputWithContext(ctx context.Context) PlaybackConfigurationHttpRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationHttpRequestPtrOutput)
+}
+
+// The configuration for the request to the Ad Decision Server URL.
+type PlaybackConfigurationHttpRequestOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationHttpRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationHttpRequest)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationHttpRequestOutput) ToPlaybackConfigurationHttpRequestOutput() PlaybackConfigurationHttpRequestOutput {
+	return o
+}
+
+func (o PlaybackConfigurationHttpRequestOutput) ToPlaybackConfigurationHttpRequestOutputWithContext(ctx context.Context) PlaybackConfigurationHttpRequestOutput {
+	return o
+}
+
+func (o PlaybackConfigurationHttpRequestOutput) ToPlaybackConfigurationHttpRequestPtrOutput() PlaybackConfigurationHttpRequestPtrOutput {
+	return o.ToPlaybackConfigurationHttpRequestPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationHttpRequestOutput) ToPlaybackConfigurationHttpRequestPtrOutputWithContext(ctx context.Context) PlaybackConfigurationHttpRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationHttpRequest) *PlaybackConfigurationHttpRequest {
+		return &v
+	}).(PlaybackConfigurationHttpRequestPtrOutput)
+}
+
+// The body of the request to the Ad Decision Server URL. The maximum length is 100,000 characters.
+func (o PlaybackConfigurationHttpRequestOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlaybackConfigurationHttpRequest) *string { return v.Body }).(pulumi.StringPtrOutput)
+}
+
+// The compression type of the request sent to the Ad Decision Server URL. Only the POST HTTP Method permits compression other than NONE.
+func (o PlaybackConfigurationHttpRequestOutput) CompressRequest() PlaybackConfigurationHttpRequestCompressRequestPtrOutput {
+	return o.ApplyT(func(v PlaybackConfigurationHttpRequest) *PlaybackConfigurationHttpRequestCompressRequest {
+		return v.CompressRequest
+	}).(PlaybackConfigurationHttpRequestCompressRequestPtrOutput)
+}
+
+func (o PlaybackConfigurationHttpRequestOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlaybackConfigurationHttpRequest) map[string]string { return v.Headers }).(pulumi.StringMapOutput)
+}
+
+// Supported HTTP Methods for the request to the Ad Decision Server URL.
+func (o PlaybackConfigurationHttpRequestOutput) HttpMethod() PlaybackConfigurationHttpRequestHttpMethodPtrOutput {
+	return o.ApplyT(func(v PlaybackConfigurationHttpRequest) *PlaybackConfigurationHttpRequestHttpMethod {
+		return v.HttpMethod
+	}).(PlaybackConfigurationHttpRequestHttpMethodPtrOutput)
+}
+
+type PlaybackConfigurationHttpRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationHttpRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationHttpRequest)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationHttpRequestPtrOutput) ToPlaybackConfigurationHttpRequestPtrOutput() PlaybackConfigurationHttpRequestPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationHttpRequestPtrOutput) ToPlaybackConfigurationHttpRequestPtrOutputWithContext(ctx context.Context) PlaybackConfigurationHttpRequestPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationHttpRequestPtrOutput) Elem() PlaybackConfigurationHttpRequestOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationHttpRequest) PlaybackConfigurationHttpRequest {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationHttpRequest
+		return ret
+	}).(PlaybackConfigurationHttpRequestOutput)
+}
+
+// The body of the request to the Ad Decision Server URL. The maximum length is 100,000 characters.
+func (o PlaybackConfigurationHttpRequestPtrOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationHttpRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Body
+	}).(pulumi.StringPtrOutput)
+}
+
+// The compression type of the request sent to the Ad Decision Server URL. Only the POST HTTP Method permits compression other than NONE.
+func (o PlaybackConfigurationHttpRequestPtrOutput) CompressRequest() PlaybackConfigurationHttpRequestCompressRequestPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationHttpRequest) *PlaybackConfigurationHttpRequestCompressRequest {
+		if v == nil {
+			return nil
+		}
+		return v.CompressRequest
+	}).(PlaybackConfigurationHttpRequestCompressRequestPtrOutput)
+}
+
+func (o PlaybackConfigurationHttpRequestPtrOutput) Headers() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationHttpRequest) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(pulumi.StringMapOutput)
+}
+
+// Supported HTTP Methods for the request to the Ad Decision Server URL.
+func (o PlaybackConfigurationHttpRequestPtrOutput) HttpMethod() PlaybackConfigurationHttpRequestHttpMethodPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationHttpRequest) *PlaybackConfigurationHttpRequestHttpMethod {
+		if v == nil {
+			return nil
+		}
+		return v.HttpMethod
+	}).(PlaybackConfigurationHttpRequestHttpMethodPtrOutput)
 }
 
 // The configuration for pre-roll ad insertion.
@@ -3821,6 +4156,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceHttpPackageConfigurationArrayInput)(nil)).Elem(), LiveSourceHttpPackageConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdConditioningConfigurationInput)(nil)).Elem(), PlaybackConfigurationAdConditioningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdConditioningConfigurationPtrInput)(nil)).Elem(), PlaybackConfigurationAdConditioningConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdDecisionServerConfigurationInput)(nil)).Elem(), PlaybackConfigurationAdDecisionServerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdDecisionServerConfigurationPtrInput)(nil)).Elem(), PlaybackConfigurationAdDecisionServerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdMarkerPassthroughInput)(nil)).Elem(), PlaybackConfigurationAdMarkerPassthroughArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdMarkerPassthroughPtrInput)(nil)).Elem(), PlaybackConfigurationAdMarkerPassthroughArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAdsInteractionLogInput)(nil)).Elem(), PlaybackConfigurationAdsInteractionLogArgs{})
@@ -3835,6 +4172,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationDashConfigurationPtrInput)(nil)).Elem(), PlaybackConfigurationDashConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationHlsConfigurationInput)(nil)).Elem(), PlaybackConfigurationHlsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationHlsConfigurationPtrInput)(nil)).Elem(), PlaybackConfigurationHlsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationHttpRequestInput)(nil)).Elem(), PlaybackConfigurationHttpRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationHttpRequestPtrInput)(nil)).Elem(), PlaybackConfigurationHttpRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationLivePreRollConfigurationInput)(nil)).Elem(), PlaybackConfigurationLivePreRollConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationLivePreRollConfigurationPtrInput)(nil)).Elem(), PlaybackConfigurationLivePreRollConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationLogConfigurationInput)(nil)).Elem(), PlaybackConfigurationLogConfigurationArgs{})
@@ -3870,6 +4209,8 @@ func init() {
 	pulumi.RegisterOutputType(LiveSourceHttpPackageConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAdConditioningConfigurationOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAdConditioningConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationAdDecisionServerConfigurationOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationAdDecisionServerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAdMarkerPassthroughOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAdMarkerPassthroughPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAdsInteractionLogOutput{})
@@ -3884,6 +4225,8 @@ func init() {
 	pulumi.RegisterOutputType(PlaybackConfigurationDashConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationHlsConfigurationOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationHlsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationHttpRequestOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationHttpRequestPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationLivePreRollConfigurationOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationLivePreRollConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationLogConfigurationOutput{})

@@ -89,6 +89,9 @@ export interface GetUserSettingsResult {
      * The ARN of the user settings.
      */
     readonly userSettingsArn?: string;
+    /**
+     * Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
+     */
     readonly webAuthnAllowed?: enums.workspacesweb.UserSettingsEnabledType;
 }
 /**

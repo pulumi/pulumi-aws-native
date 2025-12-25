@@ -48,7 +48,7 @@ class PullTimeUpdateExclusion(pulumi.CustomResource):
                  principal_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ECR::PullTimeUpdateExclusion controls the exclusion configuration for ecr image pull time update.
+        The ARN of the IAM principal to remove from the pull time update exclusion list.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -61,7 +61,7 @@ class PullTimeUpdateExclusion(pulumi.CustomResource):
                  args: PullTimeUpdateExclusionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ECR::PullTimeUpdateExclusion controls the exclusion configuration for ecr image pull time update.
+        The ARN of the IAM principal to remove from the pull time update exclusion list.
 
         :param str resource_name: The name of the resource.
         :param PullTimeUpdateExclusionArgs args: The arguments to use to populate this resource's properties.

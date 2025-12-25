@@ -8,7 +8,7 @@ export const ClusterAccountingMode = {
 } as const;
 
 /**
- * The default value is `STANDARD`. A value of `STANDARD` means that Slurm accounting is enabled.
+ * The default value is `NONE`. A value of `STANDARD` means that Slurm accounting is enabled.
  */
 export type ClusterAccountingMode = (typeof ClusterAccountingMode)[keyof typeof ClusterAccountingMode];
 
@@ -59,7 +59,7 @@ export const ClusterSlurmRestMode = {
 } as const;
 
 /**
- * The default value is `STANDARD`. A value of `STANDARD` means that Slurm Rest is enabled.
+ * The default value is `NONE`. A value of `STANDARD` means that Slurm Rest is enabled.
  */
 export type ClusterSlurmRestMode = (typeof ClusterSlurmRestMode)[keyof typeof ClusterSlurmRestMode];
 

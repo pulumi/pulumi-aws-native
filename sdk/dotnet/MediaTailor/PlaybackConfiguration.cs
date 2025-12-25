@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.MediaTailor
         [Output("adConditioningConfiguration")]
         public Output<Outputs.PlaybackConfigurationAdConditioningConfiguration?> AdConditioningConfiguration { get; private set; } = null!;
 
+        [Output("adDecisionServerConfiguration")]
+        public Output<Outputs.PlaybackConfigurationAdDecisionServerConfiguration?> AdDecisionServerConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
         /// </summary>
@@ -195,6 +198,9 @@ namespace Pulumi.AwsNative.MediaTailor
         /// </summary>
         [Input("adConditioningConfiguration")]
         public Input<Inputs.PlaybackConfigurationAdConditioningConfigurationArgs>? AdConditioningConfiguration { get; set; }
+
+        [Input("adDecisionServerConfiguration")]
+        public Input<Inputs.PlaybackConfigurationAdDecisionServerConfigurationArgs>? AdDecisionServerConfiguration { get; set; }
 
         /// <summary>
         /// The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.

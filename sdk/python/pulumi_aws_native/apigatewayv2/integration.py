@@ -338,7 +338,7 @@ class Integration(pulumi.CustomResource):
                  tls_config: Optional[pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
                  __props__=None):
         """
-        An example resource schema demonstrating some basic constructs and validation rules.
+        Resource Type definition for AWS::ApiGatewayV2::Integration
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -368,7 +368,7 @@ class Integration(pulumi.CustomResource):
                  args: IntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        An example resource schema demonstrating some basic constructs and validation rules.
+        Resource Type definition for AWS::ApiGatewayV2::Integration
 
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.

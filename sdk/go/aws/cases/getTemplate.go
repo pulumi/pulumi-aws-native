@@ -34,14 +34,16 @@ type LookupTemplateResult struct {
 	// A description explaining the purpose and use case for this template. Should indicate what types of cases this template is designed for and any specific workflow it supports.
 	Description *string `pulumi:"description"`
 	// The time at which the template was created or last modified.
-	LastModifiedTime    *string                      `pulumi:"lastModifiedTime"`
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// Object to store configuration of layouts associated to the template.
 	LayoutConfiguration *TemplateLayoutConfiguration `pulumi:"layoutConfiguration"`
 	// A name for the template. It must be unique per domain.
 	Name *string `pulumi:"name"`
 	// A list of fields that must contain a value for a case to be successfully created with this template.
 	RequiredFields []TemplateRequiredField `pulumi:"requiredFields"`
 	// A list of case rules (also known as case field conditions) on a template.
-	Rules  []TemplateRule  `pulumi:"rules"`
+	Rules []TemplateRule `pulumi:"rules"`
+	// The status of the template.
 	Status *TemplateStatus `pulumi:"status"`
 	// The tags that you attach to this template.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -98,6 +100,7 @@ func (o LookupTemplateResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTemplateResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
+// Object to store configuration of layouts associated to the template.
 func (o LookupTemplateResultOutput) LayoutConfiguration() TemplateLayoutConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupTemplateResult) *TemplateLayoutConfiguration { return v.LayoutConfiguration }).(TemplateLayoutConfigurationPtrOutput)
 }
@@ -117,6 +120,7 @@ func (o LookupTemplateResultOutput) Rules() TemplateRuleArrayOutput {
 	return o.ApplyT(func(v LookupTemplateResult) []TemplateRule { return v.Rules }).(TemplateRuleArrayOutput)
 }
 
+// The status of the template.
 func (o LookupTemplateResultOutput) Status() TemplateStatusPtrOutput {
 	return o.ApplyT(func(v LookupTemplateResult) *TemplateStatus { return v.Status }).(TemplateStatusPtrOutput)
 }

@@ -1423,6 +1423,338 @@ func (in *playbackConfigurationDashConfigurationOriginManifestTypePtr) ToPlaybac
 	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput)
 }
 
+// The compression type of the request sent to the Ad Decision Server URL. Only the POST HTTP Method permits compression other than NONE.
+type PlaybackConfigurationHttpRequestCompressRequest string
+
+const (
+	PlaybackConfigurationHttpRequestCompressRequestNone = PlaybackConfigurationHttpRequestCompressRequest("NONE")
+	PlaybackConfigurationHttpRequestCompressRequestGzip = PlaybackConfigurationHttpRequestCompressRequest("GZIP")
+)
+
+func (PlaybackConfigurationHttpRequestCompressRequest) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationHttpRequestCompressRequest)(nil)).Elem()
+}
+
+func (e PlaybackConfigurationHttpRequestCompressRequest) ToPlaybackConfigurationHttpRequestCompressRequestOutput() PlaybackConfigurationHttpRequestCompressRequestOutput {
+	return pulumi.ToOutput(e).(PlaybackConfigurationHttpRequestCompressRequestOutput)
+}
+
+func (e PlaybackConfigurationHttpRequestCompressRequest) ToPlaybackConfigurationHttpRequestCompressRequestOutputWithContext(ctx context.Context) PlaybackConfigurationHttpRequestCompressRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlaybackConfigurationHttpRequestCompressRequestOutput)
+}
+
+func (e PlaybackConfigurationHttpRequestCompressRequest) ToPlaybackConfigurationHttpRequestCompressRequestPtrOutput() PlaybackConfigurationHttpRequestCompressRequestPtrOutput {
+	return e.ToPlaybackConfigurationHttpRequestCompressRequestPtrOutputWithContext(context.Background())
+}
+
+func (e PlaybackConfigurationHttpRequestCompressRequest) ToPlaybackConfigurationHttpRequestCompressRequestPtrOutputWithContext(ctx context.Context) PlaybackConfigurationHttpRequestCompressRequestPtrOutput {
+	return PlaybackConfigurationHttpRequestCompressRequest(e).ToPlaybackConfigurationHttpRequestCompressRequestOutputWithContext(ctx).ToPlaybackConfigurationHttpRequestCompressRequestPtrOutputWithContext(ctx)
+}
+
+func (e PlaybackConfigurationHttpRequestCompressRequest) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlaybackConfigurationHttpRequestCompressRequest) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlaybackConfigurationHttpRequestCompressRequest) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PlaybackConfigurationHttpRequestCompressRequest) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PlaybackConfigurationHttpRequestCompressRequestOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationHttpRequestCompressRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationHttpRequestCompressRequest)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationHttpRequestCompressRequestOutput) ToPlaybackConfigurationHttpRequestCompressRequestOutput() PlaybackConfigurationHttpRequestCompressRequestOutput {
+	return o
+}
+
+func (o PlaybackConfigurationHttpRequestCompressRequestOutput) ToPlaybackConfigurationHttpRequestCompressRequestOutputWithContext(ctx context.Context) PlaybackConfigurationHttpRequestCompressRequestOutput {
+	return o
+}
+
+func (o PlaybackConfigurationHttpRequestCompressRequestOutput) ToPlaybackConfigurationHttpRequestCompressRequestPtrOutput() PlaybackConfigurationHttpRequestCompressRequestPtrOutput {
+	return o.ToPlaybackConfigurationHttpRequestCompressRequestPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationHttpRequestCompressRequestOutput) ToPlaybackConfigurationHttpRequestCompressRequestPtrOutputWithContext(ctx context.Context) PlaybackConfigurationHttpRequestCompressRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationHttpRequestCompressRequest) *PlaybackConfigurationHttpRequestCompressRequest {
+		return &v
+	}).(PlaybackConfigurationHttpRequestCompressRequestPtrOutput)
+}
+
+func (o PlaybackConfigurationHttpRequestCompressRequestOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationHttpRequestCompressRequestOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationHttpRequestCompressRequest) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PlaybackConfigurationHttpRequestCompressRequestOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationHttpRequestCompressRequestOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationHttpRequestCompressRequest) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PlaybackConfigurationHttpRequestCompressRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationHttpRequestCompressRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationHttpRequestCompressRequest)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationHttpRequestCompressRequestPtrOutput) ToPlaybackConfigurationHttpRequestCompressRequestPtrOutput() PlaybackConfigurationHttpRequestCompressRequestPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationHttpRequestCompressRequestPtrOutput) ToPlaybackConfigurationHttpRequestCompressRequestPtrOutputWithContext(ctx context.Context) PlaybackConfigurationHttpRequestCompressRequestPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationHttpRequestCompressRequestPtrOutput) Elem() PlaybackConfigurationHttpRequestCompressRequestOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationHttpRequestCompressRequest) PlaybackConfigurationHttpRequestCompressRequest {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationHttpRequestCompressRequest
+		return ret
+	}).(PlaybackConfigurationHttpRequestCompressRequestOutput)
+}
+
+func (o PlaybackConfigurationHttpRequestCompressRequestPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationHttpRequestCompressRequestPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlaybackConfigurationHttpRequestCompressRequest) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PlaybackConfigurationHttpRequestCompressRequestInput is an input type that accepts values of the PlaybackConfigurationHttpRequestCompressRequest enum
+// A concrete instance of `PlaybackConfigurationHttpRequestCompressRequestInput` can be one of the following:
+//
+//	PlaybackConfigurationHttpRequestCompressRequestNone
+//	PlaybackConfigurationHttpRequestCompressRequestGzip
+type PlaybackConfigurationHttpRequestCompressRequestInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationHttpRequestCompressRequestOutput() PlaybackConfigurationHttpRequestCompressRequestOutput
+	ToPlaybackConfigurationHttpRequestCompressRequestOutputWithContext(context.Context) PlaybackConfigurationHttpRequestCompressRequestOutput
+}
+
+var playbackConfigurationHttpRequestCompressRequestPtrType = reflect.TypeOf((**PlaybackConfigurationHttpRequestCompressRequest)(nil)).Elem()
+
+type PlaybackConfigurationHttpRequestCompressRequestPtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationHttpRequestCompressRequestPtrOutput() PlaybackConfigurationHttpRequestCompressRequestPtrOutput
+	ToPlaybackConfigurationHttpRequestCompressRequestPtrOutputWithContext(context.Context) PlaybackConfigurationHttpRequestCompressRequestPtrOutput
+}
+
+type playbackConfigurationHttpRequestCompressRequestPtr string
+
+func PlaybackConfigurationHttpRequestCompressRequestPtr(v string) PlaybackConfigurationHttpRequestCompressRequestPtrInput {
+	return (*playbackConfigurationHttpRequestCompressRequestPtr)(&v)
+}
+
+func (*playbackConfigurationHttpRequestCompressRequestPtr) ElementType() reflect.Type {
+	return playbackConfigurationHttpRequestCompressRequestPtrType
+}
+
+func (in *playbackConfigurationHttpRequestCompressRequestPtr) ToPlaybackConfigurationHttpRequestCompressRequestPtrOutput() PlaybackConfigurationHttpRequestCompressRequestPtrOutput {
+	return pulumi.ToOutput(in).(PlaybackConfigurationHttpRequestCompressRequestPtrOutput)
+}
+
+func (in *playbackConfigurationHttpRequestCompressRequestPtr) ToPlaybackConfigurationHttpRequestCompressRequestPtrOutputWithContext(ctx context.Context) PlaybackConfigurationHttpRequestCompressRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationHttpRequestCompressRequestPtrOutput)
+}
+
+// Supported HTTP Methods for the request to the Ad Decision Server URL.
+type PlaybackConfigurationHttpRequestHttpMethod string
+
+const (
+	PlaybackConfigurationHttpRequestHttpMethodGet  = PlaybackConfigurationHttpRequestHttpMethod("GET")
+	PlaybackConfigurationHttpRequestHttpMethodPost = PlaybackConfigurationHttpRequestHttpMethod("POST")
+)
+
+func (PlaybackConfigurationHttpRequestHttpMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationHttpRequestHttpMethod)(nil)).Elem()
+}
+
+func (e PlaybackConfigurationHttpRequestHttpMethod) ToPlaybackConfigurationHttpRequestHttpMethodOutput() PlaybackConfigurationHttpRequestHttpMethodOutput {
+	return pulumi.ToOutput(e).(PlaybackConfigurationHttpRequestHttpMethodOutput)
+}
+
+func (e PlaybackConfigurationHttpRequestHttpMethod) ToPlaybackConfigurationHttpRequestHttpMethodOutputWithContext(ctx context.Context) PlaybackConfigurationHttpRequestHttpMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlaybackConfigurationHttpRequestHttpMethodOutput)
+}
+
+func (e PlaybackConfigurationHttpRequestHttpMethod) ToPlaybackConfigurationHttpRequestHttpMethodPtrOutput() PlaybackConfigurationHttpRequestHttpMethodPtrOutput {
+	return e.ToPlaybackConfigurationHttpRequestHttpMethodPtrOutputWithContext(context.Background())
+}
+
+func (e PlaybackConfigurationHttpRequestHttpMethod) ToPlaybackConfigurationHttpRequestHttpMethodPtrOutputWithContext(ctx context.Context) PlaybackConfigurationHttpRequestHttpMethodPtrOutput {
+	return PlaybackConfigurationHttpRequestHttpMethod(e).ToPlaybackConfigurationHttpRequestHttpMethodOutputWithContext(ctx).ToPlaybackConfigurationHttpRequestHttpMethodPtrOutputWithContext(ctx)
+}
+
+func (e PlaybackConfigurationHttpRequestHttpMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlaybackConfigurationHttpRequestHttpMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlaybackConfigurationHttpRequestHttpMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PlaybackConfigurationHttpRequestHttpMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PlaybackConfigurationHttpRequestHttpMethodOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationHttpRequestHttpMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationHttpRequestHttpMethod)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationHttpRequestHttpMethodOutput) ToPlaybackConfigurationHttpRequestHttpMethodOutput() PlaybackConfigurationHttpRequestHttpMethodOutput {
+	return o
+}
+
+func (o PlaybackConfigurationHttpRequestHttpMethodOutput) ToPlaybackConfigurationHttpRequestHttpMethodOutputWithContext(ctx context.Context) PlaybackConfigurationHttpRequestHttpMethodOutput {
+	return o
+}
+
+func (o PlaybackConfigurationHttpRequestHttpMethodOutput) ToPlaybackConfigurationHttpRequestHttpMethodPtrOutput() PlaybackConfigurationHttpRequestHttpMethodPtrOutput {
+	return o.ToPlaybackConfigurationHttpRequestHttpMethodPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationHttpRequestHttpMethodOutput) ToPlaybackConfigurationHttpRequestHttpMethodPtrOutputWithContext(ctx context.Context) PlaybackConfigurationHttpRequestHttpMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationHttpRequestHttpMethod) *PlaybackConfigurationHttpRequestHttpMethod {
+		return &v
+	}).(PlaybackConfigurationHttpRequestHttpMethodPtrOutput)
+}
+
+func (o PlaybackConfigurationHttpRequestHttpMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationHttpRequestHttpMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationHttpRequestHttpMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PlaybackConfigurationHttpRequestHttpMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationHttpRequestHttpMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationHttpRequestHttpMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PlaybackConfigurationHttpRequestHttpMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationHttpRequestHttpMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationHttpRequestHttpMethod)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationHttpRequestHttpMethodPtrOutput) ToPlaybackConfigurationHttpRequestHttpMethodPtrOutput() PlaybackConfigurationHttpRequestHttpMethodPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationHttpRequestHttpMethodPtrOutput) ToPlaybackConfigurationHttpRequestHttpMethodPtrOutputWithContext(ctx context.Context) PlaybackConfigurationHttpRequestHttpMethodPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationHttpRequestHttpMethodPtrOutput) Elem() PlaybackConfigurationHttpRequestHttpMethodOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationHttpRequestHttpMethod) PlaybackConfigurationHttpRequestHttpMethod {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationHttpRequestHttpMethod
+		return ret
+	}).(PlaybackConfigurationHttpRequestHttpMethodOutput)
+}
+
+func (o PlaybackConfigurationHttpRequestHttpMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationHttpRequestHttpMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlaybackConfigurationHttpRequestHttpMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PlaybackConfigurationHttpRequestHttpMethodInput is an input type that accepts values of the PlaybackConfigurationHttpRequestHttpMethod enum
+// A concrete instance of `PlaybackConfigurationHttpRequestHttpMethodInput` can be one of the following:
+//
+//	PlaybackConfigurationHttpRequestHttpMethodGet
+//	PlaybackConfigurationHttpRequestHttpMethodPost
+type PlaybackConfigurationHttpRequestHttpMethodInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationHttpRequestHttpMethodOutput() PlaybackConfigurationHttpRequestHttpMethodOutput
+	ToPlaybackConfigurationHttpRequestHttpMethodOutputWithContext(context.Context) PlaybackConfigurationHttpRequestHttpMethodOutput
+}
+
+var playbackConfigurationHttpRequestHttpMethodPtrType = reflect.TypeOf((**PlaybackConfigurationHttpRequestHttpMethod)(nil)).Elem()
+
+type PlaybackConfigurationHttpRequestHttpMethodPtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationHttpRequestHttpMethodPtrOutput() PlaybackConfigurationHttpRequestHttpMethodPtrOutput
+	ToPlaybackConfigurationHttpRequestHttpMethodPtrOutputWithContext(context.Context) PlaybackConfigurationHttpRequestHttpMethodPtrOutput
+}
+
+type playbackConfigurationHttpRequestHttpMethodPtr string
+
+func PlaybackConfigurationHttpRequestHttpMethodPtr(v string) PlaybackConfigurationHttpRequestHttpMethodPtrInput {
+	return (*playbackConfigurationHttpRequestHttpMethodPtr)(&v)
+}
+
+func (*playbackConfigurationHttpRequestHttpMethodPtr) ElementType() reflect.Type {
+	return playbackConfigurationHttpRequestHttpMethodPtrType
+}
+
+func (in *playbackConfigurationHttpRequestHttpMethodPtr) ToPlaybackConfigurationHttpRequestHttpMethodPtrOutput() PlaybackConfigurationHttpRequestHttpMethodPtrOutput {
+	return pulumi.ToOutput(in).(PlaybackConfigurationHttpRequestHttpMethodPtrOutput)
+}
+
+func (in *playbackConfigurationHttpRequestHttpMethodPtr) ToPlaybackConfigurationHttpRequestHttpMethodPtrOutputWithContext(ctx context.Context) PlaybackConfigurationHttpRequestHttpMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationHttpRequestHttpMethodPtrOutput)
+}
+
 type PlaybackConfigurationInsertionMode string
 
 const (
@@ -2104,6 +2436,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionModePtrInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionMode("OFF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationDashConfigurationOriginManifestTypeInput)(nil)).Elem(), PlaybackConfigurationDashConfigurationOriginManifestType("SINGLE_PERIOD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationDashConfigurationOriginManifestTypePtrInput)(nil)).Elem(), PlaybackConfigurationDashConfigurationOriginManifestType("SINGLE_PERIOD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationHttpRequestCompressRequestInput)(nil)).Elem(), PlaybackConfigurationHttpRequestCompressRequest("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationHttpRequestCompressRequestPtrInput)(nil)).Elem(), PlaybackConfigurationHttpRequestCompressRequest("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationHttpRequestHttpMethodInput)(nil)).Elem(), PlaybackConfigurationHttpRequestHttpMethod("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationHttpRequestHttpMethodPtrInput)(nil)).Elem(), PlaybackConfigurationHttpRequestHttpMethod("GET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationInsertionModeInput)(nil)).Elem(), PlaybackConfigurationInsertionMode("STITCHED_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationInsertionModePtrInput)(nil)).Elem(), PlaybackConfigurationInsertionMode("STITCHED_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationStreamingMediaFileConditioningInput)(nil)).Elem(), PlaybackConfigurationStreamingMediaFileConditioning("TRANSCODE"))
@@ -2130,6 +2466,10 @@ func init() {
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionModePtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationDashConfigurationOriginManifestTypeOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationDashConfigurationOriginManifestTypePtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationHttpRequestCompressRequestOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationHttpRequestCompressRequestPtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationHttpRequestHttpMethodOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationHttpRequestHttpMethodPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationInsertionModeOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationInsertionModePtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationStreamingMediaFileConditioningOutput{})

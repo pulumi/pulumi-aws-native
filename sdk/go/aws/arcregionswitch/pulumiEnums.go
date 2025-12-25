@@ -340,6 +340,169 @@ func (in *planAlarmTypePtr) ToPlanAlarmTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(PlanAlarmTypePtrOutput)
 }
 
+type PlanDocumentDbUngracefulBehavior string
+
+const (
+	PlanDocumentDbUngracefulBehaviorFailover = PlanDocumentDbUngracefulBehavior("failover")
+)
+
+func (PlanDocumentDbUngracefulBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanDocumentDbUngracefulBehavior)(nil)).Elem()
+}
+
+func (e PlanDocumentDbUngracefulBehavior) ToPlanDocumentDbUngracefulBehaviorOutput() PlanDocumentDbUngracefulBehaviorOutput {
+	return pulumi.ToOutput(e).(PlanDocumentDbUngracefulBehaviorOutput)
+}
+
+func (e PlanDocumentDbUngracefulBehavior) ToPlanDocumentDbUngracefulBehaviorOutputWithContext(ctx context.Context) PlanDocumentDbUngracefulBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlanDocumentDbUngracefulBehaviorOutput)
+}
+
+func (e PlanDocumentDbUngracefulBehavior) ToPlanDocumentDbUngracefulBehaviorPtrOutput() PlanDocumentDbUngracefulBehaviorPtrOutput {
+	return e.ToPlanDocumentDbUngracefulBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e PlanDocumentDbUngracefulBehavior) ToPlanDocumentDbUngracefulBehaviorPtrOutputWithContext(ctx context.Context) PlanDocumentDbUngracefulBehaviorPtrOutput {
+	return PlanDocumentDbUngracefulBehavior(e).ToPlanDocumentDbUngracefulBehaviorOutputWithContext(ctx).ToPlanDocumentDbUngracefulBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e PlanDocumentDbUngracefulBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlanDocumentDbUngracefulBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlanDocumentDbUngracefulBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PlanDocumentDbUngracefulBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PlanDocumentDbUngracefulBehaviorOutput struct{ *pulumi.OutputState }
+
+func (PlanDocumentDbUngracefulBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanDocumentDbUngracefulBehavior)(nil)).Elem()
+}
+
+func (o PlanDocumentDbUngracefulBehaviorOutput) ToPlanDocumentDbUngracefulBehaviorOutput() PlanDocumentDbUngracefulBehaviorOutput {
+	return o
+}
+
+func (o PlanDocumentDbUngracefulBehaviorOutput) ToPlanDocumentDbUngracefulBehaviorOutputWithContext(ctx context.Context) PlanDocumentDbUngracefulBehaviorOutput {
+	return o
+}
+
+func (o PlanDocumentDbUngracefulBehaviorOutput) ToPlanDocumentDbUngracefulBehaviorPtrOutput() PlanDocumentDbUngracefulBehaviorPtrOutput {
+	return o.ToPlanDocumentDbUngracefulBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o PlanDocumentDbUngracefulBehaviorOutput) ToPlanDocumentDbUngracefulBehaviorPtrOutputWithContext(ctx context.Context) PlanDocumentDbUngracefulBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanDocumentDbUngracefulBehavior) *PlanDocumentDbUngracefulBehavior {
+		return &v
+	}).(PlanDocumentDbUngracefulBehaviorPtrOutput)
+}
+
+func (o PlanDocumentDbUngracefulBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PlanDocumentDbUngracefulBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlanDocumentDbUngracefulBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PlanDocumentDbUngracefulBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlanDocumentDbUngracefulBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlanDocumentDbUngracefulBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PlanDocumentDbUngracefulBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (PlanDocumentDbUngracefulBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanDocumentDbUngracefulBehavior)(nil)).Elem()
+}
+
+func (o PlanDocumentDbUngracefulBehaviorPtrOutput) ToPlanDocumentDbUngracefulBehaviorPtrOutput() PlanDocumentDbUngracefulBehaviorPtrOutput {
+	return o
+}
+
+func (o PlanDocumentDbUngracefulBehaviorPtrOutput) ToPlanDocumentDbUngracefulBehaviorPtrOutputWithContext(ctx context.Context) PlanDocumentDbUngracefulBehaviorPtrOutput {
+	return o
+}
+
+func (o PlanDocumentDbUngracefulBehaviorPtrOutput) Elem() PlanDocumentDbUngracefulBehaviorOutput {
+	return o.ApplyT(func(v *PlanDocumentDbUngracefulBehavior) PlanDocumentDbUngracefulBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret PlanDocumentDbUngracefulBehavior
+		return ret
+	}).(PlanDocumentDbUngracefulBehaviorOutput)
+}
+
+func (o PlanDocumentDbUngracefulBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlanDocumentDbUngracefulBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlanDocumentDbUngracefulBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PlanDocumentDbUngracefulBehaviorInput is an input type that accepts values of the PlanDocumentDbUngracefulBehavior enum
+// A concrete instance of `PlanDocumentDbUngracefulBehaviorInput` can be one of the following:
+//
+//	PlanDocumentDbUngracefulBehaviorFailover
+type PlanDocumentDbUngracefulBehaviorInput interface {
+	pulumi.Input
+
+	ToPlanDocumentDbUngracefulBehaviorOutput() PlanDocumentDbUngracefulBehaviorOutput
+	ToPlanDocumentDbUngracefulBehaviorOutputWithContext(context.Context) PlanDocumentDbUngracefulBehaviorOutput
+}
+
+var planDocumentDbUngracefulBehaviorPtrType = reflect.TypeOf((**PlanDocumentDbUngracefulBehavior)(nil)).Elem()
+
+type PlanDocumentDbUngracefulBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToPlanDocumentDbUngracefulBehaviorPtrOutput() PlanDocumentDbUngracefulBehaviorPtrOutput
+	ToPlanDocumentDbUngracefulBehaviorPtrOutputWithContext(context.Context) PlanDocumentDbUngracefulBehaviorPtrOutput
+}
+
+type planDocumentDbUngracefulBehaviorPtr string
+
+func PlanDocumentDbUngracefulBehaviorPtr(v string) PlanDocumentDbUngracefulBehaviorPtrInput {
+	return (*planDocumentDbUngracefulBehaviorPtr)(&v)
+}
+
+func (*planDocumentDbUngracefulBehaviorPtr) ElementType() reflect.Type {
+	return planDocumentDbUngracefulBehaviorPtrType
+}
+
+func (in *planDocumentDbUngracefulBehaviorPtr) ToPlanDocumentDbUngracefulBehaviorPtrOutput() PlanDocumentDbUngracefulBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(PlanDocumentDbUngracefulBehaviorPtrOutput)
+}
+
+func (in *planDocumentDbUngracefulBehaviorPtr) ToPlanDocumentDbUngracefulBehaviorPtrOutputWithContext(ctx context.Context) PlanDocumentDbUngracefulBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlanDocumentDbUngracefulBehaviorPtrOutput)
+}
+
 type PlanExecutionBlockType string
 
 const (
@@ -353,6 +516,7 @@ const (
 	PlanExecutionBlockTypeEcsServiceScaling    = PlanExecutionBlockType("ECSServiceScaling")
 	PlanExecutionBlockTypeEksResourceScaling   = PlanExecutionBlockType("EKSResourceScaling")
 	PlanExecutionBlockTypeRoute53HealthCheck   = PlanExecutionBlockType("Route53HealthCheck")
+	PlanExecutionBlockTypeDocumentDb           = PlanExecutionBlockType("DocumentDb")
 )
 
 func (PlanExecutionBlockType) ElementType() reflect.Type {
@@ -487,6 +651,7 @@ func (o PlanExecutionBlockTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 //	PlanExecutionBlockTypeEcsServiceScaling
 //	PlanExecutionBlockTypeEksResourceScaling
 //	PlanExecutionBlockTypeRoute53HealthCheck
+//	PlanExecutionBlockTypeDocumentDb
 type PlanExecutionBlockTypeInput interface {
 	pulumi.Input
 
@@ -1191,6 +1356,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanAlarmConditionPtrInput)(nil)).Elem(), PlanAlarmCondition("red"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanAlarmTypeInput)(nil)).Elem(), PlanAlarmType("applicationHealth"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanAlarmTypePtrInput)(nil)).Elem(), PlanAlarmType("applicationHealth"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanDocumentDbUngracefulBehaviorInput)(nil)).Elem(), PlanDocumentDbUngracefulBehavior("failover"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanDocumentDbUngracefulBehaviorPtrInput)(nil)).Elem(), PlanDocumentDbUngracefulBehavior("failover"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockTypeInput)(nil)).Elem(), PlanExecutionBlockType("CustomActionLambda"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockTypePtrInput)(nil)).Elem(), PlanExecutionBlockType("CustomActionLambda"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanGlobalAuroraUngracefulBehaviorInput)(nil)).Elem(), PlanGlobalAuroraUngracefulBehavior("failover"))
@@ -1205,6 +1372,8 @@ func init() {
 	pulumi.RegisterOutputType(PlanAlarmConditionPtrOutput{})
 	pulumi.RegisterOutputType(PlanAlarmTypeOutput{})
 	pulumi.RegisterOutputType(PlanAlarmTypePtrOutput{})
+	pulumi.RegisterOutputType(PlanDocumentDbUngracefulBehaviorOutput{})
+	pulumi.RegisterOutputType(PlanDocumentDbUngracefulBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockTypeOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockTypePtrOutput{})
 	pulumi.RegisterOutputType(PlanGlobalAuroraUngracefulBehaviorOutput{})

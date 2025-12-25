@@ -27,6 +27,7 @@ class PlaybackConfigurationArgs:
                  ad_decision_server_url: pulumi.Input[_builtins.str],
                  video_content_source_url: pulumi.Input[_builtins.str],
                  ad_conditioning_configuration: Optional[pulumi.Input['PlaybackConfigurationAdConditioningConfigurationArgs']] = None,
+                 ad_decision_server_configuration: Optional[pulumi.Input['PlaybackConfigurationAdDecisionServerConfigurationArgs']] = None,
                  avail_suppression: Optional[pulumi.Input['PlaybackConfigurationAvailSuppressionArgs']] = None,
                  bumper: Optional[pulumi.Input['PlaybackConfigurationBumperArgs']] = None,
                  cdn_configuration: Optional[pulumi.Input['PlaybackConfigurationCdnConfigurationArgs']] = None,
@@ -67,6 +68,8 @@ class PlaybackConfigurationArgs:
         pulumi.set(__self__, "video_content_source_url", video_content_source_url)
         if ad_conditioning_configuration is not None:
             pulumi.set(__self__, "ad_conditioning_configuration", ad_conditioning_configuration)
+        if ad_decision_server_configuration is not None:
+            pulumi.set(__self__, "ad_decision_server_configuration", ad_decision_server_configuration)
         if avail_suppression is not None:
             pulumi.set(__self__, "avail_suppression", avail_suppression)
         if bumper is not None:
@@ -133,6 +136,15 @@ class PlaybackConfigurationArgs:
     @ad_conditioning_configuration.setter
     def ad_conditioning_configuration(self, value: Optional[pulumi.Input['PlaybackConfigurationAdConditioningConfigurationArgs']]):
         pulumi.set(self, "ad_conditioning_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="adDecisionServerConfiguration")
+    def ad_decision_server_configuration(self) -> Optional[pulumi.Input['PlaybackConfigurationAdDecisionServerConfigurationArgs']]:
+        return pulumi.get(self, "ad_decision_server_configuration")
+
+    @ad_decision_server_configuration.setter
+    def ad_decision_server_configuration(self, value: Optional[pulumi.Input['PlaybackConfigurationAdDecisionServerConfigurationArgs']]):
+        pulumi.set(self, "ad_decision_server_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="availSuppression")
@@ -322,6 +334,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ad_conditioning_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationAdConditioningConfigurationArgs', 'PlaybackConfigurationAdConditioningConfigurationArgsDict']]] = None,
+                 ad_decision_server_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationAdDecisionServerConfigurationArgs', 'PlaybackConfigurationAdDecisionServerConfigurationArgsDict']]] = None,
                  ad_decision_server_url: Optional[pulumi.Input[_builtins.str]] = None,
                  avail_suppression: Optional[pulumi.Input[Union['PlaybackConfigurationAvailSuppressionArgs', 'PlaybackConfigurationAvailSuppressionArgsDict']]] = None,
                  bumper: Optional[pulumi.Input[Union['PlaybackConfigurationBumperArgs', 'PlaybackConfigurationBumperArgsDict']]] = None,
@@ -389,6 +402,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ad_conditioning_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationAdConditioningConfigurationArgs', 'PlaybackConfigurationAdConditioningConfigurationArgsDict']]] = None,
+                 ad_decision_server_configuration: Optional[pulumi.Input[Union['PlaybackConfigurationAdDecisionServerConfigurationArgs', 'PlaybackConfigurationAdDecisionServerConfigurationArgsDict']]] = None,
                  ad_decision_server_url: Optional[pulumi.Input[_builtins.str]] = None,
                  avail_suppression: Optional[pulumi.Input[Union['PlaybackConfigurationAvailSuppressionArgs', 'PlaybackConfigurationAvailSuppressionArgsDict']]] = None,
                  bumper: Optional[pulumi.Input[Union['PlaybackConfigurationBumperArgs', 'PlaybackConfigurationBumperArgsDict']]] = None,
@@ -416,6 +430,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
             __props__ = PlaybackConfigurationArgs.__new__(PlaybackConfigurationArgs)
 
             __props__.__dict__["ad_conditioning_configuration"] = ad_conditioning_configuration
+            __props__.__dict__["ad_decision_server_configuration"] = ad_decision_server_configuration
             if ad_decision_server_url is None and not opts.urn:
                 raise TypeError("Missing required property 'ad_decision_server_url'")
             __props__.__dict__["ad_decision_server_url"] = ad_decision_server_url
@@ -465,6 +480,7 @@ class PlaybackConfiguration(pulumi.CustomResource):
         __props__ = PlaybackConfigurationArgs.__new__(PlaybackConfigurationArgs)
 
         __props__.__dict__["ad_conditioning_configuration"] = None
+        __props__.__dict__["ad_decision_server_configuration"] = None
         __props__.__dict__["ad_decision_server_url"] = None
         __props__.__dict__["avail_suppression"] = None
         __props__.__dict__["bumper"] = None
@@ -494,6 +510,11 @@ class PlaybackConfiguration(pulumi.CustomResource):
         The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
         """
         return pulumi.get(self, "ad_conditioning_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="adDecisionServerConfiguration")
+    def ad_decision_server_configuration(self) -> pulumi.Output[Optional['outputs.PlaybackConfigurationAdDecisionServerConfiguration']]:
+        return pulumi.get(self, "ad_decision_server_configuration")
 
     @_builtins.property
     @pulumi.getter(name="adDecisionServerUrl")

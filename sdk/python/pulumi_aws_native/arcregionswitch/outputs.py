@@ -21,6 +21,8 @@ __all__ = [
     'PlanAsg',
     'PlanAssociatedAlarm',
     'PlanCustomActionLambdaConfiguration',
+    'PlanDocumentDbConfiguration',
+    'PlanDocumentDbUngraceful',
     'PlanEc2AsgCapacityIncreaseConfiguration',
     'PlanEc2Ungraceful',
     'PlanEcsCapacityIncreaseConfiguration',
@@ -30,6 +32,7 @@ __all__ = [
     'PlanEksResourceScalingUngraceful',
     'PlanExecutionApprovalConfiguration',
     'PlanExecutionBlockConfiguration0Properties',
+    'PlanExecutionBlockConfiguration10Properties',
     'PlanExecutionBlockConfiguration1Properties',
     'PlanExecutionBlockConfiguration2Properties',
     'PlanExecutionBlockConfiguration3Properties',
@@ -47,8 +50,11 @@ __all__ = [
     'PlanLambdas',
     'PlanParallelExecutionBlockConfiguration',
     'PlanRegionSwitchPlanConfiguration',
+    'PlanReportConfiguration',
+    'PlanReportOutputConfigurationProperties',
     'PlanRoute53HealthCheckConfiguration',
     'PlanRoute53ResourceRecordSet',
+    'PlanS3ReportOutputConfiguration',
     'PlanService',
     'PlanStep',
     'PlanTrigger',
@@ -300,6 +306,102 @@ class PlanCustomActionLambdaConfiguration(dict):
     @_builtins.property
     @pulumi.getter
     def ungraceful(self) -> Optional['outputs.PlanLambdaUngraceful']:
+        return pulumi.get(self, "ungraceful")
+
+
+@pulumi.output_type
+class PlanDocumentDbConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseClusterArns":
+            suggest = "database_cluster_arns"
+        elif key == "globalClusterIdentifier":
+            suggest = "global_cluster_identifier"
+        elif key == "crossAccountRole":
+            suggest = "cross_account_role"
+        elif key == "externalId":
+            suggest = "external_id"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanDocumentDbConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanDocumentDbConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanDocumentDbConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 behavior: Any,
+                 database_cluster_arns: Sequence[_builtins.str],
+                 global_cluster_identifier: _builtins.str,
+                 cross_account_role: Optional[_builtins.str] = None,
+                 external_id: Optional[_builtins.str] = None,
+                 timeout_minutes: Optional[_builtins.float] = None,
+                 ungraceful: Optional['outputs.PlanDocumentDbUngraceful'] = None):
+        pulumi.set(__self__, "behavior", behavior)
+        pulumi.set(__self__, "database_cluster_arns", database_cluster_arns)
+        pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+        if ungraceful is not None:
+            pulumi.set(__self__, "ungraceful", ungraceful)
+
+    @_builtins.property
+    @pulumi.getter
+    def behavior(self) -> Any:
+        return pulumi.get(self, "behavior")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseClusterArns")
+    def database_cluster_arns(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "database_cluster_arns")
+
+    @_builtins.property
+    @pulumi.getter(name="globalClusterIdentifier")
+    def global_cluster_identifier(self) -> _builtins.str:
+        return pulumi.get(self, "global_cluster_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "cross_account_role")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "timeout_minutes")
+
+    @_builtins.property
+    @pulumi.getter
+    def ungraceful(self) -> Optional['outputs.PlanDocumentDbUngraceful']:
+        return pulumi.get(self, "ungraceful")
+
+
+@pulumi.output_type
+class PlanDocumentDbUngraceful(dict):
+    def __init__(__self__, *,
+                 ungraceful: Optional['PlanDocumentDbUngracefulBehavior'] = None):
+        if ungraceful is not None:
+            pulumi.set(__self__, "ungraceful", ungraceful)
+
+    @_builtins.property
+    @pulumi.getter
+    def ungraceful(self) -> Optional['PlanDocumentDbUngracefulBehavior']:
         return pulumi.get(self, "ungraceful")
 
 
@@ -722,6 +824,35 @@ class PlanExecutionBlockConfiguration0Properties(dict):
     @pulumi.getter(name="customActionLambdaConfig")
     def custom_action_lambda_config(self) -> 'outputs.PlanCustomActionLambdaConfiguration':
         return pulumi.get(self, "custom_action_lambda_config")
+
+
+@pulumi.output_type
+class PlanExecutionBlockConfiguration10Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentDbConfig":
+            suggest = "document_db_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanExecutionBlockConfiguration10Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanExecutionBlockConfiguration10Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanExecutionBlockConfiguration10Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 document_db_config: 'outputs.PlanDocumentDbConfiguration'):
+        pulumi.set(__self__, "document_db_config", document_db_config)
+
+    @_builtins.property
+    @pulumi.getter(name="documentDbConfig")
+    def document_db_config(self) -> 'outputs.PlanDocumentDbConfiguration':
+        return pulumi.get(self, "document_db_config")
 
 
 @pulumi.output_type
@@ -1276,6 +1407,65 @@ class PlanRegionSwitchPlanConfiguration(dict):
 
 
 @pulumi.output_type
+class PlanReportConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reportOutput":
+            suggest = "report_output"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanReportConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanReportConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanReportConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 report_output: Optional[Sequence['outputs.PlanReportOutputConfigurationProperties']] = None):
+        if report_output is not None:
+            pulumi.set(__self__, "report_output", report_output)
+
+    @_builtins.property
+    @pulumi.getter(name="reportOutput")
+    def report_output(self) -> Optional[Sequence['outputs.PlanReportOutputConfigurationProperties']]:
+        return pulumi.get(self, "report_output")
+
+
+@pulumi.output_type
+class PlanReportOutputConfigurationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Configuration":
+            suggest = "s3_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanReportOutputConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanReportOutputConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanReportOutputConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_configuration: 'outputs.PlanS3ReportOutputConfiguration'):
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Configuration")
+    def s3_configuration(self) -> 'outputs.PlanS3ReportOutputConfiguration':
+        return pulumi.get(self, "s3_configuration")
+
+
+@pulumi.output_type
 class PlanRoute53HealthCheckConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1392,6 +1582,46 @@ class PlanRoute53ResourceRecordSet(dict):
 
 
 @pulumi.output_type
+class PlanS3ReportOutputConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketOwner":
+            suggest = "bucket_owner"
+        elif key == "bucketPath":
+            suggest = "bucket_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanS3ReportOutputConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanS3ReportOutputConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanS3ReportOutputConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_owner: Optional[_builtins.str] = None,
+                 bucket_path: Optional[_builtins.str] = None):
+        if bucket_owner is not None:
+            pulumi.set(__self__, "bucket_owner", bucket_owner)
+        if bucket_path is not None:
+            pulumi.set(__self__, "bucket_path", bucket_path)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketOwner")
+    def bucket_owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "bucket_owner")
+
+    @_builtins.property
+    @pulumi.getter(name="bucketPath")
+    def bucket_path(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "bucket_path")
+
+
+@pulumi.output_type
 class PlanService(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1478,7 +1708,7 @@ class PlanStep(dict):
                  name: _builtins.str,
                  description: Optional[_builtins.str] = None):
         """
-        :param Union['PlanExecutionBlockConfiguration0Properties', 'PlanExecutionBlockConfiguration1Properties', 'PlanExecutionBlockConfiguration2Properties', 'PlanExecutionBlockConfiguration3Properties', 'PlanExecutionBlockConfiguration4Properties', 'PlanExecutionBlockConfiguration5Properties', 'PlanExecutionBlockConfiguration6Properties', 'PlanExecutionBlockConfiguration7Properties', 'PlanExecutionBlockConfiguration8Properties', 'PlanExecutionBlockConfiguration9Properties'] execution_block_configuration: The configuration for an execution block in a workflow.
+        :param Union['PlanExecutionBlockConfiguration0Properties', 'PlanExecutionBlockConfiguration1Properties', 'PlanExecutionBlockConfiguration2Properties', 'PlanExecutionBlockConfiguration3Properties', 'PlanExecutionBlockConfiguration4Properties', 'PlanExecutionBlockConfiguration5Properties', 'PlanExecutionBlockConfiguration6Properties', 'PlanExecutionBlockConfiguration7Properties', 'PlanExecutionBlockConfiguration8Properties', 'PlanExecutionBlockConfiguration9Properties', 'PlanExecutionBlockConfiguration10Properties'] execution_block_configuration: The configuration for an execution block in a workflow.
         :param 'PlanExecutionBlockType' execution_block_type: The type of an execution block in a workflow.
         :param _builtins.str name: The name of a step in a workflow.
         :param _builtins.str description: The description of a step in a workflow.

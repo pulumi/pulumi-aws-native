@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AwsNative.Pcs
 {
     /// <summary>
-    /// The default value is `STANDARD`. A value of `STANDARD` means that Slurm accounting is enabled.
+    /// The default value is `NONE`. A value of `STANDARD` means that Slurm accounting is enabled.
     /// </summary>
     [EnumType]
     public readonly struct ClusterAccountingMode : IEquatable<ClusterAccountingMode>
@@ -164,7 +164,7 @@ namespace Pulumi.AwsNative.Pcs
     }
 
     /// <summary>
-    /// The default value is `STANDARD`. A value of `STANDARD` means that Slurm Rest is enabled.
+    /// The default value is `NONE`. A value of `STANDARD` means that Slurm Rest is enabled.
     /// </summary>
     [EnumType]
     public readonly struct ClusterSlurmRestMode : IEquatable<ClusterSlurmRestMode>

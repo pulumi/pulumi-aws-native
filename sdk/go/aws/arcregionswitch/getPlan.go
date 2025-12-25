@@ -42,6 +42,7 @@ type LookupPlanResult struct {
 	PlanHealthChecks []string `pulumi:"planHealthChecks"`
 	// The recovery time objective for a plan.
 	RecoveryTimeObjectiveMinutes *float64                       `pulumi:"recoveryTimeObjectiveMinutes"`
+	ReportConfiguration          *PlanReportConfiguration       `pulumi:"reportConfiguration"`
 	Route53HealthChecks          *Route53HealthChecksProperties `pulumi:"route53HealthChecks"`
 	Tags                         map[string]string              `pulumi:"tags"`
 	// The triggers for a plan.
@@ -120,6 +121,10 @@ func (o LookupPlanResultOutput) PlanHealthChecks() pulumi.StringArrayOutput {
 // The recovery time objective for a plan.
 func (o LookupPlanResultOutput) RecoveryTimeObjectiveMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupPlanResult) *float64 { return v.RecoveryTimeObjectiveMinutes }).(pulumi.Float64PtrOutput)
+}
+
+func (o LookupPlanResultOutput) ReportConfiguration() PlanReportConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupPlanResult) *PlanReportConfiguration { return v.ReportConfiguration }).(PlanReportConfigurationPtrOutput)
 }
 
 func (o LookupPlanResultOutput) Route53HealthChecks() Route53HealthChecksPropertiesPtrOutput {

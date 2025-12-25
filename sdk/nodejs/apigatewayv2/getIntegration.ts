@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Resource Type definition for AWS::ApiGatewayV2::Integration
  */
 export function getIntegration(args: GetIntegrationArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -104,7 +104,7 @@ export interface GetIntegrationResult {
     readonly tlsConfig?: outputs.apigatewayv2.IntegrationTlsConfig;
 }
 /**
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Resource Type definition for AWS::ApiGatewayV2::Integration
  */
 export function getIntegrationOutput(args: GetIntegrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -123,6 +123,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Output("instanceId")]
         public Output<string?> InstanceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The instance lifecycle policy for the Auto Scaling group.
+        /// </summary>
         [Output("instanceLifecyclePolicy")]
         public Output<Outputs.AutoScalingGroupInstanceLifecyclePolicy?> InstanceLifecyclePolicy { get; private set; } = null!;
 
@@ -411,6 +414,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
+        /// <summary>
+        /// The instance lifecycle policy for the Auto Scaling group.
+        /// </summary>
         [Input("instanceLifecyclePolicy")]
         public Input<Inputs.AutoScalingGroupInstanceLifecyclePolicyArgs>? InstanceLifecyclePolicy { get; set; }
 

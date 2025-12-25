@@ -51,6 +51,9 @@ class GetLayoutResult:
     @_builtins.property
     @pulumi.getter
     def content(self) -> Optional['outputs.LayoutContentProperties']:
+        """
+        Object to store union of different versions of layout content.
+        """
         return pulumi.get(self, "content")
 
     @_builtins.property
@@ -96,6 +99,9 @@ class GetLayoutResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
 

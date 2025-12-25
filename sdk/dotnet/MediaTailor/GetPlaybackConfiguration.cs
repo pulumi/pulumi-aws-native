@@ -67,6 +67,7 @@ namespace Pulumi.AwsNative.MediaTailor
         /// The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
         /// </summary>
         public readonly Outputs.PlaybackConfigurationAdConditioningConfiguration? AdConditioningConfiguration;
+        public readonly Outputs.PlaybackConfigurationAdDecisionServerConfiguration? AdDecisionServerConfiguration;
         /// <summary>
         /// The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
         /// </summary>
@@ -148,6 +149,8 @@ namespace Pulumi.AwsNative.MediaTailor
         private GetPlaybackConfigurationResult(
             Outputs.PlaybackConfigurationAdConditioningConfiguration? adConditioningConfiguration,
 
+            Outputs.PlaybackConfigurationAdDecisionServerConfiguration? adDecisionServerConfiguration,
+
             string? adDecisionServerUrl,
 
             Outputs.PlaybackConfigurationAvailSuppression? availSuppression,
@@ -187,6 +190,7 @@ namespace Pulumi.AwsNative.MediaTailor
             string? videoContentSourceUrl)
         {
             AdConditioningConfiguration = adConditioningConfiguration;
+            AdDecisionServerConfiguration = adDecisionServerConfiguration;
             AdDecisionServerUrl = adDecisionServerUrl;
             AvailSuppression = availSuppression;
             Bumper = bumper;

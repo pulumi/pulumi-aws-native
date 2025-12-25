@@ -92,6 +92,7 @@ class AutoScalingGroupArgs:
                 Only specify ``EC2`` if you must clear a value that was previously set.
         :param pulumi.Input[_builtins.str] instance_id: The ID of the instance used to base the launch configuration on. For more information, see [Create an Auto Scaling group using an EC2 instance](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html) in the *Amazon EC2 Auto Scaling User Guide*.
                 If you specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``LaunchConfigurationName``, don't specify ``InstanceId``.
+        :param pulumi.Input['AutoScalingGroupInstanceLifecyclePolicyArgs'] instance_lifecycle_policy: The instance lifecycle policy for the Auto Scaling group.
         :param pulumi.Input['AutoScalingGroupInstanceMaintenancePolicyArgs'] instance_maintenance_policy: An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
         :param pulumi.Input[_builtins.str] launch_configuration_name: The name of the launch configuration to use to launch instances.
                 Required only if you don't specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``InstanceId``.
@@ -401,6 +402,9 @@ class AutoScalingGroupArgs:
     @_builtins.property
     @pulumi.getter(name="instanceLifecyclePolicy")
     def instance_lifecycle_policy(self) -> Optional[pulumi.Input['AutoScalingGroupInstanceLifecyclePolicyArgs']]:
+        """
+        The instance lifecycle policy for the Auto Scaling group.
+        """
         return pulumi.get(self, "instance_lifecycle_policy")
 
     @instance_lifecycle_policy.setter
@@ -719,6 +723,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                 Only specify ``EC2`` if you must clear a value that was previously set.
         :param pulumi.Input[_builtins.str] instance_id: The ID of the instance used to base the launch configuration on. For more information, see [Create an Auto Scaling group using an EC2 instance](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html) in the *Amazon EC2 Auto Scaling User Guide*.
                 If you specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``LaunchConfigurationName``, don't specify ``InstanceId``.
+        :param pulumi.Input[Union['AutoScalingGroupInstanceLifecyclePolicyArgs', 'AutoScalingGroupInstanceLifecyclePolicyArgsDict']] instance_lifecycle_policy: The instance lifecycle policy for the Auto Scaling group.
         :param pulumi.Input[Union['AutoScalingGroupInstanceMaintenancePolicyArgs', 'AutoScalingGroupInstanceMaintenancePolicyArgsDict']] instance_maintenance_policy: An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
         :param pulumi.Input[_builtins.str] launch_configuration_name: The name of the launch configuration to use to launch instances.
                 Required only if you don't specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``InstanceId``.
@@ -1063,6 +1068,9 @@ class AutoScalingGroup(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="instanceLifecyclePolicy")
     def instance_lifecycle_policy(self) -> pulumi.Output[Optional['outputs.AutoScalingGroupInstanceLifecyclePolicy']]:
+        """
+        The instance lifecycle policy for the Auto Scaling group.
+        """
         return pulumi.get(self, "instance_lifecycle_policy")
 
     @_builtins.property

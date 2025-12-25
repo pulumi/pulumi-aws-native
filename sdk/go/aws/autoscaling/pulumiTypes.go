@@ -1438,6 +1438,7 @@ func (o AutoScalingGroupCpuPerformanceFactorRequestPtrOutput) References() AutoS
 }
 
 type AutoScalingGroupInstanceLifecyclePolicy struct {
+	// Specifies the conditions that trigger instance retention behavior. These triggers determine when instances should move to a `Retained` state instead of automatic termination. This allows you to maintain control over instance management when lifecycles transition and operations fail.
 	RetentionTriggers *AutoScalingGroupRetentionTriggers `pulumi:"retentionTriggers"`
 }
 
@@ -1453,6 +1454,7 @@ type AutoScalingGroupInstanceLifecyclePolicyInput interface {
 }
 
 type AutoScalingGroupInstanceLifecyclePolicyArgs struct {
+	// Specifies the conditions that trigger instance retention behavior. These triggers determine when instances should move to a `Retained` state instead of automatic termination. This allows you to maintain control over instance management when lifecycles transition and operations fail.
 	RetentionTriggers AutoScalingGroupRetentionTriggersPtrInput `pulumi:"retentionTriggers"`
 }
 
@@ -1533,6 +1535,7 @@ func (o AutoScalingGroupInstanceLifecyclePolicyOutput) ToAutoScalingGroupInstanc
 	}).(AutoScalingGroupInstanceLifecyclePolicyPtrOutput)
 }
 
+// Specifies the conditions that trigger instance retention behavior. These triggers determine when instances should move to a `Retained` state instead of automatic termination. This allows you to maintain control over instance management when lifecycles transition and operations fail.
 func (o AutoScalingGroupInstanceLifecyclePolicyOutput) RetentionTriggers() AutoScalingGroupRetentionTriggersPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupInstanceLifecyclePolicy) *AutoScalingGroupRetentionTriggers {
 		return v.RetentionTriggers
@@ -1563,6 +1566,7 @@ func (o AutoScalingGroupInstanceLifecyclePolicyPtrOutput) Elem() AutoScalingGrou
 	}).(AutoScalingGroupInstanceLifecyclePolicyOutput)
 }
 
+// Specifies the conditions that trigger instance retention behavior. These triggers determine when instances should move to a `Retained` state instead of automatic termination. This allows you to maintain control over instance management when lifecycles transition and operations fail.
 func (o AutoScalingGroupInstanceLifecyclePolicyPtrOutput) RetentionTriggers() AutoScalingGroupRetentionTriggersPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroupInstanceLifecyclePolicy) *AutoScalingGroupRetentionTriggers {
 		if v == nil {
@@ -3200,6 +3204,13 @@ func (o AutoScalingGroupLaunchTemplatePtrOutput) Overrides() AutoScalingGroupLau
 //     After you define your instance requirements, you don't have to keep updating these settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance requirements of the Auto Scaling group to determine whether a new EC2 instance type can be used.
 //     “LaunchTemplateOverrides“ is a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
 type AutoScalingGroupLaunchTemplateOverrides struct {
+	// The ID of the Amazon Machine Image (AMI) to use for instances launched with this override. When using Instance Refresh with `ReplaceRootVolume` strategy, this specifies the AMI for root volume replacement operations.
+	//
+	// For `ReplaceRootVolume` operations:
+	//
+	// - All overrides in the `MixedInstancesPolicy` must specify an ImageId
+	// - The AMI must contain only a single root volume
+	// - Root volume replacement doesn't support multi-volume AMIs
 	ImageId *string `pulumi:"imageId"`
 	// The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
 	//  You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template.
@@ -3238,6 +3249,13 @@ type AutoScalingGroupLaunchTemplateOverridesInput interface {
 //     After you define your instance requirements, you don't have to keep updating these settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance requirements of the Auto Scaling group to determine whether a new EC2 instance type can be used.
 //     “LaunchTemplateOverrides“ is a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.
 type AutoScalingGroupLaunchTemplateOverridesArgs struct {
+	// The ID of the Amazon Machine Image (AMI) to use for instances launched with this override. When using Instance Refresh with `ReplaceRootVolume` strategy, this specifies the AMI for root volume replacement operations.
+	//
+	// For `ReplaceRootVolume` operations:
+	//
+	// - All overrides in the `MixedInstancesPolicy` must specify an ImageId
+	// - The AMI must contain only a single root volume
+	// - Root volume replacement doesn't support multi-volume AMIs
 	ImageId pulumi.StringPtrInput `pulumi:"imageId"`
 	// The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
 	//  You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template.
@@ -3315,6 +3333,13 @@ func (o AutoScalingGroupLaunchTemplateOverridesOutput) ToAutoScalingGroupLaunchT
 	return o
 }
 
+// The ID of the Amazon Machine Image (AMI) to use for instances launched with this override. When using Instance Refresh with `ReplaceRootVolume` strategy, this specifies the AMI for root volume replacement operations.
+//
+// For `ReplaceRootVolume` operations:
+//
+// - All overrides in the `MixedInstancesPolicy` must specify an ImageId
+// - The AMI must contain only a single root volume
+// - Root volume replacement doesn't support multi-volume AMIs
 func (o AutoScalingGroupLaunchTemplateOverridesOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupLaunchTemplateOverrides) *string { return v.ImageId }).(pulumi.StringPtrOutput)
 }
@@ -5175,6 +5200,11 @@ func (o AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput) Index(i pu
 }
 
 type AutoScalingGroupRetentionTriggers struct {
+	// Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction).
+	//
+	// Set to `Retain` to move instances to a `Retained` state. Set to `Terminate` for default termination behavior.
+	//
+	// Retained instances don't count toward desired capacity and remain until you call `TerminateInstanceInAutoScalingGroup` .
 	TerminateHookAbandon *string `pulumi:"terminateHookAbandon"`
 }
 
@@ -5190,6 +5220,11 @@ type AutoScalingGroupRetentionTriggersInput interface {
 }
 
 type AutoScalingGroupRetentionTriggersArgs struct {
+	// Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction).
+	//
+	// Set to `Retain` to move instances to a `Retained` state. Set to `Terminate` for default termination behavior.
+	//
+	// Retained instances don't count toward desired capacity and remain until you call `TerminateInstanceInAutoScalingGroup` .
 	TerminateHookAbandon pulumi.StringPtrInput `pulumi:"terminateHookAbandon"`
 }
 
@@ -5270,6 +5305,11 @@ func (o AutoScalingGroupRetentionTriggersOutput) ToAutoScalingGroupRetentionTrig
 	}).(AutoScalingGroupRetentionTriggersPtrOutput)
 }
 
+// Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction).
+//
+// Set to `Retain` to move instances to a `Retained` state. Set to `Terminate` for default termination behavior.
+//
+// Retained instances don't count toward desired capacity and remain until you call `TerminateInstanceInAutoScalingGroup` .
 func (o AutoScalingGroupRetentionTriggersOutput) TerminateHookAbandon() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupRetentionTriggers) *string { return v.TerminateHookAbandon }).(pulumi.StringPtrOutput)
 }
@@ -5298,6 +5338,11 @@ func (o AutoScalingGroupRetentionTriggersPtrOutput) Elem() AutoScalingGroupReten
 	}).(AutoScalingGroupRetentionTriggersOutput)
 }
 
+// Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction).
+//
+// Set to `Retain` to move instances to a `Retained` state. Set to `Terminate` for default termination behavior.
+//
+// Retained instances don't count toward desired capacity and remain until you call `TerminateInstanceInAutoScalingGroup` .
 func (o AutoScalingGroupRetentionTriggersPtrOutput) TerminateHookAbandon() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroupRetentionTriggers) *string {
 		if v == nil {

@@ -255,7 +255,7 @@ def get_integration(api_id: Optional[_builtins.str] = None,
                     integration_id: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationResult:
     """
-    An example resource schema demonstrating some basic constructs and validation rules.
+    Resource Type definition for AWS::ApiGatewayV2::Integration
 
 
     :param _builtins.str api_id: The API identifier.
@@ -290,7 +290,7 @@ def get_integration_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
                            integration_id: Optional[pulumi.Input[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationResult]:
     """
-    An example resource schema demonstrating some basic constructs and validation rules.
+    Resource Type definition for AWS::ApiGatewayV2::Integration
 
 
     :param _builtins.str api_id: The API identifier.

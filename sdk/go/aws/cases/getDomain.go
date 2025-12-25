@@ -34,7 +34,8 @@ type LookupDomainResult struct {
 	// The Amazon Resource Name (ARN) for the Cases domain.
 	DomainArn *string `pulumi:"domainArn"`
 	// The unique identifier of the Cases domain.
-	DomainId     *string       `pulumi:"domainId"`
+	DomainId *string `pulumi:"domainId"`
+	// The status of the Cases domain.
 	DomainStatus *DomainStatus `pulumi:"domainStatus"`
 	// The tags that you attach to this domain.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -87,6 +88,7 @@ func (o LookupDomainResultOutput) DomainId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.DomainId }).(pulumi.StringPtrOutput)
 }
 
+// The status of the Cases domain.
 func (o LookupDomainResultOutput) DomainStatus() DomainStatusPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainStatus { return v.DomainStatus }).(DomainStatusPtrOutput)
 }

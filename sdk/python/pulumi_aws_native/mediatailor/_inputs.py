@@ -32,6 +32,8 @@ __all__ = [
     'LiveSourceHttpPackageConfigurationArgsDict',
     'PlaybackConfigurationAdConditioningConfigurationArgs',
     'PlaybackConfigurationAdConditioningConfigurationArgsDict',
+    'PlaybackConfigurationAdDecisionServerConfigurationArgs',
+    'PlaybackConfigurationAdDecisionServerConfigurationArgsDict',
     'PlaybackConfigurationAdMarkerPassthroughArgs',
     'PlaybackConfigurationAdMarkerPassthroughArgsDict',
     'PlaybackConfigurationAdsInteractionLogArgs',
@@ -46,6 +48,8 @@ __all__ = [
     'PlaybackConfigurationDashConfigurationArgsDict',
     'PlaybackConfigurationHlsConfigurationArgs',
     'PlaybackConfigurationHlsConfigurationArgsDict',
+    'PlaybackConfigurationHttpRequestArgs',
+    'PlaybackConfigurationHttpRequestArgsDict',
     'PlaybackConfigurationLivePreRollConfigurationArgs',
     'PlaybackConfigurationLivePreRollConfigurationArgsDict',
     'PlaybackConfigurationLogConfigurationArgs',
@@ -552,6 +556,34 @@ class PlaybackConfigurationAdConditioningConfigurationArgs:
 
 
 if not MYPY:
+    class PlaybackConfigurationAdDecisionServerConfigurationArgsDict(TypedDict):
+        """
+        The configuration for the request to the specified Ad Decision Server URL.
+        """
+        http_request: pulumi.Input['PlaybackConfigurationHttpRequestArgsDict']
+elif False:
+    PlaybackConfigurationAdDecisionServerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PlaybackConfigurationAdDecisionServerConfigurationArgs:
+    def __init__(__self__, *,
+                 http_request: pulumi.Input['PlaybackConfigurationHttpRequestArgs']):
+        """
+        The configuration for the request to the specified Ad Decision Server URL.
+        """
+        pulumi.set(__self__, "http_request", http_request)
+
+    @_builtins.property
+    @pulumi.getter(name="httpRequest")
+    def http_request(self) -> pulumi.Input['PlaybackConfigurationHttpRequestArgs']:
+        return pulumi.get(self, "http_request")
+
+    @http_request.setter
+    def http_request(self, value: pulumi.Input['PlaybackConfigurationHttpRequestArgs']):
+        pulumi.set(self, "http_request", value)
+
+
+if not MYPY:
     class PlaybackConfigurationAdMarkerPassthroughArgsDict(TypedDict):
         """
         For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
@@ -933,6 +965,95 @@ class PlaybackConfigurationHlsConfigurationArgs:
     @manifest_endpoint_prefix.setter
     def manifest_endpoint_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "manifest_endpoint_prefix", value)
+
+
+if not MYPY:
+    class PlaybackConfigurationHttpRequestArgsDict(TypedDict):
+        """
+        The configuration for the request to the Ad Decision Server URL.
+        """
+        body: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The body of the request to the Ad Decision Server URL. The maximum length is 100,000 characters.
+        """
+        compress_request: NotRequired[pulumi.Input['PlaybackConfigurationHttpRequestCompressRequest']]
+        """
+        The compression type of the request sent to the Ad Decision Server URL. Only the POST HTTP Method permits compression other than NONE.
+        """
+        headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+        http_method: NotRequired[pulumi.Input['PlaybackConfigurationHttpRequestHttpMethod']]
+        """
+        Supported HTTP Methods for the request to the Ad Decision Server URL.
+        """
+elif False:
+    PlaybackConfigurationHttpRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PlaybackConfigurationHttpRequestArgs:
+    def __init__(__self__, *,
+                 body: Optional[pulumi.Input[_builtins.str]] = None,
+                 compress_request: Optional[pulumi.Input['PlaybackConfigurationHttpRequestCompressRequest']] = None,
+                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 http_method: Optional[pulumi.Input['PlaybackConfigurationHttpRequestHttpMethod']] = None):
+        """
+        The configuration for the request to the Ad Decision Server URL.
+        :param pulumi.Input[_builtins.str] body: The body of the request to the Ad Decision Server URL. The maximum length is 100,000 characters.
+        :param pulumi.Input['PlaybackConfigurationHttpRequestCompressRequest'] compress_request: The compression type of the request sent to the Ad Decision Server URL. Only the POST HTTP Method permits compression other than NONE.
+        :param pulumi.Input['PlaybackConfigurationHttpRequestHttpMethod'] http_method: Supported HTTP Methods for the request to the Ad Decision Server URL.
+        """
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if compress_request is not None:
+            pulumi.set(__self__, "compress_request", compress_request)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if http_method is not None:
+            pulumi.set(__self__, "http_method", http_method)
+
+    @_builtins.property
+    @pulumi.getter
+    def body(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The body of the request to the Ad Decision Server URL. The maximum length is 100,000 characters.
+        """
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "body", value)
+
+    @_builtins.property
+    @pulumi.getter(name="compressRequest")
+    def compress_request(self) -> Optional[pulumi.Input['PlaybackConfigurationHttpRequestCompressRequest']]:
+        """
+        The compression type of the request sent to the Ad Decision Server URL. Only the POST HTTP Method permits compression other than NONE.
+        """
+        return pulumi.get(self, "compress_request")
+
+    @compress_request.setter
+    def compress_request(self, value: Optional[pulumi.Input['PlaybackConfigurationHttpRequestCompressRequest']]):
+        pulumi.set(self, "compress_request", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "headers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> Optional[pulumi.Input['PlaybackConfigurationHttpRequestHttpMethod']]:
+        """
+        Supported HTTP Methods for the request to the Ad Decision Server URL.
+        """
+        return pulumi.get(self, "http_method")
+
+    @http_method.setter
+    def http_method(self, value: Optional[pulumi.Input['PlaybackConfigurationHttpRequestHttpMethod']]):
+        pulumi.set(self, "http_method", value)
 
 
 if not MYPY:

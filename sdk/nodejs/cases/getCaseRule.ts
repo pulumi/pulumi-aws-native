@@ -49,6 +49,9 @@ export interface GetCaseRuleResult {
      * A descriptive name for the case rule. Must be unique within the domain and should clearly indicate the rule's purpose (e.g., 'Priority Field Required for Urgent Cases').
      */
     readonly name?: string;
+    /**
+     * Represents what rule type should take place, under what conditions.
+     */
     readonly rule?: outputs.cases.CaseRuleDetails0Properties | outputs.cases.CaseRuleDetails1Properties;
     /**
      * The tags that you attach to this case rule.

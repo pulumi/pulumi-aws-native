@@ -169,7 +169,7 @@ export class ExpressGatewayService extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["cluster", "infrastructureRoleArn", "scalingTarget", "serviceName", "tags[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["cluster", "infrastructureRoleArn", "serviceName", "tags[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ExpressGatewayService.__pulumiType, name, resourceInputs, opts);
     }

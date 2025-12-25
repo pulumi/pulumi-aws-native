@@ -25,6 +25,9 @@ export interface GetLayoutArgs {
 }
 
 export interface GetLayoutResult {
+    /**
+     * Object to store union of different versions of layout content.
+     */
     readonly content?: outputs.cases.LayoutContentProperties;
     /**
      * The time at which the layout was created.
@@ -46,6 +49,9 @@ export interface GetLayoutResult {
      * A descriptive name for the layout. Must be unique within the Cases domain and should clearly indicate the layout's purpose and field organization.
      */
     readonly name?: string;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

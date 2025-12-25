@@ -41,6 +41,7 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
      * The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
      */
     declare public readonly adConditioningConfiguration: pulumi.Output<outputs.mediatailor.PlaybackConfigurationAdConditioningConfiguration | undefined>;
+    declare public readonly adDecisionServerConfiguration: pulumi.Output<outputs.mediatailor.PlaybackConfigurationAdDecisionServerConfiguration | undefined>;
     /**
      * The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
      */
@@ -140,6 +141,7 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'videoContentSourceUrl'");
             }
             resourceInputs["adConditioningConfiguration"] = args?.adConditioningConfiguration;
+            resourceInputs["adDecisionServerConfiguration"] = args?.adDecisionServerConfiguration;
             resourceInputs["adDecisionServerUrl"] = args?.adDecisionServerUrl;
             resourceInputs["availSuppression"] = args?.availSuppression;
             resourceInputs["bumper"] = args?.bumper;
@@ -162,6 +164,7 @@ export class PlaybackConfiguration extends pulumi.CustomResource {
             resourceInputs["sessionInitializationEndpointPrefix"] = undefined /*out*/;
         } else {
             resourceInputs["adConditioningConfiguration"] = undefined /*out*/;
+            resourceInputs["adDecisionServerConfiguration"] = undefined /*out*/;
             resourceInputs["adDecisionServerUrl"] = undefined /*out*/;
             resourceInputs["availSuppression"] = undefined /*out*/;
             resourceInputs["bumper"] = undefined /*out*/;
@@ -198,6 +201,7 @@ export interface PlaybackConfigurationArgs {
      * The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns, and what priority MediaTailor uses when inserting ads.
      */
     adConditioningConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationAdConditioningConfigurationArgs>;
+    adDecisionServerConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationAdDecisionServerConfigurationArgs>;
     /**
      * The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
      */

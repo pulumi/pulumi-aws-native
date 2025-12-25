@@ -69,6 +69,9 @@ class GetDomainResult:
     @_builtins.property
     @pulumi.getter(name="domainStatus")
     def domain_status(self) -> Optional['DomainStatus']:
+        """
+        The status of the Cases domain.
+        """
         return pulumi.get(self, "domain_status")
 
     @_builtins.property
