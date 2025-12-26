@@ -841,6 +841,17 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 		return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_NONE}, nil
 	}
 
+	// Apply propertyTransform-based diff suppression for semantically equivalent values.
+	// This handles cases where AWS returns normalized values (e.g., lowercase identifiers,
+	// REPLICATING instead of DISABLED for EFS replication) that should not trigger updates.
+	resourceToken := string(urn.Type())
+	if spec, hasSpec := p.resourceMap.Resources[resourceToken]; hasSpec {
+		diff = resources.SuppressAWSManagedDiffs(resourceToken, &spec, diff, oldInputs)
+		if diff == nil || (len(diff.Adds) == 0 && len(diff.Updates) == 0 && len(diff.Deletes) == 0) {
+			return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_NONE}, nil
+		}
+	}
+
 	return &pulumirpc.DiffResponse{
 		Changes:             pulumirpc.DiffResponse_DIFF_UNKNOWN,
 		DeleteBeforeReplace: true,
