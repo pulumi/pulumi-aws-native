@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.Cases
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Represents what rule type should take place, under what conditions.
+        /// </summary>
         [Output("rule")]
         public Output<Union<Outputs.CaseRuleDetails0Properties, Outputs.CaseRuleDetails1Properties>> Rule { get; private set; } = null!;
 
@@ -133,6 +136,9 @@ namespace Pulumi.AwsNative.Cases
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Represents what rule type should take place, under what conditions.
+        /// </summary>
         [Input("rule", required: true)]
         public InputUnion<Inputs.CaseRuleDetails0PropertiesArgs, Inputs.CaseRuleDetails1PropertiesArgs> Rule { get; set; } = null!;
 

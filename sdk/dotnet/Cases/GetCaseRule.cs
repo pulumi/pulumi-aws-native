@@ -87,6 +87,9 @@ namespace Pulumi.AwsNative.Cases
         /// A descriptive name for the case rule. Must be unique within the domain and should clearly indicate the rule's purpose (e.g., 'Priority Field Required for Urgent Cases').
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Represents what rule type should take place, under what conditions.
+        /// </summary>
         public readonly Union<Outputs.CaseRuleDetails0Properties, Outputs.CaseRuleDetails1Properties>? Rule;
         /// <summary>
         /// The tags that you attach to this case rule.

@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'PlanAlarmCondition',
     'PlanAlarmType',
+    'PlanDocumentDbUngracefulBehavior',
     'PlanExecutionBlockType',
     'PlanGlobalAuroraUngracefulBehavior',
     'PlanRecoveryApproach',
@@ -30,6 +31,11 @@ class PlanAlarmType(_builtins.str, Enum):
     TRIGGER = "trigger"
 
 
+@pulumi.type_token("aws-native:arcregionswitch:PlanDocumentDbUngracefulBehavior")
+class PlanDocumentDbUngracefulBehavior(_builtins.str, Enum):
+    FAILOVER = "failover"
+
+
 @pulumi.type_token("aws-native:arcregionswitch:PlanExecutionBlockType")
 class PlanExecutionBlockType(_builtins.str, Enum):
     CUSTOM_ACTION_LAMBDA = "CustomActionLambda"
@@ -42,6 +48,7 @@ class PlanExecutionBlockType(_builtins.str, Enum):
     ECS_SERVICE_SCALING = "ECSServiceScaling"
     EKS_RESOURCE_SCALING = "EKSResourceScaling"
     ROUTE53_HEALTH_CHECK = "Route53HealthCheck"
+    DOCUMENT_DB = "DocumentDb"
 
 
 @pulumi.type_token("aws-native:arcregionswitch:PlanGlobalAuroraUngracefulBehavior")

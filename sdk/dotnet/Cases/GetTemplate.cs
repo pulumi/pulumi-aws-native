@@ -75,6 +75,9 @@ namespace Pulumi.AwsNative.Cases
         /// The time at which the template was created or last modified.
         /// </summary>
         public readonly string? LastModifiedTime;
+        /// <summary>
+        /// Object to store configuration of layouts associated to the template.
+        /// </summary>
         public readonly Outputs.TemplateLayoutConfiguration? LayoutConfiguration;
         /// <summary>
         /// A name for the template. It must be unique per domain.
@@ -88,6 +91,9 @@ namespace Pulumi.AwsNative.Cases
         /// A list of case rules (also known as case field conditions) on a template.
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateRule> Rules;
+        /// <summary>
+        /// The status of the template.
+        /// </summary>
         public readonly Pulumi.AwsNative.Cases.TemplateStatus? Status;
         /// <summary>
         /// The tags that you attach to this template.

@@ -37,6 +37,9 @@ export interface GetDomainResult {
      * The unique identifier of the Cases domain.
      */
     readonly domainId?: string;
+    /**
+     * The status of the Cases domain.
+     */
     readonly domainStatus?: enums.cases.DomainStatus;
     /**
      * The tags that you attach to this domain.

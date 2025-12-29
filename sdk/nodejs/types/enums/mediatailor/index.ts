@@ -67,6 +67,26 @@ export const PlaybackConfigurationDashConfigurationOriginManifestType = {
  */
 export type PlaybackConfigurationDashConfigurationOriginManifestType = (typeof PlaybackConfigurationDashConfigurationOriginManifestType)[keyof typeof PlaybackConfigurationDashConfigurationOriginManifestType];
 
+export const PlaybackConfigurationHttpRequestCompressRequest = {
+    None: "NONE",
+    Gzip: "GZIP",
+} as const;
+
+/**
+ * The compression type of the request sent to the Ad Decision Server URL. Only the POST HTTP Method permits compression other than NONE.
+ */
+export type PlaybackConfigurationHttpRequestCompressRequest = (typeof PlaybackConfigurationHttpRequestCompressRequest)[keyof typeof PlaybackConfigurationHttpRequestCompressRequest];
+
+export const PlaybackConfigurationHttpRequestHttpMethod = {
+    Get: "GET",
+    Post: "POST",
+} as const;
+
+/**
+ * Supported HTTP Methods for the request to the Ad Decision Server URL.
+ */
+export type PlaybackConfigurationHttpRequestHttpMethod = (typeof PlaybackConfigurationHttpRequestHttpMethod)[keyof typeof PlaybackConfigurationHttpRequestHttpMethod];
+
 export const PlaybackConfigurationInsertionMode = {
     StitchedOnly: "STITCHED_ONLY",
     PlayerSelect: "PLAYER_SELECT",

@@ -102,6 +102,9 @@ class GetCaseRuleResult:
     @_builtins.property
     @pulumi.getter
     def rule(self) -> Optional[Any]:
+        """
+        Represents what rule type should take place, under what conditions.
+        """
         return pulumi.get(self, "rule")
 
     @_builtins.property

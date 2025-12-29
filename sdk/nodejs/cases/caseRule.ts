@@ -65,6 +65,9 @@ export class CaseRule extends pulumi.CustomResource {
      * A descriptive name for the case rule. Must be unique within the domain and should clearly indicate the rule's purpose (e.g., 'Priority Field Required for Urgent Cases').
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * Represents what rule type should take place, under what conditions.
+     */
     declare public readonly rule: pulumi.Output<outputs.cases.CaseRuleDetails0Properties | outputs.cases.CaseRuleDetails1Properties>;
     /**
      * The tags that you attach to this case rule.
@@ -128,6 +131,9 @@ export interface CaseRuleArgs {
      * A descriptive name for the case rule. Must be unique within the domain and should clearly indicate the rule's purpose (e.g., 'Priority Field Required for Urgent Cases').
      */
     name?: pulumi.Input<string>;
+    /**
+     * Represents what rule type should take place, under what conditions.
+     */
     rule: pulumi.Input<inputs.cases.CaseRuleDetails0PropertiesArgs | inputs.cases.CaseRuleDetails1PropertiesArgs>;
     /**
      * The tags that you attach to this case rule.

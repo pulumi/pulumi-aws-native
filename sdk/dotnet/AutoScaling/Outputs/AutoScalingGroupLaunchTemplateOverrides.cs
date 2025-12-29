@@ -22,6 +22,15 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     [OutputType]
     public sealed class AutoScalingGroupLaunchTemplateOverrides
     {
+        /// <summary>
+        /// The ID of the Amazon Machine Image (AMI) to use for instances launched with this override. When using Instance Refresh with `ReplaceRootVolume` strategy, this specifies the AMI for root volume replacement operations.
+        /// 
+        /// For `ReplaceRootVolume` operations:
+        /// 
+        /// - All overrides in the `MixedInstancesPolicy` must specify an ImageId
+        /// - The AMI must contain only a single root volume
+        /// - Root volume replacement doesn't support multi-volume AMIs
+        /// </summary>
         public readonly string? ImageId;
         /// <summary>
         /// The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.

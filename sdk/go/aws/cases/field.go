@@ -33,8 +33,10 @@ type Field struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Indicates whether this is a System field (predefined by AWS) or a Custom field (created by your organization). System fields cannot be modified or deleted.
 	Namespace FieldNamespaceOutput `pulumi:"namespace"`
-	Tags      aws.TagArrayOutput   `pulumi:"tags"`
-	Type      FieldTypeOutput      `pulumi:"type"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Type of the field.
+	Type FieldTypeOutput `pulumi:"type"`
 }
 
 // NewField registers a new resource with the given unique name, arguments, and options.
@@ -90,8 +92,10 @@ type fieldArgs struct {
 	// The unique identifier of the Cases domain.
 	DomainId *string `pulumi:"domainId"`
 	// The display name of the field as it appears to agents in the case interface. Should be descriptive and user-friendly (e.g., 'Customer Priority Level', 'Issue Category').
-	Name *string   `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
+	// Type of the field.
 	Type FieldType `pulumi:"type"`
 }
 
@@ -103,7 +107,9 @@ type FieldArgs struct {
 	DomainId pulumi.StringPtrInput
 	// The display name of the field as it appears to agents in the case interface. Should be descriptive and user-friendly (e.g., 'Customer Priority Level', 'Issue Category').
 	Name pulumi.StringPtrInput
+	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
+	// Type of the field.
 	Type FieldTypeInput
 }
 
@@ -184,10 +190,12 @@ func (o FieldOutput) Namespace() FieldNamespaceOutput {
 	return o.ApplyT(func(v *Field) FieldNamespaceOutput { return v.Namespace }).(FieldNamespaceOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
 func (o FieldOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Field) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// Type of the field.
 func (o FieldOutput) Type() FieldTypeOutput {
 	return o.ApplyT(func(v *Field) FieldTypeOutput { return v.Type }).(FieldTypeOutput)
 }

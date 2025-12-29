@@ -71,7 +71,8 @@ type LookupAutoScalingGroupResult struct {
 	// A comma-separated value string of one or more health check types.
 	//  The valid values are ``EC2``, ``EBS``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	//  Only specify ``EC2`` if you must clear a value that was previously set.
-	HealthCheckType         *string                                  `pulumi:"healthCheckType"`
+	HealthCheckType *string `pulumi:"healthCheckType"`
+	// The instance lifecycle policy for the Auto Scaling group.
 	InstanceLifecyclePolicy *AutoScalingGroupInstanceLifecyclePolicy `pulumi:"instanceLifecyclePolicy"`
 	// An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	InstanceMaintenancePolicy *AutoScalingGroupInstanceMaintenancePolicy `pulumi:"instanceMaintenancePolicy"`
@@ -247,6 +248,7 @@ func (o LookupAutoScalingGroupResultOutput) HealthCheckType() pulumi.StringPtrOu
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *string { return v.HealthCheckType }).(pulumi.StringPtrOutput)
 }
 
+// The instance lifecycle policy for the Auto Scaling group.
 func (o LookupAutoScalingGroupResultOutput) InstanceLifecyclePolicy() AutoScalingGroupInstanceLifecyclePolicyPtrOutput {
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *AutoScalingGroupInstanceLifecyclePolicy {
 		return v.InstanceLifecyclePolicy

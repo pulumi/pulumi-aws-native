@@ -91,6 +91,9 @@ namespace Pulumi.AwsNative.Cases
         /// Indicates whether this is a System field (predefined by AWS) or a Custom field (created by your organization). System fields cannot be modified or deleted.
         /// </summary>
         public readonly Pulumi.AwsNative.Cases.FieldNamespace? Namespace;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

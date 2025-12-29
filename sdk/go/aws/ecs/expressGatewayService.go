@@ -74,7 +74,6 @@ func NewExpressGatewayService(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"cluster",
 		"infrastructureRoleArn",
-		"scalingTarget",
 		"serviceName",
 		"tags[*]",
 	})

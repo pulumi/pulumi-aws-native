@@ -29,8 +29,10 @@ class LayoutArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Layout resource.
+        :param pulumi.Input['LayoutContentPropertiesArgs'] content: Object to store union of different versions of layout content.
         :param pulumi.Input[_builtins.str] domain_id: The unique identifier of the Cases domain.
         :param pulumi.Input[_builtins.str] name: A descriptive name for the layout. Must be unique within the Cases domain and should clearly indicate the layout's purpose and field organization.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "content", content)
         if domain_id is not None:
@@ -43,6 +45,9 @@ class LayoutArgs:
     @_builtins.property
     @pulumi.getter
     def content(self) -> pulumi.Input['LayoutContentPropertiesArgs']:
+        """
+        Object to store union of different versions of layout content.
+        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -76,6 +81,9 @@ class LayoutArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -99,8 +107,10 @@ class Layout(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['LayoutContentPropertiesArgs', 'LayoutContentPropertiesArgsDict']] content: Object to store union of different versions of layout content.
         :param pulumi.Input[_builtins.str] domain_id: The unique identifier of the Cases domain.
         :param pulumi.Input[_builtins.str] name: A descriptive name for the layout. Must be unique within the Cases domain and should clearly indicate the layout's purpose and field organization.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -186,6 +196,9 @@ class Layout(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def content(self) -> pulumi.Output['outputs.LayoutContentProperties']:
+        """
+        Object to store union of different versions of layout content.
+        """
         return pulumi.get(self, "content")
 
     @_builtins.property
@@ -239,5 +252,8 @@ class Layout(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 

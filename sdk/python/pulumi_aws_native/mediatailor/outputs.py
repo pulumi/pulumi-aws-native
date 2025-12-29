@@ -25,6 +25,7 @@ __all__ = [
     'ChannelTimeShiftConfiguration',
     'LiveSourceHttpPackageConfiguration',
     'PlaybackConfigurationAdConditioningConfiguration',
+    'PlaybackConfigurationAdDecisionServerConfiguration',
     'PlaybackConfigurationAdMarkerPassthrough',
     'PlaybackConfigurationAdsInteractionLog',
     'PlaybackConfigurationAvailSuppression',
@@ -32,6 +33,7 @@ __all__ = [
     'PlaybackConfigurationCdnConfiguration',
     'PlaybackConfigurationDashConfiguration',
     'PlaybackConfigurationHlsConfiguration',
+    'PlaybackConfigurationHttpRequest',
     'PlaybackConfigurationLivePreRollConfiguration',
     'PlaybackConfigurationLogConfiguration',
     'PlaybackConfigurationManifestProcessingRules',
@@ -494,6 +496,41 @@ class PlaybackConfigurationAdConditioningConfiguration(dict):
 
 
 @pulumi.output_type
+class PlaybackConfigurationAdDecisionServerConfiguration(dict):
+    """
+    The configuration for the request to the specified Ad Decision Server URL.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpRequest":
+            suggest = "http_request"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlaybackConfigurationAdDecisionServerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlaybackConfigurationAdDecisionServerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlaybackConfigurationAdDecisionServerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 http_request: 'outputs.PlaybackConfigurationHttpRequest'):
+        """
+        The configuration for the request to the specified Ad Decision Server URL.
+        """
+        pulumi.set(__self__, "http_request", http_request)
+
+    @_builtins.property
+    @pulumi.getter(name="httpRequest")
+    def http_request(self) -> 'outputs.PlaybackConfigurationHttpRequest':
+        return pulumi.get(self, "http_request")
+
+
+@pulumi.output_type
 class PlaybackConfigurationAdMarkerPassthrough(dict):
     """
     For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
@@ -840,6 +877,80 @@ class PlaybackConfigurationHlsConfiguration(dict):
         The URL that is used to initiate a playback session for devices that support Apple HLS. The session uses server-side reporting.
         """
         return pulumi.get(self, "manifest_endpoint_prefix")
+
+
+@pulumi.output_type
+class PlaybackConfigurationHttpRequest(dict):
+    """
+    The configuration for the request to the Ad Decision Server URL.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "compressRequest":
+            suggest = "compress_request"
+        elif key == "httpMethod":
+            suggest = "http_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlaybackConfigurationHttpRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlaybackConfigurationHttpRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlaybackConfigurationHttpRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 body: Optional[_builtins.str] = None,
+                 compress_request: Optional['PlaybackConfigurationHttpRequestCompressRequest'] = None,
+                 headers: Optional[Mapping[str, _builtins.str]] = None,
+                 http_method: Optional['PlaybackConfigurationHttpRequestHttpMethod'] = None):
+        """
+        The configuration for the request to the Ad Decision Server URL.
+        :param _builtins.str body: The body of the request to the Ad Decision Server URL. The maximum length is 100,000 characters.
+        :param 'PlaybackConfigurationHttpRequestCompressRequest' compress_request: The compression type of the request sent to the Ad Decision Server URL. Only the POST HTTP Method permits compression other than NONE.
+        :param 'PlaybackConfigurationHttpRequestHttpMethod' http_method: Supported HTTP Methods for the request to the Ad Decision Server URL.
+        """
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if compress_request is not None:
+            pulumi.set(__self__, "compress_request", compress_request)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if http_method is not None:
+            pulumi.set(__self__, "http_method", http_method)
+
+    @_builtins.property
+    @pulumi.getter
+    def body(self) -> Optional[_builtins.str]:
+        """
+        The body of the request to the Ad Decision Server URL. The maximum length is 100,000 characters.
+        """
+        return pulumi.get(self, "body")
+
+    @_builtins.property
+    @pulumi.getter(name="compressRequest")
+    def compress_request(self) -> Optional['PlaybackConfigurationHttpRequestCompressRequest']:
+        """
+        The compression type of the request sent to the Ad Decision Server URL. Only the POST HTTP Method permits compression other than NONE.
+        """
+        return pulumi.get(self, "compress_request")
+
+    @_builtins.property
+    @pulumi.getter
+    def headers(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "headers")
+
+    @_builtins.property
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> Optional['PlaybackConfigurationHttpRequestHttpMethod']:
+        """
+        Supported HTTP Methods for the request to the Ad Decision Server URL.
+        """
+        return pulumi.get(self, "http_method")
 
 
 @pulumi.output_type

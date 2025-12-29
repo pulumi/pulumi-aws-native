@@ -16,6 +16,12 @@ export const PlanAlarmType = {
 
 export type PlanAlarmType = (typeof PlanAlarmType)[keyof typeof PlanAlarmType];
 
+export const PlanDocumentDbUngracefulBehavior = {
+    Failover: "failover",
+} as const;
+
+export type PlanDocumentDbUngracefulBehavior = (typeof PlanDocumentDbUngracefulBehavior)[keyof typeof PlanDocumentDbUngracefulBehavior];
+
 export const PlanExecutionBlockType = {
     CustomActionLambda: "CustomActionLambda",
     ManualApproval: "ManualApproval",
@@ -27,6 +33,7 @@ export const PlanExecutionBlockType = {
     EcsServiceScaling: "ECSServiceScaling",
     EksResourceScaling: "EKSResourceScaling",
     Route53HealthCheck: "Route53HealthCheck",
+    DocumentDb: "DocumentDb",
 } as const;
 
 export type PlanExecutionBlockType = (typeof PlanExecutionBlockType)[keyof typeof PlanExecutionBlockType];
