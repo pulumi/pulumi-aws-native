@@ -31,6 +31,7 @@ class PlanArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  primary_region: Optional[pulumi.Input[_builtins.str]] = None,
                  recovery_time_objective_minutes: Optional[pulumi.Input[_builtins.float]] = None,
+                 report_configuration: Optional[pulumi.Input['PlanReportConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]]] = None):
         """
@@ -60,6 +61,8 @@ class PlanArgs:
             pulumi.set(__self__, "primary_region", primary_region)
         if recovery_time_objective_minutes is not None:
             pulumi.set(__self__, "recovery_time_objective_minutes", recovery_time_objective_minutes)
+        if report_configuration is not None:
+            pulumi.set(__self__, "report_configuration", report_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if triggers is not None:
@@ -174,6 +177,15 @@ class PlanArgs:
         pulumi.set(self, "recovery_time_objective_minutes", value)
 
     @_builtins.property
+    @pulumi.getter(name="reportConfiguration")
+    def report_configuration(self) -> Optional[pulumi.Input['PlanReportConfigurationArgs']]:
+        return pulumi.get(self, "report_configuration")
+
+    @report_configuration.setter
+    def report_configuration(self, value: Optional[pulumi.Input['PlanReportConfigurationArgs']]):
+        pulumi.set(self, "report_configuration", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "tags")
@@ -209,6 +221,7 @@ class Plan(pulumi.CustomResource):
                  recovery_approach: Optional[pulumi.Input['PlanRecoveryApproach']] = None,
                  recovery_time_objective_minutes: Optional[pulumi.Input[_builtins.float]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 report_configuration: Optional[pulumi.Input[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]]] = None,
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]]] = None,
@@ -261,6 +274,7 @@ class Plan(pulumi.CustomResource):
                  recovery_approach: Optional[pulumi.Input['PlanRecoveryApproach']] = None,
                  recovery_time_objective_minutes: Optional[pulumi.Input[_builtins.float]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 report_configuration: Optional[pulumi.Input[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]]] = None,
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]]] = None,
@@ -287,6 +301,7 @@ class Plan(pulumi.CustomResource):
             if regions is None and not opts.urn:
                 raise TypeError("Missing required property 'regions'")
             __props__.__dict__["regions"] = regions
+            __props__.__dict__["report_configuration"] = report_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["triggers"] = triggers
             if workflows is None and not opts.urn:
@@ -334,6 +349,7 @@ class Plan(pulumi.CustomResource):
         __props__.__dict__["recovery_approach"] = None
         __props__.__dict__["recovery_time_objective_minutes"] = None
         __props__.__dict__["regions"] = None
+        __props__.__dict__["report_configuration"] = None
         __props__.__dict__["route53_health_checks"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["triggers"] = None
@@ -430,6 +446,11 @@ class Plan(pulumi.CustomResource):
         The AWS Regions for a plan.
         """
         return pulumi.get(self, "regions")
+
+    @_builtins.property
+    @pulumi.getter(name="reportConfiguration")
+    def report_configuration(self) -> pulumi.Output[Optional['outputs.PlanReportConfiguration']]:
+        return pulumi.get(self, "report_configuration")
 
     @_builtins.property
     @pulumi.getter(name="route53HealthChecks")

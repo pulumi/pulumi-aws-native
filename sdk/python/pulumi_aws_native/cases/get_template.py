@@ -88,6 +88,9 @@ class GetTemplateResult:
     @_builtins.property
     @pulumi.getter(name="layoutConfiguration")
     def layout_configuration(self) -> Optional['outputs.TemplateLayoutConfiguration']:
+        """
+        Object to store configuration of layouts associated to the template.
+        """
         return pulumi.get(self, "layout_configuration")
 
     @_builtins.property
@@ -117,6 +120,9 @@ class GetTemplateResult:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional['TemplateStatus']:
+        """
+        The status of the template.
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property

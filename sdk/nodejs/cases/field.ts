@@ -69,7 +69,13 @@ export class Field extends pulumi.CustomResource {
      * Indicates whether this is a System field (predefined by AWS) or a Custom field (created by your organization). System fields cannot be modified or deleted.
      */
     declare public /*out*/ readonly namespace: pulumi.Output<enums.cases.FieldNamespace>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * Type of the field.
+     */
     declare public readonly type: pulumi.Output<enums.cases.FieldType>;
 
     /**
@@ -131,6 +137,12 @@ export interface FieldArgs {
      * The display name of the field as it appears to agents in the case interface. Should be descriptive and user-friendly (e.g., 'Customer Priority Level', 'Issue Category').
      */
     name?: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Type of the field.
+     */
     type: pulumi.Input<enums.cases.FieldType>;
 }

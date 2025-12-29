@@ -17,6 +17,7 @@ import (
 type Layout struct {
 	pulumi.CustomResourceState
 
+	// Object to store union of different versions of layout content.
 	Content LayoutContentPropertiesOutput `pulumi:"content"`
 	// The time at which the layout was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
@@ -30,7 +31,8 @@ type Layout struct {
 	LayoutId pulumi.StringOutput `pulumi:"layoutId"`
 	// A descriptive name for the layout. Must be unique within the Cases domain and should clearly indicate the layout's purpose and field organization.
 	Name pulumi.StringOutput `pulumi:"name"`
-	Tags aws.TagArrayOutput  `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewLayout registers a new resource with the given unique name, arguments, and options.
@@ -80,21 +82,25 @@ func (LayoutState) ElementType() reflect.Type {
 }
 
 type layoutArgs struct {
+	// Object to store union of different versions of layout content.
 	Content LayoutContentProperties `pulumi:"content"`
 	// The unique identifier of the Cases domain.
 	DomainId *string `pulumi:"domainId"`
 	// A descriptive name for the layout. Must be unique within the Cases domain and should clearly indicate the layout's purpose and field organization.
-	Name *string   `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Layout resource.
 type LayoutArgs struct {
+	// Object to store union of different versions of layout content.
 	Content LayoutContentPropertiesInput
 	// The unique identifier of the Cases domain.
 	DomainId pulumi.StringPtrInput
 	// A descriptive name for the layout. Must be unique within the Cases domain and should clearly indicate the layout's purpose and field organization.
 	Name pulumi.StringPtrInput
+	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 }
 
@@ -135,6 +141,7 @@ func (o LayoutOutput) ToLayoutOutputWithContext(ctx context.Context) LayoutOutpu
 	return o
 }
 
+// Object to store union of different versions of layout content.
 func (o LayoutOutput) Content() LayoutContentPropertiesOutput {
 	return o.ApplyT(func(v *Layout) LayoutContentPropertiesOutput { return v.Content }).(LayoutContentPropertiesOutput)
 }
@@ -169,6 +176,7 @@ func (o LayoutOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Layout) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
 func (o LayoutOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Layout) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -248,6 +248,9 @@ class GetAutoScalingGroupResult:
     @_builtins.property
     @pulumi.getter(name="instanceLifecyclePolicy")
     def instance_lifecycle_policy(self) -> Optional['outputs.AutoScalingGroupInstanceLifecyclePolicy']:
+        """
+        The instance lifecycle policy for the Auto Scaling group.
+        """
         return pulumi.get(self, "instance_lifecycle_policy")
 
     @_builtins.property

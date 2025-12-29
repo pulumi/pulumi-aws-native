@@ -37,6 +37,9 @@ export class Layout extends pulumi.CustomResource {
         return obj['__pulumiType'] === Layout.__pulumiType;
     }
 
+    /**
+     * Object to store union of different versions of layout content.
+     */
     declare public readonly content: pulumi.Output<outputs.cases.LayoutContentProperties>;
     /**
      * The time at which the layout was created.
@@ -62,6 +65,9 @@ export class Layout extends pulumi.CustomResource {
      * A descriptive name for the layout. Must be unique within the Cases domain and should clearly indicate the layout's purpose and field organization.
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -107,6 +113,9 @@ export class Layout extends pulumi.CustomResource {
  * The set of arguments for constructing a Layout resource.
  */
 export interface LayoutArgs {
+    /**
+     * Object to store union of different versions of layout content.
+     */
     content: pulumi.Input<inputs.cases.LayoutContentPropertiesArgs>;
     /**
      * The unique identifier of the Cases domain.
@@ -116,5 +125,8 @@ export interface LayoutArgs {
      * A descriptive name for the layout. Must be unique within the Cases domain and should clearly indicate the layout's purpose and field organization.
      */
     name?: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

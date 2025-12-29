@@ -210,6 +210,9 @@ class GetUserSettingsResult:
     @_builtins.property
     @pulumi.getter(name="webAuthnAllowed")
     def web_authn_allowed(self) -> Optional['UserSettingsEnabledType']:
+        """
+        Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
+        """
         return pulumi.get(self, "web_authn_allowed")
 
 

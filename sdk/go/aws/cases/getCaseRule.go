@@ -40,7 +40,8 @@ type LookupCaseRuleResult struct {
 	// The time at which the case rule was created or last modified.
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// A descriptive name for the case rule. Must be unique within the domain and should clearly indicate the rule's purpose (e.g., 'Priority Field Required for Urgent Cases').
-	Name *string     `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Represents what rule type should take place, under what conditions.
 	Rule interface{} `pulumi:"rule"`
 	// The tags that you attach to this case rule.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -108,6 +109,7 @@ func (o LookupCaseRuleResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCaseRuleResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Represents what rule type should take place, under what conditions.
 func (o LookupCaseRuleResultOutput) Rule() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupCaseRuleResult) interface{} { return v.Rule }).(pulumi.AnyOutput)
 }

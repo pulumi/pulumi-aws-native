@@ -63,9 +63,15 @@ namespace Pulumi.AwsNative.Cases
         [Output("namespace")]
         public Output<Pulumi.AwsNative.Cases.FieldNamespace> Namespace { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of the field.
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.Cases.FieldType> Type { get; private set; } = null!;
 
@@ -139,12 +145,19 @@ namespace Pulumi.AwsNative.Cases
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Type of the field.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Cases.FieldType> Type { get; set; } = null!;
 

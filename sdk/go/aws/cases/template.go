@@ -23,14 +23,16 @@ type Template struct {
 	// The unique identifier of the Cases domain.
 	DomainId pulumi.StringPtrOutput `pulumi:"domainId"`
 	// The time at which the template was created or last modified.
-	LastModifiedTime    pulumi.StringOutput                  `pulumi:"lastModifiedTime"`
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
+	// Object to store configuration of layouts associated to the template.
 	LayoutConfiguration TemplateLayoutConfigurationPtrOutput `pulumi:"layoutConfiguration"`
 	// A name for the template. It must be unique per domain.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of fields that must contain a value for a case to be successfully created with this template.
 	RequiredFields TemplateRequiredFieldArrayOutput `pulumi:"requiredFields"`
 	// A list of case rules (also known as case field conditions) on a template.
-	Rules  TemplateRuleArrayOutput `pulumi:"rules"`
+	Rules TemplateRuleArrayOutput `pulumi:"rules"`
+	// The status of the template.
 	Status TemplateStatusPtrOutput `pulumi:"status"`
 	// The tags that you attach to this template.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -87,14 +89,16 @@ type templateArgs struct {
 	// A description explaining the purpose and use case for this template. Should indicate what types of cases this template is designed for and any specific workflow it supports.
 	Description *string `pulumi:"description"`
 	// The unique identifier of the Cases domain.
-	DomainId            *string                      `pulumi:"domainId"`
+	DomainId *string `pulumi:"domainId"`
+	// Object to store configuration of layouts associated to the template.
 	LayoutConfiguration *TemplateLayoutConfiguration `pulumi:"layoutConfiguration"`
 	// A name for the template. It must be unique per domain.
 	Name *string `pulumi:"name"`
 	// A list of fields that must contain a value for a case to be successfully created with this template.
 	RequiredFields []TemplateRequiredField `pulumi:"requiredFields"`
 	// A list of case rules (also known as case field conditions) on a template.
-	Rules  []TemplateRule  `pulumi:"rules"`
+	Rules []TemplateRule `pulumi:"rules"`
+	// The status of the template.
 	Status *TemplateStatus `pulumi:"status"`
 	// The tags that you attach to this template.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -105,14 +109,16 @@ type TemplateArgs struct {
 	// A description explaining the purpose and use case for this template. Should indicate what types of cases this template is designed for and any specific workflow it supports.
 	Description pulumi.StringPtrInput
 	// The unique identifier of the Cases domain.
-	DomainId            pulumi.StringPtrInput
+	DomainId pulumi.StringPtrInput
+	// Object to store configuration of layouts associated to the template.
 	LayoutConfiguration TemplateLayoutConfigurationPtrInput
 	// A name for the template. It must be unique per domain.
 	Name pulumi.StringPtrInput
 	// A list of fields that must contain a value for a case to be successfully created with this template.
 	RequiredFields TemplateRequiredFieldArrayInput
 	// A list of case rules (also known as case field conditions) on a template.
-	Rules  TemplateRuleArrayInput
+	Rules TemplateRuleArrayInput
+	// The status of the template.
 	Status TemplateStatusPtrInput
 	// The tags that you attach to this template.
 	Tags aws.TagArrayInput
@@ -175,6 +181,7 @@ func (o TemplateOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
+// Object to store configuration of layouts associated to the template.
 func (o TemplateOutput) LayoutConfiguration() TemplateLayoutConfigurationPtrOutput {
 	return o.ApplyT(func(v *Template) TemplateLayoutConfigurationPtrOutput { return v.LayoutConfiguration }).(TemplateLayoutConfigurationPtrOutput)
 }
@@ -194,6 +201,7 @@ func (o TemplateOutput) Rules() TemplateRuleArrayOutput {
 	return o.ApplyT(func(v *Template) TemplateRuleArrayOutput { return v.Rules }).(TemplateRuleArrayOutput)
 }
 
+// The status of the template.
 func (o TemplateOutput) Status() TemplateStatusPtrOutput {
 	return o.ApplyT(func(v *Template) TemplateStatusPtrOutput { return v.Status }).(TemplateStatusPtrOutput)
 }

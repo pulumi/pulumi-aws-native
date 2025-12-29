@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Cases
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// Object to store configuration of layouts associated to the template.
+        /// </summary>
         [Output("layoutConfiguration")]
         public Output<Outputs.TemplateLayoutConfiguration?> LayoutConfiguration { get; private set; } = null!;
 
@@ -60,6 +63,9 @@ namespace Pulumi.AwsNative.Cases
         [Output("rules")]
         public Output<ImmutableArray<Outputs.TemplateRule>> Rules { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the template.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Cases.TemplateStatus?> Status { get; private set; } = null!;
 
@@ -142,6 +148,9 @@ namespace Pulumi.AwsNative.Cases
         [Input("domainId")]
         public Input<string>? DomainId { get; set; }
 
+        /// <summary>
+        /// Object to store configuration of layouts associated to the template.
+        /// </summary>
         [Input("layoutConfiguration")]
         public Input<Inputs.TemplateLayoutConfigurationArgs>? LayoutConfiguration { get; set; }
 
@@ -175,6 +184,9 @@ namespace Pulumi.AwsNative.Cases
             set => _rules = value;
         }
 
+        /// <summary>
+        /// The status of the template.
+        /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.Cases.TemplateStatus>? Status { get; set; }
 

@@ -31,7 +31,8 @@ type CaseRule struct {
 	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 	// A descriptive name for the case rule. Must be unique within the domain and should clearly indicate the rule's purpose (e.g., 'Priority Field Required for Urgent Cases').
 	Name pulumi.StringOutput `pulumi:"name"`
-	Rule pulumi.AnyOutput    `pulumi:"rule"`
+	// Represents what rule type should take place, under what conditions.
+	Rule pulumi.AnyOutput `pulumi:"rule"`
 	// The tags that you attach to this case rule.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -88,7 +89,8 @@ type caseRuleArgs struct {
 	// The unique identifier of the Cases domain.
 	DomainId *string `pulumi:"domainId"`
 	// A descriptive name for the case rule. Must be unique within the domain and should clearly indicate the rule's purpose (e.g., 'Priority Field Required for Urgent Cases').
-	Name *string     `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Represents what rule type should take place, under what conditions.
 	Rule interface{} `pulumi:"rule"`
 	// The tags that you attach to this case rule.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -102,6 +104,7 @@ type CaseRuleArgs struct {
 	DomainId pulumi.StringPtrInput
 	// A descriptive name for the case rule. Must be unique within the domain and should clearly indicate the rule's purpose (e.g., 'Priority Field Required for Urgent Cases').
 	Name pulumi.StringPtrInput
+	// Represents what rule type should take place, under what conditions.
 	Rule pulumi.Input
 	// The tags that you attach to this case rule.
 	Tags aws.TagArrayInput
@@ -179,6 +182,7 @@ func (o CaseRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CaseRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Represents what rule type should take place, under what conditions.
 func (o CaseRuleOutput) Rule() pulumi.AnyOutput {
 	return o.ApplyT(func(v *CaseRule) pulumi.AnyOutput { return v.Rule }).(pulumi.AnyOutput)
 }

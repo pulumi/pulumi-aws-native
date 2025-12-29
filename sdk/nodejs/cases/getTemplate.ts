@@ -37,6 +37,9 @@ export interface GetTemplateResult {
      * The time at which the template was created or last modified.
      */
     readonly lastModifiedTime?: string;
+    /**
+     * Object to store configuration of layouts associated to the template.
+     */
     readonly layoutConfiguration?: outputs.cases.TemplateLayoutConfiguration;
     /**
      * A name for the template. It must be unique per domain.
@@ -50,6 +53,9 @@ export interface GetTemplateResult {
      * A list of case rules (also known as case field conditions) on a template.
      */
     readonly rules?: outputs.cases.TemplateRule[];
+    /**
+     * The status of the template.
+     */
     readonly status?: enums.cases.TemplateStatus;
     /**
      * The tags that you attach to this template.

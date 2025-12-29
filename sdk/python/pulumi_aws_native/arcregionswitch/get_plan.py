@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPlanResult:
-    def __init__(__self__, arn=None, associated_alarms=None, description=None, execution_role=None, health_checks_for_plan=None, owner=None, plan_health_checks=None, recovery_time_objective_minutes=None, route53_health_checks=None, tags=None, triggers=None, version=None, workflows=None):
+    def __init__(__self__, arn=None, associated_alarms=None, description=None, execution_role=None, health_checks_for_plan=None, owner=None, plan_health_checks=None, recovery_time_objective_minutes=None, report_configuration=None, route53_health_checks=None, tags=None, triggers=None, version=None, workflows=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -50,6 +50,9 @@ class GetPlanResult:
         if recovery_time_objective_minutes and not isinstance(recovery_time_objective_minutes, float):
             raise TypeError("Expected argument 'recovery_time_objective_minutes' to be a float")
         pulumi.set(__self__, "recovery_time_objective_minutes", recovery_time_objective_minutes)
+        if report_configuration and not isinstance(report_configuration, dict):
+            raise TypeError("Expected argument 'report_configuration' to be a dict")
+        pulumi.set(__self__, "report_configuration", report_configuration)
         if route53_health_checks and not isinstance(route53_health_checks, dict):
             raise TypeError("Expected argument 'route53_health_checks' to be a dict")
         pulumi.set(__self__, "route53_health_checks", route53_health_checks)
@@ -125,6 +128,11 @@ class GetPlanResult:
         return pulumi.get(self, "recovery_time_objective_minutes")
 
     @_builtins.property
+    @pulumi.getter(name="reportConfiguration")
+    def report_configuration(self) -> Optional['outputs.PlanReportConfiguration']:
+        return pulumi.get(self, "report_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="route53HealthChecks")
     def route53_health_checks(self) -> Optional['outputs.Route53HealthChecksProperties']:
         return pulumi.get(self, "route53_health_checks")
@@ -173,6 +181,7 @@ class AwaitableGetPlanResult(GetPlanResult):
             owner=self.owner,
             plan_health_checks=self.plan_health_checks,
             recovery_time_objective_minutes=self.recovery_time_objective_minutes,
+            report_configuration=self.report_configuration,
             route53_health_checks=self.route53_health_checks,
             tags=self.tags,
             triggers=self.triggers,
@@ -202,6 +211,7 @@ def get_plan(arn: Optional[_builtins.str] = None,
         owner=pulumi.get(__ret__, 'owner'),
         plan_health_checks=pulumi.get(__ret__, 'plan_health_checks'),
         recovery_time_objective_minutes=pulumi.get(__ret__, 'recovery_time_objective_minutes'),
+        report_configuration=pulumi.get(__ret__, 'report_configuration'),
         route53_health_checks=pulumi.get(__ret__, 'route53_health_checks'),
         tags=pulumi.get(__ret__, 'tags'),
         triggers=pulumi.get(__ret__, 'triggers'),
@@ -228,6 +238,7 @@ def get_plan_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
         owner=pulumi.get(__response__, 'owner'),
         plan_health_checks=pulumi.get(__response__, 'plan_health_checks'),
         recovery_time_objective_minutes=pulumi.get(__response__, 'recovery_time_objective_minutes'),
+        report_configuration=pulumi.get(__response__, 'report_configuration'),
         route53_health_checks=pulumi.get(__response__, 'route53_health_checks'),
         tags=pulumi.get(__response__, 'tags'),
         triggers=pulumi.get(__response__, 'triggers'),

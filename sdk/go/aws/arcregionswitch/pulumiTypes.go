@@ -388,6 +388,224 @@ func (o PlanCustomActionLambdaConfigurationOutput) Ungraceful() PlanLambdaUngrac
 	return o.ApplyT(func(v PlanCustomActionLambdaConfiguration) *PlanLambdaUngraceful { return v.Ungraceful }).(PlanLambdaUngracefulPtrOutput)
 }
 
+type PlanDocumentDbConfiguration struct {
+	Behavior                interface{}               `pulumi:"behavior"`
+	CrossAccountRole        *string                   `pulumi:"crossAccountRole"`
+	DatabaseClusterArns     []string                  `pulumi:"databaseClusterArns"`
+	ExternalId              *string                   `pulumi:"externalId"`
+	GlobalClusterIdentifier string                    `pulumi:"globalClusterIdentifier"`
+	TimeoutMinutes          *float64                  `pulumi:"timeoutMinutes"`
+	Ungraceful              *PlanDocumentDbUngraceful `pulumi:"ungraceful"`
+}
+
+// PlanDocumentDbConfigurationInput is an input type that accepts PlanDocumentDbConfigurationArgs and PlanDocumentDbConfigurationOutput values.
+// You can construct a concrete instance of `PlanDocumentDbConfigurationInput` via:
+//
+//	PlanDocumentDbConfigurationArgs{...}
+type PlanDocumentDbConfigurationInput interface {
+	pulumi.Input
+
+	ToPlanDocumentDbConfigurationOutput() PlanDocumentDbConfigurationOutput
+	ToPlanDocumentDbConfigurationOutputWithContext(context.Context) PlanDocumentDbConfigurationOutput
+}
+
+type PlanDocumentDbConfigurationArgs struct {
+	Behavior                pulumi.Input                     `pulumi:"behavior"`
+	CrossAccountRole        pulumi.StringPtrInput            `pulumi:"crossAccountRole"`
+	DatabaseClusterArns     pulumi.StringArrayInput          `pulumi:"databaseClusterArns"`
+	ExternalId              pulumi.StringPtrInput            `pulumi:"externalId"`
+	GlobalClusterIdentifier pulumi.StringInput               `pulumi:"globalClusterIdentifier"`
+	TimeoutMinutes          pulumi.Float64PtrInput           `pulumi:"timeoutMinutes"`
+	Ungraceful              PlanDocumentDbUngracefulPtrInput `pulumi:"ungraceful"`
+}
+
+func (PlanDocumentDbConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanDocumentDbConfiguration)(nil)).Elem()
+}
+
+func (i PlanDocumentDbConfigurationArgs) ToPlanDocumentDbConfigurationOutput() PlanDocumentDbConfigurationOutput {
+	return i.ToPlanDocumentDbConfigurationOutputWithContext(context.Background())
+}
+
+func (i PlanDocumentDbConfigurationArgs) ToPlanDocumentDbConfigurationOutputWithContext(ctx context.Context) PlanDocumentDbConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanDocumentDbConfigurationOutput)
+}
+
+type PlanDocumentDbConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PlanDocumentDbConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanDocumentDbConfiguration)(nil)).Elem()
+}
+
+func (o PlanDocumentDbConfigurationOutput) ToPlanDocumentDbConfigurationOutput() PlanDocumentDbConfigurationOutput {
+	return o
+}
+
+func (o PlanDocumentDbConfigurationOutput) ToPlanDocumentDbConfigurationOutputWithContext(ctx context.Context) PlanDocumentDbConfigurationOutput {
+	return o
+}
+
+func (o PlanDocumentDbConfigurationOutput) Behavior() pulumi.AnyOutput {
+	return o.ApplyT(func(v PlanDocumentDbConfiguration) interface{} { return v.Behavior }).(pulumi.AnyOutput)
+}
+
+func (o PlanDocumentDbConfigurationOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanDocumentDbConfiguration) *string { return v.CrossAccountRole }).(pulumi.StringPtrOutput)
+}
+
+func (o PlanDocumentDbConfigurationOutput) DatabaseClusterArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PlanDocumentDbConfiguration) []string { return v.DatabaseClusterArns }).(pulumi.StringArrayOutput)
+}
+
+func (o PlanDocumentDbConfigurationOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanDocumentDbConfiguration) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+func (o PlanDocumentDbConfigurationOutput) GlobalClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanDocumentDbConfiguration) string { return v.GlobalClusterIdentifier }).(pulumi.StringOutput)
+}
+
+func (o PlanDocumentDbConfigurationOutput) TimeoutMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PlanDocumentDbConfiguration) *float64 { return v.TimeoutMinutes }).(pulumi.Float64PtrOutput)
+}
+
+func (o PlanDocumentDbConfigurationOutput) Ungraceful() PlanDocumentDbUngracefulPtrOutput {
+	return o.ApplyT(func(v PlanDocumentDbConfiguration) *PlanDocumentDbUngraceful { return v.Ungraceful }).(PlanDocumentDbUngracefulPtrOutput)
+}
+
+type PlanDocumentDbUngraceful struct {
+	Ungraceful *PlanDocumentDbUngracefulBehavior `pulumi:"ungraceful"`
+}
+
+// PlanDocumentDbUngracefulInput is an input type that accepts PlanDocumentDbUngracefulArgs and PlanDocumentDbUngracefulOutput values.
+// You can construct a concrete instance of `PlanDocumentDbUngracefulInput` via:
+//
+//	PlanDocumentDbUngracefulArgs{...}
+type PlanDocumentDbUngracefulInput interface {
+	pulumi.Input
+
+	ToPlanDocumentDbUngracefulOutput() PlanDocumentDbUngracefulOutput
+	ToPlanDocumentDbUngracefulOutputWithContext(context.Context) PlanDocumentDbUngracefulOutput
+}
+
+type PlanDocumentDbUngracefulArgs struct {
+	Ungraceful PlanDocumentDbUngracefulBehaviorPtrInput `pulumi:"ungraceful"`
+}
+
+func (PlanDocumentDbUngracefulArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanDocumentDbUngraceful)(nil)).Elem()
+}
+
+func (i PlanDocumentDbUngracefulArgs) ToPlanDocumentDbUngracefulOutput() PlanDocumentDbUngracefulOutput {
+	return i.ToPlanDocumentDbUngracefulOutputWithContext(context.Background())
+}
+
+func (i PlanDocumentDbUngracefulArgs) ToPlanDocumentDbUngracefulOutputWithContext(ctx context.Context) PlanDocumentDbUngracefulOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanDocumentDbUngracefulOutput)
+}
+
+func (i PlanDocumentDbUngracefulArgs) ToPlanDocumentDbUngracefulPtrOutput() PlanDocumentDbUngracefulPtrOutput {
+	return i.ToPlanDocumentDbUngracefulPtrOutputWithContext(context.Background())
+}
+
+func (i PlanDocumentDbUngracefulArgs) ToPlanDocumentDbUngracefulPtrOutputWithContext(ctx context.Context) PlanDocumentDbUngracefulPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanDocumentDbUngracefulOutput).ToPlanDocumentDbUngracefulPtrOutputWithContext(ctx)
+}
+
+// PlanDocumentDbUngracefulPtrInput is an input type that accepts PlanDocumentDbUngracefulArgs, PlanDocumentDbUngracefulPtr and PlanDocumentDbUngracefulPtrOutput values.
+// You can construct a concrete instance of `PlanDocumentDbUngracefulPtrInput` via:
+//
+//	        PlanDocumentDbUngracefulArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlanDocumentDbUngracefulPtrInput interface {
+	pulumi.Input
+
+	ToPlanDocumentDbUngracefulPtrOutput() PlanDocumentDbUngracefulPtrOutput
+	ToPlanDocumentDbUngracefulPtrOutputWithContext(context.Context) PlanDocumentDbUngracefulPtrOutput
+}
+
+type planDocumentDbUngracefulPtrType PlanDocumentDbUngracefulArgs
+
+func PlanDocumentDbUngracefulPtr(v *PlanDocumentDbUngracefulArgs) PlanDocumentDbUngracefulPtrInput {
+	return (*planDocumentDbUngracefulPtrType)(v)
+}
+
+func (*planDocumentDbUngracefulPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanDocumentDbUngraceful)(nil)).Elem()
+}
+
+func (i *planDocumentDbUngracefulPtrType) ToPlanDocumentDbUngracefulPtrOutput() PlanDocumentDbUngracefulPtrOutput {
+	return i.ToPlanDocumentDbUngracefulPtrOutputWithContext(context.Background())
+}
+
+func (i *planDocumentDbUngracefulPtrType) ToPlanDocumentDbUngracefulPtrOutputWithContext(ctx context.Context) PlanDocumentDbUngracefulPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanDocumentDbUngracefulPtrOutput)
+}
+
+type PlanDocumentDbUngracefulOutput struct{ *pulumi.OutputState }
+
+func (PlanDocumentDbUngracefulOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanDocumentDbUngraceful)(nil)).Elem()
+}
+
+func (o PlanDocumentDbUngracefulOutput) ToPlanDocumentDbUngracefulOutput() PlanDocumentDbUngracefulOutput {
+	return o
+}
+
+func (o PlanDocumentDbUngracefulOutput) ToPlanDocumentDbUngracefulOutputWithContext(ctx context.Context) PlanDocumentDbUngracefulOutput {
+	return o
+}
+
+func (o PlanDocumentDbUngracefulOutput) ToPlanDocumentDbUngracefulPtrOutput() PlanDocumentDbUngracefulPtrOutput {
+	return o.ToPlanDocumentDbUngracefulPtrOutputWithContext(context.Background())
+}
+
+func (o PlanDocumentDbUngracefulOutput) ToPlanDocumentDbUngracefulPtrOutputWithContext(ctx context.Context) PlanDocumentDbUngracefulPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanDocumentDbUngraceful) *PlanDocumentDbUngraceful {
+		return &v
+	}).(PlanDocumentDbUngracefulPtrOutput)
+}
+
+func (o PlanDocumentDbUngracefulOutput) Ungraceful() PlanDocumentDbUngracefulBehaviorPtrOutput {
+	return o.ApplyT(func(v PlanDocumentDbUngraceful) *PlanDocumentDbUngracefulBehavior { return v.Ungraceful }).(PlanDocumentDbUngracefulBehaviorPtrOutput)
+}
+
+type PlanDocumentDbUngracefulPtrOutput struct{ *pulumi.OutputState }
+
+func (PlanDocumentDbUngracefulPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanDocumentDbUngraceful)(nil)).Elem()
+}
+
+func (o PlanDocumentDbUngracefulPtrOutput) ToPlanDocumentDbUngracefulPtrOutput() PlanDocumentDbUngracefulPtrOutput {
+	return o
+}
+
+func (o PlanDocumentDbUngracefulPtrOutput) ToPlanDocumentDbUngracefulPtrOutputWithContext(ctx context.Context) PlanDocumentDbUngracefulPtrOutput {
+	return o
+}
+
+func (o PlanDocumentDbUngracefulPtrOutput) Elem() PlanDocumentDbUngracefulOutput {
+	return o.ApplyT(func(v *PlanDocumentDbUngraceful) PlanDocumentDbUngraceful {
+		if v != nil {
+			return *v
+		}
+		var ret PlanDocumentDbUngraceful
+		return ret
+	}).(PlanDocumentDbUngracefulOutput)
+}
+
+func (o PlanDocumentDbUngracefulPtrOutput) Ungraceful() PlanDocumentDbUngracefulBehaviorPtrOutput {
+	return o.ApplyT(func(v *PlanDocumentDbUngraceful) *PlanDocumentDbUngracefulBehavior {
+		if v == nil {
+			return nil
+		}
+		return v.Ungraceful
+	}).(PlanDocumentDbUngracefulBehaviorPtrOutput)
+}
+
 type PlanEc2AsgCapacityIncreaseConfiguration struct {
 	Asgs                       []PlanAsg          `pulumi:"asgs"`
 	CapacityMonitoringApproach interface{}        `pulumi:"capacityMonitoringApproach"`
@@ -1230,6 +1448,57 @@ func (o PlanExecutionBlockConfiguration0PropertiesOutput) CustomActionLambdaConf
 	return o.ApplyT(func(v PlanExecutionBlockConfiguration0Properties) PlanCustomActionLambdaConfiguration {
 		return v.CustomActionLambdaConfig
 	}).(PlanCustomActionLambdaConfigurationOutput)
+}
+
+type PlanExecutionBlockConfiguration10Properties struct {
+	DocumentDbConfig PlanDocumentDbConfiguration `pulumi:"documentDbConfig"`
+}
+
+// PlanExecutionBlockConfiguration10PropertiesInput is an input type that accepts PlanExecutionBlockConfiguration10PropertiesArgs and PlanExecutionBlockConfiguration10PropertiesOutput values.
+// You can construct a concrete instance of `PlanExecutionBlockConfiguration10PropertiesInput` via:
+//
+//	PlanExecutionBlockConfiguration10PropertiesArgs{...}
+type PlanExecutionBlockConfiguration10PropertiesInput interface {
+	pulumi.Input
+
+	ToPlanExecutionBlockConfiguration10PropertiesOutput() PlanExecutionBlockConfiguration10PropertiesOutput
+	ToPlanExecutionBlockConfiguration10PropertiesOutputWithContext(context.Context) PlanExecutionBlockConfiguration10PropertiesOutput
+}
+
+type PlanExecutionBlockConfiguration10PropertiesArgs struct {
+	DocumentDbConfig PlanDocumentDbConfigurationInput `pulumi:"documentDbConfig"`
+}
+
+func (PlanExecutionBlockConfiguration10PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanExecutionBlockConfiguration10Properties)(nil)).Elem()
+}
+
+func (i PlanExecutionBlockConfiguration10PropertiesArgs) ToPlanExecutionBlockConfiguration10PropertiesOutput() PlanExecutionBlockConfiguration10PropertiesOutput {
+	return i.ToPlanExecutionBlockConfiguration10PropertiesOutputWithContext(context.Background())
+}
+
+func (i PlanExecutionBlockConfiguration10PropertiesArgs) ToPlanExecutionBlockConfiguration10PropertiesOutputWithContext(ctx context.Context) PlanExecutionBlockConfiguration10PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanExecutionBlockConfiguration10PropertiesOutput)
+}
+
+type PlanExecutionBlockConfiguration10PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PlanExecutionBlockConfiguration10PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanExecutionBlockConfiguration10Properties)(nil)).Elem()
+}
+
+func (o PlanExecutionBlockConfiguration10PropertiesOutput) ToPlanExecutionBlockConfiguration10PropertiesOutput() PlanExecutionBlockConfiguration10PropertiesOutput {
+	return o
+}
+
+func (o PlanExecutionBlockConfiguration10PropertiesOutput) ToPlanExecutionBlockConfiguration10PropertiesOutputWithContext(ctx context.Context) PlanExecutionBlockConfiguration10PropertiesOutput {
+	return o
+}
+
+func (o PlanExecutionBlockConfiguration10PropertiesOutput) DocumentDbConfig() PlanDocumentDbConfigurationOutput {
+	return o.ApplyT(func(v PlanExecutionBlockConfiguration10Properties) PlanDocumentDbConfiguration {
+		return v.DocumentDbConfig
+	}).(PlanDocumentDbConfigurationOutput)
 }
 
 type PlanExecutionBlockConfiguration1Properties struct {
@@ -2366,6 +2635,239 @@ func (o PlanRegionSwitchPlanConfigurationOutput) ExternalId() pulumi.StringPtrOu
 	return o.ApplyT(func(v PlanRegionSwitchPlanConfiguration) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
 }
 
+type PlanReportConfiguration struct {
+	ReportOutput []PlanReportOutputConfigurationProperties `pulumi:"reportOutput"`
+}
+
+// PlanReportConfigurationInput is an input type that accepts PlanReportConfigurationArgs and PlanReportConfigurationOutput values.
+// You can construct a concrete instance of `PlanReportConfigurationInput` via:
+//
+//	PlanReportConfigurationArgs{...}
+type PlanReportConfigurationInput interface {
+	pulumi.Input
+
+	ToPlanReportConfigurationOutput() PlanReportConfigurationOutput
+	ToPlanReportConfigurationOutputWithContext(context.Context) PlanReportConfigurationOutput
+}
+
+type PlanReportConfigurationArgs struct {
+	ReportOutput PlanReportOutputConfigurationPropertiesArrayInput `pulumi:"reportOutput"`
+}
+
+func (PlanReportConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanReportConfiguration)(nil)).Elem()
+}
+
+func (i PlanReportConfigurationArgs) ToPlanReportConfigurationOutput() PlanReportConfigurationOutput {
+	return i.ToPlanReportConfigurationOutputWithContext(context.Background())
+}
+
+func (i PlanReportConfigurationArgs) ToPlanReportConfigurationOutputWithContext(ctx context.Context) PlanReportConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanReportConfigurationOutput)
+}
+
+func (i PlanReportConfigurationArgs) ToPlanReportConfigurationPtrOutput() PlanReportConfigurationPtrOutput {
+	return i.ToPlanReportConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PlanReportConfigurationArgs) ToPlanReportConfigurationPtrOutputWithContext(ctx context.Context) PlanReportConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanReportConfigurationOutput).ToPlanReportConfigurationPtrOutputWithContext(ctx)
+}
+
+// PlanReportConfigurationPtrInput is an input type that accepts PlanReportConfigurationArgs, PlanReportConfigurationPtr and PlanReportConfigurationPtrOutput values.
+// You can construct a concrete instance of `PlanReportConfigurationPtrInput` via:
+//
+//	        PlanReportConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlanReportConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPlanReportConfigurationPtrOutput() PlanReportConfigurationPtrOutput
+	ToPlanReportConfigurationPtrOutputWithContext(context.Context) PlanReportConfigurationPtrOutput
+}
+
+type planReportConfigurationPtrType PlanReportConfigurationArgs
+
+func PlanReportConfigurationPtr(v *PlanReportConfigurationArgs) PlanReportConfigurationPtrInput {
+	return (*planReportConfigurationPtrType)(v)
+}
+
+func (*planReportConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanReportConfiguration)(nil)).Elem()
+}
+
+func (i *planReportConfigurationPtrType) ToPlanReportConfigurationPtrOutput() PlanReportConfigurationPtrOutput {
+	return i.ToPlanReportConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *planReportConfigurationPtrType) ToPlanReportConfigurationPtrOutputWithContext(ctx context.Context) PlanReportConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanReportConfigurationPtrOutput)
+}
+
+type PlanReportConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PlanReportConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanReportConfiguration)(nil)).Elem()
+}
+
+func (o PlanReportConfigurationOutput) ToPlanReportConfigurationOutput() PlanReportConfigurationOutput {
+	return o
+}
+
+func (o PlanReportConfigurationOutput) ToPlanReportConfigurationOutputWithContext(ctx context.Context) PlanReportConfigurationOutput {
+	return o
+}
+
+func (o PlanReportConfigurationOutput) ToPlanReportConfigurationPtrOutput() PlanReportConfigurationPtrOutput {
+	return o.ToPlanReportConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PlanReportConfigurationOutput) ToPlanReportConfigurationPtrOutputWithContext(ctx context.Context) PlanReportConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanReportConfiguration) *PlanReportConfiguration {
+		return &v
+	}).(PlanReportConfigurationPtrOutput)
+}
+
+func (o PlanReportConfigurationOutput) ReportOutput() PlanReportOutputConfigurationPropertiesArrayOutput {
+	return o.ApplyT(func(v PlanReportConfiguration) []PlanReportOutputConfigurationProperties { return v.ReportOutput }).(PlanReportOutputConfigurationPropertiesArrayOutput)
+}
+
+type PlanReportConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PlanReportConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanReportConfiguration)(nil)).Elem()
+}
+
+func (o PlanReportConfigurationPtrOutput) ToPlanReportConfigurationPtrOutput() PlanReportConfigurationPtrOutput {
+	return o
+}
+
+func (o PlanReportConfigurationPtrOutput) ToPlanReportConfigurationPtrOutputWithContext(ctx context.Context) PlanReportConfigurationPtrOutput {
+	return o
+}
+
+func (o PlanReportConfigurationPtrOutput) Elem() PlanReportConfigurationOutput {
+	return o.ApplyT(func(v *PlanReportConfiguration) PlanReportConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PlanReportConfiguration
+		return ret
+	}).(PlanReportConfigurationOutput)
+}
+
+func (o PlanReportConfigurationPtrOutput) ReportOutput() PlanReportOutputConfigurationPropertiesArrayOutput {
+	return o.ApplyT(func(v *PlanReportConfiguration) []PlanReportOutputConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.ReportOutput
+	}).(PlanReportOutputConfigurationPropertiesArrayOutput)
+}
+
+type PlanReportOutputConfiguration0Properties struct {
+	S3Configuration PlanS3ReportOutputConfiguration `pulumi:"s3Configuration"`
+}
+
+type PlanReportOutputConfigurationProperties struct {
+	S3Configuration PlanS3ReportOutputConfiguration `pulumi:"s3Configuration"`
+}
+
+// PlanReportOutputConfigurationPropertiesInput is an input type that accepts PlanReportOutputConfigurationPropertiesArgs and PlanReportOutputConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `PlanReportOutputConfigurationPropertiesInput` via:
+//
+//	PlanReportOutputConfigurationPropertiesArgs{...}
+type PlanReportOutputConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToPlanReportOutputConfigurationPropertiesOutput() PlanReportOutputConfigurationPropertiesOutput
+	ToPlanReportOutputConfigurationPropertiesOutputWithContext(context.Context) PlanReportOutputConfigurationPropertiesOutput
+}
+
+type PlanReportOutputConfigurationPropertiesArgs struct {
+	S3Configuration PlanS3ReportOutputConfigurationInput `pulumi:"s3Configuration"`
+}
+
+func (PlanReportOutputConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanReportOutputConfigurationProperties)(nil)).Elem()
+}
+
+func (i PlanReportOutputConfigurationPropertiesArgs) ToPlanReportOutputConfigurationPropertiesOutput() PlanReportOutputConfigurationPropertiesOutput {
+	return i.ToPlanReportOutputConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i PlanReportOutputConfigurationPropertiesArgs) ToPlanReportOutputConfigurationPropertiesOutputWithContext(ctx context.Context) PlanReportOutputConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanReportOutputConfigurationPropertiesOutput)
+}
+
+// PlanReportOutputConfigurationPropertiesArrayInput is an input type that accepts PlanReportOutputConfigurationPropertiesArray and PlanReportOutputConfigurationPropertiesArrayOutput values.
+// You can construct a concrete instance of `PlanReportOutputConfigurationPropertiesArrayInput` via:
+//
+//	PlanReportOutputConfigurationPropertiesArray{ PlanReportOutputConfigurationPropertiesArgs{...} }
+type PlanReportOutputConfigurationPropertiesArrayInput interface {
+	pulumi.Input
+
+	ToPlanReportOutputConfigurationPropertiesArrayOutput() PlanReportOutputConfigurationPropertiesArrayOutput
+	ToPlanReportOutputConfigurationPropertiesArrayOutputWithContext(context.Context) PlanReportOutputConfigurationPropertiesArrayOutput
+}
+
+type PlanReportOutputConfigurationPropertiesArray []PlanReportOutputConfigurationPropertiesInput
+
+func (PlanReportOutputConfigurationPropertiesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanReportOutputConfigurationProperties)(nil)).Elem()
+}
+
+func (i PlanReportOutputConfigurationPropertiesArray) ToPlanReportOutputConfigurationPropertiesArrayOutput() PlanReportOutputConfigurationPropertiesArrayOutput {
+	return i.ToPlanReportOutputConfigurationPropertiesArrayOutputWithContext(context.Background())
+}
+
+func (i PlanReportOutputConfigurationPropertiesArray) ToPlanReportOutputConfigurationPropertiesArrayOutputWithContext(ctx context.Context) PlanReportOutputConfigurationPropertiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanReportOutputConfigurationPropertiesArrayOutput)
+}
+
+type PlanReportOutputConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (PlanReportOutputConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanReportOutputConfigurationProperties)(nil)).Elem()
+}
+
+func (o PlanReportOutputConfigurationPropertiesOutput) ToPlanReportOutputConfigurationPropertiesOutput() PlanReportOutputConfigurationPropertiesOutput {
+	return o
+}
+
+func (o PlanReportOutputConfigurationPropertiesOutput) ToPlanReportOutputConfigurationPropertiesOutputWithContext(ctx context.Context) PlanReportOutputConfigurationPropertiesOutput {
+	return o
+}
+
+func (o PlanReportOutputConfigurationPropertiesOutput) S3Configuration() PlanS3ReportOutputConfigurationOutput {
+	return o.ApplyT(func(v PlanReportOutputConfigurationProperties) PlanS3ReportOutputConfiguration {
+		return v.S3Configuration
+	}).(PlanS3ReportOutputConfigurationOutput)
+}
+
+type PlanReportOutputConfigurationPropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanReportOutputConfigurationPropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanReportOutputConfigurationProperties)(nil)).Elem()
+}
+
+func (o PlanReportOutputConfigurationPropertiesArrayOutput) ToPlanReportOutputConfigurationPropertiesArrayOutput() PlanReportOutputConfigurationPropertiesArrayOutput {
+	return o
+}
+
+func (o PlanReportOutputConfigurationPropertiesArrayOutput) ToPlanReportOutputConfigurationPropertiesArrayOutputWithContext(ctx context.Context) PlanReportOutputConfigurationPropertiesArrayOutput {
+	return o
+}
+
+func (o PlanReportOutputConfigurationPropertiesArrayOutput) Index(i pulumi.IntInput) PlanReportOutputConfigurationPropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanReportOutputConfigurationProperties {
+		return vs[0].([]PlanReportOutputConfigurationProperties)[vs[1].(int)]
+	}).(PlanReportOutputConfigurationPropertiesOutput)
+}
+
 type PlanRoute53HealthCheckConfiguration struct {
 	CrossAccountRole *string                        `pulumi:"crossAccountRole"`
 	ExternalId       *string                        `pulumi:"externalId"`
@@ -2543,6 +3045,61 @@ func (o PlanRoute53ResourceRecordSetArrayOutput) Index(i pulumi.IntInput) PlanRo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanRoute53ResourceRecordSet {
 		return vs[0].([]PlanRoute53ResourceRecordSet)[vs[1].(int)]
 	}).(PlanRoute53ResourceRecordSetOutput)
+}
+
+type PlanS3ReportOutputConfiguration struct {
+	BucketOwner *string `pulumi:"bucketOwner"`
+	BucketPath  *string `pulumi:"bucketPath"`
+}
+
+// PlanS3ReportOutputConfigurationInput is an input type that accepts PlanS3ReportOutputConfigurationArgs and PlanS3ReportOutputConfigurationOutput values.
+// You can construct a concrete instance of `PlanS3ReportOutputConfigurationInput` via:
+//
+//	PlanS3ReportOutputConfigurationArgs{...}
+type PlanS3ReportOutputConfigurationInput interface {
+	pulumi.Input
+
+	ToPlanS3ReportOutputConfigurationOutput() PlanS3ReportOutputConfigurationOutput
+	ToPlanS3ReportOutputConfigurationOutputWithContext(context.Context) PlanS3ReportOutputConfigurationOutput
+}
+
+type PlanS3ReportOutputConfigurationArgs struct {
+	BucketOwner pulumi.StringPtrInput `pulumi:"bucketOwner"`
+	BucketPath  pulumi.StringPtrInput `pulumi:"bucketPath"`
+}
+
+func (PlanS3ReportOutputConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanS3ReportOutputConfiguration)(nil)).Elem()
+}
+
+func (i PlanS3ReportOutputConfigurationArgs) ToPlanS3ReportOutputConfigurationOutput() PlanS3ReportOutputConfigurationOutput {
+	return i.ToPlanS3ReportOutputConfigurationOutputWithContext(context.Background())
+}
+
+func (i PlanS3ReportOutputConfigurationArgs) ToPlanS3ReportOutputConfigurationOutputWithContext(ctx context.Context) PlanS3ReportOutputConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanS3ReportOutputConfigurationOutput)
+}
+
+type PlanS3ReportOutputConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PlanS3ReportOutputConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanS3ReportOutputConfiguration)(nil)).Elem()
+}
+
+func (o PlanS3ReportOutputConfigurationOutput) ToPlanS3ReportOutputConfigurationOutput() PlanS3ReportOutputConfigurationOutput {
+	return o
+}
+
+func (o PlanS3ReportOutputConfigurationOutput) ToPlanS3ReportOutputConfigurationOutputWithContext(ctx context.Context) PlanS3ReportOutputConfigurationOutput {
+	return o
+}
+
+func (o PlanS3ReportOutputConfigurationOutput) BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanS3ReportOutputConfiguration) *string { return v.BucketOwner }).(pulumi.StringPtrOutput)
+}
+
+func (o PlanS3ReportOutputConfigurationOutput) BucketPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanS3ReportOutputConfiguration) *string { return v.BucketPath }).(pulumi.StringPtrOutput)
 }
 
 type PlanService struct {
@@ -3268,6 +3825,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanAssociatedAlarmInput)(nil)).Elem(), PlanAssociatedAlarmArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanAssociatedAlarmMapInput)(nil)).Elem(), PlanAssociatedAlarmMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanCustomActionLambdaConfigurationInput)(nil)).Elem(), PlanCustomActionLambdaConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanDocumentDbConfigurationInput)(nil)).Elem(), PlanDocumentDbConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanDocumentDbUngracefulInput)(nil)).Elem(), PlanDocumentDbUngracefulArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanDocumentDbUngracefulPtrInput)(nil)).Elem(), PlanDocumentDbUngracefulArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanEc2AsgCapacityIncreaseConfigurationInput)(nil)).Elem(), PlanEc2AsgCapacityIncreaseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanEc2UngracefulInput)(nil)).Elem(), PlanEc2UngracefulArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanEc2UngracefulPtrInput)(nil)).Elem(), PlanEc2UngracefulArgs{})
@@ -3281,6 +3841,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanEksResourceScalingUngracefulPtrInput)(nil)).Elem(), PlanEksResourceScalingUngracefulArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionApprovalConfigurationInput)(nil)).Elem(), PlanExecutionApprovalConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration0PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration10PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration10PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration1PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration2PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration3PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration3PropertiesArgs{})
@@ -3300,9 +3861,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanLambdasArrayInput)(nil)).Elem(), PlanLambdasArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanParallelExecutionBlockConfigurationInput)(nil)).Elem(), PlanParallelExecutionBlockConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRegionSwitchPlanConfigurationInput)(nil)).Elem(), PlanRegionSwitchPlanConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanReportConfigurationInput)(nil)).Elem(), PlanReportConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanReportConfigurationPtrInput)(nil)).Elem(), PlanReportConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanReportOutputConfigurationPropertiesInput)(nil)).Elem(), PlanReportOutputConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanReportOutputConfigurationPropertiesArrayInput)(nil)).Elem(), PlanReportOutputConfigurationPropertiesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRoute53HealthCheckConfigurationInput)(nil)).Elem(), PlanRoute53HealthCheckConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRoute53ResourceRecordSetInput)(nil)).Elem(), PlanRoute53ResourceRecordSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRoute53ResourceRecordSetArrayInput)(nil)).Elem(), PlanRoute53ResourceRecordSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanS3ReportOutputConfigurationInput)(nil)).Elem(), PlanS3ReportOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanServiceInput)(nil)).Elem(), PlanServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanServiceArrayInput)(nil)).Elem(), PlanServiceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanStepInput)(nil)).Elem(), PlanStepArgs{})
@@ -3319,6 +3885,9 @@ func init() {
 	pulumi.RegisterOutputType(PlanAssociatedAlarmOutput{})
 	pulumi.RegisterOutputType(PlanAssociatedAlarmMapOutput{})
 	pulumi.RegisterOutputType(PlanCustomActionLambdaConfigurationOutput{})
+	pulumi.RegisterOutputType(PlanDocumentDbConfigurationOutput{})
+	pulumi.RegisterOutputType(PlanDocumentDbUngracefulOutput{})
+	pulumi.RegisterOutputType(PlanDocumentDbUngracefulPtrOutput{})
 	pulumi.RegisterOutputType(PlanEc2AsgCapacityIncreaseConfigurationOutput{})
 	pulumi.RegisterOutputType(PlanEc2UngracefulOutput{})
 	pulumi.RegisterOutputType(PlanEc2UngracefulPtrOutput{})
@@ -3332,6 +3901,7 @@ func init() {
 	pulumi.RegisterOutputType(PlanEksResourceScalingUngracefulPtrOutput{})
 	pulumi.RegisterOutputType(PlanExecutionApprovalConfigurationOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration10PropertiesOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration2PropertiesOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration3PropertiesOutput{})
@@ -3353,9 +3923,14 @@ func init() {
 	pulumi.RegisterOutputType(PlanLambdasArrayOutput{})
 	pulumi.RegisterOutputType(PlanParallelExecutionBlockConfigurationOutput{})
 	pulumi.RegisterOutputType(PlanRegionSwitchPlanConfigurationOutput{})
+	pulumi.RegisterOutputType(PlanReportConfigurationOutput{})
+	pulumi.RegisterOutputType(PlanReportConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PlanReportOutputConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(PlanReportOutputConfigurationPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(PlanRoute53HealthCheckConfigurationOutput{})
 	pulumi.RegisterOutputType(PlanRoute53ResourceRecordSetOutput{})
 	pulumi.RegisterOutputType(PlanRoute53ResourceRecordSetArrayOutput{})
+	pulumi.RegisterOutputType(PlanS3ReportOutputConfigurationOutput{})
 	pulumi.RegisterOutputType(PlanServiceOutput{})
 	pulumi.RegisterOutputType(PlanServiceArrayOutput{})
 	pulumi.RegisterOutputType(PlanStepOutput{})

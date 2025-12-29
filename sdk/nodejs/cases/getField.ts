@@ -53,6 +53,9 @@ export interface GetFieldResult {
      * Indicates whether this is a System field (predefined by AWS) or a Custom field (created by your organization). System fields cannot be modified or deleted.
      */
     readonly namespace?: enums.cases.FieldNamespace;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

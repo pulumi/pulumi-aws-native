@@ -53,6 +53,9 @@ export class Template extends pulumi.CustomResource {
      * The time at which the template was created or last modified.
      */
     declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
+    /**
+     * Object to store configuration of layouts associated to the template.
+     */
     declare public readonly layoutConfiguration: pulumi.Output<outputs.cases.TemplateLayoutConfiguration | undefined>;
     /**
      * A name for the template. It must be unique per domain.
@@ -66,6 +69,9 @@ export class Template extends pulumi.CustomResource {
      * A list of case rules (also known as case field conditions) on a template.
      */
     declare public readonly rules: pulumi.Output<outputs.cases.TemplateRule[] | undefined>;
+    /**
+     * The status of the template.
+     */
     declare public readonly status: pulumi.Output<enums.cases.TemplateStatus | undefined>;
     /**
      * The tags that you attach to this template.
@@ -136,6 +142,9 @@ export interface TemplateArgs {
      * The unique identifier of the Cases domain.
      */
     domainId?: pulumi.Input<string>;
+    /**
+     * Object to store configuration of layouts associated to the template.
+     */
     layoutConfiguration?: pulumi.Input<inputs.cases.TemplateLayoutConfigurationArgs>;
     /**
      * A name for the template. It must be unique per domain.
@@ -149,6 +158,9 @@ export interface TemplateArgs {
      * A list of case rules (also known as case field conditions) on a template.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.cases.TemplateRuleArgs>[]>;
+    /**
+     * The status of the template.
+     */
     status?: pulumi.Input<enums.cases.TemplateStatus>;
     /**
      * The tags that you attach to this template.

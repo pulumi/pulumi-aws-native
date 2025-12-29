@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::ECR::PullTimeUpdateExclusion controls the exclusion configuration for ecr image pull time update.
+// The ARN of the IAM principal to remove from the pull time update exclusion list.
 type PullTimeUpdateExclusion struct {
 	pulumi.CustomResourceState
 

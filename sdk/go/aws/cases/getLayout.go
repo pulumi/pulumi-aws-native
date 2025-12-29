@@ -29,6 +29,7 @@ type LookupLayoutArgs struct {
 }
 
 type LookupLayoutResult struct {
+	// Object to store union of different versions of layout content.
 	Content *LayoutContentProperties `pulumi:"content"`
 	// The time at which the layout was created.
 	CreatedTime *string `pulumi:"createdTime"`
@@ -39,7 +40,8 @@ type LookupLayoutResult struct {
 	// The unique identifier of the layout.
 	LayoutId *string `pulumi:"layoutId"`
 	// A descriptive name for the layout. Must be unique within the Cases domain and should clearly indicate the layout's purpose and field organization.
-	Name *string   `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -75,6 +77,7 @@ func (o LookupLayoutResultOutput) ToLookupLayoutResultOutputWithContext(ctx cont
 	return o
 }
 
+// Object to store union of different versions of layout content.
 func (o LookupLayoutResultOutput) Content() LayoutContentPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupLayoutResult) *LayoutContentProperties { return v.Content }).(LayoutContentPropertiesPtrOutput)
 }
@@ -104,6 +107,7 @@ func (o LookupLayoutResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLayoutResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
 func (o LookupLayoutResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupLayoutResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

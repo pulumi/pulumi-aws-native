@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.Cases
     [OutputType]
     public sealed class GetLayoutResult
     {
+        /// <summary>
+        /// Object to store union of different versions of layout content.
+        /// </summary>
         public readonly Outputs.LayoutContentProperties? Content;
         /// <summary>
         /// The time at which the layout was created.
@@ -84,6 +87,9 @@ namespace Pulumi.AwsNative.Cases
         /// A descriptive name for the layout. Must be unique within the Cases domain and should clearly indicate the layout's purpose and field organization.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

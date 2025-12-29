@@ -150,7 +150,6 @@ namespace Pulumi.AwsNative.Ecs
                 {
                     "cluster",
                     "infrastructureRoleArn",
-                    "scalingTarget",
                     "serviceName",
                     "tags[*]",
                 },

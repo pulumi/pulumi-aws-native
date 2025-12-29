@@ -64,6 +64,33 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
     }
 
     [EnumType]
+    public readonly struct PlanDocumentDbUngracefulBehavior : IEquatable<PlanDocumentDbUngracefulBehavior>
+    {
+        private readonly string _value;
+
+        private PlanDocumentDbUngracefulBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PlanDocumentDbUngracefulBehavior Failover { get; } = new PlanDocumentDbUngracefulBehavior("failover");
+
+        public static bool operator ==(PlanDocumentDbUngracefulBehavior left, PlanDocumentDbUngracefulBehavior right) => left.Equals(right);
+        public static bool operator !=(PlanDocumentDbUngracefulBehavior left, PlanDocumentDbUngracefulBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(PlanDocumentDbUngracefulBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlanDocumentDbUngracefulBehavior other && Equals(other);
+        public bool Equals(PlanDocumentDbUngracefulBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct PlanExecutionBlockType : IEquatable<PlanExecutionBlockType>
     {
         private readonly string _value;
@@ -83,6 +110,7 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
         public static PlanExecutionBlockType EcsServiceScaling { get; } = new PlanExecutionBlockType("ECSServiceScaling");
         public static PlanExecutionBlockType EksResourceScaling { get; } = new PlanExecutionBlockType("EKSResourceScaling");
         public static PlanExecutionBlockType Route53HealthCheck { get; } = new PlanExecutionBlockType("Route53HealthCheck");
+        public static PlanExecutionBlockType DocumentDb { get; } = new PlanExecutionBlockType("DocumentDb");
 
         public static bool operator ==(PlanExecutionBlockType left, PlanExecutionBlockType right) => left.Equals(right);
         public static bool operator !=(PlanExecutionBlockType left, PlanExecutionBlockType right) => !left.Equals(right);

@@ -43,7 +43,8 @@ type LookupFieldResult struct {
 	Name *string `pulumi:"name"`
 	// Indicates whether this is a System field (predefined by AWS) or a Custom field (created by your organization). System fields cannot be modified or deleted.
 	Namespace *FieldNamespace `pulumi:"namespace"`
-	Tags      []aws.Tag       `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupFieldOutput(ctx *pulumi.Context, args LookupFieldOutputArgs, opts ...pulumi.InvokeOption) LookupFieldResultOutput {
@@ -113,6 +114,7 @@ func (o LookupFieldResultOutput) Namespace() FieldNamespacePtrOutput {
 	return o.ApplyT(func(v LookupFieldResult) *FieldNamespace { return v.Namespace }).(FieldNamespacePtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
 func (o LookupFieldResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupFieldResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
