@@ -20,11 +20,16 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// &lt;p&gt;The SCTE-35 message types that you want to be treated as ad markers in the output.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.MediaPackageV2.OriginEndpointScteFilter> ScteFilter;
+        public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointScteInSegments? ScteInSegments;
 
         [OutputConstructor]
-        private OriginEndpointScte(ImmutableArray<Pulumi.AwsNative.MediaPackageV2.OriginEndpointScteFilter> scteFilter)
+        private OriginEndpointScte(
+            ImmutableArray<Pulumi.AwsNative.MediaPackageV2.OriginEndpointScteFilter> scteFilter,
+
+            Pulumi.AwsNative.MediaPackageV2.OriginEndpointScteInSegments? scteInSegments)
         {
             ScteFilter = scteFilter;
+            ScteInSegments = scteInSegments;
         }
     }
 }

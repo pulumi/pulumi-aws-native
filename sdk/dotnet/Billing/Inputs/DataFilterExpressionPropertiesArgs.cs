@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Billing.Inputs
         [Input("tags")]
         public Input<Inputs.DataFilterExpressionPropertiesTagsPropertiesArgs>? Tags { get; set; }
 
+        [Input("timeRange")]
+        public Input<Inputs.DataFilterExpressionPropertiesTimeRangePropertiesArgs>? TimeRange { get; set; }
+
         public DataFilterExpressionPropertiesArgs()
         {
         }

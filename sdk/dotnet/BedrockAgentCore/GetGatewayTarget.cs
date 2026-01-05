@@ -89,6 +89,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public readonly string? Description;
         public readonly string? GatewayArn;
         public readonly string? LastSynchronizedAt;
+        public readonly Outputs.GatewayTargetMetadataConfiguration? MetadataConfiguration;
         /// <summary>
         /// The name for the gateway target.
         /// </summary>
@@ -126,6 +127,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             string? lastSynchronizedAt,
 
+            Outputs.GatewayTargetMetadataConfiguration? metadataConfiguration,
+
             string? name,
 
             Pulumi.AwsNative.BedrockAgentCore.GatewayTargetTargetStatus? status,
@@ -143,6 +146,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             Description = description;
             GatewayArn = gatewayArn;
             LastSynchronizedAt = lastSynchronizedAt;
+            MetadataConfiguration = metadataConfiguration;
             Name = name;
             Status = status;
             StatusReasons = statusReasons;

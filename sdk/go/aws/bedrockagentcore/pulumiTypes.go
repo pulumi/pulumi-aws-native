@@ -1034,10 +1034,241 @@ func (o GatewayAuthorizerConfigurationPropertiesPtrOutput) CustomJwtAuthorizer()
 	}).(GatewayCustomJwtAuthorizerConfigurationPtrOutput)
 }
 
+// The value or values in the custom claim to match and relationship of match
+type GatewayAuthorizingClaimMatchValueType struct {
+	ClaimMatchOperator GatewayClaimMatchOperator  `pulumi:"claimMatchOperator"`
+	ClaimMatchValue    GatewayClaimMatchValueType `pulumi:"claimMatchValue"`
+}
+
+// GatewayAuthorizingClaimMatchValueTypeInput is an input type that accepts GatewayAuthorizingClaimMatchValueTypeArgs and GatewayAuthorizingClaimMatchValueTypeOutput values.
+// You can construct a concrete instance of `GatewayAuthorizingClaimMatchValueTypeInput` via:
+//
+//	GatewayAuthorizingClaimMatchValueTypeArgs{...}
+type GatewayAuthorizingClaimMatchValueTypeInput interface {
+	pulumi.Input
+
+	ToGatewayAuthorizingClaimMatchValueTypeOutput() GatewayAuthorizingClaimMatchValueTypeOutput
+	ToGatewayAuthorizingClaimMatchValueTypeOutputWithContext(context.Context) GatewayAuthorizingClaimMatchValueTypeOutput
+}
+
+// The value or values in the custom claim to match and relationship of match
+type GatewayAuthorizingClaimMatchValueTypeArgs struct {
+	ClaimMatchOperator GatewayClaimMatchOperatorInput  `pulumi:"claimMatchOperator"`
+	ClaimMatchValue    GatewayClaimMatchValueTypeInput `pulumi:"claimMatchValue"`
+}
+
+func (GatewayAuthorizingClaimMatchValueTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayAuthorizingClaimMatchValueType)(nil)).Elem()
+}
+
+func (i GatewayAuthorizingClaimMatchValueTypeArgs) ToGatewayAuthorizingClaimMatchValueTypeOutput() GatewayAuthorizingClaimMatchValueTypeOutput {
+	return i.ToGatewayAuthorizingClaimMatchValueTypeOutputWithContext(context.Background())
+}
+
+func (i GatewayAuthorizingClaimMatchValueTypeArgs) ToGatewayAuthorizingClaimMatchValueTypeOutputWithContext(ctx context.Context) GatewayAuthorizingClaimMatchValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayAuthorizingClaimMatchValueTypeOutput)
+}
+
+// The value or values in the custom claim to match and relationship of match
+type GatewayAuthorizingClaimMatchValueTypeOutput struct{ *pulumi.OutputState }
+
+func (GatewayAuthorizingClaimMatchValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayAuthorizingClaimMatchValueType)(nil)).Elem()
+}
+
+func (o GatewayAuthorizingClaimMatchValueTypeOutput) ToGatewayAuthorizingClaimMatchValueTypeOutput() GatewayAuthorizingClaimMatchValueTypeOutput {
+	return o
+}
+
+func (o GatewayAuthorizingClaimMatchValueTypeOutput) ToGatewayAuthorizingClaimMatchValueTypeOutputWithContext(ctx context.Context) GatewayAuthorizingClaimMatchValueTypeOutput {
+	return o
+}
+
+func (o GatewayAuthorizingClaimMatchValueTypeOutput) ClaimMatchOperator() GatewayClaimMatchOperatorOutput {
+	return o.ApplyT(func(v GatewayAuthorizingClaimMatchValueType) GatewayClaimMatchOperator { return v.ClaimMatchOperator }).(GatewayClaimMatchOperatorOutput)
+}
+
+func (o GatewayAuthorizingClaimMatchValueTypeOutput) ClaimMatchValue() GatewayClaimMatchValueTypeOutput {
+	return o.ApplyT(func(v GatewayAuthorizingClaimMatchValueType) GatewayClaimMatchValueType { return v.ClaimMatchValue }).(GatewayClaimMatchValueTypeOutput)
+}
+
+// The value or values in the custom claim to match for
+type GatewayClaimMatchValueType struct {
+	MatchValueString     *string  `pulumi:"matchValueString"`
+	MatchValueStringList []string `pulumi:"matchValueStringList"`
+}
+
+// GatewayClaimMatchValueTypeInput is an input type that accepts GatewayClaimMatchValueTypeArgs and GatewayClaimMatchValueTypeOutput values.
+// You can construct a concrete instance of `GatewayClaimMatchValueTypeInput` via:
+//
+//	GatewayClaimMatchValueTypeArgs{...}
+type GatewayClaimMatchValueTypeInput interface {
+	pulumi.Input
+
+	ToGatewayClaimMatchValueTypeOutput() GatewayClaimMatchValueTypeOutput
+	ToGatewayClaimMatchValueTypeOutputWithContext(context.Context) GatewayClaimMatchValueTypeOutput
+}
+
+// The value or values in the custom claim to match for
+type GatewayClaimMatchValueTypeArgs struct {
+	MatchValueString     pulumi.StringPtrInput   `pulumi:"matchValueString"`
+	MatchValueStringList pulumi.StringArrayInput `pulumi:"matchValueStringList"`
+}
+
+func (GatewayClaimMatchValueTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayClaimMatchValueType)(nil)).Elem()
+}
+
+func (i GatewayClaimMatchValueTypeArgs) ToGatewayClaimMatchValueTypeOutput() GatewayClaimMatchValueTypeOutput {
+	return i.ToGatewayClaimMatchValueTypeOutputWithContext(context.Background())
+}
+
+func (i GatewayClaimMatchValueTypeArgs) ToGatewayClaimMatchValueTypeOutputWithContext(ctx context.Context) GatewayClaimMatchValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayClaimMatchValueTypeOutput)
+}
+
+// The value or values in the custom claim to match for
+type GatewayClaimMatchValueTypeOutput struct{ *pulumi.OutputState }
+
+func (GatewayClaimMatchValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayClaimMatchValueType)(nil)).Elem()
+}
+
+func (o GatewayClaimMatchValueTypeOutput) ToGatewayClaimMatchValueTypeOutput() GatewayClaimMatchValueTypeOutput {
+	return o
+}
+
+func (o GatewayClaimMatchValueTypeOutput) ToGatewayClaimMatchValueTypeOutputWithContext(ctx context.Context) GatewayClaimMatchValueTypeOutput {
+	return o
+}
+
+func (o GatewayClaimMatchValueTypeOutput) MatchValueString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GatewayClaimMatchValueType) *string { return v.MatchValueString }).(pulumi.StringPtrOutput)
+}
+
+func (o GatewayClaimMatchValueTypeOutput) MatchValueStringList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GatewayClaimMatchValueType) []string { return v.MatchValueStringList }).(pulumi.StringArrayOutput)
+}
+
+// Required custom claim
+type GatewayCustomClaimValidationType struct {
+	AuthorizingClaimMatchValue GatewayAuthorizingClaimMatchValueType `pulumi:"authorizingClaimMatchValue"`
+	InboundTokenClaimName      string                                `pulumi:"inboundTokenClaimName"`
+	InboundTokenClaimValueType GatewayInboundTokenClaimValueType     `pulumi:"inboundTokenClaimValueType"`
+}
+
+// GatewayCustomClaimValidationTypeInput is an input type that accepts GatewayCustomClaimValidationTypeArgs and GatewayCustomClaimValidationTypeOutput values.
+// You can construct a concrete instance of `GatewayCustomClaimValidationTypeInput` via:
+//
+//	GatewayCustomClaimValidationTypeArgs{...}
+type GatewayCustomClaimValidationTypeInput interface {
+	pulumi.Input
+
+	ToGatewayCustomClaimValidationTypeOutput() GatewayCustomClaimValidationTypeOutput
+	ToGatewayCustomClaimValidationTypeOutputWithContext(context.Context) GatewayCustomClaimValidationTypeOutput
+}
+
+// Required custom claim
+type GatewayCustomClaimValidationTypeArgs struct {
+	AuthorizingClaimMatchValue GatewayAuthorizingClaimMatchValueTypeInput `pulumi:"authorizingClaimMatchValue"`
+	InboundTokenClaimName      pulumi.StringInput                         `pulumi:"inboundTokenClaimName"`
+	InboundTokenClaimValueType GatewayInboundTokenClaimValueTypeInput     `pulumi:"inboundTokenClaimValueType"`
+}
+
+func (GatewayCustomClaimValidationTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayCustomClaimValidationType)(nil)).Elem()
+}
+
+func (i GatewayCustomClaimValidationTypeArgs) ToGatewayCustomClaimValidationTypeOutput() GatewayCustomClaimValidationTypeOutput {
+	return i.ToGatewayCustomClaimValidationTypeOutputWithContext(context.Background())
+}
+
+func (i GatewayCustomClaimValidationTypeArgs) ToGatewayCustomClaimValidationTypeOutputWithContext(ctx context.Context) GatewayCustomClaimValidationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayCustomClaimValidationTypeOutput)
+}
+
+// GatewayCustomClaimValidationTypeArrayInput is an input type that accepts GatewayCustomClaimValidationTypeArray and GatewayCustomClaimValidationTypeArrayOutput values.
+// You can construct a concrete instance of `GatewayCustomClaimValidationTypeArrayInput` via:
+//
+//	GatewayCustomClaimValidationTypeArray{ GatewayCustomClaimValidationTypeArgs{...} }
+type GatewayCustomClaimValidationTypeArrayInput interface {
+	pulumi.Input
+
+	ToGatewayCustomClaimValidationTypeArrayOutput() GatewayCustomClaimValidationTypeArrayOutput
+	ToGatewayCustomClaimValidationTypeArrayOutputWithContext(context.Context) GatewayCustomClaimValidationTypeArrayOutput
+}
+
+type GatewayCustomClaimValidationTypeArray []GatewayCustomClaimValidationTypeInput
+
+func (GatewayCustomClaimValidationTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayCustomClaimValidationType)(nil)).Elem()
+}
+
+func (i GatewayCustomClaimValidationTypeArray) ToGatewayCustomClaimValidationTypeArrayOutput() GatewayCustomClaimValidationTypeArrayOutput {
+	return i.ToGatewayCustomClaimValidationTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayCustomClaimValidationTypeArray) ToGatewayCustomClaimValidationTypeArrayOutputWithContext(ctx context.Context) GatewayCustomClaimValidationTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayCustomClaimValidationTypeArrayOutput)
+}
+
+// Required custom claim
+type GatewayCustomClaimValidationTypeOutput struct{ *pulumi.OutputState }
+
+func (GatewayCustomClaimValidationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayCustomClaimValidationType)(nil)).Elem()
+}
+
+func (o GatewayCustomClaimValidationTypeOutput) ToGatewayCustomClaimValidationTypeOutput() GatewayCustomClaimValidationTypeOutput {
+	return o
+}
+
+func (o GatewayCustomClaimValidationTypeOutput) ToGatewayCustomClaimValidationTypeOutputWithContext(ctx context.Context) GatewayCustomClaimValidationTypeOutput {
+	return o
+}
+
+func (o GatewayCustomClaimValidationTypeOutput) AuthorizingClaimMatchValue() GatewayAuthorizingClaimMatchValueTypeOutput {
+	return o.ApplyT(func(v GatewayCustomClaimValidationType) GatewayAuthorizingClaimMatchValueType {
+		return v.AuthorizingClaimMatchValue
+	}).(GatewayAuthorizingClaimMatchValueTypeOutput)
+}
+
+func (o GatewayCustomClaimValidationTypeOutput) InboundTokenClaimName() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayCustomClaimValidationType) string { return v.InboundTokenClaimName }).(pulumi.StringOutput)
+}
+
+func (o GatewayCustomClaimValidationTypeOutput) InboundTokenClaimValueType() GatewayInboundTokenClaimValueTypeOutput {
+	return o.ApplyT(func(v GatewayCustomClaimValidationType) GatewayInboundTokenClaimValueType {
+		return v.InboundTokenClaimValueType
+	}).(GatewayInboundTokenClaimValueTypeOutput)
+}
+
+type GatewayCustomClaimValidationTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayCustomClaimValidationTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayCustomClaimValidationType)(nil)).Elem()
+}
+
+func (o GatewayCustomClaimValidationTypeArrayOutput) ToGatewayCustomClaimValidationTypeArrayOutput() GatewayCustomClaimValidationTypeArrayOutput {
+	return o
+}
+
+func (o GatewayCustomClaimValidationTypeArrayOutput) ToGatewayCustomClaimValidationTypeArrayOutputWithContext(ctx context.Context) GatewayCustomClaimValidationTypeArrayOutput {
+	return o
+}
+
+func (o GatewayCustomClaimValidationTypeArrayOutput) Index(i pulumi.IntInput) GatewayCustomClaimValidationTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayCustomClaimValidationType {
+		return vs[0].([]GatewayCustomClaimValidationType)[vs[1].(int)]
+	}).(GatewayCustomClaimValidationTypeOutput)
+}
+
 type GatewayCustomJwtAuthorizerConfiguration struct {
-	AllowedAudience []string `pulumi:"allowedAudience"`
-	AllowedClients  []string `pulumi:"allowedClients"`
-	DiscoveryUrl    string   `pulumi:"discoveryUrl"`
+	AllowedAudience []string                           `pulumi:"allowedAudience"`
+	AllowedClients  []string                           `pulumi:"allowedClients"`
+	AllowedScopes   []string                           `pulumi:"allowedScopes"`
+	CustomClaims    []GatewayCustomClaimValidationType `pulumi:"customClaims"`
+	DiscoveryUrl    string                             `pulumi:"discoveryUrl"`
 }
 
 // GatewayCustomJwtAuthorizerConfigurationInput is an input type that accepts GatewayCustomJwtAuthorizerConfigurationArgs and GatewayCustomJwtAuthorizerConfigurationOutput values.
@@ -1052,9 +1283,11 @@ type GatewayCustomJwtAuthorizerConfigurationInput interface {
 }
 
 type GatewayCustomJwtAuthorizerConfigurationArgs struct {
-	AllowedAudience pulumi.StringArrayInput `pulumi:"allowedAudience"`
-	AllowedClients  pulumi.StringArrayInput `pulumi:"allowedClients"`
-	DiscoveryUrl    pulumi.StringInput      `pulumi:"discoveryUrl"`
+	AllowedAudience pulumi.StringArrayInput                    `pulumi:"allowedAudience"`
+	AllowedClients  pulumi.StringArrayInput                    `pulumi:"allowedClients"`
+	AllowedScopes   pulumi.StringArrayInput                    `pulumi:"allowedScopes"`
+	CustomClaims    GatewayCustomClaimValidationTypeArrayInput `pulumi:"customClaims"`
+	DiscoveryUrl    pulumi.StringInput                         `pulumi:"discoveryUrl"`
 }
 
 func (GatewayCustomJwtAuthorizerConfigurationArgs) ElementType() reflect.Type {
@@ -1142,6 +1375,16 @@ func (o GatewayCustomJwtAuthorizerConfigurationOutput) AllowedClients() pulumi.S
 	return o.ApplyT(func(v GatewayCustomJwtAuthorizerConfiguration) []string { return v.AllowedClients }).(pulumi.StringArrayOutput)
 }
 
+func (o GatewayCustomJwtAuthorizerConfigurationOutput) AllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GatewayCustomJwtAuthorizerConfiguration) []string { return v.AllowedScopes }).(pulumi.StringArrayOutput)
+}
+
+func (o GatewayCustomJwtAuthorizerConfigurationOutput) CustomClaims() GatewayCustomClaimValidationTypeArrayOutput {
+	return o.ApplyT(func(v GatewayCustomJwtAuthorizerConfiguration) []GatewayCustomClaimValidationType {
+		return v.CustomClaims
+	}).(GatewayCustomClaimValidationTypeArrayOutput)
+}
+
 func (o GatewayCustomJwtAuthorizerConfigurationOutput) DiscoveryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayCustomJwtAuthorizerConfiguration) string { return v.DiscoveryUrl }).(pulumi.StringOutput)
 }
@@ -1186,6 +1429,24 @@ func (o GatewayCustomJwtAuthorizerConfigurationPtrOutput) AllowedClients() pulum
 		}
 		return v.AllowedClients
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o GatewayCustomJwtAuthorizerConfigurationPtrOutput) AllowedScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GatewayCustomJwtAuthorizerConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedScopes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GatewayCustomJwtAuthorizerConfigurationPtrOutput) CustomClaims() GatewayCustomClaimValidationTypeArrayOutput {
+	return o.ApplyT(func(v *GatewayCustomJwtAuthorizerConfiguration) []GatewayCustomClaimValidationType {
+		if v == nil {
+			return nil
+		}
+		return v.CustomClaims
+	}).(GatewayCustomClaimValidationTypeArrayOutput)
 }
 
 func (o GatewayCustomJwtAuthorizerConfigurationPtrOutput) DiscoveryUrl() pulumi.StringPtrOutput {
@@ -3020,6 +3281,169 @@ func (o GatewayTargetMcpTargetConfiguration3PropertiesPtrOutput) McpServer() Gat
 	}).(GatewayTargetMcpServerTargetConfigurationPtrOutput)
 }
 
+type GatewayTargetMetadataConfiguration struct {
+	AllowedQueryParameters []string `pulumi:"allowedQueryParameters"`
+	AllowedRequestHeaders  []string `pulumi:"allowedRequestHeaders"`
+	AllowedResponseHeaders []string `pulumi:"allowedResponseHeaders"`
+}
+
+// GatewayTargetMetadataConfigurationInput is an input type that accepts GatewayTargetMetadataConfigurationArgs and GatewayTargetMetadataConfigurationOutput values.
+// You can construct a concrete instance of `GatewayTargetMetadataConfigurationInput` via:
+//
+//	GatewayTargetMetadataConfigurationArgs{...}
+type GatewayTargetMetadataConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayTargetMetadataConfigurationOutput() GatewayTargetMetadataConfigurationOutput
+	ToGatewayTargetMetadataConfigurationOutputWithContext(context.Context) GatewayTargetMetadataConfigurationOutput
+}
+
+type GatewayTargetMetadataConfigurationArgs struct {
+	AllowedQueryParameters pulumi.StringArrayInput `pulumi:"allowedQueryParameters"`
+	AllowedRequestHeaders  pulumi.StringArrayInput `pulumi:"allowedRequestHeaders"`
+	AllowedResponseHeaders pulumi.StringArrayInput `pulumi:"allowedResponseHeaders"`
+}
+
+func (GatewayTargetMetadataConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetMetadataConfiguration)(nil)).Elem()
+}
+
+func (i GatewayTargetMetadataConfigurationArgs) ToGatewayTargetMetadataConfigurationOutput() GatewayTargetMetadataConfigurationOutput {
+	return i.ToGatewayTargetMetadataConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetMetadataConfigurationArgs) ToGatewayTargetMetadataConfigurationOutputWithContext(ctx context.Context) GatewayTargetMetadataConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetMetadataConfigurationOutput)
+}
+
+func (i GatewayTargetMetadataConfigurationArgs) ToGatewayTargetMetadataConfigurationPtrOutput() GatewayTargetMetadataConfigurationPtrOutput {
+	return i.ToGatewayTargetMetadataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayTargetMetadataConfigurationArgs) ToGatewayTargetMetadataConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetMetadataConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetMetadataConfigurationOutput).ToGatewayTargetMetadataConfigurationPtrOutputWithContext(ctx)
+}
+
+// GatewayTargetMetadataConfigurationPtrInput is an input type that accepts GatewayTargetMetadataConfigurationArgs, GatewayTargetMetadataConfigurationPtr and GatewayTargetMetadataConfigurationPtrOutput values.
+// You can construct a concrete instance of `GatewayTargetMetadataConfigurationPtrInput` via:
+//
+//	        GatewayTargetMetadataConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayTargetMetadataConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGatewayTargetMetadataConfigurationPtrOutput() GatewayTargetMetadataConfigurationPtrOutput
+	ToGatewayTargetMetadataConfigurationPtrOutputWithContext(context.Context) GatewayTargetMetadataConfigurationPtrOutput
+}
+
+type gatewayTargetMetadataConfigurationPtrType GatewayTargetMetadataConfigurationArgs
+
+func GatewayTargetMetadataConfigurationPtr(v *GatewayTargetMetadataConfigurationArgs) GatewayTargetMetadataConfigurationPtrInput {
+	return (*gatewayTargetMetadataConfigurationPtrType)(v)
+}
+
+func (*gatewayTargetMetadataConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetMetadataConfiguration)(nil)).Elem()
+}
+
+func (i *gatewayTargetMetadataConfigurationPtrType) ToGatewayTargetMetadataConfigurationPtrOutput() GatewayTargetMetadataConfigurationPtrOutput {
+	return i.ToGatewayTargetMetadataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayTargetMetadataConfigurationPtrType) ToGatewayTargetMetadataConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetMetadataConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTargetMetadataConfigurationPtrOutput)
+}
+
+type GatewayTargetMetadataConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetMetadataConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTargetMetadataConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetMetadataConfigurationOutput) ToGatewayTargetMetadataConfigurationOutput() GatewayTargetMetadataConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetMetadataConfigurationOutput) ToGatewayTargetMetadataConfigurationOutputWithContext(ctx context.Context) GatewayTargetMetadataConfigurationOutput {
+	return o
+}
+
+func (o GatewayTargetMetadataConfigurationOutput) ToGatewayTargetMetadataConfigurationPtrOutput() GatewayTargetMetadataConfigurationPtrOutput {
+	return o.ToGatewayTargetMetadataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayTargetMetadataConfigurationOutput) ToGatewayTargetMetadataConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetMetadataConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayTargetMetadataConfiguration) *GatewayTargetMetadataConfiguration {
+		return &v
+	}).(GatewayTargetMetadataConfigurationPtrOutput)
+}
+
+func (o GatewayTargetMetadataConfigurationOutput) AllowedQueryParameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GatewayTargetMetadataConfiguration) []string { return v.AllowedQueryParameters }).(pulumi.StringArrayOutput)
+}
+
+func (o GatewayTargetMetadataConfigurationOutput) AllowedRequestHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GatewayTargetMetadataConfiguration) []string { return v.AllowedRequestHeaders }).(pulumi.StringArrayOutput)
+}
+
+func (o GatewayTargetMetadataConfigurationOutput) AllowedResponseHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GatewayTargetMetadataConfiguration) []string { return v.AllowedResponseHeaders }).(pulumi.StringArrayOutput)
+}
+
+type GatewayTargetMetadataConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayTargetMetadataConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayTargetMetadataConfiguration)(nil)).Elem()
+}
+
+func (o GatewayTargetMetadataConfigurationPtrOutput) ToGatewayTargetMetadataConfigurationPtrOutput() GatewayTargetMetadataConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetMetadataConfigurationPtrOutput) ToGatewayTargetMetadataConfigurationPtrOutputWithContext(ctx context.Context) GatewayTargetMetadataConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayTargetMetadataConfigurationPtrOutput) Elem() GatewayTargetMetadataConfigurationOutput {
+	return o.ApplyT(func(v *GatewayTargetMetadataConfiguration) GatewayTargetMetadataConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayTargetMetadataConfiguration
+		return ret
+	}).(GatewayTargetMetadataConfigurationOutput)
+}
+
+func (o GatewayTargetMetadataConfigurationPtrOutput) AllowedQueryParameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GatewayTargetMetadataConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedQueryParameters
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GatewayTargetMetadataConfigurationPtrOutput) AllowedRequestHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GatewayTargetMetadataConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedRequestHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GatewayTargetMetadataConfigurationPtrOutput) AllowedResponseHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GatewayTargetMetadataConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedResponseHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
 type GatewayTargetOAuthCredentialProvider struct {
 	CustomParameters map[string]string `pulumi:"customParameters"`
 	// Return URL for OAuth callback.
@@ -4023,6 +4447,7 @@ func (o InterceptorConfigurationPropertiesOutput) Lambda() GatewayLambdaIntercep
 }
 
 type MemoryCustomConfigurationInput struct {
+	EpisodicOverride         *MemoryEpisodicOverride         `pulumi:"episodicOverride"`
 	SelfManagedConfiguration *MemorySelfManagedConfiguration `pulumi:"selfManagedConfiguration"`
 	SemanticOverride         *MemorySemanticOverride         `pulumi:"semanticOverride"`
 	SummaryOverride          *MemorySummaryOverride          `pulumi:"summaryOverride"`
@@ -4041,6 +4466,7 @@ type MemoryCustomConfigurationInputInput interface {
 }
 
 type MemoryCustomConfigurationInputArgs struct {
+	EpisodicOverride         MemoryEpisodicOverridePtrInput         `pulumi:"episodicOverride"`
 	SelfManagedConfiguration MemorySelfManagedConfigurationPtrInput `pulumi:"selfManagedConfiguration"`
 	SemanticOverride         MemorySemanticOverridePtrInput         `pulumi:"semanticOverride"`
 	SummaryOverride          MemorySummaryOverridePtrInput          `pulumi:"summaryOverride"`
@@ -4124,6 +4550,10 @@ func (o MemoryCustomConfigurationInputOutput) ToMemoryCustomConfigurationInputPt
 	}).(MemoryCustomConfigurationInputPtrOutput)
 }
 
+func (o MemoryCustomConfigurationInputOutput) EpisodicOverride() MemoryEpisodicOverridePtrOutput {
+	return o.ApplyT(func(v MemoryCustomConfigurationInput) *MemoryEpisodicOverride { return v.EpisodicOverride }).(MemoryEpisodicOverridePtrOutput)
+}
+
 func (o MemoryCustomConfigurationInputOutput) SelfManagedConfiguration() MemorySelfManagedConfigurationPtrOutput {
 	return o.ApplyT(func(v MemoryCustomConfigurationInput) *MemorySelfManagedConfiguration {
 		return v.SelfManagedConfiguration
@@ -4164,6 +4594,15 @@ func (o MemoryCustomConfigurationInputPtrOutput) Elem() MemoryCustomConfiguratio
 		var ret MemoryCustomConfigurationInput
 		return ret
 	}).(MemoryCustomConfigurationInputOutput)
+}
+
+func (o MemoryCustomConfigurationInputPtrOutput) EpisodicOverride() MemoryEpisodicOverridePtrOutput {
+	return o.ApplyT(func(v *MemoryCustomConfigurationInput) *MemoryEpisodicOverride {
+		if v == nil {
+			return nil
+		}
+		return v.EpisodicOverride
+	}).(MemoryEpisodicOverridePtrOutput)
 }
 
 func (o MemoryCustomConfigurationInputPtrOutput) SelfManagedConfiguration() MemorySelfManagedConfigurationPtrOutput {
@@ -4473,6 +4912,1042 @@ func (o MemoryCustomMemoryStrategyPtrOutput) UpdatedAt() pulumi.StringPtrOutput 
 		}
 		return v.UpdatedAt
 	}).(pulumi.StringPtrOutput)
+}
+
+type MemoryEpisodicMemoryStrategy struct {
+	// Creation timestamp of the memory strategy
+	CreatedAt               *string                                     `pulumi:"createdAt"`
+	Description             *string                                     `pulumi:"description"`
+	Name                    string                                      `pulumi:"name"`
+	Namespaces              []string                                    `pulumi:"namespaces"`
+	ReflectionConfiguration *MemoryEpisodicReflectionConfigurationInput `pulumi:"reflectionConfiguration"`
+	// Status of the memory strategy
+	Status *MemoryEpisodicMemoryStrategyStatus `pulumi:"status"`
+	// Unique identifier for the memory strategy
+	StrategyId *string `pulumi:"strategyId"`
+	// Type of memory strategy
+	Type *MemoryEpisodicMemoryStrategyType `pulumi:"type"`
+	// Last update timestamp of the memory strategy
+	UpdatedAt *string `pulumi:"updatedAt"`
+}
+
+// MemoryEpisodicMemoryStrategyInput is an input type that accepts MemoryEpisodicMemoryStrategyArgs and MemoryEpisodicMemoryStrategyOutput values.
+// You can construct a concrete instance of `MemoryEpisodicMemoryStrategyInput` via:
+//
+//	MemoryEpisodicMemoryStrategyArgs{...}
+type MemoryEpisodicMemoryStrategyInput interface {
+	pulumi.Input
+
+	ToMemoryEpisodicMemoryStrategyOutput() MemoryEpisodicMemoryStrategyOutput
+	ToMemoryEpisodicMemoryStrategyOutputWithContext(context.Context) MemoryEpisodicMemoryStrategyOutput
+}
+
+type MemoryEpisodicMemoryStrategyArgs struct {
+	// Creation timestamp of the memory strategy
+	CreatedAt               pulumi.StringPtrInput                              `pulumi:"createdAt"`
+	Description             pulumi.StringPtrInput                              `pulumi:"description"`
+	Name                    pulumi.StringInput                                 `pulumi:"name"`
+	Namespaces              pulumi.StringArrayInput                            `pulumi:"namespaces"`
+	ReflectionConfiguration MemoryEpisodicReflectionConfigurationInputPtrInput `pulumi:"reflectionConfiguration"`
+	// Status of the memory strategy
+	Status MemoryEpisodicMemoryStrategyStatusPtrInput `pulumi:"status"`
+	// Unique identifier for the memory strategy
+	StrategyId pulumi.StringPtrInput `pulumi:"strategyId"`
+	// Type of memory strategy
+	Type MemoryEpisodicMemoryStrategyTypePtrInput `pulumi:"type"`
+	// Last update timestamp of the memory strategy
+	UpdatedAt pulumi.StringPtrInput `pulumi:"updatedAt"`
+}
+
+func (MemoryEpisodicMemoryStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryEpisodicMemoryStrategy)(nil)).Elem()
+}
+
+func (i MemoryEpisodicMemoryStrategyArgs) ToMemoryEpisodicMemoryStrategyOutput() MemoryEpisodicMemoryStrategyOutput {
+	return i.ToMemoryEpisodicMemoryStrategyOutputWithContext(context.Background())
+}
+
+func (i MemoryEpisodicMemoryStrategyArgs) ToMemoryEpisodicMemoryStrategyOutputWithContext(ctx context.Context) MemoryEpisodicMemoryStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryEpisodicMemoryStrategyOutput)
+}
+
+func (i MemoryEpisodicMemoryStrategyArgs) ToMemoryEpisodicMemoryStrategyPtrOutput() MemoryEpisodicMemoryStrategyPtrOutput {
+	return i.ToMemoryEpisodicMemoryStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i MemoryEpisodicMemoryStrategyArgs) ToMemoryEpisodicMemoryStrategyPtrOutputWithContext(ctx context.Context) MemoryEpisodicMemoryStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryEpisodicMemoryStrategyOutput).ToMemoryEpisodicMemoryStrategyPtrOutputWithContext(ctx)
+}
+
+// MemoryEpisodicMemoryStrategyPtrInput is an input type that accepts MemoryEpisodicMemoryStrategyArgs, MemoryEpisodicMemoryStrategyPtr and MemoryEpisodicMemoryStrategyPtrOutput values.
+// You can construct a concrete instance of `MemoryEpisodicMemoryStrategyPtrInput` via:
+//
+//	        MemoryEpisodicMemoryStrategyArgs{...}
+//
+//	or:
+//
+//	        nil
+type MemoryEpisodicMemoryStrategyPtrInput interface {
+	pulumi.Input
+
+	ToMemoryEpisodicMemoryStrategyPtrOutput() MemoryEpisodicMemoryStrategyPtrOutput
+	ToMemoryEpisodicMemoryStrategyPtrOutputWithContext(context.Context) MemoryEpisodicMemoryStrategyPtrOutput
+}
+
+type memoryEpisodicMemoryStrategyPtrType MemoryEpisodicMemoryStrategyArgs
+
+func MemoryEpisodicMemoryStrategyPtr(v *MemoryEpisodicMemoryStrategyArgs) MemoryEpisodicMemoryStrategyPtrInput {
+	return (*memoryEpisodicMemoryStrategyPtrType)(v)
+}
+
+func (*memoryEpisodicMemoryStrategyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryEpisodicMemoryStrategy)(nil)).Elem()
+}
+
+func (i *memoryEpisodicMemoryStrategyPtrType) ToMemoryEpisodicMemoryStrategyPtrOutput() MemoryEpisodicMemoryStrategyPtrOutput {
+	return i.ToMemoryEpisodicMemoryStrategyPtrOutputWithContext(context.Background())
+}
+
+func (i *memoryEpisodicMemoryStrategyPtrType) ToMemoryEpisodicMemoryStrategyPtrOutputWithContext(ctx context.Context) MemoryEpisodicMemoryStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryEpisodicMemoryStrategyPtrOutput)
+}
+
+type MemoryEpisodicMemoryStrategyOutput struct{ *pulumi.OutputState }
+
+func (MemoryEpisodicMemoryStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryEpisodicMemoryStrategy)(nil)).Elem()
+}
+
+func (o MemoryEpisodicMemoryStrategyOutput) ToMemoryEpisodicMemoryStrategyOutput() MemoryEpisodicMemoryStrategyOutput {
+	return o
+}
+
+func (o MemoryEpisodicMemoryStrategyOutput) ToMemoryEpisodicMemoryStrategyOutputWithContext(ctx context.Context) MemoryEpisodicMemoryStrategyOutput {
+	return o
+}
+
+func (o MemoryEpisodicMemoryStrategyOutput) ToMemoryEpisodicMemoryStrategyPtrOutput() MemoryEpisodicMemoryStrategyPtrOutput {
+	return o.ToMemoryEpisodicMemoryStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryEpisodicMemoryStrategyOutput) ToMemoryEpisodicMemoryStrategyPtrOutputWithContext(ctx context.Context) MemoryEpisodicMemoryStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryEpisodicMemoryStrategy) *MemoryEpisodicMemoryStrategy {
+		return &v
+	}).(MemoryEpisodicMemoryStrategyPtrOutput)
+}
+
+// Creation timestamp of the memory strategy
+func (o MemoryEpisodicMemoryStrategyOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MemoryEpisodicMemoryStrategy) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o MemoryEpisodicMemoryStrategyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MemoryEpisodicMemoryStrategy) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o MemoryEpisodicMemoryStrategyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MemoryEpisodicMemoryStrategy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o MemoryEpisodicMemoryStrategyOutput) Namespaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MemoryEpisodicMemoryStrategy) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
+}
+
+func (o MemoryEpisodicMemoryStrategyOutput) ReflectionConfiguration() MemoryEpisodicReflectionConfigurationInputPtrOutput {
+	return o.ApplyT(func(v MemoryEpisodicMemoryStrategy) *MemoryEpisodicReflectionConfigurationInput {
+		return v.ReflectionConfiguration
+	}).(MemoryEpisodicReflectionConfigurationInputPtrOutput)
+}
+
+// Status of the memory strategy
+func (o MemoryEpisodicMemoryStrategyOutput) Status() MemoryEpisodicMemoryStrategyStatusPtrOutput {
+	return o.ApplyT(func(v MemoryEpisodicMemoryStrategy) *MemoryEpisodicMemoryStrategyStatus { return v.Status }).(MemoryEpisodicMemoryStrategyStatusPtrOutput)
+}
+
+// Unique identifier for the memory strategy
+func (o MemoryEpisodicMemoryStrategyOutput) StrategyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MemoryEpisodicMemoryStrategy) *string { return v.StrategyId }).(pulumi.StringPtrOutput)
+}
+
+// Type of memory strategy
+func (o MemoryEpisodicMemoryStrategyOutput) Type() MemoryEpisodicMemoryStrategyTypePtrOutput {
+	return o.ApplyT(func(v MemoryEpisodicMemoryStrategy) *MemoryEpisodicMemoryStrategyType { return v.Type }).(MemoryEpisodicMemoryStrategyTypePtrOutput)
+}
+
+// Last update timestamp of the memory strategy
+func (o MemoryEpisodicMemoryStrategyOutput) UpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MemoryEpisodicMemoryStrategy) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
+}
+
+type MemoryEpisodicMemoryStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryEpisodicMemoryStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryEpisodicMemoryStrategy)(nil)).Elem()
+}
+
+func (o MemoryEpisodicMemoryStrategyPtrOutput) ToMemoryEpisodicMemoryStrategyPtrOutput() MemoryEpisodicMemoryStrategyPtrOutput {
+	return o
+}
+
+func (o MemoryEpisodicMemoryStrategyPtrOutput) ToMemoryEpisodicMemoryStrategyPtrOutputWithContext(ctx context.Context) MemoryEpisodicMemoryStrategyPtrOutput {
+	return o
+}
+
+func (o MemoryEpisodicMemoryStrategyPtrOutput) Elem() MemoryEpisodicMemoryStrategyOutput {
+	return o.ApplyT(func(v *MemoryEpisodicMemoryStrategy) MemoryEpisodicMemoryStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryEpisodicMemoryStrategy
+		return ret
+	}).(MemoryEpisodicMemoryStrategyOutput)
+}
+
+// Creation timestamp of the memory strategy
+func (o MemoryEpisodicMemoryStrategyPtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicMemoryStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MemoryEpisodicMemoryStrategyPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicMemoryStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MemoryEpisodicMemoryStrategyPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicMemoryStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MemoryEpisodicMemoryStrategyPtrOutput) Namespaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MemoryEpisodicMemoryStrategy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespaces
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o MemoryEpisodicMemoryStrategyPtrOutput) ReflectionConfiguration() MemoryEpisodicReflectionConfigurationInputPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicMemoryStrategy) *MemoryEpisodicReflectionConfigurationInput {
+		if v == nil {
+			return nil
+		}
+		return v.ReflectionConfiguration
+	}).(MemoryEpisodicReflectionConfigurationInputPtrOutput)
+}
+
+// Status of the memory strategy
+func (o MemoryEpisodicMemoryStrategyPtrOutput) Status() MemoryEpisodicMemoryStrategyStatusPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicMemoryStrategy) *MemoryEpisodicMemoryStrategyStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(MemoryEpisodicMemoryStrategyStatusPtrOutput)
+}
+
+// Unique identifier for the memory strategy
+func (o MemoryEpisodicMemoryStrategyPtrOutput) StrategyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicMemoryStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StrategyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of memory strategy
+func (o MemoryEpisodicMemoryStrategyPtrOutput) Type() MemoryEpisodicMemoryStrategyTypePtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicMemoryStrategy) *MemoryEpisodicMemoryStrategyType {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(MemoryEpisodicMemoryStrategyTypePtrOutput)
+}
+
+// Last update timestamp of the memory strategy
+func (o MemoryEpisodicMemoryStrategyPtrOutput) UpdatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicMemoryStrategy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpdatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+type MemoryEpisodicOverride struct {
+	Consolidation *MemoryEpisodicOverrideConsolidationConfigurationInput `pulumi:"consolidation"`
+	Extraction    *MemoryEpisodicOverrideExtractionConfigurationInput    `pulumi:"extraction"`
+	Reflection    *MemoryEpisodicOverrideReflectionConfigurationInput    `pulumi:"reflection"`
+}
+
+// MemoryEpisodicOverrideInput is an input type that accepts MemoryEpisodicOverrideArgs and MemoryEpisodicOverrideOutput values.
+// You can construct a concrete instance of `MemoryEpisodicOverrideInput` via:
+//
+//	MemoryEpisodicOverrideArgs{...}
+type MemoryEpisodicOverrideInput interface {
+	pulumi.Input
+
+	ToMemoryEpisodicOverrideOutput() MemoryEpisodicOverrideOutput
+	ToMemoryEpisodicOverrideOutputWithContext(context.Context) MemoryEpisodicOverrideOutput
+}
+
+type MemoryEpisodicOverrideArgs struct {
+	Consolidation MemoryEpisodicOverrideConsolidationConfigurationInputPtrInput `pulumi:"consolidation"`
+	Extraction    MemoryEpisodicOverrideExtractionConfigurationInputPtrInput    `pulumi:"extraction"`
+	Reflection    MemoryEpisodicOverrideReflectionConfigurationInputPtrInput    `pulumi:"reflection"`
+}
+
+func (MemoryEpisodicOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryEpisodicOverride)(nil)).Elem()
+}
+
+func (i MemoryEpisodicOverrideArgs) ToMemoryEpisodicOverrideOutput() MemoryEpisodicOverrideOutput {
+	return i.ToMemoryEpisodicOverrideOutputWithContext(context.Background())
+}
+
+func (i MemoryEpisodicOverrideArgs) ToMemoryEpisodicOverrideOutputWithContext(ctx context.Context) MemoryEpisodicOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryEpisodicOverrideOutput)
+}
+
+func (i MemoryEpisodicOverrideArgs) ToMemoryEpisodicOverridePtrOutput() MemoryEpisodicOverridePtrOutput {
+	return i.ToMemoryEpisodicOverridePtrOutputWithContext(context.Background())
+}
+
+func (i MemoryEpisodicOverrideArgs) ToMemoryEpisodicOverridePtrOutputWithContext(ctx context.Context) MemoryEpisodicOverridePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryEpisodicOverrideOutput).ToMemoryEpisodicOverridePtrOutputWithContext(ctx)
+}
+
+// MemoryEpisodicOverridePtrInput is an input type that accepts MemoryEpisodicOverrideArgs, MemoryEpisodicOverridePtr and MemoryEpisodicOverridePtrOutput values.
+// You can construct a concrete instance of `MemoryEpisodicOverridePtrInput` via:
+//
+//	        MemoryEpisodicOverrideArgs{...}
+//
+//	or:
+//
+//	        nil
+type MemoryEpisodicOverridePtrInput interface {
+	pulumi.Input
+
+	ToMemoryEpisodicOverridePtrOutput() MemoryEpisodicOverridePtrOutput
+	ToMemoryEpisodicOverridePtrOutputWithContext(context.Context) MemoryEpisodicOverridePtrOutput
+}
+
+type memoryEpisodicOverridePtrType MemoryEpisodicOverrideArgs
+
+func MemoryEpisodicOverridePtr(v *MemoryEpisodicOverrideArgs) MemoryEpisodicOverridePtrInput {
+	return (*memoryEpisodicOverridePtrType)(v)
+}
+
+func (*memoryEpisodicOverridePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryEpisodicOverride)(nil)).Elem()
+}
+
+func (i *memoryEpisodicOverridePtrType) ToMemoryEpisodicOverridePtrOutput() MemoryEpisodicOverridePtrOutput {
+	return i.ToMemoryEpisodicOverridePtrOutputWithContext(context.Background())
+}
+
+func (i *memoryEpisodicOverridePtrType) ToMemoryEpisodicOverridePtrOutputWithContext(ctx context.Context) MemoryEpisodicOverridePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryEpisodicOverridePtrOutput)
+}
+
+type MemoryEpisodicOverrideOutput struct{ *pulumi.OutputState }
+
+func (MemoryEpisodicOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryEpisodicOverride)(nil)).Elem()
+}
+
+func (o MemoryEpisodicOverrideOutput) ToMemoryEpisodicOverrideOutput() MemoryEpisodicOverrideOutput {
+	return o
+}
+
+func (o MemoryEpisodicOverrideOutput) ToMemoryEpisodicOverrideOutputWithContext(ctx context.Context) MemoryEpisodicOverrideOutput {
+	return o
+}
+
+func (o MemoryEpisodicOverrideOutput) ToMemoryEpisodicOverridePtrOutput() MemoryEpisodicOverridePtrOutput {
+	return o.ToMemoryEpisodicOverridePtrOutputWithContext(context.Background())
+}
+
+func (o MemoryEpisodicOverrideOutput) ToMemoryEpisodicOverridePtrOutputWithContext(ctx context.Context) MemoryEpisodicOverridePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryEpisodicOverride) *MemoryEpisodicOverride {
+		return &v
+	}).(MemoryEpisodicOverridePtrOutput)
+}
+
+func (o MemoryEpisodicOverrideOutput) Consolidation() MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput {
+	return o.ApplyT(func(v MemoryEpisodicOverride) *MemoryEpisodicOverrideConsolidationConfigurationInput {
+		return v.Consolidation
+	}).(MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput)
+}
+
+func (o MemoryEpisodicOverrideOutput) Extraction() MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput {
+	return o.ApplyT(func(v MemoryEpisodicOverride) *MemoryEpisodicOverrideExtractionConfigurationInput {
+		return v.Extraction
+	}).(MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput)
+}
+
+func (o MemoryEpisodicOverrideOutput) Reflection() MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput {
+	return o.ApplyT(func(v MemoryEpisodicOverride) *MemoryEpisodicOverrideReflectionConfigurationInput {
+		return v.Reflection
+	}).(MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput)
+}
+
+type MemoryEpisodicOverridePtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryEpisodicOverridePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryEpisodicOverride)(nil)).Elem()
+}
+
+func (o MemoryEpisodicOverridePtrOutput) ToMemoryEpisodicOverridePtrOutput() MemoryEpisodicOverridePtrOutput {
+	return o
+}
+
+func (o MemoryEpisodicOverridePtrOutput) ToMemoryEpisodicOverridePtrOutputWithContext(ctx context.Context) MemoryEpisodicOverridePtrOutput {
+	return o
+}
+
+func (o MemoryEpisodicOverridePtrOutput) Elem() MemoryEpisodicOverrideOutput {
+	return o.ApplyT(func(v *MemoryEpisodicOverride) MemoryEpisodicOverride {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryEpisodicOverride
+		return ret
+	}).(MemoryEpisodicOverrideOutput)
+}
+
+func (o MemoryEpisodicOverridePtrOutput) Consolidation() MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicOverride) *MemoryEpisodicOverrideConsolidationConfigurationInput {
+		if v == nil {
+			return nil
+		}
+		return v.Consolidation
+	}).(MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput)
+}
+
+func (o MemoryEpisodicOverridePtrOutput) Extraction() MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicOverride) *MemoryEpisodicOverrideExtractionConfigurationInput {
+		if v == nil {
+			return nil
+		}
+		return v.Extraction
+	}).(MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput)
+}
+
+func (o MemoryEpisodicOverridePtrOutput) Reflection() MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicOverride) *MemoryEpisodicOverrideReflectionConfigurationInput {
+		if v == nil {
+			return nil
+		}
+		return v.Reflection
+	}).(MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput)
+}
+
+type MemoryEpisodicOverrideConsolidationConfigurationInput struct {
+	AppendToPrompt string `pulumi:"appendToPrompt"`
+	ModelId        string `pulumi:"modelId"`
+}
+
+// MemoryEpisodicOverrideConsolidationConfigurationInputInput is an input type that accepts MemoryEpisodicOverrideConsolidationConfigurationInputArgs and MemoryEpisodicOverrideConsolidationConfigurationInputOutput values.
+// You can construct a concrete instance of `MemoryEpisodicOverrideConsolidationConfigurationInputInput` via:
+//
+//	MemoryEpisodicOverrideConsolidationConfigurationInputArgs{...}
+type MemoryEpisodicOverrideConsolidationConfigurationInputInput interface {
+	pulumi.Input
+
+	ToMemoryEpisodicOverrideConsolidationConfigurationInputOutput() MemoryEpisodicOverrideConsolidationConfigurationInputOutput
+	ToMemoryEpisodicOverrideConsolidationConfigurationInputOutputWithContext(context.Context) MemoryEpisodicOverrideConsolidationConfigurationInputOutput
+}
+
+type MemoryEpisodicOverrideConsolidationConfigurationInputArgs struct {
+	AppendToPrompt pulumi.StringInput `pulumi:"appendToPrompt"`
+	ModelId        pulumi.StringInput `pulumi:"modelId"`
+}
+
+func (MemoryEpisodicOverrideConsolidationConfigurationInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryEpisodicOverrideConsolidationConfigurationInput)(nil)).Elem()
+}
+
+func (i MemoryEpisodicOverrideConsolidationConfigurationInputArgs) ToMemoryEpisodicOverrideConsolidationConfigurationInputOutput() MemoryEpisodicOverrideConsolidationConfigurationInputOutput {
+	return i.ToMemoryEpisodicOverrideConsolidationConfigurationInputOutputWithContext(context.Background())
+}
+
+func (i MemoryEpisodicOverrideConsolidationConfigurationInputArgs) ToMemoryEpisodicOverrideConsolidationConfigurationInputOutputWithContext(ctx context.Context) MemoryEpisodicOverrideConsolidationConfigurationInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryEpisodicOverrideConsolidationConfigurationInputOutput)
+}
+
+func (i MemoryEpisodicOverrideConsolidationConfigurationInputArgs) ToMemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput() MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput {
+	return i.ToMemoryEpisodicOverrideConsolidationConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i MemoryEpisodicOverrideConsolidationConfigurationInputArgs) ToMemoryEpisodicOverrideConsolidationConfigurationInputPtrOutputWithContext(ctx context.Context) MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryEpisodicOverrideConsolidationConfigurationInputOutput).ToMemoryEpisodicOverrideConsolidationConfigurationInputPtrOutputWithContext(ctx)
+}
+
+// MemoryEpisodicOverrideConsolidationConfigurationInputPtrInput is an input type that accepts MemoryEpisodicOverrideConsolidationConfigurationInputArgs, MemoryEpisodicOverrideConsolidationConfigurationInputPtr and MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput values.
+// You can construct a concrete instance of `MemoryEpisodicOverrideConsolidationConfigurationInputPtrInput` via:
+//
+//	        MemoryEpisodicOverrideConsolidationConfigurationInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type MemoryEpisodicOverrideConsolidationConfigurationInputPtrInput interface {
+	pulumi.Input
+
+	ToMemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput() MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput
+	ToMemoryEpisodicOverrideConsolidationConfigurationInputPtrOutputWithContext(context.Context) MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput
+}
+
+type memoryEpisodicOverrideConsolidationConfigurationInputPtrType MemoryEpisodicOverrideConsolidationConfigurationInputArgs
+
+func MemoryEpisodicOverrideConsolidationConfigurationInputPtr(v *MemoryEpisodicOverrideConsolidationConfigurationInputArgs) MemoryEpisodicOverrideConsolidationConfigurationInputPtrInput {
+	return (*memoryEpisodicOverrideConsolidationConfigurationInputPtrType)(v)
+}
+
+func (*memoryEpisodicOverrideConsolidationConfigurationInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryEpisodicOverrideConsolidationConfigurationInput)(nil)).Elem()
+}
+
+func (i *memoryEpisodicOverrideConsolidationConfigurationInputPtrType) ToMemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput() MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput {
+	return i.ToMemoryEpisodicOverrideConsolidationConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i *memoryEpisodicOverrideConsolidationConfigurationInputPtrType) ToMemoryEpisodicOverrideConsolidationConfigurationInputPtrOutputWithContext(ctx context.Context) MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput)
+}
+
+type MemoryEpisodicOverrideConsolidationConfigurationInputOutput struct{ *pulumi.OutputState }
+
+func (MemoryEpisodicOverrideConsolidationConfigurationInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryEpisodicOverrideConsolidationConfigurationInput)(nil)).Elem()
+}
+
+func (o MemoryEpisodicOverrideConsolidationConfigurationInputOutput) ToMemoryEpisodicOverrideConsolidationConfigurationInputOutput() MemoryEpisodicOverrideConsolidationConfigurationInputOutput {
+	return o
+}
+
+func (o MemoryEpisodicOverrideConsolidationConfigurationInputOutput) ToMemoryEpisodicOverrideConsolidationConfigurationInputOutputWithContext(ctx context.Context) MemoryEpisodicOverrideConsolidationConfigurationInputOutput {
+	return o
+}
+
+func (o MemoryEpisodicOverrideConsolidationConfigurationInputOutput) ToMemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput() MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput {
+	return o.ToMemoryEpisodicOverrideConsolidationConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryEpisodicOverrideConsolidationConfigurationInputOutput) ToMemoryEpisodicOverrideConsolidationConfigurationInputPtrOutputWithContext(ctx context.Context) MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryEpisodicOverrideConsolidationConfigurationInput) *MemoryEpisodicOverrideConsolidationConfigurationInput {
+		return &v
+	}).(MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput)
+}
+
+func (o MemoryEpisodicOverrideConsolidationConfigurationInputOutput) AppendToPrompt() pulumi.StringOutput {
+	return o.ApplyT(func(v MemoryEpisodicOverrideConsolidationConfigurationInput) string { return v.AppendToPrompt }).(pulumi.StringOutput)
+}
+
+func (o MemoryEpisodicOverrideConsolidationConfigurationInputOutput) ModelId() pulumi.StringOutput {
+	return o.ApplyT(func(v MemoryEpisodicOverrideConsolidationConfigurationInput) string { return v.ModelId }).(pulumi.StringOutput)
+}
+
+type MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryEpisodicOverrideConsolidationConfigurationInput)(nil)).Elem()
+}
+
+func (o MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput) ToMemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput() MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput {
+	return o
+}
+
+func (o MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput) ToMemoryEpisodicOverrideConsolidationConfigurationInputPtrOutputWithContext(ctx context.Context) MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput {
+	return o
+}
+
+func (o MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput) Elem() MemoryEpisodicOverrideConsolidationConfigurationInputOutput {
+	return o.ApplyT(func(v *MemoryEpisodicOverrideConsolidationConfigurationInput) MemoryEpisodicOverrideConsolidationConfigurationInput {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryEpisodicOverrideConsolidationConfigurationInput
+		return ret
+	}).(MemoryEpisodicOverrideConsolidationConfigurationInputOutput)
+}
+
+func (o MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput) AppendToPrompt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicOverrideConsolidationConfigurationInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AppendToPrompt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput) ModelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicOverrideConsolidationConfigurationInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelId
+	}).(pulumi.StringPtrOutput)
+}
+
+type MemoryEpisodicOverrideExtractionConfigurationInput struct {
+	AppendToPrompt string `pulumi:"appendToPrompt"`
+	ModelId        string `pulumi:"modelId"`
+}
+
+// MemoryEpisodicOverrideExtractionConfigurationInputInput is an input type that accepts MemoryEpisodicOverrideExtractionConfigurationInputArgs and MemoryEpisodicOverrideExtractionConfigurationInputOutput values.
+// You can construct a concrete instance of `MemoryEpisodicOverrideExtractionConfigurationInputInput` via:
+//
+//	MemoryEpisodicOverrideExtractionConfigurationInputArgs{...}
+type MemoryEpisodicOverrideExtractionConfigurationInputInput interface {
+	pulumi.Input
+
+	ToMemoryEpisodicOverrideExtractionConfigurationInputOutput() MemoryEpisodicOverrideExtractionConfigurationInputOutput
+	ToMemoryEpisodicOverrideExtractionConfigurationInputOutputWithContext(context.Context) MemoryEpisodicOverrideExtractionConfigurationInputOutput
+}
+
+type MemoryEpisodicOverrideExtractionConfigurationInputArgs struct {
+	AppendToPrompt pulumi.StringInput `pulumi:"appendToPrompt"`
+	ModelId        pulumi.StringInput `pulumi:"modelId"`
+}
+
+func (MemoryEpisodicOverrideExtractionConfigurationInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryEpisodicOverrideExtractionConfigurationInput)(nil)).Elem()
+}
+
+func (i MemoryEpisodicOverrideExtractionConfigurationInputArgs) ToMemoryEpisodicOverrideExtractionConfigurationInputOutput() MemoryEpisodicOverrideExtractionConfigurationInputOutput {
+	return i.ToMemoryEpisodicOverrideExtractionConfigurationInputOutputWithContext(context.Background())
+}
+
+func (i MemoryEpisodicOverrideExtractionConfigurationInputArgs) ToMemoryEpisodicOverrideExtractionConfigurationInputOutputWithContext(ctx context.Context) MemoryEpisodicOverrideExtractionConfigurationInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryEpisodicOverrideExtractionConfigurationInputOutput)
+}
+
+func (i MemoryEpisodicOverrideExtractionConfigurationInputArgs) ToMemoryEpisodicOverrideExtractionConfigurationInputPtrOutput() MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput {
+	return i.ToMemoryEpisodicOverrideExtractionConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i MemoryEpisodicOverrideExtractionConfigurationInputArgs) ToMemoryEpisodicOverrideExtractionConfigurationInputPtrOutputWithContext(ctx context.Context) MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryEpisodicOverrideExtractionConfigurationInputOutput).ToMemoryEpisodicOverrideExtractionConfigurationInputPtrOutputWithContext(ctx)
+}
+
+// MemoryEpisodicOverrideExtractionConfigurationInputPtrInput is an input type that accepts MemoryEpisodicOverrideExtractionConfigurationInputArgs, MemoryEpisodicOverrideExtractionConfigurationInputPtr and MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput values.
+// You can construct a concrete instance of `MemoryEpisodicOverrideExtractionConfigurationInputPtrInput` via:
+//
+//	        MemoryEpisodicOverrideExtractionConfigurationInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type MemoryEpisodicOverrideExtractionConfigurationInputPtrInput interface {
+	pulumi.Input
+
+	ToMemoryEpisodicOverrideExtractionConfigurationInputPtrOutput() MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput
+	ToMemoryEpisodicOverrideExtractionConfigurationInputPtrOutputWithContext(context.Context) MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput
+}
+
+type memoryEpisodicOverrideExtractionConfigurationInputPtrType MemoryEpisodicOverrideExtractionConfigurationInputArgs
+
+func MemoryEpisodicOverrideExtractionConfigurationInputPtr(v *MemoryEpisodicOverrideExtractionConfigurationInputArgs) MemoryEpisodicOverrideExtractionConfigurationInputPtrInput {
+	return (*memoryEpisodicOverrideExtractionConfigurationInputPtrType)(v)
+}
+
+func (*memoryEpisodicOverrideExtractionConfigurationInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryEpisodicOverrideExtractionConfigurationInput)(nil)).Elem()
+}
+
+func (i *memoryEpisodicOverrideExtractionConfigurationInputPtrType) ToMemoryEpisodicOverrideExtractionConfigurationInputPtrOutput() MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput {
+	return i.ToMemoryEpisodicOverrideExtractionConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i *memoryEpisodicOverrideExtractionConfigurationInputPtrType) ToMemoryEpisodicOverrideExtractionConfigurationInputPtrOutputWithContext(ctx context.Context) MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput)
+}
+
+type MemoryEpisodicOverrideExtractionConfigurationInputOutput struct{ *pulumi.OutputState }
+
+func (MemoryEpisodicOverrideExtractionConfigurationInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryEpisodicOverrideExtractionConfigurationInput)(nil)).Elem()
+}
+
+func (o MemoryEpisodicOverrideExtractionConfigurationInputOutput) ToMemoryEpisodicOverrideExtractionConfigurationInputOutput() MemoryEpisodicOverrideExtractionConfigurationInputOutput {
+	return o
+}
+
+func (o MemoryEpisodicOverrideExtractionConfigurationInputOutput) ToMemoryEpisodicOverrideExtractionConfigurationInputOutputWithContext(ctx context.Context) MemoryEpisodicOverrideExtractionConfigurationInputOutput {
+	return o
+}
+
+func (o MemoryEpisodicOverrideExtractionConfigurationInputOutput) ToMemoryEpisodicOverrideExtractionConfigurationInputPtrOutput() MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput {
+	return o.ToMemoryEpisodicOverrideExtractionConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryEpisodicOverrideExtractionConfigurationInputOutput) ToMemoryEpisodicOverrideExtractionConfigurationInputPtrOutputWithContext(ctx context.Context) MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryEpisodicOverrideExtractionConfigurationInput) *MemoryEpisodicOverrideExtractionConfigurationInput {
+		return &v
+	}).(MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput)
+}
+
+func (o MemoryEpisodicOverrideExtractionConfigurationInputOutput) AppendToPrompt() pulumi.StringOutput {
+	return o.ApplyT(func(v MemoryEpisodicOverrideExtractionConfigurationInput) string { return v.AppendToPrompt }).(pulumi.StringOutput)
+}
+
+func (o MemoryEpisodicOverrideExtractionConfigurationInputOutput) ModelId() pulumi.StringOutput {
+	return o.ApplyT(func(v MemoryEpisodicOverrideExtractionConfigurationInput) string { return v.ModelId }).(pulumi.StringOutput)
+}
+
+type MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryEpisodicOverrideExtractionConfigurationInput)(nil)).Elem()
+}
+
+func (o MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput) ToMemoryEpisodicOverrideExtractionConfigurationInputPtrOutput() MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput {
+	return o
+}
+
+func (o MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput) ToMemoryEpisodicOverrideExtractionConfigurationInputPtrOutputWithContext(ctx context.Context) MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput {
+	return o
+}
+
+func (o MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput) Elem() MemoryEpisodicOverrideExtractionConfigurationInputOutput {
+	return o.ApplyT(func(v *MemoryEpisodicOverrideExtractionConfigurationInput) MemoryEpisodicOverrideExtractionConfigurationInput {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryEpisodicOverrideExtractionConfigurationInput
+		return ret
+	}).(MemoryEpisodicOverrideExtractionConfigurationInputOutput)
+}
+
+func (o MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput) AppendToPrompt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicOverrideExtractionConfigurationInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AppendToPrompt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput) ModelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicOverrideExtractionConfigurationInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelId
+	}).(pulumi.StringPtrOutput)
+}
+
+type MemoryEpisodicOverrideReflectionConfigurationInput struct {
+	AppendToPrompt string   `pulumi:"appendToPrompt"`
+	ModelId        string   `pulumi:"modelId"`
+	Namespaces     []string `pulumi:"namespaces"`
+}
+
+// MemoryEpisodicOverrideReflectionConfigurationInputInput is an input type that accepts MemoryEpisodicOverrideReflectionConfigurationInputArgs and MemoryEpisodicOverrideReflectionConfigurationInputOutput values.
+// You can construct a concrete instance of `MemoryEpisodicOverrideReflectionConfigurationInputInput` via:
+//
+//	MemoryEpisodicOverrideReflectionConfigurationInputArgs{...}
+type MemoryEpisodicOverrideReflectionConfigurationInputInput interface {
+	pulumi.Input
+
+	ToMemoryEpisodicOverrideReflectionConfigurationInputOutput() MemoryEpisodicOverrideReflectionConfigurationInputOutput
+	ToMemoryEpisodicOverrideReflectionConfigurationInputOutputWithContext(context.Context) MemoryEpisodicOverrideReflectionConfigurationInputOutput
+}
+
+type MemoryEpisodicOverrideReflectionConfigurationInputArgs struct {
+	AppendToPrompt pulumi.StringInput      `pulumi:"appendToPrompt"`
+	ModelId        pulumi.StringInput      `pulumi:"modelId"`
+	Namespaces     pulumi.StringArrayInput `pulumi:"namespaces"`
+}
+
+func (MemoryEpisodicOverrideReflectionConfigurationInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryEpisodicOverrideReflectionConfigurationInput)(nil)).Elem()
+}
+
+func (i MemoryEpisodicOverrideReflectionConfigurationInputArgs) ToMemoryEpisodicOverrideReflectionConfigurationInputOutput() MemoryEpisodicOverrideReflectionConfigurationInputOutput {
+	return i.ToMemoryEpisodicOverrideReflectionConfigurationInputOutputWithContext(context.Background())
+}
+
+func (i MemoryEpisodicOverrideReflectionConfigurationInputArgs) ToMemoryEpisodicOverrideReflectionConfigurationInputOutputWithContext(ctx context.Context) MemoryEpisodicOverrideReflectionConfigurationInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryEpisodicOverrideReflectionConfigurationInputOutput)
+}
+
+func (i MemoryEpisodicOverrideReflectionConfigurationInputArgs) ToMemoryEpisodicOverrideReflectionConfigurationInputPtrOutput() MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput {
+	return i.ToMemoryEpisodicOverrideReflectionConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i MemoryEpisodicOverrideReflectionConfigurationInputArgs) ToMemoryEpisodicOverrideReflectionConfigurationInputPtrOutputWithContext(ctx context.Context) MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryEpisodicOverrideReflectionConfigurationInputOutput).ToMemoryEpisodicOverrideReflectionConfigurationInputPtrOutputWithContext(ctx)
+}
+
+// MemoryEpisodicOverrideReflectionConfigurationInputPtrInput is an input type that accepts MemoryEpisodicOverrideReflectionConfigurationInputArgs, MemoryEpisodicOverrideReflectionConfigurationInputPtr and MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput values.
+// You can construct a concrete instance of `MemoryEpisodicOverrideReflectionConfigurationInputPtrInput` via:
+//
+//	        MemoryEpisodicOverrideReflectionConfigurationInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type MemoryEpisodicOverrideReflectionConfigurationInputPtrInput interface {
+	pulumi.Input
+
+	ToMemoryEpisodicOverrideReflectionConfigurationInputPtrOutput() MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput
+	ToMemoryEpisodicOverrideReflectionConfigurationInputPtrOutputWithContext(context.Context) MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput
+}
+
+type memoryEpisodicOverrideReflectionConfigurationInputPtrType MemoryEpisodicOverrideReflectionConfigurationInputArgs
+
+func MemoryEpisodicOverrideReflectionConfigurationInputPtr(v *MemoryEpisodicOverrideReflectionConfigurationInputArgs) MemoryEpisodicOverrideReflectionConfigurationInputPtrInput {
+	return (*memoryEpisodicOverrideReflectionConfigurationInputPtrType)(v)
+}
+
+func (*memoryEpisodicOverrideReflectionConfigurationInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryEpisodicOverrideReflectionConfigurationInput)(nil)).Elem()
+}
+
+func (i *memoryEpisodicOverrideReflectionConfigurationInputPtrType) ToMemoryEpisodicOverrideReflectionConfigurationInputPtrOutput() MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput {
+	return i.ToMemoryEpisodicOverrideReflectionConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i *memoryEpisodicOverrideReflectionConfigurationInputPtrType) ToMemoryEpisodicOverrideReflectionConfigurationInputPtrOutputWithContext(ctx context.Context) MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput)
+}
+
+type MemoryEpisodicOverrideReflectionConfigurationInputOutput struct{ *pulumi.OutputState }
+
+func (MemoryEpisodicOverrideReflectionConfigurationInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryEpisodicOverrideReflectionConfigurationInput)(nil)).Elem()
+}
+
+func (o MemoryEpisodicOverrideReflectionConfigurationInputOutput) ToMemoryEpisodicOverrideReflectionConfigurationInputOutput() MemoryEpisodicOverrideReflectionConfigurationInputOutput {
+	return o
+}
+
+func (o MemoryEpisodicOverrideReflectionConfigurationInputOutput) ToMemoryEpisodicOverrideReflectionConfigurationInputOutputWithContext(ctx context.Context) MemoryEpisodicOverrideReflectionConfigurationInputOutput {
+	return o
+}
+
+func (o MemoryEpisodicOverrideReflectionConfigurationInputOutput) ToMemoryEpisodicOverrideReflectionConfigurationInputPtrOutput() MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput {
+	return o.ToMemoryEpisodicOverrideReflectionConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryEpisodicOverrideReflectionConfigurationInputOutput) ToMemoryEpisodicOverrideReflectionConfigurationInputPtrOutputWithContext(ctx context.Context) MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryEpisodicOverrideReflectionConfigurationInput) *MemoryEpisodicOverrideReflectionConfigurationInput {
+		return &v
+	}).(MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput)
+}
+
+func (o MemoryEpisodicOverrideReflectionConfigurationInputOutput) AppendToPrompt() pulumi.StringOutput {
+	return o.ApplyT(func(v MemoryEpisodicOverrideReflectionConfigurationInput) string { return v.AppendToPrompt }).(pulumi.StringOutput)
+}
+
+func (o MemoryEpisodicOverrideReflectionConfigurationInputOutput) ModelId() pulumi.StringOutput {
+	return o.ApplyT(func(v MemoryEpisodicOverrideReflectionConfigurationInput) string { return v.ModelId }).(pulumi.StringOutput)
+}
+
+func (o MemoryEpisodicOverrideReflectionConfigurationInputOutput) Namespaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MemoryEpisodicOverrideReflectionConfigurationInput) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
+}
+
+type MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryEpisodicOverrideReflectionConfigurationInput)(nil)).Elem()
+}
+
+func (o MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput) ToMemoryEpisodicOverrideReflectionConfigurationInputPtrOutput() MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput {
+	return o
+}
+
+func (o MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput) ToMemoryEpisodicOverrideReflectionConfigurationInputPtrOutputWithContext(ctx context.Context) MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput {
+	return o
+}
+
+func (o MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput) Elem() MemoryEpisodicOverrideReflectionConfigurationInputOutput {
+	return o.ApplyT(func(v *MemoryEpisodicOverrideReflectionConfigurationInput) MemoryEpisodicOverrideReflectionConfigurationInput {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryEpisodicOverrideReflectionConfigurationInput
+		return ret
+	}).(MemoryEpisodicOverrideReflectionConfigurationInputOutput)
+}
+
+func (o MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput) AppendToPrompt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicOverrideReflectionConfigurationInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AppendToPrompt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput) ModelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemoryEpisodicOverrideReflectionConfigurationInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput) Namespaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MemoryEpisodicOverrideReflectionConfigurationInput) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespaces
+	}).(pulumi.StringArrayOutput)
+}
+
+type MemoryEpisodicReflectionConfigurationInput struct {
+	Namespaces []string `pulumi:"namespaces"`
+}
+
+// MemoryEpisodicReflectionConfigurationInputInput is an input type that accepts MemoryEpisodicReflectionConfigurationInputArgs and MemoryEpisodicReflectionConfigurationInputOutput values.
+// You can construct a concrete instance of `MemoryEpisodicReflectionConfigurationInputInput` via:
+//
+//	MemoryEpisodicReflectionConfigurationInputArgs{...}
+type MemoryEpisodicReflectionConfigurationInputInput interface {
+	pulumi.Input
+
+	ToMemoryEpisodicReflectionConfigurationInputOutput() MemoryEpisodicReflectionConfigurationInputOutput
+	ToMemoryEpisodicReflectionConfigurationInputOutputWithContext(context.Context) MemoryEpisodicReflectionConfigurationInputOutput
+}
+
+type MemoryEpisodicReflectionConfigurationInputArgs struct {
+	Namespaces pulumi.StringArrayInput `pulumi:"namespaces"`
+}
+
+func (MemoryEpisodicReflectionConfigurationInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryEpisodicReflectionConfigurationInput)(nil)).Elem()
+}
+
+func (i MemoryEpisodicReflectionConfigurationInputArgs) ToMemoryEpisodicReflectionConfigurationInputOutput() MemoryEpisodicReflectionConfigurationInputOutput {
+	return i.ToMemoryEpisodicReflectionConfigurationInputOutputWithContext(context.Background())
+}
+
+func (i MemoryEpisodicReflectionConfigurationInputArgs) ToMemoryEpisodicReflectionConfigurationInputOutputWithContext(ctx context.Context) MemoryEpisodicReflectionConfigurationInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryEpisodicReflectionConfigurationInputOutput)
+}
+
+func (i MemoryEpisodicReflectionConfigurationInputArgs) ToMemoryEpisodicReflectionConfigurationInputPtrOutput() MemoryEpisodicReflectionConfigurationInputPtrOutput {
+	return i.ToMemoryEpisodicReflectionConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i MemoryEpisodicReflectionConfigurationInputArgs) ToMemoryEpisodicReflectionConfigurationInputPtrOutputWithContext(ctx context.Context) MemoryEpisodicReflectionConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryEpisodicReflectionConfigurationInputOutput).ToMemoryEpisodicReflectionConfigurationInputPtrOutputWithContext(ctx)
+}
+
+// MemoryEpisodicReflectionConfigurationInputPtrInput is an input type that accepts MemoryEpisodicReflectionConfigurationInputArgs, MemoryEpisodicReflectionConfigurationInputPtr and MemoryEpisodicReflectionConfigurationInputPtrOutput values.
+// You can construct a concrete instance of `MemoryEpisodicReflectionConfigurationInputPtrInput` via:
+//
+//	        MemoryEpisodicReflectionConfigurationInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type MemoryEpisodicReflectionConfigurationInputPtrInput interface {
+	pulumi.Input
+
+	ToMemoryEpisodicReflectionConfigurationInputPtrOutput() MemoryEpisodicReflectionConfigurationInputPtrOutput
+	ToMemoryEpisodicReflectionConfigurationInputPtrOutputWithContext(context.Context) MemoryEpisodicReflectionConfigurationInputPtrOutput
+}
+
+type memoryEpisodicReflectionConfigurationInputPtrType MemoryEpisodicReflectionConfigurationInputArgs
+
+func MemoryEpisodicReflectionConfigurationInputPtr(v *MemoryEpisodicReflectionConfigurationInputArgs) MemoryEpisodicReflectionConfigurationInputPtrInput {
+	return (*memoryEpisodicReflectionConfigurationInputPtrType)(v)
+}
+
+func (*memoryEpisodicReflectionConfigurationInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryEpisodicReflectionConfigurationInput)(nil)).Elem()
+}
+
+func (i *memoryEpisodicReflectionConfigurationInputPtrType) ToMemoryEpisodicReflectionConfigurationInputPtrOutput() MemoryEpisodicReflectionConfigurationInputPtrOutput {
+	return i.ToMemoryEpisodicReflectionConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i *memoryEpisodicReflectionConfigurationInputPtrType) ToMemoryEpisodicReflectionConfigurationInputPtrOutputWithContext(ctx context.Context) MemoryEpisodicReflectionConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryEpisodicReflectionConfigurationInputPtrOutput)
+}
+
+type MemoryEpisodicReflectionConfigurationInputOutput struct{ *pulumi.OutputState }
+
+func (MemoryEpisodicReflectionConfigurationInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryEpisodicReflectionConfigurationInput)(nil)).Elem()
+}
+
+func (o MemoryEpisodicReflectionConfigurationInputOutput) ToMemoryEpisodicReflectionConfigurationInputOutput() MemoryEpisodicReflectionConfigurationInputOutput {
+	return o
+}
+
+func (o MemoryEpisodicReflectionConfigurationInputOutput) ToMemoryEpisodicReflectionConfigurationInputOutputWithContext(ctx context.Context) MemoryEpisodicReflectionConfigurationInputOutput {
+	return o
+}
+
+func (o MemoryEpisodicReflectionConfigurationInputOutput) ToMemoryEpisodicReflectionConfigurationInputPtrOutput() MemoryEpisodicReflectionConfigurationInputPtrOutput {
+	return o.ToMemoryEpisodicReflectionConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryEpisodicReflectionConfigurationInputOutput) ToMemoryEpisodicReflectionConfigurationInputPtrOutputWithContext(ctx context.Context) MemoryEpisodicReflectionConfigurationInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryEpisodicReflectionConfigurationInput) *MemoryEpisodicReflectionConfigurationInput {
+		return &v
+	}).(MemoryEpisodicReflectionConfigurationInputPtrOutput)
+}
+
+func (o MemoryEpisodicReflectionConfigurationInputOutput) Namespaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MemoryEpisodicReflectionConfigurationInput) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
+}
+
+type MemoryEpisodicReflectionConfigurationInputPtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryEpisodicReflectionConfigurationInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryEpisodicReflectionConfigurationInput)(nil)).Elem()
+}
+
+func (o MemoryEpisodicReflectionConfigurationInputPtrOutput) ToMemoryEpisodicReflectionConfigurationInputPtrOutput() MemoryEpisodicReflectionConfigurationInputPtrOutput {
+	return o
+}
+
+func (o MemoryEpisodicReflectionConfigurationInputPtrOutput) ToMemoryEpisodicReflectionConfigurationInputPtrOutputWithContext(ctx context.Context) MemoryEpisodicReflectionConfigurationInputPtrOutput {
+	return o
+}
+
+func (o MemoryEpisodicReflectionConfigurationInputPtrOutput) Elem() MemoryEpisodicReflectionConfigurationInputOutput {
+	return o.ApplyT(func(v *MemoryEpisodicReflectionConfigurationInput) MemoryEpisodicReflectionConfigurationInput {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryEpisodicReflectionConfigurationInput
+		return ret
+	}).(MemoryEpisodicReflectionConfigurationInputOutput)
+}
+
+func (o MemoryEpisodicReflectionConfigurationInputPtrOutput) Namespaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MemoryEpisodicReflectionConfigurationInput) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespaces
+	}).(pulumi.StringArrayOutput)
 }
 
 type MemoryInvocationConfigurationInput struct {
@@ -5629,6 +7104,7 @@ func (o MemorySemanticOverrideExtractionConfigurationInputPtrOutput) ModelId() p
 
 type MemoryStrategy struct {
 	CustomMemoryStrategy         *MemoryCustomMemoryStrategy         `pulumi:"customMemoryStrategy"`
+	EpisodicMemoryStrategy       *MemoryEpisodicMemoryStrategy       `pulumi:"episodicMemoryStrategy"`
 	SemanticMemoryStrategy       *MemorySemanticMemoryStrategy       `pulumi:"semanticMemoryStrategy"`
 	SummaryMemoryStrategy        *MemorySummaryMemoryStrategy        `pulumi:"summaryMemoryStrategy"`
 	UserPreferenceMemoryStrategy *MemoryUserPreferenceMemoryStrategy `pulumi:"userPreferenceMemoryStrategy"`
@@ -5647,6 +7123,7 @@ type MemoryStrategyInput interface {
 
 type MemoryStrategyArgs struct {
 	CustomMemoryStrategy         MemoryCustomMemoryStrategyPtrInput         `pulumi:"customMemoryStrategy"`
+	EpisodicMemoryStrategy       MemoryEpisodicMemoryStrategyPtrInput       `pulumi:"episodicMemoryStrategy"`
 	SemanticMemoryStrategy       MemorySemanticMemoryStrategyPtrInput       `pulumi:"semanticMemoryStrategy"`
 	SummaryMemoryStrategy        MemorySummaryMemoryStrategyPtrInput        `pulumi:"summaryMemoryStrategy"`
 	UserPreferenceMemoryStrategy MemoryUserPreferenceMemoryStrategyPtrInput `pulumi:"userPreferenceMemoryStrategy"`
@@ -5705,6 +7182,10 @@ func (o MemoryStrategyOutput) ToMemoryStrategyOutputWithContext(ctx context.Cont
 
 func (o MemoryStrategyOutput) CustomMemoryStrategy() MemoryCustomMemoryStrategyPtrOutput {
 	return o.ApplyT(func(v MemoryStrategy) *MemoryCustomMemoryStrategy { return v.CustomMemoryStrategy }).(MemoryCustomMemoryStrategyPtrOutput)
+}
+
+func (o MemoryStrategyOutput) EpisodicMemoryStrategy() MemoryEpisodicMemoryStrategyPtrOutput {
+	return o.ApplyT(func(v MemoryStrategy) *MemoryEpisodicMemoryStrategy { return v.EpisodicMemoryStrategy }).(MemoryEpisodicMemoryStrategyPtrOutput)
 }
 
 func (o MemoryStrategyOutput) SemanticMemoryStrategy() MemorySemanticMemoryStrategyPtrOutput {
@@ -9025,6 +10506,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomVpcConfigPtrInput)(nil)).Elem(), CodeInterpreterCustomVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizerConfigurationPropertiesInput)(nil)).Elem(), GatewayAuthorizerConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizerConfigurationPropertiesPtrInput)(nil)).Elem(), GatewayAuthorizerConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizingClaimMatchValueTypeInput)(nil)).Elem(), GatewayAuthorizingClaimMatchValueTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayClaimMatchValueTypeInput)(nil)).Elem(), GatewayClaimMatchValueTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayCustomClaimValidationTypeInput)(nil)).Elem(), GatewayCustomClaimValidationTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayCustomClaimValidationTypeArrayInput)(nil)).Elem(), GatewayCustomClaimValidationTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayCustomJwtAuthorizerConfigurationInput)(nil)).Elem(), GatewayCustomJwtAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayCustomJwtAuthorizerConfigurationPtrInput)(nil)).Elem(), GatewayCustomJwtAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptorConfigurationInput)(nil)).Elem(), GatewayInterceptorConfigurationArgs{})
@@ -9052,6 +10537,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpTargetConfiguration1PropertiesInput)(nil)).Elem(), GatewayTargetMcpTargetConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpTargetConfiguration2PropertiesInput)(nil)).Elem(), GatewayTargetMcpTargetConfiguration2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMcpTargetConfiguration3PropertiesInput)(nil)).Elem(), GatewayTargetMcpTargetConfiguration3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMetadataConfigurationInput)(nil)).Elem(), GatewayTargetMetadataConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetMetadataConfigurationPtrInput)(nil)).Elem(), GatewayTargetMetadataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthCredentialProviderInput)(nil)).Elem(), GatewayTargetOAuthCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetOAuthCredentialProviderPtrInput)(nil)).Elem(), GatewayTargetOAuthCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetS3ConfigurationInput)(nil)).Elem(), GatewayTargetS3ConfigurationArgs{})
@@ -9068,6 +10555,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomConfigurationInputPtrInput)(nil)).Elem(), MemoryCustomConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomMemoryStrategyInput)(nil)).Elem(), MemoryCustomMemoryStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomMemoryStrategyPtrInput)(nil)).Elem(), MemoryCustomMemoryStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicMemoryStrategyInput)(nil)).Elem(), MemoryEpisodicMemoryStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicMemoryStrategyPtrInput)(nil)).Elem(), MemoryEpisodicMemoryStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicOverrideInput)(nil)).Elem(), MemoryEpisodicOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicOverridePtrInput)(nil)).Elem(), MemoryEpisodicOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicOverrideConsolidationConfigurationInputInput)(nil)).Elem(), MemoryEpisodicOverrideConsolidationConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicOverrideConsolidationConfigurationInputPtrInput)(nil)).Elem(), MemoryEpisodicOverrideConsolidationConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicOverrideExtractionConfigurationInputInput)(nil)).Elem(), MemoryEpisodicOverrideExtractionConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicOverrideExtractionConfigurationInputPtrInput)(nil)).Elem(), MemoryEpisodicOverrideExtractionConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicOverrideReflectionConfigurationInputInput)(nil)).Elem(), MemoryEpisodicOverrideReflectionConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicOverrideReflectionConfigurationInputPtrInput)(nil)).Elem(), MemoryEpisodicOverrideReflectionConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicReflectionConfigurationInputInput)(nil)).Elem(), MemoryEpisodicReflectionConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicReflectionConfigurationInputPtrInput)(nil)).Elem(), MemoryEpisodicReflectionConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryInvocationConfigurationInputInput)(nil)).Elem(), MemoryInvocationConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryInvocationConfigurationInputPtrInput)(nil)).Elem(), MemoryInvocationConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryMessageBasedTriggerInputInput)(nil)).Elem(), MemoryMessageBasedTriggerInputArgs{})
@@ -9138,6 +10637,10 @@ func init() {
 	pulumi.RegisterOutputType(CodeInterpreterCustomVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(GatewayAuthorizerConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayAuthorizerConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayAuthorizingClaimMatchValueTypeOutput{})
+	pulumi.RegisterOutputType(GatewayClaimMatchValueTypeOutput{})
+	pulumi.RegisterOutputType(GatewayCustomClaimValidationTypeOutput{})
+	pulumi.RegisterOutputType(GatewayCustomClaimValidationTypeArrayOutput{})
 	pulumi.RegisterOutputType(GatewayCustomJwtAuthorizerConfigurationOutput{})
 	pulumi.RegisterOutputType(GatewayCustomJwtAuthorizerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayInterceptorConfigurationOutput{})
@@ -9173,6 +10676,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration2PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration3PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetMcpTargetConfiguration3PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTargetMetadataConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayTargetMetadataConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetOAuthCredentialProviderOutput{})
 	pulumi.RegisterOutputType(GatewayTargetOAuthCredentialProviderPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetS3ConfigurationOutput{})
@@ -9195,6 +10700,18 @@ func init() {
 	pulumi.RegisterOutputType(MemoryCustomConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(MemoryCustomMemoryStrategyOutput{})
 	pulumi.RegisterOutputType(MemoryCustomMemoryStrategyPtrOutput{})
+	pulumi.RegisterOutputType(MemoryEpisodicMemoryStrategyOutput{})
+	pulumi.RegisterOutputType(MemoryEpisodicMemoryStrategyPtrOutput{})
+	pulumi.RegisterOutputType(MemoryEpisodicOverrideOutput{})
+	pulumi.RegisterOutputType(MemoryEpisodicOverridePtrOutput{})
+	pulumi.RegisterOutputType(MemoryEpisodicOverrideConsolidationConfigurationInputOutput{})
+	pulumi.RegisterOutputType(MemoryEpisodicOverrideConsolidationConfigurationInputPtrOutput{})
+	pulumi.RegisterOutputType(MemoryEpisodicOverrideExtractionConfigurationInputOutput{})
+	pulumi.RegisterOutputType(MemoryEpisodicOverrideExtractionConfigurationInputPtrOutput{})
+	pulumi.RegisterOutputType(MemoryEpisodicOverrideReflectionConfigurationInputOutput{})
+	pulumi.RegisterOutputType(MemoryEpisodicOverrideReflectionConfigurationInputPtrOutput{})
+	pulumi.RegisterOutputType(MemoryEpisodicReflectionConfigurationInputOutput{})
+	pulumi.RegisterOutputType(MemoryEpisodicReflectionConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(MemoryInvocationConfigurationInputOutput{})
 	pulumi.RegisterOutputType(MemoryInvocationConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(MemoryMessageBasedTriggerInputOutput{})

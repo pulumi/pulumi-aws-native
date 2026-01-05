@@ -74,6 +74,10 @@ export class Runtime extends pulumi.CustomResource {
      */
     declare public readonly environmentVariables: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The reason for failure if the agent is in a failed state.
+     */
+    declare public /*out*/ readonly failureReason: pulumi.Output<string>;
+    /**
      * When resource was last updated
      */
     declare public /*out*/ readonly lastUpdatedAt: pulumi.Output<string>;
@@ -148,6 +152,7 @@ export class Runtime extends pulumi.CustomResource {
             resourceInputs["agentRuntimeId"] = undefined /*out*/;
             resourceInputs["agentRuntimeVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["failureReason"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["workloadIdentityDetails"] = undefined /*out*/;
@@ -161,6 +166,7 @@ export class Runtime extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["environmentVariables"] = undefined /*out*/;
+            resourceInputs["failureReason"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["lifecycleConfiguration"] = undefined /*out*/;
             resourceInputs["networkConfiguration"] = undefined /*out*/;

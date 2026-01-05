@@ -11516,7 +11516,8 @@ type StorageLensAccountLevel struct {
 	AdvancedCostOptimizationMetrics *StorageLensAdvancedCostOptimizationMetrics `pulumi:"advancedCostOptimizationMetrics"`
 	// This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
 	AdvancedDataProtectionMetrics *StorageLensAdvancedDataProtectionMetrics `pulumi:"advancedDataProtectionMetrics"`
-	AdvancedPerformanceMetrics    *StorageLensAdvancedPerformanceMetrics    `pulumi:"advancedPerformanceMetrics"`
+	// This property contains the account-level details for S3 Storage Lens advanced performance metrics.
+	AdvancedPerformanceMetrics *StorageLensAdvancedPerformanceMetrics `pulumi:"advancedPerformanceMetrics"`
 	// This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens. To enable bucket-level configurations, make sure to also set the same metrics at the account level.
 	BucketLevel StorageLensBucketLevel `pulumi:"bucketLevel"`
 	// This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
@@ -11544,7 +11545,8 @@ type StorageLensAccountLevelArgs struct {
 	AdvancedCostOptimizationMetrics StorageLensAdvancedCostOptimizationMetricsPtrInput `pulumi:"advancedCostOptimizationMetrics"`
 	// This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
 	AdvancedDataProtectionMetrics StorageLensAdvancedDataProtectionMetricsPtrInput `pulumi:"advancedDataProtectionMetrics"`
-	AdvancedPerformanceMetrics    StorageLensAdvancedPerformanceMetricsPtrInput    `pulumi:"advancedPerformanceMetrics"`
+	// This property contains the account-level details for S3 Storage Lens advanced performance metrics.
+	AdvancedPerformanceMetrics StorageLensAdvancedPerformanceMetricsPtrInput `pulumi:"advancedPerformanceMetrics"`
 	// This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens. To enable bucket-level configurations, make sure to also set the same metrics at the account level.
 	BucketLevel StorageLensBucketLevelInput `pulumi:"bucketLevel"`
 	// This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
@@ -11599,6 +11601,7 @@ func (o StorageLensAccountLevelOutput) AdvancedDataProtectionMetrics() StorageLe
 	}).(StorageLensAdvancedDataProtectionMetricsPtrOutput)
 }
 
+// This property contains the account-level details for S3 Storage Lens advanced performance metrics.
 func (o StorageLensAccountLevelOutput) AdvancedPerformanceMetrics() StorageLensAdvancedPerformanceMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensAccountLevel) *StorageLensAdvancedPerformanceMetrics {
 		return v.AdvancedPerformanceMetrics
@@ -12330,7 +12333,8 @@ type StorageLensBucketLevel struct {
 	AdvancedCostOptimizationMetrics *StorageLensAdvancedCostOptimizationMetrics `pulumi:"advancedCostOptimizationMetrics"`
 	// A property for bucket-level advanced data protection metrics for S3 Storage Lens.
 	AdvancedDataProtectionMetrics *StorageLensAdvancedDataProtectionMetrics `pulumi:"advancedDataProtectionMetrics"`
-	AdvancedPerformanceMetrics    *StorageLensAdvancedPerformanceMetrics    `pulumi:"advancedPerformanceMetrics"`
+	// A property for bucket-level advanced performance metrics for S3 Storage Lens.
+	AdvancedPerformanceMetrics *StorageLensAdvancedPerformanceMetrics `pulumi:"advancedPerformanceMetrics"`
 	// A property for bucket-level detailed status code metrics for S3 Storage Lens.
 	DetailedStatusCodesMetrics *StorageLensDetailedStatusCodesMetrics `pulumi:"detailedStatusCodesMetrics"`
 	// A property for bucket-level prefix-level storage metrics for S3 Storage Lens.
@@ -12356,7 +12360,8 @@ type StorageLensBucketLevelArgs struct {
 	AdvancedCostOptimizationMetrics StorageLensAdvancedCostOptimizationMetricsPtrInput `pulumi:"advancedCostOptimizationMetrics"`
 	// A property for bucket-level advanced data protection metrics for S3 Storage Lens.
 	AdvancedDataProtectionMetrics StorageLensAdvancedDataProtectionMetricsPtrInput `pulumi:"advancedDataProtectionMetrics"`
-	AdvancedPerformanceMetrics    StorageLensAdvancedPerformanceMetricsPtrInput    `pulumi:"advancedPerformanceMetrics"`
+	// A property for bucket-level advanced performance metrics for S3 Storage Lens.
+	AdvancedPerformanceMetrics StorageLensAdvancedPerformanceMetricsPtrInput `pulumi:"advancedPerformanceMetrics"`
 	// A property for bucket-level detailed status code metrics for S3 Storage Lens.
 	DetailedStatusCodesMetrics StorageLensDetailedStatusCodesMetricsPtrInput `pulumi:"detailedStatusCodesMetrics"`
 	// A property for bucket-level prefix-level storage metrics for S3 Storage Lens.
@@ -12409,6 +12414,7 @@ func (o StorageLensBucketLevelOutput) AdvancedDataProtectionMetrics() StorageLen
 	}).(StorageLensAdvancedDataProtectionMetricsPtrOutput)
 }
 
+// A property for bucket-level advanced performance metrics for S3 Storage Lens.
 func (o StorageLensBucketLevelOutput) AdvancedPerformanceMetrics() StorageLensAdvancedPerformanceMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensBucketLevel) *StorageLensAdvancedPerformanceMetrics {
 		return v.AdvancedPerformanceMetrics
@@ -12735,7 +12741,8 @@ type StorageLensConfiguration struct {
 	// This property contains the details of this S3 Storage Lens configuration's metrics export.
 	DataExport *StorageLensDataExport `pulumi:"dataExport"`
 	// This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
-	Exclude                    *StorageLensBucketsAndRegions          `pulumi:"exclude"`
+	Exclude *StorageLensBucketsAndRegions `pulumi:"exclude"`
+	// This property configures your S3 Storage Lens expanded prefixes metrics report.
 	ExpandedPrefixesDataExport *StorageLensExpandedPrefixesDataExport `pulumi:"expandedPrefixesDataExport"`
 	// This property contains the details of the ID of the S3 Storage Lens configuration.
 	Id string `pulumi:"id"`
@@ -12769,7 +12776,8 @@ type StorageLensConfigurationArgs struct {
 	// This property contains the details of this S3 Storage Lens configuration's metrics export.
 	DataExport StorageLensDataExportPtrInput `pulumi:"dataExport"`
 	// This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
-	Exclude                    StorageLensBucketsAndRegionsPtrInput          `pulumi:"exclude"`
+	Exclude StorageLensBucketsAndRegionsPtrInput `pulumi:"exclude"`
+	// This property configures your S3 Storage Lens expanded prefixes metrics report.
 	ExpandedPrefixesDataExport StorageLensExpandedPrefixesDataExportPtrInput `pulumi:"expandedPrefixesDataExport"`
 	// This property contains the details of the ID of the S3 Storage Lens configuration.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -12830,6 +12838,7 @@ func (o StorageLensConfigurationOutput) Exclude() StorageLensBucketsAndRegionsPt
 	return o.ApplyT(func(v StorageLensConfiguration) *StorageLensBucketsAndRegions { return v.Exclude }).(StorageLensBucketsAndRegionsPtrOutput)
 }
 
+// This property configures your S3 Storage Lens expanded prefixes metrics report.
 func (o StorageLensConfigurationOutput) ExpandedPrefixesDataExport() StorageLensExpandedPrefixesDataExportPtrOutput {
 	return o.ApplyT(func(v StorageLensConfiguration) *StorageLensExpandedPrefixesDataExport {
 		return v.ExpandedPrefixesDataExport
@@ -12866,8 +12875,9 @@ type StorageLensDataExport struct {
 	// This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
 	CloudWatchMetrics *StorageLensCloudWatchMetrics `pulumi:"cloudWatchMetrics"`
 	// This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
-	S3BucketDestination         *StorageLensS3BucketDestination `pulumi:"s3BucketDestination"`
-	StorageLensTableDestination *StorageLensTableDestination    `pulumi:"storageLensTableDestination"`
+	S3BucketDestination *StorageLensS3BucketDestination `pulumi:"s3BucketDestination"`
+	// This property contains the details of the S3 table bucket where the S3 Storage Lens default metrics report will be placed. This property enables you to store your Storage Lens metrics in read-only S3 Tables.
+	StorageLensTableDestination *StorageLensTableDestination `pulumi:"storageLensTableDestination"`
 }
 
 // StorageLensDataExportInput is an input type that accepts StorageLensDataExportArgs and StorageLensDataExportOutput values.
@@ -12886,8 +12896,9 @@ type StorageLensDataExportArgs struct {
 	// This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
 	CloudWatchMetrics StorageLensCloudWatchMetricsPtrInput `pulumi:"cloudWatchMetrics"`
 	// This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
-	S3BucketDestination         StorageLensS3BucketDestinationPtrInput `pulumi:"s3BucketDestination"`
-	StorageLensTableDestination StorageLensTableDestinationPtrInput    `pulumi:"storageLensTableDestination"`
+	S3BucketDestination StorageLensS3BucketDestinationPtrInput `pulumi:"s3BucketDestination"`
+	// This property contains the details of the S3 table bucket where the S3 Storage Lens default metrics report will be placed. This property enables you to store your Storage Lens metrics in read-only S3 Tables.
+	StorageLensTableDestination StorageLensTableDestinationPtrInput `pulumi:"storageLensTableDestination"`
 }
 
 func (StorageLensDataExportArgs) ElementType() reflect.Type {
@@ -12978,6 +12989,7 @@ func (o StorageLensDataExportOutput) S3BucketDestination() StorageLensS3BucketDe
 	return o.ApplyT(func(v StorageLensDataExport) *StorageLensS3BucketDestination { return v.S3BucketDestination }).(StorageLensS3BucketDestinationPtrOutput)
 }
 
+// This property contains the details of the S3 table bucket where the S3 Storage Lens default metrics report will be placed. This property enables you to store your Storage Lens metrics in read-only S3 Tables.
 func (o StorageLensDataExportOutput) StorageLensTableDestination() StorageLensTableDestinationPtrOutput {
 	return o.ApplyT(func(v StorageLensDataExport) *StorageLensTableDestination { return v.StorageLensTableDestination }).(StorageLensTableDestinationPtrOutput)
 }
@@ -13026,6 +13038,7 @@ func (o StorageLensDataExportPtrOutput) S3BucketDestination() StorageLensS3Bucke
 	}).(StorageLensS3BucketDestinationPtrOutput)
 }
 
+// This property contains the details of the S3 table bucket where the S3 Storage Lens default metrics report will be placed. This property enables you to store your Storage Lens metrics in read-only S3 Tables.
 func (o StorageLensDataExportPtrOutput) StorageLensTableDestination() StorageLensTableDestinationPtrOutput {
 	return o.ApplyT(func(v *StorageLensDataExport) *StorageLensTableDestination {
 		if v == nil {
@@ -13298,8 +13311,10 @@ func (o StorageLensEncryptionPtrOutput) Elem() StorageLensEncryptionOutput {
 
 // Expanded Prefixes Data Export.
 type StorageLensExpandedPrefixesDataExport struct {
-	S3BucketDestination         *StorageLensS3BucketDestination `pulumi:"s3BucketDestination"`
-	StorageLensTableDestination *StorageLensTableDestination    `pulumi:"storageLensTableDestination"`
+	// This property specifies the general purpose bucket where the S3 Storage Lens Expanded Prefixes metrics export files are located. At least one export destination must be specified.
+	S3BucketDestination *StorageLensS3BucketDestination `pulumi:"s3BucketDestination"`
+	// This property configures S3 Storage Lens Expanded Prefixes metrics report to read-only S3 table buckets.
+	StorageLensTableDestination *StorageLensTableDestination `pulumi:"storageLensTableDestination"`
 }
 
 // StorageLensExpandedPrefixesDataExportInput is an input type that accepts StorageLensExpandedPrefixesDataExportArgs and StorageLensExpandedPrefixesDataExportOutput values.
@@ -13315,8 +13330,10 @@ type StorageLensExpandedPrefixesDataExportInput interface {
 
 // Expanded Prefixes Data Export.
 type StorageLensExpandedPrefixesDataExportArgs struct {
-	S3BucketDestination         StorageLensS3BucketDestinationPtrInput `pulumi:"s3BucketDestination"`
-	StorageLensTableDestination StorageLensTableDestinationPtrInput    `pulumi:"storageLensTableDestination"`
+	// This property specifies the general purpose bucket where the S3 Storage Lens Expanded Prefixes metrics export files are located. At least one export destination must be specified.
+	S3BucketDestination StorageLensS3BucketDestinationPtrInput `pulumi:"s3BucketDestination"`
+	// This property configures S3 Storage Lens Expanded Prefixes metrics report to read-only S3 table buckets.
+	StorageLensTableDestination StorageLensTableDestinationPtrInput `pulumi:"storageLensTableDestination"`
 }
 
 func (StorageLensExpandedPrefixesDataExportArgs) ElementType() reflect.Type {
@@ -13397,12 +13414,14 @@ func (o StorageLensExpandedPrefixesDataExportOutput) ToStorageLensExpandedPrefix
 	}).(StorageLensExpandedPrefixesDataExportPtrOutput)
 }
 
+// This property specifies the general purpose bucket where the S3 Storage Lens Expanded Prefixes metrics export files are located. At least one export destination must be specified.
 func (o StorageLensExpandedPrefixesDataExportOutput) S3BucketDestination() StorageLensS3BucketDestinationPtrOutput {
 	return o.ApplyT(func(v StorageLensExpandedPrefixesDataExport) *StorageLensS3BucketDestination {
 		return v.S3BucketDestination
 	}).(StorageLensS3BucketDestinationPtrOutput)
 }
 
+// This property configures S3 Storage Lens Expanded Prefixes metrics report to read-only S3 table buckets.
 func (o StorageLensExpandedPrefixesDataExportOutput) StorageLensTableDestination() StorageLensTableDestinationPtrOutput {
 	return o.ApplyT(func(v StorageLensExpandedPrefixesDataExport) *StorageLensTableDestination {
 		return v.StorageLensTableDestination
@@ -13433,6 +13452,7 @@ func (o StorageLensExpandedPrefixesDataExportPtrOutput) Elem() StorageLensExpand
 	}).(StorageLensExpandedPrefixesDataExportOutput)
 }
 
+// This property specifies the general purpose bucket where the S3 Storage Lens Expanded Prefixes metrics export files are located. At least one export destination must be specified.
 func (o StorageLensExpandedPrefixesDataExportPtrOutput) S3BucketDestination() StorageLensS3BucketDestinationPtrOutput {
 	return o.ApplyT(func(v *StorageLensExpandedPrefixesDataExport) *StorageLensS3BucketDestination {
 		if v == nil {
@@ -13442,6 +13462,7 @@ func (o StorageLensExpandedPrefixesDataExportPtrOutput) S3BucketDestination() St
 	}).(StorageLensS3BucketDestinationPtrOutput)
 }
 
+// This property configures S3 Storage Lens Expanded Prefixes metrics report to read-only S3 table buckets.
 func (o StorageLensExpandedPrefixesDataExportPtrOutput) StorageLensTableDestination() StorageLensTableDestinationPtrOutput {
 	return o.ApplyT(func(v *StorageLensExpandedPrefixesDataExport) *StorageLensTableDestination {
 		if v == nil {
@@ -15518,6 +15539,7 @@ func (o StorageLensSelectionCriteriaPtrOutput) MinStorageBytesPercentage() pulum
 
 // S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.
 type StorageLensTableDestination struct {
+	// This resource configures your data encryption settings for Storage Lens metrics in read-only S3 table buckets.
 	Encryption *StorageLensEncryption `pulumi:"encryption"`
 	// Specifies whether the export to S3 Tables is enabled or disabled.
 	IsEnabled bool `pulumi:"isEnabled"`
@@ -15536,6 +15558,7 @@ type StorageLensTableDestinationInput interface {
 
 // S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.
 type StorageLensTableDestinationArgs struct {
+	// This resource configures your data encryption settings for Storage Lens metrics in read-only S3 table buckets.
 	Encryption StorageLensEncryptionPtrInput `pulumi:"encryption"`
 	// Specifies whether the export to S3 Tables is enabled or disabled.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
@@ -15619,6 +15642,7 @@ func (o StorageLensTableDestinationOutput) ToStorageLensTableDestinationPtrOutpu
 	}).(StorageLensTableDestinationPtrOutput)
 }
 
+// This resource configures your data encryption settings for Storage Lens metrics in read-only S3 table buckets.
 func (o StorageLensTableDestinationOutput) Encryption() StorageLensEncryptionPtrOutput {
 	return o.ApplyT(func(v StorageLensTableDestination) *StorageLensEncryption { return v.Encryption }).(StorageLensEncryptionPtrOutput)
 }
@@ -15652,6 +15676,7 @@ func (o StorageLensTableDestinationPtrOutput) Elem() StorageLensTableDestination
 	}).(StorageLensTableDestinationOutput)
 }
 
+// This resource configures your data encryption settings for Storage Lens metrics in read-only S3 table buckets.
 func (o StorageLensTableDestinationPtrOutput) Encryption() StorageLensEncryptionPtrOutput {
 	return o.ApplyT(func(v *StorageLensTableDestination) *StorageLensEncryption {
 		if v == nil {

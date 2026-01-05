@@ -34,6 +34,8 @@ type Runtime struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Environment variables for the agent runtime
 	EnvironmentVariables pulumi.StringMapOutput `pulumi:"environmentVariables"`
+	// The reason for failure if the agent is in a failed state.
+	FailureReason pulumi.StringOutput `pulumi:"failureReason"`
 	// When resource was last updated
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
 	// Lifecycle configuration for managing runtime sessions
@@ -240,6 +242,11 @@ func (o RuntimeOutput) Description() pulumi.StringPtrOutput {
 // Environment variables for the agent runtime
 func (o RuntimeOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Runtime) pulumi.StringMapOutput { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
+}
+
+// The reason for failure if the agent is in a failed state.
+func (o RuntimeOutput) FailureReason() pulumi.StringOutput {
+	return o.ApplyT(func(v *Runtime) pulumi.StringOutput { return v.FailureReason }).(pulumi.StringOutput)
 }
 
 // When resource was last updated

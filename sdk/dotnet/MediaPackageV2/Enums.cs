@@ -566,6 +566,34 @@ namespace Pulumi.AwsNative.MediaPackageV2
     }
 
     [EnumType]
+    public readonly struct OriginEndpointScteInSegments : IEquatable<OriginEndpointScteInSegments>
+    {
+        private readonly string _value;
+
+        private OriginEndpointScteInSegments(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointScteInSegments None { get; } = new OriginEndpointScteInSegments("NONE");
+        public static OriginEndpointScteInSegments All { get; } = new OriginEndpointScteInSegments("ALL");
+
+        public static bool operator ==(OriginEndpointScteInSegments left, OriginEndpointScteInSegments right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointScteInSegments left, OriginEndpointScteInSegments right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointScteInSegments value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointScteInSegments other && Equals(other);
+        public bool Equals(OriginEndpointScteInSegments other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct OriginEndpointTsEncryptionMethod : IEquatable<OriginEndpointTsEncryptionMethod>
     {
         private readonly string _value;

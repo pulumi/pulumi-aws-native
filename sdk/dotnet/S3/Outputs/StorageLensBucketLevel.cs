@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// A property for bucket-level advanced data protection metrics for S3 Storage Lens.
         /// </summary>
         public readonly Outputs.StorageLensAdvancedDataProtectionMetrics? AdvancedDataProtectionMetrics;
+        /// <summary>
+        /// A property for bucket-level advanced performance metrics for S3 Storage Lens.
+        /// </summary>
         public readonly Outputs.StorageLensAdvancedPerformanceMetrics? AdvancedPerformanceMetrics;
         /// <summary>
         /// A property for bucket-level detailed status code metrics for S3 Storage Lens.

@@ -44,6 +44,7 @@ export interface GetGatewayTargetResult {
     readonly description?: string;
     readonly gatewayArn?: string;
     readonly lastSynchronizedAt?: string;
+    readonly metadataConfiguration?: outputs.bedrockagentcore.GatewayTargetMetadataConfiguration;
     /**
      * The name for the gateway target.
      */

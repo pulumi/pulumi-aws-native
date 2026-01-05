@@ -55,6 +55,7 @@ export class GatewayTarget extends pulumi.CustomResource {
      */
     declare public readonly gatewayIdentifier: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly lastSynchronizedAt: pulumi.Output<string>;
+    declare public readonly metadataConfiguration: pulumi.Output<outputs.bedrockagentcore.GatewayTargetMetadataConfiguration | undefined>;
     /**
      * The name for the gateway target.
      */
@@ -100,6 +101,7 @@ export class GatewayTarget extends pulumi.CustomResource {
             resourceInputs["credentialProviderConfigurations"] = args?.credentialProviderConfigurations;
             resourceInputs["description"] = args?.description;
             resourceInputs["gatewayIdentifier"] = args?.gatewayIdentifier;
+            resourceInputs["metadataConfiguration"] = args?.metadataConfiguration;
             resourceInputs["name"] = args?.name;
             resourceInputs["targetConfiguration"] = args?.targetConfiguration;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -116,6 +118,7 @@ export class GatewayTarget extends pulumi.CustomResource {
             resourceInputs["gatewayArn"] = undefined /*out*/;
             resourceInputs["gatewayIdentifier"] = undefined /*out*/;
             resourceInputs["lastSynchronizedAt"] = undefined /*out*/;
+            resourceInputs["metadataConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusReasons"] = undefined /*out*/;
@@ -146,6 +149,7 @@ export interface GatewayTargetArgs {
      * The gateway ID for the gateway target.
      */
     gatewayIdentifier?: pulumi.Input<string>;
+    metadataConfiguration?: pulumi.Input<inputs.bedrockagentcore.GatewayTargetMetadataConfigurationArgs>;
     /**
      * The name for the gateway target.
      */

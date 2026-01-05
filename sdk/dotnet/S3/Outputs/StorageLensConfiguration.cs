@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
         /// </summary>
         public readonly Outputs.StorageLensBucketsAndRegions? Exclude;
+        /// <summary>
+        /// This property configures your S3 Storage Lens expanded prefixes metrics report.
+        /// </summary>
         public readonly Outputs.StorageLensExpandedPrefixesDataExport? ExpandedPrefixesDataExport;
         /// <summary>
         /// This property contains the details of the ID of the S3 Storage Lens configuration.

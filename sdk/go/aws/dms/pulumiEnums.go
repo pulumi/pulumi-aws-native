@@ -528,6 +528,7 @@ const (
 	DataProviderEngineDocdb            = DataProviderEngine("docdb")
 	DataProviderEngineDb2              = DataProviderEngine("db2")
 	DataProviderEngineDb2Zos           = DataProviderEngine("db2_zos")
+	DataProviderEngineSybase           = DataProviderEngine("sybase")
 )
 
 func (DataProviderEngine) ElementType() reflect.Type {
@@ -664,6 +665,7 @@ func (o DataProviderEnginePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 //	DataProviderEngineDocdb
 //	DataProviderEngineDb2
 //	DataProviderEngineDb2Zos
+//	DataProviderEngineSybase
 type DataProviderEngineInput interface {
 	pulumi.Input
 
@@ -1197,6 +1199,173 @@ func (in *dataProviderMongoDbSslModeValuePtr) ToDataProviderMongoDbSslModeValueP
 	return pulumi.ToOutputWithContext(ctx, in).(DataProviderMongoDbSslModeValuePtrOutput)
 }
 
+type DataProviderSybaseSslModeValue string
+
+const (
+	DataProviderSybaseSslModeValueNone     = DataProviderSybaseSslModeValue("none")
+	DataProviderSybaseSslModeValueRequire  = DataProviderSybaseSslModeValue("require")
+	DataProviderSybaseSslModeValueVerifyCa = DataProviderSybaseSslModeValue("verify-ca")
+)
+
+func (DataProviderSybaseSslModeValue) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSybaseSslModeValue)(nil)).Elem()
+}
+
+func (e DataProviderSybaseSslModeValue) ToDataProviderSybaseSslModeValueOutput() DataProviderSybaseSslModeValueOutput {
+	return pulumi.ToOutput(e).(DataProviderSybaseSslModeValueOutput)
+}
+
+func (e DataProviderSybaseSslModeValue) ToDataProviderSybaseSslModeValueOutputWithContext(ctx context.Context) DataProviderSybaseSslModeValueOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataProviderSybaseSslModeValueOutput)
+}
+
+func (e DataProviderSybaseSslModeValue) ToDataProviderSybaseSslModeValuePtrOutput() DataProviderSybaseSslModeValuePtrOutput {
+	return e.ToDataProviderSybaseSslModeValuePtrOutputWithContext(context.Background())
+}
+
+func (e DataProviderSybaseSslModeValue) ToDataProviderSybaseSslModeValuePtrOutputWithContext(ctx context.Context) DataProviderSybaseSslModeValuePtrOutput {
+	return DataProviderSybaseSslModeValue(e).ToDataProviderSybaseSslModeValueOutputWithContext(ctx).ToDataProviderSybaseSslModeValuePtrOutputWithContext(ctx)
+}
+
+func (e DataProviderSybaseSslModeValue) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataProviderSybaseSslModeValue) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataProviderSybaseSslModeValue) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataProviderSybaseSslModeValue) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataProviderSybaseSslModeValueOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSybaseSslModeValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderSybaseSslModeValue)(nil)).Elem()
+}
+
+func (o DataProviderSybaseSslModeValueOutput) ToDataProviderSybaseSslModeValueOutput() DataProviderSybaseSslModeValueOutput {
+	return o
+}
+
+func (o DataProviderSybaseSslModeValueOutput) ToDataProviderSybaseSslModeValueOutputWithContext(ctx context.Context) DataProviderSybaseSslModeValueOutput {
+	return o
+}
+
+func (o DataProviderSybaseSslModeValueOutput) ToDataProviderSybaseSslModeValuePtrOutput() DataProviderSybaseSslModeValuePtrOutput {
+	return o.ToDataProviderSybaseSslModeValuePtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderSybaseSslModeValueOutput) ToDataProviderSybaseSslModeValuePtrOutputWithContext(ctx context.Context) DataProviderSybaseSslModeValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProviderSybaseSslModeValue) *DataProviderSybaseSslModeValue {
+		return &v
+	}).(DataProviderSybaseSslModeValuePtrOutput)
+}
+
+func (o DataProviderSybaseSslModeValueOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataProviderSybaseSslModeValueOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataProviderSybaseSslModeValue) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataProviderSybaseSslModeValueOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderSybaseSslModeValueOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataProviderSybaseSslModeValue) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataProviderSybaseSslModeValuePtrOutput struct{ *pulumi.OutputState }
+
+func (DataProviderSybaseSslModeValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderSybaseSslModeValue)(nil)).Elem()
+}
+
+func (o DataProviderSybaseSslModeValuePtrOutput) ToDataProviderSybaseSslModeValuePtrOutput() DataProviderSybaseSslModeValuePtrOutput {
+	return o
+}
+
+func (o DataProviderSybaseSslModeValuePtrOutput) ToDataProviderSybaseSslModeValuePtrOutputWithContext(ctx context.Context) DataProviderSybaseSslModeValuePtrOutput {
+	return o
+}
+
+func (o DataProviderSybaseSslModeValuePtrOutput) Elem() DataProviderSybaseSslModeValueOutput {
+	return o.ApplyT(func(v *DataProviderSybaseSslModeValue) DataProviderSybaseSslModeValue {
+		if v != nil {
+			return *v
+		}
+		var ret DataProviderSybaseSslModeValue
+		return ret
+	}).(DataProviderSybaseSslModeValueOutput)
+}
+
+func (o DataProviderSybaseSslModeValuePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderSybaseSslModeValuePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataProviderSybaseSslModeValue) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataProviderSybaseSslModeValueInput is an input type that accepts values of the DataProviderSybaseSslModeValue enum
+// A concrete instance of `DataProviderSybaseSslModeValueInput` can be one of the following:
+//
+//	DataProviderSybaseSslModeValueNone
+//	DataProviderSybaseSslModeValueRequire
+//	DataProviderSybaseSslModeValueVerifyCa
+type DataProviderSybaseSslModeValueInput interface {
+	pulumi.Input
+
+	ToDataProviderSybaseSslModeValueOutput() DataProviderSybaseSslModeValueOutput
+	ToDataProviderSybaseSslModeValueOutputWithContext(context.Context) DataProviderSybaseSslModeValueOutput
+}
+
+var dataProviderSybaseSslModeValuePtrType = reflect.TypeOf((**DataProviderSybaseSslModeValue)(nil)).Elem()
+
+type DataProviderSybaseSslModeValuePtrInput interface {
+	pulumi.Input
+
+	ToDataProviderSybaseSslModeValuePtrOutput() DataProviderSybaseSslModeValuePtrOutput
+	ToDataProviderSybaseSslModeValuePtrOutputWithContext(context.Context) DataProviderSybaseSslModeValuePtrOutput
+}
+
+type dataProviderSybaseSslModeValuePtr string
+
+func DataProviderSybaseSslModeValuePtr(v string) DataProviderSybaseSslModeValuePtrInput {
+	return (*dataProviderSybaseSslModeValuePtr)(&v)
+}
+
+func (*dataProviderSybaseSslModeValuePtr) ElementType() reflect.Type {
+	return dataProviderSybaseSslModeValuePtrType
+}
+
+func (in *dataProviderSybaseSslModeValuePtr) ToDataProviderSybaseSslModeValuePtrOutput() DataProviderSybaseSslModeValuePtrOutput {
+	return pulumi.ToOutput(in).(DataProviderSybaseSslModeValuePtrOutput)
+}
+
+func (in *dataProviderSybaseSslModeValuePtr) ToDataProviderSybaseSslModeValuePtrOutputWithContext(ctx context.Context) DataProviderSybaseSslModeValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataProviderSybaseSslModeValuePtrOutput)
+}
+
 // The property describes a network type for the instance profile.
 type InstanceProfileNetworkType string
 
@@ -1546,6 +1715,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderMongoDbAuthTypePtrInput)(nil)).Elem(), DataProviderMongoDbAuthType("no"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderMongoDbSslModeValueInput)(nil)).Elem(), DataProviderMongoDbSslModeValue("none"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderMongoDbSslModeValuePtrInput)(nil)).Elem(), DataProviderMongoDbSslModeValue("none"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSybaseSslModeValueInput)(nil)).Elem(), DataProviderSybaseSslModeValue("none"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderSybaseSslModeValuePtrInput)(nil)).Elem(), DataProviderSybaseSslModeValue("none"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileNetworkTypeInput)(nil)).Elem(), InstanceProfileNetworkType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileNetworkTypePtrInput)(nil)).Elem(), InstanceProfileNetworkType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationTypeInput)(nil)).Elem(), ReplicationConfigReplicationType("full-load"))
@@ -1564,6 +1735,8 @@ func init() {
 	pulumi.RegisterOutputType(DataProviderMongoDbAuthTypePtrOutput{})
 	pulumi.RegisterOutputType(DataProviderMongoDbSslModeValueOutput{})
 	pulumi.RegisterOutputType(DataProviderMongoDbSslModeValuePtrOutput{})
+	pulumi.RegisterOutputType(DataProviderSybaseSslModeValueOutput{})
+	pulumi.RegisterOutputType(DataProviderSybaseSslModeValuePtrOutput{})
 	pulumi.RegisterOutputType(InstanceProfileNetworkTypeOutput{})
 	pulumi.RegisterOutputType(InstanceProfileNetworkTypePtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigReplicationTypeOutput{})

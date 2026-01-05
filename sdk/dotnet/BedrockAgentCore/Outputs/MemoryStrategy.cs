@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     public sealed class MemoryStrategy
     {
         public readonly Outputs.MemoryCustomMemoryStrategy? CustomMemoryStrategy;
+        public readonly Outputs.MemoryEpisodicMemoryStrategy? EpisodicMemoryStrategy;
         public readonly Outputs.MemorySemanticMemoryStrategy? SemanticMemoryStrategy;
         public readonly Outputs.MemorySummaryMemoryStrategy? SummaryMemoryStrategy;
         public readonly Outputs.MemoryUserPreferenceMemoryStrategy? UserPreferenceMemoryStrategy;
@@ -22,6 +23,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
         private MemoryStrategy(
             Outputs.MemoryCustomMemoryStrategy? customMemoryStrategy,
 
+            Outputs.MemoryEpisodicMemoryStrategy? episodicMemoryStrategy,
+
             Outputs.MemorySemanticMemoryStrategy? semanticMemoryStrategy,
 
             Outputs.MemorySummaryMemoryStrategy? summaryMemoryStrategy,
@@ -29,6 +32,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
             Outputs.MemoryUserPreferenceMemoryStrategy? userPreferenceMemoryStrategy)
         {
             CustomMemoryStrategy = customMemoryStrategy;
+            EpisodicMemoryStrategy = episodicMemoryStrategy;
             SemanticMemoryStrategy = semanticMemoryStrategy;
             SummaryMemoryStrategy = summaryMemoryStrategy;
             UserPreferenceMemoryStrategy = userPreferenceMemoryStrategy;

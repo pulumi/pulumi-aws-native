@@ -3040,6 +3040,10 @@ type Ec2FleetFleetLaunchTemplateOverridesRequest struct {
 	//
 	// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The ID of the Availability Zone in which to launch the instances. For example, `use2-az1` .
+	//
+	// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 	// The block device mappings, which define the EBS volumes and instance store volumes to attach to the instance at launch.
 	//
 	// Supported only for fleets of type `instant` .
@@ -3098,6 +3102,10 @@ type Ec2FleetFleetLaunchTemplateOverridesRequestArgs struct {
 	//
 	// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The ID of the Availability Zone in which to launch the instances. For example, `use2-az1` .
+	//
+	// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+	AvailabilityZoneId pulumi.StringPtrInput `pulumi:"availabilityZoneId"`
 	// The block device mappings, which define the EBS volumes and instance store volumes to attach to the instance at launch.
 	//
 	// Supported only for fleets of type `instant` .
@@ -3196,6 +3204,13 @@ func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) ToEc2FleetFleetLaunch
 // Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
 func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Availability Zone in which to launch the instances. For example, `use2-az1` .
+//
+// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+func (o Ec2FleetFleetLaunchTemplateOverridesRequestOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetFleetLaunchTemplateOverridesRequest) *string { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
 }
 
 // The block device mappings, which define the EBS volumes and instance store volumes to attach to the instance at launch.
@@ -28428,6 +28443,10 @@ type SpotFleetLaunchTemplateOverrides struct {
 	//
 	// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The ID of the Availability Zone in which to launch the instances. For example, `use2-az1` .
+	//
+	// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 	// The instance requirements. When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.
 	//
 	// > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
@@ -28472,6 +28491,10 @@ type SpotFleetLaunchTemplateOverridesArgs struct {
 	//
 	// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The ID of the Availability Zone in which to launch the instances. For example, `use2-az1` .
+	//
+	// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+	AvailabilityZoneId pulumi.StringPtrInput `pulumi:"availabilityZoneId"`
 	// The instance requirements. When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.
 	//
 	// > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
@@ -28556,6 +28579,13 @@ func (o SpotFleetLaunchTemplateOverridesOutput) ToSpotFleetLaunchTemplateOverrid
 // Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
 func (o SpotFleetLaunchTemplateOverridesOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetLaunchTemplateOverrides) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Availability Zone in which to launch the instances. For example, `use2-az1` .
+//
+// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+func (o SpotFleetLaunchTemplateOverridesOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetLaunchTemplateOverrides) *string { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
 }
 
 // The instance requirements. When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.
@@ -30751,6 +30781,12 @@ type SpotFleetSpotPlacement struct {
 	//
 	// To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
 	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The ID of the Availability Zone. For example, `use2-az1` .
+	//
+	// [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, " `use2-az1` , `use2-bz1` ".
+	//
+	// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 	// The name of the placement group.
 	GroupName *string `pulumi:"groupName"`
 	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for Spot Instances.
@@ -30773,6 +30809,12 @@ type SpotFleetSpotPlacementArgs struct {
 	//
 	// To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The ID of the Availability Zone. For example, `use2-az1` .
+	//
+	// [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, " `use2-az1` , `use2-bz1` ".
+	//
+	// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+	AvailabilityZoneId pulumi.StringPtrInput `pulumi:"availabilityZoneId"`
 	// The name of the placement group.
 	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
 	// The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for Spot Instances.
@@ -30863,6 +30905,15 @@ func (o SpotFleetSpotPlacementOutput) AvailabilityZone() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v SpotFleetSpotPlacement) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Availability Zone. For example, `use2-az1` .
+//
+// [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, " `use2-az1` , `use2-bz1` ".
+//
+// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+func (o SpotFleetSpotPlacementOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetSpotPlacement) *string { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
+}
+
 // The name of the placement group.
 func (o SpotFleetSpotPlacementOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetSpotPlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
@@ -30906,6 +30957,20 @@ func (o SpotFleetSpotPlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOutp
 			return nil
 		}
 		return v.AvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Availability Zone. For example, `use2-az1` .
+//
+// [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, " `use2-az1` , `use2-bz1` ".
+//
+// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+func (o SpotFleetSpotPlacementPtrOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetSpotPlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZoneId
 	}).(pulumi.StringPtrOutput)
 }
 

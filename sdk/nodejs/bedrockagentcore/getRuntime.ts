@@ -58,6 +58,10 @@ export interface GetRuntimeResult {
      */
     readonly environmentVariables?: {[key: string]: string};
     /**
+     * The reason for failure if the agent is in a failed state.
+     */
+    readonly failureReason?: string;
+    /**
      * When resource was last updated
      */
     readonly lastUpdatedAt?: string;

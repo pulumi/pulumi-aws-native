@@ -39,6 +39,8 @@ type LookupBillingViewResult struct {
 	DataFilterExpression *DataFilterExpressionProperties `pulumi:"dataFilterExpression"`
 	// The account owner of the billing view.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
+	// An array of strings that define the billing view's source.
+	SourceViews []string `pulumi:"sourceViews"`
 	// An array of key-value pairs associated to the billing view being created.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The time when the billing view was last updated.
@@ -100,6 +102,11 @@ func (o LookupBillingViewResultOutput) DataFilterExpression() DataFilterExpressi
 // The account owner of the billing view.
 func (o LookupBillingViewResultOutput) OwnerAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBillingViewResult) *string { return v.OwnerAccountId }).(pulumi.StringPtrOutput)
+}
+
+// An array of strings that define the billing view's source.
+func (o LookupBillingViewResultOutput) SourceViews() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupBillingViewResult) []string { return v.SourceViews }).(pulumi.StringArrayOutput)
 }
 
 // An array of key-value pairs associated to the billing view being created.

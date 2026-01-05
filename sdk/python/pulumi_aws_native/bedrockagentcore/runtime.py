@@ -301,6 +301,7 @@ class Runtime(pulumi.CustomResource):
             __props__.__dict__["agent_runtime_id"] = None
             __props__.__dict__["agent_runtime_version"] = None
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["failure_reason"] = None
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["workload_identity_details"] = None
@@ -337,6 +338,7 @@ class Runtime(pulumi.CustomResource):
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["environment_variables"] = None
+        __props__.__dict__["failure_reason"] = None
         __props__.__dict__["last_updated_at"] = None
         __props__.__dict__["lifecycle_configuration"] = None
         __props__.__dict__["network_configuration"] = None
@@ -419,6 +421,14 @@ class Runtime(pulumi.CustomResource):
         Environment variables for the agent runtime
         """
         return pulumi.get(self, "environment_variables")
+
+    @_builtins.property
+    @pulumi.getter(name="failureReason")
+    def failure_reason(self) -> pulumi.Output[_builtins.str]:
+        """
+        The reason for failure if the agent is in a failed state.
+        """
+        return pulumi.get(self, "failure_reason")
 
     @_builtins.property
     @pulumi.getter(name="lastUpdatedAt")

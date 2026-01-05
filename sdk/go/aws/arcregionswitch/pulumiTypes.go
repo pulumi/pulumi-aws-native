@@ -2636,6 +2636,7 @@ func (o PlanRegionSwitchPlanConfigurationOutput) ExternalId() pulumi.StringPtrOu
 }
 
 type PlanReportConfiguration struct {
+	// The output configuration for the report.
 	ReportOutput []PlanReportOutputConfigurationProperties `pulumi:"reportOutput"`
 }
 
@@ -2651,6 +2652,7 @@ type PlanReportConfigurationInput interface {
 }
 
 type PlanReportConfigurationArgs struct {
+	// The output configuration for the report.
 	ReportOutput PlanReportOutputConfigurationPropertiesArrayInput `pulumi:"reportOutput"`
 }
 
@@ -2731,6 +2733,7 @@ func (o PlanReportConfigurationOutput) ToPlanReportConfigurationPtrOutputWithCon
 	}).(PlanReportConfigurationPtrOutput)
 }
 
+// The output configuration for the report.
 func (o PlanReportConfigurationOutput) ReportOutput() PlanReportOutputConfigurationPropertiesArrayOutput {
 	return o.ApplyT(func(v PlanReportConfiguration) []PlanReportOutputConfigurationProperties { return v.ReportOutput }).(PlanReportOutputConfigurationPropertiesArrayOutput)
 }
@@ -2759,6 +2762,7 @@ func (o PlanReportConfigurationPtrOutput) Elem() PlanReportConfigurationOutput {
 	}).(PlanReportConfigurationOutput)
 }
 
+// The output configuration for the report.
 func (o PlanReportConfigurationPtrOutput) ReportOutput() PlanReportOutputConfigurationPropertiesArrayOutput {
 	return o.ApplyT(func(v *PlanReportConfiguration) []PlanReportOutputConfigurationProperties {
 		if v == nil {

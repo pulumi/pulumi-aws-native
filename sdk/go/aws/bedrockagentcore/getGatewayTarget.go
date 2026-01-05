@@ -35,9 +35,10 @@ type LookupGatewayTargetResult struct {
 	// The OAuth credential provider configuration.
 	CredentialProviderConfigurations []GatewayTargetCredentialProviderConfiguration `pulumi:"credentialProviderConfigurations"`
 	// The description for the gateway target.
-	Description        *string `pulumi:"description"`
-	GatewayArn         *string `pulumi:"gatewayArn"`
-	LastSynchronizedAt *string `pulumi:"lastSynchronizedAt"`
+	Description           *string                             `pulumi:"description"`
+	GatewayArn            *string                             `pulumi:"gatewayArn"`
+	LastSynchronizedAt    *string                             `pulumi:"lastSynchronizedAt"`
+	MetadataConfiguration *GatewayTargetMetadataConfiguration `pulumi:"metadataConfiguration"`
 	// The name for the gateway target.
 	Name *string `pulumi:"name"`
 	// The status for the gateway target.
@@ -109,6 +110,10 @@ func (o LookupGatewayTargetResultOutput) GatewayArn() pulumi.StringPtrOutput {
 
 func (o LookupGatewayTargetResultOutput) LastSynchronizedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayTargetResult) *string { return v.LastSynchronizedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupGatewayTargetResultOutput) MetadataConfiguration() GatewayTargetMetadataConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupGatewayTargetResult) *GatewayTargetMetadataConfiguration { return v.MetadataConfiguration }).(GatewayTargetMetadataConfigurationPtrOutput)
 }
 
 // The name for the gateway target.

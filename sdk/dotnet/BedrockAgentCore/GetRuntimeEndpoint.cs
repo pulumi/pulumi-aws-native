@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         public readonly string? AgentRuntimeEndpointArn;
         /// <summary>
+        /// The version of the AgentCore Runtime to use for the endpoint.
+        /// </summary>
+        public readonly string? AgentRuntimeVersion;
+        /// <summary>
         /// The timestamp when the Agent Runtime Endpoint was created
         /// </summary>
         public readonly string? CreatedAt;
@@ -114,6 +118,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             string? agentRuntimeEndpointArn,
 
+            string? agentRuntimeVersion,
+
             string? createdAt,
 
             string? description,
@@ -134,6 +140,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         {
             AgentRuntimeArn = agentRuntimeArn;
             AgentRuntimeEndpointArn = agentRuntimeEndpointArn;
+            AgentRuntimeVersion = agentRuntimeVersion;
             CreatedAt = createdAt;
             Description = description;
             FailureReason = failureReason;

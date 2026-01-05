@@ -46,6 +46,8 @@ __all__ = [
     'SettingsPropertiesPostgreSqlSettingsPropertiesArgsDict',
     'SettingsPropertiesRedshiftSettingsPropertiesArgs',
     'SettingsPropertiesRedshiftSettingsPropertiesArgsDict',
+    'SettingsPropertiesSybaseAseSettingsPropertiesArgs',
+    'SettingsPropertiesSybaseAseSettingsPropertiesArgsDict',
     'SettingsPropertiesArgs',
     'SettingsPropertiesArgsDict',
 ]
@@ -1415,6 +1417,97 @@ class SettingsPropertiesRedshiftSettingsPropertiesArgs:
 
 
 if not MYPY:
+    class SettingsPropertiesSybaseAseSettingsPropertiesArgsDict(TypedDict):
+        """
+        SybaseAseSettings property identifier.
+        """
+        port: pulumi.Input[_builtins.int]
+        server_name: pulumi.Input[_builtins.str]
+        ssl_mode: pulumi.Input['DataProviderSybaseSslModeValue']
+        certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+        database_name: NotRequired[pulumi.Input[_builtins.str]]
+        encrypt_password: NotRequired[pulumi.Input[_builtins.bool]]
+elif False:
+    SettingsPropertiesSybaseAseSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SettingsPropertiesSybaseAseSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[_builtins.int],
+                 server_name: pulumi.Input[_builtins.str],
+                 ssl_mode: pulumi.Input['DataProviderSybaseSslModeValue'],
+                 certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 encrypt_password: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        SybaseAseSettings property identifier.
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "ssl_mode", ssl_mode)
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if encrypt_password is not None:
+            pulumi.set(__self__, "encrypt_password", encrypt_password)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> pulumi.Input['DataProviderSybaseSslModeValue']:
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: pulumi.Input['DataProviderSybaseSslModeValue']):
+        pulumi.set(self, "ssl_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptPassword")
+    def encrypt_password(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "encrypt_password")
+
+    @encrypt_password.setter
+    def encrypt_password(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "encrypt_password", value)
+
+
+if not MYPY:
     class SettingsPropertiesArgsDict(TypedDict):
         """
         The property identifies the exact type of settings for the data provider.
@@ -1459,6 +1552,10 @@ if not MYPY:
         """
         RedshiftSettings property identifier.
         """
+        sybase_ase_settings: NotRequired[pulumi.Input['SettingsPropertiesSybaseAseSettingsPropertiesArgsDict']]
+        """
+        SybaseAseSettings property identifier.
+        """
 elif False:
     SettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1474,7 +1571,8 @@ class SettingsPropertiesArgs:
                  my_sql_settings: Optional[pulumi.Input['SettingsPropertiesMySqlSettingsPropertiesArgs']] = None,
                  oracle_settings: Optional[pulumi.Input['SettingsPropertiesOracleSettingsPropertiesArgs']] = None,
                  postgre_sql_settings: Optional[pulumi.Input['SettingsPropertiesPostgreSqlSettingsPropertiesArgs']] = None,
-                 redshift_settings: Optional[pulumi.Input['SettingsPropertiesRedshiftSettingsPropertiesArgs']] = None):
+                 redshift_settings: Optional[pulumi.Input['SettingsPropertiesRedshiftSettingsPropertiesArgs']] = None,
+                 sybase_ase_settings: Optional[pulumi.Input['SettingsPropertiesSybaseAseSettingsPropertiesArgs']] = None):
         """
         The property identifies the exact type of settings for the data provider.
         :param pulumi.Input['SettingsPropertiesDocDbSettingsPropertiesArgs'] doc_db_settings: DocDbSettings property identifier.
@@ -1487,6 +1585,7 @@ class SettingsPropertiesArgs:
         :param pulumi.Input['SettingsPropertiesOracleSettingsPropertiesArgs'] oracle_settings: OracleSettings property identifier.
         :param pulumi.Input['SettingsPropertiesPostgreSqlSettingsPropertiesArgs'] postgre_sql_settings: PostgreSqlSettings property identifier.
         :param pulumi.Input['SettingsPropertiesRedshiftSettingsPropertiesArgs'] redshift_settings: RedshiftSettings property identifier.
+        :param pulumi.Input['SettingsPropertiesSybaseAseSettingsPropertiesArgs'] sybase_ase_settings: SybaseAseSettings property identifier.
         """
         if doc_db_settings is not None:
             pulumi.set(__self__, "doc_db_settings", doc_db_settings)
@@ -1508,6 +1607,8 @@ class SettingsPropertiesArgs:
             pulumi.set(__self__, "postgre_sql_settings", postgre_sql_settings)
         if redshift_settings is not None:
             pulumi.set(__self__, "redshift_settings", redshift_settings)
+        if sybase_ase_settings is not None:
+            pulumi.set(__self__, "sybase_ase_settings", sybase_ase_settings)
 
     @_builtins.property
     @pulumi.getter(name="docDbSettings")
@@ -1628,5 +1729,17 @@ class SettingsPropertiesArgs:
     @redshift_settings.setter
     def redshift_settings(self, value: Optional[pulumi.Input['SettingsPropertiesRedshiftSettingsPropertiesArgs']]):
         pulumi.set(self, "redshift_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sybaseAseSettings")
+    def sybase_ase_settings(self) -> Optional[pulumi.Input['SettingsPropertiesSybaseAseSettingsPropertiesArgs']]:
+        """
+        SybaseAseSettings property identifier.
+        """
+        return pulumi.get(self, "sybase_ase_settings")
+
+    @sybase_ase_settings.setter
+    def sybase_ase_settings(self, value: Optional[pulumi.Input['SettingsPropertiesSybaseAseSettingsPropertiesArgs']]):
+        pulumi.set(self, "sybase_ase_settings", value)
 
 

@@ -20,6 +20,14 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
+        /// <summary>
+        /// The ID of the Availability Zone in which to launch the instances. For example, `use2-az1` .
+        /// 
+        /// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+        /// </summary>
+        [Input("availabilityZoneId")]
+        public Input<string>? AvailabilityZoneId { get; set; }
+
         [Input("blockDeviceMappings")]
         private InputList<Inputs.Ec2FleetBlockDeviceMappingArgs>? _blockDeviceMappings;
 

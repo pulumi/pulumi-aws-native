@@ -96,6 +96,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
         /// <summary>
+        /// The reason for failure if the agent is in a failed state.
+        /// </summary>
+        public readonly string? FailureReason;
+        /// <summary>
         /// When resource was last updated
         /// </summary>
         public readonly string? LastUpdatedAt;
@@ -150,6 +154,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             ImmutableDictionary<string, string>? environmentVariables,
 
+            string? failureReason,
+
             string? lastUpdatedAt,
 
             Outputs.RuntimeLifecycleConfiguration? lifecycleConfiguration,
@@ -176,6 +182,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             CreatedAt = createdAt;
             Description = description;
             EnvironmentVariables = environmentVariables;
+            FailureReason = failureReason;
             LastUpdatedAt = lastUpdatedAt;
             LifecycleConfiguration = lifecycleConfiguration;
             NetworkConfiguration = networkConfiguration;

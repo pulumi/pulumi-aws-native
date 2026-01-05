@@ -24,8 +24,9 @@ type GatewayTarget struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	GatewayArn  pulumi.StringOutput    `pulumi:"gatewayArn"`
 	// The gateway ID for the gateway target.
-	GatewayIdentifier  pulumi.StringPtrOutput `pulumi:"gatewayIdentifier"`
-	LastSynchronizedAt pulumi.StringOutput    `pulumi:"lastSynchronizedAt"`
+	GatewayIdentifier     pulumi.StringPtrOutput                      `pulumi:"gatewayIdentifier"`
+	LastSynchronizedAt    pulumi.StringOutput                         `pulumi:"lastSynchronizedAt"`
+	MetadataConfiguration GatewayTargetMetadataConfigurationPtrOutput `pulumi:"metadataConfiguration"`
 	// The name for the gateway target.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The status for the gateway target.
@@ -95,7 +96,8 @@ type gatewayTargetArgs struct {
 	// The description for the gateway target.
 	Description *string `pulumi:"description"`
 	// The gateway ID for the gateway target.
-	GatewayIdentifier *string `pulumi:"gatewayIdentifier"`
+	GatewayIdentifier     *string                             `pulumi:"gatewayIdentifier"`
+	MetadataConfiguration *GatewayTargetMetadataConfiguration `pulumi:"metadataConfiguration"`
 	// The name for the gateway target.
 	Name *string `pulumi:"name"`
 	// The target configuration for the Smithy model target.
@@ -109,7 +111,8 @@ type GatewayTargetArgs struct {
 	// The description for the gateway target.
 	Description pulumi.StringPtrInput
 	// The gateway ID for the gateway target.
-	GatewayIdentifier pulumi.StringPtrInput
+	GatewayIdentifier     pulumi.StringPtrInput
+	MetadataConfiguration GatewayTargetMetadataConfigurationPtrInput
 	// The name for the gateway target.
 	Name pulumi.StringPtrInput
 	// The target configuration for the Smithy model target.
@@ -181,6 +184,10 @@ func (o GatewayTargetOutput) GatewayIdentifier() pulumi.StringPtrOutput {
 
 func (o GatewayTargetOutput) LastSynchronizedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayTarget) pulumi.StringOutput { return v.LastSynchronizedAt }).(pulumi.StringOutput)
+}
+
+func (o GatewayTargetOutput) MetadataConfiguration() GatewayTargetMetadataConfigurationPtrOutput {
+	return o.ApplyT(func(v *GatewayTarget) GatewayTargetMetadataConfigurationPtrOutput { return v.MetadataConfiguration }).(GatewayTargetMetadataConfigurationPtrOutput)
 }
 
 // The name for the gateway target.

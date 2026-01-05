@@ -70,6 +70,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<ImmutableDictionary<string, string>?> EnvironmentVariables { get; private set; } = null!;
 
         /// <summary>
+        /// The reason for failure if the agent is in a failed state.
+        /// </summary>
+        [Output("failureReason")]
+        public Output<string> FailureReason { get; private set; } = null!;
+
+        /// <summary>
         /// When resource was last updated
         /// </summary>
         [Output("lastUpdatedAt")]

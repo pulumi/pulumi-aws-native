@@ -701,6 +701,174 @@ func (in *gatewayAuthorizerTypePtr) ToGatewayAuthorizerTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(GatewayAuthorizerTypePtrOutput)
 }
 
+// The relationship between the claim field value and the value or values being matched
+type GatewayClaimMatchOperator string
+
+const (
+	GatewayClaimMatchOperatorEquals      = GatewayClaimMatchOperator("EQUALS")
+	GatewayClaimMatchOperatorContains    = GatewayClaimMatchOperator("CONTAINS")
+	GatewayClaimMatchOperatorContainsAny = GatewayClaimMatchOperator("CONTAINS_ANY")
+)
+
+func (GatewayClaimMatchOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayClaimMatchOperator)(nil)).Elem()
+}
+
+func (e GatewayClaimMatchOperator) ToGatewayClaimMatchOperatorOutput() GatewayClaimMatchOperatorOutput {
+	return pulumi.ToOutput(e).(GatewayClaimMatchOperatorOutput)
+}
+
+func (e GatewayClaimMatchOperator) ToGatewayClaimMatchOperatorOutputWithContext(ctx context.Context) GatewayClaimMatchOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GatewayClaimMatchOperatorOutput)
+}
+
+func (e GatewayClaimMatchOperator) ToGatewayClaimMatchOperatorPtrOutput() GatewayClaimMatchOperatorPtrOutput {
+	return e.ToGatewayClaimMatchOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayClaimMatchOperator) ToGatewayClaimMatchOperatorPtrOutputWithContext(ctx context.Context) GatewayClaimMatchOperatorPtrOutput {
+	return GatewayClaimMatchOperator(e).ToGatewayClaimMatchOperatorOutputWithContext(ctx).ToGatewayClaimMatchOperatorPtrOutputWithContext(ctx)
+}
+
+func (e GatewayClaimMatchOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayClaimMatchOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayClaimMatchOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayClaimMatchOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GatewayClaimMatchOperatorOutput struct{ *pulumi.OutputState }
+
+func (GatewayClaimMatchOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayClaimMatchOperator)(nil)).Elem()
+}
+
+func (o GatewayClaimMatchOperatorOutput) ToGatewayClaimMatchOperatorOutput() GatewayClaimMatchOperatorOutput {
+	return o
+}
+
+func (o GatewayClaimMatchOperatorOutput) ToGatewayClaimMatchOperatorOutputWithContext(ctx context.Context) GatewayClaimMatchOperatorOutput {
+	return o
+}
+
+func (o GatewayClaimMatchOperatorOutput) ToGatewayClaimMatchOperatorPtrOutput() GatewayClaimMatchOperatorPtrOutput {
+	return o.ToGatewayClaimMatchOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayClaimMatchOperatorOutput) ToGatewayClaimMatchOperatorPtrOutputWithContext(ctx context.Context) GatewayClaimMatchOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayClaimMatchOperator) *GatewayClaimMatchOperator {
+		return &v
+	}).(GatewayClaimMatchOperatorPtrOutput)
+}
+
+func (o GatewayClaimMatchOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GatewayClaimMatchOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayClaimMatchOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GatewayClaimMatchOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayClaimMatchOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayClaimMatchOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayClaimMatchOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayClaimMatchOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayClaimMatchOperator)(nil)).Elem()
+}
+
+func (o GatewayClaimMatchOperatorPtrOutput) ToGatewayClaimMatchOperatorPtrOutput() GatewayClaimMatchOperatorPtrOutput {
+	return o
+}
+
+func (o GatewayClaimMatchOperatorPtrOutput) ToGatewayClaimMatchOperatorPtrOutputWithContext(ctx context.Context) GatewayClaimMatchOperatorPtrOutput {
+	return o
+}
+
+func (o GatewayClaimMatchOperatorPtrOutput) Elem() GatewayClaimMatchOperatorOutput {
+	return o.ApplyT(func(v *GatewayClaimMatchOperator) GatewayClaimMatchOperator {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayClaimMatchOperator
+		return ret
+	}).(GatewayClaimMatchOperatorOutput)
+}
+
+func (o GatewayClaimMatchOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayClaimMatchOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayClaimMatchOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GatewayClaimMatchOperatorInput is an input type that accepts values of the GatewayClaimMatchOperator enum
+// A concrete instance of `GatewayClaimMatchOperatorInput` can be one of the following:
+//
+//	GatewayClaimMatchOperatorEquals
+//	GatewayClaimMatchOperatorContains
+//	GatewayClaimMatchOperatorContainsAny
+type GatewayClaimMatchOperatorInput interface {
+	pulumi.Input
+
+	ToGatewayClaimMatchOperatorOutput() GatewayClaimMatchOperatorOutput
+	ToGatewayClaimMatchOperatorOutputWithContext(context.Context) GatewayClaimMatchOperatorOutput
+}
+
+var gatewayClaimMatchOperatorPtrType = reflect.TypeOf((**GatewayClaimMatchOperator)(nil)).Elem()
+
+type GatewayClaimMatchOperatorPtrInput interface {
+	pulumi.Input
+
+	ToGatewayClaimMatchOperatorPtrOutput() GatewayClaimMatchOperatorPtrOutput
+	ToGatewayClaimMatchOperatorPtrOutputWithContext(context.Context) GatewayClaimMatchOperatorPtrOutput
+}
+
+type gatewayClaimMatchOperatorPtr string
+
+func GatewayClaimMatchOperatorPtr(v string) GatewayClaimMatchOperatorPtrInput {
+	return (*gatewayClaimMatchOperatorPtr)(&v)
+}
+
+func (*gatewayClaimMatchOperatorPtr) ElementType() reflect.Type {
+	return gatewayClaimMatchOperatorPtrType
+}
+
+func (in *gatewayClaimMatchOperatorPtr) ToGatewayClaimMatchOperatorPtrOutput() GatewayClaimMatchOperatorPtrOutput {
+	return pulumi.ToOutput(in).(GatewayClaimMatchOperatorPtrOutput)
+}
+
+func (in *gatewayClaimMatchOperatorPtr) ToGatewayClaimMatchOperatorPtrOutputWithContext(ctx context.Context) GatewayClaimMatchOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GatewayClaimMatchOperatorPtrOutput)
+}
+
 type GatewayExceptionLevel string
 
 const (
@@ -862,6 +1030,172 @@ func (in *gatewayExceptionLevelPtr) ToGatewayExceptionLevelPtrOutput() GatewayEx
 
 func (in *gatewayExceptionLevelPtr) ToGatewayExceptionLevelPtrOutputWithContext(ctx context.Context) GatewayExceptionLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GatewayExceptionLevelPtrOutput)
+}
+
+// Token claim data type
+type GatewayInboundTokenClaimValueType string
+
+const (
+	GatewayInboundTokenClaimValueTypeString      = GatewayInboundTokenClaimValueType("STRING")
+	GatewayInboundTokenClaimValueTypeStringArray = GatewayInboundTokenClaimValueType("STRING_ARRAY")
+)
+
+func (GatewayInboundTokenClaimValueType) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayInboundTokenClaimValueType)(nil)).Elem()
+}
+
+func (e GatewayInboundTokenClaimValueType) ToGatewayInboundTokenClaimValueTypeOutput() GatewayInboundTokenClaimValueTypeOutput {
+	return pulumi.ToOutput(e).(GatewayInboundTokenClaimValueTypeOutput)
+}
+
+func (e GatewayInboundTokenClaimValueType) ToGatewayInboundTokenClaimValueTypeOutputWithContext(ctx context.Context) GatewayInboundTokenClaimValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GatewayInboundTokenClaimValueTypeOutput)
+}
+
+func (e GatewayInboundTokenClaimValueType) ToGatewayInboundTokenClaimValueTypePtrOutput() GatewayInboundTokenClaimValueTypePtrOutput {
+	return e.ToGatewayInboundTokenClaimValueTypePtrOutputWithContext(context.Background())
+}
+
+func (e GatewayInboundTokenClaimValueType) ToGatewayInboundTokenClaimValueTypePtrOutputWithContext(ctx context.Context) GatewayInboundTokenClaimValueTypePtrOutput {
+	return GatewayInboundTokenClaimValueType(e).ToGatewayInboundTokenClaimValueTypeOutputWithContext(ctx).ToGatewayInboundTokenClaimValueTypePtrOutputWithContext(ctx)
+}
+
+func (e GatewayInboundTokenClaimValueType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayInboundTokenClaimValueType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayInboundTokenClaimValueType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayInboundTokenClaimValueType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GatewayInboundTokenClaimValueTypeOutput struct{ *pulumi.OutputState }
+
+func (GatewayInboundTokenClaimValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayInboundTokenClaimValueType)(nil)).Elem()
+}
+
+func (o GatewayInboundTokenClaimValueTypeOutput) ToGatewayInboundTokenClaimValueTypeOutput() GatewayInboundTokenClaimValueTypeOutput {
+	return o
+}
+
+func (o GatewayInboundTokenClaimValueTypeOutput) ToGatewayInboundTokenClaimValueTypeOutputWithContext(ctx context.Context) GatewayInboundTokenClaimValueTypeOutput {
+	return o
+}
+
+func (o GatewayInboundTokenClaimValueTypeOutput) ToGatewayInboundTokenClaimValueTypePtrOutput() GatewayInboundTokenClaimValueTypePtrOutput {
+	return o.ToGatewayInboundTokenClaimValueTypePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayInboundTokenClaimValueTypeOutput) ToGatewayInboundTokenClaimValueTypePtrOutputWithContext(ctx context.Context) GatewayInboundTokenClaimValueTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayInboundTokenClaimValueType) *GatewayInboundTokenClaimValueType {
+		return &v
+	}).(GatewayInboundTokenClaimValueTypePtrOutput)
+}
+
+func (o GatewayInboundTokenClaimValueTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GatewayInboundTokenClaimValueTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayInboundTokenClaimValueType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GatewayInboundTokenClaimValueTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayInboundTokenClaimValueTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayInboundTokenClaimValueType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayInboundTokenClaimValueTypePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayInboundTokenClaimValueTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayInboundTokenClaimValueType)(nil)).Elem()
+}
+
+func (o GatewayInboundTokenClaimValueTypePtrOutput) ToGatewayInboundTokenClaimValueTypePtrOutput() GatewayInboundTokenClaimValueTypePtrOutput {
+	return o
+}
+
+func (o GatewayInboundTokenClaimValueTypePtrOutput) ToGatewayInboundTokenClaimValueTypePtrOutputWithContext(ctx context.Context) GatewayInboundTokenClaimValueTypePtrOutput {
+	return o
+}
+
+func (o GatewayInboundTokenClaimValueTypePtrOutput) Elem() GatewayInboundTokenClaimValueTypeOutput {
+	return o.ApplyT(func(v *GatewayInboundTokenClaimValueType) GatewayInboundTokenClaimValueType {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayInboundTokenClaimValueType
+		return ret
+	}).(GatewayInboundTokenClaimValueTypeOutput)
+}
+
+func (o GatewayInboundTokenClaimValueTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayInboundTokenClaimValueTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayInboundTokenClaimValueType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GatewayInboundTokenClaimValueTypeInput is an input type that accepts values of the GatewayInboundTokenClaimValueType enum
+// A concrete instance of `GatewayInboundTokenClaimValueTypeInput` can be one of the following:
+//
+//	GatewayInboundTokenClaimValueTypeString
+//	GatewayInboundTokenClaimValueTypeStringArray
+type GatewayInboundTokenClaimValueTypeInput interface {
+	pulumi.Input
+
+	ToGatewayInboundTokenClaimValueTypeOutput() GatewayInboundTokenClaimValueTypeOutput
+	ToGatewayInboundTokenClaimValueTypeOutputWithContext(context.Context) GatewayInboundTokenClaimValueTypeOutput
+}
+
+var gatewayInboundTokenClaimValueTypePtrType = reflect.TypeOf((**GatewayInboundTokenClaimValueType)(nil)).Elem()
+
+type GatewayInboundTokenClaimValueTypePtrInput interface {
+	pulumi.Input
+
+	ToGatewayInboundTokenClaimValueTypePtrOutput() GatewayInboundTokenClaimValueTypePtrOutput
+	ToGatewayInboundTokenClaimValueTypePtrOutputWithContext(context.Context) GatewayInboundTokenClaimValueTypePtrOutput
+}
+
+type gatewayInboundTokenClaimValueTypePtr string
+
+func GatewayInboundTokenClaimValueTypePtr(v string) GatewayInboundTokenClaimValueTypePtrInput {
+	return (*gatewayInboundTokenClaimValueTypePtr)(&v)
+}
+
+func (*gatewayInboundTokenClaimValueTypePtr) ElementType() reflect.Type {
+	return gatewayInboundTokenClaimValueTypePtrType
+}
+
+func (in *gatewayInboundTokenClaimValueTypePtr) ToGatewayInboundTokenClaimValueTypePtrOutput() GatewayInboundTokenClaimValueTypePtrOutput {
+	return pulumi.ToOutput(in).(GatewayInboundTokenClaimValueTypePtrOutput)
+}
+
+func (in *gatewayInboundTokenClaimValueTypePtr) ToGatewayInboundTokenClaimValueTypePtrOutputWithContext(ctx context.Context) GatewayInboundTokenClaimValueTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GatewayInboundTokenClaimValueTypePtrOutput)
 }
 
 type GatewayInterceptionPoint string
@@ -2438,6 +2772,7 @@ const (
 	MemoryCustomMemoryStrategyTypeSummarization  = MemoryCustomMemoryStrategyType("SUMMARIZATION")
 	MemoryCustomMemoryStrategyTypeUserPreference = MemoryCustomMemoryStrategyType("USER_PREFERENCE")
 	MemoryCustomMemoryStrategyTypeCustom         = MemoryCustomMemoryStrategyType("CUSTOM")
+	MemoryCustomMemoryStrategyTypeEpisodic       = MemoryCustomMemoryStrategyType("EPISODIC")
 )
 
 func (MemoryCustomMemoryStrategyType) ElementType() reflect.Type {
@@ -2566,6 +2901,7 @@ func (o MemoryCustomMemoryStrategyTypePtrOutput) ToStringPtrOutputWithContext(ct
 //	MemoryCustomMemoryStrategyTypeSummarization
 //	MemoryCustomMemoryStrategyTypeUserPreference
 //	MemoryCustomMemoryStrategyTypeCustom
+//	MemoryCustomMemoryStrategyTypeEpisodic
 type MemoryCustomMemoryStrategyTypeInput interface {
 	pulumi.Input
 
@@ -2598,6 +2934,348 @@ func (in *memoryCustomMemoryStrategyTypePtr) ToMemoryCustomMemoryStrategyTypePtr
 
 func (in *memoryCustomMemoryStrategyTypePtr) ToMemoryCustomMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemoryCustomMemoryStrategyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MemoryCustomMemoryStrategyTypePtrOutput)
+}
+
+// Status of the memory strategy
+type MemoryEpisodicMemoryStrategyStatus string
+
+const (
+	MemoryEpisodicMemoryStrategyStatusCreating = MemoryEpisodicMemoryStrategyStatus("CREATING")
+	MemoryEpisodicMemoryStrategyStatusActive   = MemoryEpisodicMemoryStrategyStatus("ACTIVE")
+	MemoryEpisodicMemoryStrategyStatusDeleting = MemoryEpisodicMemoryStrategyStatus("DELETING")
+	MemoryEpisodicMemoryStrategyStatusFailed   = MemoryEpisodicMemoryStrategyStatus("FAILED")
+)
+
+func (MemoryEpisodicMemoryStrategyStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryEpisodicMemoryStrategyStatus)(nil)).Elem()
+}
+
+func (e MemoryEpisodicMemoryStrategyStatus) ToMemoryEpisodicMemoryStrategyStatusOutput() MemoryEpisodicMemoryStrategyStatusOutput {
+	return pulumi.ToOutput(e).(MemoryEpisodicMemoryStrategyStatusOutput)
+}
+
+func (e MemoryEpisodicMemoryStrategyStatus) ToMemoryEpisodicMemoryStrategyStatusOutputWithContext(ctx context.Context) MemoryEpisodicMemoryStrategyStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MemoryEpisodicMemoryStrategyStatusOutput)
+}
+
+func (e MemoryEpisodicMemoryStrategyStatus) ToMemoryEpisodicMemoryStrategyStatusPtrOutput() MemoryEpisodicMemoryStrategyStatusPtrOutput {
+	return e.ToMemoryEpisodicMemoryStrategyStatusPtrOutputWithContext(context.Background())
+}
+
+func (e MemoryEpisodicMemoryStrategyStatus) ToMemoryEpisodicMemoryStrategyStatusPtrOutputWithContext(ctx context.Context) MemoryEpisodicMemoryStrategyStatusPtrOutput {
+	return MemoryEpisodicMemoryStrategyStatus(e).ToMemoryEpisodicMemoryStrategyStatusOutputWithContext(ctx).ToMemoryEpisodicMemoryStrategyStatusPtrOutputWithContext(ctx)
+}
+
+func (e MemoryEpisodicMemoryStrategyStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemoryEpisodicMemoryStrategyStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemoryEpisodicMemoryStrategyStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MemoryEpisodicMemoryStrategyStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MemoryEpisodicMemoryStrategyStatusOutput struct{ *pulumi.OutputState }
+
+func (MemoryEpisodicMemoryStrategyStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryEpisodicMemoryStrategyStatus)(nil)).Elem()
+}
+
+func (o MemoryEpisodicMemoryStrategyStatusOutput) ToMemoryEpisodicMemoryStrategyStatusOutput() MemoryEpisodicMemoryStrategyStatusOutput {
+	return o
+}
+
+func (o MemoryEpisodicMemoryStrategyStatusOutput) ToMemoryEpisodicMemoryStrategyStatusOutputWithContext(ctx context.Context) MemoryEpisodicMemoryStrategyStatusOutput {
+	return o
+}
+
+func (o MemoryEpisodicMemoryStrategyStatusOutput) ToMemoryEpisodicMemoryStrategyStatusPtrOutput() MemoryEpisodicMemoryStrategyStatusPtrOutput {
+	return o.ToMemoryEpisodicMemoryStrategyStatusPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryEpisodicMemoryStrategyStatusOutput) ToMemoryEpisodicMemoryStrategyStatusPtrOutputWithContext(ctx context.Context) MemoryEpisodicMemoryStrategyStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryEpisodicMemoryStrategyStatus) *MemoryEpisodicMemoryStrategyStatus {
+		return &v
+	}).(MemoryEpisodicMemoryStrategyStatusPtrOutput)
+}
+
+func (o MemoryEpisodicMemoryStrategyStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MemoryEpisodicMemoryStrategyStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryEpisodicMemoryStrategyStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MemoryEpisodicMemoryStrategyStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryEpisodicMemoryStrategyStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryEpisodicMemoryStrategyStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MemoryEpisodicMemoryStrategyStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryEpisodicMemoryStrategyStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryEpisodicMemoryStrategyStatus)(nil)).Elem()
+}
+
+func (o MemoryEpisodicMemoryStrategyStatusPtrOutput) ToMemoryEpisodicMemoryStrategyStatusPtrOutput() MemoryEpisodicMemoryStrategyStatusPtrOutput {
+	return o
+}
+
+func (o MemoryEpisodicMemoryStrategyStatusPtrOutput) ToMemoryEpisodicMemoryStrategyStatusPtrOutputWithContext(ctx context.Context) MemoryEpisodicMemoryStrategyStatusPtrOutput {
+	return o
+}
+
+func (o MemoryEpisodicMemoryStrategyStatusPtrOutput) Elem() MemoryEpisodicMemoryStrategyStatusOutput {
+	return o.ApplyT(func(v *MemoryEpisodicMemoryStrategyStatus) MemoryEpisodicMemoryStrategyStatus {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryEpisodicMemoryStrategyStatus
+		return ret
+	}).(MemoryEpisodicMemoryStrategyStatusOutput)
+}
+
+func (o MemoryEpisodicMemoryStrategyStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryEpisodicMemoryStrategyStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MemoryEpisodicMemoryStrategyStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MemoryEpisodicMemoryStrategyStatusInput is an input type that accepts values of the MemoryEpisodicMemoryStrategyStatus enum
+// A concrete instance of `MemoryEpisodicMemoryStrategyStatusInput` can be one of the following:
+//
+//	MemoryEpisodicMemoryStrategyStatusCreating
+//	MemoryEpisodicMemoryStrategyStatusActive
+//	MemoryEpisodicMemoryStrategyStatusDeleting
+//	MemoryEpisodicMemoryStrategyStatusFailed
+type MemoryEpisodicMemoryStrategyStatusInput interface {
+	pulumi.Input
+
+	ToMemoryEpisodicMemoryStrategyStatusOutput() MemoryEpisodicMemoryStrategyStatusOutput
+	ToMemoryEpisodicMemoryStrategyStatusOutputWithContext(context.Context) MemoryEpisodicMemoryStrategyStatusOutput
+}
+
+var memoryEpisodicMemoryStrategyStatusPtrType = reflect.TypeOf((**MemoryEpisodicMemoryStrategyStatus)(nil)).Elem()
+
+type MemoryEpisodicMemoryStrategyStatusPtrInput interface {
+	pulumi.Input
+
+	ToMemoryEpisodicMemoryStrategyStatusPtrOutput() MemoryEpisodicMemoryStrategyStatusPtrOutput
+	ToMemoryEpisodicMemoryStrategyStatusPtrOutputWithContext(context.Context) MemoryEpisodicMemoryStrategyStatusPtrOutput
+}
+
+type memoryEpisodicMemoryStrategyStatusPtr string
+
+func MemoryEpisodicMemoryStrategyStatusPtr(v string) MemoryEpisodicMemoryStrategyStatusPtrInput {
+	return (*memoryEpisodicMemoryStrategyStatusPtr)(&v)
+}
+
+func (*memoryEpisodicMemoryStrategyStatusPtr) ElementType() reflect.Type {
+	return memoryEpisodicMemoryStrategyStatusPtrType
+}
+
+func (in *memoryEpisodicMemoryStrategyStatusPtr) ToMemoryEpisodicMemoryStrategyStatusPtrOutput() MemoryEpisodicMemoryStrategyStatusPtrOutput {
+	return pulumi.ToOutput(in).(MemoryEpisodicMemoryStrategyStatusPtrOutput)
+}
+
+func (in *memoryEpisodicMemoryStrategyStatusPtr) ToMemoryEpisodicMemoryStrategyStatusPtrOutputWithContext(ctx context.Context) MemoryEpisodicMemoryStrategyStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MemoryEpisodicMemoryStrategyStatusPtrOutput)
+}
+
+// Type of memory strategy
+type MemoryEpisodicMemoryStrategyType string
+
+const (
+	MemoryEpisodicMemoryStrategyTypeSemantic       = MemoryEpisodicMemoryStrategyType("SEMANTIC")
+	MemoryEpisodicMemoryStrategyTypeSummarization  = MemoryEpisodicMemoryStrategyType("SUMMARIZATION")
+	MemoryEpisodicMemoryStrategyTypeUserPreference = MemoryEpisodicMemoryStrategyType("USER_PREFERENCE")
+	MemoryEpisodicMemoryStrategyTypeCustom         = MemoryEpisodicMemoryStrategyType("CUSTOM")
+	MemoryEpisodicMemoryStrategyTypeEpisodic       = MemoryEpisodicMemoryStrategyType("EPISODIC")
+)
+
+func (MemoryEpisodicMemoryStrategyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryEpisodicMemoryStrategyType)(nil)).Elem()
+}
+
+func (e MemoryEpisodicMemoryStrategyType) ToMemoryEpisodicMemoryStrategyTypeOutput() MemoryEpisodicMemoryStrategyTypeOutput {
+	return pulumi.ToOutput(e).(MemoryEpisodicMemoryStrategyTypeOutput)
+}
+
+func (e MemoryEpisodicMemoryStrategyType) ToMemoryEpisodicMemoryStrategyTypeOutputWithContext(ctx context.Context) MemoryEpisodicMemoryStrategyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MemoryEpisodicMemoryStrategyTypeOutput)
+}
+
+func (e MemoryEpisodicMemoryStrategyType) ToMemoryEpisodicMemoryStrategyTypePtrOutput() MemoryEpisodicMemoryStrategyTypePtrOutput {
+	return e.ToMemoryEpisodicMemoryStrategyTypePtrOutputWithContext(context.Background())
+}
+
+func (e MemoryEpisodicMemoryStrategyType) ToMemoryEpisodicMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemoryEpisodicMemoryStrategyTypePtrOutput {
+	return MemoryEpisodicMemoryStrategyType(e).ToMemoryEpisodicMemoryStrategyTypeOutputWithContext(ctx).ToMemoryEpisodicMemoryStrategyTypePtrOutputWithContext(ctx)
+}
+
+func (e MemoryEpisodicMemoryStrategyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemoryEpisodicMemoryStrategyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MemoryEpisodicMemoryStrategyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MemoryEpisodicMemoryStrategyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MemoryEpisodicMemoryStrategyTypeOutput struct{ *pulumi.OutputState }
+
+func (MemoryEpisodicMemoryStrategyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryEpisodicMemoryStrategyType)(nil)).Elem()
+}
+
+func (o MemoryEpisodicMemoryStrategyTypeOutput) ToMemoryEpisodicMemoryStrategyTypeOutput() MemoryEpisodicMemoryStrategyTypeOutput {
+	return o
+}
+
+func (o MemoryEpisodicMemoryStrategyTypeOutput) ToMemoryEpisodicMemoryStrategyTypeOutputWithContext(ctx context.Context) MemoryEpisodicMemoryStrategyTypeOutput {
+	return o
+}
+
+func (o MemoryEpisodicMemoryStrategyTypeOutput) ToMemoryEpisodicMemoryStrategyTypePtrOutput() MemoryEpisodicMemoryStrategyTypePtrOutput {
+	return o.ToMemoryEpisodicMemoryStrategyTypePtrOutputWithContext(context.Background())
+}
+
+func (o MemoryEpisodicMemoryStrategyTypeOutput) ToMemoryEpisodicMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemoryEpisodicMemoryStrategyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryEpisodicMemoryStrategyType) *MemoryEpisodicMemoryStrategyType {
+		return &v
+	}).(MemoryEpisodicMemoryStrategyTypePtrOutput)
+}
+
+func (o MemoryEpisodicMemoryStrategyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MemoryEpisodicMemoryStrategyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryEpisodicMemoryStrategyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MemoryEpisodicMemoryStrategyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryEpisodicMemoryStrategyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemoryEpisodicMemoryStrategyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MemoryEpisodicMemoryStrategyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryEpisodicMemoryStrategyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryEpisodicMemoryStrategyType)(nil)).Elem()
+}
+
+func (o MemoryEpisodicMemoryStrategyTypePtrOutput) ToMemoryEpisodicMemoryStrategyTypePtrOutput() MemoryEpisodicMemoryStrategyTypePtrOutput {
+	return o
+}
+
+func (o MemoryEpisodicMemoryStrategyTypePtrOutput) ToMemoryEpisodicMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemoryEpisodicMemoryStrategyTypePtrOutput {
+	return o
+}
+
+func (o MemoryEpisodicMemoryStrategyTypePtrOutput) Elem() MemoryEpisodicMemoryStrategyTypeOutput {
+	return o.ApplyT(func(v *MemoryEpisodicMemoryStrategyType) MemoryEpisodicMemoryStrategyType {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryEpisodicMemoryStrategyType
+		return ret
+	}).(MemoryEpisodicMemoryStrategyTypeOutput)
+}
+
+func (o MemoryEpisodicMemoryStrategyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryEpisodicMemoryStrategyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MemoryEpisodicMemoryStrategyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MemoryEpisodicMemoryStrategyTypeInput is an input type that accepts values of the MemoryEpisodicMemoryStrategyType enum
+// A concrete instance of `MemoryEpisodicMemoryStrategyTypeInput` can be one of the following:
+//
+//	MemoryEpisodicMemoryStrategyTypeSemantic
+//	MemoryEpisodicMemoryStrategyTypeSummarization
+//	MemoryEpisodicMemoryStrategyTypeUserPreference
+//	MemoryEpisodicMemoryStrategyTypeCustom
+//	MemoryEpisodicMemoryStrategyTypeEpisodic
+type MemoryEpisodicMemoryStrategyTypeInput interface {
+	pulumi.Input
+
+	ToMemoryEpisodicMemoryStrategyTypeOutput() MemoryEpisodicMemoryStrategyTypeOutput
+	ToMemoryEpisodicMemoryStrategyTypeOutputWithContext(context.Context) MemoryEpisodicMemoryStrategyTypeOutput
+}
+
+var memoryEpisodicMemoryStrategyTypePtrType = reflect.TypeOf((**MemoryEpisodicMemoryStrategyType)(nil)).Elem()
+
+type MemoryEpisodicMemoryStrategyTypePtrInput interface {
+	pulumi.Input
+
+	ToMemoryEpisodicMemoryStrategyTypePtrOutput() MemoryEpisodicMemoryStrategyTypePtrOutput
+	ToMemoryEpisodicMemoryStrategyTypePtrOutputWithContext(context.Context) MemoryEpisodicMemoryStrategyTypePtrOutput
+}
+
+type memoryEpisodicMemoryStrategyTypePtr string
+
+func MemoryEpisodicMemoryStrategyTypePtr(v string) MemoryEpisodicMemoryStrategyTypePtrInput {
+	return (*memoryEpisodicMemoryStrategyTypePtr)(&v)
+}
+
+func (*memoryEpisodicMemoryStrategyTypePtr) ElementType() reflect.Type {
+	return memoryEpisodicMemoryStrategyTypePtrType
+}
+
+func (in *memoryEpisodicMemoryStrategyTypePtr) ToMemoryEpisodicMemoryStrategyTypePtrOutput() MemoryEpisodicMemoryStrategyTypePtrOutput {
+	return pulumi.ToOutput(in).(MemoryEpisodicMemoryStrategyTypePtrOutput)
+}
+
+func (in *memoryEpisodicMemoryStrategyTypePtr) ToMemoryEpisodicMemoryStrategyTypePtrOutputWithContext(ctx context.Context) MemoryEpisodicMemoryStrategyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MemoryEpisodicMemoryStrategyTypePtrOutput)
 }
 
 // Status of the memory strategy
@@ -2778,6 +3456,7 @@ const (
 	MemorySemanticMemoryStrategyTypeSummarization  = MemorySemanticMemoryStrategyType("SUMMARIZATION")
 	MemorySemanticMemoryStrategyTypeUserPreference = MemorySemanticMemoryStrategyType("USER_PREFERENCE")
 	MemorySemanticMemoryStrategyTypeCustom         = MemorySemanticMemoryStrategyType("CUSTOM")
+	MemorySemanticMemoryStrategyTypeEpisodic       = MemorySemanticMemoryStrategyType("EPISODIC")
 )
 
 func (MemorySemanticMemoryStrategyType) ElementType() reflect.Type {
@@ -2906,6 +3585,7 @@ func (o MemorySemanticMemoryStrategyTypePtrOutput) ToStringPtrOutputWithContext(
 //	MemorySemanticMemoryStrategyTypeSummarization
 //	MemorySemanticMemoryStrategyTypeUserPreference
 //	MemorySemanticMemoryStrategyTypeCustom
+//	MemorySemanticMemoryStrategyTypeEpisodic
 type MemorySemanticMemoryStrategyTypeInput interface {
 	pulumi.Input
 
@@ -3211,6 +3891,7 @@ const (
 	MemorySummaryMemoryStrategyTypeSummarization  = MemorySummaryMemoryStrategyType("SUMMARIZATION")
 	MemorySummaryMemoryStrategyTypeUserPreference = MemorySummaryMemoryStrategyType("USER_PREFERENCE")
 	MemorySummaryMemoryStrategyTypeCustom         = MemorySummaryMemoryStrategyType("CUSTOM")
+	MemorySummaryMemoryStrategyTypeEpisodic       = MemorySummaryMemoryStrategyType("EPISODIC")
 )
 
 func (MemorySummaryMemoryStrategyType) ElementType() reflect.Type {
@@ -3339,6 +4020,7 @@ func (o MemorySummaryMemoryStrategyTypePtrOutput) ToStringPtrOutputWithContext(c
 //	MemorySummaryMemoryStrategyTypeSummarization
 //	MemorySummaryMemoryStrategyTypeUserPreference
 //	MemorySummaryMemoryStrategyTypeCustom
+//	MemorySummaryMemoryStrategyTypeEpisodic
 type MemorySummaryMemoryStrategyTypeInput interface {
 	pulumi.Input
 
@@ -3551,6 +4233,7 @@ const (
 	MemoryUserPreferenceMemoryStrategyTypeSummarization  = MemoryUserPreferenceMemoryStrategyType("SUMMARIZATION")
 	MemoryUserPreferenceMemoryStrategyTypeUserPreference = MemoryUserPreferenceMemoryStrategyType("USER_PREFERENCE")
 	MemoryUserPreferenceMemoryStrategyTypeCustom         = MemoryUserPreferenceMemoryStrategyType("CUSTOM")
+	MemoryUserPreferenceMemoryStrategyTypeEpisodic       = MemoryUserPreferenceMemoryStrategyType("EPISODIC")
 )
 
 func (MemoryUserPreferenceMemoryStrategyType) ElementType() reflect.Type {
@@ -3679,6 +4362,7 @@ func (o MemoryUserPreferenceMemoryStrategyTypePtrOutput) ToStringPtrOutputWithCo
 //	MemoryUserPreferenceMemoryStrategyTypeSummarization
 //	MemoryUserPreferenceMemoryStrategyTypeUserPreference
 //	MemoryUserPreferenceMemoryStrategyTypeCustom
+//	MemoryUserPreferenceMemoryStrategyTypeEpisodic
 type MemoryUserPreferenceMemoryStrategyTypeInput interface {
 	pulumi.Input
 
@@ -4411,8 +5095,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeInterpreterCustomCodeInterpreterNetworkModePtrInput)(nil)).Elem(), CodeInterpreterCustomCodeInterpreterNetworkMode("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizerTypeInput)(nil)).Elem(), GatewayAuthorizerType("CUSTOM_JWT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAuthorizerTypePtrInput)(nil)).Elem(), GatewayAuthorizerType("CUSTOM_JWT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayClaimMatchOperatorInput)(nil)).Elem(), GatewayClaimMatchOperator("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayClaimMatchOperatorPtrInput)(nil)).Elem(), GatewayClaimMatchOperator("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayExceptionLevelInput)(nil)).Elem(), GatewayExceptionLevel("DEBUG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayExceptionLevelPtrInput)(nil)).Elem(), GatewayExceptionLevel("DEBUG"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInboundTokenClaimValueTypeInput)(nil)).Elem(), GatewayInboundTokenClaimValueType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInboundTokenClaimValueTypePtrInput)(nil)).Elem(), GatewayInboundTokenClaimValueType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptionPointInput)(nil)).Elem(), GatewayInterceptionPoint("REQUEST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptionPointPtrInput)(nil)).Elem(), GatewayInterceptionPoint("REQUEST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayInterceptionPointArrayInput)(nil)).Elem(), GatewayInterceptionPointArray{})
@@ -4432,6 +5120,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomMemoryStrategyStatusPtrInput)(nil)).Elem(), MemoryCustomMemoryStrategyStatus("CREATING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomMemoryStrategyTypeInput)(nil)).Elem(), MemoryCustomMemoryStrategyType("SEMANTIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryCustomMemoryStrategyTypePtrInput)(nil)).Elem(), MemoryCustomMemoryStrategyType("SEMANTIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicMemoryStrategyStatusInput)(nil)).Elem(), MemoryEpisodicMemoryStrategyStatus("CREATING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicMemoryStrategyStatusPtrInput)(nil)).Elem(), MemoryEpisodicMemoryStrategyStatus("CREATING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicMemoryStrategyTypeInput)(nil)).Elem(), MemoryEpisodicMemoryStrategyType("SEMANTIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryEpisodicMemoryStrategyTypePtrInput)(nil)).Elem(), MemoryEpisodicMemoryStrategyType("SEMANTIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemorySemanticMemoryStrategyStatusInput)(nil)).Elem(), MemorySemanticMemoryStrategyStatus("CREATING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemorySemanticMemoryStrategyStatusPtrInput)(nil)).Elem(), MemorySemanticMemoryStrategyStatus("CREATING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MemorySemanticMemoryStrategyTypeInput)(nil)).Elem(), MemorySemanticMemoryStrategyType("SEMANTIC"))
@@ -4460,8 +5152,12 @@ func init() {
 	pulumi.RegisterOutputType(CodeInterpreterCustomCodeInterpreterStatusPtrOutput{})
 	pulumi.RegisterOutputType(GatewayAuthorizerTypeOutput{})
 	pulumi.RegisterOutputType(GatewayAuthorizerTypePtrOutput{})
+	pulumi.RegisterOutputType(GatewayClaimMatchOperatorOutput{})
+	pulumi.RegisterOutputType(GatewayClaimMatchOperatorPtrOutput{})
 	pulumi.RegisterOutputType(GatewayExceptionLevelOutput{})
 	pulumi.RegisterOutputType(GatewayExceptionLevelPtrOutput{})
+	pulumi.RegisterOutputType(GatewayInboundTokenClaimValueTypeOutput{})
+	pulumi.RegisterOutputType(GatewayInboundTokenClaimValueTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayInterceptionPointOutput{})
 	pulumi.RegisterOutputType(GatewayInterceptionPointPtrOutput{})
 	pulumi.RegisterOutputType(GatewayInterceptionPointArrayOutput{})
@@ -4485,6 +5181,10 @@ func init() {
 	pulumi.RegisterOutputType(MemoryCustomMemoryStrategyStatusPtrOutput{})
 	pulumi.RegisterOutputType(MemoryCustomMemoryStrategyTypeOutput{})
 	pulumi.RegisterOutputType(MemoryCustomMemoryStrategyTypePtrOutput{})
+	pulumi.RegisterOutputType(MemoryEpisodicMemoryStrategyStatusOutput{})
+	pulumi.RegisterOutputType(MemoryEpisodicMemoryStrategyStatusPtrOutput{})
+	pulumi.RegisterOutputType(MemoryEpisodicMemoryStrategyTypeOutput{})
+	pulumi.RegisterOutputType(MemoryEpisodicMemoryStrategyTypePtrOutput{})
 	pulumi.RegisterOutputType(MemorySemanticMemoryStrategyStatusOutput{})
 	pulumi.RegisterOutputType(MemorySemanticMemoryStrategyStatusPtrOutput{})
 	pulumi.RegisterOutputType(MemorySemanticMemoryStrategyTypeOutput{})

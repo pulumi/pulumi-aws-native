@@ -14,6 +14,7 @@ __all__ = [
     'DataProviderMongoDbAuthMechanism',
     'DataProviderMongoDbAuthType',
     'DataProviderMongoDbSslModeValue',
+    'DataProviderSybaseSslModeValue',
     'InstanceProfileNetworkType',
     'ReplicationConfigReplicationType',
 ]
@@ -60,6 +61,7 @@ class DataProviderEngine(_builtins.str, Enum):
     DOCDB = "docdb"
     DB2 = "db2"
     DB2_ZOS = "db2_zos"
+    SYBASE = "sybase"
 
 
 @pulumi.type_token("aws-native:dms:DataProviderMongoDbAuthMechanism")
@@ -80,6 +82,13 @@ class DataProviderMongoDbSslModeValue(_builtins.str, Enum):
     NONE = "none"
     REQUIRE = "require"
     VERIFY_FULL = "verify-full"
+
+
+@pulumi.type_token("aws-native:dms:DataProviderSybaseSslModeValue")
+class DataProviderSybaseSslModeValue(_builtins.str, Enum):
+    NONE = "none"
+    REQUIRE = "require"
+    VERIFY_CA = "verify-ca"
 
 
 @pulumi.type_token("aws-native:dms:InstanceProfileNetworkType")

@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
         /// </summary>
         public readonly Outputs.StorageLensS3BucketDestination? S3BucketDestination;
+        /// <summary>
+        /// This property contains the details of the S3 table bucket where the S3 Storage Lens default metrics report will be placed. This property enables you to store your Storage Lens metrics in read-only S3 Tables.
+        /// </summary>
         public readonly Outputs.StorageLensTableDestination? StorageLensTableDestination;
 
         [OutputConstructor]

@@ -20,6 +20,12 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? AvailabilityZone;
         /// <summary>
+        /// The ID of the Availability Zone in which to launch the instances. For example, `use2-az1` .
+        /// 
+        /// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+        /// </summary>
+        public readonly string? AvailabilityZoneId;
+        /// <summary>
         /// The block device mappings, which define the EBS volumes and instance store volumes to attach to the instance at launch.
         /// 
         /// Supported only for fleets of type `instant` .
@@ -80,6 +86,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         private Ec2FleetFleetLaunchTemplateOverridesRequest(
             string? availabilityZone,
 
+            string? availabilityZoneId,
+
             ImmutableArray<Outputs.Ec2FleetBlockDeviceMapping> blockDeviceMappings,
 
             Outputs.Ec2FleetInstanceRequirementsRequest? instanceRequirements,
@@ -97,6 +105,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             double? weightedCapacity)
         {
             AvailabilityZone = availabilityZone;
+            AvailabilityZoneId = availabilityZoneId;
             BlockDeviceMappings = blockDeviceMappings;
             InstanceRequirements = instanceRequirements;
             InstanceType = instanceType;

@@ -130,6 +130,9 @@ class GetPlanResult:
     @_builtins.property
     @pulumi.getter(name="reportConfiguration")
     def report_configuration(self) -> Optional['outputs.PlanReportConfiguration']:
+        """
+        The report configuration for a plan.
+        """
         return pulumi.get(self, "report_configuration")
 
     @_builtins.property

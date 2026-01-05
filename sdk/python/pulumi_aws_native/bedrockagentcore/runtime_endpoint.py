@@ -181,7 +181,7 @@ class RuntimeEndpoint(pulumi.CustomResource):
             __props__.__dict__["live_version"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["target_version"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["agentRuntimeId", "agentRuntimeVersion", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["agentRuntimeId", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RuntimeEndpoint, __self__).__init__(
             'aws-native:bedrockagentcore:RuntimeEndpoint',

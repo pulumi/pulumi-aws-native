@@ -122,6 +122,7 @@ namespace Pulumi.AwsNative.Dms
         public static DataProviderEngine Docdb { get; } = new DataProviderEngine("docdb");
         public static DataProviderEngine Db2 { get; } = new DataProviderEngine("db2");
         public static DataProviderEngine Db2Zos { get; } = new DataProviderEngine("db2_zos");
+        public static DataProviderEngine Sybase { get; } = new DataProviderEngine("sybase");
 
         public static bool operator ==(DataProviderEngine left, DataProviderEngine right) => left.Equals(right);
         public static bool operator !=(DataProviderEngine left, DataProviderEngine right) => !left.Equals(right);
@@ -217,6 +218,35 @@ namespace Pulumi.AwsNative.Dms
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataProviderMongoDbSslModeValue other && Equals(other);
         public bool Equals(DataProviderMongoDbSslModeValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataProviderSybaseSslModeValue : IEquatable<DataProviderSybaseSslModeValue>
+    {
+        private readonly string _value;
+
+        private DataProviderSybaseSslModeValue(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataProviderSybaseSslModeValue None { get; } = new DataProviderSybaseSslModeValue("none");
+        public static DataProviderSybaseSslModeValue Require { get; } = new DataProviderSybaseSslModeValue("require");
+        public static DataProviderSybaseSslModeValue VerifyCa { get; } = new DataProviderSybaseSslModeValue("verify-ca");
+
+        public static bool operator ==(DataProviderSybaseSslModeValue left, DataProviderSybaseSslModeValue right) => left.Equals(right);
+        public static bool operator !=(DataProviderSybaseSslModeValue left, DataProviderSybaseSslModeValue right) => !left.Equals(right);
+
+        public static explicit operator string(DataProviderSybaseSslModeValue value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataProviderSybaseSslModeValue other && Equals(other);
+        public bool Equals(DataProviderSybaseSslModeValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

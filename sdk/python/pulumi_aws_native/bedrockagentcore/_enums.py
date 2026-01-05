@@ -12,7 +12,9 @@ __all__ = [
     'CodeInterpreterCustomCodeInterpreterNetworkMode',
     'CodeInterpreterCustomCodeInterpreterStatus',
     'GatewayAuthorizerType',
+    'GatewayClaimMatchOperator',
     'GatewayExceptionLevel',
+    'GatewayInboundTokenClaimValueType',
     'GatewayInterceptionPoint',
     'GatewayProtocolType',
     'GatewaySearchType',
@@ -24,6 +26,8 @@ __all__ = [
     'GatewayTargetTargetStatus',
     'MemoryCustomMemoryStrategyStatus',
     'MemoryCustomMemoryStrategyType',
+    'MemoryEpisodicMemoryStrategyStatus',
+    'MemoryEpisodicMemoryStrategyType',
     'MemorySemanticMemoryStrategyStatus',
     'MemorySemanticMemoryStrategyType',
     'MemoryStatus',
@@ -91,9 +95,28 @@ class GatewayAuthorizerType(_builtins.str, Enum):
     NONE = "NONE"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayClaimMatchOperator")
+class GatewayClaimMatchOperator(_builtins.str, Enum):
+    """
+    The relationship between the claim field value and the value or values being matched
+    """
+    EQUALS = "EQUALS"
+    CONTAINS = "CONTAINS"
+    CONTAINS_ANY = "CONTAINS_ANY"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayExceptionLevel")
 class GatewayExceptionLevel(_builtins.str, Enum):
     DEBUG = "DEBUG"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayInboundTokenClaimValueType")
+class GatewayInboundTokenClaimValueType(_builtins.str, Enum):
+    """
+    Token claim data type
+    """
+    STRING = "STRING"
+    STRING_ARRAY = "STRING_ARRAY"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:GatewayInterceptionPoint")
@@ -183,6 +206,30 @@ class MemoryCustomMemoryStrategyType(_builtins.str, Enum):
     SUMMARIZATION = "SUMMARIZATION"
     USER_PREFERENCE = "USER_PREFERENCE"
     CUSTOM = "CUSTOM"
+    EPISODIC = "EPISODIC"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:MemoryEpisodicMemoryStrategyStatus")
+class MemoryEpisodicMemoryStrategyStatus(_builtins.str, Enum):
+    """
+    Status of the memory strategy
+    """
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:MemoryEpisodicMemoryStrategyType")
+class MemoryEpisodicMemoryStrategyType(_builtins.str, Enum):
+    """
+    Type of memory strategy
+    """
+    SEMANTIC = "SEMANTIC"
+    SUMMARIZATION = "SUMMARIZATION"
+    USER_PREFERENCE = "USER_PREFERENCE"
+    CUSTOM = "CUSTOM"
+    EPISODIC = "EPISODIC"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:MemorySemanticMemoryStrategyStatus")
@@ -205,6 +252,7 @@ class MemorySemanticMemoryStrategyType(_builtins.str, Enum):
     SUMMARIZATION = "SUMMARIZATION"
     USER_PREFERENCE = "USER_PREFERENCE"
     CUSTOM = "CUSTOM"
+    EPISODIC = "EPISODIC"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:MemoryStatus")
@@ -238,6 +286,7 @@ class MemorySummaryMemoryStrategyType(_builtins.str, Enum):
     SUMMARIZATION = "SUMMARIZATION"
     USER_PREFERENCE = "USER_PREFERENCE"
     CUSTOM = "CUSTOM"
+    EPISODIC = "EPISODIC"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:MemoryUserPreferenceMemoryStrategyStatus")
@@ -260,6 +309,7 @@ class MemoryUserPreferenceMemoryStrategyType(_builtins.str, Enum):
     SUMMARIZATION = "SUMMARIZATION"
     USER_PREFERENCE = "USER_PREFERENCE"
     CUSTOM = "CUSTOM"
+    EPISODIC = "EPISODIC"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:RuntimeAgentManagedRuntimeType")

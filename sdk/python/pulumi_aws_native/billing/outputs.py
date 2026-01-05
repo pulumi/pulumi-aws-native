@@ -20,6 +20,7 @@ __all__ = [
     'DataFilterExpressionProperties',
     'DataFilterExpressionPropertiesDimensionsProperties',
     'DataFilterExpressionPropertiesTagsProperties',
+    'DataFilterExpressionPropertiesTimeRangeProperties',
 ]
 
 @pulumi.output_type
@@ -27,9 +28,27 @@ class DataFilterExpressionProperties(dict):
     """
     See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeRange":
+            suggest = "time_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataFilterExpressionProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataFilterExpressionProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataFilterExpressionProperties.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  dimensions: Optional['outputs.DataFilterExpressionPropertiesDimensionsProperties'] = None,
-                 tags: Optional['outputs.DataFilterExpressionPropertiesTagsProperties'] = None):
+                 tags: Optional['outputs.DataFilterExpressionPropertiesTagsProperties'] = None,
+                 time_range: Optional['outputs.DataFilterExpressionPropertiesTimeRangeProperties'] = None):
         """
         See [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_Expression.html) . Billing view only supports `LINKED_ACCOUNT` and `Tags` .
         :param 'DataFilterExpressionPropertiesDimensionsProperties' dimensions: The specific `Dimension` to use for `Expression` .
@@ -39,6 +58,8 @@ class DataFilterExpressionProperties(dict):
             pulumi.set(__self__, "dimensions", dimensions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if time_range is not None:
+            pulumi.set(__self__, "time_range", time_range)
 
     @_builtins.property
     @pulumi.getter
@@ -55,6 +76,11 @@ class DataFilterExpressionProperties(dict):
         The specific `Tag` to use for `Expression` .
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="timeRange")
+    def time_range(self) -> Optional['outputs.DataFilterExpressionPropertiesTimeRangeProperties']:
+        return pulumi.get(self, "time_range")
 
 
 @pulumi.output_type
@@ -109,5 +135,45 @@ class DataFilterExpressionPropertiesTagsProperties(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class DataFilterExpressionPropertiesTimeRangeProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "beginDateInclusive":
+            suggest = "begin_date_inclusive"
+        elif key == "endDateInclusive":
+            suggest = "end_date_inclusive"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataFilterExpressionPropertiesTimeRangeProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataFilterExpressionPropertiesTimeRangeProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataFilterExpressionPropertiesTimeRangeProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 begin_date_inclusive: Optional[_builtins.str] = None,
+                 end_date_inclusive: Optional[_builtins.str] = None):
+        if begin_date_inclusive is not None:
+            pulumi.set(__self__, "begin_date_inclusive", begin_date_inclusive)
+        if end_date_inclusive is not None:
+            pulumi.set(__self__, "end_date_inclusive", end_date_inclusive)
+
+    @_builtins.property
+    @pulumi.getter(name="beginDateInclusive")
+    def begin_date_inclusive(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "begin_date_inclusive")
+
+    @_builtins.property
+    @pulumi.getter(name="endDateInclusive")
+    def end_date_inclusive(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "end_date_inclusive")
 
 

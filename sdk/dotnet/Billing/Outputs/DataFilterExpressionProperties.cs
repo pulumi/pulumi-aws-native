@@ -24,15 +24,19 @@ namespace Pulumi.AwsNative.Billing.Outputs
         /// The specific `Tag` to use for `Expression` .
         /// </summary>
         public readonly Outputs.DataFilterExpressionPropertiesTagsProperties? Tags;
+        public readonly Outputs.DataFilterExpressionPropertiesTimeRangeProperties? TimeRange;
 
         [OutputConstructor]
         private DataFilterExpressionProperties(
             Outputs.DataFilterExpressionPropertiesDimensionsProperties? dimensions,
 
-            Outputs.DataFilterExpressionPropertiesTagsProperties? tags)
+            Outputs.DataFilterExpressionPropertiesTagsProperties? tags,
+
+            Outputs.DataFilterExpressionPropertiesTimeRangeProperties? timeRange)
         {
             Dimensions = dimensions;
             Tags = tags;
+            TimeRange = timeRange;
         }
     }
 }

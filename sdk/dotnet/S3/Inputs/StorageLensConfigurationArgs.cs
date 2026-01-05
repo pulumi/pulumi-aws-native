@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("exclude")]
         public Input<Inputs.StorageLensBucketsAndRegionsArgs>? Exclude { get; set; }
 
+        /// <summary>
+        /// This property configures your S3 Storage Lens expanded prefixes metrics report.
+        /// </summary>
         [Input("expandedPrefixesDataExport")]
         public Input<Inputs.StorageLensExpandedPrefixesDataExportArgs>? ExpandedPrefixesDataExport { get; set; }
 

@@ -112,7 +112,7 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     declare public readonly type: pulumi.Output<string>;
     /**
-     * The ID of the VPN connection.
+     * The ID of the VPN concentrator to associate with the VPN connection.
      */
     declare public readonly vpnConcentratorId: pulumi.Output<string | undefined>;
     /**
@@ -269,7 +269,7 @@ export interface VpnConnectionArgs {
      */
     type: pulumi.Input<string>;
     /**
-     * The ID of the VPN connection.
+     * The ID of the VPN concentrator to associate with the VPN connection.
      */
     vpnConcentratorId?: pulumi.Input<string>;
     /**

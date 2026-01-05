@@ -79,6 +79,9 @@ export class Plan extends pulumi.CustomResource {
      * The AWS Regions for a plan.
      */
     declare public readonly regions: pulumi.Output<string[]>;
+    /**
+     * The report configuration for a plan.
+     */
     declare public readonly reportConfiguration: pulumi.Output<outputs.arcregionswitch.PlanReportConfiguration | undefined>;
     declare public /*out*/ readonly route53HealthChecks: pulumi.Output<outputs.arcregionswitch.Route53HealthChecksProperties>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -199,6 +202,9 @@ export interface PlanArgs {
      * The AWS Regions for a plan.
      */
     regions: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The report configuration for a plan.
+     */
     reportConfiguration?: pulumi.Input<inputs.arcregionswitch.PlanReportConfigurationArgs>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
