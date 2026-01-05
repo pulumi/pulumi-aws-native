@@ -1740,6 +1740,8 @@ class OriginEndpointScte(dict):
         suggest = None
         if key == "scteFilter":
             suggest = "scte_filter"
+        elif key == "scteInSegments":
+            suggest = "scte_in_segments"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OriginEndpointScte. Access the value via the '{suggest}' property getter instead.")
@@ -1753,13 +1755,16 @@ class OriginEndpointScte(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 scte_filter: Optional[Sequence['OriginEndpointScteFilter']] = None):
+                 scte_filter: Optional[Sequence['OriginEndpointScteFilter']] = None,
+                 scte_in_segments: Optional['OriginEndpointScteInSegments'] = None):
         """
         <p>The SCTE configuration.</p>
         :param Sequence['OriginEndpointScteFilter'] scte_filter: <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
         """
         if scte_filter is not None:
             pulumi.set(__self__, "scte_filter", scte_filter)
+        if scte_in_segments is not None:
+            pulumi.set(__self__, "scte_in_segments", scte_in_segments)
 
     @_builtins.property
     @pulumi.getter(name="scteFilter")
@@ -1768,6 +1773,11 @@ class OriginEndpointScte(dict):
         <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
         """
         return pulumi.get(self, "scte_filter")
+
+    @_builtins.property
+    @pulumi.getter(name="scteInSegments")
+    def scte_in_segments(self) -> Optional['OriginEndpointScteInSegments']:
+        return pulumi.get(self, "scte_in_segments")
 
 
 @pulumi.output_type

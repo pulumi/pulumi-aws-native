@@ -933,6 +933,8 @@ type SettingsProperties struct {
 	PostgreSqlSettings *SettingsPropertiesPostgreSqlSettingsProperties `pulumi:"postgreSqlSettings"`
 	// RedshiftSettings property identifier.
 	RedshiftSettings *SettingsPropertiesRedshiftSettingsProperties `pulumi:"redshiftSettings"`
+	// SybaseAseSettings property identifier.
+	SybaseAseSettings *SettingsPropertiesSybaseAseSettingsProperties `pulumi:"sybaseAseSettings"`
 }
 
 // SettingsPropertiesInput is an input type that accepts SettingsPropertiesArgs and SettingsPropertiesOutput values.
@@ -968,6 +970,8 @@ type SettingsPropertiesArgs struct {
 	PostgreSqlSettings SettingsPropertiesPostgreSqlSettingsPropertiesPtrInput `pulumi:"postgreSqlSettings"`
 	// RedshiftSettings property identifier.
 	RedshiftSettings SettingsPropertiesRedshiftSettingsPropertiesPtrInput `pulumi:"redshiftSettings"`
+	// SybaseAseSettings property identifier.
+	SybaseAseSettings SettingsPropertiesSybaseAseSettingsPropertiesPtrInput `pulumi:"sybaseAseSettings"`
 }
 
 func (SettingsPropertiesArgs) ElementType() reflect.Type {
@@ -1102,6 +1106,11 @@ func (o SettingsPropertiesOutput) RedshiftSettings() SettingsPropertiesRedshiftS
 	return o.ApplyT(func(v SettingsProperties) *SettingsPropertiesRedshiftSettingsProperties { return v.RedshiftSettings }).(SettingsPropertiesRedshiftSettingsPropertiesPtrOutput)
 }
 
+// SybaseAseSettings property identifier.
+func (o SettingsPropertiesOutput) SybaseAseSettings() SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v SettingsProperties) *SettingsPropertiesSybaseAseSettingsProperties { return v.SybaseAseSettings }).(SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput)
+}
+
 type SettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (SettingsPropertiesPtrOutput) ElementType() reflect.Type {
@@ -1224,6 +1233,16 @@ func (o SettingsPropertiesPtrOutput) RedshiftSettings() SettingsPropertiesRedshi
 		}
 		return v.RedshiftSettings
 	}).(SettingsPropertiesRedshiftSettingsPropertiesPtrOutput)
+}
+
+// SybaseAseSettings property identifier.
+func (o SettingsPropertiesPtrOutput) SybaseAseSettings() SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v *SettingsProperties) *SettingsPropertiesSybaseAseSettingsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.SybaseAseSettings
+	}).(SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput)
 }
 
 // DocDbSettings property identifier.
@@ -3256,6 +3275,217 @@ func (o SettingsPropertiesRedshiftSettingsPropertiesPtrOutput) ServerName() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// SybaseAseSettings property identifier.
+type SettingsPropertiesSybaseAseSettingsProperties struct {
+	CertificateArn  *string                        `pulumi:"certificateArn"`
+	DatabaseName    *string                        `pulumi:"databaseName"`
+	EncryptPassword *bool                          `pulumi:"encryptPassword"`
+	Port            int                            `pulumi:"port"`
+	ServerName      string                         `pulumi:"serverName"`
+	SslMode         DataProviderSybaseSslModeValue `pulumi:"sslMode"`
+}
+
+// SettingsPropertiesSybaseAseSettingsPropertiesInput is an input type that accepts SettingsPropertiesSybaseAseSettingsPropertiesArgs and SettingsPropertiesSybaseAseSettingsPropertiesOutput values.
+// You can construct a concrete instance of `SettingsPropertiesSybaseAseSettingsPropertiesInput` via:
+//
+//	SettingsPropertiesSybaseAseSettingsPropertiesArgs{...}
+type SettingsPropertiesSybaseAseSettingsPropertiesInput interface {
+	pulumi.Input
+
+	ToSettingsPropertiesSybaseAseSettingsPropertiesOutput() SettingsPropertiesSybaseAseSettingsPropertiesOutput
+	ToSettingsPropertiesSybaseAseSettingsPropertiesOutputWithContext(context.Context) SettingsPropertiesSybaseAseSettingsPropertiesOutput
+}
+
+// SybaseAseSettings property identifier.
+type SettingsPropertiesSybaseAseSettingsPropertiesArgs struct {
+	CertificateArn  pulumi.StringPtrInput               `pulumi:"certificateArn"`
+	DatabaseName    pulumi.StringPtrInput               `pulumi:"databaseName"`
+	EncryptPassword pulumi.BoolPtrInput                 `pulumi:"encryptPassword"`
+	Port            pulumi.IntInput                     `pulumi:"port"`
+	ServerName      pulumi.StringInput                  `pulumi:"serverName"`
+	SslMode         DataProviderSybaseSslModeValueInput `pulumi:"sslMode"`
+}
+
+func (SettingsPropertiesSybaseAseSettingsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesSybaseAseSettingsProperties)(nil)).Elem()
+}
+
+func (i SettingsPropertiesSybaseAseSettingsPropertiesArgs) ToSettingsPropertiesSybaseAseSettingsPropertiesOutput() SettingsPropertiesSybaseAseSettingsPropertiesOutput {
+	return i.ToSettingsPropertiesSybaseAseSettingsPropertiesOutputWithContext(context.Background())
+}
+
+func (i SettingsPropertiesSybaseAseSettingsPropertiesArgs) ToSettingsPropertiesSybaseAseSettingsPropertiesOutputWithContext(ctx context.Context) SettingsPropertiesSybaseAseSettingsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesSybaseAseSettingsPropertiesOutput)
+}
+
+func (i SettingsPropertiesSybaseAseSettingsPropertiesArgs) ToSettingsPropertiesSybaseAseSettingsPropertiesPtrOutput() SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput {
+	return i.ToSettingsPropertiesSybaseAseSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SettingsPropertiesSybaseAseSettingsPropertiesArgs) ToSettingsPropertiesSybaseAseSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesSybaseAseSettingsPropertiesOutput).ToSettingsPropertiesSybaseAseSettingsPropertiesPtrOutputWithContext(ctx)
+}
+
+// SettingsPropertiesSybaseAseSettingsPropertiesPtrInput is an input type that accepts SettingsPropertiesSybaseAseSettingsPropertiesArgs, SettingsPropertiesSybaseAseSettingsPropertiesPtr and SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput values.
+// You can construct a concrete instance of `SettingsPropertiesSybaseAseSettingsPropertiesPtrInput` via:
+//
+//	        SettingsPropertiesSybaseAseSettingsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type SettingsPropertiesSybaseAseSettingsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSettingsPropertiesSybaseAseSettingsPropertiesPtrOutput() SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput
+	ToSettingsPropertiesSybaseAseSettingsPropertiesPtrOutputWithContext(context.Context) SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput
+}
+
+type settingsPropertiesSybaseAseSettingsPropertiesPtrType SettingsPropertiesSybaseAseSettingsPropertiesArgs
+
+func SettingsPropertiesSybaseAseSettingsPropertiesPtr(v *SettingsPropertiesSybaseAseSettingsPropertiesArgs) SettingsPropertiesSybaseAseSettingsPropertiesPtrInput {
+	return (*settingsPropertiesSybaseAseSettingsPropertiesPtrType)(v)
+}
+
+func (*settingsPropertiesSybaseAseSettingsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsPropertiesSybaseAseSettingsProperties)(nil)).Elem()
+}
+
+func (i *settingsPropertiesSybaseAseSettingsPropertiesPtrType) ToSettingsPropertiesSybaseAseSettingsPropertiesPtrOutput() SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput {
+	return i.ToSettingsPropertiesSybaseAseSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *settingsPropertiesSybaseAseSettingsPropertiesPtrType) ToSettingsPropertiesSybaseAseSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput)
+}
+
+// SybaseAseSettings property identifier.
+type SettingsPropertiesSybaseAseSettingsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SettingsPropertiesSybaseAseSettingsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesSybaseAseSettingsProperties)(nil)).Elem()
+}
+
+func (o SettingsPropertiesSybaseAseSettingsPropertiesOutput) ToSettingsPropertiesSybaseAseSettingsPropertiesOutput() SettingsPropertiesSybaseAseSettingsPropertiesOutput {
+	return o
+}
+
+func (o SettingsPropertiesSybaseAseSettingsPropertiesOutput) ToSettingsPropertiesSybaseAseSettingsPropertiesOutputWithContext(ctx context.Context) SettingsPropertiesSybaseAseSettingsPropertiesOutput {
+	return o
+}
+
+func (o SettingsPropertiesSybaseAseSettingsPropertiesOutput) ToSettingsPropertiesSybaseAseSettingsPropertiesPtrOutput() SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput {
+	return o.ToSettingsPropertiesSybaseAseSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SettingsPropertiesSybaseAseSettingsPropertiesOutput) ToSettingsPropertiesSybaseAseSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SettingsPropertiesSybaseAseSettingsProperties) *SettingsPropertiesSybaseAseSettingsProperties {
+		return &v
+	}).(SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput)
+}
+
+func (o SettingsPropertiesSybaseAseSettingsPropertiesOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesSybaseAseSettingsProperties) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesSybaseAseSettingsPropertiesOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesSybaseAseSettingsProperties) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesSybaseAseSettingsPropertiesOutput) EncryptPassword() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesSybaseAseSettingsProperties) *bool { return v.EncryptPassword }).(pulumi.BoolPtrOutput)
+}
+
+func (o SettingsPropertiesSybaseAseSettingsPropertiesOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v SettingsPropertiesSybaseAseSettingsProperties) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o SettingsPropertiesSybaseAseSettingsPropertiesOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesSybaseAseSettingsProperties) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
+func (o SettingsPropertiesSybaseAseSettingsPropertiesOutput) SslMode() DataProviderSybaseSslModeValueOutput {
+	return o.ApplyT(func(v SettingsPropertiesSybaseAseSettingsProperties) DataProviderSybaseSslModeValue { return v.SslMode }).(DataProviderSybaseSslModeValueOutput)
+}
+
+type SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsPropertiesSybaseAseSettingsProperties)(nil)).Elem()
+}
+
+func (o SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput) ToSettingsPropertiesSybaseAseSettingsPropertiesPtrOutput() SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput) ToSettingsPropertiesSybaseAseSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput) Elem() SettingsPropertiesSybaseAseSettingsPropertiesOutput {
+	return o.ApplyT(func(v *SettingsPropertiesSybaseAseSettingsProperties) SettingsPropertiesSybaseAseSettingsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SettingsPropertiesSybaseAseSettingsProperties
+		return ret
+	}).(SettingsPropertiesSybaseAseSettingsPropertiesOutput)
+}
+
+func (o SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesSybaseAseSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesSybaseAseSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput) EncryptPassword() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesSybaseAseSettingsProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptPassword
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesSybaseAseSettingsProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesSybaseAseSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput) SslMode() DataProviderSybaseSslModeValuePtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesSybaseAseSettingsProperties) *DataProviderSybaseSslModeValue {
+		if v == nil {
+			return nil
+		}
+		return &v.SslMode
+	}).(DataProviderSybaseSslModeValuePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataMigrationSettingsInput)(nil)).Elem(), DataMigrationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataMigrationSettingsPtrInput)(nil)).Elem(), DataMigrationSettingsArgs{})
@@ -3288,6 +3518,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesPostgreSqlSettingsPropertiesPtrInput)(nil)).Elem(), SettingsPropertiesPostgreSqlSettingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesRedshiftSettingsPropertiesInput)(nil)).Elem(), SettingsPropertiesRedshiftSettingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesRedshiftSettingsPropertiesPtrInput)(nil)).Elem(), SettingsPropertiesRedshiftSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesSybaseAseSettingsPropertiesInput)(nil)).Elem(), SettingsPropertiesSybaseAseSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesSybaseAseSettingsPropertiesPtrInput)(nil)).Elem(), SettingsPropertiesSybaseAseSettingsPropertiesArgs{})
 	pulumi.RegisterOutputType(DataMigrationSettingsOutput{})
 	pulumi.RegisterOutputType(DataMigrationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DataMigrationSourceDataSettingsOutput{})
@@ -3320,4 +3552,6 @@ func init() {
 	pulumi.RegisterOutputType(SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SettingsPropertiesRedshiftSettingsPropertiesOutput{})
 	pulumi.RegisterOutputType(SettingsPropertiesRedshiftSettingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesSybaseAseSettingsPropertiesOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesSybaseAseSettingsPropertiesPtrOutput{})
 }

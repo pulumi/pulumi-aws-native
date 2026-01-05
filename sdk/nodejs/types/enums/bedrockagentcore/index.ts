@@ -59,11 +59,32 @@ export const GatewayAuthorizerType = {
 
 export type GatewayAuthorizerType = (typeof GatewayAuthorizerType)[keyof typeof GatewayAuthorizerType];
 
+export const GatewayClaimMatchOperator = {
+    Equals: "EQUALS",
+    Contains: "CONTAINS",
+    ContainsAny: "CONTAINS_ANY",
+} as const;
+
+/**
+ * The relationship between the claim field value and the value or values being matched
+ */
+export type GatewayClaimMatchOperator = (typeof GatewayClaimMatchOperator)[keyof typeof GatewayClaimMatchOperator];
+
 export const GatewayExceptionLevel = {
     Debug: "DEBUG",
 } as const;
 
 export type GatewayExceptionLevel = (typeof GatewayExceptionLevel)[keyof typeof GatewayExceptionLevel];
+
+export const GatewayInboundTokenClaimValueType = {
+    String: "STRING",
+    StringArray: "STRING_ARRAY",
+} as const;
+
+/**
+ * Token claim data type
+ */
+export type GatewayInboundTokenClaimValueType = (typeof GatewayInboundTokenClaimValueType)[keyof typeof GatewayInboundTokenClaimValueType];
 
 export const GatewayInterceptionPoint = {
     Request: "REQUEST",
@@ -158,12 +179,38 @@ export const MemoryCustomMemoryStrategyType = {
     Summarization: "SUMMARIZATION",
     UserPreference: "USER_PREFERENCE",
     Custom: "CUSTOM",
+    Episodic: "EPISODIC",
 } as const;
 
 /**
  * Type of memory strategy
  */
 export type MemoryCustomMemoryStrategyType = (typeof MemoryCustomMemoryStrategyType)[keyof typeof MemoryCustomMemoryStrategyType];
+
+export const MemoryEpisodicMemoryStrategyStatus = {
+    Creating: "CREATING",
+    Active: "ACTIVE",
+    Deleting: "DELETING",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * Status of the memory strategy
+ */
+export type MemoryEpisodicMemoryStrategyStatus = (typeof MemoryEpisodicMemoryStrategyStatus)[keyof typeof MemoryEpisodicMemoryStrategyStatus];
+
+export const MemoryEpisodicMemoryStrategyType = {
+    Semantic: "SEMANTIC",
+    Summarization: "SUMMARIZATION",
+    UserPreference: "USER_PREFERENCE",
+    Custom: "CUSTOM",
+    Episodic: "EPISODIC",
+} as const;
+
+/**
+ * Type of memory strategy
+ */
+export type MemoryEpisodicMemoryStrategyType = (typeof MemoryEpisodicMemoryStrategyType)[keyof typeof MemoryEpisodicMemoryStrategyType];
 
 export const MemorySemanticMemoryStrategyStatus = {
     Creating: "CREATING",
@@ -182,6 +229,7 @@ export const MemorySemanticMemoryStrategyType = {
     Summarization: "SUMMARIZATION",
     UserPreference: "USER_PREFERENCE",
     Custom: "CUSTOM",
+    Episodic: "EPISODIC",
 } as const;
 
 /**
@@ -218,6 +266,7 @@ export const MemorySummaryMemoryStrategyType = {
     Summarization: "SUMMARIZATION",
     UserPreference: "USER_PREFERENCE",
     Custom: "CUSTOM",
+    Episodic: "EPISODIC",
 } as const;
 
 /**
@@ -242,6 +291,7 @@ export const MemoryUserPreferenceMemoryStrategyType = {
     Summarization: "SUMMARIZATION",
     UserPreference: "USER_PREFERENCE",
     Custom: "CUSTOM",
+    Episodic: "EPISODIC",
 } as const;
 
 /**

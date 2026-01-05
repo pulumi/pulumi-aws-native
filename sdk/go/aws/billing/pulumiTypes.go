@@ -26,7 +26,8 @@ type DataFilterExpressionProperties struct {
 	// The specific `Dimension` to use for `Expression` .
 	Dimensions *DataFilterExpressionPropertiesDimensionsProperties `pulumi:"dimensions"`
 	// The specific `Tag` to use for `Expression` .
-	Tags *DataFilterExpressionPropertiesTagsProperties `pulumi:"tags"`
+	Tags      *DataFilterExpressionPropertiesTagsProperties      `pulumi:"tags"`
+	TimeRange *DataFilterExpressionPropertiesTimeRangeProperties `pulumi:"timeRange"`
 }
 
 // DataFilterExpressionPropertiesInput is an input type that accepts DataFilterExpressionPropertiesArgs and DataFilterExpressionPropertiesOutput values.
@@ -45,7 +46,8 @@ type DataFilterExpressionPropertiesArgs struct {
 	// The specific `Dimension` to use for `Expression` .
 	Dimensions DataFilterExpressionPropertiesDimensionsPropertiesPtrInput `pulumi:"dimensions"`
 	// The specific `Tag` to use for `Expression` .
-	Tags DataFilterExpressionPropertiesTagsPropertiesPtrInput `pulumi:"tags"`
+	Tags      DataFilterExpressionPropertiesTagsPropertiesPtrInput      `pulumi:"tags"`
+	TimeRange DataFilterExpressionPropertiesTimeRangePropertiesPtrInput `pulumi:"timeRange"`
 }
 
 func (DataFilterExpressionPropertiesArgs) ElementType() reflect.Type {
@@ -138,6 +140,12 @@ func (o DataFilterExpressionPropertiesOutput) Tags() DataFilterExpressionPropert
 	return o.ApplyT(func(v DataFilterExpressionProperties) *DataFilterExpressionPropertiesTagsProperties { return v.Tags }).(DataFilterExpressionPropertiesTagsPropertiesPtrOutput)
 }
 
+func (o DataFilterExpressionPropertiesOutput) TimeRange() DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput {
+	return o.ApplyT(func(v DataFilterExpressionProperties) *DataFilterExpressionPropertiesTimeRangeProperties {
+		return v.TimeRange
+	}).(DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput)
+}
+
 type DataFilterExpressionPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (DataFilterExpressionPropertiesPtrOutput) ElementType() reflect.Type {
@@ -180,6 +188,15 @@ func (o DataFilterExpressionPropertiesPtrOutput) Tags() DataFilterExpressionProp
 		}
 		return v.Tags
 	}).(DataFilterExpressionPropertiesTagsPropertiesPtrOutput)
+}
+
+func (o DataFilterExpressionPropertiesPtrOutput) TimeRange() DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput {
+	return o.ApplyT(func(v *DataFilterExpressionProperties) *DataFilterExpressionPropertiesTimeRangeProperties {
+		if v == nil {
+			return nil
+		}
+		return v.TimeRange
+	}).(DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput)
 }
 
 // The specific `Dimension` to use for `Expression` .
@@ -484,6 +501,154 @@ func (o DataFilterExpressionPropertiesTagsPropertiesPtrOutput) Values() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
+type DataFilterExpressionPropertiesTimeRangeProperties struct {
+	BeginDateInclusive *string `pulumi:"beginDateInclusive"`
+	EndDateInclusive   *string `pulumi:"endDateInclusive"`
+}
+
+// DataFilterExpressionPropertiesTimeRangePropertiesInput is an input type that accepts DataFilterExpressionPropertiesTimeRangePropertiesArgs and DataFilterExpressionPropertiesTimeRangePropertiesOutput values.
+// You can construct a concrete instance of `DataFilterExpressionPropertiesTimeRangePropertiesInput` via:
+//
+//	DataFilterExpressionPropertiesTimeRangePropertiesArgs{...}
+type DataFilterExpressionPropertiesTimeRangePropertiesInput interface {
+	pulumi.Input
+
+	ToDataFilterExpressionPropertiesTimeRangePropertiesOutput() DataFilterExpressionPropertiesTimeRangePropertiesOutput
+	ToDataFilterExpressionPropertiesTimeRangePropertiesOutputWithContext(context.Context) DataFilterExpressionPropertiesTimeRangePropertiesOutput
+}
+
+type DataFilterExpressionPropertiesTimeRangePropertiesArgs struct {
+	BeginDateInclusive pulumi.StringPtrInput `pulumi:"beginDateInclusive"`
+	EndDateInclusive   pulumi.StringPtrInput `pulumi:"endDateInclusive"`
+}
+
+func (DataFilterExpressionPropertiesTimeRangePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFilterExpressionPropertiesTimeRangeProperties)(nil)).Elem()
+}
+
+func (i DataFilterExpressionPropertiesTimeRangePropertiesArgs) ToDataFilterExpressionPropertiesTimeRangePropertiesOutput() DataFilterExpressionPropertiesTimeRangePropertiesOutput {
+	return i.ToDataFilterExpressionPropertiesTimeRangePropertiesOutputWithContext(context.Background())
+}
+
+func (i DataFilterExpressionPropertiesTimeRangePropertiesArgs) ToDataFilterExpressionPropertiesTimeRangePropertiesOutputWithContext(ctx context.Context) DataFilterExpressionPropertiesTimeRangePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFilterExpressionPropertiesTimeRangePropertiesOutput)
+}
+
+func (i DataFilterExpressionPropertiesTimeRangePropertiesArgs) ToDataFilterExpressionPropertiesTimeRangePropertiesPtrOutput() DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput {
+	return i.ToDataFilterExpressionPropertiesTimeRangePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DataFilterExpressionPropertiesTimeRangePropertiesArgs) ToDataFilterExpressionPropertiesTimeRangePropertiesPtrOutputWithContext(ctx context.Context) DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFilterExpressionPropertiesTimeRangePropertiesOutput).ToDataFilterExpressionPropertiesTimeRangePropertiesPtrOutputWithContext(ctx)
+}
+
+// DataFilterExpressionPropertiesTimeRangePropertiesPtrInput is an input type that accepts DataFilterExpressionPropertiesTimeRangePropertiesArgs, DataFilterExpressionPropertiesTimeRangePropertiesPtr and DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput values.
+// You can construct a concrete instance of `DataFilterExpressionPropertiesTimeRangePropertiesPtrInput` via:
+//
+//	        DataFilterExpressionPropertiesTimeRangePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataFilterExpressionPropertiesTimeRangePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDataFilterExpressionPropertiesTimeRangePropertiesPtrOutput() DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput
+	ToDataFilterExpressionPropertiesTimeRangePropertiesPtrOutputWithContext(context.Context) DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput
+}
+
+type dataFilterExpressionPropertiesTimeRangePropertiesPtrType DataFilterExpressionPropertiesTimeRangePropertiesArgs
+
+func DataFilterExpressionPropertiesTimeRangePropertiesPtr(v *DataFilterExpressionPropertiesTimeRangePropertiesArgs) DataFilterExpressionPropertiesTimeRangePropertiesPtrInput {
+	return (*dataFilterExpressionPropertiesTimeRangePropertiesPtrType)(v)
+}
+
+func (*dataFilterExpressionPropertiesTimeRangePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFilterExpressionPropertiesTimeRangeProperties)(nil)).Elem()
+}
+
+func (i *dataFilterExpressionPropertiesTimeRangePropertiesPtrType) ToDataFilterExpressionPropertiesTimeRangePropertiesPtrOutput() DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput {
+	return i.ToDataFilterExpressionPropertiesTimeRangePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *dataFilterExpressionPropertiesTimeRangePropertiesPtrType) ToDataFilterExpressionPropertiesTimeRangePropertiesPtrOutputWithContext(ctx context.Context) DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput)
+}
+
+type DataFilterExpressionPropertiesTimeRangePropertiesOutput struct{ *pulumi.OutputState }
+
+func (DataFilterExpressionPropertiesTimeRangePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFilterExpressionPropertiesTimeRangeProperties)(nil)).Elem()
+}
+
+func (o DataFilterExpressionPropertiesTimeRangePropertiesOutput) ToDataFilterExpressionPropertiesTimeRangePropertiesOutput() DataFilterExpressionPropertiesTimeRangePropertiesOutput {
+	return o
+}
+
+func (o DataFilterExpressionPropertiesTimeRangePropertiesOutput) ToDataFilterExpressionPropertiesTimeRangePropertiesOutputWithContext(ctx context.Context) DataFilterExpressionPropertiesTimeRangePropertiesOutput {
+	return o
+}
+
+func (o DataFilterExpressionPropertiesTimeRangePropertiesOutput) ToDataFilterExpressionPropertiesTimeRangePropertiesPtrOutput() DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput {
+	return o.ToDataFilterExpressionPropertiesTimeRangePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DataFilterExpressionPropertiesTimeRangePropertiesOutput) ToDataFilterExpressionPropertiesTimeRangePropertiesPtrOutputWithContext(ctx context.Context) DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataFilterExpressionPropertiesTimeRangeProperties) *DataFilterExpressionPropertiesTimeRangeProperties {
+		return &v
+	}).(DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput)
+}
+
+func (o DataFilterExpressionPropertiesTimeRangePropertiesOutput) BeginDateInclusive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataFilterExpressionPropertiesTimeRangeProperties) *string { return v.BeginDateInclusive }).(pulumi.StringPtrOutput)
+}
+
+func (o DataFilterExpressionPropertiesTimeRangePropertiesOutput) EndDateInclusive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataFilterExpressionPropertiesTimeRangeProperties) *string { return v.EndDateInclusive }).(pulumi.StringPtrOutput)
+}
+
+type DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFilterExpressionPropertiesTimeRangeProperties)(nil)).Elem()
+}
+
+func (o DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput) ToDataFilterExpressionPropertiesTimeRangePropertiesPtrOutput() DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput {
+	return o
+}
+
+func (o DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput) ToDataFilterExpressionPropertiesTimeRangePropertiesPtrOutputWithContext(ctx context.Context) DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput {
+	return o
+}
+
+func (o DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput) Elem() DataFilterExpressionPropertiesTimeRangePropertiesOutput {
+	return o.ApplyT(func(v *DataFilterExpressionPropertiesTimeRangeProperties) DataFilterExpressionPropertiesTimeRangeProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DataFilterExpressionPropertiesTimeRangeProperties
+		return ret
+	}).(DataFilterExpressionPropertiesTimeRangePropertiesOutput)
+}
+
+func (o DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput) BeginDateInclusive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFilterExpressionPropertiesTimeRangeProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BeginDateInclusive
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput) EndDateInclusive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFilterExpressionPropertiesTimeRangeProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndDateInclusive
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFilterExpressionPropertiesInput)(nil)).Elem(), DataFilterExpressionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFilterExpressionPropertiesPtrInput)(nil)).Elem(), DataFilterExpressionPropertiesArgs{})
@@ -491,10 +656,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFilterExpressionPropertiesDimensionsPropertiesPtrInput)(nil)).Elem(), DataFilterExpressionPropertiesDimensionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFilterExpressionPropertiesTagsPropertiesInput)(nil)).Elem(), DataFilterExpressionPropertiesTagsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFilterExpressionPropertiesTagsPropertiesPtrInput)(nil)).Elem(), DataFilterExpressionPropertiesTagsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFilterExpressionPropertiesTimeRangePropertiesInput)(nil)).Elem(), DataFilterExpressionPropertiesTimeRangePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFilterExpressionPropertiesTimeRangePropertiesPtrInput)(nil)).Elem(), DataFilterExpressionPropertiesTimeRangePropertiesArgs{})
 	pulumi.RegisterOutputType(DataFilterExpressionPropertiesOutput{})
 	pulumi.RegisterOutputType(DataFilterExpressionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataFilterExpressionPropertiesDimensionsPropertiesOutput{})
 	pulumi.RegisterOutputType(DataFilterExpressionPropertiesDimensionsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataFilterExpressionPropertiesTagsPropertiesOutput{})
 	pulumi.RegisterOutputType(DataFilterExpressionPropertiesTagsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataFilterExpressionPropertiesTimeRangePropertiesOutput{})
+	pulumi.RegisterOutputType(DataFilterExpressionPropertiesTimeRangePropertiesPtrOutput{})
 }

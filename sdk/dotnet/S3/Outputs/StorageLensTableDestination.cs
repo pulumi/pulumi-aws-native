@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class StorageLensTableDestination
     {
+        /// <summary>
+        /// This resource configures your data encryption settings for Storage Lens metrics in read-only S3 table buckets.
+        /// </summary>
         public readonly Outputs.StorageLensEncryption? Encryption;
         /// <summary>
         /// Specifies whether the export to S3 Tables is enabled or disabled.

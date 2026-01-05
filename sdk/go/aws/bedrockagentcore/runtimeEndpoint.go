@@ -58,7 +58,6 @@ func NewRuntimeEndpoint(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"agentRuntimeId",
-		"agentRuntimeVersion",
 		"name",
 	})
 	opts = append(opts, replaceOnChanges)

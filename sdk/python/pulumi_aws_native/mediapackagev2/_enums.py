@@ -26,6 +26,7 @@ __all__ = [
     'OriginEndpointPresetSpeke20Audio',
     'OriginEndpointPresetSpeke20Video',
     'OriginEndpointScteFilter',
+    'OriginEndpointScteInSegments',
     'OriginEndpointTsEncryptionMethod',
 ]
 
@@ -168,6 +169,12 @@ class OriginEndpointScteFilter(_builtins.str, Enum):
     PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY = "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY"
     DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY = "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY"
     PROGRAM = "PROGRAM"
+
+
+@pulumi.type_token("aws-native:mediapackagev2:OriginEndpointScteInSegments")
+class OriginEndpointScteInSegments(_builtins.str, Enum):
+    NONE = "NONE"
+    ALL = "ALL"
 
 
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointTsEncryptionMethod")

@@ -443,12 +443,16 @@
     },
     "Tags" : {
       "$ref" : "#/definitions/TagsMap"
+    },
+    "FailureReason" : {
+      "type" : "string",
+      "description" : "The reason for failure if the agent is in a failed state."
     }
   },
   "primaryIdentifier" : [ "/properties/AgentRuntimeId" ],
   "required" : [ "AgentRuntimeName", "AgentRuntimeArtifact", "RoleArn", "NetworkConfiguration" ],
   "createOnlyProperties" : [ "/properties/AgentRuntimeName" ],
-  "readOnlyProperties" : [ "/properties/AgentRuntimeArn", "/properties/AgentRuntimeId", "/properties/AgentRuntimeVersion", "/properties/Status", "/properties/CreatedAt", "/properties/LastUpdatedAt", "/properties/WorkloadIdentityDetails" ],
+  "readOnlyProperties" : [ "/properties/AgentRuntimeArn", "/properties/AgentRuntimeId", "/properties/AgentRuntimeVersion", "/properties/Status", "/properties/CreatedAt", "/properties/LastUpdatedAt", "/properties/WorkloadIdentityDetails", "/properties/FailureReason" ],
   "replacementStrategy" : "create_then_delete",
   "handlers" : {
     "create" : {

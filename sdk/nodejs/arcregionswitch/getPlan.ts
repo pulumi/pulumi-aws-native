@@ -51,6 +51,9 @@ export interface GetPlanResult {
      * The recovery time objective for a plan.
      */
     readonly recoveryTimeObjectiveMinutes?: number;
+    /**
+     * The report configuration for a plan.
+     */
     readonly reportConfiguration?: outputs.arcregionswitch.PlanReportConfiguration;
     readonly route53HealthChecks?: outputs.arcregionswitch.Route53HealthChecksProperties;
     readonly tags?: {[key: string]: string};

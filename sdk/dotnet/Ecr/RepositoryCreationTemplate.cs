@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Ecr
     public partial class RepositoryCreationTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
+        /// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH
         /// </summary>
         [Output("appliedFor")]
         public Output<ImmutableArray<Pulumi.AwsNative.Ecr.RepositoryCreationTemplateAppliedForItem>> AppliedFor { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.AwsNative.Ecr
         private InputList<Pulumi.AwsNative.Ecr.RepositoryCreationTemplateAppliedForItem>? _appliedFor;
 
         /// <summary>
-        /// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
+        /// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH
         /// </summary>
         public InputList<Pulumi.AwsNative.Ecr.RepositoryCreationTemplateAppliedForItem> AppliedFor
         {

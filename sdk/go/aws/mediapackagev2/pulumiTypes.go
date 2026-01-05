@@ -3524,7 +3524,8 @@ func (o OriginEndpointPolicyCdnAuthConfigurationPtrOutput) SecretsRoleArn() pulu
 // <p>The SCTE configuration.</p>
 type OriginEndpointScte struct {
 	// <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
-	ScteFilter []OriginEndpointScteFilter `pulumi:"scteFilter"`
+	ScteFilter     []OriginEndpointScteFilter    `pulumi:"scteFilter"`
+	ScteInSegments *OriginEndpointScteInSegments `pulumi:"scteInSegments"`
 }
 
 // OriginEndpointScteInput is an input type that accepts OriginEndpointScteArgs and OriginEndpointScteOutput values.
@@ -3541,7 +3542,8 @@ type OriginEndpointScteInput interface {
 // <p>The SCTE configuration.</p>
 type OriginEndpointScteArgs struct {
 	// <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
-	ScteFilter OriginEndpointScteFilterArrayInput `pulumi:"scteFilter"`
+	ScteFilter     OriginEndpointScteFilterArrayInput   `pulumi:"scteFilter"`
+	ScteInSegments OriginEndpointScteInSegmentsPtrInput `pulumi:"scteInSegments"`
 }
 
 func (OriginEndpointScteArgs) ElementType() reflect.Type {
@@ -3627,6 +3629,10 @@ func (o OriginEndpointScteOutput) ScteFilter() OriginEndpointScteFilterArrayOutp
 	return o.ApplyT(func(v OriginEndpointScte) []OriginEndpointScteFilter { return v.ScteFilter }).(OriginEndpointScteFilterArrayOutput)
 }
 
+func (o OriginEndpointScteOutput) ScteInSegments() OriginEndpointScteInSegmentsPtrOutput {
+	return o.ApplyT(func(v OriginEndpointScte) *OriginEndpointScteInSegments { return v.ScteInSegments }).(OriginEndpointScteInSegmentsPtrOutput)
+}
+
 type OriginEndpointSctePtrOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointSctePtrOutput) ElementType() reflect.Type {
@@ -3659,6 +3665,15 @@ func (o OriginEndpointSctePtrOutput) ScteFilter() OriginEndpointScteFilterArrayO
 		}
 		return v.ScteFilter
 	}).(OriginEndpointScteFilterArrayOutput)
+}
+
+func (o OriginEndpointSctePtrOutput) ScteInSegments() OriginEndpointScteInSegmentsPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointScte) *OriginEndpointScteInSegments {
+		if v == nil {
+			return nil
+		}
+		return v.ScteInSegments
+	}).(OriginEndpointScteInSegmentsPtrOutput)
 }
 
 // <p>The SCTE configuration.</p>

@@ -1427,12 +1427,18 @@ class PlanReportConfiguration(dict):
 
     def __init__(__self__, *,
                  report_output: Optional[Sequence['outputs.PlanReportOutputConfigurationProperties']] = None):
+        """
+        :param Sequence['PlanReportOutputConfigurationProperties'] report_output: The output configuration for the report.
+        """
         if report_output is not None:
             pulumi.set(__self__, "report_output", report_output)
 
     @_builtins.property
     @pulumi.getter(name="reportOutput")
     def report_output(self) -> Optional[Sequence['outputs.PlanReportOutputConfigurationProperties']]:
+        """
+        The output configuration for the report.
+        """
         return pulumi.get(self, "report_output")
 
 

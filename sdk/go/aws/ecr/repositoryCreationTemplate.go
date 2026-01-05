@@ -16,7 +16,7 @@ import (
 type RepositoryCreationTemplate struct {
 	pulumi.CustomResourceState
 
-	// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
+	// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH
 	AppliedFor RepositoryCreationTemplateAppliedForItemArrayOutput `pulumi:"appliedFor"`
 	// The date and time, in JavaScript date format, when the repository creation template was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
@@ -92,7 +92,7 @@ func (RepositoryCreationTemplateState) ElementType() reflect.Type {
 }
 
 type repositoryCreationTemplateArgs struct {
-	// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
+	// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH
 	AppliedFor []RepositoryCreationTemplateAppliedForItem `pulumi:"appliedFor"`
 	// The ARN of the role to be assumed by Amazon ECR. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template.
 	CustomRoleArn *string `pulumi:"customRoleArn"`
@@ -116,7 +116,7 @@ type repositoryCreationTemplateArgs struct {
 
 // The set of arguments for constructing a RepositoryCreationTemplate resource.
 type RepositoryCreationTemplateArgs struct {
-	// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
+	// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH
 	AppliedFor RepositoryCreationTemplateAppliedForItemArrayInput
 	// The ARN of the role to be assumed by Amazon ECR. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template.
 	CustomRoleArn pulumi.StringPtrInput
@@ -175,7 +175,7 @@ func (o RepositoryCreationTemplateOutput) ToRepositoryCreationTemplateOutputWith
 	return o
 }
 
-// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
+// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH
 func (o RepositoryCreationTemplateOutput) AppliedFor() RepositoryCreationTemplateAppliedForItemArrayOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) RepositoryCreationTemplateAppliedForItemArrayOutput {
 		return v.AppliedFor

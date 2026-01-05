@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// </summary>
     public sealed class StorageLensExpandedPrefixesDataExportArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This property specifies the general purpose bucket where the S3 Storage Lens Expanded Prefixes metrics export files are located. At least one export destination must be specified.
+        /// </summary>
         [Input("s3BucketDestination")]
         public Input<Inputs.StorageLensS3BucketDestinationArgs>? S3BucketDestination { get; set; }
 
+        /// <summary>
+        /// This property configures S3 Storage Lens Expanded Prefixes metrics report to read-only S3 table buckets.
+        /// </summary>
         [Input("storageLensTableDestination")]
         public Input<Inputs.StorageLensTableDestinationArgs>? StorageLensTableDestination { get; set; }
 

@@ -34,7 +34,7 @@ class RepositoryCreationTemplateArgs:
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateTagArgs']]]] = None):
         """
         The set of arguments for constructing a RepositoryCreationTemplate resource.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]] applied_for: A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
+        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]] applied_for: A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH
         :param pulumi.Input[_builtins.str] prefix: The repository namespace prefix associated with the repository creation template.
         :param pulumi.Input[_builtins.str] custom_role_arn: The ARN of the role to be assumed by Amazon ECR. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template.
         :param pulumi.Input[_builtins.str] description: The description associated with the repository creation template.
@@ -68,7 +68,7 @@ class RepositoryCreationTemplateArgs:
     @pulumi.getter(name="appliedFor")
     def applied_for(self) -> pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]]:
         """
-        A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
+        A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH
         """
         return pulumi.get(self, "applied_for")
 
@@ -207,7 +207,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]] applied_for: A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
+        :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateAppliedForItem']]] applied_for: A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH
         :param pulumi.Input[_builtins.str] custom_role_arn: The ARN of the role to be assumed by Amazon ECR. Amazon ECR will assume your supplied role when the customRoleArn is specified. When this field isn't specified, Amazon ECR will use the service-linked role for the repository creation template.
         :param pulumi.Input[_builtins.str] description: The description associated with the repository creation template.
         :param pulumi.Input[Union['RepositoryCreationTemplateEncryptionConfigurationArgs', 'RepositoryCreationTemplateEncryptionConfigurationArgsDict']] encryption_configuration: The encryption configuration associated with the repository creation template.
@@ -319,7 +319,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
     @pulumi.getter(name="appliedFor")
     def applied_for(self) -> pulumi.Output[Sequence['RepositoryCreationTemplateAppliedForItem']]:
         """
-        A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
+        A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH
         """
         return pulumi.get(self, "applied_for")
 

@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetBillingViewResult:
-    def __init__(__self__, arn=None, billing_view_type=None, created_at=None, data_filter_expression=None, owner_account_id=None, tags=None, updated_at=None):
+    def __init__(__self__, arn=None, billing_view_type=None, created_at=None, data_filter_expression=None, owner_account_id=None, source_views=None, tags=None, updated_at=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +42,9 @@ class GetBillingViewResult:
         if owner_account_id and not isinstance(owner_account_id, str):
             raise TypeError("Expected argument 'owner_account_id' to be a str")
         pulumi.set(__self__, "owner_account_id", owner_account_id)
+        if source_views and not isinstance(source_views, list):
+            raise TypeError("Expected argument 'source_views' to be a list")
+        pulumi.set(__self__, "source_views", source_views)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -90,6 +93,14 @@ class GetBillingViewResult:
         return pulumi.get(self, "owner_account_id")
 
     @_builtins.property
+    @pulumi.getter(name="sourceViews")
+    def source_views(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        An array of strings that define the billing view's source.
+        """
+        return pulumi.get(self, "source_views")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -117,6 +128,7 @@ class AwaitableGetBillingViewResult(GetBillingViewResult):
             created_at=self.created_at,
             data_filter_expression=self.data_filter_expression,
             owner_account_id=self.owner_account_id,
+            source_views=self.source_views,
             tags=self.tags,
             updated_at=self.updated_at)
 
@@ -140,6 +152,7 @@ def get_billing_view(arn: Optional[_builtins.str] = None,
         created_at=pulumi.get(__ret__, 'created_at'),
         data_filter_expression=pulumi.get(__ret__, 'data_filter_expression'),
         owner_account_id=pulumi.get(__ret__, 'owner_account_id'),
+        source_views=pulumi.get(__ret__, 'source_views'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_billing_view_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -160,5 +173,6 @@ def get_billing_view_output(arn: Optional[pulumi.Input[_builtins.str]] = None,
         created_at=pulumi.get(__response__, 'created_at'),
         data_filter_expression=pulumi.get(__response__, 'data_filter_expression'),
         owner_account_id=pulumi.get(__response__, 'owner_account_id'),
+        source_views=pulumi.get(__response__, 'source_views'),
         tags=pulumi.get(__response__, 'tags'),
         updated_at=pulumi.get(__response__, 'updated_at')))

@@ -24,13 +24,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetRuntimeEndpointResult:
-    def __init__(__self__, agent_runtime_arn=None, agent_runtime_endpoint_arn=None, created_at=None, description=None, failure_reason=None, id=None, last_updated_at=None, live_version=None, status=None, tags=None, target_version=None):
+    def __init__(__self__, agent_runtime_arn=None, agent_runtime_endpoint_arn=None, agent_runtime_version=None, created_at=None, description=None, failure_reason=None, id=None, last_updated_at=None, live_version=None, status=None, tags=None, target_version=None):
         if agent_runtime_arn and not isinstance(agent_runtime_arn, str):
             raise TypeError("Expected argument 'agent_runtime_arn' to be a str")
         pulumi.set(__self__, "agent_runtime_arn", agent_runtime_arn)
         if agent_runtime_endpoint_arn and not isinstance(agent_runtime_endpoint_arn, str):
             raise TypeError("Expected argument 'agent_runtime_endpoint_arn' to be a str")
         pulumi.set(__self__, "agent_runtime_endpoint_arn", agent_runtime_endpoint_arn)
+        if agent_runtime_version and not isinstance(agent_runtime_version, str):
+            raise TypeError("Expected argument 'agent_runtime_version' to be a str")
+        pulumi.set(__self__, "agent_runtime_version", agent_runtime_version)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -74,6 +77,14 @@ class GetRuntimeEndpointResult:
         The Amazon Resource Name (ARN) of the AgentCore Runtime.
         """
         return pulumi.get(self, "agent_runtime_endpoint_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="agentRuntimeVersion")
+    def agent_runtime_version(self) -> Optional[_builtins.str]:
+        """
+        The version of the AgentCore Runtime to use for the endpoint.
+        """
+        return pulumi.get(self, "agent_runtime_version")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
@@ -156,6 +167,7 @@ class AwaitableGetRuntimeEndpointResult(GetRuntimeEndpointResult):
         return GetRuntimeEndpointResult(
             agent_runtime_arn=self.agent_runtime_arn,
             agent_runtime_endpoint_arn=self.agent_runtime_endpoint_arn,
+            agent_runtime_version=self.agent_runtime_version,
             created_at=self.created_at,
             description=self.description,
             failure_reason=self.failure_reason,
@@ -183,6 +195,7 @@ def get_runtime_endpoint(agent_runtime_endpoint_arn: Optional[_builtins.str] = N
     return AwaitableGetRuntimeEndpointResult(
         agent_runtime_arn=pulumi.get(__ret__, 'agent_runtime_arn'),
         agent_runtime_endpoint_arn=pulumi.get(__ret__, 'agent_runtime_endpoint_arn'),
+        agent_runtime_version=pulumi.get(__ret__, 'agent_runtime_version'),
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
         failure_reason=pulumi.get(__ret__, 'failure_reason'),
@@ -207,6 +220,7 @@ def get_runtime_endpoint_output(agent_runtime_endpoint_arn: Optional[pulumi.Inpu
     return __ret__.apply(lambda __response__: GetRuntimeEndpointResult(
         agent_runtime_arn=pulumi.get(__response__, 'agent_runtime_arn'),
         agent_runtime_endpoint_arn=pulumi.get(__response__, 'agent_runtime_endpoint_arn'),
+        agent_runtime_version=pulumi.get(__response__, 'agent_runtime_version'),
         created_at=pulumi.get(__response__, 'created_at'),
         description=pulumi.get(__response__, 'description'),
         failure_reason=pulumi.get(__response__, 'failure_reason'),

@@ -4480,6 +4480,7 @@ class StorageLensAccountLevel(dict):
         :param 'StorageLensActivityMetrics' activity_metrics: This property contains the details of account-level activity metrics for S3 Storage Lens.
         :param 'StorageLensAdvancedCostOptimizationMetrics' advanced_cost_optimization_metrics: This property contains the details of account-level advanced cost optimization metrics for S3 Storage Lens.
         :param 'StorageLensAdvancedDataProtectionMetrics' advanced_data_protection_metrics: This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
+        :param 'StorageLensAdvancedPerformanceMetrics' advanced_performance_metrics: This property contains the account-level details for S3 Storage Lens advanced performance metrics.
         :param 'StorageLensDetailedStatusCodesMetrics' detailed_status_codes_metrics: This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
         :param 'StorageLensGroupLevel' storage_lens_group_level: This property determines the scope of Storage Lens group data that is displayed in the Storage Lens dashboard.
         """
@@ -4532,6 +4533,9 @@ class StorageLensAccountLevel(dict):
     @_builtins.property
     @pulumi.getter(name="advancedPerformanceMetrics")
     def advanced_performance_metrics(self) -> Optional['outputs.StorageLensAdvancedPerformanceMetrics']:
+        """
+        This property contains the account-level details for S3 Storage Lens advanced performance metrics.
+        """
         return pulumi.get(self, "advanced_performance_metrics")
 
     @_builtins.property
@@ -4777,6 +4781,7 @@ class StorageLensBucketLevel(dict):
         :param 'StorageLensActivityMetrics' activity_metrics: A property for bucket-level activity metrics for S3 Storage Lens.
         :param 'StorageLensAdvancedCostOptimizationMetrics' advanced_cost_optimization_metrics: A property for bucket-level advanced cost optimization metrics for S3 Storage Lens.
         :param 'StorageLensAdvancedDataProtectionMetrics' advanced_data_protection_metrics: A property for bucket-level advanced data protection metrics for S3 Storage Lens.
+        :param 'StorageLensAdvancedPerformanceMetrics' advanced_performance_metrics: A property for bucket-level advanced performance metrics for S3 Storage Lens.
         :param 'StorageLensDetailedStatusCodesMetrics' detailed_status_codes_metrics: A property for bucket-level detailed status code metrics for S3 Storage Lens.
         :param 'StorageLensPrefixLevel' prefix_level: A property for bucket-level prefix-level storage metrics for S3 Storage Lens.
         """
@@ -4820,6 +4825,9 @@ class StorageLensBucketLevel(dict):
     @_builtins.property
     @pulumi.getter(name="advancedPerformanceMetrics")
     def advanced_performance_metrics(self) -> Optional['outputs.StorageLensAdvancedPerformanceMetrics']:
+        """
+        A property for bucket-level advanced performance metrics for S3 Storage Lens.
+        """
         return pulumi.get(self, "advanced_performance_metrics")
 
     @_builtins.property
@@ -4966,6 +4974,7 @@ class StorageLensConfiguration(dict):
         :param 'StorageLensAwsOrg' aws_org: This property contains the details of the AWS Organization for the S3 Storage Lens configuration.
         :param 'StorageLensDataExport' data_export: This property contains the details of this S3 Storage Lens configuration's metrics export.
         :param 'StorageLensBucketsAndRegions' exclude: This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
+        :param 'StorageLensExpandedPrefixesDataExport' expanded_prefixes_data_export: This property configures your S3 Storage Lens expanded prefixes metrics report.
         :param 'StorageLensBucketsAndRegions' include: This property contains the details of the bucket and or Regions included for Amazon S3 Storage Lens configuration.
         :param _builtins.str prefix_delimiter: The delimiter to divide S3 key into hierarchy of prefixes.
         :param _builtins.str storage_lens_arn: The ARN for the Amazon S3 Storage Lens configuration.
@@ -5039,6 +5048,9 @@ class StorageLensConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="expandedPrefixesDataExport")
     def expanded_prefixes_data_export(self) -> Optional['outputs.StorageLensExpandedPrefixesDataExport']:
+        """
+        This property configures your S3 Storage Lens expanded prefixes metrics report.
+        """
         return pulumi.get(self, "expanded_prefixes_data_export")
 
     @_builtins.property
@@ -5100,6 +5112,7 @@ class StorageLensDataExport(dict):
         Specifies how Amazon S3 Storage Lens metrics should be exported.
         :param 'StorageLensCloudWatchMetrics' cloud_watch_metrics: This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
         :param 'StorageLensS3BucketDestination' s3_bucket_destination: This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
+        :param 'StorageLensTableDestination' storage_lens_table_destination: This property contains the details of the S3 table bucket where the S3 Storage Lens default metrics report will be placed. This property enables you to store your Storage Lens metrics in read-only S3 Tables.
         """
         if cloud_watch_metrics is not None:
             pulumi.set(__self__, "cloud_watch_metrics", cloud_watch_metrics)
@@ -5127,6 +5140,9 @@ class StorageLensDataExport(dict):
     @_builtins.property
     @pulumi.getter(name="storageLensTableDestination")
     def storage_lens_table_destination(self) -> Optional['outputs.StorageLensTableDestination']:
+        """
+        This property contains the details of the S3 table bucket where the S3 Storage Lens default metrics report will be placed. This property enables you to store your Storage Lens metrics in read-only S3 Tables.
+        """
         return pulumi.get(self, "storage_lens_table_destination")
 
 
@@ -5211,6 +5227,8 @@ class StorageLensExpandedPrefixesDataExport(dict):
                  storage_lens_table_destination: Optional['outputs.StorageLensTableDestination'] = None):
         """
         Expanded Prefixes Data Export.
+        :param 'StorageLensS3BucketDestination' s3_bucket_destination: This property specifies the general purpose bucket where the S3 Storage Lens Expanded Prefixes metrics export files are located. At least one export destination must be specified.
+        :param 'StorageLensTableDestination' storage_lens_table_destination: This property configures S3 Storage Lens Expanded Prefixes metrics report to read-only S3 table buckets.
         """
         if s3_bucket_destination is not None:
             pulumi.set(__self__, "s3_bucket_destination", s3_bucket_destination)
@@ -5220,11 +5238,17 @@ class StorageLensExpandedPrefixesDataExport(dict):
     @_builtins.property
     @pulumi.getter(name="s3BucketDestination")
     def s3_bucket_destination(self) -> Optional['outputs.StorageLensS3BucketDestination']:
+        """
+        This property specifies the general purpose bucket where the S3 Storage Lens Expanded Prefixes metrics export files are located. At least one export destination must be specified.
+        """
         return pulumi.get(self, "s3_bucket_destination")
 
     @_builtins.property
     @pulumi.getter(name="storageLensTableDestination")
     def storage_lens_table_destination(self) -> Optional['outputs.StorageLensTableDestination']:
+        """
+        This property configures S3 Storage Lens Expanded Prefixes metrics report to read-only S3 table buckets.
+        """
         return pulumi.get(self, "storage_lens_table_destination")
 
 
@@ -6027,6 +6051,7 @@ class StorageLensTableDestination(dict):
         """
         S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.
         :param _builtins.bool is_enabled: Specifies whether the export to S3 Tables is enabled or disabled.
+        :param 'StorageLensEncryption' encryption: This resource configures your data encryption settings for Storage Lens metrics in read-only S3 table buckets.
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
         if encryption is not None:
@@ -6043,6 +6068,9 @@ class StorageLensTableDestination(dict):
     @_builtins.property
     @pulumi.getter
     def encryption(self) -> Optional['outputs.StorageLensEncryption']:
+        """
+        This resource configures your data encryption settings for Storage Lens metrics in read-only S3 table buckets.
+        """
         return pulumi.get(self, "encryption")
 
 

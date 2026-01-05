@@ -21,6 +21,16 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
+        /// The ID of the Availability Zone. For example, `use2-az1` .
+        /// 
+        /// [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, " `use2-az1` , `use2-bz1` ".
+        /// 
+        /// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+        /// </summary>
+        [Input("availabilityZoneId")]
+        public Input<string>? AvailabilityZoneId { get; set; }
+
+        /// <summary>
         /// The name of the placement group.
         /// </summary>
         [Input("groupName")]

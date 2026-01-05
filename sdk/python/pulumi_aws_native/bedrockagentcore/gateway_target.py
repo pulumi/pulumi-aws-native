@@ -26,6 +26,7 @@ class GatewayTargetArgs:
                  target_configuration: pulumi.Input['GatewayTargetTargetConfigurationPropertiesArgs'],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  gateway_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata_configuration: Optional[pulumi.Input['GatewayTargetMetadataConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GatewayTarget resource.
@@ -41,6 +42,8 @@ class GatewayTargetArgs:
             pulumi.set(__self__, "description", description)
         if gateway_identifier is not None:
             pulumi.set(__self__, "gateway_identifier", gateway_identifier)
+        if metadata_configuration is not None:
+            pulumi.set(__self__, "metadata_configuration", metadata_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -93,6 +96,15 @@ class GatewayTargetArgs:
         pulumi.set(self, "gateway_identifier", value)
 
     @_builtins.property
+    @pulumi.getter(name="metadataConfiguration")
+    def metadata_configuration(self) -> Optional[pulumi.Input['GatewayTargetMetadataConfigurationArgs']]:
+        return pulumi.get(self, "metadata_configuration")
+
+    @metadata_configuration.setter
+    def metadata_configuration(self, value: Optional[pulumi.Input['GatewayTargetMetadataConfigurationArgs']]):
+        pulumi.set(self, "metadata_configuration", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -114,6 +126,7 @@ class GatewayTarget(pulumi.CustomResource):
                  credential_provider_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayTargetCredentialProviderConfigurationArgs', 'GatewayTargetCredentialProviderConfigurationArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  gateway_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata_configuration: Optional[pulumi.Input[Union['GatewayTargetMetadataConfigurationArgs', 'GatewayTargetMetadataConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  target_configuration: Optional[pulumi.Input[Union['GatewayTargetTargetConfigurationPropertiesArgs', 'GatewayTargetTargetConfigurationPropertiesArgsDict']]] = None,
                  __props__=None):
@@ -155,6 +168,7 @@ class GatewayTarget(pulumi.CustomResource):
                  credential_provider_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayTargetCredentialProviderConfigurationArgs', 'GatewayTargetCredentialProviderConfigurationArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  gateway_identifier: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata_configuration: Optional[pulumi.Input[Union['GatewayTargetMetadataConfigurationArgs', 'GatewayTargetMetadataConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  target_configuration: Optional[pulumi.Input[Union['GatewayTargetTargetConfigurationPropertiesArgs', 'GatewayTargetTargetConfigurationPropertiesArgsDict']]] = None,
                  __props__=None):
@@ -171,6 +185,7 @@ class GatewayTarget(pulumi.CustomResource):
             __props__.__dict__["credential_provider_configurations"] = credential_provider_configurations
             __props__.__dict__["description"] = description
             __props__.__dict__["gateway_identifier"] = gateway_identifier
+            __props__.__dict__["metadata_configuration"] = metadata_configuration
             __props__.__dict__["name"] = name
             if target_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'target_configuration'")
@@ -212,6 +227,7 @@ class GatewayTarget(pulumi.CustomResource):
         __props__.__dict__["gateway_arn"] = None
         __props__.__dict__["gateway_identifier"] = None
         __props__.__dict__["last_synchronized_at"] = None
+        __props__.__dict__["metadata_configuration"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["status_reasons"] = None
@@ -261,6 +277,11 @@ class GatewayTarget(pulumi.CustomResource):
     @pulumi.getter(name="lastSynchronizedAt")
     def last_synchronized_at(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "last_synchronized_at")
+
+    @_builtins.property
+    @pulumi.getter(name="metadataConfiguration")
+    def metadata_configuration(self) -> pulumi.Output[Optional['outputs.GatewayTargetMetadataConfiguration']]:
+        return pulumi.get(self, "metadata_configuration")
 
     @_builtins.property
     @pulumi.getter

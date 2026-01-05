@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.ArcRegionSwitch.Inputs
     {
         [Input("reportOutput")]
         private InputList<Inputs.PlanReportOutputConfigurationPropertiesArgs>? _reportOutput;
+
+        /// <summary>
+        /// The output configuration for the report.
+        /// </summary>
         public InputList<Inputs.PlanReportOutputConfigurationPropertiesArgs> ReportOutput
         {
             get => _reportOutput ?? (_reportOutput = new InputList<Inputs.PlanReportOutputConfigurationPropertiesArgs>());

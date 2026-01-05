@@ -20,6 +20,12 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? AvailabilityZone;
         /// <summary>
+        /// The ID of the Availability Zone in which to launch the instances. For example, `use2-az1` .
+        /// 
+        /// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+        /// </summary>
+        public readonly string? AvailabilityZoneId;
+        /// <summary>
         /// The instance requirements. When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.
         /// 
         /// &gt; If you specify `InstanceRequirements` , you can't specify `InstanceType` .
@@ -62,6 +68,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         private SpotFleetLaunchTemplateOverrides(
             string? availabilityZone,
 
+            string? availabilityZoneId,
+
             Outputs.SpotFleetInstanceRequirementsRequest? instanceRequirements,
 
             string? instanceType,
@@ -75,6 +83,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             double? weightedCapacity)
         {
             AvailabilityZone = availabilityZone;
+            AvailabilityZoneId = availabilityZoneId;
             InstanceRequirements = instanceRequirements;
             InstanceType = instanceType;
             Priority = priority;

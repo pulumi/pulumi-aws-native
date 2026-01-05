@@ -56,6 +56,10 @@ namespace Pulumi.AwsNative.Dms.Outputs
         /// RedshiftSettings property identifier.
         /// </summary>
         public readonly Outputs.SettingsPropertiesRedshiftSettingsProperties? RedshiftSettings;
+        /// <summary>
+        /// SybaseAseSettings property identifier.
+        /// </summary>
+        public readonly Outputs.SettingsPropertiesSybaseAseSettingsProperties? SybaseAseSettings;
 
         [OutputConstructor]
         private SettingsProperties(
@@ -77,7 +81,9 @@ namespace Pulumi.AwsNative.Dms.Outputs
 
             Outputs.SettingsPropertiesPostgreSqlSettingsProperties? postgreSqlSettings,
 
-            Outputs.SettingsPropertiesRedshiftSettingsProperties? redshiftSettings)
+            Outputs.SettingsPropertiesRedshiftSettingsProperties? redshiftSettings,
+
+            Outputs.SettingsPropertiesSybaseAseSettingsProperties? sybaseAseSettings)
         {
             DocDbSettings = docDbSettings;
             IbmDb2LuwSettings = ibmDb2LuwSettings;
@@ -89,6 +95,7 @@ namespace Pulumi.AwsNative.Dms.Outputs
             OracleSettings = oracleSettings;
             PostgreSqlSettings = postgreSqlSettings;
             RedshiftSettings = redshiftSettings;
+            SybaseAseSettings = sybaseAseSettings;
         }
     }
 }

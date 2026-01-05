@@ -181,7 +181,7 @@ class BillingView(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["owner_account_id"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "name", "sourceViews[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(BillingView, __self__).__init__(
             'aws-native:billing:BillingView',

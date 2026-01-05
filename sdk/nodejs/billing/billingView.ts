@@ -115,7 +115,7 @@ export class BillingView extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["description", "name", "sourceViews[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["description", "name"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(BillingView.__pulumiType, name, resourceInputs, opts);
     }

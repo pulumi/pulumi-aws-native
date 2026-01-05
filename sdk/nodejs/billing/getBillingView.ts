@@ -46,6 +46,10 @@ export interface GetBillingViewResult {
      */
     readonly ownerAccountId?: string;
     /**
+     * An array of strings that define the billing view's source.
+     */
+    readonly sourceViews?: string[];
+    /**
      * An array of key-value pairs associated to the billing view being created.
      */
     readonly tags?: outputs.Tag[];

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("s3BucketDestination")]
         public Input<Inputs.StorageLensS3BucketDestinationArgs>? S3BucketDestination { get; set; }
 
+        /// <summary>
+        /// This property contains the details of the S3 table bucket where the S3 Storage Lens default metrics report will be placed. This property enables you to store your Storage Lens metrics in read-only S3 Tables.
+        /// </summary>
         [Input("storageLensTableDestination")]
         public Input<Inputs.StorageLensTableDestinationArgs>? StorageLensTableDestination { get; set; }
 

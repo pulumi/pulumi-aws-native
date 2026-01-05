@@ -2144,19 +2144,23 @@ if not MYPY:
         """
         <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
         """
+        scte_in_segments: NotRequired[pulumi.Input['OriginEndpointScteInSegments']]
 elif False:
     OriginEndpointScteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OriginEndpointScteArgs:
     def __init__(__self__, *,
-                 scte_filter: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointScteFilter']]]] = None):
+                 scte_filter: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointScteFilter']]]] = None,
+                 scte_in_segments: Optional[pulumi.Input['OriginEndpointScteInSegments']] = None):
         """
         <p>The SCTE configuration.</p>
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointScteFilter']]] scte_filter: <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
         """
         if scte_filter is not None:
             pulumi.set(__self__, "scte_filter", scte_filter)
+        if scte_in_segments is not None:
+            pulumi.set(__self__, "scte_in_segments", scte_in_segments)
 
     @_builtins.property
     @pulumi.getter(name="scteFilter")
@@ -2169,6 +2173,15 @@ class OriginEndpointScteArgs:
     @scte_filter.setter
     def scte_filter(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointScteFilter']]]]):
         pulumi.set(self, "scte_filter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scteInSegments")
+    def scte_in_segments(self) -> Optional[pulumi.Input['OriginEndpointScteInSegments']]:
+        return pulumi.get(self, "scte_in_segments")
+
+    @scte_in_segments.setter
+    def scte_in_segments(self, value: Optional[pulumi.Input['OriginEndpointScteInSegments']]):
+        pulumi.set(self, "scte_in_segments", value)
 
 
 if not MYPY:

@@ -28,7 +28,7 @@ type LookupRepositoryCreationTemplateArgs struct {
 }
 
 type LookupRepositoryCreationTemplateResult struct {
-	// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
+	// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH
 	AppliedFor []RepositoryCreationTemplateAppliedForItem `pulumi:"appliedFor"`
 	// The date and time, in JavaScript date format, when the repository creation template was created.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -84,7 +84,7 @@ func (o LookupRepositoryCreationTemplateResultOutput) ToLookupRepositoryCreation
 	return o
 }
 
-// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
+// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH
 func (o LookupRepositoryCreationTemplateResultOutput) AppliedFor() RepositoryCreationTemplateAppliedForItemArrayOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) []RepositoryCreationTemplateAppliedForItem {
 		return v.AppliedFor

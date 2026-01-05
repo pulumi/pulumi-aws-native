@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class StorageLensExpandedPrefixesDataExport
     {
+        /// <summary>
+        /// This property specifies the general purpose bucket where the S3 Storage Lens Expanded Prefixes metrics export files are located. At least one export destination must be specified.
+        /// </summary>
         public readonly Outputs.StorageLensS3BucketDestination? S3BucketDestination;
+        /// <summary>
+        /// This property configures S3 Storage Lens Expanded Prefixes metrics report to read-only S3 table buckets.
+        /// </summary>
         public readonly Outputs.StorageLensTableDestination? StorageLensTableDestination;
 
         [OutputConstructor]

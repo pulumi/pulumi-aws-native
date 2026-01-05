@@ -20,6 +20,14 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? AvailabilityZone;
         /// <summary>
+        /// The ID of the Availability Zone. For example, `use2-az1` .
+        /// 
+        /// [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, " `use2-az1` , `use2-bz1` ".
+        /// 
+        /// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+        /// </summary>
+        public readonly string? AvailabilityZoneId;
+        /// <summary>
         /// The name of the placement group.
         /// </summary>
         public readonly string? GroupName;
@@ -32,11 +40,14 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         private SpotFleetSpotPlacement(
             string? availabilityZone,
 
+            string? availabilityZoneId,
+
             string? groupName,
 
             Pulumi.AwsNative.Ec2.SpotFleetSpotPlacementTenancy? tenancy)
         {
             AvailabilityZone = availabilityZone;
+            AvailabilityZoneId = availabilityZoneId;
             GroupName = groupName;
             Tenancy = tenancy;
         }

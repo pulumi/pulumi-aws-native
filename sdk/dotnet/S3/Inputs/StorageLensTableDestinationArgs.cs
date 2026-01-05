@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.S3.Inputs
     /// </summary>
     public sealed class StorageLensTableDestinationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This resource configures your data encryption settings for Storage Lens metrics in read-only S3 table buckets.
+        /// </summary>
         [Input("encryption")]
         public Input<Inputs.StorageLensEncryptionArgs>? Encryption { get; set; }
 

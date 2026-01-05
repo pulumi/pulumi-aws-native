@@ -169,6 +169,38 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The relationship between the claim field value and the value or values being matched
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayClaimMatchOperator : IEquatable<GatewayClaimMatchOperator>
+    {
+        private readonly string _value;
+
+        private GatewayClaimMatchOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayClaimMatchOperator EqualsValue { get; } = new GatewayClaimMatchOperator("EQUALS");
+        public static GatewayClaimMatchOperator Contains { get; } = new GatewayClaimMatchOperator("CONTAINS");
+        public static GatewayClaimMatchOperator ContainsAny { get; } = new GatewayClaimMatchOperator("CONTAINS_ANY");
+
+        public static bool operator ==(GatewayClaimMatchOperator left, GatewayClaimMatchOperator right) => left.Equals(right);
+        public static bool operator !=(GatewayClaimMatchOperator left, GatewayClaimMatchOperator right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayClaimMatchOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayClaimMatchOperator other && Equals(other);
+        public bool Equals(GatewayClaimMatchOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct GatewayExceptionLevel : IEquatable<GatewayExceptionLevel>
     {
@@ -189,6 +221,37 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is GatewayExceptionLevel other && Equals(other);
         public bool Equals(GatewayExceptionLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Token claim data type
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayInboundTokenClaimValueType : IEquatable<GatewayInboundTokenClaimValueType>
+    {
+        private readonly string _value;
+
+        private GatewayInboundTokenClaimValueType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayInboundTokenClaimValueType String { get; } = new GatewayInboundTokenClaimValueType("STRING");
+        public static GatewayInboundTokenClaimValueType StringArray { get; } = new GatewayInboundTokenClaimValueType("STRING_ARRAY");
+
+        public static bool operator ==(GatewayInboundTokenClaimValueType left, GatewayInboundTokenClaimValueType right) => left.Equals(right);
+        public static bool operator !=(GatewayInboundTokenClaimValueType left, GatewayInboundTokenClaimValueType right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayInboundTokenClaimValueType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayInboundTokenClaimValueType other && Equals(other);
+        public bool Equals(GatewayInboundTokenClaimValueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -511,6 +574,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public static MemoryCustomMemoryStrategyType Summarization { get; } = new MemoryCustomMemoryStrategyType("SUMMARIZATION");
         public static MemoryCustomMemoryStrategyType UserPreference { get; } = new MemoryCustomMemoryStrategyType("USER_PREFERENCE");
         public static MemoryCustomMemoryStrategyType Custom { get; } = new MemoryCustomMemoryStrategyType("CUSTOM");
+        public static MemoryCustomMemoryStrategyType Episodic { get; } = new MemoryCustomMemoryStrategyType("EPISODIC");
 
         public static bool operator ==(MemoryCustomMemoryStrategyType left, MemoryCustomMemoryStrategyType right) => left.Equals(right);
         public static bool operator !=(MemoryCustomMemoryStrategyType left, MemoryCustomMemoryStrategyType right) => !left.Equals(right);
@@ -520,6 +584,73 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MemoryCustomMemoryStrategyType other && Equals(other);
         public bool Equals(MemoryCustomMemoryStrategyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status of the memory strategy
+    /// </summary>
+    [EnumType]
+    public readonly struct MemoryEpisodicMemoryStrategyStatus : IEquatable<MemoryEpisodicMemoryStrategyStatus>
+    {
+        private readonly string _value;
+
+        private MemoryEpisodicMemoryStrategyStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MemoryEpisodicMemoryStrategyStatus Creating { get; } = new MemoryEpisodicMemoryStrategyStatus("CREATING");
+        public static MemoryEpisodicMemoryStrategyStatus Active { get; } = new MemoryEpisodicMemoryStrategyStatus("ACTIVE");
+        public static MemoryEpisodicMemoryStrategyStatus Deleting { get; } = new MemoryEpisodicMemoryStrategyStatus("DELETING");
+        public static MemoryEpisodicMemoryStrategyStatus Failed { get; } = new MemoryEpisodicMemoryStrategyStatus("FAILED");
+
+        public static bool operator ==(MemoryEpisodicMemoryStrategyStatus left, MemoryEpisodicMemoryStrategyStatus right) => left.Equals(right);
+        public static bool operator !=(MemoryEpisodicMemoryStrategyStatus left, MemoryEpisodicMemoryStrategyStatus right) => !left.Equals(right);
+
+        public static explicit operator string(MemoryEpisodicMemoryStrategyStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MemoryEpisodicMemoryStrategyStatus other && Equals(other);
+        public bool Equals(MemoryEpisodicMemoryStrategyStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of memory strategy
+    /// </summary>
+    [EnumType]
+    public readonly struct MemoryEpisodicMemoryStrategyType : IEquatable<MemoryEpisodicMemoryStrategyType>
+    {
+        private readonly string _value;
+
+        private MemoryEpisodicMemoryStrategyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MemoryEpisodicMemoryStrategyType Semantic { get; } = new MemoryEpisodicMemoryStrategyType("SEMANTIC");
+        public static MemoryEpisodicMemoryStrategyType Summarization { get; } = new MemoryEpisodicMemoryStrategyType("SUMMARIZATION");
+        public static MemoryEpisodicMemoryStrategyType UserPreference { get; } = new MemoryEpisodicMemoryStrategyType("USER_PREFERENCE");
+        public static MemoryEpisodicMemoryStrategyType Custom { get; } = new MemoryEpisodicMemoryStrategyType("CUSTOM");
+        public static MemoryEpisodicMemoryStrategyType Episodic { get; } = new MemoryEpisodicMemoryStrategyType("EPISODIC");
+
+        public static bool operator ==(MemoryEpisodicMemoryStrategyType left, MemoryEpisodicMemoryStrategyType right) => left.Equals(right);
+        public static bool operator !=(MemoryEpisodicMemoryStrategyType left, MemoryEpisodicMemoryStrategyType right) => !left.Equals(right);
+
+        public static explicit operator string(MemoryEpisodicMemoryStrategyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MemoryEpisodicMemoryStrategyType other && Equals(other);
+        public bool Equals(MemoryEpisodicMemoryStrategyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -577,6 +708,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public static MemorySemanticMemoryStrategyType Summarization { get; } = new MemorySemanticMemoryStrategyType("SUMMARIZATION");
         public static MemorySemanticMemoryStrategyType UserPreference { get; } = new MemorySemanticMemoryStrategyType("USER_PREFERENCE");
         public static MemorySemanticMemoryStrategyType Custom { get; } = new MemorySemanticMemoryStrategyType("CUSTOM");
+        public static MemorySemanticMemoryStrategyType Episodic { get; } = new MemorySemanticMemoryStrategyType("EPISODIC");
 
         public static bool operator ==(MemorySemanticMemoryStrategyType left, MemorySemanticMemoryStrategyType right) => left.Equals(right);
         public static bool operator !=(MemorySemanticMemoryStrategyType left, MemorySemanticMemoryStrategyType right) => !left.Equals(right);
@@ -676,6 +808,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public static MemorySummaryMemoryStrategyType Summarization { get; } = new MemorySummaryMemoryStrategyType("SUMMARIZATION");
         public static MemorySummaryMemoryStrategyType UserPreference { get; } = new MemorySummaryMemoryStrategyType("USER_PREFERENCE");
         public static MemorySummaryMemoryStrategyType Custom { get; } = new MemorySummaryMemoryStrategyType("CUSTOM");
+        public static MemorySummaryMemoryStrategyType Episodic { get; } = new MemorySummaryMemoryStrategyType("EPISODIC");
 
         public static bool operator ==(MemorySummaryMemoryStrategyType left, MemorySummaryMemoryStrategyType right) => left.Equals(right);
         public static bool operator !=(MemorySummaryMemoryStrategyType left, MemorySummaryMemoryStrategyType right) => !left.Equals(right);
@@ -742,6 +875,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public static MemoryUserPreferenceMemoryStrategyType Summarization { get; } = new MemoryUserPreferenceMemoryStrategyType("SUMMARIZATION");
         public static MemoryUserPreferenceMemoryStrategyType UserPreference { get; } = new MemoryUserPreferenceMemoryStrategyType("USER_PREFERENCE");
         public static MemoryUserPreferenceMemoryStrategyType Custom { get; } = new MemoryUserPreferenceMemoryStrategyType("CUSTOM");
+        public static MemoryUserPreferenceMemoryStrategyType Episodic { get; } = new MemoryUserPreferenceMemoryStrategyType("EPISODIC");
 
         public static bool operator ==(MemoryUserPreferenceMemoryStrategyType left, MemoryUserPreferenceMemoryStrategyType right) => left.Equals(right);
         public static bool operator !=(MemoryUserPreferenceMemoryStrategyType left, MemoryUserPreferenceMemoryStrategyType right) => !left.Equals(right);
