@@ -102,7 +102,6 @@ namespace Pulumi.AwsNative.Billing
                 {
                     "description",
                     "name",
-                    "sourceViews[*]",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

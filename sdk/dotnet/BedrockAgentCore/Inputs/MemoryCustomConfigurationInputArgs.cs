@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
 
     public sealed class MemoryCustomConfigurationInputArgs : global::Pulumi.ResourceArgs
     {
+        [Input("episodicOverride")]
+        public Input<Inputs.MemoryEpisodicOverrideArgs>? EpisodicOverride { get; set; }
+
         [Input("selfManagedConfiguration")]
         public Input<Inputs.MemorySelfManagedConfigurationArgs>? SelfManagedConfiguration { get; set; }
 

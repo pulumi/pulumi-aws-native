@@ -34,6 +34,10 @@ export interface GetRuntimeEndpointResult {
      */
     readonly agentRuntimeEndpointArn?: string;
     /**
+     * The version of the AgentCore Runtime to use for the endpoint.
+     */
+    readonly agentRuntimeVersion?: string;
+    /**
      * The timestamp when the Agent Runtime Endpoint was created
      */
     readonly createdAt?: string;

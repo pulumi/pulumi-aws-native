@@ -84,6 +84,10 @@ namespace Pulumi.AwsNative.Billing
         /// </summary>
         public readonly string? OwnerAccountId;
         /// <summary>
+        /// An array of strings that define the billing view's source.
+        /// </summary>
+        public readonly ImmutableArray<string> SourceViews;
+        /// <summary>
         /// An array of key-value pairs associated to the billing view being created.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -104,6 +108,8 @@ namespace Pulumi.AwsNative.Billing
 
             string? ownerAccountId,
 
+            ImmutableArray<string> sourceViews,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             double? updatedAt)
@@ -113,6 +119,7 @@ namespace Pulumi.AwsNative.Billing
             CreatedAt = createdAt;
             DataFilterExpression = dataFilterExpression;
             OwnerAccountId = ownerAccountId;
+            SourceViews = sourceViews;
             Tags = tags;
             UpdatedAt = updatedAt;
         }

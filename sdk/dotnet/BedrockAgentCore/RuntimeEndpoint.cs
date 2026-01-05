@@ -125,7 +125,6 @@ namespace Pulumi.AwsNative.BedrockAgentCore
                 ReplaceOnChanges =
                 {
                     "agentRuntimeId",
-                    "agentRuntimeVersion",
                     "name",
                 },
             };

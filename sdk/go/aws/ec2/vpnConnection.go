@@ -62,7 +62,7 @@ type VpnConnection struct {
 	TunnelInsideIpVersion pulumi.StringPtrOutput `pulumi:"tunnelInsideIpVersion"`
 	// The type of VPN connection.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The ID of the VPN connection.
+	// The ID of the VPN concentrator to associate with the VPN connection.
 	VpnConcentratorId pulumi.StringPtrOutput `pulumi:"vpnConcentratorId"`
 	// The ID of the VPN connection.
 	VpnConnectionId pulumi.StringOutput `pulumi:"vpnConnectionId"`
@@ -180,7 +180,7 @@ type vpnConnectionArgs struct {
 	TunnelInsideIpVersion *string `pulumi:"tunnelInsideIpVersion"`
 	// The type of VPN connection.
 	Type string `pulumi:"type"`
-	// The ID of the VPN connection.
+	// The ID of the VPN concentrator to associate with the VPN connection.
 	VpnConcentratorId *string `pulumi:"vpnConcentratorId"`
 	// The ID of the virtual private gateway at the AWS side of the VPN connection.
 	//  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
@@ -232,7 +232,7 @@ type VpnConnectionArgs struct {
 	TunnelInsideIpVersion pulumi.StringPtrInput
 	// The type of VPN connection.
 	Type pulumi.StringInput
-	// The ID of the VPN connection.
+	// The ID of the VPN concentrator to associate with the VPN connection.
 	VpnConcentratorId pulumi.StringPtrInput
 	// The ID of the virtual private gateway at the AWS side of the VPN connection.
 	//  You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
@@ -374,7 +374,7 @@ func (o VpnConnectionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// The ID of the VPN connection.
+// The ID of the VPN concentrator to associate with the VPN connection.
 func (o VpnConnectionOutput) VpnConcentratorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.VpnConcentratorId }).(pulumi.StringPtrOutput)
 }

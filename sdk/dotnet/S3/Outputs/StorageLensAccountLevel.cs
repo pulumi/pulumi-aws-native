@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
         /// </summary>
         public readonly Outputs.StorageLensAdvancedDataProtectionMetrics? AdvancedDataProtectionMetrics;
+        /// <summary>
+        /// This property contains the account-level details for S3 Storage Lens advanced performance metrics.
+        /// </summary>
         public readonly Outputs.StorageLensAdvancedPerformanceMetrics? AdvancedPerformanceMetrics;
         /// <summary>
         /// This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens. To enable bucket-level configurations, make sure to also set the same metrics at the account level.

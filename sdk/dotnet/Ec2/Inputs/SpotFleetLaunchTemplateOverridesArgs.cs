@@ -21,6 +21,14 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
+        /// The ID of the Availability Zone in which to launch the instances. For example, `use2-az1` .
+        /// 
+        /// Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+        /// </summary>
+        [Input("availabilityZoneId")]
+        public Input<string>? AvailabilityZoneId { get; set; }
+
+        /// <summary>
         /// The instance requirements. When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.
         /// 
         /// &gt; If you specify `InstanceRequirements` , you can't specify `InstanceType` .

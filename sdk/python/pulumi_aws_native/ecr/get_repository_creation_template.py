@@ -64,7 +64,7 @@ class GetRepositoryCreationTemplateResult:
     @pulumi.getter(name="appliedFor")
     def applied_for(self) -> Optional[Sequence['RepositoryCreationTemplateAppliedForItem']]:
         """
-        A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
+        A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH
         """
         return pulumi.get(self, "applied_for")
 

@@ -33,6 +33,7 @@ __all__ = [
     'SettingsPropertiesOracleSettingsProperties',
     'SettingsPropertiesPostgreSqlSettingsProperties',
     'SettingsPropertiesRedshiftSettingsProperties',
+    'SettingsPropertiesSybaseAseSettingsProperties',
 ]
 
 @pulumi.output_type
@@ -510,6 +511,8 @@ class SettingsProperties(dict):
             suggest = "postgre_sql_settings"
         elif key == "redshiftSettings":
             suggest = "redshift_settings"
+        elif key == "sybaseAseSettings":
+            suggest = "sybase_ase_settings"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SettingsProperties. Access the value via the '{suggest}' property getter instead.")
@@ -532,7 +535,8 @@ class SettingsProperties(dict):
                  my_sql_settings: Optional['outputs.SettingsPropertiesMySqlSettingsProperties'] = None,
                  oracle_settings: Optional['outputs.SettingsPropertiesOracleSettingsProperties'] = None,
                  postgre_sql_settings: Optional['outputs.SettingsPropertiesPostgreSqlSettingsProperties'] = None,
-                 redshift_settings: Optional['outputs.SettingsPropertiesRedshiftSettingsProperties'] = None):
+                 redshift_settings: Optional['outputs.SettingsPropertiesRedshiftSettingsProperties'] = None,
+                 sybase_ase_settings: Optional['outputs.SettingsPropertiesSybaseAseSettingsProperties'] = None):
         """
         The property identifies the exact type of settings for the data provider.
         :param 'SettingsPropertiesDocDbSettingsProperties' doc_db_settings: DocDbSettings property identifier.
@@ -545,6 +549,7 @@ class SettingsProperties(dict):
         :param 'SettingsPropertiesOracleSettingsProperties' oracle_settings: OracleSettings property identifier.
         :param 'SettingsPropertiesPostgreSqlSettingsProperties' postgre_sql_settings: PostgreSqlSettings property identifier.
         :param 'SettingsPropertiesRedshiftSettingsProperties' redshift_settings: RedshiftSettings property identifier.
+        :param 'SettingsPropertiesSybaseAseSettingsProperties' sybase_ase_settings: SybaseAseSettings property identifier.
         """
         if doc_db_settings is not None:
             pulumi.set(__self__, "doc_db_settings", doc_db_settings)
@@ -566,6 +571,8 @@ class SettingsProperties(dict):
             pulumi.set(__self__, "postgre_sql_settings", postgre_sql_settings)
         if redshift_settings is not None:
             pulumi.set(__self__, "redshift_settings", redshift_settings)
+        if sybase_ase_settings is not None:
+            pulumi.set(__self__, "sybase_ase_settings", sybase_ase_settings)
 
     @_builtins.property
     @pulumi.getter(name="docDbSettings")
@@ -646,6 +653,14 @@ class SettingsProperties(dict):
         RedshiftSettings property identifier.
         """
         return pulumi.get(self, "redshift_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="sybaseAseSettings")
+    def sybase_ase_settings(self) -> Optional['outputs.SettingsPropertiesSybaseAseSettingsProperties']:
+        """
+        SybaseAseSettings property identifier.
+        """
+        return pulumi.get(self, "sybase_ase_settings")
 
 
 @pulumi.output_type
@@ -1392,5 +1407,86 @@ class SettingsPropertiesRedshiftSettingsProperties(dict):
     @pulumi.getter(name="serverName")
     def server_name(self) -> _builtins.str:
         return pulumi.get(self, "server_name")
+
+
+@pulumi.output_type
+class SettingsPropertiesSybaseAseSettingsProperties(dict):
+    """
+    SybaseAseSettings property identifier.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverName":
+            suggest = "server_name"
+        elif key == "sslMode":
+            suggest = "ssl_mode"
+        elif key == "certificateArn":
+            suggest = "certificate_arn"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "encryptPassword":
+            suggest = "encrypt_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SettingsPropertiesSybaseAseSettingsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SettingsPropertiesSybaseAseSettingsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SettingsPropertiesSybaseAseSettingsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port: _builtins.int,
+                 server_name: _builtins.str,
+                 ssl_mode: 'DataProviderSybaseSslModeValue',
+                 certificate_arn: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 encrypt_password: Optional[_builtins.bool] = None):
+        """
+        SybaseAseSettings property identifier.
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "ssl_mode", ssl_mode)
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if encrypt_password is not None:
+            pulumi.set(__self__, "encrypt_password", encrypt_password)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> _builtins.int:
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> _builtins.str:
+        return pulumi.get(self, "server_name")
+
+    @_builtins.property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> 'DataProviderSybaseSslModeValue':
+        return pulumi.get(self, "ssl_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "certificate_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptPassword")
+    def encrypt_password(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "encrypt_password")
 
 

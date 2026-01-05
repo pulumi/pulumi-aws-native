@@ -161,6 +161,13 @@ export const OriginEndpointScteFilter = {
 
 export type OriginEndpointScteFilter = (typeof OriginEndpointScteFilter)[keyof typeof OriginEndpointScteFilter];
 
+export const OriginEndpointScteInSegments = {
+    None: "NONE",
+    All: "ALL",
+} as const;
+
+export type OriginEndpointScteInSegments = (typeof OriginEndpointScteInSegments)[keyof typeof OriginEndpointScteInSegments];
+
 export const OriginEndpointTsEncryptionMethod = {
     Aes128: "AES_128",
     SampleAes: "SAMPLE_AES",

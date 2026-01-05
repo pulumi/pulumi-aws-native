@@ -42,6 +42,7 @@ export const DataProviderEngine = {
     Docdb: "docdb",
     Db2: "db2",
     Db2Zos: "db2_zos",
+    Sybase: "sybase",
 } as const;
 
 /**
@@ -71,6 +72,14 @@ export const DataProviderMongoDbSslModeValue = {
 } as const;
 
 export type DataProviderMongoDbSslModeValue = (typeof DataProviderMongoDbSslModeValue)[keyof typeof DataProviderMongoDbSslModeValue];
+
+export const DataProviderSybaseSslModeValue = {
+    None: "none",
+    Require: "require",
+    VerifyCa: "verify-ca",
+} as const;
+
+export type DataProviderSybaseSslModeValue = (typeof DataProviderSybaseSslModeValue)[keyof typeof DataProviderSybaseSslModeValue];
 
 export const InstanceProfileNetworkType = {
     Ipv4: "IPV4",

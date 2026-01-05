@@ -1379,6 +1379,8 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
         suggest = None
         if key == "availabilityZone":
             suggest = "availability_zone"
+        elif key == "availabilityZoneId":
+            suggest = "availability_zone_id"
         elif key == "blockDeviceMappings":
             suggest = "block_device_mappings"
         elif key == "instanceRequirements":
@@ -1405,6 +1407,7 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
 
     def __init__(__self__, *,
                  availability_zone: Optional[_builtins.str] = None,
+                 availability_zone_id: Optional[_builtins.str] = None,
                  block_device_mappings: Optional[Sequence['outputs.Ec2FleetBlockDeviceMapping']] = None,
                  instance_requirements: Optional['outputs.Ec2FleetInstanceRequirementsRequest'] = None,
                  instance_type: Optional[_builtins.str] = None,
@@ -1415,6 +1418,9 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
                  weighted_capacity: Optional[_builtins.float] = None):
         """
         :param _builtins.str availability_zone: The Availability Zone in which to launch the instances. For example, `us-east-2a` .
+               
+               Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+        :param _builtins.str availability_zone_id: The ID of the Availability Zone in which to launch the instances. For example, `use2-az1` .
                
                Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
         :param Sequence['Ec2FleetBlockDeviceMapping'] block_device_mappings: The block device mappings, which define the EBS volumes and instance store volumes to attach to the instance at launch.
@@ -1452,6 +1458,8 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
         """
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if availability_zone_id is not None:
+            pulumi.set(__self__, "availability_zone_id", availability_zone_id)
         if block_device_mappings is not None:
             pulumi.set(__self__, "block_device_mappings", block_device_mappings)
         if instance_requirements is not None:
@@ -1478,6 +1486,16 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
         Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
         """
         return pulumi.get(self, "availability_zone")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the Availability Zone in which to launch the instances. For example, `use2-az1` .
+
+        Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+        """
+        return pulumi.get(self, "availability_zone_id")
 
     @_builtins.property
     @pulumi.getter(name="blockDeviceMappings")
@@ -13417,6 +13435,8 @@ class SpotFleetLaunchTemplateOverrides(dict):
         suggest = None
         if key == "availabilityZone":
             suggest = "availability_zone"
+        elif key == "availabilityZoneId":
+            suggest = "availability_zone_id"
         elif key == "instanceRequirements":
             suggest = "instance_requirements"
         elif key == "instanceType":
@@ -13441,6 +13461,7 @@ class SpotFleetLaunchTemplateOverrides(dict):
 
     def __init__(__self__, *,
                  availability_zone: Optional[_builtins.str] = None,
+                 availability_zone_id: Optional[_builtins.str] = None,
                  instance_requirements: Optional['outputs.SpotFleetInstanceRequirementsRequest'] = None,
                  instance_type: Optional[_builtins.str] = None,
                  priority: Optional[_builtins.float] = None,
@@ -13449,6 +13470,9 @@ class SpotFleetLaunchTemplateOverrides(dict):
                  weighted_capacity: Optional[_builtins.float] = None):
         """
         :param _builtins.str availability_zone: The Availability Zone in which to launch the instances. For example, `us-east-2a` .
+               
+               Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+        :param _builtins.str availability_zone_id: The ID of the Availability Zone in which to launch the instances. For example, `use2-az1` .
                
                Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
         :param 'SpotFleetInstanceRequirementsRequest' instance_requirements: The instance requirements. When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.
@@ -13474,6 +13498,8 @@ class SpotFleetLaunchTemplateOverrides(dict):
         """
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if availability_zone_id is not None:
+            pulumi.set(__self__, "availability_zone_id", availability_zone_id)
         if instance_requirements is not None:
             pulumi.set(__self__, "instance_requirements", instance_requirements)
         if instance_type is not None:
@@ -13496,6 +13522,16 @@ class SpotFleetLaunchTemplateOverrides(dict):
         Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
         """
         return pulumi.get(self, "availability_zone")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the Availability Zone in which to launch the instances. For example, `use2-az1` .
+
+        Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+        """
+        return pulumi.get(self, "availability_zone_id")
 
     @_builtins.property
     @pulumi.getter(name="instanceRequirements")
@@ -14371,6 +14407,8 @@ class SpotFleetSpotPlacement(dict):
         suggest = None
         if key == "availabilityZone":
             suggest = "availability_zone"
+        elif key == "availabilityZoneId":
+            suggest = "availability_zone_id"
         elif key == "groupName":
             suggest = "group_name"
 
@@ -14387,17 +14425,25 @@ class SpotFleetSpotPlacement(dict):
 
     def __init__(__self__, *,
                  availability_zone: Optional[_builtins.str] = None,
+                 availability_zone_id: Optional[_builtins.str] = None,
                  group_name: Optional[_builtins.str] = None,
                  tenancy: Optional['SpotFleetSpotPlacementTenancy'] = None):
         """
         :param _builtins.str availability_zone: The Availability Zone.
                
                To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
+        :param _builtins.str availability_zone_id: The ID of the Availability Zone. For example, `use2-az1` .
+               
+               [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, " `use2-az1` , `use2-bz1` ".
+               
+               Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
         :param _builtins.str group_name: The name of the placement group.
         :param 'SpotFleetSpotPlacementTenancy' tenancy: The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of `dedicated` runs on single-tenant hardware. The `host` tenancy is not supported for Spot Instances.
         """
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if availability_zone_id is not None:
+            pulumi.set(__self__, "availability_zone_id", availability_zone_id)
         if group_name is not None:
             pulumi.set(__self__, "group_name", group_name)
         if tenancy is not None:
@@ -14412,6 +14458,18 @@ class SpotFleetSpotPlacement(dict):
         To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".
         """
         return pulumi.get(self, "availability_zone")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the Availability Zone. For example, `use2-az1` .
+
+        [Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, " `use2-az1` , `use2-bz1` ".
+
+        Either `AvailabilityZone` or `AvailabilityZoneId` must be specified in the request, but not both.
+        """
+        return pulumi.get(self, "availability_zone_id")
 
     @_builtins.property
     @pulumi.getter(name="groupName")

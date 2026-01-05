@@ -75,6 +75,12 @@ namespace Pulumi.AwsNative.Dms.Inputs
         [Input("redshiftSettings")]
         public Input<Inputs.SettingsPropertiesRedshiftSettingsPropertiesArgs>? RedshiftSettings { get; set; }
 
+        /// <summary>
+        /// SybaseAseSettings property identifier.
+        /// </summary>
+        [Input("sybaseAseSettings")]
+        public Input<Inputs.SettingsPropertiesSybaseAseSettingsPropertiesArgs>? SybaseAseSettings { get; set; }
+
         public SettingsPropertiesArgs()
         {
         }

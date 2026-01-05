@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
         [Input("customMemoryStrategy")]
         public Input<Inputs.MemoryCustomMemoryStrategyArgs>? CustomMemoryStrategy { get; set; }
 
+        [Input("episodicMemoryStrategy")]
+        public Input<Inputs.MemoryEpisodicMemoryStrategyArgs>? EpisodicMemoryStrategy { get; set; }
+
         [Input("semanticMemoryStrategy")]
         public Input<Inputs.MemorySemanticMemoryStrategyArgs>? SemanticMemoryStrategy { get; set; }
 

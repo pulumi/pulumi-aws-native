@@ -45,6 +45,7 @@ class PlanArgs:
         :param pulumi.Input[_builtins.str] name: The name for a plan.
         :param pulumi.Input[_builtins.str] primary_region: The primary Region for a plan.
         :param pulumi.Input[_builtins.float] recovery_time_objective_minutes: The recovery time objective for a plan.
+        :param pulumi.Input['PlanReportConfigurationArgs'] report_configuration: The report configuration for a plan.
         :param pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]] triggers: The triggers for a plan.
         """
         pulumi.set(__self__, "execution_role", execution_role)
@@ -179,6 +180,9 @@ class PlanArgs:
     @_builtins.property
     @pulumi.getter(name="reportConfiguration")
     def report_configuration(self) -> Optional[pulumi.Input['PlanReportConfigurationArgs']]:
+        """
+        The report configuration for a plan.
+        """
         return pulumi.get(self, "report_configuration")
 
     @report_configuration.setter
@@ -239,6 +243,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input['PlanRecoveryApproach'] recovery_approach: The recovery approach for a Region switch plan, which can be active/active (activeActive) or active/passive (activePassive).
         :param pulumi.Input[_builtins.float] recovery_time_objective_minutes: The recovery time objective for a plan.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: The AWS Regions for a plan.
+        :param pulumi.Input[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict']] report_configuration: The report configuration for a plan.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]] triggers: The triggers for a plan.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]] workflows: The workflows for a plan.
         """
@@ -450,6 +455,9 @@ class Plan(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="reportConfiguration")
     def report_configuration(self) -> pulumi.Output[Optional['outputs.PlanReportConfiguration']]:
+        """
+        The report configuration for a plan.
+        """
         return pulumi.get(self, "report_configuration")
 
     @_builtins.property

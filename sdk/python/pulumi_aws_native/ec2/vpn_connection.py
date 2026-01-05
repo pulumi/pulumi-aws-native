@@ -70,7 +70,7 @@ class VpnConnectionArgs:
         :param pulumi.Input['VpnConnectionTunnelBandwidth'] tunnel_bandwidth: The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` .
         :param pulumi.Input[_builtins.str] tunnel_inside_ip_version: Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
                 Default: ``ipv4``
-        :param pulumi.Input[_builtins.str] vpn_concentrator_id: The ID of the VPN connection.
+        :param pulumi.Input[_builtins.str] vpn_concentrator_id: The ID of the VPN concentrator to associate with the VPN connection.
         :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the virtual private gateway at the AWS side of the VPN connection.
                 You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]] vpn_tunnel_options_specifications: The tunnel options for the VPN connection.
@@ -305,7 +305,7 @@ class VpnConnectionArgs:
     @pulumi.getter(name="vpnConcentratorId")
     def vpn_concentrator_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ID of the VPN connection.
+        The ID of the VPN concentrator to associate with the VPN connection.
         """
         return pulumi.get(self, "vpn_concentrator_id")
 
@@ -398,7 +398,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] tunnel_inside_ip_version: Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
                 Default: ``ipv4``
         :param pulumi.Input[_builtins.str] type: The type of VPN connection.
-        :param pulumi.Input[_builtins.str] vpn_concentrator_id: The ID of the VPN connection.
+        :param pulumi.Input[_builtins.str] vpn_concentrator_id: The ID of the VPN concentrator to associate with the VPN connection.
         :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the virtual private gateway at the AWS side of the VPN connection.
                 You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpnConnectionVpnTunnelOptionsSpecificationArgs', 'VpnConnectionVpnTunnelOptionsSpecificationArgsDict']]]] vpn_tunnel_options_specifications: The tunnel options for the VPN connection.
@@ -660,7 +660,7 @@ class VpnConnection(pulumi.CustomResource):
     @pulumi.getter(name="vpnConcentratorId")
     def vpn_concentrator_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The ID of the VPN connection.
+        The ID of the VPN concentrator to associate with the VPN connection.
         """
         return pulumi.get(self, "vpn_concentrator_id")
 

@@ -28,6 +28,22 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
             set => _allowedClients = value;
         }
 
+        [Input("allowedScopes")]
+        private InputList<string>? _allowedScopes;
+        public InputList<string> AllowedScopes
+        {
+            get => _allowedScopes ?? (_allowedScopes = new InputList<string>());
+            set => _allowedScopes = value;
+        }
+
+        [Input("customClaims")]
+        private InputList<Inputs.GatewayCustomClaimValidationTypeArgs>? _customClaims;
+        public InputList<Inputs.GatewayCustomClaimValidationTypeArgs> CustomClaims
+        {
+            get => _customClaims ?? (_customClaims = new InputList<Inputs.GatewayCustomClaimValidationTypeArgs>());
+            set => _customClaims = value;
+        }
+
         [Input("discoveryUrl", required: true)]
         public Input<string> DiscoveryUrl { get; set; } = null!;
 

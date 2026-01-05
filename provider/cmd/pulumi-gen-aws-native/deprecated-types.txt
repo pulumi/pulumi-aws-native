@@ -16,3 +16,6 @@ AWSQS::EKS::Cluster
 AWSQS::Kubernetes::Get
 AWSQS::Kubernetes::Helm
 AWSQS::Kubernetes::Resource
+MongoDB::Atlas::DataLakePipeline
+MongoDB::Atlas::DataLakes
+MongoDB::Atlas::PrivateEndpointADL

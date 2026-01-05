@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Ecr
     public sealed class GetRepositoryCreationTemplateResult
     {
         /// <summary>
-        /// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION
+        /// A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Ecr.RepositoryCreationTemplateAppliedForItem> AppliedFor;
         /// <summary>

@@ -3422,6 +3422,171 @@ func (o OriginEndpointScteFilterArrayOutput) Index(i pulumi.IntInput) OriginEndp
 	}).(OriginEndpointScteFilterOutput)
 }
 
+type OriginEndpointScteInSegments string
+
+const (
+	OriginEndpointScteInSegmentsNone = OriginEndpointScteInSegments("NONE")
+	OriginEndpointScteInSegmentsAll  = OriginEndpointScteInSegments("ALL")
+)
+
+func (OriginEndpointScteInSegments) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointScteInSegments)(nil)).Elem()
+}
+
+func (e OriginEndpointScteInSegments) ToOriginEndpointScteInSegmentsOutput() OriginEndpointScteInSegmentsOutput {
+	return pulumi.ToOutput(e).(OriginEndpointScteInSegmentsOutput)
+}
+
+func (e OriginEndpointScteInSegments) ToOriginEndpointScteInSegmentsOutputWithContext(ctx context.Context) OriginEndpointScteInSegmentsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OriginEndpointScteInSegmentsOutput)
+}
+
+func (e OriginEndpointScteInSegments) ToOriginEndpointScteInSegmentsPtrOutput() OriginEndpointScteInSegmentsPtrOutput {
+	return e.ToOriginEndpointScteInSegmentsPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointScteInSegments) ToOriginEndpointScteInSegmentsPtrOutputWithContext(ctx context.Context) OriginEndpointScteInSegmentsPtrOutput {
+	return OriginEndpointScteInSegments(e).ToOriginEndpointScteInSegmentsOutputWithContext(ctx).ToOriginEndpointScteInSegmentsPtrOutputWithContext(ctx)
+}
+
+func (e OriginEndpointScteInSegments) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointScteInSegments) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointScteInSegments) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointScteInSegments) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OriginEndpointScteInSegmentsOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointScteInSegmentsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointScteInSegments)(nil)).Elem()
+}
+
+func (o OriginEndpointScteInSegmentsOutput) ToOriginEndpointScteInSegmentsOutput() OriginEndpointScteInSegmentsOutput {
+	return o
+}
+
+func (o OriginEndpointScteInSegmentsOutput) ToOriginEndpointScteInSegmentsOutputWithContext(ctx context.Context) OriginEndpointScteInSegmentsOutput {
+	return o
+}
+
+func (o OriginEndpointScteInSegmentsOutput) ToOriginEndpointScteInSegmentsPtrOutput() OriginEndpointScteInSegmentsPtrOutput {
+	return o.ToOriginEndpointScteInSegmentsPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointScteInSegmentsOutput) ToOriginEndpointScteInSegmentsPtrOutputWithContext(ctx context.Context) OriginEndpointScteInSegmentsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointScteInSegments) *OriginEndpointScteInSegments {
+		return &v
+	}).(OriginEndpointScteInSegmentsPtrOutput)
+}
+
+func (o OriginEndpointScteInSegmentsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointScteInSegmentsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointScteInSegments) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointScteInSegmentsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointScteInSegmentsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointScteInSegments) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OriginEndpointScteInSegmentsPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointScteInSegmentsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointScteInSegments)(nil)).Elem()
+}
+
+func (o OriginEndpointScteInSegmentsPtrOutput) ToOriginEndpointScteInSegmentsPtrOutput() OriginEndpointScteInSegmentsPtrOutput {
+	return o
+}
+
+func (o OriginEndpointScteInSegmentsPtrOutput) ToOriginEndpointScteInSegmentsPtrOutputWithContext(ctx context.Context) OriginEndpointScteInSegmentsPtrOutput {
+	return o
+}
+
+func (o OriginEndpointScteInSegmentsPtrOutput) Elem() OriginEndpointScteInSegmentsOutput {
+	return o.ApplyT(func(v *OriginEndpointScteInSegments) OriginEndpointScteInSegments {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointScteInSegments
+		return ret
+	}).(OriginEndpointScteInSegmentsOutput)
+}
+
+func (o OriginEndpointScteInSegmentsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointScteInSegmentsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OriginEndpointScteInSegments) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OriginEndpointScteInSegmentsInput is an input type that accepts values of the OriginEndpointScteInSegments enum
+// A concrete instance of `OriginEndpointScteInSegmentsInput` can be one of the following:
+//
+//	OriginEndpointScteInSegmentsNone
+//	OriginEndpointScteInSegmentsAll
+type OriginEndpointScteInSegmentsInput interface {
+	pulumi.Input
+
+	ToOriginEndpointScteInSegmentsOutput() OriginEndpointScteInSegmentsOutput
+	ToOriginEndpointScteInSegmentsOutputWithContext(context.Context) OriginEndpointScteInSegmentsOutput
+}
+
+var originEndpointScteInSegmentsPtrType = reflect.TypeOf((**OriginEndpointScteInSegments)(nil)).Elem()
+
+type OriginEndpointScteInSegmentsPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointScteInSegmentsPtrOutput() OriginEndpointScteInSegmentsPtrOutput
+	ToOriginEndpointScteInSegmentsPtrOutputWithContext(context.Context) OriginEndpointScteInSegmentsPtrOutput
+}
+
+type originEndpointScteInSegmentsPtr string
+
+func OriginEndpointScteInSegmentsPtr(v string) OriginEndpointScteInSegmentsPtrInput {
+	return (*originEndpointScteInSegmentsPtr)(&v)
+}
+
+func (*originEndpointScteInSegmentsPtr) ElementType() reflect.Type {
+	return originEndpointScteInSegmentsPtrType
+}
+
+func (in *originEndpointScteInSegmentsPtr) ToOriginEndpointScteInSegmentsPtrOutput() OriginEndpointScteInSegmentsPtrOutput {
+	return pulumi.ToOutput(in).(OriginEndpointScteInSegmentsPtrOutput)
+}
+
+func (in *originEndpointScteInSegmentsPtr) ToOriginEndpointScteInSegmentsPtrOutputWithContext(ctx context.Context) OriginEndpointScteInSegmentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointScteInSegmentsPtrOutput)
+}
+
 type OriginEndpointTsEncryptionMethod string
 
 const (
@@ -3631,6 +3796,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteFilterInput)(nil)).Elem(), OriginEndpointScteFilter("SPLICE_INSERT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteFilterPtrInput)(nil)).Elem(), OriginEndpointScteFilter("SPLICE_INSERT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteFilterArrayInput)(nil)).Elem(), OriginEndpointScteFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteInSegmentsInput)(nil)).Elem(), OriginEndpointScteInSegments("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteInSegmentsPtrInput)(nil)).Elem(), OriginEndpointScteInSegments("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointTsEncryptionMethodInput)(nil)).Elem(), OriginEndpointTsEncryptionMethod("AES_128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointTsEncryptionMethodPtrInput)(nil)).Elem(), OriginEndpointTsEncryptionMethod("AES_128"))
 	pulumi.RegisterOutputType(ChannelInputTypeOutput{})
@@ -3676,6 +3843,8 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointScteFilterOutput{})
 	pulumi.RegisterOutputType(OriginEndpointScteFilterPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointScteFilterArrayOutput{})
+	pulumi.RegisterOutputType(OriginEndpointScteInSegmentsOutput{})
+	pulumi.RegisterOutputType(OriginEndpointScteInSegmentsPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointTsEncryptionMethodOutput{})
 	pulumi.RegisterOutputType(OriginEndpointTsEncryptionMethodPtrOutput{})
 }

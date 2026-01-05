@@ -1436,6 +1436,9 @@ class PlanRegionSwitchPlanConfigurationArgs:
 if not MYPY:
     class PlanReportConfigurationArgsDict(TypedDict):
         report_output: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanReportOutputConfigurationPropertiesArgsDict']]]]
+        """
+        The output configuration for the report.
+        """
 elif False:
     PlanReportConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1443,12 +1446,18 @@ elif False:
 class PlanReportConfigurationArgs:
     def __init__(__self__, *,
                  report_output: Optional[pulumi.Input[Sequence[pulumi.Input['PlanReportOutputConfigurationPropertiesArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['PlanReportOutputConfigurationPropertiesArgs']]] report_output: The output configuration for the report.
+        """
         if report_output is not None:
             pulumi.set(__self__, "report_output", report_output)
 
     @_builtins.property
     @pulumi.getter(name="reportOutput")
     def report_output(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanReportOutputConfigurationPropertiesArgs']]]]:
+        """
+        The output configuration for the report.
+        """
         return pulumi.get(self, "report_output")
 
     @report_output.setter

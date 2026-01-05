@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("advancedDataProtectionMetrics")]
         public Input<Inputs.StorageLensAdvancedDataProtectionMetricsArgs>? AdvancedDataProtectionMetrics { get; set; }
 
+        /// <summary>
+        /// A property for bucket-level advanced performance metrics for S3 Storage Lens.
+        /// </summary>
         [Input("advancedPerformanceMetrics")]
         public Input<Inputs.StorageLensAdvancedPerformanceMetricsArgs>? AdvancedPerformanceMetrics { get; set; }
 

@@ -121,8 +121,7 @@
   "readOnlyProperties" : [ "/properties/Id", "/properties/AgentRuntimeEndpointArn", "/properties/AgentRuntimeArn", "/properties/Status", "/properties/CreatedAt", "/properties/LastUpdatedAt", "/properties/FailureReason", "/properties/TargetVersion", "/properties/LiveVersion" ],
   "primaryIdentifier" : [ "/properties/AgentRuntimeEndpointArn" ],
   "additionalIdentifiers" : [ [ "/properties/Id" ] ],
-  "createOnlyProperties" : [ "/properties/AgentRuntimeId", "/properties/Name", "/properties/AgentRuntimeVersion" ],
-  "writeOnlyProperties" : [ "/properties/AgentRuntimeVersion" ],
+  "createOnlyProperties" : [ "/properties/AgentRuntimeId", "/properties/Name" ],
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "handlers" : {
     "create" : {

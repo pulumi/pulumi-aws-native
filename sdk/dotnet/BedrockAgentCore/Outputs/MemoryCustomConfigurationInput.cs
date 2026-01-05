@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class MemoryCustomConfigurationInput
     {
+        public readonly Outputs.MemoryEpisodicOverride? EpisodicOverride;
         public readonly Outputs.MemorySelfManagedConfiguration? SelfManagedConfiguration;
         public readonly Outputs.MemorySemanticOverride? SemanticOverride;
         public readonly Outputs.MemorySummaryOverride? SummaryOverride;
@@ -20,6 +21,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
         [OutputConstructor]
         private MemoryCustomConfigurationInput(
+            Outputs.MemoryEpisodicOverride? episodicOverride,
+
             Outputs.MemorySelfManagedConfiguration? selfManagedConfiguration,
 
             Outputs.MemorySemanticOverride? semanticOverride,
@@ -28,6 +31,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
 
             Outputs.MemoryUserPreferenceOverride? userPreferenceOverride)
         {
+            EpisodicOverride = episodicOverride;
             SelfManagedConfiguration = selfManagedConfiguration;
             SemanticOverride = semanticOverride;
             SummaryOverride = summaryOverride;

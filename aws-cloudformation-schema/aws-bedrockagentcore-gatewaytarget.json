@@ -326,6 +326,30 @@
         "required" : [ "InlinePayload" ],
         "additionalProperties" : false
       } ]
+    },
+    "MetadataConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "AllowedRequestHeaders" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "AllowedQueryParameters" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "AllowedResponseHeaders" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -357,6 +381,9 @@
     "LastSynchronizedAt" : {
       "type" : "string",
       "format" : "date-time"
+    },
+    "MetadataConfiguration" : {
+      "$ref" : "#/definitions/MetadataConfiguration"
     },
     "Name" : {
       "type" : "string",

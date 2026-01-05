@@ -120,7 +120,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VPN connection.
+        /// The ID of the VPN concentrator to associate with the VPN connection.
         /// </summary>
         [Output("vpnConcentratorId")]
         public Output<string?> VpnConcentratorId { get; private set; } = null!;
@@ -317,7 +317,7 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the VPN connection.
+        /// The ID of the VPN concentrator to associate with the VPN connection.
         /// </summary>
         [Input("vpnConcentratorId")]
         public Input<string>? VpnConcentratorId { get; set; }

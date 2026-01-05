@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
             set => _scteFilter = value;
         }
 
+        [Input("scteInSegments")]
+        public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointScteInSegments>? ScteInSegments { get; set; }
+
         public OriginEndpointScteArgs()
         {
         }

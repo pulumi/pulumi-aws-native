@@ -81,6 +81,9 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
         [Output("regions")]
         public Output<ImmutableArray<string>> Regions { get; private set; } = null!;
 
+        /// <summary>
+        /// The report configuration for a plan.
+        /// </summary>
         [Output("reportConfiguration")]
         public Output<Outputs.PlanReportConfiguration?> ReportConfiguration { get; private set; } = null!;
 
@@ -220,6 +223,9 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
             set => _regions = value;
         }
 
+        /// <summary>
+        /// The report configuration for a plan.
+        /// </summary>
         [Input("reportConfiguration")]
         public Input<Inputs.PlanReportConfigurationArgs>? ReportConfiguration { get; set; }
 

@@ -139,7 +139,7 @@ export class RuntimeEndpoint extends pulumi.CustomResource {
             resourceInputs["targetVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["agentRuntimeId", "agentRuntimeVersion", "name"] };
+        const replaceOnChanges = { replaceOnChanges: ["agentRuntimeId", "name"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(RuntimeEndpoint.__pulumiType, name, resourceInputs, opts);
     }

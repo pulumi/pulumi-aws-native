@@ -5428,6 +5428,9 @@ if not MYPY:
         This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
         """
         advanced_performance_metrics: NotRequired[pulumi.Input['StorageLensAdvancedPerformanceMetricsArgsDict']]
+        """
+        This property contains the account-level details for S3 Storage Lens advanced performance metrics.
+        """
         detailed_status_codes_metrics: NotRequired[pulumi.Input['StorageLensDetailedStatusCodesMetricsArgsDict']]
         """
         This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
@@ -5455,6 +5458,7 @@ class StorageLensAccountLevelArgs:
         :param pulumi.Input['StorageLensActivityMetricsArgs'] activity_metrics: This property contains the details of account-level activity metrics for S3 Storage Lens.
         :param pulumi.Input['StorageLensAdvancedCostOptimizationMetricsArgs'] advanced_cost_optimization_metrics: This property contains the details of account-level advanced cost optimization metrics for S3 Storage Lens.
         :param pulumi.Input['StorageLensAdvancedDataProtectionMetricsArgs'] advanced_data_protection_metrics: This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
+        :param pulumi.Input['StorageLensAdvancedPerformanceMetricsArgs'] advanced_performance_metrics: This property contains the account-level details for S3 Storage Lens advanced performance metrics.
         :param pulumi.Input['StorageLensDetailedStatusCodesMetricsArgs'] detailed_status_codes_metrics: This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
         :param pulumi.Input['StorageLensGroupLevelArgs'] storage_lens_group_level: This property determines the scope of Storage Lens group data that is displayed in the Storage Lens dashboard.
         """
@@ -5523,6 +5527,9 @@ class StorageLensAccountLevelArgs:
     @_builtins.property
     @pulumi.getter(name="advancedPerformanceMetrics")
     def advanced_performance_metrics(self) -> Optional[pulumi.Input['StorageLensAdvancedPerformanceMetricsArgs']]:
+        """
+        This property contains the account-level details for S3 Storage Lens advanced performance metrics.
+        """
         return pulumi.get(self, "advanced_performance_metrics")
 
     @advanced_performance_metrics.setter
@@ -5751,6 +5758,9 @@ if not MYPY:
         A property for bucket-level advanced data protection metrics for S3 Storage Lens.
         """
         advanced_performance_metrics: NotRequired[pulumi.Input['StorageLensAdvancedPerformanceMetricsArgsDict']]
+        """
+        A property for bucket-level advanced performance metrics for S3 Storage Lens.
+        """
         detailed_status_codes_metrics: NotRequired[pulumi.Input['StorageLensDetailedStatusCodesMetricsArgsDict']]
         """
         A property for bucket-level detailed status code metrics for S3 Storage Lens.
@@ -5776,6 +5786,7 @@ class StorageLensBucketLevelArgs:
         :param pulumi.Input['StorageLensActivityMetricsArgs'] activity_metrics: A property for bucket-level activity metrics for S3 Storage Lens.
         :param pulumi.Input['StorageLensAdvancedCostOptimizationMetricsArgs'] advanced_cost_optimization_metrics: A property for bucket-level advanced cost optimization metrics for S3 Storage Lens.
         :param pulumi.Input['StorageLensAdvancedDataProtectionMetricsArgs'] advanced_data_protection_metrics: A property for bucket-level advanced data protection metrics for S3 Storage Lens.
+        :param pulumi.Input['StorageLensAdvancedPerformanceMetricsArgs'] advanced_performance_metrics: A property for bucket-level advanced performance metrics for S3 Storage Lens.
         :param pulumi.Input['StorageLensDetailedStatusCodesMetricsArgs'] detailed_status_codes_metrics: A property for bucket-level detailed status code metrics for S3 Storage Lens.
         :param pulumi.Input['StorageLensPrefixLevelArgs'] prefix_level: A property for bucket-level prefix-level storage metrics for S3 Storage Lens.
         """
@@ -5831,6 +5842,9 @@ class StorageLensBucketLevelArgs:
     @_builtins.property
     @pulumi.getter(name="advancedPerformanceMetrics")
     def advanced_performance_metrics(self) -> Optional[pulumi.Input['StorageLensAdvancedPerformanceMetricsArgs']]:
+        """
+        A property for bucket-level advanced performance metrics for S3 Storage Lens.
+        """
         return pulumi.get(self, "advanced_performance_metrics")
 
     @advanced_performance_metrics.setter
@@ -5983,6 +5997,9 @@ if not MYPY:
         This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
         """
         expanded_prefixes_data_export: NotRequired[pulumi.Input['StorageLensExpandedPrefixesDataExportArgsDict']]
+        """
+        This property configures your S3 Storage Lens expanded prefixes metrics report.
+        """
         include: NotRequired[pulumi.Input['StorageLensBucketsAndRegionsArgsDict']]
         """
         This property contains the details of the bucket and or Regions included for Amazon S3 Storage Lens configuration.
@@ -6019,6 +6036,7 @@ class StorageLensConfigurationArgs:
         :param pulumi.Input['StorageLensAwsOrgArgs'] aws_org: This property contains the details of the AWS Organization for the S3 Storage Lens configuration.
         :param pulumi.Input['StorageLensDataExportArgs'] data_export: This property contains the details of this S3 Storage Lens configuration's metrics export.
         :param pulumi.Input['StorageLensBucketsAndRegionsArgs'] exclude: This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
+        :param pulumi.Input['StorageLensExpandedPrefixesDataExportArgs'] expanded_prefixes_data_export: This property configures your S3 Storage Lens expanded prefixes metrics report.
         :param pulumi.Input['StorageLensBucketsAndRegionsArgs'] include: This property contains the details of the bucket and or Regions included for Amazon S3 Storage Lens configuration.
         :param pulumi.Input[_builtins.str] prefix_delimiter: The delimiter to divide S3 key into hierarchy of prefixes.
         :param pulumi.Input[_builtins.str] storage_lens_arn: The ARN for the Amazon S3 Storage Lens configuration.
@@ -6116,6 +6134,9 @@ class StorageLensConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="expandedPrefixesDataExport")
     def expanded_prefixes_data_export(self) -> Optional[pulumi.Input['StorageLensExpandedPrefixesDataExportArgs']]:
+        """
+        This property configures your S3 Storage Lens expanded prefixes metrics report.
+        """
         return pulumi.get(self, "expanded_prefixes_data_export")
 
     @expanded_prefixes_data_export.setter
@@ -6173,6 +6194,9 @@ if not MYPY:
         This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
         """
         storage_lens_table_destination: NotRequired[pulumi.Input['StorageLensTableDestinationArgsDict']]
+        """
+        This property contains the details of the S3 table bucket where the S3 Storage Lens default metrics report will be placed. This property enables you to store your Storage Lens metrics in read-only S3 Tables.
+        """
 elif False:
     StorageLensDataExportArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6186,6 +6210,7 @@ class StorageLensDataExportArgs:
         Specifies how Amazon S3 Storage Lens metrics should be exported.
         :param pulumi.Input['StorageLensCloudWatchMetricsArgs'] cloud_watch_metrics: This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
         :param pulumi.Input['StorageLensS3BucketDestinationArgs'] s3_bucket_destination: This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
+        :param pulumi.Input['StorageLensTableDestinationArgs'] storage_lens_table_destination: This property contains the details of the S3 table bucket where the S3 Storage Lens default metrics report will be placed. This property enables you to store your Storage Lens metrics in read-only S3 Tables.
         """
         if cloud_watch_metrics is not None:
             pulumi.set(__self__, "cloud_watch_metrics", cloud_watch_metrics)
@@ -6221,6 +6246,9 @@ class StorageLensDataExportArgs:
     @_builtins.property
     @pulumi.getter(name="storageLensTableDestination")
     def storage_lens_table_destination(self) -> Optional[pulumi.Input['StorageLensTableDestinationArgs']]:
+        """
+        This property contains the details of the S3 table bucket where the S3 Storage Lens default metrics report will be placed. This property enables you to store your Storage Lens metrics in read-only S3 Tables.
+        """
         return pulumi.get(self, "storage_lens_table_destination")
 
     @storage_lens_table_destination.setter
@@ -6288,7 +6316,13 @@ if not MYPY:
         Expanded Prefixes Data Export.
         """
         s3_bucket_destination: NotRequired[pulumi.Input['StorageLensS3BucketDestinationArgsDict']]
+        """
+        This property specifies the general purpose bucket where the S3 Storage Lens Expanded Prefixes metrics export files are located. At least one export destination must be specified.
+        """
         storage_lens_table_destination: NotRequired[pulumi.Input['StorageLensTableDestinationArgsDict']]
+        """
+        This property configures S3 Storage Lens Expanded Prefixes metrics report to read-only S3 table buckets.
+        """
 elif False:
     StorageLensExpandedPrefixesDataExportArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -6299,6 +6333,8 @@ class StorageLensExpandedPrefixesDataExportArgs:
                  storage_lens_table_destination: Optional[pulumi.Input['StorageLensTableDestinationArgs']] = None):
         """
         Expanded Prefixes Data Export.
+        :param pulumi.Input['StorageLensS3BucketDestinationArgs'] s3_bucket_destination: This property specifies the general purpose bucket where the S3 Storage Lens Expanded Prefixes metrics export files are located. At least one export destination must be specified.
+        :param pulumi.Input['StorageLensTableDestinationArgs'] storage_lens_table_destination: This property configures S3 Storage Lens Expanded Prefixes metrics report to read-only S3 table buckets.
         """
         if s3_bucket_destination is not None:
             pulumi.set(__self__, "s3_bucket_destination", s3_bucket_destination)
@@ -6308,6 +6344,9 @@ class StorageLensExpandedPrefixesDataExportArgs:
     @_builtins.property
     @pulumi.getter(name="s3BucketDestination")
     def s3_bucket_destination(self) -> Optional[pulumi.Input['StorageLensS3BucketDestinationArgs']]:
+        """
+        This property specifies the general purpose bucket where the S3 Storage Lens Expanded Prefixes metrics export files are located. At least one export destination must be specified.
+        """
         return pulumi.get(self, "s3_bucket_destination")
 
     @s3_bucket_destination.setter
@@ -6317,6 +6356,9 @@ class StorageLensExpandedPrefixesDataExportArgs:
     @_builtins.property
     @pulumi.getter(name="storageLensTableDestination")
     def storage_lens_table_destination(self) -> Optional[pulumi.Input['StorageLensTableDestinationArgs']]:
+        """
+        This property configures S3 Storage Lens Expanded Prefixes metrics report to read-only S3 table buckets.
+        """
         return pulumi.get(self, "storage_lens_table_destination")
 
     @storage_lens_table_destination.setter
@@ -7255,6 +7297,9 @@ if not MYPY:
         Specifies whether the export to S3 Tables is enabled or disabled.
         """
         encryption: NotRequired[pulumi.Input['StorageLensEncryptionArgsDict']]
+        """
+        This resource configures your data encryption settings for Storage Lens metrics in read-only S3 table buckets.
+        """
 elif False:
     StorageLensTableDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -7266,6 +7311,7 @@ class StorageLensTableDestinationArgs:
         """
         S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.
         :param pulumi.Input[_builtins.bool] is_enabled: Specifies whether the export to S3 Tables is enabled or disabled.
+        :param pulumi.Input['StorageLensEncryptionArgs'] encryption: This resource configures your data encryption settings for Storage Lens metrics in read-only S3 table buckets.
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
         if encryption is not None:
@@ -7286,6 +7332,9 @@ class StorageLensTableDestinationArgs:
     @_builtins.property
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['StorageLensEncryptionArgs']]:
+        """
+        This resource configures your data encryption settings for Storage Lens metrics in read-only S3 table buckets.
+        """
         return pulumi.get(self, "encryption")
 
     @encryption.setter

@@ -32,6 +32,8 @@ type LookupRuntimeEndpointResult struct {
 	AgentRuntimeArn *string `pulumi:"agentRuntimeArn"`
 	// The Amazon Resource Name (ARN) of the AgentCore Runtime.
 	AgentRuntimeEndpointArn *string `pulumi:"agentRuntimeEndpointArn"`
+	// The version of the AgentCore Runtime to use for the endpoint.
+	AgentRuntimeVersion *string `pulumi:"agentRuntimeVersion"`
 	// The timestamp when the Agent Runtime Endpoint was created
 	CreatedAt *string `pulumi:"createdAt"`
 	// The description of the AgentCore Runtime endpoint.
@@ -92,6 +94,11 @@ func (o LookupRuntimeEndpointResultOutput) AgentRuntimeArn() pulumi.StringPtrOut
 // The Amazon Resource Name (ARN) of the AgentCore Runtime.
 func (o LookupRuntimeEndpointResultOutput) AgentRuntimeEndpointArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuntimeEndpointResult) *string { return v.AgentRuntimeEndpointArn }).(pulumi.StringPtrOutput)
+}
+
+// The version of the AgentCore Runtime to use for the endpoint.
+func (o LookupRuntimeEndpointResultOutput) AgentRuntimeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRuntimeEndpointResult) *string { return v.AgentRuntimeVersion }).(pulumi.StringPtrOutput)
 }
 
 // The timestamp when the Agent Runtime Endpoint was created
