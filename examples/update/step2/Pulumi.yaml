@@ -1,3 +1,0 @@
-name: aws-update
-runtime: nodejs
-description: A TypeScript Pulumi program with AWS Cloud Control provider testing an update
