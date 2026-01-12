@@ -26,8 +26,8 @@ class VpnConcentratorArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VpnConcentrator resource.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: The ID of the transit gateway
-        :param pulumi.Input[_builtins.str] type: The type of VPN concentrator
+        :param pulumi.Input[_builtins.str] transit_gateway_id: The ID of the transit gateway associated with the VPN concentrator.
+        :param pulumi.Input[_builtins.str] type: The type of VPN concentrator.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Any tags assigned to the VPN concentrator.
         """
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
@@ -39,7 +39,7 @@ class VpnConcentratorArgs:
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the transit gateway
+        The ID of the transit gateway associated with the VPN concentrator.
         """
         return pulumi.get(self, "transit_gateway_id")
 
@@ -51,7 +51,7 @@ class VpnConcentratorArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of VPN concentrator
+        The type of VPN concentrator.
         """
         return pulumi.get(self, "type")
 
@@ -83,13 +83,13 @@ class VpnConcentrator(pulumi.CustomResource):
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::EC2::VPNConcentrator
+        Describes a VPN concentrator.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Any tags assigned to the VPN concentrator.
-        :param pulumi.Input[_builtins.str] transit_gateway_id: The ID of the transit gateway
-        :param pulumi.Input[_builtins.str] type: The type of VPN concentrator
+        :param pulumi.Input[_builtins.str] transit_gateway_id: The ID of the transit gateway associated with the VPN concentrator.
+        :param pulumi.Input[_builtins.str] type: The type of VPN concentrator.
         """
         ...
     @overload
@@ -98,7 +98,7 @@ class VpnConcentrator(pulumi.CustomResource):
                  args: VpnConcentratorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::EC2::VPNConcentrator
+        Describes a VPN concentrator.
 
         :param str resource_name: The name of the resource.
         :param VpnConcentratorArgs args: The arguments to use to populate this resource's properties.
@@ -179,7 +179,7 @@ class VpnConcentrator(pulumi.CustomResource):
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the transit gateway attachment
+        The ID of the transit gateway attachment for the VPN concentrator.
         """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
@@ -187,7 +187,7 @@ class VpnConcentrator(pulumi.CustomResource):
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the transit gateway
+        The ID of the transit gateway associated with the VPN concentrator.
         """
         return pulumi.get(self, "transit_gateway_id")
 
@@ -195,7 +195,7 @@ class VpnConcentrator(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of VPN concentrator
+        The type of VPN concentrator.
         """
         return pulumi.get(self, "type")
 
@@ -203,7 +203,7 @@ class VpnConcentrator(pulumi.CustomResource):
     @pulumi.getter(name="vpnConcentratorId")
     def vpn_concentrator_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The provider-assigned unique ID for this managed resource
+        The ID of the VPN concentrator to associate with the VPN connection.
         """
         return pulumi.get(self, "vpn_concentrator_id")
 

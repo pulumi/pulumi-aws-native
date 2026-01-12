@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.GameLift.Outputs
         /// <summary>
         /// The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
         /// </summary>
-        public readonly int MinSize;
+        public readonly int? MinSize;
 
         [OutputConstructor]
         private FleetLocationCapacity(
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.GameLift.Outputs
 
             int maxSize,
 
-            int minSize)
+            int? minSize)
         {
             DesiredEc2Instances = desiredEc2Instances;
             MaxSize = maxSize;

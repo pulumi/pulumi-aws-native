@@ -56,6 +56,7 @@ import * as deadline from "./deadline";
 import * as devicefarm from "./devicefarm";
 import * as devopsguru from "./devopsguru";
 import * as dms from "./dms";
+import * as docdb from "./docdb";
 import * as dynamodb from "./dynamodb";
 import * as ec2 from "./ec2";
 import * as ecr from "./ecr";
@@ -247,6 +248,7 @@ export {
     devicefarm,
     devopsguru,
     dms,
+    docdb,
     dynamodb,
     ec2,
     ecr,
@@ -498,7 +500,7 @@ export const Region = {
      */
     EuWest3: "eu-west-3",
     /**
-     * EU (Germany)
+     * AWS European Sovereign Cloud (Germany)
      */
     EuscDeEast1: "eusc-de-east-1",
     /**

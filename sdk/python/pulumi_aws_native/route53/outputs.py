@@ -587,6 +587,9 @@ class HostedZoneConfig(dict):
 
 @pulumi.output_type
 class HostedZoneFeatures(dict):
+    """
+    Represents the features configuration for a hosted zone, including the status of various features and any associated failure reasons.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -607,7 +610,7 @@ class HostedZoneFeatures(dict):
     def __init__(__self__, *,
                  enable_accelerated_recovery: Optional[_builtins.bool] = None):
         """
-        :param _builtins.bool enable_accelerated_recovery: Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
+        Represents the features configuration for a hosted zone, including the status of various features and any associated failure reasons.
         """
         if enable_accelerated_recovery is not None:
             pulumi.set(__self__, "enable_accelerated_recovery", enable_accelerated_recovery)
@@ -615,9 +618,6 @@ class HostedZoneFeatures(dict):
     @_builtins.property
     @pulumi.getter(name="enableAcceleratedRecovery")
     def enable_accelerated_recovery(self) -> Optional[_builtins.bool]:
-        """
-        Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
-        """
         return pulumi.get(self, "enable_accelerated_recovery")
 
 

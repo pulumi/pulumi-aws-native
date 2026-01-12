@@ -33,9 +33,9 @@ type SubscriptionFilter struct {
 	DestinationArn pulumi.StringOutput `pulumi:"destinationArn"`
 	// The method used to distribute log data to the destination, which can be either random or grouped by log stream.
 	Distribution SubscriptionFilterDistributionPtrOutput `pulumi:"distribution"`
-	// The list of system fields that are included in the log events sent to the subscription destination. Returns the `emitSystemFields` value if it was specified when the subscription filter was created.
+	// The list of system fields that are included in the log events sent to the subscription destination. Returns the ``emitSystemFields`` value if it was specified when the subscription filter was created.
 	EmitSystemFields pulumi.StringArrayOutput `pulumi:"emitSystemFields"`
-	// The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the subscription filter was created.
+	// The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the subscription filter was created.
 	FieldSelectionCriteria pulumi.StringPtrOutput `pulumi:"fieldSelectionCriteria"`
 	// The name of the subscription filter.
 	FilterName pulumi.StringPtrOutput `pulumi:"filterName"`
@@ -108,9 +108,9 @@ type subscriptionFilterArgs struct {
 	DestinationArn string `pulumi:"destinationArn"`
 	// The method used to distribute log data to the destination, which can be either random or grouped by log stream.
 	Distribution *SubscriptionFilterDistribution `pulumi:"distribution"`
-	// The list of system fields that are included in the log events sent to the subscription destination. Returns the `emitSystemFields` value if it was specified when the subscription filter was created.
+	// The list of system fields that are included in the log events sent to the subscription destination. Returns the ``emitSystemFields`` value if it was specified when the subscription filter was created.
 	EmitSystemFields []string `pulumi:"emitSystemFields"`
-	// The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the subscription filter was created.
+	// The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the subscription filter was created.
 	FieldSelectionCriteria *string `pulumi:"fieldSelectionCriteria"`
 	// The name of the subscription filter.
 	FilterName *string `pulumi:"filterName"`
@@ -131,9 +131,9 @@ type SubscriptionFilterArgs struct {
 	DestinationArn pulumi.StringInput
 	// The method used to distribute log data to the destination, which can be either random or grouped by log stream.
 	Distribution SubscriptionFilterDistributionPtrInput
-	// The list of system fields that are included in the log events sent to the subscription destination. Returns the `emitSystemFields` value if it was specified when the subscription filter was created.
+	// The list of system fields that are included in the log events sent to the subscription destination. Returns the ``emitSystemFields`` value if it was specified when the subscription filter was created.
 	EmitSystemFields pulumi.StringArrayInput
-	// The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the subscription filter was created.
+	// The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the subscription filter was created.
 	FieldSelectionCriteria pulumi.StringPtrInput
 	// The name of the subscription filter.
 	FilterName pulumi.StringPtrInput
@@ -199,12 +199,12 @@ func (o SubscriptionFilterOutput) Distribution() SubscriptionFilterDistributionP
 	return o.ApplyT(func(v *SubscriptionFilter) SubscriptionFilterDistributionPtrOutput { return v.Distribution }).(SubscriptionFilterDistributionPtrOutput)
 }
 
-// The list of system fields that are included in the log events sent to the subscription destination. Returns the `emitSystemFields` value if it was specified when the subscription filter was created.
+// The list of system fields that are included in the log events sent to the subscription destination. Returns the “emitSystemFields“ value if it was specified when the subscription filter was created.
 func (o SubscriptionFilterOutput) EmitSystemFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SubscriptionFilter) pulumi.StringArrayOutput { return v.EmitSystemFields }).(pulumi.StringArrayOutput)
 }
 
-// The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the subscription filter was created.
+// The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the “fieldSelectionCriteria“ value if it was specified when the subscription filter was created.
 func (o SubscriptionFilterOutput) FieldSelectionCriteria() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionFilter) pulumi.StringPtrOutput { return v.FieldSelectionCriteria }).(pulumi.StringPtrOutput)
 }

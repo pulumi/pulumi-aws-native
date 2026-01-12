@@ -7,12 +7,14 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .action_connector import *
 from .analysis import *
 from .custom_permissions import *
 from .dashboard import *
 from .data_set import *
 from .data_source import *
 from .folder import *
+from .get_action_connector import *
 from .get_analysis import *
 from .get_custom_permissions import *
 from .get_dashboard import *

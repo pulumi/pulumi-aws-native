@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         /// <summary>
         /// &lt;p&gt;When casting a column from string to datetime type, you can supply a string in a
-        ///             format supported by Amazon QuickSight to denote the source data format.&lt;/p&gt;
+        ///             format supported by Amazon Quick Suite to denote the source data format.&lt;/p&gt;
         /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }

@@ -17,9 +17,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     public sealed class VpnConnectionCloudwatchLogOptionsSpecification
     {
         /// <summary>
-        /// Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
-        /// 
-        /// Valid values: `True` | `False`
+        /// Specifies whether to enable BGP logging for the VPN connection. Default value is ``False``.
+        ///  Valid values: ``True`` | ``False``
         /// </summary>
         public readonly bool? BgpLogEnabled;
         /// <summary>
@@ -27,9 +26,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? BgpLogGroupArn;
         /// <summary>
-        /// The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
-        /// 
-        /// Valid values: `json` | `text`
+        /// The desired output format for BGP logs to be sent to CloudWatch. Default format is ``json``.
+        ///  Valid values: ``json`` | ``text``
         /// </summary>
         public readonly Pulumi.AwsNative.Ec2.VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat? BgpLogOutputFormat;
         /// <summary>

@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<string>? _principals;
 
         /// <summary>
-        /// &lt;p&gt;An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.&lt;/p&gt;
+        /// &lt;p&gt;An array of Amazon Resource Names (ARNs) for Quick Suite users or groups.&lt;/p&gt;
         /// </summary>
         public InputList<string> Principals
         {

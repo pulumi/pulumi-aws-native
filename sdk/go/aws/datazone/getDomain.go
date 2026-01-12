@@ -49,8 +49,6 @@ type LookupDomainResult struct {
 	PortalUrl *string `pulumi:"portalUrl"`
 	// The ID of the root domain in Amazon Datazone.
 	RootDomainUnitId *string `pulumi:"rootDomainUnitId"`
-	// The service role of the domain that is created.
-	ServiceRole *string `pulumi:"serviceRole"`
 	// The single-sign on configuration of the Amazon DataZone domain.
 	SingleSignOn *DomainSingleSignOn `pulumi:"singleSignOn"`
 	// The status of the Amazon DataZone domain.
@@ -139,11 +137,6 @@ func (o LookupDomainResultOutput) PortalUrl() pulumi.StringPtrOutput {
 // The ID of the root domain in Amazon Datazone.
 func (o LookupDomainResultOutput) RootDomainUnitId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.RootDomainUnitId }).(pulumi.StringPtrOutput)
-}
-
-// The service role of the domain that is created.
-func (o LookupDomainResultOutput) ServiceRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDomainResult) *string { return v.ServiceRole }).(pulumi.StringPtrOutput)
 }
 
 // The single-sign on configuration of the Amazon DataZone domain.

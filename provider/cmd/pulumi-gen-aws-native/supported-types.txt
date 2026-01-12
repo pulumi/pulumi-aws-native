@@ -371,6 +371,7 @@ AWS::DeviceFarm::Project
 AWS::DeviceFarm::TestGridProject
 AWS::DeviceFarm::VPCEConfiguration
 AWS::DirectoryService::SimpleAD
+AWS::DocDB::GlobalCluster
 AWS::DocDBElastic::Cluster
 AWS::DynamoDB::GlobalTable
 AWS::DynamoDB::Table
@@ -958,6 +959,7 @@ AWS::QBusiness::Plugin
 AWS::QBusiness::Retriever
 AWS::QBusiness::WebExperience
 AWS::QLDB::Stream
+AWS::QuickSight::ActionConnector
 AWS::QuickSight::Analysis
 AWS::QuickSight::CustomPermissions
 AWS::QuickSight::Dashboard

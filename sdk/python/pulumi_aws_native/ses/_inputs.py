@@ -38,6 +38,12 @@ __all__ = [
     'ConfigurationSetReputationOptionsArgsDict',
     'ConfigurationSetSendingOptionsArgs',
     'ConfigurationSetSendingOptionsArgsDict',
+    'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs',
+    'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgsDict',
+    'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs',
+    'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgsDict',
+    'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs',
+    'ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgsDict',
     'ConfigurationSetSuppressionOptionsArgs',
     'ConfigurationSetSuppressionOptionsArgsDict',
     'ConfigurationSetTrackingOptionsArgs',
@@ -831,6 +837,131 @@ class ConfigurationSetSendingOptionsArgs:
 
 
 if not MYPY:
+    class ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgsDict(TypedDict):
+        """
+        The overall confidence threshold settings.
+        """
+        confidence_verdict_threshold: pulumi.Input[_builtins.str]
+        """
+        The confidence verdict threshold level.
+        """
+elif False:
+    ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs:
+    def __init__(__self__, *,
+                 confidence_verdict_threshold: pulumi.Input[_builtins.str]):
+        """
+        The overall confidence threshold settings.
+        :param pulumi.Input[_builtins.str] confidence_verdict_threshold: The confidence verdict threshold level.
+        """
+        pulumi.set(__self__, "confidence_verdict_threshold", confidence_verdict_threshold)
+
+    @_builtins.property
+    @pulumi.getter(name="confidenceVerdictThreshold")
+    def confidence_verdict_threshold(self) -> pulumi.Input[_builtins.str]:
+        """
+        The confidence verdict threshold level.
+        """
+        return pulumi.get(self, "confidence_verdict_threshold")
+
+    @confidence_verdict_threshold.setter
+    def confidence_verdict_threshold(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "confidence_verdict_threshold", value)
+
+
+if not MYPY:
+    class ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgsDict(TypedDict):
+        """
+        The condition threshold settings for suppression validation.
+        """
+        condition_threshold_enabled: pulumi.Input[_builtins.str]
+        """
+        Whether the condition threshold is enabled or disabled.
+        """
+        overall_confidence_threshold: NotRequired[pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgsDict']]
+        """
+        The overall confidence threshold settings.
+        """
+elif False:
+    ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs:
+    def __init__(__self__, *,
+                 condition_threshold_enabled: pulumi.Input[_builtins.str],
+                 overall_confidence_threshold: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs']] = None):
+        """
+        The condition threshold settings for suppression validation.
+        :param pulumi.Input[_builtins.str] condition_threshold_enabled: Whether the condition threshold is enabled or disabled.
+        :param pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs'] overall_confidence_threshold: The overall confidence threshold settings.
+        """
+        pulumi.set(__self__, "condition_threshold_enabled", condition_threshold_enabled)
+        if overall_confidence_threshold is not None:
+            pulumi.set(__self__, "overall_confidence_threshold", overall_confidence_threshold)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionThresholdEnabled")
+    def condition_threshold_enabled(self) -> pulumi.Input[_builtins.str]:
+        """
+        Whether the condition threshold is enabled or disabled.
+        """
+        return pulumi.get(self, "condition_threshold_enabled")
+
+    @condition_threshold_enabled.setter
+    def condition_threshold_enabled(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "condition_threshold_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="overallConfidenceThreshold")
+    def overall_confidence_threshold(self) -> Optional[pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs']]:
+        """
+        The overall confidence threshold settings.
+        """
+        return pulumi.get(self, "overall_confidence_threshold")
+
+    @overall_confidence_threshold.setter
+    def overall_confidence_threshold(self, value: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesOverallConfidenceThresholdPropertiesArgs']]):
+        pulumi.set(self, "overall_confidence_threshold", value)
+
+
+if not MYPY:
+    class ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgsDict(TypedDict):
+        """
+        An object that contains information about the validation options for your account.
+        """
+        condition_threshold: pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgsDict']
+        """
+        The condition threshold settings for suppression validation.
+        """
+elif False:
+    ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs:
+    def __init__(__self__, *,
+                 condition_threshold: pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs']):
+        """
+        An object that contains information about the validation options for your account.
+        :param pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs'] condition_threshold: The condition threshold settings for suppression validation.
+        """
+        pulumi.set(__self__, "condition_threshold", condition_threshold)
+
+    @_builtins.property
+    @pulumi.getter(name="conditionThreshold")
+    def condition_threshold(self) -> pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs']:
+        """
+        The condition threshold settings for suppression validation.
+        """
+        return pulumi.get(self, "condition_threshold")
+
+    @condition_threshold.setter
+    def condition_threshold(self, value: pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesConditionThresholdPropertiesArgs']):
+        pulumi.set(self, "condition_threshold", value)
+
+
+if not MYPY:
     class ConfigurationSetSuppressionOptionsArgsDict(TypedDict):
         """
         An object that contains information about the suppression list preferences for your account.
@@ -839,19 +970,27 @@ if not MYPY:
         """
         A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
         """
+        validation_options: NotRequired[pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgsDict']]
+        """
+        An object that contains information about the validation options for your account.
+        """
 elif False:
     ConfigurationSetSuppressionOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationSetSuppressionOptionsArgs:
     def __init__(__self__, *,
-                 suppressed_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 suppressed_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 validation_options: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs']] = None):
         """
         An object that contains information about the suppression list preferences for your account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] suppressed_reasons: A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+        :param pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs'] validation_options: An object that contains information about the validation options for your account.
         """
         if suppressed_reasons is not None:
             pulumi.set(__self__, "suppressed_reasons", suppressed_reasons)
+        if validation_options is not None:
+            pulumi.set(__self__, "validation_options", validation_options)
 
     @_builtins.property
     @pulumi.getter(name="suppressedReasons")
@@ -864,6 +1003,18 @@ class ConfigurationSetSuppressionOptionsArgs:
     @suppressed_reasons.setter
     def suppressed_reasons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "suppressed_reasons", value)
+
+    @_builtins.property
+    @pulumi.getter(name="validationOptions")
+    def validation_options(self) -> Optional[pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs']]:
+        """
+        An object that contains information about the validation options for your account.
+        """
+        return pulumi.get(self, "validation_options")
+
+    @validation_options.setter
+    def validation_options(self, value: Optional[pulumi.Input['ConfigurationSetSuppressionOptionsValidationOptionsPropertiesArgs']]):
+        pulumi.set(self, "validation_options", value)
 
 
 if not MYPY:

@@ -13,19 +13,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EC2::VPNConcentrator
+// Describes a VPN concentrator.
 type VpnConcentrator struct {
 	pulumi.CustomResourceState
 
 	// Any tags assigned to the VPN concentrator.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// The ID of the transit gateway attachment
+	// The ID of the transit gateway attachment for the VPN concentrator.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
-	// The ID of the transit gateway
+	// The ID of the transit gateway associated with the VPN concentrator.
 	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
-	// The type of VPN concentrator
+	// The type of VPN concentrator.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The provider-assigned unique ID for this managed resource
+	// The ID of the VPN concentrator to associate with the VPN connection.
 	VpnConcentratorId pulumi.StringOutput `pulumi:"vpnConcentratorId"`
 }
 
@@ -82,9 +82,9 @@ func (VpnConcentratorState) ElementType() reflect.Type {
 type vpnConcentratorArgs struct {
 	// Any tags assigned to the VPN concentrator.
 	Tags []aws.Tag `pulumi:"tags"`
-	// The ID of the transit gateway
+	// The ID of the transit gateway associated with the VPN concentrator.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
-	// The type of VPN concentrator
+	// The type of VPN concentrator.
 	Type string `pulumi:"type"`
 }
 
@@ -92,9 +92,9 @@ type vpnConcentratorArgs struct {
 type VpnConcentratorArgs struct {
 	// Any tags assigned to the VPN concentrator.
 	Tags aws.TagArrayInput
-	// The ID of the transit gateway
+	// The ID of the transit gateway associated with the VPN concentrator.
 	TransitGatewayId pulumi.StringInput
-	// The type of VPN concentrator
+	// The type of VPN concentrator.
 	Type pulumi.StringInput
 }
 
@@ -140,22 +140,22 @@ func (o VpnConcentratorOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *VpnConcentrator) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The ID of the transit gateway attachment
+// The ID of the transit gateway attachment for the VPN concentrator.
 func (o VpnConcentratorOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConcentrator) pulumi.StringOutput { return v.TransitGatewayAttachmentId }).(pulumi.StringOutput)
 }
 
-// The ID of the transit gateway
+// The ID of the transit gateway associated with the VPN concentrator.
 func (o VpnConcentratorOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConcentrator) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
 }
 
-// The type of VPN concentrator
+// The type of VPN concentrator.
 func (o VpnConcentratorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConcentrator) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// The provider-assigned unique ID for this managed resource
+// The ID of the VPN concentrator to associate with the VPN connection.
 func (o VpnConcentratorOutput) VpnConcentratorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConcentrator) pulumi.StringOutput { return v.VpnConcentratorId }).(pulumi.StringOutput)
 }

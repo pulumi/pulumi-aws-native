@@ -27,7 +27,8 @@ class ProjectProfileArgs:
                  domain_unit_identifier: Optional[pulumi.Input[_builtins.str]] = None,
                  environment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectProfileEnvironmentConfigurationArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input['ProjectProfileStatus']] = None):
+                 status: Optional[pulumi.Input['ProjectProfileStatus']] = None,
+                 use_default_configurations: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ProjectProfile resource.
         :param pulumi.Input[_builtins.str] description: The description of the project profile.
@@ -49,6 +50,8 @@ class ProjectProfileArgs:
             pulumi.set(__self__, "name", name)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if use_default_configurations is not None:
+            pulumi.set(__self__, "use_default_configurations", use_default_configurations)
 
     @_builtins.property
     @pulumi.getter
@@ -122,6 +125,15 @@ class ProjectProfileArgs:
     def status(self, value: Optional[pulumi.Input['ProjectProfileStatus']]):
         pulumi.set(self, "status", value)
 
+    @_builtins.property
+    @pulumi.getter(name="useDefaultConfigurations")
+    def use_default_configurations(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        return pulumi.get(self, "use_default_configurations")
+
+    @use_default_configurations.setter
+    def use_default_configurations(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "use_default_configurations", value)
+
 
 @pulumi.type_token("aws-native:datazone:ProjectProfile")
 class ProjectProfile(pulumi.CustomResource):
@@ -135,6 +147,7 @@ class ProjectProfile(pulumi.CustomResource):
                  environment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectProfileEnvironmentConfigurationArgs', 'ProjectProfileEnvironmentConfigurationArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input['ProjectProfileStatus']] = None,
+                 use_default_configurations: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
         Definition of AWS::DataZone::ProjectProfile Resource Type
@@ -178,6 +191,7 @@ class ProjectProfile(pulumi.CustomResource):
                  environment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectProfileEnvironmentConfigurationArgs', 'ProjectProfileEnvironmentConfigurationArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input['ProjectProfileStatus']] = None,
+                 use_default_configurations: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -193,6 +207,7 @@ class ProjectProfile(pulumi.CustomResource):
             __props__.__dict__["environment_configurations"] = environment_configurations
             __props__.__dict__["name"] = name
             __props__.__dict__["status"] = status
+            __props__.__dict__["use_default_configurations"] = use_default_configurations
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["created_by"] = None
@@ -200,7 +215,7 @@ class ProjectProfile(pulumi.CustomResource):
             __props__.__dict__["domain_unit_id"] = None
             __props__.__dict__["identifier"] = None
             __props__.__dict__["last_updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "useDefaultConfigurations"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ProjectProfile, __self__).__init__(
             'aws-native:datazone:ProjectProfile',
@@ -237,6 +252,7 @@ class ProjectProfile(pulumi.CustomResource):
         __props__.__dict__["last_updated_at"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["use_default_configurations"] = None
         return ProjectProfile(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -342,4 +358,9 @@ class ProjectProfile(pulumi.CustomResource):
         The status of a project profile.
         """
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="useDefaultConfigurations")
+    def use_default_configurations(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        return pulumi.get(self, "use_default_configurations")
 

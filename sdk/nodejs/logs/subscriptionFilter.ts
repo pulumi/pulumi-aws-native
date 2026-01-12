@@ -57,11 +57,11 @@ export class SubscriptionFilter extends pulumi.CustomResource {
      */
     declare public readonly distribution: pulumi.Output<enums.logs.SubscriptionFilterDistribution | undefined>;
     /**
-     * The list of system fields that are included in the log events sent to the subscription destination. Returns the `emitSystemFields` value if it was specified when the subscription filter was created.
+     * The list of system fields that are included in the log events sent to the subscription destination. Returns the ``emitSystemFields`` value if it was specified when the subscription filter was created.
      */
     declare public readonly emitSystemFields: pulumi.Output<string[] | undefined>;
     /**
-     * The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the subscription filter was created.
+     * The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the subscription filter was created.
      */
     declare public readonly fieldSelectionCriteria: pulumi.Output<string | undefined>;
     /**
@@ -146,11 +146,11 @@ export interface SubscriptionFilterArgs {
      */
     distribution?: pulumi.Input<enums.logs.SubscriptionFilterDistribution>;
     /**
-     * The list of system fields that are included in the log events sent to the subscription destination. Returns the `emitSystemFields` value if it was specified when the subscription filter was created.
+     * The list of system fields that are included in the log events sent to the subscription destination. Returns the ``emitSystemFields`` value if it was specified when the subscription filter was created.
      */
     emitSystemFields?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the subscription filter was created.
+     * The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the subscription filter was created.
      */
     fieldSelectionCriteria?: pulumi.Input<string>;
     /**

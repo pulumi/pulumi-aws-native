@@ -33,13 +33,13 @@ namespace Pulumi.AwsNative.AutoScaling
         public Output<string?> AutoScalingGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The instance capacity distribution across Availability Zones.
+        /// The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
         /// </summary>
         [Output("availabilityZoneDistribution")]
         public Output<Outputs.AutoScalingGroupAvailabilityZoneDistribution?> AvailabilityZoneDistribution { get; private set; } = null!;
 
         /// <summary>
-        /// The Availability Zone impairment policy.
+        /// The Availability Zone impairment policy for the Auto Scaling group.
         /// </summary>
         [Output("availabilityZoneImpairmentPolicy")]
         public Output<Outputs.AutoScalingGroupAvailabilityZoneImpairmentPolicy?> AvailabilityZoneImpairmentPolicy { get; private set; } = null!;
@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.AutoScaling
         public Output<bool?> CapacityRebalance { get; private set; } = null!;
 
         /// <summary>
-        /// The capacity reservation specification.
+        /// The capacity reservation specification for the Auto Scaling group.
         /// </summary>
         [Output("capacityReservationSpecification")]
         public Output<Outputs.AutoScalingGroupCapacityReservationSpecification?> CapacityReservationSpecification { get; private set; } = null!;
@@ -318,13 +318,13 @@ namespace Pulumi.AwsNative.AutoScaling
         public Input<string>? AutoScalingGroupName { get; set; }
 
         /// <summary>
-        /// The instance capacity distribution across Availability Zones.
+        /// The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
         /// </summary>
         [Input("availabilityZoneDistribution")]
         public Input<Inputs.AutoScalingGroupAvailabilityZoneDistributionArgs>? AvailabilityZoneDistribution { get; set; }
 
         /// <summary>
-        /// The Availability Zone impairment policy.
+        /// The Availability Zone impairment policy for the Auto Scaling group.
         /// </summary>
         [Input("availabilityZoneImpairmentPolicy")]
         public Input<Inputs.AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs>? AvailabilityZoneImpairmentPolicy { get; set; }
@@ -348,7 +348,7 @@ namespace Pulumi.AwsNative.AutoScaling
         public Input<bool>? CapacityRebalance { get; set; }
 
         /// <summary>
-        /// The capacity reservation specification.
+        /// The capacity reservation specification for the Auto Scaling group.
         /// </summary>
         [Input("capacityReservationSpecification")]
         public Input<Inputs.AutoScalingGroupCapacityReservationSpecificationArgs>? CapacityReservationSpecification { get; set; }

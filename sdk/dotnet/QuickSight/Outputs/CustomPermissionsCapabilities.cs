@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class CustomPermissionsCapabilities
     {
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? Action;
         /// <summary>
         /// The ability to add or run anomaly detection.
         /// </summary>
@@ -21,6 +22,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The ability to perform analysis-related actions.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? Analysis;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? Automate;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ChatAgent;
         /// <summary>
         /// The ability to create and update email reports.
         /// </summary>
@@ -41,6 +44,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The ability to create and update threshold alerts.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? CreateAndUpdateThresholdAlerts;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? CreateChatAgents;
         /// <summary>
         /// The ability to create shared folders.
         /// </summary>
@@ -77,18 +81,23 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The ability to export to PDF files in scheduled email reports.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ExportToPdfInScheduledReports;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? Flow;
         /// <summary>
         /// The ability to include content in scheduled email reports.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? IncludeContentInScheduledReportsEmail;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? KnowledgeBase;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? PerformFlowUiTask;
         /// <summary>
         /// The ability to print reports.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? PrintReports;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? PublishWithoutApproval;
         /// <summary>
         /// The ability to rename shared folders.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? RenameSharedFolders;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? Research;
         /// <summary>
         /// The ability to share analyses.
         /// </summary>
@@ -105,10 +114,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The ability to share datasets.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareDatasets;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? Space;
         /// <summary>
         /// The ability to subscribe to email reports.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? SubscribeDashboardEmailReports;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? UseAgentWebSearch;
+        public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? UseBedrockModels;
         /// <summary>
         /// The ability to view account SPICE capacity.
         /// </summary>
@@ -116,9 +128,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private CustomPermissionsCapabilities(
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? action,
+
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? addOrRunAnomalyDetectionForAnalyses,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? analysis,
+
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? automate,
+
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? chatAgent,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? createAndUpdateDashboardEmailReports,
 
@@ -129,6 +147,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? createAndUpdateThemes,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? createAndUpdateThresholdAlerts,
+
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? createChatAgents,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? createSharedFolders,
 
@@ -148,11 +168,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? exportToPdfInScheduledReports,
 
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? flow,
+
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? includeContentInScheduledReportsEmail,
+
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? knowledgeBase,
+
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? performFlowUiTask,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? printReports,
 
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? publishWithoutApproval,
+
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? renameSharedFolders,
+
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? research,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? shareAnalyses,
 
@@ -162,17 +192,27 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? shareDatasets,
 
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? space,
+
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? subscribeDashboardEmailReports,
+
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? useAgentWebSearch,
+
+            Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? useBedrockModels,
 
             Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? viewAccountSpiceCapacity)
         {
+            Action = action;
             AddOrRunAnomalyDetectionForAnalyses = addOrRunAnomalyDetectionForAnalyses;
             Analysis = analysis;
+            Automate = automate;
+            ChatAgent = chatAgent;
             CreateAndUpdateDashboardEmailReports = createAndUpdateDashboardEmailReports;
             CreateAndUpdateDataSources = createAndUpdateDataSources;
             CreateAndUpdateDatasets = createAndUpdateDatasets;
             CreateAndUpdateThemes = createAndUpdateThemes;
             CreateAndUpdateThresholdAlerts = createAndUpdateThresholdAlerts;
+            CreateChatAgents = createChatAgents;
             CreateSharedFolders = createSharedFolders;
             CreateSpiceDataset = createSpiceDataset;
             Dashboard = dashboard;
@@ -182,14 +222,22 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ExportToExcelInScheduledReports = exportToExcelInScheduledReports;
             ExportToPdf = exportToPdf;
             ExportToPdfInScheduledReports = exportToPdfInScheduledReports;
+            Flow = flow;
             IncludeContentInScheduledReportsEmail = includeContentInScheduledReportsEmail;
+            KnowledgeBase = knowledgeBase;
+            PerformFlowUiTask = performFlowUiTask;
             PrintReports = printReports;
+            PublishWithoutApproval = publishWithoutApproval;
             RenameSharedFolders = renameSharedFolders;
+            Research = research;
             ShareAnalyses = shareAnalyses;
             ShareDashboards = shareDashboards;
             ShareDataSources = shareDataSources;
             ShareDatasets = shareDatasets;
+            Space = space;
             SubscribeDashboardEmailReports = subscribeDashboardEmailReports;
+            UseAgentWebSearch = useAgentWebSearch;
+            UseBedrockModels = useBedrockModels;
             ViewAccountSpiceCapacity = viewAccountSpiceCapacity;
         }
     }

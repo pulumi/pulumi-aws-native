@@ -68,6 +68,10 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
      */
     declare public readonly environmentRolePermissionBoundary: pulumi.Output<string | undefined>;
     /**
+     * Region-agnostic environment blueprint parameters.
+     */
+    declare public readonly globalParameters: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The ARN of the manage access role.
      */
     declare public readonly manageAccessRoleArn: pulumi.Output<string | undefined>;
@@ -112,6 +116,7 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
             resourceInputs["enabledRegions"] = args?.enabledRegions;
             resourceInputs["environmentBlueprintIdentifier"] = args?.environmentBlueprintIdentifier;
             resourceInputs["environmentRolePermissionBoundary"] = args?.environmentRolePermissionBoundary;
+            resourceInputs["globalParameters"] = args?.globalParameters;
             resourceInputs["manageAccessRoleArn"] = args?.manageAccessRoleArn;
             resourceInputs["provisioningConfigurations"] = args?.provisioningConfigurations;
             resourceInputs["provisioningRoleArn"] = args?.provisioningRoleArn;
@@ -128,6 +133,7 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
             resourceInputs["environmentBlueprintId"] = undefined /*out*/;
             resourceInputs["environmentBlueprintIdentifier"] = undefined /*out*/;
             resourceInputs["environmentRolePermissionBoundary"] = undefined /*out*/;
+            resourceInputs["globalParameters"] = undefined /*out*/;
             resourceInputs["manageAccessRoleArn"] = undefined /*out*/;
             resourceInputs["provisioningConfigurations"] = undefined /*out*/;
             resourceInputs["provisioningRoleArn"] = undefined /*out*/;
@@ -163,6 +169,10 @@ export interface EnvironmentBlueprintConfigurationArgs {
      * The environment role permission boundary.
      */
     environmentRolePermissionBoundary?: pulumi.Input<string>;
+    /**
+     * Region-agnostic environment blueprint parameters.
+     */
+    globalParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ARN of the manage access role.
      */

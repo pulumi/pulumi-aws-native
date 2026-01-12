@@ -462,6 +462,7 @@ export type IpamMeteredAccount = (typeof IpamMeteredAccount)[keyof typeof IpamMe
 
 export const IpamPoolAwsService = {
     Ec2: "ec2",
+    GlobalServices: "global-services",
 } as const;
 
 /**
@@ -1194,9 +1195,8 @@ export const VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat = 
 } as const;
 
 /**
- * The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
- *
- * Valid values: `json` | `text`
+ * The desired output format for BGP logs to be sent to CloudWatch. Default format is ``json``.
+ *  Valid values: ``json`` | ``text``
  */
 export type VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat = (typeof VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat)[keyof typeof VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat];
 
@@ -1285,7 +1285,7 @@ export const VpnConnectionTunnelBandwidth = {
 } as const;
 
 /**
- * The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` .
+ * The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. ``standard`` supports up to 1.25 Gbps per tunnel, while ``large`` supports up to 5 Gbps per tunnel. The default value is ``standard``. Existing VPN connections without a bandwidth setting will automatically default to ``standard``.
  */
 export type VpnConnectionTunnelBandwidth = (typeof VpnConnectionTunnelBandwidth)[keyof typeof VpnConnectionTunnelBandwidth];
 

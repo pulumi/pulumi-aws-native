@@ -20,6 +20,7 @@ namespace Pulumi.AwsNative.DataZone.Outputs
         public readonly string? InstanceProfileArn;
         public readonly string? JavaVirtualEnv;
         public readonly string? LogUri;
+        public readonly string? ManagedEndpointArn;
         public readonly string? PythonVirtualEnv;
         public readonly string? RuntimeRole;
         public readonly string? TrustedCertificatesS3Uri;
@@ -34,6 +35,8 @@ namespace Pulumi.AwsNative.DataZone.Outputs
 
             string? logUri,
 
+            string? managedEndpointArn,
+
             string? pythonVirtualEnv,
 
             string? runtimeRole,
@@ -44,6 +47,7 @@ namespace Pulumi.AwsNative.DataZone.Outputs
             InstanceProfileArn = instanceProfileArn;
             JavaVirtualEnv = javaVirtualEnv;
             LogUri = logUri;
+            ManagedEndpointArn = managedEndpointArn;
             PythonVirtualEnv = pythonVirtualEnv;
             RuntimeRole = runtimeRole;
             TrustedCertificatesS3Uri = trustedCertificatesS3Uri;

@@ -101,7 +101,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> TransportTransitGatewayAttachmentId { get; private set; } = null!;
 
         /// <summary>
-        /// The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` .
+        /// The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. ``standard`` supports up to 1.25 Gbps per tunnel, while ``large`` supports up to 5 Gbps per tunnel. The default value is ``standard``. Existing VPN connections without a bandwidth setting will automatically default to ``standard``.
         /// </summary>
         [Output("tunnelBandwidth")]
         public Output<Pulumi.AwsNative.Ec2.VpnConnectionTunnelBandwidth?> TunnelBandwidth { get; private set; } = null!;
@@ -298,7 +298,7 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? TransportTransitGatewayAttachmentId { get; set; }
 
         /// <summary>
-        /// The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` .
+        /// The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. ``standard`` supports up to 1.25 Gbps per tunnel, while ``large`` supports up to 5 Gbps per tunnel. The default value is ``standard``. Existing VPN connections without a bandwidth setting will automatically default to ``standard``.
         /// </summary>
         [Input("tunnelBandwidth")]
         public Input<Pulumi.AwsNative.Ec2.VpnConnectionTunnelBandwidth>? TunnelBandwidth { get; set; }

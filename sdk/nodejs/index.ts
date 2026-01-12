@@ -136,6 +136,7 @@ import * as devicefarm from "./devicefarm";
 import * as devopsguru from "./devopsguru";
 import * as directoryservice from "./directoryservice";
 import * as dms from "./dms";
+import * as docdb from "./docdb";
 import * as docdbelastic from "./docdbelastic";
 import * as dsql from "./dsql";
 import * as dynamodb from "./dynamodb";
@@ -375,6 +376,7 @@ export {
     devopsguru,
     directoryservice,
     dms,
+    docdb,
     docdbelastic,
     dsql,
     dynamodb,

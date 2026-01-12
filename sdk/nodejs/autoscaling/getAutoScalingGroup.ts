@@ -35,11 +35,11 @@ export interface GetAutoScalingGroupResult {
      */
     readonly autoScalingGroupArn?: string;
     /**
-     * The instance capacity distribution across Availability Zones.
+     * The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
      */
     readonly availabilityZoneDistribution?: outputs.autoscaling.AutoScalingGroupAvailabilityZoneDistribution;
     /**
-     * The Availability Zone impairment policy.
+     * The Availability Zone impairment policy for the Auto Scaling group.
      */
     readonly availabilityZoneImpairmentPolicy?: outputs.autoscaling.AutoScalingGroupAvailabilityZoneImpairmentPolicy;
     /**
@@ -51,7 +51,7 @@ export interface GetAutoScalingGroupResult {
      */
     readonly capacityRebalance?: boolean;
     /**
-     * The capacity reservation specification.
+     * The capacity reservation specification for the Auto Scaling group.
      */
     readonly capacityReservationSpecification?: outputs.autoscaling.AutoScalingGroupCapacityReservationSpecification;
     /**

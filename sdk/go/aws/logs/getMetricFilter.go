@@ -35,9 +35,9 @@ type LookupMetricFilterResult struct {
 	// This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
 	//  If this value is ``true``, the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
 	ApplyOnTransformedLogs *bool `pulumi:"applyOnTransformedLogs"`
-	// The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the `emitSystemFieldDimensions` value if it was specified when the metric filter was created.
+	// The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the ``emitSystemFieldDimensions`` value if it was specified when the metric filter was created.
 	EmitSystemFieldDimensions []string `pulumi:"emitSystemFieldDimensions"`
-	// The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the metric filter was created.
+	// The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the metric filter was created.
 	FieldSelectionCriteria *string `pulumi:"fieldSelectionCriteria"`
 	// A filter pattern for extracting metric data out of ingested log events. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 	FilterPattern *string `pulumi:"filterPattern"`
@@ -86,12 +86,12 @@ func (o LookupMetricFilterResultOutput) ApplyOnTransformedLogs() pulumi.BoolPtrO
 	return o.ApplyT(func(v LookupMetricFilterResult) *bool { return v.ApplyOnTransformedLogs }).(pulumi.BoolPtrOutput)
 }
 
-// The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the `emitSystemFieldDimensions` value if it was specified when the metric filter was created.
+// The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the “emitSystemFieldDimensions“ value if it was specified when the metric filter was created.
 func (o LookupMetricFilterResultOutput) EmitSystemFieldDimensions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupMetricFilterResult) []string { return v.EmitSystemFieldDimensions }).(pulumi.StringArrayOutput)
 }
 
-// The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the metric filter was created.
+// The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the “fieldSelectionCriteria“ value if it was specified when the metric filter was created.
 func (o LookupMetricFilterResultOutput) FieldSelectionCriteria() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMetricFilterResult) *string { return v.FieldSelectionCriteria }).(pulumi.StringPtrOutput)
 }

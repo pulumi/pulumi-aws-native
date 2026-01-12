@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::EC2::VPNConcentrator
+// Describes a VPN concentrator.
 func LookupVpnConcentrator(ctx *pulumi.Context, args *LookupVpnConcentratorArgs, opts ...pulumi.InvokeOption) (*LookupVpnConcentratorResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpnConcentratorResult
@@ -24,16 +24,16 @@ func LookupVpnConcentrator(ctx *pulumi.Context, args *LookupVpnConcentratorArgs,
 }
 
 type LookupVpnConcentratorArgs struct {
-	// The provider-assigned unique ID for this managed resource
+	// The ID of the VPN concentrator to associate with the VPN connection.
 	VpnConcentratorId string `pulumi:"vpnConcentratorId"`
 }
 
 type LookupVpnConcentratorResult struct {
 	// Any tags assigned to the VPN concentrator.
 	Tags []aws.Tag `pulumi:"tags"`
-	// The ID of the transit gateway attachment
+	// The ID of the transit gateway attachment for the VPN concentrator.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
-	// The provider-assigned unique ID for this managed resource
+	// The ID of the VPN concentrator to associate with the VPN connection.
 	VpnConcentratorId *string `pulumi:"vpnConcentratorId"`
 }
 
@@ -47,7 +47,7 @@ func LookupVpnConcentratorOutput(ctx *pulumi.Context, args LookupVpnConcentrator
 }
 
 type LookupVpnConcentratorOutputArgs struct {
-	// The provider-assigned unique ID for this managed resource
+	// The ID of the VPN concentrator to associate with the VPN connection.
 	VpnConcentratorId pulumi.StringInput `pulumi:"vpnConcentratorId"`
 }
 
@@ -74,12 +74,12 @@ func (o LookupVpnConcentratorResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupVpnConcentratorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The ID of the transit gateway attachment
+// The ID of the transit gateway attachment for the VPN concentrator.
 func (o LookupVpnConcentratorResultOutput) TransitGatewayAttachmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpnConcentratorResult) *string { return v.TransitGatewayAttachmentId }).(pulumi.StringPtrOutput)
 }
 
-// The provider-assigned unique ID for this managed resource
+// The ID of the VPN concentrator to associate with the VPN connection.
 func (o LookupVpnConcentratorResultOutput) VpnConcentratorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpnConcentratorResult) *string { return v.VpnConcentratorId }).(pulumi.StringPtrOutput)
 }

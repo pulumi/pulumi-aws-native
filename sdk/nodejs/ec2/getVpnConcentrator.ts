@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::VPNConcentrator
+ * Describes a VPN concentrator.
  */
 export function getVpnConcentrator(args: GetVpnConcentratorArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnConcentratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -19,7 +19,7 @@ export function getVpnConcentrator(args: GetVpnConcentratorArgs, opts?: pulumi.I
 
 export interface GetVpnConcentratorArgs {
     /**
-     * The provider-assigned unique ID for this managed resource
+     * The ID of the VPN concentrator to associate with the VPN connection.
      */
     vpnConcentratorId: string;
 }
@@ -30,16 +30,16 @@ export interface GetVpnConcentratorResult {
      */
     readonly tags?: outputs.Tag[];
     /**
-     * The ID of the transit gateway attachment
+     * The ID of the transit gateway attachment for the VPN concentrator.
      */
     readonly transitGatewayAttachmentId?: string;
     /**
-     * The provider-assigned unique ID for this managed resource
+     * The ID of the VPN concentrator to associate with the VPN connection.
      */
     readonly vpnConcentratorId?: string;
 }
 /**
- * Resource Type definition for AWS::EC2::VPNConcentrator
+ * Describes a VPN concentrator.
  */
 export function getVpnConcentratorOutput(args: GetVpnConcentratorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpnConcentratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -50,7 +50,7 @@ export function getVpnConcentratorOutput(args: GetVpnConcentratorOutputArgs, opt
 
 export interface GetVpnConcentratorOutputArgs {
     /**
-     * The provider-assigned unique ID for this managed resource
+     * The ID of the VPN concentrator to associate with the VPN connection.
      */
     vpnConcentratorId: pulumi.Input<string>;
 }

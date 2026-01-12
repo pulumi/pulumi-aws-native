@@ -66,11 +66,11 @@ class AutoScalingGroupArgs:
         :param pulumi.Input[_builtins.str] auto_scaling_group_name: The name of the Auto Scaling group. This name must be unique per Region per account.
                 The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.
                  You cannot use a colon (:) in the name.
-        :param pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionArgs'] availability_zone_distribution: The instance capacity distribution across Availability Zones.
-        :param pulumi.Input['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs'] availability_zone_impairment_policy: The Availability Zone impairment policy.
+        :param pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionArgs'] availability_zone_distribution: The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
+        :param pulumi.Input['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs'] availability_zone_impairment_policy: The Availability Zone impairment policy for the Auto Scaling group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
         :param pulumi.Input[_builtins.bool] capacity_rebalance: Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
-        :param pulumi.Input['AutoScalingGroupCapacityReservationSpecificationArgs'] capacity_reservation_specification: The capacity reservation specification.
+        :param pulumi.Input['AutoScalingGroupCapacityReservationSpecificationArgs'] capacity_reservation_specification: The capacity reservation specification for the Auto Scaling group.
         :param pulumi.Input[_builtins.str] context: Reserved.
         :param pulumi.Input[_builtins.str] cooldown: *Only needed if you use simple scaling policies.* 
                 The amount of time, in seconds, between one scaling activity ending and another one starting due to simple scaling policies. For more information, see [Scaling cooldowns for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-cooldowns.html) in the *Amazon EC2 Auto Scaling User Guide*.
@@ -234,7 +234,7 @@ class AutoScalingGroupArgs:
     @pulumi.getter(name="availabilityZoneDistribution")
     def availability_zone_distribution(self) -> Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionArgs']]:
         """
-        The instance capacity distribution across Availability Zones.
+        The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
         """
         return pulumi.get(self, "availability_zone_distribution")
 
@@ -246,7 +246,7 @@ class AutoScalingGroupArgs:
     @pulumi.getter(name="availabilityZoneImpairmentPolicy")
     def availability_zone_impairment_policy(self) -> Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs']]:
         """
-        The Availability Zone impairment policy.
+        The Availability Zone impairment policy for the Auto Scaling group.
         """
         return pulumi.get(self, "availability_zone_impairment_policy")
 
@@ -282,7 +282,7 @@ class AutoScalingGroupArgs:
     @pulumi.getter(name="capacityReservationSpecification")
     def capacity_reservation_specification(self) -> Optional[pulumi.Input['AutoScalingGroupCapacityReservationSpecificationArgs']]:
         """
-        The capacity reservation specification.
+        The capacity reservation specification for the Auto Scaling group.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 
@@ -697,11 +697,11 @@ class AutoScalingGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] auto_scaling_group_name: The name of the Auto Scaling group. This name must be unique per Region per account.
                 The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.
                  You cannot use a colon (:) in the name.
-        :param pulumi.Input[Union['AutoScalingGroupAvailabilityZoneDistributionArgs', 'AutoScalingGroupAvailabilityZoneDistributionArgsDict']] availability_zone_distribution: The instance capacity distribution across Availability Zones.
-        :param pulumi.Input[Union['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs', 'AutoScalingGroupAvailabilityZoneImpairmentPolicyArgsDict']] availability_zone_impairment_policy: The Availability Zone impairment policy.
+        :param pulumi.Input[Union['AutoScalingGroupAvailabilityZoneDistributionArgs', 'AutoScalingGroupAvailabilityZoneDistributionArgsDict']] availability_zone_distribution: The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
+        :param pulumi.Input[Union['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs', 'AutoScalingGroupAvailabilityZoneImpairmentPolicyArgsDict']] availability_zone_impairment_policy: The Availability Zone impairment policy for the Auto Scaling group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
         :param pulumi.Input[_builtins.bool] capacity_rebalance: Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
-        :param pulumi.Input[Union['AutoScalingGroupCapacityReservationSpecificationArgs', 'AutoScalingGroupCapacityReservationSpecificationArgsDict']] capacity_reservation_specification: The capacity reservation specification.
+        :param pulumi.Input[Union['AutoScalingGroupCapacityReservationSpecificationArgs', 'AutoScalingGroupCapacityReservationSpecificationArgsDict']] capacity_reservation_specification: The capacity reservation specification for the Auto Scaling group.
         :param pulumi.Input[_builtins.str] context: Reserved.
         :param pulumi.Input[_builtins.str] cooldown: *Only needed if you use simple scaling policies.* 
                 The amount of time, in seconds, between one scaling activity ending and another one starting due to simple scaling policies. For more information, see [Scaling cooldowns for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-cooldowns.html) in the *Amazon EC2 Auto Scaling User Guide*.
@@ -952,7 +952,7 @@ class AutoScalingGroup(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZoneDistribution")
     def availability_zone_distribution(self) -> pulumi.Output[Optional['outputs.AutoScalingGroupAvailabilityZoneDistribution']]:
         """
-        The instance capacity distribution across Availability Zones.
+        The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
         """
         return pulumi.get(self, "availability_zone_distribution")
 
@@ -960,7 +960,7 @@ class AutoScalingGroup(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZoneImpairmentPolicy")
     def availability_zone_impairment_policy(self) -> pulumi.Output[Optional['outputs.AutoScalingGroupAvailabilityZoneImpairmentPolicy']]:
         """
-        The Availability Zone impairment policy.
+        The Availability Zone impairment policy for the Auto Scaling group.
         """
         return pulumi.get(self, "availability_zone_impairment_policy")
 
@@ -984,7 +984,7 @@ class AutoScalingGroup(pulumi.CustomResource):
     @pulumi.getter(name="capacityReservationSpecification")
     def capacity_reservation_specification(self) -> pulumi.Output[Optional['outputs.AutoScalingGroupCapacityReservationSpecification']]:
         """
-        The capacity reservation specification.
+        The capacity reservation specification for the Auto Scaling group.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 

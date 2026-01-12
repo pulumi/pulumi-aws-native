@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// <summary>
     /// &lt;p&gt;Information about a dataset that contains permissions for row-level security (RLS).
     ///             The permissions dataset maps fields to users or groups. For more information, see
-    ///             &lt;a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html"&gt;Using Row-Level Security (RLS) to Restrict Access to a Dataset&lt;/a&gt; in the &lt;i&gt;Amazon QuickSight User
+    ///             &lt;a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html"&gt;Using Row-Level Security (RLS) to Restrict Access to a Dataset&lt;/a&gt; in the &lt;i&gt;Amazon Quick Suite User
     ///                 Guide&lt;/i&gt;.&lt;/p&gt;
     ///          &lt;p&gt;The option to deny permissions by setting &lt;code&gt;PermissionPolicy&lt;/code&gt; to &lt;code&gt;DENY_ACCESS&lt;/code&gt; is
     ///             not supported for new RLS datasets.&lt;/p&gt;

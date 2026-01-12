@@ -182,6 +182,9 @@ const (
 	AiAgentAiAgentTypeEmailResponse         = AiAgentAiAgentType("EMAIL_RESPONSE")
 	AiAgentAiAgentTypeEmailOverview         = AiAgentAiAgentType("EMAIL_OVERVIEW")
 	AiAgentAiAgentTypeEmailGenerativeAnswer = AiAgentAiAgentType("EMAIL_GENERATIVE_ANSWER")
+	AiAgentAiAgentTypeOrchestration         = AiAgentAiAgentType("ORCHESTRATION")
+	AiAgentAiAgentTypeNoteTaking            = AiAgentAiAgentType("NOTE_TAKING")
+	AiAgentAiAgentTypeCaseSummarization     = AiAgentAiAgentType("CASE_SUMMARIZATION")
 )
 
 func (AiAgentAiAgentType) ElementType() reflect.Type {
@@ -312,6 +315,9 @@ func (o AiAgentAiAgentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 //	AiAgentAiAgentTypeEmailResponse
 //	AiAgentAiAgentTypeEmailOverview
 //	AiAgentAiAgentTypeEmailGenerativeAnswer
+//	AiAgentAiAgentTypeOrchestration
+//	AiAgentAiAgentTypeNoteTaking
+//	AiAgentAiAgentTypeCaseSummarization
 type AiAgentAiAgentTypeInput interface {
 	pulumi.Input
 
@@ -509,6 +515,340 @@ func (in *aiAgentKnowledgeBaseSearchTypePtr) ToAiAgentKnowledgeBaseSearchTypePtr
 
 func (in *aiAgentKnowledgeBaseSearchTypePtr) ToAiAgentKnowledgeBaseSearchTypePtrOutputWithContext(ctx context.Context) AiAgentKnowledgeBaseSearchTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AiAgentKnowledgeBaseSearchTypePtrOutput)
+}
+
+type AiAgentToolOverrideInputValueType string
+
+const (
+	AiAgentToolOverrideInputValueTypeString     = AiAgentToolOverrideInputValueType("STRING")
+	AiAgentToolOverrideInputValueTypeNumber     = AiAgentToolOverrideInputValueType("NUMBER")
+	AiAgentToolOverrideInputValueTypeJsonString = AiAgentToolOverrideInputValueType("JSON_STRING")
+)
+
+func (AiAgentToolOverrideInputValueType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentToolOverrideInputValueType)(nil)).Elem()
+}
+
+func (e AiAgentToolOverrideInputValueType) ToAiAgentToolOverrideInputValueTypeOutput() AiAgentToolOverrideInputValueTypeOutput {
+	return pulumi.ToOutput(e).(AiAgentToolOverrideInputValueTypeOutput)
+}
+
+func (e AiAgentToolOverrideInputValueType) ToAiAgentToolOverrideInputValueTypeOutputWithContext(ctx context.Context) AiAgentToolOverrideInputValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AiAgentToolOverrideInputValueTypeOutput)
+}
+
+func (e AiAgentToolOverrideInputValueType) ToAiAgentToolOverrideInputValueTypePtrOutput() AiAgentToolOverrideInputValueTypePtrOutput {
+	return e.ToAiAgentToolOverrideInputValueTypePtrOutputWithContext(context.Background())
+}
+
+func (e AiAgentToolOverrideInputValueType) ToAiAgentToolOverrideInputValueTypePtrOutputWithContext(ctx context.Context) AiAgentToolOverrideInputValueTypePtrOutput {
+	return AiAgentToolOverrideInputValueType(e).ToAiAgentToolOverrideInputValueTypeOutputWithContext(ctx).ToAiAgentToolOverrideInputValueTypePtrOutputWithContext(ctx)
+}
+
+func (e AiAgentToolOverrideInputValueType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiAgentToolOverrideInputValueType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiAgentToolOverrideInputValueType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AiAgentToolOverrideInputValueType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AiAgentToolOverrideInputValueTypeOutput struct{ *pulumi.OutputState }
+
+func (AiAgentToolOverrideInputValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentToolOverrideInputValueType)(nil)).Elem()
+}
+
+func (o AiAgentToolOverrideInputValueTypeOutput) ToAiAgentToolOverrideInputValueTypeOutput() AiAgentToolOverrideInputValueTypeOutput {
+	return o
+}
+
+func (o AiAgentToolOverrideInputValueTypeOutput) ToAiAgentToolOverrideInputValueTypeOutputWithContext(ctx context.Context) AiAgentToolOverrideInputValueTypeOutput {
+	return o
+}
+
+func (o AiAgentToolOverrideInputValueTypeOutput) ToAiAgentToolOverrideInputValueTypePtrOutput() AiAgentToolOverrideInputValueTypePtrOutput {
+	return o.ToAiAgentToolOverrideInputValueTypePtrOutputWithContext(context.Background())
+}
+
+func (o AiAgentToolOverrideInputValueTypeOutput) ToAiAgentToolOverrideInputValueTypePtrOutputWithContext(ctx context.Context) AiAgentToolOverrideInputValueTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiAgentToolOverrideInputValueType) *AiAgentToolOverrideInputValueType {
+		return &v
+	}).(AiAgentToolOverrideInputValueTypePtrOutput)
+}
+
+func (o AiAgentToolOverrideInputValueTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AiAgentToolOverrideInputValueTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiAgentToolOverrideInputValueType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AiAgentToolOverrideInputValueTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiAgentToolOverrideInputValueTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiAgentToolOverrideInputValueType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AiAgentToolOverrideInputValueTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AiAgentToolOverrideInputValueTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiAgentToolOverrideInputValueType)(nil)).Elem()
+}
+
+func (o AiAgentToolOverrideInputValueTypePtrOutput) ToAiAgentToolOverrideInputValueTypePtrOutput() AiAgentToolOverrideInputValueTypePtrOutput {
+	return o
+}
+
+func (o AiAgentToolOverrideInputValueTypePtrOutput) ToAiAgentToolOverrideInputValueTypePtrOutputWithContext(ctx context.Context) AiAgentToolOverrideInputValueTypePtrOutput {
+	return o
+}
+
+func (o AiAgentToolOverrideInputValueTypePtrOutput) Elem() AiAgentToolOverrideInputValueTypeOutput {
+	return o.ApplyT(func(v *AiAgentToolOverrideInputValueType) AiAgentToolOverrideInputValueType {
+		if v != nil {
+			return *v
+		}
+		var ret AiAgentToolOverrideInputValueType
+		return ret
+	}).(AiAgentToolOverrideInputValueTypeOutput)
+}
+
+func (o AiAgentToolOverrideInputValueTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiAgentToolOverrideInputValueTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AiAgentToolOverrideInputValueType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AiAgentToolOverrideInputValueTypeInput is an input type that accepts values of the AiAgentToolOverrideInputValueType enum
+// A concrete instance of `AiAgentToolOverrideInputValueTypeInput` can be one of the following:
+//
+//	AiAgentToolOverrideInputValueTypeString
+//	AiAgentToolOverrideInputValueTypeNumber
+//	AiAgentToolOverrideInputValueTypeJsonString
+type AiAgentToolOverrideInputValueTypeInput interface {
+	pulumi.Input
+
+	ToAiAgentToolOverrideInputValueTypeOutput() AiAgentToolOverrideInputValueTypeOutput
+	ToAiAgentToolOverrideInputValueTypeOutputWithContext(context.Context) AiAgentToolOverrideInputValueTypeOutput
+}
+
+var aiAgentToolOverrideInputValueTypePtrType = reflect.TypeOf((**AiAgentToolOverrideInputValueType)(nil)).Elem()
+
+type AiAgentToolOverrideInputValueTypePtrInput interface {
+	pulumi.Input
+
+	ToAiAgentToolOverrideInputValueTypePtrOutput() AiAgentToolOverrideInputValueTypePtrOutput
+	ToAiAgentToolOverrideInputValueTypePtrOutputWithContext(context.Context) AiAgentToolOverrideInputValueTypePtrOutput
+}
+
+type aiAgentToolOverrideInputValueTypePtr string
+
+func AiAgentToolOverrideInputValueTypePtr(v string) AiAgentToolOverrideInputValueTypePtrInput {
+	return (*aiAgentToolOverrideInputValueTypePtr)(&v)
+}
+
+func (*aiAgentToolOverrideInputValueTypePtr) ElementType() reflect.Type {
+	return aiAgentToolOverrideInputValueTypePtrType
+}
+
+func (in *aiAgentToolOverrideInputValueTypePtr) ToAiAgentToolOverrideInputValueTypePtrOutput() AiAgentToolOverrideInputValueTypePtrOutput {
+	return pulumi.ToOutput(in).(AiAgentToolOverrideInputValueTypePtrOutput)
+}
+
+func (in *aiAgentToolOverrideInputValueTypePtr) ToAiAgentToolOverrideInputValueTypePtrOutputWithContext(ctx context.Context) AiAgentToolOverrideInputValueTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AiAgentToolOverrideInputValueTypePtrOutput)
+}
+
+type AiAgentToolType string
+
+const (
+	AiAgentToolTypeModelContextProtocol = AiAgentToolType("MODEL_CONTEXT_PROTOCOL")
+	AiAgentToolTypeReturnToControl      = AiAgentToolType("RETURN_TO_CONTROL")
+	AiAgentToolTypeConstant             = AiAgentToolType("CONSTANT")
+)
+
+func (AiAgentToolType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentToolType)(nil)).Elem()
+}
+
+func (e AiAgentToolType) ToAiAgentToolTypeOutput() AiAgentToolTypeOutput {
+	return pulumi.ToOutput(e).(AiAgentToolTypeOutput)
+}
+
+func (e AiAgentToolType) ToAiAgentToolTypeOutputWithContext(ctx context.Context) AiAgentToolTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AiAgentToolTypeOutput)
+}
+
+func (e AiAgentToolType) ToAiAgentToolTypePtrOutput() AiAgentToolTypePtrOutput {
+	return e.ToAiAgentToolTypePtrOutputWithContext(context.Background())
+}
+
+func (e AiAgentToolType) ToAiAgentToolTypePtrOutputWithContext(ctx context.Context) AiAgentToolTypePtrOutput {
+	return AiAgentToolType(e).ToAiAgentToolTypeOutputWithContext(ctx).ToAiAgentToolTypePtrOutputWithContext(ctx)
+}
+
+func (e AiAgentToolType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiAgentToolType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiAgentToolType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AiAgentToolType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AiAgentToolTypeOutput struct{ *pulumi.OutputState }
+
+func (AiAgentToolTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentToolType)(nil)).Elem()
+}
+
+func (o AiAgentToolTypeOutput) ToAiAgentToolTypeOutput() AiAgentToolTypeOutput {
+	return o
+}
+
+func (o AiAgentToolTypeOutput) ToAiAgentToolTypeOutputWithContext(ctx context.Context) AiAgentToolTypeOutput {
+	return o
+}
+
+func (o AiAgentToolTypeOutput) ToAiAgentToolTypePtrOutput() AiAgentToolTypePtrOutput {
+	return o.ToAiAgentToolTypePtrOutputWithContext(context.Background())
+}
+
+func (o AiAgentToolTypeOutput) ToAiAgentToolTypePtrOutputWithContext(ctx context.Context) AiAgentToolTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiAgentToolType) *AiAgentToolType {
+		return &v
+	}).(AiAgentToolTypePtrOutput)
+}
+
+func (o AiAgentToolTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AiAgentToolTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiAgentToolType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AiAgentToolTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiAgentToolTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiAgentToolType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AiAgentToolTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AiAgentToolTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiAgentToolType)(nil)).Elem()
+}
+
+func (o AiAgentToolTypePtrOutput) ToAiAgentToolTypePtrOutput() AiAgentToolTypePtrOutput {
+	return o
+}
+
+func (o AiAgentToolTypePtrOutput) ToAiAgentToolTypePtrOutputWithContext(ctx context.Context) AiAgentToolTypePtrOutput {
+	return o
+}
+
+func (o AiAgentToolTypePtrOutput) Elem() AiAgentToolTypeOutput {
+	return o.ApplyT(func(v *AiAgentToolType) AiAgentToolType {
+		if v != nil {
+			return *v
+		}
+		var ret AiAgentToolType
+		return ret
+	}).(AiAgentToolTypeOutput)
+}
+
+func (o AiAgentToolTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiAgentToolTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AiAgentToolType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AiAgentToolTypeInput is an input type that accepts values of the AiAgentToolType enum
+// A concrete instance of `AiAgentToolTypeInput` can be one of the following:
+//
+//	AiAgentToolTypeModelContextProtocol
+//	AiAgentToolTypeReturnToControl
+//	AiAgentToolTypeConstant
+type AiAgentToolTypeInput interface {
+	pulumi.Input
+
+	ToAiAgentToolTypeOutput() AiAgentToolTypeOutput
+	ToAiAgentToolTypeOutputWithContext(context.Context) AiAgentToolTypeOutput
+}
+
+var aiAgentToolTypePtrType = reflect.TypeOf((**AiAgentToolType)(nil)).Elem()
+
+type AiAgentToolTypePtrInput interface {
+	pulumi.Input
+
+	ToAiAgentToolTypePtrOutput() AiAgentToolTypePtrOutput
+	ToAiAgentToolTypePtrOutputWithContext(context.Context) AiAgentToolTypePtrOutput
+}
+
+type aiAgentToolTypePtr string
+
+func AiAgentToolTypePtr(v string) AiAgentToolTypePtrInput {
+	return (*aiAgentToolTypePtr)(&v)
+}
+
+func (*aiAgentToolTypePtr) ElementType() reflect.Type {
+	return aiAgentToolTypePtrType
+}
+
+func (in *aiAgentToolTypePtr) ToAiAgentToolTypePtrOutput() AiAgentToolTypePtrOutput {
+	return pulumi.ToOutput(in).(AiAgentToolTypePtrOutput)
+}
+
+func (in *aiAgentToolTypePtr) ToAiAgentToolTypePtrOutputWithContext(ctx context.Context) AiAgentToolTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AiAgentToolTypePtrOutput)
 }
 
 // Type of text to text filter in content policy
@@ -3732,6 +4072,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentTypePtrInput)(nil)).Elem(), AiAgentAiAgentType("MANUAL_SEARCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentKnowledgeBaseSearchTypeInput)(nil)).Elem(), AiAgentKnowledgeBaseSearchType("HYBRID"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentKnowledgeBaseSearchTypePtrInput)(nil)).Elem(), AiAgentKnowledgeBaseSearchType("HYBRID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentToolOverrideInputValueTypeInput)(nil)).Elem(), AiAgentToolOverrideInputValueType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentToolOverrideInputValueTypePtrInput)(nil)).Elem(), AiAgentToolOverrideInputValueType("STRING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentToolTypeInput)(nil)).Elem(), AiAgentToolType("MODEL_CONTEXT_PROTOCOL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentToolTypePtrInput)(nil)).Elem(), AiAgentToolType("MODEL_CONTEXT_PROTOCOL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailContentFilterTypeInput)(nil)).Elem(), AiGuardrailGuardrailContentFilterType("SEXUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailContentFilterTypePtrInput)(nil)).Elem(), AiGuardrailGuardrailContentFilterType("SEXUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailContextualGroundingFilterTypeInput)(nil)).Elem(), AiGuardrailGuardrailContextualGroundingFilterType("GROUNDING"))
@@ -3775,6 +4119,10 @@ func init() {
 	pulumi.RegisterOutputType(AiAgentAiAgentTypePtrOutput{})
 	pulumi.RegisterOutputType(AiAgentKnowledgeBaseSearchTypeOutput{})
 	pulumi.RegisterOutputType(AiAgentKnowledgeBaseSearchTypePtrOutput{})
+	pulumi.RegisterOutputType(AiAgentToolOverrideInputValueTypeOutput{})
+	pulumi.RegisterOutputType(AiAgentToolOverrideInputValueTypePtrOutput{})
+	pulumi.RegisterOutputType(AiAgentToolTypeOutput{})
+	pulumi.RegisterOutputType(AiAgentToolTypePtrOutput{})
 	pulumi.RegisterOutputType(AiGuardrailGuardrailContentFilterTypeOutput{})
 	pulumi.RegisterOutputType(AiGuardrailGuardrailContentFilterTypePtrOutput{})
 	pulumi.RegisterOutputType(AiGuardrailGuardrailContextualGroundingFilterTypeOutput{})

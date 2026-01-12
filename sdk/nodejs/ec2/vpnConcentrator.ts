@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::EC2::VPNConcentrator
+ * Describes a VPN concentrator.
  */
 export class VpnConcentrator extends pulumi.CustomResource {
     /**
@@ -42,19 +42,19 @@ export class VpnConcentrator extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * The ID of the transit gateway attachment
+     * The ID of the transit gateway attachment for the VPN concentrator.
      */
     declare public /*out*/ readonly transitGatewayAttachmentId: pulumi.Output<string>;
     /**
-     * The ID of the transit gateway
+     * The ID of the transit gateway associated with the VPN concentrator.
      */
     declare public readonly transitGatewayId: pulumi.Output<string>;
     /**
-     * The type of VPN concentrator
+     * The type of VPN concentrator.
      */
     declare public readonly type: pulumi.Output<string>;
     /**
-     * The provider-assigned unique ID for this managed resource
+     * The ID of the VPN concentrator to associate with the VPN connection.
      */
     declare public /*out*/ readonly vpnConcentratorId: pulumi.Output<string>;
 
@@ -103,11 +103,11 @@ export interface VpnConcentratorArgs {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * The ID of the transit gateway
+     * The ID of the transit gateway associated with the VPN concentrator.
      */
     transitGatewayId: pulumi.Input<string>;
     /**
-     * The type of VPN concentrator
+     * The type of VPN concentrator.
      */
     type: pulumi.Input<string>;
 }

@@ -16581,13 +16581,11 @@ class VpnConnectionCloudwatchLogOptionsSpecification(dict):
                  log_output_format: Optional['VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat'] = None):
         """
         Options for sending VPN tunnel logs to CloudWatch.
-        :param _builtins.bool bgp_log_enabled: Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
-               
-               Valid values: `True` | `False`
+        :param _builtins.bool bgp_log_enabled: Specifies whether to enable BGP logging for the VPN connection. Default value is ``False``.
+                Valid values: ``True`` | ``False``
         :param _builtins.str bgp_log_group_arn: The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.
-        :param 'VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat' bgp_log_output_format: The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
-               
-               Valid values: `json` | `text`
+        :param 'VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat' bgp_log_output_format: The desired output format for BGP logs to be sent to CloudWatch. Default format is ``json``.
+                Valid values: ``json`` | ``text``
         :param _builtins.bool log_enabled: Enable or disable VPN tunnel logging feature. Default value is ``False``.
                 Valid values: ``True`` | ``False``
         :param _builtins.str log_group_arn: The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
@@ -16611,9 +16609,8 @@ class VpnConnectionCloudwatchLogOptionsSpecification(dict):
     @pulumi.getter(name="bgpLogEnabled")
     def bgp_log_enabled(self) -> Optional[_builtins.bool]:
         """
-        Specifies whether to enable BGP logging for the VPN connection. Default value is `False` .
-
-        Valid values: `True` | `False`
+        Specifies whether to enable BGP logging for the VPN connection. Default value is ``False``.
+         Valid values: ``True`` | ``False``
         """
         return pulumi.get(self, "bgp_log_enabled")
 
@@ -16629,9 +16626,8 @@ class VpnConnectionCloudwatchLogOptionsSpecification(dict):
     @pulumi.getter(name="bgpLogOutputFormat")
     def bgp_log_output_format(self) -> Optional['VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat']:
         """
-        The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
-
-        Valid values: `json` | `text`
+        The desired output format for BGP logs to be sent to CloudWatch. Default format is ``json``.
+         Valid values: ``json`` | ``text``
         """
         return pulumi.get(self, "bgp_log_output_format")
 

@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:quicksight:ActionConnector":
+		r = &ActionConnector{}
 	case "aws-native:quicksight:Analysis":
 		r = &Analysis{}
 	case "aws-native:quicksight:CustomPermissions":

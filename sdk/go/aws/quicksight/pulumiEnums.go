@@ -10,6 +10,816 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ActionConnectorAuthorizationCodeGrantCredentialsSource string
+
+const (
+	ActionConnectorAuthorizationCodeGrantCredentialsSourcePlainCredentials = ActionConnectorAuthorizationCodeGrantCredentialsSource("PLAIN_CREDENTIALS")
+)
+
+func (ActionConnectorAuthorizationCodeGrantCredentialsSource) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectorAuthorizationCodeGrantCredentialsSource)(nil)).Elem()
+}
+
+func (e ActionConnectorAuthorizationCodeGrantCredentialsSource) ToActionConnectorAuthorizationCodeGrantCredentialsSourceOutput() ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput {
+	return pulumi.ToOutput(e).(ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput)
+}
+
+func (e ActionConnectorAuthorizationCodeGrantCredentialsSource) ToActionConnectorAuthorizationCodeGrantCredentialsSourceOutputWithContext(ctx context.Context) ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput)
+}
+
+func (e ActionConnectorAuthorizationCodeGrantCredentialsSource) ToActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput() ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput {
+	return e.ToActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutputWithContext(context.Background())
+}
+
+func (e ActionConnectorAuthorizationCodeGrantCredentialsSource) ToActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutputWithContext(ctx context.Context) ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput {
+	return ActionConnectorAuthorizationCodeGrantCredentialsSource(e).ToActionConnectorAuthorizationCodeGrantCredentialsSourceOutputWithContext(ctx).ToActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutputWithContext(ctx)
+}
+
+func (e ActionConnectorAuthorizationCodeGrantCredentialsSource) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ActionConnectorAuthorizationCodeGrantCredentialsSource) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ActionConnectorAuthorizationCodeGrantCredentialsSource) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ActionConnectorAuthorizationCodeGrantCredentialsSource) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectorAuthorizationCodeGrantCredentialsSource)(nil)).Elem()
+}
+
+func (o ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput) ToActionConnectorAuthorizationCodeGrantCredentialsSourceOutput() ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput {
+	return o
+}
+
+func (o ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput) ToActionConnectorAuthorizationCodeGrantCredentialsSourceOutputWithContext(ctx context.Context) ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput {
+	return o
+}
+
+func (o ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput) ToActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput() ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput {
+	return o.ToActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput) ToActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutputWithContext(ctx context.Context) ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectorAuthorizationCodeGrantCredentialsSource) *ActionConnectorAuthorizationCodeGrantCredentialsSource {
+		return &v
+	}).(ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput)
+}
+
+func (o ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionConnectorAuthorizationCodeGrantCredentialsSource) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionConnectorAuthorizationCodeGrantCredentialsSource) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectorAuthorizationCodeGrantCredentialsSource)(nil)).Elem()
+}
+
+func (o ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput) ToActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput() ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput {
+	return o
+}
+
+func (o ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput) ToActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutputWithContext(ctx context.Context) ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput {
+	return o
+}
+
+func (o ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput) Elem() ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput {
+	return o.ApplyT(func(v *ActionConnectorAuthorizationCodeGrantCredentialsSource) ActionConnectorAuthorizationCodeGrantCredentialsSource {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectorAuthorizationCodeGrantCredentialsSource
+		return ret
+	}).(ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput)
+}
+
+func (o ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ActionConnectorAuthorizationCodeGrantCredentialsSource) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ActionConnectorAuthorizationCodeGrantCredentialsSourceInput is an input type that accepts values of the ActionConnectorAuthorizationCodeGrantCredentialsSource enum
+// A concrete instance of `ActionConnectorAuthorizationCodeGrantCredentialsSourceInput` can be one of the following:
+//
+//	ActionConnectorAuthorizationCodeGrantCredentialsSourcePlainCredentials
+type ActionConnectorAuthorizationCodeGrantCredentialsSourceInput interface {
+	pulumi.Input
+
+	ToActionConnectorAuthorizationCodeGrantCredentialsSourceOutput() ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput
+	ToActionConnectorAuthorizationCodeGrantCredentialsSourceOutputWithContext(context.Context) ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput
+}
+
+var actionConnectorAuthorizationCodeGrantCredentialsSourcePtrType = reflect.TypeOf((**ActionConnectorAuthorizationCodeGrantCredentialsSource)(nil)).Elem()
+
+type ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrInput interface {
+	pulumi.Input
+
+	ToActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput() ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput
+	ToActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutputWithContext(context.Context) ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput
+}
+
+type actionConnectorAuthorizationCodeGrantCredentialsSourcePtr string
+
+func ActionConnectorAuthorizationCodeGrantCredentialsSourcePtr(v string) ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrInput {
+	return (*actionConnectorAuthorizationCodeGrantCredentialsSourcePtr)(&v)
+}
+
+func (*actionConnectorAuthorizationCodeGrantCredentialsSourcePtr) ElementType() reflect.Type {
+	return actionConnectorAuthorizationCodeGrantCredentialsSourcePtrType
+}
+
+func (in *actionConnectorAuthorizationCodeGrantCredentialsSourcePtr) ToActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput() ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput {
+	return pulumi.ToOutput(in).(ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput)
+}
+
+func (in *actionConnectorAuthorizationCodeGrantCredentialsSourcePtr) ToActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutputWithContext(ctx context.Context) ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput)
+}
+
+type ActionConnectorClientCredentialsSource string
+
+const (
+	ActionConnectorClientCredentialsSourcePlainCredentials = ActionConnectorClientCredentialsSource("PLAIN_CREDENTIALS")
+)
+
+func (ActionConnectorClientCredentialsSource) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectorClientCredentialsSource)(nil)).Elem()
+}
+
+func (e ActionConnectorClientCredentialsSource) ToActionConnectorClientCredentialsSourceOutput() ActionConnectorClientCredentialsSourceOutput {
+	return pulumi.ToOutput(e).(ActionConnectorClientCredentialsSourceOutput)
+}
+
+func (e ActionConnectorClientCredentialsSource) ToActionConnectorClientCredentialsSourceOutputWithContext(ctx context.Context) ActionConnectorClientCredentialsSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ActionConnectorClientCredentialsSourceOutput)
+}
+
+func (e ActionConnectorClientCredentialsSource) ToActionConnectorClientCredentialsSourcePtrOutput() ActionConnectorClientCredentialsSourcePtrOutput {
+	return e.ToActionConnectorClientCredentialsSourcePtrOutputWithContext(context.Background())
+}
+
+func (e ActionConnectorClientCredentialsSource) ToActionConnectorClientCredentialsSourcePtrOutputWithContext(ctx context.Context) ActionConnectorClientCredentialsSourcePtrOutput {
+	return ActionConnectorClientCredentialsSource(e).ToActionConnectorClientCredentialsSourceOutputWithContext(ctx).ToActionConnectorClientCredentialsSourcePtrOutputWithContext(ctx)
+}
+
+func (e ActionConnectorClientCredentialsSource) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ActionConnectorClientCredentialsSource) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ActionConnectorClientCredentialsSource) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ActionConnectorClientCredentialsSource) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ActionConnectorClientCredentialsSourceOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectorClientCredentialsSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectorClientCredentialsSource)(nil)).Elem()
+}
+
+func (o ActionConnectorClientCredentialsSourceOutput) ToActionConnectorClientCredentialsSourceOutput() ActionConnectorClientCredentialsSourceOutput {
+	return o
+}
+
+func (o ActionConnectorClientCredentialsSourceOutput) ToActionConnectorClientCredentialsSourceOutputWithContext(ctx context.Context) ActionConnectorClientCredentialsSourceOutput {
+	return o
+}
+
+func (o ActionConnectorClientCredentialsSourceOutput) ToActionConnectorClientCredentialsSourcePtrOutput() ActionConnectorClientCredentialsSourcePtrOutput {
+	return o.ToActionConnectorClientCredentialsSourcePtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectorClientCredentialsSourceOutput) ToActionConnectorClientCredentialsSourcePtrOutputWithContext(ctx context.Context) ActionConnectorClientCredentialsSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectorClientCredentialsSource) *ActionConnectorClientCredentialsSource {
+		return &v
+	}).(ActionConnectorClientCredentialsSourcePtrOutput)
+}
+
+func (o ActionConnectorClientCredentialsSourceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ActionConnectorClientCredentialsSourceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionConnectorClientCredentialsSource) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ActionConnectorClientCredentialsSourceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectorClientCredentialsSourceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionConnectorClientCredentialsSource) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectorClientCredentialsSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectorClientCredentialsSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectorClientCredentialsSource)(nil)).Elem()
+}
+
+func (o ActionConnectorClientCredentialsSourcePtrOutput) ToActionConnectorClientCredentialsSourcePtrOutput() ActionConnectorClientCredentialsSourcePtrOutput {
+	return o
+}
+
+func (o ActionConnectorClientCredentialsSourcePtrOutput) ToActionConnectorClientCredentialsSourcePtrOutputWithContext(ctx context.Context) ActionConnectorClientCredentialsSourcePtrOutput {
+	return o
+}
+
+func (o ActionConnectorClientCredentialsSourcePtrOutput) Elem() ActionConnectorClientCredentialsSourceOutput {
+	return o.ApplyT(func(v *ActionConnectorClientCredentialsSource) ActionConnectorClientCredentialsSource {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectorClientCredentialsSource
+		return ret
+	}).(ActionConnectorClientCredentialsSourceOutput)
+}
+
+func (o ActionConnectorClientCredentialsSourcePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectorClientCredentialsSourcePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ActionConnectorClientCredentialsSource) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ActionConnectorClientCredentialsSourceInput is an input type that accepts values of the ActionConnectorClientCredentialsSource enum
+// A concrete instance of `ActionConnectorClientCredentialsSourceInput` can be one of the following:
+//
+//	ActionConnectorClientCredentialsSourcePlainCredentials
+type ActionConnectorClientCredentialsSourceInput interface {
+	pulumi.Input
+
+	ToActionConnectorClientCredentialsSourceOutput() ActionConnectorClientCredentialsSourceOutput
+	ToActionConnectorClientCredentialsSourceOutputWithContext(context.Context) ActionConnectorClientCredentialsSourceOutput
+}
+
+var actionConnectorClientCredentialsSourcePtrType = reflect.TypeOf((**ActionConnectorClientCredentialsSource)(nil)).Elem()
+
+type ActionConnectorClientCredentialsSourcePtrInput interface {
+	pulumi.Input
+
+	ToActionConnectorClientCredentialsSourcePtrOutput() ActionConnectorClientCredentialsSourcePtrOutput
+	ToActionConnectorClientCredentialsSourcePtrOutputWithContext(context.Context) ActionConnectorClientCredentialsSourcePtrOutput
+}
+
+type actionConnectorClientCredentialsSourcePtr string
+
+func ActionConnectorClientCredentialsSourcePtr(v string) ActionConnectorClientCredentialsSourcePtrInput {
+	return (*actionConnectorClientCredentialsSourcePtr)(&v)
+}
+
+func (*actionConnectorClientCredentialsSourcePtr) ElementType() reflect.Type {
+	return actionConnectorClientCredentialsSourcePtrType
+}
+
+func (in *actionConnectorClientCredentialsSourcePtr) ToActionConnectorClientCredentialsSourcePtrOutput() ActionConnectorClientCredentialsSourcePtrOutput {
+	return pulumi.ToOutput(in).(ActionConnectorClientCredentialsSourcePtrOutput)
+}
+
+func (in *actionConnectorClientCredentialsSourcePtr) ToActionConnectorClientCredentialsSourcePtrOutputWithContext(ctx context.Context) ActionConnectorClientCredentialsSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ActionConnectorClientCredentialsSourcePtrOutput)
+}
+
+type ActionConnectorConnectionAuthType string
+
+const (
+	ActionConnectorConnectionAuthTypeBasic                   = ActionConnectorConnectionAuthType("BASIC")
+	ActionConnectorConnectionAuthTypeApiKey                  = ActionConnectorConnectionAuthType("API_KEY")
+	ActionConnectorConnectionAuthTypeOauth2ClientCredentials = ActionConnectorConnectionAuthType("OAUTH2_CLIENT_CREDENTIALS")
+	ActionConnectorConnectionAuthTypeNone                    = ActionConnectorConnectionAuthType("NONE")
+	ActionConnectorConnectionAuthTypeIam                     = ActionConnectorConnectionAuthType("IAM")
+	ActionConnectorConnectionAuthTypeOauth2AuthorizationCode = ActionConnectorConnectionAuthType("OAUTH2_AUTHORIZATION_CODE")
+)
+
+func (ActionConnectorConnectionAuthType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectorConnectionAuthType)(nil)).Elem()
+}
+
+func (e ActionConnectorConnectionAuthType) ToActionConnectorConnectionAuthTypeOutput() ActionConnectorConnectionAuthTypeOutput {
+	return pulumi.ToOutput(e).(ActionConnectorConnectionAuthTypeOutput)
+}
+
+func (e ActionConnectorConnectionAuthType) ToActionConnectorConnectionAuthTypeOutputWithContext(ctx context.Context) ActionConnectorConnectionAuthTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ActionConnectorConnectionAuthTypeOutput)
+}
+
+func (e ActionConnectorConnectionAuthType) ToActionConnectorConnectionAuthTypePtrOutput() ActionConnectorConnectionAuthTypePtrOutput {
+	return e.ToActionConnectorConnectionAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (e ActionConnectorConnectionAuthType) ToActionConnectorConnectionAuthTypePtrOutputWithContext(ctx context.Context) ActionConnectorConnectionAuthTypePtrOutput {
+	return ActionConnectorConnectionAuthType(e).ToActionConnectorConnectionAuthTypeOutputWithContext(ctx).ToActionConnectorConnectionAuthTypePtrOutputWithContext(ctx)
+}
+
+func (e ActionConnectorConnectionAuthType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ActionConnectorConnectionAuthType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ActionConnectorConnectionAuthType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ActionConnectorConnectionAuthType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ActionConnectorConnectionAuthTypeOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectorConnectionAuthTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectorConnectionAuthType)(nil)).Elem()
+}
+
+func (o ActionConnectorConnectionAuthTypeOutput) ToActionConnectorConnectionAuthTypeOutput() ActionConnectorConnectionAuthTypeOutput {
+	return o
+}
+
+func (o ActionConnectorConnectionAuthTypeOutput) ToActionConnectorConnectionAuthTypeOutputWithContext(ctx context.Context) ActionConnectorConnectionAuthTypeOutput {
+	return o
+}
+
+func (o ActionConnectorConnectionAuthTypeOutput) ToActionConnectorConnectionAuthTypePtrOutput() ActionConnectorConnectionAuthTypePtrOutput {
+	return o.ToActionConnectorConnectionAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectorConnectionAuthTypeOutput) ToActionConnectorConnectionAuthTypePtrOutputWithContext(ctx context.Context) ActionConnectorConnectionAuthTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectorConnectionAuthType) *ActionConnectorConnectionAuthType {
+		return &v
+	}).(ActionConnectorConnectionAuthTypePtrOutput)
+}
+
+func (o ActionConnectorConnectionAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ActionConnectorConnectionAuthTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionConnectorConnectionAuthType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ActionConnectorConnectionAuthTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectorConnectionAuthTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionConnectorConnectionAuthType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectorConnectionAuthTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectorConnectionAuthTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectorConnectionAuthType)(nil)).Elem()
+}
+
+func (o ActionConnectorConnectionAuthTypePtrOutput) ToActionConnectorConnectionAuthTypePtrOutput() ActionConnectorConnectionAuthTypePtrOutput {
+	return o
+}
+
+func (o ActionConnectorConnectionAuthTypePtrOutput) ToActionConnectorConnectionAuthTypePtrOutputWithContext(ctx context.Context) ActionConnectorConnectionAuthTypePtrOutput {
+	return o
+}
+
+func (o ActionConnectorConnectionAuthTypePtrOutput) Elem() ActionConnectorConnectionAuthTypeOutput {
+	return o.ApplyT(func(v *ActionConnectorConnectionAuthType) ActionConnectorConnectionAuthType {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectorConnectionAuthType
+		return ret
+	}).(ActionConnectorConnectionAuthTypeOutput)
+}
+
+func (o ActionConnectorConnectionAuthTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectorConnectionAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ActionConnectorConnectionAuthType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ActionConnectorConnectionAuthTypeInput is an input type that accepts values of the ActionConnectorConnectionAuthType enum
+// A concrete instance of `ActionConnectorConnectionAuthTypeInput` can be one of the following:
+//
+//	ActionConnectorConnectionAuthTypeBasic
+//	ActionConnectorConnectionAuthTypeApiKey
+//	ActionConnectorConnectionAuthTypeOauth2ClientCredentials
+//	ActionConnectorConnectionAuthTypeNone
+//	ActionConnectorConnectionAuthTypeIam
+//	ActionConnectorConnectionAuthTypeOauth2AuthorizationCode
+type ActionConnectorConnectionAuthTypeInput interface {
+	pulumi.Input
+
+	ToActionConnectorConnectionAuthTypeOutput() ActionConnectorConnectionAuthTypeOutput
+	ToActionConnectorConnectionAuthTypeOutputWithContext(context.Context) ActionConnectorConnectionAuthTypeOutput
+}
+
+var actionConnectorConnectionAuthTypePtrType = reflect.TypeOf((**ActionConnectorConnectionAuthType)(nil)).Elem()
+
+type ActionConnectorConnectionAuthTypePtrInput interface {
+	pulumi.Input
+
+	ToActionConnectorConnectionAuthTypePtrOutput() ActionConnectorConnectionAuthTypePtrOutput
+	ToActionConnectorConnectionAuthTypePtrOutputWithContext(context.Context) ActionConnectorConnectionAuthTypePtrOutput
+}
+
+type actionConnectorConnectionAuthTypePtr string
+
+func ActionConnectorConnectionAuthTypePtr(v string) ActionConnectorConnectionAuthTypePtrInput {
+	return (*actionConnectorConnectionAuthTypePtr)(&v)
+}
+
+func (*actionConnectorConnectionAuthTypePtr) ElementType() reflect.Type {
+	return actionConnectorConnectionAuthTypePtrType
+}
+
+func (in *actionConnectorConnectionAuthTypePtr) ToActionConnectorConnectionAuthTypePtrOutput() ActionConnectorConnectionAuthTypePtrOutput {
+	return pulumi.ToOutput(in).(ActionConnectorConnectionAuthTypePtrOutput)
+}
+
+func (in *actionConnectorConnectionAuthTypePtr) ToActionConnectorConnectionAuthTypePtrOutputWithContext(ctx context.Context) ActionConnectorConnectionAuthTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ActionConnectorConnectionAuthTypePtrOutput)
+}
+
+type ActionConnectorResourceStatus string
+
+const (
+	ActionConnectorResourceStatusCreationInProgress = ActionConnectorResourceStatus("CREATION_IN_PROGRESS")
+	ActionConnectorResourceStatusCreationSuccessful = ActionConnectorResourceStatus("CREATION_SUCCESSFUL")
+	ActionConnectorResourceStatusCreationFailed     = ActionConnectorResourceStatus("CREATION_FAILED")
+	ActionConnectorResourceStatusUpdateInProgress   = ActionConnectorResourceStatus("UPDATE_IN_PROGRESS")
+	ActionConnectorResourceStatusUpdateSuccessful   = ActionConnectorResourceStatus("UPDATE_SUCCESSFUL")
+	ActionConnectorResourceStatusUpdateFailed       = ActionConnectorResourceStatus("UPDATE_FAILED")
+	ActionConnectorResourceStatusPendingUpdate      = ActionConnectorResourceStatus("PENDING_UPDATE")
+	ActionConnectorResourceStatusDeleted            = ActionConnectorResourceStatus("DELETED")
+)
+
+type ActionConnectorResourceStatusOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectorResourceStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectorResourceStatus)(nil)).Elem()
+}
+
+func (o ActionConnectorResourceStatusOutput) ToActionConnectorResourceStatusOutput() ActionConnectorResourceStatusOutput {
+	return o
+}
+
+func (o ActionConnectorResourceStatusOutput) ToActionConnectorResourceStatusOutputWithContext(ctx context.Context) ActionConnectorResourceStatusOutput {
+	return o
+}
+
+func (o ActionConnectorResourceStatusOutput) ToActionConnectorResourceStatusPtrOutput() ActionConnectorResourceStatusPtrOutput {
+	return o.ToActionConnectorResourceStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectorResourceStatusOutput) ToActionConnectorResourceStatusPtrOutputWithContext(ctx context.Context) ActionConnectorResourceStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectorResourceStatus) *ActionConnectorResourceStatus {
+		return &v
+	}).(ActionConnectorResourceStatusPtrOutput)
+}
+
+func (o ActionConnectorResourceStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ActionConnectorResourceStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionConnectorResourceStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ActionConnectorResourceStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectorResourceStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionConnectorResourceStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectorResourceStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectorResourceStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectorResourceStatus)(nil)).Elem()
+}
+
+func (o ActionConnectorResourceStatusPtrOutput) ToActionConnectorResourceStatusPtrOutput() ActionConnectorResourceStatusPtrOutput {
+	return o
+}
+
+func (o ActionConnectorResourceStatusPtrOutput) ToActionConnectorResourceStatusPtrOutputWithContext(ctx context.Context) ActionConnectorResourceStatusPtrOutput {
+	return o
+}
+
+func (o ActionConnectorResourceStatusPtrOutput) Elem() ActionConnectorResourceStatusOutput {
+	return o.ApplyT(func(v *ActionConnectorResourceStatus) ActionConnectorResourceStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectorResourceStatus
+		return ret
+	}).(ActionConnectorResourceStatusOutput)
+}
+
+func (o ActionConnectorResourceStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectorResourceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ActionConnectorResourceStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectorType string
+
+const (
+	ActionConnectorTypeGenericHttp                        = ActionConnectorType("GENERIC_HTTP")
+	ActionConnectorTypeServicenowNowPlatform              = ActionConnectorType("SERVICENOW_NOW_PLATFORM")
+	ActionConnectorTypeSalesforceCrm                      = ActionConnectorType("SALESFORCE_CRM")
+	ActionConnectorTypeMicrosoftOutlook                   = ActionConnectorType("MICROSOFT_OUTLOOK")
+	ActionConnectorTypePagerdutyAdvance                   = ActionConnectorType("PAGERDUTY_ADVANCE")
+	ActionConnectorTypeJiraCloud                          = ActionConnectorType("JIRA_CLOUD")
+	ActionConnectorTypeAtlassianConfluence                = ActionConnectorType("ATLASSIAN_CONFLUENCE")
+	ActionConnectorTypeAmazonS3                           = ActionConnectorType("AMAZON_S3")
+	ActionConnectorTypeAmazonBedrockAgentRuntime          = ActionConnectorType("AMAZON_BEDROCK_AGENT_RUNTIME")
+	ActionConnectorTypeAmazonBedrockRuntime               = ActionConnectorType("AMAZON_BEDROCK_RUNTIME")
+	ActionConnectorTypeAmazonBedrockDataAutomationRuntime = ActionConnectorType("AMAZON_BEDROCK_DATA_AUTOMATION_RUNTIME")
+	ActionConnectorTypeAmazonTextract                     = ActionConnectorType("AMAZON_TEXTRACT")
+	ActionConnectorTypeAmazonComprehend                   = ActionConnectorType("AMAZON_COMPREHEND")
+	ActionConnectorTypeAmazonComprehendMedical            = ActionConnectorType("AMAZON_COMPREHEND_MEDICAL")
+	ActionConnectorTypeMicrosoftOnedrive                  = ActionConnectorType("MICROSOFT_ONEDRIVE")
+	ActionConnectorTypeMicrosoftSharepoint                = ActionConnectorType("MICROSOFT_SHAREPOINT")
+	ActionConnectorTypeMicrosoftTeams                     = ActionConnectorType("MICROSOFT_TEAMS")
+	ActionConnectorTypeSapBusinesspartner                 = ActionConnectorType("SAP_BUSINESSPARTNER")
+	ActionConnectorTypeSapProductmasterdata               = ActionConnectorType("SAP_PRODUCTMASTERDATA")
+	ActionConnectorTypeSapPhysicalinventory               = ActionConnectorType("SAP_PHYSICALINVENTORY")
+	ActionConnectorTypeSapBillofmaterials                 = ActionConnectorType("SAP_BILLOFMATERIALS")
+	ActionConnectorTypeSapMaterialstock                   = ActionConnectorType("SAP_MATERIALSTOCK")
+	ActionConnectorTypeZendeskSuite                       = ActionConnectorType("ZENDESK_SUITE")
+	ActionConnectorTypeSmartsheet                         = ActionConnectorType("SMARTSHEET")
+	ActionConnectorTypeSlack                              = ActionConnectorType("SLACK")
+	ActionConnectorTypeAsana                              = ActionConnectorType("ASANA")
+	ActionConnectorTypeBambooHr                           = ActionConnectorType("BAMBOO_HR")
+)
+
+func (ActionConnectorType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectorType)(nil)).Elem()
+}
+
+func (e ActionConnectorType) ToActionConnectorTypeOutput() ActionConnectorTypeOutput {
+	return pulumi.ToOutput(e).(ActionConnectorTypeOutput)
+}
+
+func (e ActionConnectorType) ToActionConnectorTypeOutputWithContext(ctx context.Context) ActionConnectorTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ActionConnectorTypeOutput)
+}
+
+func (e ActionConnectorType) ToActionConnectorTypePtrOutput() ActionConnectorTypePtrOutput {
+	return e.ToActionConnectorTypePtrOutputWithContext(context.Background())
+}
+
+func (e ActionConnectorType) ToActionConnectorTypePtrOutputWithContext(ctx context.Context) ActionConnectorTypePtrOutput {
+	return ActionConnectorType(e).ToActionConnectorTypeOutputWithContext(ctx).ToActionConnectorTypePtrOutputWithContext(ctx)
+}
+
+func (e ActionConnectorType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ActionConnectorType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ActionConnectorType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ActionConnectorType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ActionConnectorTypeOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectorTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionConnectorType)(nil)).Elem()
+}
+
+func (o ActionConnectorTypeOutput) ToActionConnectorTypeOutput() ActionConnectorTypeOutput {
+	return o
+}
+
+func (o ActionConnectorTypeOutput) ToActionConnectorTypeOutputWithContext(ctx context.Context) ActionConnectorTypeOutput {
+	return o
+}
+
+func (o ActionConnectorTypeOutput) ToActionConnectorTypePtrOutput() ActionConnectorTypePtrOutput {
+	return o.ToActionConnectorTypePtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectorTypeOutput) ToActionConnectorTypePtrOutputWithContext(ctx context.Context) ActionConnectorTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionConnectorType) *ActionConnectorType {
+		return &v
+	}).(ActionConnectorTypePtrOutput)
+}
+
+func (o ActionConnectorTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ActionConnectorTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionConnectorType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ActionConnectorTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectorTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionConnectorType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionConnectorTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ActionConnectorTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionConnectorType)(nil)).Elem()
+}
+
+func (o ActionConnectorTypePtrOutput) ToActionConnectorTypePtrOutput() ActionConnectorTypePtrOutput {
+	return o
+}
+
+func (o ActionConnectorTypePtrOutput) ToActionConnectorTypePtrOutputWithContext(ctx context.Context) ActionConnectorTypePtrOutput {
+	return o
+}
+
+func (o ActionConnectorTypePtrOutput) Elem() ActionConnectorTypeOutput {
+	return o.ApplyT(func(v *ActionConnectorType) ActionConnectorType {
+		if v != nil {
+			return *v
+		}
+		var ret ActionConnectorType
+		return ret
+	}).(ActionConnectorTypeOutput)
+}
+
+func (o ActionConnectorTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ActionConnectorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ActionConnectorType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ActionConnectorTypeInput is an input type that accepts values of the ActionConnectorType enum
+// A concrete instance of `ActionConnectorTypeInput` can be one of the following:
+//
+//	ActionConnectorTypeGenericHttp
+//	ActionConnectorTypeServicenowNowPlatform
+//	ActionConnectorTypeSalesforceCrm
+//	ActionConnectorTypeMicrosoftOutlook
+//	ActionConnectorTypePagerdutyAdvance
+//	ActionConnectorTypeJiraCloud
+//	ActionConnectorTypeAtlassianConfluence
+//	ActionConnectorTypeAmazonS3
+//	ActionConnectorTypeAmazonBedrockAgentRuntime
+//	ActionConnectorTypeAmazonBedrockRuntime
+//	ActionConnectorTypeAmazonBedrockDataAutomationRuntime
+//	ActionConnectorTypeAmazonTextract
+//	ActionConnectorTypeAmazonComprehend
+//	ActionConnectorTypeAmazonComprehendMedical
+//	ActionConnectorTypeMicrosoftOnedrive
+//	ActionConnectorTypeMicrosoftSharepoint
+//	ActionConnectorTypeMicrosoftTeams
+//	ActionConnectorTypeSapBusinesspartner
+//	ActionConnectorTypeSapProductmasterdata
+//	ActionConnectorTypeSapPhysicalinventory
+//	ActionConnectorTypeSapBillofmaterials
+//	ActionConnectorTypeSapMaterialstock
+//	ActionConnectorTypeZendeskSuite
+//	ActionConnectorTypeSmartsheet
+//	ActionConnectorTypeSlack
+//	ActionConnectorTypeAsana
+//	ActionConnectorTypeBambooHr
+type ActionConnectorTypeInput interface {
+	pulumi.Input
+
+	ToActionConnectorTypeOutput() ActionConnectorTypeOutput
+	ToActionConnectorTypeOutputWithContext(context.Context) ActionConnectorTypeOutput
+}
+
+var actionConnectorTypePtrType = reflect.TypeOf((**ActionConnectorType)(nil)).Elem()
+
+type ActionConnectorTypePtrInput interface {
+	pulumi.Input
+
+	ToActionConnectorTypePtrOutput() ActionConnectorTypePtrOutput
+	ToActionConnectorTypePtrOutputWithContext(context.Context) ActionConnectorTypePtrOutput
+}
+
+type actionConnectorTypePtr string
+
+func ActionConnectorTypePtr(v string) ActionConnectorTypePtrInput {
+	return (*actionConnectorTypePtr)(&v)
+}
+
+func (*actionConnectorTypePtr) ElementType() reflect.Type {
+	return actionConnectorTypePtrType
+}
+
+func (in *actionConnectorTypePtr) ToActionConnectorTypePtrOutput() ActionConnectorTypePtrOutput {
+	return pulumi.ToOutput(in).(ActionConnectorTypePtrOutput)
+}
+
+func (in *actionConnectorTypePtr) ToActionConnectorTypePtrOutputWithContext(ctx context.Context) ActionConnectorTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ActionConnectorTypePtrOutput)
+}
+
 type AnalysisAnchorOption string
 
 const (
@@ -47431,6 +48241,7 @@ const (
 	DataSourceAuthenticationTypePassword = DataSourceAuthenticationType("PASSWORD")
 	DataSourceAuthenticationTypeToken    = DataSourceAuthenticationType("TOKEN")
 	DataSourceAuthenticationTypeX509     = DataSourceAuthenticationType("X509")
+	DataSourceAuthenticationTypeKeypair  = DataSourceAuthenticationType("KEYPAIR")
 )
 
 func (DataSourceAuthenticationType) ElementType() reflect.Type {
@@ -47558,6 +48369,7 @@ func (o DataSourceAuthenticationTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 //	DataSourceAuthenticationTypePassword
 //	DataSourceAuthenticationTypeToken
 //	DataSourceAuthenticationTypeX509
+//	DataSourceAuthenticationTypeKeypair
 type DataSourceAuthenticationTypeInput interface {
 	pulumi.Input
 
@@ -73840,6 +74652,14 @@ func (o VpcConnectionVpcConnectionResourceStatusPtrOutput) ToStringPtrOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthorizationCodeGrantCredentialsSourceInput)(nil)).Elem(), ActionConnectorAuthorizationCodeGrantCredentialsSource("PLAIN_CREDENTIALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrInput)(nil)).Elem(), ActionConnectorAuthorizationCodeGrantCredentialsSource("PLAIN_CREDENTIALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorClientCredentialsSourceInput)(nil)).Elem(), ActionConnectorClientCredentialsSource("PLAIN_CREDENTIALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorClientCredentialsSourcePtrInput)(nil)).Elem(), ActionConnectorClientCredentialsSource("PLAIN_CREDENTIALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorConnectionAuthTypeInput)(nil)).Elem(), ActionConnectorConnectionAuthType("BASIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorConnectionAuthTypePtrInput)(nil)).Elem(), ActionConnectorConnectionAuthType("BASIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorTypeInput)(nil)).Elem(), ActionConnectorType("GENERIC_HTTP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectorTypePtrInput)(nil)).Elem(), ActionConnectorType("GENERIC_HTTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisAnchorOptionInput)(nil)).Elem(), AnalysisAnchorOption("NOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisAnchorOptionPtrInput)(nil)).Elem(), AnalysisAnchorOption("NOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisArcThicknessInput)(nil)).Elem(), AnalysisArcThickness("SMALL"))
@@ -74710,6 +75530,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicUserExperienceVersionPtrInput)(nil)).Elem(), TopicUserExperienceVersion("LEGACY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionVpcConnectionAvailabilityStatusInput)(nil)).Elem(), VpcConnectionVpcConnectionAvailabilityStatus("AVAILABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionVpcConnectionAvailabilityStatusPtrInput)(nil)).Elem(), VpcConnectionVpcConnectionAvailabilityStatus("AVAILABLE"))
+	pulumi.RegisterOutputType(ActionConnectorAuthorizationCodeGrantCredentialsSourceOutput{})
+	pulumi.RegisterOutputType(ActionConnectorAuthorizationCodeGrantCredentialsSourcePtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectorClientCredentialsSourceOutput{})
+	pulumi.RegisterOutputType(ActionConnectorClientCredentialsSourcePtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectorConnectionAuthTypeOutput{})
+	pulumi.RegisterOutputType(ActionConnectorConnectionAuthTypePtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectorResourceStatusOutput{})
+	pulumi.RegisterOutputType(ActionConnectorResourceStatusPtrOutput{})
+	pulumi.RegisterOutputType(ActionConnectorTypeOutput{})
+	pulumi.RegisterOutputType(ActionConnectorTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisAnchorOptionOutput{})
 	pulumi.RegisterOutputType(AnalysisAnchorOptionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisArcThicknessOutput{})

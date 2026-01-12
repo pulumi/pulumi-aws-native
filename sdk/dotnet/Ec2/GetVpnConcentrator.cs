@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Ec2
     public static class GetVpnConcentrator
     {
         /// <summary>
-        /// Resource Type definition for AWS::EC2::VPNConcentrator
+        /// Describes a VPN concentrator.
         /// </summary>
         public static Task<GetVpnConcentratorResult> InvokeAsync(GetVpnConcentratorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpnConcentratorResult>("aws-native:ec2:getVpnConcentrator", args ?? new GetVpnConcentratorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::EC2::VPNConcentrator
+        /// Describes a VPN concentrator.
         /// </summary>
         public static Output<GetVpnConcentratorResult> Invoke(GetVpnConcentratorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpnConcentratorResult>("aws-native:ec2:getVpnConcentrator", args ?? new GetVpnConcentratorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::EC2::VPNConcentrator
+        /// Describes a VPN concentrator.
         /// </summary>
         public static Output<GetVpnConcentratorResult> Invoke(GetVpnConcentratorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpnConcentratorResult>("aws-native:ec2:getVpnConcentrator", args ?? new GetVpnConcentratorInvokeArgs(), options.WithDefaults());
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetVpnConcentratorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource
+        /// The ID of the VPN concentrator to associate with the VPN connection.
         /// </summary>
         [Input("vpnConcentratorId", required: true)]
         public string VpnConcentratorId { get; set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetVpnConcentratorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource
+        /// The ID of the VPN concentrator to associate with the VPN connection.
         /// </summary>
         [Input("vpnConcentratorId", required: true)]
         public Input<string> VpnConcentratorId { get; set; } = null!;
@@ -68,11 +68,11 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
-        /// The ID of the transit gateway attachment
+        /// The ID of the transit gateway attachment for the VPN concentrator.
         /// </summary>
         public readonly string? TransitGatewayAttachmentId;
         /// <summary>
-        /// The provider-assigned unique ID for this managed resource
+        /// The ID of the VPN concentrator to associate with the VPN connection.
         /// </summary>
         public readonly string? VpnConcentratorId;
 

@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// &lt;p&gt;The parameters that Amazon QuickSight uses to connect to your underlying data source.
+    /// &lt;p&gt;The parameters that Amazon Quick Suite uses to connect to your underlying data source.
     ///             This is a variant type structure. For this structure to be valid, only one of the
     ///             attributes can be non-null.&lt;/p&gt;
     /// </summary>

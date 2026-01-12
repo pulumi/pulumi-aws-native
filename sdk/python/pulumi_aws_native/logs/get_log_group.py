@@ -25,13 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetLogGroupResult:
-    def __init__(__self__, arn=None, data_protection_policy=None, field_index_policies=None, kms_key_id=None, log_group_class=None, resource_policy_document=None, retention_in_days=None, tags=None):
+    def __init__(__self__, arn=None, data_protection_policy=None, deletion_protection_enabled=None, field_index_policies=None, kms_key_id=None, log_group_class=None, resource_policy_document=None, retention_in_days=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if data_protection_policy and not isinstance(data_protection_policy, dict):
             raise TypeError("Expected argument 'data_protection_policy' to be a dict")
         pulumi.set(__self__, "data_protection_policy", data_protection_policy)
+        if deletion_protection_enabled and not isinstance(deletion_protection_enabled, bool):
+            raise TypeError("Expected argument 'deletion_protection_enabled' to be a bool")
+        pulumi.set(__self__, "deletion_protection_enabled", deletion_protection_enabled)
         if field_index_policies and not isinstance(field_index_policies, list):
             raise TypeError("Expected argument 'field_index_policies' to be a list")
         pulumi.set(__self__, "field_index_policies", field_index_policies)
@@ -68,6 +71,14 @@ class GetLogGroupResult:
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "data_protection_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="deletionProtectionEnabled")
+    def deletion_protection_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether deletion protection is enabled for this log group. When enabled, deletion protection blocks all deletion operations until it is explicitly disabled.
+        """
+        return pulumi.get(self, "deletion_protection_enabled")
 
     @_builtins.property
     @pulumi.getter(name="fieldIndexPolicies")
@@ -139,6 +150,7 @@ class AwaitableGetLogGroupResult(GetLogGroupResult):
         return GetLogGroupResult(
             arn=self.arn,
             data_protection_policy=self.data_protection_policy,
+            deletion_protection_enabled=self.deletion_protection_enabled,
             field_index_policies=self.field_index_policies,
             kms_key_id=self.kms_key_id,
             log_group_class=self.log_group_class,
@@ -167,6 +179,7 @@ def get_log_group(log_group_name: Optional[_builtins.str] = None,
     return AwaitableGetLogGroupResult(
         arn=pulumi.get(__ret__, 'arn'),
         data_protection_policy=pulumi.get(__ret__, 'data_protection_policy'),
+        deletion_protection_enabled=pulumi.get(__ret__, 'deletion_protection_enabled'),
         field_index_policies=pulumi.get(__ret__, 'field_index_policies'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         log_group_class=pulumi.get(__ret__, 'log_group_class'),
@@ -192,6 +205,7 @@ def get_log_group_output(log_group_name: Optional[pulumi.Input[_builtins.str]] =
     return __ret__.apply(lambda __response__: GetLogGroupResult(
         arn=pulumi.get(__response__, 'arn'),
         data_protection_policy=pulumi.get(__response__, 'data_protection_policy'),
+        deletion_protection_enabled=pulumi.get(__response__, 'deletion_protection_enabled'),
         field_index_policies=pulumi.get(__response__, 'field_index_policies'),
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
         log_group_class=pulumi.get(__response__, 'log_group_class'),

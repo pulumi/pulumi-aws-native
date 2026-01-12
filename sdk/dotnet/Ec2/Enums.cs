@@ -1193,6 +1193,7 @@ namespace Pulumi.AwsNative.Ec2
         }
 
         public static IpamPoolAwsService Ec2 { get; } = new IpamPoolAwsService("ec2");
+        public static IpamPoolAwsService GlobalServices { get; } = new IpamPoolAwsService("global-services");
 
         public static bool operator ==(IpamPoolAwsService left, IpamPoolAwsService right) => left.Equals(right);
         public static bool operator !=(IpamPoolAwsService left, IpamPoolAwsService right) => !left.Equals(right);
@@ -3189,9 +3190,8 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
-    /// The desired output format for BGP logs to be sent to CloudWatch. Default format is `json` .
-    /// 
-    /// Valid values: `json` | `text`
+    /// The desired output format for BGP logs to be sent to CloudWatch. Default format is ``json``.
+    ///  Valid values: ``json`` | ``text``
     /// </summary>
     [EnumType]
     public readonly struct VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat : IEquatable<VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat>
@@ -3448,7 +3448,7 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
-    /// The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. `standard` supports up to 1.25 Gbps per tunnel, while `large` supports up to 5 Gbps per tunnel. The default value is `standard` . Existing VPN connections without a bandwidth setting will automatically default to `standard` .
+    /// The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. ``standard`` supports up to 1.25 Gbps per tunnel, while ``large`` supports up to 5 Gbps per tunnel. The default value is ``standard``. Existing VPN connections without a bandwidth setting will automatically default to ``standard``.
     /// </summary>
     [EnumType]
     public readonly struct VpnConnectionTunnelBandwidth : IEquatable<VpnConnectionTunnelBandwidth>

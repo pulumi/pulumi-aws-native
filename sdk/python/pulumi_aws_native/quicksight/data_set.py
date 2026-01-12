@@ -49,7 +49,7 @@ class DataSetArgs:
         """
         The set of arguments for constructing a DataSet resource.
         :param pulumi.Input[_builtins.str] aws_account_id: The AWS account ID.
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]] column_groups: <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]] column_groups: <p>Groupings of columns that work together in certain Quick Suite features. Currently, only geospatial hierarchy is supported.</p>
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]] column_level_permission_rules: <p>A set of one or more definitions of a <code>
                               <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
                            </code>.</p>
@@ -59,7 +59,7 @@ class DataSetArgs:
         :param pulumi.Input['DataSetUsageConfigurationArgs'] data_set_usage_configuration: The usage configuration to apply to child datasets that reference this dataset as a source.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetDatasetParameterArgs']]] dataset_parameters: <p>The parameter declarations of the dataset.</p>
         :param pulumi.Input[Mapping[str, pulumi.Input['DataSetFieldFolderArgs']]] field_folders: The folder that contains fields and nested subfolders for your dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] folder_arns: <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] folder_arns: <p>When you create the dataset, Quick Suite adds the dataset to these folders.</p>
         :param pulumi.Input['DataSetImportMode'] import_mode: Indicates whether you want to import the data into SPICE.
         :param pulumi.Input['DataSetIngestionWaitPolicyArgs'] ingestion_wait_policy: The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
         :param pulumi.Input[_builtins.str] name: <p>The display name for the dataset.</p>
@@ -131,7 +131,7 @@ class DataSetArgs:
     @pulumi.getter(name="columnGroups")
     def column_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]]]:
         """
-        <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+        <p>Groupings of columns that work together in certain Quick Suite features. Currently, only geospatial hierarchy is supported.</p>
         """
         return pulumi.get(self, "column_groups")
 
@@ -229,7 +229,7 @@ class DataSetArgs:
     @pulumi.getter(name="folderArns")
     def folder_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+        <p>When you create the dataset, Quick Suite adds the dataset to these folders.</p>
         """
         return pulumi.get(self, "folder_arns")
 
@@ -408,7 +408,7 @@ class DataSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: The AWS account ID.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict']]]] column_groups: <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict']]]] column_groups: <p>Groupings of columns that work together in certain Quick Suite features. Currently, only geospatial hierarchy is supported.</p>
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict']]]] column_level_permission_rules: <p>A set of one or more definitions of a <code>
                               <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
                            </code>.</p>
@@ -418,7 +418,7 @@ class DataSet(pulumi.CustomResource):
         :param pulumi.Input[Union['DataSetUsageConfigurationArgs', 'DataSetUsageConfigurationArgsDict']] data_set_usage_configuration: The usage configuration to apply to child datasets that reference this dataset as a source.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetDatasetParameterArgs', 'DataSetDatasetParameterArgsDict']]]] dataset_parameters: <p>The parameter declarations of the dataset.</p>
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetFieldFolderArgs', 'DataSetFieldFolderArgsDict']]]] field_folders: The folder that contains fields and nested subfolders for your dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] folder_arns: <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] folder_arns: <p>When you create the dataset, Quick Suite adds the dataset to these folders.</p>
         :param pulumi.Input['DataSetImportMode'] import_mode: Indicates whether you want to import the data into SPICE.
         :param pulumi.Input[Union['DataSetIngestionWaitPolicyArgs', 'DataSetIngestionWaitPolicyArgsDict']] ingestion_wait_policy: The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
         :param pulumi.Input[_builtins.str] name: <p>The display name for the dataset.</p>
@@ -584,7 +584,7 @@ class DataSet(pulumi.CustomResource):
     @pulumi.getter(name="columnGroups")
     def column_groups(self) -> pulumi.Output[Optional[Sequence['outputs.DataSetColumnGroup']]]:
         """
-        <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+        <p>Groupings of columns that work together in certain Quick Suite features. Currently, only geospatial hierarchy is supported.</p>
         """
         return pulumi.get(self, "column_groups")
 
@@ -667,7 +667,7 @@ class DataSet(pulumi.CustomResource):
     @pulumi.getter(name="folderArns")
     def folder_arns(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+        <p>When you create the dataset, Quick Suite adds the dataset to these folders.</p>
         """
         return pulumi.get(self, "folder_arns")
 

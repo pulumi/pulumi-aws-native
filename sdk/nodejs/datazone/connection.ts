@@ -92,7 +92,7 @@ export class Connection extends pulumi.CustomResource {
     /**
      * Connection props.
      */
-    declare public readonly props: pulumi.Output<outputs.datazone.ConnectionPropertiesInput0Properties | outputs.datazone.ConnectionPropertiesInput1Properties | outputs.datazone.ConnectionPropertiesInput2Properties | outputs.datazone.ConnectionPropertiesInput3Properties | outputs.datazone.ConnectionPropertiesInput4Properties | outputs.datazone.ConnectionPropertiesInput5Properties | outputs.datazone.ConnectionPropertiesInput6Properties | outputs.datazone.ConnectionPropertiesInput7Properties | outputs.datazone.ConnectionPropertiesInput8Properties | undefined>;
+    declare public readonly props: pulumi.Output<outputs.datazone.ConnectionPropertiesInput0Properties | outputs.datazone.ConnectionPropertiesInput1Properties | outputs.datazone.ConnectionPropertiesInput2Properties | outputs.datazone.ConnectionPropertiesInput3Properties | outputs.datazone.ConnectionPropertiesInput4Properties | outputs.datazone.ConnectionPropertiesInput5Properties | outputs.datazone.ConnectionPropertiesInput6Properties | outputs.datazone.ConnectionPropertiesInput7Properties | outputs.datazone.ConnectionPropertiesInput8Properties | outputs.datazone.ConnectionPropertiesInput9Properties | undefined>;
     /**
      * The scope of the connection.
      */
@@ -192,7 +192,7 @@ export interface ConnectionArgs {
     /**
      * Connection props.
      */
-    props?: pulumi.Input<inputs.datazone.ConnectionPropertiesInput0PropertiesArgs | inputs.datazone.ConnectionPropertiesInput1PropertiesArgs | inputs.datazone.ConnectionPropertiesInput2PropertiesArgs | inputs.datazone.ConnectionPropertiesInput3PropertiesArgs | inputs.datazone.ConnectionPropertiesInput4PropertiesArgs | inputs.datazone.ConnectionPropertiesInput5PropertiesArgs | inputs.datazone.ConnectionPropertiesInput6PropertiesArgs | inputs.datazone.ConnectionPropertiesInput7PropertiesArgs | inputs.datazone.ConnectionPropertiesInput8PropertiesArgs>;
+    props?: pulumi.Input<inputs.datazone.ConnectionPropertiesInput0PropertiesArgs | inputs.datazone.ConnectionPropertiesInput1PropertiesArgs | inputs.datazone.ConnectionPropertiesInput2PropertiesArgs | inputs.datazone.ConnectionPropertiesInput3PropertiesArgs | inputs.datazone.ConnectionPropertiesInput4PropertiesArgs | inputs.datazone.ConnectionPropertiesInput5PropertiesArgs | inputs.datazone.ConnectionPropertiesInput6PropertiesArgs | inputs.datazone.ConnectionPropertiesInput7PropertiesArgs | inputs.datazone.ConnectionPropertiesInput8PropertiesArgs | inputs.datazone.ConnectionPropertiesInput9PropertiesArgs>;
     /**
      * The scope of the connection.
      */

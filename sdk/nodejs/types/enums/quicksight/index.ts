@@ -2,6 +2,74 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ActionConnectorAuthorizationCodeGrantCredentialsSource = {
+    PlainCredentials: "PLAIN_CREDENTIALS",
+} as const;
+
+export type ActionConnectorAuthorizationCodeGrantCredentialsSource = (typeof ActionConnectorAuthorizationCodeGrantCredentialsSource)[keyof typeof ActionConnectorAuthorizationCodeGrantCredentialsSource];
+
+export const ActionConnectorClientCredentialsSource = {
+    PlainCredentials: "PLAIN_CREDENTIALS",
+} as const;
+
+export type ActionConnectorClientCredentialsSource = (typeof ActionConnectorClientCredentialsSource)[keyof typeof ActionConnectorClientCredentialsSource];
+
+export const ActionConnectorConnectionAuthType = {
+    Basic: "BASIC",
+    ApiKey: "API_KEY",
+    Oauth2ClientCredentials: "OAUTH2_CLIENT_CREDENTIALS",
+    None: "NONE",
+    Iam: "IAM",
+    Oauth2AuthorizationCode: "OAUTH2_AUTHORIZATION_CODE",
+} as const;
+
+export type ActionConnectorConnectionAuthType = (typeof ActionConnectorConnectionAuthType)[keyof typeof ActionConnectorConnectionAuthType];
+
+export const ActionConnectorResourceStatus = {
+    CreationInProgress: "CREATION_IN_PROGRESS",
+    CreationSuccessful: "CREATION_SUCCESSFUL",
+    CreationFailed: "CREATION_FAILED",
+    UpdateInProgress: "UPDATE_IN_PROGRESS",
+    UpdateSuccessful: "UPDATE_SUCCESSFUL",
+    UpdateFailed: "UPDATE_FAILED",
+    PendingUpdate: "PENDING_UPDATE",
+    Deleted: "DELETED",
+} as const;
+
+export type ActionConnectorResourceStatus = (typeof ActionConnectorResourceStatus)[keyof typeof ActionConnectorResourceStatus];
+
+export const ActionConnectorType = {
+    GenericHttp: "GENERIC_HTTP",
+    ServicenowNowPlatform: "SERVICENOW_NOW_PLATFORM",
+    SalesforceCrm: "SALESFORCE_CRM",
+    MicrosoftOutlook: "MICROSOFT_OUTLOOK",
+    PagerdutyAdvance: "PAGERDUTY_ADVANCE",
+    JiraCloud: "JIRA_CLOUD",
+    AtlassianConfluence: "ATLASSIAN_CONFLUENCE",
+    AmazonS3: "AMAZON_S3",
+    AmazonBedrockAgentRuntime: "AMAZON_BEDROCK_AGENT_RUNTIME",
+    AmazonBedrockRuntime: "AMAZON_BEDROCK_RUNTIME",
+    AmazonBedrockDataAutomationRuntime: "AMAZON_BEDROCK_DATA_AUTOMATION_RUNTIME",
+    AmazonTextract: "AMAZON_TEXTRACT",
+    AmazonComprehend: "AMAZON_COMPREHEND",
+    AmazonComprehendMedical: "AMAZON_COMPREHEND_MEDICAL",
+    MicrosoftOnedrive: "MICROSOFT_ONEDRIVE",
+    MicrosoftSharepoint: "MICROSOFT_SHAREPOINT",
+    MicrosoftTeams: "MICROSOFT_TEAMS",
+    SapBusinesspartner: "SAP_BUSINESSPARTNER",
+    SapProductmasterdata: "SAP_PRODUCTMASTERDATA",
+    SapPhysicalinventory: "SAP_PHYSICALINVENTORY",
+    SapBillofmaterials: "SAP_BILLOFMATERIALS",
+    SapMaterialstock: "SAP_MATERIALSTOCK",
+    ZendeskSuite: "ZENDESK_SUITE",
+    Smartsheet: "SMARTSHEET",
+    Slack: "SLACK",
+    Asana: "ASANA",
+    BambooHr: "BAMBOO_HR",
+} as const;
+
+export type ActionConnectorType = (typeof ActionConnectorType)[keyof typeof ActionConnectorType];
+
 export const AnalysisAnchorOption = {
     Now: "NOW",
 } as const;
@@ -2336,6 +2404,7 @@ export const DataSourceAuthenticationType = {
     Password: "PASSWORD",
     Token: "TOKEN",
     X509: "X509",
+    Keypair: "KEYPAIR",
 } as const;
 
 export type DataSourceAuthenticationType = (typeof DataSourceAuthenticationType)[keyof typeof DataSourceAuthenticationType];

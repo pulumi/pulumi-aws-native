@@ -81,11 +81,11 @@ namespace Pulumi.AwsNative.AutoScaling
         /// </summary>
         public readonly string? AutoScalingGroupArn;
         /// <summary>
-        /// The instance capacity distribution across Availability Zones.
+        /// The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
         /// </summary>
         public readonly Outputs.AutoScalingGroupAvailabilityZoneDistribution? AvailabilityZoneDistribution;
         /// <summary>
-        /// The Availability Zone impairment policy.
+        /// The Availability Zone impairment policy for the Auto Scaling group.
         /// </summary>
         public readonly Outputs.AutoScalingGroupAvailabilityZoneImpairmentPolicy? AvailabilityZoneImpairmentPolicy;
         /// <summary>
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.AutoScaling
         /// </summary>
         public readonly bool? CapacityRebalance;
         /// <summary>
-        /// The capacity reservation specification.
+        /// The capacity reservation specification for the Auto Scaling group.
         /// </summary>
         public readonly Outputs.AutoScalingGroupCapacityReservationSpecification? CapacityReservationSpecification;
         /// <summary>

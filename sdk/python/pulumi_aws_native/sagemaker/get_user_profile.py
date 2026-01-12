@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,13 +26,24 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserProfileResult:
-    def __init__(__self__, user_profile_arn=None, user_settings=None):
+    def __init__(__self__, tags=None, user_profile_arn=None, user_settings=None):
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if user_profile_arn and not isinstance(user_profile_arn, str):
             raise TypeError("Expected argument 'user_profile_arn' to be a str")
         pulumi.set(__self__, "user_profile_arn", user_profile_arn)
         if user_settings and not isinstance(user_settings, dict):
             raise TypeError("Expected argument 'user_settings' to be a dict")
         pulumi.set(__self__, "user_settings", user_settings)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of tags to apply to the user profile.
+        """
+        return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="userProfileArn")
@@ -56,6 +68,7 @@ class AwaitableGetUserProfileResult(GetUserProfileResult):
         if False:
             yield self
         return GetUserProfileResult(
+            tags=self.tags,
             user_profile_arn=self.user_profile_arn,
             user_settings=self.user_settings)
 
@@ -77,6 +90,7 @@ def get_user_profile(domain_id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getUserProfile', __args__, opts=opts, typ=GetUserProfileResult).value
 
     return AwaitableGetUserProfileResult(
+        tags=pulumi.get(__ret__, 'tags'),
         user_profile_arn=pulumi.get(__ret__, 'user_profile_arn'),
         user_settings=pulumi.get(__ret__, 'user_settings'))
 def get_user_profile_output(domain_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -95,5 +109,6 @@ def get_user_profile_output(domain_id: Optional[pulumi.Input[_builtins.str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getUserProfile', __args__, opts=opts, typ=GetUserProfileResult)
     return __ret__.apply(lambda __response__: GetUserProfileResult(
+        tags=pulumi.get(__response__, 'tags'),
         user_profile_arn=pulumi.get(__response__, 'user_profile_arn'),
         user_settings=pulumi.get(__response__, 'user_settings')))

@@ -55,7 +55,7 @@ class GetMetricFilterResult:
     @pulumi.getter(name="emitSystemFieldDimensions")
     def emit_system_field_dimensions(self) -> Optional[Sequence[_builtins.str]]:
         """
-        The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the `emitSystemFieldDimensions` value if it was specified when the metric filter was created.
+        The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the ``emitSystemFieldDimensions`` value if it was specified when the metric filter was created.
         """
         return pulumi.get(self, "emit_system_field_dimensions")
 
@@ -63,7 +63,7 @@ class GetMetricFilterResult:
     @pulumi.getter(name="fieldSelectionCriteria")
     def field_selection_criteria(self) -> Optional[_builtins.str]:
         """
-        The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the `fieldSelectionCriteria` value if it was specified when the metric filter was created.
+        The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the metric filter was created.
         """
         return pulumi.get(self, "field_selection_criteria")
 

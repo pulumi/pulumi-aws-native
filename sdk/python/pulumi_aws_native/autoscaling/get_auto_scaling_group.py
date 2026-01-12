@@ -141,7 +141,7 @@ class GetAutoScalingGroupResult:
     @pulumi.getter(name="availabilityZoneDistribution")
     def availability_zone_distribution(self) -> Optional['outputs.AutoScalingGroupAvailabilityZoneDistribution']:
         """
-        The instance capacity distribution across Availability Zones.
+        The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
         """
         return pulumi.get(self, "availability_zone_distribution")
 
@@ -149,7 +149,7 @@ class GetAutoScalingGroupResult:
     @pulumi.getter(name="availabilityZoneImpairmentPolicy")
     def availability_zone_impairment_policy(self) -> Optional['outputs.AutoScalingGroupAvailabilityZoneImpairmentPolicy']:
         """
-        The Availability Zone impairment policy.
+        The Availability Zone impairment policy for the Auto Scaling group.
         """
         return pulumi.get(self, "availability_zone_impairment_policy")
 
@@ -173,7 +173,7 @@ class GetAutoScalingGroupResult:
     @pulumi.getter(name="capacityReservationSpecification")
     def capacity_reservation_specification(self) -> Optional['outputs.AutoScalingGroupCapacityReservationSpecification']:
         """
-        The capacity reservation specification.
+        The capacity reservation specification for the Auto Scaling group.
         """
         return pulumi.get(self, "capacity_reservation_specification")
 

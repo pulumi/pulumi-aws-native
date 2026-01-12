@@ -8,6 +8,179 @@ using Pulumi;
 namespace Pulumi.AwsNative.QuickSight
 {
     [EnumType]
+    public readonly struct ActionConnectorAuthorizationCodeGrantCredentialsSource : IEquatable<ActionConnectorAuthorizationCodeGrantCredentialsSource>
+    {
+        private readonly string _value;
+
+        private ActionConnectorAuthorizationCodeGrantCredentialsSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ActionConnectorAuthorizationCodeGrantCredentialsSource PlainCredentials { get; } = new ActionConnectorAuthorizationCodeGrantCredentialsSource("PLAIN_CREDENTIALS");
+
+        public static bool operator ==(ActionConnectorAuthorizationCodeGrantCredentialsSource left, ActionConnectorAuthorizationCodeGrantCredentialsSource right) => left.Equals(right);
+        public static bool operator !=(ActionConnectorAuthorizationCodeGrantCredentialsSource left, ActionConnectorAuthorizationCodeGrantCredentialsSource right) => !left.Equals(right);
+
+        public static explicit operator string(ActionConnectorAuthorizationCodeGrantCredentialsSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ActionConnectorAuthorizationCodeGrantCredentialsSource other && Equals(other);
+        public bool Equals(ActionConnectorAuthorizationCodeGrantCredentialsSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ActionConnectorClientCredentialsSource : IEquatable<ActionConnectorClientCredentialsSource>
+    {
+        private readonly string _value;
+
+        private ActionConnectorClientCredentialsSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ActionConnectorClientCredentialsSource PlainCredentials { get; } = new ActionConnectorClientCredentialsSource("PLAIN_CREDENTIALS");
+
+        public static bool operator ==(ActionConnectorClientCredentialsSource left, ActionConnectorClientCredentialsSource right) => left.Equals(right);
+        public static bool operator !=(ActionConnectorClientCredentialsSource left, ActionConnectorClientCredentialsSource right) => !left.Equals(right);
+
+        public static explicit operator string(ActionConnectorClientCredentialsSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ActionConnectorClientCredentialsSource other && Equals(other);
+        public bool Equals(ActionConnectorClientCredentialsSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ActionConnectorConnectionAuthType : IEquatable<ActionConnectorConnectionAuthType>
+    {
+        private readonly string _value;
+
+        private ActionConnectorConnectionAuthType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ActionConnectorConnectionAuthType Basic { get; } = new ActionConnectorConnectionAuthType("BASIC");
+        public static ActionConnectorConnectionAuthType ApiKey { get; } = new ActionConnectorConnectionAuthType("API_KEY");
+        public static ActionConnectorConnectionAuthType Oauth2ClientCredentials { get; } = new ActionConnectorConnectionAuthType("OAUTH2_CLIENT_CREDENTIALS");
+        public static ActionConnectorConnectionAuthType None { get; } = new ActionConnectorConnectionAuthType("NONE");
+        public static ActionConnectorConnectionAuthType Iam { get; } = new ActionConnectorConnectionAuthType("IAM");
+        public static ActionConnectorConnectionAuthType Oauth2AuthorizationCode { get; } = new ActionConnectorConnectionAuthType("OAUTH2_AUTHORIZATION_CODE");
+
+        public static bool operator ==(ActionConnectorConnectionAuthType left, ActionConnectorConnectionAuthType right) => left.Equals(right);
+        public static bool operator !=(ActionConnectorConnectionAuthType left, ActionConnectorConnectionAuthType right) => !left.Equals(right);
+
+        public static explicit operator string(ActionConnectorConnectionAuthType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ActionConnectorConnectionAuthType other && Equals(other);
+        public bool Equals(ActionConnectorConnectionAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ActionConnectorResourceStatus : IEquatable<ActionConnectorResourceStatus>
+    {
+        private readonly string _value;
+
+        private ActionConnectorResourceStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ActionConnectorResourceStatus CreationInProgress { get; } = new ActionConnectorResourceStatus("CREATION_IN_PROGRESS");
+        public static ActionConnectorResourceStatus CreationSuccessful { get; } = new ActionConnectorResourceStatus("CREATION_SUCCESSFUL");
+        public static ActionConnectorResourceStatus CreationFailed { get; } = new ActionConnectorResourceStatus("CREATION_FAILED");
+        public static ActionConnectorResourceStatus UpdateInProgress { get; } = new ActionConnectorResourceStatus("UPDATE_IN_PROGRESS");
+        public static ActionConnectorResourceStatus UpdateSuccessful { get; } = new ActionConnectorResourceStatus("UPDATE_SUCCESSFUL");
+        public static ActionConnectorResourceStatus UpdateFailed { get; } = new ActionConnectorResourceStatus("UPDATE_FAILED");
+        public static ActionConnectorResourceStatus PendingUpdate { get; } = new ActionConnectorResourceStatus("PENDING_UPDATE");
+        public static ActionConnectorResourceStatus Deleted { get; } = new ActionConnectorResourceStatus("DELETED");
+
+        public static bool operator ==(ActionConnectorResourceStatus left, ActionConnectorResourceStatus right) => left.Equals(right);
+        public static bool operator !=(ActionConnectorResourceStatus left, ActionConnectorResourceStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ActionConnectorResourceStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ActionConnectorResourceStatus other && Equals(other);
+        public bool Equals(ActionConnectorResourceStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ActionConnectorType : IEquatable<ActionConnectorType>
+    {
+        private readonly string _value;
+
+        private ActionConnectorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ActionConnectorType GenericHttp { get; } = new ActionConnectorType("GENERIC_HTTP");
+        public static ActionConnectorType ServicenowNowPlatform { get; } = new ActionConnectorType("SERVICENOW_NOW_PLATFORM");
+        public static ActionConnectorType SalesforceCrm { get; } = new ActionConnectorType("SALESFORCE_CRM");
+        public static ActionConnectorType MicrosoftOutlook { get; } = new ActionConnectorType("MICROSOFT_OUTLOOK");
+        public static ActionConnectorType PagerdutyAdvance { get; } = new ActionConnectorType("PAGERDUTY_ADVANCE");
+        public static ActionConnectorType JiraCloud { get; } = new ActionConnectorType("JIRA_CLOUD");
+        public static ActionConnectorType AtlassianConfluence { get; } = new ActionConnectorType("ATLASSIAN_CONFLUENCE");
+        public static ActionConnectorType AmazonS3 { get; } = new ActionConnectorType("AMAZON_S3");
+        public static ActionConnectorType AmazonBedrockAgentRuntime { get; } = new ActionConnectorType("AMAZON_BEDROCK_AGENT_RUNTIME");
+        public static ActionConnectorType AmazonBedrockRuntime { get; } = new ActionConnectorType("AMAZON_BEDROCK_RUNTIME");
+        public static ActionConnectorType AmazonBedrockDataAutomationRuntime { get; } = new ActionConnectorType("AMAZON_BEDROCK_DATA_AUTOMATION_RUNTIME");
+        public static ActionConnectorType AmazonTextract { get; } = new ActionConnectorType("AMAZON_TEXTRACT");
+        public static ActionConnectorType AmazonComprehend { get; } = new ActionConnectorType("AMAZON_COMPREHEND");
+        public static ActionConnectorType AmazonComprehendMedical { get; } = new ActionConnectorType("AMAZON_COMPREHEND_MEDICAL");
+        public static ActionConnectorType MicrosoftOnedrive { get; } = new ActionConnectorType("MICROSOFT_ONEDRIVE");
+        public static ActionConnectorType MicrosoftSharepoint { get; } = new ActionConnectorType("MICROSOFT_SHAREPOINT");
+        public static ActionConnectorType MicrosoftTeams { get; } = new ActionConnectorType("MICROSOFT_TEAMS");
+        public static ActionConnectorType SapBusinesspartner { get; } = new ActionConnectorType("SAP_BUSINESSPARTNER");
+        public static ActionConnectorType SapProductmasterdata { get; } = new ActionConnectorType("SAP_PRODUCTMASTERDATA");
+        public static ActionConnectorType SapPhysicalinventory { get; } = new ActionConnectorType("SAP_PHYSICALINVENTORY");
+        public static ActionConnectorType SapBillofmaterials { get; } = new ActionConnectorType("SAP_BILLOFMATERIALS");
+        public static ActionConnectorType SapMaterialstock { get; } = new ActionConnectorType("SAP_MATERIALSTOCK");
+        public static ActionConnectorType ZendeskSuite { get; } = new ActionConnectorType("ZENDESK_SUITE");
+        public static ActionConnectorType Smartsheet { get; } = new ActionConnectorType("SMARTSHEET");
+        public static ActionConnectorType Slack { get; } = new ActionConnectorType("SLACK");
+        public static ActionConnectorType Asana { get; } = new ActionConnectorType("ASANA");
+        public static ActionConnectorType BambooHr { get; } = new ActionConnectorType("BAMBOO_HR");
+
+        public static bool operator ==(ActionConnectorType left, ActionConnectorType right) => left.Equals(right);
+        public static bool operator !=(ActionConnectorType left, ActionConnectorType right) => !left.Equals(right);
+
+        public static explicit operator string(ActionConnectorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ActionConnectorType other && Equals(other);
+        public bool Equals(ActionConnectorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisAnchorOption : IEquatable<AnalysisAnchorOption>
     {
         private readonly string _value;
@@ -8314,6 +8487,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static DataSourceAuthenticationType Password { get; } = new DataSourceAuthenticationType("PASSWORD");
         public static DataSourceAuthenticationType Token { get; } = new DataSourceAuthenticationType("TOKEN");
         public static DataSourceAuthenticationType X509 { get; } = new DataSourceAuthenticationType("X509");
+        public static DataSourceAuthenticationType Keypair { get; } = new DataSourceAuthenticationType("KEYPAIR");
 
         public static bool operator ==(DataSourceAuthenticationType left, DataSourceAuthenticationType right) => left.Equals(right);
         public static bool operator !=(DataSourceAuthenticationType left, DataSourceAuthenticationType right) => !left.Equals(right);

@@ -10,6 +10,8 @@ __all__ = [
     'AiAgentAiAgentAssociationConfigurationType',
     'AiAgentAiAgentType',
     'AiAgentKnowledgeBaseSearchType',
+    'AiAgentToolOverrideInputValueType',
+    'AiAgentToolType',
     'AiGuardrailGuardrailContentFilterType',
     'AiGuardrailGuardrailContextualGroundingFilterType',
     'AiGuardrailGuardrailFilterStrength',
@@ -45,12 +47,29 @@ class AiAgentAiAgentType(_builtins.str, Enum):
     EMAIL_RESPONSE = "EMAIL_RESPONSE"
     EMAIL_OVERVIEW = "EMAIL_OVERVIEW"
     EMAIL_GENERATIVE_ANSWER = "EMAIL_GENERATIVE_ANSWER"
+    ORCHESTRATION = "ORCHESTRATION"
+    NOTE_TAKING = "NOTE_TAKING"
+    CASE_SUMMARIZATION = "CASE_SUMMARIZATION"
 
 
 @pulumi.type_token("aws-native:wisdom:AiAgentKnowledgeBaseSearchType")
 class AiAgentKnowledgeBaseSearchType(_builtins.str, Enum):
     HYBRID = "HYBRID"
     SEMANTIC = "SEMANTIC"
+
+
+@pulumi.type_token("aws-native:wisdom:AiAgentToolOverrideInputValueType")
+class AiAgentToolOverrideInputValueType(_builtins.str, Enum):
+    STRING = "STRING"
+    NUMBER = "NUMBER"
+    JSON_STRING = "JSON_STRING"
+
+
+@pulumi.type_token("aws-native:wisdom:AiAgentToolType")
+class AiAgentToolType(_builtins.str, Enum):
+    MODEL_CONTEXT_PROTOCOL = "MODEL_CONTEXT_PROTOCOL"
+    RETURN_TO_CONTROL = "RETURN_TO_CONTROL"
+    CONSTANT = "CONSTANT"
 
 
 @pulumi.type_token("aws-native:wisdom:AiGuardrailGuardrailContentFilterType")

@@ -821,15 +821,22 @@ class CapacityProviderManagedInstancesNetworkConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 subnets: Sequence[_builtins.str],
-                 security_groups: Optional[Sequence[_builtins.str]] = None):
+                 security_groups: Sequence[_builtins.str],
+                 subnets: Sequence[_builtins.str]):
         """
-        :param Sequence[_builtins.str] subnets: The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
         :param Sequence[_builtins.str] security_groups: The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
+        :param Sequence[_builtins.str] subnets: The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
         """
+        pulumi.set(__self__, "security_groups", security_groups)
         pulumi.set(__self__, "subnets", subnets)
-        if security_groups is not None:
-            pulumi.set(__self__, "security_groups", security_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Sequence[_builtins.str]:
+        """
+        The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
+        """
+        return pulumi.get(self, "security_groups")
 
     @_builtins.property
     @pulumi.getter
@@ -838,14 +845,6 @@ class CapacityProviderManagedInstancesNetworkConfiguration(dict):
         The list of subnet IDs where Amazon ECS can launch Amazon ECS Managed Instances. Instances are distributed across the specified subnets for high availability. All subnets must be in the same VPC.
         """
         return pulumi.get(self, "subnets")
-
-    @_builtins.property
-    @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Optional[Sequence[_builtins.str]]:
-        """
-        The list of security group IDs to apply to Amazon ECS Managed Instances. These security groups control the network traffic allowed to and from the instances.
-        """
-        return pulumi.get(self, "security_groups")
 
 
 @pulumi.output_type

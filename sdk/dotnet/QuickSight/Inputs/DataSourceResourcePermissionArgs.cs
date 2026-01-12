@@ -32,10 +32,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         ///             following:&lt;/p&gt;
         ///          &lt;ul&gt;
         ///             &lt;li&gt;
-        ///                &lt;p&gt;The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)&lt;/p&gt;
+        ///                &lt;p&gt;The ARN of an Amazon Quick Suite user or group associated with a data source or dataset. (This is common.)&lt;/p&gt;
         ///             &lt;/li&gt;
         ///             &lt;li&gt;
-        ///                &lt;p&gt;The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)&lt;/p&gt;
+        ///                &lt;p&gt;The ARN of an Amazon Quick Suite user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)&lt;/p&gt;
         ///             &lt;/li&gt;
         ///             &lt;li&gt;
         ///                &lt;p&gt;The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight

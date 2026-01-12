@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ColumnNames;
         /// <summary>
-        /// &lt;p&gt;An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.&lt;/p&gt;
+        /// &lt;p&gt;An array of Amazon Resource Names (ARNs) for Quick Suite users or groups.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<string> Principals;
 
